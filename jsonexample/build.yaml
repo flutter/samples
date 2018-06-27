@@ -1,0 +1,26 @@
+targets:
+  $default:
+    builders:
+      built_value_generator|built_value:
+        generate_for:
+        - lib/built_value/*.dart
+        options:
+          header: |
+            // Copyright 2018 The Chromium Authors. All rights reserved.
+            // Use of this source code is governed by a BSD-style license that can be
+            // found in the LICENSE file.
+
+            // GENERATED CODE - DO NOT MODIFY BY HAND
+      json_serializable|json_serializable:
+        generate_for:
+        - lib/json_serializable/*.dart
+        options:
+          header: |
+            // Copyright 2018 The Chromium Authors. All rights reserved.
+            // Use of this source code is governed by a BSD-style license that can be
+            // found in the LICENSE file.
+
+            // GENERATED CODE - DO NOT MODIFY BY HAND
+
+
+
