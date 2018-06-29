@@ -1,6 +1,6 @@
 set -e
 
-echo "== Testing jsonexample on Flutter's $FLUTTER_VERSION channel =="
+echo "== Testing 'jsonexample' on Flutter's $FLUTTER_VERSION channel =="
 
 pushd jsonexample
 ../flutter/bin/flutter test
