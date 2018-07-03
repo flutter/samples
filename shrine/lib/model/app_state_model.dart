@@ -13,11 +13,12 @@
 // limitations under the License.
 
 import 'package:scoped_model/scoped_model.dart';
+
 import 'product.dart';
 import 'products_repository.dart';
 
-double _shippingCostPerItem = 7.0;
 double _salesTaxRate = 0.06;
+double _shippingCostPerItem = 7.0;
 
 class AppStateModel extends Model {
   // All the available products.

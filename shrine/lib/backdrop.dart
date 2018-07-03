@@ -15,8 +15,8 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'model/product.dart';
 import 'login.dart';
+import 'model/product.dart';
 import 'shopping_cart.dart';
 
 const double _kFlingVelocity = 2.0;
