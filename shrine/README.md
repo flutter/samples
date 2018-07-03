@@ -6,7 +6,7 @@ manage the state of its shopping cart.
 
 ## Goals
 
-* Show how to customize Flutter's Material Compoenent widgets to produce
+* Show how to customize Flutter's Material Component widgets to produce
   a unique design for an app.
 * Show how to use `scoped_model` to manage an app's state and access it
   across different routes and in different widgets.
