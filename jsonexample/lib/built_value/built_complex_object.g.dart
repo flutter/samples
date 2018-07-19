@@ -7,7 +7,7 @@
 part of 'built_complex_object.dart';
 
 // **************************************************************************
-// Generator: BuiltValueGenerator
+// BuiltValueGenerator
 // **************************************************************************
 
 // ignore_for_file: always_put_control_body_on_new_line
@@ -31,27 +31,7 @@ class _$BuiltComplexObjectSerializer
   @override
   Iterable serialize(Serializers serializers, BuiltComplexObject object,
       {FullType specifiedType: FullType.unspecified}) {
-    final result = <Object>[
-      'anObject',
-      serializers.serialize(object.anObject,
-          specifiedType: const FullType(BuiltSimpleObject)),
-      'aListOfStrings',
-      serializers.serialize(object.aListOfStrings,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(String)])),
-      'aListOfInts',
-      serializers.serialize(object.aListOfInts,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)])),
-      'aListOfDoubles',
-      serializers.serialize(object.aListOfDoubles,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(double)])),
-      'aListOfObjects',
-      serializers.serialize(object.aListOfObjects,
-          specifiedType: const FullType(
-              BuiltList, const [const FullType(BuiltSimpleObject)])),
-    ];
+    final result = <Object>[];
     if (object.aString != null) {
       result
         ..add('aString')
@@ -69,6 +49,40 @@ class _$BuiltComplexObjectSerializer
         ..add('aDouble')
         ..add(serializers.serialize(object.aDouble,
             specifiedType: const FullType(double)));
+    }
+    if (object.anObject != null) {
+      result
+        ..add('anObject')
+        ..add(serializers.serialize(object.anObject,
+            specifiedType: const FullType(BuiltSimpleObject)));
+    }
+    if (object.aListOfStrings != null) {
+      result
+        ..add('aListOfStrings')
+        ..add(serializers.serialize(object.aListOfStrings,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.aListOfInts != null) {
+      result
+        ..add('aListOfInts')
+        ..add(serializers.serialize(object.aListOfInts,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.aListOfDoubles != null) {
+      result
+        ..add('aListOfDoubles')
+        ..add(serializers.serialize(object.aListOfDoubles,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(double)])));
+    }
+    if (object.aListOfObjects != null) {
+      result
+        ..add('aListOfObjects')
+        ..add(serializers.serialize(object.aListOfObjects,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(BuiltSimpleObject)])));
     }
 
     return result;
@@ -163,21 +177,7 @@ class _$BuiltComplexObject extends BuiltComplexObject {
       this.aListOfInts,
       this.aListOfDoubles,
       this.aListOfObjects})
-      : super._() {
-    if (anObject == null)
-      throw new BuiltValueNullFieldError('BuiltComplexObject', 'anObject');
-    if (aListOfStrings == null)
-      throw new BuiltValueNullFieldError(
-          'BuiltComplexObject', 'aListOfStrings');
-    if (aListOfInts == null)
-      throw new BuiltValueNullFieldError('BuiltComplexObject', 'aListOfInts');
-    if (aListOfDoubles == null)
-      throw new BuiltValueNullFieldError(
-          'BuiltComplexObject', 'aListOfDoubles');
-    if (aListOfObjects == null)
-      throw new BuiltValueNullFieldError(
-          'BuiltComplexObject', 'aListOfObjects');
-  }
+      : super._();
 
   @override
   BuiltComplexObject rebuild(void updates(BuiltComplexObjectBuilder b)) =>
@@ -315,24 +315,24 @@ class BuiltComplexObjectBuilder
               aString: aString,
               anInt: anInt,
               aDouble: aDouble,
-              anObject: anObject.build(),
-              aListOfStrings: aListOfStrings.build(),
-              aListOfInts: aListOfInts.build(),
-              aListOfDoubles: aListOfDoubles.build(),
-              aListOfObjects: aListOfObjects.build());
+              anObject: _anObject?.build(),
+              aListOfStrings: _aListOfStrings?.build(),
+              aListOfInts: _aListOfInts?.build(),
+              aListOfDoubles: _aListOfDoubles?.build(),
+              aListOfObjects: _aListOfObjects?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'anObject';
-        anObject.build();
+        _anObject?.build();
         _$failedField = 'aListOfStrings';
-        aListOfStrings.build();
+        _aListOfStrings?.build();
         _$failedField = 'aListOfInts';
-        aListOfInts.build();
+        _aListOfInts?.build();
         _$failedField = 'aListOfDoubles';
-        aListOfDoubles.build();
+        _aListOfDoubles?.build();
         _$failedField = 'aListOfObjects';
-        aListOfObjects.build();
+        _aListOfObjects?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'BuiltComplexObject', _$failedField, e.toString());

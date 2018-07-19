@@ -7,7 +7,7 @@
 part of 'built_simple_object.dart';
 
 // **************************************************************************
-// Generator: BuiltValueGenerator
+// BuiltValueGenerator
 // **************************************************************************
 
 // ignore_for_file: always_put_control_body_on_new_line
@@ -31,20 +31,7 @@ class _$BuiltSimpleObjectSerializer
   @override
   Iterable serialize(Serializers serializers, BuiltSimpleObject object,
       {FullType specifiedType: FullType.unspecified}) {
-    final result = <Object>[
-      'aListOfStrings',
-      serializers.serialize(object.aListOfStrings,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(String)])),
-      'aListOfInts',
-      serializers.serialize(object.aListOfInts,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)])),
-      'aListOfDoubles',
-      serializers.serialize(object.aListOfDoubles,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(double)])),
-    ];
+    final result = <Object>[];
     if (object.aString != null) {
       result
         ..add('aString')
@@ -62,6 +49,27 @@ class _$BuiltSimpleObjectSerializer
         ..add('aDouble')
         ..add(serializers.serialize(object.aDouble,
             specifiedType: const FullType(double)));
+    }
+    if (object.aListOfStrings != null) {
+      result
+        ..add('aListOfStrings')
+        ..add(serializers.serialize(object.aListOfStrings,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.aListOfInts != null) {
+      result
+        ..add('aListOfInts')
+        ..add(serializers.serialize(object.aListOfInts,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.aListOfDoubles != null) {
+      result
+        ..add('aListOfDoubles')
+        ..add(serializers.serialize(object.aListOfDoubles,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(double)])));
     }
 
     return result;
@@ -139,14 +147,7 @@ class _$BuiltSimpleObject extends BuiltSimpleObject {
       this.aListOfStrings,
       this.aListOfInts,
       this.aListOfDoubles})
-      : super._() {
-    if (aListOfStrings == null)
-      throw new BuiltValueNullFieldError('BuiltSimpleObject', 'aListOfStrings');
-    if (aListOfInts == null)
-      throw new BuiltValueNullFieldError('BuiltSimpleObject', 'aListOfInts');
-    if (aListOfDoubles == null)
-      throw new BuiltValueNullFieldError('BuiltSimpleObject', 'aListOfDoubles');
-  }
+      : super._();
 
   @override
   BuiltSimpleObject rebuild(void updates(BuiltSimpleObjectBuilder b)) =>
@@ -262,18 +263,18 @@ class BuiltSimpleObjectBuilder
               aString: aString,
               anInt: anInt,
               aDouble: aDouble,
-              aListOfStrings: aListOfStrings.build(),
-              aListOfInts: aListOfInts.build(),
-              aListOfDoubles: aListOfDoubles.build());
+              aListOfStrings: _aListOfStrings?.build(),
+              aListOfInts: _aListOfInts?.build(),
+              aListOfDoubles: _aListOfDoubles?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'aListOfStrings';
-        aListOfStrings.build();
+        _aListOfStrings?.build();
         _$failedField = 'aListOfInts';
-        aListOfInts.build();
+        _aListOfInts?.build();
         _$failedField = 'aListOfDoubles';
-        aListOfDoubles.build();
+        _aListOfDoubles?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'BuiltSimpleObject', _$failedField, e.toString());
