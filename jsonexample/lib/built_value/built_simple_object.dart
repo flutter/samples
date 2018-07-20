@@ -22,10 +22,13 @@ abstract class BuiltSimpleObject
   @nullable
   double get aDouble;
 
+  @nullable
   BuiltList<String> get aListOfStrings;
 
+  @nullable
   BuiltList<int> get aListOfInts;
 
+  @nullable
   BuiltList<double> get aListOfDoubles;
 
   BuiltSimpleObject._();

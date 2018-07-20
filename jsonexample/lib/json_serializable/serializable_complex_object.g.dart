@@ -7,7 +7,7 @@
 part of 'serializable_complex_object.dart';
 
 // **************************************************************************
-// Generator: JsonSerializableGenerator
+// JsonSerializableGenerator
 // **************************************************************************
 
 SerializableComplexObject _$SerializableComplexObjectFromJson(

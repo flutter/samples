@@ -23,14 +23,19 @@ abstract class BuiltComplexObject
   @nullable
   double get aDouble;
 
+  @nullable
   BuiltSimpleObject get anObject;
 
+  @nullable
   BuiltList<String> get aListOfStrings;
 
+  @nullable
   BuiltList<int> get aListOfInts;
 
+  @nullable
   BuiltList<double> get aListOfDoubles;
 
+  @nullable
   BuiltList<BuiltSimpleObject> get aListOfObjects;
 
   BuiltComplexObject._();

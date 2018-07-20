@@ -104,7 +104,7 @@ class BasicsPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0, bottom: 4.0),
-                  child: Text('List of dynamic:', style: boldStyle),
+                  child: Text('List of dynamics:', style: boldStyle),
                 ),
                 Text(
                   prettyPrintList(strongListOfDynamics),
