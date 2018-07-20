@@ -10,7 +10,8 @@ import 'package:jsonexample/widgets.dart';
 
 void main() {
   group('SimpleObjectView widget test', () {
-    testWidgets('Typical object', (WidgetTester tester) async {
+    testWidgets('Typical object is displayed correctly',
+        (WidgetTester tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -34,7 +35,8 @@ void main() {
       expect(find.text('[1.0, 2.0, 3.0]'), findsOneWidget);
     });
 
-    testWidgets('Empty lists', (WidgetTester tester) async {
+    testWidgets('Empty lists are displayed as brackets',
+        (WidgetTester tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -53,7 +55,8 @@ void main() {
       expect(find.text('[]'), findsNWidgets(3));
     });
 
-    testWidgets('Null values', (WidgetTester tester) async {
+    testWidgets('Null values are displayed as NULL',
+        (WidgetTester tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: null,
         anInt: null,
@@ -74,7 +77,8 @@ void main() {
   });
 
   group('ComplexObjectView widget test', () {
-    testWidgets('Typical object', (WidgetTester tester) async {
+    testWidgets('Typical object is displayed correctly',
+        (WidgetTester tester) async {
       final complexObject = ConvertedComplexObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -141,7 +145,8 @@ void main() {
       }
     });
 
-    testWidgets('Empty Lists', (WidgetTester tester) async {
+    testWidgets('Empty lists are displayed as brackets',
+        (WidgetTester tester) async {
       final complexObject = ConvertedComplexObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -169,7 +174,8 @@ void main() {
       expect(find.text('[]'), findsNWidgets(4));
     });
 
-    testWidgets('Null values', (WidgetTester tester) async {
+    testWidgets('Null values are displayed as NULL',
+        (WidgetTester tester) async {
       final complexObject = ConvertedComplexObject(
         aString: null,
         anInt: null,

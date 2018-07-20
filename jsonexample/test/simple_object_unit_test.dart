@@ -9,7 +9,7 @@ import 'package:jsonexample/dart_convert/converted_simple_object.dart';
 import 'package:jsonexample/json_serializable/serializable_simple_object.dart';
 
 void main() {
-  const Map<String, dynamic> typicalObjectJson = {
+  const typicalObjectJson = <String, dynamic>{
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
@@ -18,7 +18,7 @@ void main() {
     'aListOfDoubles': [1.0, 2.0, 3.0]
   };
 
-  const Map<String, dynamic> emptyListJson = {
+  const emptyListJson = <String, dynamic>{
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
@@ -27,7 +27,7 @@ void main() {
     'aListOfDoubles': []
   };
 
-  const Map<String, dynamic> unexpectedPropertyjson = {
+  const unexpectedPropertiesJson = <String, dynamic>{
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
@@ -37,8 +37,10 @@ void main() {
     'unexpectedProperty': 'Whoops!'
   };
 
+  const emptyJson = <String, dynamic>{};
+
   group('ConvertedSimpleObject unit tests', () {
-    test('Typical object', () {
+    test('Typical object is converted correctly', () {
       final simpleObject = ConvertedSimpleObject.fromJson(typicalObjectJson);
 
       expect(simpleObject, isNotNull);
@@ -51,7 +53,7 @@ void main() {
     });
 
     test('Empty object', () {
-      final simpleObject = ConvertedSimpleObject.fromJson(<String, dynamic>{});
+      final simpleObject = ConvertedSimpleObject.fromJson(emptyJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, isNull);
@@ -76,7 +78,7 @@ void main() {
 
     test('Extra properties', () {
       final simpleObject =
-          ConvertedSimpleObject.fromJson(unexpectedPropertyjson);
+          ConvertedSimpleObject.fromJson(unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, "Blah, blah, blah.");
@@ -89,7 +91,7 @@ void main() {
   });
 
   group('SerializableSimpleObject unit tests', () {
-    test('Typical object', () {
+    test('Typical object is converted correctly', () {
       final simpleObject = SerializableSimpleObject.fromJson(typicalObjectJson);
 
       expect(simpleObject, isNotNull);
@@ -101,9 +103,8 @@ void main() {
       expect(simpleObject.aListOfDoubles, [1.0, 2.0, 3.0]);
     });
 
-    test('Empty object', () {
-      final simpleObject =
-          SerializableSimpleObject.fromJson(<String, dynamic>{});
+    test('Empty object results in null fields', () {
+      final simpleObject = SerializableSimpleObject.fromJson(emptyJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, isNull);
@@ -114,7 +115,7 @@ void main() {
       expect(simpleObject.aListOfDoubles, isNull);
     });
 
-    test('Empty lists', () {
+    test('Empty lists are converted as empty lists', () {
       final simpleObject = SerializableSimpleObject.fromJson(emptyListJson);
 
       expect(simpleObject, isNotNull);
@@ -126,9 +127,9 @@ void main() {
       expect(simpleObject.aListOfDoubles, []);
     });
 
-    test('Extra properties', () {
+    test('Unexpected properties are ignored', () {
       final simpleObject =
-          SerializableSimpleObject.fromJson(unexpectedPropertyjson);
+          SerializableSimpleObject.fromJson(unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, "Blah, blah, blah.");
@@ -141,7 +142,7 @@ void main() {
   });
 
   group('BuiltSimpleObject unit tests', () {
-    test('Typical object', () {
+    test('Typical object is converted correctly', () {
       final simpleObject = serializers.deserializeWith(
           BuiltSimpleObject.serializer, typicalObjectJson);
 
@@ -154,9 +155,9 @@ void main() {
       expect(simpleObject.aListOfDoubles, [1.0, 2.0, 3.0]);
     });
 
-    test('Empty object', () {
-      final simpleObject = serializers
-          .deserializeWith(BuiltSimpleObject.serializer, <String, dynamic>{});
+    test('Empty object results in null fields', () {
+      final simpleObject =
+          serializers.deserializeWith(BuiltSimpleObject.serializer, emptyJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, isNull);
@@ -167,7 +168,7 @@ void main() {
       expect(simpleObject.aListOfDoubles, isNull);
     });
 
-    test('Empty lists', () {
+    test('Empty lists are converted as empty lists', () {
       final simpleObject = serializers.deserializeWith(
           BuiltSimpleObject.serializer, emptyListJson);
 
@@ -180,9 +181,9 @@ void main() {
       expect(simpleObject.aListOfDoubles, []);
     });
 
-    test('Extra properties', () {
+    test('Unexpected properties are ignored', () {
       final simpleObject = serializers.deserializeWith(
-          BuiltSimpleObject.serializer, unexpectedPropertyjson);
+          BuiltSimpleObject.serializer, unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, "Blah, blah, blah.");
