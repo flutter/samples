@@ -15,10 +15,10 @@
 import 'package:flutter/material.dart';
 
 import 'backdrop.dart';
+import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
-import 'category_menu_page.dart';
 import 'model/product.dart';
 import 'supplemental/cut_corners_border.dart';
 

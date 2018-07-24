@@ -19,7 +19,7 @@ import 'login.dart';
 import 'model/product.dart';
 import 'shopping_cart.dart';
 
-double _kFlingVelocity = 2.0;
+const double _kFlingVelocity = 2.0;
 
 class _FrontLayer extends StatelessWidget {
   const _FrontLayer({
