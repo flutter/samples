@@ -1,6 +1,6 @@
 # Shrine
 
-A sample shopping app that uses Material widgets in its UI and
+A sample shopping app that uses Material Component widgets in its UI and
 [`scoped_model`](https://pub.dartlang.org/packages/scoped_model) to
 manage the state of its shopping cart.
 

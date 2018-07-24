@@ -4,6 +4,7 @@
 .pub/
 .idea
 .atom
+.vscode
 .flutter-plugins
 build/
 *.iml
