@@ -15,10 +15,10 @@
 import 'package:flutter/material.dart';
 
 import 'backdrop.dart';
-import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
+import 'category_menu_page.dart';
 import 'model/product.dart';
 import 'supplemental/cut_corners_border.dart';
 
@@ -59,15 +59,15 @@ class _ShrineAppState extends State<ShrineApp> {
 }
 
 Route<dynamic> _getRoute(RouteSettings settings) {
-  if (settings.name == '/login') {
-    return MaterialPageRoute<void>(
-      settings: settings,
-      builder: (BuildContext context) => LoginPage(),
-      fullscreenDialog: true,
-    );
+  if (settings.name != '/login') {
+    return null;
   }
 
-  return null;
+  return MaterialPageRoute<void>(
+    settings: settings,
+    builder: (BuildContext context) => LoginPage(),
+    fullscreenDialog: true,
+  );
 }
 
 final ThemeData _kShrineTheme = _buildShrineTheme();

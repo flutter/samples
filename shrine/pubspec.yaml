@@ -1,5 +1,5 @@
-name: shrine
-description: A simple shopping app with Material and scoped_model
+name: Shrine
+description: Take your design up a notch and learn to use our advanced component backdrop menu.
 
 dependencies:
   flutter:
@@ -57,7 +57,6 @@ flutter:
     - packages/shrine_images/35-0.jpg
     - packages/shrine_images/36-0.jpg
     - packages/shrine_images/37-0.jpg
-
   fonts:
     - family: Rubik
       fonts:

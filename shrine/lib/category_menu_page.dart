@@ -49,7 +49,7 @@ class CategoryMenuPage extends StatelessWidget {
                 Container(
                   width: 70.0,
                   height: 2.0,
-                  color: Color(0xFFEAA4A4),
+                  color: kShrinePink400,
                 ),
               ],
             )
