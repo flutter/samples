@@ -81,7 +81,7 @@ class AppStateModel extends Model {
       if (_productsInCart[productId] == 1) {
         _productsInCart.remove(productId);
       } else {
-        _productsInCart[productId] -= 1;
+        _productsInCart[productId]--;
       }
     }
 
