@@ -38,7 +38,7 @@ architectural approaches. If you'd like to see how an app built with
 `flutter-redux` is different than one using BLoC, this is a great place to
 start.
 
-#### [jsonexample](jsonexample)
+#### [jsonexample](jsonexample) _(Flutter team)_
 
 A simple app showing three different approaches to deserializing JSON:
 hand-written constructors, `json_serializable`, and `built_value`.
@@ -69,12 +69,10 @@ and how to move work off the UI thread into an isolate.
 
 ## Demos
 
-#### [Shrine](shrine)
-*(Flutter team)*
+#### [Shrine](shrine) _(Flutter team)_
 The Shrine demo app from the Flutter team. It's designed to showcase how apps
 can put their own spin on the Material Design components and how to use
 ScopedModel to maintain app state across screens.
 
-#### [Flutter Gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
-*(Flutter team)*
+#### [Flutter Gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery) _(Flutter team)_
 The official Flutter Gallery. There's tons of stuff in here. Just tons.
