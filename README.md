@@ -9,10 +9,12 @@ This repo will be getting significantly larger as Flutter progresses toward 1.0.
 
 ## Index
 
-### [`jsonexample`](jsonexample)
+For a curated list of samples in this repo and elsewhere, see the
+[index](INDEX.md).
 
-A simple app that deserializes a set of JSON strings using three
-different libraries: `dart:convert`, `json_serializable`, and `built_value`.
+## Interested in contributing?
+
+See the [contributor's guide](CONTRIBUTING.md)!
 
 ## Questions or issues?
 
