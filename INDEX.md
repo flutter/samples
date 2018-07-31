@@ -15,14 +15,14 @@ created by the community, such as
 
 #### [Flutter Examples](https://github.com/nisrulz/flutter-examples) [![GitHub stars](https://img.shields.io/github/stars/nisrulz/flutter-examples.svg?style=social&label=Star)](https://github.com/nisrulz/flutter-examples) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/flutter-examples.svg?style=social&label=Fork)](https://github.com/nisrulz/flutter-examples/fork)
 
-A collection of single-topic examples from Nishant Srivastava. These everything
-from gradients to JSON to routing and more.
+A collection of single-topic examples from Nishant Srivastava. These include
+everything from gradients to JSON to routing and more.
 
 #### [Flutter Example Apps](https://github.com/iampawan/FlutterExampleApps) [![GitHub stars](https://img.shields.io/github/stars/iampawan/FlutterExampleApps.svg?style=social&label=Star)](https://github.com/iampawan/FlutterExampleApps) [![GitHub forks](https://img.shields.io/github/forks/iampawan/FlutterExampleApps.svg?style=social&label=Fork)](https://github.com/iampawan/FlutterExampleApps/fork)
 
 Several dozen examples from Flutter GDE Pawan Kumar. These cover state
 management, Firebase, UI design, and many other topics. Each one comes with a
-YouTube videos showing implementation.
+YouTube video showing implementation.
 
 #### [Flutter by Example](https://github.com/mjohnsullivan/flutter-by-example) [![GitHub stars](https://img.shields.io/github/stars/mjohnsullivan/flutter-by-example.svg?style=social&label=Star)](https://github.com/mjohnsullivan/flutter-by-example) [![GitHub forks](https://img.shields.io/github/forks/mjohnsullivan/flutter-by-example.svg?style=social&label=Fork)](https://github.com/mjohnsullivan/flutter-by-example/fork)
 
@@ -35,7 +35,7 @@ streams and StreamBuilders, and more.
 
 Brian Egan's implementations of TodoMVC using a variety of state management and
 architectural approaches. If you'd like to see how an app built with
-`flutter-redux` is different than one using BLoC, this is a great place to
+`flutter-redux` is different from one using BLoC, this is a great place to
 start.
 
 #### [jsonexample](jsonexample) _(Flutter team)_
