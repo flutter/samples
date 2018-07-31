@@ -1,5 +1,7 @@
 # Contributing
 
+_See also: [Flutter's code of conduct](https://flutter.io/design-principles/#code-of-conduct)_
+
 Want to contribute to the Flutter sample ecosystem? Great! First, read this
 page (including the small print at the end).
 
