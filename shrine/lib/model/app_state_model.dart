@@ -60,7 +60,9 @@ class AppStateModel extends Model {
     if (_selectedCategory == Category.all) {
       return List.from(_availableProducts);
     } else {
-      return _availableProducts.where((p) => p.category == _selectedCategory);
+      return _availableProducts
+          .where((p) => p.category == _selectedCategory)
+          .toList();
     }
   }
 
@@ -102,6 +104,11 @@ class AppStateModel extends Model {
   // Loads the list of available products from the repo.
   void loadProducts() {
     _availableProducts = ProductsRepository.loadProducts();
+    notifyListeners();
+  }
+
+  void setCategory(Category newCategory) {
+    _selectedCategory = newCategory;
     notifyListeners();
   }
 }

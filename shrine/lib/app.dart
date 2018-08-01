@@ -19,7 +19,6 @@ import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
-import 'model/product.dart';
 import 'supplemental/cut_corners_border.dart';
 
 class ShrineApp extends StatefulWidget {
@@ -28,19 +27,13 @@ class ShrineApp extends StatefulWidget {
 }
 
 class _ShrineAppState extends State<ShrineApp> {
-  Category _currentCategory = Category.all;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shrine',
       home: Backdrop(
-        currentCategory: _currentCategory,
-        frontLayer: HomePage(category: _currentCategory),
-        backLayer: CategoryMenuPage(
-          currentCategory: _currentCategory,
-          onCategoryTap: _onCategoryTap,
-        ),
+        frontLayer: HomePage(),
+        backLayer: CategoryMenuPage(),
         frontTitle: Text('SHRINE'),
         backTitle: Text('MENU'),
       ),
@@ -48,13 +41,6 @@ class _ShrineAppState extends State<ShrineApp> {
       onGenerateRoute: _getRoute,
       theme: _kShrineTheme,
     );
-  }
-
-  /// Function to call when a [Category] is tapped.
-  void _onCategoryTap(Category category) {
-    setState(() {
-      _currentCategory = category;
-    });
   }
 }
 

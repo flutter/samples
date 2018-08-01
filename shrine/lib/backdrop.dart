@@ -16,7 +16,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import 'login.dart';
-import 'model/product.dart';
 import 'shopping_cart.dart';
 
 const double _kFlingVelocity = 2.0;
@@ -147,20 +146,17 @@ class _BackdropTitle extends AnimatedWidget {
 /// can make a selection. The user can also configure the titles for when the
 /// front or back layer is showing.
 class Backdrop extends StatefulWidget {
-  final Category currentCategory;
   final Widget frontLayer;
   final Widget backLayer;
   final Widget frontTitle;
   final Widget backTitle;
 
   const Backdrop({
-    @required this.currentCategory,
     @required this.frontLayer,
     @required this.backLayer,
     @required this.frontTitle,
     @required this.backTitle,
-  })  : assert(currentCategory != null),
-        assert(frontLayer != null),
+  })  : assert(frontLayer != null),
         assert(backLayer != null),
         assert(frontTitle != null),
         assert(backTitle != null);
@@ -182,17 +178,6 @@ class _BackdropState extends State<Backdrop>
       value: 1.0,
       vsync: this,
     );
-  }
-
-  @override
-  void didUpdateWidget(Backdrop old) {
-    super.didUpdateWidget(old);
-
-    if (widget.currentCategory != old.currentCategory) {
-      _toggleBackdropLayerVisibility();
-    } else if (!_frontLayerVisible) {
-      _controller.fling(velocity: _kFlingVelocity);
-    }
   }
 
   @override
