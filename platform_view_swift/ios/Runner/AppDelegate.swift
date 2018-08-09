@@ -29,8 +29,7 @@ import Flutter
         let navigationController = UINavigationController(rootViewController: platformViewController)
         navigationController.navigationBar.topItem?.title = "Platform View"
         controller.present(navigationController, animated: true, completion: nil)
-        }
-      else {
+      } else {
         result(FlutterMethodNotImplemented)
       }
     });
