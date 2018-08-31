@@ -12,15 +12,11 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(new MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoApp(
+  runApp(
+    CupertinoApp(
       color: Styles.appBackground,
       home: HomeScreen(),
-    );
-  }
+    ),
+  );
 }

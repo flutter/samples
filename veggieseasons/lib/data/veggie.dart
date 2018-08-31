@@ -58,17 +58,31 @@ class Veggie {
     @required this.imageAssetPath,
     @required this.category,
     @required this.shortDescription,
-    @required this.darkVibrantColor,
+    @required this.accentColor,
     @required this.seasons,
     this.isFavorite = false,
   });
 
   final int id;
+
   final String name;
+
+  /// Each veggie has an associated image asset that's used as a background
+  /// image and icon.
   final String imageAssetPath;
+
   final VeggieCategory category;
+
   final String shortDescription;
-  final int darkVibrantColor;
+
+  /// A color value to use when constructing UI elements to match the image
+  /// found at [imageAssetPath].
+  final int accentColor;
+
+  /// Seasons during which a veggie is harvested.
   final List<Season> seasons;
+
+  /// Whether or not the veggie has been saved to the user's garden (i.e. marked
+  /// as a favorite).
   bool isFavorite;
 }

@@ -23,7 +23,10 @@ as the user navigates.
 
 ### `/widgets/search_bar.dart`
 
-An example of how to construct an Cupertino-style search bar.
+An example of how to construct an Cupertino-style search bar. The
+Flutter team [is working on an official widget](https://github.com/flutter/flutter/issues/9784)
+for this. Once that effort is complete, developers will not need to roll
+their own search bars, so to speak.
 
 ## Questions/issues
 
