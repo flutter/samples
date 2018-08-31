@@ -8,8 +8,7 @@ import 'package:jsonexample/json_serializable/serializable_simple_object.dart';
 part 'serializable_complex_object.g.dart';
 
 @JsonSerializable()
-class SerializableComplexObject extends Object
-    with _$SerializableComplexObjectSerializerMixin {
+class SerializableComplexObject {
   SerializableComplexObject({
     this.aString,
     this.anInt,
@@ -32,4 +31,6 @@ class SerializableComplexObject extends Object
 
   factory SerializableComplexObject.fromJson(Map<String, dynamic> json) =>
       _$SerializableComplexObjectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SerializableComplexObjectToJson(this);
 }
