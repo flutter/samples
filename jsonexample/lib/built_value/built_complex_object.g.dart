@@ -1,7 +1,3 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'built_complex_object.dart';
@@ -13,10 +9,14 @@ part of 'built_complex_object.dart';
 // ignore_for_file: always_put_control_body_on_new_line
 // ignore_for_file: annotate_overrides
 // ignore_for_file: avoid_annotating_with_dynamic
+// ignore_for_file: avoid_catches_without_on_clauses
 // ignore_for_file: avoid_returning_this
+// ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: omit_local_variable_types
 // ignore_for_file: prefer_expression_function_bodies
 // ignore_for_file: sort_constructors_first
+// ignore_for_file: unnecessary_const
+// ignore_for_file: unnecessary_new
 
 Serializer<BuiltComplexObject> _$builtComplexObjectSerializer =
     new _$BuiltComplexObjectSerializer();
@@ -30,7 +30,7 @@ class _$BuiltComplexObjectSerializer
 
   @override
   Iterable serialize(Serializers serializers, BuiltComplexObject object,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.aString != null) {
       result
@@ -90,7 +90,7 @@ class _$BuiltComplexObjectSerializer
 
   @override
   BuiltComplexObject deserialize(Serializers serializers, Iterable serialized,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = new BuiltComplexObjectBuilder();
 
     final iterator = serialized.iterator;
@@ -188,10 +188,10 @@ class _$BuiltComplexObject extends BuiltComplexObject {
       new BuiltComplexObjectBuilder()..replace(this);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    if (other is! BuiltComplexObject) return false;
-    return aString == other.aString &&
+    return other is BuiltComplexObject &&
+        aString == other.aString &&
         anInt == other.anInt &&
         aDouble == other.aDouble &&
         anObject == other.anObject &&

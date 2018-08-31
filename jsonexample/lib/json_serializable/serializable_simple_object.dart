@@ -9,8 +9,7 @@ part 'serializable_simple_object.g.dart';
 /// An annotation for the code generator to know that this class needs the
 /// JSON serialization logic to be generated.
 @JsonSerializable()
-class SerializableSimpleObject extends Object
-    with _$SerializableSimpleObjectSerializerMixin {
+class SerializableSimpleObject {
   SerializableSimpleObject({
     this.aString,
     this.anInt,
@@ -29,4 +28,6 @@ class SerializableSimpleObject extends Object
 
   factory SerializableSimpleObject.fromJson(Map<String, dynamic> json) =>
       _$SerializableSimpleObjectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SerializableSimpleObjectToJson(this);
 }
