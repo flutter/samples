@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:veggieseasons/styles.dart';
 
 class SearchScreen extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class SearchScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         middle: Text('Search'),
       ),
-      backgroundColor: Color(0xfff0f0f0),
+      backgroundColor: Styles.scaffoldBackground,
       child: Center(
         child: Text('Not yet implemented.'),
       ),

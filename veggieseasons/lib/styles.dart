@@ -71,6 +71,10 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
+  static const appBackground = Color(0xffd0d0d0);
+
+  static const scaffoldBackground = Color(0xfff0f0f0);
+
   static const buttonColor = Color(0xff007aff);
 
   static const searchBackground = Color(0xffe0e0e0);

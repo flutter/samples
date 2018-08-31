@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:veggieseasons/styles.dart';
 
 class ListScreen extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class ListScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         middle: Text('List'),
       ),
-      backgroundColor: Color(0xfff0f0f0),
+      backgroundColor: Styles.scaffoldBackground,
       child: Center(
         child: Text('Not yet implemented.'),
       ),

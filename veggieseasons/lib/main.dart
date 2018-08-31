@@ -5,6 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:veggieseasons/screens/home.dart';
+import 'package:veggieseasons/styles.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      color: Color(0xffd0d0d0),
+      color: Styles.appBackground,
       home: HomeScreen(),
     );
   }
