@@ -3,6 +3,7 @@ set -e
 declare -a  PROJECT_NAMES=(
 	"jsonexample" \
 	"shrine" \
+	"veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
