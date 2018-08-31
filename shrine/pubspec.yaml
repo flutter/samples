@@ -6,9 +6,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  intl: 0.15.6
-  scoped_model: 0.2.0
-  shrine_images: 1.0.0
+  intl: ^0.15.7
+  scoped_model: ^0.3.0
+  shrine_images: ^1.0.0
 
 dev_dependencies:
   flutter_test:
