@@ -4,16 +4,16 @@
 
 import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/data/veggie_provider.dart';
+import 'package:veggieseasons/data/local_veggie_provider.dart';
 
 class AppState extends Model {
   List<Veggie> veggies;
 
-  AppState() : veggies = VeggieProvider.veggies;
+  AppState() : veggies = LocalVeggieProvider.veggies;
 
   List<Veggie> get allVeggies => veggies;
 
-  Veggie getVeggie(int id) => veggies.firstWhere((v) => v.id == id);
+  Veggie getVeggie(int id) => veggies.singleWhere((v) => v.id == id);
 
   List<Veggie> get availableVeggies {
     Season currentSeason = _getSeasonForDate(DateTime.now());

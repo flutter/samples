@@ -7,7 +7,6 @@ import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/model.dart';
 import 'package:veggieseasons/screens/home.dart';
-import 'package:veggieseasons/styles.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([

@@ -4,7 +4,7 @@
 
 import 'package:veggieseasons/data/veggie.dart';
 
-class VeggieProvider {
+class LocalVeggieProvider {
   static List<Veggie> veggies = [
     Veggie(
       id: 1,
