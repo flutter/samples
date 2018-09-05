@@ -11,9 +11,26 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  intl: ^0.15.7
+  scoped_model: ^0.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
+  assets:
+  - assets/images/placeholder.png
+  fonts:
+  - family: NotoSans
+    fonts:
+    - asset: assets/fonts/NotoSans-Regular.ttf
+      weight: 400
+    - asset: assets/fonts/NotoSans-Bold.ttf
+      weight: 700
+    - asset: assets/fonts/NotoSans-BoldItalic.ttf
+      weight: 700
+      style: italic
+    - asset: assets/fonts/NotoSans-Italic.ttf
+      style: italic
+      weight: 400
