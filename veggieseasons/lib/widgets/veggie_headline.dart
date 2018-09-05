@@ -35,8 +35,8 @@ class VeggieHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(CupertinoPageRoute(
-          builder: (context) => DetailsScreen(id: veggie.id))),
+      onTap: () => Navigator.of(context).push(
+          CupertinoPageRoute(builder: (context) => DetailsScreen(veggie.id))),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -119,9 +119,13 @@ abstract class Styles {
     fontPackage: CupertinoIcons.iconFontPackage,
   );
 
+  static const transparentColor = Color(0x00000000);
+
+  static const shadowColor = Color(0xa0000000);
+
   static const shadowGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: [Color(0x00000000), Color(0xa0000000)],
+    colors: [transparentColor, shadowColor],
   );
 }

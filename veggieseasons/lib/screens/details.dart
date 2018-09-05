@@ -4,7 +4,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:meta/meta.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/model.dart';
 import 'package:veggieseasons/data/veggie.dart';
@@ -43,7 +42,7 @@ class SeasonCircle extends StatelessWidget {
 class DetailsScreen extends StatelessWidget {
   final int id;
 
-  DetailsScreen({@required this.id});
+  DetailsScreen(this.id);
 
   Widget _createFavoriteButton(bool isFav, VoidCallback onPressed) {
     return CupertinoButton(
@@ -104,10 +103,7 @@ class DetailsScreen extends StatelessWidget {
     final veggie = model.getVeggie(id);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 24.0,
-        vertical: 24.0,
-      ),
+      padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -129,9 +125,10 @@ class DetailsScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10.0),
-          Text(veggie.shortDescription),
-          SizedBox(height: 10.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Text(veggie.shortDescription),
+          ),
           _createFavoriteButton(veggie.isFavorite, () {
             model.toggleFavorite(veggie.id);
           }),
