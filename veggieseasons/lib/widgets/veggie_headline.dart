@@ -35,7 +35,7 @@ class VeggieHeadline extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        /* navigation forthcoming */
+        /* TODO(redbrogdon): navigation forthcoming */
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

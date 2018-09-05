@@ -7,28 +7,28 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/data/local_veggie_provider.dart';
 
 class AppState extends Model {
-  List<Veggie> veggies;
+  List<Veggie> _veggies;
 
-  AppState() : veggies = LocalVeggieProvider.veggies;
+  AppState() : _veggies = LocalVeggieProvider.veggies;
 
-  List<Veggie> get allVeggies => veggies;
+  List<Veggie> get allVeggies => List<Veggie>.from(_veggies);
 
-  Veggie getVeggie(int id) => veggies.singleWhere((v) => v.id == id);
+  Veggie getVeggie(int id) => _veggies.singleWhere((v) => v.id == id);
 
   List<Veggie> get availableVeggies {
     Season currentSeason = _getSeasonForDate(DateTime.now());
-    return veggies.where((v) => v.seasons.contains(currentSeason)).toList();
+    return _veggies.where((v) => v.seasons.contains(currentSeason)).toList();
   }
 
   List<Veggie> get unavailableVeggies {
     Season currentSeason = _getSeasonForDate(DateTime.now());
-    return veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
+    return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
   }
 
   List<Veggie> get favoriteVeggies =>
-      veggies.where((v) => v.isFavorite).toList();
+      _veggies.where((v) => v.isFavorite).toList();
 
-  List<Veggie> searchVeggies(String terms) => veggies
+  List<Veggie> searchVeggies(String terms) => _veggies
       .where((v) => v.name.toLowerCase().contains(terms.toLowerCase()))
       .toList();
 
@@ -38,7 +38,7 @@ class AppState extends Model {
     notifyListeners();
   }
 
-  Season _getSeasonForDate(DateTime date) {
+  static Season _getSeasonForDate(DateTime date) {
     // Technically the start and end dates of seasons can vary by a day or so,
     // but this is close enough for produce.
     switch (date.month) {
@@ -66,6 +66,8 @@ class AppState extends Model {
         return Season.autumn;
       case 12:
         return date.day < 22 ? Season.autumn : Season.winter;
+      default:
+        throw ArgumentError('Can\'t return a season for month #${date.month}.');
     }
   }
 }
