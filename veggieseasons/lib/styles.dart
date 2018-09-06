@@ -77,6 +77,8 @@ abstract class Styles {
 
   static const buttonColor = Color(0xff007aff);
 
+  static const buttonIconColor = Color(0xffffffff);
+
   static const searchBackground = Color(0xffe0e0e0);
 
   static const TextStyle searchText = TextStyle(
@@ -115,5 +117,15 @@ abstract class Styles {
     0xf373,
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const transparentColor = Color(0x00000000);
+
+  static const shadowColor = Color(0xa0000000);
+
+  static const shadowGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [transparentColor, shadowColor],
   );
 }

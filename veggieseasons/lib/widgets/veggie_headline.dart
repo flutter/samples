@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:veggieseasons/data/veggie.dart';
+import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class VeggieHeadline extends StatelessWidget {
@@ -34,9 +35,8 @@ class VeggieHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        /* TODO(redbrogdon): navigation forthcoming */
-      },
+      onTap: () => Navigator.of(context).push(
+          CupertinoPageRoute(builder: (context) => DetailsScreen(veggie.id))),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
