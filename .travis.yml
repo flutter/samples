@@ -25,3 +25,6 @@ script:
 cache:
   directories:
     - $HOME/shared/.pub-cache
+notifications:
+  email:
+    brogdon+github@gmail.com
