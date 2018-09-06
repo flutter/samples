@@ -9,6 +9,9 @@ import 'package:veggieseasons/data/model.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
 
+/// A circular widget that indicates in which seasons a particular veggie can be
+/// harvested. It displays the first two letters of the season and uses a
+/// different background color to represent each of the seasons as well.
 class SeasonCircle extends StatelessWidget {
   final Season season;
 
@@ -32,7 +35,9 @@ class SeasonCircle extends StatelessWidget {
         child: SizedBox(
           height: 50.0,
           width: 50.0,
-          child: Center(child: Text(_firstChars, style: Styles.seasonText)),
+          child: Center(
+            child: Text(_firstChars, style: Styles.seasonText),
+          ),
         ),
       ),
     );
@@ -106,7 +111,7 @@ class DetailsScreen extends StatelessWidget {
       padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+        children: [
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -119,8 +124,9 @@ class DetailsScreen extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                      veggieCategoryNames[veggie.category].toUpperCase(),
-                      style: Styles.minorText),
+                    veggieCategoryNames[veggie.category].toUpperCase(),
+                    style: Styles.minorText,
+                  ),
                 ),
               ),
             ],
