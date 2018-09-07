@@ -29,7 +29,10 @@ class SearchBar extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(CupertinoIcons.search, color: Styles.searchIconColor),
+            Icon(
+              CupertinoIcons.search,
+              color: Styles.searchIconColor,
+            ),
             Expanded(
               child: EditableText(
                 controller: controller,
@@ -42,8 +45,10 @@ class SearchBar extends StatelessWidget {
               onTap: () {
                 controller.clear();
               },
-              child: Icon(CupertinoIcons.clear_thick_circled,
-                  color: Styles.searchIconColor),
+              child: Icon(
+                CupertinoIcons.clear_thick_circled,
+                color: Styles.searchIconColor,
+              ),
             ),
           ],
         ),
