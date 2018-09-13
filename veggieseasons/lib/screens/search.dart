@@ -13,9 +13,7 @@ import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
-  _SearchScreenState createState() {
-    return _SearchScreenState();
-  }
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
