@@ -16,7 +16,7 @@ import 'product.dart';
 
 class ProductsRepository {
   static List<Product> loadProducts(Category category) {
-    const allProducts = <Product> [
+    const allProducts = <Product>[
       Product(
         category: Category.accessories,
         id: 0,

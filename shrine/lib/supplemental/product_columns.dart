@@ -29,39 +29,39 @@ class TwoProductCardColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          const spacerHeight = 44.0;
+      const spacerHeight = 44.0;
 
-          double heightOfCards = (constraints.biggest.height - spacerHeight) / 2.0;
-          double heightOfImages = heightOfCards - ProductCard.kTextBoxHeight;
-          double imageAspectRatio =
+      double heightOfCards = (constraints.biggest.height - spacerHeight) / 2.0;
+      double heightOfImages = heightOfCards - ProductCard.kTextBoxHeight;
+      double imageAspectRatio =
           (heightOfImages >= 0.0 && constraints.biggest.width > heightOfImages)
               ? constraints.biggest.width / heightOfImages
               : 33 / 49;
 
-          return ListView(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsetsDirectional.only(start: 28.0),
-                child: top != null
-                    ? ProductCard(
-                  imageAspectRatio: imageAspectRatio,
-                  product: top,
-                )
-                    : SizedBox(
-                  height: heightOfCards > 0 ? heightOfCards : spacerHeight,
-                ),
-              ),
-              SizedBox(height: spacerHeight),
-              Padding(
-                padding: EdgeInsetsDirectional.only(end: 28.0),
-                child: ProductCard(
-                  imageAspectRatio: imageAspectRatio,
-                  product: bottom,
-                ),
-              ),
-            ],
-          );
-        });
+      return ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsetsDirectional.only(start: 28.0),
+            child: top != null
+                ? ProductCard(
+                    imageAspectRatio: imageAspectRatio,
+                    product: top,
+                  )
+                : SizedBox(
+                    height: heightOfCards > 0 ? heightOfCards : spacerHeight,
+                  ),
+          ),
+          SizedBox(height: spacerHeight),
+          Padding(
+            padding: EdgeInsetsDirectional.only(end: 28.0),
+            child: ProductCard(
+              imageAspectRatio: imageAspectRatio,
+              product: bottom,
+            ),
+          ),
+        ],
+      );
+    });
   }
 }
 

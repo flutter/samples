@@ -33,13 +33,13 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     return model.productsInCart.keys
         .map(
           (id) => ShoppingCartRow(
-        product: model.getProductById(id),
-        quantity: model.productsInCart[id],
-        onPressed: () {
-          model.removeItemFromCart(id);
-        },
-      ),
-    )
+                product: model.getProductById(id),
+                quantity: model.productsInCart[id],
+                onPressed: () {
+                  model.removeItemFromCart(id);
+                },
+              ),
+        )
         .toList();
   }
 
@@ -121,7 +121,7 @@ class ShoppingCartSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final smallAmountStyle =
-    Theme.of(context).textTheme.body1.copyWith(color: kShrineBrown600);
+        Theme.of(context).textTheme.body1.copyWith(color: kShrineBrown600);
     final largeAmountStyle = Theme.of(context).textTheme.display1;
     final formatter = NumberFormat.simpleCurrency(
         decimalDigits: 2, locale: Localizations.localeOf(context).toString());

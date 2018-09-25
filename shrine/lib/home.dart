@@ -24,17 +24,16 @@ import 'supplemental/asymmetric_view.dart';
 class ProductPage extends StatelessWidget {
   final Category category;
 
-  const ProductPage({ this.category: Category.all });
+  const ProductPage({this.category: Category.all});
 
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppStateModel>(
         builder: (BuildContext context, Widget child, AppStateModel model) {
-          return AsymmetricView(
-            products: model.getProducts(),
-          );
-        }
-    );
+      return AsymmetricView(
+        products: model.getProducts(),
+      );
+    });
   }
 }
 

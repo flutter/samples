@@ -38,7 +38,7 @@ const double _kCornerRadius = 24.0;
 const double _kWidthForCartIcon = 64.0;
 
 class ExpandingBottomSheet extends StatefulWidget {
-  const ExpandingBottomSheet({ Key key, @required this.hideController })
+  const ExpandingBottomSheet({Key key, @required this.hideController})
       : assert(hideController != null),
         super(key: key);
 
@@ -47,7 +47,8 @@ class ExpandingBottomSheet extends StatefulWidget {
   @override
   _ExpandingBottomSheetState createState() => _ExpandingBottomSheetState();
 
-  static _ExpandingBottomSheetState of(BuildContext context, { bool isNullOk: false }) {
+  static _ExpandingBottomSheetState of(BuildContext context,
+      {bool isNullOk: false}) {
     assert(isNullOk != null);
     assert(context != null);
     final _ExpandingBottomSheetState result = context
@@ -56,8 +57,7 @@ class ExpandingBottomSheet extends StatefulWidget {
       return result;
     }
     throw FlutterError(
-        'ExpandingBottomSheet.of() called with a context that does not contain a ExpandingBottomSheet.\n'
-    );
+        'ExpandingBottomSheet.of() called with a context that does not contain a ExpandingBottomSheet.\n');
   }
 }
 
@@ -66,14 +66,12 @@ class ExpandingBottomSheet extends StatefulWidget {
 // curves, like [Curves.fastOutSlowIn], it can't be expressed in a cubic bezier
 // curve formula. It's quintic, not cubic. But it _can_ be expressed as one
 // curve followed by another, which we do here.
-Animation<T> _getEmphasizedEasingAnimation<T>({
-  @required T begin,
-  @required T peak,
-  @required T end,
-  @required bool isForward,
-  @required Animation parent
-}) {
-
+Animation<T> _getEmphasizedEasingAnimation<T>(
+    {@required T begin,
+    @required T peak,
+    @required T end,
+    @required bool isForward,
+    @required Animation parent}) {
   Curve firstCurve;
   Curve secondCurve;
   double firstWeight;
@@ -504,7 +502,6 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
           _internalList[index] == _list[index]) {
         index++;
       }
-
     }
   }
 

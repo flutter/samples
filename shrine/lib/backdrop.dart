@@ -198,7 +198,7 @@ class _BackdropState extends State<Backdrop>
   }
 
   void _toggleBackdropLayerVisibility() {
-    // Call setState here to update layerAnimation update if that's necessary
+    // Call setState here to update layerAnimation if that's necessary
     setState(() {
       _frontLayerVisible ? _controller.reverse() : _controller.forward();
     });
