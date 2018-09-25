@@ -17,6 +17,7 @@ import 'package:intl/intl.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'colors.dart';
+import 'expanding_bottom_sheet.dart';
 import 'model/app_state_model.dart';
 import 'model/product.dart';
 
@@ -32,13 +33,13 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     return model.productsInCart.keys
         .map(
           (id) => ShoppingCartRow(
-                product: model.getProductById(id),
-                quantity: model.productsInCart[id],
-                onPressed: () {
-                  model.removeItemFromCart(id);
-                },
-              ),
-        )
+        product: model.getProductById(id),
+        quantity: model.productsInCart[id],
+        onPressed: () {
+          model.removeItemFromCart(id);
+        },
+      ),
+    )
         .toList();
   }
 
@@ -47,7 +48,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     final localTheme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: kShrinePink100,
+      backgroundColor: kShrinePink50,
       body: SafeArea(
         child: Container(
           child: ScopedModelDescendant<AppStateModel>(
@@ -61,8 +62,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           SizedBox(
                             width: _leftColumnWidth,
                             child: IconButton(
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              onPressed: () => Navigator.of(context).pop(),
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                onPressed: () => ExpandingBottomSheet.of(context).close()
                             ),
                           ),
                           Text(
@@ -90,7 +91,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       shape: const BeveledRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
-                      color: kShrinePink300,
+                      color: kShrinePink100,
                       splashColor: kShrineBrown600,
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -98,7 +99,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       onPressed: () {
                         model.clearCart();
-                        Navigator.of(context).pop();
+                        ExpandingBottomSheet.of(context).close();
                       },
                     ),
                   ),
@@ -120,7 +121,7 @@ class ShoppingCartSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final smallAmountStyle =
-        Theme.of(context).textTheme.body1.copyWith(color: kShrineBrown600);
+    Theme.of(context).textTheme.body1.copyWith(color: kShrineBrown600);
     final largeAmountStyle = Theme.of(context).textTheme.display1;
     final formatter = NumberFormat.simpleCurrency(
         decimalDigits: 2, locale: Localizations.localeOf(context).toString());

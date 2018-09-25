@@ -19,6 +19,7 @@ import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
+import 'expanding_bottom_sheet.dart';
 import 'supplemental/cut_corners_border.dart';
 
 class ShrineApp extends StatefulWidget {
@@ -26,16 +27,35 @@ class ShrineApp extends StatefulWidget {
   _ShrineAppState createState() => _ShrineAppState();
 }
 
-class _ShrineAppState extends State<ShrineApp> {
+class _ShrineAppState extends State<ShrineApp>
+    with SingleTickerProviderStateMixin {
+  // Controller to coordinate both the opening/closing of backdrop and sliding
+  // of expanding bottom sheet
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 450),
+      value: 1.0,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shrine',
-      home: Backdrop(
-        frontLayer: HomePage(),
-        backLayer: CategoryMenuPage(),
-        frontTitle: Text('SHRINE'),
-        backTitle: Text('MENU'),
+      home: HomePage(
+        backdrop: Backdrop(
+          frontLayer: ProductPage(),
+          backLayer: CategoryMenuPage(onCategoryTap: () => _controller.forward()),
+          frontTitle: Text('SHRINE'),
+          backTitle: Text('MENU'),
+          controller: _controller,
+        ),
+        expandingBottomSheet: ExpandingBottomSheet(hideController: _controller),
       ),
       initialRoute: '/login',
       onGenerateRoute: _getRoute,
@@ -72,13 +92,9 @@ ThemeData _buildShrineTheme() {
     cardColor: kShrineBackgroundWhite,
     textSelectionColor: kShrinePink100,
     errorColor: kShrineErrorRed,
-    buttonTheme: ButtonThemeData(
-      textTheme: ButtonTextTheme.accent,
-    ),
+    buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
     primaryIconTheme: base.iconTheme.copyWith(color: kShrineBrown900),
-    inputDecorationTheme: InputDecorationTheme(
-      border: CutCornersBorder(),
-    ),
+    inputDecorationTheme: InputDecorationTheme(border: CutCornersBorder()),
     textTheme: _buildShrineTextTheme(base.textTheme),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
     accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
@@ -89,22 +105,26 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
-        headline: base.headline.copyWith(
-          fontWeight: FontWeight.w500,
-        ),
-        title: base.title.copyWith(fontSize: 18.0),
-        caption: base.caption.copyWith(
-          fontWeight: FontWeight.w400,
-          fontSize: 14.0,
-        ),
-        body2: base.body2.copyWith(
-          fontWeight: FontWeight.w500,
-          fontSize: 16.0,
-        ),
-      )
+    headline: base.headline.copyWith(
+      fontWeight: FontWeight.w500,
+    ),
+    title: base.title.copyWith(fontSize: 18.0),
+    caption: base.caption.copyWith(
+      fontWeight: FontWeight.w400,
+      fontSize: 14.0,
+    ),
+    body2: base.body2.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: 16.0,
+    ),
+    button: base.button.copyWith(
+      fontWeight: FontWeight.w500,
+      fontSize: 14.0,
+    ),
+  )
       .apply(
-        fontFamily: 'Rubik',
-        displayColor: kShrineBrown900,
-        bodyColor: kShrineBrown900,
-      );
+    fontFamily: 'Rubik',
+    displayColor: kShrineBrown900,
+    bodyColor: kShrineBrown900,
+  );
 }
