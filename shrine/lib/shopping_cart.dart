@@ -17,6 +17,7 @@ import 'package:intl/intl.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'colors.dart';
+import 'expanding_bottom_sheet.dart';
 import 'model/app_state_model.dart';
 import 'model/product.dart';
 
@@ -47,7 +48,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     final localTheme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: kShrinePink100,
+      backgroundColor: kShrinePink50,
       body: SafeArea(
         child: Container(
           child: ScopedModelDescendant<AppStateModel>(
@@ -61,8 +62,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           SizedBox(
                             width: _leftColumnWidth,
                             child: IconButton(
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              onPressed: () => Navigator.of(context).pop(),
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                onPressed: () => ExpandingBottomSheet.of(context).close()
                             ),
                           ),
                           Text(
@@ -90,7 +91,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       shape: const BeveledRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(7.0)),
                       ),
-                      color: kShrinePink300,
+                      color: kShrinePink100,
                       splashColor: kShrineBrown600,
                       child: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -98,7 +99,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       onPressed: () {
                         model.clearCart();
-                        Navigator.of(context).pop();
+                        ExpandingBottomSheet.of(context).close();
                       },
                     ),
                   ),

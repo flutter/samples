@@ -48,7 +48,7 @@ class TwoProductCardColumn extends StatelessWidget {
                     product: top,
                   )
                 : SizedBox(
-                    height: heightOfCards,
+                    height: heightOfCards > 0 ? heightOfCards : spacerHeight,
                   ),
           ),
           SizedBox(height: spacerHeight),

@@ -21,10 +21,12 @@ import 'model/product.dart';
 
 class CategoryMenuPage extends StatelessWidget {
   final List<Category> _categories = Category.values;
+  final VoidCallback onCategoryTap;
 
   const CategoryMenuPage({
     Key key,
-  });
+    this.onCategoryTap,
+  }) : super(key: key);
 
   Widget _buildCategory(Category category, BuildContext context) {
     final categoryString =
@@ -32,7 +34,10 @@ class CategoryMenuPage extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return ScopedModelDescendant<AppStateModel>(
       builder: (context, child, model) => GestureDetector(
-            onTap: () => model.setCategory(category),
+            onTap: () {
+              model.setCategory(category);
+              if (onCategoryTap != null) onCategoryTap();
+            },
             child: model.selectedCategory == category
                 ? Column(
                     children: <Widget>[
