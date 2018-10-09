@@ -76,6 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 _createSearchBox(),
                 Expanded(
                   child: ListView(
+                    padding: const EdgeInsets.only(bottom: 200.0),
                     children: _generateVeggieRows(model.searchVeggies(_terms)),
                   ),
                 ),
