@@ -8,7 +8,12 @@ enum PlaceCategory {
 }
 
 class Place {
-  Place({@required this.latlng, @required this.name, @required this.category, this.description, this.starRating = 0});
+  Place(
+      {@required this.latlng,
+      @required this.name,
+      @required this.category,
+      this.description,
+      this.starRating = 0});
 
   final LatLng latlng;
   String name;
@@ -21,11 +26,10 @@ class Place {
 
   Place copy() {
     return new Place(
-      latlng: latlng,
-      name: name,
-      category: category,
-      description: description,
-      starRating: starRating
-    );
+        latlng: latlng,
+        name: name,
+        category: category,
+        description: description,
+        starRating: starRating);
   }
 }
