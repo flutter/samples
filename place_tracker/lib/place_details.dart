@@ -8,18 +8,19 @@ import 'place.dart';
 
 class PlaceDetails extends StatefulWidget {
   PlaceDetails(this._place);
+
   final Place _place;
 
   @override
-  PlaceDetailsState createState() => new PlaceDetailsState(_place);
+  PlaceDetailsState createState() => PlaceDetailsState(_place);
 }
 
 class PlaceDetailsState extends State<PlaceDetails> {
   PlaceDetailsState(Place place) {
     this._place = place.copy();
   }
-  Place _place;
 
+  Place _place;
   GoogleMapController mapController;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -37,11 +38,11 @@ class PlaceDetailsState extends State<PlaceDetails> {
       return _place.starRating >= starNumber ? Colors.amber : Colors.grey[400];
     }
 
-    var star1Color = getColorForStar(1);
-    var star2Color = getColorForStar(2);
-    var star3Color = getColorForStar(3);
-    var star4Color = getColorForStar(4);
-    var star5Color = getColorForStar(5);
+    Color star1Color = getColorForStar(1);
+    Color star2Color = getColorForStar(2);
+    Color star3Color = getColorForStar(3);
+    Color star4Color = getColorForStar(4);
+    Color star5Color = getColorForStar(5);
 
     void _updateStars(int rating) {
       setState(() {
@@ -132,7 +133,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
         decoration: InputDecoration(
-          labelText: "Name",
+          labelText: 'Name',
           labelStyle: TextStyle(fontSize: 18.0),
         ),
         style: TextStyle(fontSize: 20.0, color: Colors.black87),
@@ -152,7 +153,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
         decoration: InputDecoration(
-          labelText: "Description",
+          labelText: 'Description',
           labelStyle: TextStyle(fontSize: 18.0),
         ),
         style: TextStyle(fontSize: 20.0, color: Colors.black87),
@@ -190,8 +191,8 @@ class PlaceDetailsState extends State<PlaceDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text('${_place.name}'),
+      appBar: AppBar(
+        title: Text('${_place.name}'),
         backgroundColor: Colors.green[700],
         actions: <Widget>[
           Padding(
@@ -203,9 +204,9 @@ class PlaceDetailsState extends State<PlaceDetails> {
           ),
         ],
       ),
-      body: new GestureDetector(
+      body: GestureDetector(
         onTap: () {
-          FocusScope.of(context).requestFocus(new FocusNode());
+          FocusScope.of(context).requestFocus(FocusNode());
         },
         child: _detailsBody(),
       ),

@@ -13,7 +13,8 @@ class Place {
       @required this.name,
       @required this.category,
       this.description,
-      this.starRating = 0});
+      this.starRating = 0}
+  );
 
   final LatLng latLng;
   String name;
@@ -25,11 +26,12 @@ class Place {
   double get longitude => latLng.longitude;
 
   Place copy() {
-    return new Place(
+    return Place(
         latLng: latLng,
         name: name,
         category: category,
         description: description,
-        starRating: starRating);
+        starRating: starRating
+    );
   }
 }

@@ -9,64 +9,30 @@ import 'place_details.dart';
 
 class PlaceMap extends StatefulWidget {
   @override
-  PlaceMapState createState() => new PlaceMapState();
+  PlaceMapState createState() => PlaceMapState();
 }
 
 class PlaceMapState extends State<PlaceMap> {
   PlaceMapState();
 
-  GoogleMapController mapController;
-  final _center = const LatLng(45.521563, -122.677433);
+  final LatLng _center = const LatLng(45.521563, -122.677433);
 
-  var _selectedPlaceCategory = PlaceCategory.FAVORITE;
-  var _places = Map<Marker, Place>();
-  var _pendingMarker;
+  GoogleMapController mapController;
+  PlaceCategory _selectedPlaceCategory = PlaceCategory.FAVORITE;
+  Map<Marker, Place> _places = Map<Marker, Place>();
+  Marker _pendingMarker;
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
     mapController.onInfoWindowTapped.add(_onInfoWindowTapped);
     _selectedPlaceCategory = PlaceCategory.FAVORITE;
+
     // Add stub data on creation so we have something interesting to look at.
     _initializeStubPlaces().then((Map<Marker, Place> places) =>
         _zoomToFitPlaces(
-            PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, places)));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    mapController?.onInfoWindowTapped?.remove(_onInfoWindowTapped);
-  }
-
-  void _onInfoWindowTapped(Marker marker) async {
-    // Store Place from [PlaceDetails] page upon return to this screen.
-    final returnPlace = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => PlaceDetails(_places[marker])),
-    ) as Place;
-
-    if (returnPlace != null) {
-      _places[marker] = returnPlace;
-
-      // Set marker visibility to false to ensure the info window is hidden. Once
-      // the plugin fully supports the Google Maps API, use hideInfoWindow()
-      // instead.
-      await mapController.updateMarker(
-          marker,
-          MarkerOptions(
-            visible: false,
-          ));
-      await mapController.updateMarker(
-          marker,
-          MarkerOptions(
-            infoWindowText: InfoWindowText(
-                returnPlace.name,
-                returnPlace.starRating != 0
-                    ? '${returnPlace.starRating.toString()} Star Rating'
-                    : null),
-            visible: true,
-          ));
-    }
+            PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, places)
+        )
+    );
   }
 
   Future<Map<Marker, Place>> _initializeStubPlaces() async {
@@ -84,9 +50,50 @@ class PlaceMapState extends State<PlaceMap> {
         infoWindowText: InfoWindowText(
             place.name, '${place.starRating.toString()} Star Rating'),
         visible: place.category == _selectedPlaceCategory,
-      ),
+      )
     );
     _places[marker] = place;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    mapController?.onInfoWindowTapped?.remove(_onInfoWindowTapped);
+  }
+
+  void _onInfoWindowTapped(Marker marker) async {
+    // Store Place from [PlaceDetails] page upon return to this screen.
+    final Place returnPlace = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PlaceDetails(_places[marker])),
+    );
+
+    // If [returnPlace] is null, the place was not edited and we do not need to
+    // update the marker.
+    if (returnPlace != null) {
+      _places[marker] = returnPlace;
+
+      // Set marker visibility to false to ensure the info window is hidden. Once
+      // the plugin fully supports the Google Maps API, use hideInfoWindow()
+      // instead.
+      await mapController.updateMarker(
+          marker,
+          MarkerOptions(
+            visible: false,
+          )
+      );
+      await mapController.updateMarker(
+          marker,
+          MarkerOptions(
+            infoWindowText: InfoWindowText(
+                returnPlace.name,
+                returnPlace.starRating != 0
+                    ? '${returnPlace.starRating.toString()} Star Rating'
+                    : null),
+            visible: true,
+          )
+      );
+    }
   }
 
   void _updatePlaces(PlaceCategory category) {
@@ -102,29 +109,35 @@ class PlaceMapState extends State<PlaceMap> {
           marker,
           MarkerOptions(
             visible: place.category == _selectedPlaceCategory,
-          ));
+          )
+      );
     });
     _zoomToFitPlaces(
-        PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, _places));
+        PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, _places)
+    );
   }
 
   void _zoomToFitPlaces(List<Place> places) {
     // Default min/max values to latitude and longitude of center.
-    var minLat = _center.latitude;
-    var maxLat = _center.latitude;
-    var minLong = _center.longitude;
-    var maxLong = _center.longitude;
+    double minLat = _center.latitude;
+    double maxLat = _center.latitude;
+    double minLong = _center.longitude;
+    double maxLong = _center.longitude;
     places.forEach((Place place) {
       minLat = place.latitude < minLat ? place.latitude : minLat;
       maxLat = place.latitude > maxLat ? place.latitude : maxLat;
       minLong = place.longitude < minLong ? place.longitude : minLong;
       maxLong = place.longitude > maxLong ? place.longitude : maxLong;
     });
-    mapController.animateCamera(CameraUpdate.newLatLngBounds(
-        LatLngBounds(
-            southwest: LatLng(minLat, minLong),
-            northeast: LatLng(maxLat, maxLong)),
-        48.0));
+    mapController.animateCamera(
+        CameraUpdate.newLatLngBounds(
+            LatLngBounds(
+                southwest: LatLng(minLat, minLong),
+                northeast: LatLng(maxLat, maxLong),
+            ),
+            48.0,
+        )
+    );
   }
 
   Widget _categoryButtonBar() {
@@ -141,7 +154,7 @@ class PlaceMapState extends State<PlaceMap> {
                 color: _selectedPlaceCategory == PlaceCategory.FAVORITE
                     ? Colors.green[700]
                     : Colors.lightGreen,
-                child: Text("Favorites",
+                child: Text('Favorites',
                     style: TextStyle(color: Colors.white, fontSize: 14.0)),
                 onPressed: () => _updatePlaces(PlaceCategory.FAVORITE),
               ),
@@ -149,7 +162,7 @@ class PlaceMapState extends State<PlaceMap> {
                 color: _selectedPlaceCategory == PlaceCategory.VISITED
                     ? Colors.green[700]
                     : Colors.lightGreen,
-                child: Text("Visited",
+                child: Text('Visited',
                     style: TextStyle(color: Colors.white, fontSize: 14.0)),
                 onPressed: () => _updatePlaces(PlaceCategory.VISITED),
               ),
@@ -157,7 +170,7 @@ class PlaceMapState extends State<PlaceMap> {
                 color: _selectedPlaceCategory == PlaceCategory.WANT_TO_GO
                     ? Colors.green[700]
                     : Colors.lightGreen,
-                child: Text("Want To Go",
+                child: Text('Want To Go',
                     style: TextStyle(color: Colors.white, fontSize: 14.0)),
                 onPressed: () => _updatePlaces(PlaceCategory.WANT_TO_GO),
               ),
@@ -181,13 +194,13 @@ class PlaceMapState extends State<PlaceMap> {
               children: <Widget>[
                 RaisedButton(
                   color: Colors.blue,
-                  child: Text("Save",
+                  child: Text('Save',
                       style: TextStyle(color: Colors.white, fontSize: 16.0)),
                   onPressed: () => _confirmAddPlace(context),
                 ),
                 RaisedButton(
                   color: Colors.red,
-                  child: Text("Cancel",
+                  child: Text('Cancel',
                       style: TextStyle(color: Colors.white, fontSize: 16.0)),
                   onPressed: () => _cancelAddPlace(),
                 ),
@@ -247,9 +260,9 @@ class PlaceMapState extends State<PlaceMap> {
             name: _pendingMarker.options.infoWindowText.title,
             category: _selectedPlaceCategory);
         _pendingMarker = null;
-        Scaffold.of(context).showSnackBar(new SnackBar(
+        Scaffold.of(context).showSnackBar(SnackBar(
           duration: Duration(seconds: 3),
-          content: Text("New place added. Tap marker to edit details.",
+          content: Text('New place added. Tap marker to edit details.',
               style: TextStyle(fontSize: 16.0)),
         ));
       });
@@ -275,12 +288,12 @@ class PlaceMapState extends State<PlaceMap> {
             Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 0.0, 12.0, 0.0),
                 child: Icon(Icons.pin_drop, size: 30.0)),
-            Text("Place Tracker"),
+            Text('Place Tracker'),
           ],
         ),
         backgroundColor: Colors.green[700],
       ),
-      body: new Center(
+      body: Center(
         child: Stack(
           children: <Widget>[
             GoogleMap(
