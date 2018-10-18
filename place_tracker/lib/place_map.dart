@@ -62,6 +62,12 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onInfoWindowTapped(Marker marker) async {
+    _pushPlaceDetailsScreen(marker);
+  }
+
+  Future<void> _pushPlaceDetailsScreen(Marker marker) async {
+    assert(marker != null);
+
     // Store Place from [PlaceDetails] page upon return to this screen.
     final Place returnPlace = await Navigator.push(
       context,
@@ -69,31 +75,35 @@ class PlaceMapState extends State<PlaceMap> {
     );
 
     // If [returnPlace] is null, the place was not edited and we do not need to
-    // update the marker.
+    // update the place and marker.
     if (returnPlace != null) {
-      _places[marker] = returnPlace;
-
-      // Set marker visibility to false to ensure the info window is hidden. Once
-      // the plugin fully supports the Google Maps API, use hideInfoWindow()
-      // instead.
-      await mapController.updateMarker(
-          marker,
-          MarkerOptions(
-            visible: false,
-          )
-      );
-      await mapController.updateMarker(
-          marker,
-          MarkerOptions(
-            infoWindowText: InfoWindowText(
-                returnPlace.name,
-                returnPlace.starRating != 0
-                    ? '${returnPlace.starRating.toString()} Star Rating'
-                    : null),
-            visible: true,
-          )
-      );
+      _updatePlaceAndMarker(returnPlace, marker);
     }
+  }
+
+  Future<void> _updatePlaceAndMarker(Place place, Marker marker) async {
+    _places[marker] = place;
+
+    // Set marker visibility to false to ensure the info window is hidden. Once
+    // the plugin fully supports the Google Maps API, use hideInfoWindow()
+    // instead.
+    await mapController.updateMarker(
+        marker,
+        MarkerOptions(
+          visible: false,
+        )
+    );
+    await mapController.updateMarker(
+        marker,
+        MarkerOptions(
+          infoWindowText: InfoWindowText(
+              place.name,
+              place.starRating != 0
+                  ? '${place.starRating.toString()} Star Rating'
+                  : null),
+          visible: true,
+        )
+    );
   }
 
   void _updatePlaces(PlaceCategory category) {
@@ -253,6 +263,24 @@ class PlaceMapState extends State<PlaceMap> {
             infoWindowText: InfoWindowText('New Place', null),
             draggable: false,
           ));
+
+      // Store a reference to the new marker so that we can pass it to the
+      // snackbar action. We cannot pass [_pendingMarker] since it will get
+      // reset to null.
+      Marker newMarker = _pendingMarker;
+      Scaffold.of(context).showSnackBar(SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text('New place added.',
+            style: TextStyle(fontSize: 16.0)
+        ),
+        action: SnackBarAction(
+          label: 'Edit',
+          onPressed: () async {
+            _pushPlaceDetailsScreen(newMarker);
+          },
+        ),
+      ));
+
       setState(() {
         // Create a new Place and map it to the marker we just added.
         _places[_pendingMarker] = Place(
@@ -260,11 +288,6 @@ class PlaceMapState extends State<PlaceMap> {
             name: _pendingMarker.options.infoWindowText.title,
             category: _selectedPlaceCategory);
         _pendingMarker = null;
-        Scaffold.of(context).showSnackBar(SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('New place added. Tap marker to edit details.',
-              style: TextStyle(fontSize: 16.0)),
-        ));
       });
     }
   }
@@ -286,8 +309,8 @@ class PlaceMapState extends State<PlaceMap> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 12.0, 0.0),
-                child: Icon(Icons.pin_drop, size: 30.0)),
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
+                child: Icon(Icons.pin_drop, size: 24.0)),
             Text('Place Tracker'),
           ],
         ),
