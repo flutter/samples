@@ -44,25 +44,28 @@ class PlaceMapState extends State<PlaceMap> {
       context,
       MaterialPageRoute(builder: (context) => PlaceDetails(_places[marker])),
     ) as Place;
+
     if (returnPlace != null) {
-      setState(() async {
-        _places[marker] = returnPlace;
-        // Toggle visible with two different update calls to hide the info
-        // window. Once the plugin fully supports the Google Maps API, use
-        // hideInfoWindow() instead.
-        mapController.updateMarker(
-            marker,
-            MarkerOptions(
-              infoWindowText: InfoWindowText(returnPlace.name,
-                  '${returnPlace.starRating.toString()} Star Rating'),
-              visible: false,
-            ));
-        mapController.updateMarker(
-            marker,
-            MarkerOptions(
-              visible: true,
-            ));
-      });
+      _places[marker] = returnPlace;
+
+      // Set marker visibility to false to ensure the info window is hidden. Once
+      // the plugin fully supports the Google Maps API, use hideInfoWindow()
+      // instead.
+      await mapController.updateMarker(
+          marker,
+          MarkerOptions(
+            visible: false,
+          ));
+      await mapController.updateMarker(
+          marker,
+          MarkerOptions(
+            infoWindowText: InfoWindowText(
+                returnPlace.name,
+                returnPlace.starRating != 0
+                    ? '${returnPlace.starRating.toString()} Star Rating'
+                    : null),
+            visible: true,
+          ));
     }
   }
 
@@ -222,7 +225,6 @@ class PlaceMapState extends State<PlaceMap> {
       ),
       draggable: true,
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindowText: InfoWindowText('New Place', null),
     ));
     setState(() {
       _pendingMarker = newMarker;
@@ -235,6 +237,7 @@ class PlaceMapState extends State<PlaceMap> {
           _pendingMarker,
           MarkerOptions(
             icon: PlaceUtil.getPlaceMarkerIcon(_selectedPlaceCategory),
+            infoWindowText: InfoWindowText('New Place', null),
             draggable: false,
           ));
       setState(() {
@@ -245,7 +248,7 @@ class PlaceMapState extends State<PlaceMap> {
             category: _selectedPlaceCategory);
         _pendingMarker = null;
         Scaffold.of(context).showSnackBar(new SnackBar(
-          duration: Duration(seconds: 4),
+          duration: Duration(seconds: 3),
           content: Text("New place added. Tap marker to edit details.",
               style: TextStyle(fontSize: 16.0)),
         ));
