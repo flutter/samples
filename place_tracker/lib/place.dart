@@ -9,24 +9,24 @@ enum PlaceCategory {
 
 class Place {
   Place(
-      {@required this.latlng,
+      {@required this.latLng,
       @required this.name,
       @required this.category,
       this.description,
       this.starRating = 0});
 
-  final LatLng latlng;
+  final LatLng latLng;
   String name;
   PlaceCategory category;
   String description;
   int starRating;
 
-  double get latitude => latlng.latitude;
-  double get longitude => latlng.longitude;
+  double get latitude => latLng.latitude;
+  double get longitude => latLng.longitude;
 
   Place copy() {
     return new Place(
-        latlng: latlng,
+        latLng: latLng,
         name: name,
         category: category,
         description: description,

@@ -26,7 +26,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
-    mapController.addMarker(MarkerOptions(position: _place.latlng));
+    mapController.addMarker(MarkerOptions(position: _place.latLng));
   }
 
   Widget _starBar() {
@@ -114,7 +114,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
           onMapCreated: onMapCreated,
           options: GoogleMapOptions(
             cameraPosition: CameraPosition(
-              target: _place.latlng,
+              target: _place.latLng,
               zoom: 16.0,
             ),
             zoomGesturesEnabled: false,

@@ -79,7 +79,7 @@ class PlaceMapState extends State<PlaceMap> {
   Future<void> _initializeStubPlace(Place place) async {
     Marker marker = await mapController.addMarker(
       MarkerOptions(
-        position: place.latlng,
+        position: place.latLng,
         icon: PlaceUtil.getPlaceMarkerIcon(place.category),
         infoWindowText: InfoWindowText(
             place.name, '${place.starRating.toString()} Star Rating'),
@@ -243,7 +243,7 @@ class PlaceMapState extends State<PlaceMap> {
       setState(() {
         // Create a new Place and map it to the marker we just added.
         _places[_pendingMarker] = Place(
-            latlng: _pendingMarker.options.position,
+            latLng: _pendingMarker.options.position,
             name: _pendingMarker.options.infoWindowText.title,
             category: _selectedPlaceCategory);
         _pendingMarker = null;
