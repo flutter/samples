@@ -2,36 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 enum PlaceCategory {
-  FAVORITE,
-  VISITED,
-  WANT_TO_GO,
+  favorite,
+  visited,
+  wantToGo,
 }
 
 class Place {
-  Place(
-      {@required this.latLng,
-      @required this.name,
-      @required this.category,
-      this.description,
-      this.starRating = 0}
-  );
+  const Place({
+    @required this.latLng,
+    @required this.name,
+    @required this.category,
+    this.description,
+    this.starRating = 0,
+  }) : assert(latLng != null),
+       assert(name != null),
+       assert(category != null),
+       assert(starRating != null && starRating >= 0 && starRating <= 5);
 
   final LatLng latLng;
-  String name;
-  PlaceCategory category;
-  String description;
-  int starRating;
+  final String name;
+  final PlaceCategory category;
+  final String description;
+  final int starRating;
 
   double get latitude => latLng.latitude;
   double get longitude => latLng.longitude;
 
-  Place copy() {
+  Place copyWith({
+    LatLng latLng,
+    String name,
+    PlaceCategory category,
+    String description,
+    int starRating,
+  }) {
     return Place(
-        latLng: latLng,
-        name: name,
-        category: category,
-        description: description,
-        starRating: starRating
+        latLng: latLng ?? this.latLng,
+        name: name ?? this.name,
+        category: category ?? this.category,
+        description: description ?? this.description,
+        starRating: starRating ?? this.starRating,
     );
   }
 }

@@ -13,25 +13,23 @@ class PlaceMap extends StatefulWidget {
 }
 
 class PlaceMapState extends State<PlaceMap> {
-  PlaceMapState();
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
   GoogleMapController mapController;
-  PlaceCategory _selectedPlaceCategory = PlaceCategory.FAVORITE;
+  PlaceCategory _selectedPlaceCategory;
   Map<Marker, Place> _places = Map<Marker, Place>();
   Marker _pendingMarker;
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
     mapController.onInfoWindowTapped.add(_onInfoWindowTapped);
-    _selectedPlaceCategory = PlaceCategory.FAVORITE;
 
     // Add stub data on creation so we have something interesting to look at.
     _initializeStubPlaces().then((Map<Marker, Place> places) =>
-        _zoomToFitPlaces(
-            PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, places)
-        )
+      _zoomToFitPlaces(
+        PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, places),
+      ),
     );
   }
 
@@ -48,9 +46,11 @@ class PlaceMapState extends State<PlaceMap> {
         position: place.latLng,
         icon: PlaceUtil.getPlaceMarkerIcon(place.category),
         infoWindowText: InfoWindowText(
-            place.name, '${place.starRating.toString()} Star Rating'),
+          place.name,
+          '${place.starRating.toString()} Star Rating',
+        ),
         visible: place.category == _selectedPlaceCategory,
-      )
+      ),
     );
     _places[marker] = place;
   }
@@ -68,17 +68,17 @@ class PlaceMapState extends State<PlaceMap> {
   Future<void> _pushPlaceDetailsScreen(Marker marker) async {
     assert(marker != null);
 
-    // Store Place from [PlaceDetails] page upon return to this screen.
-    final Place returnPlace = await Navigator.push(
+    Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PlaceDetails(_places[marker])),
+      MaterialPageRoute(builder: (context) {
+        return PlaceDetails(
+          place: _places[marker],
+          onChanged: (Place value) {
+            _updatePlaceAndMarker(value, marker);
+          },
+        );
+      }),
     );
-
-    // If [returnPlace] is null, the place was not edited and we do not need to
-    // update the place and marker.
-    if (returnPlace != null) {
-      _updatePlaceAndMarker(returnPlace, marker);
-    }
   }
 
   Future<void> _updatePlaceAndMarker(Place place, Marker marker) async {
@@ -88,21 +88,22 @@ class PlaceMapState extends State<PlaceMap> {
     // the plugin fully supports the Google Maps API, use hideInfoWindow()
     // instead.
     await mapController.updateMarker(
-        marker,
-        MarkerOptions(
-          visible: false,
-        )
+      marker,
+      MarkerOptions(
+        visible: false,
+      ),
     );
     await mapController.updateMarker(
-        marker,
-        MarkerOptions(
-          infoWindowText: InfoWindowText(
-              place.name,
-              place.starRating != 0
-                  ? '${place.starRating.toString()} Star Rating'
-                  : null),
-          visible: true,
-        )
+      marker,
+      MarkerOptions(
+        infoWindowText: InfoWindowText(
+          place.name,
+          place.starRating != 0
+            ? '${place.starRating.toString()} Star Rating'
+            : null,
+        ),
+        visible: true,
+      ),
     );
   }
 
@@ -116,14 +117,14 @@ class PlaceMapState extends State<PlaceMap> {
   void _showPlacesForSelectedCategory() {
     _places.forEach((Marker marker, Place place) {
       mapController.updateMarker(
-          marker,
-          MarkerOptions(
-            visible: place.category == _selectedPlaceCategory,
-          )
+        marker,
+        MarkerOptions(
+          visible: place.category == _selectedPlaceCategory,
+        ),
       );
     });
     _zoomToFitPlaces(
-        PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, _places)
+      PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, _places),
     );
   }
 
@@ -140,115 +141,27 @@ class PlaceMapState extends State<PlaceMap> {
       maxLong = place.longitude > maxLong ? place.longitude : maxLong;
     });
     mapController.animateCamera(
-        CameraUpdate.newLatLngBounds(
-            LatLngBounds(
-                southwest: LatLng(minLat, minLong),
-                northeast: LatLng(maxLat, maxLong),
-            ),
-            48.0,
-        )
-    );
-  }
-
-  Widget _categoryButtonBar() {
-    return Opacity(
-      opacity: _pendingMarker != null ? 0.0 : 1.0,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                color: _selectedPlaceCategory == PlaceCategory.FAVORITE
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-                child: Text('Favorites',
-                    style: TextStyle(color: Colors.white, fontSize: 14.0)),
-                onPressed: () => _updatePlaces(PlaceCategory.FAVORITE),
-              ),
-              RaisedButton(
-                color: _selectedPlaceCategory == PlaceCategory.VISITED
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-                child: Text('Visited',
-                    style: TextStyle(color: Colors.white, fontSize: 14.0)),
-                onPressed: () => _updatePlaces(PlaceCategory.VISITED),
-              ),
-              RaisedButton(
-                color: _selectedPlaceCategory == PlaceCategory.WANT_TO_GO
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-                child: Text('Want To Go',
-                    style: TextStyle(color: Colors.white, fontSize: 14.0)),
-                onPressed: () => _updatePlaces(PlaceCategory.WANT_TO_GO),
-              ),
-            ],
-          ),
+      CameraUpdate.newLatLngBounds(
+        LatLngBounds(
+          southwest: LatLng(minLat, minLong),
+          northeast: LatLng(maxLat, maxLong),
         ),
-      ),
-    );
-  }
-
-  Widget _addPlaceButtonBar() {
-    return Builder(builder: (BuildContext context) {
-      return Opacity(
-        opacity: _pendingMarker != null ? 1.0 : 0.0,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(
-                  color: Colors.blue,
-                  child: Text('Save',
-                      style: TextStyle(color: Colors.white, fontSize: 16.0)),
-                  onPressed: () => _confirmAddPlace(context),
-                ),
-                RaisedButton(
-                  color: Colors.red,
-                  child: Text('Cancel',
-                      style: TextStyle(color: Colors.white, fontSize: 16.0)),
-                  onPressed: () => _cancelAddPlace(),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    });
-  }
-
-  Widget _addPlaceFab() {
-    return Opacity(
-      opacity: _pendingMarker != null ? 0.0 : 1.0,
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: FloatingActionButton(
-            onPressed: _onAddPlaceFabPressed,
-            materialTapTargetSize: MaterialTapTargetSize.padded,
-            backgroundColor: Colors.green,
-            child: Icon(Icons.add_location, size: 36.0),
-          ),
-        ),
+        48.0,
       ),
     );
   }
 
   void _onAddPlaceFabPressed() async {
-    Marker newMarker = await mapController.addMarker(MarkerOptions(
-      position: LatLng(
-        mapController.cameraPosition.target.latitude,
-        mapController.cameraPosition.target.longitude,
+    Marker newMarker = await mapController.addMarker(
+      MarkerOptions(
+        position: LatLng(
+          mapController.cameraPosition.target.latitude,
+          mapController.cameraPosition.target.longitude,
+        ),
+        draggable: true,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
       ),
-      draggable: true,
-      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-    ));
+    );
     setState(() {
       _pendingMarker = newMarker;
     });
@@ -257,36 +170,41 @@ class PlaceMapState extends State<PlaceMap> {
   void _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
       await mapController.updateMarker(
-          _pendingMarker,
-          MarkerOptions(
-            icon: PlaceUtil.getPlaceMarkerIcon(_selectedPlaceCategory),
-            infoWindowText: InfoWindowText('New Place', null),
-            draggable: false,
-          ));
+        _pendingMarker,
+        MarkerOptions(
+          icon: PlaceUtil.getPlaceMarkerIcon(_selectedPlaceCategory),
+          infoWindowText: InfoWindowText('New Place', null),
+          draggable: false,
+        ),
+      );
 
       // Store a reference to the new marker so that we can pass it to the
       // snackbar action. We cannot pass [_pendingMarker] since it will get
       // reset to null.
       Marker newMarker = _pendingMarker;
-      Scaffold.of(context).showSnackBar(SnackBar(
-        duration: Duration(seconds: 3),
-        content: Text('New place added.',
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text(
+            'New place added.',
             style: TextStyle(fontSize: 16.0)
+          ),
+          action: SnackBarAction(
+            label: 'Edit',
+            onPressed: () async {
+              _pushPlaceDetailsScreen(newMarker);
+            },
+          ),
         ),
-        action: SnackBarAction(
-          label: 'Edit',
-          onPressed: () async {
-            _pushPlaceDetailsScreen(newMarker);
-          },
-        ),
-      ));
+      );
 
       setState(() {
         // Create a new Place and map it to the marker we just added.
         _places[_pendingMarker] = Place(
-            latLng: _pendingMarker.options.position,
-            name: _pendingMarker.options.infoWindowText.title,
-            category: _selectedPlaceCategory);
+          latLng: _pendingMarker.options.position,
+          name: _pendingMarker.options.infoWindowText.title,
+          category: _selectedPlaceCategory,
+        );
         _pendingMarker = null;
       });
     }
@@ -302,6 +220,11 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   @override
+  void initState() {
+    _selectedPlaceCategory = PlaceCategory.favorite;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -309,8 +232,9 @@ class PlaceMapState extends State<PlaceMap> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-                child: Icon(Icons.pin_drop, size: 24.0)),
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
+              child: Icon(Icons.pin_drop, size: 24.0),
+            ),
             Text('Place Tracker'),
           ],
         ),
@@ -329,10 +253,169 @@ class PlaceMapState extends State<PlaceMap> {
                 ),
               ),
             ),
-            _addPlaceFab(),
-            _categoryButtonBar(),
-            _addPlaceButtonBar(),
+            _CategoryButtonBar(
+              selectedPlaceCategory: _selectedPlaceCategory,
+              visible: _pendingMarker == null,
+              onChanged: (PlaceCategory value) => _updatePlaces(value),
+            ),
+            _AddPlaceButtonBar(
+              visible: _pendingMarker != null,
+              onSavePressed: _confirmAddPlace,
+              onCancelPressed: _cancelAddPlace,
+            ),
+            _AddPlaceFab(
+              visible: _pendingMarker == null,
+              onPressed: _onAddPlaceFabPressed,
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CategoryButtonBar extends StatelessWidget {
+  const _CategoryButtonBar({
+    Key key,
+    @required this.selectedPlaceCategory,
+    @required this.visible,
+    @required this.onChanged,
+  }) : assert(selectedPlaceCategory != null),
+       assert(visible != null),
+       assert(onChanged != null),
+       super(key: key);
+
+  final PlaceCategory selectedPlaceCategory;
+  final bool visible;
+  final ValueChanged<PlaceCategory> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: visible ? 1.0 : 0.0,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                color: selectedPlaceCategory == PlaceCategory.favorite
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
+                child: Text(
+                  'Favorites',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
+                onPressed: () => onChanged(PlaceCategory.favorite),
+              ),
+              RaisedButton(
+                color: selectedPlaceCategory == PlaceCategory.visited
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
+                child: Text(
+                  'Visited',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
+                onPressed: () => onChanged(PlaceCategory.visited),
+              ),
+              RaisedButton(
+                color: selectedPlaceCategory == PlaceCategory.wantToGo
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
+                child: Text(
+                  'Want To Go',
+                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                ),
+                onPressed: () => onChanged(PlaceCategory.wantToGo),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class  _AddPlaceButtonBar extends StatelessWidget {
+  const _AddPlaceButtonBar({
+    Key key,
+    @required this.visible,
+    @required this.onSavePressed,
+    @required this.onCancelPressed,
+  }) : assert(visible != null),
+       assert(onSavePressed != null),
+       assert(onCancelPressed != null),
+       super(key: key);
+
+  final bool visible;
+  final ArgumentCallback<BuildContext> onSavePressed;
+  final VoidCallback onCancelPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(builder: (BuildContext context) {
+      return Opacity(
+        opacity: visible ? 1.0 : 0.0,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  color: Colors.blue,
+                  child: Text(
+                    'Save',
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
+                  ),
+                  onPressed: () => onSavePressed(context),
+                ),
+                RaisedButton(
+                  color: Colors.red,
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
+                  ),
+                  onPressed: onCancelPressed,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
+
+class _AddPlaceFab extends StatelessWidget {
+  const _AddPlaceFab({
+    Key key,
+    @required this.visible,
+    @required this.onPressed,
+  }) : assert(visible != null),
+        assert(onPressed != null),
+        super(key: key);
+
+  final bool visible;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: visible ? 1.0 : 0.0,
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Align(
+          alignment: Alignment.topRight,
+          child: FloatingActionButton(
+            onPressed: onPressed,
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            backgroundColor: Colors.green,
+            child: Icon(Icons.add_location, size: 36.0),
+          ),
         ),
       ),
     );

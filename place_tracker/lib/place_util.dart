@@ -5,12 +5,12 @@ class PlaceUtil {
   static BitmapDescriptor getPlaceMarkerIcon(PlaceCategory category) {
     // TODO(kenzieschmoll): use custom marker assets.
     switch (category) {
-      case PlaceCategory.FAVORITE:
+      case PlaceCategory.favorite:
         return BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
-      case PlaceCategory.VISITED:
+      case PlaceCategory.visited:
         return BitmapDescriptor.defaultMarkerWithHue(
             BitmapDescriptor.hueViolet);
-      case PlaceCategory.WANT_TO_GO:
+      case PlaceCategory.wantToGo:
       default:
         return BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure);
     }
@@ -23,13 +23,13 @@ class PlaceUtil {
     List<Place> wantToGoPlaces = List<Place>();
     places.forEach((Marker marker, Place poi) {
       switch (poi.category) {
-        case PlaceCategory.FAVORITE:
+        case PlaceCategory.favorite:
           favoritePlaces.add(poi);
           break;
-        case PlaceCategory.VISITED:
+        case PlaceCategory.visited:
           visitedPlaces.add(poi);
           break;
-        case PlaceCategory.WANT_TO_GO:
+        case PlaceCategory.wantToGo:
         default:
           wantToGoPlaces.add(poi);
           break;
@@ -37,11 +37,11 @@ class PlaceUtil {
     });
 
     switch (category) {
-      case PlaceCategory.FAVORITE:
+      case PlaceCategory.favorite:
         return favoritePlaces;
-      case PlaceCategory.VISITED:
+      case PlaceCategory.visited:
         return visitedPlaces;
-      case PlaceCategory.WANT_TO_GO:
+      case PlaceCategory.wantToGo:
       default:
         return wantToGoPlaces;
     }
