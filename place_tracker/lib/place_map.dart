@@ -1,20 +1,48 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
 import 'place_stub_data.dart';
-import 'place_util.dart';
 import 'place_details.dart';
 
 class PlaceMap extends StatefulWidget {
+  const PlaceMap({
+    Key key,
+    this.center,
+  }) : super(key: key);
+
+  final LatLng center;
+
   @override
   PlaceMapState createState() => PlaceMapState();
 }
 
 class PlaceMapState extends State<PlaceMap> {
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  static BitmapDescriptor _getPlaceMarkerIcon(PlaceCategory category) {
+    // TODO(kenzieschmoll): use custom marker assets.
+    double markerHue;
+    switch (category) {
+      case PlaceCategory.favorite:
+        markerHue = BitmapDescriptor.hueRed;
+        break;
+      case PlaceCategory.visited:
+        markerHue = BitmapDescriptor.hueViolet;
+        break;
+      case PlaceCategory.wantToGo:
+      default:
+        markerHue = BitmapDescriptor.hueAzure;
+    }
+    return BitmapDescriptor.defaultMarkerWithHue(markerHue);
+  }
+
+  static List<Place> _getPlacesForCategory(
+      PlaceCategory category, Map<Marker, Place> places) {
+    return places.values.where(
+            (Place place) => place.category == category).toList();
+  }
 
   GoogleMapController mapController;
   PlaceCategory _selectedPlaceCategory = PlaceCategory.favorite;
@@ -26,10 +54,9 @@ class PlaceMapState extends State<PlaceMap> {
     mapController.onInfoWindowTapped.add(_onInfoWindowTapped);
 
     // Add stub data on creation so we have something interesting to look at.
-    _initializeStubPlaces().then((Map<Marker, Place> places) =>
-      _zoomToFitPlaces(
-        PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, places),
-      ),
+    final Map<Marker, Place> places = await _initializeStubPlaces();
+    _zoomToFitPlaces(
+      _getPlacesForCategory(_selectedPlaceCategory, places),
     );
   }
 
@@ -41,10 +68,10 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _initializeStubPlace(Place place) async {
-    Marker marker = await mapController.addMarker(
+    final Marker marker = await mapController.addMarker(
       MarkerOptions(
         position: place.latLng,
-        icon: PlaceUtil.getPlaceMarkerIcon(place.category),
+        icon: _getPlaceMarkerIcon(place.category),
         infoWindowText: InfoWindowText(
           place.name,
           '${place.starRating} Star Rating',
@@ -53,12 +80,6 @@ class PlaceMapState extends State<PlaceMap> {
       ),
     );
     _places[marker] = place;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    mapController?.onInfoWindowTapped?.remove(_onInfoWindowTapped);
   }
 
   void _onInfoWindowTapped(Marker marker) async {
@@ -124,22 +145,24 @@ class PlaceMapState extends State<PlaceMap> {
       );
     });
     _zoomToFitPlaces(
-      PlaceUtil.getPlacesForCategory(_selectedPlaceCategory, _places),
+      _getPlacesForCategory(_selectedPlaceCategory, _places),
     );
   }
 
   void _zoomToFitPlaces(List<Place> places) {
     // Default min/max values to latitude and longitude of center.
-    double minLat = _center.latitude;
-    double maxLat = _center.latitude;
-    double minLong = _center.longitude;
-    double maxLong = _center.longitude;
-    places.forEach((Place place) {
-      minLat = place.latitude < minLat ? place.latitude : minLat;
-      maxLat = place.latitude > maxLat ? place.latitude : maxLat;
-      minLong = place.longitude < minLong ? place.longitude : minLong;
-      maxLong = place.longitude > maxLong ? place.longitude : maxLong;
-    });
+    double minLat = widget.center.latitude;
+    double maxLat = widget.center.latitude;
+    double minLong = widget.center.longitude;
+    double maxLong = widget.center.longitude;
+
+    for (Place place in places) {
+      minLat = min(minLat, place.latitude);
+      maxLat = max(maxLat, place.latitude);
+      minLong = min(minLong, place.longitude);
+      maxLong = max(maxLong, place.longitude);
+    }
+
     mapController.animateCamera(
       CameraUpdate.newLatLngBounds(
         LatLngBounds(
@@ -172,7 +195,7 @@ class PlaceMapState extends State<PlaceMap> {
       await mapController.updateMarker(
         _pendingMarker,
         MarkerOptions(
-          icon: PlaceUtil.getPlaceMarkerIcon(_selectedPlaceCategory),
+          icon: _getPlaceMarkerIcon(_selectedPlaceCategory),
           infoWindowText: InfoWindowText('New Place', null),
           draggable: false,
         ),
@@ -243,7 +266,7 @@ class PlaceMapState extends State<PlaceMap> {
               options: GoogleMapOptions(
                 trackCameraPosition: true,
                 cameraPosition: CameraPosition(
-                  target: _center,
+                  target: widget.center,
                   zoom: 11.0,
                 ),
               ),
