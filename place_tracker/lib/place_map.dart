@@ -17,7 +17,7 @@ class PlaceMapState extends State<PlaceMap> {
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
   GoogleMapController mapController;
-  PlaceCategory _selectedPlaceCategory;
+  PlaceCategory _selectedPlaceCategory = PlaceCategory.favorite;
   Map<Marker, Place> _places = Map<Marker, Place>();
   Marker _pendingMarker;
 
@@ -47,7 +47,7 @@ class PlaceMapState extends State<PlaceMap> {
         icon: PlaceUtil.getPlaceMarkerIcon(place.category),
         infoWindowText: InfoWindowText(
           place.name,
-          '${place.starRating.toString()} Star Rating',
+          '${place.starRating} Star Rating',
         ),
         visible: place.category == _selectedPlaceCategory,
       ),
@@ -99,7 +99,7 @@ class PlaceMapState extends State<PlaceMap> {
         infoWindowText: InfoWindowText(
           place.name,
           place.starRating != 0
-            ? '${place.starRating.toString()} Star Rating'
+            ? '${place.starRating} Star Rating'
             : null,
         ),
         visible: true,
@@ -220,11 +220,6 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   @override
-  void initState() {
-    _selectedPlaceCategory = PlaceCategory.favorite;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -256,7 +251,7 @@ class PlaceMapState extends State<PlaceMap> {
             _CategoryButtonBar(
               selectedPlaceCategory: _selectedPlaceCategory,
               visible: _pendingMarker == null,
-              onChanged: (PlaceCategory value) => _updatePlaces(value),
+              onChanged: _updatePlaces,
             ),
             _AddPlaceButtonBar(
               visible: _pendingMarker != null,
@@ -293,45 +288,43 @@ class _CategoryButtonBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Opacity(
       opacity: visible ? 1.0 : 0.0,
-      child: Padding(
+      child: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                color: selectedPlaceCategory == PlaceCategory.favorite
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
-                child: Text(
-                  'Favorites',
-                  style: TextStyle(color: Colors.white, fontSize: 14.0),
-                ),
-                onPressed: () => onChanged(PlaceCategory.favorite),
+        alignment: Alignment.bottomCenter,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              color: selectedPlaceCategory == PlaceCategory.favorite
+                ? Colors.green[700]
+                : Colors.lightGreen,
+              child: Text(
+                'Favorites',
+                style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
-              RaisedButton(
-                color: selectedPlaceCategory == PlaceCategory.visited
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
-                child: Text(
-                  'Visited',
-                  style: TextStyle(color: Colors.white, fontSize: 14.0),
-                ),
-                onPressed: () => onChanged(PlaceCategory.visited),
+              onPressed: () => onChanged(PlaceCategory.favorite),
+            ),
+            RaisedButton(
+              color: selectedPlaceCategory == PlaceCategory.visited
+                ? Colors.green[700]
+                : Colors.lightGreen,
+              child: Text(
+                'Visited',
+                style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
-              RaisedButton(
-                color: selectedPlaceCategory == PlaceCategory.wantToGo
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
-                child: Text(
-                  'Want To Go',
-                  style: TextStyle(color: Colors.white, fontSize: 14.0),
-                ),
-                onPressed: () => onChanged(PlaceCategory.wantToGo),
+              onPressed: () => onChanged(PlaceCategory.visited),
+            ),
+            RaisedButton(
+              color: selectedPlaceCategory == PlaceCategory.wantToGo
+                ? Colors.green[700]
+                : Colors.lightGreen,
+              child: Text(
+                'Want To Go',
+                style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
-            ],
-          ),
+              onPressed: () => onChanged(PlaceCategory.wantToGo),
+            ),
+          ],
         ),
       ),
     );
@@ -358,31 +351,29 @@ class  _AddPlaceButtonBar extends StatelessWidget {
     return Builder(builder: (BuildContext context) {
       return Opacity(
         opacity: visible ? 1.0 : 0.0,
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(
-                  color: Colors.blue,
-                  child: Text(
-                    'Save',
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
-                  ),
-                  onPressed: () => onSavePressed(context),
+          alignment: Alignment.bottomCenter,
+          child: ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                color: Colors.blue,
+                child: Text(
+                  'Save',
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
-                RaisedButton(
-                  color: Colors.red,
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
-                  ),
-                  onPressed: onCancelPressed,
+                onPressed: () => onSavePressed(context),
+              ),
+              RaisedButton(
+                color: Colors.red,
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
-              ],
-            ),
+                onPressed: onCancelPressed,
+              ),
+            ],
           ),
         ),
       );

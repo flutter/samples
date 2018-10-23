@@ -25,6 +25,7 @@ class PlaceDetails extends StatefulWidget {
 class PlaceDetailsState extends State<PlaceDetails> {
 
   Place _place;
+  GoogleMapController _mapController;
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -35,6 +36,13 @@ class PlaceDetailsState extends State<PlaceDetails> {
     _nameController.text = _place.name;
     _descriptionController.text = _place.description;
     return super.initState();
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    setState(() {
+      _mapController = controller;
+      _mapController.addMarker(MarkerOptions(position: _place.latLng));
+    });
   }
 
   Widget _detailsBody() {
@@ -66,7 +74,11 @@ class PlaceDetailsState extends State<PlaceDetails> {
             });
           },
         ),
-        _Map(center: _place.latLng),
+        _Map(
+          center: _place.latLng,
+          mapController: _mapController,
+          onMapCreated: _onMapCreated,
+        ),
       ],
     );
   }
@@ -193,23 +205,20 @@ class _Map extends StatelessWidget {
   _Map({
     Key key,
     @required this.center,
+    @required this.mapController,
+    @required this.onMapCreated,
   }) : assert(center != null);
 
   final LatLng center;
-
-  GoogleMapController mapController;
-
-  void onMapCreated(GoogleMapController controller) async {
-    mapController = controller;
-    mapController.addMarker(MarkerOptions(position: center));
-  }
+  final GoogleMapController mapController;
+  final ArgumentCallback<GoogleMapController> onMapCreated;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 16.0),
       elevation: 4.0,
-      child: Container(
+      child: SizedBox(
         width: 340.0,
         height: 240.0,
         child: GoogleMap(
