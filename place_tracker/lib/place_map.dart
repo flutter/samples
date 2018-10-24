@@ -190,7 +190,7 @@ class PlaceMapState extends State<PlaceMap> {
     });
   }
 
-  void _confirmAddPlace(BuildContext context1) async {
+  void _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
       await mapController.updateMarker(
         _pendingMarker,
