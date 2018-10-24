@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -47,7 +46,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
 
   Widget _detailsBody() {
     return ListView(
-      padding: EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
+      padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
       children: <Widget>[
         _NameTextField(
           controller: _nameController,
@@ -68,7 +67,6 @@ class PlaceDetailsState extends State<PlaceDetails> {
         _StarBar(
           rating: _place.starRating,
           onChanged: (int value) {
-            print(value);
             setState(() {
               _place = _place.copyWith(starRating: value);
             });
@@ -91,9 +89,9 @@ class PlaceDetailsState extends State<PlaceDetails> {
         backgroundColor: Colors.green[700],
         actions: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
             child: IconButton(
-              icon: Icon(Icons.save, size: 30.0),
+              icon: const Icon(Icons.save, size: 30.0),
               onPressed: () {
                 widget.onChanged(_place);
                 Navigator.pop(context);
@@ -124,13 +122,13 @@ class _NameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Name',
-          labelStyle: TextStyle(fontSize: 18.0),
+          labelStyle: const TextStyle(fontSize: 18.0),
         ),
-        style: TextStyle(fontSize: 20.0, color: Colors.black87),
+        style: const TextStyle(fontSize: 20.0, color: Colors.black87),
         autocorrect: true,
         controller: controller,
         onChanged: (String value) {
@@ -153,13 +151,13 @@ class _DescriptionTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Description',
-          labelStyle: TextStyle(fontSize: 18.0),
+          labelStyle: const TextStyle(fontSize: 18.0),
         ),
-        style: TextStyle(fontSize: 20.0, color: Colors.black87),
+        style: const TextStyle(fontSize: 20.0, color: Colors.black87),
         maxLines: null,
         autocorrect: true,
         controller: controller,
@@ -189,7 +187,7 @@ class _StarBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(maxStars, (int index) {
         return IconButton(
-          icon: Icon(Icons.star),
+          icon: const Icon(Icons.star),
           iconSize: 40.0,
           color: rating > index ? Colors.amber : Colors.grey[400],
           onPressed: () {
@@ -216,7 +214,7 @@ class _Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 16.0),
+      margin: const EdgeInsets.symmetric(vertical: 16.0),
       elevation: 4.0,
       child: SizedBox(
         width: 340.0,

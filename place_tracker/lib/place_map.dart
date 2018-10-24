@@ -190,7 +190,7 @@ class PlaceMapState extends State<PlaceMap> {
     });
   }
 
-  void _confirmAddPlace(BuildContext context) async {
+  void _confirmAddPlace(BuildContext context1) async {
     if (_pendingMarker != null) {
       await mapController.updateMarker(
         _pendingMarker,
@@ -208,9 +208,9 @@ class PlaceMapState extends State<PlaceMap> {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
-          content: Text(
+          content: const Text(
             'New place added.',
-            style: TextStyle(fontSize: 16.0)
+            style: const TextStyle(fontSize: 16.0)
           ),
           action: SnackBarAction(
             label: 'Edit',
@@ -248,7 +248,7 @@ class PlaceMapState extends State<PlaceMap> {
       appBar: AppBar(
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
               child: Icon(Icons.pin_drop, size: 24.0),
@@ -321,7 +321,7 @@ class _CategoryButtonBar extends StatelessWidget {
               color: selectedPlaceCategory == PlaceCategory.favorite
                 ? Colors.green[700]
                 : Colors.lightGreen,
-              child: Text(
+              child: const Text(
                 'Favorites',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
@@ -331,7 +331,7 @@ class _CategoryButtonBar extends StatelessWidget {
               color: selectedPlaceCategory == PlaceCategory.visited
                 ? Colors.green[700]
                 : Colors.lightGreen,
-              child: Text(
+              child: const Text(
                 'Visited',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
@@ -341,7 +341,7 @@ class _CategoryButtonBar extends StatelessWidget {
               color: selectedPlaceCategory == PlaceCategory.wantToGo
                 ? Colors.green[700]
                 : Colors.lightGreen,
-              child: Text(
+              child: const Text(
                 'Want To Go',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
@@ -382,7 +382,7 @@ class  _AddPlaceButtonBar extends StatelessWidget {
             children: <Widget>[
               RaisedButton(
                 color: Colors.blue,
-                child: Text(
+                child: const Text(
                   'Save',
                   style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
@@ -390,7 +390,7 @@ class  _AddPlaceButtonBar extends StatelessWidget {
               ),
               RaisedButton(
                 color: Colors.red,
-                child: Text(
+                child: const Text(
                   'Cancel',
                   style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
@@ -421,14 +421,14 @@ class _AddPlaceFab extends StatelessWidget {
     return Opacity(
       opacity: visible ? 1.0 : 0.0,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Align(
           alignment: Alignment.topRight,
           child: FloatingActionButton(
             onPressed: onPressed,
             materialTapTargetSize: MaterialTapTargetSize.padded,
             backgroundColor: Colors.green,
-            child: Icon(Icons.add_location, size: 36.0),
+            child: const Icon(Icons.add_location, size: 36.0),
           ),
         ),
       ),
