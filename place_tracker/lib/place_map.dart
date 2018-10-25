@@ -258,36 +258,42 @@ class PlaceMapState extends State<PlaceMap> {
         ),
         backgroundColor: Colors.green[700],
       ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            GoogleMap(
-              onMapCreated: onMapCreated,
-              options: GoogleMapOptions(
-                trackCameraPosition: true,
-                cameraPosition: CameraPosition(
-                  target: widget.center,
-                  zoom: 11.0,
+      // We need this additional builder here so that we can pass its context to
+      // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
+      // snackbar and to do this, we need a build context that has Scaffold as
+      // an ancestor.
+      body: Builder(builder: (BuildContext context) {
+        return Center(
+          child: Stack(
+            children: <Widget>[
+              GoogleMap(
+                onMapCreated: onMapCreated,
+                options: GoogleMapOptions(
+                  trackCameraPosition: true,
+                  cameraPosition: CameraPosition(
+                    target: widget.center,
+                    zoom: 11.0,
+                  ),
                 ),
               ),
-            ),
-            _CategoryButtonBar(
-              selectedPlaceCategory: _selectedPlaceCategory,
-              visible: _pendingMarker == null,
-              onChanged: _updatePlaces,
-            ),
-            _AddPlaceButtonBar(
-              visible: _pendingMarker != null,
-              onSavePressed: _confirmAddPlace,
-              onCancelPressed: _cancelAddPlace,
-            ),
-            _AddPlaceFab(
-              visible: _pendingMarker == null,
-              onPressed: _onAddPlaceFabPressed,
-            ),
-          ],
-        ),
-      ),
+              _CategoryButtonBar(
+                selectedPlaceCategory: _selectedPlaceCategory,
+                visible: _pendingMarker == null,
+                onChanged: _updatePlaces,
+              ),
+              _AddPlaceButtonBar(
+                visible: _pendingMarker != null,
+                onSavePressed: () => _confirmAddPlace(context),
+                onCancelPressed: _cancelAddPlace,
+              ),
+              _AddPlaceFab(
+                visible: _pendingMarker == null,
+                onPressed: _onAddPlaceFabPressed,
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }
@@ -366,41 +372,39 @@ class  _AddPlaceButtonBar extends StatelessWidget {
        super(key: key);
 
   final bool visible;
-  final ArgumentCallback<BuildContext> onSavePressed;
+  final VoidCallback onSavePressed;
   final VoidCallback onCancelPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (BuildContext context) {
-      return Opacity(
-        opacity: visible ? 1.0 : 0.0,
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
-          alignment: Alignment.bottomCenter,
-          child: ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              RaisedButton(
-                color: Colors.blue,
-                child: const Text(
-                  'Save',
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
-                ),
-                onPressed: () => onSavePressed(context),
+    return Opacity(
+      opacity: visible ? 1.0 : 0.0,
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
+        alignment: Alignment.bottomCenter,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              color: Colors.blue,
+              child: const Text(
+                'Save',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
-              RaisedButton(
-                color: Colors.red,
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
-                ),
-                onPressed: onCancelPressed,
+              onPressed: onSavePressed,
+            ),
+            RaisedButton(
+              color: Colors.red,
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
-            ],
-          ),
+              onPressed: onCancelPressed,
+            ),
+          ],
         ),
-      );
-    });
+      ),
+    );
   }
 }
 
