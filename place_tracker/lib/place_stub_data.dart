@@ -3,21 +3,21 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'place.dart';
 
 class PlaceStubData {
-  static List<Place> places = [
+  static const List<Place> places = [
     Place(
         latLng: LatLng(45.524676, -122.681922),
         name: 'Deschutes Brewery',
         description:
             'Beers brewed on-site & gourmet pub grub in a converted auto-body shop with a fireplace & wood beams.',
         category: PlaceCategory.favorite,
-        starRating: 4),
+        starRating: 5),
     Place(
         latLng: LatLng(45.525253, -122.684423),
         name: 'TILT',
         description:
             'This stylish American eatery offers unfussy breakfast fare, cocktails & burgers in industrial-themed digs.',
         category: PlaceCategory.favorite,
-        starRating: 5),
+        starRating: 4),
     Place(
         latLng: LatLng(45.528952, -122.698344),
         name: 'Salt & Straw',

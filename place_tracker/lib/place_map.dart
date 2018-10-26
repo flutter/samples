@@ -55,15 +55,12 @@ class PlaceMapState extends State<PlaceMap> {
 
     // Add stub data on creation so we have something interesting to look at.
     final Map<Marker, Place> places = await _initializeStubPlaces();
-    _zoomToFitPlaces(
-      _getPlacesForCategory(_selectedPlaceCategory, places),
-    );
+    _zoomToFitPlaces(_getPlacesForCategory(_selectedPlaceCategory, places));
   }
 
   Future<Map<Marker, Place>> _initializeStubPlaces() async {
-    for (Place place in PlaceStubData.places) {
-      await _initializeStubPlace(place);
-    }
+    await Future.wait(PlaceStubData.places.map(
+            (Place place) => _initializeStubPlace(place)));
     return _places;
   }
 
@@ -144,9 +141,7 @@ class PlaceMapState extends State<PlaceMap> {
         ),
       );
     });
-    _zoomToFitPlaces(
-      _getPlacesForCategory(_selectedPlaceCategory, _places),
-    );
+    _zoomToFitPlaces(_getPlacesForCategory(_selectedPlaceCategory, _places));
   }
 
   void _zoomToFitPlaces(List<Place> places) {
