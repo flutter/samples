@@ -38,10 +38,8 @@ class PlaceMapState extends State<PlaceMap> {
     return BitmapDescriptor.defaultMarkerWithHue(markerHue);
   }
 
-  static List<Place> _getPlacesForCategory(
-      PlaceCategory category, Map<Marker, Place> places) {
-    return places.values.where(
-            (Place place) => place.category == category).toList();
+  static List<Place> _getPlacesForCategory(PlaceCategory category, Map<Marker, Place> places) {
+    return places.values.where((Place place) => place.category == category).toList();
   }
 
   GoogleMapController mapController;
@@ -59,8 +57,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<Map<Marker, Place>> _initializeStubPlaces() async {
-    await Future.wait(PlaceStubData.places.map(
-            (Place place) => _initializeStubPlace(place)));
+    await Future.wait(PlaceStubData.places.map((Place place) => _initializeStubPlace(place)));
     return _places;
   }
 
@@ -255,7 +252,7 @@ class PlaceMapState extends State<PlaceMap> {
       ),
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
-      // snackbar and to do this, we need a build context that has Scaffold as
+      // SnackBar and to do this, we need a build context that has Scaffold as
       // an ancestor.
       body: Builder(builder: (BuildContext context) {
         return Center(
