@@ -1,0 +1,13 @@
+.DS_Store
+.atom/
+.idea
+.packages
+.pub/
+build/
+ios/.generated/
+packages
+pubspec.lock
+.flutter-plugins
+
+# Intentionally ignored, because we don't want to see anyone's secret API keys in the repo
+lib/dsn.dart

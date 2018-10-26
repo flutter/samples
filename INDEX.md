@@ -43,6 +43,12 @@ start.
 A simple app showing three different approaches to deserializing JSON:
 hand-written constructors, `json_serializable`, and `built_value`.
 
+#### [crashy](crashy) (Flutter team)
+A Flutter app that crashes intentionally in various ways, demonstrating how to
+capture errors and report them to a crash analytics backend. This example uses
+Sentry.io, but you can use your own. The principles used to capture errors are
+applicable to other ways of reporting errors.
+
 ## UI
 
 #### [Flutter UI Kit](https://github.com/iampawan/Flutter-UI-Kit) [![GitHub stars](https://img.shields.io/github/stars/iampawan/Flutter-UI-Kit.svg?style=social&label=Star)](https://github.com/iampawan/Flutter-UI-Kit) [![GitHub forks](https://img.shields.io/github/forks/iampawan/Flutter-UI-Kit.svg?style=social&label=Fork)](https://github.com/iampawan/Flutter-UI-Kit/fork)
