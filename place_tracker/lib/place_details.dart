@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
+import 'stub_data.dart';
 
 class PlaceDetails extends StatefulWidget {
   const PlaceDetails({
@@ -77,6 +78,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
           mapController: _mapController,
           onMapCreated: _onMapCreated,
         ),
+        _Reviews(),
       ],
     );
   }
@@ -111,10 +113,13 @@ class PlaceDetailsState extends State<PlaceDetails> {
 }
 
 class _NameTextField extends StatelessWidget {
-  _NameTextField({
+  const _NameTextField({
+    Key key,
     @required this.controller,
     @required this.onChanged,
-  });
+  }) : assert(controller != null),
+       assert(onChanged != null),
+       super(key: key);
 
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -124,9 +129,9 @@ class _NameTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Name',
-          labelStyle: const TextStyle(fontSize: 18.0),
+          labelStyle: TextStyle(fontSize: 18.0),
         ),
         style: const TextStyle(fontSize: 20.0, color: Colors.black87),
         autocorrect: true,
@@ -140,10 +145,13 @@ class _NameTextField extends StatelessWidget {
 }
 
 class _DescriptionTextField extends StatelessWidget {
-  _DescriptionTextField({
+  const _DescriptionTextField({
+    Key key,
     @required this.controller,
     @required this.onChanged,
-  });
+  }) : assert(controller != null),
+       assert(onChanged != null),
+       super(key: key);
 
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -153,9 +161,9 @@ class _DescriptionTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
       child: TextField(
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Description',
-          labelStyle: const TextStyle(fontSize: 18.0),
+          labelStyle: TextStyle(fontSize: 18.0),
         ),
         style: const TextStyle(fontSize: 20.0, color: Colors.black87),
         maxLines: null,
@@ -175,6 +183,7 @@ class _StarBar extends StatelessWidget {
     @required this.rating,
     @required this.onChanged,
   }) : assert(rating != null && rating >= 0 && rating <= 5),
+       assert(onChanged != null),
        super(key: key);
 
   static const int maxStars = 5;
@@ -200,12 +209,14 @@ class _StarBar extends StatelessWidget {
 }
 
 class _Map extends StatelessWidget {
-  _Map({
+  const _Map({
     Key key,
     @required this.center,
     @required this.mapController,
     @required this.onMapCreated,
-  }) : assert(center != null);
+  }) : assert(center != null),
+       assert(onMapCreated != null),
+       super(key: key);
 
   final LatLng center;
   final GoogleMapController mapController;
@@ -233,6 +244,90 @@ class _Map extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Reviews extends StatelessWidget {
+
+  Widget _review(String reviewText) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 80.0,
+                height: 80.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40.0),
+                  border: Border.all(
+                    width: 3.0,
+                    color: Colors.grey,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      '5',
+                      style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                      ),
+                    ),
+                    const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                      size: 36.0,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16.0),
+              Expanded(
+                child: Text(
+                  reviewText,
+                  style: const TextStyle(fontSize: 20.0, color: Colors.black87),
+                  maxLines: null,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider(
+          height: 8.0,
+          color: Colors.grey[700],
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        const Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 8.0),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              'Reviews',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.underline,
+                color: Colors.black87,
+              ),
+            ),
+          ),
+        ),
+        Column(
+          children: StubData.reviews.map((String reviewText) => _review(reviewText)).toList(),
+        ),
+      ],
     );
   }
 }

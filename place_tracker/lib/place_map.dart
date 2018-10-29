@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
-import 'place_stub_data.dart';
+import 'stub_data.dart';
 import 'place_details.dart';
 
 class PlaceMap extends StatefulWidget {
@@ -57,7 +57,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<Map<Marker, Place>> _initializeStubPlaces() async {
-    await Future.wait(PlaceStubData.places.map((Place place) => _initializeStubPlace(place)));
+    await Future.wait(StubData.places.map((Place place) => _initializeStubPlace(place)));
     return _places;
   }
 
