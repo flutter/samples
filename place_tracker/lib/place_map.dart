@@ -6,6 +6,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'place.dart';
 import 'place_stub_data.dart';
 import 'place_details.dart';
+import 'place_list.dart';
+
+enum PlaceTrackerViewType {
+  map,
+  list,
+}
 
 class PlaceMap extends StatefulWidget {
   const PlaceMap({
@@ -43,9 +49,10 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   GoogleMapController mapController;
-  PlaceCategory _selectedPlaceCategory = PlaceCategory.favorite;
-  Map<Marker, Place> _places = Map<Marker, Place>();
   Marker _pendingMarker;
+  Map<Marker, Place> _places = Map<Marker, Place>();
+  PlaceCategory _selectedPlaceCategory = PlaceCategory.favorite;
+  PlaceTrackerViewType viewType = PlaceTrackerViewType.map;
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
@@ -122,7 +129,7 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  void _updatePlaces(PlaceCategory category) {
+  void _updateDisplayedPlaces(PlaceCategory category) {
     setState(() {
       _selectedPlaceCategory = category;
       _showPlacesForSelectedCategory();
@@ -234,6 +241,72 @@ class PlaceMapState extends State<PlaceMap> {
     }
   }
 
+  void _switchViewType() {
+    switch (viewType) {
+      case PlaceTrackerViewType.map:
+        setState(() {
+          viewType = PlaceTrackerViewType.list;
+        });
+        break;
+      case PlaceTrackerViewType.list:
+        setState(() {
+          viewType = PlaceTrackerViewType.map;
+        });
+    }
+  }
+
+  Widget _placeMap() {
+    return Builder(builder: (BuildContext context) {
+      // We need this additional builder here so that we can pass its context to
+      // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
+      // SnackBar and to do this, we need a build context that has Scaffold as
+      // an ancestor.
+      return Center(
+        child: Stack(
+          children: <Widget>[
+            GoogleMap(
+              onMapCreated: onMapCreated,
+              options: GoogleMapOptions(
+                trackCameraPosition: true,
+                cameraPosition: CameraPosition(
+                  target: widget.center,
+                  zoom: 11.0,
+                ),
+              ),
+            ),
+            _CategoryButtonBar(
+              selectedPlaceCategory: _selectedPlaceCategory,
+              visible: _pendingMarker == null,
+              onChanged: _updateDisplayedPlaces,
+            ),
+            _AddPlaceButtonBar(
+              visible: _pendingMarker != null,
+              onSavePressed: () => _confirmAddPlace(context),
+              onCancelPressed: _cancelAddPlace,
+            ),
+            _AddPlaceFab(
+              visible: _pendingMarker == null,
+              onPressed: _onAddPlaceFabPressed,
+            ),
+          ],
+        ),
+      );
+    });
+  }
+
+  Widget _placeList() {
+    return PlaceList(
+      places: _getPlacesForCategory(_selectedPlaceCategory, _places),
+      selectedCategory: _selectedPlaceCategory,
+      onCategoryChanged: (PlaceCategory value) {
+        setState(() {
+          _selectedPlaceCategory = value;
+          _updateDisplayedPlaces(_selectedPlaceCategory);
+        });
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -249,43 +322,28 @@ class PlaceMapState extends State<PlaceMap> {
           ],
         ),
         backgroundColor: Colors.green[700],
-      ),
-      // We need this additional builder here so that we can pass its context to
-      // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
-      // SnackBar and to do this, we need a build context that has Scaffold as
-      // an ancestor.
-      body: Builder(builder: (BuildContext context) {
-        return Center(
-          child: Stack(
-            children: <Widget>[
-              GoogleMap(
-                onMapCreated: onMapCreated,
-                options: GoogleMapOptions(
-                  trackCameraPosition: true,
-                  cameraPosition: CameraPosition(
-                    target: widget.center,
-                    zoom: 11.0,
-                  ),
-                ),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
+            child: IconButton(
+              icon: Icon(
+                viewType == PlaceTrackerViewType.map
+                    ? Icons.list
+                    : Icons.map,
+                size: 32.0
               ),
-              _CategoryButtonBar(
-                selectedPlaceCategory: _selectedPlaceCategory,
-                visible: _pendingMarker == null,
-                onChanged: _updatePlaces,
-              ),
-              _AddPlaceButtonBar(
-                visible: _pendingMarker != null,
-                onSavePressed: () => _confirmAddPlace(context),
-                onCancelPressed: _cancelAddPlace,
-              ),
-              _AddPlaceFab(
-                visible: _pendingMarker == null,
-                onPressed: _onAddPlaceFabPressed,
-              ),
-            ],
+              onPressed: _switchViewType,
+            ),
           ),
-        );
-      }),
+        ],
+      ),
+      body: IndexedStack(
+        index: viewType == PlaceTrackerViewType.map ? 0 : 1,
+        children: <Widget>[
+          _placeMap(),
+          _placeList(),
+        ],
+      ),
     );
   }
 }
@@ -417,7 +475,7 @@ class _AddPlaceFab extends StatelessWidget {
     return Opacity(
       opacity: visible ? 1.0 : 0.0,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Align(
           alignment: Alignment.topRight,
           child: FloatingActionButton(
