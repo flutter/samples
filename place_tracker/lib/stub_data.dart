@@ -97,7 +97,7 @@ class StubData {
         starRating: 4),
   ];
 
-  static const List<String> reviews = [
+  static const List<String> reviewStrings = [
     'My favorite place in Portand. The employees are wonderful and so is the food. I go here at least once a month!',
     'Staff was very friendly. Great atmosphere and good music. Would reccommend.',
     'Best. Place. In. Town. Period.'

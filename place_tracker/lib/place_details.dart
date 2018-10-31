@@ -8,9 +8,9 @@ import 'stub_data.dart';
 
 class PlaceDetails extends StatefulWidget {
   const PlaceDetails({
-    Key key,
     @required this.place,
     @required this.onChanged,
+    Key key,
   }) : assert(place != null),
        assert(onChanged != null),
        super(key: key);
@@ -39,10 +39,8 @@ class PlaceDetailsState extends State<PlaceDetails> {
   }
 
   void _onMapCreated(GoogleMapController controller) {
-    setState(() {
-      _mapController = controller;
-      _mapController.addMarker(MarkerOptions(position: _place.latLng));
-    });
+    _mapController = controller;
+    _mapController.addMarker(MarkerOptions(position: _place.latLng));
   }
 
   Widget _detailsBody() {
@@ -114,9 +112,9 @@ class PlaceDetailsState extends State<PlaceDetails> {
 
 class _NameTextField extends StatelessWidget {
   const _NameTextField({
-    Key key,
     @required this.controller,
     @required this.onChanged,
+    Key key,
   }) : assert(controller != null),
        assert(onChanged != null),
        super(key: key);
@@ -146,9 +144,9 @@ class _NameTextField extends StatelessWidget {
 
 class _DescriptionTextField extends StatelessWidget {
   const _DescriptionTextField({
-    Key key,
     @required this.controller,
     @required this.onChanged,
+    Key key,
   }) : assert(controller != null),
        assert(onChanged != null),
        super(key: key);
@@ -179,9 +177,9 @@ class _DescriptionTextField extends StatelessWidget {
 
 class _StarBar extends StatelessWidget {
   const _StarBar({
-    Key key,
     @required this.rating,
     @required this.onChanged,
+    Key key,
   }) : assert(rating != null && rating >= 0 && rating <= 5),
        assert(onChanged != null),
        super(key: key);
@@ -210,10 +208,10 @@ class _StarBar extends StatelessWidget {
 
 class _Map extends StatelessWidget {
   const _Map({
-    Key key,
     @required this.center,
     @required this.mapController,
     @required this.onMapCreated,
+    Key key,
   }) : assert(center != null),
        assert(onMapCreated != null),
        super(key: key);
@@ -250,7 +248,7 @@ class _Map extends StatelessWidget {
 
 class _Reviews extends StatelessWidget {
 
-  Widget _review(String reviewText) {
+  Widget _buildSingleReview(String reviewText) {
     return Column(
       children: <Widget>[
         Padding(
@@ -325,7 +323,7 @@ class _Reviews extends StatelessWidget {
           ),
         ),
         Column(
-          children: StubData.reviews.map((String reviewText) => _review(reviewText)).toList(),
+          children: StubData.reviewStrings.map((reviewText) => _buildSingleReview(reviewText)).toList(),
         ),
       ],
     );
