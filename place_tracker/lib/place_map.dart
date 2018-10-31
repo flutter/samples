@@ -166,7 +166,7 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  void _onAddPlaceFabPressed() async {
+  void _onAddPlacePressed() async {
     Marker newMarker = await mapController.addMarker(
       MarkerOptions(
         position: LatLng(
@@ -234,6 +234,21 @@ class PlaceMapState extends State<PlaceMap> {
     }
   }
 
+  void _onToggleMapTypePressed() {
+    MapType nextType =
+      MapType.values[(mapController.options.mapType.index + 1) % MapType.values.length];
+
+    // We do not want to show MapType.none, so skip over it.
+    if (nextType == MapType.none) {
+      nextType =
+        MapType.values[(mapController.options.mapType.index + 2) % MapType.values.length];
+    }
+
+    mapController.updateMapOptions(
+      GoogleMapOptions(mapType: nextType),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -278,9 +293,10 @@ class PlaceMapState extends State<PlaceMap> {
                 onSavePressed: () => _confirmAddPlace(context),
                 onCancelPressed: _cancelAddPlace,
               ),
-              _AddPlaceFab(
+              _MapFabs(
                 visible: _pendingMarker == null,
-                onPressed: _onAddPlaceFabPressed,
+                onAddPlacePressed: _onAddPlacePressed,
+                onToggleMapTypePressed: _onToggleMapTypePressed,
               ),
             ],
           ),
@@ -400,31 +416,46 @@ class  _AddPlaceButtonBar extends StatelessWidget {
   }
 }
 
-class _AddPlaceFab extends StatelessWidget {
-  const _AddPlaceFab({
+class _MapFabs extends StatelessWidget {
+  const _MapFabs({
     Key key,
     @required this.visible,
-    @required this.onPressed,
+    @required this.onAddPlacePressed,
+    @required this.onToggleMapTypePressed,
   }) : assert(visible != null),
-        assert(onPressed != null),
+        assert(onAddPlacePressed != null),
+        assert(onToggleMapTypePressed != null),
         super(key: key);
 
   final bool visible;
-  final VoidCallback onPressed;
+  final VoidCallback onAddPlacePressed;
+  final VoidCallback onToggleMapTypePressed;
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
       opacity: visible ? 1.0 : 0.0,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Align(
           alignment: Alignment.topRight,
-          child: FloatingActionButton(
-            onPressed: onPressed,
-            materialTapTargetSize: MaterialTapTargetSize.padded,
-            backgroundColor: Colors.green,
-            child: const Icon(Icons.add_location, size: 36.0),
+          child: Column(
+            children: <Widget>[
+              FloatingActionButton(
+                onPressed: onAddPlacePressed,
+                materialTapTargetSize: MaterialTapTargetSize.padded,
+                backgroundColor: Colors.green,
+                child: const Icon(Icons.add_location, size: 36.0),
+              ),
+              SizedBox(height: 12.0),
+              FloatingActionButton(
+                onPressed: onToggleMapTypePressed,
+                materialTapTargetSize: MaterialTapTargetSize.padded,
+                mini: true,
+                backgroundColor: Colors.green,
+                child: const Icon(Icons.layers, size: 28.0),
+              ),
+            ],
           ),
         ),
       ),
