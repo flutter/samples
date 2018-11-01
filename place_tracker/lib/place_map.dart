@@ -235,7 +235,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onToggleMapTypePressed() {
-    MapType nextType =
+    final MapType nextType =
       MapType.values[(mapController.options.mapType.index + 1) % MapType.values.length];
 
     mapController.updateMapOptions(
@@ -317,8 +317,8 @@ class _CategoryButtonBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: visible ? 1.0 : 0.0,
+    return Visibility(
+      visible: visible,
       child: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
         alignment: Alignment.bottomCenter,
@@ -379,8 +379,8 @@ class  _AddPlaceButtonBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: visible ? 1.0 : 0.0,
+    return Visibility(
+      visible: visible,
       child: Container(
         padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 14.0),
         alignment: Alignment.bottomCenter,
@@ -430,12 +430,12 @@ class _MapFabs extends StatelessWidget {
     return Container(
       alignment: Alignment.topRight,
       margin: const EdgeInsets.only(top: 12.0, right: 12.0),
-      child: Opacity(
-        opacity: visible ? 1.0 : 0.0,
+      child: Visibility(
+        visible: visible,
         child: Column(
           children: <Widget>[
             FloatingActionButton(
-              heroTag: "add_place_btn",
+              heroTag: "add_place_button",
               onPressed: onAddPlacePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               backgroundColor: Colors.green,
@@ -443,7 +443,7 @@ class _MapFabs extends StatelessWidget {
             ),
             SizedBox(height: 12.0),
             FloatingActionButton(
-              heroTag: "toggle_map_type_btn",
+              heroTag: "toggle_map_type_button",
               onPressed: onToggleMapTypePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               mini: true,
