@@ -308,12 +308,7 @@ class PlaceMapState extends State<PlaceMap> {
     return PlaceList(
       places: _getPlacesForCategory(_selectedPlaceCategory, _places),
       selectedCategory: _selectedPlaceCategory,
-      onCategoryChanged: (PlaceCategory value) {
-        setState(() {
-          _selectedPlaceCategory = value;
-          _updateDisplayedPlaces(_selectedPlaceCategory);
-        });
-      },
+      onCategoryChanged: (value) => _updateDisplayedPlaces(value),
     );
   }
 

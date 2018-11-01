@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
+import 'place_details.dart';
 
 class PlaceList extends StatefulWidget {
   const PlaceList({
@@ -39,7 +40,7 @@ class PlaceListState extends State<PlaceList> {
         ),
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
             children: widget.places.map((Place place) => _PlaceListTile(place: place)).toList(),
@@ -61,90 +62,51 @@ class _PlaceListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      place.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                      ),
-                      maxLines: 3,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(5, (int index) {
-                        return Icon(Icons.star,
-                          size: 28.0,
-                          color: place.starRating > index ? Colors.amber : Colors.grey[400],
-                        );
-                      }).toList(),
-                    ),
-                    Text(
-                      place.description != null ? place.description : '',
-                      style: Theme.of(context).textTheme.subhead,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            _Map(center: place.latLng),
-          ],
-        ),
-        Divider(
-          height: 36.0,
-          color: Colors.grey[700],
-        ),
-      ],
-    );
-  }
-}
-
-class _Map extends StatelessWidget {
-  const _Map({
-    @required this.center,
-    Key key,
-  }) : assert(center != null),
-       super(key: key);
-
-  final LatLng center;
-
-  _onMapCreated(GoogleMapController controller) {
-    controller.addMarker(
-      MarkerOptions(
-        position: center,
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PlaceDetails(
+            place: place,
+            onChanged: (Place value) {
+              print('place changed');
+            },
+          );
+        }),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140.0,
-      width: 160.0,
-      child: GoogleMap(
-        onMapCreated: _onMapCreated,
-        options: GoogleMapOptions(
-          cameraPosition: CameraPosition(
-            target: center,
-            zoom: 17.0,
-          ),
-          zoomGesturesEnabled: false,
-          rotateGesturesEnabled: false,
-          tiltGesturesEnabled: false,
-          scrollGesturesEnabled: false,
+      child: Container(
+        padding: EdgeInsets.only(top: 16.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              place.name,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+              maxLines: 3,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(5, (int index) {
+                return Icon(Icons.star,
+                  size: 28.0,
+                  color: place.starRating > index ? Colors.amber : Colors.grey[400],
+                );
+              }).toList(),
+            ),
+            Text(
+              place.description != null ? place.description : '',
+              style: Theme.of(context).textTheme.subhead,
+              maxLines: 4,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 16.0),
+            Divider(
+              height: 2.0,
+              color: Colors.grey[700],
+            ),
+          ],
         ),
       ),
     );
