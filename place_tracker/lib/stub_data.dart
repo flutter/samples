@@ -2,7 +2,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
 
-class PlaceStubData {
+class StubData {
   static const List<Place> places = [
     Place(
         latLng: LatLng(45.524676, -122.681922),
@@ -95,5 +95,11 @@ class PlaceStubData {
             'Popular, enduring gastropub serving craft beers, sandwiches & eclectic entrees in a laid-back space.',
         category: PlaceCategory.wantToGo,
         starRating: 4),
+  ];
+
+  static const List<String> reviewStrings = [
+    'My favorite place in Portand. The employees are wonderful and so is the food. I go here at least once a month!',
+    'Staff was very friendly. Great atmosphere and good music. Would reccommend.',
+    'Best. Place. In. Town. Period.'
   ];
 }
