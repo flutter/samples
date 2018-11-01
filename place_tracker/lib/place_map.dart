@@ -238,12 +238,6 @@ class PlaceMapState extends State<PlaceMap> {
     MapType nextType =
       MapType.values[(mapController.options.mapType.index + 1) % MapType.values.length];
 
-    // We do not want to show MapType.none, so skip over it.
-    if (nextType == MapType.none) {
-      nextType =
-        MapType.values[(mapController.options.mapType.index + 2) % MapType.values.length];
-    }
-
     mapController.updateMapOptions(
       GoogleMapOptions(mapType: nextType),
     );
@@ -433,31 +427,30 @@ class _MapFabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: visible ? 1.0 : 0.0,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Column(
-            children: <Widget>[
-              FloatingActionButton(
-                onPressed: onAddPlacePressed,
-                materialTapTargetSize: MaterialTapTargetSize.padded,
-                backgroundColor: Colors.green,
-                child: const Icon(Icons.add_location, size: 36.0),
-              ),
-              SizedBox(height: 12.0),
-              FloatingActionButton(
-                onPressed: onToggleMapTypePressed,
-                materialTapTargetSize: MaterialTapTargetSize.padded,
-                mini: true,
-                backgroundColor: Colors.green,
-                child: const Icon(Icons.layers, size: 28.0),
-              ),
-            ],
-          ),
+    return Container(
+      alignment: Alignment.topRight,
+      margin: const EdgeInsets.only(top: 12.0, right: 12.0),
+      child: Opacity(
+        opacity: visible ? 1.0 : 0.0,
+        child: Column(
+          children: <Widget>[
+            FloatingActionButton(
+              onPressed: onAddPlacePressed,
+              materialTapTargetSize: MaterialTapTargetSize.padded,
+              backgroundColor: Colors.green,
+              child: const Icon(Icons.add_location, size: 36.0),
+            ),
+            SizedBox(height: 12.0),
+            FloatingActionButton(
+              onPressed: onToggleMapTypePressed,
+              materialTapTargetSize: MaterialTapTargetSize.padded,
+              mini: true,
+              backgroundColor: Colors.green,
+              child: const Icon(Icons.layers, size: 28.0),
+            ),
+          ],
         ),
+
       ),
     );
   }
