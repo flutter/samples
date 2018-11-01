@@ -76,7 +76,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
           mapController: _mapController,
           onMapCreated: _onMapCreated,
         ),
-        _Reviews(),
+        const _Reviews(),
       ],
     );
   }
@@ -180,7 +180,7 @@ class _StarBar extends StatelessWidget {
     @required this.rating,
     @required this.onChanged,
     Key key,
-  }) : assert(rating != null && rating >= 0 && rating <= 5),
+  }) : assert(rating != null && rating >= 0 && rating <= maxStars),
        assert(onChanged != null),
        super(key: key);
 
@@ -247,6 +247,9 @@ class _Map extends StatelessWidget {
 }
 
 class _Reviews extends StatelessWidget {
+  const _Reviews({
+    Key key,
+  }) : super(key: key);
 
   Widget _buildSingleReview(String reviewText) {
     return Column(
@@ -267,16 +270,16 @@ class _Reviews extends StatelessWidget {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
+                  children: const <Widget>[
+                    Text(
                       '5',
                       style: TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
                       ),
                     ),
-                    const Icon(
+                    Icon(
                       Icons.star,
                       color: Colors.amber,
                       size: 36.0,

@@ -435,7 +435,7 @@ class _MapFabs extends StatelessWidget {
         child: Column(
           children: <Widget>[
             FloatingActionButton(
-              heroTag: "add_place_button",
+              heroTag: 'add_place_button',
               onPressed: onAddPlacePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               backgroundColor: Colors.green,
@@ -443,7 +443,7 @@ class _MapFabs extends StatelessWidget {
             ),
             SizedBox(height: 12.0),
             FloatingActionButton(
-              heroTag: "toggle_map_type_button",
+              heroTag: 'toggle_map_type_button',
               onPressed: onToggleMapTypePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               mini: true,
@@ -452,7 +452,6 @@ class _MapFabs extends StatelessWidget {
             ),
           ],
         ),
-
       ),
     );
   }
