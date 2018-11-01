@@ -77,9 +77,11 @@ class _PlaceListTile extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               place.name,
+              textAlign: TextAlign.left,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
@@ -87,7 +89,6 @@ class _PlaceListTile extends StatelessWidget {
               maxLines: 3,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: List.generate(5, (int index) {
                 return Icon(Icons.star,
                   size: 28.0,
