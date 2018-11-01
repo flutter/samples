@@ -9,9 +9,9 @@ of building it out. This sample currently only works on Android (see Caveat belo
 
 ## Goals
 
+* Learn how to create an interface composed of GoogleMap and other widgets.
 * Learn how to show, control, and modify a GoogleMap widget.
 * Learn how to place a marker on a map.
-* Learn how to incorporate the GoogleMap widget with other Flutter widgets.
 
 ## The important bits
 
