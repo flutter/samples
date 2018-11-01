@@ -11,7 +11,7 @@ of building it out. This sample currently only works on Android (see Caveat belo
 
 * Learn how to show, control, and modify a GoogleMap widget.
 * Learn how to place a marker on a map.
-* Leann how to incorporate the GoogleMap widget with other Flutter widgets.
+* Learn how to incorporate the GoogleMap widget with other Flutter widgets.
 
 ## The important bits
 
@@ -23,8 +23,8 @@ other flutter widgets interact with the GoogleMap widget.
 
 ### `place_details.dart`
 
-This page shows a detailed view of a specific place. Provides an example of how to place a
-GoogleMap widget inside of a ListView as well as how to disable certain touch gestures on the map.
+This page shows a detailed view of a single place. Provides examples of how to place a
+GoogleMap widget inside of a ListView and how to disable certain touch gestures on the map.
 
 ## Getting Started
 
