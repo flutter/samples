@@ -67,6 +67,9 @@ in Finland. It's currently available in both the
 A simple reversi clone built with Flutter. It showcases some implicit animations
 and how to move work off the UI thread into an isolate.
 
+#### [WhatTodo](https://github.com/burhanrashid52/WhatTodo) [![GitHub stars](https://img.shields.io/github/stars/burhanrashid52/WhatTodo.svg?style=social&label=Star)](https://github.com/burhanrashid52/WhatTodo) [![GitHub forks](https://img.shields.io/github/forks/burhanrashid52/WhatTodo.svg?style=social&label=Fork)](https://github.com/burhanrashid52/WhatTodo/fork)
+A Simple Todo app design in Flutter to keep track of your task on daily basis. Its build on BLoC Pattern. You can add a project, labels, and due-date to your task also you can sort your task on the basis of project, label, and dates.
+
 ## Demos
 
 #### [Shrine](shrine) _(Flutter team)_
