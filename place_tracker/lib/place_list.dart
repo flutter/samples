@@ -5,33 +5,26 @@ import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class PlaceList extends StatelessWidget {
-  PlaceList({
-    @required this.onChanged,
-    Key key,
-  }) : assert(onChanged != null),
-        super(key: key);
-
-  final ValueChanged<AppState> onChanged;
 
   ScrollController _scrollController = ScrollController();
   AppState appState;
 
-  void _onCategoryChanged(PlaceCategory newCategory) {
+  void _onCategoryChanged(PlaceCategory newCategory, BuildContext context) {
     _scrollController.jumpTo(0.0);
-    onChanged(AppState(
+    AppModel.update<AppState>(context, AppState(
       places: appState.places,
       selectedCategory: newCategory,
       viewType: appState.viewType,
     ));
   }
 
-  void _onPlaceChanged(Place value) {
+  void _onPlaceChanged(Place value, BuildContext context) {
     // Remove the old place and add the updated one.
     List<Place> newPlaces = List.from(appState.places);
     int index = newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
-    onChanged(AppState(
+    AppModel.update<AppState>(context, AppState(
       places: newPlaces,
       selectedCategory: appState.selectedCategory,
       viewType: appState.viewType,
@@ -40,12 +33,12 @@ class PlaceList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    appState = AppState.of(context);
+    appState = AppModel.of<AppState>(context);
     return Column(
       children: <Widget>[
         _ListCategoryButtonBar(
           selectedCategory: appState.selectedCategory,
-          onCategoryChanged: (value) => _onCategoryChanged(value),
+          onCategoryChanged: (value) => _onCategoryChanged(value, context),
         ),
         Expanded(
           child: ListView(
@@ -56,7 +49,7 @@ class PlaceList extends StatelessWidget {
               .where((Place place) => place.category == appState.selectedCategory)
               .map((Place place) => _PlaceListTile(
                   place: place,
-                  onPlaceChanged: (Place value) => _onPlaceChanged(value),
+                  onPlaceChanged: (Place value) => _onPlaceChanged(value, context),
                 )
               ).toList(),
           ),

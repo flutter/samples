@@ -23,34 +23,22 @@ class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: (BuildContext context, Widget child) {
-        return PlaceTrackerAppModel(
-            state: appState,
+        return AppModel<AppState>(
+            initialState: AppState(),
             child: child
         );
       },
-      home: _PlaceTrackerHomePage(
-        onChanged: (AppState newAppState) {
-          setState(() {
-            appState = newAppState;
-          });
-        },
-      ),
+      home: _PlaceTrackerHomePage(),
     );
   }
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
-  const _PlaceTrackerHomePage({
-    Key key,
-    this.onChanged,
-  }) : assert(onChanged != null),
-       super(key: key);
-
-  final ValueChanged<AppState> onChanged;
+  const _PlaceTrackerHomePage({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final AppState appState = AppState.of(context);
+    final AppState appState = AppModel.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -75,8 +63,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
                   size: 32.0
               ),
               onPressed: () {
-                onChanged(
-                  AppState(
+                AppModel.update<AppState>(context, AppState(
                     places: appState.places,
                     selectedCategory: appState.selectedCategory,
                     viewType: appState.viewType == PlaceTrackerViewType.map
@@ -92,13 +79,8 @@ class _PlaceTrackerHomePage extends StatelessWidget {
       body: IndexedStack(
         index: appState.viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: <Widget>[
-          PlaceMap(
-            center: const LatLng(45.521563, -122.677433),
-            onChanged: (AppState value) => onChanged(value),
-          ),
-          PlaceList(
-            onChanged: (AppState value) => onChanged(value),
-          ),
+          PlaceMap(center: const LatLng(45.521563, -122.677433)),
+          PlaceList(),
         ],
       ),
     );
@@ -131,23 +113,69 @@ class AppState {
 
   @override
   int get hashCode => places.hashCode;
+}
 
-  static AppState of(BuildContext context) {
-    final PlaceTrackerAppModel model = context.inheritFromWidgetOfExactType(PlaceTrackerAppModel);
-    return model.state;
+class _AppModelScope<T> extends InheritedWidget {
+  const _AppModelScope({
+    Key key,
+    this.appModelState,
+    Widget child
+  }) : super(key: key, child: child);
+
+  final _AppModelState<T> appModelState;
+
+  @override
+  bool updateShouldNotify(_AppModelScope oldWidget) => true;
+}
+
+class AppModel<T> extends StatefulWidget {
+  AppModel({
+    Key key,
+    @required this.initialState,
+    this.child,
+  }) : assert(initialState != null),
+       super(key: key);
+
+  final T initialState;
+  final Widget child;
+
+  _AppModelState<T> createState() => _AppModelState<T>();
+
+  static T of<T>(BuildContext context) {
+    final ofType = _AppModelScope<T>();
+    final _AppModelScope<dynamic> scope = context.inheritFromWidgetOfExactType(ofType.runtimeType);
+    return scope.appModelState.currentState;
+  }
+
+  static void update<T>(BuildContext context, T newState) {
+    final ofType = _AppModelScope<T>();
+    final _AppModelScope<dynamic> scope = context.inheritFromWidgetOfExactType(ofType.runtimeType);
+    scope.appModelState.updateState(newState);
   }
 }
 
-class PlaceTrackerAppModel extends InheritedWidget {
-  PlaceTrackerAppModel({
-    Key key,
-    this.state = const AppState(),
-    Widget child,
-  }) : assert(state != null),
-        super(key: key, child: child);
+class _AppModelState<T> extends State<AppModel<T>> {
+  @override
+  void initState() {
+    super.initState();
+    currentState = widget.initialState;
+  }
 
-  final AppState state;
+  T currentState;
+
+  void updateState(T newState) {
+    if (newState != currentState) {
+      setState(() {
+        currentState = newState;
+      });
+    }
+  }
 
   @override
-  bool updateShouldNotify(PlaceTrackerAppModel oldWidget) => state != oldWidget.state;
+  Widget build(BuildContext context) {
+    return _AppModelScope<T>(
+      appModelState: this,
+      child: widget.child,
+    );
+  }
 }

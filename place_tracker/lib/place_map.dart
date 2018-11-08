@@ -12,11 +12,9 @@ class PlaceMap extends StatefulWidget {
   const PlaceMap({
     Key key,
     this.center,
-    this.onChanged,
   }) : super(key: key);
 
   final LatLng center;
-  final ValueChanged<AppState> onChanged;
 
   @override
   PlaceMapState createState() => PlaceMapState();
@@ -48,7 +46,8 @@ class PlaceMapState extends State<PlaceMap> {
   GoogleMapController mapController;
   Map<Marker, Place> _markedPlaces = Map<Marker, Place>();
   Marker _pendingMarker;
-  AppState appState;
+  AppState _appState;
+  MapConfiguration _configuration;
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
@@ -56,14 +55,12 @@ class PlaceMapState extends State<PlaceMap> {
 
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
-    final Map<Marker, Place> places = await _markPlaces(appState.places);
-    _zoomToFitPlaces(_getPlacesForCategory(appState.selectedCategory, places.values.toList()));
+    final Map<Marker, Place> places = await _markPlaces();
+    _zoomToFitPlaces(_getPlacesForCategory(_appState.selectedCategory, places.values.toList()));
   }
 
-  Future<Map<Marker, Place>> _markPlaces(List<Place> places) async {
-    await mapController.clearMarkers();
-    _markedPlaces.clear();
-    await Future.wait(places.map((Place place) => _markPlace(place)));
+  Future<Map<Marker, Place>> _markPlaces() async {
+    await Future.wait(_appState.places.map((Place place) => _markPlace(place)));
     return _markedPlaces;
   }
 
@@ -76,56 +73,94 @@ class PlaceMapState extends State<PlaceMap> {
           place.name,
           '${place.starRating} Star Rating',
         ),
-        visible: place.category == appState.selectedCategory,
+        visible: place.category == _appState.selectedCategory,
       ),
     );
     _markedPlaces[marker] = place;
   }
 
-  void _onInfoWindowTapped(Marker marker) async {
-    _pushPlaceDetailsScreen(marker);
+  void _onInfoWindowTapped(Marker marker) {
+    _pushPlaceDetailsScreen(_markedPlaces[marker]);
   }
 
-  Future<void> _pushPlaceDetailsScreen(Marker marker) async {
-    assert(marker != null);
+  void _pushPlaceDetailsScreen(Place place) {
+    assert(place != null);
 
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
         return PlaceDetails(
-          place: _markedPlaces[marker],
+          place: place,
           onChanged: (Place value) => _onPlaceChanged(value),
         );
       }),
     );
   }
 
-  void _onPlaceChanged(Place value) async {
-    // Remove the old place and add the updated one.
-    List<Place> newPlaces = List.from(appState.places);
+  void _onPlaceChanged(Place value) {
+    // Replace the place in the AppState list with the modified one.
+    List<Place> newPlaces = List.from(_appState.places);
     int index = newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
-    widget.onChanged(AppState(
+    _updateExistingPlaceMarker(place: value);
+
+    // Manually update our map configuration here since our map is already
+    // updated with the new marker. Otherwise, the map would be reconfigured
+    // in the main build method due to a modified AppState.
+    _configuration = MapConfiguration(
       places: newPlaces,
-      selectedCategory: appState.selectedCategory,
-      viewType: appState.viewType,
+      selectedCategory: _appState.selectedCategory,
+    );
+
+    AppModel.update<AppState>(context, AppState(
+      places: newPlaces,
+      selectedCategory: _appState.selectedCategory,
+      viewType: _appState.viewType,
     ));
-
-    _markPlaces(newPlaces);
   }
 
-  Future<void> updateMarkerVisibility() {
+  void _updateExistingPlaceMarker({@required Place place}) async {
+    Marker marker =
+    _markedPlaces.keys.singleWhere(
+            (Marker value) => _markedPlaces[value].id == place.id);
 
+    // Set marker visibility to false to ensure the info window is hidden. Once
+    // the plugin fully supports the Google Maps API, use hideInfoWindow()
+    // instead.
+    await mapController.updateMarker(
+      marker,
+      MarkerOptions(
+        visible: false,
+      ),
+    );
+    await mapController.updateMarker(
+      marker,
+      MarkerOptions(
+        infoWindowText: InfoWindowText(
+          place.name,
+          place.starRating != 0
+              ? '${place.starRating} Star Rating'
+              : null,
+        ),
+        visible: true,
+      ),
+    );
+
+    _markedPlaces[marker] = place;
   }
 
-  void _switchSelectedCategory(PlaceCategory category) async {
-    widget.onChanged(AppState(
-      places: appState.places,
+  void _switchSelectedCategory(PlaceCategory category) {
+    AppModel.update<AppState>(context, AppState(
+      places: _appState.places,
       selectedCategory: category,
-      viewType: appState.viewType,
+      viewType: _appState.viewType,
     ));
 
+    _showPlacesForSelectedCategory(category);
+  }
+
+  void _showPlacesForSelectedCategory(PlaceCategory category) async {
     await _markedPlaces.forEach((Marker marker, Place place) {
       mapController.updateMarker(
         marker,
@@ -183,16 +218,22 @@ class PlaceMapState extends State<PlaceMap> {
       await mapController.updateMarker(
         _pendingMarker,
         MarkerOptions(
-          icon: _getPlaceMarkerIcon(appState.selectedCategory),
+          icon: _getPlaceMarkerIcon(_appState.selectedCategory),
           infoWindowText: InfoWindowText('New Place', null),
           draggable: false,
         ),
       );
 
-      // Store a reference to the new marker so that we can pass it to the
-      // snackbar action. We cannot pass [_pendingMarker] since it will get
-      // reset to null.
-      Marker newMarker = _pendingMarker;
+      // Create a new Place and map it to the marker we just added.
+      Place newPlace = Place(
+        id: Uuid().v1(),
+        latLng: _pendingMarker.options.position,
+        name: _pendingMarker.options.infoWindowText.title,
+        category: _appState.selectedCategory,
+      );
+      _markedPlaces[_pendingMarker] = newPlace;
+
+      // Show a confirmation snackbar that has an action to edit the new place.
       Scaffold.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
@@ -203,29 +244,28 @@ class PlaceMapState extends State<PlaceMap> {
           action: SnackBarAction(
             label: 'Edit',
             onPressed: () async {
-              _pushPlaceDetailsScreen(newMarker);
+              _pushPlaceDetailsScreen(newPlace);
             },
           ),
         ),
       );
 
-      // Create a new Place and map it to the marker we just added.
-      Place newPlace = Place(
-        id: Uuid().v1(),
-        latLng: _pendingMarker.options.position,
-        name: _pendingMarker.options.infoWindowText.title,
-        category: appState.selectedCategory,
-      );
-      _markedPlaces[newMarker] = newPlace;
-
       // Add the new place to the places stored in appState.
-      List<Place> newPlaces = List.from(appState.places)
+      List<Place> newPlaces = List.from(_appState.places)
         ..add(newPlace);
 
-      widget.onChanged(AppState(
+      // Manually update our map configuration here since our map is already
+      // updated with the new marker. Otherwise, the map would be reconfigured
+      // in the main build method due to a modified AppState.
+      _configuration = MapConfiguration(
         places: newPlaces,
-        selectedCategory: appState.selectedCategory,
-        viewType: appState.viewType,
+        selectedCategory: _appState.selectedCategory,
+      );
+
+      AppModel.update<AppState>(context, AppState(
+        places: newPlaces,
+        selectedCategory: _appState.selectedCategory,
+        viewType: _appState.viewType,
       ));
 
       setState(() {
@@ -252,14 +292,45 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  Future<void> redrawForCategory(PlaceCategory category) async {
-    final Map<Marker, Place> places = await _markPlaces(appState.places);
-    _zoomToFitPlaces(_getPlacesForCategory(category, places.values.toList()));
+  void _maybeUpdateMapConfiguration() async {
+    _configuration ??= MapConfiguration.of(_appState);
+    MapConfiguration newConfiguration = MapConfiguration.of(_appState);
+
+    // Since we manually update [_configuration] when place or selectedCategory
+    // changes come from the [place_map], we should only enter this if statement
+    // when returning to the [place_map] after changes have been made from
+    // [place_list].
+    if (_configuration != newConfiguration && mapController != null) {
+      if (_configuration.places == newConfiguration.places
+          && _configuration.selectedCategory != newConfiguration.selectedCategory) {
+        // If the configuration change is only a category change, just update
+        // the marker visibilities.
+        _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
+      } else {
+        // At this point, we know the places have been updated from the list view.
+        // We need to reconfigure the map to respect the updates.
+        await newConfiguration.places.forEach((Place value) {
+          if (!_configuration.places.contains(value)) {
+            _updateExistingPlaceMarker(place: value);
+          }
+        });
+        _zoomToFitPlaces(
+          _getPlacesForCategory(
+            newConfiguration.selectedCategory,
+            newConfiguration.places,
+          ),
+        );
+      }
+      _configuration = newConfiguration;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    appState = AppState.of(context);
+    _appState = AppModel.of<AppState>(context);
+
+    _maybeUpdateMapConfiguration();
+
     return Builder(builder: (BuildContext context) {
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
@@ -279,7 +350,7 @@ class PlaceMapState extends State<PlaceMap> {
               ),
             ),
             _CategoryButtonBar(
-              selectedPlaceCategory: appState.selectedCategory,
+              selectedPlaceCategory: _appState.selectedCategory,
               visible: _pendingMarker == null,
               onChanged: _switchSelectedCategory,
             ),
@@ -453,6 +524,35 @@ class _MapFabs extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MapConfiguration {
+  const MapConfiguration({
+    @required this.places,
+    @required this.selectedCategory,
+  }) : assert(places != null),
+       assert(selectedCategory != null);
+
+  final List<Place> places;
+  final PlaceCategory selectedCategory;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other))
+      return true;
+    if (other.runtimeType != runtimeType)
+      return false;
+    final MapConfiguration otherConfiguration = other;
+    return otherConfiguration.places == places
+        && otherConfiguration.selectedCategory == selectedCategory;
+  }
+
+  static MapConfiguration of(AppState appState) {
+    return MapConfiguration(
+      places: appState.places,
+      selectedCategory: appState.selectedCategory,
     );
   }
 }
