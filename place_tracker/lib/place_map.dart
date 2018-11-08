@@ -4,22 +4,19 @@ import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
-import 'stub_data.dart';
 import 'place_details.dart';
-import 'place_list.dart';
-
-enum PlaceTrackerViewType {
-  map,
-  list,
-}
+import 'place_tracker_app.dart';
+import 'package:uuid/uuid.dart';
 
 class PlaceMap extends StatefulWidget {
   const PlaceMap({
     Key key,
     this.center,
+    this.onChanged,
   }) : super(key: key);
 
   final LatLng center;
+  final ValueChanged<AppState> onChanged;
 
   @override
   PlaceMapState createState() => PlaceMapState();
@@ -44,31 +41,33 @@ class PlaceMapState extends State<PlaceMap> {
     return BitmapDescriptor.defaultMarkerWithHue(markerHue);
   }
 
-  static List<Place> _getPlacesForCategory(PlaceCategory category, Map<Marker, Place> places) {
-    return places.values.where((Place place) => place.category == category).toList();
+  static List<Place> _getPlacesForCategory(PlaceCategory category, List<Place> places) {
+    return places.where((Place place) => place.category == category).toList();
   }
 
   GoogleMapController mapController;
+  Map<Marker, Place> _markedPlaces = Map<Marker, Place>();
   Marker _pendingMarker;
-  Map<Marker, Place> _places = Map<Marker, Place>();
-  PlaceCategory _selectedPlaceCategory = PlaceCategory.favorite;
-  PlaceTrackerViewType viewType = PlaceTrackerViewType.map;
+  AppState appState;
 
   void onMapCreated(GoogleMapController controller) async {
     mapController = controller;
     mapController.onInfoWindowTapped.add(_onInfoWindowTapped);
 
-    // Add stub data on creation so we have something interesting to look at.
-    final Map<Marker, Place> places = await _initializeStubPlaces();
-    _zoomToFitPlaces(_getPlacesForCategory(_selectedPlaceCategory, places));
+    // Draw initial place markers on creation so that we have something
+    // interesting to look at.
+    final Map<Marker, Place> places = await _markPlaces(appState.places);
+    _zoomToFitPlaces(_getPlacesForCategory(appState.selectedCategory, places.values.toList()));
   }
 
-  Future<Map<Marker, Place>> _initializeStubPlaces() async {
-    await Future.wait(StubData.places.map((Place place) => _initializeStubPlace(place)));
-    return _places;
+  Future<Map<Marker, Place>> _markPlaces(List<Place> places) async {
+    await mapController.clearMarkers();
+    _markedPlaces.clear();
+    await Future.wait(places.map((Place place) => _markPlace(place)));
+    return _markedPlaces;
   }
 
-  Future<void> _initializeStubPlace(Place place) async {
+  Future<void> _markPlace(Place place) async {
     final Marker marker = await mapController.addMarker(
       MarkerOptions(
         position: place.latLng,
@@ -77,10 +76,10 @@ class PlaceMapState extends State<PlaceMap> {
           place.name,
           '${place.starRating} Star Rating',
         ),
-        visible: place.category == _selectedPlaceCategory,
+        visible: place.category == appState.selectedCategory,
       ),
     );
-    _places[marker] = place;
+    _markedPlaces[marker] = place;
   }
 
   void _onInfoWindowTapped(Marker marker) async {
@@ -94,58 +93,48 @@ class PlaceMapState extends State<PlaceMap> {
       context,
       MaterialPageRoute(builder: (context) {
         return PlaceDetails(
-          place: _places[marker],
-          onChanged: (Place value) {
-            _updatePlaceAndMarker(value, marker);
-          },
+          place: _markedPlaces[marker],
+          onChanged: (Place value) => _onPlaceChanged(value),
         );
       }),
     );
   }
 
-  Future<void> _updatePlaceAndMarker(Place place, Marker marker) async {
-    _places[marker] = place;
+  void _onPlaceChanged(Place value) async {
+    // Remove the old place and add the updated one.
+    List<Place> newPlaces = List.from(appState.places);
+    int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+    newPlaces[index] = value;
 
-    // Set marker visibility to false to ensure the info window is hidden. Once
-    // the plugin fully supports the Google Maps API, use hideInfoWindow()
-    // instead.
-    await mapController.updateMarker(
-      marker,
-      MarkerOptions(
-        visible: false,
-      ),
-    );
-    await mapController.updateMarker(
-      marker,
-      MarkerOptions(
-        infoWindowText: InfoWindowText(
-          place.name,
-          place.starRating != 0
-            ? '${place.starRating} Star Rating'
-            : null,
-        ),
-        visible: true,
-      ),
-    );
+    widget.onChanged(AppState(
+      places: newPlaces,
+      selectedCategory: appState.selectedCategory,
+      viewType: appState.viewType,
+    ));
+
+    _markPlaces(newPlaces);
   }
 
-  void _updateDisplayedPlaces(PlaceCategory category) {
-    setState(() {
-      _selectedPlaceCategory = category;
-      _showPlacesForSelectedCategory();
-    });
+  Future<void> updateMarkerVisibility() {
+
   }
 
-  void _showPlacesForSelectedCategory() {
-    _places.forEach((Marker marker, Place place) {
+  void _switchSelectedCategory(PlaceCategory category) async {
+    widget.onChanged(AppState(
+      places: appState.places,
+      selectedCategory: category,
+      viewType: appState.viewType,
+    ));
+
+    await _markedPlaces.forEach((Marker marker, Place place) {
       mapController.updateMarker(
         marker,
         MarkerOptions(
-          visible: place.category == _selectedPlaceCategory,
+          visible: place.category == category,
         ),
       );
     });
-    _zoomToFitPlaces(_getPlacesForCategory(_selectedPlaceCategory, _places));
+    _zoomToFitPlaces(_getPlacesForCategory(category, _markedPlaces.values.toList()));
   }
 
   void _zoomToFitPlaces(List<Place> places) {
@@ -194,7 +183,7 @@ class PlaceMapState extends State<PlaceMap> {
       await mapController.updateMarker(
         _pendingMarker,
         MarkerOptions(
-          icon: _getPlaceMarkerIcon(_selectedPlaceCategory),
+          icon: _getPlaceMarkerIcon(appState.selectedCategory),
           infoWindowText: InfoWindowText('New Place', null),
           draggable: false,
         ),
@@ -220,13 +209,26 @@ class PlaceMapState extends State<PlaceMap> {
         ),
       );
 
+      // Create a new Place and map it to the marker we just added.
+      Place newPlace = Place(
+        id: Uuid().v1(),
+        latLng: _pendingMarker.options.position,
+        name: _pendingMarker.options.infoWindowText.title,
+        category: appState.selectedCategory,
+      );
+      _markedPlaces[newMarker] = newPlace;
+
+      // Add the new place to the places stored in appState.
+      List<Place> newPlaces = List.from(appState.places)
+        ..add(newPlace);
+
+      widget.onChanged(AppState(
+        places: newPlaces,
+        selectedCategory: appState.selectedCategory,
+        viewType: appState.viewType,
+      ));
+
       setState(() {
-        // Create a new Place and map it to the marker we just added.
-        _places[_pendingMarker] = Place(
-          latLng: _pendingMarker.options.position,
-          name: _pendingMarker.options.infoWindowText.title,
-          category: _selectedPlaceCategory,
-        );
         _pendingMarker = null;
       });
     }
@@ -250,21 +252,14 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  void _switchViewType() {
-    switch (viewType) {
-      case PlaceTrackerViewType.map:
-        setState(() {
-          viewType = PlaceTrackerViewType.list;
-        });
-        break;
-      case PlaceTrackerViewType.list:
-        setState(() {
-          viewType = PlaceTrackerViewType.map;
-        });
-    }
+  Future<void> redrawForCategory(PlaceCategory category) async {
+    final Map<Marker, Place> places = await _markPlaces(appState.places);
+    _zoomToFitPlaces(_getPlacesForCategory(category, places.values.toList()));
   }
 
-  Widget _placeMap() {
+  @override
+  Widget build(BuildContext context) {
+    appState = AppState.of(context);
     return Builder(builder: (BuildContext context) {
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
@@ -284,9 +279,9 @@ class PlaceMapState extends State<PlaceMap> {
               ),
             ),
             _CategoryButtonBar(
-              selectedPlaceCategory: _selectedPlaceCategory,
+              selectedPlaceCategory: appState.selectedCategory,
               visible: _pendingMarker == null,
-              onChanged: _updateDisplayedPlaces,
+              onChanged: _switchSelectedCategory,
             ),
             _AddPlaceButtonBar(
               visible: _pendingMarker != null,
@@ -302,54 +297,6 @@ class PlaceMapState extends State<PlaceMap> {
         ),
       );
     });
-  }
-
-  Widget _placeList() {
-    return PlaceList(
-      places: _getPlacesForCategory(_selectedPlaceCategory, _places),
-      selectedCategory: _selectedPlaceCategory,
-      onCategoryChanged: (value) => _updateDisplayedPlaces(value),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
-              child: Icon(Icons.pin_drop, size: 24.0),
-            ),
-            Text('Place Tracker'),
-          ],
-        ),
-        backgroundColor: Colors.green[700],
-        actions: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
-            child: IconButton(
-              icon: Icon(
-                viewType == PlaceTrackerViewType.map
-                    ? Icons.list
-                    : Icons.map,
-                size: 32.0
-              ),
-              onPressed: _switchViewType,
-            ),
-          ),
-        ],
-      ),
-      body: IndexedStack(
-        index: viewType == PlaceTrackerViewType.map ? 0 : 1,
-        children: <Widget>[
-          _placeMap(),
-          _placeList(),
-        ],
-      ),
-    );
   }
 }
 

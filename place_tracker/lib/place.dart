@@ -9,16 +9,19 @@ enum PlaceCategory {
 
 class Place {
   const Place({
+    @required this.id,
     @required this.latLng,
     @required this.name,
     @required this.category,
     this.description,
     this.starRating = 0,
-  }) : assert(latLng != null),
+  }) : assert(id != null),
+       assert(latLng != null),
        assert(name != null),
        assert(category != null),
        assert(starRating != null && starRating >= 0 && starRating <= 5);
 
+  final String id;
   final LatLng latLng;
   final String name;
   final PlaceCategory category;
@@ -29,6 +32,7 @@ class Place {
   double get longitude => latLng.longitude;
 
   Place copyWith({
+    String id,
     LatLng latLng,
     String name,
     PlaceCategory category,
@@ -36,6 +40,7 @@ class Place {
     int starRating,
   }) {
     return Place(
+        id: id ?? this.id,
         latLng: latLng ?? this.latLng,
         name: name ?? this.name,
         category: category ?? this.category,

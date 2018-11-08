@@ -1,41 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'place.dart';
 import 'place_details.dart';
+import 'place_tracker_app.dart';
 
-class PlaceList extends StatefulWidget {
-  const PlaceList({
-    @required this.places,
-    @required this.selectedCategory,
-    @required this.onCategoryChanged,
+class PlaceList extends StatelessWidget {
+  PlaceList({
+    @required this.onChanged,
     Key key,
-  }) : assert(places != null),
+  }) : assert(onChanged != null),
         super(key: key);
 
-  final List<Place> places;
-  final PlaceCategory selectedCategory;
-  final ValueChanged<PlaceCategory> onCategoryChanged;
-
-  @override
-  PlaceListState createState() => PlaceListState();
-}
-
-class PlaceListState extends State<PlaceList> {
+  final ValueChanged<AppState> onChanged;
 
   ScrollController _scrollController = ScrollController();
+  AppState appState;
 
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
-    widget.onCategoryChanged(newCategory);
+    onChanged(AppState(
+      places: appState.places,
+      selectedCategory: newCategory,
+      viewType: appState.viewType,
+    ));
+  }
+
+  void _onPlaceChanged(Place value) {
+    // Remove the old place and add the updated one.
+    List<Place> newPlaces = List.from(appState.places);
+    int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+    newPlaces[index] = value;
+
+    onChanged(AppState(
+      places: newPlaces,
+      selectedCategory: appState.selectedCategory,
+      viewType: appState.viewType,
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    appState = AppState.of(context);
     return Column(
       children: <Widget>[
         _ListCategoryButtonBar(
-          selectedCategory: widget.selectedCategory,
+          selectedCategory: appState.selectedCategory,
           onCategoryChanged: (value) => _onCategoryChanged(value),
         ),
         Expanded(
@@ -43,10 +52,16 @@ class PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: widget.places.map((Place place) => _PlaceListTile(place: place)).toList(),
+            children: appState.places
+              .where((Place place) => place.category == appState.selectedCategory)
+              .map((Place place) => _PlaceListTile(
+                  place: place,
+                  onPlaceChanged: (Place value) => _onPlaceChanged(value),
+                )
+              ).toList(),
           ),
         ),
-      ],
+      ]
     );
   }
 }
@@ -54,11 +69,14 @@ class PlaceListState extends State<PlaceList> {
 class _PlaceListTile extends StatelessWidget {
   const _PlaceListTile({
     Key key,
-    @required this.place
+    @required this.place,
+    @required this.onPlaceChanged,
   }) : assert(place != null),
+       assert(onPlaceChanged != null),
         super(key: key);
 
   final Place place;
+  final ValueChanged<Place> onPlaceChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +86,7 @@ class _PlaceListTile extends StatelessWidget {
         MaterialPageRoute(builder: (context) {
           return PlaceDetails(
             place: place,
-            onChanged: (Place value) {
-              print('place changed');
-            },
+            onChanged: (Place value) => onPlaceChanged(value),
           );
         }),
       ),
