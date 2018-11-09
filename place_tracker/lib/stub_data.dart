@@ -1,12 +1,11 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:uuid/uuid.dart';
 
 import 'place.dart';
 
 class StubData {
   static const List<Place> places = [
     Place(
-      id: "1",
+      id: '1',
       latLng: LatLng(45.524676, -122.681922),
       name: 'Deschutes Brewery',
       description:
@@ -15,7 +14,7 @@ class StubData {
       starRating: 5,
     ),
     Place(
-      id: "2",
+      id: '2',
       latLng: LatLng(45.516887, -122.675417),
       name: 'Luc Lac Vietnamese Kitchen',
       description: 'Popular counter-serve offering pho, banh mi & other Vietnamese favorites in a stylish setting.',
@@ -23,7 +22,7 @@ class StubData {
       starRating: 5,
     ),
     Place(
-      id: "3",
+      id: '3',
       latLng: LatLng(45.528952, -122.698344),
       name: 'Salt & Straw',
       description:
@@ -32,7 +31,7 @@ class StubData {
       starRating: 5,
     ),
     Place(
-      id: "4",
+      id: '4',
       latLng: LatLng(45.525253, -122.684423),
       name: 'TILT',
       description:
@@ -41,7 +40,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "5",
+      id: '5',
       latLng: LatLng(45.513485, -122.657982),
       name: 'White Owl Social Club',
       description:
@@ -50,7 +49,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "6",
+      id: '6',
       latLng: LatLng(45.487137, -122.799940),
       name: 'Buffalo Wild Wings',
       description:
@@ -59,7 +58,7 @@ class StubData {
       starRating: 5,
     ),
     Place(
-      id: "7",
+      id: '7',
       latLng: LatLng(45.416986, -122.743171),
       name: 'Chevys',
       description:
@@ -68,7 +67,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "8",
+      id: '8',
       latLng: LatLng(45.430489, -122.831802),
       name: 'Cinetopia',
       description:
@@ -77,7 +76,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "9",
+      id: '9',
       latLng: LatLng(45.383030, -122.758372),
       name: 'Thai Cuisine',
       description:
@@ -86,7 +85,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "10",
+      id: '10',
       latLng: LatLng(45.493321, -122.669330),
       name: 'The Old Spaghetti Factory',
       description:
@@ -95,7 +94,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "11",
+      id: '11',
       latLng: LatLng(45.548606, -122.675286),
       name: 'Mississippi Pizza',
       description:
@@ -104,7 +103,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "12",
+      id: '12',
       latLng: LatLng(45.420226, -122.740347),
       name: 'Oswego Grill',
       description:
@@ -113,7 +112,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "13",
+      id: '13',
       latLng: LatLng(45.541202, -122.676432),
       name: 'The Widmer Brothers Brewery',
       description:
@@ -122,7 +121,7 @@ class StubData {
       starRating: 4,
     ),
     Place(
-      id: "14",
+      id: '14',
       latLng: LatLng(45.559783, -122.924103),
       name: 'TopGolf',
       description:
@@ -131,7 +130,7 @@ class StubData {
       starRating: 5,
     ),
     Place(
-      id: "15",
+      id: '15',
       latLng: LatLng(45.485612, -122.784733),
       name: 'Uwajimaya Beaverton',
       description: 'Huge Asian grocery outpost stocking meats, produce & prepared foods plus gifts & home goods.',

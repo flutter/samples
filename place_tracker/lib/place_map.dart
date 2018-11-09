@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'app_state.dart';
 import 'place.dart';
 import 'place_details.dart';
-import 'place_tracker_app.dart';
 import 'package:uuid/uuid.dart';
 
 class PlaceMap extends StatefulWidget {
@@ -46,7 +46,6 @@ class PlaceMapState extends State<PlaceMap> {
   GoogleMapController mapController;
   Map<Marker, Place> _markedPlaces = Map<Marker, Place>();
   Marker _pendingMarker;
-  AppState _appState;
   MapConfiguration _configuration;
 
   void onMapCreated(GoogleMapController controller) async {
@@ -56,11 +55,16 @@ class PlaceMapState extends State<PlaceMap> {
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
     final Map<Marker, Place> places = await _markPlaces();
-    _zoomToFitPlaces(_getPlacesForCategory(_appState.selectedCategory, places.values.toList()));
+    _zoomToFitPlaces(
+      _getPlacesForCategory(
+        AppState.of(context).selectedCategory,
+        places.values.toList(),
+      ),
+    );
   }
 
   Future<Map<Marker, Place>> _markPlaces() async {
-    await Future.wait(_appState.places.map((Place place) => _markPlace(place)));
+    await Future.wait(AppState.of(context).places.map((Place place) => _markPlace(place)));
     return _markedPlaces;
   }
 
@@ -73,7 +77,7 @@ class PlaceMapState extends State<PlaceMap> {
           place.name,
           '${place.starRating} Star Rating',
         ),
-        visible: place.category == _appState.selectedCategory,
+        visible: place.category == AppState.of(context).selectedCategory,
       ),
     );
     _markedPlaces[marker] = place;
@@ -98,9 +102,9 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onPlaceChanged(Place value) {
-    // Replace the place in the AppState list with the modified one.
-    List<Place> newPlaces = List.from(_appState.places);
-    int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+    // Replace the place with the modified version.
+    final List<Place> newPlaces = List.from(AppState.of(context).places);
+    final int index = newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
     _updateExistingPlaceMarker(place: value);
@@ -110,14 +114,10 @@ class PlaceMapState extends State<PlaceMap> {
     // in the main build method due to a modified AppState.
     _configuration = MapConfiguration(
       places: newPlaces,
-      selectedCategory: _appState.selectedCategory,
+      selectedCategory: AppState.of(context).selectedCategory,
     );
 
-    AppModel.update<AppState>(context, AppState(
-      places: newPlaces,
-      selectedCategory: _appState.selectedCategory,
-      viewType: _appState.viewType,
-    ));
+    AppState.updateWith(context, places: newPlaces);
   }
 
   void _updateExistingPlaceMarker({@required Place place}) async {
@@ -151,12 +151,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _switchSelectedCategory(PlaceCategory category) {
-    AppModel.update<AppState>(context, AppState(
-      places: _appState.places,
-      selectedCategory: category,
-      viewType: _appState.viewType,
-    ));
-
+    AppState.updateWith(context, selectedCategory: category);
     _showPlacesForSelectedCategory(category);
   }
 
@@ -218,18 +213,18 @@ class PlaceMapState extends State<PlaceMap> {
       await mapController.updateMarker(
         _pendingMarker,
         MarkerOptions(
-          icon: _getPlaceMarkerIcon(_appState.selectedCategory),
+          icon: _getPlaceMarkerIcon(AppState.of(context).selectedCategory),
           infoWindowText: InfoWindowText('New Place', null),
           draggable: false,
         ),
       );
 
       // Create a new Place and map it to the marker we just added.
-      Place newPlace = Place(
+      final Place newPlace = Place(
         id: Uuid().v1(),
         latLng: _pendingMarker.options.position,
         name: _pendingMarker.options.infoWindowText.title,
-        category: _appState.selectedCategory,
+        category: AppState.of(context).selectedCategory,
       );
       _markedPlaces[_pendingMarker] = newPlace;
 
@@ -251,7 +246,7 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in appState.
-      List<Place> newPlaces = List.from(_appState.places)
+      final List<Place> newPlaces = List.from(AppState.of(context).places)
         ..add(newPlace);
 
       // Manually update our map configuration here since our map is already
@@ -259,14 +254,10 @@ class PlaceMapState extends State<PlaceMap> {
       // in the main build method due to a modified AppState.
       _configuration = MapConfiguration(
         places: newPlaces,
-        selectedCategory: _appState.selectedCategory,
+        selectedCategory: AppState.of(context).selectedCategory,
       );
 
-      AppModel.update<AppState>(context, AppState(
-        places: newPlaces,
-        selectedCategory: _appState.selectedCategory,
-        viewType: _appState.viewType,
-      ));
+      AppState.updateWith(context, places: newPlaces);
 
       setState(() {
         _pendingMarker = null;
@@ -293,8 +284,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _maybeUpdateMapConfiguration() async {
-    _configuration ??= MapConfiguration.of(_appState);
-    MapConfiguration newConfiguration = MapConfiguration.of(_appState);
+    _configuration ??= MapConfiguration.of(AppState.of(context));
+    final MapConfiguration newConfiguration = MapConfiguration.of(AppState.of(context));
 
     // Since we manually update [_configuration] when place or selectedCategory
     // changes come from the [place_map], we should only enter this if statement
@@ -327,8 +318,6 @@ class PlaceMapState extends State<PlaceMap> {
 
   @override
   Widget build(BuildContext context) {
-    _appState = AppModel.of<AppState>(context);
-
     _maybeUpdateMapConfiguration();
 
     return Builder(builder: (BuildContext context) {
@@ -350,7 +339,7 @@ class PlaceMapState extends State<PlaceMap> {
               ),
             ),
             _CategoryButtonBar(
-              selectedPlaceCategory: _appState.selectedCategory,
+              selectedPlaceCategory: AppState.of(context).selectedCategory,
               visible: _pendingMarker == null,
               onChanged: _switchSelectedCategory,
             ),

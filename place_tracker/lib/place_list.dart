@@ -1,55 +1,51 @@
 import 'package:flutter/material.dart';
 
+import 'app_state.dart';
 import 'place.dart';
 import 'place_details.dart';
-import 'place_tracker_app.dart';
 
-class PlaceList extends StatelessWidget {
+class PlaceList extends StatefulWidget {
+  const PlaceList({ Key key }) : super(key: key);
 
+  @override
+  PlaceListState createState() => PlaceListState();
+}
+
+class PlaceListState extends State<PlaceList> {
   ScrollController _scrollController = ScrollController();
-  AppState appState;
 
-  void _onCategoryChanged(PlaceCategory newCategory, BuildContext context) {
+  void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
-    AppModel.update<AppState>(context, AppState(
-      places: appState.places,
-      selectedCategory: newCategory,
-      viewType: appState.viewType,
-    ));
+    AppState.updateWith(context, selectedCategory: newCategory);
   }
 
-  void _onPlaceChanged(Place value, BuildContext context) {
-    // Remove the old place and add the updated one.
-    List<Place> newPlaces = List.from(appState.places);
-    int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+  void _onPlaceChanged(Place value) {
+    // Replace the place with the modified version.
+    final List<Place> newPlaces = List.from(AppState.of(context).places);
+    final int index = newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
-    AppModel.update<AppState>(context, AppState(
-      places: newPlaces,
-      selectedCategory: appState.selectedCategory,
-      viewType: appState.viewType,
-    ));
+    AppState.updateWith(context, places: newPlaces);
   }
 
   @override
   Widget build(BuildContext context) {
-    appState = AppModel.of<AppState>(context);
     return Column(
       children: <Widget>[
         _ListCategoryButtonBar(
-          selectedCategory: appState.selectedCategory,
-          onCategoryChanged: (value) => _onCategoryChanged(value, context),
+          selectedCategory: AppState.of(context).selectedCategory,
+          onCategoryChanged: (value) => _onCategoryChanged(value),
         ),
         Expanded(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: appState.places
-              .where((Place place) => place.category == appState.selectedCategory)
+            children: AppState.of(context).places
+              .where((Place place) => place.category == AppState.of(context).selectedCategory)
               .map((Place place) => _PlaceListTile(
                   place: place,
-                  onPlaceChanged: (Place value) => _onPlaceChanged(value, context),
+                  onPlaceChanged: (Place value) => _onPlaceChanged(value),
                 )
               ).toList(),
           ),
@@ -66,7 +62,7 @@ class _PlaceListTile extends StatelessWidget {
     @required this.onPlaceChanged,
   }) : assert(place != null),
        assert(onPlaceChanged != null),
-        super(key: key);
+       super(key: key);
 
   final Place place;
   final ValueChanged<Place> onPlaceChanged;
@@ -125,18 +121,55 @@ class _PlaceListTile extends StatelessWidget {
 
 class _ListCategoryButtonBar extends StatelessWidget {
   const _ListCategoryButtonBar({
+    Key key,
     @required this.selectedCategory,
     @required this.onCategoryChanged,
-    Key key,
-  })
-      : assert(selectedCategory != null),
-        assert(onCategoryChanged != null),
-        super(key: key);
+  }) : assert(selectedCategory != null),
+       assert(onCategoryChanged != null),
+       super(key: key);
 
   final PlaceCategory selectedCategory;
   final ValueChanged<PlaceCategory> onCategoryChanged;
 
-  Widget _buildButtonForCategory(PlaceCategory category) {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _CategoryButton(
+          category: PlaceCategory.favorite,
+          selected: selectedCategory == PlaceCategory.favorite,
+          onCategoryChanged: onCategoryChanged,
+        ),_CategoryButton(
+          category: PlaceCategory.visited,
+          selected: selectedCategory == PlaceCategory.visited,
+          onCategoryChanged: onCategoryChanged,
+        ),_CategoryButton(
+          category: PlaceCategory.wantToGo,
+          selected: selectedCategory == PlaceCategory.wantToGo,
+          onCategoryChanged: onCategoryChanged,
+        ),
+      ],
+    );
+  }
+}
+
+class _CategoryButton extends StatelessWidget {
+  const _CategoryButton({
+    Key key,
+    @required this.category,
+    @required this.selected,
+    @required this.onCategoryChanged,
+  }) : assert(category != null),
+       assert(selected != null),
+       super(key: key);
+
+  final PlaceCategory category;
+  final bool selected;
+  final ValueChanged<PlaceCategory> onCategoryChanged;
+
+  @override
+  Widget build(BuildContext context) {
     String _buttonText;
     switch (category) {
       case PlaceCategory.favorite:
@@ -154,7 +187,7 @@ class _ListCategoryButtonBar extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: selectedCategory == category ? Colors.blue : Colors.transparent,
+            color: selected ? Colors.blue : Colors.transparent,
           ),
         ),
       ),
@@ -164,25 +197,13 @@ class _ListCategoryButtonBar extends StatelessWidget {
           child: Text(
             _buttonText,
             style: TextStyle(
-              fontSize: selectedCategory == category ? 20.0 : 18.0,
-              color: selectedCategory == category ? Colors.blue : Colors.black87,
+              fontSize: selected ? 20.0 : 18.0,
+              color: selected ? Colors.blue : Colors.black87,
             ),
           ),
           onPressed: () => onCategoryChanged(category),
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        _buildButtonForCategory(PlaceCategory.favorite),
-        _buildButtonForCategory(PlaceCategory.visited),
-        _buildButtonForCategory(PlaceCategory.wantToGo),
-      ],
     );
   }
 }
