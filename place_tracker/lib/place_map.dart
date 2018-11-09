@@ -22,20 +22,17 @@ class PlaceMap extends StatefulWidget {
 class PlaceMapState extends State<PlaceMap> {
 
   static BitmapDescriptor _getPlaceMarkerIcon(PlaceCategory category) {
-    // TODO(kenzieschmoll): use custom marker assets.
-    double markerHue;
     switch (category) {
       case PlaceCategory.favorite:
-        markerHue = BitmapDescriptor.hueRed;
+        return BitmapDescriptor.fromAsset('assets/heart.png');
         break;
       case PlaceCategory.visited:
-        markerHue = BitmapDescriptor.hueViolet;
+        return BitmapDescriptor.fromAsset('assets/visited.png');
         break;
       case PlaceCategory.wantToGo:
       default:
-        markerHue = BitmapDescriptor.hueAzure;
+        return BitmapDescriptor.defaultMarker;
     }
-    return BitmapDescriptor.defaultMarkerWithHue(markerHue);
   }
 
   static List<Place> _getPlacesForCategory(PlaceCategory category, Map<Marker, Place> places) {
