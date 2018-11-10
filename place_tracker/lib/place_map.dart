@@ -2,11 +2,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:uuid/uuid.dart';
 
-import 'app_state.dart';
 import 'place.dart';
 import 'place_details.dart';
-import 'package:uuid/uuid.dart';
+import 'place_tracker_app.dart';
 
 class PlaceMap extends StatefulWidget {
   const PlaceMap({

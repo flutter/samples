@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'app_state.dart';
+import 'app_model.dart';
+import 'place.dart';
 import 'place_list.dart';
 import 'place_map.dart';
+import 'stub_data.dart';
 
 enum PlaceTrackerViewType {
   map,
@@ -81,4 +83,64 @@ class _PlaceTrackerHomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class AppState {
+  const AppState({
+    this.places = StubData.places,
+    this.selectedCategory = PlaceCategory.favorite,
+    this.viewType = PlaceTrackerViewType.map,
+  }) : assert(places != null),
+        assert(selectedCategory != null);
+
+  final List<Place> places;
+  final PlaceCategory selectedCategory;
+  final PlaceTrackerViewType viewType;
+
+  AppState copyWith({
+    List<Place> places,
+    PlaceCategory selectedCategory,
+    PlaceTrackerViewType viewType,
+  }) {
+    return AppState(
+      places: places ?? this.places,
+      selectedCategory: selectedCategory ?? this.selectedCategory,
+      viewType: viewType ?? this.viewType,
+    );
+  }
+
+  static AppState of(BuildContext context) => AppModel.of<AppState>(context);
+
+  static void update(BuildContext context, AppState newState) {
+    AppModel.update<AppState>(context, newState);
+  }
+
+  static void updateWith(
+      BuildContext context,
+      {List<Place> places,
+        PlaceCategory selectedCategory,
+        PlaceTrackerViewType viewType,
+      }) {
+    update(
+      context,
+      AppState.of(context).copyWith(
+        places: places, selectedCategory: selectedCategory, viewType: viewType,
+      ),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other))
+      return true;
+    if (other.runtimeType != runtimeType)
+      return false;
+    final AppState otherAppState = other;
+    return otherAppState.places == places
+        && otherAppState.selectedCategory == selectedCategory
+        && otherAppState.viewType == viewType;
+  }
+
+  @override
+  int get hashCode => hashValues(places, selectedCategory, viewType);
 }

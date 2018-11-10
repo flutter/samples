@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'app_state.dart';
 import 'place.dart';
 import 'place_details.dart';
+import 'place_tracker_app.dart';
 
 class PlaceList extends StatefulWidget {
   const PlaceList({ Key key }) : super(key: key);
