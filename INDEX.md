@@ -58,10 +58,9 @@ the accompanying YouTube video so you can watch Matt implement them.
 ## Full apps
 
 #### [inKino](https://github.com/roughike/inKino) [![GitHub stars](https://img.shields.io/github/stars/roughike/inKino.svg?style=social&label=Star)](https://github.com/roughike/inKino) [![GitHub forks](https://img.shields.io/github/forks/roughike/inKino.svg?style=social&label=Fork)](https://github.com/roughike/inKino/fork)
-An unofficial Finnkino client that shows movie details and showtimes for movies
-in Finland. It's currently available in both the
-[App Store](https://itunes.apple.com/gb/app/inkino/id1367181450?mt=8) and
-[Play Store](https://play.google.com/store/apps/details?id=com.roughike.inkino).
+An unofficial Finnkino client that shows movies and showtimes of Finnkino cinemas in Finland. It uses Redux, has a comprehensive set of tests and shares 40% of code between the Flutter app and the AngularDart web app. It's currently available in the
+[App Store](https://itunes.apple.com/gb/app/inkino/id1367181450?mt=8),
+[Play Store](https://play.google.com/store/apps/details?id=com.roughike.inkino) and as a [Progressive Web App](https://inkino.app).
 
 #### [FlutterFlip](https://github.com/redbrogdon/flutterflip) [![GitHub stars](https://img.shields.io/github/stars/redbrogdon/flutterflip.svg?style=social&label=Star)](https://github.com/redbrogdon/flutterflip) [![GitHub forks](https://img.shields.io/github/forks/redbrogdon/flutterflip.svg?style=social&label=Fork)](https://github.com/redbrogdon/flutterflip/fork)
 A simple reversi clone built with Flutter. It showcases some implicit animations
