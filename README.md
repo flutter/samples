@@ -5,8 +5,6 @@
 A collection of open source samples that illustrate best practices for
 [Flutter](https://flutter.io).
 
-This repo will be getting significantly larger as Flutter progresses toward 1.0.
-
 ## Index
 
 For a curated list of samples in this repo and elsewhere, see the
