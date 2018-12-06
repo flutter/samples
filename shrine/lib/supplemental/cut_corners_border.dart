@@ -19,7 +19,7 @@ import 'package:flutter/widgets.dart';
 
 class CutCornersBorder extends OutlineInputBorder {
   const CutCornersBorder({
-    BorderSide borderSide: BorderSide.none,
+    BorderSide borderSide: const BorderSide(),
     BorderRadius borderRadius: const BorderRadius.all(Radius.circular(2.0)),
     this.cut: 7.0,
     double gapPadding: 2.0,
