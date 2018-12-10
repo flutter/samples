@@ -50,7 +50,8 @@ class _ShrineAppState extends State<ShrineApp>
       home: HomePage(
         backdrop: Backdrop(
           frontLayer: ProductPage(),
-          backLayer: CategoryMenuPage(onCategoryTap: () => _controller.forward()),
+          backLayer:
+              CategoryMenuPage(onCategoryTap: () => _controller.forward()),
           frontTitle: Text('SHRINE'),
           backTitle: Text('MENU'),
           controller: _controller,
@@ -85,6 +86,7 @@ IconThemeData _customIconTheme(IconThemeData original) {
 ThemeData _buildShrineTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
+    colorScheme: kShrineColorScheme,
     accentColor: kShrineBrown900,
     primaryColor: kShrinePink100,
     buttonColor: kShrinePink100,
@@ -92,9 +94,13 @@ ThemeData _buildShrineTheme() {
     cardColor: kShrineBackgroundWhite,
     textSelectionColor: kShrinePink100,
     errorColor: kShrineErrorRed,
-    buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
-    primaryIconTheme: base.iconTheme.copyWith(color: kShrineBrown900),
-    inputDecorationTheme: InputDecorationTheme(border: CutCornersBorder()),
+    buttonTheme: const ButtonThemeData(
+      colorScheme: kShrineColorScheme,
+      textTheme: ButtonTextTheme.normal,
+    ),
+    primaryIconTheme: _customIconTheme(base.iconTheme),
+    inputDecorationTheme:
+        const InputDecorationTheme(border: CutCornersBorder()),
     textTheme: _buildShrineTextTheme(base.textTheme),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
     accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
@@ -105,9 +111,7 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
-        headline: base.headline.copyWith(
-          fontWeight: FontWeight.w500,
-        ),
+        headline: base.headline.copyWith(fontWeight: FontWeight.w500),
         title: base.title.copyWith(fontSize: 18.0),
         caption: base.caption.copyWith(
           fontWeight: FontWeight.w400,
@@ -128,3 +132,19 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
         bodyColor: kShrineBrown900,
       );
 }
+
+const ColorScheme kShrineColorScheme = ColorScheme(
+  primary: kShrinePink100,
+  primaryVariant: kShrineBrown900,
+  secondary: kShrinePink50,
+  secondaryVariant: kShrineBrown900,
+  surface: kShrineSurfaceWhite,
+  background: kShrineBackgroundWhite,
+  error: kShrineErrorRed,
+  onPrimary: kShrineBrown900,
+  onSecondary: kShrineBrown900,
+  onSurface: kShrineBrown900,
+  onBackground: kShrineBrown900,
+  onError: kShrineSurfaceWhite,
+  brightness: Brightness.light,
+);
