@@ -12,10 +12,7 @@ dependencies:
 
   cupertino_icons: ^0.1.2
 
-  google_maps_flutter:
-    git:
-      url: git://github.com/flutter/plugins
-      path: packages/google_maps_flutter
+  google_maps_flutter: ^0.0.3
 
   uuid: 1.0.3
 
