@@ -57,6 +57,12 @@ the accompanying YouTube video so you can watch Matt implement them.
 
 ## Full apps
 
+#### [It's All Widgets!](https://itsallwidgets.com?open_source=true)
+Built and maintained by the Flutter Community, *Its All Widgets* collects links
+to apps built with Flutter. Many are open source and include links to their
+source code, so you can browse through the list until you find something that
+looks interesting, and then go see how it was built.
+
 #### [inKino](https://github.com/roughike/inKino) [![GitHub stars](https://img.shields.io/github/stars/roughike/inKino.svg?style=social&label=Star)](https://github.com/roughike/inKino) [![GitHub forks](https://img.shields.io/github/forks/roughike/inKino.svg?style=social&label=Fork)](https://github.com/roughike/inKino/fork)
 An unofficial Finnkino client that shows movies and showtimes of Finnkino
 cinemas in Finland. It uses Redux, has a comprehensive set of tests, and shares
