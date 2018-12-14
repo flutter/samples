@@ -13,7 +13,7 @@ class VeggieCard extends StatelessWidget {
   /// Veggie to be displayed by the card.
   final Veggie veggie;
 
-  /// Whether [Veggie] falls into one of user's preferred [VeggieCategory]s
+  /// Whether [veggie] falls into one of user's preferred [VeggieCategory]s
   final bool isPreferredCategory;
 
   List<Widget> _buildStackChildren() {
