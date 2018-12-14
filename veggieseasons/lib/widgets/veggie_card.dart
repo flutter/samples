@@ -8,10 +8,13 @@ import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class VeggieCard extends StatelessWidget {
-  VeggieCard(this.veggie, this.isFavoriteCategory);
+  VeggieCard(this.veggie, this.isPreferredCategory);
 
+  /// Veggie to be displayed by the card.
   final Veggie veggie;
-  final bool isFavoriteCategory;
+
+  /// Whether [Veggie] falls into one of user's preferred [VeggieCategory]s
+  final bool isPreferredCategory;
 
   List<Widget> _buildStackChildren() {
     final widgets = <Widget>[];
