@@ -9,14 +9,19 @@ import 'package:veggieseasons/data/model.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
 
-/// A circular widget that indicates in which seasons a particular veggie can be
-/// harvested. It displays the first two letters of the season and uses a
-/// different background color to represent each of the seasons as well.
+/// A circular widget that represents a season of the year.
+///
+/// The season can be displayed as a valid harvest season or one during which a
+/// particular veggie cannot be harvested. Bright colors are used in the first
+/// case, and grays in the latter.
 class SeasonCircle extends StatelessWidget {
-  final bool active;
+  SeasonCircle(this.season, this.isHarvestTime);
+
+  /// Season to be displayed by this widget.
   final Season season;
 
-  SeasonCircle(this.season, this.active);
+  /// Whether or not [season] should be presented as a valid harvest season.
+  final bool isHarvestTime;
 
   String get _firstChars {
     return '${season.toString().substring(7, 8).toUpperCase()}'
@@ -29,7 +34,9 @@ class SeasonCircle extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: active ? Styles.seasonColors[season] : Styles.transparentColor,
+          color: isHarvestTime
+              ? Styles.seasonColors[season]
+              : Styles.transparentColor,
           borderRadius: BorderRadius.circular(25.0),
           border: Styles.seasonBorder,
         ),
@@ -39,8 +46,9 @@ class SeasonCircle extends StatelessWidget {
           child: Center(
             child: Text(
               _firstChars,
-              style:
-                  active ? Styles.activeSeasonText : Styles.inactiveSeasonText,
+              style: isHarvestTime
+                  ? Styles.activeSeasonText
+                  : Styles.inactiveSeasonText,
             ),
           ),
         ),
@@ -121,12 +129,9 @@ class DetailsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Wrap(
-                children: Season.values
-                    .map((s) => SeasonCircle(
-                          s,
-                          veggie.seasons.contains(s),
-                        ))
-                    .toList(),
+                children: Season.values.map((s) {
+                  return SeasonCircle(s, veggie.seasons.contains(s));
+                }).toList(),
               ),
               SizedBox(width: 8.0),
               Expanded(
