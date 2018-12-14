@@ -6,6 +6,8 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// A model class that mirrors the options in [SettingsScreen] and stores data
+/// in shared preferences.
 class Preferences extends Model {
   Preferences() {
     _load();
