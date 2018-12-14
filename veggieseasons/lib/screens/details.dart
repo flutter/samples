@@ -13,9 +13,10 @@ import 'package:veggieseasons/styles.dart';
 /// harvested. It displays the first two letters of the season and uses a
 /// different background color to represent each of the seasons as well.
 class SeasonCircle extends StatelessWidget {
+  final bool active;
   final Season season;
 
-  SeasonCircle(this.season);
+  SeasonCircle(this.season, this.active);
 
   String get _firstChars {
     return '${season.toString().substring(7, 8).toUpperCase()}'
@@ -28,7 +29,7 @@ class SeasonCircle extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Styles.seasonColors[season],
+          color: active ? Styles.seasonColors[season] : Styles.transparentColor,
           borderRadius: BorderRadius.circular(25.0),
           border: Styles.seasonBorder,
         ),
@@ -36,7 +37,11 @@ class SeasonCircle extends StatelessWidget {
           height: 50.0,
           width: 50.0,
           child: Center(
-            child: Text(_firstChars, style: Styles.seasonText),
+            child: Text(
+              _firstChars,
+              style:
+                  active ? Styles.activeSeasonText : Styles.inactiveSeasonText,
+            ),
           ),
         ),
       ),
@@ -116,8 +121,12 @@ class DetailsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Wrap(
-                children:
-                    veggie.seasons.map<Widget>((s) => SeasonCircle(s)).toList(),
+                children: Season.values
+                    .map((s) => SeasonCircle(
+                          s,
+                          veggie.seasons.contains(s),
+                        ))
+                    .toList(),
               ),
               SizedBox(width: 8.0),
               Expanded(
