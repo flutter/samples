@@ -7,13 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
-  static const baseTextStyle = TextStyle(
-    color: Color.fromRGBO(10, 10, 8, 1.0),
-    fontFamily: 'NotoSans',
-    fontSize: 16.0,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static String createHeroTag(Veggie veggie) => 'veggie_hero_${veggie.name}';
 
   static const headlineText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
@@ -29,14 +23,6 @@ abstract class Styles {
     fontSize: 30.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
-  );
-
-  static const bodyText = TextStyle(
-    color: Color.fromRGBO(240, 240, 240, 1.0),
-    fontFamily: 'NotoSans',
-    fontSize: 14.0,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
   );
 
   static const minorText = TextStyle(
@@ -63,10 +49,42 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const seasonText = TextStyle(
+  static const activeSeasonText = TextStyle(
     color: Color.fromRGBO(255, 255, 255, 0.9),
     fontFamily: 'NotoSans',
     fontSize: 24.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const inactiveSeasonText = TextStyle(
+    color: Color.fromRGBO(80, 80, 80, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 24.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const cardTitleText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 32.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const cardCategoryText = TextStyle(
+    color: Color.fromRGBO(255, 255, 255, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const cardDescriptionText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -127,5 +145,37 @@ abstract class Styles {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [transparentColor, shadowColor],
+  );
+
+  static const Color settingsMediumGray = Color(0xffc7c7c7);
+
+  static const Color settingsItemPressed = Color(0xffd9d9d9);
+
+  static const Color settingsLineation = Color(0xffbcbbc1);
+
+  static const Color settingsBackground = Color(0xffefeff4);
+
+  static const Color settingsGroupSubtitle = Color(0xff777777);
+
+  static const Color iconBlue = Color(0xff0000ff);
+
+  static const Color iconGold = Color(0xffdba800);
+
+  static const preferenceIcon = IconData(
+    0xf443,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const calorieIcon = IconData(
+    0xf3bb,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const checkIcon = IconData(
+    0xf383,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
   );
 }

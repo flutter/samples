@@ -27,42 +27,44 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String dateString = DateFormat.yMMMMd("en_US").format(DateTime.now());
-    final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
-
-    final rows = <Widget>[];
-
-    rows.add(
-      Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(dateString.toUpperCase(), style: Styles.minorText),
-            Text('In season today', style: Styles.headlineText),
-          ],
-        ),
-      ),
-    );
-
-    rows.addAll(_generateVeggieRows(model.availableVeggies));
-
-    rows.add(
-      Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 16.0),
-        child: Text('Not in season', style: Styles.headlineText),
-      ),
-    );
-
-    rows.addAll(_generateVeggieRows(model.unavailableVeggies));
-
     return CupertinoTabView(
-      builder: (context) => DecoratedBox(
-            decoration: BoxDecoration(color: Color(0xffffffff)),
-            child: ListView(
-              children: rows,
+      builder: (context) {
+        String dateString = DateFormat.yMMMMd("en_US").format(DateTime.now());
+        final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
+
+        final rows = <Widget>[];
+
+        rows.add(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(dateString.toUpperCase(), style: Styles.minorText),
+                Text('In season today', style: Styles.headlineText),
+              ],
             ),
           ),
+        );
+
+        rows.addAll(_generateVeggieRows(model.availableVeggies));
+
+        rows.add(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 16.0),
+            child: Text('Not in season', style: Styles.headlineText),
+          ),
+        );
+
+        rows.addAll(_generateVeggieRows(model.unavailableVeggies));
+
+        return DecoratedBox(
+          decoration: BoxDecoration(color: Color(0xffffffff)),
+          child: ListView(
+            children: rows,
+          ),
+        );
+      },
     );
   }
 }
