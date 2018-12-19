@@ -97,6 +97,8 @@ abstract class Styles {
 
   static const searchBackground = Color(0xffe0e0e0);
 
+  static const frostedBackground = Color(0xccf8f8f8);
+
   static const TextStyle searchText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1.0),
     fontFamily: 'NotoSans',

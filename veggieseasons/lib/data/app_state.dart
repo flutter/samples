@@ -32,9 +32,9 @@ class AppState extends Model {
       .where((v) => v.name.toLowerCase().contains(terms.toLowerCase()))
       .toList();
 
-  void toggleFavorite(int id) {
+  void setFavorite(int id, bool isFavorite) {
     Veggie veggie = getVeggie(id);
-    veggie.isFavorite = !veggie.isFavorite;
+    veggie.isFavorite = isFavorite;
     notifyListeners();
   }
 

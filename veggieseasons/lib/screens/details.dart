@@ -8,14 +8,15 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
+import 'package:veggieseasons/widgets/close_button.dart';
 
 /// A circular widget that represents a season of the year.
 ///
-/// The season can be displayed as a valid harvest season or one during which a
+/// The season can be displayed as a valid harvest time or one during which a
 /// particular veggie cannot be harvested. Bright colors are used in the first
 /// case, and grays in the latter.
 class SeasonCircle extends StatelessWidget {
-  SeasonCircle(this.season, this.isHarvestTime);
+  const SeasonCircle(this.season, this.isHarvestTime);
 
   /// Season to be displayed by this widget.
   final Season season;
@@ -62,25 +63,7 @@ class DetailsScreen extends StatelessWidget {
 
   DetailsScreen(this.id);
 
-  Widget _createFavoriteButton(bool isFav, VoidCallback onPressed) {
-    return CupertinoButton(
-      color: Styles.buttonColor,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            isFav ? Styles.checkedIcon : Styles.uncheckedIcon,
-            color: Styles.buttonIconColor,
-          ),
-          SizedBox(width: 4.0),
-          Text(isFav ? 'Saved to Garden' : 'Save to Garden'),
-        ],
-      ),
-      onPressed: onPressed,
-    );
-  }
-
-  Widget _createHeader(AppState model) {
+  Widget _createHeader(BuildContext context, AppState model) {
     final veggie = model.getVeggie(id);
 
     return SizedBox(
@@ -90,9 +73,21 @@ class DetailsScreen extends StatelessWidget {
           Positioned(
             right: 0.0,
             left: 0.0,
-            child: Image.asset(
-              veggie.imageAssetPath,
-              fit: BoxFit.cover,
+            child: Hero(
+              tag: veggie.id,
+              child: Image.asset(
+                veggie.imageAssetPath,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0.0,
+            right: 16.0,
+            child: SafeArea(
+              child: CloseButton(() {
+                Navigator.of(context).pop();
+              }),
             ),
           ),
           Positioned(
@@ -125,33 +120,38 @@ class DetailsScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Wrap(
+            children: Season.values.map((s) {
+              return SeasonCircle(s, veggie.seasons.contains(s));
+            }).toList(),
+          ),
+          SizedBox(height: 8.0),
           Row(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Wrap(
-                children: Season.values.map((s) {
-                  return SeasonCircle(s, veggie.seasons.contains(s));
-                }).toList(),
+              CupertinoSwitch(
+                value: veggie.isFavorite,
+                onChanged: (value) {
+                  model.setFavorite(id, value);
+                },
               ),
               SizedBox(width: 8.0),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    veggieCategoryNames[veggie.category].toUpperCase(),
-                    style: Styles.minorText,
-                  ),
-                ),
-              ),
+              Text('Save to Garden'),
             ],
           ),
+          SizedBox(height: 24.0),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              veggieCategoryNames[veggie.category].toUpperCase(),
+              style: Styles.minorText,
+            ),
+          ),
+          SizedBox(width: 8.0),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Text(veggie.shortDescription),
           ),
-          _createFavoriteButton(veggie.isFavorite, () {
-            model.toggleFavorite(veggie.id);
-          }),
         ],
       ),
     );
@@ -162,13 +162,10 @@ class DetailsScreen extends StatelessWidget {
     final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Details'),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _createHeader(model),
+          _createHeader(context, model),
           _createDetails(model),
         ],
       ),
