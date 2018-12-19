@@ -20,7 +20,7 @@ class VeggieCard extends StatelessWidget {
     final widgets = <Widget>[];
 
     widgets.add(Hero(
-      tag: Styles.createHeroTag(veggie),
+      tag: veggie.id,
       child: Image.asset(
         veggie.imageAssetPath,
         fit: BoxFit.cover,

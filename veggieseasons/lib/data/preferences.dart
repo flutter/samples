@@ -16,51 +16,51 @@ class Preferences extends Model {
   static const _preferredCategoriesKey = 'preferredCategories';
 
   // Indicates whether a call to [_loadFromSharedPrefs] is in progress;
-  Future<void> _loadResult;
+  Future<void> _loading;
 
   int _desiredCalories = 2000;
 
   Set<VeggieCategory> _preferredCategories = Set<VeggieCategory>();
 
   Future<int> get desiredCalories async {
-    await _loadResult;
+    await _loading;
     return _desiredCalories;
   }
 
   Future<Set<VeggieCategory>> get preferredCategories async {
-    await _loadResult;
+    await _loading;
     return Set.from(_preferredCategories);
   }
 
-  void addPreferredCategory(VeggieCategory category) {
+  void addPreferredCategory(VeggieCategory category) async {
     _preferredCategories.add(category);
-    _saveToSharedPrefs();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void removePreferredCategory(VeggieCategory category) {
+  void removePreferredCategory(VeggieCategory category) async {
     _preferredCategories.remove(category);
-    _saveToSharedPrefs();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void setDesiredCalories(int calories) {
+  void setDesiredCalories(int calories) async {
     _desiredCalories = calories;
-    _saveToSharedPrefs();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
   void load() {
-    _loadResult = _loadFromSharedPrefs();
+    _loading = _loadFromSharedPrefs();
   }
 
   Future<void> _saveToSharedPrefs() async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setInt(_caloriesKey, _desiredCalories);
+    await prefs.setInt(_caloriesKey, _desiredCalories);
 
     // Store preferred categories as a comma-separated string containing their
     // indices.
-    prefs.setString(_preferredCategoriesKey,
+    await prefs.setString(_preferredCategoriesKey,
         _preferredCategories.map((c) => c.index.toString()).join(','));
   }
 
