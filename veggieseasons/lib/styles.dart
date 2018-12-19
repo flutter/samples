@@ -7,8 +7,6 @@ import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
-  static String createHeroTag(Veggie veggie) => 'veggie_hero_${veggie.name}';
-
   static const headlineText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
     fontFamily: 'NotoSans',

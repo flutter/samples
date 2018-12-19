@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:veggieseasons/data/model.dart';
+import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';

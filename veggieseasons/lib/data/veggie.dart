@@ -2,25 +2,27 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 enum VeggieCategory {
-  legume,
-  tuber,
+  allium,
+  berry,
+  citrus,
   cruciferous,
+  fern,
+  flower,
+  fruit,
+  fungus,
   gourd,
   leafy,
-  berry,
-  stealthFruit,
-  tropical,
-  fruit,
+  legume,
   melon,
-  stoneFruit,
-  fern,
-  citrus,
   root,
-  allium,
-  fungus,
+  stealthFruit,
+  stoneFruit,
+  tropical,
+  tuber,
   vegetable,
 }
 
@@ -31,23 +33,24 @@ enum Season {
   autumn,
 }
 
-final Map<VeggieCategory, String> veggieCategoryNames = {
-  VeggieCategory.legume: 'Legume',
-  VeggieCategory.tuber: 'Tuber',
+const Map<VeggieCategory, String> veggieCategoryNames = {
+  VeggieCategory.allium: 'Allium',
+  VeggieCategory.berry: 'Berry',
+  VeggieCategory.citrus: 'Citrus',
   VeggieCategory.cruciferous: 'Cruciferous',
+  VeggieCategory.fern: 'Technically a fern',
+  VeggieCategory.flower: 'Flower',
+  VeggieCategory.fruit: 'Fruit',
+  VeggieCategory.fungus: 'Fungus',
   VeggieCategory.gourd: 'Gourd',
   VeggieCategory.leafy: 'Leafy',
-  VeggieCategory.berry: 'Berry',
-  VeggieCategory.stealthFruit: 'Stealth fruit',
-  VeggieCategory.tropical: 'Tropical',
-  VeggieCategory.fruit: 'Fruit',
+  VeggieCategory.legume: 'Legume',
   VeggieCategory.melon: 'Melon',
-  VeggieCategory.stoneFruit: 'Stone fruit',
-  VeggieCategory.fern: 'Technically fern',
-  VeggieCategory.citrus: 'Citrus',
   VeggieCategory.root: 'Root vegetable',
-  VeggieCategory.allium: 'Allium',
-  VeggieCategory.fungus: 'Fungus',
+  VeggieCategory.stealthFruit: 'Stealth fruit',
+  VeggieCategory.stoneFruit: 'Stone fruit',
+  VeggieCategory.tropical: 'Tropical',
+  VeggieCategory.tuber: 'Tuber',
   VeggieCategory.vegetable: 'Vegetable',
 };
 
@@ -77,7 +80,7 @@ class Veggie {
 
   /// A color value to use when constructing UI elements to match the image
   /// found at [imageAssetPath].
-  final int accentColor;
+  final Color accentColor;
 
   /// Seasons during which a veggie is harvested.
   final List<Season> seasons;
@@ -85,4 +88,6 @@ class Veggie {
   /// Whether or not the veggie has been saved to the user's garden (i.e. marked
   /// as a favorite).
   bool isFavorite;
+
+  String get categoryName => veggieCategoryNames[category];
 }

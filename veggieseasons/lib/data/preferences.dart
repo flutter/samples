@@ -11,60 +11,60 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// A model class that mirrors the options in [SettingsScreen] and stores data
 /// in shared preferences.
 class Preferences extends Model {
-  Preferences() {
-    _loadingFuture = _load();
-  }
-
   // Keys to use with shared preferences.
   static const _caloriesKey = 'calories';
   static const _preferredCategoriesKey = 'preferredCategories';
 
-  // Indicates whether a call to [_load] is in progress;
-  Future<void> _loadingFuture;
+  // Indicates whether a call to [_loadFromSharedPrefs] is in progress;
+  Future<void> _loading;
 
   int _desiredCalories = 2000;
 
   Set<VeggieCategory> _preferredCategories = Set<VeggieCategory>();
 
   Future<int> get desiredCalories async {
-    await _loadingFuture;
+    await _loading;
     return _desiredCalories;
   }
 
   Future<Set<VeggieCategory>> get preferredCategories async {
-    await _loadingFuture;
+    await _loading;
     return Set.from(_preferredCategories);
   }
 
-  void addPreferredCategory(VeggieCategory category) {
+  void addPreferredCategory(VeggieCategory category) async {
     _preferredCategories.add(category);
-    _save();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void removePreferredCategory(VeggieCategory category) {
+  void removePreferredCategory(VeggieCategory category) async {
     _preferredCategories.remove(category);
-    _save();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void setDesiredCalories(int calories) {
+  void setDesiredCalories(int calories) async {
     _desiredCalories = calories;
-    _save();
+    await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  Future<void> _save() async {
+  void load() {
+    _loading = _loadFromSharedPrefs();
+  }
+
+  Future<void> _saveToSharedPrefs() async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setInt(_caloriesKey, _desiredCalories);
+    await prefs.setInt(_caloriesKey, _desiredCalories);
 
     // Store preferred categories as a comma-separated string containing their
     // indices.
-    prefs.setString(_preferredCategoriesKey,
+    await prefs.setString(_preferredCategoriesKey,
         _preferredCategories.map((c) => c.index.toString()).join(','));
   }
 
-  Future<void> _load() async {
+  Future<void> _loadFromSharedPrefs() async {
     final prefs = await SharedPreferences.getInstance();
     _desiredCalories = prefs.getInt(_caloriesKey) ?? 2000;
     _preferredCategories.clear();
