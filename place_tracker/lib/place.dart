@@ -15,11 +15,11 @@ class Place {
     @required this.category,
     this.description,
     this.starRating = 0,
-  }) : assert(id != null),
-       assert(latLng != null),
-       assert(name != null),
-       assert(category != null),
-       assert(starRating != null && starRating >= 0 && starRating <= 5);
+  })  : assert(id != null),
+        assert(latLng != null),
+        assert(name != null),
+        assert(category != null),
+        assert(starRating != null && starRating >= 0 && starRating <= 5);
 
   final String id;
   final LatLng latLng;
@@ -40,12 +40,12 @@ class Place {
     int starRating,
   }) {
     return Place(
-        id: id ?? this.id,
-        latLng: latLng ?? this.latLng,
-        name: name ?? this.name,
-        category: category ?? this.category,
-        description: description ?? this.description,
-        starRating: starRating ?? this.starRating,
+      id: id ?? this.id,
+      latLng: latLng ?? this.latLng,
+      name: name ?? this.name,
+      category: category ?? this.category,
+      description: description ?? this.description,
+      starRating: starRating ?? this.starRating,
     );
   }
 }

@@ -17,7 +17,8 @@ class StubData {
       id: '2',
       latLng: LatLng(45.516887, -122.675417),
       name: 'Luc Lac Vietnamese Kitchen',
-      description: 'Popular counter-serve offering pho, banh mi & other Vietnamese favorites in a stylish setting.',
+      description:
+          'Popular counter-serve offering pho, banh mi & other Vietnamese favorites in a stylish setting.',
       category: PlaceCategory.favorite,
       starRating: 5,
     ),
@@ -26,7 +27,7 @@ class StubData {
       latLng: LatLng(45.528952, -122.698344),
       name: 'Salt & Straw',
       description:
-      'Quirky flavors & handmade waffle cones draw crowds to this artisinal ice cream maker\'s 3 parlors.',
+          'Quirky flavors & handmade waffle cones draw crowds to this artisinal ice cream maker\'s 3 parlors.',
       category: PlaceCategory.favorite,
       starRating: 5,
     ),
@@ -53,7 +54,7 @@ class StubData {
       latLng: LatLng(45.487137, -122.799940),
       name: 'Buffalo Wild Wings',
       description:
-      'Lively sports-bar chain dishing up wings & other American pub grub amid lots of large-screen TVs.',
+          'Lively sports-bar chain dishing up wings & other American pub grub amid lots of large-screen TVs.',
       category: PlaceCategory.visited,
       starRating: 5,
     ),
@@ -62,7 +63,7 @@ class StubData {
       latLng: LatLng(45.416986, -122.743171),
       name: 'Chevys',
       description:
-      'Lively, informal Mexican chain with a colorful, family-friendly setting plus tequilas & margaritas.',
+          'Lively, informal Mexican chain with a colorful, family-friendly setting plus tequilas & margaritas.',
       category: PlaceCategory.visited,
       starRating: 4,
     ),
@@ -71,7 +72,7 @@ class StubData {
       latLng: LatLng(45.430489, -122.831802),
       name: 'Cinetopia',
       description:
-      'Moviegoers can take food from the on-site eatery to their seats, with table service in 21+ theaters.',
+          'Moviegoers can take food from the on-site eatery to their seats, with table service in 21+ theaters.',
       category: PlaceCategory.visited,
       starRating: 4,
     ),
@@ -107,7 +108,7 @@ class StubData {
       latLng: LatLng(45.420226, -122.740347),
       name: 'Oswego Grill',
       description:
-      'Wood-grilled steakhouse favorites served in a casual, romantic restaurant with a popular happy hour.',
+          'Wood-grilled steakhouse favorites served in a casual, romantic restaurant with a popular happy hour.',
       category: PlaceCategory.wantToGo,
       starRating: 4,
     ),
@@ -116,7 +117,7 @@ class StubData {
       latLng: LatLng(45.541202, -122.676432),
       name: 'The Widmer Brothers Brewery',
       description:
-      'Popular, enduring gastropub serving craft beers, sandwiches & eclectic entrees in a laid-back space.',
+          'Popular, enduring gastropub serving craft beers, sandwiches & eclectic entrees in a laid-back space.',
       category: PlaceCategory.wantToGo,
       starRating: 4,
     ),
@@ -133,7 +134,8 @@ class StubData {
       id: '15',
       latLng: LatLng(45.485612, -122.784733),
       name: 'Uwajimaya Beaverton',
-      description: 'Huge Asian grocery outpost stocking meats, produce & prepared foods plus gifts & home goods.',
+      description:
+          'Huge Asian grocery outpost stocking meats, produce & prepared foods plus gifts & home goods.',
       category: PlaceCategory.wantToGo,
       starRating: 5,
     ),

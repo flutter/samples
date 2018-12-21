@@ -21,7 +21,6 @@ class PlaceMap extends StatefulWidget {
 }
 
 class PlaceMapState extends State<PlaceMap> {
-
   static BitmapDescriptor _getPlaceMarkerIcon(PlaceCategory category) {
     switch (category) {
       case PlaceCategory.favorite:
@@ -36,7 +35,8 @@ class PlaceMapState extends State<PlaceMap> {
     }
   }
 
-  static List<Place> _getPlacesForCategory(PlaceCategory category, List<Place> places) {
+  static List<Place> _getPlacesForCategory(
+      PlaceCategory category, List<Place> places) {
     return places.where((Place place) => place.category == category).toList();
   }
 
@@ -61,7 +61,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<Map<Marker, Place>> _markPlaces() async {
-    await Future.wait(AppState.of(context).places.map((Place place) => _markPlace(place)));
+    await Future.wait(
+        AppState.of(context).places.map((Place place) => _markPlace(place)));
     return _markedPlaces;
   }
 
@@ -101,7 +102,8 @@ class PlaceMapState extends State<PlaceMap> {
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
     final List<Place> newPlaces = List.from(AppState.of(context).places);
-    final int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+    final int index =
+        newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
     _updateExistingPlaceMarker(place: value);
@@ -118,9 +120,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _updateExistingPlaceMarker({@required Place place}) async {
-    Marker marker =
-    _markedPlaces.keys.singleWhere(
-            (Marker value) => _markedPlaces[value].id == place.id);
+    Marker marker = _markedPlaces.keys
+        .singleWhere((Marker value) => _markedPlaces[value].id == place.id);
 
     // Set marker visibility to false to ensure the info window is hidden. Once
     // the plugin fully supports the Google Maps API, use hideInfoWindow()
@@ -136,9 +137,7 @@ class PlaceMapState extends State<PlaceMap> {
       MarkerOptions(
         infoWindowText: InfoWindowText(
           place.name,
-          place.starRating != 0
-              ? '${place.starRating} Star Rating'
-              : null,
+          place.starRating != 0 ? '${place.starRating} Star Rating' : null,
         ),
         visible: true,
       ),
@@ -161,7 +160,8 @@ class PlaceMapState extends State<PlaceMap> {
         ),
       );
     });
-    _zoomToFitPlaces(_getPlacesForCategory(category, _markedPlaces.values.toList()));
+    _zoomToFitPlaces(
+        _getPlacesForCategory(category, _markedPlaces.values.toList()));
   }
 
   void _zoomToFitPlaces(List<Place> places) {
@@ -229,10 +229,8 @@ class PlaceMapState extends State<PlaceMap> {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
-          content: const Text(
-            'New place added.',
-            style: const TextStyle(fontSize: 16.0)
-          ),
+          content: const Text('New place added.',
+              style: const TextStyle(fontSize: 16.0)),
           action: SnackBarAction(
             label: 'Edit',
             onPressed: () async {
@@ -272,8 +270,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onToggleMapTypePressed() {
-    final MapType nextType =
-      MapType.values[(mapController.options.mapType.index + 1) % MapType.values.length];
+    final MapType nextType = MapType.values[
+        (mapController.options.mapType.index + 1) % MapType.values.length];
 
     mapController.updateMapOptions(
       GoogleMapOptions(mapType: nextType),
@@ -282,15 +280,17 @@ class PlaceMapState extends State<PlaceMap> {
 
   Future<void> _maybeUpdateMapConfiguration() async {
     _configuration ??= MapConfiguration.of(AppState.of(context));
-    final MapConfiguration newConfiguration = MapConfiguration.of(AppState.of(context));
+    final MapConfiguration newConfiguration =
+        MapConfiguration.of(AppState.of(context));
 
     // Since we manually update [_configuration] when place or selectedCategory
     // changes come from the [place_map], we should only enter this if statement
     // when returning to the [place_map] after changes have been made from
     // [place_list].
     if (_configuration != newConfiguration && mapController != null) {
-      if (_configuration.places == newConfiguration.places
-          && _configuration.selectedCategory != newConfiguration.selectedCategory) {
+      if (_configuration.places == newConfiguration.places &&
+          _configuration.selectedCategory !=
+              newConfiguration.selectedCategory) {
         // If the configuration change is only a category change, just update
         // the marker visibilities.
         _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
@@ -363,10 +363,10 @@ class _CategoryButtonBar extends StatelessWidget {
     @required this.selectedPlaceCategory,
     @required this.visible,
     @required this.onChanged,
-  }) : assert(selectedPlaceCategory != null),
-       assert(visible != null),
-       assert(onChanged != null),
-       super(key: key);
+  })  : assert(selectedPlaceCategory != null),
+        assert(visible != null),
+        assert(onChanged != null),
+        super(key: key);
 
   final PlaceCategory selectedPlaceCategory;
   final bool visible;
@@ -384,8 +384,8 @@ class _CategoryButtonBar extends StatelessWidget {
           children: <Widget>[
             RaisedButton(
               color: selectedPlaceCategory == PlaceCategory.favorite
-                ? Colors.green[700]
-                : Colors.lightGreen,
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
               child: const Text(
                 'Favorites',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -394,8 +394,8 @@ class _CategoryButtonBar extends StatelessWidget {
             ),
             RaisedButton(
               color: selectedPlaceCategory == PlaceCategory.visited
-                ? Colors.green[700]
-                : Colors.lightGreen,
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
               child: const Text(
                 'Visited',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -404,8 +404,8 @@ class _CategoryButtonBar extends StatelessWidget {
             ),
             RaisedButton(
               color: selectedPlaceCategory == PlaceCategory.wantToGo
-                ? Colors.green[700]
-                : Colors.lightGreen,
+                  ? Colors.green[700]
+                  : Colors.lightGreen,
               child: const Text(
                 'Want To Go',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -419,16 +419,16 @@ class _CategoryButtonBar extends StatelessWidget {
   }
 }
 
-class  _AddPlaceButtonBar extends StatelessWidget {
+class _AddPlaceButtonBar extends StatelessWidget {
   const _AddPlaceButtonBar({
     Key key,
     @required this.visible,
     @required this.onSavePressed,
     @required this.onCancelPressed,
-  }) : assert(visible != null),
-       assert(onSavePressed != null),
-       assert(onCancelPressed != null),
-       super(key: key);
+  })  : assert(visible != null),
+        assert(onSavePressed != null),
+        assert(onCancelPressed != null),
+        super(key: key);
 
   final bool visible;
   final VoidCallback onSavePressed;
@@ -473,7 +473,7 @@ class _MapFabs extends StatelessWidget {
     @required this.visible,
     @required this.onAddPlacePressed,
     @required this.onToggleMapTypePressed,
-  }) : assert(visible != null),
+  })  : assert(visible != null),
         assert(onAddPlacePressed != null),
         assert(onToggleMapTypePressed != null),
         super(key: key);
@@ -518,26 +518,22 @@ class MapConfiguration {
   const MapConfiguration({
     @required this.places,
     @required this.selectedCategory,
-  }) : assert(places != null),
-       assert(selectedCategory != null);
+  })  : assert(places != null),
+        assert(selectedCategory != null);
 
   final List<Place> places;
   final PlaceCategory selectedCategory;
 
   @override
-  int get hashCode =>
-      places.hashCode ^
-      selectedCategory.hashCode;
+  int get hashCode => places.hashCode ^ selectedCategory.hashCode;
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other))
-      return true;
-    if (other.runtimeType != runtimeType)
-      return false;
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
     final MapConfiguration otherConfiguration = other;
-    return otherConfiguration.places == places
-        && otherConfiguration.selectedCategory == selectedCategory;
+    return otherConfiguration.places == places &&
+        otherConfiguration.selectedCategory == selectedCategory;
   }
 
   static MapConfiguration of(AppState appState) {

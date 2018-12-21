@@ -11,9 +11,9 @@ class PlaceDetails extends StatefulWidget {
     @required this.place,
     @required this.onChanged,
     Key key,
-  }) : assert(place != null),
-       assert(onChanged != null),
-       super(key: key);
+  })  : assert(place != null),
+        assert(onChanged != null),
+        super(key: key);
 
   final Place place;
   final ValueChanged<Place> onChanged;
@@ -23,7 +23,6 @@ class PlaceDetails extends StatefulWidget {
 }
 
 class PlaceDetailsState extends State<PlaceDetails> {
-
   Place _place;
   GoogleMapController _mapController;
 
@@ -115,9 +114,9 @@ class _NameTextField extends StatelessWidget {
     @required this.controller,
     @required this.onChanged,
     Key key,
-  }) : assert(controller != null),
-       assert(onChanged != null),
-       super(key: key);
+  })  : assert(controller != null),
+        assert(onChanged != null),
+        super(key: key);
 
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -147,9 +146,9 @@ class _DescriptionTextField extends StatelessWidget {
     @required this.controller,
     @required this.onChanged,
     Key key,
-  }) : assert(controller != null),
-       assert(onChanged != null),
-       super(key: key);
+  })  : assert(controller != null),
+        assert(onChanged != null),
+        super(key: key);
 
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
@@ -180,9 +179,9 @@ class _StarBar extends StatelessWidget {
     @required this.rating,
     @required this.onChanged,
     Key key,
-  }) : assert(rating != null && rating >= 0 && rating <= maxStars),
-       assert(onChanged != null),
-       super(key: key);
+  })  : assert(rating != null && rating >= 0 && rating <= maxStars),
+        assert(onChanged != null),
+        super(key: key);
 
   static const int maxStars = 5;
   final int rating;
@@ -212,9 +211,9 @@ class _Map extends StatelessWidget {
     @required this.mapController,
     @required this.onMapCreated,
     Key key,
-  }) : assert(center != null),
-       assert(onMapCreated != null),
-       super(key: key);
+  })  : assert(center != null),
+        assert(onMapCreated != null),
+        super(key: key);
 
   final LatLng center;
   final GoogleMapController mapController;
@@ -326,7 +325,9 @@ class _Reviews extends StatelessWidget {
           ),
         ),
         Column(
-          children: StubData.reviewStrings.map((reviewText) => _buildSingleReview(reviewText)).toList(),
+          children: StubData.reviewStrings
+              .map((reviewText) => _buildSingleReview(reviewText))
+              .toList(),
         ),
       ],
     );

@@ -5,7 +5,7 @@ import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class PlaceList extends StatefulWidget {
-  const PlaceList({ Key key }) : super(key: key);
+  const PlaceList({Key key}) : super(key: key);
 
   @override
   PlaceListState createState() => PlaceListState();
@@ -22,7 +22,8 @@ class PlaceListState extends State<PlaceList> {
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
     final List<Place> newPlaces = List.from(AppState.of(context).places);
-    final int index = newPlaces.indexWhere((Place place) => place.id == value.id);
+    final int index =
+        newPlaces.indexWhere((Place place) => place.id == value.id);
     newPlaces[index] = value;
 
     AppState.updateWith(context, places: newPlaces);
@@ -41,16 +42,18 @@ class PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: AppState.of(context).places
-              .where((Place place) => place.category == AppState.of(context).selectedCategory)
-              .map((Place place) => _PlaceListTile(
-                  place: place,
-                  onPlaceChanged: (Place value) => _onPlaceChanged(value),
-                )
-              ).toList(),
+            children: AppState.of(context)
+                .places
+                .where((Place place) =>
+                    place.category == AppState.of(context).selectedCategory)
+                .map((Place place) => _PlaceListTile(
+                      place: place,
+                      onPlaceChanged: (Place value) => _onPlaceChanged(value),
+                    ))
+                .toList(),
           ),
         ),
-      ]
+      ],
     );
   }
 }
@@ -60,9 +63,9 @@ class _PlaceListTile extends StatelessWidget {
     Key key,
     @required this.place,
     @required this.onPlaceChanged,
-  }) : assert(place != null),
-       assert(onPlaceChanged != null),
-       super(key: key);
+  })  : assert(place != null),
+        assert(onPlaceChanged != null),
+        super(key: key);
 
   final Place place;
   final ValueChanged<Place> onPlaceChanged;
@@ -71,14 +74,14 @@ class _PlaceListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return PlaceDetails(
-            place: place,
-            onChanged: (Place value) => onPlaceChanged(value),
-          );
-        }),
-      ),
+            context,
+            MaterialPageRoute(builder: (context) {
+              return PlaceDetails(
+                place: place,
+                onChanged: (Place value) => onPlaceChanged(value),
+              );
+            }),
+          ),
       child: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
@@ -95,9 +98,12 @@ class _PlaceListTile extends StatelessWidget {
             ),
             Row(
               children: List.generate(5, (int index) {
-                return Icon(Icons.star,
+                return Icon(
+                  Icons.star,
                   size: 28.0,
-                  color: place.starRating > index ? Colors.amber : Colors.grey[400],
+                  color: place.starRating > index
+                      ? Colors.amber
+                      : Colors.grey[400],
                 );
               }).toList(),
             ),
@@ -124,9 +130,9 @@ class _ListCategoryButtonBar extends StatelessWidget {
     Key key,
     @required this.selectedCategory,
     @required this.onCategoryChanged,
-  }) : assert(selectedCategory != null),
-       assert(onCategoryChanged != null),
-       super(key: key);
+  })  : assert(selectedCategory != null),
+        assert(onCategoryChanged != null),
+        super(key: key);
 
   final PlaceCategory selectedCategory;
   final ValueChanged<PlaceCategory> onCategoryChanged;
@@ -140,11 +146,13 @@ class _ListCategoryButtonBar extends StatelessWidget {
           category: PlaceCategory.favorite,
           selected: selectedCategory == PlaceCategory.favorite,
           onCategoryChanged: onCategoryChanged,
-        ),_CategoryButton(
+        ),
+        _CategoryButton(
           category: PlaceCategory.visited,
           selected: selectedCategory == PlaceCategory.visited,
           onCategoryChanged: onCategoryChanged,
-        ),_CategoryButton(
+        ),
+        _CategoryButton(
           category: PlaceCategory.wantToGo,
           selected: selectedCategory == PlaceCategory.wantToGo,
           onCategoryChanged: onCategoryChanged,
@@ -160,9 +168,9 @@ class _CategoryButton extends StatelessWidget {
     @required this.category,
     @required this.selected,
     @required this.onCategoryChanged,
-  }) : assert(category != null),
-       assert(selected != null),
-       super(key: key);
+  })  : assert(category != null),
+        assert(selected != null),
+        super(key: key);
 
   final PlaceCategory category;
   final bool selected;
