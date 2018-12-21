@@ -59,7 +59,10 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            // Use the model and rebuild this part of tree when it changes.
+            // ScopedModelDescendant looks for an ancestor ScopedModel widget
+            // and retrieves its model (Counter, in this case).
+            // Then it uses that model to build widgets, and will trigger
+            // rebuilds if the model is updated.
             ScopedModelDescendant<Counter>(
               builder: (context, child, counter) => Text(
                     '${counter.value}',
