@@ -13,7 +13,7 @@ import 'package:veggieseasons/widgets/veggie_headline.dart';
 class FavoritesScreen extends StatelessWidget {
   /// Builds the "content" of the favorites screen: either a list of favorite
   /// veggies or a note that says the user hasn't favorited any yet.
-  Widget _buildScaffoldBody(BuildContext context) {
+  Widget _buildTabViewBody(BuildContext context) {
     final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
     if (model.favoriteVeggies.length == 0) {
@@ -46,14 +46,17 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Your Garden'),
-      ),
-      backgroundColor: Styles.scaffoldBackground,
-      child: Center(
-        child: _buildScaffoldBody(context),
-      ),
+    return CupertinoTabView(
+      builder: (context) {
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            color: Styles.scaffoldBackground,
+          ),
+          child: Center(
+            child: _buildTabViewBody(context),
+          ),
+        );
+      },
     );
   }
 }

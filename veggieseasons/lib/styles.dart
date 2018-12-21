@@ -91,11 +91,13 @@ abstract class Styles {
 
   static const scaffoldBackground = Color(0xfff0f0f0);
 
-  static const buttonColor = Color(0xff007aff);
-
-  static const buttonIconColor = Color(0xffffffff);
-
   static const searchBackground = Color(0xffe0e0e0);
+
+  static const frostedBackground = Color(0xccf8f8f8);
+
+  static const closeButtonUnpressed = Color(0xff101010);
+
+  static const closeButtonPressed = Color(0xff808080);
 
   static const TextStyle searchText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1.0),
