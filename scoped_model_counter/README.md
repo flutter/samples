@@ -2,11 +2,11 @@
 
 The starter Flutter application, but using ScopedModel to manage state.
 
-This app is a direct counterpart to the [simple counter application][] that you get when you create
-a new Flutter project. That one uses a `StatefulWidget` to manage application state.
-The version in this repository uses a simple app state management approach, `ScopedModel`.
-
-[simple counter application]: https://flutter.io/docs/development/ui/widgets-intro#changing-widgets-in-response-to-input
+This app is a direct counterpart to the
+[simple counter application](https://flutter.io/docs/development/ui/widgets-intro#changing-widgets-in-response-to-input)
+that you get when you create a new Flutter project. That one uses a `StatefulWidget` to manage
+application state. The version in this repository uses a simple app state management approach,
+`ScopedModel`.
 
 It shows how you might deal with state that is modified from outside the app (for example,
 state synchronized over network) and which needs to be accessed and changed
@@ -21,6 +21,5 @@ For more information on the `scoped_model` package (where `ScopedModel` comes fr
 [see the package documentation](https://pub.dartlang.org/packages/scoped_model).
 
 For more information on state management in Flutter, and a list of other approaches,
-head over to the [State management page at flutter.io][state-mgmt].
-
-[state-mgmt]: https://flutter.io/docs/development/data-and-backend/state-mgmt
+head over to the
+[State management page at flutter.io](https://flutter.io/docs/development/data-and-backend/state-mgmt).
