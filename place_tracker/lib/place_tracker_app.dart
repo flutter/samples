@@ -57,10 +57,11 @@ class _PlaceTrackerHomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
             child: IconButton(
               icon: Icon(
-                  AppState.of(context).viewType == PlaceTrackerViewType.map
-                      ? Icons.list
-                      : Icons.map,
-                  size: 32.0),
+                AppState.of(context).viewType == PlaceTrackerViewType.map
+                    ? Icons.list
+                    : Icons.map,
+                size: 32.0,
+              ),
               onPressed: () {
                 AppState.updateWith(
                   context,

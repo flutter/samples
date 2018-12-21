@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class _AppModelScope<T> extends InheritedWidget {
-  const _AppModelScope({Key key, this.appModelState, Widget child})
-      : super(key: key, child: child);
+  const _AppModelScope({
+    Key key,
+    this.appModelState,
+    Widget child,
+  }) : super(key: key, child: child);
 
   final _AppModelState<T> appModelState;
 

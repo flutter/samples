@@ -529,8 +529,14 @@ class MapConfiguration {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other.runtimeType != runtimeType) return false;
+    if (identical(this, other)) {
+      return true;
+    }
+
+    if (other.runtimeType != runtimeType) {
+      return false;
+    }
+
     final MapConfiguration otherConfiguration = other;
     return otherConfiguration.places == places &&
         otherConfiguration.selectedCategory == selectedCategory;
