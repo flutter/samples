@@ -69,7 +69,6 @@ class _ColorChangingIconState
 
   @override
   void forEachTween(visitor) {
-    print('forEachTween with ${_colorTween?.evaluate(animation)?.toString()}');
     _colorTween = visitor(
       _colorTween,
       widget.color,
@@ -95,7 +94,6 @@ class CloseButtonState extends State<CloseButton> {
 
   @override
   Widget build(BuildContext context) {
-    print('building with $tapInProgress');
     return GestureDetector(
       onTapDown: (details) {
         setState(() => tapInProgress = true);
