@@ -20,9 +20,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  analyzer: 0.33.0
-
 flutter:
 
   uses-material-design: true
