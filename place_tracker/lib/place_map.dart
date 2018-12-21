@@ -117,7 +117,7 @@ class PlaceMapState extends State<PlaceMap> {
     AppState.updateWith(context, places: newPlaces);
   }
 
-  void _updateExistingPlaceMarker({@required Place place}) async {
+  Future<void> _updateExistingPlaceMarker({@required Place place}) async {
     Marker marker =
     _markedPlaces.keys.singleWhere(
             (Marker value) => _markedPlaces[value].id == place.id);
@@ -152,12 +152,12 @@ class PlaceMapState extends State<PlaceMap> {
     _showPlacesForSelectedCategory(category);
   }
 
-  void _showPlacesForSelectedCategory(PlaceCategory category) async {
-    await _markedPlaces.forEach((Marker marker, Place place) {
-      mapController.updateMarker(
+  Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
+    await Future.forEach(_markedPlaces.keys, (Marker marker) async {
+      await mapController.updateMarker(
         marker,
         MarkerOptions(
-          visible: place.category == category,
+          visible: _markedPlaces[marker].category == category,
         ),
       );
     });
@@ -280,7 +280,7 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  void _maybeUpdateMapConfiguration() async {
+  Future<void> _maybeUpdateMapConfiguration() async {
     _configuration ??= MapConfiguration.of(AppState.of(context));
     final MapConfiguration newConfiguration = MapConfiguration.of(AppState.of(context));
 
@@ -297,9 +297,9 @@ class PlaceMapState extends State<PlaceMap> {
       } else {
         // At this point, we know the places have been updated from the list view.
         // We need to reconfigure the map to respect the updates.
-        await newConfiguration.places.forEach((Place value) {
+        await Future.forEach(newConfiguration.places, (Place value) async {
           if (!_configuration.places.contains(value)) {
-            _updateExistingPlaceMarker(place: value);
+            await _updateExistingPlaceMarker(place: value);
           }
         });
         _zoomToFitPlaces(
@@ -523,6 +523,11 @@ class MapConfiguration {
 
   final List<Place> places;
   final PlaceCategory selectedCategory;
+
+  @override
+  int get hashCode =>
+      places.hashCode ^
+      selectedCategory.hashCode;
 
   @override
   bool operator ==(Object other) {
