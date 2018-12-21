@@ -152,14 +152,17 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
-    await Future.forEach(_markedPlaces.keys, (Marker marker) async {
-      await mapController.updateMarker(
-        marker,
-        MarkerOptions(
-          visible: _markedPlaces[marker].category == category,
-        ),
-      );
-    });
+    await Future.wait(
+      _markedPlaces.keys.map(
+        (Marker marker) => mapController.updateMarker(
+              marker,
+              MarkerOptions(
+                visible: _markedPlaces[marker].category == category,
+              ),
+            ),
+      ),
+    );
+
     _zoomToFitPlaces(
         _getPlacesForCategory(category, _markedPlaces.values.toList()));
   }
@@ -295,13 +298,13 @@ class PlaceMapState extends State<PlaceMap> {
         // the marker visibilities.
         _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
       } else {
-        // At this point, we know the places have been updated from the list view.
-        // We need to reconfigure the map to respect the updates.
-        await Future.forEach(newConfiguration.places, (Place value) async {
-          if (!_configuration.places.contains(value)) {
-            await _updateExistingPlaceMarker(place: value);
-          }
-        });
+        // At this point, we know the places have been updated from the list
+        // view. We need to reconfigure the map to respect the updates.
+        await Future.wait(
+          newConfiguration.places
+              .where((Place p) => !_configuration.places.contains(p))
+              .map((Place value) => _updateExistingPlaceMarker(place: value)),
+        );
         _zoomToFitPlaces(
           _getPlacesForCategory(
             newConfiguration.selectedCategory,
