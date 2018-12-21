@@ -73,7 +73,11 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        // Access the model. This won't rebuild anything here when it changes.
+        // ScopedModel.of is another way to access the model object held
+        // by an ancestor ScopedModel. By default, it just returns
+        // the current model and doesn't automatically trigger rebuilds.
+        // Since this button always looks the same, though, no rebuilds
+        // are needed.
         onPressed: () => ScopedModel.of<Counter>(context).increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
