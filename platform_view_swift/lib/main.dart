@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     new Text(
-                      'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.',
+                      'Button tapped $_counter time${_counter == 1 ? '' : 's'}.',
                       style: const TextStyle(fontSize: 17.0),
                     ),
                     new Padding(
