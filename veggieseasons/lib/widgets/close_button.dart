@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/styles.dart';
 
+/// Partially overlays and then blurs its child.
 class FrostedBox extends StatelessWidget {
   const FrostedBox({
     this.child,
@@ -30,16 +31,81 @@ class FrostedBox extends StatelessWidget {
   }
 }
 
-class CloseButton extends StatelessWidget {
+/// An Icon that implicitly animates changes to its color.
+class ColorChangingIcon extends ImplicitlyAnimatedWidget {
+  const ColorChangingIcon(
+    this.icon, {
+    this.color = CupertinoColors.black,
+    this.size,
+    @required Duration duration,
+    Key key,
+  })  : assert(icon != null),
+        assert(color != null),
+        assert(duration != null),
+        super(key: key, duration: duration);
+
+  final Color color;
+
+  final IconData icon;
+
+  final double size;
+
+  @override
+  _ColorChangingIconState createState() => _ColorChangingIconState();
+}
+
+class _ColorChangingIconState
+    extends AnimatedWidgetBaseState<ColorChangingIcon> {
+  ColorTween _colorTween;
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      widget.icon,
+      size: widget.size,
+      color: _colorTween?.evaluate(animation),
+    );
+  }
+
+  @override
+  void forEachTween(visitor) {
+    print('forEachTween with ${_colorTween?.evaluate(animation)?.toString()}');
+    _colorTween = visitor(
+      _colorTween,
+      widget.color,
+      (dynamic value) => ColorTween(begin: value),
+    );
+  }
+}
+
+/// A simple "close this modal" button that invokes a callback when pressed.
+class CloseButton extends StatefulWidget {
   const CloseButton(this.onPressed);
 
   final VoidCallback onPressed;
 
   @override
+  CloseButtonState createState() {
+    return new CloseButtonState();
+  }
+}
+
+class CloseButtonState extends State<CloseButton> {
+  bool tapInProgress = false;
+
+  @override
   Widget build(BuildContext context) {
+    print('building with $tapInProgress');
     return GestureDetector(
-      onTap: () {
-        onPressed();
+      onTapDown: (details) {
+        setState(() => tapInProgress = true);
+      },
+      onTapUp: (details) {
+        setState(() => tapInProgress = false);
+        widget.onPressed();
+      },
+      onTapCancel: () {
+        setState(() => tapInProgress = false);
       },
       child: ClipOval(
         child: FrostedBox(
@@ -50,8 +116,12 @@ class CloseButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             child: Center(
-              child: Icon(
+              child: ColorChangingIcon(
                 CupertinoIcons.clear_thick,
+                duration: Duration(milliseconds: 300),
+                color: tapInProgress
+                    ? Styles.closeButtonPressed
+                    : Styles.closeButtonUnpressed,
                 size: 20,
               ),
             ),
