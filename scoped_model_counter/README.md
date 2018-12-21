@@ -18,7 +18,7 @@ The only important part of the app is the `lib/main.dart` file. It has comments 
 through it.
 
 For more information on the `scoped_model` package (where `ScopedModel` comes from), please
-[read its documentation](https://pub.dartlang.org/packages/scoped_model).
+[see the package documentation](https://pub.dartlang.org/packages/scoped_model).
 
 For more information on state management in Flutter, and a list of other approaches,
 head over to the [State management page at flutter.io][state-mgmt].
