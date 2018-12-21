@@ -7,11 +7,11 @@ void main() {
   // Initialize the model. Can be done outside a widget, like here.
   var counter = Counter();
 
-  // We can now interact with the model from outside of the Flutter widget tree.
-  // Here, we wait 5 seconds and increment the counter.
-  Timer(
+  // Setup a delayed interaction with the model (increment each 5 seconds),
+  // outside of the Flutter widget tree.
+  Timer.periodic(
     const Duration(seconds: 5),
-    () => counter.increment(),
+    (timer) => counter.increment(),
   );
 
   // Now we're ready to run the app...
