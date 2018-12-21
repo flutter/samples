@@ -25,8 +25,8 @@ class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
     return MaterialApp(
       builder: (BuildContext context, Widget child) {
         return AppModel<AppState>(
-            initialState: AppState(),
-            child: child,
+          initialState: AppState(),
+          child: child,
         );
       },
       home: _PlaceTrackerHomePage(),
@@ -35,7 +35,7 @@ class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
-  const _PlaceTrackerHomePage({ Key key }) : super(key: key);
+  const _PlaceTrackerHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +57,18 @@ class _PlaceTrackerHomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
             child: IconButton(
               icon: Icon(
-                  AppState.of(context).viewType == PlaceTrackerViewType.map
-                      ? Icons.list
-                      : Icons.map,
-                  size: 32.0
+                AppState.of(context).viewType == PlaceTrackerViewType.map
+                    ? Icons.list
+                    : Icons.map,
+                size: 32.0,
               ),
               onPressed: () {
                 AppState.updateWith(
                   context,
-                  viewType: AppState.of(context).viewType == PlaceTrackerViewType.map
-                      ? PlaceTrackerViewType.list
-                      : PlaceTrackerViewType.map,
+                  viewType:
+                      AppState.of(context).viewType == PlaceTrackerViewType.map
+                          ? PlaceTrackerViewType.list
+                          : PlaceTrackerViewType.map,
                 );
               },
             ),
@@ -75,7 +76,8 @@ class _PlaceTrackerHomePage extends StatelessWidget {
         ],
       ),
       body: IndexedStack(
-        index: AppState.of(context).viewType == PlaceTrackerViewType.map ? 0 : 1,
+        index:
+            AppState.of(context).viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: <Widget>[
           PlaceMap(center: const LatLng(45.521563, -122.677433)),
           PlaceList(),
@@ -90,7 +92,7 @@ class AppState {
     this.places = StubData.places,
     this.selectedCategory = PlaceCategory.favorite,
     this.viewType = PlaceTrackerViewType.map,
-  }) : assert(places != null),
+  })  : assert(places != null),
         assert(selectedCategory != null);
 
   final List<Place> places;
@@ -116,29 +118,29 @@ class AppState {
   }
 
   static void updateWith(
-      BuildContext context,
-      {List<Place> places,
-        PlaceCategory selectedCategory,
-        PlaceTrackerViewType viewType,
-      }) {
+    BuildContext context, {
+    List<Place> places,
+    PlaceCategory selectedCategory,
+    PlaceTrackerViewType viewType,
+  }) {
     update(
       context,
       AppState.of(context).copyWith(
-        places: places, selectedCategory: selectedCategory, viewType: viewType,
+        places: places,
+        selectedCategory: selectedCategory,
+        viewType: viewType,
       ),
     );
   }
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other))
-      return true;
-    if (other.runtimeType != runtimeType)
-      return false;
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
     final AppState otherAppState = other;
-    return otherAppState.places == places
-        && otherAppState.selectedCategory == selectedCategory
-        && otherAppState.viewType == viewType;
+    return otherAppState.places == places &&
+        otherAppState.selectedCategory == selectedCategory &&
+        otherAppState.viewType == viewType;
   }
 
   @override

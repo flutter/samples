@@ -4,7 +4,7 @@ class _AppModelScope<T> extends InheritedWidget {
   const _AppModelScope({
     Key key,
     this.appModelState,
-    Widget child
+    Widget child,
   }) : super(key: key, child: child);
 
   final _AppModelState<T> appModelState;
@@ -18,7 +18,7 @@ class AppModel<T> extends StatefulWidget {
     Key key,
     @required this.initialState,
     this.child,
-  }) : assert(initialState != null),
+  })  : assert(initialState != null),
         super(key: key);
 
   final T initialState;
@@ -30,13 +30,15 @@ class AppModel<T> extends StatefulWidget {
 
   static T of<T>(BuildContext context) {
     final Type appModelScopeType = _typeOf<_AppModelScope<T>>();
-    final _AppModelScope<T> scope = context.inheritFromWidgetOfExactType(appModelScopeType);
+    final _AppModelScope<T> scope =
+        context.inheritFromWidgetOfExactType(appModelScopeType);
     return scope.appModelState.currentState;
   }
 
   static void update<T>(BuildContext context, T newState) {
     final Type appModelScopeType = _typeOf<_AppModelScope<T>>();
-    final _AppModelScope<T> scope = context.inheritFromWidgetOfExactType(appModelScopeType);
+    final _AppModelScope<T> scope =
+        context.inheritFromWidgetOfExactType(appModelScopeType);
     scope.appModelState.updateState(newState);
   }
 }
