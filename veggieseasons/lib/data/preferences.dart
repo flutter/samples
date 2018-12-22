@@ -51,7 +51,7 @@ class Preferences extends Model {
   }
 
   void load() {
-    _loading = Future.delayed(Duration(hours: 1)); //_loadFromSharedPrefs();
+    _loading = _loadFromSharedPrefs();
   }
 
   Future<void> _saveToSharedPrefs() async {
