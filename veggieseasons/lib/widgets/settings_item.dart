@@ -9,7 +9,6 @@ import 'package:veggieseasons/styles.dart';
 
 typedef FutureOr<void> SettingsItemCallback();
 
-@immutable
 class SettingsNavigationIndicator extends StatelessWidget {
   const SettingsNavigationIndicator({Key key}) : super(key: key);
 
@@ -23,7 +22,6 @@ class SettingsNavigationIndicator extends StatelessWidget {
   }
 }
 
-@immutable
 class SettingsIcon extends StatelessWidget {
   const SettingsIcon({
     @required this.icon,

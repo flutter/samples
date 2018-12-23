@@ -33,13 +33,13 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
             CupertinoSwitch toggle;
 
             // It's possible that category data hasn't loaded from shared prefs
-            // yet, so display it if possible, and fall back to disabled
-            // switches otherwise.
+            // yet, so display it if possible and fall back to disabled switches
+            // otherwise.
             if (snapshot.hasData) {
               toggle = CupertinoSwitch(
                 value: snapshot.data.contains(category),
-                onChanged: (isOn) {
-                  if (isOn) {
+                onChanged: (value) {
+                  if (value) {
                     model.addPreferredCategory(category);
                   } else {
                     model.removePreferredCategory(category);
@@ -73,9 +73,9 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 }
 
 class CalorieSettingsScreen extends StatelessWidget {
-  static const minCalories = 1000;
-  static const maxCalories = 2600;
-  static const calorieStep = 200;
+  static const max = 1000;
+  static const min = 2600;
+  static const step = 200;
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +94,7 @@ class CalorieSettingsScreen extends StatelessWidget {
             builder: (context, snapshot) {
               final steps = <SettingsItem>[];
 
-              for (int cals = minCalories;
-                  cals < maxCalories;
-                  cals += calorieStep) {
+              for (int cals = max; cals < min; cals += step) {
                 steps.add(
                   SettingsItem(
                     label: cals.toString(),
@@ -108,9 +106,7 @@ class CalorieSettingsScreen extends StatelessWidget {
                       backgroundColor: Styles.transparentColor,
                     ),
                     onPress: snapshot.hasData
-                        ? () {
-                            model.setDesiredCalories(cals);
-                          }
+                        ? () => model.setDesiredCalories(cals)
                         : null,
                   ),
                 );
@@ -133,7 +129,7 @@ class CalorieSettingsScreen extends StatelessWidget {
 class SettingsScreen extends StatelessWidget {
   Widget _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
-      label: 'Target Calorie level',
+      label: 'Target Calorie Intake',
       icon: SettingsIcon(
         backgroundColor: Styles.iconBlue,
         icon: Styles.calorieIcon,

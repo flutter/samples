@@ -57,7 +57,6 @@ class SettingsGroupFooter extends StatelessWidget {
   }
 }
 
-@immutable
 class SettingsGroup extends StatelessWidget {
   SettingsGroup({
     @required this.items,
