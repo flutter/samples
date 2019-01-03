@@ -68,12 +68,14 @@ class Preferences extends Model {
     final prefs = await SharedPreferences.getInstance();
     _desiredCalories = prefs.getInt(_caloriesKey) ?? 2000;
     _preferredCategories.clear();
-    final names = prefs.getString(_preferredCategoriesKey) ?? '';
+    final names = prefs.getString(_preferredCategoriesKey);
 
-    for (final name in names.split(',')) {
-      final index = int.parse(name) ?? 0;
-      if (VeggieCategory.values[index] != null) {
-        _preferredCategories.add(VeggieCategory.values[index]);
+    if (names != null) {
+      for (final name in names.split(',')) {
+        final index = int.tryParse(name) ?? -1;
+        if (VeggieCategory.values[index] != null) {
+          _preferredCategories.add(VeggieCategory.values[index]);
+        }
       }
     }
 
