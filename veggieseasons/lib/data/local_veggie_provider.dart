@@ -228,7 +228,7 @@ class LocalVeggieProvider {
       name: 'Squash',
       imageAssetPath: 'assets/images/squash.jpg',
       category: VeggieCategory.gourd,
-      shortDescription: 'Bigger and heartier than summer squashes.',
+      shortDescription: 'Just slather them in butter and pop \'em in the oven.',
       accentColor: Color(0x40dbb721),
       seasons: [Season.winter, Season.autumn],
     ),

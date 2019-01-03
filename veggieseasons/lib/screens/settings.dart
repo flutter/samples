@@ -49,7 +49,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
             } else {
               toggle = CupertinoSwitch(
                 value: false,
-                onChanged: (value) {},
+                onChanged: null,
               );
             }
 
@@ -83,7 +83,6 @@ class CalorieSettingsScreen extends StatelessWidget {
 
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text('Target Calorie Level'),
         previousPageTitle: 'Settings',
       ),
       backgroundColor: Styles.scaffoldBackground,
@@ -129,19 +128,28 @@ class CalorieSettingsScreen extends StatelessWidget {
 class SettingsScreen extends StatelessWidget {
   Widget _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
-      label: 'Target Calorie Intake',
+      label: 'Calorie Target',
       icon: SettingsIcon(
         backgroundColor: Styles.iconBlue,
         icon: Styles.calorieIcon,
       ),
       content: FutureBuilder<int>(
         future: prefs.desiredCalories,
-        builder: (context, snapshot) => Text(snapshot.data?.toString() ?? ''),
+        builder: (context, snapshot) {
+          return Row(
+            children: <Widget>[
+              Text(snapshot.data?.toString() ?? ''),
+              SizedBox(width: 8.0),
+              SettingsNavigationIndicator(),
+            ],
+          );
+        },
       ),
       onPress: () {
         Navigator.of(context).push(
           CupertinoPageRoute(
             builder: (context) => CalorieSettingsScreen(),
+            title: 'Calorie Target',
           ),
         );
       },
@@ -161,6 +169,7 @@ class SettingsScreen extends StatelessWidget {
         Navigator.of(context).push(
           CupertinoPageRoute(
             builder: (context) => VeggieCategorySettingsScreen(),
+            title: 'Preferred Categories',
           ),
         );
       },

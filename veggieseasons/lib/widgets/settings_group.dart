@@ -7,6 +7,12 @@ import 'package:veggieseasons/styles.dart';
 
 import 'settings_item.dart';
 
+// The widgets in this file present a group of Cupertino-style settings items to
+// the user. In the future, the Cupertino package in the Flutter SDK will
+// include dedicated widgets for this purpose, but for now they're done here.
+//
+// See https://github.com/flutter/flutter/projects/29 for more info.
+
 class SettingsGroupHeader extends StatelessWidget {
   const SettingsGroupHeader(this.title);
 

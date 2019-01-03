@@ -7,6 +7,12 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:veggieseasons/styles.dart';
 
+// The widgets in this file present a Cupertino-style settings item to the user.
+// In the future, the Cupertino package in the Flutter SDK will include
+// dedicated widgets for this purpose, but for now they're done here.
+//
+// See https://github.com/flutter/flutter/projects/29 for more info.
+
 typedef FutureOr<void> SettingsItemCallback();
 
 class SettingsNavigationIndicator extends StatelessWidget {
