@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Typography Demo',
+      home: FortnightlyDemo(),
+      theme: _kFortnightlyTheme,
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
 class FortnightlyDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
