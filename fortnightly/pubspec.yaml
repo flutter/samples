@@ -1,0 +1,39 @@
+name: fortnightly
+description: Fortnightly.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+  - assets/avatar.jpg
+  - assets/fortnightly_logo.png
+  - assets/fruits.jpg
+
+  fonts:
+    - family: LibreFranklin
+      fonts:
+      - asset: fonts/LibreFranklin-Bold.ttf
+      - asset: fonts/LibreFranklin-Light.ttf
+      - asset: fonts/LibreFranklin-Medium.ttf
+      - asset: fonts/LibreFranklin-Regular.ttf
+    - family: Merriweather
+      fonts:
+      - asset: fonts/Merriweather-BlackItalic.ttf
+      - asset: fonts/Merriweather-Italic.ttf
+      - asset: fonts/Merriweather-Regular.ttf
+      - asset: fonts/Merriweather-Light.ttf
