@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Typography Demo',
       home: FortnightlyDemo(),
-      theme: _kFortnightlyTheme,
+      theme: _fortnightlyTheme,
       debugShowCheckedModeBanner: false,
     );
   }
@@ -19,13 +19,15 @@ class FortnightlyDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Stack(
-      children: <Widget>[
-        FruitPage(),
-        ShortAppBar(),
-      ],
-    )));
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            FruitPage(),
+            ShortAppBar(),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -48,7 +50,7 @@ class ShortAppBar extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            Image.asset('assets/fortnightly_logo.png')
+            Image.asset('assets/fortnightly_logo.png'),
           ],
         ),
       ),
@@ -103,7 +105,8 @@ class FruitPage extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "How these crazy fruits sweetened our hearts, relationships, and puffed pastries",
+                    "How these crazy fruits sweetened our hearts, relationships,"
+                        "and puffed pastries",
                     style: textTheme.body1,
                   ),
                   Padding(
@@ -133,7 +136,22 @@ class FruitPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Have you ever held a quince? It's strange; covered in a fuzz somewhere between peach skin and a spider web. And it's hard as soft lumber. You'd be forgiven for thinking it's veneered Larch-wood. But inhale the aroma and you'll instantly know you have something wonderful. Its scent can fill a room for days. And all this before you've even cooked it.\n\nPomegranates on the other hand have become almost ubiquitous. You can find its juice in any bodega, Walmart, and even some gas stations. But at what cost? The pomegranate juice craze of the aughts made \"megafarmers\" Lynda and Stewart Resnick billions. Unfortunately, it takes a lot of water to make that much pomegranate juice. Water the Resnicks get from their majority stake in the Kern Water Bank. How did one family come to hold control over water meant for the whole central valley of California? The story will shock you.",
+                    "Have you ever held a quince? It's strange; covered in a fuzz"
+                        "somewhere between peach skin and a spider web. And it's"
+                        "hard as soft lumber. You'd be forgiven for thinking it's"
+                        "veneered Larch-wood. But inhale the aroma and you'll instantly"
+                        "know you have something wonderful. Its scent can fill a"
+                        "room for days. And all this before you've even cooked it."
+                        "\n\nPomegranates on the other hand have become almost"
+                        "ubiquitous. You can find its juice in any bodega, Walmart,"
+                        "and even some gas stations. But at what cost? The pomegranate"
+                        "juice craze of the aughts made \"megafarmers\" Lynda and"
+                        "Stewart Resnick billions. Unfortunately, it takes a lot"
+                        "of water to make that much pomegranate juice. Water the"
+                        "Resnicks get from their majority stake in the Kern Water"
+                        "Bank. How did one family come to hold control over water"
+                        "meant for the whole central valley of California? The"
+                        "story will shock you.",
                     style: textTheme.body2,
                   ),
                 ],
@@ -146,7 +164,7 @@ class FruitPage extends StatelessWidget {
   }
 }
 
-final ThemeData _kFortnightlyTheme = _buildFortnightlyTheme();
+final ThemeData _fortnightlyTheme = _buildFortnightlyTheme();
 
 ThemeData _buildFortnightlyTheme() {
   final ThemeData base = ThemeData.light();
