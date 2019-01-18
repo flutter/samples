@@ -50,7 +50,8 @@ The Flutter code that builds the UI.
     home buttons (like iPhone X+).
 * The entire newspaper article is wrapped in a `SingleChildScrollView` widget which allows it to scroll instead of
     overflowing.
-* The `Text` widget with text ' ¬ ' has a `TextStyle` that changes one parameter of an inherited `TextStyle` using .apply().
+* The `Text` widget with text ' ¬ ' has a `TextStyle` that changes one parameter of an inherited `TextStyle` using
+    `.apply().
 * The `Text` widget with text 'Connor Eghan' has a `TextStyle` created explicitly instead of inheriting from theming.
 * You can break up long strings in your source files by putting them on multiple lines.
 * Fonts are imported with multiple files expressing their weights (Bold, Light, Medium, Regular) but are accessed by a
