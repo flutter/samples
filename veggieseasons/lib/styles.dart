@@ -91,7 +91,7 @@ abstract class Styles {
 
   static const scaffoldBackground = Color(0xfff0f0f0);
 
-  static const searchBackground = Color(0xffe0e0e0);
+  static const searchBackground = Color(0xa0d6d6d6);
 
   static const frostedBackground = Color(0xccf8f8f8);
 

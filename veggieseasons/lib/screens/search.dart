@@ -37,16 +37,6 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() => _terms = _controller.text);
   }
 
-  Widget _createSearchBox() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SearchBar(
-        controller: _controller,
-        focusNode: _focusNode,
-      ),
-    );
-  }
-
   List<Widget> _generateVeggieRows(List<Veggie> veggies) {
     final cards = new List<Widget>();
 
@@ -70,17 +60,24 @@ class _SearchScreenState extends State<SearchScreen> {
           decoration: BoxDecoration(
             color: Styles.scaffoldBackground,
           ),
-          child: SafeArea(
-            child: Column(
-              children: [
-                _createSearchBox(),
-                Expanded(
-                  child: ListView(
-                    children: _generateVeggieRows(model.searchVeggies(_terms)),
-                  ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: ListView(
+                  padding: EdgeInsets.only(top: 100),
+                  children: _generateVeggieRows(model.searchVeggies(_terms)),
                 ),
-              ],
-            ),
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: SearchBar(
+                  controller: _controller,
+                  focusNode: _focusNode,
+                )
+              ),
+            ],
           ),
         );
       },
