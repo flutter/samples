@@ -5,7 +5,7 @@ grow your Flutter skills. Some are maintained here by the Flutter team,
 but many have been created by the Flutter community and are kept in other repos
 in and out of GitHub.
 
-This is not an exhaustive list of samples, and just because because a project
+This is not an exhaustive list of samples, and just because a project
 isn't listed here doesn't mean that it's not worth exploring. Similarly, while
 the Flutter team works to keep this list up to date, there are plenty of others
 created by the community, such as
