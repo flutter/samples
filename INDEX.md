@@ -11,11 +11,11 @@ the Flutter team works to keep this list up to date, there are plenty of others
 created by the community, such as
 [Awesome Flutter](https://github.com/Solido/awesome-flutter) from @Solido.
 
-**Please don't submit pull requests directly updating this file. While we're
-always grateful to learn of new samples that people have put together, we need
-to keep this file small. There are plenty of user-maintained indexes (like
+***Please don't submit pull requests directly updating this file. While we're
+always happy to learn of new samples from the community, we need
+to keep this file small. There are plenty of user-maintained indices (like
 [Awesome Flutter](https://github.com/Solido/awesome-flutter)) that are meant to
-be exhaustive, and those are great places to submit your own stuff to.**
+be exhaustive, and those are great places to submit your own stuff to.***
 
 ## How-to Collections
 
