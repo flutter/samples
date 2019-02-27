@@ -29,6 +29,10 @@ YouTube video showing implementation.
 Twenty-odd samples detailing common tasks with Flutter: how to use text fields,
 streams and StreamBuilders, and more.
 
+#### [FlutterPlayground](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub stars](https://img.shields.io/github/stars/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Star)](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub forks](https://img.shields.io/github/forks/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Fork)](https://github.com/ibhavikmakwana/FlutterPlayground/fork)
+
+Contains a list of examples from Bhavik Makwana.
+
 ## Architecture / networking / backend
 
 #### [Flutter Architectural Samples](https://github.com/brianegan/flutter_architecture_samples) [![GitHub stars](https://img.shields.io/github/stars/brianegan/flutter_architecture_samples.svg?style=social&label=Star)](https://github.com/brianegan/flutter_architecture_samples) [![GitHub forks](https://img.shields.io/github/forks/brianegan/flutter_architecture_samples.svg?style=social&label=Fork)](https://github.com/brianegan/flutter_architecture_samples/fork)
