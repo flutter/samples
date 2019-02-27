@@ -11,6 +11,12 @@ the Flutter team works to keep this list up to date, there are plenty of others
 created by the community, such as
 [Awesome Flutter](https://github.com/Solido/awesome-flutter) from @Solido.
 
+**Please don't submit pull requests directly updating this file. While we're
+always grateful to learn of new samples that people have put together, we need
+to keep this file small. There are plenty of user-maintained indexes (like
+[Awesome Flutter](https://github.com/Solido/awesome-flutter)) that are meant to
+be exhaustive, and those are great places to submit your own stuff to.**
+
 ## How-to Collections
 
 #### [Flutter Examples](https://github.com/nisrulz/flutter-examples) [![GitHub stars](https://img.shields.io/github/stars/nisrulz/flutter-examples.svg?style=social&label=Star)](https://github.com/nisrulz/flutter-examples) [![GitHub forks](https://img.shields.io/github/forks/nisrulz/flutter-examples.svg?style=social&label=Fork)](https://github.com/nisrulz/flutter-examples/fork)
@@ -28,10 +34,6 @@ YouTube video showing implementation.
 
 Twenty-odd samples detailing common tasks with Flutter: how to use text fields,
 streams and StreamBuilders, and more.
-
-#### [FlutterPlayground](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub stars](https://img.shields.io/github/stars/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Star)](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub forks](https://img.shields.io/github/forks/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Fork)](https://github.com/ibhavikmakwana/FlutterPlayground/fork)
-
-Contains a list of examples from Bhavik Makwana.
 
 ## Architecture / networking / backend
 
@@ -58,6 +60,10 @@ for state management.
 Another sample from Flutter GDE Pawan Kumar, this repo includes a variety of
 polished UI examples.
 
+#### [FlutterPlayground](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub stars](https://img.shields.io/github/stars/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Star)](https://github.com/ibhavikmakwana/FlutterPlayground) [![GitHub forks](https://img.shields.io/github/forks/ibhavikmakwana/FlutterPlayground.svg?style=social&label=Fork)](https://github.com/ibhavikmakwana/FlutterPlayground/fork)
+
+A repo full of short, specific examples (with animated screenshots!) showing
+commonly used widgets and how to put them to work.
 
 #### [Flutter Challenges](https://github.com/matthew-carroll?tab=repositories&q=flutter_ui_challenge)
 More a GitHub search result than a single repo, Matt Carroll's Flutter UI
