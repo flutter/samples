@@ -15,7 +15,7 @@ created by the community, such as
 always happy to learn of new samples from the community, we need
 to keep this file small. There are plenty of user-maintained indices (like
 [Awesome Flutter](https://github.com/Solido/awesome-flutter)) that are meant to
-be exhaustive, and those are great places to submit your own stuff to.***
+be exhaustive, and those are great places for submitting your own work.***
 
 ## How-to Collections
 
@@ -51,7 +51,7 @@ hand-written constructors, `json_serializable`, and `built_value`.
 
 #### [scoped_model_counter](scoped_model_counter) _(Flutter team)_
 
-The simplest possible app (the counter) using `scoped_model` 
+The simplest possible app (the counter) using `scoped_model`
 for state management.
 
 ## UI
