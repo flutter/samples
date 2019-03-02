@@ -59,9 +59,9 @@ class SeasonCircle extends StatelessWidget {
 }
 
 class DetailsScreen extends StatelessWidget {
-  final int id;
-
   DetailsScreen(this.id);
+
+  final int id;
 
   Widget _createHeader(BuildContext context, AppState model) {
     final veggie = model.getVeggie(id);

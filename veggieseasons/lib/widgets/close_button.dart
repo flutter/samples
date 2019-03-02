@@ -85,7 +85,7 @@ class CloseButton extends StatefulWidget {
 
   @override
   CloseButtonState createState() {
-    return new CloseButtonState();
+    return CloseButtonState();
   }
 }
 

@@ -7,13 +7,13 @@ import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/styles.dart';
 
 class SearchBar extends StatelessWidget {
-  final TextEditingController controller;
-  final FocusNode focusNode;
-
   SearchBar({
     @required this.controller,
     @required this.focusNode,
   });
+
+  final TextEditingController controller;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +42,7 @@ class SearchBar extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {
-                controller.clear();
-              },
+              onTap: controller.clear,
               child: Icon(
                 CupertinoIcons.clear_thick_circled,
                 color: Styles.searchIconColor,

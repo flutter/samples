@@ -8,9 +8,9 @@ import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class VeggieHeadline extends StatelessWidget {
-  final Veggie veggie;
-
   const VeggieHeadline(this.veggie);
+
+  final Veggie veggie;
 
   List<Widget> _buildSeasonDots(List<Season> seasons) {
     List<Widget> widgets = <Widget>[];

@@ -48,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   List<Widget> _generateVeggieRows(List<Veggie> veggies) {
-    final cards = new List<Widget>();
+    final cards = <Widget>[];
 
     for (Veggie veggie in veggies) {
       cards.add(Padding(

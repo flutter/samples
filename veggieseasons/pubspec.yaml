@@ -4,7 +4,7 @@ description: An iOS app that shows the fruits and veggies currently in season.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -14,6 +14,7 @@ dependencies:
   intl: ^0.15.7
   scoped_model: ^1.0.1
   shared_preferences: ^0.4.3
+  pedantic: ^1.4.0
 
 dev_dependencies:
   flutter_test:

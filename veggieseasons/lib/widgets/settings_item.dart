@@ -77,7 +77,7 @@ class SettingsItem extends StatefulWidget {
   final SettingsItemCallback onPress;
 
   @override
-  State<StatefulWidget> createState() => new SettingsItemState();
+  State<StatefulWidget> createState() => SettingsItemState();
 }
 
 class SettingsItemState extends State<SettingsItem> {

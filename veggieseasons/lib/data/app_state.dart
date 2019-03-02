@@ -7,9 +7,9 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/data/local_veggie_provider.dart';
 
 class AppState extends Model {
-  List<Veggie> _veggies;
-
   AppState() : _veggies = LocalVeggieProvider.veggies;
+
+  List<Veggie> _veggies;
 
   List<Veggie> get allVeggies => List<Veggie>.from(_veggies);
 

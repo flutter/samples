@@ -69,7 +69,7 @@ class SettingsGroup extends StatelessWidget {
     this.header,
     this.footer,
   })  : assert(items != null),
-        assert(items.length > 0);
+        assert(items.isNotEmpty);
 
   final List<SettingsItem> items;
   final Widget header;

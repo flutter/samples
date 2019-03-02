@@ -16,7 +16,7 @@ class FavoritesScreen extends StatelessWidget {
   Widget _buildTabViewBody(BuildContext context) {
     final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
-    if (model.favoriteVeggies.length == 0) {
+    if (model.favoriteVeggies.isEmpty) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Text(
