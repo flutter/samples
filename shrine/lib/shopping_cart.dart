@@ -63,8 +63,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             width: _leftColumnWidth,
                             child: IconButton(
                                 icon: const Icon(Icons.keyboard_arrow_down),
-                                onPressed: () => ExpandingBottomSheet.of(context).close()
-                            ),
+                                onPressed: () =>
+                                    ExpandingBottomSheet.of(context).close()),
                           ),
                           Text(
                             'CART',

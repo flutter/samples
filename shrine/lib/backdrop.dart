@@ -60,10 +60,6 @@ class _FrontLayer extends StatelessWidget {
 }
 
 class _BackdropTitle extends AnimatedWidget {
-  final Function onPress;
-  final Widget frontTitle;
-  final Widget backTitle;
-
   const _BackdropTitle({
     Key key,
     Listenable listenable,
@@ -74,10 +70,14 @@ class _BackdropTitle extends AnimatedWidget {
         assert(backTitle != null),
         super(key: key, listenable: listenable);
 
+  final Function onPress;
+  final Widget frontTitle;
+  final Widget backTitle;
+
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = CurvedAnimation(
-      parent: this.listenable,
+      parent: listenable,
       curve: Interval(0.0, 0.78),
     );
 
@@ -91,7 +91,7 @@ class _BackdropTitle extends AnimatedWidget {
           width: 72.0,
           child: IconButton(
             padding: EdgeInsets.only(right: 8.0),
-            onPressed: this.onPress,
+            onPressed: onPress,
             icon: Stack(children: <Widget>[
               Opacity(
                 opacity: animation.value,
@@ -151,12 +151,6 @@ class _BackdropTitle extends AnimatedWidget {
 /// can make a selection. The user can also configure the titles for when the
 /// front or back layer is showing.
 class Backdrop extends StatefulWidget {
-  final Widget frontLayer;
-  final Widget backLayer;
-  final Widget frontTitle;
-  final Widget backTitle;
-  final AnimationController controller;
-
   const Backdrop({
     @required this.frontLayer,
     @required this.backLayer,
@@ -168,6 +162,12 @@ class Backdrop extends StatefulWidget {
         assert(frontTitle != null),
         assert(backTitle != null),
         assert(controller != null);
+
+  final Widget frontLayer;
+  final Widget backLayer;
+  final Widget frontTitle;
+  final Widget backTitle;
+  final AnimationController controller;
 
   @override
   _BackdropState createState() => _BackdropState();

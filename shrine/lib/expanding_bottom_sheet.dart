@@ -25,8 +25,8 @@ import 'model/product.dart';
 import 'shopping_cart.dart';
 
 // These curves define the emphasized easing curve.
-const Cubic _kAccelerateCurve = const Cubic(0.548, 0.0, 0.757, 0.464);
-const Cubic _kDecelerateCurve = const Cubic(0.23, 0.94, 0.41, 1.0);
+const Cubic _kAccelerateCurve = Cubic(0.548, 0.0, 0.757, 0.464);
+const Cubic _kDecelerateCurve = Cubic(0.23, 0.94, 0.41, 1.0);
 // The time at which the accelerate and decelerate curves switch off
 const double _kPeakVelocityTime = 0.248210;
 // Percent (as a decimal) of animation that should be completed at _peakVelocityTime
@@ -48,7 +48,7 @@ class ExpandingBottomSheet extends StatefulWidget {
   _ExpandingBottomSheetState createState() => _ExpandingBottomSheetState();
 
   static _ExpandingBottomSheetState of(BuildContext context,
-      {bool isNullOk: false}) {
+      {bool isNullOk = false}) {
     assert(isNullOk != null);
     assert(context != null);
     final _ExpandingBottomSheetState result = context
@@ -115,8 +115,10 @@ double _getPeakPoint({double begin, double end}) {
   return begin + (end - begin) * _kPeakVelocityProgress;
 }
 
-class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> with TickerProviderStateMixin {
-  final GlobalKey _expandingBottomSheetKey = GlobalKey(debugLabel: 'Expanding bottom sheet');
+class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
+    with TickerProviderStateMixin {
+  final GlobalKey _expandingBottomSheetKey =
+      GlobalKey(debugLabel: 'Expanding bottom sheet');
 
   // The width of the Material, calculated by _widthFor() & based on the number
   // of products in the cart. 64.0 is the width when there are 0 products
@@ -163,7 +165,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> with Ticker
         peak: _getPeakPoint(begin: _width, end: screenWidth),
         end: screenWidth,
         isForward: false,
-        parent: CurvedAnimation(parent: _controller.view, curve: Interval(0.0, 0.87)),
+        parent: CurvedAnimation(
+            parent: _controller.view, curve: Interval(0.0, 0.87)),
       );
     }
   }
@@ -174,7 +177,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> with Ticker
 
       return _getEmphasizedEasingAnimation(
         begin: _kCartHeight,
-        peak: _kCartHeight + (screenHeight - _kCartHeight) * _kPeakVelocityProgress,
+        peak: _kCartHeight +
+            (screenHeight - _kCartHeight) * _kPeakVelocityProgress,
         end: screenHeight,
         isForward: true,
         parent: _controller.view,
@@ -189,7 +193,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> with Ticker
           parent: _controller.view,
           curve: Interval(0.434, 1.0, curve: Curves.linear), // not used
           // only the reverseCurve will be used
-          reverseCurve: Interval(0.434, 1.0, curve: Curves.fastOutSlowIn.flipped),
+          reverseCurve:
+              Interval(0.434, 1.0, curve: Curves.fastOutSlowIn.flipped),
         ),
       );
     }
@@ -259,7 +264,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> with Ticker
   // Returns true if the cart is open or opening and false otherwise.
   bool get _isOpen {
     final AnimationStatus status = _controller.status;
-    return status == AnimationStatus.completed || status == AnimationStatus.forward;
+    return status == AnimationStatus.completed ||
+        status == AnimationStatus.forward;
   }
 
   // Opens the ExpandingBottomSheet if it's closed, otherwise does nothing.
@@ -438,7 +444,8 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
     super.initState();
     _list = _ListModel(
       listKey: _listKey,
-      initialItems: ScopedModel.of<AppStateModel>(context).productsInCart.keys.toList(),
+      initialItems:
+          ScopedModel.of<AppStateModel>(context).productsInCart.keys.toList(),
       removedItemBuilder: _buildRemovedThumbnail,
     );
     _internalList = List<int>.from(_list.list);
@@ -451,12 +458,15 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
     return product;
   }
 
-  Widget _buildRemovedThumbnail(int item, BuildContext context, Animation<double> animation) {
+  Widget _buildRemovedThumbnail(
+      int item, BuildContext context, Animation<double> animation) {
     return ProductThumbnail(animation, animation, _productWithId(item));
   }
 
-  Widget _buildThumbnail(BuildContext context, int index, Animation<double> animation) {
-    Animation<double> thumbnailSize = Tween<double>(begin: 0.8, end: 1.0).animate(
+  Widget _buildThumbnail(
+      BuildContext context, int index, Animation<double> animation) {
+    Animation<double> thumbnailSize =
+        Tween<double>(begin: 0.8, end: 1.0).animate(
       CurvedAnimation(
         curve: Interval(0.33, 1.0, curve: Curves.easeIn),
         parent: animation,
@@ -468,7 +478,8 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
       parent: animation,
     );
 
-    return ProductThumbnail(thumbnailSize, opacity, _productWithId(_list[index]));
+    return ProductThumbnail(
+        thumbnailSize, opacity, _productWithId(_list[index]));
   }
 
   // If the lists are the same length, assume nothing has changed.
@@ -476,7 +487,8 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
   // If the internalList is longer, then an item has been added.
   void _updateLists() {
     // Update _internalList based on the model
-    _internalList = ScopedModel.of<AppStateModel>(context).productsInCart.keys.toList();
+    _internalList =
+        ScopedModel.of<AppStateModel>(context).productsInCart.keys.toList();
     Set<int> internalSet = Set<int>.from(_internalList);
     Set<int> listSet = Set<int>.from(_list.list);
 
@@ -550,9 +562,11 @@ class ExtraProductsNumber extends StatelessWidget {
     if (model.productsInCart.length > 3) {
       int numOverflowProducts = _calculateOverflow(model);
       // Maximum of 99 so padding doesn't get messy.
-      int displayedOverflowProducts = numOverflowProducts <= 99 ? numOverflowProducts : 99;
+      int displayedOverflowProducts =
+          numOverflowProducts <= 99 ? numOverflowProducts : 99;
       return Container(
-        child: Text('+$displayedOverflowProducts',
+        child: Text(
+          '+$displayedOverflowProducts',
           style: Theme.of(context).primaryTextTheme.button,
         ),
       );
@@ -570,11 +584,11 @@ class ExtraProductsNumber extends StatelessWidget {
 }
 
 class ProductThumbnail extends StatelessWidget {
+  ProductThumbnail(this.animation, this.opacityAnimation, this.product);
+
   final Animation<double> animation;
   final Animation<double> opacityAnimation;
   final Product product;
-
-  ProductThumbnail(this.animation, this.opacityAnimation, this.product);
 
   @override
   Widget build(BuildContext context) {
@@ -606,8 +620,8 @@ class ProductThumbnail extends StatelessWidget {
 class _ListModel {
   _ListModel(
       {@required this.listKey,
-        @required this.removedItemBuilder,
-        Iterable<int> initialItems})
+      @required this.removedItemBuilder,
+      Iterable<int> initialItems})
       : assert(listKey != null),
         assert(removedItemBuilder != null),
         _items = List<int>.from(initialItems ?? <int>[]);
@@ -637,7 +651,8 @@ class _ListModel {
   void _removeAt(int index) {
     final int removedItem = _items.removeAt(index);
     if (removedItem != null) {
-      _animatedList.removeItem(index, (BuildContext context, Animation<double> animation) {
+      _animatedList.removeItem(index,
+          (BuildContext context, Animation<double> animation) {
         return removedItemBuilder(removedItem, context, animation);
       });
     }

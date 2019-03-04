@@ -20,13 +20,13 @@ import 'model/app_state_model.dart';
 import 'model/product.dart';
 
 class CategoryMenuPage extends StatelessWidget {
-  final List<Category> _categories = Category.values;
-  final VoidCallback onCategoryTap;
-
   const CategoryMenuPage({
     Key key,
     this.onCategoryTap,
   }) : super(key: key);
+
+  final List<Category> _categories = Category.values;
+  final VoidCallback onCategoryTap;
 
   Widget _buildCategory(Category category, BuildContext context) {
     final categoryString =
