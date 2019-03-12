@@ -19,6 +19,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.7.0
+
 flutter:
 
   assets:
@@ -66,3 +68,7 @@ flutter:
         - asset: assets/fonts/NotoSans-Italic.ttf
           style: italic
           weight: 400
+
+flutter_icons:
+  ios: true
+  image_path: "assets/icon/launcher_icon.png"
