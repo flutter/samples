@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/styles.dart';
 
-/// Partially overlays and then blurs its child.
+/// Partially overlays and then blurs its child's background.
 class FrostedBox extends StatelessWidget {
   const FrostedBox({
     this.child,
