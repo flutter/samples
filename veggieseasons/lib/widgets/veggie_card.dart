@@ -7,6 +7,8 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
+/// A Card-like Widget that responds to tap events by animating changes to its
+/// elevation and invoking an optional [onPressed] callback.
 class PressableCard extends StatefulWidget {
   const PressableCard({
     @required this.child,
