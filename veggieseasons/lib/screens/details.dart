@@ -82,8 +82,8 @@ class DetailsScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 0.0,
-            right: 16.0,
+            top: 16.0,
+            left: 16.0,
             child: SafeArea(
               child: CloseButton(() {
                 Navigator.of(context).pop();
