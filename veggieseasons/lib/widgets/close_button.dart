@@ -62,6 +62,7 @@ class _ColorChangingIconState
   Widget build(BuildContext context) {
     return Icon(
       widget.icon,
+      semanticLabel: 'Close button',
       size: widget.size,
       color: _colorTween?.evaluate(animation),
     );
