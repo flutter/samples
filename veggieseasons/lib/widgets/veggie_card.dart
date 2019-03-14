@@ -20,6 +20,11 @@ class PressableCard extends StatefulWidget {
     this.onPressed,
     Key key,
   })  : assert(child != null),
+        assert(borderRadius != null),
+        assert(upElevation != null),
+        assert(downElevation != null),
+        assert(shadowColor != null),
+        assert(duration != null),
         super(key: key);
 
   final VoidCallback onPressed;
