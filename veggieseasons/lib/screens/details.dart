@@ -76,6 +76,7 @@ class DetailsScreen extends StatelessWidget {
             child: Image.asset(
               veggie.imageAssetPath,
               fit: BoxFit.cover,
+              semanticLabel: 'A background image of ${veggie.name}',
             ),
           ),
           Positioned(

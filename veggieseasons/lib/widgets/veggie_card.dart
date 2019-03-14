@@ -122,6 +122,7 @@ class VeggieCard extends StatelessWidget {
           Image.asset(
             veggie.imageAssetPath,
             fit: BoxFit.cover,
+            semanticLabel: 'A card background featuring ${veggie.name}',
           ),
           Positioned(
             bottom: 0.0,
