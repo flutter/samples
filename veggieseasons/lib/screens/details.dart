@@ -73,12 +73,9 @@ class DetailsScreen extends StatelessWidget {
           Positioned(
             right: 0.0,
             left: 0.0,
-            child: Hero(
-              tag: veggie.id,
-              child: Image.asset(
-                veggie.imageAssetPath,
-                fit: BoxFit.cover,
-              ),
+            child: Image.asset(
+              veggie.imageAssetPath,
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(

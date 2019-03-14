@@ -48,9 +48,9 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabView(
       builder: (context) {
-        return DecoratedBox(
-          decoration: BoxDecoration(
-            color: Styles.scaffoldBackground,
+        return CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            middle: Text('My Garden'),
           ),
           child: Center(
             child: _buildTabViewBody(context),
