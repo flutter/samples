@@ -18,28 +18,28 @@ part of serializers;
 // ignore_for_file: unnecessary_const
 // ignore_for_file: unnecessary_new
 
-Serializers _$serializers = (new Serializers().toBuilder()
+Serializers _$serializers = (Serializers().toBuilder()
       ..add(BuiltComplexObject.serializer)
       ..add(BuiltSimpleObject.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(double)]),
-          () => new ListBuilder<double>())
+          () => ListBuilder<double>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(double)]),
-          () => new ListBuilder<double>())
+          () => ListBuilder<double>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BuiltSimpleObject)]),
-          () => new ListBuilder<BuiltSimpleObject>()))
+          () => ListBuilder<BuiltSimpleObject>()))
     .build();

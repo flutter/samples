@@ -19,7 +19,7 @@ part of 'built_complex_object.dart';
 // ignore_for_file: unnecessary_new
 
 Serializer<BuiltComplexObject> _$builtComplexObjectSerializer =
-    new _$BuiltComplexObjectSerializer();
+    _$BuiltComplexObjectSerializer();
 
 class _$BuiltComplexObjectSerializer
     implements StructuredSerializer<BuiltComplexObject> {
@@ -91,7 +91,7 @@ class _$BuiltComplexObjectSerializer
   @override
   BuiltComplexObject deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new BuiltComplexObjectBuilder();
+    final result = BuiltComplexObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -166,7 +166,7 @@ class _$BuiltComplexObject extends BuiltComplexObject {
   final BuiltList<BuiltSimpleObject> aListOfObjects;
 
   factory _$BuiltComplexObject([void updates(BuiltComplexObjectBuilder b)]) =>
-      (new BuiltComplexObjectBuilder()..update(updates)).build();
+      (BuiltComplexObjectBuilder()..update(updates)).build();
 
   _$BuiltComplexObject._(
       {this.aString,
@@ -185,7 +185,7 @@ class _$BuiltComplexObject extends BuiltComplexObject {
 
   @override
   BuiltComplexObjectBuilder toBuilder() =>
-      new BuiltComplexObjectBuilder()..replace(this);
+      BuiltComplexObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -250,31 +250,31 @@ class BuiltComplexObjectBuilder
 
   BuiltSimpleObjectBuilder _anObject;
   BuiltSimpleObjectBuilder get anObject =>
-      _$this._anObject ??= new BuiltSimpleObjectBuilder();
+      _$this._anObject ??= BuiltSimpleObjectBuilder();
   set anObject(BuiltSimpleObjectBuilder anObject) =>
       _$this._anObject = anObject;
 
   ListBuilder<String> _aListOfStrings;
   ListBuilder<String> get aListOfStrings =>
-      _$this._aListOfStrings ??= new ListBuilder<String>();
+      _$this._aListOfStrings ??= ListBuilder<String>();
   set aListOfStrings(ListBuilder<String> aListOfStrings) =>
       _$this._aListOfStrings = aListOfStrings;
 
   ListBuilder<int> _aListOfInts;
   ListBuilder<int> get aListOfInts =>
-      _$this._aListOfInts ??= new ListBuilder<int>();
+      _$this._aListOfInts ??= ListBuilder<int>();
   set aListOfInts(ListBuilder<int> aListOfInts) =>
       _$this._aListOfInts = aListOfInts;
 
   ListBuilder<double> _aListOfDoubles;
   ListBuilder<double> get aListOfDoubles =>
-      _$this._aListOfDoubles ??= new ListBuilder<double>();
+      _$this._aListOfDoubles ??= ListBuilder<double>();
   set aListOfDoubles(ListBuilder<double> aListOfDoubles) =>
       _$this._aListOfDoubles = aListOfDoubles;
 
   ListBuilder<BuiltSimpleObject> _aListOfObjects;
   ListBuilder<BuiltSimpleObject> get aListOfObjects =>
-      _$this._aListOfObjects ??= new ListBuilder<BuiltSimpleObject>();
+      _$this._aListOfObjects ??= ListBuilder<BuiltSimpleObject>();
   set aListOfObjects(ListBuilder<BuiltSimpleObject> aListOfObjects) =>
       _$this._aListOfObjects = aListOfObjects;
 
@@ -297,7 +297,7 @@ class BuiltComplexObjectBuilder
 
   @override
   void replace(BuiltComplexObject other) {
-    if (other == null) throw new ArgumentError.notNull('other');
+    if (other == null) throw ArgumentError.notNull('other');
     _$v = other as _$BuiltComplexObject;
   }
 
@@ -311,7 +311,7 @@ class BuiltComplexObjectBuilder
     _$BuiltComplexObject _$result;
     try {
       _$result = _$v ??
-          new _$BuiltComplexObject._(
+          _$BuiltComplexObject._(
               aString: aString,
               anInt: anInt,
               aDouble: aDouble,
@@ -334,7 +334,7 @@ class BuiltComplexObjectBuilder
         _$failedField = 'aListOfObjects';
         _aListOfObjects?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             'BuiltComplexObject', _$failedField, e.toString());
       }
       rethrow;

@@ -14,7 +14,7 @@ import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
   List<Widget> _generateVeggieRows(List<Veggie> veggies, Preferences prefs) {
-    final cards = new List<Widget>();
+    final cards = List<Widget>();
 
     for (Veggie veggie in veggies) {
       cards.add(Padding(
