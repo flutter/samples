@@ -12,7 +12,7 @@ import 'package:jsonexample/built_value/built_simple_object.dart';
 
 part 'built_value_serializers.g.dart';
 
-@SerializersFor(const [
+@SerializersFor([
   BuiltSimpleObject,
   BuiltComplexObject,
 ])

@@ -60,29 +60,26 @@ class _$BuiltComplexObjectSerializer
       result
         ..add('aListOfStrings')
         ..add(serializers.serialize(object.aListOfStrings,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
+            specifiedType: const FullType(BuiltList, [FullType(String)])));
     }
     if (object.aListOfInts != null) {
       result
         ..add('aListOfInts')
         ..add(serializers.serialize(object.aListOfInts,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(int)])));
+            specifiedType: const FullType(BuiltList, [FullType(int)])));
     }
     if (object.aListOfDoubles != null) {
       result
         ..add('aListOfDoubles')
         ..add(serializers.serialize(object.aListOfDoubles,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(double)])));
+            specifiedType: const FullType(BuiltList, [FullType(double)])));
     }
     if (object.aListOfObjects != null) {
       result
         ..add('aListOfObjects')
         ..add(serializers.serialize(object.aListOfObjects,
-            specifiedType: const FullType(
-                BuiltList, const [const FullType(BuiltSimpleObject)])));
+            specifiedType:
+                const FullType(BuiltList, [FullType(BuiltSimpleObject)])));
     }
 
     return result;
@@ -118,26 +115,23 @@ class _$BuiltComplexObjectSerializer
           break;
         case 'aListOfStrings':
           result.aListOfStrings.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
+                  specifiedType: const FullType(BuiltList, [FullType(String)]))
               as BuiltList);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))
+                  specifiedType: const FullType(BuiltList, [FullType(int)]))
               as BuiltList);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(double)]))
+                  specifiedType: const FullType(BuiltList, [FullType(double)]))
               as BuiltList);
           break;
         case 'aListOfObjects':
           result.aListOfObjects.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(BuiltSimpleObject)]))
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(BuiltSimpleObject)]))
               as BuiltList);
           break;
       }

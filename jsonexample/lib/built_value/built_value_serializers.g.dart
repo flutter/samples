@@ -21,25 +21,19 @@ part of serializers;
 Serializers _$serializers = (Serializers().toBuilder()
       ..add(BuiltComplexObject.serializer)
       ..add(BuiltSimpleObject.serializer)
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]),
           () => ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(double)]),
+          const FullType(BuiltList, [FullType(int)]), () => ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(double)]),
           () => ListBuilder<double>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]),
           () => ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(double)]),
+          const FullType(BuiltList, [FullType(int)]), () => ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(double)]),
           () => ListBuilder<double>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(BuiltSimpleObject)]),
+          const FullType(BuiltList, [FullType(BuiltSimpleObject)]),
           () => ListBuilder<BuiltSimpleObject>()))
     .build();
