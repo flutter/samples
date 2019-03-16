@@ -22,6 +22,7 @@ void main() {
       child: ScopedModel<Preferences>(
         model: Preferences()..load(),
         child: CupertinoApp(
+          debugShowCheckedModeBanner: false,
           color: Styles.appBackground,
           home: HomeScreen(),
         ),

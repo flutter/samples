@@ -49,6 +49,7 @@ class VeggieHeadline extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
                 veggie.imageAssetPath,
+                semanticLabel: 'An icon showing ${veggie.name}',
                 fit: BoxFit.fitWidth,
               ),
             ),

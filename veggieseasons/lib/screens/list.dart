@@ -35,7 +35,7 @@ class ListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabView(
       builder: (context) {
-        String dateString = DateFormat.jms("en_US").format(DateTime.now());
+        String dateString = DateFormat("MMMM y").format(DateTime.now());
         final appState =
             ScopedModel.of<AppState>(context, rebuildOnChange: true);
         final prefs =

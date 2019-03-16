@@ -73,17 +73,15 @@ class DetailsScreen extends StatelessWidget {
           Positioned(
             right: 0.0,
             left: 0.0,
-            child: Hero(
-              tag: veggie.id,
-              child: Image.asset(
-                veggie.imageAssetPath,
-                fit: BoxFit.cover,
-              ),
+            child: Image.asset(
+              veggie.imageAssetPath,
+              fit: BoxFit.cover,
+              semanticLabel: 'A background image of ${veggie.name}',
             ),
           ),
           Positioned(
-            top: 0.0,
-            right: 16.0,
+            top: 16.0,
+            left: 16.0,
             child: SafeArea(
               child: CloseButton(() {
                 Navigator.of(context).pop();
