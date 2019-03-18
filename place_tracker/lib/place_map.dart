@@ -233,8 +233,8 @@ class PlaceMapState extends State<PlaceMap> {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
-          content: const Text('New place added.',
-              style: const TextStyle(fontSize: 16.0)),
+          content:
+              const Text('New place added.', style: TextStyle(fontSize: 16.0)),
           action: SnackBarAction(
             label: 'Edit',
             onPressed: () async {
