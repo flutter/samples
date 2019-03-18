@@ -19,7 +19,7 @@ part of 'built_simple_object.dart';
 // ignore_for_file: unnecessary_new
 
 Serializer<BuiltSimpleObject> _$builtSimpleObjectSerializer =
-    _$BuiltSimpleObjectSerializer();
+    new _$BuiltSimpleObjectSerializer();
 
 class _$BuiltSimpleObjectSerializer
     implements StructuredSerializer<BuiltSimpleObject> {
@@ -54,19 +54,22 @@ class _$BuiltSimpleObjectSerializer
       result
         ..add('aListOfStrings')
         ..add(serializers.serialize(object.aListOfStrings,
-            specifiedType: const FullType(BuiltList, [FullType(String)])));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.aListOfInts != null) {
       result
         ..add('aListOfInts')
         ..add(serializers.serialize(object.aListOfInts,
-            specifiedType: const FullType(BuiltList, [FullType(int)])));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.aListOfDoubles != null) {
       result
         ..add('aListOfDoubles')
         ..add(serializers.serialize(object.aListOfDoubles,
-            specifiedType: const FullType(BuiltList, [FullType(double)])));
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(double)])));
     }
 
     return result;
@@ -75,7 +78,7 @@ class _$BuiltSimpleObjectSerializer
   @override
   BuiltSimpleObject deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = BuiltSimpleObjectBuilder();
+    final result = new BuiltSimpleObjectBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -97,17 +100,20 @@ class _$BuiltSimpleObjectSerializer
           break;
         case 'aListOfStrings':
           result.aListOfStrings.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(String)]))
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(int)]))
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, [FullType(double)]))
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(double)]))
               as BuiltList);
           break;
       }
@@ -132,7 +138,7 @@ class _$BuiltSimpleObject extends BuiltSimpleObject {
   final BuiltList<double> aListOfDoubles;
 
   factory _$BuiltSimpleObject([void updates(BuiltSimpleObjectBuilder b)]) =>
-      (BuiltSimpleObjectBuilder()..update(updates)).build();
+      (new BuiltSimpleObjectBuilder()..update(updates)).build();
 
   _$BuiltSimpleObject._(
       {this.aString,
@@ -149,7 +155,7 @@ class _$BuiltSimpleObject extends BuiltSimpleObject {
 
   @override
   BuiltSimpleObjectBuilder toBuilder() =>
-      BuiltSimpleObjectBuilder()..replace(this);
+      new BuiltSimpleObjectBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -206,19 +212,19 @@ class BuiltSimpleObjectBuilder
 
   ListBuilder<String> _aListOfStrings;
   ListBuilder<String> get aListOfStrings =>
-      _$this._aListOfStrings ??= ListBuilder<String>();
+      _$this._aListOfStrings ??= new ListBuilder<String>();
   set aListOfStrings(ListBuilder<String> aListOfStrings) =>
       _$this._aListOfStrings = aListOfStrings;
 
   ListBuilder<int> _aListOfInts;
   ListBuilder<int> get aListOfInts =>
-      _$this._aListOfInts ??= ListBuilder<int>();
+      _$this._aListOfInts ??= new ListBuilder<int>();
   set aListOfInts(ListBuilder<int> aListOfInts) =>
       _$this._aListOfInts = aListOfInts;
 
   ListBuilder<double> _aListOfDoubles;
   ListBuilder<double> get aListOfDoubles =>
-      _$this._aListOfDoubles ??= ListBuilder<double>();
+      _$this._aListOfDoubles ??= new ListBuilder<double>();
   set aListOfDoubles(ListBuilder<double> aListOfDoubles) =>
       _$this._aListOfDoubles = aListOfDoubles;
 
@@ -239,7 +245,7 @@ class BuiltSimpleObjectBuilder
 
   @override
   void replace(BuiltSimpleObject other) {
-    if (other == null) throw ArgumentError.notNull('other');
+    if (other == null) throw new ArgumentError.notNull('other');
     _$v = other as _$BuiltSimpleObject;
   }
 
@@ -253,7 +259,7 @@ class BuiltSimpleObjectBuilder
     _$BuiltSimpleObject _$result;
     try {
       _$result = _$v ??
-          _$BuiltSimpleObject._(
+          new _$BuiltSimpleObject._(
               aString: aString,
               anInt: anInt,
               aDouble: aDouble,
@@ -270,7 +276,7 @@ class BuiltSimpleObjectBuilder
         _$failedField = 'aListOfDoubles';
         _aListOfDoubles?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
+        throw new BuiltValueNestedFieldError(
             'BuiltSimpleObject', _$failedField, e.toString());
       }
       rethrow;

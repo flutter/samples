@@ -18,22 +18,28 @@ part of serializers;
 // ignore_for_file: unnecessary_const
 // ignore_for_file: unnecessary_new
 
-Serializers _$serializers = (Serializers().toBuilder()
+Serializers _$serializers = (new Serializers().toBuilder()
       ..add(BuiltComplexObject.serializer)
       ..add(BuiltSimpleObject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]),
-          () => ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, [FullType(int)]), () => ListBuilder<int>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(double)]),
-          () => ListBuilder<double>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]),
-          () => ListBuilder<String>())
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, [FullType(int)]), () => ListBuilder<int>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(double)]),
-          () => ListBuilder<double>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
-          const FullType(BuiltList, [FullType(BuiltSimpleObject)]),
-          () => ListBuilder<BuiltSimpleObject>()))
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(BuiltSimpleObject)]),
+          () => new ListBuilder<BuiltSimpleObject>()))
     .build();
