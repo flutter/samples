@@ -46,7 +46,7 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
         ),
-        body: new SafeArea(
+        body: SafeArea(
           bottom: false,
           child: TabBarView(
             children: [

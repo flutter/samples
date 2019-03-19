@@ -24,7 +24,7 @@ import 'supplemental/asymmetric_view.dart';
 class ProductPage extends StatelessWidget {
   final Category category;
 
-  const ProductPage({this.category: Category.all});
+  const ProductPage({this.category = Category.all});
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +41,8 @@ class HomePage extends StatelessWidget {
   final ExpandingBottomSheet expandingBottomSheet;
   final Backdrop backdrop;
 
-  const HomePage({
-    Key key,
-    this.expandingBottomSheet,
-    this.backdrop
-  }) : super(key: key);
+  const HomePage({Key key, this.expandingBottomSheet, this.backdrop})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

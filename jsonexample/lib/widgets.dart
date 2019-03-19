@@ -129,7 +129,7 @@ class ComplexObjectView extends StatelessWidget {
     if (simpleObjects == null) {
       return [
         const Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Text('NULL'),
         ),
       ];
@@ -138,7 +138,7 @@ class ComplexObjectView extends StatelessWidget {
     if (simpleObjects.length == 0) {
       return [
         const Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          padding: EdgeInsets.symmetric(vertical: 4.0),
           child: Text('[]'),
         ),
       ];

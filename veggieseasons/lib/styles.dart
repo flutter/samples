@@ -118,7 +118,7 @@ abstract class Styles {
     Season.autumn: Color(0xff724913),
   };
 
-  static const seasonBorder = const Border(
+  static const seasonBorder = Border(
     top: BorderSide(color: Color(0xff606060)),
     left: BorderSide(color: Color(0xff606060)),
     bottom: BorderSide(color: Color(0xff606060)),
