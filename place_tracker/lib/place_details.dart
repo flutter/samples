@@ -25,6 +25,7 @@ class PlaceDetails extends StatefulWidget {
 class PlaceDetailsState extends State<PlaceDetails> {
   Place _place;
   GoogleMapController _mapController;
+  final Set<Marker> _markers = {};
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -39,7 +40,12 @@ class PlaceDetailsState extends State<PlaceDetails> {
 
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
-    _mapController.addMarker(MarkerOptions(position: _place.latLng));
+    setState(() {
+      _markers.add(Marker(
+        markerId: MarkerId(_place.latLng.toString()),
+        position: _place.latLng,
+      ));
+    });
   }
 
   Widget _detailsBody() {
@@ -74,6 +80,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
           center: _place.latLng,
           mapController: _mapController,
           onMapCreated: _onMapCreated,
+          markers: _markers,
         ),
         const _Reviews(),
       ],
@@ -210,6 +217,7 @@ class _Map extends StatelessWidget {
     @required this.center,
     @required this.mapController,
     @required this.onMapCreated,
+    @required this.markers,
     Key key,
   })  : assert(center != null),
         assert(onMapCreated != null),
@@ -218,6 +226,7 @@ class _Map extends StatelessWidget {
   final LatLng center;
   final GoogleMapController mapController;
   final ArgumentCallback<GoogleMapController> onMapCreated;
+  final Set<Marker> markers;
 
   @override
   Widget build(BuildContext context) {
@@ -229,16 +238,15 @@ class _Map extends StatelessWidget {
         height: 240.0,
         child: GoogleMap(
           onMapCreated: onMapCreated,
-          options: GoogleMapOptions(
-            cameraPosition: CameraPosition(
-              target: center,
-              zoom: 16.0,
-            ),
-            zoomGesturesEnabled: false,
-            rotateGesturesEnabled: false,
-            tiltGesturesEnabled: false,
-            scrollGesturesEnabled: false,
+          initialCameraPosition: CameraPosition(
+            target: center,
+            zoom: 16.0,
           ),
+          markers: markers,
+          zoomGesturesEnabled: false,
+          rotateGesturesEnabled: false,
+          tiltGesturesEnabled: false,
+          scrollGesturesEnabled: false,
         ),
       ),
     );
