@@ -137,7 +137,7 @@ class SettingsScreen extends StatelessWidget {
         future: prefs.desiredCalories,
         builder: (context, snapshot) {
           return Row(
-            children: <Widget>[
+            children: [
               Text(snapshot.data?.toString() ?? ''),
               SizedBox(width: 8.0),
               SettingsNavigationIndicator(),
