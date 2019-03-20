@@ -91,7 +91,7 @@ class _TriviaViewState extends State<TriviaView> {
       status = PlayerStatus.readyToAnswer;
     });
   }
-  
+
   void _processAnswer(int answerIndex) {
     setState(() {
       if (answerIndex == currentTrivia.correctAnswerIndex) {
