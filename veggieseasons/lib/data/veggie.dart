@@ -33,6 +33,14 @@ enum Season {
   autumn,
 }
 
+class Trivia {
+  final String question;
+  final List<String> answers;
+  final int correctAnswerIndex;
+
+  const Trivia(this.question, this.answers, this.correctAnswerIndex);
+}
+
 const Map<VeggieCategory, String> veggieCategoryNames = {
   VeggieCategory.allium: 'Allium',
   VeggieCategory.berry: 'Berry',
@@ -67,6 +75,7 @@ class Veggie {
     @required this.vitaminCPercentage,
     @required this.servingSize,
     @required this.caloriesPerServing,
+    @required this.trivia,
     this.isFavorite = false,
   });
 
@@ -80,7 +89,7 @@ class Veggie {
 
   final VeggieCategory category;
 
-  /// A short, snappy line, possibly with trivia.
+  /// A short, snappy line.
   final String shortDescription;
 
   /// A color value to use when constructing UI elements to match the image
@@ -107,6 +116,9 @@ class Veggie {
   /// Whether or not the veggie has been saved to the user's garden (i.e. marked
   /// as a favorite).
   bool isFavorite;
+
+  /// A set of trivia questions and answers related to the veggie.
+  final List<Trivia> trivia;
 
   String get categoryName => veggieCategoryNames[category];
 }

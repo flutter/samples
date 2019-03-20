@@ -10,6 +10,7 @@ import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/close_button.dart';
+import 'package:veggieseasons/widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
   const ServingInfoChart(this.veggie, this.prefs);
@@ -207,20 +208,6 @@ class InfoView extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class TriviaView extends StatelessWidget {
-  final int id;
-
-  const TriviaView(this.id);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32.0),
-      child: Text('Trivia goes here.'),
     );
   }
 }
