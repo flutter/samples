@@ -70,7 +70,7 @@ class Preferences extends Model {
     _preferredCategories.clear();
     final names = prefs.getString(_preferredCategoriesKey);
 
-    if (names != null) {
+    if (names != null && names.isNotEmpty) {
       for (final name in names.split(',')) {
         final index = int.tryParse(name) ?? -1;
         if (VeggieCategory.values[index] != null) {

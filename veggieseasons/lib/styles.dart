@@ -15,14 +15,6 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
   );
 
-  static const subheadText = TextStyle(
-    color: Color.fromRGBO(240, 240, 240, 1.0),
-    fontFamily: 'NotoSans',
-    fontSize: 30.0,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
-
   static const minorText = TextStyle(
     color: Color.fromRGBO(128, 128, 128, 1.0),
     fontFamily: 'NotoSans',
@@ -43,22 +35,6 @@ abstract class Styles {
     color: Color.fromRGBO(0, 0, 0, 0.8),
     fontFamily: 'NotoSans',
     fontSize: 16.0,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
-
-  static const activeSeasonText = TextStyle(
-    color: Color.fromRGBO(255, 255, 255, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 24.0,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
-
-  static const inactiveSeasonText = TextStyle(
-    color: Color.fromRGBO(80, 80, 80, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 24.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -84,6 +60,70 @@ abstract class Styles {
     fontFamily: 'NotoSans',
     fontSize: 16.0,
     fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const detailsTitleText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 30.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsPreferredCategoryText = TextStyle(
+    color: Color.fromRGBO(0, 80, 0, 0.7),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsCategoryText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.7),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const detailsShortDescriptionText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const detailsServingHeaderText = TextStyle(
+    color: Color.fromRGBO(176, 176, 176, 1.0),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsServingLabelText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsServingValueText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const detailsServingNoteText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
   );
 
@@ -178,4 +218,6 @@ abstract class Styles {
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
   );
+
+  static const servingInfoBorderColor = Color(0xffb0b0b0);
 }

@@ -63,6 +63,10 @@ class Veggie {
     @required this.shortDescription,
     @required this.accentColor,
     @required this.seasons,
+    @required this.vitaminAPercentage,
+    @required this.vitaminCPercentage,
+    @required this.servingSize,
+    @required this.caloriesPerServing,
     this.isFavorite = false,
   });
 
@@ -76,6 +80,7 @@ class Veggie {
 
   final VeggieCategory category;
 
+  /// A short, snappy line, possibly with trivia.
   final String shortDescription;
 
   /// A color value to use when constructing UI elements to match the image
@@ -84,6 +89,20 @@ class Veggie {
 
   /// Seasons during which a veggie is harvested.
   final List<Season> seasons;
+
+  /// Percentage of the FDA's recommended daily value of vitamin A for someone
+  /// with a 2,000 calorie diet.
+  final int vitaminAPercentage;
+
+  /// Percentage of the FDA's recommended daily value of vitamin C for someone
+  /// with a 2,000 calorie diet.
+  final int vitaminCPercentage;
+
+  /// A text description of a single serving (e.g. '1 apple' or '1/2 cup').
+  final String servingSize;
+
+  /// Calories per serving (as described in [servingSize]).
+  final int caloriesPerServing;
 
   /// Whether or not the veggie has been saved to the user's garden (i.e. marked
   /// as a favorite).
