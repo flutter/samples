@@ -41,49 +41,55 @@ class PlaceMapState extends State<PlaceMap> {
     return places.where((Place place) => place.category == category).toList();
   }
 
-  GoogleMapController mapController;
+  Completer<GoogleMapController> mapController = Completer();
+
+  MapType _currentMapType = MapType.normal;
+
+  LatLng _lastMapPosition;
+
   Map<Marker, Place> _markedPlaces = Map<Marker, Place>();
+
+  final Set<Marker> _markers = {};
+
   Marker _pendingMarker;
+
   MapConfiguration _configuration;
 
   void onMapCreated(GoogleMapController controller) async {
-    mapController = controller;
-    mapController.onInfoWindowTapped.add(_onInfoWindowTapped);
+    mapController.complete(controller);
+    _lastMapPosition = widget.center;
 
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
-    final Map<Marker, Place> places = await _markPlaces();
-    _zoomToFitPlaces(
+    setState(() {
+      for (Place place in AppState.of(context).places) {
+        _markers.add(_createPlaceMarker(place));
+      }
+    });
+
+    // Zoom to fit the initially selected category.
+    await _zoomToFitPlaces(
       _getPlacesForCategory(
         AppState.of(context).selectedCategory,
-        places.values.toList(),
+        _markedPlaces.values.toList(),
       ),
     );
   }
 
-  Future<Map<Marker, Place>> _markPlaces() async {
-    await Future.wait(
-        AppState.of(context).places.map((Place place) => _markPlace(place)));
-    return _markedPlaces;
-  }
-
-  Future<void> _markPlace(Place place) async {
-    final Marker marker = await mapController.addMarker(
-      MarkerOptions(
-        position: place.latLng,
-        icon: _getPlaceMarkerIcon(place.category),
-        infoWindowText: InfoWindowText(
-          place.name,
-          '${place.starRating} Star Rating',
-        ),
-        visible: place.category == AppState.of(context).selectedCategory,
+  Marker _createPlaceMarker(Place place) {
+    final marker = Marker(
+      markerId: MarkerId(place.latLng.toString()),
+      position: place.latLng,
+      infoWindow: InfoWindow(
+        title: place.name,
+        snippet: '${place.starRating} Star Rating',
+        onTap: () => _pushPlaceDetailsScreen(place),
       ),
+      icon: _getPlaceMarkerIcon(place.category),
+      visible: place.category == AppState.of(context).selectedCategory,
     );
     _markedPlaces[marker] = place;
-  }
-
-  void _onInfoWindowTapped(Marker marker) {
-    _pushPlaceDetailsScreen(_markedPlaces[marker]);
+    return marker;
   }
 
   void _pushPlaceDetailsScreen(Place place) {
@@ -120,55 +126,64 @@ class PlaceMapState extends State<PlaceMap> {
     AppState.updateWith(context, places: newPlaces);
   }
 
-  Future<void> _updateExistingPlaceMarker({@required Place place}) async {
+  void _updateExistingPlaceMarker({@required Place place}) {
     Marker marker = _markedPlaces.keys
         .singleWhere((Marker value) => _markedPlaces[value].id == place.id);
 
-    // Set marker visibility to false to ensure the info window is hidden. Once
-    // the plugin fully supports the Google Maps API, use hideInfoWindow()
-    // instead.
-    await mapController.updateMarker(
-      marker,
-      MarkerOptions(
-        visible: false,
-      ),
-    );
-    await mapController.updateMarker(
-      marker,
-      MarkerOptions(
-        infoWindowText: InfoWindowText(
-          place.name,
-          place.starRating != 0 ? '${place.starRating} Star Rating' : null,
+    setState(() {
+      final updatedMarker = marker.copyWith(
+        infoWindowParam: InfoWindow(
+          title: place.name,
+          snippet:
+              place.starRating != 0 ? '${place.starRating} Star Rating' : null,
         ),
-        visible: true,
-      ),
-    );
-
-    _markedPlaces[marker] = place;
+      );
+      _updateMarker(marker: marker, updatedMarker: updatedMarker, place: place);
+    });
   }
 
-  void _switchSelectedCategory(PlaceCategory category) {
+  void _updateMarker({
+    @required Marker marker,
+    @required Marker updatedMarker,
+    @required Place place,
+  }) {
+    _markers.remove(marker);
+    _markedPlaces.remove(marker);
+
+    _markers.add(updatedMarker);
+    _markedPlaces[updatedMarker] = place;
+  }
+
+  Future<void> _switchSelectedCategory(PlaceCategory category) async {
     AppState.updateWith(context, selectedCategory: category);
-    _showPlacesForSelectedCategory(category);
+    await _showPlacesForSelectedCategory(category);
   }
 
   Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
-    await Future.wait(
-      _markedPlaces.keys.map(
-        (Marker marker) => mapController.updateMarker(
-              marker,
-              MarkerOptions(
-                visible: _markedPlaces[marker].category == category,
-              ),
-            ),
-      ),
-    );
+    setState(() {
+      for (Marker marker in List.of(_markedPlaces.keys)) {
+        final place = _markedPlaces[marker];
+        final updatedMarker = marker.copyWith(
+          visibleParam: place.category == category,
+        );
 
-    _zoomToFitPlaces(
-        _getPlacesForCategory(category, _markedPlaces.values.toList()));
+        _updateMarker(
+          marker: marker,
+          updatedMarker: updatedMarker,
+          place: place,
+        );
+      }
+    });
+
+    await _zoomToFitPlaces(_getPlacesForCategory(
+      category,
+      _markedPlaces.values.toList(),
+    ));
   }
 
-  void _zoomToFitPlaces(List<Place> places) {
+  Future<void> _zoomToFitPlaces(List<Place> places) async {
+    GoogleMapController controller = await mapController.future;
+
     // Default min/max values to latitude and longitude of center.
     double minLat = widget.center.latitude;
     double maxLat = widget.center.latitude;
@@ -182,7 +197,7 @@ class PlaceMapState extends State<PlaceMap> {
       maxLong = max(maxLong, place.longitude);
     }
 
-    mapController.animateCamera(
+    await controller.animateCamera(
       CameraUpdate.newLatLngBounds(
         LatLngBounds(
           southwest: LatLng(minLat, minLong),
@@ -194,40 +209,49 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onAddPlacePressed() async {
-    Marker newMarker = await mapController.addMarker(
-      MarkerOptions(
-        position: LatLng(
-          mapController.cameraPosition.target.latitude,
-          mapController.cameraPosition.target.longitude,
-        ),
+    setState(() {
+      final newMarker = Marker(
+        markerId: MarkerId(_lastMapPosition.toString()),
+        position: _lastMapPosition,
+        infoWindow: InfoWindow(title: 'New Place'),
         draggable: true,
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      ),
-    );
-    setState(() {
+      );
+      _markers.add(newMarker);
       _pendingMarker = newMarker;
     });
   }
 
   void _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
-      await mapController.updateMarker(
-        _pendingMarker,
-        MarkerOptions(
-          icon: _getPlaceMarkerIcon(AppState.of(context).selectedCategory),
-          infoWindowText: InfoWindowText('New Place', null),
-          draggable: false,
-        ),
-      );
 
       // Create a new Place and map it to the marker we just added.
       final Place newPlace = Place(
         id: Uuid().v1(),
-        latLng: _pendingMarker.options.position,
-        name: _pendingMarker.options.infoWindowText.title,
+        latLng: _pendingMarker.position,
+        name: _pendingMarker.infoWindow.title,
         category: AppState.of(context).selectedCategory,
       );
-      _markedPlaces[_pendingMarker] = newPlace;
+
+      setState(() {
+        final updatedMarker = _pendingMarker.copyWith(
+          iconParam: _getPlaceMarkerIcon(AppState.of(context).selectedCategory),
+          infoWindowParam: InfoWindow(
+            title: 'New Place',
+            snippet: null,
+            onTap: () => _pushPlaceDetailsScreen(newPlace),
+          ),
+          draggableParam: false,
+        );
+
+        _updateMarker(
+          marker: _pendingMarker,
+          updatedMarker: updatedMarker,
+          place: newPlace,
+        );
+
+        _pendingMarker = null;
+      });
 
       // Show a confirmation snackbar that has an action to edit the new place.
       Scaffold.of(context).showSnackBar(
@@ -257,29 +281,25 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       AppState.updateWith(context, places: newPlaces);
-
-      setState(() {
-        _pendingMarker = null;
-      });
     }
   }
 
   void _cancelAddPlace() {
     if (_pendingMarker != null) {
-      mapController.removeMarker(_pendingMarker);
       setState(() {
+        _markers.remove(_pendingMarker);
         _pendingMarker = null;
       });
     }
   }
 
   void _onToggleMapTypePressed() {
-    final MapType nextType = MapType.values[
-        (mapController.options.mapType.index + 1) % MapType.values.length];
+    final MapType nextType =
+        MapType.values[(_currentMapType.index + 1) % MapType.values.length];
 
-    mapController.updateMapOptions(
-      GoogleMapOptions(mapType: nextType),
-    );
+    setState(() {
+      _currentMapType = nextType;
+    });
   }
 
   Future<void> _maybeUpdateMapConfiguration() async {
@@ -297,16 +317,15 @@ class PlaceMapState extends State<PlaceMap> {
               newConfiguration.selectedCategory) {
         // If the configuration change is only a category change, just update
         // the marker visibilities.
-        _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
+        await _showPlacesForSelectedCategory(newConfiguration.selectedCategory);
       } else {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
-        await Future.wait(
-          newConfiguration.places
-              .where((Place p) => !_configuration.places.contains(p))
-              .map((Place value) => _updateExistingPlaceMarker(place: value)),
-        );
-        _zoomToFitPlaces(
+        newConfiguration.places
+            .where((Place p) => !_configuration.places.contains(p))
+            .map((Place value) => _updateExistingPlaceMarker(place: value));
+
+        await _zoomToFitPlaces(
           _getPlacesForCategory(
             newConfiguration.selectedCategory,
             newConfiguration.places,
@@ -331,13 +350,13 @@ class PlaceMapState extends State<PlaceMap> {
           children: <Widget>[
             GoogleMap(
               onMapCreated: onMapCreated,
-              options: GoogleMapOptions(
-                trackCameraPosition: true,
-                cameraPosition: CameraPosition(
-                  target: widget.center,
-                  zoom: 11.0,
-                ),
+              initialCameraPosition: CameraPosition(
+                target: widget.center,
+                zoom: 11.0,
               ),
+              mapType: _currentMapType,
+              markers: _markers,
+              onCameraMove: (position) => _lastMapPosition = position.target,
             ),
             _CategoryButtonBar(
               selectedPlaceCategory: AppState.of(context).selectedCategory,
