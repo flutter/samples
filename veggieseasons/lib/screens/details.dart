@@ -7,13 +7,16 @@ import 'package:flutter/widgets.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
+import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/close_button.dart';
 
-class InfoView extends StatelessWidget {
-  final int id;
+class ServingInfoChart extends StatelessWidget {
+  const ServingInfoChart(this.veggie, this.prefs);
 
-  const InfoView(this.id);
+  final Veggie veggie;
+
+  final Preferences prefs;
 
   // Creates a [Text] widget to display a veggie's "percentage of your daily
   // value of this vitamin" data adjusted for the user's preferred calorie
@@ -35,6 +38,126 @@ class InfoView extends StatelessWidget {
   }
 
   @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height: 16.0),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 9.0,
+              bottom: 4.0,
+            ),
+            child: Text(
+              'Serving info',
+              style: Styles.detailsServingHeaderText,
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Styles.servingInfoBorderColor),
+          ),
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Table(
+                children: [
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Text(
+                          'Serving size:',
+                          style: Styles.detailsServingLabelText,
+                        ),
+                      ),
+                      TableCell(
+                        child: Text(
+                          veggie.servingSize,
+                          textAlign: TextAlign.end,
+                          style: Styles.detailsServingValueText,
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Text(
+                          'Calories:',
+                          style: Styles.detailsServingLabelText,
+                        ),
+                      ),
+                      TableCell(
+                        child: Text(
+                          '${veggie.caloriesPerServing} kCal',
+                          textAlign: TextAlign.end,
+                          style: Styles.detailsServingValueText,
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Text(
+                          'Vitamin A:',
+                          style: Styles.detailsServingLabelText,
+                        ),
+                      ),
+                      TableCell(
+                        child: _buildVitaminText(
+                          veggie.vitaminAPercentage,
+                          prefs.desiredCalories,
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Text(
+                          'Vitamin C:',
+                          style: Styles.detailsServingLabelText,
+                        ),
+                      ),
+                      TableCell(
+                        child: _buildVitaminText(
+                          veggie.vitaminCPercentage,
+                          prefs.desiredCalories,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: FutureBuilder(
+                  future: prefs.desiredCalories,
+                  builder: (context, snapshot) {
+                    return Text(
+                      'Percent daily values based on a diet of ' +
+                          '${snapshot?.data ?? '2,000'} calories.',
+                      style: Styles.detailsServingNoteText,
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class InfoView extends StatelessWidget {
+  final int id;
+
+  const InfoView(this.id);
+
   Widget build(BuildContext context) {
     final appState = ScopedModel.of<AppState>(context, rebuildOnChange: true);
     final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
@@ -67,111 +190,8 @@ class InfoView extends StatelessWidget {
             veggie.shortDescription,
             style: Styles.detailsShortDescriptionText,
           ),
+          ServingInfoChart(veggie, prefs),
           SizedBox(height: 24.0),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 9.0,
-              bottom: 4.0,
-            ),
-            child: Text(
-              'Serving info',
-              style: Styles.detailsServingHeaderText,
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Styles.servingInfoBorderColor),
-            ),
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Table(
-                  children: [
-                    TableRow(
-                      children: [
-                        TableCell(
-                          child: Text(
-                            'Serving size:',
-                            style: Styles.detailsServingLabelText,
-                          ),
-                        ),
-                        TableCell(
-                          child: Text(
-                            veggie.servingSize,
-                            textAlign: TextAlign.end,
-                            style: Styles.detailsServingValueText,
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        TableCell(
-                          child: Text(
-                            'Calories:',
-                            style: Styles.detailsServingLabelText,
-                          ),
-                        ),
-                        TableCell(
-                          child: Text(
-                            '${veggie.caloriesPerServing} kCal',
-                            textAlign: TextAlign.end,
-                            style: Styles.detailsServingValueText,
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        TableCell(
-                          child: Text(
-                            'Vitamin A:',
-                            style: Styles.detailsServingLabelText,
-                          ),
-                        ),
-                        TableCell(
-                          child: _buildVitaminText(
-                            veggie.vitaminAPercentage,
-                            prefs.desiredCalories,
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        TableCell(
-                          child: Text(
-                            'Vitamin C:',
-                            style: Styles.detailsServingLabelText,
-                          ),
-                        ),
-                        TableCell(
-                          child: _buildVitaminText(
-                            veggie.vitaminCPercentage,
-                            prefs.desiredCalories,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: FutureBuilder(
-                    future: prefs.desiredCalories,
-                    builder: (context, snapshot) {
-                      return Text(
-                        'Based on a target of ' +
-                            '${snapshot?.data ?? '2,000'} calories',
-                        style: Styles.detailsServingNoteText,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 16.0),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [

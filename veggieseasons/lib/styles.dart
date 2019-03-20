@@ -91,7 +91,7 @@ abstract class Styles {
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
     fontSize: 16.0,
-    fontStyle: FontStyle.italic,
+    fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
 
