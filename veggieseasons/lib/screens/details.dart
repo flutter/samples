@@ -189,7 +189,18 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8.0),
           Text(
             veggie.shortDescription,
-            style: Styles.detailsShortDescriptionText,
+            style: Styles.detailsDescriptionText,
+          ),
+          SizedBox(height: 8.0),
+          Row(
+            children: <Widget>[
+              Text('Available in:', style: Styles.detailsBoldDescriptionText),
+              SizedBox(width: 4.0),
+              Text(
+                veggie.seasonsText,
+                style: Styles.detailsDescriptionText,
+              ),
+            ],
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24.0),

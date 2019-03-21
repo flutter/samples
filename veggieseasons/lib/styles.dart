@@ -87,12 +87,20 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const detailsShortDescriptionText = TextStyle(
+  static const detailsDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
     fontSize: 16.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
+  );
+
+  static const detailsBoldDescriptionText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
   );
 
   static const detailsServingHeaderText = TextStyle(
