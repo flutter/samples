@@ -164,7 +164,10 @@ class _TriviaViewState extends State<TriviaView> {
         padding: const EdgeInsets.all(8.0),
         child: CupertinoButton(
           color: CupertinoColors.activeBlue,
-          child: Text(currentTrivia.answers[i]),
+          child: Text(
+            currentTrivia.answers[i],
+            textAlign: TextAlign.center,
+          ),
           onPressed: () => _processAnswer(i),
         ),
       ));
