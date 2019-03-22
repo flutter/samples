@@ -1323,6 +1323,15 @@ class LocalVeggieProvider {
           ],
           2,
         ),
+        Trivia(
+          'Early explorers to the Americas used watermelons as which piece of equipment?',
+          [
+            'Stools',
+            'Pillows',
+            'Canteens',
+          ],
+          2,
+        ),
       ],
     ),
     Veggie(
@@ -1364,15 +1373,6 @@ class LocalVeggieProvider {
             'Eleanor Roosevelt',
           ],
           0,
-        ),
-        Trivia(
-          'Early explorers to the Americas used watermelons as which piece of equipment?',
-          [
-            'Stools',
-            'Pillows',
-            'Canteens',
-          ],
-          2,
         ),
       ],
     ),
