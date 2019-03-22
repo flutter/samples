@@ -19,6 +19,35 @@ class LocalVeggieProvider {
       vitaminCPercentage: 8,
       servingSize: 'One large apple',
       caloriesPerServing: 130,
+      trivia: [
+        Trivia(
+          'A peck of apples (that\'s a real unit of mesaurement!) weighs approximately how many pounds?',
+          [
+            '10 pounds',
+            '20 pounds',
+            '30 pounds',
+          ],
+          0,
+        ),
+        Trivia(
+          'Which of these is an actual variety of apples?',
+          [
+            'Dancing Turkey',
+            'Winter Banana',
+            'Red Sloth',
+          ],
+          1,
+        ),
+        Trivia(
+          'In Greek mythology, Paris gives a golden apple marked "To the Fairest" to a goddess. Which one?',
+          [
+            'Hera',
+            'Athena',
+            'Aphrodite',
+          ],
+          2,
+        ),
+      ],
     ),
     Veggie(
       id: 2,
@@ -32,6 +61,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 25,
       servingSize: '1 medium artichoke',
       caloriesPerServing: 60,
+      trivia: [],
     ),
     Veggie(
       id: 3,
@@ -45,6 +75,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 15,
       servingSize: '5 spears',
       caloriesPerServing: 20,
+      trivia: [],
     ),
     Veggie(
       id: 4,
@@ -58,6 +89,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 4,
       servingSize: '1/5 medium avocado',
       caloriesPerServing: 50,
+      trivia: [],
     ),
     Veggie(
       id: 5,
@@ -71,6 +103,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 4,
       servingSize: '1 cup',
       caloriesPerServing: 62,
+      trivia: [],
     ),
     Veggie(
       id: 6,
@@ -84,6 +117,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 80,
       servingSize: '1/4 medium canteloupe',
       caloriesPerServing: 50,
+      trivia: [],
     ),
     Veggie(
       id: 7,
@@ -97,6 +131,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 100,
       servingSize: '1/6 medium head',
       caloriesPerServing: 25,
+      trivia: [],
     ),
     Veggie(
       id: 8,
@@ -110,6 +145,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 2,
       servingSize: '1/2 cup, chopped',
       caloriesPerServing: 4,
+      trivia: [],
     ),
     Veggie(
       id: 9,
@@ -123,6 +159,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 2,
       servingSize: '1 large fig',
       caloriesPerServing: 50,
+      trivia: [],
     ),
     Veggie(
       id: 10,
@@ -136,6 +173,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 2,
       servingSize: '3/4 cup',
       caloriesPerServing: 90,
+      trivia: [],
     ),
     Veggie(
       id: 11,
@@ -149,6 +187,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 190,
       servingSize: '1 medium pepper',
       caloriesPerServing: 25,
+      trivia: [],
     ),
     Veggie(
       id: 12,
@@ -162,6 +201,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 100,
       servingSize: '1 pepper',
       caloriesPerServing: 20,
+      trivia: [],
     ),
     Veggie(
       id: 13,
@@ -175,6 +215,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 134,
       servingSize: '1 cup, chopped',
       caloriesPerServing: 33,
+      trivia: [],
     ),
     Veggie(
       id: 14,
@@ -188,6 +229,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 240,
       servingSize: '2 medium kiwis',
       caloriesPerServing: 90,
+      trivia: [],
     ),
     Veggie(
       id: 15,
@@ -201,6 +243,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 40,
       servingSize: '1 medium lemon',
       caloriesPerServing: 15,
+      trivia: [],
     ),
     Veggie(
       id: 16,
@@ -214,6 +257,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 35,
       servingSize: '1 medium lime',
       caloriesPerServing: 20,
+      trivia: [],
     ),
     Veggie(
       id: 17,
@@ -227,6 +271,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 203,
       servingSize: '1 fruit',
       caloriesPerServing: 201,
+      trivia: [],
     ),
     Veggie(
       id: 18,
@@ -240,6 +285,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 2,
       servingSize: '5 medium \'shrooms',
       caloriesPerServing: 20,
+      trivia: [],
     ),
     Veggie(
       id: 19,
@@ -253,6 +299,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 15,
       servingSize: '1 medium nectarine',
       caloriesPerServing: 60,
+      trivia: [],
     ),
     Veggie(
       id: 20,
@@ -266,6 +313,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 27,
       servingSize: '1 fruit',
       caloriesPerServing: 32,
+      trivia: [],
     ),
     Veggie(
       id: 21,
@@ -279,6 +327,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 10,
       servingSize: '2 medium plums',
       caloriesPerServing: 70,
+      trivia: [],
     ),
     Veggie(
       id: 22,
@@ -292,6 +341,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 45,
       servingSize: '1 medium spud',
       caloriesPerServing: 110,
+      trivia: [],
     ),
     Veggie(
       id: 23,
@@ -305,6 +355,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 10,
       servingSize: '2 cups shredded',
       caloriesPerServing: 20,
+      trivia: [],
     ),
     Veggie(
       id: 24,
@@ -318,6 +369,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 30,
       servingSize: '7 radishes',
       caloriesPerServing: 10,
+      trivia: [],
     ),
     Veggie(
       id: 25,
@@ -331,6 +383,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 48,
       servingSize: '1 cup diced butternut',
       caloriesPerServing: 63,
+      trivia: [],
     ),
     Veggie(
       id: 26,
@@ -345,6 +398,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 160,
       servingSize: '8 medium strawberries',
       caloriesPerServing: 50,
+      trivia: [],
     ),
     Veggie(
       id: 27,
@@ -358,6 +412,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 181,
       servingSize: '1 medium tangelo',
       caloriesPerServing: 60,
+      trivia: [],
     ),
     Veggie(
       id: 28,
@@ -371,6 +426,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 40,
       servingSize: '1 medium tomato',
       caloriesPerServing: 25,
+      trivia: [],
     ),
     Veggie(
       id: 29,
@@ -384,6 +440,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 25,
       servingSize: '2 cups diced',
       caloriesPerServing: 80,
+      trivia: [],
     ),
     Veggie(
       id: 30,
@@ -397,6 +454,7 @@ class LocalVeggieProvider {
       vitaminCPercentage: 190,
       servingSize: '1 medium pepper',
       caloriesPerServing: 25,
+      trivia: [],
     ),
   ];
 }
