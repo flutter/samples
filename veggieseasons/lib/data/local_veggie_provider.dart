@@ -1149,7 +1149,7 @@ class LocalVeggieProvider {
           'Which country is the world\'s largest importer of squashes?',
           [
             'China',
-            'The United States',
+            'United States',
             'Russia',
           ],
           1,
