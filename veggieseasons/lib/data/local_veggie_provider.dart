@@ -150,7 +150,7 @@ class LocalVeggieProvider {
       caloriesPerServing: 20,
       trivia: [
         Trivia(
-          'The nodules at the tip of an asparagus spear are actually what?',
+          'The nodules at the tip of an asparagus spear are actually which part of the plant?',
           [
             'Seeds',
             'Leaves',
@@ -273,19 +273,19 @@ class LocalVeggieProvider {
     ),
     Veggie(
       id: 6,
-      name: 'Canteloupe',
-      imageAssetPath: 'assets/images/canteloupe.jpg',
+      name: 'Cantaloupe',
+      imageAssetPath: 'assets/images/cantaloupe.jpg',
       category: VeggieCategory.melon,
       shortDescription: 'A fruit so tasty there\'s a utensil just for it.',
       accentColor: Color(0x40f6bd56),
       seasons: [Season.summer],
       vitaminAPercentage: 120,
       vitaminCPercentage: 80,
-      servingSize: '1/4 medium canteloupe',
+      servingSize: '1/4 medium cantaloupe',
       caloriesPerServing: 50,
       trivia: [
         Trivia(
-          'Which of these is another name for cantloupe?',
+          'Which of these is another name for cantaloupe?',
           [
             'Muskmelon',
             'Crenshaw melon',
@@ -294,16 +294,16 @@ class LocalVeggieProvider {
           0,
         ),
         Trivia(
-          'The word "canteloupe" is a reference to what?',
+          'The word "cantaloupe" is a reference to what?',
           [
             'The Latin word for a ring of seeds',
             'The gardens of a castle in Italy',
-            'An aphid species that feeds on canteloupe leaves',
+            'An aphid species that feeds on cantaloupe leaves',
           ],
           1,
         ),
         Trivia(
-          'Canteloupes grow on what kind of plant?',
+          'Cantaloupes grow on what kind of plant?',
           [
             'Tree',
             'Shrub',
@@ -387,7 +387,7 @@ class LocalVeggieProvider {
       caloriesPerServing: 4,
       trivia: [
         Trivia(
-          'What\'s nother name for Belgian endive?',
+          'What\'s another name for Belgian endive?',
           [
             'Radicchio',
             'St. Paul\'s lettuce',
@@ -564,7 +564,7 @@ class LocalVeggieProvider {
       caloriesPerServing: 20,
       trivia: [
         Trivia(
-          'How high can Habaneros rate on the Scoville scale?',
+          'How high can habaneros rate on the Scoville scale?',
           [
             '200,000 units',
             '600,000 units',
@@ -624,7 +624,7 @@ class LocalVeggieProvider {
           2,
         ),
         Trivia(
-          'Kale provides what percentage of a typical person\'s requirement for vitamin K?',
+          'One serving of kale provides what percentage of a typical person\'s requirement for vitamin K?',
           [
             '100%',
             '300%',
@@ -783,7 +783,7 @@ class LocalVeggieProvider {
       caloriesPerServing: 201,
       trivia: [
         Trivia(
-          'In mexico, mangos are frequently dusted with what spices before being eaten as a snack?',
+          'In Mexico, mangos are frequently dusted with what spices before being eaten as a snack?',
           [
             'Black pepper and sugar',
             'Chile pepper and lime juice',
@@ -894,7 +894,7 @@ class LocalVeggieProvider {
           2,
         ),
         Trivia(
-          'Nectarines are though to have originated in which country?',
+          'Nectarines are thought to have originated in which country?',
           [
             'China',
             'Italy',
@@ -1004,7 +1004,7 @@ class LocalVeggieProvider {
         Trivia(
           'Which country consumes the most fried potatoes per capita?',
           [
-            'The United States',
+            'United States',
             'Belgium',
             'Ireland',
           ],
