@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
@@ -87,12 +88,20 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const detailsShortDescriptionText = TextStyle(
+  static const detailsDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
     fontSize: 16.0,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
+  );
+
+  static const detailsBoldDescriptionText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16.0,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
   );
 
   static const detailsServingHeaderText = TextStyle(
@@ -180,6 +189,22 @@ abstract class Styles {
     Season.spring: Color(0xff2fa02b),
     Season.summer: Color(0xff287213),
     Season.autumn: Color(0xff724913),
+  };
+
+  // While handy, some of the Font Awesome icons sometimes bleed over their
+  // allotted bounds. This padding is used to adjust for that.
+  static const seasonIconPadding = {
+    Season.winter: const EdgeInsets.only(right: 0.0),
+    Season.spring: const EdgeInsets.only(right: 4.0),
+    Season.summer: const EdgeInsets.only(right: 6.0),
+    Season.autumn: const EdgeInsets.only(right: 0.0),
+  };
+
+  static const seasonIconData = {
+    Season.winter: FontAwesomeIcons.snowflake,
+    Season.spring: FontAwesomeIcons.leaf,
+    Season.summer: FontAwesomeIcons.umbrellaBeach,
+    Season.autumn: FontAwesomeIcons.canadianMapleLeaf,
   };
 
   static const seasonBorder = Border(

@@ -62,6 +62,13 @@ const Map<VeggieCategory, String> veggieCategoryNames = {
   VeggieCategory.vegetable: 'Vegetable',
 };
 
+const Map<Season, String> seasonNames = {
+  Season.winter: 'Winter',
+  Season.spring: 'Spring',
+  Season.summer: 'Summer',
+  Season.autumn: 'Autumn',
+};
+
 class Veggie {
   Veggie({
     @required this.id,

@@ -164,22 +164,44 @@ class InfoView extends StatelessWidget {
     final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
     final veggie = appState.getVeggie(id);
 
+    final seasonIcons = <Widget>[];
+
+    for (Season season in veggie.seasons) {
+      seasonIcons.addAll([
+        SizedBox(width: 12.0),
+        Padding(
+          padding: Styles.seasonIconPadding[season],
+          child: Icon(
+            Styles.seasonIconData[season],
+            semanticLabel: seasonNames[season],
+            color: Styles.seasonColors[season],
+          ),
+        ),
+      ]);
+    }
+
     return Padding(
       padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          FutureBuilder(
-            future: prefs.preferredCategories,
-            builder: (context, snapshot) {
-              return Text(
-                veggie.categoryName.toUpperCase(),
-                style: (snapshot.hasData &&
-                        snapshot.data.contains(veggie.category))
-                    ? Styles.detailsPreferredCategoryText
-                    : Styles.detailsCategoryText,
-              );
-            },
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              FutureBuilder(
+                future: prefs.preferredCategories,
+                builder: (context, snapshot) {
+                  return Text(
+                    veggie.categoryName.toUpperCase(),
+                    style: (snapshot.hasData &&
+                            snapshot.data.contains(veggie.category))
+                        ? Styles.detailsPreferredCategoryText
+                        : Styles.detailsCategoryText,
+                  );
+                },
+              ),
+              Spacer(),
+            ]..addAll(seasonIcons),
           ),
           SizedBox(height: 8.0),
           Text(
@@ -189,7 +211,7 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8.0),
           Text(
             veggie.shortDescription,
-            style: Styles.detailsShortDescriptionText,
+            style: Styles.detailsDescriptionText,
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24.0),
@@ -261,22 +283,28 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return CupertinoPageScaffold(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
         children: [
           _buildHeader(context, appState),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0),
-            child: CupertinoSegmentedControl(
-              children: {
-                0: Text('Facts & Info'),
-                1: Text('Trivia'),
-              },
-              groupValue: _selectedViewIndex,
-              onValueChanged: (value) {
-                setState(() => _selectedViewIndex = value);
-              },
+          Expanded(
+            child: ListView(
+              children: [
+                CupertinoSegmentedControl(
+                  children: {
+                    0: Text('Facts & Info'),
+                    1: Text('Trivia'),
+                  },
+                  groupValue: _selectedViewIndex,
+                  onValueChanged: (value) {
+                    setState(() => _selectedViewIndex = value);
+                  },
+                ),
+                _selectedViewIndex == 0
+                    ? InfoView(widget.id)
+                    : TriviaView(widget.id),
+              ],
             ),
           ),
-          _selectedViewIndex == 0 ? InfoView(widget.id) : TriviaView(widget.id),
         ],
       ),
     );
