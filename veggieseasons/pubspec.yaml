@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  font_awesome_flutter: ^8.4.0
   intl: ^0.15.7
   scoped_model: ^1.0.1
   shared_preferences: ^0.4.3
