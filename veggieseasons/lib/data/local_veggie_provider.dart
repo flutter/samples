@@ -72,7 +72,7 @@ class LocalVeggieProvider {
             '2000 B.C.E.',
             '6500 B.C.E.',
           ],
-          1,
+          2,
         ),
         Trivia(
           'What are the seed pockets inside an apple called?',

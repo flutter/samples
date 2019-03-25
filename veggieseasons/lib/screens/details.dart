@@ -173,6 +173,7 @@ class InfoView extends StatelessWidget {
           padding: Styles.seasonIconPadding[season],
           child: Icon(
             Styles.seasonIconData[season],
+            semanticLabel: seasonNames[season],
             color: Styles.seasonColors[season],
           ),
         ),

@@ -106,27 +106,6 @@ class Veggie {
   /// Seasons during which a veggie is harvested.
   final List<Season> seasons;
 
-  /// The same list of seasons, presented as a comma-separated list of strings
-  String get seasonsText {
-    if (seasons.length == 0) {
-      // '' (Shouldn't happen, but just in case)
-      return '';
-    } else if (seasons.length == 1) {
-      // 'Winter'
-      return seasonNames[seasons.first];
-    } else if (seasons.length == 2) {
-      // 'Winter and Spring'
-      return '${seasonNames[seasons.first]} and ${seasonNames[seasons[1]]}';
-    } else {
-      // 'Winter, Spring, and Autumn' (Oxford comma FTW)
-      String str = seasons
-          .sublist(0, seasons.length - 2)
-          .map((s) => seasonNames[s])
-          .join(', ');
-      return '$str, and ${seasonNames[seasons.last]}';
-    }
-  }
-
   /// Percentage of the FDA's recommended daily value of vitamin A for someone
   /// with a 2,000 calorie diet.
   final int vitaminAPercentage;
