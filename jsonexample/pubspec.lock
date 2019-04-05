@@ -28,7 +28,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.0.8"
   boolean_selector:
     dependency: transitive
     description:
@@ -262,7 +262,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.5"
+    version: "0.12.3+1"
   meta:
     dependency: transitive
     description:
@@ -304,7 +304,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0"
+    version: "1.4.0"
   plugin:
     dependency: transitive
     description:
@@ -339,7 +339,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.1"
   shelf:
     dependency: transitive
     description:
@@ -372,7 +372,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.5"
+    version: "1.5.4"
   stack_trace:
     dependency: transitive
     description:
@@ -386,14 +386,14 @@ packages:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "1.6.8"
   stream_transform:
     dependency: transitive
     description:
       name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.16+1"
   string_scanner:
     dependency: transitive
     description:
@@ -414,7 +414,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.4"
+    version: "0.2.2"
   timing:
     dependency: transitive
     description:
@@ -465,4 +465,4 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: ">=2.2.0 <3.0.0"
+  dart: ">=2.1.0 <3.0.0"
