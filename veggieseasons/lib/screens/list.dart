@@ -73,10 +73,8 @@ class ListScreen extends StatelessWidget {
 
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
-          child: CupertinoScrollbar(
-            child: ListView(
-              children: rows,
-            ),
+          child: ListView(
+            children: rows,
           ),
         );
       },

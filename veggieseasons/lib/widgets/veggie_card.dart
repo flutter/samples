@@ -132,8 +132,7 @@ class VeggieCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   colorFilter: isInSeason
                       ? null
-                      // 222222 is a random color that has low color saturation.
-                      : ColorFilter.mode(Color(0xFF222222), BlendMode.saturation),
+                      : Styles.desaturatedColorFilter,
                   image: AssetImage(
                     veggie.imageAssetPath,
                   ),
