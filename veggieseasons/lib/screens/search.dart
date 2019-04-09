@@ -82,6 +82,7 @@ class _SearchScreenState extends State<SearchScreen> {
             color: Styles.scaffoldBackground,
           ),
           child: SafeArea(
+            bottom: false,
             child: Column(
               children: [
                 _createSearchBox(),
