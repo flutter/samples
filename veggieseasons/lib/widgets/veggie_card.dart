@@ -76,10 +76,14 @@ class _PressableCardState extends State<PressableCard> {
 }
 
 class VeggieCard extends StatelessWidget {
-  VeggieCard(this.veggie, this.isPreferredCategory);
+  VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory);
 
   /// Veggie to be displayed by the card.
   final Veggie veggie;
+
+  /// If the veggie is in season, it's displayed more prominently and the
+  /// image is fully saturated. Otherwise, it's reduced and de-saturated.
+  final bool isInSeason;
 
   /// Whether [veggie] falls into one of user's preferred [VeggieCategory]s
   final bool isPreferredCategory;
@@ -119,10 +123,22 @@ class VeggieCard extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Image.asset(
-            veggie.imageAssetPath,
-            fit: BoxFit.cover,
-            semanticLabel: 'A card background featuring ${veggie.name}',
+          Semantics(
+            label: 'A card background featuring ${veggie.name}',
+            child: Container(
+              height: isInSeason ? 350 : 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  colorFilter: isInSeason
+                      ? null
+                      : Styles.desaturatedColorFilter,
+                  image: AssetImage(
+                    veggie.imageAssetPath,
+                  ),
+                ),
+              ),
+            ),
           ),
           Positioned(
             bottom: 0.0,

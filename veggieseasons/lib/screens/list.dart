@@ -13,7 +13,11 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
-  List<Widget> _generateVeggieRows(List<Veggie> veggies, Preferences prefs) {
+  List<Widget> _generateVeggieRows(
+    List<Veggie> veggies,
+    Preferences prefs,
+    { bool inSeason = true }
+  ) {
     final cards = List<Widget>();
 
     for (Veggie veggie in veggies) {
@@ -23,7 +27,7 @@ class ListScreen extends StatelessWidget {
             future: prefs.preferredCategories,
             builder: (context, snapshot) {
               final data = snapshot.data ?? Set<VeggieCategory>();
-              return VeggieCard(veggie, data.contains(veggie.category));
+              return VeggieCard(veggie, inSeason, data.contains(veggie.category));
             }),
       ));
     }
@@ -65,7 +69,7 @@ class ListScreen extends StatelessWidget {
           ),
         );
 
-        rows.addAll(_generateVeggieRows(appState.unavailableVeggies, prefs));
+        rows.addAll(_generateVeggieRows(appState.unavailableVeggies, prefs, inSeason: false));
 
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
