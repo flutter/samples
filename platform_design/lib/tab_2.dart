@@ -9,36 +9,9 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'utils.dart';
 
 const tab2Title = 'News';
+const tab2AndroidIcon = Icon(Icons.library_books);
 const tab2IosIcon = Icon(CupertinoIcons.news);
 const _itemsLength = 20;
-
-String _makeFakeNews(Random random) {
-  final pair = generateWordPairs(random: random);
-  final artist = capitalizePair(pair.first);
-
-  switch (random.nextInt(9)) {
-    case 0:
-      return '$artist says ${nouns[random.nextInt(nouns.length)]}';
-    case 1:
-      return '$artist arrested due to ${pair.first}';
-    case 2:
-      return '$artist releases ${capitalizePair(pair.first)}';
-    case 3:
-      return '$artist talks about his ${nouns[random.nextInt(nouns.length)]}';
-    case 4:
-      return '$artist talks about her ${nouns[random.nextInt(nouns.length)]}';
-    case 5:
-      return '$artist talks about their ${nouns[random.nextInt(nouns.length)]}';
-    case 6:
-      return '$artist says their music is inspired by ${pair.first}';
-    case 7:
-      return '$artist says the world needs more ${nouns[random.nextInt(nouns.length)]}';
-    case 7:
-      return '$artist calls their band ${adjectives[random.nextInt(adjectives.length)]}';
-    case 8:
-      return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
-  }
-}
 
 class Tab2 extends StatefulWidget {
   const Tab2({ Key key }) : super(key: key);
@@ -62,47 +35,81 @@ class _Tab2State extends State<Tab2> {
     );
     contents = List<String>.generate(
       _itemsLength,
-      (int index) => lorem(paragraphs: 1, words: 50),
+      (int index) => lorem(paragraphs: 1, words: 24),
     );
     super.initState();
   }
 
   Widget _listBuilder(BuildContext context, int index) {
-    return Card(
-      elevation: 1,
-      margin: EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 12,
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: <Widget>[
-            Row(
+    if (index >= _itemsLength)
+      return null;
+
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Card(
+        elevation: 1.5,
+        margin: EdgeInsets.only(
+          top: 12,
+          left: 6,
+          right: 6
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: InkWell(
+          onTap: defaultTargetPlatform == TargetPlatform.iOS ? null : () {},
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CircleAvatar(
                   backgroundColor: colors[index],
+                  child: Text(
+                    titles[index].substring(0, 1),
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                Padding(padding: EdgeInsets.only(left: 12)),
-                Expanded(child: Text(titles[index])),
+                Padding(padding: EdgeInsets.only(left: 16)),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        titles[index],
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 8)),
+                      Text(
+                        contents[index],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ],
-        ),
-      )
+          ),
+        )
+      ),
     );
   }
 
-  Widget _buildAndroid(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: _listBuilder,
+  Widget _buildAndroid(BuildContext context, Widget child) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(tab2Title),
+      ),
+      body: ListView.builder(
+        itemBuilder: _listBuilder,
+      ),
     );
   }
 
-  Widget _buildIos(BuildContext context) {
+  Widget _buildIos(BuildContext context, Widget child) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: ListView.builder(
@@ -113,15 +120,37 @@ class _Tab2State extends State<Tab2> {
 
   @override
   Widget build(BuildContext context) {
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
-        return _buildAndroid(context);
-      case TargetPlatform.iOS:
-        return _buildIos(context);
-    }
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
+  }
+}
 
-    assert(false, 'Unexpected platform');
-    return null;
+String _makeFakeNews(Random random) {
+  final pair = generateWordPairs(maxSyllables: 4, random: random);
+  final artist = capitalizePair(pair.first);
+
+  switch (random.nextInt(9)) {
+    case 0:
+      return '$artist says ${nouns[random.nextInt(nouns.length)]}';
+    case 1:
+      return '$artist arrested due to ${pair.first.join(' ')}';
+    case 2:
+      return '$artist releases ${capitalizePair(pair.first)}';
+    case 3:
+      return '$artist talks about his ${nouns[random.nextInt(nouns.length)]}';
+    case 4:
+      return '$artist talks about her ${nouns[random.nextInt(nouns.length)]}';
+    case 5:
+      return '$artist talks about their ${nouns[random.nextInt(nouns.length)]}';
+    case 6:
+      return '$artist says their music is inspired by ${pair.first.join(' ')}';
+    case 7:
+      return '$artist says the world needs more ${nouns[random.nextInt(nouns.length)]}';
+    case 7:
+      return '$artist calls their band ${adjectives[random.nextInt(adjectives.length)]}';
+    case 8:
+      return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
   }
 }

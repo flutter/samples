@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:english_words/english_words.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 const _myListOfRandomColors = <MaterialColor>[
@@ -29,4 +30,33 @@ String capitalize(String word) {
 
 String capitalizePair(WordPair pair) {
   return '${capitalize(pair.first)} ${capitalize(pair.second)}';
+}
+
+class PlatformWidget extends StatelessWidget {
+  const PlatformWidget({
+    Key key,
+    @required this.androidBuilder,
+    @required this.iosBuilder,
+    this.child,
+  }) : assert(androidBuilder != null),
+       assert(iosBuilder != null),
+       super(key: key);
+
+  final TransitionBuilder androidBuilder;
+  final TransitionBuilder iosBuilder;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+      case TargetPlatform.fuchsia:
+        return androidBuilder(context, child);
+      case TargetPlatform.iOS:
+        return iosBuilder(context, child);
+    }
+
+    assert(false, 'Unexpected platform');
+    return null;
+  }
 }

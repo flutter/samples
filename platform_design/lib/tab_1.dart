@@ -8,64 +8,109 @@ import 'utils.dart';
 /// app.
 
 const tab1Title = 'Songs';
+const tab1AndroidIcon = Icon(Icons.music_note);
 const tab1IosIcon = Icon(CupertinoIcons.music_note);
 const _itemsLength = 50;
 
 class Tab1 extends StatefulWidget {
-  const Tab1({ Key key }) : super(key: key);
+  const Tab1({ Key key, this.androidDrawerBuilder }) : super(key: key);
+
+  final WidgetBuilder androidDrawerBuilder;
 
   @override
   _Tab1State createState() => _Tab1State();
 }
 
 class _Tab1State extends State<Tab1> {
+  final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
+
   List<MaterialColor> colors;
   List<String> songNames;
 
   @override
   void initState() {
-    colors = getRandomColors(_itemsLength);
-    songNames = getRandomNames(_itemsLength);
+    _setData();
     super.initState();
   }
 
+  void _setData() {
+    colors = getRandomColors(_itemsLength);
+    songNames = getRandomNames(_itemsLength);
+  }
+
+  Future<void> _refreshData() {
+    return Future.delayed(
+      const Duration(seconds: 2),
+      () => setState(() => _setData()),
+    );
+  }
+
   Widget _listBuilder(BuildContext context, int index) {
+    if (index >= _itemsLength)
+      return null;
+
     var color = defaultTargetPlatform == TargetPlatform.iOS
         ? colors[index]
         : colors[index].shade400;
 
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      elevation: 20,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Card(
+        margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        elevation: 20,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              color: color,
+              height: 250,
+            ),
+            _Banner(songNames[index]),
+            _PlayButton(),
+          ],
+        ),
       ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Container(
-            color: color,
-            height: 250,
+    );
+  }
+
+  Widget _buildAndroid(BuildContext context, Widget child) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(tab1Title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () async {
+              await _androidRefreshKey.currentState.show();
+
+            },
           ),
-          _Banner(songNames[index]),
-          _PlayButton(),
         ],
       ),
+      drawer: widget.androidDrawerBuilder(context),
+      body: RefreshIndicator(
+        key: _androidRefreshKey,
+        onRefresh: _refreshData,
+        child: ListView.builder(
+          padding: EdgeInsets.symmetric(vertical: 12),
+          itemBuilder: _listBuilder,
+        ),
+      ),
     );
   }
 
-  Widget _buildAndroid(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(vertical: 12),
-      itemBuilder: _listBuilder,
-    );
-  }
-
-  Widget _buildIos(BuildContext context) {
+  Widget _buildIos(BuildContext context, Widget child) {
     return CustomScrollView(
       slivers: <Widget>[
         CupertinoSliverNavigationBar(),
+        CupertinoSliverRefreshControl(
+          onRefresh: _refreshData,
+        ),
         SliverSafeArea(
           top: false,
           sliver: SliverPadding(
@@ -81,16 +126,10 @@ class _Tab1State extends State<Tab1> {
 
   @override
   Widget build(BuildContext context) {
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
-        return _buildAndroid(context);
-      case TargetPlatform.iOS:
-        return _buildIos(context);
-    }
-
-    assert(false, 'Unexpected platform');
-    return null;
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
   }
 }
 
@@ -112,7 +151,10 @@ class _Banner extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12),
         child: Text(
           text,
-          style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );

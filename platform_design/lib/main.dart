@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'tab_1.dart';
 import 'tab_2.dart';
+import 'tab_3.dart';
+import 'utils.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,18 +38,64 @@ class PlatformAdaptingHomePage extends StatefulWidget {
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   final tab1Key = GlobalKey();
   final tab2Key = GlobalKey();
+  final tab3Key = GlobalKey();
 
-  Widget _buildAndroidHomePage() {
-    return Scaffold(
-      appBar: AppBar(title: Text(tab1Title)),
-      drawer: Drawer(
+  final tab1AndroidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
+  Widget _buildAndroidDrawer(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 200,
+            color: Colors.green,
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Icon(
+                Icons.account_circle,
+                color: Colors.green.shade800,
+                size: 96,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: tab1AndroidIcon,
+            title: Text(tab1Title),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: tab2AndroidIcon,
+            title: Text(tab2Title),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) => Tab2(key: tab2Key)
+              ));
+            },
+          ),
+          ListTile(
+            leading: tab3AndroidIcon,
+            title: Text(tab3Title),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) => Tab3(key: tab3Key)
+              ));
+            },
+          ),
+        ],
       ),
-      body: Tab1(key: tab1Key),
     );
   }
 
-  Widget _buildIosHomePage() {
+  Widget _buildAndroidHomePage(BuildContext context, Widget child) {
+    return Tab1(key: tab1Key, androidDrawerBuilder: _buildAndroidDrawer);
+  }
+
+  Widget _buildIosHomePage(BuildContext context, Widget child) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: <BottomNavigationBarItem>[
@@ -58,6 +106,10 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
           BottomNavigationBarItem(
             title: Text(tab2Title),
             icon: tab2IosIcon,
+          ),
+          BottomNavigationBarItem(
+            title: Text(tab3Title),
+            icon: tab3IosIcon,
           ),
         ],
       ),
@@ -77,6 +129,13 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
                 return Tab2(key: tab2Key);
               },
             );
+          case 2:
+            return CupertinoTabView(
+              defaultTitle: tab3Title,
+              builder: (BuildContext context) {
+                return Tab3(key: tab3Key);
+              },
+            );
         }
       },
     );
@@ -84,16 +143,9 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    switch (defaultTargetPlatform) {
-      case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
-        return _buildAndroidHomePage();
-      case TargetPlatform.iOS:
-        return _buildIosHomePage();
-    }
-
-    assert(false, 'Unexpected platform');
-    return null;
+    return PlatformWidget(
+      androidBuilder: _buildAndroidHomePage,
+      iosBuilder: _buildIosHomePage,
+    );
   }
 }
-
