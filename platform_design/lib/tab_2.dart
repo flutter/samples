@@ -103,8 +103,11 @@ class _Tab2State extends State<Tab2> {
       appBar: AppBar(
         title: Text(tab2Title),
       ),
-      body: ListView.builder(
-        itemBuilder: _listBuilder,
+      body: Container(
+        color: Colors.grey[100],
+        child: ListView.builder(
+          itemBuilder: _listBuilder,
+        ),
       ),
     );
   }
@@ -112,8 +115,11 @@ class _Tab2State extends State<Tab2> {
   Widget _buildIos(BuildContext context, Widget child) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
-      child: ListView.builder(
-        itemBuilder: _listBuilder,
+      child: Container(
+        color: Colors.grey[100],
+        child: ListView.builder(
+          itemBuilder: _listBuilder,
+        ),
       ),
     );
   }
@@ -153,4 +159,7 @@ String _makeFakeNews(Random random) {
     case 8:
       return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
   }
+
+  assert(false, 'Failed to generate fake news');
+  return null;
 }

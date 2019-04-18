@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'utils.dart';
 
-const tab4Title = 'News';
-const tab4AndroidIcon = Icon(Icons.library_books);
-const tab4IosIcon = Icon(CupertinoIcons.profile_circled);
+const tab4Title = 'Settings';
+const tab4AndroidIcon = Icon(Icons.settings);
+const tab4IosIcon = Icon(CupertinoIcons.gear);
 
 class Tab4 extends StatefulWidget {
   const Tab4({ Key key }) : super(key: key);
@@ -15,10 +15,10 @@ class Tab4 extends StatefulWidget {
 }
 
 class _Tab4State extends State<Tab4> {
-  Widget _buildAndroid(BuildContext context) {
+  Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(tab2Title),
+        title: Text(tab4Title),
       ),
       body: ListView.builder(
         itemBuilder: _listBuilder,
@@ -26,7 +26,7 @@ class _Tab4State extends State<Tab4> {
     );
   }
 
-  Widget _buildIos(BuildContext context) {
+  Widget _buildIos(BuildContext context, Widget child) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: ListView.builder(
@@ -42,5 +42,4 @@ class _Tab4State extends State<Tab4> {
       iosBuilder: _buildIos,
     );
   }
-}
 }

@@ -56,13 +56,7 @@ class _Tab1State extends State<Tab1> {
     return SafeArea(
       top: false,
       bottom: false,
-      child: Card(
-        margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        elevation: 20,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        clipBehavior: Clip.antiAlias,
+      child: PressableCard(
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[

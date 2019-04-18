@@ -60,3 +60,63 @@ class PlatformWidget extends StatelessWidget {
     return null;
   }
 }
+
+class PressableCard extends StatefulWidget {
+  const PressableCard({ this.onPressed, this.child });
+
+  final VoidCallback onPressed;
+  final Widget child;
+
+  @override
+  State<StatefulWidget> createState() => new PressableCardState();
+}
+
+class PressableCardState extends State<PressableCard> with SingleTickerProviderStateMixin {
+  bool pressed = false;
+  AnimationController controller;
+  Animation<double> elevationAnimation;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 40),
+    );
+    elevationAnimation = controller
+        .drive(CurveTween(curve: Curves.easeInOutCubic));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) { controller.forward(); },
+      onPointerUp: (_) { controller.reverse(); },
+        child: GestureDetector(
+        onTap: () {
+          if (widget.onPressed != null) {
+            widget.onPressed();
+          }
+        },
+        child: AnimatedBuilder(
+          animation: elevationAnimation,
+          child: widget.child,
+          builder: (BuildContext context, Widget child) {
+            return Transform.scale(
+              scale: 1 - elevationAnimation.value * 0.03,
+              child: Card(
+                margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                elevation: (1 - elevationAnimation.value) * 10 + 10,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: child,
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

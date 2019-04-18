@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'tab_1.dart';
 import 'tab_2.dart';
 import 'tab_3.dart';
+import 'tab_4.dart';
 import 'utils.dart';
 
 void main() => runApp(MyApp());
@@ -79,6 +80,16 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
           ListTile(
             leading: tab3AndroidIcon,
             title: Text(tab3Title),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) => Tab3(key: tab3Key)
+              ));
+            },
+          ),
+          ListTile(
+            leading: tab4AndroidIcon,
+            title: Text(tab4Title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
