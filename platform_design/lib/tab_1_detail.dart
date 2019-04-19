@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'widgets.dart';
 
+// Page shown when a card in tab 1 is tapped.
+//
+// On Android, this page sits on top of your app. On iOS, this page is on top of
+// tab 1's content but is below the tab bar itself.
 class Tab1Detail extends StatelessWidget {
   const Tab1Detail({ this.id, this.song, this.color });
 
@@ -25,6 +29,10 @@ class Tab1Detail extends StatelessWidget {
               color: color,
               heroAnimation: AlwaysStoppedAnimation(1),
             ),
+            // We're using a flightShuttleBuilder to specify the exact widget
+            // to build while the hero transition is mid-flight.
+            //
+            // It could either be specified here or in Tab1.
             flightShuttleBuilder: (
               BuildContext context,
               Animation<double> animation,
@@ -45,7 +53,7 @@ class Tab1Detail extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 20,
+              itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
                 if (index == 0) {
                   return Padding(
@@ -56,6 +64,7 @@ class Tab1Detail extends StatelessWidget {
                     )),
                   );
                 }
+                // Just a bunch of boxes that simulates loading video choices.
                 return SizedBox(
                   height: 95,
                   child: Padding(
@@ -113,6 +122,10 @@ class Tab1Detail extends StatelessWidget {
     );
   }
 
+  // ===========================================================================
+  // Non-shared code below because we're using different scaffolds.
+  // ===========================================================================
+
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(title: Text(song)),
@@ -126,10 +139,7 @@ class Tab1Detail extends StatelessWidget {
         middle: Text(song),
         previousPageTitle: 'Songs',
       ),
-      child: DefaultTextStyle(
-        style: CupertinoTheme.of(context).textTheme.textStyle,
-        child: _buildBody(),
-      ),
+      child: _buildBody(),
     );
   }
 

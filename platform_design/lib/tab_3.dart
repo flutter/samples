@@ -8,92 +8,6 @@ const tab3Title = 'Profile';
 const tab3AndroidIcon = Icon(Icons.person);
 const tab3IosIcon = Icon(CupertinoIcons.profile_circled);
 
-class Tab3 extends StatelessWidget {
-  Widget _buildBody(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: Center(
-                child: Text('😼', style: TextStyle(
-                  fontSize: 80,
-                  decoration: TextDecoration.none,
-                )),
-              ),
-            ),
-            PreferenceCard(
-              header: 'MY INTENSITY PREFERENCE',
-              content: '🔥',
-              preferenceChoices: <String>[
-                'Super heavy',
-                'Dial it to 11',
-                "Head bangin'",
-                '1000W',
-                'My neighbor hates me',
-              ],
-            ),
-            PreferenceCard(
-              header: 'CURRENT MOOD',
-              content: '🤘🏾🚀',
-              preferenceChoices: <String>[
-                'Over the moon',
-                'Basking in sunlight',
-                'Hello fellow Martians',
-                'Into the darkness',
-              ],
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            new LogOutButton(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAndroid(BuildContext context, Widget child) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(tab3Title),
-      ),
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildIos(BuildContext context, Widget child) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        trailing: CupertinoButton(
-          padding: EdgeInsets.zero,
-          child: tab4.tab4IosIcon,
-          onPressed: () {
-            Navigator.of(context, rootNavigator: true).push(
-              CupertinoPageRoute(
-                title: tab4.tab4Title,
-                fullscreenDialog: true,
-                builder: (BuildContext context) => tab4.Tab4(),
-              ),
-            );
-          },
-        ),
-      ),
-      child: _buildBody(context),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
-  }
-}
-
 class PreferenceCard extends StatelessWidget {
   const PreferenceCard({ this.header, this.content, this.preferenceChoices });
 
@@ -149,12 +63,110 @@ class PreferenceCard extends StatelessWidget {
   }
 }
 
+class Tab3 extends StatelessWidget {
+  Widget _buildBody(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Center(
+                child: Text('😼', style: TextStyle(
+                  fontSize: 80,
+                  decoration: TextDecoration.none,
+                )),
+              ),
+            ),
+            PreferenceCard(
+              header: 'MY INTENSITY PREFERENCE',
+              content: '🔥',
+              preferenceChoices: <String>[
+                'Super heavy',
+                'Dial it to 11',
+                "Head bangin'",
+                '1000W',
+                'My neighbor hates me',
+              ],
+            ),
+            PreferenceCard(
+              header: 'CURRENT MOOD',
+              content: '🤘🏾🚀',
+              preferenceChoices: <String>[
+                'Over the moon',
+                'Basking in sunlight',
+                'Hello fellow Martians',
+                'Into the darkness',
+              ],
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            new LogOutButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ===========================================================================
+  // Non-shared code below because we're nesting tab 4 inside of tab 3 as a
+  // button in the nav bar.
+  // ===========================================================================
+
+  Widget _buildAndroid(BuildContext context, Widget child) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(tab3Title),
+      ),
+      body: _buildBody(context),
+    );
+  }
+
+  Widget _buildIos(BuildContext context, Widget child) {
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        trailing: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: tab4.tab4IosIcon,
+          onPressed: () {
+            // We're pushing the settings page as a full page modal dialog
+            // on top of the tab bar and everything.
+            Navigator.of(context, rootNavigator: true).push(
+              CupertinoPageRoute(
+                title: tab4.tab4Title,
+                fullscreenDialog: true,
+                builder: (BuildContext context) => tab4.Tab4(),
+              ),
+            );
+          },
+        ),
+      ),
+      child: _buildBody(context),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
+  }
+}
+
 class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text('You may check out any time you like, but you can never leave');
 
-  const LogOutButton({
-    Key key,
-  }) : super(key: key);
+  // ===========================================================================
+  // Non-shared code below because we're showing different interfaces. On
+  // Android, we're showing an alert dialog with 2 buttons and on iOS,
+  // we're showing an action sheet with 3 choices.
+  //
+  // This is a design choice and you may want to do something different in your
+  // app.
+  // ===========================================================================
 
   Widget _buildAndroid(BuildContext context, Widget child) {
     return RaisedButton(

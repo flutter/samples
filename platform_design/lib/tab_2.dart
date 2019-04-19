@@ -14,6 +14,36 @@ const tab2AndroidIcon = Icon(Icons.library_books);
 const tab2IosIcon = Icon(CupertinoIcons.news);
 const _itemsLength = 20;
 
+String _makeFakeNews(Random random) {
+  final artist = capitalizePair(wordPairIterator.first);
+
+  switch (random.nextInt(9)) {
+    case 0:
+      return '$artist says ${nouns[random.nextInt(nouns.length)]}';
+    case 1:
+      return '$artist arrested due to ${wordPairIterator.first.join(' ')}';
+    case 2:
+      return '$artist releases ${capitalizePair(wordPairIterator.first)}';
+    case 3:
+      return '$artist talks about his ${nouns[random.nextInt(nouns.length)]}';
+    case 4:
+      return '$artist talks about her ${nouns[random.nextInt(nouns.length)]}';
+    case 5:
+      return '$artist talks about their ${nouns[random.nextInt(nouns.length)]}';
+    case 6:
+      return '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}';
+    case 7:
+      return '$artist says the world needs more ${nouns[random.nextInt(nouns.length)]}';
+    case 7:
+      return '$artist calls their band ${adjectives[random.nextInt(adjectives.length)]}';
+    case 8:
+      return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
+  }
+
+  assert(false, 'Failed to generate fake news');
+  return null;
+}
+
 class Tab2 extends StatefulWidget {
   const Tab2({ Key key }) : super(key: key);
 
@@ -99,6 +129,10 @@ class _Tab2State extends State<Tab2> {
     );
   }
 
+  // ===========================================================================
+  // Non-shared code below because we're using different scaffolds.
+  // ===========================================================================
+
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
@@ -132,34 +166,4 @@ class _Tab2State extends State<Tab2> {
       iosBuilder: _buildIos,
     );
   }
-}
-
-String _makeFakeNews(Random random) {
-  final artist = capitalizePair(wordPairIterator.first);
-
-  switch (random.nextInt(9)) {
-    case 0:
-      return '$artist says ${nouns[random.nextInt(nouns.length)]}';
-    case 1:
-      return '$artist arrested due to ${wordPairIterator.first.join(' ')}';
-    case 2:
-      return '$artist releases ${capitalizePair(wordPairIterator.first)}';
-    case 3:
-      return '$artist talks about his ${nouns[random.nextInt(nouns.length)]}';
-    case 4:
-      return '$artist talks about her ${nouns[random.nextInt(nouns.length)]}';
-    case 5:
-      return '$artist talks about their ${nouns[random.nextInt(nouns.length)]}';
-    case 6:
-      return '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}';
-    case 7:
-      return '$artist says the world needs more ${nouns[random.nextInt(nouns.length)]}';
-    case 7:
-      return '$artist calls their band ${adjectives[random.nextInt(adjectives.length)]}';
-    case 8:
-      return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
-  }
-
-  assert(false, 'Failed to generate fake news');
-  return null;
 }

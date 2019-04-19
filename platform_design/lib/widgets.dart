@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
   const PlatformWidget({
     Key key,
@@ -31,6 +32,10 @@ class PlatformWidget extends StatelessWidget {
   }
 }
 
+/// A platform-agnostic card with a high elevation that reacts when tapped.
+///
+/// This is some custom branded control you're likely to have designed for your
+/// own app.
 class PressableCard extends StatefulWidget {
   const PressableCard({
     this.onPressed,
@@ -59,8 +64,7 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
       vsync: this,
       duration: const Duration(milliseconds: 40),
     );
-    elevationAnimation = controller
-        .drive(CurveTween(curve: Curves.easeInOutCubic));
+    elevationAnimation = controller.drive(CurveTween(curve: Curves.easeInOutCubic));
     super.initState();
   }
 
@@ -84,11 +88,17 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
             widget.onPressed();
           }
         },
+        // This widget both internally drives an animation when pressed and
+        // responds to an external animation to flatten the card when in a
+        // hero animation. You likely want to modularize them more in your own
+        // app.
         child: AnimatedBuilder(
           animation: Listenable.merge([elevationAnimation, widget.flattenAnimation]),
           child: widget.child,
           builder: (BuildContext context, Widget child) {
             return Transform.scale(
+              // This is just a sample. You likely want to keep the math cleaner
+              // in your own app.
               scale: 1 - elevationAnimation.value * 0.03,
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16) * flatten,
@@ -108,6 +118,13 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
   }
 }
 
+/// A platform-agnostic card representing a song which can be in a card state,
+/// a flat state or anything in between.
+///
+/// When it's in a card state, it's pressable.
+///
+/// This is also a custom branded control you're likely to have designed for
+/// your own app.
 class HeroAnimatingSongCard extends StatelessWidget {
   HeroAnimatingSongCard({ this.song, this.color, this.heroAnimation, this.onPressed });
 
@@ -120,11 +137,17 @@ class HeroAnimatingSongCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // This is an inefficient usage of AnimatedBuilder since it's rebuilding
+    // the entire subtree instead of passing in a non-changing child and
+    // building a transition widget in between.
+    //
+    // Left simple in this demo because this card doesn't have any real inner
+    // content so we're just rebuilding everything while animating.
     return AnimatedBuilder(
       animation: heroAnimation,
       builder: (BuildContext context, Widget child) {
         return PressableCard(
-          onPressed: onPressed,
+          onPressed: heroAnimation.value == 0 ? onPressed : null,
           color: color,
           flattenAnimation: heroAnimation,
           child: SizedBox(
@@ -132,6 +155,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
+                // The song title banner slides off in the hero animation.
                 Positioned(
                   bottom: - 80 * heroAnimation.value,
                   left: 0,
@@ -150,6 +174,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
                     ),
                   ),
                 ),
+                // The play button grows in the hero animation.
                 Padding(
                   padding: EdgeInsets.only(bottom: 45) * (1 - heroAnimation.value),
                   child: Container(
@@ -172,6 +197,16 @@ class HeroAnimatingSongCard extends StatelessWidget {
   }
 }
 
+// ===========================================================================
+// Non-shared code below because we're showing different interfaces to prompt
+// for a multiple-choice answer.
+//
+// This is a design choice and you may want to do something different in your
+// app.
+// ===========================================================================
+/// This uses a platform-appropriate mechanism to show users multiple choices.
+///
+/// On Android, it uses a dialog with radio buttons. On iOS, it uses a picker.
 void showChoices(BuildContext context, List<String> choices) {
   switch (defaultTargetPlatform) {
     case TargetPlatform.android:
@@ -219,23 +254,20 @@ void showChoices(BuildContext context, List<String> choices) {
         builder: (BuildContext context) {
           return SizedBox(
             height: 250,
-            child: DefaultTextStyle(
-              style: CupertinoTheme.of(context).textTheme.textStyle,
-              child: CupertinoPicker(
-                useMagnifier: true,
-                magnification: 1.1,
-                itemExtent: 40,
-                scrollController: FixedExtentScrollController(initialItem: 1),
-                children: List<Widget>.generate(choices.length, (int index) {
-                  return Center(child: Text(
-                    choices[index],
-                    style: TextStyle(
-                      fontSize: 21,
-                    ),
-                  ));
-                }),
-                onSelectedItemChanged: (int value) {},
-              ),
+            child: CupertinoPicker(
+              useMagnifier: true,
+              magnification: 1.1,
+              itemExtent: 40,
+              scrollController: FixedExtentScrollController(initialItem: 1),
+              children: List<Widget>.generate(choices.length, (int index) {
+                return Center(child: Text(
+                  choices[index],
+                  style: TextStyle(
+                    fontSize: 21,
+                  ),
+                ));
+              }),
+              onSelectedItemChanged: (int value) {},
             ),
           );
         }

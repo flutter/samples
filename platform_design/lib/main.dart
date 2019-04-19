@@ -16,13 +16,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Change this value to better see animations.
     timeDilation = 1;
+    // Either Material or Cupertino widgets work in either Material or Cupertino
+    // Apps.
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Adaptive Music App',
       theme: ThemeData(
+        // Use the green theme for Material widgets.
         primarySwatch: Colors.green,
       ),
       builder: (BuildContext context, Widget child) {
         return CupertinoTheme(
+          // Instead of letting Cupertino widgets auto-adapt to the Material
+          // theme (which is green), we're going to use a different theme
+          // for Cupertino (which is blue by default).
           data: CupertinoThemeData(),
           child: Material(child: child),
         );
@@ -32,6 +38,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// The widget which shows a different type of scaffold depending on the platform.
+//
+// This file has the most amount of non-sharable code since it behaves the most
+// differently between the platforms.
 class PlatformAdaptingHomePage extends StatefulWidget {
   PlatformAdaptingHomePage({ Key key }) : super(key: key);
 
@@ -40,15 +50,20 @@ class PlatformAdaptingHomePage extends StatefulWidget {
 }
 
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
+  // We're keeping global keys because tabs 1 and 2 own a bunch of data.
+  // We'd like to keep them as we change platforms and reparent those tabs
+  // into different scaffolds.
   final tab1Key = GlobalKey();
   final tab2Key = GlobalKey();
 
-  final tab1AndroidRefreshKey = GlobalKey<RefreshIndicatorState>();
-
+  // In Material, we're using the hamburger menu paradigm. We're flatly listing
+  // all possible tabs and injecting this builder into tab 1 which is building
+  // the scaffold around the drawer.
   Widget _buildAndroidDrawer(BuildContext context) {
     return Drawer(
       child: Column(
         children: <Widget>[
+          // Show a random header.
           Container(
             height: 200,
             color: Colors.green,
@@ -89,6 +104,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
               ));
             },
           ),
+          // Long drawer contents are often segmented.
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Divider(),
@@ -112,6 +128,12 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
     return Tab1(key: tab1Key, androidDrawerBuilder: _buildAndroidDrawer);
   }
 
+  // On iOS, we're using the bottom tab paradigm. Here, all the tabs contents
+  // sit inside the tab scaffold which has the tabs.
+  //
+  // Since more things can be displayed in a drawer than in tabs, we're folding
+  // the fourth tab (the settings page) into the the third tab. This is a
+  // common pattern on iOS.
   Widget _buildIosHomePage(BuildContext context, Widget child) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(

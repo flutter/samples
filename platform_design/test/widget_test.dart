@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:platform_design/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Can change platform correctly', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // We should be able to find the drawer button.
+    expect(find.byIcon(Icons.menu), findsOneWidget);
+    // There should be a refresh button.
+    expect(find.byIcon(Icons.refresh), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    await tester.pumpWidget(MyApp());
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // There should now be a large title style nav bar.
+    expect(find.byType(CupertinoSliverNavigationBar), findsOneWidget);
+    // There's a tab button for the first tab.
+    expect(find.byIcon(CupertinoIcons.music_note), findsOneWidget);
+    // The hamburger button isn't there anymore.
+    expect(find.byIcon(Icons.menu), findsNothing);
+
+    // Since this is a static, undo the change we made in the test.
+    debugDefaultTargetPlatformOverride = null;
   });
 }

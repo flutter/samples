@@ -6,9 +6,6 @@ import 'tab_1_detail.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-/// This file feeds the means to navigate to and the content of tab 1 of our
-/// app.
-
 const tab1Title = 'Songs';
 const tab1AndroidIcon = Icon(Icons.music_note);
 const tab1IosIcon = Icon(CupertinoIcons.music_note);
@@ -42,6 +39,7 @@ class _Tab1State extends State<Tab1> {
 
   Future<void> _refreshData() {
     return Future.delayed(
+      // This is just an arbitrary delay that simulates some network activity.
       const Duration(seconds: 2),
       () => setState(() => _setData()),
     );
@@ -51,7 +49,9 @@ class _Tab1State extends State<Tab1> {
     if (index >= _itemsLength)
       return null;
 
-    var color = defaultTargetPlatform == TargetPlatform.iOS
+    // Show a slightly different color palette. Show poppy-ier colors on iOS
+    // due to lighter contrasting bars and tone it down on Android.
+    final color = defaultTargetPlatform == TargetPlatform.iOS
         ? colors[index]
         : colors[index].shade400;
 
@@ -76,6 +76,17 @@ class _Tab1State extends State<Tab1> {
     );
   }
 
+  // ===========================================================================
+  // Non-shared code below because Android and iOS has different:
+  // - Scaffolds
+  // - Items in the app bar / nav bar
+  // - The iOS nav bar is scrollable, Android is not
+  // - Pull-to-refresh works differently, and Android has a button to trigger it too
+  //
+  // And these are all design time choices that doesn't have a single 'right'
+  // answer.
+  // ===========================================================================
+
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
@@ -83,10 +94,7 @@ class _Tab1State extends State<Tab1> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () async {
-              await _androidRefreshKey.currentState.show();
-
-            },
+            onPressed: () async => await _androidRefreshKey.currentState.show(),
           ),
         ],
       ),
