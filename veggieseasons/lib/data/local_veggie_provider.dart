@@ -192,7 +192,7 @@ class LocalVeggieProvider {
       name: 'Avocado',
       imageAssetPath: 'assets/images/avocado.jpg',
       category: VeggieCategory.stealthFruit,
-      shortDescription: 'One of the oiliest, richest vegetables money can buy.',
+      shortDescription: 'One of the oiliest, richest fruits money can buy.',
       accentColor: Color(0x40b0ba59),
       seasons: [Season.winter, Season.spring, Season.summer],
       vitaminAPercentage: 0,
