@@ -172,6 +172,8 @@ class LogOutButton extends StatelessWidget {
     return RaisedButton(
       child: Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
+        // You should do something with the result of the dialog prompt in a
+        // real app but this is just a demo.
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -204,6 +206,8 @@ class LogOutButton extends StatelessWidget {
       color: CupertinoColors.destructiveRed,
       child: Text('Log out'),
       onPressed: () {
+        // You should do something with the result of the action sheet prompt
+        // in a real app but this is just a demo.
         showCupertinoModalPopup(
           context: context,
           builder: (BuildContext context) {
