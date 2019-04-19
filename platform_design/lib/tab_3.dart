@@ -2,22 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'tab_4.dart' as tab4;
-import 'utils.dart';
+import 'widgets.dart';
 
 const tab3Title = 'Profile';
 const tab3AndroidIcon = Icon(Icons.person);
 const tab3IosIcon = Icon(CupertinoIcons.profile_circled);
 
-const _logoutMessage = Text('You may check out any time you like, but you can never leave');
-
-class Tab3 extends StatefulWidget {
-  const Tab3({ Key key }) : super(key: key);
-
-  @override
-  _Tab3State createState() => _Tab3State();
-}
-
-class _Tab3State extends State<Tab3> {
+class Tab3 extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return SafeArea(
       child: Padding(
@@ -25,10 +16,10 @@ class _Tab3State extends State<Tab3> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(4),
+              padding: EdgeInsets.all(8),
               child: Center(
                 child: Text('😼', style: TextStyle(
-                  fontSize: 92,
+                  fontSize: 80,
                   decoration: TextDecoration.none,
                 )),
               ),
@@ -36,10 +27,23 @@ class _Tab3State extends State<Tab3> {
             PreferenceCard(
               header: 'MY INTENSITY PREFERENCE',
               content: '🔥',
+              preferenceChoices: <String>[
+                'Super heavy',
+                'Dial it to 11',
+                "Head bangin'",
+                '1000W',
+                'My neighbor hates me',
+              ],
             ),
             PreferenceCard(
               header: 'CURRENT MOOD',
               content: '🤘🏾🚀',
+              preferenceChoices: <String>[
+                'Over the moon',
+                'Basking in sunlight',
+                'Hello fellow Martians',
+                'Into the darkness',
+              ],
             ),
             Expanded(
               child: Container(),
@@ -70,6 +74,7 @@ class _Tab3State extends State<Tab3> {
             Navigator.of(context, rootNavigator: true).push(
               CupertinoPageRoute(
                 title: tab4.tab4Title,
+                fullscreenDialog: true,
                 builder: (BuildContext context) => tab4.Tab4(),
               ),
             );
@@ -90,17 +95,20 @@ class _Tab3State extends State<Tab3> {
 }
 
 class PreferenceCard extends StatelessWidget {
-  const PreferenceCard({ this.header, this.content });
+  const PreferenceCard({ this.header, this.content, this.preferenceChoices });
 
   final String header;
   final String content;
+  final List<String> preferenceChoices;
+
   @override
   Widget build(BuildContext context) {
     return PressableCard(
+      color: Colors.green,
+      flattenAnimation: AlwaysStoppedAnimation(0),
       child: Stack(
         children: <Widget>[
           Container(
-            color: Colors.green,
             height: 120,
             width: 250,
             child: Padding(
@@ -127,18 +135,23 @@ class PreferenceCard extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
           ),
         ],
       ),
+      onPressed: () {
+        showChoices(context, preferenceChoices);
+      },
     );
   }
 }
 
 class LogOutButton extends StatelessWidget {
+  static const _logoutMessage = Text('You may check out any time you like, but you can never leave');
+
   const LogOutButton({
     Key key,
   }) : super(key: key);

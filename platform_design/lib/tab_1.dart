@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'tab_1_detail.dart';
 import 'utils.dart';
+import 'widgets.dart';
 
 /// This file feeds the means to navigate to and the content of tab 1 of our
 /// app.
@@ -56,17 +58,19 @@ class _Tab1State extends State<Tab1> {
     return SafeArea(
       top: false,
       bottom: false,
-      child: PressableCard(
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Container(
+      child: Hero(
+        tag: index,
+        child: HeroAnimatingSongCard(
+          song: songNames[index],
+          color: color,
+          heroAnimation: AlwaysStoppedAnimation(0),
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => Tab1Detail(
+              id: index,
+              song: songNames[index],
               color: color,
-              height: 250,
             ),
-            _Banner(songNames[index]),
-            _PlayButton(),
-          ],
+          )),
         ),
       ),
     );
@@ -127,47 +131,4 @@ class _Tab1State extends State<Tab1> {
   }
 }
 
-class _Banner extends StatelessWidget {
-  const _Banner(this.text);
 
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: Container(
-        height: 80,
-        color: Colors.black12,
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.symmetric(horizontal: 12),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 21,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PlayButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 50,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.black12,
-      ),
-      alignment: Alignment.center,
-      margin: EdgeInsets.only(bottom: 45),
-      child: Icon(Icons.play_arrow, size: 50, color: Colors.black38),
-    );
-  }
-}

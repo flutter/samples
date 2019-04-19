@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
 import 'utils.dart';
+import 'widgets.dart';
 
 const tab2Title = 'News';
 const tab2AndroidIcon = Icon(Icons.library_books);
@@ -134,16 +135,15 @@ class _Tab2State extends State<Tab2> {
 }
 
 String _makeFakeNews(Random random) {
-  final pair = generateWordPairs(maxSyllables: 4, random: random);
-  final artist = capitalizePair(pair.first);
+  final artist = capitalizePair(wordPairIterator.first);
 
   switch (random.nextInt(9)) {
     case 0:
       return '$artist says ${nouns[random.nextInt(nouns.length)]}';
     case 1:
-      return '$artist arrested due to ${pair.first.join(' ')}';
+      return '$artist arrested due to ${wordPairIterator.first.join(' ')}';
     case 2:
-      return '$artist releases ${capitalizePair(pair.first)}';
+      return '$artist releases ${capitalizePair(wordPairIterator.first)}';
     case 3:
       return '$artist talks about his ${nouns[random.nextInt(nouns.length)]}';
     case 4:
@@ -151,7 +151,7 @@ String _makeFakeNews(Random random) {
     case 5:
       return '$artist talks about their ${nouns[random.nextInt(nouns.length)]}';
     case 6:
-      return '$artist says their music is inspired by ${pair.first.join(' ')}';
+      return '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}';
     case 7:
       return '$artist says the world needs more ${nouns[random.nextInt(nouns.length)]}';
     case 7:
