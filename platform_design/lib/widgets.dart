@@ -19,7 +19,7 @@ class PlatformWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    switch (defaultTargetPlatform) {
+    switch (Theme.of(context).platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         return androidBuilder(context, child);
@@ -208,7 +208,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
 ///
 /// On Android, it uses a dialog with radio buttons. On iOS, it uses a picker.
 void showChoices(BuildContext context, List<String> choices) {
-  switch (defaultTargetPlatform) {
+  switch (Theme.of(context).platform) {
     case TargetPlatform.android:
     case TargetPlatform.fuchsia:
       showDialog(

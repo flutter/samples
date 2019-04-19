@@ -12,28 +12,37 @@ import 'widgets.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final platformOverride = ValueNotifier<TargetPlatform>(defaultTargetPlatform);
+
   @override
   Widget build(BuildContext context) {
     // Change this value to better see animations.
     timeDilation = 1;
     // Either Material or Cupertino widgets work in either Material or Cupertino
     // Apps.
-    return MaterialApp(
-      title: 'Adaptive Music App',
-      theme: ThemeData(
-        // Use the green theme for Material widgets.
-        primarySwatch: Colors.green,
-      ),
-      builder: (BuildContext context, Widget child) {
-        return CupertinoTheme(
-          // Instead of letting Cupertino widgets auto-adapt to the Material
-          // theme (which is green), we're going to use a different theme
-          // for Cupertino (which is blue by default).
-          data: CupertinoThemeData(),
-          child: Material(child: child),
+    return ValueListenableBuilder(
+      valueListenable: platformOverride,
+      child: PlatformAdaptingHomePage(platformOverride: platformOverride),
+      builder: (BuildContext context, TargetPlatform platform, Widget child) {
+        return MaterialApp(
+          title: 'Adaptive Music App',
+          theme: ThemeData(
+            // Use the green theme for Material widgets.
+            primarySwatch: Colors.green,
+            platform: platform,
+          ),
+          builder: (BuildContext context, Widget child) {
+            return CupertinoTheme(
+              // Instead of letting Cupertino widgets auto-adapt to the Material
+              // theme (which is green), we're going to use a different theme
+              // for Cupertino (which is blue by default).
+              data: CupertinoThemeData(),
+              child: Material(child: child),
+            );
+          },
+          home: child,
         );
       },
-      home: PlatformAdaptingHomePage(),
     );
   }
 }
@@ -43,7 +52,9 @@ class MyApp extends StatelessWidget {
 // This file has the most amount of non-sharable code since it behaves the most
 // differently between the platforms.
 class PlatformAdaptingHomePage extends StatefulWidget {
-  PlatformAdaptingHomePage({ Key key }) : super(key: key);
+  PlatformAdaptingHomePage({ Key key, this.platformOverride }) : super(key: key);
+
+  final ValueNotifier<TargetPlatform> platformOverride;
 
   @override
   _PlatformAdaptingHomePageState createState() => _PlatformAdaptingHomePageState();
@@ -125,7 +136,11 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   }
 
   Widget _buildAndroidHomePage(BuildContext context, Widget child) {
-    return Tab1(key: tab1Key, androidDrawerBuilder: _buildAndroidDrawer);
+    return Tab1(
+      key: tab1Key,
+      androidDrawerBuilder: _buildAndroidDrawer,
+      platformOverride: widget.platformOverride,
+    );
   }
 
   // On iOS, we're using the bottom tab paradigm. Here, all the tabs contents
@@ -158,7 +173,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             return CupertinoTabView(
               defaultTitle: tab1Title,
               builder: (BuildContext context) {
-                return Tab1(key: tab1Key);
+                return Tab1(key: tab1Key, platformOverride: widget.platformOverride);
               },
             );
           case 1:

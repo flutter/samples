@@ -89,7 +89,7 @@ class _Tab2State extends State<Tab2> {
           borderRadius: BorderRadius.circular(4),
         ),
         child: InkWell(
-          onTap: defaultTargetPlatform == TargetPlatform.iOS ? null : () {},
+          onTap: Theme.of(context).platform == TargetPlatform.iOS ? null : () {},
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(

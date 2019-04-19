@@ -12,9 +12,11 @@ const tab1IosIcon = Icon(CupertinoIcons.music_note);
 const _itemsLength = 50;
 
 class Tab1 extends StatefulWidget {
-  const Tab1({ Key key, this.androidDrawerBuilder }) : super(key: key);
+  const Tab1({ Key key, this.androidDrawerBuilder, this.platformOverride })
+      : super(key: key);
 
   final WidgetBuilder androidDrawerBuilder;
+  final ValueNotifier<TargetPlatform> platformOverride;
 
   @override
   _Tab1State createState() => _Tab1State();
@@ -51,7 +53,7 @@ class _Tab1State extends State<Tab1> {
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
-    final color = defaultTargetPlatform == TargetPlatform.iOS
+    final color = Theme.of(context).platform == TargetPlatform.iOS
         ? colors[index]
         : colors[index].shade400;
 
@@ -87,6 +89,13 @@ class _Tab1State extends State<Tab1> {
   // answer.
   // ===========================================================================
 
+  TargetPlatform _togglePlatform() {
+    if (widget.platformOverride.value == TargetPlatform.iOS)
+      return TargetPlatform.android;
+    else
+      return TargetPlatform.iOS;
+  }
+
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
@@ -95,6 +104,10 @@ class _Tab1State extends State<Tab1> {
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () async => await _androidRefreshKey.currentState.show(),
+          ),
+          IconButton(
+            icon: Icon(Icons.shuffle),
+            onPressed: () => widget.platformOverride.value = _togglePlatform(),
           ),
         ],
       ),
@@ -113,7 +126,13 @@ class _Tab1State extends State<Tab1> {
   Widget _buildIos(BuildContext context, Widget child) {
     return CustomScrollView(
       slivers: <Widget>[
-        CupertinoSliverNavigationBar(),
+        CupertinoSliverNavigationBar(
+          trailing: CupertinoButton(
+            padding: EdgeInsets.zero,
+            child: Icon(CupertinoIcons.shuffle),
+            onPressed: () => widget.platformOverride.value = _togglePlatform(),
+          ),
+        ),
         CupertinoSliverRefreshControl(
           onRefresh: _refreshData,
         ),

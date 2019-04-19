@@ -1,6 +1,11 @@
 import 'dart:math';
 
 import 'package:english_words/english_words.dart';
+// We're reimplementing generateWordPair because english_words's
+// implementation has some performance issues.
+// https://github.com/filiph/english_words/issues/9
+// ignore: implementation_imports
+import 'package:english_words/src/words/unsafe.dart';
 import 'package:flutter/material.dart';
 
 const _myListOfRandomColors = <MaterialColor>[
@@ -9,15 +14,33 @@ const _myListOfRandomColors = <MaterialColor>[
   Colors.orange,
 ];
 
-// This is done statically because this invocation is expensive.
-//
-// This is just a sample. You should do something nicer in your own code.
-final wordPairIterator = generateWordPairs(maxSyllables: 5);
+final _random = Random();
+
+Iterable wordPairIterator = generateWordPair();
+Iterable<WordPair> generateWordPair() sync* {
+  bool filterWord(String word) => unsafe.contains(word);
+  String pickRandom(List<String> list) => list[_random.nextInt(list.length)];
+
+  String prefix;
+  while (true) {
+    if (_random.nextBool()) {
+      prefix = pickRandom(adjectives);
+    } else {
+      prefix = pickRandom(nouns);
+    }
+    final suffix = pickRandom(nouns);
+
+    if (filterWord(prefix) || filterWord(suffix))
+      continue;
+
+    final wordPair = WordPair(prefix, suffix);
+    yield wordPair;
+  }
+}
 
 List<MaterialColor> getRandomColors(int amount) {
-  final random = Random();
   return List<MaterialColor>.generate(amount, (int index) {
-    return _myListOfRandomColors[random.nextInt(_myListOfRandomColors.length)];
+    return _myListOfRandomColors[_random.nextInt(_myListOfRandomColors.length)];
   });
 }
 
