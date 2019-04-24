@@ -6,12 +6,11 @@ import 'tab_1_detail.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-const tab1Title = 'Songs';
-const tab1AndroidIcon = Icon(Icons.music_note);
-const tab1IosIcon = Icon(CupertinoIcons.music_note);
-const _itemsLength = 50;
-
 class Tab1 extends StatefulWidget {
+  static const title = 'Songs';
+  static const androidIcon = Icon(Icons.music_note);
+  static const iosIcon = Icon(CupertinoIcons.music_note);
+
   const Tab1({ Key key, this.androidDrawerBuilder, this.platformOverride })
       : super(key: key);
 
@@ -23,6 +22,8 @@ class Tab1 extends StatefulWidget {
 }
 
 class _Tab1State extends State<Tab1> {
+  static const _itemsLength = 50;
+
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
   List<MaterialColor> colors;
@@ -79,7 +80,7 @@ class _Tab1State extends State<Tab1> {
   }
 
   // ===========================================================================
-  // Non-shared code below because Android and iOS has different:
+  // Non-shared code below because Android and iOS have different:
   // - Scaffolds
   // - Items in the app bar / nav bar
   // - The iOS nav bar is scrollable, Android is not
@@ -89,25 +90,26 @@ class _Tab1State extends State<Tab1> {
   // answer.
   // ===========================================================================
 
-  TargetPlatform _togglePlatform() {
-    if (widget.platformOverride.value == TargetPlatform.iOS)
+  TargetPlatform _getOppositePlatform() {
+    if (widget.platformOverride.value == TargetPlatform.iOS) {
       return TargetPlatform.android;
-    else
+    } else {
       return TargetPlatform.iOS;
+    }
   }
 
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(tab1Title),
-        actions: <Widget>[
+        title: Text(Tab1.title),
+        actions: [
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () async => await _androidRefreshKey.currentState.show(),
           ),
           IconButton(
             icon: Icon(Icons.shuffle),
-            onPressed: () => widget.platformOverride.value = _togglePlatform(),
+            onPressed: () => widget.platformOverride.value = _getOppositePlatform(),
           ),
         ],
       ),
@@ -125,12 +127,12 @@ class _Tab1State extends State<Tab1> {
 
   Widget _buildIos(BuildContext context, Widget child) {
     return CustomScrollView(
-      slivers: <Widget>[
+      slivers: [
         CupertinoSliverNavigationBar(
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
             child: Icon(CupertinoIcons.shuffle),
-            onPressed: () => widget.platformOverride.value = _togglePlatform(),
+            onPressed: () => widget.platformOverride.value = _getOppositePlatform(),
           ),
         ),
         CupertinoSliverRefreshControl(
@@ -157,5 +159,3 @@ class _Tab1State extends State<Tab1> {
     );
   }
 }
-
-

@@ -1,12 +1,105 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'tab_4.dart' as tab4;
+import 'tab_4.dart';
 import 'widgets.dart';
 
-const tab3Title = 'Profile';
-const tab3AndroidIcon = Icon(Icons.person);
-const tab3IosIcon = Icon(CupertinoIcons.profile_circled);
+class Tab3 extends StatelessWidget {
+  static const title = 'Profile';
+  static const androidIcon = Icon(Icons.person);
+  static const iosIcon = Icon(CupertinoIcons.profile_circled);
+
+  Widget _buildBody(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Center(
+                child: Text('😼', style: TextStyle(
+                  fontSize: 80,
+                  decoration: TextDecoration.none,
+                )),
+              ),
+            ),
+            PreferenceCard(
+              header: 'MY INTENSITY PREFERENCE',
+              content: '🔥',
+              preferenceChoices: [
+                'Super heavy',
+                'Dial it to 11',
+                "Head bangin'",
+                '1000W',
+                'My neighbor hates me',
+              ],
+            ),
+            PreferenceCard(
+              header: 'CURRENT MOOD',
+              content: '🤘🏾🚀',
+              preferenceChoices: [
+                'Over the moon',
+                'Basking in sunlight',
+                'Hello fellow Martians',
+                'Into the darkness',
+              ],
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            new LogOutButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ===========================================================================
+  // Non-shared code below because we're nesting tab 4 inside of tab 3 as a
+  // button in the nav bar.
+  // ===========================================================================
+
+  Widget _buildAndroid(BuildContext context, Widget child) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: _buildBody(context),
+    );
+  }
+
+  Widget _buildIos(BuildContext context, Widget child) {
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        trailing: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: Tab4.iosIcon,
+          onPressed: () {
+            // We're pushing the settings page as a full page modal dialog
+            // on top of the tab bar and everything.
+            Navigator.of(context, rootNavigator: true).push(
+              CupertinoPageRoute(
+                title: Tab4.title,
+                fullscreenDialog: true,
+                builder: (BuildContext context) => Tab4(),
+              ),
+            );
+          },
+        ),
+      ),
+      child: _buildBody(context),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
+  }
+}
 
 class PreferenceCard extends StatelessWidget {
   const PreferenceCard({ this.header, this.content, this.preferenceChoices });
@@ -21,7 +114,7 @@ class PreferenceCard extends StatelessWidget {
       color: Colors.green,
       flattenAnimation: AlwaysStoppedAnimation(0),
       child: Stack(
-        children: <Widget>[
+        children: [
           Container(
             height: 120,
             width: 250,
@@ -63,99 +156,6 @@ class PreferenceCard extends StatelessWidget {
   }
 }
 
-class Tab3 extends StatelessWidget {
-  Widget _buildBody(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: Center(
-                child: Text('😼', style: TextStyle(
-                  fontSize: 80,
-                  decoration: TextDecoration.none,
-                )),
-              ),
-            ),
-            PreferenceCard(
-              header: 'MY INTENSITY PREFERENCE',
-              content: '🔥',
-              preferenceChoices: <String>[
-                'Super heavy',
-                'Dial it to 11',
-                "Head bangin'",
-                '1000W',
-                'My neighbor hates me',
-              ],
-            ),
-            PreferenceCard(
-              header: 'CURRENT MOOD',
-              content: '🤘🏾🚀',
-              preferenceChoices: <String>[
-                'Over the moon',
-                'Basking in sunlight',
-                'Hello fellow Martians',
-                'Into the darkness',
-              ],
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            new LogOutButton(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // ===========================================================================
-  // Non-shared code below because we're nesting tab 4 inside of tab 3 as a
-  // button in the nav bar.
-  // ===========================================================================
-
-  Widget _buildAndroid(BuildContext context, Widget child) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(tab3Title),
-      ),
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildIos(BuildContext context, Widget child) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        trailing: CupertinoButton(
-          padding: EdgeInsets.zero,
-          child: tab4.tab4IosIcon,
-          onPressed: () {
-            // We're pushing the settings page as a full page modal dialog
-            // on top of the tab bar and everything.
-            Navigator.of(context, rootNavigator: true).push(
-              CupertinoPageRoute(
-                title: tab4.tab4Title,
-                fullscreenDialog: true,
-                builder: (BuildContext context) => tab4.Tab4(),
-              ),
-            );
-          },
-        ),
-      ),
-      child: _buildBody(context),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
-  }
-}
-
 class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text('You may check out any time you like, but you can never leave');
 
@@ -180,7 +180,7 @@ class LogOutButton extends StatelessWidget {
             return AlertDialog(
               title: Text('Log out?'),
               content: _logoutMessage,
-              actions: <Widget>[
+              actions: [
                 FlatButton(
                   child: const Text('Go back'),
                   onPressed: () {
@@ -214,7 +214,7 @@ class LogOutButton extends StatelessWidget {
             return CupertinoActionSheet(
               title: Text('Log out?'),
               message: _logoutMessage,
-              actions: <Widget>[
+              actions: [
                 CupertinoActionSheetAction(
                   child: const Text('Reprogram the night man'),
                   isDestructiveAction: true,

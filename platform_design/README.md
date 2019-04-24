@@ -1,18 +1,18 @@
 # Platform Design
 
-Instead of transliterating widget one by one between Cupertino and Material,
-Android and iOS apps often follow different Information Architecture patterns
-that requires some design decisions.
+Instead of transliterating widgets one by one between Cupertino and Material,
+Android and iOS apps often follow different information architecture patterns
+that require some design decisions.
 
 This sample project shows a Flutter app that maximizes application code reuse
-while adhering to different design patterns on Android and iOS. Namely, on
+while adhering to different design patterns on Android and iOS. On
 Android, it uses Material's [lateral navigation](https://material.io/design/navigation/understanding-navigation.html#types-of-navigation)
-based on a drawer and on iOS, it uses Apple Human Interface Guideline's
+based on a drawer and on iOS, it adheres to Apple Human Interface Guideline's
 [flat navigation](https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/navigation/)
-via a bottom tab bar.
+by using a bottom tab bar.
 
-Visually, the app opts for a generally platform-agnostic content surrounded
-by a platform-specific 'chrome'.
+Visually, the app presents platform-agnostic content surrounded by
+platform-specific 'chrome'.
 
 # Preview
 

@@ -9,11 +9,6 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-const tab2Title = 'News';
-const tab2AndroidIcon = Icon(Icons.library_books);
-const tab2IosIcon = Icon(CupertinoIcons.news);
-const _itemsLength = 20;
-
 String _makeFakeNews(Random random) {
   final artist = capitalizePair(wordPairIterator.first);
 
@@ -45,6 +40,10 @@ String _makeFakeNews(Random random) {
 }
 
 class Tab2 extends StatefulWidget {
+  static const title = 'News';
+  static const androidIcon = Icon(Icons.library_books);
+  static const iosIcon = Icon(CupertinoIcons.news);
+
   const Tab2({ Key key }) : super(key: key);
 
   @override
@@ -52,6 +51,8 @@ class Tab2 extends StatefulWidget {
 }
 
 class _Tab2State extends State<Tab2> {
+  static const _itemsLength = 20;
+
   List<Color> colors;
   List<String> titles;
   List<String> contents;
@@ -94,7 +95,7 @@ class _Tab2State extends State<Tab2> {
             padding: const EdgeInsets.all(12.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 CircleAvatar(
                   backgroundColor: colors[index],
                   child: Text(
@@ -106,7 +107,7 @@ class _Tab2State extends State<Tab2> {
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                    children: [
                       Text(
                         titles[index],
                         style: TextStyle(
@@ -136,7 +137,7 @@ class _Tab2State extends State<Tab2> {
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(tab2Title),
+        title: Text(Tab2.title),
       ),
       body: Container(
         color: Colors.grey[100],

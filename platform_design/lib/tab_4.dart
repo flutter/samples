@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'widgets.dart';
 
-const tab4Title = 'Settings';
-const tab4AndroidIcon = Icon(Icons.settings);
-const tab4IosIcon = Icon(CupertinoIcons.gear);
-
 class Tab4 extends StatefulWidget {
+  static const title = 'Settings';
+  static const androidIcon = Icon(Icons.settings);
+  static const iosIcon = Icon(CupertinoIcons.gear);
+
   @override
   _Tab4State createState() => _Tab4State();
 }
@@ -23,7 +23,7 @@ class _Tab4State extends State<Tab4> {
 
   Widget _buildList() {
     return ListView(
-      children: <Widget>[
+      children: [
         Padding(padding: EdgeInsets.only(top: 24)),
         ListTile(
           title: Text('Send me marketing emails'),
@@ -86,7 +86,7 @@ class _Tab4State extends State<Tab4> {
   Widget _buildAndroid(BuildContext context, Widget child) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(tab4Title),
+        title: Text(Tab4.title),
       ),
       body: _buildList(),
     );

@@ -21,21 +21,20 @@ class PlatformWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (Theme.of(context).platform) {
       case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
         return androidBuilder(context, child);
       case TargetPlatform.iOS:
         return iosBuilder(context, child);
+      default:
+        assert(false, 'Unexpected platform ${Theme.of(context).platform}');
+        return null;
     }
-
-    assert(false, 'Unexpected platform');
-    return null;
   }
 }
 
 /// A platform-agnostic card with a high elevation that reacts when tapped.
 ///
-/// This is some custom branded control you're likely to have designed for your
-/// own app.
+/// This is an example of a custom widget that an app developer might create for
+/// use on both iOS and Android as part of their brand's unique design.
 class PressableCard extends StatefulWidget {
   const PressableCard({
     this.onPressed,
@@ -79,7 +78,7 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Listener(
-      onPointerDown: (_) { if (widget.onPressed != null) controller.forward(); },
+      onPointerDown: (_) { if (widget.onPressed != null) { controller.forward(); } },
       onPointerUp: (_) { controller.reverse(); },
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
@@ -154,7 +153,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
             height: 250,
             child: Stack(
               alignment: Alignment.center,
-              children: <Widget>[
+              children: [
                 // The song title banner slides off in the hero animation.
                 Positioned(
                   bottom: - 80 * heroAnimation.value,
@@ -210,7 +209,6 @@ class HeroAnimatingSongCard extends StatelessWidget {
 void showChoices(BuildContext context, List<String> choices) {
   switch (Theme.of(context).platform) {
     case TargetPlatform.android:
-    case TargetPlatform.fuchsia:
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -234,7 +232,7 @@ void showChoices(BuildContext context, List<String> choices) {
                 );
               },
             ),
-            actions: <Widget>[
+            actions: [
               FlatButton(
                 child: Text('OK'),
                 onPressed: () { Navigator.of(context).pop(); },
@@ -273,5 +271,7 @@ void showChoices(BuildContext context, List<String> choices) {
         }
       );
       return;
+    default:
+      assert(false, 'Unexpected platform ${Theme.of(context).platform}');
   }
 }

@@ -21,7 +21,7 @@ class Tab1Detail extends StatelessWidget {
       right: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+        children: [
           Hero(
             tag: id,
             child: HeroAnimatingSongCard(
@@ -47,8 +47,8 @@ class Tab1Detail extends StatelessWidget {
               );
             },
           ),
-          Container(
-            height: 1,
+          Divider(
+            height: 0,
             color: Colors.grey,
           ),
           Expanded(
@@ -70,7 +70,7 @@ class Tab1Detail extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                     child: Row(
-                      children: <Widget>[
+                      children: [
                         Container(
                           color: Colors.grey[400],
                           width: 130,
@@ -81,7 +81,7 @@ class Tab1Detail extends StatelessWidget {
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: [
                               Container(
                                 height: 9,
                                 margin: EdgeInsets.only(right: 60),

@@ -8,7 +8,7 @@ import 'package:english_words/english_words.dart';
 import 'package:english_words/src/words/unsafe.dart';
 import 'package:flutter/material.dart';
 
-const _myListOfRandomColors = <MaterialColor>[
+const _myListOfRandomColors = [
   Colors.red, Colors.blue, Colors.teal, Colors.yellow, Colors.amber,
   Colors.deepOrange, Colors.green, Colors.indigo, Colors.lime, Colors.pink,
   Colors.orange,
