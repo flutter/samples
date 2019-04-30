@@ -8,22 +8,20 @@ class PlatformWidget extends StatelessWidget {
     Key key,
     @required this.androidBuilder,
     @required this.iosBuilder,
-    this.child,
   }) : assert(androidBuilder != null),
        assert(iosBuilder != null),
        super(key: key);
 
-  final TransitionBuilder androidBuilder;
-  final TransitionBuilder iosBuilder;
-  final Widget child;
+  final WidgetBuilder androidBuilder;
+  final WidgetBuilder iosBuilder;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     switch (Theme.of(context).platform) {
       case TargetPlatform.android:
-        return androidBuilder(context, child);
+        return androidBuilder(context);
       case TargetPlatform.iOS:
-        return iosBuilder(context, child);
+        return iosBuilder(context);
       default:
         assert(false, 'Unexpected platform ${Theme.of(context).platform}');
         return null;
@@ -76,10 +74,10 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
   double get flatten => 1 - widget.flattenAnimation.value;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return Listener(
-      onPointerDown: (_) { if (widget.onPressed != null) { controller.forward(); } },
-      onPointerUp: (_) { controller.reverse(); },
+      onPointerDown: (var details) { if (widget.onPressed != null) { controller.forward(); } },
+      onPointerUp: (var details) { controller.reverse(); },
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
@@ -94,7 +92,7 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
         child: AnimatedBuilder(
           animation: Listenable.merge([elevationAnimation, widget.flattenAnimation]),
           child: widget.child,
-          builder: (BuildContext context, Widget child) {
+          builder: (var context, var child) {
             return Transform.scale(
               // This is just a sample. You likely want to keep the math cleaner
               // in your own app.
@@ -122,8 +120,8 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
 ///
 /// When it's in a card state, it's pressable.
 ///
-/// This is also a custom branded control you're likely to have designed for
-/// your own app.
+/// This is an example of a custom widget that an app developer might create for
+/// use on both iOS and Android as part of their brand's unique design.
 class HeroAnimatingSongCard extends StatelessWidget {
   HeroAnimatingSongCard({ this.song, this.color, this.heroAnimation, this.onPressed });
 
@@ -135,16 +133,16 @@ class HeroAnimatingSongCard extends StatelessWidget {
   double get playButtonSize => 50 + 50 * heroAnimation.value;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     // This is an inefficient usage of AnimatedBuilder since it's rebuilding
     // the entire subtree instead of passing in a non-changing child and
     // building a transition widget in between.
     //
     // Left simple in this demo because this card doesn't have any real inner
-    // content so we're just rebuilding everything while animating.
+    // content so this just rebuilds everything while animating.
     return AnimatedBuilder(
       animation: heroAnimation,
-      builder: (BuildContext context, Widget child) {
+      builder: (var context, var child) {
         return PressableCard(
           onPressed: heroAnimation.value == 0 ? onPressed : null,
           color: color,
@@ -197,7 +195,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
 }
 
 // ===========================================================================
-// Non-shared code below because we're showing different interfaces to prompt
+// Non-shared code below because different interfaces are shown to prompt
 // for a multiple-choice answer.
 //
 // This is a design choice and you may want to do something different in your
@@ -211,20 +209,20 @@ void showChoices(BuildContext context, List<String> choices) {
     case TargetPlatform.android:
       showDialog(
         context: context,
-        builder: (BuildContext context) {
+        builder: (var context) {
           int selectedRadio = 1;
           return AlertDialog(
             contentPadding: EdgeInsets.only(top: 12),
             content: StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
+              builder: (var context, var setState) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: List<Widget>.generate(choices.length, (int index) {
+                  children: List<Widget>.generate(choices.length, (var index) {
                     return RadioListTile(
                       title: Text(choices[index]),
                       value: index,
                       groupValue: selectedRadio,
-                      onChanged: (int value) {
+                      onChanged: (var value) {
                         setState(() => selectedRadio = value);
                       },
                     );
@@ -249,7 +247,7 @@ void showChoices(BuildContext context, List<String> choices) {
     case TargetPlatform.iOS:
       showCupertinoModalPopup(
         context: context,
-        builder: (BuildContext context) {
+        builder: (var context) {
           return SizedBox(
             height: 250,
             child: CupertinoPicker(
@@ -257,7 +255,7 @@ void showChoices(BuildContext context, List<String> choices) {
               magnification: 1.1,
               itemExtent: 40,
               scrollController: FixedExtentScrollController(initialItem: 1),
-              children: List<Widget>.generate(choices.length, (int index) {
+              children: List<Widget>.generate(choices.length, (var index) {
                 return Center(child: Text(
                   choices[index],
                   style: TextStyle(
@@ -265,7 +263,7 @@ void showChoices(BuildContext context, List<String> choices) {
                   ),
                 ));
               }),
-              onSelectedItemChanged: (int value) {},
+              onSelectedItemChanged: (var value) {},
             ),
           );
         }

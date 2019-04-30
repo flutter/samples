@@ -9,7 +9,7 @@ class Tab3 extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
-  Widget _buildBody(BuildContext context) {
+  Widget _buildBody(var context) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -56,11 +56,11 @@ class Tab3 extends StatelessWidget {
   }
 
   // ===========================================================================
-  // Non-shared code below because we're nesting tab 4 inside of tab 3 as a
+  // Non-shared code below because on iOS, tab 4 is nested inside of tab 3 as a
   // button in the nav bar.
   // ===========================================================================
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -69,20 +69,20 @@ class Tab3 extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           child: Tab4.iosIcon,
           onPressed: () {
-            // We're pushing the settings page as a full page modal dialog
-            // on top of the tab bar and everything.
+            // This pushes the settings page as a full page modal dialog on top
+            // of the tab bar and everything.
             Navigator.of(context, rootNavigator: true).push(
               CupertinoPageRoute(
                 title: Tab4.title,
                 fullscreenDialog: true,
-                builder: (BuildContext context) => Tab4(),
+                builder: (var context) => Tab4(),
               ),
             );
           },
@@ -93,7 +93,7 @@ class Tab3 extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,
@@ -109,7 +109,7 @@ class PreferenceCard extends StatelessWidget {
   final List<String> preferenceChoices;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PressableCard(
       color: Colors.green,
       flattenAnimation: AlwaysStoppedAnimation(0),
@@ -160,15 +160,15 @@ class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text('You may check out any time you like, but you can never leave');
 
   // ===========================================================================
-  // Non-shared code below because we're showing different interfaces. On
-  // Android, we're showing an alert dialog with 2 buttons and on iOS,
-  // we're showing an action sheet with 3 choices.
+  // Non-shared code below because this tab shows different interfaces. On
+  // Android, it's showing an alert dialog with 2 buttons and on iOS,
+  // it's showing an action sheet with 3 choices.
   //
   // This is a design choice and you may want to do something different in your
   // app.
   // ===========================================================================
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context) {
     return RaisedButton(
       child: Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
@@ -176,7 +176,7 @@ class LogOutButton extends StatelessWidget {
         // real app but this is just a demo.
         showDialog(
           context: context,
-          builder: (BuildContext context) {
+          builder: (var context) {
             return AlertDialog(
               title: Text('Log out?'),
               content: _logoutMessage,
@@ -201,7 +201,7 @@ class LogOutButton extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context) {
     return CupertinoButton(
       color: CupertinoColors.destructiveRed,
       child: Text('Log out'),
@@ -210,7 +210,7 @@ class LogOutButton extends StatelessWidget {
         // in a real app but this is just a demo.
         showCupertinoModalPopup(
           context: context,
-          builder: (BuildContext context) {
+          builder: (var context) {
             return CupertinoActionSheet(
               title: Text('Log out?'),
               message: _logoutMessage,
@@ -244,7 +244,7 @@ class LogOutButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

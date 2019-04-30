@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:english_words/english_words.dart';
-// We're reimplementing generateWordPair because english_words's
+// This reimplements generateWordPair because english_words's
 // implementation has some performance issues.
 // https://github.com/filiph/english_words/issues/9
 // ignore: implementation_imports
@@ -18,7 +18,7 @@ final _random = Random();
 
 Iterable wordPairIterator = generateWordPair();
 Iterable<WordPair> generateWordPair() sync* {
-  bool filterWord(String word) => unsafe.contains(word);
+  bool filterWord(var word) => unsafe.contains(word);
   String pickRandom(List<String> list) => list[_random.nextInt(list.length)];
 
   String prefix;

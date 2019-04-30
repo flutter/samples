@@ -48,7 +48,7 @@ class _Tab1State extends State<Tab1> {
     );
   }
 
-  Widget _listBuilder(BuildContext context, int index) {
+  Widget _listBuilder(var context, var index) {
     if (index >= _itemsLength)
       return null;
 
@@ -68,7 +68,7 @@ class _Tab1State extends State<Tab1> {
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => Tab1Detail(
+            builder: (var context) => Tab1Detail(
               id: index,
               song: songNames[index],
               color: color,
@@ -98,7 +98,7 @@ class _Tab1State extends State<Tab1> {
     }
   }
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(Tab1.title),
@@ -125,7 +125,7 @@ class _Tab1State extends State<Tab1> {
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context) {
     return CustomScrollView(
       slivers: [
         CupertinoSliverNavigationBar(
@@ -152,7 +152,7 @@ class _Tab1State extends State<Tab1> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

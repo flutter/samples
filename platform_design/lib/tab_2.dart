@@ -9,7 +9,7 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-String _makeFakeNews(Random random) {
+String _generateRandomHeadline(Random random) {
   final artist = capitalizePair(wordPairIterator.first);
 
   switch (random.nextInt(9)) {
@@ -35,7 +35,7 @@ String _makeFakeNews(Random random) {
       return '$artist finally ready to talk about ${nouns[random.nextInt(nouns.length)]}';
   }
 
-  assert(false, 'Failed to generate fake news');
+  assert(false, 'Failed to generate news headline');
   return null;
 }
 
@@ -43,8 +43,6 @@ class Tab2 extends StatefulWidget {
   static const title = 'News';
   static const androidIcon = Icon(Icons.library_books);
   static const iosIcon = Icon(CupertinoIcons.news);
-
-  const Tab2({ Key key }) : super(key: key);
 
   @override
   _Tab2State createState() => _Tab2State();
@@ -63,16 +61,16 @@ class _Tab2State extends State<Tab2> {
     colors = getRandomColors(_itemsLength);
     titles = List<String>.generate(
       _itemsLength,
-      (int index) => _makeFakeNews(random),
+      (var index) => _generateRandomHeadline(random),
     );
     contents = List<String>.generate(
       _itemsLength,
-      (int index) => lorem(paragraphs: 1, words: 24),
+      (var index) => lorem(paragraphs: 1, words: 24),
     );
     super.initState();
   }
 
-  Widget _listBuilder(BuildContext context, int index) {
+  Widget _listBuilder(var context, var index) {
     if (index >= _itemsLength)
       return null;
 
@@ -81,15 +79,13 @@ class _Tab2State extends State<Tab2> {
       bottom: false,
       child: Card(
         elevation: 1.5,
-        margin: EdgeInsets.only(
-          top: 12,
-          left: 6,
-          right: 6
-        ),
+        margin: EdgeInsets.fromLTRB(6, 12, 6, 0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
         ),
         child: InkWell(
+          // Make it splash on Android. It would happen automatically if this
+          // was a real card but this is just a demo. Skip the splash on iOS.
           onTap: Theme.of(context).platform == TargetPlatform.iOS ? null : () {},
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -131,10 +127,10 @@ class _Tab2State extends State<Tab2> {
   }
 
   // ===========================================================================
-  // Non-shared code below because we're using different scaffolds.
+  // Non-shared code below because this tab uses different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(Tab2.title),
@@ -148,7 +144,7 @@ class _Tab2State extends State<Tab2> {
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: Container(
@@ -161,7 +157,7 @@ class _Tab2State extends State<Tab2> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

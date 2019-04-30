@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   final platformOverride = ValueNotifier<TargetPlatform>(defaultTargetPlatform);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     // Change this value to better see animations.
     timeDilation = 1;
     // Either Material or Cupertino widgets work in either Material or Cupertino
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: platformOverride,
       child: PlatformAdaptingHomePage(platformOverride: platformOverride),
-      builder: (BuildContext context, TargetPlatform platform, Widget child) {
+      builder: (var context, var platform, var child) {
         return MaterialApp(
           title: 'Adaptive Music App',
           theme: ThemeData(
@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.green,
             platform: platform,
           ),
-          builder: (BuildContext context, Widget child) {
+          builder: (var context, var child) {
             return CupertinoTheme(
               // Instead of letting Cupertino widgets auto-adapt to the Material
-              // theme (which is green), we're going to use a different theme
+              // theme (which is green), this app will use a different theme
               // for Cupertino (which is blue by default).
               data: CupertinoThemeData(),
               child: Material(child: child),
@@ -61,16 +61,16 @@ class PlatformAdaptingHomePage extends StatefulWidget {
 }
 
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
-  // We're keeping global keys because tabs 1 and 2 own a bunch of data.
-  // We'd like to keep them as we change platforms and reparent those tabs
-  // into different scaffolds.
+  // This app keeps a global key for tab 1 because it owns a bunch of data.
+  // Since changing platform reparents those tabs into different scaffolds,
+  // keeping a global key to it lets this app keep that tab's data as
+  // the platform toggles.
   final tab1Key = GlobalKey();
-  final tab2Key = GlobalKey();
 
-  // In Material, we're using the hamburger menu paradigm. We're flatly listing
-  // all possible tabs and injecting this builder into tab 1 which is building
-  // the scaffold around the drawer.
-  Widget _buildAndroidDrawer(BuildContext context) {
+  // In Material, this app uses the hamburger menu paradigm and flatly lists
+  // all 4 possible tabs. This drawer builder is injected into tab 1 which is
+  // building the scaffold around the drawer.
+  Widget _buildAndroidDrawer(var context) {
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -99,7 +99,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (BuildContext context) => Tab2(key: tab2Key)
+                builder: (var context) => Tab2()
               ));
             },
           ),
@@ -109,7 +109,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (BuildContext context) => Tab3()
+                builder: (var context) => Tab3()
               ));
             },
           ),
@@ -124,7 +124,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (BuildContext context) => Tab4()
+                builder: (var context) => Tab4()
               ));
             },
           ),
@@ -133,7 +133,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
     );
   }
 
-  Widget _buildAndroidHomePage(BuildContext context, Widget child) {
+  Widget _buildAndroidHomePage(var context) {
     return Tab1(
       key: tab1Key,
       androidDrawerBuilder: _buildAndroidDrawer,
@@ -144,10 +144,10 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // On iOS, the app uses a bottom tab paradigm. Here, all the tabs contents
   // sit inside the tab scaffold which has the tabs.
   //
-  // Since more things can be displayed in a drawer than in tabs, we're folding
+  // Since more things can be displayed in a drawer than in tabs, this app folds
   // the fourth tab (the settings page) into the the third tab. This is a
   // common pattern on iOS.
-  Widget _buildIosHomePage(BuildContext context, Widget child) {
+  Widget _buildIosHomePage(var context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
@@ -165,26 +165,26 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
           ),
         ],
       ),
-      tabBuilder: (BuildContext context, int index) {
+      tabBuilder: (var context, var index) {
         switch (index) {
           case 0:
             return CupertinoTabView(
               defaultTitle: Tab1.title,
-              builder: (BuildContext context) {
+              builder: (var context) {
                 return Tab1(key: tab1Key, platformOverride: widget.platformOverride);
               },
             );
           case 1:
             return CupertinoTabView(
               defaultTitle: Tab2.title,
-              builder: (BuildContext context) {
-                return Tab2(key: tab2Key);
+              builder: (var context) {
+                return Tab2();
               },
             );
           case 2:
             return CupertinoTabView(
               defaultTitle: Tab3.title,
-              builder: (BuildContext context) {
+              builder: (var context) {
                 return Tab3();
               },
             );
@@ -194,7 +194,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroidHomePage,
       iosBuilder: _buildIosHomePage,

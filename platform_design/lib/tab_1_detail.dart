@@ -29,16 +29,16 @@ class Tab1Detail extends StatelessWidget {
               color: color,
               heroAnimation: AlwaysStoppedAnimation(1),
             ),
-            // We're using a flightShuttleBuilder to specify the exact widget
+            // This app uses a flightShuttleBuilder to specify the exact widget
             // to build while the hero transition is mid-flight.
             //
             // It could either be specified here or in Tab1.
             flightShuttleBuilder: (
-              BuildContext context,
-              Animation<double> animation,
-              HeroFlightDirection flightDirection,
-              BuildContext fromHeroContext,
-              BuildContext toHeroContext,
+              var context,
+              var animation,
+              var flightDirection,
+              var fromHeroContext,
+              var toHeroContext,
             ) {
               return HeroAnimatingSongCard(
                 song: song,
@@ -54,7 +54,7 @@ class Tab1Detail extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (var context, var index) {
                 if (index == 0) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 15, top: 16, bottom: 8),
@@ -126,14 +126,14 @@ class Tab1Detail extends StatelessWidget {
   // Non-shared code below because we're using different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context {
     return Scaffold(
       appBar: AppBar(title: Text(song)),
       body: _buildBody(),
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(song),
@@ -144,7 +144,7 @@ class Tab1Detail extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

@@ -30,49 +30,49 @@ class _Tab4State extends State<Tab4> {
           // The Material switch has a platform adaptive constructor.
           trailing: Switch.adaptive(
             value: switch1,
-            onChanged: (bool value) => setState(() => switch1 = value),
+            onChanged: (var value) => setState(() => switch1 = value),
           ),
         ),
         ListTile(
           title: Text('Enable notifications'),
           trailing: Switch.adaptive(
             value: switch2,
-            onChanged: (bool value) => setState(() => switch2 = value),
+            onChanged: (var value) => setState(() => switch2 = value),
           ),
         ),
         ListTile(
           title: Text('Remind me to rate this app'),
           trailing: Switch.adaptive(
             value: switch3,
-            onChanged: (bool value) => setState(() => switch3 = value),
+            onChanged: (var value) => setState(() => switch3 = value),
           ),
         ),
         ListTile(
           title: Text('Background song refresh'),
           trailing: Switch.adaptive(
             value: switch4,
-            onChanged: (bool value) => setState(() => switch4 = value),
+            onChanged: (var value) => setState(() => switch4 = value),
           ),
         ),
         ListTile(
           title: Text('Share my usage data with third-parties'),
           trailing: Switch.adaptive(
             value: switch5,
-            onChanged: (bool value) => setState(() => switch5 = value),
+            onChanged: (var value) => setState(() => switch5 = value),
           ),
         ),
         ListTile(
           title: Text('Advertisement based on my interest'),
           trailing: Switch.adaptive(
             value: switch6,
-            onChanged: (bool value) => setState(() => switch6 = value),
+            onChanged: (var value) => setState(() => switch6 = value),
           ),
         ),
         ListTile(
           title: Text('Find friends from my contact list'),
           trailing: Switch.adaptive(
             value: switch7,
-            onChanged: (bool value) => setState(() => switch7 = value),
+            onChanged: (var value) => setState(() => switch7 = value),
           ),
         ),
       ],
@@ -80,10 +80,10 @@ class _Tab4State extends State<Tab4> {
   }
 
   // ===========================================================================
-  // Non-shared code below because we're using different scaffolds.
+  // Non-shared code below because this tab uses different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(BuildContext context, Widget child) {
+  Widget _buildAndroid(var context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(Tab4.title),
@@ -92,7 +92,7 @@ class _Tab4State extends State<Tab4> {
     );
   }
 
-  Widget _buildIos(BuildContext context, Widget child) {
+  Widget _buildIos(var context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: _buildList(),
@@ -100,7 +100,7 @@ class _Tab4State extends State<Tab4> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(var context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

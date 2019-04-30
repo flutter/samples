@@ -6,10 +6,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:platform_design/main.dart';
 
 void main() {
-  testWidgets('Can change platform correctly', (WidgetTester tester) async {
+  testWidgets('Can change platform correctly', (var tester) async {
     await tester.pumpWidget(MyApp());
 
-    // We should be able to find the drawer button.
+    // The test should be able to find the drawer button.
     expect(find.byIcon(Icons.menu), findsOneWidget);
     // There should be a refresh button.
     expect(find.byIcon(Icons.refresh), findsOneWidget);
@@ -24,7 +24,7 @@ void main() {
     // The hamburger button isn't there anymore.
     expect(find.byIcon(Icons.menu), findsNothing);
 
-    // Since this is a static, undo the change we made in the test.
+    // Since this is a static, undo the change made in the test.
     debugDefaultTargetPlatformOverride = null;
   });
 }
