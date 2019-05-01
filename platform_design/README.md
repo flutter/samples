@@ -25,38 +25,79 @@ See https://youtu.be/svhbbFZg1IA for a higher resolution video.
 
 ## Home
 
-* Uses the drawer paradigm on Android's root page.
-* Uses bottom tab bars with parallel navigation stacks on iOS.
+Defines the top level navigation structure of the app and shows the contents
+of tab 1 on launch.
+
+### Android
+
+* Uses the drawer paradigm on the root page.
+
+### iOS
+
+* Uses bottom tab bars with parallel navigation stacks.
 
 ## Tab 1 - Songs feed
 
+Shows platform-agnostic cards on tab 1 that is tappable and that performs a hero
+transition on top of the platform native page transitions.
+
+Both platforms also show a button in their app/nav bar to toggle the platform.
+
+### Android
+
+* Android uses a static pull-to-refresh pattern with an additional refresh
+button in the app bar.
+* The song details page must be popped in order to change tabs on Android.
+
+### iOS
+
 * The iOS tab 1 uses a scrollable iOS 11 large title style navigation bar.
-* Android and iOS tab 1 uses their respective platform-appropriate pull-to-refresh
-paradigms UI. Android additionally show a refresh button on the app bar.
-* Platform-agnostic cards on tab 1 is tappable and performs a hero transition on
-top of the platform native page transitions.
-* The song details page must be exited in order to change tabs on Android. On
-iOS, parallel tabs are always accessible and tab 1's navigation stack is preserved
-when changing tabs.
+* iOS uses an overscrolling pull-to-refresh pattern.
+* On iOS, parallel tabs are always accessible and tab 1's navigation stack is
+preserved when changing tabs.
 
 ## Tab 2 - News
 
-* Tab 2 appears on top of tab 1 on Android and instead of tab 1 on iOS.
-* Shows platform-agnostic news boxes.
+Shows platform-agnostic news boxes.
+
+### Android
+
+* Tab 2 always appears on top of tab 1 when summoned from the drawer.
+
+### iOS
+
+* Tab 2 appears instead of tab 1 on iOS when switching tabs from the tab bar.
 
 ## Tab 3 - Profile
 
-* Tab 3 appears on top of tab 1 on Android and instead of tab 1 on iOS.
-* Has tappable preference cards which shows a multiple-choice dialog on Android
-and a picker on iOS.
-* The log out button shows a 2 button dialog on Android and a 3 choice action
-sheet on iOS.
+Shows a number of user preferences.
+
+### Android
+
+* Tab 3 appears on top of tab 1 on Android.
+* Has tappable preference cards which shows a multiple-choice dialog on Android.
+* The log out button shows a 2 button dialog on Android.
+
+### iOS
+
+* Tab 3 appears instead of tab 1 on iOS.
+* Has tappable preference cards which shows a picker on iOS.
+* The log out button shows a 3 choice action sheet on iOS.
 
 ## Tab 4 - Settings
 
-* Tab 4 is directly available in the drawer on Android and is accessible from
-a button inside tab 3's nav bar on iOS. This is a common pattern since there are
-conventionally more items in the drawer than there are tabs.
+Shows a number of app settings via Material switches which auto adapt to the
+platform.
+
+### Android
+
+* Tab 4 is directly available in the drawer on Android since a Material Design
+drawer can fit many tabs.
+
+### iOS
+
+* Tab 4 is accessible from a button inside tab 3's nav bar on iOS. This is a
+common pattern since there are conventionally more items in the drawer than
+there are tabs.
 * On iOS, the settings page is shown as a full screen dialog instead of a tab
 in the tab scaffold.
-* Material switches auto adapt to the platform.

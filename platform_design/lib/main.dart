@@ -141,12 +141,14 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
     );
   }
 
-  // On iOS, the app uses a bottom tab paradigm. Here, all the tabs contents
-  // sit inside the tab scaffold which has the tabs.
+  // On iOS, the app uses a bottom tab paradigm. Here, each tab view sits inside
+  // a tab in the tab scaffold. The tab scaffold also positions the tab bar
+  // in a row at the bottom.
   //
-  // Since more things can be displayed in a drawer than in tabs, this app folds
-  // the fourth tab (the settings page) into the the third tab. This is a
-  // common pattern on iOS.
+  // An important thing to note is that while a Material Drawer can display a
+  // large number of items, a tab bar cannot. To illustrate one way of adjusting
+  // for this, the app folds its fourth tab (the settings page) into the
+  // third tab. This is a common pattern on iOS.
   Widget _buildIosHomePage(var context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
