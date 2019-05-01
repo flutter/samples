@@ -9,7 +9,7 @@ class Tab3 extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
-  Widget _buildBody(var context) {
+  Widget _buildBody(context) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -48,7 +48,7 @@ class Tab3 extends StatelessWidget {
             Expanded(
               child: Container(),
             ),
-            new LogOutButton(),
+            LogOutButton(),
           ],
         ),
       ),
@@ -60,7 +60,7 @@ class Tab3 extends StatelessWidget {
   // button in the nav bar.
   // ===========================================================================
 
-  Widget _buildAndroid(var context) {
+  Widget _buildAndroid(context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -69,7 +69,7 @@ class Tab3 extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(var context) {
+  Widget _buildIos(context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         trailing: CupertinoButton(
@@ -82,7 +82,7 @@ class Tab3 extends StatelessWidget {
               CupertinoPageRoute(
                 title: Tab4.title,
                 fullscreenDialog: true,
-                builder: (var context) => Tab4(),
+                builder: (context) => Tab4(),
               ),
             );
           },
@@ -93,7 +93,7 @@ class Tab3 extends StatelessWidget {
   }
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,
@@ -109,7 +109,7 @@ class PreferenceCard extends StatelessWidget {
   final List<String> preferenceChoices;
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return PressableCard(
       color: Colors.green,
       flattenAnimation: AlwaysStoppedAnimation(0),
@@ -168,7 +168,7 @@ class LogOutButton extends StatelessWidget {
   // app.
   // ===========================================================================
 
-  Widget _buildAndroid(var context) {
+  Widget _buildAndroid(context) {
     return RaisedButton(
       child: Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
@@ -176,22 +176,18 @@ class LogOutButton extends StatelessWidget {
         // real app but this is just a demo.
         showDialog(
           context: context,
-          builder: (var context) {
+          builder: (context) {
             return AlertDialog(
               title: Text('Log out?'),
               content: _logoutMessage,
               actions: [
                 FlatButton(
                   child: const Text('Go back'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => Navigator.pop(context) ,
                 ),
                 FlatButton(
                   child: const Text('Cancel'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => Navigator.pop(context),
                 ),
               ],
             );
@@ -201,7 +197,7 @@ class LogOutButton extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(var context) {
+  Widget _buildIos(context) {
     return CupertinoButton(
       color: CupertinoColors.destructiveRed,
       child: Text('Log out'),
@@ -210,7 +206,7 @@ class LogOutButton extends StatelessWidget {
         // in a real app but this is just a demo.
         showCupertinoModalPopup(
           context: context,
-          builder: (var context) {
+          builder: (context) {
             return CupertinoActionSheet(
               title: Text('Log out?'),
               message: _logoutMessage,
@@ -218,23 +214,17 @@ class LogOutButton extends StatelessWidget {
                 CupertinoActionSheetAction(
                   child: const Text('Reprogram the night man'),
                   isDestructiveAction: true,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => Navigator.pop(context),
                 ),
                 CupertinoActionSheetAction(
                   child: const Text('Go back'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => Navigator.pop(context),
                 ),
               ],
               cancelButton: CupertinoActionSheetAction(
                 child: const Text('Cancel'),
                 isDefaultAction: true,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: () => Navigator.pop(context),
               ),
             );
           },
@@ -244,7 +234,7 @@ class LogOutButton extends StatelessWidget {
   }
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

@@ -13,13 +13,8 @@ class Tab4 extends StatefulWidget {
 }
 
 class _Tab4State extends State<Tab4> {
-  bool switch1 = false;
-  bool switch2 = true;
-  bool switch3 = true;
-  bool switch4 = true;
-  bool switch5 = true;
-  bool switch6 = false;
-  bool switch7 = true;
+  var switch1 = false; var switch2 = true; var switch3 = true; var switch4 = true;
+  var switch5 = true; var switch6 = false; var switch7 = true;
 
   Widget _buildList() {
     return ListView(
@@ -30,49 +25,49 @@ class _Tab4State extends State<Tab4> {
           // The Material switch has a platform adaptive constructor.
           trailing: Switch.adaptive(
             value: switch1,
-            onChanged: (var value) => setState(() => switch1 = value),
+            onChanged: (value) => setState(() => switch1 = value),
           ),
         ),
         ListTile(
           title: Text('Enable notifications'),
           trailing: Switch.adaptive(
             value: switch2,
-            onChanged: (var value) => setState(() => switch2 = value),
+            onChanged: (value) => setState(() => switch2 = value),
           ),
         ),
         ListTile(
           title: Text('Remind me to rate this app'),
           trailing: Switch.adaptive(
             value: switch3,
-            onChanged: (var value) => setState(() => switch3 = value),
+            onChanged: (value) => setState(() => switch3 = value),
           ),
         ),
         ListTile(
           title: Text('Background song refresh'),
           trailing: Switch.adaptive(
             value: switch4,
-            onChanged: (var value) => setState(() => switch4 = value),
+            onChanged: (value) => setState(() => switch4 = value),
           ),
         ),
         ListTile(
-          title: Text('Share my usage data with third-parties'),
+          title: Text('Recommend me songs based on my location'),
           trailing: Switch.adaptive(
             value: switch5,
-            onChanged: (var value) => setState(() => switch5 = value),
+            onChanged: (value) => setState(() => switch5 = value),
           ),
         ),
         ListTile(
-          title: Text('Advertisement based on my interest'),
+          title: Text('Auto-transition playback to cast devices'),
           trailing: Switch.adaptive(
             value: switch6,
-            onChanged: (var value) => setState(() => switch6 = value),
+            onChanged: (value) => setState(() => switch6 = value),
           ),
         ),
         ListTile(
           title: Text('Find friends from my contact list'),
           trailing: Switch.adaptive(
             value: switch7,
-            onChanged: (var value) => setState(() => switch7 = value),
+            onChanged: (value) => setState(() => switch7 = value),
           ),
         ),
       ],
@@ -83,7 +78,7 @@ class _Tab4State extends State<Tab4> {
   // Non-shared code below because this tab uses different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(var context) {
+  Widget _buildAndroid(context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(Tab4.title),
@@ -92,7 +87,7 @@ class _Tab4State extends State<Tab4> {
     );
   }
 
-  Widget _buildIos(var context) {
+  Widget _buildIos(context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: _buildList(),
@@ -100,7 +95,7 @@ class _Tab4State extends State<Tab4> {
   }
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

@@ -33,13 +33,7 @@ class Tab1Detail extends StatelessWidget {
             // to build while the hero transition is mid-flight.
             //
             // It could either be specified here or in Tab1.
-            flightShuttleBuilder: (
-              var context,
-              var animation,
-              var flightDirection,
-              var fromHeroContext,
-              var toHeroContext,
-            ) {
+            flightShuttleBuilder: (context, animation, flightDirection, fromHeroContext, toHeroContext) {
               return HeroAnimatingSongCard(
                 song: song,
                 color: color,
@@ -54,7 +48,7 @@ class Tab1Detail extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: 10,
-              itemBuilder: (var context, var index) {
+              itemBuilder: (context, index) {
                 if (index == 0) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 15, top: 16, bottom: 8),
@@ -64,56 +58,8 @@ class Tab1Detail extends StatelessWidget {
                     )),
                   );
                 }
-                // Just a bunch of boxes that simulates loading video choices.
-                return SizedBox(
-                  height: 95,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                    child: Row(
-                      children: [
-                        Container(
-                          color: Colors.grey[400],
-                          width: 130,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 12),
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 9,
-                                margin: EdgeInsets.only(right: 60),
-                                color: Colors.grey[300],
-                              ),
-                              Container(
-                                height: 9,
-                                margin: EdgeInsets.only(right: 20, top: 8),
-                                color: Colors.grey[300],
-                              ),
-                              Container(
-                                height: 9,
-                                margin: EdgeInsets.only(right: 40, top: 8),
-                                color: Colors.grey[300],
-                              ),
-                              Container(
-                                height: 9,
-                                margin: EdgeInsets.only(right: 80, top: 8),
-                                color: Colors.grey[300],
-                              ),
-                              Container(
-                                height: 9,
-                                margin: EdgeInsets.only(right: 50, top: 8),
-                                color: Colors.grey[300],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                // Just a bunch of boxes that simulates loading song choices.
+                return SongPlaceholderTile();
               },
             ),
           ),
@@ -126,14 +72,14 @@ class Tab1Detail extends StatelessWidget {
   // Non-shared code below because we're using different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(var context {
+  Widget _buildAndroid(context) {
     return Scaffold(
       appBar: AppBar(title: Text(song)),
       body: _buildBody(),
     );
   }
 
-  Widget _buildIos(var context {
+  Widget _buildIos(context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(song),
@@ -144,7 +90,7 @@ class Tab1Detail extends StatelessWidget {
   }
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

@@ -7,6 +7,7 @@ declare -a  PROJECT_NAMES=(
 	"veggieseasons" \
 	"place_tracker" \
 	"platform_view_swift" \
+  "platform_design"
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"

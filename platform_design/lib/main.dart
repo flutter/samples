@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -9,40 +8,31 @@ import 'tab_3.dart';
 import 'tab_4.dart';
 import 'widgets.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MyAdaptingApp());
 
-class MyApp extends StatelessWidget {
-  final platformOverride = ValueNotifier<TargetPlatform>(defaultTargetPlatform);
-
+class MyAdaptingApp extends StatelessWidget {
   @override
-  Widget build(var context) {
+  Widget build(context) {
     // Change this value to better see animations.
     timeDilation = 1;
     // Either Material or Cupertino widgets work in either Material or Cupertino
     // Apps.
-    return ValueListenableBuilder(
-      valueListenable: platformOverride,
-      child: PlatformAdaptingHomePage(platformOverride: platformOverride),
-      builder: (var context, var platform, var child) {
-        return MaterialApp(
-          title: 'Adaptive Music App',
-          theme: ThemeData(
-            // Use the green theme for Material widgets.
-            primarySwatch: Colors.green,
-            platform: platform,
-          ),
-          builder: (var context, var child) {
-            return CupertinoTheme(
-              // Instead of letting Cupertino widgets auto-adapt to the Material
-              // theme (which is green), this app will use a different theme
-              // for Cupertino (which is blue by default).
-              data: CupertinoThemeData(),
-              child: Material(child: child),
-            );
-          },
-          home: child,
+    return MaterialApp(
+      title: 'Adaptive Music App',
+      theme: ThemeData(
+        // Use the green theme for Material widgets.
+        primarySwatch: Colors.green,
+      ),
+      builder: (context, child) {
+        return CupertinoTheme(
+          // Instead of letting Cupertino widgets auto-adapt to the Material
+          // theme (which is green), this app will use a different theme
+          // for Cupertino (which is blue by default).
+          data: CupertinoThemeData(),
+          child: Material(child: child),
         );
       },
+      home: PlatformAdaptingHomePage(),
     );
   }
 }
@@ -51,11 +41,10 @@ class MyApp extends StatelessWidget {
 //
 // This file has the most amount of non-sharable code since it behaves the most
 // differently between the platforms.
+//
+// These differences are also subjective and have more than one 'right' answer
+// depending on the app and content.
 class PlatformAdaptingHomePage extends StatefulWidget {
-  PlatformAdaptingHomePage({ Key key, this.platformOverride }) : super(key: key);
-
-  final ValueNotifier<TargetPlatform> platformOverride;
-
   @override
   _PlatformAdaptingHomePageState createState() => _PlatformAdaptingHomePageState();
 }
@@ -68,9 +57,66 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   final tab1Key = GlobalKey();
 
   // In Material, this app uses the hamburger menu paradigm and flatly lists
-  // all 4 possible tabs. This drawer builder is injected into tab 1 which is
-  // building the scaffold around the drawer.
-  Widget _buildAndroidDrawer(var context) {
+  // all 4 possible tabs. This drawer is injected into tab 1 which is
+  // actually building the scaffold around the drawer.
+  Widget _buildAndroidHomePage(context) {
+    return Tab1(
+      key: tab1Key,
+      androidDrawer: _AndroidDrawer(),
+    );
+  }
+
+  // On iOS, the app uses a bottom tab paradigm. Here, each tab view sits inside
+  // a tab in the tab scaffold. The tab scaffold also positions the tab bar
+  // in a row at the bottom.
+  //
+  // An important thing to note is that while a Material Drawer can display a
+  // large number of items, a tab bar cannot. To illustrate one way of adjusting
+  // for this, the app folds its fourth tab (the settings page) into the
+  // third tab. This is a common pattern on iOS.
+  Widget _buildIosHomePage(context) {
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        items: [
+          BottomNavigationBarItem(title: Text(Tab1.title), icon: Tab1.iosIcon),
+          BottomNavigationBarItem(title: Text(Tab2.title), icon: Tab2.iosIcon),
+          BottomNavigationBarItem(title: Text(Tab3.title), icon: Tab3.iosIcon),
+        ],
+      ),
+      tabBuilder: (context, index) {
+        switch (index) {
+          case 0:
+            return CupertinoTabView(
+              defaultTitle: Tab1.title,
+              builder: (context) => Tab1(key: tab1Key),
+            );
+          case 1:
+            return CupertinoTabView(
+              defaultTitle: Tab2.title,
+              builder: (context) => Tab2(),
+            );
+          case 2:
+            return CupertinoTabView(
+              defaultTitle: Tab3.title,
+              builder: (context) => Tab3(),
+            );
+        }
+      },
+    );
+  }
+
+  @override
+  Widget build(context) {
+    return PlatformWidget(
+      androidBuilder: _buildAndroidHomePage,
+      iosBuilder: _buildIosHomePage,
+    );
+  }
+}
+
+class _AndroidDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -99,7 +145,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (var context) => Tab2()
+                builder: (context) => Tab2()
               ));
             },
           ),
@@ -109,7 +155,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (var context) => Tab3()
+                builder: (context) => Tab3()
               ));
             },
           ),
@@ -124,82 +170,12 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (var context) => Tab4()
+                builder: (context) => Tab4()
               ));
             },
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildAndroidHomePage(var context) {
-    return Tab1(
-      key: tab1Key,
-      androidDrawerBuilder: _buildAndroidDrawer,
-      platformOverride: widget.platformOverride,
-    );
-  }
-
-  // On iOS, the app uses a bottom tab paradigm. Here, each tab view sits inside
-  // a tab in the tab scaffold. The tab scaffold also positions the tab bar
-  // in a row at the bottom.
-  //
-  // An important thing to note is that while a Material Drawer can display a
-  // large number of items, a tab bar cannot. To illustrate one way of adjusting
-  // for this, the app folds its fourth tab (the settings page) into the
-  // third tab. This is a common pattern on iOS.
-  Widget _buildIosHomePage(var context) {
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: [
-          BottomNavigationBarItem(
-            title: Text(Tab1.title),
-            icon: Tab1.iosIcon,
-          ),
-          BottomNavigationBarItem(
-            title: Text(Tab2.title),
-            icon: Tab2.iosIcon,
-          ),
-          BottomNavigationBarItem(
-            title: Text(Tab3.title),
-            icon: Tab3.iosIcon,
-          ),
-        ],
-      ),
-      tabBuilder: (var context, var index) {
-        switch (index) {
-          case 0:
-            return CupertinoTabView(
-              defaultTitle: Tab1.title,
-              builder: (var context) {
-                return Tab1(key: tab1Key, platformOverride: widget.platformOverride);
-              },
-            );
-          case 1:
-            return CupertinoTabView(
-              defaultTitle: Tab2.title,
-              builder: (var context) {
-                return Tab2();
-              },
-            );
-          case 2:
-            return CupertinoTabView(
-              defaultTitle: Tab3.title,
-              builder: (var context) {
-                return Tab3();
-              },
-            );
-        }
-      },
-    );
-  }
-
-  @override
-  Widget build(var context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroidHomePage,
-      iosBuilder: _buildIosHomePage,
     );
   }
 }

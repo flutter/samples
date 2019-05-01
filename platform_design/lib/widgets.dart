@@ -16,14 +16,14 @@ class PlatformWidget extends StatelessWidget {
   final WidgetBuilder iosBuilder;
 
   @override
-  Widget build(var context) {
-    switch (Theme.of(context).platform) {
+  Widget build(context) {
+    switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return androidBuilder(context);
       case TargetPlatform.iOS:
         return iosBuilder(context);
       default:
-        assert(false, 'Unexpected platform ${Theme.of(context).platform}');
+        assert(false, 'Unexpected platform $defaultTargetPlatform');
         return null;
     }
   }
@@ -74,10 +74,10 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
   double get flatten => 1 - widget.flattenAnimation.value;
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     return Listener(
-      onPointerDown: (var details) { if (widget.onPressed != null) { controller.forward(); } },
-      onPointerUp: (var details) { controller.reverse(); },
+      onPointerDown: (details) { if (widget.onPressed != null) { controller.forward(); } },
+      onPointerUp: (details) { controller.reverse(); },
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
@@ -92,7 +92,7 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
         child: AnimatedBuilder(
           animation: Listenable.merge([elevationAnimation, widget.flattenAnimation]),
           child: widget.child,
-          builder: (var context, var child) {
+          builder: (context, child) {
             return Transform.scale(
               // This is just a sample. You likely want to keep the math cleaner
               // in your own app.
@@ -133,7 +133,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
   double get playButtonSize => 50 + 50 * heroAnimation.value;
 
   @override
-  Widget build(var context) {
+  Widget build(context) {
     // This is an inefficient usage of AnimatedBuilder since it's rebuilding
     // the entire subtree instead of passing in a non-changing child and
     // building a transition widget in between.
@@ -142,7 +142,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
     // content so this just rebuilds everything while animating.
     return AnimatedBuilder(
       animation: heroAnimation,
-      builder: (var context, var child) {
+      builder: (context, child) {
         return PressableCard(
           onPressed: heroAnimation.value == 0 ? onPressed : null,
           color: color,
@@ -194,6 +194,65 @@ class HeroAnimatingSongCard extends StatelessWidget {
   }
 }
 
+/// A loading song tile's silhouette.
+///
+/// This is an example of a custom widget that an app developer might create for
+/// use on both iOS and Android as part of their brand's unique design.
+class SongPlaceholderTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 95,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+        child: Row(
+          children: [
+            Container(
+              color: Colors.grey[400],
+              width: 130,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 60),
+                    color: Colors.grey[300],
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 20, top: 8),
+                    color: Colors.grey[300],
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 40, top: 8),
+                    color: Colors.grey[300],
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 80, top: 8),
+                    color: Colors.grey[300],
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 50, top: 8),
+                    color: Colors.grey[300],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 // ===========================================================================
 // Non-shared code below because different interfaces are shown to prompt
 // for a multiple-choice answer.
@@ -205,24 +264,24 @@ class HeroAnimatingSongCard extends StatelessWidget {
 ///
 /// On Android, it uses a dialog with radio buttons. On iOS, it uses a picker.
 void showChoices(BuildContext context, List<String> choices) {
-  switch (Theme.of(context).platform) {
+  switch (defaultTargetPlatform) {
     case TargetPlatform.android:
       showDialog(
         context: context,
-        builder: (var context) {
+        builder: (context) {
           int selectedRadio = 1;
           return AlertDialog(
             contentPadding: EdgeInsets.only(top: 12),
             content: StatefulBuilder(
-              builder: (var context, var setState) {
+              builder: (context, setState) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: List<Widget>.generate(choices.length, (var index) {
+                  children: List<Widget>.generate(choices.length, (index) {
                     return RadioListTile(
                       title: Text(choices[index]),
                       value: index,
                       groupValue: selectedRadio,
-                      onChanged: (var value) {
+                      onChanged: (value) {
                         setState(() => selectedRadio = value);
                       },
                     );
@@ -233,11 +292,11 @@ void showChoices(BuildContext context, List<String> choices) {
             actions: [
               FlatButton(
                 child: Text('OK'),
-                onPressed: () { Navigator.of(context).pop(); },
+                onPressed: () => Navigator.of(context).pop(),
               ),
               FlatButton(
                 child: Text('CANCEL'),
-                onPressed: () { Navigator.of(context).pop(); },
+                onPressed: () => Navigator.of(context).pop(),
               ),
             ],
           );
@@ -247,7 +306,7 @@ void showChoices(BuildContext context, List<String> choices) {
     case TargetPlatform.iOS:
       showCupertinoModalPopup(
         context: context,
-        builder: (var context) {
+        builder: (context) {
           return SizedBox(
             height: 250,
             child: CupertinoPicker(
@@ -255,7 +314,7 @@ void showChoices(BuildContext context, List<String> choices) {
               magnification: 1.1,
               itemExtent: 40,
               scrollController: FixedExtentScrollController(initialItem: 1),
-              children: List<Widget>.generate(choices.length, (var index) {
+              children: List<Widget>.generate(choices.length, (index) {
                 return Center(child: Text(
                   choices[index],
                   style: TextStyle(
@@ -263,13 +322,13 @@ void showChoices(BuildContext context, List<String> choices) {
                   ),
                 ));
               }),
-              onSelectedItemChanged: (var value) {},
+              onSelectedItemChanged: (value) {},
             ),
           );
         }
       );
       return;
     default:
-      assert(false, 'Unexpected platform ${Theme.of(context).platform}');
+      assert(false, 'Unexpected platform $defaultTargetPlatform');
   }
 }
