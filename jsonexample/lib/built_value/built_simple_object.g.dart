@@ -6,18 +6,6 @@ part of 'built_simple_object.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line
-// ignore_for_file: annotate_overrides
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_catches_without_on_clauses
-// ignore_for_file: avoid_returning_this
-// ignore_for_file: lines_longer_than_80_chars
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: sort_constructors_first
-// ignore_for_file: unnecessary_const
-// ignore_for_file: unnecessary_new
-
 Serializer<BuiltSimpleObject> _$builtSimpleObjectSerializer =
     new _$BuiltSimpleObjectSerializer();
 
@@ -137,7 +125,8 @@ class _$BuiltSimpleObject extends BuiltSimpleObject {
   @override
   final BuiltList<double> aListOfDoubles;
 
-  factory _$BuiltSimpleObject([void updates(BuiltSimpleObjectBuilder b)]) =>
+  factory _$BuiltSimpleObject(
+          [void Function(BuiltSimpleObjectBuilder) updates]) =>
       (new BuiltSimpleObjectBuilder()..update(updates)).build();
 
   _$BuiltSimpleObject._(
@@ -150,7 +139,7 @@ class _$BuiltSimpleObject extends BuiltSimpleObject {
       : super._();
 
   @override
-  BuiltSimpleObject rebuild(void updates(BuiltSimpleObjectBuilder b)) =>
+  BuiltSimpleObject rebuild(void Function(BuiltSimpleObjectBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -245,12 +234,14 @@ class BuiltSimpleObjectBuilder
 
   @override
   void replace(BuiltSimpleObject other) {
-    if (other == null) throw new ArgumentError.notNull('other');
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
     _$v = other as _$BuiltSimpleObject;
   }
 
   @override
-  void update(void updates(BuiltSimpleObjectBuilder b)) {
+  void update(void Function(BuiltSimpleObjectBuilder) updates) {
     if (updates != null) updates(this);
   }
 
@@ -285,3 +276,5 @@ class BuiltSimpleObjectBuilder
     return _$result;
   }
 }
+
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

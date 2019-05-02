@@ -6,18 +6,6 @@ part of 'built_complex_object.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line
-// ignore_for_file: annotate_overrides
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_catches_without_on_clauses
-// ignore_for_file: avoid_returning_this
-// ignore_for_file: lines_longer_than_80_chars
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: sort_constructors_first
-// ignore_for_file: unnecessary_const
-// ignore_for_file: unnecessary_new
-
 Serializer<BuiltComplexObject> _$builtComplexObjectSerializer =
     new _$BuiltComplexObjectSerializer();
 
@@ -165,7 +153,8 @@ class _$BuiltComplexObject extends BuiltComplexObject {
   @override
   final BuiltList<BuiltSimpleObject> aListOfObjects;
 
-  factory _$BuiltComplexObject([void updates(BuiltComplexObjectBuilder b)]) =>
+  factory _$BuiltComplexObject(
+          [void Function(BuiltComplexObjectBuilder) updates]) =>
       (new BuiltComplexObjectBuilder()..update(updates)).build();
 
   _$BuiltComplexObject._(
@@ -180,7 +169,8 @@ class _$BuiltComplexObject extends BuiltComplexObject {
       : super._();
 
   @override
-  BuiltComplexObject rebuild(void updates(BuiltComplexObjectBuilder b)) =>
+  BuiltComplexObject rebuild(
+          void Function(BuiltComplexObjectBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
@@ -297,12 +287,14 @@ class BuiltComplexObjectBuilder
 
   @override
   void replace(BuiltComplexObject other) {
-    if (other == null) throw new ArgumentError.notNull('other');
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
     _$v = other as _$BuiltComplexObject;
   }
 
   @override
-  void update(void updates(BuiltComplexObjectBuilder b)) {
+  void update(void Function(BuiltComplexObjectBuilder) updates) {
     if (updates != null) updates(this);
   }
 
@@ -343,3 +335,5 @@ class BuiltComplexObjectBuilder
     return _$result;
   }
 }
+
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
