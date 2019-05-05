@@ -56,6 +56,16 @@ for state management.
 
 ## UI
 
+#### [Veggie Seasons](veggieseasons) _(Flutter team)_
+
+[Available on the App Store!](https://itunes.apple.com/is/app/veggie-seasons/id1450855435)
+
+Veggie Seasons is a published iOS app that displays seasonality, vitamin
+content, and trivia for a bunch of different fruits and veggies. If you're
+interested in learning how to use Flutter's
+[Cupertino](https://flutter.dev/docs/development/ui/widgets/cupertino) package
+to build interfaces for iOS, it's a great plce to start.
+
 #### [Flutter UI Kit](https://github.com/iampawan/Flutter-UI-Kit) [![GitHub stars](https://img.shields.io/github/stars/iampawan/Flutter-UI-Kit.svg?style=social&label=Star)](https://github.com/iampawan/Flutter-UI-Kit) [![GitHub forks](https://img.shields.io/github/forks/iampawan/Flutter-UI-Kit.svg?style=social&label=Fork)](https://github.com/iampawan/Flutter-UI-Kit/fork)
 Another sample from Flutter GDE Pawan Kumar, this repo includes a variety of
 polished UI examples.
