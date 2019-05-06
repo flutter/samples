@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 import 'widgets.dart';
 
-class Tab4 extends StatefulWidget {
+class SettingsTab extends StatefulWidget {
   static const title = 'Settings';
   static const androidIcon = Icon(Icons.settings);
   static const iosIcon = Icon(CupertinoIcons.gear);
 
   @override
-  _Tab4State createState() => _Tab4State();
+  _SettingsTabState createState() => _SettingsTabState();
 }
 
-class _Tab4State extends State<Tab4> {
+class _SettingsTabState extends State<SettingsTab> {
   var switch1 = false; var switch2 = true; var switch3 = true; var switch4 = true;
   var switch5 = true; var switch6 = false; var switch7 = true;
 
@@ -81,7 +81,7 @@ class _Tab4State extends State<Tab4> {
   Widget _buildAndroid(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Tab4.title),
+        title: Text(SettingsTab.title),
       ),
       body: _buildList(),
     );

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'widgets.dart';
 
-// Page shown when a card in tab 1 is tapped.
+// Page shown when a card in the songs tab is tapped.
 //
-// On Android, this page sits on top of your app. On iOS, this page is on top of
-// tab 1's content but is below the tab bar itself.
-class Tab1Detail extends StatelessWidget {
-  const Tab1Detail({ this.id, this.song, this.color });
+// On Android, this page sits at the top of your app. On iOS, this page is on
+// top of the songs tab's content but is below the tab bar itself.
+class SongDetailTab extends StatelessWidget {
+  const SongDetailTab({ this.id, this.song, this.color });
 
   final int id;
   final String song;
@@ -32,7 +32,7 @@ class Tab1Detail extends StatelessWidget {
             // This app uses a flightShuttleBuilder to specify the exact widget
             // to build while the hero transition is mid-flight.
             //
-            // It could either be specified here or in Tab1.
+            // It could either be specified here or in SongsTab.
             flightShuttleBuilder: (context, animation, flightDirection, fromHeroContext, toHeroContext) {
               return HeroAnimatingSongCard(
                 song: song,

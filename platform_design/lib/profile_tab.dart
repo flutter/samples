@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'tab_4.dart';
+import 'settings_tab.dart';
 import 'widgets.dart';
 
-class Tab3 extends StatelessWidget {
+class ProfileTab extends StatelessWidget {
   static const title = 'Profile';
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
@@ -56,8 +56,8 @@ class Tab3 extends StatelessWidget {
   }
 
   // ===========================================================================
-  // Non-shared code below because on iOS, tab 4 is nested inside of tab 3 as a
-  // button in the nav bar.
+  // Non-shared code below because on iOS, the settings tab is nested inside of
+  // the profile tab as a button in the nav bar.
   // ===========================================================================
 
   Widget _buildAndroid(context) {
@@ -74,15 +74,15 @@ class Tab3 extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
-          child: Tab4.iosIcon,
+          child: SettingsTab.iosIcon,
           onPressed: () {
             // This pushes the settings page as a full page modal dialog on top
             // of the tab bar and everything.
             Navigator.of(context, rootNavigator: true).push(
               CupertinoPageRoute(
-                title: Tab4.title,
+                title: SettingsTab.title,
                 fullscreenDialog: true,
-                builder: (context) => Tab4(),
+                builder: (context) => SettingsTab(),
               ),
             );
           },

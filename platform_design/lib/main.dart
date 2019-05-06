@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-import 'tab_1.dart';
-import 'tab_2.dart';
-import 'tab_3.dart';
-import 'tab_4.dart';
+import 'songs_tab.dart';
+import 'news_tab.dart';
+import 'profile_tab.dart';
+import 'settings_tab.dart';
 import 'widgets.dart';
 
 void main() => runApp(MyAdaptingApp());
@@ -50,18 +50,20 @@ class PlatformAdaptingHomePage extends StatefulWidget {
 }
 
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
-  // This app keeps a global key for tab 1 because it owns a bunch of data.
-  // Since changing platform reparents those tabs into different scaffolds,
-  // keeping a global key to it lets this app keep that tab's data as
+  // This app keeps a global key for the songs tab because it owns a bunch of
+  // data. Since changing platform reparents those tabs into different
+  // scaffolds, keeping a global key to it lets this app keep that tab's data as
   // the platform toggles.
-  final tab1Key = GlobalKey();
+  //
+  // This isn't needed for apps that doesn't toggle platforms while running.
+  final songsTabKey = GlobalKey();
 
   // In Material, this app uses the hamburger menu paradigm and flatly lists
-  // all 4 possible tabs. This drawer is injected into tab 1 which is
+  // all 4 possible tabs. This drawer is injected into the songs tab which is
   // actually building the scaffold around the drawer.
   Widget _buildAndroidHomePage(context) {
-    return Tab1(
-      key: tab1Key,
+    return SongsTab(
+      key: songsTabKey,
       androidDrawer: _AndroidDrawer(),
     );
   }
@@ -78,27 +80,27 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
-          BottomNavigationBarItem(title: Text(Tab1.title), icon: Tab1.iosIcon),
-          BottomNavigationBarItem(title: Text(Tab2.title), icon: Tab2.iosIcon),
-          BottomNavigationBarItem(title: Text(Tab3.title), icon: Tab3.iosIcon),
+          BottomNavigationBarItem(title: Text(SongsTab.title), icon: SongsTab.iosIcon),
+          BottomNavigationBarItem(title: Text(NewsTab.title), icon: NewsTab.iosIcon),
+          BottomNavigationBarItem(title: Text(ProfileTab.title), icon: ProfileTab.iosIcon),
         ],
       ),
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
             return CupertinoTabView(
-              defaultTitle: Tab1.title,
-              builder: (context) => Tab1(key: tab1Key),
+              defaultTitle: SongsTab.title,
+              builder: (context) => SongsTab(key: songsTabKey),
             );
           case 1:
             return CupertinoTabView(
-              defaultTitle: Tab2.title,
-              builder: (context) => Tab2(),
+              defaultTitle: NewsTab.title,
+              builder: (context) => NewsTab(),
             );
           case 2:
             return CupertinoTabView(
-              defaultTitle: Tab3.title,
-              builder: (context) => Tab3(),
+              defaultTitle: ProfileTab.title,
+              builder: (context) => ProfileTab(),
             );
         }
       },
@@ -133,29 +135,29 @@ class _AndroidDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Tab1.androidIcon,
-            title: Text(Tab1.title),
+            leading: SongsTab.androidIcon,
+            title: Text(SongsTab.title),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Tab2.androidIcon,
-            title: Text(Tab2.title),
+            leading: NewsTab.androidIcon,
+            title: Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Tab2()
+                builder: (context) => NewsTab()
               ));
             },
           ),
           ListTile(
-            leading: Tab3.androidIcon,
-            title: Text(Tab3.title),
+            leading: ProfileTab.androidIcon,
+            title: Text(ProfileTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Tab3()
+                builder: (context) => ProfileTab()
               ));
             },
           ),
@@ -165,12 +167,12 @@ class _AndroidDrawer extends StatelessWidget {
             child: Divider(),
           ),
           ListTile(
-            leading: Tab4.androidIcon,
-            title: Text(Tab4.title),
+            leading: SettingsTab.androidIcon,
+            title: Text(SettingsTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Tab4()
+                builder: (context) => SettingsTab()
               ));
             },
           ),

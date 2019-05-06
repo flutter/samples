@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'tab_1_detail.dart';
+import 'song_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-class Tab1 extends StatefulWidget {
+class SongsTab extends StatefulWidget {
   static const title = 'Songs';
   static const androidIcon = Icon(Icons.music_note);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const Tab1({ Key key, this.androidDrawer }) : super(key: key);
+  const SongsTab({ Key key, this.androidDrawer }) : super(key: key);
 
   final Widget androidDrawer;
 
   @override
-  _Tab1State createState() => _Tab1State();
+  _SongsTabState createState() => _SongsTabState();
 }
 
-class _Tab1State extends State<Tab1> {
+class _SongsTabState extends State<SongsTab> {
   static const _itemsLength = 50;
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -66,7 +66,7 @@ class _Tab1State extends State<Tab1> {
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Tab1Detail(
+            builder: (context) => SongDetailTab(
               id: index,
               song: songNames[index],
               color: color,
@@ -108,7 +108,7 @@ class _Tab1State extends State<Tab1> {
   Widget _buildAndroid(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Tab1.title),
+        title: Text(SongsTab.title),
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
