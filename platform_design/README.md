@@ -18,8 +18,7 @@ platform-specific 'chrome'.
 
 ![App's platform toggling preview](adaptive-overview.gif)
 
-See https://streamable.com/7frr2 for a longer non-gif format.
-See https://youtu.be/svhbbFZg1IA for a higher resolution video.
+See https://youtu.be/svhbbFZg1IA for a longer non-gif format.
 
 # Features
 
