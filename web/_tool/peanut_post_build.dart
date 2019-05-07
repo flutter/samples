@@ -188,7 +188,6 @@ String _tocTemplate(Iterable<_Demo> items) => '''
     }
   </style>
 </head>
-
 <body>
   <h2><a href='https://github.com/flutter/flutter_web'>Flutter for web</a> samples</h2>
   <a href='https://github.com/flutter/samples/tree/master/web'>Sample source code</a>
@@ -196,7 +195,6 @@ String _tocTemplate(Iterable<_Demo> items) => '''
     $_itemsReplace
   </div>
 </body>
-
 </html>
 '''
     .replaceAll(_itemsReplace, _indent(items.map((d) => d.html).join('\n'), 4));
