@@ -28,3 +28,7 @@ cache:
 notifications:
   email:
     brogdon+github@gmail.com
+
+# Only building master means that we don't run two builds for each pull request.
+branches:
+  only: [master]
