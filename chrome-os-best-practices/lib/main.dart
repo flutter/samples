@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 
 
-final ThemeData kIOSTheme = new ThemeData(
+final ThemeData kIOSTheme = ThemeData(
   primarySwatch: Colors.orange,
   primaryColor: Colors.grey[100],
   primaryColorBrightness: Brightness.light
 );
-final ThemeData kDefaultTheme = new ThemeData(
+final ThemeData kDefaultTheme = ThemeData(
   primarySwatch: Colors.purple,
   accentColor: Colors.orangeAccent
 );
 void main() {
-  runApp(new FriendlychatApp());
+  runApp(FriendlychatApp());
 }
 
 class FriendlychatApp extends StatelessWidget {
-  final String name = "Kenneth Ford";
+  final String name = 'Kenneth Ford';
 
   @override
   Widget build(BuildContext build) {
-    return new MaterialApp(
-      title: "Friendlychat",
+    return MaterialApp(
+      title: 'Friendlychat',
       theme: Theme.of(build).platform == TargetPlatform.iOS ? kIOSTheme : kDefaultTheme,
-      home: new ChatAppHomePage(title: "Friendlychat"),
+      home: ChatAppHomePage(title: 'Friendlychat'),
     );
   }
 }
@@ -38,13 +38,10 @@ class ChatAppHomePage extends StatefulWidget {
 }
 
 class _ChatAppHomePageState extends State<ChatAppHomePage> {
-  final List<ChatListEntry> chats = new List<ChatListEntry>();
+  final List<ChatListEntry> chats = List<ChatListEntry>();
 
   @override
   Widget build(BuildContext context) {
-    chats.add(ChatListEntry("Person 1"));
-    chats.add(ChatListEntry("Person 2"));
-    chats.add(ChatListEntry("Person 3"));
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -64,6 +61,14 @@ class _ChatAppHomePageState extends State<ChatAppHomePage> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    chats.add(ChatListEntry("Person 1"));
+    chats.add(ChatListEntry("Person 2"));
+    chats.add(ChatListEntry("Person 3"));
+    super.initState();
+  }
 }
 
 // Code layout in row
@@ -76,12 +81,12 @@ class TwoPaneChatLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        new Container(
+        Container(
           child: ChatListScreen(chatEntries: chatEntries),
           constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
         ),
         VerticalDivider(),
-        new Flexible(
+        Flexible(
           child: ChatScreen(contactName: chatEntries[0].name),
         )
       ],
@@ -101,8 +106,8 @@ class ChatListScreen extends StatelessWidget {
         itemCount: chatEntries.length,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: new CircleAvatar(
-                child: new Text(chatEntries[index].name[0])
+            leading: CircleAvatar(
+                child: Text(chatEntries[index].name[0])
             ),
             title: Text(chatEntries[index].name),
             onTap: () {
@@ -128,12 +133,12 @@ class ChatScreen extends StatefulWidget {
   ChatScreen({Key key, @required this.contactName}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return new ChatScreenState(contactName: contactName);
+    return ChatScreenState(contactName: contactName);
   }
 }
 
 class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
-  final TextEditingController _textController = new TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   final List<ChatMessage> _messages = <ChatMessage>[];
   final String contactName;
 
@@ -142,20 +147,20 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   bool _isComposing = false;
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Column(
+    return Scaffold(
+      body: Column(
         children: <Widget>[
-          new Flexible(
-            child: new ListView.builder(
-              padding: new EdgeInsets.all(8.0),
+          Flexible(
+            child: ListView.builder(
+              padding: EdgeInsets.all(8.0),
               reverse: true,
               itemBuilder: (_, int index) => _messages[index],
               itemCount: _messages.length,
             )
           ),
-          new Divider(height: 1.0),
-          new Container(
-            decoration: new BoxDecoration(color: Theme.of(context).cardColor),
+          Divider(height: 1.0),
+          Container(
+            decoration: BoxDecoration(color: Theme.of(context).cardColor),
             child: _buildTextComposer(),
           )
         ],
@@ -172,17 +177,17 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   }
 
   Widget _buildTextComposer() {
-    return new IconTheme(
-      data: new IconThemeData(color: Theme.of(context).accentColor),
-      child: new Container(
+    return IconTheme(
+      data: IconThemeData(color: Theme.of(context).accentColor),
+      child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: new Row(
+        child: Row(
           children: <Widget>[
-            new Flexible(
-                child: new TextField(
+            Flexible(
+                child: TextField(
                   controller: _textController,
                   onSubmitted: _handleSubmitted,
-                  decoration: new InputDecoration.collapsed(hintText: "Send a message"),
+                  decoration: InputDecoration.collapsed(hintText: "Send a message"),
                   onChanged: (String text) {
                     setState(() {
                       _isComposing = text.length > 0;
@@ -190,10 +195,10 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                   },
                 )
             ),
-            new Container(
-              margin: new EdgeInsets.symmetric(horizontal: 4.0),
-              child: new IconButton(                                            //modified
-                  icon: new Icon(Icons.send),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 4.0),
+              child: IconButton(                                            //modified
+                  icon: Icon(Icons.send),
                   onPressed: _isComposing ?
                       () =>  _handleSubmitted(_textController.text) : null,
                 )
@@ -211,8 +216,8 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     });
     ChatMessage message = ChatMessage(
       text: text,
-      animationController: new AnimationController(
-          duration: new Duration(milliseconds: 200),
+      animationController: AnimationController(
+          duration: Duration(milliseconds: 200),
           vsync: this
       ),
       name: contactName,
@@ -231,29 +236,29 @@ class ChatMessage extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) {
-    return new SizeTransition(
-    sizeFactor: new CurvedAnimation(
+    return SizeTransition(
+    sizeFactor: CurvedAnimation(
         parent: animationController,
         curve: Curves.easeOut
     ),
     axisAlignment: 0.0,
-    child: new Container(
+    child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0),
-        child: new Row(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Container(
+            Container(
               margin: const EdgeInsets.only(right: 16.0),
-              child: new CircleAvatar(child: new Text(name[0])),
+              child: CircleAvatar(child: Text(name[0])),
             ),
-            new Expanded(
-              child: new Column(
+            Expanded(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  new Text(name, style: Theme.of(context).textTheme.subhead),
-                  new Container(
+                  Text(name, style: Theme.of(context).textTheme.subhead),
+                  Container(
                     margin: const EdgeInsets.only(top: 5.0),
-                    child: new Text(text),
+                    child: Text(text),
                   )
                 ],
               ),
