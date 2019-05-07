@@ -1,0 +1,6 @@
+name: tool
+publish_to: none
+
+dependencies:
+  markdown: ^2.0.3
+  path: ^1.6.2

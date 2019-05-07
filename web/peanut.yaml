@@ -1,0 +1,30 @@
+# Configuration for https://pub.dartlang.org/packages/peanut
+
+directories:
+- charts/example/web
+- dad_jokes/web
+- filipino_cuisine/web
+- gallery/web
+- github_dataviz/web
+- particle_background/web
+- slide_puzzle/web
+- spinning_square/web
+- timeflow/web
+- vision_challenge/web
+
+builder-options:
+  build_web_compilers|entrypoint:
+    dart2js_args:
+    # Generate `.info.json` files for compiled libraries.
+    - --dump-info
+    # Reduces diffs between builds, but increases JS output size slightly.
+    - --no-frequency-based-minification
+    # Deployed example does not include Dart source. Not needed.
+    - --no-source-maps
+    # Enable all dart2js optimizations. Not recommended without thorough testing.
+    - -O4
+  build_web_compilers|dart2js_archive_extractor:
+    # Ensures .info.json file is preserved. Useful for tracking output details.
+    filter_outputs: false
+
+post-build-dart-script: _tool/peanut_post_build.dart
