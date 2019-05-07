@@ -1,0 +1,58 @@
+[
+  {
+    "family": "MaterialIcons",
+    "fonts": [
+      {
+        "asset": "https://fonts.gstatic.com/s/materialicons/v42/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
+      }
+    ]
+  },
+  {
+    "family": "GoogleSans",
+    "fonts": [
+      {
+        "asset": "GoogleSans-Regular.ttf"
+      }
+    ]
+  },
+  {
+    "family": "GalleryIcons",
+    "fonts": [
+      {
+        "asset": "GalleryIcons.ttf"
+      }
+    ]
+  },
+  {
+    "family": "AbrilFatface",
+    "fonts": [
+      {
+        "asset": "AbrilFatface-Regular.ttf"
+      }
+    ]
+  },
+  {
+    "family": "LibreFranklin",
+    "fonts": [
+      {
+        "asset": "LibreFranklin-Regular.ttf"
+      }
+    ]
+  },
+  {
+    "family": "Merriweather",
+    "fonts": [
+      {
+        "asset": "Merriweather-Regular.ttf"
+      }
+    ]
+  },
+  {
+    "family": "Raleway",
+    "fonts": [
+      {
+        "asset": "Raleway-Regular.ttf"
+      }
+    ]
+  }
+]
