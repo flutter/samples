@@ -28,7 +28,7 @@ void main(List<String> args) {
         .listSync()
         .whereType<File>()
         .where((f) => p.extension(f.path) == '.html')) {
-      _writeAnalytics(htmlFile, buildDir);
+      _updateHtml(htmlFile, buildDir, exampleDir);
     }
   }
 
@@ -41,7 +41,6 @@ void main(List<String> args) {
       _tocTemplate(
         fileMap.entries.map(
           (entry) => _Demo(
-                _prettyName(entry.value),
                 entry.key,
                 entry.value,
               ),
@@ -50,11 +49,19 @@ void main(List<String> args) {
       flush: true);
 }
 
-void _writeAnalytics(File htmlFile, String buildDir) {
+void _updateHtml(File htmlFile, String buildDir, String exampleDir) {
   final content = htmlFile.readAsStringSync();
-  final newContent = content.replaceFirst('<head>', '<head>\n$_analytics');
 
   final filePath = p.relative(htmlFile.path, from: buildDir);
+
+  if (!content.contains(_standardMeta)) {
+    print('!!! missing standard meta! - $filePath');
+  }
+
+  final newContent = content
+      .replaceFirst('<head>', '<head>\n$_analytics')
+      .replaceFirst(_emptyTitle,
+          '<title>${_prettyName(exampleDir)} - Flutter web sample</title>');
 
   if (newContent == content) {
     print('!!! Did not replace contents in $filePath');
@@ -65,9 +72,9 @@ void _writeAnalytics(File htmlFile, String buildDir) {
 }
 
 class _Demo {
-  final String name, pkgDir, buildDir;
+  final String pkgDir, buildDir;
 
-  _Demo(this.name, this.pkgDir, this.buildDir);
+  _Demo(this.pkgDir, this.buildDir);
 
   String get content {
     final path = p.normalize(p.join(pkgDir, '..', 'README.md'));
@@ -97,6 +104,8 @@ class _Demo {
 
     return markdownToHtml(readmeContent.substring(0, endIndex - 1));
   }
+
+  String get name => _prettyName(buildDir);
 
   String get html => '''
 <div>
@@ -135,12 +144,19 @@ String _indent(String content, int spaces) =>
 
 const _itemsReplace = r'<!-- ITEMS -->';
 
+const _emptyTitle = '<title></title>';
+
+const _standardMeta = '''
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  $_emptyTitle''';
+
 String _tocTemplate(Iterable<_Demo> items) => '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
   ${_indent(_analytics, 2)}
-  <title>Examples</title>
+$_standardMeta
   <meta name="generator" content="https://pub.dartlang.org/packages/peanut">
   <style>
     body {
@@ -156,7 +172,6 @@ String _tocTemplate(Iterable<_Demo> items) => '''
     }
     #toc {
       text-align: left;
-      max-width: 1050px;
       display: flex;
       flex-wrap: wrap;
       align-self: center;
@@ -164,7 +179,6 @@ String _tocTemplate(Iterable<_Demo> items) => '''
       align-content: space-between;
       justify-content: center;
     }
-
     #toc > div {
       width: 300px;
       padding: 1rem;
@@ -172,16 +186,13 @@ String _tocTemplate(Iterable<_Demo> items) => '''
       border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: 4px;
     }
-
     #toc > div img {
       display: block;
       margin: 0 auto 1rem;
     }
-
     .demo-title {
       font-size: 1.25rem;
     }
-
     #toc > div p {
       margin-top: 0.5rem;
       margin-bottom: 0;
@@ -189,7 +200,7 @@ String _tocTemplate(Iterable<_Demo> items) => '''
   </style>
 </head>
 <body>
-  <h2><a href='https://github.com/flutter/flutter_web'>Flutter for web</a> samples</h2>
+  <h2><a href='https://flutter.dev/web'>Flutter for web</a> samples</h2>
   <a href='https://github.com/flutter/samples/tree/master/web'>Sample source code</a>
   <div id="toc">
     $_itemsReplace
@@ -197,4 +208,6 @@ String _tocTemplate(Iterable<_Demo> items) => '''
 </body>
 </html>
 '''
-    .replaceAll(_itemsReplace, _indent(items.map((d) => d.html).join('\n'), 4));
+    .replaceFirst(
+        _itemsReplace, _indent(items.map((d) => d.html).join('\n'), 4))
+    .replaceFirst(_emptyTitle, '<title>Flutter for web samples</title>');
