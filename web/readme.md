@@ -1,8 +1,8 @@
 Samples for [Flutter for web](https://flutter.dev/web).
 
-## See built samples
+## See the samples in action
 
-All of the samples are at [flutter.github.io/samples](https://flutter.github.io/samples/).
+Compiled versions of the samples are hosted at [flutter.github.io/samples](https://flutter.github.io/samples/).
 
 ## Building samples code
 
