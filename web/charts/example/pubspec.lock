@@ -56,7 +56,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.6.1"
   build_modules:
     dependency: transitive
     description:
@@ -98,7 +98,7 @@ packages:
       name: built_collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.1"
+    version: "4.2.2"
   built_value:
     dependency: transitive
     description:
@@ -181,7 +181,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "7a92f7391ee8a72c398f879e357380084e2076b4"
+      resolved-ref: acf4aae2a60ef2c1df80bb05873401d83475d52b
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -190,7 +190,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "7a92f7391ee8a72c398f879e357380084e2076b4"
+      resolved-ref: acf4aae2a60ef2c1df80bb05873401d83475d52b
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -270,7 +270,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   kernel:
     dependency: transitive
     description:
@@ -333,7 +333,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.0"
+    version: "1.7.0"
   pool:
     dependency: transitive
     description:
