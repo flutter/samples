@@ -1,31 +1,29 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  // Initialize the model. Can be done outside a widget, like here.
-  var counter = Counter();
-
-  // Setup a delayed interaction with the model (increment each 5 seconds),
-  // outside of the Flutter widget tree.
-  Timer.periodic(
-    const Duration(seconds: 5),
-    (timer) => counter.increment(),
-  );
-
-  // Now we're ready to run the app...
   runApp(
-    // ... and provide the model to all widgets within.
-    ChangeNotifierProvider<Counter>.value(
-      notifier: counter,
+    // Provide the model to all widgets within the app. We're using
+    // ChangeNotifierProvider because that's a simple way to rebuild
+    // widgets when a model changes. We could also just use
+    // Provider, but then we would have to listen to Counter ourselves.
+    //
+    // Read Provider's docs to learn about all the available providers.
+    ChangeNotifierProvider(
+      // Initialize the model in the builder. That way, Provider
+      // can own Counter's lifecycle, making sure to call `dispose`
+      // when not needed anymore.
+      builder: (context) => Counter(),
       child: MyApp(),
     ),
   );
 }
 
 /// Simplest possible model, with just one field.
-class Counter extends ChangeNotifier {
+///
+/// [ChangeNotifier] is a class in `flutter:foundation`. [Counter] does
+/// _not_ depend on Provider.
+class Counter with ChangeNotifier {
   int value = 0;
 
   void increment() {
@@ -59,7 +57,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            // ScopedModelDescendant looks for an ancestor ScopedModel widget
+            // Consumer looks for an ancestor Provider widget
             // and retrieves its model (Counter, in this case).
             // Then it uses that model to build widgets, and will trigger
             // rebuilds if the model is updated.
@@ -73,11 +71,15 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        // ScopedModel.of is another way to access the model object held
-        // by an ancestor ScopedModel. By default, it just returns
-        // the current model and doesn't automatically trigger rebuilds.
-        // Since this button always looks the same, though, no rebuilds
-        // are needed.
+        // Provider.of is another way to access the model object held
+        // by an ancestor Provider. By default, even this listens to
+        // changes in the model, and rebuilds the whole encompassing widget
+        // when notified.
+        //
+        // By using `listen: false` below, we are disabling that
+        // behavior. We are only calling a function here, and so we don't care
+        // about the current value. Without `listen: false`, we'd be rebuilding
+        // the whole MyHomePage whenever Counter notifies listeners.
         onPressed: () =>
             Provider.of<Counter>(context, listen: false).increment(),
         tooltip: 'Increment',
