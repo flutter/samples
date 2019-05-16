@@ -49,10 +49,12 @@ start.
 A simple app showing three different approaches to deserializing JSON:
 hand-written constructors, `json_serializable`, and `built_value`.
 
-#### [scoped_model_counter](scoped_model_counter) _(Flutter team)_
+#### [provider_counter](provider_counter) _(Flutter team)_
 
-The simplest possible app (the counter) using `scoped_model`
-for state management.
+The simplest possible app (the counter) using `provider`
+for state management. (This was previously known as `scoped_model_counter`,
+and used `scoped_model` for state management.)
+
 
 ## UI
 
