@@ -1,4 +1,4 @@
-package io.flutter.scopedmodelcounter
+package dev.flutter.provider_counter
 
 import android.os.Bundle
 
