@@ -270,8 +270,7 @@ abstract class Styles {
 
   static const servingInfoBorderColor = Color(0xffb0b0b0);
 
-    static const ColorFilter desaturatedColorFilter =
+  static const ColorFilter desaturatedColorFilter =
       // 222222 is a random color that has low color saturation.
       ColorFilter.mode(Color(0xFF222222), BlendMode.saturation);
- 
 }

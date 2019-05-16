@@ -224,7 +224,6 @@ class PlaceMapState extends State<PlaceMap> {
 
   void _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
-
       // Create a new Place and map it to the marker we just added.
       final Place newPlace = Place(
         id: Uuid().v1(),
