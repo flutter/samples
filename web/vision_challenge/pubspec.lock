@@ -14,7 +14,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.9"
   args:
     dependency: transitive
     description:
@@ -35,7 +35,7 @@ packages:
       name: bazel_worker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.20"
+    version: "0.1.21"
   build:
     dependency: transitive
     description:
@@ -167,7 +167,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: acf4aae2a60ef2c1df80bb05873401d83475d52b
+      resolved-ref: b34a3bb58e6ba3c141431e55c7fd82915b4b0216
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -176,7 +176,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: acf4aae2a60ef2c1df80bb05873401d83475d52b
+      resolved-ref: b34a3bb58e6ba3c141431e55c7fd82915b4b0216
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -256,7 +256,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.4.0"
   kernel:
     dependency: transitive
     description:
