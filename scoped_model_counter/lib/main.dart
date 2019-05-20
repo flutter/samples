@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   // Initialize the model. Can be done outside a widget, like here.
@@ -17,15 +17,15 @@ void main() {
   // Now we're ready to run the app...
   runApp(
     // ... and provide the model to all widgets within.
-    ScopedModel<Counter>(
-      model: counter,
+    ChangeNotifierProvider<Counter>.value(
+      notifier: counter,
       child: MyApp(),
     ),
   );
 }
 
 /// Simplest possible model, with just one field.
-class Counter extends Model {
+class Counter extends ChangeNotifier {
   int value = 0;
 
   void increment() {
@@ -63,8 +63,8 @@ class MyHomePage extends StatelessWidget {
             // and retrieves its model (Counter, in this case).
             // Then it uses that model to build widgets, and will trigger
             // rebuilds if the model is updated.
-            ScopedModelDescendant<Counter>(
-              builder: (context, child, counter) => Text(
+            Consumer<Counter>(
+              builder: (context, counter, child) => Text(
                     '${counter.value}',
                     style: Theme.of(context).textTheme.display1,
                   ),
@@ -78,7 +78,8 @@ class MyHomePage extends StatelessWidget {
         // the current model and doesn't automatically trigger rebuilds.
         // Since this button always looks the same, though, no rebuilds
         // are needed.
-        onPressed: () => ScopedModel.of<Counter>(context).increment(),
+        onPressed: () =>
+            Provider.of<Counter>(context, listen: false).increment(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
