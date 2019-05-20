@@ -3,7 +3,7 @@ set -e
 declare -a  PROJECT_NAMES=(
 	"jsonexample" \
 	"shrine" \
-	"scoped_model_counter" \
+	"provider_counter" \
 	"veggieseasons" \
 	"place_tracker" \
 	"platform_view_swift" \
