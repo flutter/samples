@@ -87,7 +87,7 @@ class _AddButton extends StatelessWidget {
     return Consumer<CartModel>(
       builder: (context, cart, child) => FlatButton(
             onPressed: cart.items.contains(item) ? null : () => cart.add(item),
-            splashColor: Colors.yellow,
+            splashColor: Theme.of(context).primaryColor,
             child: cart.items.contains(item)
                 ? Icon(Icons.check, semanticLabel: 'ADDED')
                 : Text('ADD'),
