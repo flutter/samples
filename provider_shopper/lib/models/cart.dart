@@ -39,6 +39,7 @@ class CartModel extends ChangeNotifier {
   }
 }
 
+@immutable
 class Item {
   final int id;
   final String name;

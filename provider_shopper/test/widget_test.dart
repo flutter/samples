@@ -21,7 +21,7 @@ void main() {
     // Check that shopping cart is empty at start.
     await tester.tap(find.byIcon(Icons.shopping_cart));
     await tester.pumpAndSettle();
-    expect(find.text(r'$0'), findsOneWidget);
+    expect(find.text('\$0'), findsOneWidget);
 
     // Buy an item.
     await tester.pageBack();
@@ -31,6 +31,6 @@ void main() {
     // Check that the shopping cart is not empty anymore.
     await tester.tap(find.byIcon(Icons.shopping_cart));
     await tester.pumpAndSettle();
-    expect(find.text(r'$0'), findsNothing);
+    expect(find.text('\$0'), findsNothing);
   });
 }
