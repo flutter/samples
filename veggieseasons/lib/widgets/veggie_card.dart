@@ -130,9 +130,8 @@ class VeggieCard extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  colorFilter: isInSeason
-                      ? null
-                      : Styles.desaturatedColorFilter,
+                  colorFilter:
+                      isInSeason ? null : Styles.desaturatedColorFilter,
                   image: AssetImage(
                     veggie.imageAssetPath,
                   ),
