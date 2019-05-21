@@ -43,16 +43,12 @@ class MyCatalog extends StatelessWidget {
 class MyListItem extends StatelessWidget {
   final int index;
 
-  final Item item;
-
-  MyListItem(
-    this.index, {
-    Key key,
-  })  : item = Item(index),
-        super(key: key);
+  MyListItem(this.index) : super(key: ValueKey(index));
 
   @override
   Widget build(BuildContext context) {
+    var item = Item(index);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: LimitedBox(
@@ -92,7 +88,9 @@ class _AddButton extends StatelessWidget {
       builder: (context, cart, child) => FlatButton(
             onPressed: cart.items.contains(item) ? null : () => cart.add(item),
             splashColor: Colors.yellow,
-            child: Text(cart.items.contains(item) ? 'ADDED' : 'ADD'),
+            child: cart.items.contains(item)
+                ? Icon(Icons.check, semanticLabel: 'ADDED')
+                : Text('ADD'),
           ),
     );
   }
