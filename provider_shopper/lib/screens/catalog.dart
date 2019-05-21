@@ -29,7 +29,7 @@ class MyCatalog extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          new MyAppBar(),
+          MyAppBar(),
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverList(
               delegate:

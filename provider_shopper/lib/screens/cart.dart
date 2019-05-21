@@ -17,7 +17,7 @@ class MyCart extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(32),
-                child: new _CartList(),
+                child: _CartList(),
               ),
             ),
             Container(height: 4, color: Colors.black),
