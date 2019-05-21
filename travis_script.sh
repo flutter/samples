@@ -4,6 +4,7 @@ declare -a  PROJECT_NAMES=(
 	"jsonexample" \
 	"shrine" \
 	"provider_counter" \
+	"provider_shopper" \
 	"veggieseasons" \
 	"place_tracker" \
 	"platform_view_swift" \
