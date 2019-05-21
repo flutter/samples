@@ -15,7 +15,7 @@ Go into one of the sample directories, get packages, and run.
 
 ```console
 $ cd gallery
-$ flutter packages pub get # or `pub get` with the Dart SDK
+$ flutter pub get # or `pub get` with the Dart SDK
 $ webdev serve
 ```
 
