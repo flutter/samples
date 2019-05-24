@@ -4,28 +4,25 @@
 
 import 'core/puzzle_animator.dart';
 import 'flutter.dart';
-import 'shared_theme.dart';
 
 abstract class AppState {
-  TabController get tabController;
-
   PuzzleProxy get puzzle;
 
   bool get autoPlay;
 
   void setAutoPlay(bool newValue);
 
-  AnimationNotifier get animationNotifier;
+  Listenable get animationNotifier;
 
-  Iterable<SharedTheme> get themeData;
+  void clickOrShake(int tileValue) {
+    setAutoPlay(false);
+    puzzle.clickOrShake(tileValue);
+  }
 
-  SharedTheme get currentTheme;
-
-  set currentTheme(SharedTheme theme);
-}
-
-abstract class AnimationNotifier implements Listenable {
-  void animate();
-
-  void dispose();
+  void Function(bool newValue) get setAutoPlayFunction {
+    if (puzzle.solved) {
+      return null;
+    }
+    return setAutoPlay;
+  }
 }

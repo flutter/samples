@@ -14,7 +14,7 @@ class ThemePlaster extends SharedTheme {
   @override
   String get name => 'Plaster';
 
-  ThemePlaster(AppState baseTheme) : super(baseTheme);
+  const ThemePlaster();
 
   @override
   Color get puzzleThemeBackground => _chocolate;
@@ -26,7 +26,7 @@ class ThemePlaster extends SharedTheme {
   Color get puzzleAccentColor => _orangeIsh;
 
   @override
-  RoundedRectangleBorder get puzzleBorder => RoundedRectangleBorder(
+  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
         side: const BorderSide(
           color: Color.fromARGB(255, 103, 103, 105),
           width: 8,
@@ -37,14 +37,14 @@ class ThemePlaster extends SharedTheme {
       );
 
   @override
-  Widget tileButton(int i) {
-    final correctColumn = i % puzzle.width;
-    final correctRow = i ~/ puzzle.width;
+  Widget tileButton(int i, AppState appState, bool small) {
+    final correctColumn = i % appState.puzzle.width;
+    final correctRow = i ~/ appState.puzzle.width;
 
     final primary = (correctColumn + correctRow).isEven;
 
-    if (i == puzzle.tileCount) {
-      assert(puzzle.solved);
+    if (i == appState.puzzle.tileCount) {
+      assert(appState.puzzle.solved);
       return Center(
         child: Icon(
           Icons.thumb_up,
@@ -64,6 +64,8 @@ class ThemePlaster extends SharedTheme {
     );
 
     return createButton(
+      appState,
+      small,
       i,
       content,
       color: primary ? _orangeIsh : _yellowIsh,

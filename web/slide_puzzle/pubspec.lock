@@ -334,6 +334,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.11"
+  provider:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: flutter_web
+      resolved-ref: "5cf4521d4d635d7d7ca8ddbd6e28048a7f319ee0"
+      url: "https://github.com/kevmoo/provider"
+    source: git
+    version: "2.1.0"
   pub_semver:
     dependency: transitive
     description:

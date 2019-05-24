@@ -4,17 +4,15 @@
 
 import 'dart:async';
 
+import 'package:provider/provider.dart';
+
 import 'app_state.dart';
 import 'core/puzzle_animator.dart';
 import 'flutter.dart';
 import 'shared_theme.dart';
-import 'theme_plaster.dart';
-import 'theme_seattle.dart';
-import 'theme_simple.dart';
+import 'themes.dart';
 
-class PuzzleHomeState extends State
-    with TickerProviderStateMixin
-    implements AppState {
+class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   TabController _tabController;
   AnimationController _controller;
 
@@ -22,41 +20,21 @@ class PuzzleHomeState extends State
   final PuzzleAnimator puzzle;
 
   @override
-  final animationNotifier = _AnimationNotifier();
-
-  @override
-  TabController get tabController => _tabController;
+  final _AnimationNotifier animationNotifier = _AnimationNotifier();
 
   SharedTheme _currentTheme;
-
-  @override
-  SharedTheme get currentTheme => _currentTheme;
-
-  @override
-  set currentTheme(SharedTheme theme) {
-    setState(() {
-      _currentTheme = theme;
-    });
-  }
-
   Duration _tickerTimeSinceLastEvent = Duration.zero;
   Ticker _ticker;
   Duration _lastElapsed;
-  StreamSubscription sub;
+  StreamSubscription _puzzleEventSubscription;
 
   @override
   bool autoPlay = false;
 
   PuzzleHomeState(this.puzzle) {
-    sub = puzzle.onEvent.listen(_onPuzzleEvent);
+    _puzzleEventSubscription = puzzle.onEvent.listen(_onPuzzleEvent);
 
-    _themeDataCache = List.unmodifiable([
-      ThemeSimple(this),
-      ThemeSeattle(this),
-      ThemePlaster(this),
-    ]);
-
-    _currentTheme = themeData.first;
+    _currentTheme = themes.first;
   }
 
   @override
@@ -70,17 +48,14 @@ class PuzzleHomeState extends State
       duration: const Duration(milliseconds: 200),
     );
 
-    _tabController = TabController(vsync: this, length: _themeDataCache.length);
+    _tabController = TabController(vsync: this, length: themes.length);
 
     _tabController.addListener(() {
-      currentTheme = _themeDataCache[_tabController.index];
+      setState(() {
+        _currentTheme = themes[_tabController.index];
+      });
     });
   }
-
-  List<SharedTheme> _themeDataCache;
-
-  @override
-  Iterable<SharedTheme> get themeData => _themeDataCache;
 
   @override
   void setAutoPlay(bool newValue) {
@@ -96,8 +71,13 @@ class PuzzleHomeState extends State
   }
 
   @override
-  Widget build(BuildContext context) =>
-      LayoutBuilder(builder: _currentTheme.build);
+  Widget build(BuildContext context) => MultiProvider(
+        providers: [
+          ListenableProvider.value(listenable: _tabController),
+          Provider<AppState>.value(value: this),
+        ],
+        child: LayoutBuilder(builder: _currentTheme.build),
+      );
 
   @override
   void dispose() {
@@ -105,7 +85,7 @@ class PuzzleHomeState extends State
     _tabController.dispose();
     _controller?.dispose();
     _ticker?.dispose();
-    sub.cancel();
+    _puzzleEventSubscription.cancel();
     super.dispose();
   }
 
@@ -165,10 +145,7 @@ class PuzzleHomeState extends State
   }
 }
 
-class _AnimationNotifier extends ChangeNotifier implements AnimationNotifier {
-  _AnimationNotifier();
-
-  @override
+class _AnimationNotifier extends ChangeNotifier {
   void animate() {
     notifyListeners();
   }

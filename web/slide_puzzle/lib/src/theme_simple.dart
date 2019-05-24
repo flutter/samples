@@ -12,7 +12,7 @@ class ThemeSimple extends SharedTheme {
   @override
   String get name => 'Simple';
 
-  ThemeSimple(AppState proxy) : super(proxy);
+  const ThemeSimple();
 
   @override
   Color get puzzleThemeBackground => Colors.white;
@@ -24,7 +24,8 @@ class ThemeSimple extends SharedTheme {
   Color get puzzleAccentColor => _accentBlue;
 
   @override
-  RoundedRectangleBorder get puzzleBorder => const RoundedRectangleBorder(
+  RoundedRectangleBorder puzzleBorder(bool small) =>
+      const RoundedRectangleBorder(
         side: BorderSide(color: Colors.black26, width: 1),
         borderRadius: BorderRadius.all(
           Radius.circular(4),
@@ -32,9 +33,9 @@ class ThemeSimple extends SharedTheme {
       );
 
   @override
-  Widget tileButton(int i) {
-    if (i == puzzle.tileCount) {
-      assert(puzzle.solved);
+  Widget tileButton(int i, AppState appState, bool small) {
+    if (i == appState.puzzle.tileCount) {
+      assert(appState.puzzle.solved);
       return const Center(
         child: Icon(
           Icons.thumb_up,
@@ -44,7 +45,7 @@ class ThemeSimple extends SharedTheme {
       );
     }
 
-    final correctPosition = puzzle.isCorrectPosition(i);
+    final correctPosition = appState.puzzle.isCorrectPosition(i);
 
     final content = createInk(
       Center(
@@ -60,6 +61,8 @@ class ThemeSimple extends SharedTheme {
     );
 
     return createButton(
+      appState,
+      small,
       i,
       content,
       color: const Color.fromARGB(255, 13, 87, 155),
