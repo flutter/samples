@@ -167,7 +167,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "56891964e88dcc6a483713646c565569b979ee20"
+      resolved-ref: "33ff2c514844990f016e528fa7053e3d749bad0c"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -176,7 +176,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "56891964e88dcc6a483713646c565569b979ee20"
+      resolved-ref: "33ff2c514844990f016e528fa7053e3d749bad0c"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
