@@ -364,7 +364,7 @@ packages:
       name: web_socket_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.12"
+    version: "1.0.13"
   yaml:
     dependency: transitive
     description:
