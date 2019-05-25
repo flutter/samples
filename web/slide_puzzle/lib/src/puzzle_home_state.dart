@@ -12,6 +12,7 @@ import 'flutter.dart';
 import 'puzzle_flow_delegate.dart';
 import 'shared_theme.dart';
 import 'themes.dart';
+import 'value_tab_controller.dart';
 
 class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   @override
@@ -163,7 +164,8 @@ Widget _updateConstraints(
 Widget _doBuild(BuildContext _, BoxConstraints constraints) =>
     _updateConstraints(constraints, _doBuildCore);
 
-Widget _doBuildCore(bool small) => PuzzleThemeTabController(
+Widget _doBuildCore(bool small) => ValueTabController<SharedTheme>(
+      values: themes,
       child: Consumer<SharedTheme>(
         builder: (_, theme, __) => AnimatedContainer(
               duration: puzzleAnimationDuration,
@@ -190,8 +192,7 @@ Widget _doBuildCore(bool small) => PuzzleThemeTabController(
                                 margin:
                                     const EdgeInsets.symmetric(horizontal: 20),
                                 child: TabBar(
-                                  controller:
-                                      PuzzleThemeTabController.of(context),
+                                  controller: ValueTabController.of(context),
                                   labelPadding:
                                       const EdgeInsets.fromLTRB(0, 20, 0, 12),
                                   labelColor: theme.puzzleAccentColor,
