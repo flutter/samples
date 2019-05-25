@@ -8,11 +8,41 @@ import 'package:provider/provider.dart';
 
 import 'app_state.dart';
 import 'core/puzzle_animator.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
+import 'puzzle_controls.dart';
 import 'puzzle_flow_delegate.dart';
 import 'shared_theme.dart';
 import 'themes.dart';
 import 'value_tab_controller.dart';
+
+class _PuzzleControls extends ChangeNotifier implements PuzzleControls {
+  final PuzzleHomeState _parent;
+
+  _PuzzleControls(this._parent);
+
+  @override
+  bool get autoPlay => _parent._autoPlay;
+
+  void _notify() => notifyListeners();
+
+  @override
+  void Function(bool newValue) get setAutoPlayFunction {
+    if (_parent.puzzle.solved) {
+      return null;
+    }
+    return _parent._setAutoPlay;
+  }
+
+  @override
+  int get clickCount => _parent.puzzle.clickCount;
+
+  @override
+  int get incorrectTiles => _parent.puzzle.incorrectTiles;
+
+  @override
+  void reset() => _parent.puzzle.reset();
+}
 
 class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   @override
@@ -26,8 +56,8 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   Duration _lastElapsed;
   StreamSubscription _puzzleEventSubscription;
 
-  @override
-  bool autoPlay = false;
+  bool _autoPlay = false;
+  _PuzzleControls _autoPlayListsenable;
 
   PuzzleHomeState(this.puzzle) {
     _puzzleEventSubscription = puzzle.onEvent.listen(_onPuzzleEvent);
@@ -36,37 +66,31 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   @override
   void initState() {
     super.initState();
+    _autoPlayListsenable = _PuzzleControls(this);
     _ticker ??= createTicker(_onTick);
     _ensureTicking();
   }
 
-  @override
-  void setAutoPlay(bool newValue) {
-    if (newValue != autoPlay) {
+  void _setAutoPlay(bool newValue) {
+    if (newValue != _autoPlay) {
       setState(() {
         // Only allow enabling autoPlay if the puzzle is not solved
-        autoPlay = newValue && !puzzle.solved;
-        if (autoPlay) {
+        _autoPlayListsenable._notify();
+        _autoPlay = newValue && !puzzle.solved;
+        if (_autoPlay) {
           _ensureTicking();
         }
       });
     }
   }
 
-  bool _badHack;
-
   @override
   Widget build(BuildContext context) => MultiProvider(
         providers: [
-          Provider<AppState>.value(
-              value: this,
-              updateShouldNotify: (p, c) {
-                if (c.autoPlay != _badHack) {
-                  _badHack = c.autoPlay;
-                  return true;
-                }
-                return false;
-              }),
+          Provider<AppState>.value(value: this),
+          ListenableProvider<PuzzleControls>.value(
+            listenable: _autoPlayListsenable,
+          )
         ],
         child: Material(
           child: Stack(
@@ -89,11 +113,16 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   void dispose() {
     animationNotifier.dispose();
     _ticker?.dispose();
+    _autoPlayListsenable?.dispose();
     _puzzleEventSubscription.cancel();
     super.dispose();
   }
 
   void _onPuzzleEvent(PuzzleEvent e) {
+    _autoPlayListsenable._notify();
+    if (e != PuzzleEvent.random) {
+      _setAutoPlay(false);
+    }
     _tickerTimeSinceLastEvent = Duration.zero;
     _ensureTicking();
     setState(() {
@@ -126,18 +155,18 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
     if (!puzzle.stable) {
       animationNotifier.animate();
     } else {
-      if (!autoPlay) {
+      if (!_autoPlay) {
         _ticker.stop();
         _lastElapsed = null;
       }
     }
 
-    if (autoPlay &&
+    if (_autoPlay &&
         _tickerTimeSinceLastEvent > const Duration(milliseconds: 200)) {
       puzzle.playRandom();
 
       if (puzzle.solved) {
-        setAutoPlay(false);
+        _setAutoPlay(false);
       }
     }
   }
@@ -225,7 +254,7 @@ Widget _doBuildCore(bool small) => ValueTabController<SharedTheme>(
                                   children: List<Widget>.generate(
                                     appState.puzzle.length,
                                     (i) => theme.tileButtonCore(
-                                        i, appState, small),
+                                        i, appState.puzzle, small),
                                   ),
                                 ),
                               ),
@@ -242,8 +271,10 @@ Widget _doBuildCore(bool small) => ValueTabController<SharedTheme>(
                                   top: 2,
                                   right: 10,
                                 ),
-                                child: Row(
-                                    children: theme.bottomControls(appState)),
+                                child: Consumer<PuzzleControls>(
+                                  builder: (_, controls, __) => Row(
+                                      children: theme.bottomControls(controls)),
+                                ),
                               )
                             ],
                           ),

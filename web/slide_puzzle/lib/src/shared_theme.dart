@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'app_state.dart';
-import 'core/puzzle_animator.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
+import 'puzzle_controls.dart';
 import 'widgets/material_interior_alt.dart';
 
 final puzzleAnimationDuration = kThemeAnimationDuration * 3;
@@ -24,7 +24,7 @@ abstract class SharedTheme {
 
   EdgeInsetsGeometry tilePadding(PuzzleProxy puzzle) => const EdgeInsets.all(6);
 
-  Widget tileButton(int i, AppState appState, bool small);
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small);
 
   Ink createInk(
     Widget child, {
@@ -40,7 +40,7 @@ abstract class SharedTheme {
       );
 
   Widget createButton(
-    AppState appState,
+    PuzzleProxy puzzle,
     bool small,
     int tileValue,
     Widget content, {
@@ -49,12 +49,12 @@ abstract class SharedTheme {
   }) =>
       AnimatedContainer(
         duration: puzzleAnimationDuration,
-        padding: tilePadding(appState.puzzle),
+        padding: tilePadding(puzzle),
         child: RaisedButton(
           elevation: 4,
           clipBehavior: Clip.hardEdge,
           animationDuration: puzzleAnimationDuration,
-          onPressed: () => appState.clickOrShake(tileValue),
+          onPressed: () => puzzle.clickOrShake(tileValue),
           shape: shape ?? puzzleBorder(small),
           padding: const EdgeInsets.symmetric(),
           child: content,
@@ -76,22 +76,21 @@ abstract class SharedTheme {
         fontWeight: FontWeight.bold,
       );
 
-  List<Widget> bottomControls(AppState appState) => <Widget>[
+  List<Widget> bottomControls(PuzzleControls controls) => <Widget>[
         IconButton(
-          onPressed: appState.puzzle.reset,
+          onPressed: controls.reset,
           icon: Icon(Icons.refresh, color: puzzleAccentColor),
-          //Icons.refresh,
         ),
         Checkbox(
-          value: appState.autoPlay,
-          onChanged: appState.setAutoPlayFunction,
+          value: controls.autoPlay,
+          onChanged: controls.setAutoPlayFunction,
           activeColor: puzzleAccentColor,
         ),
         Expanded(
           child: Container(),
         ),
         Text(
-          appState.puzzle.clickCount.toString(),
+          controls.clickCount.toString(),
           textAlign: TextAlign.right,
           style: _infoStyle,
         ),
@@ -99,7 +98,7 @@ abstract class SharedTheme {
         SizedBox(
           width: 28,
           child: Text(
-            appState.puzzle.incorrectTiles.toString(),
+            controls.incorrectTiles.toString(),
             textAlign: TextAlign.right,
             style: _infoStyle,
           ),
@@ -107,11 +106,11 @@ abstract class SharedTheme {
         const Text(' Tiles left  ')
       ];
 
-  Widget tileButtonCore(int i, AppState appState, bool small) {
-    if (i == appState.puzzle.tileCount && !appState.puzzle.solved) {
+  Widget tileButtonCore(int i, PuzzleProxy puzzle, bool small) {
+    if (i == puzzle.tileCount && !puzzle.solved) {
       return const Center();
     }
 
-    return tileButton(i, appState, small);
+    return tileButton(i, puzzle, small);
   }
 }

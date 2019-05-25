@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'app_state.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
 import 'shared_theme.dart';
 
@@ -37,14 +37,14 @@ class ThemePlaster extends SharedTheme {
       );
 
   @override
-  Widget tileButton(int i, AppState appState, bool small) {
-    final correctColumn = i % appState.puzzle.width;
-    final correctRow = i ~/ appState.puzzle.width;
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
+    final correctColumn = i % puzzle.width;
+    final correctRow = i ~/ puzzle.width;
 
     final primary = (correctColumn + correctRow).isEven;
 
-    if (i == appState.puzzle.tileCount) {
-      assert(appState.puzzle.solved);
+    if (i == puzzle.tileCount) {
+      assert(puzzle.solved);
       return Center(
         child: Icon(
           Icons.thumb_up,
@@ -64,7 +64,7 @@ class ThemePlaster extends SharedTheme {
     );
 
     return createButton(
-      appState,
+      puzzle,
       small,
       i,
       content,

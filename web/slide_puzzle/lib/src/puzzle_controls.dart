@@ -4,10 +4,14 @@
 
 import 'package:flutter_web/foundation.dart';
 
-import 'core/puzzle_proxy.dart';
+abstract class PuzzleControls implements Listenable {
+  void reset();
 
-abstract class AppState {
-  PuzzleProxy get puzzle;
+  int get clickCount;
 
-  Listenable get animationNotifier;
+  int get incorrectTiles;
+
+  bool get autoPlay;
+
+  void Function(bool newValue) get setAutoPlayFunction;
 }

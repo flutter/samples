@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'app_state.dart';
-import 'core/puzzle_animator.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
 import 'shared_theme.dart';
 import 'widgets/decoration_image_plus.dart';
@@ -36,8 +35,7 @@ class ThemeSeattle extends SharedTheme {
       puzzle.solved ? const EdgeInsets.all(1) : const EdgeInsets.all(4);
 
   @override
-  Widget tileButton(int i, AppState appState, bool small) {
-    final puzzle = appState.puzzle;
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
     if (i == puzzle.tileCount && !puzzle.solved) {
       assert(puzzle.solved);
     }
@@ -72,6 +70,6 @@ class ThemeSeattle extends SharedTheme {
       padding: EdgeInsets.all(small ? 20 : 32),
     );
 
-    return createButton(appState, small, i, content);
+    return createButton(puzzle, small, i, content);
   }
 }

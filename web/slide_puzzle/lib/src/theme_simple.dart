@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'app_state.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
 import 'shared_theme.dart';
 
@@ -33,9 +33,9 @@ class ThemeSimple extends SharedTheme {
       );
 
   @override
-  Widget tileButton(int i, AppState appState, bool small) {
-    if (i == appState.puzzle.tileCount) {
-      assert(appState.puzzle.solved);
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
+    if (i == puzzle.tileCount) {
+      assert(puzzle.solved);
       return const Center(
         child: Icon(
           Icons.thumb_up,
@@ -45,7 +45,7 @@ class ThemeSimple extends SharedTheme {
       );
     }
 
-    final correctPosition = appState.puzzle.isCorrectPosition(i);
+    final correctPosition = puzzle.isCorrectPosition(i);
 
     final content = createInk(
       Center(
@@ -61,7 +61,7 @@ class ThemeSimple extends SharedTheme {
     );
 
     return createButton(
-      appState,
+      puzzle,
       small,
       i,
       content,
