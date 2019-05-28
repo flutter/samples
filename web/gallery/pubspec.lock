@@ -174,7 +174,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "33ff2c514844990f016e528fa7053e3d749bad0c"
+      resolved-ref: "2f74e7aaf9c7323e844bf9ec1337f8a63d41cc98"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -183,7 +183,7 @@ packages:
     description:
       path: "packages/flutter_web_test"
       ref: HEAD
-      resolved-ref: "33ff2c514844990f016e528fa7053e3d749bad0c"
+      resolved-ref: "2f74e7aaf9c7323e844bf9ec1337f8a63d41cc98"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -192,7 +192,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "33ff2c514844990f016e528fa7053e3d749bad0c"
+      resolved-ref: "2f74e7aaf9c7323e844bf9ec1337f8a63d41cc98"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
