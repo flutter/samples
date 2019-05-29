@@ -44,7 +44,8 @@ class _PuzzleControls extends ChangeNotifier implements PuzzleControls {
   void reset() => _parent.puzzle.reset();
 }
 
-class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
+class PuzzleHomeState extends State
+    with SingleTickerProviderStateMixin, AppState {
   @override
   final PuzzleAnimator puzzle;
 
@@ -57,7 +58,7 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   StreamSubscription _puzzleEventSubscription;
 
   bool _autoPlay = false;
-  _PuzzleControls _autoPlayListsenable;
+  _PuzzleControls _autoPlayListenable;
 
   PuzzleHomeState(this.puzzle) {
     _puzzleEventSubscription = puzzle.onEvent.listen(_onPuzzleEvent);
@@ -66,7 +67,7 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   @override
   void initState() {
     super.initState();
-    _autoPlayListsenable = _PuzzleControls(this);
+    _autoPlayListenable = _PuzzleControls(this);
     _ticker ??= createTicker(_onTick);
     _ensureTicking();
   }
@@ -75,7 +76,7 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
     if (newValue != _autoPlay) {
       setState(() {
         // Only allow enabling autoPlay if the puzzle is not solved
-        _autoPlayListsenable._notify();
+        _autoPlayListenable._notify();
         _autoPlay = newValue && !puzzle.solved;
         if (_autoPlay) {
           _ensureTicking();
@@ -89,7 +90,7 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
         providers: [
           Provider<AppState>.value(value: this),
           ListenableProvider<PuzzleControls>.value(
-            listenable: _autoPlayListsenable,
+            listenable: _autoPlayListenable,
           )
         ],
         child: Material(
@@ -113,13 +114,13 @@ class PuzzleHomeState extends State with TickerProviderStateMixin, AppState {
   void dispose() {
     animationNotifier.dispose();
     _ticker?.dispose();
-    _autoPlayListsenable?.dispose();
+    _autoPlayListenable?.dispose();
     _puzzleEventSubscription.cancel();
     super.dispose();
   }
 
   void _onPuzzleEvent(PuzzleEvent e) {
-    _autoPlayListsenable._notify();
+    _autoPlayListenable._notify();
     if (e != PuzzleEvent.random) {
       _setAutoPlay(false);
     }
@@ -187,7 +188,10 @@ Widget _updateConstraints(
   final constraintWidth =
       constraints.hasBoundedWidth ? constraints.maxWidth : 1000.0;
 
-  return builder(constraintWidth < _smallWidth);
+  final constraintHeight =
+      constraints.hasBoundedHeight ? constraints.maxHeight : 1000.0;
+
+  return builder(constraintWidth < _smallWidth || constraintHeight < 690);
 }
 
 Widget _doBuild(BuildContext _, BoxConstraints constraints) =>
@@ -239,22 +243,22 @@ Widget _doBuildCore(bool small) => ValueTabController<SharedTheme>(
                                       .toList(),
                                 ),
                               ),
-                              Container(
-                                constraints:
-                                    const BoxConstraints.tightForFinite(),
-                                padding: const EdgeInsets.all(10),
-                                child: Flow(
-                                  delegate: PuzzleFlowDelegate(
-                                    small
-                                        ? const Size(90, 90)
-                                        : const Size(140, 140),
-                                    appState.puzzle,
-                                    appState.animationNotifier,
-                                  ),
-                                  children: List<Widget>.generate(
-                                    appState.puzzle.length,
-                                    (i) => theme.tileButtonCore(
-                                        i, appState.puzzle, small),
+                              Flexible(
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Flow(
+                                    delegate: PuzzleFlowDelegate(
+                                      small
+                                          ? const Size(90, 90)
+                                          : const Size(140, 140),
+                                      appState.puzzle,
+                                      appState.animationNotifier,
+                                    ),
+                                    children: List<Widget>.generate(
+                                      appState.puzzle.length,
+                                      (i) => theme.tileButtonCore(
+                                          i, appState.puzzle, small),
+                                    ),
                                   ),
                                 ),
                               ),
