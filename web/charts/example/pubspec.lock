@@ -105,7 +105,7 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.5.0"
+    version: "6.6.0"
   charcode:
     dependency: transitive
     description:
@@ -181,7 +181,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "2f74e7aaf9c7323e844bf9ec1337f8a63d41cc98"
+      resolved-ref: "609501b626a536270e3320703e5a07adee5cc8f5"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -190,7 +190,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "2f74e7aaf9c7323e844bf9ec1337f8a63d41cc98"
+      resolved-ref: "609501b626a536270e3320703e5a07adee5cc8f5"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -305,7 +305,7 @@ packages:
       name: mime
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.6+2"
+    version: "0.9.6+3"
   package_config:
     dependency: transitive
     description:

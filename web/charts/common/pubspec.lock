@@ -168,7 +168,7 @@ packages:
       name: mime
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.6+2"
+    version: "0.9.6+3"
   mockito:
     dependency: "direct dev"
     description:
