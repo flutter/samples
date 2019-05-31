@@ -14,7 +14,7 @@ packages:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.1"
+    version: "1.5.2"
   async:
     dependency: transitive
     description:
@@ -76,7 +76,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "609501b626a536270e3320703e5a07adee5cc8f5"
+      resolved-ref: "59a775af75df1f4e5d1e04976a902b5e71f64f8f"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -85,7 +85,7 @@ packages:
     description:
       path: "packages/flutter_web_test"
       ref: HEAD
-      resolved-ref: "609501b626a536270e3320703e5a07adee5cc8f5"
+      resolved-ref: "59a775af75df1f4e5d1e04976a902b5e71f64f8f"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -94,7 +94,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "609501b626a536270e3320703e5a07adee5cc8f5"
+      resolved-ref: "59a775af75df1f4e5d1e04976a902b5e71f64f8f"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -209,7 +209,7 @@ packages:
       name: mockito
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "4.1.0"
   multi_server_socket:
     dependency: transitive
     description:
