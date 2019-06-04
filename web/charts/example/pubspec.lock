@@ -181,7 +181,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "59a775af75df1f4e5d1e04976a902b5e71f64f8f"
+      resolved-ref: "69acfd97c5a7bf0605e9a01df7749716ceb1707f"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -190,7 +190,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "59a775af75df1f4e5d1e04976a902b5e71f64f8f"
+      resolved-ref: "69acfd97c5a7bf0605e9a01df7749716ceb1707f"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
