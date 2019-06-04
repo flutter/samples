@@ -16,15 +16,14 @@
 import 'dart:math';
 
 import 'package:charts_common/src/chart/common/base_chart.dart';
+import 'package:charts_common/src/chart/common/behavior/initial_selection.dart';
 import 'package:charts_common/src/chart/common/chart_canvas.dart';
 import 'package:charts_common/src/chart/common/datum_details.dart';
-import 'package:charts_common/src/chart/common/behavior/initial_selection.dart';
 import 'package:charts_common/src/chart/common/processed_series.dart';
+import 'package:charts_common/src/chart/common/selection_model/selection_model.dart';
 import 'package:charts_common/src/chart/common/series_datum.dart';
 import 'package:charts_common/src/chart/common/series_renderer.dart';
-import 'package:charts_common/src/chart/common/selection_model/selection_model.dart';
 import 'package:charts_common/src/data/series.dart';
-
 import 'package:test/test.dart';
 
 class FakeRenderer extends BaseSeriesRenderer {
@@ -86,25 +85,25 @@ void main() {
         id: 'mySeries1',
         data: ['A', 'B', 'C', 'D'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
     _series2 = new MutableSeries(new Series(
         id: 'mySeries2',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
     _series3 = new MutableSeries(new Series(
         id: 'mySeries3',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
     _series4 = new MutableSeries(new Series(
         id: 'mySeries4',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
   });
 
   test('selects initial datum', () {
@@ -202,7 +201,7 @@ void main() {
             id: 'mySeries2',
             data: ['W', 'X', 'Y', 'Z'],
             domainFn: (dynamic datum, __) => datum,
-            measureFn: (_, __) {})
+            measureFn: (_, __) => 0)
       ],
     );
 

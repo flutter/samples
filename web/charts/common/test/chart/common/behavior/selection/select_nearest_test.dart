@@ -110,7 +110,7 @@ void main() {
         id: 'mySeries1',
         data: ['myDatum1', 'myDatum2', 'myDatum3'],
         domainFn: (_, int i) => _series1Data[i],
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
     _details1 = new DatumDetails(
         datum: 'myDatum1',
@@ -137,7 +137,7 @@ void main() {
         id: 'mySeries2',
         data: ['myDatum1s2'],
         domainFn: (_, int i) => _series2Data[i],
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
     _details1Series2 = new DatumDetails(
         datum: 'myDatum1s2',
