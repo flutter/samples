@@ -155,7 +155,7 @@ class _TriviaViewState extends State<TriviaView> {
     );
   }
 
-  // Presents the current trivia's question and answer choices. A
+  // Presents the current trivia's question and answer choices.
   Widget _buildQuestionView() {
     return Padding(
       padding: const EdgeInsets.all(16),

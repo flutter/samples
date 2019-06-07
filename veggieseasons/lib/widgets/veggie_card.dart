@@ -41,7 +41,7 @@ class FrostyBackground extends StatelessWidget {
 class PressableCard extends StatefulWidget {
   const PressableCard({
     @required this.child,
-    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.borderRadius = const BorderRadius.all(Radius.circular(5)),
     this.upElevation = 2,
     this.downElevation = 0,
     this.shadowColor = CupertinoColors.black,

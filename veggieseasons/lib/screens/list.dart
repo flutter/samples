@@ -15,10 +15,8 @@ import 'package:veggieseasons/widgets/veggie_card.dart';
 class ListScreen extends StatelessWidget {
   List<Widget> _generateVeggieRows(List<Veggie> veggies, Preferences prefs,
       {bool inSeason = true}) {
-    final cards = List<Widget>();
-
-    for (Veggie veggie in veggies) {
-      cards.add(Padding(
+    return veggies.map((veggie) {
+      return Padding(
         padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
         child: FutureBuilder<Set<VeggieCategory>>(
             future: prefs.preferredCategories,
@@ -27,10 +25,8 @@ class ListScreen extends StatelessWidget {
               return VeggieCard(
                   veggie, inSeason, data.contains(veggie.category));
             }),
-      ));
-    }
-
-    return cards;
+      );
+    }).toList();
   }
 
   @override
