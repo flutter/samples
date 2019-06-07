@@ -102,6 +102,9 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
               defaultTitle: ProfileTab.title,
               builder: (context) => ProfileTab(),
             );
+          default:
+            assert(false, 'Unexpected tab');
+            return null;
         }
       },
     );
