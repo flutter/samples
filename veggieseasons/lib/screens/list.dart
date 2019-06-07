@@ -13,20 +13,16 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
-  List<Widget> _generateVeggieRows(List<Veggie> veggies, Preferences prefs,
-      {bool inSeason = true}) {
-    return veggies.map((veggie) {
-      return Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-        child: FutureBuilder<Set<VeggieCategory>>(
-            future: prefs.preferredCategories,
-            builder: (context, snapshot) {
-              final data = snapshot.data ?? Set<VeggieCategory>();
-              return VeggieCard(
-                  veggie, inSeason, data.contains(veggie.category));
-            }),
-      );
-    }).toList();
+  Widget _generateVeggieRow(veggie, Preferences prefs, {bool inSeason = true}) {
+    return Padding(
+      padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+      child: FutureBuilder<Set<VeggieCategory>>(
+          future: prefs.preferredCategories,
+          builder: (context, snapshot) {
+            final data = snapshot.data ?? Set<VeggieCategory>();
+            return VeggieCard(veggie, inSeason, data.contains(veggie.category));
+          }),
+    );
   }
 
   @override
@@ -42,26 +38,38 @@ class ListScreen extends StatelessWidget {
 
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
-          child: ListView(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(dateString.toUpperCase(), style: Styles.minorText),
-                    Text('In season today', style: Styles.headlineText),
-                  ],
-                ),
-              ),
-              ..._generateVeggieRows(appState.availableVeggies, prefs),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                child: Text('Not in season', style: Styles.headlineText),
-              ),
-              ..._generateVeggieRows(appState.unavailableVeggies, prefs,
-                  inSeason: false),
-            ],
+          child: ListView.builder(
+            itemCount: appState.allVeggies.length + 2,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(dateString.toUpperCase(), style: Styles.minorText),
+                      Text('In season today', style: Styles.headlineText),
+                    ],
+                  ),
+                );
+              } else if (index <= appState.availableVeggies.length) {
+                return _generateVeggieRow(
+                  appState.availableVeggies[index - 1],
+                  prefs,
+                );
+              } else if (index <= appState.availableVeggies.length + 1) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                  child: Text('Not in season', style: Styles.headlineText),
+                );
+              } else {
+                int relativeIndex =
+                    index - (appState.availableVeggies.length + 2);
+                return _generateVeggieRow(
+                    appState.unavailableVeggies[relativeIndex], prefs,
+                    inSeason: false);
+              }
+            },
           ),
         );
       },
