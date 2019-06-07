@@ -11,15 +11,15 @@ abstract class Styles {
   static const headlineText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
     fontFamily: 'NotoSans',
-    fontSize: 32.0,
+    fontSize: 32,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
 
   static const minorText = TextStyle(
-    color: Color.fromRGBO(128, 128, 128, 1.0),
+    color: Color.fromRGBO(128, 128, 128, 1),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -27,7 +27,7 @@ abstract class Styles {
   static const headlineName = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 24.0,
+    fontSize: 24,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -35,7 +35,7 @@ abstract class Styles {
   static const headlineDescription = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -43,7 +43,7 @@ abstract class Styles {
   static const cardTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 32.0,
+    fontSize: 32,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -51,7 +51,7 @@ abstract class Styles {
   static const cardCategoryText = TextStyle(
     color: Color.fromRGBO(255, 255, 255, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -59,7 +59,7 @@ abstract class Styles {
   static const cardDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -67,7 +67,7 @@ abstract class Styles {
   static const detailsTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 30.0,
+    fontSize: 30,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -75,7 +75,7 @@ abstract class Styles {
   static const detailsPreferredCategoryText = TextStyle(
     color: Color.fromRGBO(0, 80, 0, 0.7),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -83,7 +83,7 @@ abstract class Styles {
   static const detailsCategoryText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.7),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -91,7 +91,7 @@ abstract class Styles {
   static const detailsDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -99,15 +99,15 @@ abstract class Styles {
   static const detailsBoldDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
 
   static const detailsServingHeaderText = TextStyle(
-    color: Color.fromRGBO(176, 176, 176, 1.0),
+    color: Color.fromRGBO(176, 176, 176, 1),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -115,7 +115,7 @@ abstract class Styles {
   static const detailsServingLabelText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
@@ -123,7 +123,7 @@ abstract class Styles {
   static const detailsServingValueText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -131,7 +131,7 @@ abstract class Styles {
   static const detailsServingNoteText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
   );
@@ -139,7 +139,7 @@ abstract class Styles {
   static const triviaFinishedTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 32.0,
+    fontSize: 32,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -147,7 +147,7 @@ abstract class Styles {
   static const triviaFinishedText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 16.0,
+    fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -155,7 +155,7 @@ abstract class Styles {
   static const triviaFinishedBigText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
     fontFamily: 'NotoSans',
-    fontSize: 48.0,
+    fontSize: 48,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
@@ -173,16 +173,16 @@ abstract class Styles {
   static const closeButtonPressed = Color(0xff808080);
 
   static const TextStyle searchText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 1.0),
+    color: Color.fromRGBO(0, 0, 0, 1),
     fontFamily: 'NotoSans',
-    fontSize: 14.0,
+    fontSize: 14,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
 
-  static const Color searchCursorColor = Color.fromRGBO(0, 122, 255, 1.0);
+  static const Color searchCursorColor = Color.fromRGBO(0, 122, 255, 1);
 
-  static const Color searchIconColor = Color.fromRGBO(128, 128, 128, 1.0);
+  static const Color searchIconColor = Color.fromRGBO(128, 128, 128, 1);
 
   static const seasonColors = <Season, Color>{
     Season.winter: Color(0xff336dcc),
@@ -194,10 +194,10 @@ abstract class Styles {
   // While handy, some of the Font Awesome icons sometimes bleed over their
   // allotted bounds. This padding is used to adjust for that.
   static const seasonIconPadding = {
-    Season.winter: const EdgeInsets.only(right: 0.0),
-    Season.spring: const EdgeInsets.only(right: 4.0),
-    Season.summer: const EdgeInsets.only(right: 6.0),
-    Season.autumn: const EdgeInsets.only(right: 0.0),
+    Season.winter: const EdgeInsets.only(right: 0),
+    Season.spring: const EdgeInsets.only(right: 4),
+    Season.summer: const EdgeInsets.only(right: 6),
+    Season.autumn: const EdgeInsets.only(right: 0),
   };
 
   static const seasonIconData = {

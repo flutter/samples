@@ -139,7 +139,7 @@ class SettingsScreen extends StatelessWidget {
           return Row(
             children: [
               Text(snapshot.data?.toString() ?? ''),
-              SizedBox(width: 8.0),
+              SizedBox(width: 8),
               SettingsNavigationIndicator(),
             ],
           );

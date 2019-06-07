@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _createSearchBox() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: SearchBar(
         controller: controller,
         focusNode: focusNode,
@@ -51,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
     if (veggies.isEmpty) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
             'No veggies matching your search terms were found.',
             style: Styles.headlineDescription,
@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: veggies.length,
       itemBuilder: (context, i) {
         return Padding(
-          padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 24.0),
+          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
           child: VeggieHeadline(veggies[i]),
         );
       },
