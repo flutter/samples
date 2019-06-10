@@ -11,7 +11,7 @@ class SongsTab extends StatefulWidget {
   static const androidIcon = Icon(Icons.music_note);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const SongsTab({ Key key, this.androidDrawer }) : super(key: key);
+  const SongsTab({Key key, this.androidDrawer}) : super(key: key);
 
   final Widget androidDrawer;
 
@@ -47,8 +47,7 @@ class _SongsTabState extends State<SongsTab> {
   }
 
   Widget _listBuilder(context, index) {
-    if (index >= _itemsLength)
-      return null;
+    if (index >= _itemsLength) return null;
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
@@ -65,13 +64,15 @@ class _SongsTabState extends State<SongsTab> {
           song: songNames[index],
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SongDetailTab(
-              id: index,
-              song: songNames[index],
-              color: color,
-            ),
-          )),
+          onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SongDetailTab(
+                        id: index,
+                        song: songNames[index],
+                        color: color,
+                      ),
+                ),
+              ),
         ),
       ),
     );
@@ -138,7 +139,7 @@ class _SongsTabState extends State<SongsTab> {
         CupertinoSliverNavigationBar(
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
-            child: Icon(CupertinoIcons.shuffle),
+            child: Icon(CupertinoIcons.shuffle_thick),
             onPressed: _togglePlatform,
           ),
         ),

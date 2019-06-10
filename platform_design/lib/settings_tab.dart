@@ -13,8 +13,13 @@ class SettingsTab extends StatefulWidget {
 }
 
 class _SettingsTabState extends State<SettingsTab> {
-  var switch1 = false; var switch2 = true; var switch3 = true; var switch4 = true;
-  var switch5 = true; var switch6 = false; var switch7 = true;
+  var switch1 = false;
+  var switch2 = true;
+  var switch3 = true;
+  var switch4 = true;
+  var switch5 = true;
+  var switch6 = false;
+  var switch7 = true;
 
   Widget _buildList() {
     return ListView(

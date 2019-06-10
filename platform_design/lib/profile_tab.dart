@@ -18,10 +18,13 @@ class ProfileTab extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8),
               child: Center(
-                child: Text('😼', style: TextStyle(
-                  fontSize: 80,
-                  decoration: TextDecoration.none,
-                )),
+                child: Text(
+                  '😼',
+                  style: TextStyle(
+                    fontSize: 80,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
               ),
             ),
             PreferenceCard(
@@ -102,7 +105,7 @@ class ProfileTab extends StatelessWidget {
 }
 
 class PreferenceCard extends StatelessWidget {
-  const PreferenceCard({ this.header, this.content, this.preferenceChoices });
+  const PreferenceCard({this.header, this.content, this.preferenceChoices});
 
   final String header;
   final String content;
@@ -157,7 +160,8 @@ class PreferenceCard extends StatelessWidget {
 }
 
 class LogOutButton extends StatelessWidget {
-  static const _logoutMessage = Text('You may check out any time you like, but you can never leave');
+  static const _logoutMessage =
+      Text('You may check out any time you like, but you can never leave');
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On
@@ -183,7 +187,7 @@ class LogOutButton extends StatelessWidget {
               actions: [
                 FlatButton(
                   child: const Text('Go back'),
-                  onPressed: () => Navigator.pop(context) ,
+                  onPressed: () => Navigator.pop(context),
                 ),
                 FlatButton(
                   child: const Text('Cancel'),
@@ -191,8 +195,8 @@ class LogOutButton extends StatelessWidget {
                 ),
               ],
             );
-          }
-        );
+          },
+         );
       },
     );
   }

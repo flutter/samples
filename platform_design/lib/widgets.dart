@@ -8,9 +8,9 @@ class PlatformWidget extends StatelessWidget {
     Key key,
     @required this.androidBuilder,
     @required this.iosBuilder,
-  }) : assert(androidBuilder != null),
-       assert(iosBuilder != null),
-       super(key: key);
+  })  : assert(androidBuilder != null),
+        assert(iosBuilder != null),
+        super(key: key);
 
   final WidgetBuilder androidBuilder;
   final WidgetBuilder iosBuilder;
@@ -50,7 +50,8 @@ class PressableCard extends StatefulWidget {
   State<StatefulWidget> createState() => new _PressableCardState();
 }
 
-class _PressableCardState extends State<PressableCard> with SingleTickerProviderStateMixin {
+class _PressableCardState extends State<PressableCard>
+    with SingleTickerProviderStateMixin {
   bool pressed = false;
   AnimationController controller;
   Animation<double> elevationAnimation;
@@ -61,7 +62,8 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
       vsync: this,
       duration: const Duration(milliseconds: 40),
     );
-    elevationAnimation = controller.drive(CurveTween(curve: Curves.easeInOutCubic));
+    elevationAnimation =
+        controller.drive(CurveTween(curve: Curves.easeInOutCubic));
     super.initState();
   }
 
@@ -76,8 +78,14 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
   @override
   Widget build(context) {
     return Listener(
-      onPointerDown: (details) { if (widget.onPressed != null) { controller.forward(); } },
-      onPointerUp: (details) { controller.reverse(); },
+      onPointerDown: (details) {
+        if (widget.onPressed != null) {
+          controller.forward();
+        }
+      },
+      onPointerUp: (details) {
+        controller.reverse();
+      },
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
@@ -90,7 +98,8 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
         // hero animation. You likely want to modularize them more in your own
         // app.
         child: AnimatedBuilder(
-          animation: Listenable.merge([elevationAnimation, widget.flattenAnimation]),
+          animation:
+              Listenable.merge([elevationAnimation, widget.flattenAnimation]),
           child: widget.child,
           builder: (context, child) {
             return Transform.scale(
@@ -98,9 +107,11 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
               // in your own app.
               scale: 1 - elevationAnimation.value * 0.03,
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16) * flatten,
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16) *
+                    flatten,
                 child: PhysicalModel(
-                  elevation: ((1 - elevationAnimation.value) * 10 + 10) * flatten,
+                  elevation:
+                      ((1 - elevationAnimation.value) * 10 + 10) * flatten,
                   borderRadius: BorderRadius.circular(12 * flatten),
                   clipBehavior: Clip.antiAlias,
                   color: widget.color,
@@ -123,7 +134,8 @@ class _PressableCardState extends State<PressableCard> with SingleTickerProvider
 /// This is an example of a custom widget that an app developer might create for
 /// use on both iOS and Android as part of their brand's unique design.
 class HeroAnimatingSongCard extends StatelessWidget {
-  HeroAnimatingSongCard({ this.song, this.color, this.heroAnimation, this.onPressed });
+  HeroAnimatingSongCard(
+      {this.song, this.color, this.heroAnimation, this.onPressed});
 
   final String song;
   final Color color;
@@ -154,7 +166,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
               children: [
                 // The song title banner slides off in the hero animation.
                 Positioned(
-                  bottom: - 80 * heroAnimation.value,
+                  bottom: -80 * heroAnimation.value,
                   left: 0,
                   right: 0,
                   child: Container(
@@ -173,7 +185,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
                 ),
                 // The play button grows in the hero animation.
                 Padding(
-                  padding: EdgeInsets.only(bottom: 45) * (1 - heroAnimation.value),
+                  padding:
+                      EdgeInsets.only(bottom: 45) * (1 - heroAnimation.value),
                   child: Container(
                     height: playButtonSize,
                     width: playButtonSize,
@@ -182,7 +195,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
                       color: Colors.black12,
                     ),
                     alignment: Alignment.center,
-                    child: Icon(Icons.play_arrow, size: playButtonSize, color: Colors.black38),
+                    child: Icon(Icons.play_arrow,
+                        size: playButtonSize, color: Colors.black38),
                   ),
                 ),
               ],
@@ -315,17 +329,19 @@ void showChoices(BuildContext context, List<String> choices) {
               itemExtent: 40,
               scrollController: FixedExtentScrollController(initialItem: 1),
               children: List<Widget>.generate(choices.length, (index) {
-                return Center(child: Text(
-                  choices[index],
-                  style: TextStyle(
-                    fontSize: 21,
+                return Center(
+                  child: Text(
+                    choices[index],
+                    style: TextStyle(
+                      fontSize: 21,
+                    ),
                   ),
-                ));
+                );
               }),
               onSelectedItemChanged: (value) {},
             ),
           );
-        }
+        },
       );
       return;
     default:
