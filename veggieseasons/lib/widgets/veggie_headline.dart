@@ -7,6 +7,39 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
+class ZoomClipAssetImage extends StatelessWidget {
+  const ZoomClipAssetImage(
+      {@required this.zoom,
+      this.height,
+      this.width,
+      @required this.imageAsset});
+
+  final double zoom;
+  final double height;
+  final double width;
+  final String imageAsset;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      width: width,
+      alignment: Alignment.center,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: OverflowBox(
+          maxHeight: height * zoom,
+          maxWidth: width * zoom,
+          child: Image.asset(
+            imageAsset,
+            fit: BoxFit.fill,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class VeggieHeadline extends StatelessWidget {
   final Veggie veggie;
 
@@ -16,14 +49,14 @@ class VeggieHeadline extends StatelessWidget {
     List<Widget> widgets = <Widget>[];
 
     for (Season season in seasons) {
-      widgets.add(SizedBox(width: 4.0));
+      widgets.add(SizedBox(width: 4));
       widgets.add(
         Container(
-          height: 10.0,
-          width: 10.0,
+          height: 10,
+          width: 10,
           decoration: BoxDecoration(
             color: Styles.seasonColors[season],
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
       );
@@ -42,31 +75,28 @@ class VeggieHeadline extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: 80.0,
-            height: 80.0,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset(
-                veggie.imageAssetPath,
-                semanticLabel: 'An icon showing ${veggie.name}',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
+          ZoomClipAssetImage(
+            imageAsset: veggie.imageAssetPath,
+            zoom: 2.4,
+            height: 72,
+            width: 72,
           ),
-          SizedBox(width: 8.0),
+          SizedBox(width: 8),
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: <Widget>[
+                  children: [
                     Text(veggie.name, style: Styles.headlineName),
-                  ]..addAll(_buildSeasonDots(veggie.seasons)),
+                    ..._buildSeasonDots(veggie.seasons),
+                  ],
                 ),
-                Text(veggie.shortDescription,
-                    style: Styles.headlineDescription),
+                Text(
+                  veggie.shortDescription,
+                  style: Styles.headlineDescription,
+                ),
               ],
             ),
           )

@@ -22,9 +22,9 @@ class SettingsGroupHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: 15.0,
-        right: 15.0,
-        bottom: 6.0,
+        left: 15,
+        right: 15,
+        bottom: 6,
       ),
       child: Text(
         title.toUpperCase(),
@@ -47,15 +47,15 @@ class SettingsGroupFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: 15.0,
-        right: 15.0,
+        left: 15,
+        right: 15,
         top: 7.5,
       ),
       child: Text(
         title,
         style: TextStyle(
           color: Styles.settingsGroupSubtitle,
-          fontSize: 13.0,
+          fontSize: 13,
           letterSpacing: -0.08,
         ),
       ),
@@ -87,45 +87,35 @@ class SettingsGroup extends StatelessWidget {
       dividedItems.add(items[i]);
     }
 
-    final List<Widget> columnChildren = [];
-
-    if (header != null) {
-      columnChildren.add(header);
-    }
-
-    columnChildren.add(
-      Container(
-        decoration: BoxDecoration(
-          color: CupertinoColors.white,
-          border: Border(
-            top: const BorderSide(
-              color: Styles.settingsLineation,
-              width: 0.0,
-            ),
-            bottom: const BorderSide(
-              color: Styles.settingsLineation,
-              width: 0.0,
-            ),
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: dividedItems,
-        ),
-      ),
-    );
-
-    if (footer != null) {
-      columnChildren.add(footer);
-    }
-
     return Padding(
       padding: EdgeInsets.only(
-        top: header == null ? 35.0 : 22.0,
+        top: header == null ? 35 : 22,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: columnChildren,
+        children: [
+          if (header != null) header,
+          Container(
+            decoration: BoxDecoration(
+              color: CupertinoColors.white,
+              border: Border(
+                top: const BorderSide(
+                  color: Styles.settingsLineation,
+                  width: 0,
+                ),
+                bottom: const BorderSide(
+                  color: Styles.settingsLineation,
+                  width: 0,
+                ),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: dividedItems,
+            ),
+          ),
+          if (footer != null) footer,
+        ],
       ),
     );
   }

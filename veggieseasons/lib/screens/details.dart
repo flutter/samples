@@ -42,13 +42,13 @@ class ServingInfoChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 16.0),
+        SizedBox(height: 16),
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.only(
-              left: 9.0,
-              bottom: 4.0,
+              left: 9,
+              bottom: 4,
             ),
             child: Text(
               'Serving info',
@@ -60,7 +60,7 @@ class ServingInfoChart extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: Styles.servingInfoBorderColor),
           ),
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               Table(
@@ -134,7 +134,7 @@ class ServingInfoChart extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 16.0),
+                padding: const EdgeInsets.only(top: 16),
                 child: FutureBuilder(
                   future: prefs.desiredCalories,
                   builder: (context, snapshot) {
@@ -164,24 +164,8 @@ class InfoView extends StatelessWidget {
     final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
     final veggie = appState.getVeggie(id);
 
-    final seasonIcons = <Widget>[];
-
-    for (Season season in veggie.seasons) {
-      seasonIcons.addAll([
-        SizedBox(width: 12.0),
-        Padding(
-          padding: Styles.seasonIconPadding[season],
-          child: Icon(
-            Styles.seasonIconData[season],
-            semanticLabel: seasonNames[season],
-            color: Styles.seasonColors[season],
-          ),
-        ),
-      ]);
-    }
-
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -201,20 +185,31 @@ class InfoView extends StatelessWidget {
                 },
               ),
               Spacer(),
-            ]..addAll(seasonIcons),
+              for (Season season in veggie.seasons) ...[
+                SizedBox(width: 12),
+                Padding(
+                  padding: Styles.seasonIconPadding[season],
+                  child: Icon(
+                    Styles.seasonIconData[season],
+                    semanticLabel: seasonNames[season],
+                    color: Styles.seasonColors[season],
+                  ),
+                ),
+              ],
+            ],
           ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 8),
           Text(
             veggie.name,
             style: Styles.detailsTitleText,
           ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 8),
           Text(
             veggie.shortDescription,
             style: Styles.detailsDescriptionText,
           ),
           ServingInfoChart(veggie, prefs),
-          SizedBox(height: 24.0),
+          SizedBox(height: 24),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -224,7 +219,7 @@ class InfoView extends StatelessWidget {
                   appState.setFavorite(id, value);
                 },
               ),
-              SizedBox(width: 8.0),
+              SizedBox(width: 8),
               Text('Save to Garden'),
             ],
           ),
@@ -250,12 +245,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
     final veggie = model.getVeggie(widget.id);
 
     return SizedBox(
-      height: 150.0,
+      height: 150,
       child: Stack(
         children: [
           Positioned(
-            right: 0.0,
-            left: 0.0,
+            right: 0,
+            left: 0,
             child: Image.asset(
               veggie.imageAssetPath,
               fit: BoxFit.cover,
@@ -263,8 +258,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
           Positioned(
-            top: 16.0,
-            left: 16.0,
+            top: 16,
+            left: 16,
             child: SafeArea(
               child: CloseButton(() {
                 Navigator.of(context).pop();

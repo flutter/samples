@@ -107,14 +107,14 @@ class _TriviaViewState extends State<TriviaView> {
   // restart everything.
   Widget _buildFinishedView() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.all(32),
       child: Column(
         children: [
           Text(
             'All done!',
             style: Styles.triviaFinishedTitleText,
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 16),
           Text(
             'You answered',
             style: Styles.triviaFinishedText,
@@ -129,7 +129,7 @@ class _TriviaViewState extends State<TriviaView> {
                 style: Styles.triviaFinishedBigText,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   ' of ',
                   style: Styles.triviaFinishedText,
@@ -145,7 +145,7 @@ class _TriviaViewState extends State<TriviaView> {
             'questions correctly!',
             style: Styles.triviaFinishedText,
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 16),
           CupertinoButton(
             child: Text('Try Again'),
             onPressed: () => _resetGame(),
@@ -157,30 +157,26 @@ class _TriviaViewState extends State<TriviaView> {
 
   // Presents the current trivia's question and answer choices.
   Widget _buildQuestionView() {
-    List<Widget> buttons = [];
-
-    for (int i = 0; i < currentTrivia.answers.length; i++) {
-      buttons.add(Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CupertinoButton(
-          color: CupertinoColors.activeBlue,
-          child: Text(
-            currentTrivia.answers[i],
-            textAlign: TextAlign.center,
-          ),
-          onPressed: () => _processAnswer(i),
-        ),
-      ));
-    }
-
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          SizedBox(height: 16.0),
+          SizedBox(height: 16),
           Text(currentTrivia.question),
-          SizedBox(height: 32.0),
-        ]..addAll(buttons),
+          SizedBox(height: 32),
+          for (int i = 0; i < currentTrivia.answers.length; i++)
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: CupertinoButton(
+                color: CupertinoColors.activeBlue,
+                child: Text(
+                  currentTrivia.answers[i],
+                  textAlign: TextAlign.center,
+                ),
+                onPressed: () => _processAnswer(i),
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -189,13 +185,13 @@ class _TriviaViewState extends State<TriviaView> {
   // continue through the game.
   Widget _buildResultView() {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.all(32),
       child: Column(
         children: [
           Text(status == PlayerStatus.wasCorrect
               ? 'That\'s right!'
               : 'Sorry, that wasn\'t the right answer.'),
-          SizedBox(height: 16.0),
+          SizedBox(height: 16),
           CupertinoButton(
             child: Text('Next Question'),
             onPressed: () => setState(() {

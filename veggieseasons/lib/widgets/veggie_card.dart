@@ -2,19 +2,48 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
+
+class FrostyBackground extends StatelessWidget {
+  const FrostyBackground({
+    this.color,
+    this.intensity = 25,
+    this.child,
+  });
+
+  final Color color;
+  final double intensity;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: intensity, sigmaY: intensity),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: color,
+          ),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
 
 /// A Card-like Widget that responds to tap events by animating changes to its
 /// elevation and invoking an optional [onPressed] callback.
 class PressableCard extends StatefulWidget {
   const PressableCard({
     @required this.child,
-    this.borderRadius = const BorderRadius.all(Radius.circular(10.0)),
-    this.upElevation = 2.0,
-    this.downElevation = 0.0,
+    this.borderRadius = const BorderRadius.all(Radius.circular(5)),
+    this.upElevation = 2,
+    this.downElevation = 0,
     this.shadowColor = CupertinoColors.black,
     this.duration = const Duration(milliseconds: 100),
     this.onPressed,
@@ -89,12 +118,10 @@ class VeggieCard extends StatelessWidget {
   final bool isPreferredCategory;
 
   Widget _buildDetails() {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: veggie.accentColor,
-      ),
+    return FrostyBackground(
+      color: Color(0x90ffffff),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -126,7 +153,7 @@ class VeggieCard extends StatelessWidget {
           Semantics(
             label: 'A card background featuring ${veggie.name}',
             child: Container(
-              height: isInSeason ? 350 : 150,
+              height: isInSeason ? 300 : 150,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -140,9 +167,9 @@ class VeggieCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
+            bottom: 0,
+            left: 0,
+            right: 0,
             child: _buildDetails(),
           ),
         ],
