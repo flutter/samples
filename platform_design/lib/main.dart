@@ -46,7 +46,8 @@ class MyAdaptingApp extends StatelessWidget {
 // depending on the app and content.
 class PlatformAdaptingHomePage extends StatefulWidget {
   @override
-  _PlatformAdaptingHomePageState createState() => _PlatformAdaptingHomePageState();
+  _PlatformAdaptingHomePageState createState() =>
+      _PlatformAdaptingHomePageState();
 }
 
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
@@ -80,9 +81,12 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
-          BottomNavigationBarItem(title: Text(SongsTab.title), icon: SongsTab.iosIcon),
-          BottomNavigationBarItem(title: Text(NewsTab.title), icon: NewsTab.iosIcon),
-          BottomNavigationBarItem(title: Text(ProfileTab.title), icon: ProfileTab.iosIcon),
+          BottomNavigationBarItem(
+              title: Text(SongsTab.title), icon: SongsTab.iosIcon),
+          BottomNavigationBarItem(
+              title: Text(NewsTab.title), icon: NewsTab.iosIcon),
+          BottomNavigationBarItem(
+              title: Text(ProfileTab.title), icon: ProfileTab.iosIcon),
         ],
       ),
       tabBuilder: (context, index) {
@@ -149,9 +153,8 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => NewsTab()
-              ));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => NewsTab()));
             },
           ),
           ListTile(
@@ -159,9 +162,8 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(ProfileTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => ProfileTab()
-              ));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfileTab()));
             },
           ),
           // Long drawer contents are often segmented.
@@ -174,9 +176,8 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(SettingsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => SettingsTab()
-              ));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SettingsTab()));
             },
           ),
         ],

@@ -11,8 +11,16 @@ import 'package:flutter/material.dart';
 // This file has a number of platform-agnostic non-Widget utility functions.
 
 const _myListOfRandomColors = [
-  Colors.red, Colors.blue, Colors.teal, Colors.yellow, Colors.amber,
-  Colors.deepOrange, Colors.green, Colors.indigo, Colors.lime, Colors.pink,
+  Colors.red,
+  Colors.blue,
+  Colors.teal,
+  Colors.yellow,
+  Colors.amber,
+  Colors.deepOrange,
+  Colors.green,
+  Colors.indigo,
+  Colors.lime,
+  Colors.pink,
   Colors.orange,
 ];
 
@@ -32,8 +40,7 @@ Iterable<WordPair> generateWordPair() sync* {
     }
     final suffix = pickRandom(nouns);
 
-    if (filterWord(prefix) || filterWord(suffix))
-      continue;
+    if (filterWord(prefix) || filterWord(suffix)) continue;
 
     final wordPair = WordPair(prefix, suffix);
     yield wordPair;

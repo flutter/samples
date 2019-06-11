@@ -8,7 +8,7 @@ import 'widgets.dart';
 // On Android, this page sits at the top of your app. On iOS, this page is on
 // top of the songs tab's content but is below the tab bar itself.
 class SongDetailTab extends StatelessWidget {
-  const SongDetailTab({ this.id, this.song, this.color });
+  const SongDetailTab({this.id, this.song, this.color});
 
   final int id;
   final String song;
@@ -33,7 +33,8 @@ class SongDetailTab extends StatelessWidget {
             // to build while the hero transition is mid-flight.
             //
             // It could either be specified here or in SongsTab.
-            flightShuttleBuilder: (context, animation, flightDirection, fromHeroContext, toHeroContext) {
+            flightShuttleBuilder: (context, animation, flightDirection,
+                fromHeroContext, toHeroContext) {
               return HeroAnimatingSongCard(
                 song: song,
                 color: color,
@@ -51,11 +52,15 @@ class SongDetailTab extends StatelessWidget {
               itemBuilder: (context, index) {
                 if (index == 0) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 15, top: 16, bottom: 8),
-                    child: Text('You might also like:', style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    )),
+                    padding:
+                        const EdgeInsets.only(left: 15, top: 16, bottom: 8),
+                    child: Text(
+                      'You might also like:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   );
                 }
                 // Just a bunch of boxes that simulates loading song choices.
