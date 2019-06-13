@@ -1,14 +1,13 @@
-# isolate_example
+# Isolate Example
 
-A sample application that demonstrate best practices when using [`isolates`](https://api.dartlang.org/stable/2.3.1/dart-isolate/Isolate-class.html). in several cases with flutter.
-Flutter SDK to isolates, which include:
+A sample application that demonstrate best practices when using [`isolates`](https://api.dartlang.org/stable/2.3.1/dart-isolate/Isolate-class.html).
 
 ## Goals
 
-* Display the performance benefits of isolates when using them in the right situation 
-* Show how to use the compute method for straightforward computations
-* Demonstrate how to initialize and take advantage of a new isolates with common useful functionality
-* Show the cost of moving data between isolates and provide alternatives 
+* Display the performance benefits of isolates when using them in the right situation.
+* Show how to use the `compute` method for straightforward computations.
+* Demonstrate how to initialize and use an isolate.
+* Show the cost of moving data between isolates and provide alternatives .
 
 
 ## Questions/issues
