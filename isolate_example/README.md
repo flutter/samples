@@ -1,16 +1,24 @@
 # isolate_example
 
-A Flutter sample to demonstrate isolates
+A sample application that demonstrate best practices when using [`isolates`](https://api.dartlang.org/stable/2.3.1/dart-isolate/Isolate-class.html). in several cases with flutter.
+Flutter SDK to isolates, which include:
 
-## Getting Started
+## Goals
 
-This project is a starting point for a Flutter application.
+* Display the performance benefits of isolates when using them in the right situation 
+* Show how to use the compute method for straightforward computations
+* Demonstrate how to initialize and take advantage of a new isolates with common useful functionality
+* Show the cost of moving data between isolates and provide alternatives 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Questions/issues
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+If you have a general question about any of the techniques you see in
+the sample, the best places to go are:
+
+* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
+* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+If you run into an issue with the sample itself, please file an issue
+in the [main Flutter repo](https://github.com/flutter/flutter/issues).
