@@ -68,7 +68,7 @@ class _ValueTabControllerState<T> extends State<ValueTabController<T>>
         controller: _controller,
         enabled: TickerMode.of(context),
         child: ValueListenableProvider.value(
-          value: _notifier,
+          valueListenable: _notifier,
           child: widget.child,
         ),
       );
