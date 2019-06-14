@@ -68,13 +68,13 @@ class MenuDemoState extends State<MenuDemo> {
             PopupMenuButton<String>(
               onSelected: showMenuSelection,
               itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-                    const PopupMenuItem<String>(
-                        value: 'Toolbar menu', child: Text('Toolbar menu')),
-                    const PopupMenuItem<String>(
-                        value: 'Right here', child: Text('Right here')),
-                    const PopupMenuItem<String>(
-                        value: 'Hooray!', child: Text('Hooray!')),
-                  ],
+                const PopupMenuItem<String>(
+                    value: 'Toolbar menu', child: Text('Toolbar menu')),
+                const PopupMenuItem<String>(
+                    value: 'Right here', child: Text('Right here')),
+                const PopupMenuItem<String>(
+                    value: 'Hooray!', child: Text('Hooray!')),
+              ],
             ),
           ],
         ),
