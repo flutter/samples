@@ -11,7 +11,7 @@
     "family": "Plaster",
     "fonts": [
       {
-        "asset": "plaster.woff2"
+        "asset": "https://fonts.gstatic.com/l/font?kit=DdTm79QatW80eRh4EitJPNLPUrnLdNiMw9JVKCON&skey=6748ccde38e8a5e5&v=v10"
       }
     ]
   }
