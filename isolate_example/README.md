@@ -7,8 +7,7 @@ A sample application that demonstrate best practices when using [`isolates`](htt
 * Display the performance benefits of isolates when using them in the right situation.
 * Show how to use the `compute` method for straightforward computations.
 * Demonstrate how to initialize and use an isolate.
-* Show the cost of moving data between isolates and provide alternatives .
-
+* Show the cost of moving data between isolates and provide alternatives.
 
 ## Questions/issues
 
