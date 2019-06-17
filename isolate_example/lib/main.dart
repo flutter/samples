@@ -14,22 +14,63 @@
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(StartApp());
+}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class StartApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Isolates'),
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.flash_on), text: 'Performance'),
+                Tab(icon: Icon(Icons.sync), text: 'Infinite Process'),
+                Tab(icon: Icon(Icons.storage), text: 'Data Transfer'),
+              ],
+            ),
+            title: Text('Isolate Example'),
+          ),
+          body: TabBarView(
+            children: [
+              PerformancePage(),
+              InfiniteProcessPage(),
+              DataTransferPage(),
+            ],
+          ),
         ),
-        body: Center(
-          child: Text('Here is my app'),
-        )
-      )
+      ),
+    );
+  }
+}
+
+class PerformancePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Welcome to the Performance Page'),
+    );
+  }
+}
+
+class InfiniteProcessPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Welcome to the Infinite Process Page'),
+    );
+  }
+}
+
+class DataTransferPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Welcome to the Data Transfer Page'),
     );
   }
 }
