@@ -37,7 +37,7 @@ class StartApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              PerformacePage(),
+              PerformancePage(),
               InfiniteProcessPage(),
               DataTransferPage(),
             ],
@@ -48,7 +48,7 @@ class StartApp extends StatelessWidget {
   }
 }
 
-class PerformacePage extends StatelessWidget {
+class PerformancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
