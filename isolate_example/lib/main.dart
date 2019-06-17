@@ -15,10 +15,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(startApp());
+  runApp(StartApp());
 }
 
-class startApp extends StatelessWidget {
+class StartApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,9 +37,9 @@ class startApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              performacePage(),
-              infiniteProcessPage(),
-              dataTransferPage(),
+              PerformacePage(),
+              InfiniteProcessPage(),
+              DataTransferPage(),
             ],
           ),
         ),
@@ -48,16 +48,16 @@ class startApp extends StatelessWidget {
   }
 }
 
-class performacePage extends StatelessWidget {
+class PerformacePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Welcome to the Performace Page'),
+      child: Text('Welcome to the Performance Page'),
     );
   }
 }
 
-class infiniteProcessPage extends StatelessWidget {
+class InfiniteProcessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -66,7 +66,7 @@ class infiniteProcessPage extends StatelessWidget {
   }
 }
 
-class dataTransferPage extends StatelessWidget {
+class DataTransferPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
