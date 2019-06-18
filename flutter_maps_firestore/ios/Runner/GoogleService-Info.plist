@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 
+	TODO: Replace this file with credentials from Cloud Firestore.
+	See https://pub.dev/packages/cloud_firestore#setup for more detail.
+	-->
+</dict>
+</plist>
