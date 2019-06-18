@@ -14,6 +14,10 @@
 
 import 'package:flutter/material.dart';
 
+import 'page_one.dart';
+import 'page_two.dart';
+import 'page_three.dart';
+
 void main() {
   runApp(StartApp());
 }
@@ -44,33 +48,6 @@ class StartApp extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class PerformancePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to the Performance Page'),
-    );
-  }
-}
-
-class InfiniteProcessPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to the Infinite Process Page'),
-    );
-  }
-}
-
-class DataTransferPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Welcome to the Data Transfer Page'),
     );
   }
 }
