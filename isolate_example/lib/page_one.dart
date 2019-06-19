@@ -42,17 +42,18 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this)
-          ..addStatusListener(
-            (status) {
-              if (status == AnimationStatus.completed) {
-                _controller.reverse();
-              } else if (status == AnimationStatus.dismissed) {
-                _controller.forward();
-              }
-            },
-          );
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    )..addStatusListener(
+        (status) {
+          if (status == AnimationStatus.completed) {
+            _controller.reverse();
+          } else if (status == AnimationStatus.dismissed) {
+            _controller.forward();
+          }
+        },
+      );
 
     borderRadius = BorderRadiusTween(
       begin: BorderRadius.circular(100.0),
@@ -71,7 +72,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: borderRadius,
-      builder: (BuildContext context, Widget child) {
+      builder: (context, child) {
         return Center(
           child: Container(
             child: new FlutterLogo(
