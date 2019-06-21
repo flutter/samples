@@ -9,6 +9,13 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'api_key.dart';
 
+// Center of the Google Map
+const initialPosition = LatLng(37.7786, -122.4375);
+// Hue used by the Google Map Markers to match the theme
+const _pinkHue = 350.0;
+// Places API client used for Place Photos
+final _placesApiClient = GoogleMapsPlaces(apiKey: googleMapsApiKey);
+
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -69,7 +76,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               StoreMap(
                 documents: snapshot.data.documents,
-                initialPosition: const LatLng(37.7786, -122.4375),
+                initialPosition: initialPosition,
                 mapController: _mapController,
               ),
               StoreCarousel(
@@ -102,28 +109,47 @@ class StoreCarousel extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10),
         child: SizedBox(
           height: 90,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: documents.length,
-            itemBuilder: (context, index) {
-              return SizedBox(
-                width: 340,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Card(
-                    child: Center(
-                      child: StoreListTile(
-                        document: documents[index],
-                        mapController: mapController,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            },
+          child: new StoreCarouselList(
+            documents: documents,
+            mapController: mapController,
           ),
         ),
       ),
+    );
+  }
+}
+
+class StoreCarouselList extends StatelessWidget {
+  const StoreCarouselList({
+    Key key,
+    @required this.documents,
+    @required this.mapController,
+  }) : super(key: key);
+
+  final List<DocumentSnapshot> documents;
+  final Completer<GoogleMapController> mapController;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: documents.length,
+      itemBuilder: (context, index) {
+        return SizedBox(
+          width: 340,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Card(
+              child: Center(
+                child: StoreListTile(
+                  document: documents[index],
+                  mapController: mapController,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
@@ -143,8 +169,6 @@ class StoreListTile extends StatefulWidget {
     return _StoreListTileState();
   }
 }
-
-final _placesApiClient = GoogleMapsPlaces(apiKey: googleMapsApiKey);
 
 class _StoreListTileState extends State<StoreListTile> {
   String _placePhotoUrl = '';
@@ -207,8 +231,6 @@ class _StoreListTileState extends State<StoreListTile> {
     );
   }
 }
-
-const _pinkHue = 350.0;
 
 class StoreMap extends StatelessWidget {
   const StoreMap({

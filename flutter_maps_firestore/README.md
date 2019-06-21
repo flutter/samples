@@ -30,11 +30,11 @@ The collection name is referenced from `_HomePageState`'s `initState` method. Th
 `placeId`, `address`, `location` and `name` are used at various points in the widget
 tree to render appropriate data.
 
-Next, you will need to add a Google Maps SDK for iOS API key to `ios/Runner/AppDelegate.m`.
-This will enable the Google Map to render. You will also need to add a Google Maps 
+Next, you need to add a Google Maps SDK for iOS API key to `ios/Runner/AppDelegate.m`.
+This enables the Google Map to render. You will also need to add a Google Maps 
 Web Services API key to `lib/api_key.dart`. 
 
-I'll re-iterate the warning I gave during the talk, do not put Web Service API keys 
-in your production binary, you need to build out a proxy service to serve you 
+To reiterate the warning that I gave during the talk, do not put Web Service API keys 
+in your production binary. You need to build a proxy service to serve 
 pre-authenticated content to your mobile applications so you can change API keys as 
 required. We only did this to make it easy to demonstrate on stage.
