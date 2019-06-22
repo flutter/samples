@@ -28,7 +28,7 @@ packages:
       name: boolean_selector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   charcode:
     dependency: transitive
     description:
@@ -76,7 +76,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
+      resolved-ref: "1ed4317aa91038ba99531037ce00c04672c4bee1"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -85,7 +85,7 @@ packages:
     description:
       path: "packages/flutter_web_test"
       ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
+      resolved-ref: "1ed4317aa91038ba99531037ce00c04672c4bee1"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -94,7 +94,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
+      resolved-ref: "1ed4317aa91038ba99531037ce00c04672c4bee1"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -412,6 +412,6 @@ packages:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.15"
+    version: "2.1.16"
 sdks:
   dart: ">=2.2.0 <3.0.0"

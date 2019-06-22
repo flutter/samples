@@ -56,7 +56,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   build_modules:
     dependency: transitive
     description:
@@ -77,7 +77,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.2"
+    version: "1.6.0"
   build_runner_core:
     dependency: transitive
     description:
@@ -181,7 +181,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
+      resolved-ref: "1ed4317aa91038ba99531037ce00c04672c4bee1"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -190,7 +190,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
+      resolved-ref: "1ed4317aa91038ba99531037ce00c04672c4bee1"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -480,6 +480,6 @@ packages:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.15"
+    version: "2.1.16"
 sdks:
   dart: ">=2.3.0 <3.0.0"
