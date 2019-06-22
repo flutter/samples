@@ -8,15 +8,15 @@ The live coding starts at about 17:40.
 
 * Showcase how to build an app that uses Google Maps with Flutter:
     * Loading a list of Ice Cream shops from Cloud Firestore
-    * Listing the shops in a Carousel
-    * Putting the shops on a map using Markers
-    * Controlling the Google Map from the Carousel
+    * Listing the shops in a custom carousel
+    * Showing the shop locations on a map using Markers
+    * Controlling the Google Map from the carousel
 
 ## The important bits
 
 ### Cloud Firestore
 
-Follow the steps outlined in the 
+To set up Cloud Firestore connectivity, follow the steps outlined in the 
 [Cloud Firestore package setup section](https://pub.dev/packages/cloud_firestore#setup).
 
 Next, you need to populate your Cloud Firestore with a collection named `ice_cream_stores`,
@@ -45,6 +45,8 @@ To reiterate the warning that we gave during the talk, do not put Web Service AP
 in your production binary. You need to build a proxy service to serve 
 pre-authenticated content to your mobile applications so you can change API keys as 
 required. We only did this to make it easy to demonstrate on stage.
+
+## Questions/issues
 
 If you have a general question about building with Google Maps in Flutter, the
 best places to go are:
