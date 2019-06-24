@@ -41,22 +41,7 @@ class _PerformancePageState extends State<PerformancePage> {
                     return RaisedButton(
                       child: const Text('Compute on Main'),
                       elevation: 8.0,
-                      onPressed: (snapshot.connectionState ==
-                          ConnectionState.done) ? () {
-                              setState( () {
-                                computeFuture = computeOnMainIsolate()
-                                    ..then( (_) {
-                                        final snackBar1 = SnackBar(
-                                          content: Text('Main Isolate Done!'),
-                                        );
-                                        Scaffold.of(context)
-                                            .showSnackBar(snackBar1);
-                                      },
-                                    );
-                                },
-                              );
-                            }
-                          : null,
+                      onPressed: mainIsolateCallBack(context, snapshot),
                     );
                   },
                 ),
@@ -66,28 +51,7 @@ class _PerformancePageState extends State<PerformancePage> {
                     return RaisedButton(
                       child: const Text('Compute on Secondary'),
                       elevation: 8.0,
-                      onPressed: (snapshot.connectionState ==
-                              ConnectionState.done) ? () {
-                              setState( () {
-                                  computeFuture = computeOnSecondaryIsolate()
-                                    ..then( (_) {
-                                        final snackBar1 = SnackBar(
-                                          content:
-                                              Text('Secondary Isolate Done!'),
-                                        );
-                                        Scaffold.of(context)
-                                            .showSnackBar(snackBar1);
-                                      },
-                                    );
-                                },
-                              );
-
-                              final snackBar = SnackBar(
-                                content: Text('Start on Secondary Isolate'),
-                              );
-                              Scaffold.of(context).showSnackBar(snackBar);
-                            }
-                          : null,
+                      onPressed: secondaryIsolateCallBack(context, snapshot),
                     );
                   },
                 ),
@@ -97,6 +61,44 @@ class _PerformancePageState extends State<PerformancePage> {
         ],
       ),
     );
+  }
+
+  VoidCallback mainIsolateCallBack(
+      BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+      return () {
+        setState(() {
+          computeFuture = computeOnMainIsolate()
+            ..then((_) {
+              final snackBar1 = SnackBar(
+                content: Text('Main Isolate Done!'),
+              );
+              Scaffold.of(context).showSnackBar(snackBar1);
+            });
+        });
+      };
+    } else {
+      return null;
+    }
+  }
+
+  VoidCallback secondaryIsolateCallBack(
+      BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+      return () {
+        setState(() {
+          computeFuture = computeOnSecondaryIsolate()
+            ..then((_) {
+              final snackBar1 = SnackBar(
+                content: Text('Secondary Isolate Done!'),
+              );
+              Scaffold.of(context).showSnackBar(snackBar1);
+            });
+        });
+      };
+    } else {
+      return null;
+    }
   }
 }
 
@@ -135,8 +137,10 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(duration: const Duration(seconds: 1), vsync: this)
-          ..addStatusListener( (status) {
+    _controller =
+        AnimationController(duration: const Duration(seconds: 1), vsync: this)
+          ..addStatusListener(
+            (status) {
               if (status == AnimationStatus.completed) {
                 _controller.reverse();
               } else if (status == AnimationStatus.dismissed) {
