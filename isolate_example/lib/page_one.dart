@@ -12,19 +12,116 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class PerformancePage extends StatelessWidget {
+class PerformancePage extends StatefulWidget {
+  @override
+  _PerformancePageState createState() => _PerformancePageState();
+}
+
+class _PerformancePageState extends State<PerformancePage> {
+  Future<void> computeFuture = Future.value();
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: [
           SmoothAnimationWidget(),
+          Container(
+            alignment: Alignment.bottomCenter,
+            padding: EdgeInsets.only(top: 150),
+            child: Column(
+              children: [
+                FutureBuilder<void>(
+                  future: computeFuture,
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    return RaisedButton(
+                      child: const Text('Compute on Main'),
+                      elevation: 8.0,
+                      onPressed: createMainIsolateCallBack(context, snapshot),
+                    );
+                  },
+                ),
+                FutureBuilder<void>(
+                  future: computeFuture,
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    return RaisedButton(
+                      child: const Text('Compute on Secondary'),
+                      elevation: 8.0,
+                      onPressed:
+                          createSecondaryIsolateCallBack(context, snapshot),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  VoidCallback createMainIsolateCallBack(
+      BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+      return () {
+        setState(() {
+          computeFuture = computeOnMainIsolate()
+            ..then((_) {
+              final snackBar = SnackBar(
+                content: Text('Main Isolate Done!'),
+              );
+              Scaffold.of(context).showSnackBar(snackBar);
+            });
+        });
+      };
+    } else {
+      return null;
+    }
+  }
+
+  VoidCallback createSecondaryIsolateCallBack(
+      BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+      return () {
+        setState(() {
+          computeFuture = computeOnSecondaryIsolate()
+            ..then((_) {
+              final snackBar = SnackBar(
+                content: Text('Secondary Isolate Done!'),
+              );
+              Scaffold.of(context).showSnackBar(snackBar);
+            });
+        });
+      };
+    } else {
+      return null;
+    }
+  }
+}
+
+Future<void> computeOnMainIsolate() async {
+  // The isolate will need a little time to disable the buttons before the performance hit.
+  await Future.delayed(Duration(milliseconds: 100), () => fib(45));
+}
+
+Future<void> computeOnSecondaryIsolate() async {
+  await compute(fib, 45);
+}
+
+int fib(int n) {
+  int number1 = n - 1;
+  int number2 = n - 2;
+
+  if (n == 1) {
+    return 0;
+  } else if (n == 0) {
+    return 1;
+  } else {
+    return (fib(number1) + fib(number2));
   }
 }
 
@@ -42,18 +139,17 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: const Duration(seconds: 1),
-      vsync: this,
-    )..addStatusListener(
-        (status) {
-          if (status == AnimationStatus.completed) {
-            _controller.reverse();
-          } else if (status == AnimationStatus.dismissed) {
-            _controller.forward();
-          }
-        },
-      );
+    _controller =
+        AnimationController(duration: const Duration(seconds: 1), vsync: this)
+          ..addStatusListener(
+            (status) {
+              if (status == AnimationStatus.completed) {
+                _controller.reverse();
+              } else if (status == AnimationStatus.dismissed) {
+                _controller.forward();
+              }
+            },
+          );
 
     borderRadius = BorderRadiusTween(
       begin: BorderRadius.circular(100.0),
@@ -72,7 +168,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: borderRadius,
-      builder: (context, child) {
+      builder: (BuildContext context, Widget child) {
         return Center(
           child: Container(
             child: new FlutterLogo(
