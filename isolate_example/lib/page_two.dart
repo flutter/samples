@@ -97,7 +97,7 @@ class IsolateController extends ChangeNotifier {
     mIceRP.listen((message) {
       if (message is SendPort) {
         newIceSP = message;
-        newIceSP.send(_currentMultiplier.toString());
+        newIceSP.send(_currentMultiplier);
       } else if (message is int) {
         setCurrentResults(message);
       }
