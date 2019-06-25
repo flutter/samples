@@ -103,7 +103,7 @@ class _PerformancePageState extends State<PerformancePage> {
 }
 
 Future<void> computeOnMainIsolate() async {
-  //The isolate will need a little time to disable the buttons before the performance hit
+  // The isolate will need a little time to disable the buttons before the performance hit.
   await Future.delayed(Duration(milliseconds: 100), () => fib(45));
 }
 
