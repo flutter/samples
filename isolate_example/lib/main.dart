@@ -42,7 +42,7 @@ class StartApp extends StatelessWidget {
           body: TabBarView(
             children: [
               PerformancePage(),
-              InfiniteProcessPage(),
+              InfiniteProcessPageStarter(),
               DataTransferPage(),
             ],
           ),
