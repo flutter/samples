@@ -144,6 +144,7 @@ class IsolateController extends ChangeNotifier {
   List<int> get currentResults => _currentResults;
 
   void dispose() {
+    super.dispose();
     newIsolate?.kill(priority: Isolate.immediate);
     newIsolate = null;
   }
