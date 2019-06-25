@@ -13,5 +13,9 @@ dependencies:
   google_maps_webservice: ^0.0.14
   location: ^2.3.5
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
 flutter:
   uses-material-design: true

@@ -1,14 +1,15 @@
 set -e
 
 declare -a  PROJECT_NAMES=(
+    "flutter_maps_firestore" \
+    "isolate_example" \
 	"jsonexample" \
-	"shrine" \
-	"provider_counter" \
-	"veggieseasons" \
 	"place_tracker" \
+    "platform_design"
 	"platform_view_swift" \
-    	"isolate_example" \
-    	"platform_design"
+	"provider_counter" \
+	"shrine" \
+	"veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
