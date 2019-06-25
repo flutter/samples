@@ -18,9 +18,7 @@ import 'page_one.dart';
 import 'page_two.dart';
 import 'page_three.dart';
 
-void main() {
-  runApp(StartApp());
-}
+void main() => runApp(new MaterialApp(home: new StartApp()));
 
 class StartApp extends StatelessWidget {
   @override
@@ -42,7 +40,7 @@ class StartApp extends StatelessWidget {
           body: TabBarView(
             children: [
               PerformancePage(),
-              InfiniteProcessPage(),
+              InfiniteProcessPageStarter(),
               DataTransferPage(),
             ],
           ),
