@@ -144,6 +144,11 @@ class IsolateController extends ChangeNotifier {
   bool get running => _running;
 
   List<int> get currentResults => _currentResults;
+
+  void dispose() {
+    newIsolate?.kill(priority: Isolate.immediate);
+    newIsolate = null;
+  }
 }
 
 class RunningList extends StatelessWidget {
