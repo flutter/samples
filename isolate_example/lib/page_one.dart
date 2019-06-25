@@ -51,7 +51,8 @@ class _PerformancePageState extends State<PerformancePage> {
                     return RaisedButton(
                       child: const Text('Compute on Secondary'),
                       elevation: 8.0,
-                      onPressed: createSecondaryIsolateCallBack(context, snapshot),
+                      onPressed:
+                          createSecondaryIsolateCallBack(context, snapshot),
                     );
                   },
                 ),
@@ -179,10 +180,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
-                colors: [
-                  Colors.blueAccent,
-                  Colors.redAccent
-                ],
+                colors: [Colors.blueAccent, Colors.redAccent],
               ),
               borderRadius: borderRadius.value,
             ),
