@@ -28,20 +28,20 @@ class _PerformancePageState extends State<PerformancePage> {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: [
           SmoothAnimationWidget(),
           Container(
             alignment: Alignment.bottomCenter,
-            padding: EdgeInsets.only(top: 150.0),
+            padding: EdgeInsets.only(top: 150),
             child: Column(
-              children: <Widget>[
+              children: [
                 FutureBuilder<void>(
                   future: computeFuture,
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Main'),
                       elevation: 8.0,
-                      onPressed: mainIsolateCallBack(context, snapshot),
+                      onPressed: createMainIsolateCallBack(context, snapshot),
                     );
                   },
                 ),
@@ -51,7 +51,7 @@ class _PerformancePageState extends State<PerformancePage> {
                     return RaisedButton(
                       child: const Text('Compute on Secondary'),
                       elevation: 8.0,
-                      onPressed: secondaryIsolateCallBack(context, snapshot),
+                      onPressed: createSecondaryIsolateCallBack(context, snapshot),
                     );
                   },
                 ),
@@ -63,17 +63,17 @@ class _PerformancePageState extends State<PerformancePage> {
     );
   }
 
-  VoidCallback mainIsolateCallBack(
+  VoidCallback createMainIsolateCallBack(
       BuildContext context, AsyncSnapshot snapshot) {
     if (snapshot.connectionState == ConnectionState.done) {
       return () {
         setState(() {
           computeFuture = computeOnMainIsolate()
             ..then((_) {
-              final snackBar1 = SnackBar(
+              final snackBar = SnackBar(
                 content: Text('Main Isolate Done!'),
               );
-              Scaffold.of(context).showSnackBar(snackBar1);
+              Scaffold.of(context).showSnackBar(snackBar);
             });
         });
       };
@@ -82,17 +82,17 @@ class _PerformancePageState extends State<PerformancePage> {
     }
   }
 
-  VoidCallback secondaryIsolateCallBack(
+  VoidCallback createSecondaryIsolateCallBack(
       BuildContext context, AsyncSnapshot snapshot) {
     if (snapshot.connectionState == ConnectionState.done) {
       return () {
         setState(() {
           computeFuture = computeOnSecondaryIsolate()
             ..then((_) {
-              final snackBar1 = SnackBar(
+              final snackBar = SnackBar(
                 content: Text('Secondary Isolate Done!'),
               );
-              Scaffold.of(context).showSnackBar(snackBar1);
+              Scaffold.of(context).showSnackBar(snackBar);
             });
         });
       };
@@ -103,7 +103,8 @@ class _PerformancePageState extends State<PerformancePage> {
 }
 
 Future<void> computeOnMainIsolate() async {
-  await Future.delayed(Duration(milliseconds: 200), () => fib(45));
+  //The isolate will need a little time to disable the buttons before the performance hit
+  await Future.delayed(Duration(milliseconds: 100), () => fib(45));
 }
 
 Future<void> computeOnSecondaryIsolate() async {
@@ -178,10 +179,10 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
-                colors: <Color>[
+                colors: [
                   Colors.blueAccent,
                   Colors.redAccent
-                ], // whitish to gray
+                ],
               ),
               borderRadius: borderRadius.value,
             ),
