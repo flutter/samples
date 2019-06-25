@@ -19,7 +19,7 @@ import 'dart:math';
 
 class InfiniteProcessPageStarter extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return ChangeNotifierProvider(
       builder: (context) => IsolateController(),
       child: InfiniteProcessPage(),
@@ -29,7 +29,7 @@ class InfiniteProcessPageStarter extends StatelessWidget {
 
 class InfiniteProcessPage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -40,14 +40,12 @@ class InfiniteProcessPage extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  newButtons(context),
-                ],
+                children: [newButtons(context)],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
+                children: [
                   Switch(
                     value:
                         !(Provider.of<IsolateController>(context, listen: true)
@@ -153,7 +151,7 @@ class IsolateController extends ChangeNotifier {
 
 class RunningList extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     List<int> sums =
         Provider.of<IsolateController>(context, listen: true).currentResults;
 
