@@ -1,0 +1,9 @@
+include: package:pedantic/analysis_options.yaml
+
+linter:
+  rules:
+    - avoid_types_on_closure_parameters
+    - camel_case_types
+    - constant_identifier_names
+    - non_constant_identifier_names
+    - unnecessary_new
