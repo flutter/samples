@@ -21,7 +21,6 @@ dev_dependencies:
     sdk: flutter
 
   pedantic: 1.5.0
-
   flutter_launcher_icons: ^0.7.0
 
 flutter:
