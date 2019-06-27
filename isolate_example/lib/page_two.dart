@@ -30,6 +30,10 @@ class InfiniteProcessPageStarter extends StatelessWidget {
 class InfiniteProcessPage extends StatelessWidget {
   @override
   Widget build(context) {
+    final controllerListen =
+        Provider.of<IsolateController>(context, listen: true);
+    final controller = Provider.of<IsolateController>(context, listen: false);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -47,12 +51,8 @@ class InfiniteProcessPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Switch(
-                    value:
-                        !(Provider.of<IsolateController>(context, listen: true)
-                            .paused),
-                    onChanged: (_) =>
-                        Provider.of<IsolateController>(context, listen: false)
-                            .pausedSwitch(),
+                    value: !controllerListen.paused,
+                    onChanged: (_) => controller.pausedSwitch(),
                     activeTrackColor: Colors.lightGreenAccent,
                     activeColor: Colors.black,
                     inactiveTrackColor: Colors.deepOrangeAccent,
@@ -153,15 +153,15 @@ class IsolateController extends ChangeNotifier {
 class RunningList extends StatelessWidget {
   @override
   Widget build(context) {
-    List<int> sums =
-        Provider.of<IsolateController>(context, listen: true).currentResults;
+    final controllerListen =
+        Provider.of<IsolateController>(context, listen: true);
+
+    List<int> sums = controllerListen.currentResults;
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: (Provider.of<IsolateController>(context, listen: true).running ==
-                    true &&
-                Provider.of<IsolateController>(context, listen: true).paused ==
-                    false)
+        color: (controllerListen.running == true &&
+                controllerListen.paused == false)
             ? Colors.lightGreenAccent
             : Colors.deepOrangeAccent,
       ),
@@ -216,51 +216,49 @@ Future<int> brokenUpComputation(int num) {
 }
 
 Widget newButtons(context) {
+  final controller = Provider.of<IsolateController>(context, listen: false);
+
   return ButtonBar(
     alignment: MainAxisAlignment.center,
     children: [
       RaisedButton(
         child: const Text('Start'),
         elevation: 8.0,
-        onPressed: () =>
-            Provider.of<IsolateController>(context, listen: false).start(),
+        onPressed: () => controller.start(),
       ),
       RaisedButton(
         child: const Text('Terminate'),
         elevation: 8.0,
-        onPressed: () =>
-            Provider.of<IsolateController>(context, listen: false).terminate(),
+        onPressed: () => controller.terminate(),
       ),
     ],
   );
 }
 
 Widget radioButtonWidget(context) {
+  final controllerListen =
+      Provider.of<IsolateController>(context, listen: true);
+  final controller = Provider.of<IsolateController>(context, listen: false);
+
   return new Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       new Radio(
         value: 1,
-        groupValue:
-            Provider.of<IsolateController>(context, listen: true).multiplier,
-        onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
-            .setMultiplier(1),
+        groupValue: controllerListen.multiplier,
+        onChanged: (_) => controller.setMultiplier(1),
       ),
       new Text('1x'),
       new Radio(
         value: 2,
-        groupValue:
-            Provider.of<IsolateController>(context, listen: true).multiplier,
-        onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
-            .setMultiplier(2),
+        groupValue: controllerListen.multiplier,
+        onChanged: (_) => controller.setMultiplier(2),
       ),
       new Text('2x'),
       new Radio(
         value: 3,
-        groupValue:
-            Provider.of<IsolateController>(context, listen: true).multiplier,
-        onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
-            .setMultiplier(3),
+        groupValue: controllerListen.multiplier,
+        onChanged: (_) => controller.setMultiplier(3),
       ),
       new Text('3x'),
     ],
