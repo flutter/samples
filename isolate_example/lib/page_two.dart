@@ -21,7 +21,7 @@ class InfiniteProcessPageStarter extends StatelessWidget {
   @override
   Widget build(context) {
     return ChangeNotifierProvider(
-      builder: (context) => IsolateController(),
+      builder: (context) => InfiniteProcessIsolateController(),
       child: InfiniteProcessPage(),
     );
   }
@@ -30,9 +30,7 @@ class InfiniteProcessPageStarter extends StatelessWidget {
 class InfiniteProcessPage extends StatelessWidget {
   @override
   Widget build(context) {
-    final controllerListen =
-        Provider.of<IsolateController>(context, listen: true);
-    final controller = Provider.of<IsolateController>(context, listen: false);
+    final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -51,7 +49,7 @@ class InfiniteProcessPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Switch(
-                    value: !controllerListen.paused,
+                    value: !controller.paused,
                     onChanged: (_) => controller.pausedSwitch(),
                     activeTrackColor: Colors.lightGreenAccent,
                     activeColor: Colors.black,
@@ -70,7 +68,7 @@ class InfiniteProcessPage extends StatelessWidget {
   }
 }
 
-class IsolateController extends ChangeNotifier {
+class InfiniteProcessIsolateController extends ChangeNotifier {
   Isolate newIsolate;
   ReceivePort mIceRP;
   SendPort newIceSP;
@@ -81,17 +79,17 @@ class IsolateController extends ChangeNotifier {
   bool _running = false;
   bool _paused = false;
 
-  IsolateController() {
+  InfiniteProcessIsolateController() {
     start();
     _running = true;
   }
 
-  void createIsolate() async {
+  Future<void> createIsolate() async {
     mIceRP = ReceivePort();
     newIsolate = await Isolate.spawn(_secondIsolateEntryPoint, mIceRP.sendPort);
   }
 
-  void listen() async {
+  void listen() {
     mIceRP.listen((message) {
       if (message is SendPort) {
         newIceSP = message;
@@ -102,9 +100,9 @@ class IsolateController extends ChangeNotifier {
     });
   }
 
-  Future start() async {
+  Future<void> start() async {
     if (_running == false && _paused == false) {
-      createIsolate();
+      await createIsolate();
       listen();
       _running = true;
       notifyListeners();
@@ -153,15 +151,13 @@ class IsolateController extends ChangeNotifier {
 class RunningList extends StatelessWidget {
   @override
   Widget build(context) {
-    final controllerListen =
-        Provider.of<IsolateController>(context, listen: true);
+    final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
-    List<int> sums = controllerListen.currentResults;
+    List<int> sums = controller.currentResults;
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: (controllerListen.running == true &&
-                controllerListen.paused == false)
+        color: (controller.running == true && controller.paused == false)
             ? Colors.lightGreenAccent
             : Colors.deepOrangeAccent,
       ),
@@ -216,7 +212,8 @@ Future<int> brokenUpComputation(int num) {
 }
 
 Widget newButtons(context) {
-  final controller = Provider.of<IsolateController>(context, listen: false);
+  final controller =
+      Provider.of<InfiniteProcessIsolateController>(context, listen: false);
 
   return ButtonBar(
     alignment: MainAxisAlignment.center,
@@ -236,28 +233,26 @@ Widget newButtons(context) {
 }
 
 Widget radioButtonWidget(context) {
-  final controllerListen =
-      Provider.of<IsolateController>(context, listen: true);
-  final controller = Provider.of<IsolateController>(context, listen: false);
+  final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
   return new Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       new Radio(
         value: 1,
-        groupValue: controllerListen.multiplier,
+        groupValue: controller.multiplier,
         onChanged: (_) => controller.setMultiplier(1),
       ),
       new Text('1x'),
       new Radio(
         value: 2,
-        groupValue: controllerListen.multiplier,
+        groupValue: controller.multiplier,
         onChanged: (_) => controller.setMultiplier(2),
       ),
       new Text('2x'),
       new Radio(
         value: 3,
-        groupValue: controllerListen.multiplier,
+        groupValue: controller.multiplier,
         onChanged: (_) => controller.setMultiplier(3),
       ),
       new Text('3x'),
