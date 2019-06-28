@@ -35,10 +35,10 @@ class InfiniteProcessPage extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
+        Padding(
           child: Text(
             'Summation Results',
-            style: TextStyle(fontSize: 25),
+            style: Theme.of(context).textTheme.title,
           ),
           padding: new EdgeInsets.all(8),
         ),
@@ -170,10 +170,10 @@ class RunningList extends StatelessWidget {
         itemCount: sums.length,
         itemBuilder: (context, index) {
           return Column(
-            children: <Widget>[
+            children: [
               Card(
                 child: ListTile(
-                  leading: Text((sums.length - index).toString() + '. '),
+                  leading: Text('${sums.length - index}.'),
                   title: Text(sums[index].toString()),
                 ),
                 color:
