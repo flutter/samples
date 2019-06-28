@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 final ThemeData kIOSTheme = ThemeData(
-    primarySwatch: Colors.orange,
-    primaryColor: Colors.grey[100],
-    primaryColorBrightness: Brightness.light);
+  primarySwatch: Colors.orange,
+  primaryColor: Colors.grey[100],
+  primaryColorBrightness: Brightness.light,
+);
 final ThemeData kDefaultTheme = ThemeData(
   primarySwatch: Colors.purple,
   accentColor: Colors.orangeAccent,
@@ -105,14 +106,17 @@ class ChatListScreen extends StatelessWidget {
         itemCount: chatEntries.length,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: CircleAvatar(child: Text(chatEntries[index].name[0])),
+            leading: CircleAvatar(
+              child: Text(chatEntries[index].name[0]),
+            ),
             title: Text(chatEntries[index].name),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      ChatScreen(contactName: chatEntries[index].name),
+                  builder: (context) => ChatScreen(
+                        contactName: chatEntries[index].name,
+                      ),
                 ),
               );
             },
@@ -147,12 +151,13 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       body: Column(
         children: <Widget>[
           Flexible(
-              child: ListView.builder(
-            padding: EdgeInsets.all(8.0),
-            reverse: true,
-            itemBuilder: (_, int index) => _messages[index],
-            itemCount: _messages.length,
-          )),
+            child: ListView.builder(
+              padding: EdgeInsets.all(8.0),
+              reverse: true,
+              itemBuilder: (_, int index) => _messages[index],
+              itemCount: _messages.length,
+            ),
+          ),
           Divider(height: 1.0),
           Container(
             decoration: BoxDecoration(color: Theme.of(context).cardColor),
@@ -179,16 +184,18 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         child: Row(
           children: <Widget>[
             Flexible(
-                child: TextField(
-              controller: _textController,
-              onSubmitted: _handleSubmitted,
-              decoration: InputDecoration.collapsed(hintText: "Send a message"),
-              onChanged: (String text) {
-                setState(() {
-                  _isComposing = text.length > 0;
-                });
-              },
-            )),
+              child: TextField(
+                controller: _textController,
+                onSubmitted: _handleSubmitted,
+                decoration:
+                    InputDecoration.collapsed(hintText: "Send a message"),
+                onChanged: (String text) {
+                  setState(() {
+                    _isComposing = text.length > 0;
+                  });
+                },
+              ),
+            ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
@@ -213,7 +220,9 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     ChatMessage message = ChatMessage(
       text: text,
       animationController: AnimationController(
-          duration: Duration(milliseconds: 200), vsync: this),
+        duration: Duration(milliseconds: 200),
+        vsync: this,
+      ),
       name: contactName,
     );
     setState(() {
