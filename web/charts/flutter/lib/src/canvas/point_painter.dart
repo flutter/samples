@@ -34,23 +34,23 @@ class PointPainter {
     }
 
     if (fill != null) {
-      paint.color = new Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
+      paint.color = Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
       paint.style = PaintingStyle.fill;
 
       canvas.drawCircle(
-          new Offset(point.x.toDouble(), point.y.toDouble()), radius, paint);
+          Offset(point.x.toDouble(), point.y.toDouble()), radius, paint);
     }
 
     // [Canvas.drawCircle] does not support drawing a circle with both a fill
     // and a stroke at this time. Use a separate circle for the stroke.
     if (stroke != null && strokeWidthPx != null && strokeWidthPx > 0.0) {
-      paint.color = new Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b);
+      paint.color = Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b);
       paint.strokeWidth = strokeWidthPx;
       paint.strokeJoin = StrokeJoin.bevel;
       paint.style = PaintingStyle.stroke;
 
       canvas.drawCircle(
-          new Offset(point.x.toDouble(), point.y.toDouble()), radius, paint);
+          Offset(point.x.toDouble(), point.y.toDouble()), radius, paint);
     }
   }
 }

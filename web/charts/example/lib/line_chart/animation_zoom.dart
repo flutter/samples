@@ -29,7 +29,7 @@ class LineAnimationZoomChart extends StatelessWidget {
 
   /// Creates a [LineChart] with sample data and no transition.
   factory LineAnimationZoomChart.withSampleData() {
-    return new LineAnimationZoomChart(
+    return LineAnimationZoomChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,21 +41,21 @@ class LineAnimationZoomChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory LineAnimationZoomChart.withRandomData() {
-    return new LineAnimationZoomChart(_createRandomData());
+    return LineAnimationZoomChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = <LinearSales>[];
 
     for (var i = 0; i < 100; i++) {
-      data.add(new LinearSales(i, random.nextInt(100)));
+      data.add(LinearSales(i, random.nextInt(100)));
     }
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -67,22 +67,22 @@ class LineAnimationZoomChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.LineChart(seriesList, animate: animate, behaviors: [
-      new charts.PanAndZoomBehavior(),
+    return charts.LineChart(seriesList, animate: animate, behaviors: [
+      charts.PanAndZoomBehavior(),
     ]);
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5),
-      new LinearSales(1, 25),
-      new LinearSales(2, 100),
-      new LinearSales(3, 75),
+      LinearSales(0, 5),
+      LinearSales(1, 25),
+      LinearSales(2, 100),
+      LinearSales(3, 75),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

@@ -33,7 +33,7 @@ class LineRangeAnnotationMarginChart extends StatelessWidget {
   /// demonstrating the effect of the [Charts.RangeAnnotation.extendAxis] flag.
   /// This can be set to false to disable range extension.
   factory LineRangeAnnotationMarginChart.withSampleData() {
-    return new LineRangeAnnotationMarginChart(
+    return LineRangeAnnotationMarginChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -45,24 +45,24 @@ class LineRangeAnnotationMarginChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory LineRangeAnnotationMarginChart.withRandomData() {
-    return new LineRangeAnnotationMarginChart(_createRandomData());
+    return LineRangeAnnotationMarginChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
       // Fix one of the points to 100 so that the annotations are consistently
       // placed.
-      new LinearSales(3, 100),
+      LinearSales(3, 100),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -74,21 +74,21 @@ class LineRangeAnnotationMarginChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.LineChart(seriesList,
+    return charts.LineChart(seriesList,
         animate: animate,
 
         // Allow enough space in the left and right chart margins for the
         // annotations.
-        layoutConfig: new charts.LayoutConfig(
-            leftMarginSpec: new charts.MarginSpec.fixedPixel(60),
-            topMarginSpec: new charts.MarginSpec.fixedPixel(20),
-            rightMarginSpec: new charts.MarginSpec.fixedPixel(60),
-            bottomMarginSpec: new charts.MarginSpec.fixedPixel(20)),
+        layoutConfig: charts.LayoutConfig(
+            leftMarginSpec: charts.MarginSpec.fixedPixel(60),
+            topMarginSpec: charts.MarginSpec.fixedPixel(20),
+            rightMarginSpec: charts.MarginSpec.fixedPixel(60),
+            bottomMarginSpec: charts.MarginSpec.fixedPixel(20)),
         behaviors: [
           // Define one domain and two measure annotations configured to render
           // labels in the chart margins.
-          new charts.RangeAnnotation([
-            new charts.RangeAnnotationSegment(
+          charts.RangeAnnotation([
+            charts.RangeAnnotationSegment(
                 0.5, 1.0, charts.RangeAnnotationAxisType.domain,
                 startLabel: 'D1 Start',
                 endLabel: 'D1 End',
@@ -96,13 +96,13 @@ class LineRangeAnnotationMarginChart extends StatelessWidget {
                 color: charts.MaterialPalette.gray.shade200,
                 // Override the default vertical direction for domain labels.
                 labelDirection: charts.AnnotationLabelDirection.horizontal),
-            new charts.RangeAnnotationSegment(
+            charts.RangeAnnotationSegment(
                 15, 20, charts.RangeAnnotationAxisType.measure,
                 startLabel: 'M1 Start',
                 endLabel: 'M1 End',
                 labelAnchor: charts.AnnotationLabelAnchor.end,
                 color: charts.MaterialPalette.gray.shade300),
-            new charts.RangeAnnotationSegment(
+            charts.RangeAnnotationSegment(
                 35, 65, charts.RangeAnnotationAxisType.measure,
                 startLabel: 'M2 Start',
                 endLabel: 'M2 End',
@@ -115,14 +115,14 @@ class LineRangeAnnotationMarginChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5),
-      new LinearSales(1, 25),
-      new LinearSales(2, 100),
-      new LinearSales(3, 75),
+      LinearSales(0, 5),
+      LinearSales(1, 25),
+      LinearSales(2, 100),
+      LinearSales(3, 75),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

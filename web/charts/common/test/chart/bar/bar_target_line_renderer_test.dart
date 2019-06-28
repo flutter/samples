@@ -66,10 +66,10 @@ void main() {
   // Convenience methods for creating mocks.
   /////////////////////////////////////////
   _configureBaseRenderer(BaseBarRenderer renderer, bool vertical) {
-    final context = new MockContext();
+    final context = MockContext();
     when(context.chartContainerIsRtl).thenReturn(false);
     when(context.isRtl).thenReturn(false);
-    final verticalChart = new MockChart();
+    final verticalChart = MockChart();
     when(verticalChart.vertical).thenReturn(vertical);
     when(verticalChart.context).thenReturn(context);
     renderer.onAttach(verticalChart);
@@ -78,47 +78,47 @@ void main() {
   }
 
   BarTargetLineRenderer makeRenderer({BarTargetLineRendererConfig config}) {
-    final renderer = new BarTargetLineRenderer(config: config);
+    final renderer = BarTargetLineRenderer(config: config);
     _configureBaseRenderer(renderer, true);
     return renderer;
   }
 
   setUp(() {
     var myFakeDesktopData = [
-      new MyRow('MyCampaign1', 5),
-      new MyRow('MyCampaign2', 25),
-      new MyRow('MyCampaign3', 100),
-      new MyRow('MyOtherCampaign', 75),
+      MyRow('MyCampaign1', 5),
+      MyRow('MyCampaign2', 25),
+      MyRow('MyCampaign3', 100),
+      MyRow('MyOtherCampaign', 75),
     ];
 
     var myFakeTabletData = [
-      new MyRow('MyCampaign1', 5),
-      new MyRow('MyCampaign2', 25),
-      new MyRow('MyCampaign3', 100),
-      new MyRow('MyOtherCampaign', 75),
+      MyRow('MyCampaign1', 5),
+      MyRow('MyCampaign2', 25),
+      MyRow('MyCampaign3', 100),
+      MyRow('MyOtherCampaign', 75),
     ];
 
     var myFakeMobileData = [
-      new MyRow('MyCampaign1', 5),
-      new MyRow('MyCampaign2', 25),
-      new MyRow('MyCampaign3', 100),
-      new MyRow('MyOtherCampaign', 75),
+      MyRow('MyCampaign1', 5),
+      MyRow('MyCampaign2', 25),
+      MyRow('MyCampaign3', 100),
+      MyRow('MyOtherCampaign', 75),
     ];
 
     seriesList = [
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Desktop',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeDesktopData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Tablet',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeTabletData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Mobile',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
@@ -130,7 +130,7 @@ void main() {
   group('preprocess', () {
     test('with grouped bar target lines', () {
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.grouped));
 
       renderer.preprocessSeries(seriesList);
@@ -194,7 +194,7 @@ void main() {
 
     test('with stacked bar target lines', () {
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.stacked));
 
       renderer.preprocessSeries(seriesList);
@@ -258,16 +258,16 @@ void main() {
 
     test('with stacked bar target lines containing zero and null', () {
       // Set up some nulls and zeros in the data.
-      seriesList[2].data[0] = new MyRow('MyCampaign1', null);
-      seriesList[2].data[2] = new MyRow('MyCampaign3', 0);
+      seriesList[2].data[0] = MyRow('MyCampaign1', null);
+      seriesList[2].data[2] = MyRow('MyCampaign3', 0);
 
-      seriesList[1].data[1] = new MyRow('MyCampaign2', null);
-      seriesList[1].data[3] = new MyRow('MyOtherCampaign', 0);
+      seriesList[1].data[1] = MyRow('MyCampaign2', null);
+      seriesList[1].data[3] = MyRow('MyOtherCampaign', 0);
 
-      seriesList[0].data[2] = new MyRow('MyCampaign3', 0);
+      seriesList[0].data[2] = MyRow('MyCampaign3', 0);
 
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.stacked));
 
       renderer.preprocessSeries(seriesList);
@@ -367,7 +367,7 @@ void main() {
 
   test('with stroke width target lines', () {
     renderer = makeRenderer(
-        config: new BarTargetLineRendererConfig(
+        config: BarTargetLineRendererConfig(
             groupingType: BarGroupingType.grouped, strokeWidthPx: 5.0));
 
     renderer.preprocessSeries(seriesList);
@@ -428,7 +428,7 @@ void main() {
   group('preprocess with weight pattern', () {
     test('with grouped bar target lines', () {
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.grouped, weightPattern: [3, 2, 1]));
 
       renderer.preprocessSeries(seriesList);
@@ -496,7 +496,7 @@ void main() {
 
     test('with stacked bar target lines - weightPattern not used', () {
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.stacked, weightPattern: [2, 1]));
 
       renderer.preprocessSeries(seriesList);
@@ -566,21 +566,21 @@ void main() {
     test('only include null in draw if animating from a non null measure', () {
       // Helper to create series list for this test only.
       List<MutableSeries<String>> _createSeriesList(List<MyRow> data) {
-        final domainAxis = new MockAxis<dynamic>();
+        final domainAxis = MockAxis<dynamic>();
         when(domainAxis.rangeBand).thenReturn(100.0);
         when(domainAxis.getLocation('MyCampaign1')).thenReturn(20.0);
         when(domainAxis.getLocation('MyCampaign2')).thenReturn(40.0);
         when(domainAxis.getLocation('MyCampaign3')).thenReturn(60.0);
         when(domainAxis.getLocation('MyOtherCampaign')).thenReturn(80.0);
-        final measureAxis = new MockAxis<num>();
+        final measureAxis = MockAxis<num>();
         when(measureAxis.getLocation(0)).thenReturn(0.0);
         when(measureAxis.getLocation(5)).thenReturn(5.0);
         when(measureAxis.getLocation(75)).thenReturn(75.0);
         when(measureAxis.getLocation(100)).thenReturn(100.0);
 
-        final color = new Color.fromHex(code: '#000000');
+        final color = Color.fromHex(code: '#000000');
 
-        final series = new MutableSeries<String>(new Series<MyRow, String>(
+        final series = MutableSeries<String>(Series<MyRow, String>(
             id: 'Desktop',
             domainFn: (MyRow row, _) => row.campaign,
             measureFn: (MyRow row, _) => row.clickCount,
@@ -595,26 +595,26 @@ void main() {
         return [series];
       }
 
-      final canvas = new MockCanvas();
+      final canvas = MockCanvas();
 
       final myDataWithNull = [
-        new MyRow('MyCampaign1', 5),
-        new MyRow('MyCampaign2', null),
-        new MyRow('MyCampaign3', 100),
-        new MyRow('MyOtherCampaign', 75),
+        MyRow('MyCampaign1', 5),
+        MyRow('MyCampaign2', null),
+        MyRow('MyCampaign3', 100),
+        MyRow('MyOtherCampaign', 75),
       ];
       final seriesListWithNull = _createSeriesList(myDataWithNull);
 
       final myDataWithMeasures = [
-        new MyRow('MyCampaign1', 5),
-        new MyRow('MyCampaign2', 0),
-        new MyRow('MyCampaign3', 100),
-        new MyRow('MyOtherCampaign', 75),
+        MyRow('MyCampaign1', 5),
+        MyRow('MyCampaign2', 0),
+        MyRow('MyCampaign3', 100),
+        MyRow('MyOtherCampaign', 75),
       ];
       final seriesListWithMeasures = _createSeriesList(myDataWithMeasures);
 
       renderer = makeRenderer(
-          config: new BarTargetLineRendererConfig(
+          config: BarTargetLineRendererConfig(
               groupingType: BarGroupingType.grouped));
 
       // Verify that only 3 lines are drawn for an initial draw with null data.

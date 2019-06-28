@@ -45,7 +45,7 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
       common.OutsideJustification.startDrawArea;
   static const defaultInsideJustification = common.InsideJustification.topStart;
 
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   final common.SelectionModelType selectionModelType;
 
@@ -86,7 +86,7 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
   /// Styles for legend entry label text.
   final common.TextStyleSpec entryTextStyle;
 
-  static const defaultCellPadding = const EdgeInsets.all(8.0);
+  static const defaultCellPadding = EdgeInsets.all(8.0);
 
   final List<String> defaultHiddenSeries;
 
@@ -157,14 +157,14 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
         position == common.BehaviorPosition.bottom ||
         position == common.BehaviorPosition.inside);
     final layoutBuilder = horizontalFirst
-        ? new TabularLegendLayout.horizontalFirst(
+        ? TabularLegendLayout.horizontalFirst(
             desiredMaxColumns: desiredMaxColumns, cellPadding: cellPadding)
-        : new TabularLegendLayout.verticalFirst(
+        : TabularLegendLayout.verticalFirst(
             desiredMaxRows: desiredMaxRows, cellPadding: cellPadding);
 
-    return new SeriesLegend._internal(
+    return SeriesLegend._internal(
         contentBuilder:
-            new TabularLegendContentBuilder(legendLayout: layoutBuilder),
+            TabularLegendContentBuilder(legendLayout: layoutBuilder),
         selectionModelType: common.SelectionModelType.info,
         position: position,
         outsideJustification: outsideJustification,
@@ -225,7 +225,7 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
     outsideJustification ??= defaultOutsideJustification;
     insideJustification ??= defaultInsideJustification;
 
-    return new SeriesLegend._internal(
+    return SeriesLegend._internal(
       contentBuilder: contentBuilder,
       selectionModelType: common.SelectionModelType.info,
       position: position,
@@ -257,7 +257,7 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
 
   @override
   common.SeriesLegend<D> createCommonBehavior<D>() =>
-      new _FlutterSeriesLegend<D>(this);
+      _FlutterSeriesLegend<D>(this);
 
   @override
   void updateCommonBehavior(common.SeriesLegend commonBehavior) {
@@ -277,7 +277,7 @@ class SeriesLegend extends ChartBehavior<common.SeriesLegend> {
         position == o.position &&
         outsideJustification == o.outsideJustification &&
         insideJustification == o.insideJustification &&
-        new ListEquality().equals(defaultHiddenSeries, o.defaultHiddenSeries) &&
+        ListEquality().equals(defaultHiddenSeries, o.defaultHiddenSeries) &&
         showMeasures == o.showMeasures &&
         legendDefaultMeasure == o.legendDefaultMeasure &&
         measureFormatter == o.measureFormatter &&

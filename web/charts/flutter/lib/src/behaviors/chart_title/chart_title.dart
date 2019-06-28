@@ -29,7 +29,7 @@ import '../chart_behavior.dart' show ChartBehavior, GestureType;
 /// Chart behavior that adds a ChartTitle widget to a chart.
 @immutable
 class ChartTitle extends ChartBehavior<common.ChartTitle> {
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   final common.BehaviorPosition behaviorPosition;
 
@@ -141,20 +141,19 @@ class ChartTitle extends ChartBehavior<common.ChartTitle> {
       this.subTitleStyleSpec});
 
   @override
-  common.ChartTitle<D> createCommonBehavior<D>() =>
-      new common.ChartTitle<D>(title,
-          behaviorPosition: behaviorPosition,
-          innerPadding: innerPadding,
-          layoutMinSize: layoutMinSize,
-          layoutPreferredSize: layoutPreferredSize,
-          outerPadding: outerPadding,
-          maxWidthStrategy: maxWidthStrategy,
-          titleDirection: titleDirection,
-          titleOutsideJustification: titleOutsideJustification,
-          titlePadding: titlePadding,
-          titleStyleSpec: titleStyleSpec,
-          subTitle: subTitle,
-          subTitleStyleSpec: subTitleStyleSpec);
+  common.ChartTitle<D> createCommonBehavior<D>() => common.ChartTitle<D>(title,
+      behaviorPosition: behaviorPosition,
+      innerPadding: innerPadding,
+      layoutMinSize: layoutMinSize,
+      layoutPreferredSize: layoutPreferredSize,
+      outerPadding: outerPadding,
+      maxWidthStrategy: maxWidthStrategy,
+      titleDirection: titleDirection,
+      titleOutsideJustification: titleOutsideJustification,
+      titlePadding: titlePadding,
+      titleStyleSpec: titleStyleSpec,
+      subTitle: subTitle,
+      subTitleStyleSpec: subTitleStyleSpec);
 
   @override
   void updateCommonBehavior(common.ChartTitle commonBehavior) {}

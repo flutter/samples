@@ -42,17 +42,17 @@ void main() {
   setUp(() {
     var myFakeDesktopData = [
       // This datum should get a default bounds line radius value.
-      new MyRow('MyCampaign1', 0, 5, 3.0, null, null),
-      new MyRow('MyCampaign2', 10, 25, 5.0, 4.0, 'shape 1'),
-      new MyRow('MyCampaign3', 12, 75, 4.0, 4.0, 'shape 2'),
+      MyRow('MyCampaign1', 0, 5, 3.0, null, null),
+      MyRow('MyCampaign2', 10, 25, 5.0, 4.0, 'shape 1'),
+      MyRow('MyCampaign3', 12, 75, 4.0, 4.0, 'shape 2'),
       // This datum should always get default radius values.
-      new MyRow('MyCampaign4', 13, 225, null, null, null),
+      MyRow('MyCampaign4', 13, 225, null, null, null),
     ];
 
     final maxMeasure = 300;
 
     numericSeriesList = [
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
           colorFn: (MyRow row, _) {
             // Color bucket the measure column value into 3 distinct colors.
@@ -79,7 +79,7 @@ void main() {
 
   group('preprocess', () {
     test('with numeric data and simple points', () {
-      renderer = new PointRenderer<int>(config: new PointRendererConfig());
+      renderer = PointRenderer<int>(config: PointRendererConfig());
 
       renderer.preprocessSeries(numericSeriesList);
 
@@ -115,9 +115,8 @@ void main() {
     });
 
     test('with numeric data and missing radiusPxFn', () {
-      renderer = new PointRenderer<int>(
-          config:
-              new PointRendererConfig(radiusPx: 2.0, boundsLineRadiusPx: 1.5));
+      renderer = PointRenderer<int>(
+          config: PointRendererConfig(radiusPx: 2.0, boundsLineRadiusPx: 1.5));
 
       // Remove the radius functions to test configured defaults.
       numericSeriesList[0].radiusPxFn = null;
@@ -145,7 +144,7 @@ void main() {
     });
 
     test('with custom symbol renderer ID in data', () {
-      renderer = new PointRenderer<int>(config: new PointRendererConfig());
+      renderer = PointRenderer<int>(config: PointRendererConfig());
 
       numericSeriesList[0].setAttr(pointSymbolRendererFnKey,
           (int index) => numericSeriesList[0].data[index].shape as String);
@@ -167,7 +166,7 @@ void main() {
     });
 
     test('with custom symbol renderer ID in series and data', () {
-      renderer = new PointRenderer<int>(config: new PointRendererConfig());
+      renderer = PointRenderer<int>(config: PointRendererConfig());
 
       numericSeriesList[0].setAttr(pointSymbolRendererFnKey,
           (int index) => numericSeriesList[0].data[index].shape as String);

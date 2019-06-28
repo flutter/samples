@@ -33,7 +33,7 @@ class IntegerOnlyMeasureAxis extends StatelessWidget {
 
   /// Creates a [TimeSeriesChart] with sample data and no transition.
   factory IntegerOnlyMeasureAxis.withSampleData() {
-    return new IntegerOnlyMeasureAxis(
+    return IntegerOnlyMeasureAxis(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -45,29 +45,29 @@ class IntegerOnlyMeasureAxis extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory IntegerOnlyMeasureAxis.withRandomData() {
-    return new IntegerOnlyMeasureAxis(_createRandomData());
+    return IntegerOnlyMeasureAxis(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<MyRow, DateTime>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new MyRow(new DateTime(2017, 9, 25), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 9, 26), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 9, 27), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 9, 28), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 9, 29), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 9, 30), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 10, 01), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 10, 02), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 10, 03), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 10, 04), random.nextDouble().round()),
-      new MyRow(new DateTime(2017, 10, 05), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 25), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 26), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 27), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 28), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 29), random.nextDouble().round()),
+      MyRow(DateTime(2017, 9, 30), random.nextDouble().round()),
+      MyRow(DateTime(2017, 10, 01), random.nextDouble().round()),
+      MyRow(DateTime(2017, 10, 02), random.nextDouble().round()),
+      MyRow(DateTime(2017, 10, 03), random.nextDouble().round()),
+      MyRow(DateTime(2017, 10, 04), random.nextDouble().round()),
+      MyRow(DateTime(2017, 10, 05), random.nextDouble().round()),
     ];
 
     return [
-      new charts.Series<MyRow, DateTime>(
+      charts.Series<MyRow, DateTime>(
         id: 'Headcount',
         domainFn: (MyRow row, _) => row.timeStamp,
         measureFn: (MyRow row, _) => row.headcount,
@@ -79,12 +79,12 @@ class IntegerOnlyMeasureAxis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.TimeSeriesChart(
+    return charts.TimeSeriesChart(
       seriesList,
       animate: animate,
       // Provides a custom axis ensuring that the ticks are in whole numbers.
-      primaryMeasureAxis: new charts.NumericAxisSpec(
-          tickProviderSpec: new charts.BasicNumericTickProviderSpec(
+      primaryMeasureAxis: charts.NumericAxisSpec(
+          tickProviderSpec: charts.BasicNumericTickProviderSpec(
               // Make sure we don't have values less than 1 as ticks
               // (ie: counts).
               dataIsInWholeNumbers: true,
@@ -97,21 +97,21 @@ class IntegerOnlyMeasureAxis extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<MyRow, DateTime>> _createSampleData() {
     final data = [
-      new MyRow(new DateTime(2017, 9, 25), 0),
-      new MyRow(new DateTime(2017, 9, 26), 0),
-      new MyRow(new DateTime(2017, 9, 27), 0),
-      new MyRow(new DateTime(2017, 9, 28), 0),
-      new MyRow(new DateTime(2017, 9, 29), 0),
-      new MyRow(new DateTime(2017, 9, 30), 0),
-      new MyRow(new DateTime(2017, 10, 01), 1),
-      new MyRow(new DateTime(2017, 10, 02), 1),
-      new MyRow(new DateTime(2017, 10, 03), 1),
-      new MyRow(new DateTime(2017, 10, 04), 1),
-      new MyRow(new DateTime(2017, 10, 05), 1),
+      MyRow(DateTime(2017, 9, 25), 0),
+      MyRow(DateTime(2017, 9, 26), 0),
+      MyRow(DateTime(2017, 9, 27), 0),
+      MyRow(DateTime(2017, 9, 28), 0),
+      MyRow(DateTime(2017, 9, 29), 0),
+      MyRow(DateTime(2017, 9, 30), 0),
+      MyRow(DateTime(2017, 10, 01), 1),
+      MyRow(DateTime(2017, 10, 02), 1),
+      MyRow(DateTime(2017, 10, 03), 1),
+      MyRow(DateTime(2017, 10, 04), 1),
+      MyRow(DateTime(2017, 10, 05), 1),
     ];
 
     return [
-      new charts.Series<MyRow, DateTime>(
+      charts.Series<MyRow, DateTime>(
         id: 'Headcount',
         domainFn: (MyRow row, _) => row.timeStamp,
         measureFn: (MyRow row, _) => row.headcount,

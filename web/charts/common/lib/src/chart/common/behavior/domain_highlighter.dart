@@ -35,7 +35,7 @@ class DomainHighlighter<D> implements ChartBehavior<D> {
 
   DomainHighlighter([this.selectionModelType = SelectionModelType.info]) {
     _lifecycleListener =
-        new LifecycleListener<D>(onPostprocess: _updateColorFunctions);
+        LifecycleListener<D>(onPostprocess: _updateColorFunctions);
   }
 
   void _selectionChanged(SelectionModel selectionModel) {

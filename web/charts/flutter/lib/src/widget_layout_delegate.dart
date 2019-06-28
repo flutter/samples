@@ -59,14 +59,14 @@ class WidgetLayoutDelegate extends MultiChildLayoutDelegate {
             isRTL ? common.BehaviorPosition.start : common.BehaviorPosition.end;
         final behaviorPosition = idAndBehavior[behaviorID].position;
 
-        behaviorSize = layoutChild(behaviorID, new BoxConstraints.loose(size));
+        behaviorSize = layoutChild(behaviorID, BoxConstraints.loose(size));
         if (behaviorPosition == common.BehaviorPosition.top) {
-          chartOffset = new Offset(0.0, behaviorSize.height);
+          chartOffset = Offset(0.0, behaviorSize.height);
           availableHeight -= behaviorSize.height;
         } else if (behaviorPosition == common.BehaviorPosition.bottom) {
           availableHeight -= behaviorSize.height;
         } else if (behaviorPosition == leftPosition) {
-          chartOffset = new Offset(behaviorSize.width, 0.0);
+          chartOffset = Offset(behaviorSize.width, 0.0);
           availableWidth -= behaviorSize.width;
         } else if (behaviorPosition == rightPosition) {
           availableWidth -= behaviorSize.width;
@@ -75,9 +75,9 @@ class WidgetLayoutDelegate extends MultiChildLayoutDelegate {
     }
 
     // Layout chart.
-    final chartSize = new Size(availableWidth, availableHeight);
+    final chartSize = Size(availableWidth, availableHeight);
     if (hasChild(chartID)) {
-      layoutChild(chartID, new BoxConstraints.tight(chartSize));
+      layoutChild(chartID, BoxConstraints.tight(chartSize));
       positionChild(chartID, chartOffset);
     }
 
@@ -121,18 +121,18 @@ class WidgetLayoutDelegate extends MultiChildLayoutDelegate {
       switch (horizontalJustification) {
         case _HorizontalJustification.leftDrawArea:
           behaviorOffset =
-              new Offset(behavior.drawAreaBounds.left.toDouble(), heightOffset);
+              Offset(behavior.drawAreaBounds.left.toDouble(), heightOffset);
           break;
         case _HorizontalJustification.left:
-          behaviorOffset = new Offset(0.0, heightOffset);
+          behaviorOffset = Offset(0.0, heightOffset);
           break;
         case _HorizontalJustification.rightDrawArea:
-          behaviorOffset = new Offset(
+          behaviorOffset = Offset(
               behavior.drawAreaBounds.right - behaviorSize.width, heightOffset);
           break;
         case _HorizontalJustification.right:
           behaviorOffset =
-              new Offset(chartSize.width - behaviorSize.width, heightOffset);
+              Offset(chartSize.width - behaviorSize.width, heightOffset);
           break;
       }
     } else if (behaviorPosition == common.BehaviorPosition.start ||
@@ -147,23 +147,23 @@ class WidgetLayoutDelegate extends MultiChildLayoutDelegate {
         case common.OutsideJustification.startDrawArea:
         case common.OutsideJustification.middleDrawArea:
           behaviorOffset =
-              new Offset(widthOffset, behavior.drawAreaBounds.top.toDouble());
+              Offset(widthOffset, behavior.drawAreaBounds.top.toDouble());
           break;
         case common.OutsideJustification.start:
         case common.OutsideJustification.middle:
-          behaviorOffset = new Offset(widthOffset, 0.0);
+          behaviorOffset = Offset(widthOffset, 0.0);
           break;
         case common.OutsideJustification.endDrawArea:
-          behaviorOffset = new Offset(widthOffset,
+          behaviorOffset = Offset(widthOffset,
               behavior.drawAreaBounds.bottom - behaviorSize.height);
           break;
         case common.OutsideJustification.end:
           behaviorOffset =
-              new Offset(widthOffset, chartSize.height - behaviorSize.height);
+              Offset(widthOffset, chartSize.height - behaviorSize.height);
           break;
       }
     } else if (behaviorPosition == common.BehaviorPosition.inside) {
-      var rightOffset = new Offset(chartSize.width - behaviorSize.width, 0.0);
+      var rightOffset = Offset(chartSize.width - behaviorSize.width, 0.0);
 
       switch (insideJustification) {
         case common.InsideJustification.topStart:

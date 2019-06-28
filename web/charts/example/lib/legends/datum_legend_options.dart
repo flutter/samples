@@ -31,7 +31,7 @@ class DatumLegendOptions extends StatelessWidget {
   DatumLegendOptions(this.seriesList, {this.animate});
 
   factory DatumLegendOptions.withSampleData() {
-    return new DatumLegendOptions(
+    return DatumLegendOptions(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -43,22 +43,22 @@ class DatumLegendOptions extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory DatumLegendOptions.withRandomData() {
-    return new DatumLegendOptions(_createRandomData());
+    return DatumLegendOptions(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, int>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -70,14 +70,14 @@ class DatumLegendOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.PieChart(
+    return charts.PieChart(
       seriesList,
       animate: animate,
       // Add the legend behavior to the chart to turn on legends.
       // This example shows how to change the position and justification of
       // the legend, in addition to altering the max rows and padding.
       behaviors: [
-        new charts.DatumLegend(
+        charts.DatumLegend(
           // Positions for "start" and "end" will be left and right respectively
           // for widgets with a build context that has directionality ltr.
           // For rtl, "start" and "end" will be right and left respectively.
@@ -96,7 +96,7 @@ class DatumLegendOptions extends StatelessWidget {
           // rows before adding a new column.
           desiredMaxRows: 2,
           // This defines the padding around each legend entry.
-          cellPadding: new EdgeInsets.only(right: 4.0, bottom: 4.0),
+          cellPadding: EdgeInsets.only(right: 4.0, bottom: 4.0),
           // Render the legend entry text with custom styles.
           entryTextStyle: charts.TextStyleSpec(
               color: charts.MaterialPalette.purple.shadeDefault,
@@ -110,14 +110,14 @@ class DatumLegendOptions extends StatelessWidget {
   /// Create series list with one series
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
-      new LinearSales(3, 5),
+      LinearSales(0, 100),
+      LinearSales(1, 75),
+      LinearSales(2, 25),
+      LinearSales(3, 5),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

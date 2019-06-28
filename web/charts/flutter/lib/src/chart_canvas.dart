@@ -40,7 +40,7 @@ class ChartCanvas implements common.ChartCanvas {
 
   final Canvas canvas;
   final common.GraphicsFactory graphicsFactory;
-  final _paint = new Paint();
+  final _paint = Paint();
 
   CircleSectorPainter _circleSectorPainter;
   LinePainter _linePainter;
@@ -54,7 +54,7 @@ class ChartCanvas implements common.ChartCanvas {
   void drawCircleSector(Point center, double radius, double innerRadius,
       double startAngle, double endAngle,
       {common.Color fill, common.Color stroke, double strokeWidthPx}) {
-    _circleSectorPainter ??= new CircleSectorPainter();
+    _circleSectorPainter ??= CircleSectorPainter();
     _circleSectorPainter.draw(
         canvas: canvas,
         paint: _paint,
@@ -77,7 +77,7 @@ class ChartCanvas implements common.ChartCanvas {
       bool roundEndCaps,
       double strokeWidthPx,
       List<int> dashPattern}) {
-    _linePainter ??= new LinePainter();
+    _linePainter ??= LinePainter();
     _linePainter.draw(
         canvas: canvas,
         paint: _paint,
@@ -92,7 +92,7 @@ class ChartCanvas implements common.ChartCanvas {
 
   @override
   void drawPie(common.CanvasPie canvasPie) {
-    _piePainter ??= new PiePainter();
+    _piePainter ??= PiePainter();
     _piePainter.draw(canvas, _paint, canvasPie);
   }
 
@@ -103,7 +103,7 @@ class ChartCanvas implements common.ChartCanvas {
       common.Color fill,
       common.Color stroke,
       double strokeWidthPx}) {
-    _pointPainter ??= new PointPainter();
+    _pointPainter ??= PointPainter();
     _pointPainter.draw(
         canvas: canvas,
         paint: _paint,
@@ -121,7 +121,7 @@ class ChartCanvas implements common.ChartCanvas {
       common.Color fill,
       common.Color stroke,
       double strokeWidthPx}) {
-    _polygonPainter ??= new PolygonPainter();
+    _polygonPainter ??= PolygonPainter();
     _polygonPainter.draw(
         canvas: canvas,
         paint: _paint,
@@ -134,12 +134,12 @@ class ChartCanvas implements common.ChartCanvas {
 
   /// Creates a bottom to top gradient that transitions [fill] to transparent.
   ui.Gradient _createHintGradient(double left, double top, common.Color fill) {
-    return new ui.Gradient.linear(
-      new Offset(left, top),
-      new Offset(left, top - rect_top_gradient_pixels),
+    return ui.Gradient.linear(
+      Offset(left, top),
+      Offset(left, top - rect_top_gradient_pixels),
       [
-        new Color.fromARGB(fill.a, fill.r, fill.g, fill.b),
-        new Color.fromARGB(0, fill.r, fill.g, fill.b)
+        Color.fromARGB(fill.a, fill.r, fill.g, fill.b),
+        Color.fromARGB(0, fill.r, fill.g, fill.b)
       ],
     );
   }
@@ -157,7 +157,7 @@ class ChartCanvas implements common.ChartCanvas {
     final strokeWidthOffset = (drawStroke ? strokeWidthPx : 0);
 
     // Factor out stroke width, if a stroke is enabled.
-    final fillRectBounds = new Rectangle<num>(
+    final fillRectBounds = Rectangle<num>(
         bounds.left + strokeWidthOffset / 2,
         bounds.top + strokeWidthOffset / 2,
         bounds.width - strokeWidthOffset,
@@ -172,7 +172,7 @@ class ChartCanvas implements common.ChartCanvas {
       case common.FillPatternType.solid:
       default:
         // Use separate rect for drawing stroke
-        _paint.color = new Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
+        _paint.color = Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
         _paint.style = PaintingStyle.fill;
 
         // Apply a gradient to the top [rect_top_gradient_pixels] to transparent
@@ -189,7 +189,7 @@ class ChartCanvas implements common.ChartCanvas {
     // [Canvas.drawRect] does not support drawing a rectangle with both a fill
     // and a stroke at this time. Use a separate rect for the stroke.
     if (drawStroke) {
-      _paint.color = new Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b);
+      _paint.color = Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b);
       // Set shader to null if no draw area bounds so it can use the color
       // instead.
       _paint.shader = drawAreaBounds != null
@@ -217,7 +217,7 @@ class ChartCanvas implements common.ChartCanvas {
       bool roundBottomLeft,
       bool roundBottomRight}) {
     // Use separate rect for drawing stroke
-    _paint.color = new Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
+    _paint.color = Color.fromARGB(fill.a, fill.r, fill.g, fill.b);
     _paint.style = PaintingStyle.fill;
 
     canvas.drawRRect(
@@ -291,9 +291,7 @@ class ChartCanvas implements common.ChartCanvas {
       canvas.translate(offsetX.toDouble(), offsetY.toDouble());
       canvas.rotate(rotation);
 
-      (textElement as TextElement)
-          .textPainter
-          .paint(canvas, new Offset(0.0, 0.0));
+      (textElement as TextElement).textPainter.paint(canvas, Offset(0.0, 0.0));
 
       canvas.restore();
     } else {
@@ -311,7 +309,7 @@ class ChartCanvas implements common.ChartCanvas {
 
       (textElement as TextElement)
           .textPainter
-          .paint(canvas, new Offset(offsetX.toDouble(), offsetY.toDouble()));
+          .paint(canvas, Offset(offsetX.toDouble(), offsetY.toDouble()));
     }
   }
 
@@ -329,11 +327,8 @@ class ChartCanvas implements common.ChartCanvas {
 
   /// Convert dart:math [Rectangle] to Flutter [Rect].
   Rect _getRect(Rectangle<num> rectangle) {
-    return new Rect.fromLTWH(
-        rectangle.left.toDouble(),
-        rectangle.top.toDouble(),
-        rectangle.width.toDouble(),
-        rectangle.height.toDouble());
+    return Rect.fromLTWH(rectangle.left.toDouble(), rectangle.top.toDouble(),
+        rectangle.width.toDouble(), rectangle.height.toDouble());
   }
 
   /// Convert dart:math [Rectangle] and to Flutter [RRect].
@@ -345,10 +340,9 @@ class ChartCanvas implements common.ChartCanvas {
     bool roundBottomLeft = false,
     bool roundBottomRight = false,
   }) {
-    final cornerRadius =
-        radius == 0 ? Radius.zero : new Radius.circular(radius);
+    final cornerRadius = radius == 0 ? Radius.zero : Radius.circular(radius);
 
-    return new RRect.fromLTRBAndCorners(
+    return RRect.fromLTRBAndCorners(
         rectangle.left.toDouble(),
         rectangle.top.toDouble(),
         rectangle.right.toDouble(),
@@ -372,8 +366,8 @@ class ChartCanvas implements common.ChartCanvas {
     fill ??= common.StyleFactory.style.black;
 
     // Fill in the shape with a solid background color.
-    _paint.color = new Color.fromARGB(
-        background.a, background.r, background.g, background.b);
+    _paint.color =
+        Color.fromARGB(background.a, background.r, background.g, background.b);
     _paint.style = PaintingStyle.fill;
 
     // Apply a gradient the background if bounds exceed the draw area.
@@ -397,7 +391,7 @@ class ChartCanvas implements common.ChartCanvas {
 
     final isVertical = bounds.height >= bounds.width;
 
-    _linePainter ??= new LinePainter();
+    _linePainter ??= LinePainter();
 
     // The "first" line segment will be drawn from the bottom left corner of the
     // bounds, up and towards the right. Start the loop N iterations "back" to
@@ -428,8 +422,8 @@ class ChartCanvas implements common.ChartCanvas {
           canvas: canvas,
           paint: _paint,
           points: [
-            new Point(x0 + modifier, y0),
-            new Point(x1 + modifier, y1),
+            Point(x0 + modifier, y0),
+            Point(x1 + modifier, y1),
           ],
           stroke: fill,
           strokeWidthPx: fillWidthPx,

@@ -114,7 +114,7 @@ class _CardDataItem extends StatelessWidget {
                   page.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
               child: CircleAvatar(child: Text('${page.id}')),
             ),
-            SizedBox(width: 144.0, height: 144.0, child: new Text('image')
+            SizedBox(width: 144.0, height: 144.0, child: Text('image')
 //              Image.asset(
 //                data.imageAsset,
 //                package: data.imageAssetPackage,

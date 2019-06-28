@@ -17,9 +17,9 @@ import 'package:meta/meta.dart' show immutable;
 
 @immutable
 class Color {
-  static const black = const Color(r: 0, g: 0, b: 0);
-  static const white = const Color(r: 255, g: 255, b: 255);
-  static const transparent = const Color(r: 0, g: 0, b: 0, a: 0);
+  static const black = Color(r: 0, g: 0, b: 0);
+  static const white = Color(r: 255, g: 255, b: 255);
+  static const transparent = Color(r: 0, g: 0, b: 0, a: 0);
 
   static const _darkerPercentOfOrig = 0.7;
   static const _lighterPercentOfOrig = 0.1;
@@ -53,12 +53,12 @@ class Color {
     final g = (bigint >> 8) & 255;
     final b = bigint & 255;
     final a = 255;
-    return new Color(r: r, g: g, b: b, a: a);
+    return Color(r: r, g: g, b: b, a: a);
   }
 
   Color get darker =>
       _darker ??
-      new Color(
+      Color(
           r: (r * _darkerPercentOfOrig).round(),
           g: (g * _darkerPercentOfOrig).round(),
           b: (b * _darkerPercentOfOrig).round(),
@@ -66,7 +66,7 @@ class Color {
 
   Color get lighter =>
       _lighter ??
-      new Color(
+      Color(
           r: r + ((255 - r) * _lighterPercentOfOrig).round(),
           g: g + ((255 - g) * _lighterPercentOfOrig).round(),
           b: b + ((255 - b) * _lighterPercentOfOrig).round(),

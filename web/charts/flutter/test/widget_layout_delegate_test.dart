@@ -29,8 +29,8 @@ class MockBuildableBehavior extends Mock implements BuildableBehavior {}
 
 void main() {
   group('widget layout test', () {
-    final chartKey = new UniqueKey();
-    final behaviorKey = new UniqueKey();
+    final chartKey = UniqueKey();
+    final behaviorKey = UniqueKey();
     final behaviorID = 'behavior';
     final totalSize = const Size(200.0, 100.0);
     final behaviorSize = const Size(50.0, 50.0);
@@ -41,10 +41,10 @@ void main() {
         {common.OutsideJustification outsideJustification,
         common.InsideJustification insideJustification,
         Rectangle<int> drawAreaBounds,
-        bool isRTL: false}) {
+        bool isRTL = false}) {
       // Create a mock buildable behavior that returns information about the
       // position and justification desired.
-      final behavior = new MockBuildableBehavior();
+      final behavior = MockBuildableBehavior();
       when(behavior.position).thenReturn(position);
       when(behavior.outsideJustification).thenReturn(outsideJustification);
       when(behavior.insideJustification).thenReturn(insideJustification);
@@ -52,24 +52,24 @@ void main() {
 
       // The 'chart' widget that expands to the full size allowed to test that
       // the behavior widget's size affects the size given to the chart.
-      final chart = new LayoutId(
-          key: chartKey, id: chartContainerLayoutID, child: new Container());
+      final chart = LayoutId(
+          key: chartKey, id: chartContainerLayoutID, child: Container());
 
       // A behavior widget
-      final behaviorWidget = new LayoutId(
+      final behaviorWidget = LayoutId(
           key: behaviorKey,
           id: behaviorID,
-          child: new SizedBox.fromSize(size: behaviorSize));
+          child: SizedBox.fromSize(size: behaviorSize));
 
       // Create a the widget that uses the layout delegate that is being tested.
-      final layout = new CustomMultiChildLayout(
-          delegate: new WidgetLayoutDelegate(
+      final layout = CustomMultiChildLayout(
+          delegate: WidgetLayoutDelegate(
               chartContainerLayoutID, {behaviorID: behavior}, isRTL),
           children: [chart, behaviorWidget]);
 
-      final container = new Align(
+      final container = Align(
           alignment: Alignment.topLeft,
-          child: new Container(
+          child: Container(
               width: chartSize.width, height: chartSize.height, child: layout));
 
       return container;

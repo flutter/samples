@@ -29,7 +29,7 @@ class PartialPieChart extends StatelessWidget {
 
   /// Creates a [PieChart] with sample data and no transition.
   factory PartialPieChart.withSampleData() {
-    return new PartialPieChart(
+    return PartialPieChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,22 +41,22 @@ class PartialPieChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory PartialPieChart.withRandomData() {
-    return new PartialPieChart(_createRandomData());
+    return PartialPieChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, int>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -70,22 +70,22 @@ class PartialPieChart extends StatelessWidget {
   Widget build(BuildContext context) {
     // Configure the pie to display the data across only 3/4 instead of the full
     // revolution.
-    return new charts.PieChart(seriesList,
+    return charts.PieChart(seriesList,
         animate: animate,
-        defaultRenderer: new charts.ArcRendererConfig(arcLength: 3 / 2 * pi));
+        defaultRenderer: charts.ArcRendererConfig(arcLength: 3 / 2 * pi));
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
-      new LinearSales(3, 5),
+      LinearSales(0, 100),
+      LinearSales(1, 75),
+      LinearSales(2, 25),
+      LinearSales(3, 5),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

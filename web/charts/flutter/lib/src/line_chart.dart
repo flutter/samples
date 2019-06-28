@@ -47,7 +47,7 @@ class LineChart extends CartesianChart<num> {
     List<SelectionModelConfig<num>> selectionModels,
     common.RTLSpec rtlSpec,
     LayoutConfig layoutConfig,
-    bool defaultInteractions: true,
+    bool defaultInteractions = true,
     bool flipVerticalAxis,
     UserManagedState<num> userManagedState,
   }) : super(
@@ -74,7 +74,7 @@ class LineChart extends CartesianChart<num> {
     // Optionally create primary and secondary measure axes if the chart was
     // configured with them. If no axes were configured, then the chart will
     // use its default types (usually a numeric axis).
-    return new common.LineChart(
+    return common.LineChart(
         layoutConfig: layoutConfig?.commonLayoutConfig,
         primaryMeasureAxis: primaryMeasureAxis?.createAxis(),
         secondaryMeasureAxis: secondaryMeasureAxis?.createAxis(),
@@ -85,6 +85,6 @@ class LineChart extends CartesianChart<num> {
   void addDefaultInteractions(List<ChartBehavior> behaviors) {
     super.addDefaultInteractions(behaviors);
 
-    behaviors.add(new LinePointHighlighter());
+    behaviors.add(LinePointHighlighter());
   }
 }

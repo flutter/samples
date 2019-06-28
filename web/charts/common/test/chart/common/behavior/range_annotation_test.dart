@@ -33,9 +33,9 @@ class MockContext extends Mock implements ChartContext {}
 class ConcreteChart extends LineChart {
   LifecycleListener<num> lastListener;
 
-  final _domainAxis = new ConcreteNumericAxis();
+  final _domainAxis = ConcreteNumericAxis();
 
-  final _primaryMeasureAxis = new ConcreteNumericAxis();
+  final _primaryMeasureAxis = ConcreteNumericAxis();
 
   @override
   addLifecycleListener(LifecycleListener listener) {
@@ -60,9 +60,9 @@ class ConcreteChart extends LineChart {
 class ConcreteNumericAxis extends Axis<num> {
   ConcreteNumericAxis()
       : super(
-          tickProvider: new MockTickProvider(),
-          tickFormatter: new NumericTickFormatter(),
-          scale: new LinearScale(),
+          tickProvider: MockTickProvider(),
+          tickFormatter: NumericTickFormatter(),
+          scale: LinearScale(),
         );
 }
 
@@ -76,16 +76,16 @@ void main() {
   ConcreteChart _chart;
 
   Series<MyRow, int> _series1;
-  final _s1D1 = new MyRow(0, 11);
-  final _s1D2 = new MyRow(1, 12);
-  final _s1D3 = new MyRow(2, 13);
+  final _s1D1 = MyRow(0, 11);
+  final _s1D2 = MyRow(1, 12);
+  final _s1D3 = MyRow(2, 13);
 
   Series<MyRow, int> _series2;
-  final _s2D1 = new MyRow(3, 21);
-  final _s2D2 = new MyRow(4, 22);
-  final _s2D3 = new MyRow(5, 23);
+  final _s2D1 = MyRow(3, 21);
+  final _s2D2 = MyRow(4, 22);
+  final _s2D3 = MyRow(5, 23);
 
-  const _dashPattern = const <int>[2, 3];
+  const _dashPattern = <int>[2, 3];
 
   List<RangeAnnotationSegment<num>> _annotations1;
 
@@ -94,9 +94,9 @@ void main() {
   List<LineAnnotationSegment<num>> _annotations3;
 
   ConcreteChart _makeChart() {
-    final chart = new ConcreteChart();
+    final chart = ConcreteChart();
 
-    final context = new MockContext();
+    final context = MockContext();
     when(context.chartContainerIsRtl).thenReturn(false);
     when(context.isRtl).thenReturn(false);
     chart.context = context;
@@ -123,22 +123,22 @@ void main() {
   }
 
   setUpAll(() {
-    drawBounds = new Rectangle<int>(0, 0, 100, 100);
-    domainAxisBounds = new Rectangle<int>(0, 0, 100, 100);
-    measureAxisBounds = new Rectangle<int>(0, 0, 100, 100);
+    drawBounds = Rectangle<int>(0, 0, 100, 100);
+    domainAxisBounds = Rectangle<int>(0, 0, 100, 100);
+    measureAxisBounds = Rectangle<int>(0, 0, 100, 100);
   });
 
   setUp(() {
     _chart = _makeChart();
 
-    _series1 = new Series<MyRow, int>(
+    _series1 = Series<MyRow, int>(
         id: 's1',
         data: [_s1D1, _s1D2, _s1D3],
         domainFn: (dynamic row, _) => row.campaign,
         measureFn: (dynamic row, _) => row.count,
         colorFn: (_, __) => MaterialPalette.blue.shadeDefault);
 
-    _series2 = new Series<MyRow, int>(
+    _series2 = Series<MyRow, int>(
         id: 's2',
         data: [_s2D1, _s2D2, _s2D3],
         domainFn: (dynamic row, _) => row.campaign,
@@ -146,31 +146,31 @@ void main() {
         colorFn: (_, __) => MaterialPalette.red.shadeDefault);
 
     _annotations1 = [
-      new RangeAnnotationSegment(1, 2, RangeAnnotationAxisType.domain,
+      RangeAnnotationSegment(1, 2, RangeAnnotationAxisType.domain,
           startLabel: 'Ann 1'),
-      new RangeAnnotationSegment(4, 5, RangeAnnotationAxisType.domain,
+      RangeAnnotationSegment(4, 5, RangeAnnotationAxisType.domain,
           color: MaterialPalette.gray.shade200, endLabel: 'Ann 2'),
-      new RangeAnnotationSegment(5, 5.5, RangeAnnotationAxisType.measure,
+      RangeAnnotationSegment(5, 5.5, RangeAnnotationAxisType.measure,
           startLabel: 'Really long tick start label',
           endLabel: 'Really long tick end label'),
-      new RangeAnnotationSegment(10, 15, RangeAnnotationAxisType.measure,
+      RangeAnnotationSegment(10, 15, RangeAnnotationAxisType.measure,
           startLabel: 'Ann 4 Start', endLabel: 'Ann 4 End'),
-      new RangeAnnotationSegment(16, 22, RangeAnnotationAxisType.measure,
+      RangeAnnotationSegment(16, 22, RangeAnnotationAxisType.measure,
           startLabel: 'Ann 5 Start', endLabel: 'Ann 5 End'),
     ];
 
     _annotations2 = [
-      new RangeAnnotationSegment(1, 2, RangeAnnotationAxisType.domain),
-      new RangeAnnotationSegment(4, 5, RangeAnnotationAxisType.domain,
+      RangeAnnotationSegment(1, 2, RangeAnnotationAxisType.domain),
+      RangeAnnotationSegment(4, 5, RangeAnnotationAxisType.domain,
           color: MaterialPalette.gray.shade200),
-      new RangeAnnotationSegment(8, 10, RangeAnnotationAxisType.domain,
+      RangeAnnotationSegment(8, 10, RangeAnnotationAxisType.domain,
           color: MaterialPalette.gray.shade300),
     ];
 
     _annotations3 = [
-      new LineAnnotationSegment(1, RangeAnnotationAxisType.measure,
+      LineAnnotationSegment(1, RangeAnnotationAxisType.measure,
           startLabel: 'Ann 1 Start', endLabel: 'Ann 1 End'),
-      new LineAnnotationSegment(4, RangeAnnotationAxisType.measure,
+      LineAnnotationSegment(4, RangeAnnotationAxisType.measure,
           startLabel: 'Ann 2 Start',
           endLabel: 'Ann 2 End',
           color: MaterialPalette.gray.shade200,
@@ -181,8 +181,8 @@ void main() {
   group('RangeAnnotation', () {
     test('renders the annotations', () {
       // Setup
-      final behavior = new RangeAnnotation<num>(_annotations1);
-      final tester = new RangeAnnotationTester(behavior);
+      final behavior = RangeAnnotation<num>(_annotations1);
+      final tester = RangeAnnotationTester(behavior);
       behavior.attachTo(_chart);
 
       final seriesList = [_series1, _series2];
@@ -252,8 +252,8 @@ void main() {
 
     test('extends the domain axis when annotations fall outside the range', () {
       // Setup
-      final behavior = new RangeAnnotation<num>(_annotations2);
-      final tester = new RangeAnnotationTester(behavior);
+      final behavior = RangeAnnotation<num>(_annotations2);
+      final tester = RangeAnnotationTester(behavior);
       behavior.attachTo(_chart);
 
       final seriesList = [_series1, _series2];
@@ -294,8 +294,8 @@ void main() {
 
     test('test dash pattern equality', () {
       // Setup
-      final behavior = new RangeAnnotation<num>(_annotations3);
-      final tester = new RangeAnnotationTester(behavior);
+      final behavior = RangeAnnotation<num>(_annotations3);
+      final tester = RangeAnnotationTester(behavior);
       behavior.attachTo(_chart);
 
       final seriesList = [_series1, _series2];
@@ -332,7 +332,7 @@ void main() {
 
     test('cleans up', () {
       // Setup
-      final behavior = new RangeAnnotation<num>(_annotations2);
+      final behavior = RangeAnnotation<num>(_annotations2);
       behavior.attachTo(_chart);
 
       // Act

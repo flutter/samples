@@ -23,36 +23,36 @@ import 'simple.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Simple Scatter Plot Chart',
       subtitle: 'With a single series',
-      childBuilder: () => new SimpleScatterPlotChart.withRandomData(),
+      childBuilder: () => SimpleScatterPlotChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Shapes Scatter Plot Chart',
       subtitle: 'With custom shapes',
-      childBuilder: () => new ShapesScatterPlotChart.withRandomData(),
+      childBuilder: () => ShapesScatterPlotChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Comparison Points Scatter Plot Chart',
       subtitle: 'Scatter plot chart with comparison points',
-      childBuilder: () => new ComparisonPointsScatterPlotChart.withRandomData(),
+      childBuilder: () => ComparisonPointsScatterPlotChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Pan and Zoom Scatter Plot Chart',
       subtitle: 'Simple scatter plot chart pan and zoom behaviors enabled',
-      childBuilder: () => new ScatterPlotAnimationZoomChart.withRandomData(),
+      childBuilder: () => ScatterPlotAnimationZoomChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Bucketing Axis Scatter Plot Chart',
       subtitle: 'Scatter plot with a measure axis that buckets values less ' +
           'than 10% into a single region below the draw area',
-      childBuilder: () => new BucketingAxisScatterPlotChart.withRandomData(),
+      childBuilder: () => BucketingAxisScatterPlotChart.withRandomData(),
     ),
   ];
 }

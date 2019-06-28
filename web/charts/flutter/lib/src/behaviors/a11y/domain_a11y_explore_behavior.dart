@@ -57,7 +57,7 @@ class DomainA11yExploreBehavior
       double minimumWidth,
       String exploreModeEnabledAnnouncement,
       String exploreModeDisabledAnnouncement}) {
-    final desiredGestures = new Set<GestureType>();
+    final desiredGestures = Set<GestureType>();
     exploreModeTrigger ??= common.ExploreModeTrigger.pressHold;
 
     switch (exploreModeTrigger) {
@@ -69,7 +69,7 @@ class DomainA11yExploreBehavior
         break;
     }
 
-    return new DomainA11yExploreBehavior._internal(
+    return DomainA11yExploreBehavior._internal(
       vocalizationCallback: vocalizationCallback,
       desiredGestures: desiredGestures,
       exploreModeTrigger: exploreModeTrigger,
@@ -81,7 +81,7 @@ class DomainA11yExploreBehavior
 
   @override
   common.DomainA11yExploreBehavior<D> createCommonBehavior<D>() {
-    return new common.DomainA11yExploreBehavior<D>(
+    return common.DomainA11yExploreBehavior<D>(
         vocalizationCallback: vocalizationCallback,
         exploreModeTrigger: exploreModeTrigger,
         minimumWidth: minimumWidth,

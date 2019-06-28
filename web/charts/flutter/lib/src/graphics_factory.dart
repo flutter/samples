@@ -29,16 +29,16 @@ class GraphicsFactory implements common.GraphicsFactory {
 
   /// Returns a [TextStyle] object.
   @override
-  common.TextStyle createTextPaint() => new TextStyle();
+  common.TextStyle createTextPaint() => TextStyle();
 
   /// Returns a text element from [text] and [style].
   @override
   common.TextElement createTextElement(String text) {
-    return new TextElement(text, textScaleFactor: textScaleFactor);
+    return TextElement(text, textScaleFactor: textScaleFactor);
   }
 
   @override
-  common.LineStyle createLinePaint() => new LineStyle();
+  common.LineStyle createLinePaint() => LineStyle();
 }
 
 /// Wraps the MediaQuery function to allow for testing.

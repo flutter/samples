@@ -37,7 +37,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 /// range.
 @immutable
 class RangeAnnotation extends ChartBehavior<common.RangeAnnotation> {
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   /// List of annotations to render on the chart.
   final List<common.AnnotationSegment> annotations;
@@ -76,7 +76,7 @@ class RangeAnnotation extends ChartBehavior<common.RangeAnnotation> {
 
   @override
   common.RangeAnnotation<D> createCommonBehavior<D>() =>
-      new common.RangeAnnotation<D>(annotations,
+      common.RangeAnnotation<D>(annotations,
           defaultColor: defaultColor,
           defaultLabelAnchor: defaultLabelAnchor,
           defaultLabelDirection: defaultLabelDirection,
@@ -94,7 +94,7 @@ class RangeAnnotation extends ChartBehavior<common.RangeAnnotation> {
   @override
   bool operator ==(Object o) {
     return o is RangeAnnotation &&
-        new ListEquality().equals(annotations, o.annotations) &&
+        ListEquality().equals(annotations, o.annotations) &&
         defaultColor == o.defaultColor &&
         extendAxis == o.extendAxis &&
         defaultLabelAnchor == o.defaultLabelAnchor &&

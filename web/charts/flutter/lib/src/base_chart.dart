@@ -85,7 +85,7 @@ abstract class BaseChart<D> extends StatefulWidget {
             animationDuration ?? const Duration(milliseconds: 300);
 
   @override
-  BaseChartState<D> createState() => new BaseChartState<D>();
+  BaseChartState<D> createState() => BaseChartState<D>();
 
   /// Creates and returns a [common.BaseChart].
   common.BaseChart<D> createCommonChart(BaseChartState<D> chartState);
@@ -128,7 +128,7 @@ abstract class BaseChart<D> extends StatefulWidget {
 
   void _updateBehaviors(common.BaseChart chart, BaseChartState chartState) {
     final behaviorList = behaviors != null
-        ? new List<ChartBehavior>.from(behaviors)
+        ? List<ChartBehavior>.from(behaviors)
         : <ChartBehavior>[];
 
     // Insert automatic behaviors to the front of the behavior list.
@@ -181,7 +181,7 @@ abstract class BaseChart<D> extends StatefulWidget {
   /// Create the list of default interaction behaviors.
   void addDefaultInteractions(List<ChartBehavior> behaviors) {
     // Update selection model
-    behaviors.add(new SelectNearest(
+    behaviors.add(SelectNearest(
         eventTrigger: common.SelectionTrigger.tap,
         selectionModelType: common.SelectionModelType.info,
         expandToDomain: true,
@@ -196,7 +196,7 @@ abstract class BaseChart<D> extends StatefulWidget {
 
   void _updateSelectionModel(
       common.BaseChart<D> chart, BaseChartState<D> chartState) {
-    final prevTypes = new List<common.SelectionModelType>.from(
+    final prevTypes = List<common.SelectionModelType>.from(
         chartState.addedSelectionChangedListenersByType.keys);
 
     // Update any listeners for each type.
@@ -241,7 +241,7 @@ abstract class BaseChart<D> extends StatefulWidget {
   /// Gestures are then setup to be proxied in [common.BaseChart] and that is
   /// held by [ChartContainerRenderObject].
   Set<GestureType> getDesiredGestures(BaseChartState chartState) {
-    final types = new Set<GestureType>();
+    final types = Set<GestureType>();
     behaviors?.forEach((ChartBehavior behavior) {
       types.addAll(behavior.desiredGestures);
     });
@@ -271,7 +271,7 @@ class LayoutConfig {
     @required this.bottomMarginSpec,
   });
 
-  common.LayoutConfig get commonLayoutConfig => new common.LayoutConfig(
+  common.LayoutConfig get commonLayoutConfig => common.LayoutConfig(
       leftSpec: leftMarginSpec,
       topSpec: topMarginSpec,
       rightSpec: rightMarginSpec,

@@ -38,7 +38,7 @@ class InitialSelection extends StatelessWidget {
 
   /// Creates a [BarChart] with initial selection behavior.
   factory InitialSelection.withSampleData() {
-    return new InitialSelection(
+    return InitialSelection(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -50,22 +50,22 @@ class InitialSelection extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory InitialSelection.withRandomData() {
-    return new InitialSelection(_createRandomData());
+    return InitialSelection(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,
@@ -78,7 +78,7 @@ class InitialSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
       behaviors: [
@@ -92,8 +92,8 @@ class InitialSelection extends StatelessWidget {
         // [BarChart] by default includes behaviors [SelectNearest] and
         // [DomainHighlighter]. So this behavior shows the initial selection
         // highlighted and when another datum is tapped, the selection changes.
-        new charts.InitialSelection(selectedDataConfig: [
-          new charts.SeriesDatumConfig<String>('Sales', '2016')
+        charts.InitialSelection(selectedDataConfig: [
+          charts.SeriesDatumConfig<String>('Sales', '2016')
         ])
       ],
     );
@@ -102,14 +102,14 @@ class InitialSelection extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final data = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,

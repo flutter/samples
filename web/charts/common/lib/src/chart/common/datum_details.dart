@@ -19,8 +19,8 @@ import '../../common/color.dart' show Color;
 import '../../common/symbol_renderer.dart' show SymbolRenderer;
 import 'processed_series.dart' show ImmutableSeries;
 
-typedef String DomainFormatter<D>(D domain);
-typedef String MeasureFormatter(num measure);
+typedef DomainFormatter<D> = String Function(D domain);
+typedef MeasureFormatter = String Function(num measure);
 
 /// Represents processed rendering details for a data point from a series.
 class DatumDetails<D> {
@@ -183,7 +183,7 @@ class DatumDetails<D> {
       double radiusPx,
       SymbolRenderer symbolRenderer,
       double strokeWidthPx}) {
-    return new DatumDetails<D>(
+    return DatumDetails<D>(
         datum: datum ?? other.datum,
         index: index ?? other.index,
         domain: domain ?? other.domain,

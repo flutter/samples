@@ -40,7 +40,7 @@ class InitialSelection<D> implements ChartBehavior<D> {
       {this.selectionModelType = SelectionModelType.info,
       this.selectedDataConfig,
       this.selectedSeriesConfig}) {
-    _lifecycleListener = new LifecycleListener<D>(onData: _setInitialSelection);
+    _lifecycleListener = LifecycleListener<D>(onData: _setInitialSelection);
   }
 
   void _setInitialSelection(List<MutableSeries<D>> seriesList) {
@@ -49,7 +49,7 @@ class InitialSelection<D> implements ChartBehavior<D> {
     }
     _firstDraw = false;
 
-    final immutableModel = new SelectionModel<D>.fromConfig(
+    final immutableModel = SelectionModel<D>.fromConfig(
         selectedDataConfig, selectedSeriesConfig, seriesList);
 
     _chart.getSelectionModel(selectionModelType).updateSelection(

@@ -107,11 +107,10 @@ class SelectNearest<D> implements ChartBehavior<D> {
     // Setup the appropriate gesture listening.
     switch (this.eventTrigger) {
       case SelectionTrigger.tap:
-        _listener =
-            new GestureListener(onTapTest: _onTapTest, onTap: _onSelect);
+        _listener = GestureListener(onTapTest: _onTapTest, onTap: _onSelect);
         break;
       case SelectionTrigger.tapAndDrag:
-        _listener = new GestureListener(
+        _listener = GestureListener(
           onTapTest: _onTapTest,
           onTap: _onSelect,
           onDragStart: _onSelect,
@@ -119,7 +118,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
         );
         break;
       case SelectionTrigger.pressHold:
-        _listener = new GestureListener(
+        _listener = GestureListener(
             onTapTest: _onTapTest,
             onLongPress: _onSelect,
             onDragStart: _onSelect,
@@ -127,7 +126,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
             onDragEnd: _onDeselectAll);
         break;
       case SelectionTrigger.longPressHold:
-        _listener = new GestureListener(
+        _listener = GestureListener(
             onTapTest: _onTapTest,
             onLongPress: _onLongPressSelect,
             onDragStart: _onSelect,
@@ -136,7 +135,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
         break;
       case SelectionTrigger.hover:
       default:
-        _listener = new GestureListener(onHover: _onSelect);
+        _listener = GestureListener(onHover: _onSelect);
         break;
     }
   }
@@ -171,7 +170,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
           details[0].domainDistance <= maximumDomainDistancePx) {
         seriesDatumList = expandToDomain
             ? _expandToDomain(details.first)
-            : [new SeriesDatum<D>(details.first.series, details.first.datum)];
+            : [SeriesDatum<D>(details.first.series, details.first.datum)];
 
         // Filter out points from overlay series.
         seriesDatumList
@@ -184,7 +183,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
             // copy of the list by domain distance because we do not want to
             // re-order the actual return values here.
             final sortedSeriesDatumList =
-                new List<SeriesDatum<D>>.from(seriesDatumList);
+                List<SeriesDatum<D>>.from(seriesDatumList);
             sortedSeriesDatumList.sort((a, b) =>
                 a.datum.domainDistance.compareTo(b.datum.domainDistance));
             seriesList.add(sortedSeriesDatumList.first.series);
@@ -215,7 +214,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
   List<SeriesDatum<D>> _expandToDomain(DatumDetails<D> nearestDetails) {
     // Make sure that the "nearest" datum is at the top of the list.
     final data = <SeriesDatum<D>>[
-      new SeriesDatum(nearestDetails.series, nearestDetails.datum)
+      SeriesDatum(nearestDetails.series, nearestDetails.datum)
     ];
     final nearestDomain = nearestDetails.domain;
 
@@ -236,7 +235,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
         }
 
         if (domain == nearestDomain) {
-          data.add(new SeriesDatum(series, datum));
+          data.add(SeriesDatum(series, datum));
         } else if (testBounds) {
           final domainLowerBound = domainLowerBoundFn(i);
           final domainUpperBound = domainUpperBoundFn(i);
@@ -261,7 +260,7 @@ class SelectNearest<D> implements ChartBehavior<D> {
           }
 
           if (addDatum) {
-            data.add(new SeriesDatum(series, datum));
+            data.add(SeriesDatum(series, datum));
           }
         }
       }

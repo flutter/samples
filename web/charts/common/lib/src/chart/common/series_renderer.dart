@@ -41,10 +41,10 @@ import 'series_datum.dart' show SeriesDatum;
 /// [rendererIdKey] can be added as an attribute to user-defined [Series]
 /// objects.
 const AttributeKey<String> rendererIdKey =
-    const AttributeKey<String>('SeriesRenderer.rendererId');
+    AttributeKey<String>('SeriesRenderer.rendererId');
 
 const AttributeKey<SeriesRenderer> rendererKey =
-    const AttributeKey<SeriesRenderer>('SeriesRenderer.renderer');
+    AttributeKey<SeriesRenderer>('SeriesRenderer.renderer');
 
 /// A series renderer draws one or more series of data onto a chart canvas.
 abstract class SeriesRenderer<D> extends LayoutView {
@@ -148,7 +148,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     @required this.rendererId,
     @required int layoutPaintOrder,
     this.symbolRenderer,
-  }) : this.layoutConfig = new LayoutViewConfig(
+  }) : this.layoutConfig = LayoutViewConfig(
             paintOrder: layoutPaintOrder,
             position: LayoutPosition.DrawArea,
             positionOrder: LayoutViewPositionOrder.drawArea);
@@ -346,7 +346,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     var strokeWidthPx = strokeWidthPxFn != null ? strokeWidthPxFn(index) : null;
     strokeWidthPx = strokeWidthPx?.toDouble();
 
-    final details = new DatumDetails<D>(
+    final details = DatumDetails<D>(
         datum: seriesDatum.datum,
         index: seriesDatum.index,
         domain: domainValue,

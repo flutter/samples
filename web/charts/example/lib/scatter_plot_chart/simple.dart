@@ -28,7 +28,7 @@ class SimpleScatterPlotChart extends StatelessWidget {
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
   factory SimpleScatterPlotChart.withSampleData() {
-    return new SimpleScatterPlotChart(
+    return SimpleScatterPlotChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,34 +40,34 @@ class SimpleScatterPlotChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory SimpleScatterPlotChart.withRandomData() {
-    return new SimpleScatterPlotChart(_createRandomData());
+    return SimpleScatterPlotChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final makeRadius = (int value) => (random.nextInt(value) + 2).toDouble();
 
     final data = [
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
     ];
 
     final maxMeasure = 100;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         colorFn: (LinearSales sales, _) {
           // Color bucket the measure column value into 3 distinct colors.
@@ -92,30 +92,30 @@ class SimpleScatterPlotChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(seriesList, animate: animate);
+    return charts.ScatterPlotChart(seriesList, animate: animate);
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5, 3.0),
-      new LinearSales(10, 25, 5.0),
-      new LinearSales(12, 75, 4.0),
-      new LinearSales(13, 225, 5.0),
-      new LinearSales(16, 50, 4.0),
-      new LinearSales(24, 75, 3.0),
-      new LinearSales(25, 100, 3.0),
-      new LinearSales(34, 150, 5.0),
-      new LinearSales(37, 10, 4.5),
-      new LinearSales(45, 300, 8.0),
-      new LinearSales(52, 15, 4.0),
-      new LinearSales(56, 200, 7.0),
+      LinearSales(0, 5, 3.0),
+      LinearSales(10, 25, 5.0),
+      LinearSales(12, 75, 4.0),
+      LinearSales(13, 225, 5.0),
+      LinearSales(16, 50, 4.0),
+      LinearSales(24, 75, 3.0),
+      LinearSales(25, 100, 3.0),
+      LinearSales(34, 150, 5.0),
+      LinearSales(37, 10, 4.5),
+      LinearSales(45, 300, 8.0),
+      LinearSales(52, 15, 4.0),
+      LinearSales(56, 200, 7.0),
     ];
 
     final maxMeasure = 300;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         // Providing a color function is optional.
         colorFn: (LinearSales sales, _) {

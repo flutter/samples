@@ -15,7 +15,7 @@
 
 import 'package:flutter_web/material.dart';
 
-typedef Widget GalleryWidgetBuilder();
+typedef GalleryWidgetBuilder = Widget Function();
 
 /// Helper to build gallery.
 class GalleryScaffold extends StatefulWidget {
@@ -29,16 +29,16 @@ class GalleryScaffold extends StatefulWidget {
       {this.listTileIcon, this.title, this.subtitle, this.childBuilder});
 
   /// Gets the gallery
-  Widget buildGalleryListTile(BuildContext context) => new ListTile(
+  Widget buildGalleryListTile(BuildContext context) => ListTile(
       leading: listTileIcon,
-      title: new Text(title),
-      subtitle: new Text(subtitle),
+      title: Text(title),
+      subtitle: Text(subtitle),
       onTap: () {
-        Navigator.push(context, new MaterialPageRoute(builder: (_) => this));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => this));
       });
 
   @override
-  _GalleryScaffoldState createState() => new _GalleryScaffoldState();
+  _GalleryScaffoldState createState() => _GalleryScaffoldState();
 }
 
 class _GalleryScaffoldState extends State<GalleryScaffold> {
@@ -48,15 +48,15 @@ class _GalleryScaffoldState extends State<GalleryScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(title: new Text(widget.title)),
-      body: new Padding(
+    return Scaffold(
+      appBar: AppBar(title: Text(widget.title)),
+      body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: new Column(children: <Widget>[
-            new SizedBox(height: 250.0, child: widget.childBuilder()),
+          child: Column(children: <Widget>[
+            SizedBox(height: 250.0, child: widget.childBuilder()),
           ])),
-      floatingActionButton: new FloatingActionButton(
-          child: new Icon(Icons.refresh), onPressed: _handleButtonPress),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.refresh), onPressed: _handleButtonPress),
     );
   }
 }

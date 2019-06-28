@@ -75,19 +75,19 @@ class NumericTickFormatter extends SimpleTickFormatterBase<num> {
   /// [formatter] optionally specify a formatter to be used. Defaults to using
   /// [NumberFormat.decimalPattern] if none is specified.
   factory NumericTickFormatter({MeasureFormatter formatter}) {
-    formatter ??= _getFormatter(new NumberFormat.decimalPattern());
-    return new NumericTickFormatter._internal(formatter);
+    formatter ??= _getFormatter(NumberFormat.decimalPattern());
+    return NumericTickFormatter._internal(formatter);
   }
 
   /// Constructs a new [NumericTickFormatter] that formats using [numberFormat].
   factory NumericTickFormatter.fromNumberFormat(NumberFormat numberFormat) {
-    return new NumericTickFormatter._internal(_getFormatter(numberFormat));
+    return NumericTickFormatter._internal(_getFormatter(numberFormat));
   }
 
   /// Constructs a new formatter that uses [NumberFormat.compactCurrency].
   factory NumericTickFormatter.compactSimpleCurrency() {
-    return new NumericTickFormatter._internal(
-        _getFormatter(new NumberFormat.compactCurrency()));
+    return NumericTickFormatter._internal(
+        _getFormatter(NumberFormat.compactCurrency()));
   }
 
   /// Returns a [MeasureFormatter] that calls format on [numberFormat].

@@ -39,7 +39,7 @@ class RTLLineSegments extends StatelessWidget {
 
   /// Creates a [LineChart] with sample data and no transition.
   factory RTLLineSegments.withSampleData() {
-    return new RTLLineSegments(
+    return RTLLineSegments(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -51,45 +51,45 @@ class RTLLineSegments extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory RTLLineSegments.withRandomData() {
-    return new RTLLineSegments(_createRandomData());
+    return RTLLineSegments(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     // Series of data with static dash pattern and stroke width. The colorFn
     // accessor will colorize each datum (for all three series).
     final colorChangeData = [
-      new LinearSales(0, random.nextInt(100), null, 2.0),
-      new LinearSales(1, random.nextInt(100), null, 2.0),
-      new LinearSales(2, random.nextInt(100), null, 2.0),
-      new LinearSales(3, random.nextInt(100), null, 2.0),
-      new LinearSales(4, random.nextInt(100), null, 2.0),
-      new LinearSales(5, random.nextInt(100), null, 2.0),
-      new LinearSales(6, random.nextInt(100), null, 2.0),
+      LinearSales(0, random.nextInt(100), null, 2.0),
+      LinearSales(1, random.nextInt(100), null, 2.0),
+      LinearSales(2, random.nextInt(100), null, 2.0),
+      LinearSales(3, random.nextInt(100), null, 2.0),
+      LinearSales(4, random.nextInt(100), null, 2.0),
+      LinearSales(5, random.nextInt(100), null, 2.0),
+      LinearSales(6, random.nextInt(100), null, 2.0),
     ];
 
     // Series of data with changing color and dash pattern.
     final dashPatternChangeData = [
-      new LinearSales(0, random.nextInt(100), [2, 2], 2.0),
-      new LinearSales(1, random.nextInt(100), [2, 2], 2.0),
-      new LinearSales(2, random.nextInt(100), [4, 4], 2.0),
-      new LinearSales(3, random.nextInt(100), [4, 4], 2.0),
-      new LinearSales(4, random.nextInt(100), [4, 4], 2.0),
-      new LinearSales(5, random.nextInt(100), [8, 3, 2, 3], 2.0),
-      new LinearSales(6, random.nextInt(100), [8, 3, 2, 3], 2.0),
+      LinearSales(0, random.nextInt(100), [2, 2], 2.0),
+      LinearSales(1, random.nextInt(100), [2, 2], 2.0),
+      LinearSales(2, random.nextInt(100), [4, 4], 2.0),
+      LinearSales(3, random.nextInt(100), [4, 4], 2.0),
+      LinearSales(4, random.nextInt(100), [4, 4], 2.0),
+      LinearSales(5, random.nextInt(100), [8, 3, 2, 3], 2.0),
+      LinearSales(6, random.nextInt(100), [8, 3, 2, 3], 2.0),
     ];
 
     // Series of data with changing color and stroke width.
     final strokeWidthChangeData = [
-      new LinearSales(0, random.nextInt(100), null, 2.0),
-      new LinearSales(1, random.nextInt(100), null, 2.0),
-      new LinearSales(2, random.nextInt(100), null, 4.0),
-      new LinearSales(3, random.nextInt(100), null, 4.0),
-      new LinearSales(4, random.nextInt(100), null, 4.0),
-      new LinearSales(5, random.nextInt(100), null, 6.0),
-      new LinearSales(6, random.nextInt(100), null, 6.0),
+      LinearSales(0, random.nextInt(100), null, 2.0),
+      LinearSales(1, random.nextInt(100), null, 2.0),
+      LinearSales(2, random.nextInt(100), null, 4.0),
+      LinearSales(3, random.nextInt(100), null, 4.0),
+      LinearSales(4, random.nextInt(100), null, 4.0),
+      LinearSales(5, random.nextInt(100), null, 6.0),
+      LinearSales(6, random.nextInt(100), null, 6.0),
     ];
 
     // Generate 2 shades of each color so that we can style the line segments.
@@ -98,7 +98,7 @@ class RTLLineSegments extends StatelessWidget {
     final green = charts.MaterialPalette.green.makeShades(2);
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Color Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>
@@ -109,7 +109,7 @@ class RTLLineSegments extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: colorChangeData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Dash Pattern Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>
@@ -120,7 +120,7 @@ class RTLLineSegments extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: dashPatternChangeData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Stroke Width Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>
@@ -148,12 +148,12 @@ class RTLLineSegments extends StatelessWidget {
     // Measure axis positions are flipped. Primary measure axis is on the right
     // and the secondary measure axis is on the left (when used).
     // Domain axis' first domain starts on the right and grows left.
-    return new Directionality(
+    return Directionality(
         textDirection: TextDirection.rtl,
-        child: new charts.LineChart(
+        child: charts.LineChart(
           seriesList,
           defaultRenderer:
-              new charts.LineRendererConfig(includeArea: true, stacked: true),
+              charts.LineRendererConfig(includeArea: true, stacked: true),
           animate: animate,
         ));
   }
@@ -163,35 +163,35 @@ class RTLLineSegments extends StatelessWidget {
     // Series of data with static dash pattern and stroke width. The colorFn
     // accessor will colorize each datum (for all three series).
     final colorChangeData = [
-      new LinearSales(0, 5, null, 2.0),
-      new LinearSales(1, 15, null, 2.0),
-      new LinearSales(2, 25, null, 2.0),
-      new LinearSales(3, 75, null, 2.0),
-      new LinearSales(4, 100, null, 2.0),
-      new LinearSales(5, 90, null, 2.0),
-      new LinearSales(6, 75, null, 2.0),
+      LinearSales(0, 5, null, 2.0),
+      LinearSales(1, 15, null, 2.0),
+      LinearSales(2, 25, null, 2.0),
+      LinearSales(3, 75, null, 2.0),
+      LinearSales(4, 100, null, 2.0),
+      LinearSales(5, 90, null, 2.0),
+      LinearSales(6, 75, null, 2.0),
     ];
 
     // Series of data with changing color and dash pattern.
     final dashPatternChangeData = [
-      new LinearSales(0, 5, [2, 2], 2.0),
-      new LinearSales(1, 15, [2, 2], 2.0),
-      new LinearSales(2, 25, [4, 4], 2.0),
-      new LinearSales(3, 75, [4, 4], 2.0),
-      new LinearSales(4, 100, [4, 4], 2.0),
-      new LinearSales(5, 90, [8, 3, 2, 3], 2.0),
-      new LinearSales(6, 75, [8, 3, 2, 3], 2.0),
+      LinearSales(0, 5, [2, 2], 2.0),
+      LinearSales(1, 15, [2, 2], 2.0),
+      LinearSales(2, 25, [4, 4], 2.0),
+      LinearSales(3, 75, [4, 4], 2.0),
+      LinearSales(4, 100, [4, 4], 2.0),
+      LinearSales(5, 90, [8, 3, 2, 3], 2.0),
+      LinearSales(6, 75, [8, 3, 2, 3], 2.0),
     ];
 
     // Series of data with changing color and stroke width.
     final strokeWidthChangeData = [
-      new LinearSales(0, 5, null, 2.0),
-      new LinearSales(1, 15, null, 2.0),
-      new LinearSales(2, 25, null, 4.0),
-      new LinearSales(3, 75, null, 4.0),
-      new LinearSales(4, 100, null, 4.0),
-      new LinearSales(5, 90, null, 6.0),
-      new LinearSales(6, 75, null, 6.0),
+      LinearSales(0, 5, null, 2.0),
+      LinearSales(1, 15, null, 2.0),
+      LinearSales(2, 25, null, 4.0),
+      LinearSales(3, 75, null, 4.0),
+      LinearSales(4, 100, null, 4.0),
+      LinearSales(5, 90, null, 6.0),
+      LinearSales(6, 75, null, 6.0),
     ];
 
     // Generate 2 shades of each color so that we can style the line segments.
@@ -200,7 +200,7 @@ class RTLLineSegments extends StatelessWidget {
     final green = charts.MaterialPalette.green.makeShades(2);
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Color Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>
@@ -211,7 +211,7 @@ class RTLLineSegments extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: colorChangeData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Dash Pattern Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>
@@ -222,7 +222,7 @@ class RTLLineSegments extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: dashPatternChangeData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Stroke Width Change',
         // Light shade for even years, dark shade for odd.
         colorFn: (LinearSales sales, _) =>

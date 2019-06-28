@@ -57,8 +57,8 @@ class SymbolAnnotationRendererConfig<D> extends PointRendererConfig<D> {
             customRendererId: customRendererId,
             pointRendererDecorators: pointRendererDecorators ??
                 [
-                  new ComparisonPointsDecorator(
-                      symbolRenderer: new RectangleRangeSymbolRenderer())
+                  ComparisonPointsDecorator(
+                      symbolRenderer: RectangleRangeSymbolRenderer())
                 ],
             radiusPx: radiusPx,
             symbolRenderer: symbolRenderer,
@@ -66,7 +66,7 @@ class SymbolAnnotationRendererConfig<D> extends PointRendererConfig<D> {
 
   @override
   SymbolAnnotationRenderer<D> build() {
-    return new SymbolAnnotationRenderer<D>(
+    return SymbolAnnotationRenderer<D>(
         config: this, rendererId: customRendererId);
   }
 }

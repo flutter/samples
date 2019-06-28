@@ -48,14 +48,14 @@ class FakeDrawStrategy extends BaseTickDrawStrategy<num> {
 
   FakeDrawStrategy(
       this.collidesAfterTickCount, this.alternateRenderingAfterTickCount)
-      : super(null, new FakeGraphicsFactory());
+      : super(null, FakeGraphicsFactory());
 
   @override
   CollisionReport collides(List<Tick<num>> ticks, _) {
     final ticksCollide = ticks.length >= collidesAfterTickCount;
     final alternateTicksUsed = ticks.length >= alternateRenderingAfterTickCount;
 
-    return new CollisionReport(
+    return CollisionReport(
         ticksCollide: ticksCollide,
         ticks: ticks,
         alternateTicksUsed: alternateTicksUsed);
@@ -73,13 +73,13 @@ class FakeDrawStrategy extends BaseTickDrawStrategy<num> {
 /// A fake [GraphicsFactory] that returns [MockTextStyle] and [MockTextElement].
 class FakeGraphicsFactory extends GraphicsFactory {
   @override
-  TextStyle createTextPaint() => new MockTextStyle();
+  TextStyle createTextPaint() => MockTextStyle();
 
   @override
-  TextElement createTextElement(String text) => new MockTextElement(text);
+  TextElement createTextElement(String text) => MockTextElement(text);
 
   @override
-  LineStyle createLinePaint() => new MockLinePaint();
+  LineStyle createLinePaint() => MockLinePaint();
 }
 
 class MockTextStyle extends Mock implements TextStyle {}
@@ -113,11 +113,11 @@ void main() {
   ChartContext context;
 
   setUp(() {
-    graphicsFactory = new FakeGraphicsFactory();
-    scale = new MockNumericScale();
-    tickProvider = new BucketingNumericTickProvider();
-    formatter = new NumericTickFormatter();
-    context = new MockChartContext();
+    graphicsFactory = FakeGraphicsFactory();
+    scale = MockNumericScale();
+    tickProvider = BucketingNumericTickProvider();
+    formatter = NumericTickFormatter();
+    context = MockChartContext();
   });
 
   group('threshold', () {
@@ -128,8 +128,8 @@ void main() {
         ..showBucket = true
         ..setFixedTickCount(21)
         ..allowedSteps = [1.0, 2.5, 5.0];
-      final drawStrategy = new FakeDrawStrategy(10, 10);
-      when(scale.viewportDomain).thenReturn(new NumericExtents(0.1, 0.7));
+      final drawStrategy = FakeDrawStrategy(10, 10);
+      when(scale.viewportDomain).thenReturn(NumericExtents(0.1, 0.7));
       when(scale.rangeWidth).thenReturn(1000);
       when(scale[0.1]).thenReturn(90.0);
       when(scale[0]).thenReturn(100.0);

@@ -43,13 +43,13 @@ class MockCanvas extends Mock implements ChartCanvas {}
 /// A fake [GraphicsFactory] that returns [FakeTextStyle] and [FakeTextElement].
 class FakeGraphicsFactory extends GraphicsFactory {
   @override
-  TextStyle createTextPaint() => new FakeTextStyle();
+  TextStyle createTextPaint() => FakeTextStyle();
 
   @override
-  TextElement createTextElement(String text) => new FakeTextElement(text);
+  TextElement createTextElement(String text) => FakeTextElement(text);
 
   @override
-  LineStyle createLinePaint() => new MockLinePaint();
+  LineStyle createLinePaint() => MockLinePaint();
 }
 
 /// Stores [TextStyle] properties for test to verify.
@@ -72,7 +72,7 @@ class FakeTextElement implements TextElement {
 
   FakeTextElement(this.text);
 
-  TextMeasurement get measurement => new TextMeasurement(
+  TextMeasurement get measurement => TextMeasurement(
       horizontalSliceWidth: text.length.toDouble(),
       verticalSliceWidth: textStyle.fontSize.toDouble(),
       baseline: textStyle.fontSize.toDouble());
@@ -81,7 +81,7 @@ class FakeTextElement implements TextElement {
 class MockLinePaint extends Mock implements LineStyle {}
 
 class FakeArcRendererElement extends ArcRendererElement<String> {
-  final _series = new MockImmutableSeries<String>();
+  final _series = MockImmutableSeries<String>();
   final AccessorFn<String> labelAccessor;
   final List<String> data;
 
@@ -101,32 +101,32 @@ void main() {
   Rectangle<int> drawBounds;
 
   setUpAll(() {
-    canvas = new MockCanvas();
-    graphicsFactory = new FakeGraphicsFactory();
-    drawBounds = new Rectangle(0, 0, 200, 200);
+    canvas = MockCanvas();
+    graphicsFactory = FakeGraphicsFactory();
+    drawBounds = Rectangle(0, 0, 200, 200);
   });
 
   group('pie chart', () {
     test('Paint labels with default settings', () {
       final data = ['A', 'B'];
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
           // 'A' is small enough to fit inside the arc.
           // 'LongLabelB' should not fit inside the arc because it has length
           // greater than 10.
-          new FakeArcRendererElement((_) => 'A', data)
+          FakeArcRendererElement((_) => 'A', data)
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
-          new FakeArcRendererElement((_) => 'LongLabelB', data)
+          FakeArcRendererElement((_) => 'LongLabelB', data)
             ..startAngle = pi / 2
             ..endAngle = 3 * pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      final decorator = new ArcLabelDecorator();
+      final decorator = ArcLabelDecorator();
 
       decorator.decorate(arcElements, canvas, graphicsFactory,
           drawBounds: drawBounds, animationPercent: 1.0);
@@ -155,22 +155,22 @@ void main() {
     });
 
     test('LabelPosition.inside always paints inside the arc', () {
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
           // 'LongLabelABC' would not fit inside the arc because it has length
           // greater than 10. [ArcLabelPosition.inside] should override this.
-          new FakeArcRendererElement((_) => 'LongLabelABC', ['A'])
+          FakeArcRendererElement((_) => 'LongLabelABC', ['A'])
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      final decorator = new ArcLabelDecorator(
+      final decorator = ArcLabelDecorator(
           labelPosition: ArcLabelPosition.inside,
-          insideLabelStyleSpec: new TextStyleSpec(fontSize: 10));
+          insideLabelStyleSpec: TextStyleSpec(fontSize: 10));
 
       decorator.decorate(arcElements, canvas, graphicsFactory,
           drawBounds: drawBounds, animationPercent: 1.0);
@@ -186,22 +186,22 @@ void main() {
     });
 
     test('LabelPosition.outside always paints outside the arc', () {
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
           // 'A' will fit inside the arc because it has length less than 10.
           // [ArcLabelPosition.outside] should override this.
-          new FakeArcRendererElement((_) => 'A', ['A'])
+          FakeArcRendererElement((_) => 'A', ['A'])
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      final decorator = new ArcLabelDecorator(
+      final decorator = ArcLabelDecorator(
           labelPosition: ArcLabelPosition.outside,
-          outsideLabelStyleSpec: new TextStyleSpec(fontSize: 10));
+          outsideLabelStyleSpec: TextStyleSpec(fontSize: 10));
 
       decorator.decorate(arcElements, canvas, graphicsFactory,
           drawBounds: drawBounds, animationPercent: 1.0);
@@ -222,30 +222,30 @@ void main() {
 
     test('Inside and outside label styles are applied', () {
       final data = ['A', 'B'];
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
           // 'A' is small enough to fit inside the arc.
           // 'LongLabelB' should not fit inside the arc because it has length
           // greater than 10.
-          new FakeArcRendererElement((_) => 'A', data)
+          FakeArcRendererElement((_) => 'A', data)
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
-          new FakeArcRendererElement((_) => 'LongLabelB', data)
+          FakeArcRendererElement((_) => 'LongLabelB', data)
             ..startAngle = pi / 2
             ..endAngle = 3 * pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      final insideColor = new Color(r: 0, g: 0, b: 0);
-      final outsideColor = new Color(r: 255, g: 255, b: 255);
-      final decorator = new ArcLabelDecorator(
+      final insideColor = Color(r: 0, g: 0, b: 0);
+      final outsideColor = Color(r: 255, g: 255, b: 255);
+      final decorator = ArcLabelDecorator(
           labelPadding: 0,
-          insideLabelStyleSpec: new TextStyleSpec(
+          insideLabelStyleSpec: TextStyleSpec(
               fontSize: 10, fontFamily: 'insideFont', color: insideColor),
-          outsideLabelStyleSpec: new TextStyleSpec(
+          outsideLabelStyleSpec: TextStyleSpec(
               fontSize: 8, fontFamily: 'outsideFont', color: outsideColor));
 
       decorator.decorate(arcElements, canvas, graphicsFactory,
@@ -281,18 +281,18 @@ void main() {
 
   group('Null and empty label scenarios', () {
     test('Skip label if label accessor does not exist', () {
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
-          new FakeArcRendererElement(null, ['A'])
+          FakeArcRendererElement(null, ['A'])
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      new ArcLabelDecorator().decorate(arcElements, canvas, graphicsFactory,
+      ArcLabelDecorator().decorate(arcElements, canvas, graphicsFactory,
           drawBounds: drawBounds, animationPercent: 1.0);
 
       verifyNever(canvas.drawText(any, any, any));
@@ -300,21 +300,21 @@ void main() {
 
     test('Skip label if label is null or empty', () {
       final data = ['A', 'B'];
-      final arcElements = new ArcRendererElementList()
+      final arcElements = ArcRendererElementList()
         ..arcs = [
-          new FakeArcRendererElement(null, data)
+          FakeArcRendererElement(null, data)
             ..startAngle = -pi / 2
             ..endAngle = pi / 2,
-          new FakeArcRendererElement((_) => '', data)
+          FakeArcRendererElement((_) => '', data)
             ..startAngle = pi / 2
             ..endAngle = 3 * pi / 2,
         ]
-        ..center = new Point(100.0, 100.0)
+        ..center = Point(100.0, 100.0)
         ..innerRadius = 30.0
         ..radius = 40.0
         ..startAngle = -pi / 2;
 
-      new ArcLabelDecorator().decorate(arcElements, canvas, graphicsFactory,
+      ArcLabelDecorator().decorate(arcElements, canvas, graphicsFactory,
           drawBounds: drawBounds, animationPercent: 1.0);
 
       verifyNever(canvas.drawText(any, any, any));

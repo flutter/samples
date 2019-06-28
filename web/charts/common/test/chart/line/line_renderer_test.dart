@@ -56,47 +56,43 @@ void main() {
 
   setUp(() {
     myFakeDesktopData = [
-      new MyRow(
-          'MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
-      new MyRow(
+      MyRow('MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
+      MyRow(
           'MyCampaign2', 2, 25, MaterialPalette.green.shadeDefault, null, 2.0),
-      new MyRow(
-          'MyCampaign3', 3, 100, MaterialPalette.red.shadeDefault, null, 2.0),
-      new MyRow('MyOtherCampaign', 4, 75, MaterialPalette.red.shadeDefault,
-          null, 2.0),
+      MyRow('MyCampaign3', 3, 100, MaterialPalette.red.shadeDefault, null, 2.0),
+      MyRow('MyOtherCampaign', 4, 75, MaterialPalette.red.shadeDefault, null,
+          2.0),
     ];
 
     myFakeTabletData = [
-      new MyRow(
+      MyRow(
           'MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, [2, 2], 2.0),
-      new MyRow(
+      MyRow(
           'MyCampaign2', 2, 25, MaterialPalette.blue.shadeDefault, [3, 3], 2.0),
-      new MyRow('MyCampaign3', 3, 100, MaterialPalette.blue.shadeDefault,
-          [4, 4], 2.0),
-      new MyRow('MyOtherCampaign', 4, 75, MaterialPalette.blue.shadeDefault,
-          [4, 4], 2.0),
+      MyRow('MyCampaign3', 3, 100, MaterialPalette.blue.shadeDefault, [4, 4],
+          2.0),
+      MyRow('MyOtherCampaign', 4, 75, MaterialPalette.blue.shadeDefault, [4, 4],
+          2.0),
     ];
 
     myFakeMobileData = [
-      new MyRow(
-          'MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
-      new MyRow(
-          'MyCampaign2', 2, 25, MaterialPalette.blue.shadeDefault, null, 3.0),
-      new MyRow(
+      MyRow('MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
+      MyRow('MyCampaign2', 2, 25, MaterialPalette.blue.shadeDefault, null, 3.0),
+      MyRow(
           'MyCampaign3', 3, 100, MaterialPalette.blue.shadeDefault, null, 4.0),
-      new MyRow('MyOtherCampaign', 4, 75, MaterialPalette.blue.shadeDefault,
-          null, 4.0),
+      MyRow('MyOtherCampaign', 4, 75, MaterialPalette.blue.shadeDefault, null,
+          4.0),
     ];
 
     numericSeriesList = [
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
           colorFn: (_, __) => MaterialPalette.blue.shadeDefault,
           domainFn: (dynamic row, _) => row.campaign,
           measureFn: (dynamic row, _) => row.clickCount,
           measureOffsetFn: (_, __) => 0,
           data: myFakeDesktopData)),
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Tablet',
           colorFn: (_, __) => MaterialPalette.red.shadeDefault,
           domainFn: (dynamic row, _) => row.campaign,
@@ -104,7 +100,7 @@ void main() {
           measureOffsetFn: (_, __) => 0,
           strokeWidthPxFn: (_, __) => 1.25,
           data: myFakeTabletData)),
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Mobile',
           colorFn: (_, __) => MaterialPalette.green.shadeDefault,
           domainFn: (dynamic row, _) => row.campaign,
@@ -115,14 +111,14 @@ void main() {
     ];
 
     ordinalSeriesList = [
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Desktop',
           colorFn: (_, __) => MaterialPalette.blue.shadeDefault,
           domainFn: (dynamic row, _) => row.campaignString,
           measureFn: (dynamic row, _) => row.clickCount,
           measureOffsetFn: (_, __) => 0,
           data: myFakeDesktopData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Tablet',
           colorFn: (_, __) => MaterialPalette.red.shadeDefault,
           domainFn: (dynamic row, _) => row.campaignString,
@@ -130,7 +126,7 @@ void main() {
           measureOffsetFn: (_, __) => 0,
           strokeWidthPxFn: (_, __) => 1.25,
           data: myFakeTabletData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Mobile',
           colorFn: (_, __) => MaterialPalette.green.shadeDefault,
           domainFn: (dynamic row, _) => row.campaignString,
@@ -143,8 +139,8 @@ void main() {
 
   group('preprocess', () {
     test('with numeric data and simple lines', () {
-      renderer = new LineRenderer<num>(
-          config: new LineRendererConfig(strokeWidthPx: 2.0));
+      renderer =
+          LineRenderer<num>(config: LineRendererConfig(strokeWidthPx: 2.0));
 
       renderer.configureSeries(numericSeriesList);
       renderer.preprocessSeries(numericSeriesList);
@@ -207,8 +203,8 @@ void main() {
     });
 
     test('with numeric data and stacked lines', () {
-      renderer = new LineRenderer<num>(
-          config: new LineRendererConfig(stacked: true, strokeWidthPx: 2.0));
+      renderer = LineRenderer<num>(
+          config: LineRendererConfig(stacked: true, strokeWidthPx: 2.0));
 
       renderer.configureSeries(numericSeriesList);
       renderer.preprocessSeries(numericSeriesList);
@@ -272,7 +268,7 @@ void main() {
 
     test('with numeric data and changes in style', () {
       numericSeriesList = [
-        new MutableSeries<int>(new Series<MyRow, int>(
+        MutableSeries<int>(Series<MyRow, int>(
             id: 'Desktop',
             colorFn: (MyRow row, _) => row.color,
             dashPatternFn: (MyRow row, _) => row.dashPattern,
@@ -281,7 +277,7 @@ void main() {
             measureFn: (dynamic row, _) => row.clickCount,
             measureOffsetFn: (_, __) => 0,
             data: myFakeDesktopData)),
-        new MutableSeries<int>(new Series<MyRow, int>(
+        MutableSeries<int>(Series<MyRow, int>(
             id: 'Tablet',
             colorFn: (MyRow row, _) => row.color,
             dashPatternFn: (MyRow row, _) => row.dashPattern,
@@ -290,7 +286,7 @@ void main() {
             measureFn: (dynamic row, _) => row.clickCount,
             measureOffsetFn: (_, __) => 0,
             data: myFakeTabletData)),
-        new MutableSeries<int>(new Series<MyRow, int>(
+        MutableSeries<int>(Series<MyRow, int>(
             id: 'Mobile',
             colorFn: (MyRow row, _) => row.color,
             dashPatternFn: (MyRow row, _) => row.dashPattern,
@@ -301,8 +297,8 @@ void main() {
             data: myFakeMobileData))
       ];
 
-      renderer = new LineRenderer<num>(
-          config: new LineRendererConfig(strokeWidthPx: 2.0));
+      renderer =
+          LineRenderer<num>(config: LineRendererConfig(strokeWidthPx: 2.0));
 
       renderer.configureSeries(numericSeriesList);
       renderer.preprocessSeries(numericSeriesList);
@@ -408,26 +404,26 @@ void main() {
 
     test('with numeric data and repeats in style', () {
       var myFakeData = [
-        new MyRow(
+        MyRow(
             'MyCampaign1', 1, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
-        new MyRow('MyCampaign2', 2, 25, MaterialPalette.green.shadeDefault,
-            null, 2.0),
-        new MyRow('MyCampaign3', 3, 100, MaterialPalette.blue.shadeDefault,
-            null, 2.0),
-        new MyRow('MyCampaign4', 4, 75, MaterialPalette.green.shadeDefault,
-            null, 2.0),
-        new MyRow(
+        MyRow('MyCampaign2', 2, 25, MaterialPalette.green.shadeDefault, null,
+            2.0),
+        MyRow('MyCampaign3', 3, 100, MaterialPalette.blue.shadeDefault, null,
+            2.0),
+        MyRow('MyCampaign4', 4, 75, MaterialPalette.green.shadeDefault, null,
+            2.0),
+        MyRow(
             'MyCampaign1', 5, 5, MaterialPalette.blue.shadeDefault, null, 2.0),
-        new MyRow('MyCampaign2', 6, 25, MaterialPalette.green.shadeDefault,
-            null, 2.0),
-        new MyRow('MyCampaign3', 7, 100, MaterialPalette.blue.shadeDefault,
-            null, 2.0),
-        new MyRow('MyCampaign4', 8, 75, MaterialPalette.green.shadeDefault,
-            null, 2.0),
+        MyRow('MyCampaign2', 6, 25, MaterialPalette.green.shadeDefault, null,
+            2.0),
+        MyRow('MyCampaign3', 7, 100, MaterialPalette.blue.shadeDefault, null,
+            2.0),
+        MyRow('MyCampaign4', 8, 75, MaterialPalette.green.shadeDefault, null,
+            2.0),
       ];
 
       numericSeriesList = [
-        new MutableSeries<int>(new Series<MyRow, int>(
+        MutableSeries<int>(Series<MyRow, int>(
             id: 'Desktop',
             colorFn: (MyRow row, _) => row.color,
             dashPatternFn: (MyRow row, _) => row.dashPattern,
@@ -438,8 +434,8 @@ void main() {
             data: myFakeData)),
       ];
 
-      renderer = new LineRenderer<num>(
-          config: new LineRendererConfig(strokeWidthPx: 2.0));
+      renderer =
+          LineRenderer<num>(config: LineRendererConfig(strokeWidthPx: 2.0));
 
       renderer.configureSeries(numericSeriesList);
       renderer.preprocessSeries(numericSeriesList);
@@ -494,8 +490,8 @@ void main() {
     });
 
     test('with ordinal data and simple lines', () {
-      renderer = new LineRenderer<String>(
-          config: new LineRendererConfig(strokeWidthPx: 2.0));
+      renderer =
+          LineRenderer<String>(config: LineRendererConfig(strokeWidthPx: 2.0));
 
       renderer.configureSeries(ordinalSeriesList);
       renderer.preprocessSeries(ordinalSeriesList);

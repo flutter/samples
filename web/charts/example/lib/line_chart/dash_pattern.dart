@@ -29,7 +29,7 @@ class DashPatternLineChart extends StatelessWidget {
 
   /// Creates a [LineChart] with sample data and no transition.
   factory DashPatternLineChart.withSampleData() {
-    return new DashPatternLineChart(
+    return DashPatternLineChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,43 +41,43 @@ class DashPatternLineChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory DashPatternLineChart.withRandomData() {
-    return new DashPatternLineChart(_createRandomData());
+    return DashPatternLineChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final myFakeDesktopData = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     var myFakeTabletData = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     var myFakeMobileData = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Desktop',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
         data: myFakeDesktopData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Tablet',
         colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
         dashPatternFn: (_, __) => [2, 2],
@@ -85,7 +85,7 @@ class DashPatternLineChart extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: myFakeTabletData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Mobile',
         colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
         dashPatternFn: (_, __) => [8, 3, 2, 3],
@@ -99,41 +99,41 @@ class DashPatternLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.LineChart(seriesList, animate: animate);
+    return charts.LineChart(seriesList, animate: animate);
   }
 
   /// Create three series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final myFakeDesktopData = [
-      new LinearSales(0, 5),
-      new LinearSales(1, 25),
-      new LinearSales(2, 100),
-      new LinearSales(3, 75),
+      LinearSales(0, 5),
+      LinearSales(1, 25),
+      LinearSales(2, 100),
+      LinearSales(3, 75),
     ];
 
     var myFakeTabletData = [
-      new LinearSales(0, 10),
-      new LinearSales(1, 50),
-      new LinearSales(2, 200),
-      new LinearSales(3, 150),
+      LinearSales(0, 10),
+      LinearSales(1, 50),
+      LinearSales(2, 200),
+      LinearSales(3, 150),
     ];
 
     var myFakeMobileData = [
-      new LinearSales(0, 15),
-      new LinearSales(1, 75),
-      new LinearSales(2, 300),
-      new LinearSales(3, 225),
+      LinearSales(0, 15),
+      LinearSales(1, 75),
+      LinearSales(2, 300),
+      LinearSales(3, 225),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Desktop',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
         data: myFakeDesktopData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Tablet',
         colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
         dashPatternFn: (_, __) => [2, 2],
@@ -141,7 +141,7 @@ class DashPatternLineChart extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: myFakeTabletData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Mobile',
         colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
         dashPatternFn: (_, __) => [8, 3, 2, 3],

@@ -85,7 +85,7 @@ class DateTimeAxisSpec extends AxisSpec<DateTime> {
 
   /// Creates a [DateTimeAxis]. This should be called in place of createAxis.
   DateTimeAxis createDateTimeAxis(DateTimeFactory dateTimeFactory) =>
-      new DateTimeAxis(dateTimeFactory);
+      DateTimeAxis(dateTimeFactory);
 
   @override
   bool operator ==(Object other) =>
@@ -121,10 +121,10 @@ class AutoDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
   @override
   AutoAdjustingDateTimeTickProvider createTickProvider(ChartContext context) {
     if (includeTime) {
-      return new AutoAdjustingDateTimeTickProvider.createDefault(
+      return AutoAdjustingDateTimeTickProvider.createDefault(
           context.dateTimeFactory);
     } else {
-      return new AutoAdjustingDateTimeTickProvider.createWithoutTime(
+      return AutoAdjustingDateTimeTickProvider.createWithoutTime(
           context.dateTimeFactory);
     }
   }
@@ -151,8 +151,8 @@ class DayTickProviderSpec implements DateTimeTickProviderSpec {
   /// when searching for the appropriate tick intervals.
   @override
   AutoAdjustingDateTimeTickProvider createTickProvider(ChartContext context) {
-    return new AutoAdjustingDateTimeTickProvider.createWith([
-      new TimeRangeTickProviderImpl(new DayTimeStepper(context.dateTimeFactory,
+    return AutoAdjustingDateTimeTickProvider.createWith([
+      TimeRangeTickProviderImpl(DayTimeStepper(context.dateTimeFactory,
           allowedTickIncrements: increments))
     ]);
   }
@@ -175,7 +175,7 @@ class DateTimeEndPointsTickProviderSpec implements DateTimeTickProviderSpec {
   /// two end points of the axis range
   @override
   EndPointsTickProvider<DateTime> createTickProvider(ChartContext context) {
-    return new EndPointsTickProvider<DateTime>();
+    return EndPointsTickProvider<DateTime>();
   }
 
   @override
@@ -191,7 +191,7 @@ class StaticDateTimeTickProviderSpec implements DateTimeTickProviderSpec {
 
   @override
   StaticTickProvider<DateTime> createTickProvider(ChartContext context) =>
-      new StaticTickProvider<DateTime>(tickSpecs);
+      StaticTickProvider<DateTime>(tickSpecs);
 
   @override
   bool operator ==(Object other) =>
@@ -285,19 +285,19 @@ class AutoDateTimeTickFormatterSpec implements DateTimeTickFormatterSpec {
           _makeFormatter(year, CalendarField.year, context);
     }
 
-    return new DateTimeTickFormatter(context.dateTimeFactory, overrides: map);
+    return DateTimeTickFormatter(context.dateTimeFactory, overrides: map);
   }
 
   TimeTickFormatterImpl _makeFormatter(TimeFormatterSpec spec,
       CalendarField transitionField, ChartContext context) {
     if (spec.noonFormat != null) {
-      return new HourTickFormatter(
+      return HourTickFormatter(
           dateTimeFactory: context.dateTimeFactory,
           simpleFormat: spec.format,
           transitionFormat: spec.transitionFormat,
           noonFormat: spec.noonFormat);
     } else {
-      return new TimeTickFormatterImpl(
+      return TimeTickFormatterImpl(
           dateTimeFactory: context.dateTimeFactory,
           simpleFormat: spec.format,
           transitionFormat: spec.transitionFormat,

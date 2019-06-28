@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 final ThemeData kIOSTheme = ThemeData(
-  primarySwatch: Colors.orange,
-  primaryColor: Colors.grey[100],
-  primaryColorBrightness: Brightness.light
-);
-final ThemeData kDefaultTheme = ThemeData(
-  primarySwatch: Colors.purple,
-  accentColor: Colors.orangeAccent
-);
+    primarySwatch: Colors.orange,
+    primaryColor: Colors.grey[100],
+    primaryColorBrightness: Brightness.light);
+final ThemeData kDefaultTheme =
+    ThemeData(primarySwatch: Colors.purple, accentColor: Colors.orangeAccent);
 void main() {
   runApp(FriendlychatApp());
 }
@@ -21,7 +17,9 @@ class FriendlychatApp extends StatelessWidget {
   Widget build(BuildContext build) {
     return MaterialApp(
       title: 'Friendlychat',
-      theme: Theme.of(build).platform == TargetPlatform.iOS ? kIOSTheme : kDefaultTheme,
+      theme: Theme.of(build).platform == TargetPlatform.iOS
+          ? kIOSTheme
+          : kDefaultTheme,
       home: ChatAppHomePage(title: 'Friendlychat'),
     );
   }
@@ -31,7 +29,6 @@ class ChatAppHomePage extends StatefulWidget {
   ChatAppHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-
 
   @override
   _ChatAppHomePageState createState() => _ChatAppHomePageState();
@@ -103,26 +100,22 @@ class ChatListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: chatEntries.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: CircleAvatar(
-                child: Text(chatEntries[index].name[0])
-            ),
-            title: Text(chatEntries[index].name),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatScreen(
-                      contactName: chatEntries[index].name
+          itemCount: chatEntries.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(child: Text(chatEntries[index].name[0])),
+              title: Text(chatEntries[index].name),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ChatScreen(contactName: chatEntries[index].name),
                   ),
-                ),
-              );
-            },
-          );
-        }
-      ),
+                );
+              },
+            );
+          }),
     );
   }
 }
@@ -148,24 +141,22 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Flexible(
+        body: Column(
+      children: <Widget>[
+        Flexible(
             child: ListView.builder(
-              padding: EdgeInsets.all(8.0),
-              reverse: true,
-              itemBuilder: (_, int index) => _messages[index],
-              itemCount: _messages.length,
-            )
-          ),
-          Divider(height: 1.0),
-          Container(
-            decoration: BoxDecoration(color: Theme.of(context).cardColor),
-            child: _buildTextComposer(),
-          )
-        ],
-      )
-    );
+          padding: EdgeInsets.all(8.0),
+          reverse: true,
+          itemBuilder: (_, int index) => _messages[index],
+          itemCount: _messages.length,
+        )),
+        Divider(height: 1.0),
+        Container(
+          decoration: BoxDecoration(color: Theme.of(context).cardColor),
+          child: _buildTextComposer(),
+        )
+      ],
+    ));
   }
 
   @override
@@ -178,38 +169,37 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   Widget _buildTextComposer() {
     return IconTheme(
-      data: IconThemeData(color: Theme.of(context).accentColor),
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Row(
-          children: <Widget>[
-            Flexible(
-                child: TextField(
+        data: IconThemeData(color: Theme.of(context).accentColor),
+        child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              children: <Widget>[
+                Flexible(
+                    child: TextField(
                   controller: _textController,
                   onSubmitted: _handleSubmitted,
-                  decoration: InputDecoration.collapsed(hintText: "Send a message"),
+                  decoration:
+                      InputDecoration.collapsed(hintText: "Send a message"),
                   onChanged: (String text) {
                     setState(() {
                       _isComposing = text.length > 0;
                     });
                   },
-                )
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 4.0),
-              child: IconButton(                                            //modified
-                  icon: Icon(Icons.send),
-                  onPressed: _isComposing ?
-                      () =>  _handleSubmitted(_textController.text) : null,
-                )
-            )
-          ],
-        )
-      )
-    );
+                )),
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: 4.0),
+                    child: IconButton(
+                      //modified
+                      icon: Icon(Icons.send),
+                      onPressed: _isComposing
+                          ? () => _handleSubmitted(_textController.text)
+                          : null,
+                    ))
+              ],
+            )));
   }
 
-  void _handleSubmitted (String text) {
+  void _handleSubmitted(String text) {
     _textController.clear();
     setState(() {
       _isComposing = false;
@@ -217,9 +207,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     ChatMessage message = ChatMessage(
       text: text,
       animationController: AnimationController(
-          duration: Duration(milliseconds: 200),
-          vsync: this
-      ),
+          duration: Duration(milliseconds: 200), vsync: this),
       name: contactName,
     );
     setState(() {
@@ -237,36 +225,33 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizeTransition(
-    sizeFactor: CurvedAnimation(
-        parent: animationController,
-        curve: Curves.easeOut
-    ),
-    axisAlignment: 0.0,
-    child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(right: 16.0),
-              child: CircleAvatar(child: Text(name[0])),
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(name, style: Theme.of(context).textTheme.subhead),
-                  Container(
-                    margin: const EdgeInsets.only(top: 5.0),
-                    child: Text(text),
-                  )
-                ],
+        sizeFactor:
+            CurvedAnimation(parent: animationController, curve: Curves.easeOut),
+        axisAlignment: 0.0,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(right: 16.0),
+                child: CircleAvatar(child: Text(name[0])),
               ),
-            )
-          ],
-        ),
-      )
-    );
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(name, style: Theme.of(context).textTheme.subhead),
+                    Container(
+                      margin: const EdgeInsets.only(top: 5.0),
+                      child: Text(text),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
 

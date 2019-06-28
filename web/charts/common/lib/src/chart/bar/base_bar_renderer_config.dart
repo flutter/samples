@@ -82,7 +82,7 @@ abstract class BaseBarRendererConfig<D> extends LayoutViewConfig
   /// Not used for stacked bars.
   final List<int> weightPattern;
 
-  final rendererAttributes = new RendererAttributes();
+  final rendererAttributes = RendererAttributes();
 
   BaseBarRendererConfig(
       {this.customRendererId,
@@ -95,7 +95,7 @@ abstract class BaseBarRendererConfig<D> extends LayoutViewConfig
       this.strokeWidthPx = 0.0,
       SymbolRenderer symbolRenderer,
       this.weightPattern})
-      : this.symbolRenderer = symbolRenderer ?? new RoundedRectSymbolRenderer();
+      : this.symbolRenderer = symbolRenderer ?? RoundedRectSymbolRenderer();
 
   /// Whether or not the bars should be organized into groups.
   bool get grouped =>
@@ -123,7 +123,7 @@ abstract class BaseBarRendererConfig<D> extends LayoutViewConfig
         other.stackHorizontalSeparator == stackHorizontalSeparator &&
         other.strokeWidthPx == strokeWidthPx &&
         other.symbolRenderer == symbolRenderer &&
-        new ListEquality().equals(other.weightPattern, weightPattern);
+        ListEquality().equals(other.weightPattern, weightPattern);
   }
 
   int get hashcode {

@@ -35,12 +35,11 @@ abstract class BaseBarRendererElement {
 
   BaseBarRendererElement.clone(BaseBarRendererElement other) {
     barStackIndex = other.barStackIndex;
-    color =
-        other.color != null ? new Color.fromOther(color: other.color) : null;
+    color = other.color != null ? Color.fromOther(color: other.color) : null;
     cumulativeTotal = other.cumulativeTotal;
     dashPattern = other.dashPattern;
     fillColor = other.fillColor != null
-        ? new Color.fromOther(color: other.fillColor)
+        ? Color.fromOther(color: other.fillColor)
         : null;
     fillPattern = other.fillPattern;
     measureAxisPosition = other.measureAxisPosition;

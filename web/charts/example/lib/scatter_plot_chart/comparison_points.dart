@@ -28,7 +28,7 @@ class ComparisonPointsScatterPlotChart extends StatelessWidget {
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
   factory ComparisonPointsScatterPlotChart.withSampleData() {
-    return new ComparisonPointsScatterPlotChart(
+    return ComparisonPointsScatterPlotChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,12 +40,12 @@ class ComparisonPointsScatterPlotChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory ComparisonPointsScatterPlotChart.withRandomData() {
-    return new ComparisonPointsScatterPlotChart(_createRandomData());
+    return ComparisonPointsScatterPlotChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final maxMeasure = 100;
 
@@ -59,7 +59,7 @@ class ComparisonPointsScatterPlotChart extends StatelessWidget {
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         colorFn: (LinearSales sales, _) {
           // Color bucket the measure column value into 3 distinct colors.
@@ -95,37 +95,36 @@ class ComparisonPointsScatterPlotChart extends StatelessWidget {
     final salesLower = (sales * 0.8).round();
     final salesUpper = sales;
 
-    return new LinearSales(year, yearLower, yearUpper, sales, salesLower,
+    return LinearSales(year, yearLower, yearUpper, sales, salesLower,
         salesUpper, makeRadius(4));
   }
   // EXCLUDE_FROM_GALLERY_DOCS_END
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(seriesList,
+    return charts.ScatterPlotChart(seriesList,
         animate: animate,
-        defaultRenderer:
-            new charts.PointRendererConfig(pointRendererDecorators: [
-          new charts.ComparisonPointsDecorator(
-              symbolRenderer: new charts.CylinderSymbolRenderer())
+        defaultRenderer: charts.PointRendererConfig(pointRendererDecorators: [
+          charts.ComparisonPointsDecorator(
+              symbolRenderer: charts.CylinderSymbolRenderer())
         ]));
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(10, 7, 10, 25, 20, 25, 5.0),
-      new LinearSales(13, 11, 13, 225, 205, 225, 5.0),
-      new LinearSales(34, 34, 24, 150, 150, 130, 5.0),
-      new LinearSales(37, 37, 57, 10, 10, 12, 6.5),
-      new LinearSales(45, 35, 45, 260, 300, 260, 8.0),
-      new LinearSales(56, 46, 56, 200, 170, 200, 7.0),
+      LinearSales(10, 7, 10, 25, 20, 25, 5.0),
+      LinearSales(13, 11, 13, 225, 205, 225, 5.0),
+      LinearSales(34, 34, 24, 150, 150, 130, 5.0),
+      LinearSales(37, 37, 57, 10, 10, 12, 6.5),
+      LinearSales(45, 35, 45, 260, 300, 260, 8.0),
+      LinearSales(56, 46, 56, 200, 170, 200, 7.0),
     ];
 
     final maxMeasure = 300;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         // Providing a color function is optional.
         colorFn: (LinearSales sales, _) {

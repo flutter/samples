@@ -38,7 +38,7 @@ class PerSeriesLegendEntryGenerator<D> implements LegendEntryGenerator<D> {
   @override
   List<LegendEntry<D>> getLegendEntries(List<MutableSeries<D>> seriesList) {
     final legendEntries = seriesList
-        .map((series) => new LegendEntry<D>(series, series.displayName,
+        .map((series) => LegendEntry<D>(series, series.displayName,
             color: series.colorFn(0), textStyle: entryTextStyle))
         .toList();
 
@@ -72,7 +72,7 @@ class PerSeriesLegendEntryGenerator<D> implements LegendEntryGenerator<D> {
     final seriesAndMeasure = <String, num>{};
 
     // Hash set of series ID's that use the secondary measure axis
-    final secondaryAxisSeriesIDs = new HashSet<String>();
+    final secondaryAxisSeriesIDs = HashSet<String>();
 
     for (SeriesDatum<D> selectedDatum in selectionModel.selectedDatum) {
       final series = selectedDatum.series;

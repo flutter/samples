@@ -19,7 +19,8 @@ import 'package:test/test.dart';
 
 const EPSILON = 0.001;
 
-typedef bool IsTransitionFunction(DateTime tickValue, DateTime prevTickValue);
+typedef IsTransitionFunction = bool Function(
+    DateTime tickValue, DateTime prevTickValue);
 
 class FakeTimeTickFormatter implements TimeTickFormatter {
   static const firstTick = '-firstTick-';
@@ -56,41 +57,41 @@ void main() {
   TimeTickFormatter timeFormatter3;
 
   setUp(() {
-    timeFormatter1 = new FakeTimeTickFormatter('fake1');
-    timeFormatter2 = new FakeTimeTickFormatter('fake2');
-    timeFormatter3 = new FakeTimeTickFormatter('fake3');
+    timeFormatter1 = FakeTimeTickFormatter('fake1');
+    timeFormatter2 = FakeTimeTickFormatter('fake2');
+    timeFormatter3 = FakeTimeTickFormatter('fake3');
   });
 
   group('Uses formatter', () {
     test('with largest interval less than diff between tickValues', () {
-      final formatter = new DateTimeTickFormatter.withFormatters(
+      final formatter = DateTimeTickFormatter.withFormatters(
           {10: timeFormatter1, 100: timeFormatter2, 1000: timeFormatter3});
       final formatterCache = <DateTime, String>{};
 
       final ticksWith10Diff = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(10),
-        new DateTime.fromMillisecondsSinceEpoch(20)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(10),
+        DateTime.fromMillisecondsSinceEpoch(20)
       ];
       final ticksWith20Diff = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(20),
-        new DateTime.fromMillisecondsSinceEpoch(40)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(20),
+        DateTime.fromMillisecondsSinceEpoch(40)
       ];
       final ticksWith100Diff = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(100),
-        new DateTime.fromMillisecondsSinceEpoch(200)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(100),
+        DateTime.fromMillisecondsSinceEpoch(200)
       ];
       final ticksWith200Diff = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(200),
-        new DateTime.fromMillisecondsSinceEpoch(400)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(200),
+        DateTime.fromMillisecondsSinceEpoch(400)
       ];
       final ticksWith1000Diff = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(1000),
-        new DateTime.fromMillisecondsSinceEpoch(2000)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(1000),
+        DateTime.fromMillisecondsSinceEpoch(2000)
       ];
 
       final expectedLabels10Diff = [
@@ -139,14 +140,14 @@ void main() {
     });
 
     test('with smallest interval when no smaller one exists', () {
-      final formatter = new DateTimeTickFormatter.withFormatters(
+      final formatter = DateTimeTickFormatter.withFormatters(
           {10: timeFormatter1, 100: timeFormatter2});
       final formatterCache = <DateTime, String>{};
 
       final ticks = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(1),
-        new DateTime.fromMillisecondsSinceEpoch(2)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(1),
+        DateTime.fromMillisecondsSinceEpoch(2)
       ];
       final expectedLabels = [
         'fake1-firstTick-0',
@@ -159,11 +160,11 @@ void main() {
     });
 
     test('with smallest interval for single tick input', () {
-      final formatter = new DateTimeTickFormatter.withFormatters(
+      final formatter = DateTimeTickFormatter.withFormatters(
           {10: timeFormatter1, 100: timeFormatter2});
       final formatterCache = <DateTime, String>{};
 
-      final ticks = [new DateTime.fromMillisecondsSinceEpoch(5000)];
+      final ticks = [DateTime.fromMillisecondsSinceEpoch(5000)];
       final expectedLabels = ['fake1-firstTick-5000'];
       final actualLabels = formatter.format(ticks, formatterCache, stepSize: 0);
       expect(actualLabels, equals(expectedLabels));
@@ -171,7 +172,7 @@ void main() {
 
     test('on empty input doesnt break', () {
       final formatter =
-          new DateTimeTickFormatter.withFormatters({10: timeFormatter1});
+          DateTimeTickFormatter.withFormatters({10: timeFormatter1});
       final formatterCache = <DateTime, String>{};
 
       final actualLabels =
@@ -180,19 +181,19 @@ void main() {
     });
 
     test('that formats transition tick with transition format', () {
-      final timeFormatter = new FakeTimeTickFormatter('fake',
+      final timeFormatter = FakeTimeTickFormatter('fake',
           isTransitionFunction: (DateTime tickValue, _) =>
               tickValue.millisecondsSinceEpoch == 20);
       final formatterCache = <DateTime, String>{};
 
       final formatter =
-          new DateTimeTickFormatter.withFormatters({10: timeFormatter});
+          DateTimeTickFormatter.withFormatters({10: timeFormatter});
 
       final ticks = [
-        new DateTime.fromMillisecondsSinceEpoch(0),
-        new DateTime.fromMillisecondsSinceEpoch(10),
-        new DateTime.fromMillisecondsSinceEpoch(20),
-        new DateTime.fromMillisecondsSinceEpoch(30)
+        DateTime.fromMillisecondsSinceEpoch(0),
+        DateTime.fromMillisecondsSinceEpoch(10),
+        DateTime.fromMillisecondsSinceEpoch(20),
+        DateTime.fromMillisecondsSinceEpoch(30)
       ];
 
       final expectedLabels = [
@@ -212,21 +213,21 @@ void main() {
     test('throws arugment error if time resolution key is not positive', () {
       // -1 is reserved for any, if there is only one formatter, -1 is allowed.
       expect(
-          () => new DateTimeTickFormatter.withFormatters(
+          () => DateTimeTickFormatter.withFormatters(
               {-1: timeFormatter1, 2: timeFormatter2}),
           throwsArgumentError);
     });
 
     test('throws argument error if formatters is null or empty', () {
-      expect(() => new DateTimeTickFormatter.withFormatters(null),
+      expect(() => DateTimeTickFormatter.withFormatters(null),
           throwsArgumentError);
-      expect(() => new DateTimeTickFormatter.withFormatters({}),
-          throwsArgumentError);
+      expect(
+          () => DateTimeTickFormatter.withFormatters({}), throwsArgumentError);
     });
 
     test('throws arugment error if formatters are not sorted', () {
       expect(
-          () => new DateTimeTickFormatter.withFormatters({
+          () => DateTimeTickFormatter.withFormatters({
                 3: timeFormatter1,
                 1: timeFormatter2,
                 2: timeFormatter3,
@@ -234,7 +235,7 @@ void main() {
           throwsArgumentError);
 
       expect(
-          () => new DateTimeTickFormatter.withFormatters({
+          () => DateTimeTickFormatter.withFormatters({
                 1: timeFormatter1,
                 3: timeFormatter2,
                 2: timeFormatter3,
@@ -242,7 +243,7 @@ void main() {
           throwsArgumentError);
 
       expect(
-          () => new DateTimeTickFormatter.withFormatters({
+          () => DateTimeTickFormatter.withFormatters({
                 2: timeFormatter1,
                 3: timeFormatter2,
                 1: timeFormatter3,

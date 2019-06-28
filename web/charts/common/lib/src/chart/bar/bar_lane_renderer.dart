@@ -37,7 +37,7 @@ import 'base_bar_renderer_element.dart' show BaseBarRendererElement;
 ///
 /// In grouped stacked mode, this list will contain a combination of domain
 /// value and series category.
-const domainValuesKey = const AttributeKey<Set>('BarLaneRenderer.domainValues');
+const domainValuesKey = AttributeKey<Set>('BarLaneRenderer.domainValues');
 
 /// Renders series data as a series of bars with lanes.
 ///
@@ -63,17 +63,16 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
   /// as the data was given to the chart. For the case where both grouping and
   /// stacking are disabled, this means that bars for data later in the series
   /// will be drawn "on top of" bars earlier in the series.
-  final _barLaneStackMap = new LinkedHashMap<String, List<AnimatedBar<D>>>();
+  final _barLaneStackMap = LinkedHashMap<String, List<AnimatedBar<D>>>();
 
   /// Store a map of flags to track whether all measure values for a given
   /// domain value are null, for every series on the chart.
-  final _allMeasuresForDomainNullMap = new LinkedHashMap<D, bool>();
+  final _allMeasuresForDomainNullMap = LinkedHashMap<D, bool>();
 
   factory BarLaneRenderer({BarLaneRendererConfig config, String rendererId}) {
     rendererId ??= 'bar';
-    config ??= new BarLaneRendererConfig();
-    return new BarLaneRenderer._internal(
-        config: config, rendererId: rendererId);
+    config ??= BarLaneRendererConfig();
+    return BarLaneRenderer._internal(config: config, rendererId: rendererId);
   }
 
   BarLaneRenderer._internal({BarLaneRendererConfig config, String rendererId})
@@ -90,7 +89,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
       final domainFn = series.domainFn;
       final measureFn = series.rawMeasureFn;
 
-      final domainValues = new Set<D>();
+      final domainValues = Set<D>();
 
       for (var barIndex = 0; barIndex < series.data.length; barIndex++) {
         final domain = domainFn(barIndex);
@@ -133,7 +132,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
 
       // Create a fake series for [BarLabelDecorator] to use when looking up the
       // index of each datum.
-      final laneSeries = new MutableSeries<D>.clone(seriesList[0]);
+      final laneSeries = MutableSeries<D>.clone(seriesList[0]);
       laneSeries.data = [];
 
       // Don't render any labels on the swim lanes.
@@ -183,7 +182,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
               previousBarGroupWeight: previousBarGroupWeight,
               barGroupWeight: barGroupWeight,
               color: (config as BarLaneRendererConfig).backgroundBarColor,
-              details: new BarRendererElement<D>(),
+              details: BarRendererElement<D>(),
               domainValue: domainValue,
               domainAxis: domainAxis,
               domainWidth: domainAxis.rangeBand.round(),
@@ -212,7 +211,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
             previousBarGroupWeight: previousBarGroupWeight,
             barGroupWeight: barGroupWeight,
             color: (config as BarLaneRendererConfig).backgroundBarColor,
-            details: new BarRendererElement<D>(),
+            details: BarRendererElement<D>(),
             domainValue: domainValue,
             domainAxis: domainAxis,
             domainWidth: domainAxis.rangeBand.round(),
@@ -252,7 +251,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
       // Create a fake series for [BarLabelDecorator] to use when looking up the
       // index of each datum. We don't care about any other series values for
       // the merged lanes, so just clone the first series.
-      final mergedSeries = new MutableSeries<D>.clone(seriesList[0]);
+      final mergedSeries = MutableSeries<D>.clone(seriesList[0]);
       mergedSeries.data = [];
 
       // Add a label accessor that returns the empty lane label.
@@ -289,7 +288,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
                 previousBarGroupWeight: previousBarGroupWeight,
                 barGroupWeight: barGroupWeight,
                 color: (config as BarLaneRendererConfig).backgroundBarColor,
-                details: new BarRendererElement<D>(),
+                details: BarRendererElement<D>(),
                 domainValue: domainValue,
                 domainAxis: domainAxis,
                 domainWidth: domainAxis.rangeBand.round(),
@@ -318,7 +317,7 @@ class BarLaneRenderer<D> extends BarRenderer<D> {
               previousBarGroupWeight: previousBarGroupWeight,
               barGroupWeight: barGroupWeight,
               color: (config as BarLaneRendererConfig).backgroundBarColor,
-              details: new BarRendererElement<D>(),
+              details: BarRendererElement<D>(),
               domainValue: domainValue,
               domainAxis: domainAxis,
               domainWidth: domainAxis.rangeBand.round(),

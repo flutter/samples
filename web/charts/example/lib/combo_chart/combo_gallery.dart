@@ -23,35 +23,35 @@ import 'scatter_plot_line.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.insert_chart),
       title: 'Ordinal Combo Chart',
       subtitle: 'Ordinal combo chart with bars and lines',
-      childBuilder: () => new OrdinalComboBarLineChart.withRandomData(),
+      childBuilder: () => OrdinalComboBarLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Numeric Line Bar Combo Chart',
       subtitle: 'Numeric combo chart with lines and bars',
-      childBuilder: () => new NumericComboLineBarChart.withRandomData(),
+      childBuilder: () => NumericComboLineBarChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Numeric Line Points Combo Chart',
       subtitle: 'Numeric combo chart with lines and points',
-      childBuilder: () => new NumericComboLinePointChart.withRandomData(),
+      childBuilder: () => NumericComboLinePointChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Time Series Combo Chart',
       subtitle: 'Time series combo chart with lines and points',
-      childBuilder: () => new DateTimeComboLinePointChart.withRandomData(),
+      childBuilder: () => DateTimeComboLinePointChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.scatter_plot),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.scatter_plot),
       title: 'Scatter Plot Combo Chart',
       subtitle: 'Scatter plot combo chart with a line',
-      childBuilder: () => new ScatterPlotComboLineChart.withRandomData(),
+      childBuilder: () => ScatterPlotComboLineChart.withRandomData(),
     ),
   ];
 }

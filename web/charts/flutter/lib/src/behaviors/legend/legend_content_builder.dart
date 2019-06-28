@@ -78,7 +78,7 @@ class TabularLegendContentBuilder extends BaseLegendContentBuilder {
       : this.legendEntryLayout =
             legendEntryLayout ?? const SimpleLegendEntryLayout(),
         this.legendLayout =
-            legendLayout ?? new TabularLegendLayout.horizontalFirst();
+            legendLayout ?? TabularLegendLayout.horizontalFirst();
 
   @override
   bool operator ==(Object o) {

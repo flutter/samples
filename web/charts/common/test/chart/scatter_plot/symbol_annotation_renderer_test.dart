@@ -44,15 +44,15 @@ void main() {
   setUp(() {
     var myFakeDesktopData = [
       // This datum should get a default bounds line radius value.
-      new MyRow('MyCampaign1', 0, 0, 0, 3.0, null, null),
-      new MyRow('MyCampaign2', 10, 10, 12, 5.0, 4.0, 'shape 1'),
-      new MyRow('MyCampaign3', 10, 10, 14, 4.0, 4.0, 'shape 2'),
+      MyRow('MyCampaign1', 0, 0, 0, 3.0, null, null),
+      MyRow('MyCampaign2', 10, 10, 12, 5.0, 4.0, 'shape 1'),
+      MyRow('MyCampaign3', 10, 10, 14, 4.0, 4.0, 'shape 2'),
       // This datum should always get default radius values.
-      new MyRow('MyCampaign4', 13, 12, 15, null, null, null),
+      MyRow('MyCampaign4', 13, 12, 15, null, null, null),
     ];
 
     numericSeriesList = [
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
           colorFn: (MyRow row, _) => MaterialPalette.blue.shadeDefault,
           domainFn: (MyRow row, _) => row.campaign,
@@ -70,8 +70,8 @@ void main() {
 
   group('preprocess', () {
     test('with numeric data and simple points', () {
-      renderer = new SymbolAnnotationRenderer<int>(
-          config: new SymbolAnnotationRendererConfig());
+      renderer = SymbolAnnotationRenderer<int>(
+          config: SymbolAnnotationRendererConfig());
 
       renderer.preprocessSeries(numericSeriesList);
 

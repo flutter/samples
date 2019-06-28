@@ -29,7 +29,7 @@ class ScatterPlotComboLineChart extends StatelessWidget {
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
   factory ScatterPlotComboLineChart.withSampleData() {
-    return new ScatterPlotComboLineChart(
+    return ScatterPlotComboLineChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,40 +41,40 @@ class ScatterPlotComboLineChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory ScatterPlotComboLineChart.withRandomData() {
-    return new ScatterPlotComboLineChart(_createRandomData());
+    return ScatterPlotComboLineChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final makeRadius = (int value) => (random.nextInt(value) + 2).toDouble();
 
     final desktopSalesData = [
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
-      new LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(100), makeRadius(6)),
     ];
 
     var myRegressionData = [
-      new LinearSales(0, desktopSalesData[0].sales, 3.5),
-      new LinearSales(
+      LinearSales(0, desktopSalesData[0].sales, 3.5),
+      LinearSales(
           100, desktopSalesData[desktopSalesData.length - 1].sales, 7.5),
     ];
 
     final maxMeasure = 100;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         // Providing a color function is optional.
         colorFn: (LinearSales sales, _) {
@@ -95,7 +95,7 @@ class ScatterPlotComboLineChart extends StatelessWidget {
         radiusPxFn: (LinearSales sales, _) => sales.radius,
         data: desktopSalesData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Mobile',
           colorFn: (_, __) => charts.MaterialPalette.purple.shadeDefault,
           domainFn: (LinearSales sales, _) => sales.year,
@@ -109,17 +109,17 @@ class ScatterPlotComboLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(seriesList,
+    return charts.ScatterPlotChart(seriesList,
         animate: animate,
         // Configure the default renderer as a point renderer. This will be used
         // for any series that does not define a rendererIdKey.
         //
         // This is the default configuration, but is shown here for
         // illustration.
-        defaultRenderer: new charts.PointRendererConfig(),
+        defaultRenderer: charts.PointRendererConfig(),
         // Custom renderer configuration for the line series.
         customSeriesRenderers: [
-          new charts.LineRendererConfig(
+          charts.LineRendererConfig(
               // ID used to link series to this renderer.
               customRendererId: 'customLine',
               // Configure the regression line to be painted above the points.
@@ -133,29 +133,29 @@ class ScatterPlotComboLineChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final desktopSalesData = [
-      new LinearSales(0, 5, 3.0),
-      new LinearSales(10, 25, 5.0),
-      new LinearSales(12, 75, 4.0),
-      new LinearSales(13, 225, 5.0),
-      new LinearSales(16, 50, 4.0),
-      new LinearSales(24, 75, 3.0),
-      new LinearSales(25, 100, 3.0),
-      new LinearSales(34, 150, 5.0),
-      new LinearSales(37, 10, 4.5),
-      new LinearSales(45, 300, 8.0),
-      new LinearSales(52, 15, 4.0),
-      new LinearSales(56, 200, 7.0),
+      LinearSales(0, 5, 3.0),
+      LinearSales(10, 25, 5.0),
+      LinearSales(12, 75, 4.0),
+      LinearSales(13, 225, 5.0),
+      LinearSales(16, 50, 4.0),
+      LinearSales(24, 75, 3.0),
+      LinearSales(25, 100, 3.0),
+      LinearSales(34, 150, 5.0),
+      LinearSales(37, 10, 4.5),
+      LinearSales(45, 300, 8.0),
+      LinearSales(52, 15, 4.0),
+      LinearSales(56, 200, 7.0),
     ];
 
     var myRegressionData = [
-      new LinearSales(0, 5, 3.5),
-      new LinearSales(56, 240, 3.5),
+      LinearSales(0, 5, 3.5),
+      LinearSales(56, 240, 3.5),
     ];
 
     final maxMeasure = 300;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         // Providing a color function is optional.
         colorFn: (LinearSales sales, _) {
@@ -176,7 +176,7 @@ class ScatterPlotComboLineChart extends StatelessWidget {
         radiusPxFn: (LinearSales sales, _) => sales.radius,
         data: desktopSalesData,
       ),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Mobile',
           colorFn: (_, __) => charts.MaterialPalette.purple.shadeDefault,
           domainFn: (LinearSales sales, _) => sales.year,

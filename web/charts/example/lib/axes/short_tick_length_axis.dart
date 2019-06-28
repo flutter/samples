@@ -33,7 +33,7 @@ class ShortTickLengthAxis extends StatelessWidget {
   ShortTickLengthAxis(this.seriesList, {this.animate});
 
   factory ShortTickLengthAxis.withSampleData() {
-    return new ShortTickLengthAxis(
+    return ShortTickLengthAxis(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -45,22 +45,22 @@ class ShortTickLengthAxis extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory ShortTickLengthAxis.withRandomData() {
-    return new ShortTickLengthAxis(_createRandomData());
+    return ShortTickLengthAxis(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final globalSalesData = [
-      new OrdinalSales('2014', random.nextInt(100) * 100),
-      new OrdinalSales('2015', random.nextInt(100) * 100),
-      new OrdinalSales('2016', random.nextInt(100) * 100),
-      new OrdinalSales('2017', random.nextInt(100) * 100),
+      OrdinalSales('2014', random.nextInt(100) * 100),
+      OrdinalSales('2015', random.nextInt(100) * 100),
+      OrdinalSales('2016', random.nextInt(100) * 100),
+      OrdinalSales('2017', random.nextInt(100) * 100),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -72,15 +72,15 @@ class ShortTickLengthAxis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
 
       /// Customize the primary measure axis using a small tick renderer.
       /// Note: use String instead of num for ordinal domain axis
       /// (typically bar charts).
-      primaryMeasureAxis: new charts.NumericAxisSpec(
-          renderSpec: new charts.SmallTickRendererSpec(
+      primaryMeasureAxis: charts.NumericAxisSpec(
+          renderSpec: charts.SmallTickRendererSpec(
               // Tick and Label styling here.
               )),
     );
@@ -89,14 +89,14 @@ class ShortTickLengthAxis extends StatelessWidget {
   /// Create series list with single series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final globalSalesData = [
-      new OrdinalSales('2014', 5000),
-      new OrdinalSales('2015', 25000),
-      new OrdinalSales('2016', 100000),
-      new OrdinalSales('2017', 750000),
+      OrdinalSales('2014', 5000),
+      OrdinalSales('2015', 25000),
+      OrdinalSales('2016', 100000),
+      OrdinalSales('2017', 750000),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

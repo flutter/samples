@@ -25,7 +25,7 @@ import '../chart_behavior.dart'
 
 @immutable
 class InitialHintBehavior extends ChartBehavior<common.InitialHintBehavior> {
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   final Duration hintDuration;
   final double maxHintTranslate;
@@ -36,7 +36,7 @@ class InitialHintBehavior extends ChartBehavior<common.InitialHintBehavior> {
 
   @override
   common.InitialHintBehavior<D> createCommonBehavior<D>() {
-    final behavior = new FlutterInitialHintBehavior<D>();
+    final behavior = FlutterInitialHintBehavior<D>();
 
     if (hintDuration != null) {
       behavior.hintDuration = hintDuration;

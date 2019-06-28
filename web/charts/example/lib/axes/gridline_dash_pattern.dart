@@ -28,7 +28,7 @@ class GridlineDashPattern extends StatelessWidget {
 
   /// Creates a [TimeSeriesChart] with sample data and no transition.
   factory GridlineDashPattern.withSampleData() {
-    return new GridlineDashPattern(
+    return GridlineDashPattern(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,29 +40,29 @@ class GridlineDashPattern extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory GridlineDashPattern.withRandomData() {
-    return new GridlineDashPattern(_createRandomData());
+    return GridlineDashPattern(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<MyRow, DateTime>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new MyRow(new DateTime(2017, 9, 25), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 9, 26), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 9, 27), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 9, 28), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 9, 29), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 9, 30), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 10, 01), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 10, 02), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 10, 03), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 10, 04), random.nextInt(100)),
-      new MyRow(new DateTime(2017, 10, 05), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 25), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 26), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 27), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 28), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 29), random.nextInt(100)),
+      MyRow(DateTime(2017, 9, 30), random.nextInt(100)),
+      MyRow(DateTime(2017, 10, 01), random.nextInt(100)),
+      MyRow(DateTime(2017, 10, 02), random.nextInt(100)),
+      MyRow(DateTime(2017, 10, 03), random.nextInt(100)),
+      MyRow(DateTime(2017, 10, 04), random.nextInt(100)),
+      MyRow(DateTime(2017, 10, 05), random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<MyRow, DateTime>(
+      charts.Series<MyRow, DateTime>(
         id: 'Cost',
         domainFn: (MyRow row, _) => row.timeStamp,
         measureFn: (MyRow row, _) => row.cost,
@@ -74,11 +74,11 @@ class GridlineDashPattern extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.TimeSeriesChart(seriesList,
+    return charts.TimeSeriesChart(seriesList,
         animate: animate,
 
         /// Customize the gridlines to use a dash pattern.
-        primaryMeasureAxis: new charts.NumericAxisSpec(
+        primaryMeasureAxis: charts.NumericAxisSpec(
             renderSpec: charts.GridlineRendererSpec(
                 lineStyle: charts.LineStyleSpec(
           dashPattern: [4, 4],
@@ -88,21 +88,21 @@ class GridlineDashPattern extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<MyRow, DateTime>> _createSampleData() {
     final data = [
-      new MyRow(new DateTime(2017, 9, 25), 6),
-      new MyRow(new DateTime(2017, 9, 26), 8),
-      new MyRow(new DateTime(2017, 9, 27), 6),
-      new MyRow(new DateTime(2017, 9, 28), 9),
-      new MyRow(new DateTime(2017, 9, 29), 11),
-      new MyRow(new DateTime(2017, 9, 30), 15),
-      new MyRow(new DateTime(2017, 10, 01), 25),
-      new MyRow(new DateTime(2017, 10, 02), 33),
-      new MyRow(new DateTime(2017, 10, 03), 27),
-      new MyRow(new DateTime(2017, 10, 04), 31),
-      new MyRow(new DateTime(2017, 10, 05), 23),
+      MyRow(DateTime(2017, 9, 25), 6),
+      MyRow(DateTime(2017, 9, 26), 8),
+      MyRow(DateTime(2017, 9, 27), 6),
+      MyRow(DateTime(2017, 9, 28), 9),
+      MyRow(DateTime(2017, 9, 29), 11),
+      MyRow(DateTime(2017, 9, 30), 15),
+      MyRow(DateTime(2017, 10, 01), 25),
+      MyRow(DateTime(2017, 10, 02), 33),
+      MyRow(DateTime(2017, 10, 03), 27),
+      MyRow(DateTime(2017, 10, 04), 31),
+      MyRow(DateTime(2017, 10, 05), 23),
     ];
 
     return [
-      new charts.Series<MyRow, DateTime>(
+      charts.Series<MyRow, DateTime>(
         id: 'Cost',
         domainFn: (MyRow row, _) => row.timeStamp,
         measureFn: (MyRow row, _) => row.cost,

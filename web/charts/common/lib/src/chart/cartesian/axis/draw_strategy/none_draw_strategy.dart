@@ -42,7 +42,7 @@ class NoneRenderSpec<D> extends RenderSpec<D> {
   @override
   TickDrawStrategy<D> createDrawStrategy(
           ChartContext context, GraphicsFactory graphicFactory) =>
-      new NoneDrawStrategy<D>(context, graphicFactory,
+      NoneDrawStrategy<D>(context, graphicFactory,
           axisLineStyleSpec: axisLineStyle);
 
   @override
@@ -68,7 +68,7 @@ class NoneDrawStrategy<D> implements TickDrawStrategy<D> {
 
   @override
   CollisionReport collides(List<Tick> ticks, AxisOrientation orientation) =>
-      new CollisionReport(ticksCollide: false, ticks: ticks);
+      CollisionReport(ticksCollide: false, ticks: ticks);
 
   @override
   void decorateTicks(List<Tick> ticks) {
@@ -125,12 +125,12 @@ class NoneDrawStrategy<D> implements TickDrawStrategy<D> {
   @override
   ViewMeasuredSizes measureHorizontallyDrawnTicks(
       List<Tick> ticks, int maxWidth, int maxHeight) {
-    return new ViewMeasuredSizes(preferredWidth: 0, preferredHeight: 0);
+    return ViewMeasuredSizes(preferredWidth: 0, preferredHeight: 0);
   }
 
   @override
   ViewMeasuredSizes measureVerticallyDrawnTicks(
       List<Tick> ticks, int maxWidth, int maxHeight) {
-    return new ViewMeasuredSizes(preferredWidth: 0, preferredHeight: 0);
+    return ViewMeasuredSizes(preferredWidth: 0, preferredHeight: 0);
   }
 }

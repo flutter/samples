@@ -28,7 +28,7 @@ class RTLLineChart extends StatelessWidget {
 
   /// Creates a [LineChart] with sample data and no transition.
   factory RTLLineChart.withSampleData() {
-    return new RTLLineChart(
+    return RTLLineChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,22 +40,22 @@ class RTLLineChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory RTLLineChart.withRandomData() {
-    return new RTLLineChart(_createRandomData());
+    return RTLLineChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -78,9 +78,9 @@ class RTLLineChart extends StatelessWidget {
     // Measure axis positions are flipped. Primary measure axis is on the right
     // and the secondary measure axis is on the left (when used).
     // Domain axis' first domain starts on the right and grows left.
-    return new Directionality(
+    return Directionality(
         textDirection: TextDirection.rtl,
-        child: new charts.LineChart(
+        child: charts.LineChart(
           seriesList,
           animate: animate,
         ));
@@ -89,14 +89,14 @@ class RTLLineChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5),
-      new LinearSales(1, 25),
-      new LinearSales(2, 100),
-      new LinearSales(3, 75),
+      LinearSales(0, 5),
+      LinearSales(1, 25),
+      LinearSales(2, 100),
+      LinearSales(3, 75),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

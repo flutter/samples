@@ -47,7 +47,7 @@ class PressableCard extends StatefulWidget {
   final Widget child;
 
   @override
-  State<StatefulWidget> createState() => new _PressableCardState();
+  State<StatefulWidget> createState() => _PressableCardState();
 }
 
 class _PressableCardState extends State<PressableCard>

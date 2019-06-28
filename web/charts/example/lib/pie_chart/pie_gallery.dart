@@ -24,42 +24,42 @@ import 'partial_pie.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Simple Pie Chart',
       subtitle: 'With a single series',
-      childBuilder: () => new SimplePieChart.withRandomData(),
+      childBuilder: () => SimplePieChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Outside Label Pie Chart',
       subtitle: 'With a single series and labels outside the arcs',
-      childBuilder: () => new PieOutsideLabelChart.withRandomData(),
+      childBuilder: () => PieOutsideLabelChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Partial Pie Chart',
       subtitle: 'That doesn\'t cover a full revolution',
-      childBuilder: () => new PartialPieChart.withRandomData(),
+      childBuilder: () => PartialPieChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Simple Donut Chart',
       subtitle: 'With a single series and a hole in the middle',
-      childBuilder: () => new DonutPieChart.withRandomData(),
+      childBuilder: () => DonutPieChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Auto Label Donut Chart',
       subtitle:
           'With a single series, a hole in the middle, and auto-positioned labels',
-      childBuilder: () => new DonutAutoLabelChart.withRandomData(),
+      childBuilder: () => DonutAutoLabelChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.pie_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.pie_chart),
       title: 'Gauge Chart',
       subtitle: 'That doesn\'t cover a full revolution',
-      childBuilder: () => new GaugeChart.withRandomData(),
+      childBuilder: () => GaugeChart.withRandomData(),
     ),
   ];
 }

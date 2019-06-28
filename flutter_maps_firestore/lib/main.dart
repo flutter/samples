@@ -109,7 +109,7 @@ class StoreCarousel extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10),
         child: SizedBox(
           height: 90,
-          child: new StoreCarouselList(
+          child: StoreCarouselList(
             documents: documents,
             mapController: mapController,
           ),

@@ -31,7 +31,7 @@ import 'per_series_legend_entry_generator.dart';
 /// By default this behavior creates a legend entry per series.
 class SeriesLegend<D> extends Legend<D> {
   /// List of currently hidden series, by ID.
-  final _hiddenSeriesList = new Set<String>();
+  final _hiddenSeriesList = Set<String>();
 
   /// List of series IDs that should be hidden by default.
   List<String> _defaultHiddenSeries;
@@ -50,7 +50,7 @@ class SeriesLegend<D> extends Legend<D> {
   }) : super(
             selectionModelType: selectionModelType ?? SelectionModelType.info,
             legendEntryGenerator:
-                legendEntryGenerator ?? new PerSeriesLegendEntryGenerator(),
+                legendEntryGenerator ?? PerSeriesLegendEntryGenerator(),
             entryTextStyle: entryTextStyle) {
     // Call the setters that include the setting for default.
     this.showMeasures = showMeasures;

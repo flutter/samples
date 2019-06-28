@@ -106,12 +106,12 @@ class Home extends StatelessWidget {
 
     _setupPerformance();
 
-    return new Scaffold(
-      drawer: new GalleryDrawer(
+    return Scaffold(
+      drawer: GalleryDrawer(
           showPerformanceOverlay: showPerformanceOverlay,
           onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
-      appBar: new AppBar(title: new Text(defaultConfig.appName)),
-      body: new ListView(padding: kMaterialListPadding, children: galleries),
+      appBar: AppBar(title: Text(defaultConfig.appName)),
+      body: ListView(padding: kMaterialListPadding, children: galleries),
     );
   }
 

@@ -28,10 +28,10 @@ class AppConfig {
 
 /// The default configuration of the app.
 AppConfig get defaultConfig {
-  return new AppConfig(
+  return AppConfig(
     appName: 'Charts Gallery',
     appLink: '',
-    theme: new ThemeData(
+    theme: ThemeData(
       brightness: Brightness.light,
       primarySwatch: Colors.lightBlue,
     ),

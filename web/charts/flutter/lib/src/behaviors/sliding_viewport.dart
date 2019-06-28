@@ -28,7 +28,7 @@ import 'chart_behavior.dart' show ChartBehavior, GestureType;
 /// This behavior can only be used on [CartesianChart].
 @immutable
 class SlidingViewport extends ChartBehavior<common.SlidingViewport> {
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   final common.SelectionModelType selectionModelType;
 
@@ -36,7 +36,7 @@ class SlidingViewport extends ChartBehavior<common.SlidingViewport> {
 
   @override
   common.SlidingViewport<D> createCommonBehavior<D>() =>
-      new common.SlidingViewport<D>(selectionModelType);
+      common.SlidingViewport<D>(selectionModelType);
 
   @override
   void updateCommonBehavior(common.SlidingViewport commonBehavior) {}

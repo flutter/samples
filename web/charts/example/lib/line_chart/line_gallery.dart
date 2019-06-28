@@ -31,83 +31,83 @@ import 'stacked_area_nulls.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Simple Line Chart',
       subtitle: 'With a single series and default line point highlighter',
-      childBuilder: () => new SimpleLineChart.withRandomData(),
+      childBuilder: () => SimpleLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Stacked Area Chart',
       subtitle: 'Stacked area chart with three series',
-      childBuilder: () => new StackedAreaLineChart.withRandomData(),
+      childBuilder: () => StackedAreaLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Stacked Area Custom Color Chart',
       subtitle: 'Stacked area chart with custom area skirt color',
-      childBuilder: () => new StackedAreaCustomColorLineChart.withRandomData(),
+      childBuilder: () => StackedAreaCustomColorLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Area and Line Combo Chart',
       subtitle: 'Combo chart with one line series and one area series',
-      childBuilder: () => new AreaAndLineChart.withRandomData(),
+      childBuilder: () => AreaAndLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Points Line Chart',
       subtitle: 'Line chart with points on a single series',
-      childBuilder: () => new PointsLineChart.withRandomData(),
+      childBuilder: () => PointsLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Null Data Line Chart',
       subtitle: 'With a single series and null measure values',
-      childBuilder: () => new SimpleNullsLineChart.withRandomData(),
+      childBuilder: () => SimpleNullsLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Stacked Area with Nulls Chart',
       subtitle: 'Stacked area chart with three series and null measure values',
-      childBuilder: () => new StackedAreaNullsLineChart.withRandomData(),
+      childBuilder: () => StackedAreaNullsLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Dash Pattern Line Chart',
       subtitle: 'Line chart with dash patterns',
-      childBuilder: () => new DashPatternLineChart.withRandomData(),
+      childBuilder: () => DashPatternLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Segments Line Chart',
       subtitle: 'Line chart with changes of style for each line',
-      childBuilder: () => new SegmentsLineChart.withRandomData(),
+      childBuilder: () => SegmentsLineChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Line Annotation Line Chart',
       subtitle: 'Line chart with line annotations',
-      childBuilder: () => new LineLineAnnotationChart.withRandomData(),
+      childBuilder: () => LineLineAnnotationChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Range Annotation Line Chart',
       subtitle: 'Line chart with range annotations',
-      childBuilder: () => new LineRangeAnnotationChart.withRandomData(),
+      childBuilder: () => LineRangeAnnotationChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Range Annotation Margin Labels Line Chart',
       subtitle: 'Line chart with range annotations with labels in margins',
-      childBuilder: () => new LineRangeAnnotationMarginChart.withRandomData(),
+      childBuilder: () => LineRangeAnnotationMarginChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: Icon(Icons.show_chart),
       title: 'Pan and Zoom Line Chart',
       subtitle: 'Simple line chart pan and zoom behaviors enabled',
-      childBuilder: () => new LineAnimationZoomChart.withRandomData(),
+      childBuilder: () => LineAnimationZoomChart.withRandomData(),
     ),
   ];
 }

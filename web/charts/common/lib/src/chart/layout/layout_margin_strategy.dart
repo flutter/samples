@@ -39,8 +39,8 @@ class SizeList {
 }
 
 class _DesiredViewSizes {
-  final preferredSizes = new SizeList();
-  final minimumSizes = new SizeList();
+  final preferredSizes = SizeList();
+  final minimumSizes = SizeList();
 
   void add(int preferred, int minimum) {
     preferredSizes.add(preferred);
@@ -74,7 +74,7 @@ abstract class VerticalMarginStrategy {
       {@required int maxWidth,
       @required int height,
       @required int fullHeight}) {
-    final measuredWidths = new _DesiredViewSizes();
+    final measuredWidths = _DesiredViewSizes();
     int remainingWidth = maxWidth;
 
     views.forEach((LayoutView view) {
@@ -133,7 +133,7 @@ class LeftMarginLayoutStrategy extends VerticalMarginStrategy {
       prevBoundsRight = left - params.viewMargin.leftPx;
 
       // Layout this component.
-      view.layout(new Rectangle(left, top, width, height), drawAreaBounds);
+      view.layout(Rectangle(left, top, width, height), drawAreaBounds);
 
       i++;
     });
@@ -163,7 +163,7 @@ class RightMarginLayoutStrategy extends VerticalMarginStrategy {
       prevBoundsLeft = left + width + params.viewMargin.rightPx;
 
       // Layout this component.
-      view.layout(new Rectangle(left, top, width, height), drawAreaBounds);
+      view.layout(Rectangle(left, top, width, height), drawAreaBounds);
 
       i++;
     });
@@ -174,7 +174,7 @@ class RightMarginLayoutStrategy extends VerticalMarginStrategy {
 abstract class HorizontalMarginStrategy {
   SizeList measure(Iterable<LayoutView> views,
       {@required int maxHeight, @required int width, @required int fullWidth}) {
-    final measuredHeights = new _DesiredViewSizes();
+    final measuredHeights = _DesiredViewSizes();
     int remainingHeight = maxHeight;
 
     views.forEach((LayoutView view) {
@@ -234,7 +234,7 @@ class TopMarginLayoutStrategy extends HorizontalMarginStrategy {
       prevBoundsBottom = top - params.viewMargin.topPx;
 
       // Layout this component.
-      view.layout(new Rectangle(left, top, width, height), drawAreaBounds);
+      view.layout(Rectangle(left, top, width, height), drawAreaBounds);
 
       i++;
     });
@@ -265,7 +265,7 @@ class BottomMarginLayoutStrategy extends HorizontalMarginStrategy {
       prevBoundsTop = top + height + params.viewMargin.bottomPx;
 
       // Layout this component.
-      view.layout(new Rectangle(left, top, width, height), drawAreaBounds);
+      view.layout(Rectangle(left, top, width, height), drawAreaBounds);
 
       i++;
     });

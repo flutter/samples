@@ -46,7 +46,7 @@ class PolygonPainter {
     if (clipBounds != null) {
       canvas
         ..save()
-        ..clipRect(new Rect.fromLTWH(
+        ..clipRect(Rect.fromLTWH(
             clipBounds.left.toDouble(),
             clipBounds.top.toDouble(),
             clipBounds.width.toDouble(),
@@ -54,19 +54,18 @@ class PolygonPainter {
     }
 
     final strokeColor = stroke != null
-        ? new Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b)
+        ? Color.fromARGB(stroke.a, stroke.r, stroke.g, stroke.b)
         : null;
 
-    final fillColor = fill != null
-        ? new Color.fromARGB(fill.a, fill.r, fill.g, fill.b)
-        : null;
+    final fillColor =
+        fill != null ? Color.fromARGB(fill.a, fill.r, fill.g, fill.b) : null;
 
     // If the line has a single point, draw a circle.
     if (points.length == 1) {
       final point = points.first;
       paint.color = fillColor;
       paint.style = PaintingStyle.fill;
-      canvas.drawCircle(new Offset(point.x, point.y), strokeWidthPx, paint);
+      canvas.drawCircle(Offset(point.x, point.y), strokeWidthPx, paint);
     } else {
       if (strokeColor != null && strokeWidthPx != null) {
         paint.strokeWidth = strokeWidthPx;
@@ -79,7 +78,7 @@ class PolygonPainter {
         paint.style = PaintingStyle.fill;
       }
 
-      final path = new Path()
+      final path = Path()
         ..moveTo(points.first.x.toDouble(), points.first.y.toDouble());
 
       for (var point in points) {

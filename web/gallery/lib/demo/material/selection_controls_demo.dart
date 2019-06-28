@@ -35,7 +35,7 @@ class _SelectionControlsDemoState extends State<SelectionControlsDemo> {
   Widget _buildContents() {
     return Material(
         color: Colors.white,
-        child: new Column(
+        child: Column(
             children: <Widget>[buildCheckbox(), Divider(), buildRadio()]));
   }
 

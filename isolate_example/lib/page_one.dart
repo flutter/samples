@@ -171,7 +171,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
       builder: (BuildContext context, Widget child) {
         return Center(
           child: Container(
-            child: new FlutterLogo(
+            child: FlutterLogo(
               size: 200,
             ),
             alignment: Alignment.bottomCenter,

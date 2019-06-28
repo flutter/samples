@@ -37,7 +37,6 @@ class BarChart extends OrdinalCartesianChart {
 
   @override
   SeriesRenderer<String> makeDefaultRenderer() {
-    return new BarRenderer<String>()
-      ..rendererId = SeriesRenderer.defaultRendererId;
+    return BarRenderer<String>()..rendererId = SeriesRenderer.defaultRendererId;
   }
 }

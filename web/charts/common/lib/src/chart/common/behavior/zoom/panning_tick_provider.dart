@@ -64,7 +64,7 @@ class PanningTickProvider<D> implements TickProvider<D> {
     TickHint<D> tickHint,
   }) {
     if (_mode == PanningTickProviderMode.stepSizeLocked) {
-      tickHint = new TickHint(
+      tickHint = TickHint(
         _ticks.first.value,
         _ticks.last.value,
         tickCount: _ticks.length,

@@ -25,13 +25,13 @@ void main() {
   BuildContext context;
 
   setUp(() {
-    context = new MockContext();
+    context = MockContext();
   });
 
   group('TabularLegendLayoutBuilder', () {
     test('builds horizontally', () {
-      final builder = new TabularLegendLayout.horizontalFirst();
-      final widgets = <Widget>[new Text('1'), new Text('2'), new Text('3')];
+      final builder = TabularLegendLayout.horizontalFirst();
+      final widgets = <Widget>[Text('1'), Text('2'), Text('3')];
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 1);
@@ -40,8 +40,8 @@ void main() {
 
     test('does not build extra columns if max columns exceed widget count', () {
       final builder =
-          new TabularLegendLayout.horizontalFirst(desiredMaxColumns: 10);
-      final widgets = <Widget>[new Text('1'), new Text('2'), new Text('3')];
+          TabularLegendLayout.horizontalFirst(desiredMaxColumns: 10);
+      final widgets = <Widget>[Text('1'), Text('2'), Text('3')];
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 1);
@@ -49,11 +49,10 @@ void main() {
     });
 
     test('builds horizontally until max column exceeded', () {
-      final builder =
-          new TabularLegendLayout.horizontalFirst(desiredMaxColumns: 2);
+      final builder = TabularLegendLayout.horizontalFirst(desiredMaxColumns: 2);
 
-      final widgets = new List<Widget>.generate(
-          7, (int index) => new Text(index.toString()));
+      final widgets =
+          List<Widget>.generate(7, (int index) => Text(index.toString()));
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 4);
@@ -71,8 +70,8 @@ void main() {
     });
 
     test('builds vertically', () {
-      final builder = new TabularLegendLayout.verticalFirst();
-      final widgets = <Widget>[new Text('1'), new Text('2'), new Text('3')];
+      final builder = TabularLegendLayout.verticalFirst();
+      final widgets = <Widget>[Text('1'), Text('2'), Text('3')];
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 3);
@@ -82,8 +81,8 @@ void main() {
     });
 
     test('does not build extra rows if max rows exceed widget count', () {
-      final builder = new TabularLegendLayout.verticalFirst(desiredMaxRows: 10);
-      final widgets = <Widget>[new Text('1'), new Text('2'), new Text('3')];
+      final builder = TabularLegendLayout.verticalFirst(desiredMaxRows: 10);
+      final widgets = <Widget>[Text('1'), Text('2'), Text('3')];
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 3);
@@ -93,10 +92,10 @@ void main() {
     });
 
     test('builds vertically until max column exceeded', () {
-      final builder = new TabularLegendLayout.verticalFirst(desiredMaxRows: 2);
+      final builder = TabularLegendLayout.verticalFirst(desiredMaxRows: 2);
 
-      final widgets = new List<Widget>.generate(
-          7, (int index) => new Text(index.toString()));
+      final widgets =
+          List<Widget>.generate(7, (int index) => Text(index.toString()));
 
       final Table layout = builder.build(context, widgets);
       expect(layout.children.length, 2);

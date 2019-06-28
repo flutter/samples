@@ -26,7 +26,7 @@ class SelectionLineHighlight extends StatelessWidget {
 
   /// Creates a [LineChart] with sample data and no transition.
   factory SelectionLineHighlight.withSampleData() {
-    return new SelectionLineHighlight(
+    return SelectionLineHighlight(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -38,22 +38,22 @@ class SelectionLineHighlight extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory SelectionLineHighlight.withRandomData() {
-    return new SelectionLineHighlight(_createRandomData());
+    return SelectionLineHighlight(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -75,7 +75,7 @@ class SelectionLineHighlight extends StatelessWidget {
     //
     // As an alternative, [defaultInteractions] can be set to true to include
     // the default chart interactions, including a LinePointHighlighter.
-    return new charts.LineChart(seriesList, animate: animate, behaviors: [
+    return charts.LineChart(seriesList, animate: animate, behaviors: [
       // Optional - Configures a [LinePointHighlighter] behavior with a
       // vertical follow line. A vertical follow line is included by
       // default, but is shown here as an example configuration.
@@ -84,7 +84,7 @@ class SelectionLineHighlight extends StatelessWidget {
       // set by providing a [dashPattern] or it can be turned off by passing in
       // an empty list. An empty list is necessary because passing in a null
       // value will be treated the same as not passing in a value at all.
-      new charts.LinePointHighlighter(
+      charts.LinePointHighlighter(
           showHorizontalFollowLine:
               charts.LinePointHighlighterFollowLineType.none,
           showVerticalFollowLine:
@@ -94,21 +94,21 @@ class SelectionLineHighlight extends StatelessWidget {
       // highlighter. Changing the trigger to tap and drag allows the
       // highlighter to follow the dragging gesture but it is not
       // recommended to be used when pan/zoom behavior is enabled.
-      new charts.SelectNearest(eventTrigger: charts.SelectionTrigger.tapAndDrag)
+      charts.SelectNearest(eventTrigger: charts.SelectionTrigger.tapAndDrag)
     ]);
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5),
-      new LinearSales(1, 25),
-      new LinearSales(2, 100),
-      new LinearSales(3, 75),
+      LinearSales(0, 5),
+      LinearSales(1, 25),
+      LinearSales(2, 100),
+      LinearSales(3, 75),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

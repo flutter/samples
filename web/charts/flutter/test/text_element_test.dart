@@ -25,10 +25,9 @@ class MockGraphicsFactoryHelper extends Mock implements GraphicsFactoryHelper {}
 
 void main() {
   test('Text element gets assigned scale factor', () {
-    final helper = new MockGraphicsFactoryHelper();
+    final helper = MockGraphicsFactoryHelper();
     when(helper.getTextScaleFactorOf(any)).thenReturn(3.0);
-    final graphicsFactory =
-        new GraphicsFactory(new MockContext(), helper: helper);
+    final graphicsFactory = GraphicsFactory(MockContext(), helper: helper);
 
     final textElement =
         graphicsFactory.createTextElement('test') as TextElement;

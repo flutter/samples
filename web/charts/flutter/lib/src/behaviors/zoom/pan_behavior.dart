@@ -28,7 +28,7 @@ import '../chart_behavior.dart'
 
 @immutable
 class PanBehavior extends ChartBehavior<common.PanBehavior> {
-  final _desiredGestures = new Set<GestureType>.from([
+  final _desiredGestures = Set<GestureType>.from([
     GestureType.onDrag,
   ]);
 
@@ -44,7 +44,7 @@ class PanBehavior extends ChartBehavior<common.PanBehavior> {
 
   @override
   common.PanBehavior<D> createCommonBehavior<D>() {
-    return new FlutterPanBehavior<D>()
+    return FlutterPanBehavior<D>()
       ..panningCompletedCallback = panningCompletedCallback;
   }
 
@@ -135,7 +135,7 @@ mixin FlutterPanBehaviorMixin<D> on common.PanBehavior<D>
     _flingAnimationTargetTranslatePx = _flingAnimationInitialTranslatePx +
         pixelsPerSec * flingDistanceMultiplier;
 
-    final flingDuration = new Duration(
+    final flingDuration = Duration(
         milliseconds:
             max(200, (pixelsPerSec * flingDurationMultiplier).abs().round()));
 

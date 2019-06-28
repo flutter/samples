@@ -24,7 +24,7 @@ class PiePainter {
 
   /// Draws a pie chart, with an optional hole in the center.
   void draw(Canvas canvas, Paint paint, common.CanvasPie canvasPie) {
-    _circleSectorPainter ??= new CircleSectorPainter();
+    _circleSectorPainter ??= CircleSectorPainter();
 
     final center = canvasPie.center;
     final radius = canvasPie.radius;
@@ -47,29 +47,29 @@ class PiePainter {
     if (canvasPie.stroke != null &&
         canvasPie.strokeWidthPx != null &&
         canvasPie.slices.length > 1) {
-      paint.color = new Color.fromARGB(canvasPie.stroke.a, canvasPie.stroke.r,
+      paint.color = Color.fromARGB(canvasPie.stroke.a, canvasPie.stroke.r,
           canvasPie.stroke.g, canvasPie.stroke.b);
 
       paint.strokeWidth = canvasPie.strokeWidthPx;
       paint.strokeJoin = StrokeJoin.bevel;
       paint.style = PaintingStyle.stroke;
 
-      final path = new Path();
+      final path = Path();
 
       for (var slice in canvasPie.slices) {
-        final innerRadiusStartPoint = new Point<double>(
+        final innerRadiusStartPoint = Point<double>(
             innerRadius * cos(slice.startAngle) + center.x,
             innerRadius * sin(slice.startAngle) + center.y);
 
-        final innerRadiusEndPoint = new Point<double>(
+        final innerRadiusEndPoint = Point<double>(
             innerRadius * cos(slice.endAngle) + center.x,
             innerRadius * sin(slice.endAngle) + center.y);
 
-        final radiusStartPoint = new Point<double>(
+        final radiusStartPoint = Point<double>(
             radius * cos(slice.startAngle) + center.x,
             radius * sin(slice.startAngle) + center.y);
 
-        final radiusEndPoint = new Point<double>(
+        final radiusEndPoint = Point<double>(
             radius * cos(slice.endAngle) + center.x,
             radius * sin(slice.endAngle) + center.y);
 

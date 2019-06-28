@@ -161,7 +161,7 @@ class RunningList extends StatelessWidget {
             ? Colors.lightGreenAccent
             : Colors.deepOrangeAccent,
       ),
-      child: new ListView.builder(
+      child: ListView.builder(
         itemCount: sums.length,
         itemBuilder: (context, index) {
           return ListTile(
@@ -199,7 +199,7 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 }
 
 Future<int> brokenUpComputation(int num) {
-  Random rng = new Random();
+  Random rng = Random();
 
   return Future(() {
     int sum = 0;
@@ -232,33 +232,33 @@ Widget newButtons(context) {
 }
 
 Widget radioButtonWidget(context) {
-  return new Row(
+  return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      new Radio(
+      Radio(
         value: 1,
         groupValue:
             Provider.of<IsolateController>(context, listen: true).multiplier,
         onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
             .setMultiplier(1),
       ),
-      new Text('1x'),
-      new Radio(
+      Text('1x'),
+      Radio(
         value: 2,
         groupValue:
             Provider.of<IsolateController>(context, listen: true).multiplier,
         onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
             .setMultiplier(2),
       ),
-      new Text('2x'),
-      new Radio(
+      Text('2x'),
+      Radio(
         value: 3,
         groupValue:
             Provider.of<IsolateController>(context, listen: true).multiplier,
         onChanged: (_) => Provider.of<IsolateController>(context, listen: false)
             .setMultiplier(3),
       ),
-      new Text('3x'),
+      Text('3x'),
     ],
   );
 }

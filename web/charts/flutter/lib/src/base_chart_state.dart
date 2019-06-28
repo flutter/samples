@@ -62,7 +62,7 @@ class BaseChartState<D> extends State<BaseChart<D>>
   @override
   void initState() {
     super.initState();
-    _animationController = new AnimationController(vsync: this)
+    _animationController = AnimationController(vsync: this)
       ..addListener(_animationTick);
   }
 
@@ -86,7 +86,7 @@ class BaseChartState<D> extends State<BaseChart<D>>
 
   /// Builds the common chart canvas widget.
   Widget _buildChartContainer() {
-    final chartContainer = new ChartContainer<D>(
+    final chartContainer = ChartContainer<D>(
       oldChartWidget: _oldWidget,
       chartWidget: widget,
       chartState: this,
@@ -99,7 +99,7 @@ class BaseChartState<D> extends State<BaseChart<D>>
 
     final desiredGestures = widget.getDesiredGestures(this);
     if (desiredGestures.isNotEmpty) {
-      _chartGestureDetector ??= new ChartGestureDetector();
+      _chartGestureDetector ??= ChartGestureDetector();
       return _chartGestureDetector.makeWidget(
           context, chartContainer, desiredGestures);
     } else {
@@ -113,8 +113,8 @@ class BaseChartState<D> extends State<BaseChart<D>>
     final idAndBehaviorMap = <String, BuildableBehavior>{};
 
     // Add the common chart canvas widget.
-    chartWidgets.add(new LayoutId(
-        id: chartContainerLayoutID, child: _buildChartContainer()));
+    chartWidgets.add(
+        LayoutId(id: chartContainerLayoutID, child: _buildChartContainer()));
 
     // Add widget for each behavior that can build widgets
     addedCommonBehaviorsByRole.forEach((id, behavior) {
@@ -125,14 +125,14 @@ class BaseChartState<D> extends State<BaseChart<D>>
         idAndBehaviorMap[id] = buildableBehavior;
 
         final widget = buildableBehavior.build(context);
-        chartWidgets.add(new LayoutId(id: id, child: widget));
+        chartWidgets.add(LayoutId(id: id, child: widget));
       }
     });
 
     final isRTL = Directionality.of(context) == TextDirection.rtl;
 
-    return new CustomMultiChildLayout(
-        delegate: new WidgetLayoutDelegate(
+    return CustomMultiChildLayout(
+        delegate: WidgetLayoutDelegate(
             chartContainerLayoutID, idAndBehaviorMap, isRTL),
         children: chartWidgets);
   }
@@ -166,7 +166,7 @@ class BaseChartState<D> extends State<BaseChart<D>>
   /// Get animation controller to be used by [behavior].
   AnimationController getAnimationController(ChartStateBehavior behavior) {
     _behaviorAnimationControllers[behavior] ??=
-        new AnimationController(vsync: this);
+        AnimationController(vsync: this);
 
     return _behaviorAnimationControllers[behavior];
   }

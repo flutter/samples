@@ -59,7 +59,7 @@ class ChartContainer<D> extends CustomPaint {
 
   @override
   RenderCustomPaint createRenderObject(BuildContext context) {
-    return new ChartContainerRenderObject<D>()..reconfigure(this, context);
+    return ChartContainerRenderObject<D>()..reconfigure(this, context);
   }
 
   @override
@@ -81,7 +81,7 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
   bool _exploreMode = false;
   List<common.A11yNode> _a11yNodes;
 
-  final Logger _log = new Logger('charts_flutter.charts_container');
+  final Logger _log = Logger('charts_flutter.charts_container');
 
   /// Keeps the last time the configuration was changed and chart draw on the
   /// common chart is called.
@@ -103,12 +103,12 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
     _dateTimeFactory = (config.chartWidget is TimeSeriesChart)
         ? (config.chartWidget as TimeSeriesChart).dateTimeFactory
         : null;
-    _dateTimeFactory ??= new common.LocalDateTimeFactory();
+    _dateTimeFactory ??= common.LocalDateTimeFactory();
 
     if (_chart == null) {
       common.Performance.time('chartsCreate');
       _chart = config.chartWidget.createCommonChart(_chartState);
-      _chart.init(this, new GraphicsFactory(context));
+      _chart.init(this, GraphicsFactory(context));
       common.Performance.timeEnd('chartsCreate');
     }
     common.Performance.time('chartsConfig');
@@ -336,7 +336,7 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
   }
 
   void _setNewPainter() {
-    painter = new ChartContainerCustomPaint(
+    painter = ChartContainerCustomPaint(
         oldPainter: painter,
         chart: _chart,
         exploreMode: _exploreMode,
@@ -363,7 +363,7 @@ class ChartContainerCustomPaint extends CustomPainter {
         oldPainter.textDirection == textDirection) {
       return oldPainter;
     } else {
-      return new ChartContainerCustomPaint._internal(
+      return ChartContainerCustomPaint._internal(
           chart: chart,
           exploreMode: exploreMode ?? false,
           a11yNodes: a11yNodes ?? <common.A11yNode>[],
@@ -377,7 +377,7 @@ class ChartContainerCustomPaint extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     common.Performance.time('chartsPaint');
-    final chartsCanvas = new ChartCanvas(canvas, chart.graphicsFactory);
+    final chartsCanvas = ChartCanvas(canvas, chart.graphicsFactory);
     chart.paint(chartsCanvas);
     common.Performance.timeEnd('chartsPaint');
   }
@@ -401,14 +401,14 @@ class ChartContainerCustomPaint extends CustomPainter {
     final nodes = <CustomPainterSemantics>[];
 
     for (common.A11yNode node in a11yNodes) {
-      final rect = new Rect.fromLTWH(
+      final rect = Rect.fromLTWH(
           node.boundingBox.left.toDouble(),
           node.boundingBox.top.toDouble(),
           node.boundingBox.width.toDouble(),
           node.boundingBox.height.toDouble());
-      nodes.add(new CustomPainterSemantics(
+      nodes.add(CustomPainterSemantics(
           rect: rect,
-          properties: new SemanticsProperties(
+          properties: SemanticsProperties(
               value: node.label,
               textDirection: textDirection,
               onDidGainAccessibilityFocus: node.onFocus)));

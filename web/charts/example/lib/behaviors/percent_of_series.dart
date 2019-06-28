@@ -29,7 +29,7 @@ class PercentOfSeriesBarChart extends StatelessWidget {
 
   /// Creates a stacked [BarChart] with sample data and no transition.
   factory PercentOfSeriesBarChart.withSampleData() {
-    return new PercentOfSeriesBarChart(
+    return PercentOfSeriesBarChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,26 +41,26 @@ class PercentOfSeriesBarChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory PercentOfSeriesBarChart.withRandomData() {
-    return new PercentOfSeriesBarChart(_createRandomData());
+    return PercentOfSeriesBarChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final desktopSalesData = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Desktop',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -72,36 +72,36 @@ class PercentOfSeriesBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
       barGroupingType: charts.BarGroupingType.grouped,
       // Configures a [PercentInjector] behavior that will calculate measure
       // values as the percentage of the total of all data in its series.
       behaviors: [
-        new charts.PercentInjector(
+        charts.PercentInjector(
             totalType: charts.PercentInjectorTotalType.series)
       ],
       // Configure the axis spec to show percentage values.
-      primaryMeasureAxis: new charts.PercentAxisSpec(),
+      primaryMeasureAxis: charts.PercentAxisSpec(),
     );
   }
 
   /// Create series list with multiple series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final desktopSalesData = [
-      new OrdinalSales('2011', 5),
-      new OrdinalSales('2012', 25),
-      new OrdinalSales('2013', 50),
-      new OrdinalSales('2014', 75),
-      new OrdinalSales('2015', 100),
-      new OrdinalSales('2016', 125),
-      new OrdinalSales('2017', 200),
-      new OrdinalSales('2018', 150),
+      OrdinalSales('2011', 5),
+      OrdinalSales('2012', 25),
+      OrdinalSales('2013', 50),
+      OrdinalSales('2014', 75),
+      OrdinalSales('2015', 100),
+      OrdinalSales('2016', 125),
+      OrdinalSales('2017', 200),
+      OrdinalSales('2018', 150),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Desktop',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

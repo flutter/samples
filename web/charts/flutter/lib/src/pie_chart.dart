@@ -30,7 +30,7 @@ class PieChart<D> extends BaseChart<D> {
     List<SelectionModelConfig<D>> selectionModels,
     common.RTLSpec rtlSpec,
     LayoutConfig layoutConfig,
-    bool defaultInteractions: true,
+    bool defaultInteractions = true,
   }) : super(
           seriesList,
           animate: animate,
@@ -45,7 +45,7 @@ class PieChart<D> extends BaseChart<D> {
 
   @override
   common.PieChart<D> createCommonChart(BaseChartState chartState) =>
-      new common.PieChart<D>(layoutConfig: layoutConfig?.commonLayoutConfig);
+      common.PieChart<D>(layoutConfig: layoutConfig?.commonLayoutConfig);
 
   @override
   void addDefaultInteractions(List<ChartBehavior> behaviors) {

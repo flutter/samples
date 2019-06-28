@@ -48,7 +48,7 @@ class TabbedComponentDemoScaffold extends StatelessWidget {
     final String tag =
         demos[DefaultTabController.of(context).index].exampleCodeTag;
     if (tag != null) {
-      throw new UnimplementedError();
+      throw UnimplementedError();
       // TODO:
 //      Navigator.push(context, MaterialPageRoute<FullScreenCodeDialog>(
 //          builder: (BuildContext context) => FullScreenCodeDialog(exampleCodeTag: tag)

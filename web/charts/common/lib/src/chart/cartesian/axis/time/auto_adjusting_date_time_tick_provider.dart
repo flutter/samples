@@ -54,7 +54,7 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
   /// Creates a default [AutoAdjustingDateTimeTickProvider] for day and time.
   factory AutoAdjustingDateTimeTickProvider.createDefault(
       DateTimeFactory dateTimeFactory) {
-    return new AutoAdjustingDateTimeTickProvider._internal([
+    return AutoAdjustingDateTimeTickProvider._internal([
       createYearTickProvider(dateTimeFactory),
       createMonthTickProvider(dateTimeFactory),
       createDayTickProvider(dateTimeFactory),
@@ -66,7 +66,7 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
   /// Creates a default [AutoAdjustingDateTimeTickProvider] for day only.
   factory AutoAdjustingDateTimeTickProvider.createWithoutTime(
       DateTimeFactory dateTimeFactory) {
-    return new AutoAdjustingDateTimeTickProvider._internal([
+    return AutoAdjustingDateTimeTickProvider._internal([
       createYearTickProvider(dateTimeFactory),
       createMonthTickProvider(dateTimeFactory),
       createDayTickProvider(dateTimeFactory)
@@ -80,11 +80,10 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
   factory AutoAdjustingDateTimeTickProvider.createWith(
       List<TimeRangeTickProvider> potentialTickProviders) {
     if (potentialTickProviders == null || potentialTickProviders.isEmpty) {
-      throw new ArgumentError('At least one TimeRangeTickProvider is required');
+      throw ArgumentError('At least one TimeRangeTickProvider is required');
     }
 
-    return new AutoAdjustingDateTimeTickProvider._internal(
-        potentialTickProviders);
+    return AutoAdjustingDateTimeTickProvider._internal(potentialTickProviders);
   }
 
   /// Generates a list of ticks for the given data which should not collide
@@ -157,21 +156,21 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
 
   static TimeRangeTickProvider createYearTickProvider(
           DateTimeFactory dateTimeFactory) =>
-      new TimeRangeTickProviderImpl(new YearTimeStepper(dateTimeFactory));
+      TimeRangeTickProviderImpl(YearTimeStepper(dateTimeFactory));
 
   static TimeRangeTickProvider createMonthTickProvider(
           DateTimeFactory dateTimeFactory) =>
-      new TimeRangeTickProviderImpl(new MonthTimeStepper(dateTimeFactory));
+      TimeRangeTickProviderImpl(MonthTimeStepper(dateTimeFactory));
 
   static TimeRangeTickProvider createDayTickProvider(
           DateTimeFactory dateTimeFactory) =>
-      new TimeRangeTickProviderImpl(new DayTimeStepper(dateTimeFactory));
+      TimeRangeTickProviderImpl(DayTimeStepper(dateTimeFactory));
 
   static TimeRangeTickProvider createHourTickProvider(
           DateTimeFactory dateTimeFactory) =>
-      new TimeRangeTickProviderImpl(new HourTimeStepper(dateTimeFactory));
+      TimeRangeTickProviderImpl(HourTimeStepper(dateTimeFactory));
 
   static TimeRangeTickProvider createMinuteTickProvider(
           DateTimeFactory dateTimeFactory) =>
-      new TimeRangeTickProviderImpl(new MinuteTimeStepper(dateTimeFactory));
+      TimeRangeTickProviderImpl(MinuteTimeStepper(dateTimeFactory));
 }

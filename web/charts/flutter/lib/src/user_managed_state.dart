@@ -53,7 +53,7 @@ class UserManagedSelectionModel<D> {
   /// [selectedSeriesConfig] and [selectedDataConfig] is set to null because the
   /// [_model] is returned when [getModel] is called.
   UserManagedSelectionModel({common.SelectionModel<D> model})
-      : _model = model ?? new common.SelectionModel(),
+      : _model = model ?? common.SelectionModel(),
         selectedSeriesConfig = null,
         selectedDataConfig = null;
 
@@ -70,7 +70,7 @@ class UserManagedSelectionModel<D> {
   /// configuration and the processed [seriesList] passed in.
   common.SelectionModel<D> getModel(
       List<common.ImmutableSeries<D>> seriesList) {
-    _model ??= new common.SelectionModel.fromConfig(
+    _model ??= common.SelectionModel.fromConfig(
         selectedDataConfig, selectedSeriesConfig, seriesList);
 
     return _model;

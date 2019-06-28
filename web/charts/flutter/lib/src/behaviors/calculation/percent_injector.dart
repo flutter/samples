@@ -37,7 +37,7 @@ import '../chart_behavior.dart' show ChartBehavior, GestureType;
 /// calculates values after series have been potentially removed from the list.
 @immutable
 class PercentInjector extends ChartBehavior<common.PercentInjector> {
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   /// The type of data total to be calculated.
   final common.PercentInjectorTotalType totalType;
@@ -49,12 +49,12 @@ class PercentInjector extends ChartBehavior<common.PercentInjector> {
   /// [totalType] configures the type of data total to be calculated.
   factory PercentInjector({common.PercentInjectorTotalType totalType}) {
     totalType ??= common.PercentInjectorTotalType.domain;
-    return new PercentInjector._internal(totalType: totalType);
+    return PercentInjector._internal(totalType: totalType);
   }
 
   @override
   common.PercentInjector<D> createCommonBehavior<D>() =>
-      new common.PercentInjector<D>(totalType: totalType);
+      common.PercentInjector<D>(totalType: totalType);
 
   @override
   void updateCommonBehavior(common.PercentInjector commonBehavior) {}

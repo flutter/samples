@@ -46,7 +46,7 @@ class DatumLegend extends ChartBehavior<common.DatumLegend> {
       common.OutsideJustification.startDrawArea;
   static const defaultInsideJustification = common.InsideJustification.topStart;
 
-  final desiredGestures = new Set<GestureType>();
+  final desiredGestures = Set<GestureType>();
 
   final common.SelectionModelType selectionModelType;
 
@@ -87,7 +87,7 @@ class DatumLegend extends ChartBehavior<common.DatumLegend> {
   /// Styles for legend entry label text.
   final common.TextStyleSpec entryTextStyle;
 
-  static const defaultCellPadding = const EdgeInsets.all(8.0);
+  static const defaultCellPadding = EdgeInsets.all(8.0);
 
   /// Create a new tabular layout legend.
   ///
@@ -152,14 +152,14 @@ class DatumLegend extends ChartBehavior<common.DatumLegend> {
         position == common.BehaviorPosition.bottom ||
         position == common.BehaviorPosition.inside);
     final layoutBuilder = horizontalFirst
-        ? new TabularLegendLayout.horizontalFirst(
+        ? TabularLegendLayout.horizontalFirst(
             desiredMaxColumns: desiredMaxColumns, cellPadding: cellPadding)
-        : new TabularLegendLayout.verticalFirst(
+        : TabularLegendLayout.verticalFirst(
             desiredMaxRows: desiredMaxRows, cellPadding: cellPadding);
 
-    return new DatumLegend._internal(
+    return DatumLegend._internal(
         contentBuilder:
-            new TabularLegendContentBuilder(legendLayout: layoutBuilder),
+            TabularLegendContentBuilder(legendLayout: layoutBuilder),
         selectionModelType: common.SelectionModelType.info,
         position: position,
         outsideJustification: outsideJustification,
@@ -215,7 +215,7 @@ class DatumLegend extends ChartBehavior<common.DatumLegend> {
     outsideJustification ??= defaultOutsideJustification;
     insideJustification ??= defaultInsideJustification;
 
-    return new DatumLegend._internal(
+    return DatumLegend._internal(
       contentBuilder: contentBuilder,
       selectionModelType: common.SelectionModelType.info,
       position: position,
@@ -245,7 +245,7 @@ class DatumLegend extends ChartBehavior<common.DatumLegend> {
 
   @override
   common.DatumLegend<D> createCommonBehavior<D>() =>
-      new _FlutterDatumLegend<D>(this);
+      _FlutterDatumLegend<D>(this);
 
   @override
   void updateCommonBehavior(common.DatumLegend commonBehavior) {
