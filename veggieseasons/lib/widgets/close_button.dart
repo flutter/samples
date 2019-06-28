@@ -69,12 +69,12 @@ class _ColorChangingIconState
   }
 
   @override
-  void forEachTween(visitor) {
+  void forEachTween(TweenVisitor<dynamic> visitor) {
     _colorTween = visitor(
       _colorTween,
       widget.color,
-      (dynamic value) => ColorTween(begin: value),
-    );
+      (dynamic value) => ColorTween(begin: value as Color),
+    ) as ColorTween;
   }
 }
 

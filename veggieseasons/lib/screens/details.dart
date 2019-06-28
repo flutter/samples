@@ -23,7 +23,7 @@ class ServingInfoChart extends StatelessWidget {
   // value of this vitamin" data adjusted for the user's preferred calorie
   // target.
   Widget _buildVitaminText(int standardPercentage, Future<int> targetCalories) {
-    return FutureBuilder(
+    return FutureBuilder<int>(
       future: targetCalories,
       builder: (context, snapshot) {
         final target = snapshot?.data ?? 2000;
@@ -172,7 +172,7 @@ class InfoView extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              FutureBuilder(
+              FutureBuilder<Set<VeggieCategory>>(
                 future: prefs.preferredCategories,
                 builder: (context, snapshot) {
                   return Text(
@@ -284,7 +284,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Expanded(
             child: ListView(
               children: [
-                CupertinoSegmentedControl(
+                CupertinoSegmentedControl<int>(
                   children: {
                     0: Text('Facts & Info'),
                     1: Text('Trivia'),

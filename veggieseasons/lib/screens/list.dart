@@ -13,7 +13,8 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
-  Widget _generateVeggieRow(veggie, Preferences prefs, {bool inSeason = true}) {
+  Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
+      {bool inSeason = true}) {
     return Padding(
       padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
       child: FutureBuilder<Set<VeggieCategory>>(
