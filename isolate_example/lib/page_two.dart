@@ -176,10 +176,9 @@ class RunningList extends StatelessWidget {
                   leading: Text('${sums.length - index}.'),
                   title: Text(sums[index].toString()),
                 ),
-                color:
-                    (controller.running == true && controller.paused == false)
-                        ? Colors.lightGreenAccent
-                        : Colors.deepOrangeAccent,
+                color: (controller.running && !controller.paused)
+                    ? Colors.lightGreenAccent
+                    : Colors.deepOrangeAccent,
               ),
               Divider(
                 color: Colors.blue,
