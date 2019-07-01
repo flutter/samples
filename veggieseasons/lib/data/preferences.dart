@@ -32,19 +32,19 @@ class Preferences extends Model {
     return Set.from(_preferredCategories);
   }
 
-  void addPreferredCategory(VeggieCategory category) async {
+  Future<void> addPreferredCategory(VeggieCategory category) async {
     _preferredCategories.add(category);
     await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void removePreferredCategory(VeggieCategory category) async {
+  Future<void> removePreferredCategory(VeggieCategory category) async {
     _preferredCategories.remove(category);
     await _saveToSharedPrefs();
     notifyListeners();
   }
 
-  void setDesiredCalories(int calories) async {
+  Future<void> setDesiredCalories(int calories) async {
     _desiredCalories = calories;
     await _saveToSharedPrefs();
     notifyListeners();

@@ -126,7 +126,7 @@ class CalorieSettingsScreen extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
-  Widget _buildCaloriesItem(BuildContext context, Preferences prefs) {
+  SettingsItem _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
       label: 'Calorie Target',
       icon: SettingsIcon(
@@ -146,7 +146,7 @@ class SettingsScreen extends StatelessWidget {
         },
       ),
       onPress: () {
-        Navigator.of(context).push(
+        Navigator.of(context).push<void>(
           CupertinoPageRoute(
             builder: (context) => CalorieSettingsScreen(),
             title: 'Calorie Target',
@@ -156,7 +156,7 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoriesItem(BuildContext context, Preferences prefs) {
+  SettingsItem _buildCategoriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
       label: 'Preferred Categories',
       subtitle: 'What types of veggies you prefer!',
@@ -166,7 +166,7 @@ class SettingsScreen extends StatelessWidget {
       ),
       content: SettingsNavigationIndicator(),
       onPress: () {
-        Navigator.of(context).push(
+        Navigator.of(context).push<void>(
           CupertinoPageRoute(
             builder: (context) => VeggieCategorySettingsScreen(),
             title: 'Preferred Categories',

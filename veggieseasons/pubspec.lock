@@ -7,14 +7,14 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.10"
   args:
     dependency: transitive
     description:
       name: args
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.2"
   async:
     dependency: transitive
     description:
@@ -64,15 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
-  dart_config:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: a7ed88a4793e094a4d5d5c2d88a89e55510accde
-      url: "https://github.com/MarkOSullivan94/dart_config.git"
-    source: git
-    version: "0.5.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -84,7 +75,7 @@ packages:
       name: flutter_launcher_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.2+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -103,14 +94,14 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.7"
+    version: "2.1.4"
   intl:
     dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.7"
+    version: "0.15.8"
   matcher:
     dependency: transitive
     description:
@@ -133,7 +124,7 @@ packages:
     source: hosted
     version: "1.6.2"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
@@ -145,7 +136,7 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.2.1"
   quiver:
     dependency: transitive
     description:
@@ -166,7 +157,7 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.3"
+    version: "0.5.3+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -234,14 +225,14 @@ packages:
       name: xml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.1"
+    version: "3.4.1"
   yaml:
     dependency: transitive
     description:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.15"
+    version: "2.1.16"
 sdks:
   dart: ">=2.3.0-dev <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=1.5.0 <2.0.0"

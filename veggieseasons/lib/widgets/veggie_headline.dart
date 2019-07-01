@@ -68,7 +68,7 @@ class VeggieHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(CupertinoPageRoute(
+      onTap: () => Navigator.of(context).push<void>(CupertinoPageRoute(
             builder: (context) => DetailsScreen(veggie.id),
             fullscreenDialog: true,
           )),
