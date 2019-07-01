@@ -41,7 +41,7 @@ class StartApp extends StatelessWidget {
             children: [
               PerformancePage(),
               InfiniteProcessPageStarter(),
-              DataTransferPage(),
+              DataTransferPageStarter(),
             ],
           ),
         ),
