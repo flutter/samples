@@ -174,7 +174,7 @@ class RunningList extends StatelessWidget {
               Card(
                 child: ListTile(
                   leading: Text('${sums.length - index}.'),
-                  title: Text(sums[index].toString()),
+                   title: Text('${sums[index]}.'),
                 ),
                 color: (controller.running && !controller.paused)
                     ? Colors.lightGreenAccent
