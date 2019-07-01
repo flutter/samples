@@ -35,6 +35,13 @@ class InfiniteProcessPage extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Padding(
+          child: Text(
+            'Summation Results',
+            style: Theme.of(context).textTheme.title,
+          ),
+          padding: new EdgeInsets.all(8),
+        ),
         Expanded(child: RunningList()),
         SafeArea(
           child: Column(
@@ -157,17 +164,27 @@ class RunningList extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: (controller.running == true && controller.paused == false)
-            ? Colors.lightGreenAccent
-            : Colors.deepOrangeAccent,
+        color: Colors.grey[200],
       ),
       child: new ListView.builder(
         itemCount: sums.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text((sums.length - index).toString() +
-                '. ' +
-                sums[index].toString()),
+          return Column(
+            children: [
+              Card(
+                child: ListTile(
+                  leading: Text('${sums.length - index}.'),
+                  title: Text('${sums[index]}.'),
+                ),
+                color: (controller.running && !controller.paused)
+                    ? Colors.lightGreenAccent
+                    : Colors.deepOrangeAccent,
+              ),
+              Divider(
+                color: Colors.blue,
+                height: 3,
+              ),
+            ],
           );
         },
       ),
