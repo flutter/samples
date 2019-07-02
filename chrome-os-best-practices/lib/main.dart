@@ -80,7 +80,7 @@ class TwoPaneChatLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: <Widget>[
+      children: [
         Container(
           child: ChatListScreen(chatEntries: chatEntries),
           constraints: BoxConstraints(minWidth: 100, maxWidth: 300),
@@ -138,7 +138,7 @@ class ChatScreen extends StatefulWidget {
 
 class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   final TextEditingController _textController = TextEditingController();
-  final List<ChatMessage> _messages = <ChatMessage>[];
+  final List<ChatMessage> _messages = [];
   final String contactName;
 
   ChatScreenState({@required this.contactName}) : super();
@@ -148,7 +148,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: <Widget>[
+        children: [
           Flexible(
             child: ListView.builder(
               padding: EdgeInsets.all(8.0),
@@ -256,7 +256,7 @@ class ChatMessage extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   Text(name, style: Theme.of(context).textTheme.subhead),
                   Container(
                     margin: const EdgeInsets.only(top: 5.0),
