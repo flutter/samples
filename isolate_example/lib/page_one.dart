@@ -37,7 +37,7 @@ class _PerformancePageState extends State<PerformancePage> {
               children: [
                 FutureBuilder<void>(
                   future: computeFuture,
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  builder: (context, snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Main'),
                       elevation: 8.0,
@@ -47,7 +47,7 @@ class _PerformancePageState extends State<PerformancePage> {
                 ),
                 FutureBuilder<void>(
                   future: computeFuture,
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  builder: (context, snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Secondary'),
                       elevation: 8.0,
@@ -133,7 +133,7 @@ class SmoothAnimationWidget extends StatefulWidget {
 class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
   AnimationController _controller;
-  var borderRadius;
+  Animation<BorderRadius> borderRadius;
 
   @override
   void initState() {
@@ -168,10 +168,10 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: borderRadius,
-      builder: (BuildContext context, Widget child) {
+      builder: (context, child) {
         return Center(
           child: Container(
-            child: new FlutterLogo(
+            child: FlutterLogo(
               size: 200,
             ),
             alignment: Alignment.bottomCenter,

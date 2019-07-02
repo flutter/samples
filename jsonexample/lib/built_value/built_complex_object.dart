@@ -40,6 +40,7 @@ abstract class BuiltComplexObject
 
   BuiltComplexObject._();
 
-  factory BuiltComplexObject([updates(BuiltComplexObjectBuilder b)]) =
+  factory BuiltComplexObject(
+          [void Function(BuiltComplexObjectBuilder) updates]) =
       _$BuiltComplexObject;
 }

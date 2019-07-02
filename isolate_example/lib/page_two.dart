@@ -40,7 +40,7 @@ class InfiniteProcessPage extends StatelessWidget {
             'Summation Results',
             style: Theme.of(context).textTheme.title,
           ),
-          padding: new EdgeInsets.all(8),
+          padding: EdgeInsets.all(8),
         ),
         Expanded(child: RunningList()),
         SafeArea(
@@ -97,7 +97,7 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   }
 
   void listen() {
-    mIceRP.listen((message) {
+    mIceRP.listen((dynamic message) {
       if (message is SendPort) {
         newIceSP = message;
         newIceSP.send(_currentMultiplier);
@@ -166,7 +166,7 @@ class RunningList extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.grey[200],
       ),
-      child: new ListView.builder(
+      child: ListView.builder(
         itemCount: sums.length,
         itemBuilder: (context, index) {
           return Column(
@@ -198,7 +198,7 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
   ReceivePort newIceRP = ReceivePort();
   callerSP.send(newIceRP.sendPort);
 
-  newIceRP.listen((message) {
+  newIceRP.listen((dynamic message) {
     if (message is int) multiplyValue = message;
   });
 
@@ -216,7 +216,7 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 }
 
 Future<int> brokenUpComputation(int num) {
-  Random rng = new Random();
+  Random rng = Random();
 
   return Future(() {
     int sum = 0;
@@ -228,7 +228,7 @@ Future<int> brokenUpComputation(int num) {
   });
 }
 
-Widget newButtons(context) {
+Widget newButtons(BuildContext context) {
   final controller =
       Provider.of<InfiniteProcessIsolateController>(context, listen: false);
 
@@ -249,30 +249,34 @@ Widget newButtons(context) {
   );
 }
 
-Widget radioButtonWidget(context) {
+Widget radioButtonWidget(BuildContext context) {
   final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
-  return new Row(
+  return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      new Radio(
+      Radio(
         value: 1,
         groupValue: controller.multiplier,
-        onChanged: (_) => controller.setMultiplier(1),
+        // The following is a result of https://github.com/dart-lang/linter/issues/695
+        // ignore: avoid_types_on_closure_parameters
+        onChanged: (int _) => controller.setMultiplier(1),
       ),
-      new Text('1x'),
-      new Radio(
+      Text('1x'),
+      Radio(
         value: 2,
         groupValue: controller.multiplier,
-        onChanged: (_) => controller.setMultiplier(2),
+        // ignore: avoid_types_on_closure_parameters
+        onChanged: (int _) => controller.setMultiplier(2),
       ),
-      new Text('2x'),
-      new Radio(
+      Text('2x'),
+      Radio(
         value: 3,
         groupValue: controller.multiplier,
-        onChanged: (_) => controller.setMultiplier(3),
+        // ignore: avoid_types_on_closure_parameters
+        onChanged: (int _) => controller.setMultiplier(3),
       ),
-      new Text('3x'),
+      Text('3x'),
     ],
   );
 }
