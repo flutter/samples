@@ -109,7 +109,7 @@ class StoreCarousel extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10),
         child: SizedBox(
           height: 90,
-          child: new StoreCarouselList(
+          child: StoreCarouselList(
             documents: documents,
             mapController: mapController,
           ),
@@ -187,8 +187,8 @@ class _StoreListTileState extends State<StoreListTile> {
   }
 
   Future<void> _retrievePlacesDetails() async {
-    final details =
-        await _placesApiClient.getDetailsByPlaceId(widget.document['placeId']);
+    final details = await _placesApiClient
+        .getDetailsByPlaceId(widget.document['placeId'] as String);
     if (!_disposed) {
       setState(() {
         _placePhotoUrl = _placesApiClient.buildPhotoUrl(
@@ -202,8 +202,8 @@ class _StoreListTileState extends State<StoreListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(widget.document['name']),
-      subtitle: Text(widget.document['address']),
+      title: Text(widget.document['name'] as String),
+      subtitle: Text(widget.document['address'] as String),
       leading: Container(
         width: 100,
         height: 100,
@@ -220,8 +220,8 @@ class _StoreListTileState extends State<StoreListTile> {
           CameraUpdate.newCameraPosition(
             CameraPosition(
               target: LatLng(
-                widget.document['location'].latitude,
-                widget.document['location'].longitude,
+                widget.document['location'].latitude as double,
+                widget.document['location'].longitude as double,
               ),
               zoom: 16,
             ),
@@ -253,15 +253,15 @@ class StoreMap extends StatelessWidget {
       ),
       markers: documents
           .map((document) => Marker(
-                markerId: MarkerId(document['placeId']),
+                markerId: MarkerId(document['placeId'] as String),
                 icon: BitmapDescriptor.defaultMarkerWithHue(_pinkHue),
                 position: LatLng(
-                  document['location'].latitude,
-                  document['location'].longitude,
+                  document['location'].latitude as double,
+                  document['location'].longitude as double,
                 ),
                 infoWindow: InfoWindow(
-                  title: document['name'],
-                  snippet: document['address'],
+                  title: document['name'] as String,
+                  snippet: document['address'] as String,
                 ),
               ))
           .toSet(),
