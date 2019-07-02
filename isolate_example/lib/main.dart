@@ -18,7 +18,7 @@ import 'page_one.dart';
 import 'page_two.dart';
 import 'page_three.dart';
 
-void main() => runApp(new MaterialApp(home: new StartApp()));
+void main() => runApp(MaterialApp(home: StartApp()));
 
 class StartApp extends StatelessWidget {
   @override
