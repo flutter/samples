@@ -26,9 +26,9 @@ const _myListOfRandomColors = [
 
 final _random = Random();
 
-Iterable wordPairIterator = generateWordPair();
+final wordPairIterator = generateWordPair();
 Iterable<WordPair> generateWordPair() sync* {
-  bool filterWord(word) => unsafe.contains(word);
+  bool filterWord(String word) => unsafe.contains(word);
   String pickRandom(List<String> list) => list[_random.nextInt(list.length)];
 
   String prefix;
@@ -50,7 +50,7 @@ Iterable<WordPair> generateWordPair() sync* {
 String generateRandomHeadline() {
   final artist = capitalizePair(wordPairIterator.first);
 
-  switch (_random.nextInt(9)) {
+  switch (_random.nextInt(10)) {
     case 0:
       return '$artist says ${nouns[_random.nextInt(nouns.length)]}';
     case 1:
@@ -67,9 +67,9 @@ String generateRandomHeadline() {
       return '$artist says their music is inspired by ${wordPairIterator.first.join(' ')}';
     case 7:
       return '$artist says the world needs more ${nouns[_random.nextInt(nouns.length)]}';
-    case 7:
-      return '$artist calls their band ${adjectives[_random.nextInt(adjectives.length)]}';
     case 8:
+      return '$artist calls their band ${adjectives[_random.nextInt(adjectives.length)]}';
+    case 9:
       return '$artist finally ready to talk about ${nouns[_random.nextInt(nouns.length)]}';
   }
 
@@ -78,7 +78,7 @@ String generateRandomHeadline() {
 }
 
 List<MaterialColor> getRandomColors(int amount) {
-  return List<MaterialColor>.generate(amount, (int index) {
+  return List<MaterialColor>.generate(amount, (index) {
     return _myListOfRandomColors[_random.nextInt(_myListOfRandomColors.length)];
   });
 }

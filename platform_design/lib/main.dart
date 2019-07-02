@@ -62,7 +62,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // In Material, this app uses the hamburger menu paradigm and flatly lists
   // all 4 possible tabs. This drawer is injected into the songs tab which is
   // actually building the scaffold around the drawer.
-  Widget _buildAndroidHomePage(context) {
+  Widget _buildAndroidHomePage(BuildContext context) {
     return SongsTab(
       key: songsTabKey,
       androidDrawer: _AndroidDrawer(),
@@ -77,7 +77,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // large number of items, a tab bar cannot. To illustrate one way of adjusting
   // for this, the app folds its fourth tab (the settings page) into the
   // third tab. This is a common pattern on iOS.
-  Widget _buildIosHomePage(context) {
+  Widget _buildIosHomePage(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: [
@@ -153,7 +153,7 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.push<void>(
                   context, MaterialPageRoute(builder: (context) => NewsTab()));
             },
           ),
@@ -162,7 +162,7 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(ProfileTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
+              Navigator.push<void>(context,
                   MaterialPageRoute(builder: (context) => ProfileTab()));
             },
           ),
@@ -176,7 +176,7 @@ class _AndroidDrawer extends StatelessWidget {
             title: Text(SettingsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
+              Navigator.push<void>(context,
                   MaterialPageRoute(builder: (context) => SettingsTab()));
             },
           ),

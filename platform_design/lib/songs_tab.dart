@@ -46,7 +46,7 @@ class _SongsTabState extends State<SongsTab> {
     );
   }
 
-  Widget _listBuilder(context, index) {
+  Widget _listBuilder(BuildContext context, int index) {
     if (index >= _itemsLength) return null;
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
@@ -64,7 +64,7 @@ class _SongsTabState extends State<SongsTab> {
           song: songNames[index],
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push(
+          onPressed: () => Navigator.of(context).push<void>(
                 MaterialPageRoute(
                   builder: (context) => SongDetailTab(
                         id: index,
@@ -106,7 +106,7 @@ class _SongsTabState extends State<SongsTab> {
   // And these are all design time choices that doesn't have a single 'right'
   // answer.
   // ===========================================================================
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(SongsTab.title),
@@ -133,7 +133,7 @@ class _SongsTabState extends State<SongsTab> {
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CustomScrollView(
       slivers: [
         CupertinoSliverNavigationBar(
