@@ -181,7 +181,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(
-          children: <Widget>[
+          children: [
             Flexible(
               child: TextField(
                 controller: _textController,
@@ -248,7 +248,7 @@ class ChatMessage extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Container(
               margin: const EdgeInsets.only(right: 16.0),
               child: CircleAvatar(child: Text(name[0])),
