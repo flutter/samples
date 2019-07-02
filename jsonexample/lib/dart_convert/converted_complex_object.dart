@@ -33,20 +33,23 @@ class ConvertedComplexObject {
         anInt: json['anInt'] as int,
         aDouble: json['aDouble'] as double,
         anObject: json['anObject'] != null
-            ? ConvertedSimpleObject.fromJson(json['anObject'] as Map<String,dynamic>)
+            ? ConvertedSimpleObject.fromJson(
+                json['anObject'] as Map<String, dynamic>)
             : null,
         aListOfStrings: json['aListOfStrings'] != null
             ? List<String>.from(json['aListOfStrings'] as Iterable<dynamic>)
             : null,
         aListOfInts: json['aListOfInts'] != null
-            ? List<int>.from(json['aListOfInts']as Iterable<dynamic>)
+            ? List<int>.from(json['aListOfInts'] as Iterable<dynamic>)
             : null,
         aListOfDoubles: json['aListOfDoubles'] != null
-            ? List<double>.from(json['aListOfDoubles']as Iterable<dynamic>)
+            ? List<double>.from(json['aListOfDoubles'] as Iterable<dynamic>)
             : null,
         aListOfObjects: json['aListOfObjects'] != null
-            ? List<ConvertedSimpleObject>.from((json['aListOfObjects'] as Iterable<dynamic>)
-                .map<dynamic>((dynamic o) => ConvertedSimpleObject.fromJson(o as Map<String,dynamic>)))
+            ? List<ConvertedSimpleObject>.from((json['aListOfObjects']
+                    as Iterable<dynamic>)
+                .map<dynamic>((dynamic o) =>
+                    ConvertedSimpleObject.fromJson(o as Map<String, dynamic>)))
             : null);
   }
 }
