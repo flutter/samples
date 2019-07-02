@@ -10,8 +10,7 @@ import 'package:jsonexample/widgets.dart';
 
 void main() {
   group('SimpleObjectView widget test', () {
-    testWidgets('Typical object is displayed correctly',
-        (WidgetTester tester) async {
+    testWidgets('Typical object is displayed correctly', (tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -35,8 +34,7 @@ void main() {
       expect(find.text('[1.0, 2.0, 3.0]'), findsOneWidget);
     });
 
-    testWidgets('Empty lists are displayed as brackets',
-        (WidgetTester tester) async {
+    testWidgets('Empty lists are displayed as brackets', (tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -55,8 +53,7 @@ void main() {
       expect(find.text('[]'), findsNWidgets(3));
     });
 
-    testWidgets('Null values are displayed as NULL',
-        (WidgetTester tester) async {
+    testWidgets('Null values are displayed as NULL', (tester) async {
       final simpleObject = ConvertedSimpleObject(
         aString: null,
         anInt: null,
@@ -77,8 +74,7 @@ void main() {
   });
 
   group('ComplexObjectView widget test', () {
-    testWidgets('Typical object is displayed correctly',
-        (WidgetTester tester) async {
+    testWidgets('Typical object is displayed correctly', (tester) async {
       final complexObject = ConvertedComplexObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -145,8 +141,7 @@ void main() {
       }
     });
 
-    testWidgets('Empty lists are displayed as brackets',
-        (WidgetTester tester) async {
+    testWidgets('Empty lists are displayed as brackets', (tester) async {
       final complexObject = ConvertedComplexObject(
         aString: 'Blah, blah, blah',
         anInt: 1,
@@ -174,8 +169,7 @@ void main() {
       expect(find.text('[]'), findsNWidgets(4));
     });
 
-    testWidgets('Null values are displayed as NULL',
-        (WidgetTester tester) async {
+    testWidgets('Null values are displayed as NULL', (tester) async {
       final complexObject = ConvertedComplexObject(
         aString: null,
         anInt: null,

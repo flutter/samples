@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// ignore_for_file: argument_type_not_assignable, strong_mode_implicit_dynamic_parameter, strong_mode_implicit_dynamic_variable
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
