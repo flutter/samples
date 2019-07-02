@@ -37,7 +37,7 @@ class _PerformancePageState extends State<PerformancePage> {
               children: [
                 FutureBuilder<void>(
                   future: computeFuture,
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  builder: (context, snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Main'),
                       elevation: 8.0,
@@ -47,7 +47,7 @@ class _PerformancePageState extends State<PerformancePage> {
                 ),
                 FutureBuilder<void>(
                   future: computeFuture,
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  builder: (context, snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Secondary'),
                       elevation: 8.0,
