@@ -146,16 +146,16 @@ void main() {
     _series1 = MutableSeries(Series<MyRow, int>(
         id: 's1',
         data: [_s1D1, _s1D2, _s1D3],
-        domainFn: (MyRow row, _) => row.campaign,
-        measureFn: (MyRow row, _) => row.count,
+        domainFn: (row, _) => row.campaign,
+        measureFn: (row, _) => row.count,
         colorFn: (_, __) => MaterialPalette.blue.shadeDefault))
       ..measureFn = (_) => 0.0;
 
     _series2 = MutableSeries(Series<MyRow, int>(
         id: 's2',
         data: [_s2D1, _s2D2, _s2D3],
-        domainFn: (MyRow row, _) => row.campaign,
-        measureFn: (MyRow row, _) => row.count,
+        domainFn: (row, _) => row.campaign,
+        measureFn: (row, _) => row.count,
         colorFn: (_, __) => MaterialPalette.red.shadeDefault))
       ..measureFn = (_) => 0.0;
   });

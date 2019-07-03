@@ -58,8 +58,8 @@ void main() {
     final series = MutableSeries<int>(Series<MyRow, int>(
       id: id,
       data: data,
-      domainFn: (MyRow row, _) => row.timestamp,
-      measureFn: (MyRow row, _) => row.clickCount,
+      domainFn: (row, _) => row.timestamp,
+      measureFn: (row, _) => row.clickCount,
     ));
 
     series.measureOffsetFn = (_) => 0.0;

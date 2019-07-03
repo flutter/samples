@@ -54,17 +54,17 @@ void main() {
     numericSeriesList = [
       MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
-          colorFn: (MyRow row, _) => MaterialPalette.blue.shadeDefault,
-          domainFn: (MyRow row, _) => row.campaign,
-          domainLowerBoundFn: (MyRow row, _) => row.campaignLower,
-          domainUpperBoundFn: (MyRow row, _) => row.campaignUpper,
-          measureFn: (MyRow row, _) => 0,
-          measureOffsetFn: (MyRow row, _) => 0,
-          radiusPxFn: (MyRow row, _) => row.radius,
+          colorFn: (row, _) => MaterialPalette.blue.shadeDefault,
+          domainFn: (row, _) => row.campaign,
+          domainLowerBoundFn: (row, _) => row.campaignLower,
+          domainUpperBoundFn: (row, _) => row.campaignUpper,
+          measureFn: (row, _) => 0,
+          measureOffsetFn: (row, _) => 0,
+          radiusPxFn: (row, _) => row.radius,
           data: myFakeDesktopData)
         // Define a bounds line radius function.
         ..setAttribute(boundsLineRadiusPxFnKey,
-            (int index) => myFakeDesktopData[index].boundsRadius))
+            (index) => myFakeDesktopData[index].boundsRadius))
     ];
   });
 

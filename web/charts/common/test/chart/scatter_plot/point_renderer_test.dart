@@ -54,7 +54,7 @@ void main() {
     numericSeriesList = [
       MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
-          colorFn: (MyRow row, _) {
+          colorFn: (row, _) {
             // Color bucket the measure column value into 3 distinct colors.
             final bucket = row.clickCount / maxMeasure;
 
@@ -66,14 +66,14 @@ void main() {
               return MaterialPalette.green.shadeDefault;
             }
           },
-          domainFn: (MyRow row, _) => row.campaign,
-          measureFn: (MyRow row, _) => row.clickCount,
-          measureOffsetFn: (MyRow row, _) => 0,
-          radiusPxFn: (MyRow row, _) => row.radius,
+          domainFn: (row, _) => row.campaign,
+          measureFn: (row, _) => row.clickCount,
+          measureOffsetFn: (row, _) => 0,
+          radiusPxFn: (row, _) => row.radius,
           data: myFakeDesktopData)
         // Define a bounds line radius function.
         ..setAttribute(boundsLineRadiusPxFnKey,
-            (int index) => myFakeDesktopData[index].boundsRadius))
+            (index) => myFakeDesktopData[index].boundsRadius))
     ];
   });
 
@@ -147,7 +147,7 @@ void main() {
       renderer = PointRenderer<int>(config: PointRendererConfig());
 
       numericSeriesList[0].setAttr(pointSymbolRendererFnKey,
-          (int index) => numericSeriesList[0].data[index].shape as String);
+          (index) => numericSeriesList[0].data[index].shape as String);
 
       renderer.preprocessSeries(numericSeriesList);
 
@@ -169,7 +169,7 @@ void main() {
       renderer = PointRenderer<int>(config: PointRendererConfig());
 
       numericSeriesList[0].setAttr(pointSymbolRendererFnKey,
-          (int index) => numericSeriesList[0].data[index].shape as String);
+          (index) => numericSeriesList[0].data[index].shape as String);
       numericSeriesList[0].setAttr(pointSymbolRendererIdKey, 'shape 0');
 
       renderer.preprocessSeries(numericSeriesList);

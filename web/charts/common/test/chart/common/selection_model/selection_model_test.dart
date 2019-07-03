@@ -186,8 +186,7 @@ void main() {
     test('listener triggered for change', () {
       SelectionModel<String> triggeredModel;
       // Listen
-      _selectionModel
-          .addSelectionChangedListener((SelectionModel<String> model) {
+      _selectionModel.addSelectionChangedListener((model) {
         triggeredModel = model;
       });
 
@@ -212,8 +211,7 @@ void main() {
       ]);
 
       // Listen
-      _selectionModel
-          .addSelectionChangedListener((SelectionModel<String> model) {
+      _selectionModel.addSelectionChangedListener((model) {
         triggeredModel = model;
       });
 
@@ -231,7 +229,7 @@ void main() {
     test('removed listener not triggered for change', () {
       SelectionModel<String> triggeredModel;
 
-      Function cb = (SelectionModel<String> model) {
+      Function cb = (model) {
         triggeredModel = model;
       };
 
@@ -257,8 +255,7 @@ void main() {
     test('listener triggered for change', () {
       SelectionModel<String> triggeredModel;
       // Listen
-      _selectionModel
-          .addSelectionUpdatedListener((SelectionModel<String> model) {
+      _selectionModel.addSelectionUpdatedListener((model) {
         triggeredModel = model;
       });
 
@@ -283,8 +280,7 @@ void main() {
       ]);
 
       // Listen
-      _selectionModel
-          .addSelectionUpdatedListener((SelectionModel<String> model) {
+      _selectionModel.addSelectionUpdatedListener((model) {
         triggeredModel = model;
       });
 
@@ -302,7 +298,7 @@ void main() {
     test('removed listener not triggered for change', () {
       SelectionModel<String> triggeredModel;
 
-      Function cb = (SelectionModel<String> model) {
+      Function cb = (model) {
         triggeredModel = model;
       };
 

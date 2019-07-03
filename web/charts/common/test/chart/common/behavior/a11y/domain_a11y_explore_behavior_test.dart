@@ -60,8 +60,8 @@ void main() {
     _series1 = MutableSeries(Series<MyRow, String>(
       id: 's1',
       data: [_s1D1, _s1D2, _s1D3],
-      domainFn: (MyRow row, _) => row.campaign,
-      measureFn: (MyRow row, _) => row.count,
+      domainFn: (row, _) => row.campaign,
+      measureFn: (row, _) => row.count,
     ))
       ..setAttr(domainAxisKey, domainAxis);
   });
@@ -191,8 +191,8 @@ void main() {
     final seriesWithMissingDomain = MutableSeries(Series<MyRow, String>(
       id: 'm1',
       data: [_s1D1, _s1D3],
-      domainFn: (MyRow row, _) => row.campaign,
-      measureFn: (MyRow row, _) => row.count,
+      domainFn: (row, _) => row.campaign,
+      measureFn: (row, _) => row.count,
     ))
       ..setAttr(domainAxisKey, domainAxis);
 

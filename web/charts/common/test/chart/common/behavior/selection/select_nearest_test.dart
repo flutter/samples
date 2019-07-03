@@ -109,7 +109,7 @@ void main() {
     _series1 = MutableSeries<String>(Series(
         id: 'mySeries1',
         data: ['myDatum1', 'myDatum2', 'myDatum3'],
-        domainFn: (_, int i) => _series1Data[i],
+        domainFn: (_, i) => _series1Data[i],
         measureFn: (_, __) => 0));
 
     _details1 = DatumDetails(
@@ -136,7 +136,7 @@ void main() {
     _series2 = MutableSeries<String>(Series(
         id: 'mySeries2',
         data: ['myDatum1s2'],
-        domainFn: (_, int i) => _series2Data[i],
+        domainFn: (_, i) => _series2Data[i],
         measureFn: (_, __) => 0));
 
     _details1Series2 = DatumDetails(
