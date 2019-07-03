@@ -75,7 +75,7 @@ class FakeTextElement implements TextElement {
     this.textDirection,
     double horizontalSliceWidth,
     double verticalSliceWidth,
-  ) : measurement = new TextMeasurement(
+  ) : measurement = TextMeasurement(
             horizontalSliceWidth: horizontalSliceWidth,
             verticalSliceWidth: verticalSliceWidth);
 }
@@ -91,10 +91,10 @@ Tick<String> createTick(String value, double locationPx,
     {double horizontalWidth,
     double verticalWidth,
     TextDirection textDirection}) {
-  return new Tick<String>(
+  return Tick<String>(
       value: value,
       locationPx: locationPx,
-      textElement: new FakeTextElement(
+      textElement: FakeTextElement(
           value, textDirection, horizontalWidth, verticalWidth));
 }
 
@@ -103,18 +103,18 @@ void main() {
   ChartContext chartContext;
 
   setUpAll(() {
-    graphicsFactory = new MockGraphicsFactory();
-    when(graphicsFactory.createLinePaint()).thenReturn(new MockLineStyle());
-    when(graphicsFactory.createTextPaint()).thenReturn(new MockTextStyle());
+    graphicsFactory = MockGraphicsFactory();
+    when(graphicsFactory.createLinePaint()).thenReturn(MockLineStyle());
+    when(graphicsFactory.createTextPaint()).thenReturn(MockTextStyle());
 
-    chartContext = new MockContext();
+    chartContext = MockContext();
     when(chartContext.chartContainerIsRtl).thenReturn(false);
     when(chartContext.isRtl).thenReturn(false);
   });
 
   group('collision detection - vertically drawn axis', () {
     test('ticks do not collide', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2);
 
@@ -130,7 +130,7 @@ void main() {
     });
 
     test('ticks collide because it does not have minimum padding', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2);
 
@@ -146,7 +146,7 @@ void main() {
     });
 
     test('first tick causes collision', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0);
 
@@ -162,7 +162,7 @@ void main() {
     });
 
     test('last tick causes collision', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0);
 
@@ -178,7 +178,7 @@ void main() {
     });
 
     test('ticks do not collide for inside tick label anchor', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2,
           labelAnchor: TickLabelAnchor.inside);
@@ -195,7 +195,7 @@ void main() {
     });
 
     test('ticks collide for inside anchor - first tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2,
           labelAnchor: TickLabelAnchor.inside);
@@ -212,7 +212,7 @@ void main() {
     });
 
     test('ticks collide for inside anchor - center tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2,
           labelAnchor: TickLabelAnchor.inside);
@@ -229,7 +229,7 @@ void main() {
     });
 
     test('ticks collide for inside anchor - last tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2,
           labelAnchor: TickLabelAnchor.inside);
@@ -248,7 +248,7 @@ void main() {
 
   group('collision detection - horizontally drawn axis', () {
     test('ticks do not collide for TickLabelAnchor.before', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 2,
           labelAnchor: TickLabelAnchor.before);
@@ -265,7 +265,7 @@ void main() {
     });
 
     test('ticks do not collide for TickLabelAnchor.inside', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -288,7 +288,7 @@ void main() {
     });
 
     test('ticks collide - first tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -305,7 +305,7 @@ void main() {
     });
 
     test('ticks collide - middle tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -322,7 +322,7 @@ void main() {
     });
 
     test('ticks collide - last tick too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -341,7 +341,7 @@ void main() {
 
   group('collision detection - unsorted ticks', () {
     test('ticks do not collide', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -358,7 +358,7 @@ void main() {
     });
 
     test('ticks collide - tick B is too large', () {
-      final drawStrategy = new BaseTickDrawStrategyImpl(
+      final drawStrategy = BaseTickDrawStrategyImpl(
           chartContext, graphicsFactory,
           minimumPaddingBetweenLabelsPx: 0,
           labelAnchor: TickLabelAnchor.inside);
@@ -378,7 +378,7 @@ void main() {
   group('collision detection - corner cases', () {
     test('null ticks do not collide', () {
       final drawStrategy =
-          new BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
+          BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
 
       final report = drawStrategy.collides(null, AxisOrientation.left);
 
@@ -387,7 +387,7 @@ void main() {
 
     test('empty tick list do not collide', () {
       final drawStrategy =
-          new BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
+          BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
 
       final report = drawStrategy.collides([], AxisOrientation.left);
 
@@ -396,7 +396,7 @@ void main() {
 
     test('single tick does not collide', () {
       final drawStrategy =
-          new BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
+          BaseTickDrawStrategyImpl(chartContext, graphicsFactory);
 
       final report = drawStrategy.collides(
           [createTick('A', 10.0, horizontalWidth: 10.0)],

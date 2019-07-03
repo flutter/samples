@@ -56,7 +56,7 @@ void main() {
 
   PercentInjector _makeBehavior(
       {PercentInjectorTotalType totalType = PercentInjectorTotalType.domain}) {
-    final behavior = new PercentInjector(totalType: totalType);
+    final behavior = PercentInjector(totalType: totalType);
 
     behavior.attachTo(_chart);
 
@@ -64,67 +64,67 @@ void main() {
   }
 
   setUp(() {
-    _chart = new MockChart();
+    _chart = MockChart();
 
     final myFakeDesktopAData = [
-      new MyRow('MyCampaign1', 1, 1, 1),
-      new MyRow('MyCampaign2', 2, 2, 2),
-      new MyRow('MyCampaign3', 3, 3, 3),
+      MyRow('MyCampaign1', 1, 1, 1),
+      MyRow('MyCampaign2', 2, 2, 2),
+      MyRow('MyCampaign3', 3, 3, 3),
     ];
 
     final myFakeTabletAData = [
-      new MyRow('MyCampaign1', 2, 2, 2),
-      new MyRow('MyCampaign2', 3, 3, 3),
-      new MyRow('MyCampaign3', 4, 4, 4),
+      MyRow('MyCampaign1', 2, 2, 2),
+      MyRow('MyCampaign2', 3, 3, 3),
+      MyRow('MyCampaign3', 4, 4, 4),
     ];
 
     final myFakeMobileAData = [
-      new MyRow('MyCampaign1', 3, 3, 3),
-      new MyRow('MyCampaign2', 4, 4, 4),
-      new MyRow('MyCampaign3', 5, 5, 5),
+      MyRow('MyCampaign1', 3, 3, 3),
+      MyRow('MyCampaign2', 4, 4, 4),
+      MyRow('MyCampaign3', 5, 5, 5),
     ];
 
     final myFakeDesktopBData = [
-      new MyRow('MyCampaign1', 10, 8, 12),
-      new MyRow('MyCampaign2', 20, 18, 22),
-      new MyRow('MyCampaign3', 30, 28, 32),
+      MyRow('MyCampaign1', 10, 8, 12),
+      MyRow('MyCampaign2', 20, 18, 22),
+      MyRow('MyCampaign3', 30, 28, 32),
     ];
 
     final myFakeTabletBData = [
-      new MyRow('MyCampaign1', 20, 18, 22),
-      new MyRow('MyCampaign2', 30, 28, 32),
-      new MyRow('MyCampaign3', 40, 38, 42),
+      MyRow('MyCampaign1', 20, 18, 22),
+      MyRow('MyCampaign2', 30, 28, 32),
+      MyRow('MyCampaign3', 40, 38, 42),
     ];
 
     final myFakeMobileBData = [
-      new MyRow('MyCampaign1', 30, 28, 32),
-      new MyRow('MyCampaign2', 40, 38, 42),
-      new MyRow('MyCampaign3', 50, 48, 52),
+      MyRow('MyCampaign1', 30, 28, 32),
+      MyRow('MyCampaign2', 40, 38, 42),
+      MyRow('MyCampaign3', 50, 48, 52),
     ];
 
     seriesList = [
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Desktop A',
           seriesCategory: 'A',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeDesktopAData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Tablet A',
           seriesCategory: 'A',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeTabletAData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Mobile A',
           seriesCategory: 'A',
           domainFn: (MyRow row, _) => row.campaign,
           measureFn: (MyRow row, _) => row.clickCount,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeMobileAData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Desktop B',
           seriesCategory: 'B',
           domainFn: (MyRow row, _) => row.campaign,
@@ -133,7 +133,7 @@ void main() {
           measureUpperBoundFn: (MyRow row, _) => row.clickCountUpper,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeDesktopBData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Tablet B',
           seriesCategory: 'B',
           domainFn: (MyRow row, _) => row.campaign,
@@ -142,7 +142,7 @@ void main() {
           measureUpperBoundFn: (MyRow row, _) => row.clickCountUpper,
           measureOffsetFn: (MyRow row, _) => 0,
           data: myFakeTabletBData)),
-      new MutableSeries<String>(new Series<MyRow, String>(
+      MutableSeries<String>(Series<MyRow, String>(
           id: 'Mobile B',
           seriesCategory: 'B',
           domainFn: (MyRow row, _) => row.campaign,

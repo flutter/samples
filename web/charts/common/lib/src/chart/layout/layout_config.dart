@@ -35,7 +35,7 @@ class LayoutConfig {
 /// Specs that applies to one margin.
 class MarginSpec {
   /// [MarginSpec] that has max of 50 percent.
-  static const defaultSpec = const MarginSpec._internal(null, null, null, 50);
+  static const defaultSpec = MarginSpec._internal(null, null, null, 50);
 
   final int _minPixel;
   final int _maxPixel;
@@ -64,7 +64,7 @@ class MarginSpec {
       assert(minPixel <= maxPixel);
     }
 
-    return new MarginSpec._internal(minPixel, maxPixel, null, null);
+    return MarginSpec._internal(minPixel, maxPixel, null, null);
   }
 
   /// Create [MarginSpec] with a fixed pixel size [pixels].
@@ -74,7 +74,7 @@ class MarginSpec {
     // Require require or higher setting if set
     assert(pixels == null || pixels >= 0);
 
-    return new MarginSpec._internal(pixels, pixels, null, null);
+    return MarginSpec._internal(pixels, pixels, null, null);
   }
 
   /// Create [MarginSpec] that specifies min/max percentage.
@@ -92,7 +92,7 @@ class MarginSpec {
       assert(minPercent <= maxPercent);
     }
 
-    return new MarginSpec._internal(null, null, minPercent, maxPercent);
+    return MarginSpec._internal(null, null, minPercent, maxPercent);
   }
 
   /// Get the min pixels, given the [totalPixels].

@@ -15,7 +15,7 @@
 
 import 'dart:math' show Rectangle;
 
-typedef void OnFocus();
+typedef OnFocus = void Function();
 
 /// Container for accessibility data.
 class A11yNode {

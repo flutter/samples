@@ -36,9 +36,9 @@ class FakeTextElement implements TextElement {
 
 /// Helper to create a tick for testing.
 Tick<String> _createTestTick(String value, double locationPx) {
-  return new Tick(
+  return Tick(
       value: value,
-      textElement: new FakeTextElement(value),
+      textElement: FakeTextElement(value),
       locationPx: locationPx);
 }
 
@@ -50,7 +50,7 @@ void _verify(Tick<String> tick, {double location, double opacity}) {
 void main() {
   // Tick first render.
   test('tick created for the first time', () {
-    final tick = new AxisTicks(_createTestTick('a', 100.0));
+    final tick = AxisTicks(_createTestTick('a', 100.0));
 
     // Animate in the tick, there was no previous position to animated in from
     // so the tick appears in the target immediately.
@@ -69,8 +69,7 @@ void main() {
 
   // Tick that is animated in.
   test('tick created with a previous location', () {
-    final tick = new AxisTicks(_createTestTick('a', 200.0))
-      ..animateInFrom(100.0);
+    final tick = AxisTicks(_createTestTick('a', 200.0))..animateInFrom(100.0);
 
     tick.setCurrentTick(0.0);
     _verify(tick, location: 100.0, opacity: 0.0);
@@ -87,7 +86,7 @@ void main() {
 
   // Tick that is being animated out.
   test('tick is animated in and then out', () {
-    final tick = new AxisTicks(_createTestTick('a', 100.0));
+    final tick = AxisTicks(_createTestTick('a', 100.0));
 
     // Animate in the tick, there was no previous position to animated in from
     // so the tick appears in the target immediately.
@@ -113,7 +112,7 @@ void main() {
   });
 
   test('tick target change after reaching target', () {
-    final tick = new AxisTicks(_createTestTick('a', 100.0));
+    final tick = AxisTicks(_createTestTick('a', 100.0));
 
     // Animate in the tick.
     tick.setCurrentTick(1.0);
@@ -137,7 +136,7 @@ void main() {
   });
 
   test('tick target change before reaching initial target', () {
-    final tick = new AxisTicks(_createTestTick('a', 400.0))..animateInFrom(0.0);
+    final tick = AxisTicks(_createTestTick('a', 400.0))..animateInFrom(0.0);
 
     // Animate in the tick.
     tick.setCurrentTick(0.25);
@@ -161,7 +160,7 @@ void main() {
   });
 
   test('tick target animate out before reaching initial target', () {
-    final tick = new AxisTicks(_createTestTick('a', 400.0))..animateInFrom(0.0);
+    final tick = AxisTicks(_createTestTick('a', 400.0))..animateInFrom(0.0);
 
     // Animate in the tick.
     tick.setCurrentTick(0.25);

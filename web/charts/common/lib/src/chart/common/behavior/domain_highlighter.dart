@@ -35,7 +35,7 @@ class DomainHighlighter<D> implements ChartBehavior<D> {
 
   DomainHighlighter([this.selectionModelType = SelectionModelType.info]) {
     _lifecycleListener =
-        new LifecycleListener<D>(onPostprocess: _updateColorFunctions);
+        LifecycleListener<D>(onPostprocess: _updateColorFunctions);
   }
 
   void _selectionChanged(SelectionModel selectionModel) {
@@ -45,11 +45,11 @@ class DomainHighlighter<D> implements ChartBehavior<D> {
   void _updateColorFunctions(List<MutableSeries<D>> seriesList) {
     SelectionModel selectionModel =
         _chart.getSelectionModel(selectionModelType);
-    seriesList.forEach((MutableSeries<D> series) {
+    seriesList.forEach((series) {
       final origColorFn = series.colorFn;
 
       if (origColorFn != null) {
-        series.colorFn = (int index) {
+        series.colorFn = (index) {
           final origColor = origColorFn(index);
           if (selectionModel.isDatumSelected(series, index)) {
             return origColor.darker;

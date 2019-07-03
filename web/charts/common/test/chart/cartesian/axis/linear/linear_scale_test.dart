@@ -26,12 +26,12 @@ const EPSILON = 0.001;
 void main() {
   group('Stacking bars', () {
     test('basic apply survives copy and reset', () {
-      LinearScale scale = new LinearScale();
+      LinearScale scale = LinearScale();
       scale.addDomain(100.0);
       scale.addDomain(130.0);
       scale.addDomain(200.0);
       scale.addDomain(170.0);
-      scale.range = new ScaleOutputExtent(2000, 1000);
+      scale.range = ScaleOutputExtent(2000, 1000);
 
       expect(scale.range.start, equals(2000));
       expect(scale.range.end, equals(1000));
@@ -71,11 +71,11 @@ void main() {
     });
 
     test('viewport assigned domain extent applies to scale', () {
-      LinearScale scale = new LinearScale()..keepViewportWithinData = false;
+      LinearScale scale = LinearScale()..keepViewportWithinData = false;
       scale.addDomain(50.0);
       scale.addDomain(70.0);
-      scale.viewportDomain = new NumericExtents(100.0, 200.0);
-      scale.range = new ScaleOutputExtent(0, 200);
+      scale.viewportDomain = NumericExtents(100.0, 200.0);
+      scale.range = ScaleOutputExtent(0, 200);
 
       expect(scale[200.0], closeTo(200, EPSILON));
       expect(scale[100.0], closeTo(0, EPSILON));
@@ -86,8 +86,8 @@ void main() {
       scale.resetViewportSettings();
       scale.addDomain(50.0);
       scale.addDomain(100.0);
-      scale.viewportDomain = new NumericExtents(0.0, 100.0);
-      scale.range = new ScaleOutputExtent(0, 200);
+      scale.viewportDomain = NumericExtents(0.0, 100.0);
+      scale.range = ScaleOutputExtent(0, 200);
 
       expect(scale[0.0], closeTo(0, EPSILON));
       expect(scale[100.0], closeTo(200, EPSILON));
@@ -96,12 +96,12 @@ void main() {
     });
 
     test('comparing domain and range to viewport handles extent edges', () {
-      LinearScale scale = new LinearScale();
-      scale.range = new ScaleOutputExtent(1000, 1400);
-      scale.domainOverride = new NumericExtents(100.0, 300.0);
-      scale.viewportDomain = new NumericExtents(200.0, 300.0);
+      LinearScale scale = LinearScale();
+      scale.range = ScaleOutputExtent(1000, 1400);
+      scale.domainOverride = NumericExtents(100.0, 300.0);
+      scale.viewportDomain = NumericExtents(200.0, 300.0);
 
-      expect(scale.viewportDomain, equals(new NumericExtents(200.0, 300.0)));
+      expect(scale.viewportDomain, equals(NumericExtents(200.0, 300.0)));
 
       expect(scale[210.0], closeTo(1040, EPSILON));
       expect(scale[400.0], closeTo(1800, EPSILON));
@@ -120,10 +120,10 @@ void main() {
     });
 
     test('scale applies in reverse', () {
-      LinearScale scale = new LinearScale();
-      scale.range = new ScaleOutputExtent(1000, 1400);
-      scale.domainOverride = new NumericExtents(100.0, 300.0);
-      scale.viewportDomain = new NumericExtents(200.0, 300.0);
+      LinearScale scale = LinearScale();
+      scale.range = ScaleOutputExtent(1000, 1400);
+      scale.domainOverride = NumericExtents(100.0, 300.0);
+      scale.viewportDomain = NumericExtents(200.0, 300.0);
 
       expect(scale.reverse(1040.0), closeTo(210.0, EPSILON));
       expect(scale.reverse(1800.0), closeTo(400.0, EPSILON));
@@ -131,10 +131,10 @@ void main() {
     });
 
     test('scale works with a range from larger to smaller', () {
-      LinearScale scale = new LinearScale();
-      scale.range = new ScaleOutputExtent(1400, 1000);
-      scale.domainOverride = new NumericExtents(100.0, 300.0);
-      scale.viewportDomain = new NumericExtents(200.0, 300.0);
+      LinearScale scale = LinearScale();
+      scale.range = ScaleOutputExtent(1400, 1000);
+      scale.domainOverride = NumericExtents(100.0, 300.0);
+      scale.viewportDomain = NumericExtents(200.0, 300.0);
 
       expect(scale[200.0], closeTo(1400.0, EPSILON));
       expect(scale[250.0], closeTo(1200.0, EPSILON));
@@ -142,9 +142,9 @@ void main() {
     });
 
     test('scaleFactor and translate applies to scale', () {
-      LinearScale scale = new LinearScale();
-      scale.range = new ScaleOutputExtent(1000, 1200);
-      scale.domainOverride = new NumericExtents(100.0, 200.0);
+      LinearScale scale = LinearScale();
+      scale.range = ScaleOutputExtent(1000, 1200);
+      scale.domainOverride = NumericExtents(100.0, 200.0);
       scale.setViewportSettings(4.0, -50.0);
 
       expect(scale[100.0], closeTo(950.0, EPSILON));
@@ -167,8 +167,8 @@ void main() {
     });
 
     test('scale handles single point', () {
-      LinearScale domainScale = new LinearScale();
-      domainScale.range = new ScaleOutputExtent(1000, 1200);
+      LinearScale domainScale = LinearScale();
+      domainScale.range = ScaleOutputExtent(1000, 1200);
       domainScale.addDomain(50.0);
 
       // A single point should render in the middle of the scale.
@@ -176,125 +176,125 @@ void main() {
     });
 
     test('testAllZeros', () {
-      LinearScale measureScale = new LinearScale();
-      measureScale.range = new ScaleOutputExtent(1000, 1200);
+      LinearScale measureScale = LinearScale();
+      measureScale.range = ScaleOutputExtent(1000, 1200);
       measureScale.addDomain(0.0);
 
       expect(measureScale[0.0], closeTo(1100.0, EPSILON));
     });
 
     test('scale calculates step size', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(1.0);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(1.0);
       scale.addDomain(1.0);
       scale.addDomain(3.0);
       scale.addDomain(11.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       // 1 - 11 has 6 steps of size 2, 0 - 12
       expect(scale.rangeBand, closeTo(100.0 / 6.0, EPSILON));
     });
 
     test('scale applies rangeBand to detected step size', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(0.5);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(0.5);
       scale.addDomain(1.0);
       scale.addDomain(2.0);
       scale.addDomain(10.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       // 100 range / 10 steps * 0.5percentStep = 5
       expect(scale.rangeBand, closeTo(5.0, EPSILON));
     });
 
     test('scale stepSize calculation survives copy', () {
-      LinearScale scale = new LinearScale();
-      scale.stepSizeConfig = new StepSizeConfig.fixedDomain(1.0);
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(1.0);
+      LinearScale scale = LinearScale();
+      scale.stepSizeConfig = StepSizeConfig.fixedDomain(1.0);
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(1.0);
       scale.addDomain(1.0);
       scale.addDomain(3.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
       expect(scale.copy().rangeBand, closeTo(100.0 / 3.0, EPSILON));
     });
 
     test('scale rangeBand calculation survives copy', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.fixedPixel(123.0);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.fixedPixel(123.0);
       scale.addDomain(1.0);
       scale.addDomain(3.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       expect(scale.copy().rangeBand, closeTo(123, EPSILON));
     });
 
     test('scale rangeBand works for single domain value', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(1.0);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(1.0);
       scale.addDomain(1.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       expect(scale.rangeBand, closeTo(100, EPSILON));
     });
 
     test('scale rangeBand works for multiple domains of the same value', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(1.0);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(1.0);
       scale.addDomain(1.0);
       scale.addDomain(1.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       expect(scale.rangeBand, closeTo(100.0, EPSILON));
     });
 
     test('scale rangeBand is zero when no domains are added', () {
-      LinearScale scale = new LinearScale();
-      scale.range = new ScaleOutputExtent(100, 200);
+      LinearScale scale = LinearScale();
+      scale.range = ScaleOutputExtent(100, 200);
 
       expect(scale.rangeBand, closeTo(0.0, EPSILON));
     });
 
     test('scale domain info reset on resetDomain', () {
-      LinearScale scale = new LinearScale();
+      LinearScale scale = LinearScale();
       scale.addDomain(1.0);
       scale.addDomain(3.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
       scale.setViewportSettings(1000.0, 2000.0);
 
       scale.resetDomain();
       scale.resetViewportSettings();
       expect(scale.viewportScalingFactor, closeTo(1.0, EPSILON));
       expect(scale.viewportTranslatePx, closeTo(0, EPSILON));
-      expect(scale.range, equals(new ScaleOutputExtent(100, 200)));
+      expect(scale.range, equals(ScaleOutputExtent(100, 200)));
     });
 
     test('scale handles null domain values', () {
-      LinearScale scale = new LinearScale();
-      scale.rangeBandConfig = new RangeBandConfig.percentOfStep(1.0);
+      LinearScale scale = LinearScale();
+      scale.rangeBandConfig = RangeBandConfig.percentOfStep(1.0);
       scale.addDomain(1.0);
       scale.addDomain(null);
       scale.addDomain(3.0);
       scale.addDomain(11.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
 
       expect(scale.rangeBand, closeTo(100.0 / 6.0, EPSILON));
     });
 
     test('scale domainOverride survives copy', () {
-      LinearScale scale = new LinearScale()..keepViewportWithinData = false;
+      LinearScale scale = LinearScale()..keepViewportWithinData = false;
       scale.addDomain(1.0);
       scale.addDomain(3.0);
-      scale.range = new ScaleOutputExtent(100, 200);
+      scale.range = ScaleOutputExtent(100, 200);
       scale.setViewportSettings(2.0, 10.0);
-      scale.domainOverride = new NumericExtents(0.0, 100.0);
+      scale.domainOverride = NumericExtents(0.0, 100.0);
 
       LinearScale other = scale.copy();
 
-      expect(other.domainOverride, equals(new NumericExtents(0.0, 100.0)));
+      expect(other.domainOverride, equals(NumericExtents(0.0, 100.0)));
       expect(other[5.0], closeTo(120.0, EPSILON));
     });
 
     test('scale calculates a scaleFactor given a domain window', () {
-      LinearScale scale = new LinearScale();
+      LinearScale scale = LinearScale();
       scale.addDomain(100.0);
       scale.addDomain(130.0);
       scale.addDomain(200.0);

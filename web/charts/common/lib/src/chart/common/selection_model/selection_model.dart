@@ -48,8 +48,8 @@ class SelectionModel<D> {
 
   /// Create a deep copy of the selection model.
   SelectionModel.fromOther(SelectionModel<D> other) {
-    _selectedDatum = new List.from(other._selectedDatum);
-    _selectedSeries = new List.from(other._selectedSeries);
+    _selectedDatum = List.from(other._selectedDatum);
+    _selectedSeries = List.from(other._selectedSeries);
   }
 
   /// Create selection model from configuration.
@@ -64,8 +64,8 @@ class SelectionModel<D> {
       }
 
       // Add to list of selected series.
-      _selectedSeries.addAll(seriesList.where((ImmutableSeries<D> series) =>
-          selectedDataMap.keys.contains(series.id)));
+      _selectedSeries.addAll(seriesList
+          .where((series) => selectedDataMap.keys.contains(series.id)));
 
       // Add to list of selected data.
       for (ImmutableSeries<D> series in seriesList) {
@@ -76,7 +76,7 @@ class SelectionModel<D> {
             final datum = series.data[i];
 
             if (selectedDataMap[series.id].contains(domainFn(i))) {
-              _selectedDatum.add(new SeriesDatum(series, datum));
+              _selectedDatum.add(SeriesDatum(series, datum));
             }
           }
         }
@@ -86,11 +86,11 @@ class SelectionModel<D> {
     // Add to list of selected series, if it does not already exist.
     if (selectedSeriesConfig != null) {
       final remainingSeriesToAdd = selectedSeriesConfig
-          .where((String seriesId) => !selectedSeries.contains(seriesId))
+          .where((seriesId) => !selectedSeries.contains(seriesId))
           .toList();
 
-      _selectedSeries.addAll(seriesList.where((ImmutableSeries<D> series) =>
-          remainingSeriesToAdd.contains(series.id)));
+      _selectedSeries.addAll(seriesList
+          .where((series) => remainingSeriesToAdd.contains(series.id)));
     }
   }
 
@@ -99,14 +99,13 @@ class SelectionModel<D> {
 
   bool isDatumSelected(ImmutableSeries<D> series, int index) {
     final datum = index == null ? null : series.data[index];
-    return _selectedDatum.contains(new SeriesDatum(series, datum));
+    return _selectedDatum.contains(SeriesDatum(series, datum));
   }
 
   /// Returns the selected [SeriesDatum] for this [SelectionModel].
   ///
   /// This is empty by default.
-  List<SeriesDatum<D>> get selectedDatum =>
-      new List.unmodifiable(_selectedDatum);
+  List<SeriesDatum<D>> get selectedDatum => List.unmodifiable(_selectedDatum);
 
   /// Returns true if this [SelectionModel] has a selected series.
   bool get hasSeriesSelection => _selectedSeries.isNotEmpty;
@@ -115,7 +114,7 @@ class SelectionModel<D> {
   ///
   /// This is empty by default.
   List<ImmutableSeries<D>> get selectedSeries =>
-      new List.unmodifiable(_selectedSeries);
+      List.unmodifiable(_selectedSeries);
 
   /// Returns true if this [SelectionModel] has a selected datum or series.
   bool get hasAnySelection =>
@@ -124,14 +123,14 @@ class SelectionModel<D> {
   @override
   bool operator ==(Object other) {
     return other is SelectionModel &&
-        new ListEquality().equals(_selectedDatum, other.selectedDatum) &&
-        new ListEquality().equals(_selectedSeries, other.selectedSeries);
+        ListEquality().equals(_selectedDatum, other.selectedDatum) &&
+        ListEquality().equals(_selectedSeries, other.selectedSeries);
   }
 
   @override
   int get hashCode {
-    int hashcode = new ListEquality().hash(_selectedDatum);
-    hashcode = hashcode * 37 + new ListEquality().hash(_selectedSeries);
+    int hashcode = ListEquality().hash(_selectedDatum);
+    hashcode = hashcode * 37 + ListEquality().hash(_selectedSeries);
     return hashcode;
   }
 }
@@ -168,12 +167,11 @@ class MutableSelectionModel<D> extends SelectionModel<D> {
     _selectedSeries = seriesList;
 
     // Provide a copy, so listeners get an immutable model.
-    final copyOfSelectionModel = new SelectionModel.fromOther(this);
+    final copyOfSelectionModel = SelectionModel.fromOther(this);
     _updatedListeners.forEach((listener) => listener(copyOfSelectionModel));
 
-    final changed =
-        !new ListEquality().equals(origSelectedDatum, _selectedDatum) ||
-            !new ListEquality().equals(origSelectedSeries, _selectedSeries);
+    final changed = !ListEquality().equals(origSelectedDatum, _selectedDatum) ||
+        !ListEquality().equals(origSelectedSeries, _selectedSeries);
     if (notifyListeners && changed) {
       _changedListeners.forEach((listener) => listener(copyOfSelectionModel));
     }
@@ -220,7 +218,7 @@ class MutableSelectionModel<D> extends SelectionModel<D> {
 
 /// Callback for SelectionModel. It is triggered when the selection state
 /// changes.
-typedef SelectionModelListener<D>(SelectionModel<D> model);
+typedef SelectionModelListener<D> = Function(SelectionModel<D> model);
 
 enum SelectionModelType {
   /// Typical Hover or Details event for viewing the details of the selected

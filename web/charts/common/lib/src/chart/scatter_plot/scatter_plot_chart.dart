@@ -55,13 +55,12 @@ class ScatterPlotChart extends NumericCartesianChart {
 
   @override
   SeriesRenderer<num> makeDefaultRenderer() {
-    return new PointRenderer<num>()
-      ..rendererId = SeriesRenderer.defaultRendererId;
+    return PointRenderer<num>()..rendererId = SeriesRenderer.defaultRendererId;
   }
 
   @override
   void initDomainAxis() {
-    domainAxis.tickDrawStrategy = new GridlineRendererSpec<num>()
+    domainAxis.tickDrawStrategy = GridlineRendererSpec<num>()
         .createDrawStrategy(context, graphicsFactory);
   }
 }

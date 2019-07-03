@@ -95,10 +95,11 @@ class GestureListener {
         this.onTapCancel = onTapCancel ?? defaultTapCancel;
 }
 
-typedef GestureCancelCallback();
-typedef bool GestureSinglePointCallback(Point<double> localPosition);
+typedef GestureCancelCallback = Function();
+typedef GestureSinglePointCallback = bool Function(Point<double> localPosition);
 
-typedef bool GestureDragStartCallback(Point<double> localPosition);
-typedef GestureDragUpdateCallback(Point<double> localPosition, double scale);
-typedef GestureDragEndCallback(
+typedef GestureDragStartCallback = bool Function(Point<double> localPosition);
+typedef GestureDragUpdateCallback = Function(
+    Point<double> localPosition, double scale);
+typedef GestureDragEndCallback = Function(
     Point<double> localPosition, double scale, double pixelsPerSec);

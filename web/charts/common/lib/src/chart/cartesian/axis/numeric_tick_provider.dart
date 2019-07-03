@@ -49,7 +49,7 @@ class NumericTickProvider extends BaseTickProvider<num> {
   static const MIN_DIPS_BETWEEN_TICKS = 25;
 
   /// Potential steps available to the baseTen value of the data.
-  static const DEFAULT_STEPS = const [
+  static const DEFAULT_STEPS = [
     0.01,
     0.02,
     0.025,
@@ -187,8 +187,8 @@ class NumericTickProvider extends BaseTickProvider<num> {
     assert(steps != null && steps.isNotEmpty);
     steps.sort();
 
-    final stepSet = new Set.from(steps);
-    _allowedSteps = new List<double>(stepSet.length * 3);
+    final stepSet = Set.from(steps);
+    _allowedSteps = List<double>(stepSet.length * 3);
     int stepIndex = 0;
     for (double step in stepSet) {
       assert(1.0 <= step && step < 10.0);
@@ -220,7 +220,7 @@ class NumericTickProvider extends BaseTickProvider<num> {
                 : (tickHint.start / stepSize).ceil()));
     final tickStart =
         (scale.viewportDomain.min / stepSize).ceil() * stepSize + tickZeroShift;
-    final stepInfo = new _TickStepInfo(stepSize.abs(), tickStart);
+    final stepInfo = _TickStepInfo(stepSize.abs(), tickStart);
     final tickValues = _getTickValues(stepInfo, tickHint.tickCount);
 
     // Create ticks from domain values.
@@ -299,8 +299,7 @@ class NumericTickProvider extends BaseTickProvider<num> {
           final tickValues = _getTickValues(stepInfo, tickCount);
 
           if (viewportExtensionEnabled) {
-            mutableScale.viewportDomain =
-                new NumericExtents(firstTick, lastTick);
+            mutableScale.viewportDomain = NumericExtents(firstTick, lastTick);
           }
 
           // Create ticks from domain values.
@@ -434,7 +433,7 @@ class NumericTickProvider extends BaseTickProvider<num> {
           !(low < 0 &&
               high > 0 &&
               (negativeRegionCount == 0 || positiveRegionCount == 0)),
-          'Numeric tick provider cannot generate ${tickCount} '
+          'Numeric tick provider cannot generate $tickCount '
           'ticks when the axis range contains both positive and negative '
           'values. A minimum of three ticks are required to include zero.');
 
@@ -467,7 +466,7 @@ class NumericTickProvider extends BaseTickProvider<num> {
           double stepStart = negativeRegionCount > 0
               ? (-1 * tmpStepSize * negativeRegionCount)
               : 0.0;
-          return new _TickStepInfo(tmpStepSize, stepStart);
+          return _TickStepInfo(tmpStepSize, stepStart);
         }
       }
     } else {
@@ -487,16 +486,16 @@ class NumericTickProvider extends BaseTickProvider<num> {
         // But wait until the last step to prevent the cost of the formatter.
         double tmpStepStart = _getStepLessThan(low, tmpStepSize);
         if (tmpStepStart + (tmpStepSize * regionCount) >= high) {
-          return new _TickStepInfo(tmpStepSize, tmpStepStart);
+          return _TickStepInfo(tmpStepSize, tmpStepStart);
         }
       }
     }
 
-    return new _TickStepInfo(1.0, low.floorToDouble());
+    return _TickStepInfo(1.0, low.floorToDouble());
   }
 
   List<double> _getTickValues(_TickStepInfo steps, int tickCount) {
-    final tickValues = new List<double>(tickCount);
+    final tickValues = List<double>(tickCount);
     // We have our size and start, assign all the tick values to the given array.
     for (int i = 0; i < tickCount; i++) {
       tickValues[i] = dataToAxisUnitConverter.invert(
