@@ -21,8 +21,8 @@ class PlaceListState extends State<PlaceList> {
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final List<Place> newPlaces = List.from(AppState.of(context).places);
-    final int index = newPlaces.indexWhere((place) => place.id == value.id);
+    final newPlaces = List<Place>.from(AppState.of(context).places);
+    final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
     AppState.updateWith(context, places: newPlaces);
