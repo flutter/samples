@@ -35,7 +35,7 @@ class AsymmetricView extends StatelessWidget {
     /// some kinda awkward math so we use _evenCasesIndex and _oddCasesIndex as
     /// helpers for creating the index of the product list that will correspond
     /// to the index of the list of columns.
-    return List.generate(_listItemCount(products.length), (int index) {
+    return List.generate(_listItemCount(products.length), (index) {
       double width = .59 * MediaQuery.of(context).size.width;
       Widget column;
       if (index % 2 == 0) {

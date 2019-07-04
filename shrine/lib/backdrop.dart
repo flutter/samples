@@ -60,7 +60,7 @@ class _FrontLayer extends StatelessWidget {
 }
 
 class _BackdropTitle extends AnimatedWidget {
-  final Function onPress;
+  final VoidCallback onPress;
   final Widget frontTitle;
   final Widget backTitle;
 
@@ -77,7 +77,7 @@ class _BackdropTitle extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = CurvedAnimation(
-      parent: this.listenable,
+      parent: this.listenable as Animation<double>,
       curve: Interval(0.0, 0.78),
     );
 
@@ -212,7 +212,7 @@ class _BackdropState extends State<Backdrop>
     Curve secondCurve; // Curve for second TweenSequenceItem
     double firstWeight; // Weight of first TweenSequenceItem
     double secondWeight; // Weight of second TweenSequenceItem
-    Animation animation; // Animation on which TweenSequence runs
+    Animation<double> animation; // Animation on which TweenSequence runs
 
     if (_frontLayerVisible) {
       firstCurve = _kAccelerateCurve;
@@ -305,18 +305,18 @@ class _BackdropState extends State<Backdrop>
         IconButton(
           icon: const Icon(Icons.search, semanticLabel: 'login'),
           onPressed: () {
-            Navigator.push(
+            Navigator.push<void>(
               context,
-              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+              MaterialPageRoute(builder: (context) => LoginPage()),
             );
           },
         ),
         IconButton(
           icon: const Icon(Icons.tune, semanticLabel: 'login'),
           onPressed: () {
-            Navigator.push(
+            Navigator.push<void>(
               context,
-              MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
+              MaterialPageRoute(builder: (context) => LoginPage()),
             );
           },
         ),
