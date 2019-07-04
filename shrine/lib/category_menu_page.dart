@@ -75,8 +75,8 @@ class CategoryMenuPage extends StatelessWidget {
         padding: EdgeInsets.only(top: 40.0),
         color: kShrinePink100,
         child: ListView(
-            children:
-                _categories.map((c) => _buildCategory(c, context)).toList()),
+          children: _categories.map((c) => _buildCategory(c, context)).toList(),
+        ),
       ),
     );
   }
