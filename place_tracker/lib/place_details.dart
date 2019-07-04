@@ -54,7 +54,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
       children: <Widget>[
         _NameTextField(
           controller: _nameController,
-          onChanged: (String value) {
+          onChanged: (value) {
             setState(() {
               _place = _place.copyWith(name: value);
             });
@@ -62,7 +62,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
         ),
         _DescriptionTextField(
           controller: _descriptionController,
-          onChanged: (String value) {
+          onChanged: (value) {
             setState(() {
               _place = _place.copyWith(description: value);
             });
@@ -70,7 +70,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
         ),
         _StarBar(
           rating: _place.starRating,
-          onChanged: (int value) {
+          onChanged: (value) {
             setState(() {
               _place = _place.copyWith(starRating: value);
             });
@@ -140,7 +140,7 @@ class _NameTextField extends StatelessWidget {
         style: const TextStyle(fontSize: 20.0, color: Colors.black87),
         autocorrect: true,
         controller: controller,
-        onChanged: (String value) {
+        onChanged: (value) {
           onChanged(value);
         },
       ),
@@ -173,7 +173,7 @@ class _DescriptionTextField extends StatelessWidget {
         maxLines: null,
         autocorrect: true,
         controller: controller,
-        onChanged: (String value) {
+        onChanged: (value) {
           onChanged(value);
         },
       ),
@@ -198,7 +198,7 @@ class _StarBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(maxStars, (int index) {
+      children: List.generate(maxStars, (index) {
         return IconButton(
           icon: const Icon(Icons.star),
           iconSize: 40.0,
