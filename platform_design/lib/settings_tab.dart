@@ -83,7 +83,7 @@ class _SettingsTabState extends State<SettingsTab> {
   // Non-shared code below because this tab uses different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(SettingsTab.title),
@@ -92,7 +92,7 @@ class _SettingsTabState extends State<SettingsTab> {
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: _buildList(),

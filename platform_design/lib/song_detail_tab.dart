@@ -77,14 +77,14 @@ class SongDetailTab extends StatelessWidget {
   // Non-shared code below because we're using different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(song)),
       body: _buildBody(),
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(song),

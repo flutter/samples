@@ -51,8 +51,9 @@ class ExpandingBottomSheet extends StatefulWidget {
       {bool isNullOk = false}) {
     assert(isNullOk != null);
     assert(context != null);
-    final _ExpandingBottomSheetState result = context
-        .ancestorStateOfType(const TypeMatcher<_ExpandingBottomSheetState>());
+    final _ExpandingBottomSheetState result = context.ancestorStateOfType(
+            const TypeMatcher<_ExpandingBottomSheetState>())
+        as _ExpandingBottomSheetState;
     if (isNullOk || result != null) {
       return result;
     }
@@ -71,7 +72,7 @@ Animation<T> _getEmphasizedEasingAnimation<T>(
     @required T peak,
     @required T end,
     @required bool isForward,
-    @required Animation parent}) {
+    @required Animation<double> parent}) {
   Curve firstCurve;
   Curve secondCurve;
   double firstWeight;
@@ -616,6 +617,9 @@ class ProductThumbnail extends StatelessWidget {
   }
 }
 
+typedef RemovedItemBuilder = Widget Function(
+    int, BuildContext, Animation<double>);
+
 // _ListModel manipulates an internal list and an AnimatedList
 class _ListModel {
   _ListModel(
@@ -627,7 +631,7 @@ class _ListModel {
         _items = List<int>.from(initialItems ?? <int>[]);
 
   final GlobalKey<AnimatedListState> listKey;
-  final dynamic removedItemBuilder;
+  final RemovedItemBuilder removedItemBuilder;
   final List<int> _items;
 
   AnimatedListState get _animatedList => listKey.currentState;
@@ -651,8 +655,7 @@ class _ListModel {
   void _removeAt(int index) {
     final int removedItem = _items.removeAt(index);
     if (removedItem != null) {
-      _animatedList.removeItem(index,
-          (BuildContext context, Animation<double> animation) {
+      _animatedList.removeItem(index, (context, animation) {
         return removedItemBuilder(removedItem, context, animation);
       });
     }

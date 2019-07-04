@@ -38,7 +38,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   static List<Place> _getPlacesForCategory(
       PlaceCategory category, List<Place> places) {
-    return places.where((Place place) => place.category == category).toList();
+    return places.where((place) => place.category == category).toList();
   }
 
   Completer<GoogleMapController> mapController = Completer();
@@ -55,7 +55,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   MapConfiguration _configuration;
 
-  void onMapCreated(GoogleMapController controller) async {
+  Future<void> onMapCreated(GoogleMapController controller) async {
     mapController.complete(controller);
     _lastMapPosition = widget.center;
 
@@ -95,12 +95,12 @@ class PlaceMapState extends State<PlaceMap> {
   void _pushPlaceDetailsScreen(Place place) {
     assert(place != null);
 
-    Navigator.push(
+    Navigator.push<void>(
       context,
       MaterialPageRoute(builder: (context) {
         return PlaceDetails(
           place: place,
-          onChanged: (Place value) => _onPlaceChanged(value),
+          onChanged: (value) => _onPlaceChanged(value),
         );
       }),
     );
@@ -108,9 +108,8 @@ class PlaceMapState extends State<PlaceMap> {
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final List<Place> newPlaces = List.from(AppState.of(context).places);
-    final int index =
-        newPlaces.indexWhere((Place place) => place.id == value.id);
+    final newPlaces = List<Place>.from(AppState.of(context).places);
+    final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
     _updateExistingPlaceMarker(place: value);
@@ -128,7 +127,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   void _updateExistingPlaceMarker({@required Place place}) {
     Marker marker = _markedPlaces.keys
-        .singleWhere((Marker value) => _markedPlaces[value].id == place.id);
+        .singleWhere((value) => _markedPlaces[value].id == place.id);
 
     setState(() {
       final updatedMarker = marker.copyWith(
@@ -208,7 +207,7 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  void _onAddPlacePressed() async {
+  Future<void> _onAddPlacePressed() async {
     setState(() {
       final newMarker = Marker(
         markerId: MarkerId(_lastMapPosition.toString()),
@@ -222,11 +221,11 @@ class PlaceMapState extends State<PlaceMap> {
     });
   }
 
-  void _confirmAddPlace(BuildContext context) async {
+  Future<void> _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
       // Create a new Place and map it to the marker we just added.
       final Place newPlace = Place(
-        id: Uuid().v1(),
+        id: Uuid().v1() as String,
         latLng: _pendingMarker.position,
         name: _pendingMarker.infoWindow.title,
         category: AppState.of(context).selectedCategory,
@@ -321,8 +320,8 @@ class PlaceMapState extends State<PlaceMap> {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
         newConfiguration.places
-            .where((Place p) => !_configuration.places.contains(p))
-            .map((Place value) => _updateExistingPlaceMarker(place: value));
+            .where((p) => !_configuration.places.contains(p))
+            .map((value) => _updateExistingPlaceMarker(place: value));
 
         await _zoomToFitPlaces(
           _getPlacesForCategory(
@@ -339,7 +338,7 @@ class PlaceMapState extends State<PlaceMap> {
   Widget build(BuildContext context) {
     _maybeUpdateMapConfiguration();
 
-    return Builder(builder: (BuildContext context) {
+    return Builder(builder: (context) {
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
       // SnackBar and to do this, we need a build context that has Scaffold as
@@ -559,9 +558,9 @@ class MapConfiguration {
       return false;
     }
 
-    final MapConfiguration otherConfiguration = other;
-    return otherConfiguration.places == places &&
-        otherConfiguration.selectedCategory == selectedCategory;
+    return other is MapConfiguration &&
+        other.places == places &&
+        other.selectedCategory == selectedCategory;
   }
 
   static MapConfiguration of(AppState appState) {

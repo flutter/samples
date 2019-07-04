@@ -31,7 +31,7 @@ class _NewsTabState extends State<NewsTab> {
     super.initState();
   }
 
-  Widget _listBuilder(context, index) {
+  Widget _listBuilder(BuildContext context, int index) {
     if (index >= _itemsLength) return null;
 
     return SafeArea(
@@ -90,7 +90,7 @@ class _NewsTabState extends State<NewsTab> {
   // Non-shared code below because this tab uses different scaffolds.
   // ===========================================================================
 
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(NewsTab.title),
@@ -104,7 +104,7 @@ class _NewsTabState extends State<NewsTab> {
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: Container(

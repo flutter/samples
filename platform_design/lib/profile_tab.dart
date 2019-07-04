@@ -9,7 +9,7 @@ class ProfileTab extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
-  Widget _buildBody(context) {
+  Widget _buildBody(BuildContext context) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -63,7 +63,7 @@ class ProfileTab extends StatelessWidget {
   // the profile tab as a button in the nav bar.
   // ===========================================================================
 
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -72,7 +72,7 @@ class ProfileTab extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         trailing: CupertinoButton(
@@ -81,7 +81,7 @@ class ProfileTab extends StatelessWidget {
           onPressed: () {
             // This pushes the settings page as a full page modal dialog on top
             // of the tab bar and everything.
-            Navigator.of(context, rootNavigator: true).push(
+            Navigator.of(context, rootNavigator: true).push<void>(
               CupertinoPageRoute(
                 title: SettingsTab.title,
                 fullscreenDialog: true,
@@ -172,13 +172,13 @@ class LogOutButton extends StatelessWidget {
   // app.
   // ===========================================================================
 
-  Widget _buildAndroid(context) {
+  Widget _buildAndroid(BuildContext context) {
     return RaisedButton(
       child: Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
         // You should do something with the result of the dialog prompt in a
         // real app but this is just a demo.
-        showDialog(
+        showDialog<void>(
           context: context,
           builder: (context) {
             return AlertDialog(
@@ -201,14 +201,14 @@ class LogOutButton extends StatelessWidget {
     );
   }
 
-  Widget _buildIos(context) {
+  Widget _buildIos(BuildContext context) {
     return CupertinoButton(
       color: CupertinoColors.destructiveRed,
       child: Text('Log out'),
       onPressed: () {
         // You should do something with the result of the action sheet prompt
         // in a real app but this is just a demo.
-        showCupertinoModalPopup(
+        showCupertinoModalPopup<void>(
           context: context,
           builder: (context) {
             return CupertinoActionSheet(

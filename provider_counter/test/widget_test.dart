@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_counter/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (tester) async {
     // Build our app, provide it with a model, and trigger a frame.
     await tester.pumpWidget(
       ChangeNotifierProvider(
