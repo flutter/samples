@@ -76,7 +76,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: f062546f09d0cec00c9c5df9fc5077ac9b122685
+      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -85,7 +85,7 @@ packages:
     description:
       path: "packages/flutter_web_test"
       ref: HEAD
-      resolved-ref: f062546f09d0cec00c9c5df9fc5077ac9b122685
+      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -94,7 +94,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: f062546f09d0cec00c9c5df9fc5077ac9b122685
+      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -251,7 +251,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0+1"
   pool:
     dependency: transitive
     description:
