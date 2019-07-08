@@ -195,9 +195,9 @@ class _TriviaViewState extends State<TriviaView> {
           CupertinoButton(
             child: Text('Next Question'),
             onPressed: () => setState(() {
-                  triviaIndex++;
-                  status = PlayerStatus.readyToAnswer;
-                }),
+              triviaIndex++;
+              status = PlayerStatus.readyToAnswer;
+            }),
           ),
         ],
       ),

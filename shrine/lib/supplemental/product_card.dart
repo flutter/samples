@@ -42,12 +42,12 @@ class ProductCard extends StatelessWidget {
 
     return ScopedModelDescendant<AppStateModel>(
       builder: (context, child, model) => GestureDetector(
-            onTap: () {
-              model.addProductToCart(product.id);
-              // TODO: Add Snackbar
-            },
-            child: child,
-          ),
+        onTap: () {
+          model.addProductToCart(product.id);
+          // TODO: Add Snackbar
+        },
+        child: child,
+      ),
       child: Stack(
         children: <Widget>[
           Column(

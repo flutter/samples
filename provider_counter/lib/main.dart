@@ -63,9 +63,9 @@ class MyHomePage extends StatelessWidget {
             // rebuilds if the model is updated.
             Consumer<Counter>(
               builder: (context, counter, child) => Text(
-                    '${counter.value}',
-                    style: Theme.of(context).textTheme.display1,
-                  ),
+                '${counter.value}',
+                style: Theme.of(context).textTheme.display1,
+              ),
             ),
           ],
         ),

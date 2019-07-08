@@ -65,14 +65,14 @@ class _SongsTabState extends State<SongsTab> {
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
-                MaterialPageRoute(
-                  builder: (context) => SongDetailTab(
-                        id: index,
-                        song: songNames[index],
-                        color: color,
-                      ),
-                ),
+            MaterialPageRoute(
+              builder: (context) => SongDetailTab(
+                id: index,
+                song: songNames[index],
+                color: color,
               ),
+            ),
+          ),
         ),
       ),
     );
