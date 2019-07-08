@@ -38,7 +38,7 @@ class DataTransferPage extends StatelessWidget {
               'Number Generator Progress',
               style: Theme.of(context).textTheme.title,
             ),
-            padding: new EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
           ),
           LinearProgressIndicator(
             value: Provider.of<DataTransferIsolateController>(context)
@@ -68,7 +68,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   final currentProgress = <String>[];
   bool running = false;
-  Stopwatch _timer = new Stopwatch();
+  Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
 
   DataTransferIsolateController() {
@@ -82,8 +82,8 @@ class DataTransferIsolateController extends ChangeNotifier {
         await Isolate.spawn(_secondIsolateEntryPoint, _mIceRP.sendPort);
   }
 
-  void listen() async {
-    _mIceRP.listen((message) {
+  void listen() {
+    _mIceRP.listen((dynamic message) {
       if (message is SendPort) _newIceSP = message;
 
       if (message is int) {
@@ -118,8 +118,8 @@ class DataTransferIsolateController extends ChangeNotifier {
     if (running) return;
 
     running = true;
-    Random rng = new Random();
-    _timer = new Stopwatch();
+    Random rng = Random();
+    _timer = Stopwatch();
 
     currentProgress.clear();
     _timer.start();
@@ -160,7 +160,7 @@ class RunningList extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.grey[200],
       ),
-      child: new ListView.builder(
+      child: ListView.builder(
         itemCount: progress.length,
         itemBuilder: (context, index) {
           return Column(
@@ -189,7 +189,7 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
   callerSP.send(newIceRP.sendPort);
 
   newIceRP.listen(
-    (message) async {
+    (dynamic message) async {
       if (message is String && message == 'start') {
         await generateAndSum(callerSP, createNums());
 
@@ -239,7 +239,7 @@ int addUp(List<int> numList) {
   return sum;
 }
 
-Widget createButtons(context) {
+Widget createButtons(BuildContext context) {
   final controller =
       Provider.of<DataTransferIsolateController>(context, listen: false);
   return ButtonBar(
