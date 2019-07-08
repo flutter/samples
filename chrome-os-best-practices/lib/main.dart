@@ -53,10 +53,11 @@ class _ChatAppHomePageState extends State<ChatAppHomePage> {
         builder: (context, constraints) {
           final double width = constraints.maxWidth;
           debugPrint('width: $width');
-          if (constraints.maxWidth > 800)
+          if (constraints.maxWidth > 800) {
             return TwoPaneChatLayout(chatEntries: chats);
-          else
+          } else {
             return ChatListScreen(chatEntries: chats);
+          }
         },
       ),
     );

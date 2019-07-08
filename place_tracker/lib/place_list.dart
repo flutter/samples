@@ -73,14 +73,14 @@ class _PlaceListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push<void>(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return PlaceDetails(
-                place: place,
-                onChanged: (value) => onPlaceChanged(value),
-              );
-            }),
-          ),
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PlaceDetails(
+            place: place,
+            onChanged: (value) => onPlaceChanged(value),
+          );
+        }),
+      ),
       child: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
