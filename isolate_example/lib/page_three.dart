@@ -29,34 +29,34 @@ class DataTransferPageStarter extends StatelessWidget {
 class DataTransferPage extends StatelessWidget {
   @override
   Widget build(context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          child: Text(
-            'Number Generator Progress',
-            style: Theme.of(context).textTheme.title,
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            child: Text(
+              'Number Generator Progress',
+              style: Theme.of(context).textTheme.title,
+            ),
+            padding: new EdgeInsets.all(8),
           ),
-          padding: new EdgeInsets.all(8),
-        ),
-        LinearProgressIndicator(
-          value: Provider.of<DataTransferIsolateController>(context)
-              .progressPercent,
-          backgroundColor: Colors.grey[200],
-        ),
-        Expanded(child: RunningList()),
-        SafeArea(
-          child: Column(
+          LinearProgressIndicator(
+            value: Provider.of<DataTransferIsolateController>(context)
+                .progressPercent,
+            backgroundColor: Colors.grey[200],
+          ),
+          Expanded(child: RunningList()),
+          Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [newButtons(context)],
+                children: [createButtons(context)],
               ),
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -66,9 +66,9 @@ class DataTransferIsolateController extends ChangeNotifier {
   ReceivePort _mIceRP;
   SendPort _newIceSP;
 
-  List<String> currentProgress = [];
+  final currentProgress = <String>[];
   bool running = false;
-  Stopwatch _timer;
+  Stopwatch _timer = new Stopwatch();
   double progressPercent = 0;
 
   DataTransferIsolateController() {
@@ -87,8 +87,8 @@ class DataTransferIsolateController extends ChangeNotifier {
       if (message is SendPort) _newIceSP = message;
 
       if (message is int) {
-        String formattedTime = '${_timer.elapsedMilliseconds / 1000} Sec';
-        currentProgress.insert(0, '$message% - ' + formattedTime);
+        currentProgress.insert(
+            0, '$message% - ${_timer.elapsedMilliseconds / 1000} Sec');
         progressPercent = message / 100;
       }
 
@@ -105,11 +105,11 @@ class DataTransferIsolateController extends ChangeNotifier {
     if (running) return;
 
     running = true;
-    _timer = new Stopwatch();
+    _timer.reset();
     currentProgress.clear();
 
     _timer.start();
-    _newIceSP.send('Start');
+    _newIceSP.send('start');
 
     notifyListeners();
   }
@@ -135,7 +135,7 @@ class DataTransferIsolateController extends ChangeNotifier {
     }
   }
 
-  Future<void> sendNumbers(List<int> numList) {
+  Future<void> sendNumbers(List<int> numList) async {
     return Future<void>(() {
       _newIceSP.send(numList);
     });
@@ -154,7 +154,7 @@ class RunningList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<DataTransferIsolateController>(context);
-    List<String> progress = controller.currentProgress;
+    final progress = controller.currentProgress;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -184,32 +184,22 @@ class RunningList extends StatelessWidget {
 }
 
 Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
-  List<int> randNums = [];
+  final randNums = <int>[];
   ReceivePort newIceRP = ReceivePort();
   callerSP.send(newIceRP.sendPort);
 
   newIceRP.listen(
-    (message) {
-      if (message is String && message == 'Start') {
-        int sum = 0;
-        Random rng = new Random();
-        for (int i = 0; i < 100000000; i++) {
-          sum += rng.nextInt(100);
-
-          if ((i + 1) % 1000000 == 0) {
-            callerSP.send((i + 1) ~/ 1000000);
-          }
-        }
+    (message) async {
+      if (message is String && message == 'start') {
+        await generateAndSum(callerSP, createNums());
 
         callerSP.send('done');
-        return sum;
       } else {
         randNums.addAll(message as List<int>);
 
         callerSP.send(randNums.length ~/ 1000000);
 
         if (randNums.length == 100000000) {
-          callerSP.send('transfer done');
           addUp(randNums);
           callerSP.send('done');
           randNums.clear();
@@ -219,16 +209,37 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
   );
 }
 
+Iterable<int> createNums() sync* {
+  final rng = Random();
+  for (int i = 0; i < 100000000; i++) {
+    yield rng.nextInt(100);
+  }
+}
+
+Future<void> generateAndSum(SendPort callerSP, Iterable<int> iter) async {
+  int sum = 0;
+  int count = 0;
+
+  for (int x in iter) {
+    sum += x;
+    count++;
+    if ((count + 1) % 1000000 == 0) {
+      callerSP.send((count + 1) ~/ 1000000);
+    }
+  }
+
+  return sum;
+}
+
 int addUp(List<int> numList) {
   int sum = 0;
-//  for (int i = 0; i < numList.length; i++) {
   for (int i in numList) {
     sum += i;
   }
   return sum;
 }
 
-Widget newButtons(context) {
+Widget createButtons(context) {
   final controller =
       Provider.of<DataTransferIsolateController>(context, listen: false);
   return ButtonBar(
@@ -239,12 +250,12 @@ Widget newButtons(context) {
           RaisedButton(
             child: const Text('Transfer Data to 2nd Isolate'),
             elevation: 8.0,
-            onPressed: () => controller.generateRandomNumbers(),
+            onPressed: controller.generateRandomNumbers,
           ),
           RaisedButton(
             child: const Text('Generate on 2nd Isolate'),
             elevation: 8.0,
-            onPressed: () => controller.generateOnSecondaryIsolate(),
+            onPressed: controller.generateOnSecondaryIsolate,
           ),
         ],
       ),

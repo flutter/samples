@@ -110,6 +110,7 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   Future<void> start() async {
     if (_running == false && _paused == false) {
       await createIsolate();
+      if (newIsolate == null) return;
       listen();
       _running = true;
       notifyListeners();
