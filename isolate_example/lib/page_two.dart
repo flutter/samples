@@ -253,19 +253,19 @@ Widget radioButtonWidget(BuildContext context) {
       Radio(
         value: 1,
         groupValue: controller.multiplier,
-        onChanged: (int _) => controller.setMultiplier(1),
+        onChanged: (dynamic _) => controller.setMultiplier(1),
       ),
       Text('1x'),
       Radio(
         value: 2,
         groupValue: controller.multiplier,
-        onChanged: (int _) => controller.setMultiplier(2),
+        onChanged: (dynamic _) => controller.setMultiplier(2),
       ),
       Text('2x'),
       Radio(
         value: 3,
         groupValue: controller.multiplier,
-        onChanged: (int _) => controller.setMultiplier(3),
+        onChanged: (dynamic _) => controller.setMultiplier(3),
       ),
       Text('3x'),
     ],
