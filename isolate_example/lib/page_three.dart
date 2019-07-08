@@ -184,7 +184,6 @@ class RunningList extends StatelessWidget {
 }
 
 Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
-  final randNums = <int>[];
   ReceivePort newIceRP = ReceivePort();
   callerSP.send(newIceRP.sendPort);
 
@@ -195,15 +194,9 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 
         callerSP.send('done');
       } else {
-        randNums.addAll(message as List<int>);
+        await generateAndSum(callerSP, message as List<int>);
 
-        callerSP.send(randNums.length ~/ 1000000);
-
-        if (randNums.length == 100000000) {
-          addUp(randNums);
-          callerSP.send('done');
-          randNums.clear();
-        }
+        callerSP.send('done');
       }
     },
   );
@@ -228,14 +221,6 @@ Future<void> generateAndSum(SendPort callerSP, Iterable<int> iter) async {
     }
   }
 
-  return sum;
-}
-
-int addUp(List<int> numList) {
-  int sum = 0;
-  for (int i in numList) {
-    sum += i;
-  }
   return sum;
 }
 
