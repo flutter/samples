@@ -56,7 +56,7 @@ class MutableSeries<D> extends ImmutableSeries<D> {
   AccessorFn<TextStyleSpec> insideLabelStyleAccessorFn;
   AccessorFn<TextStyleSpec> outsideLabelStyleAccessorFn;
 
-  final _attrs = new SeriesAttributes();
+  final _attrs = SeriesAttributes();
 
   Axis measureAxis;
   Axis domainAxis;

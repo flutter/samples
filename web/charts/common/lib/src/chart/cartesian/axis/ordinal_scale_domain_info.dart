@@ -25,7 +25,7 @@ class OrdinalScaleDomainInfo {
   int _index = 0;
 
   /// A map of domain value and the order it was added.
-  final _domainsToOrder = new HashMap<String, int>();
+  final _domainsToOrder = HashMap<String, int>();
 
   /// A list of domain values kept to support [getDomainAtIndex].
   final _domainList = <String>[];
@@ -33,7 +33,7 @@ class OrdinalScaleDomainInfo {
   OrdinalScaleDomainInfo();
 
   OrdinalScaleDomainInfo copy() {
-    return new OrdinalScaleDomainInfo()
+    return OrdinalScaleDomainInfo()
       .._domainsToOrder.addAll(_domainsToOrder)
       .._index = _index
       .._domainList.addAll(_domainList);
@@ -64,7 +64,7 @@ class OrdinalScaleDomainInfo {
   bool get isEmpty => (_index == 0);
   bool get isNotEmpty => !isEmpty;
 
-  OrdinalExtents get extent => new OrdinalExtents.all(_domainList);
+  OrdinalExtents get extent => OrdinalExtents.all(_domainList);
 
   int get size => _index;
 

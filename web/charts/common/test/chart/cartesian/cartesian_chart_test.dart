@@ -30,8 +30,8 @@ class MockGraphicsFactory extends Mock implements GraphicsFactory {}
 
 class FakeNumericChart extends NumericCartesianChart {
   FakeNumericChart() {
-    context = new MockContext();
-    graphicsFactory = new MockGraphicsFactory();
+    context = MockContext();
+    graphicsFactory = MockGraphicsFactory();
   }
 
   @override
@@ -42,8 +42,8 @@ class FakeNumericChart extends NumericCartesianChart {
 
 class FakeOrdinalChart extends OrdinalCartesianChart {
   FakeOrdinalChart() {
-    context = new MockContext();
-    graphicsFactory = new MockGraphicsFactory();
+    context = MockContext();
+    graphicsFactory = MockGraphicsFactory();
   }
 
   @override
@@ -54,8 +54,8 @@ class FakeOrdinalChart extends OrdinalCartesianChart {
 
 class FakeTimeSeries extends TimeSeriesChart {
   FakeTimeSeries() {
-    context = new MockContext();
-    graphicsFactory = new MockGraphicsFactory();
+    context = MockContext();
+    graphicsFactory = MockGraphicsFactory();
   }
 
   @override
@@ -67,36 +67,36 @@ class FakeTimeSeries extends TimeSeriesChart {
 void main() {
   group('Axis reset with new axis spec', () {
     test('for ordinal chart', () {
-      final chart = new FakeOrdinalChart();
+      final chart = FakeOrdinalChart();
       chart.configurationChanged();
       final domainAxis = chart.domainAxis;
       expect(domainAxis, isNotNull);
 
-      chart.domainAxisSpec = new OrdinalAxisSpec();
+      chart.domainAxisSpec = OrdinalAxisSpec();
       chart.configurationChanged();
 
       expect(domainAxis, isNot(chart.domainAxis));
     });
 
     test('for numeric chart', () {
-      final chart = new FakeNumericChart();
+      final chart = FakeNumericChart();
       chart.configurationChanged();
       final domainAxis = chart.domainAxis;
       expect(domainAxis, isNotNull);
 
-      chart.domainAxisSpec = new NumericAxisSpec();
+      chart.domainAxisSpec = NumericAxisSpec();
       chart.configurationChanged();
 
       expect(domainAxis, isNot(chart.domainAxis));
     });
 
     test('for time series chart', () {
-      final chart = new FakeTimeSeries();
+      final chart = FakeTimeSeries();
       chart.configurationChanged();
       final domainAxis = chart.domainAxis;
       expect(domainAxis, isNotNull);
 
-      chart.domainAxisSpec = new DateTimeAxisSpec();
+      chart.domainAxisSpec = DateTimeAxisSpec();
       chart.configurationChanged();
 
       expect(domainAxis, isNot(chart.domainAxis));

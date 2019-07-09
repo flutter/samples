@@ -31,7 +31,7 @@ import 'per_series_legend_entry_generator.dart';
 /// By default this behavior creates a legend entry per series.
 class SeriesLegend<D> extends Legend<D> {
   /// List of currently hidden series, by ID.
-  final _hiddenSeriesList = new Set<String>();
+  final _hiddenSeriesList = Set<String>();
 
   /// List of series IDs that should be hidden by default.
   List<String> _defaultHiddenSeries;
@@ -50,7 +50,7 @@ class SeriesLegend<D> extends Legend<D> {
   }) : super(
             selectionModelType: selectionModelType ?? SelectionModelType.info,
             legendEntryGenerator:
-                legendEntryGenerator ?? new PerSeriesLegendEntryGenerator(),
+                legendEntryGenerator ?? PerSeriesLegendEntryGenerator(),
             entryTextStyle: entryTextStyle) {
     // Call the setters that include the setting for default.
     this.showMeasures = showMeasures;
@@ -134,14 +134,14 @@ class SeriesLegend<D> extends Legend<D> {
   void onData(List<MutableSeries<D>> seriesList) {
     // If a series was removed from the chart, remove it from our current list
     // of hidden series.
-    final seriesIds = seriesList.map((MutableSeries<D> series) => series.id);
+    final seriesIds = seriesList.map((series) => series.id);
 
-    _hiddenSeriesList.removeWhere((String id) => !seriesIds.contains(id));
+    _hiddenSeriesList.removeWhere((id) => !seriesIds.contains(id));
   }
 
   @override
   void preProcessSeriesList(List<MutableSeries<D>> seriesList) {
-    seriesList.removeWhere((MutableSeries<D> series) {
+    seriesList.removeWhere((series) {
       return _hiddenSeriesList.contains(series.id);
     });
   }
@@ -161,7 +161,7 @@ class SeriesLegend<D> extends Legend<D> {
   /// color if it was previously hidden.
   @protected
   void showSeries(String seriesId) {
-    _hiddenSeriesList.removeWhere((String id) => id == seriesId);
+    _hiddenSeriesList.removeWhere((id) => id == seriesId);
   }
 
   /// Returns whether or not a given series [seriesId] is currently hidden.

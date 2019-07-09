@@ -52,7 +52,7 @@ abstract class BaseCartesianRenderer<D> extends BaseSeriesRenderer<D>
 
   @override
   void configureDomainAxes(List<MutableSeries<D>> seriesList) {
-    seriesList.forEach((MutableSeries<D> series) {
+    seriesList.forEach((series) {
       if (series.data.isEmpty) {
         return;
       }
@@ -100,7 +100,7 @@ abstract class BaseCartesianRenderer<D> extends BaseSeriesRenderer<D>
 
   @override
   void configureMeasureAxes(List<MutableSeries<D>> seriesList) {
-    seriesList.forEach((MutableSeries<D> series) {
+    seriesList.forEach((series) {
       if (series.data.isEmpty) {
         return;
       }

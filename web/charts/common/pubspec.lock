@@ -205,7 +205,7 @@ packages:
     source: hosted
     version: "1.6.2"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
@@ -373,4 +373,4 @@ packages:
     source: hosted
     version: "2.1.16"
 sdks:
-  dart: ">=2.2.2 <3.0.0"
+  dart: ">=2.3.0-dev <3.0.0"

@@ -32,7 +32,7 @@ import '../layout/layout_view.dart'
         LayoutViewPaintOrder,
         LayoutViewPositionOrder,
         ViewMeasuredSizes;
-import 'point_renderer.dart' show AnimatedPoint, DatumPoint, PointRenderer;
+import 'point_renderer.dart' show DatumPoint, PointRenderer;
 import 'symbol_annotation_renderer_config.dart'
     show SymbolAnnotationRendererConfig;
 
@@ -51,13 +51,13 @@ import 'symbol_annotation_renderer_config.dart'
 class SymbolAnnotationRenderer<D> extends PointRenderer<D>
     implements LayoutView {
   Rectangle<int> _componentBounds;
-  GraphicsFactory _graphicsFactory;
+  GraphicsFactory graphicsFactory;
 
   CartesianChart<D> _chart;
 
   var _currentHeight = 0;
 
-  final _seriesInfo = new LinkedHashMap<String, _SeriesInfo<D>>();
+  final _seriesInfo = LinkedHashMap<String, _SeriesInfo<D>>();
 
   SymbolAnnotationRenderer(
       {String rendererId, SymbolAnnotationRendererConfig config})
@@ -79,7 +79,7 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
 
     double offset = 0.0;
 
-    seriesList.forEach((MutableSeries<D> series) {
+    seriesList.forEach((series) {
       final seriesKey = series.id;
 
       // Default to the configured radius if none was defined by the series.
@@ -105,19 +105,18 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
           localConfig.verticalSymbolTopPaddingPx +
           (rowInnerHeight / 2);
 
-      series.measureFn = (int index) => 0;
-      series.measureOffsetFn = (int index) => 0;
+      series.measureFn = (index) => 0;
+      series.measureOffsetFn = (index) => 0;
 
       // Override the key function to allow for range annotations that start at
       // the same point. This is a necessary hack because every annotation has a
       // measure value of 0, so the key generated in [PointRenderer] is not
       // unique enough.
-      series.keyFn ??=
-          (int index) => '${series.id}__${series.domainFn(index)}__'
-              '${series.domainLowerBoundFn(index)}__'
-              '${series.domainUpperBoundFn(index)}';
+      series.keyFn ??= (index) => '${series.id}__${series.domainFn(index)}__'
+          '${series.domainLowerBoundFn(index)}__'
+          '${series.domainUpperBoundFn(index)}';
 
-      _seriesInfo[seriesKey] = new _SeriesInfo<D>(
+      _seriesInfo[seriesKey] = _SeriesInfo<D>(
         rowHeight: rowHeight,
         rowStart: offset,
         symbolCenter: symbolCenter,
@@ -165,7 +164,7 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
     final measureUpperBoundPosition =
         domainUpperBoundPosition != null ? measurePosition : null;
 
-    return new DatumPoint<D>(
+    return DatumPoint<D>(
         datum: datum,
         domain: domainValue,
         series: series,
@@ -180,7 +179,7 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
   @override
   void onAttach(BaseChart<D> chart) {
     if (!(chart is CartesianChart)) {
-      throw new ArgumentError(
+      throw ArgumentError(
           'SymbolAnnotationRenderer can only be attached to a CartesianChart');
     }
 
@@ -205,26 +204,18 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
     // Use the domain axis of the attached chart to render the separator lines
     // to keep the same overall style.
     if ((config as SymbolAnnotationRendererConfig).showSeparatorLines) {
-      seriesPointMap.forEach((String key, List<AnimatedPoint<D>> points) {
+      seriesPointMap.forEach((key, points) {
         final seriesInfo = _seriesInfo[key];
 
         final y = componentBounds.top + seriesInfo.rowStart;
 
         final domainAxis = _chart.domainAxis;
-        final bounds = new Rectangle<int>(
+        final bounds = Rectangle<int>(
             componentBounds.left, y.round(), componentBounds.width, 0);
         domainAxis.tickDrawStrategy
             .drawAxisLine(canvas, domainAxis.axisOrientation, bounds);
       });
     }
-  }
-
-  @override
-  GraphicsFactory get graphicsFactory => _graphicsFactory;
-
-  @override
-  set graphicsFactory(GraphicsFactory value) {
-    _graphicsFactory = value;
   }
 
   //
@@ -233,7 +224,7 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
 
   @override
   LayoutViewConfig get layoutConfig {
-    return new LayoutViewConfig(
+    return LayoutViewConfig(
         paintOrder: LayoutViewPaintOrder.point,
         position: LayoutPosition.Bottom,
         positionOrder: LayoutViewPositionOrder.symbolAnnotation);
@@ -244,7 +235,7 @@ class SymbolAnnotationRenderer<D> extends PointRenderer<D>
     // The sizing of component is not flexible. It's height is always a multiple
     // of the number of series rendered, even if that ends up taking all of the
     // available margin space.
-    return new ViewMeasuredSizes(
+    return ViewMeasuredSizes(
         preferredWidth: maxWidth, preferredHeight: _currentHeight);
   }
 

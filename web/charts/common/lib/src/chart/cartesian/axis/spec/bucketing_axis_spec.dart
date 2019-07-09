@@ -80,8 +80,8 @@ class BucketingAxisSpec extends NumericAxisSpec {
             tickProviderSpec:
                 tickProviderSpec ?? const BucketingNumericTickProviderSpec(),
             tickFormatterSpec: tickFormatterSpec ??
-                new BasicNumericTickFormatterSpec.fromNumberFormat(
-                    new NumberFormat.percentPattern()),
+                BasicNumericTickFormatterSpec.fromNumberFormat(
+                    NumberFormat.percentPattern()),
             showAxisLine: showAxisLine,
             viewport: viewport ?? const NumericExtents(0.0, 1.0));
 
@@ -104,7 +104,7 @@ class BucketingAxisSpec extends NumericAxisSpec {
   }
 
   @override
-  BucketingNumericAxis createAxis() => new BucketingNumericAxis();
+  BucketingNumericAxis createAxis() => BucketingNumericAxis();
 
   @override
   bool operator ==(Object other) =>
@@ -155,7 +155,7 @@ class BucketingNumericTickProviderSpec extends BasicNumericTickProviderSpec {
 
   @override
   BucketingNumericTickProvider createTickProvider(ChartContext context) {
-    final provider = new BucketingNumericTickProvider()
+    final provider = BucketingNumericTickProvider()
       ..zeroBound = zeroBound
       ..dataIsInWholeNumbers = dataIsInWholeNumbers;
 

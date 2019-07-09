@@ -41,20 +41,20 @@ class TimeSeriesChart extends CartesianChart<DateTime> {
       : super(
             vertical: vertical,
             layoutConfig: layoutConfig,
-            domainAxis: new DateTimeAxis(dateTimeFactory),
+            domainAxis: DateTimeAxis(dateTimeFactory),
             primaryMeasureAxis: primaryMeasureAxis,
             secondaryMeasureAxis: secondaryMeasureAxis,
             disjointMeasureAxes: disjointMeasureAxes);
 
   @override
   void initDomainAxis() {
-    domainAxis.tickDrawStrategy = new SmallTickRendererSpec<DateTime>()
+    domainAxis.tickDrawStrategy = SmallTickRendererSpec<DateTime>()
         .createDrawStrategy(context, graphicsFactory);
   }
 
   @override
   SeriesRenderer<DateTime> makeDefaultRenderer() {
-    return new LineRenderer<DateTime>()
+    return LineRenderer<DateTime>()
       ..rendererId = SeriesRenderer.defaultRendererId;
   }
 

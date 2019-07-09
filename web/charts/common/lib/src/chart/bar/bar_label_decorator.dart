@@ -33,9 +33,9 @@ class BarLabelDecorator<D> extends BarRendererDecorator<D> {
   static const _defaultLabelPadding = 5;
   static const _defaultLabelAnchor = BarLabelAnchor.start;
   static final _defaultInsideLabelStyle =
-      new TextStyleSpec(fontSize: 12, color: Color.white);
+      TextStyleSpec(fontSize: 12, color: Color.white);
   static final _defaultOutsideLabelStyle =
-      new TextStyleSpec(fontSize: 12, color: Color.black);
+      TextStyleSpec(fontSize: 12, color: Color.black);
 
   /// Configures [TextStyleSpec] for labels placed inside the bars.
   final TextStyleSpec insideLabelStyleSpec;

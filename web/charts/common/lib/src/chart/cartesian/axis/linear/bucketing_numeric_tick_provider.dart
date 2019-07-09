@@ -83,7 +83,7 @@ class BucketingNumericTickProvider extends NumericTickProvider {
       throw ('The showBucket flag must be set before getting ticks.');
     }
 
-    final localFormatter = new _BucketingFormatter()
+    final localFormatter = _BucketingFormatter()
       ..threshold = _threshold
       ..originalFormatter = formatter;
 
@@ -100,7 +100,7 @@ class BucketingNumericTickProvider extends NumericTickProvider {
     assert(scale != null);
 
     // Create a tick for the threshold.
-    final thresholdTick = new Tick<num>(
+    final thresholdTick = Tick<num>(
         value: _threshold,
         textElement: graphicsFactory
             .createTextElement(localFormatter.formatValue(_threshold)),
@@ -110,8 +110,8 @@ class BucketingNumericTickProvider extends NumericTickProvider {
     tickDrawStrategy.decorateTicks(<Tick<num>>[thresholdTick]);
 
     // Filter out ticks that sit below the threshold.
-    ticks.removeWhere((Tick<num> tick) =>
-        tick.value <= thresholdTick.value && tick.value != 0.0);
+    ticks.removeWhere(
+        (tick) => tick.value <= thresholdTick.value && tick.value != 0.0);
 
     // Finally, add our threshold tick to the list.
     ticks.add(thresholdTick);

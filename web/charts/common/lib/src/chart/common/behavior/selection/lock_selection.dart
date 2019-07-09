@@ -47,11 +47,10 @@ class LockSelection<D> implements ChartBehavior<D> {
     // Setup the appropriate gesture listening.
     switch (this.eventTrigger) {
       case SelectionTrigger.tap:
-        _listener =
-            new GestureListener(onTapTest: _onTapTest, onTap: _onSelect);
+        _listener = GestureListener(onTapTest: _onTapTest, onTap: _onSelect);
         break;
       default:
-        throw new ArgumentError('LockSelection does not support the event '
+        throw ArgumentError('LockSelection does not support the event '
             'trigger "${this.eventTrigger}"');
         break;
     }

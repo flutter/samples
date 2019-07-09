@@ -66,7 +66,7 @@ class OrdinalAxisSpec extends AxisSpec<String> {
   }
 
   @override
-  OrdinalAxis createAxis() => new OrdinalAxis();
+  OrdinalAxis createAxis() => OrdinalAxis();
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +94,7 @@ class BasicOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
 
   @override
   OrdinalTickProvider createTickProvider(ChartContext context) =>
-      new OrdinalTickProvider();
+      OrdinalTickProvider();
 
   @override
   bool operator ==(Object other) => other is BasicOrdinalTickProviderSpec;
@@ -112,7 +112,7 @@ class StaticOrdinalTickProviderSpec implements OrdinalTickProviderSpec {
 
   @override
   StaticTickProvider<String> createTickProvider(ChartContext context) =>
-      new StaticTickProvider<String>(tickSpecs);
+      StaticTickProvider<String>(tickSpecs);
 
   @override
   bool operator ==(Object other) =>
@@ -129,7 +129,7 @@ class BasicOrdinalTickFormatterSpec implements OrdinalTickFormatterSpec {
 
   @override
   OrdinalTickFormatter createTickFormatter(ChartContext context) =>
-      new OrdinalTickFormatter();
+      OrdinalTickFormatter();
 
   @override
   bool operator ==(Object other) => other is BasicOrdinalTickFormatterSpec;

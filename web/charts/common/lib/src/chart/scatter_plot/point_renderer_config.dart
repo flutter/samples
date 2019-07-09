@@ -42,7 +42,7 @@ class PointRendererConfig<D> extends LayoutViewConfig
   /// [symbolRenderer].
   final Map<String, SymbolRenderer> customSymbolRenderers;
 
-  final rendererAttributes = new RendererAttributes();
+  final rendererAttributes = RendererAttributes();
 
   /// Default radius of the points, used if a series does not define a radiusPx
   /// accessor function.
@@ -75,6 +75,6 @@ class PointRendererConfig<D> extends LayoutViewConfig
 
   @override
   PointRenderer<D> build() {
-    return new PointRenderer<D>(config: this, rendererId: customRendererId);
+    return PointRenderer<D>(config: this, rendererId: customRendererId);
   }
 }

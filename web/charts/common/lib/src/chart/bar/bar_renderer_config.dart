@@ -56,7 +56,7 @@ class BarRendererConfig<D> extends BaseBarRendererConfig<D> {
 
   @override
   BarRenderer<D> build() {
-    return new BarRenderer<D>(config: this, rendererId: customRendererId);
+    return BarRenderer<D>(config: this, rendererId: customRendererId);
   }
 
   @override
