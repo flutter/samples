@@ -154,14 +154,14 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.0"
+    version: "0.16.1"
   dart_style:
     dependency: transitive
     description:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.8"
+    version: "1.2.9"
   fixnum:
     dependency: transitive
     description:
@@ -273,13 +273,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  json_rpc_2:
-    dependency: transitive
-    description:
-      name: json_rpc_2
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   kernel:
     dependency: transitive
     description:
@@ -370,7 +363,7 @@ packages:
       name: protobuf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.12"
+    version: "0.13.14"
   pub_semver:
     dependency: transitive
     description:
@@ -489,7 +482,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.4"
+    version: "1.6.5"
   test_api:
     dependency: transitive
     description:
@@ -503,7 +496,7 @@ packages:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.6"
+    version: "0.2.7"
   timing:
     dependency: transitive
     description:
@@ -525,13 +518,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  vm_service_client:
+  vm_service_lib:
     dependency: transitive
     description:
-      name: vm_service_client
+      name: vm_service_lib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.6+2"
+    version: "3.21.0"
   watcher:
     dependency: transitive
     description:

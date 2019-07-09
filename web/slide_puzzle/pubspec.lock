@@ -147,14 +147,14 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.0"
+    version: "0.16.1"
   dart_style:
     dependency: transitive
     description:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.8"
+    version: "1.2.9"
   fixnum:
     dependency: transitive
     description:
@@ -333,7 +333,7 @@ packages:
       name: protobuf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.12"
+    version: "0.13.14"
   provider:
     dependency: "direct main"
     description:
