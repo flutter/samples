@@ -86,11 +86,6 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   bool _running = false;
   bool _paused = false;
 
-  InfiniteProcessIsolateController() {
-    start();
-    _running = true;
-  }
-
   Future<void> createIsolate() async {
     mIceRP = ReceivePort();
     newIsolate = await Isolate.spawn(_secondIsolateEntryPoint, mIceRP.sendPort);
@@ -110,7 +105,6 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   Future<void> start() async {
     if (_running == false && _paused == false) {
       await createIsolate();
-      if (newIsolate == null) return;
       listen();
       _running = true;
       notifyListeners();
@@ -259,23 +253,19 @@ Widget radioButtonWidget(BuildContext context) {
       Radio(
         value: 1,
         groupValue: controller.multiplier,
-        // The following is a result of https://github.com/dart-lang/linter/issues/695
-        // ignore: avoid_types_on_closure_parameters
-        onChanged: (int _) => controller.setMultiplier(1),
+        onChanged: (dynamic _) => controller.setMultiplier(1),
       ),
       Text('1x'),
       Radio(
         value: 2,
         groupValue: controller.multiplier,
-        // ignore: avoid_types_on_closure_parameters
-        onChanged: (int _) => controller.setMultiplier(2),
+        onChanged: (dynamic _) => controller.setMultiplier(2),
       ),
       Text('2x'),
       Radio(
         value: 3,
         groupValue: controller.multiplier,
-        // ignore: avoid_types_on_closure_parameters
-        onChanged: (int _) => controller.setMultiplier(3),
+        onChanged: (dynamic _) => controller.setMultiplier(3),
       ),
       Text('3x'),
     ],
