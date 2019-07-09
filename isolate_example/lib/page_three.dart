@@ -205,7 +205,8 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 
         callerSP.send('done');
       } else if (message is TransferableTypedData) {
-        await generateAndSum(callerSP, message.materialize().asInt32List(), length);
+        await generateAndSum(
+            callerSP, message.materialize().asInt32List(), length);
         length++;
       } else if (message is List<int>) {
         await generateAndSum(callerSP, message, length);
@@ -227,7 +228,8 @@ Iterable<int> createNums() sync* {
   }
 }
 
-Future<void> generateAndSum(SendPort callerSP, Iterable<int> iter, int length) async {
+Future<void> generateAndSum(
+    SendPort callerSP, Iterable<int> iter, int length) async {
   int sum = 0;
   int count = 1;
 
