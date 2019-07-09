@@ -9,6 +9,27 @@ A sample application that demonstrate best practices when using [`isolates`](htt
 * Demonstrate how to initialize and use an isolate.
 * Show the cost of moving data between isolates and provide alternatives.
 
+## The important bits
+
+### `page_one.dart`
+
+Compares running a large computation on the main isolate vs on a secondary isolate. 
+The `SmoothAnimationWidget` will lower frames when the performance drops.
+
+### `page_two.dart`
+
+An infinite process will be run on the secondary isolate.  The process will be an 
+endless loop of the summation of 100 million randomly generated numbers in increments
+of 10 with the results being printed. The user can start, terminate, pause, resume,
+and change how many time the result will be multiplied by.
+
+### `page_three.dart`
+
+Shows how expensive it is to move large amounts of data between isolates. This will 
+be done by either creating large amounts of randomly generated numbers on the main isolate
+to send to the secondary isolate to be summated or simply generating the number on the 
+second isolate.
+
 ## Questions/issues
 
 If you have a general question about any of the techniques you see in
