@@ -1,6 +1,8 @@
 A gentle animation that provides a calming experience to stressed developers.
 
 Contributed as part of the Flutter Create 5K challenge by Fabian Stein.
+Original source at
+[github.com/Fabian-Stein/timeflow](https://github.com/Fabian-Stein/timeflow).
 
 Timers and stopwatches aren’t the most peaceful gadgets, often reminding us of
 urgent tasks, deadlines and unpleasant appointments. Not in this case, Timeflow

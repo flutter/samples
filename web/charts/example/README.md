@@ -2,7 +2,7 @@ Examples of the [charts_flutter](https://pub.dev/packages/charts_flutter) packag
 
 Original source at [github.com/google/charts](https://github.com/google/charts).
 
-Copied from [github.com/google/charts](https://github.com/google/charts) at
-[35aeffe7c9](https://github.com/google/charts/commit/35aeffe7c96aa7d231c90fddd9766998545f1080).
+Copied from
+[commit 35aeffe7c9](https://github.com/google/charts/commit/35aeffe7c96aa7d231c90fddd9766998545f1080).
 
 With changes to run on the web.

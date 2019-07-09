@@ -1,6 +1,9 @@
 A sample that shows a visual recipe catalog for Filipino food.
 
 Contributed as part of the Flutter Create 5K challenge by John Mark Grancapal.
+Original source at
+[github.com/markgrancapal/filipino_cuisine](https://github.com/markgrancapal/filipino_cuisine).
+
 
 **Asset License**: All images used on this app are under the "CC0 - Creative Commons" license
 
