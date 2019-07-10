@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/models/cart.dart';
+import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
-import 'package:provider_shopper/screens/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,10 +12,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (context) => CartModel(),
+    return MultiProvider(
+      providers: [
+        Provider(builder: (context) => CatalogModel()),
+        ChangeNotifierProvider(builder: (context) => CartModel()),
+      ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.yellow,
@@ -30,8 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => MyLoginScreen(),
-          '/catalog': (context) => MyCatalog(),
+          '/': (context) => MyCatalog(),
           '/cart': (context) => MyCart(),
         },
       ),

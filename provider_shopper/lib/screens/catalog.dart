@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/models/cart.dart';
+import 'package:provider_shopper/models/catalog.dart';
 
 class MyCatalog extends StatelessWidget {
   @override
@@ -60,7 +61,7 @@ class _MyListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var item = Item(index);
+    var item = Provider.of<CatalogModel>(context).getByPosition(index);
     var textTheme = Theme.of(context).textTheme.title;
 
     return Padding(
@@ -72,7 +73,7 @@ class _MyListItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1,
               child: Container(
-                color: Colors.primaries[index % Colors.primaries.length],
+                color: item.color,
               ),
             ),
             SizedBox(width: 24),
