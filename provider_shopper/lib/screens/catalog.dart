@@ -12,8 +12,9 @@ class MyCatalog extends StatelessWidget {
           _MyAppBar(),
           SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverList(
-              delegate:
-                  SliverChildBuilderDelegate((_, index) => _MyListItem(index))),
+            delegate: SliverChildBuilderDelegate(
+                (context, index) => _MyListItem(index)),
+          ),
         ],
       ),
     );
@@ -47,8 +48,9 @@ class _MyAppBar extends StatelessWidget {
       floating: true,
       actions: [
         IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () => Navigator.pushNamed(context, '/cart')),
+          icon: Icon(Icons.shopping_cart),
+          onPressed: () => Navigator.pushNamed(context, '/cart'),
+        ),
       ],
     );
   }

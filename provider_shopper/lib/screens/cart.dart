@@ -32,13 +32,18 @@ class MyCart extends StatelessWidget {
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme.title;
+    var textStyle = Theme.of(context).textTheme.title;
     var cart = Provider.of<CartModel>(context);
 
-    return ListView(
-      children: [
-        for (var item in cart.items) Text('· ${item.name}', style: textTheme),
-      ],
+    return ListView.builder(
+      itemCount: cart.items.length,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.done),
+        title: Text(
+          cart.items[index].name,
+          style: textStyle,
+        ),
+      ),
     );
   }
 }
@@ -46,7 +51,7 @@ class _CartList extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme.display4.copyWith(fontSize: 48);
+    var textStyle = Theme.of(context).textTheme.display4.copyWith(fontSize: 48);
 
     return SizedBox(
       height: 200,
@@ -56,7 +61,7 @@ class _CartTotal extends StatelessWidget {
           children: [
             Consumer<CartModel>(
                 builder: (context, cart, child) =>
-                    Text('\$${cart.totalPrice}', style: textTheme)),
+                    Text('\$${cart.totalPrice}', style: textStyle)),
             SizedBox(width: 24),
             FlatButton(
               onPressed: () {

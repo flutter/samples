@@ -1,5 +1,5 @@
 name: provider_shopper
-description: A Flutter app that uses Provider.
+description: A shopping app sample that uses Provider for state management.
 
 version: 1.0.0+1
 
