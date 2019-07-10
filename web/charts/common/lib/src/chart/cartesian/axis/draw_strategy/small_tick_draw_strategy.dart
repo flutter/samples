@@ -57,7 +57,7 @@ class SmallTickRendererSpec<D> extends BaseRenderSpec<D> {
   @override
   TickDrawStrategy<D> createDrawStrategy(
           ChartContext context, GraphicsFactory graphicsFactory) =>
-      new SmallTickDrawStrategy<D>(context, graphicsFactory,
+      SmallTickDrawStrategy<D>(context, graphicsFactory,
           tickLengthPx: tickLengthPx,
           lineStyleSpec: lineStyle,
           labelStyleSpec: labelStyle,
@@ -128,25 +128,25 @@ class SmallTickDrawStrategy<D> extends BaseTickDrawStrategy<D> {
     switch (orientation) {
       case AxisOrientation.top:
         double x = tick.locationPx;
-        tickStart = new Point(x, axisBounds.bottom - tickLength);
-        tickEnd = new Point(x, axisBounds.bottom);
+        tickStart = Point(x, axisBounds.bottom - tickLength);
+        tickEnd = Point(x, axisBounds.bottom);
         break;
       case AxisOrientation.bottom:
         double x = tick.locationPx;
-        tickStart = new Point(x, axisBounds.top);
-        tickEnd = new Point(x, axisBounds.top + tickLength);
+        tickStart = Point(x, axisBounds.top);
+        tickEnd = Point(x, axisBounds.top + tickLength);
         break;
       case AxisOrientation.right:
         double y = tick.locationPx;
 
-        tickStart = new Point(axisBounds.left, y);
-        tickEnd = new Point(axisBounds.left + tickLength, y);
+        tickStart = Point(axisBounds.left, y);
+        tickEnd = Point(axisBounds.left + tickLength, y);
         break;
       case AxisOrientation.left:
         double y = tick.locationPx;
 
-        tickStart = new Point(axisBounds.right - tickLength, y);
-        tickEnd = new Point(axisBounds.right, y);
+        tickStart = Point(axisBounds.right - tickLength, y);
+        tickEnd = Point(axisBounds.right, y);
         break;
     }
 

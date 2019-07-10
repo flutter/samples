@@ -72,7 +72,7 @@ class Series<T, D> {
 
   // TODO: should this be immutable as well? If not, should any of
   // the non-required ones be final?
-  final SeriesAttributes attributes = new SeriesAttributes();
+  final SeriesAttributes attributes = SeriesAttributes();
 
   factory Series(
       {@required String id,
@@ -99,54 +99,51 @@ class Series<T, D> {
       String seriesCategory,
       TypedAccessorFn<T, num> strokeWidthPxFn}) {
     // Wrap typed accessors.
-    final _domainFn = (int index) => domainFn(data[index], index);
-    final _measureFn = (int index) => measureFn(data[index], index);
-    final _areaColorFn = areaColorFn == null
-        ? null
-        : (int index) => areaColorFn(data[index], index);
+    final _domainFn = (index) => domainFn(data[index], index);
+    final _measureFn = (index) => measureFn(data[index], index);
+    final _areaColorFn =
+        areaColorFn == null ? null : (index) => areaColorFn(data[index], index);
     final _colorFn =
-        colorFn == null ? null : (int index) => colorFn(data[index], index);
+        colorFn == null ? null : (index) => colorFn(data[index], index);
     final _dashPatternFn = dashPatternFn == null
         ? null
-        : (int index) => dashPatternFn(data[index], index);
+        : (index) => dashPatternFn(data[index], index);
     final _domainLowerBoundFn = domainLowerBoundFn == null
         ? null
-        : (int index) => domainLowerBoundFn(data[index], index);
+        : (index) => domainLowerBoundFn(data[index], index);
     final _domainUpperBoundFn = domainUpperBoundFn == null
         ? null
-        : (int index) => domainUpperBoundFn(data[index], index);
-    final _fillColorFn = fillColorFn == null
-        ? null
-        : (int index) => fillColorFn(data[index], index);
+        : (index) => domainUpperBoundFn(data[index], index);
+    final _fillColorFn =
+        fillColorFn == null ? null : (index) => fillColorFn(data[index], index);
     final _fillPatternFn = fillPatternFn == null
         ? null
-        : (int index) => fillPatternFn(data[index], index);
+        : (index) => fillPatternFn(data[index], index);
     final _labelAccessorFn = labelAccessorFn == null
         ? null
-        : (int index) => labelAccessorFn(data[index], index);
+        : (index) => labelAccessorFn(data[index], index);
     final _insideLabelStyleAccessorFn = insideLabelStyleAccessorFn == null
         ? null
-        : (int index) => insideLabelStyleAccessorFn(data[index], index);
+        : (index) => insideLabelStyleAccessorFn(data[index], index);
     final _outsideLabelStyleAccessorFn = outsideLabelStyleAccessorFn == null
         ? null
-        : (int index) => outsideLabelStyleAccessorFn(data[index], index);
+        : (index) => outsideLabelStyleAccessorFn(data[index], index);
     final _measureLowerBoundFn = measureLowerBoundFn == null
         ? null
-        : (int index) => measureLowerBoundFn(data[index], index);
+        : (index) => measureLowerBoundFn(data[index], index);
     final _measureUpperBoundFn = measureUpperBoundFn == null
         ? null
-        : (int index) => measureUpperBoundFn(data[index], index);
+        : (index) => measureUpperBoundFn(data[index], index);
     final _measureOffsetFn = measureOffsetFn == null
         ? null
-        : (int index) => measureOffsetFn(data[index], index);
-    final _radiusPxFn = radiusPxFn == null
-        ? null
-        : (int index) => radiusPxFn(data[index], index);
+        : (index) => measureOffsetFn(data[index], index);
+    final _radiusPxFn =
+        radiusPxFn == null ? null : (index) => radiusPxFn(data[index], index);
     final _strokeWidthPxFn = strokeWidthPxFn == null
         ? null
-        : (int index) => strokeWidthPxFn(data[index], index);
+        : (index) => strokeWidthPxFn(data[index], index);
 
-    return new Series._internal(
+    return Series._internal(
       id: id,
       data: data,
       domainFn: _domainFn,
@@ -214,9 +211,9 @@ class Series<T, D> {
 /// such usage.
 ///
 /// Otherwise, [index] must be a valid subscript into a list of `series.length`.
-typedef R AccessorFn<R>(int index);
+typedef AccessorFn<R> = R Function(int index);
 
-typedef R TypedAccessorFn<T, R>(T datum, int index);
+typedef TypedAccessorFn<T, R> = R Function(T datum, int index);
 
 class AttributeKey<R> extends TypedKey<R> {
   const AttributeKey(String uniqueKey) : super(uniqueKey);

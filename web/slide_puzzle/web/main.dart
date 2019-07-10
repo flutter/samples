@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter_web_ui/ui.dart' as ui;
-import 'package:flutter_web.examples.slide_puzzle/main.dart' as app;
+import 'package:slide_puzzle/main.dart' as app;
 
 void main() async {
   await ui.webOnlyInitializePlatform();

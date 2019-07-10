@@ -57,14 +57,14 @@ class FakeDrawStrategy<D> extends BaseTickDrawStrategy<D> {
 
   FakeDrawStrategy(
       this.collidesAfterTickCount, this.alternateRenderingAfterTickCount)
-      : super(null, new FakeGraphicsFactory());
+      : super(null, FakeGraphicsFactory());
 
   @override
   CollisionReport collides(List<Tick<D>> ticks, _) {
     final ticksCollide = ticks.length >= collidesAfterTickCount;
     final alternateTicksUsed = ticks.length >= alternateRenderingAfterTickCount;
 
-    return new CollisionReport(
+    return CollisionReport(
         ticksCollide: ticksCollide,
         ticks: ticks,
         alternateTicksUsed: alternateTicksUsed);
@@ -82,13 +82,13 @@ class FakeDrawStrategy<D> extends BaseTickDrawStrategy<D> {
 /// A fake [GraphicsFactory] that returns [MockTextStyle] and [MockTextElement].
 class FakeGraphicsFactory extends GraphicsFactory {
   @override
-  TextStyle createTextPaint() => new MockTextStyle();
+  TextStyle createTextPaint() => MockTextStyle();
 
   @override
-  TextElement createTextElement(String text) => new MockTextElement();
+  TextElement createTextElement(String text) => MockTextElement();
 
   @override
-  LineStyle createLinePaint() => new MockLinePaint();
+  LineStyle createLinePaint() => MockLinePaint();
 }
 
 class MockTextStyle extends Mock implements TextStyle {}
@@ -100,24 +100,24 @@ class MockLinePaint extends Mock implements LineStyle {}
 class MockChartContext extends Mock implements ChartContext {}
 
 void main() {
-  const dateTimeFactory = const SimpleDateTimeFactory();
+  const dateTimeFactory = SimpleDateTimeFactory();
   FakeGraphicsFactory graphicsFactory;
   EndPointsTickProvider tickProvider;
   ChartContext context;
 
   setUp(() {
-    graphicsFactory = new FakeGraphicsFactory();
-    context = new MockChartContext();
+    graphicsFactory = FakeGraphicsFactory();
+    context = MockChartContext();
   });
 
   test('dateTime_choosesEndPointTicks', () {
-    final formatter = new DateTimeTickFormatter(dateTimeFactory);
-    final scale = new MockDateTimeScale();
-    tickProvider = new EndPointsTickProvider<DateTime>();
+    final formatter = DateTimeTickFormatter(dateTimeFactory);
+    final scale = MockDateTimeScale();
+    tickProvider = EndPointsTickProvider<DateTime>();
 
-    final drawStrategy = new FakeDrawStrategy<DateTime>(10, 10);
-    when(scale.viewportDomain).thenReturn(new DateTimeExtents(
-        start: new DateTime(2018, 8, 1), end: new DateTime(2018, 8, 11)));
+    final drawStrategy = FakeDrawStrategy<DateTime>(10, 10);
+    when(scale.viewportDomain).thenReturn(DateTimeExtents(
+        start: DateTime(2018, 8, 1), end: DateTime(2018, 8, 11)));
     when(scale.rangeWidth).thenReturn(1000);
     when(scale.domainStepSize).thenReturn(1000.0);
 
@@ -131,17 +131,17 @@ void main() {
         orientation: null);
 
     expect(ticks, hasLength(2));
-    expect(ticks[0].value, equals(new DateTime(2018, 8, 1)));
-    expect(ticks[1].value, equals(new DateTime(2018, 8, 11)));
+    expect(ticks[0].value, equals(DateTime(2018, 8, 1)));
+    expect(ticks[1].value, equals(DateTime(2018, 8, 11)));
   });
 
   test('numeric_choosesEndPointTicks', () {
-    final formatter = new NumericTickFormatter();
-    final scale = new MockNumericScale();
-    tickProvider = new EndPointsTickProvider<num>();
+    final formatter = NumericTickFormatter();
+    final scale = MockNumericScale();
+    tickProvider = EndPointsTickProvider<num>();
 
-    final drawStrategy = new FakeDrawStrategy<num>(10, 10);
-    when(scale.viewportDomain).thenReturn(new NumericExtents(10.0, 70.0));
+    final drawStrategy = FakeDrawStrategy<num>(10, 10);
+    when(scale.viewportDomain).thenReturn(NumericExtents(10.0, 70.0));
     when(scale.rangeWidth).thenReturn(1000);
     when(scale.domainStepSize).thenReturn(1000.0);
 
@@ -160,15 +160,15 @@ void main() {
   });
 
   test('ordinal_choosesEndPointTicks', () {
-    final formatter = new OrdinalTickFormatter();
-    final scale = new SimpleOrdinalScale();
+    final formatter = OrdinalTickFormatter();
+    final scale = SimpleOrdinalScale();
     scale.addDomain('A');
     scale.addDomain('B');
     scale.addDomain('C');
     scale.addDomain('D');
-    tickProvider = new EndPointsTickProvider<String>();
+    tickProvider = EndPointsTickProvider<String>();
 
-    final drawStrategy = new FakeDrawStrategy<String>(10, 10);
+    final drawStrategy = FakeDrawStrategy<String>(10, 10);
 
     final ticks = tickProvider.getTicks(
         context: context,
@@ -185,13 +185,13 @@ void main() {
   });
 
   test('dateTime_emptySeriesChoosesNoTicks', () {
-    final formatter = new DateTimeTickFormatter(dateTimeFactory);
-    final scale = new MockDateTimeScale();
-    tickProvider = new EndPointsTickProvider<DateTime>();
+    final formatter = DateTimeTickFormatter(dateTimeFactory);
+    final scale = MockDateTimeScale();
+    tickProvider = EndPointsTickProvider<DateTime>();
 
-    final drawStrategy = new FakeDrawStrategy<DateTime>(10, 10);
-    when(scale.viewportDomain).thenReturn(new DateTimeExtents(
-        start: new DateTime(2018, 8, 1), end: new DateTime(2018, 8, 11)));
+    final drawStrategy = FakeDrawStrategy<DateTime>(10, 10);
+    when(scale.viewportDomain).thenReturn(DateTimeExtents(
+        start: DateTime(2018, 8, 1), end: DateTime(2018, 8, 11)));
     when(scale.rangeWidth).thenReturn(1000);
 
     // An un-configured axis has no domain step size, and its scale defaults to
@@ -211,12 +211,12 @@ void main() {
   });
 
   test('numeric_emptySeriesChoosesNoTicks', () {
-    final formatter = new NumericTickFormatter();
-    final scale = new MockNumericScale();
-    tickProvider = new EndPointsTickProvider<num>();
+    final formatter = NumericTickFormatter();
+    final scale = MockNumericScale();
+    tickProvider = EndPointsTickProvider<num>();
 
-    final drawStrategy = new FakeDrawStrategy<num>(10, 10);
-    when(scale.viewportDomain).thenReturn(new NumericExtents(10.0, 70.0));
+    final drawStrategy = FakeDrawStrategy<num>(10, 10);
+    when(scale.viewportDomain).thenReturn(NumericExtents(10.0, 70.0));
     when(scale.rangeWidth).thenReturn(1000);
 
     // An un-configured axis has no domain step size, and its scale defaults to

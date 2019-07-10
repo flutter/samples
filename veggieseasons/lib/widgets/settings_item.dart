@@ -23,7 +23,7 @@ class SettingsNavigationIndicator extends StatelessWidget {
     return Icon(
       CupertinoIcons.forward,
       color: Styles.settingsMediumGray,
-      size: 21.0,
+      size: 21,
     );
   }
 }
@@ -45,14 +45,14 @@ class SettingsIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5.0),
+        borderRadius: BorderRadius.circular(5),
         color: backgroundColor,
       ),
       child: Center(
         child: Icon(
           icon,
           color: foregroundColor,
-          size: 20.0,
+          size: 20,
         ),
       ),
     );
@@ -85,67 +85,6 @@ class SettingsItemState extends State<SettingsItem> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> rowChildren = [];
-
-    if (widget.icon != null) {
-      rowChildren.add(
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 15.0,
-            bottom: 2.0,
-          ),
-          child: SizedBox(
-            height: 29.0,
-            width: 29.0,
-            child: widget.icon,
-          ),
-        ),
-      );
-    }
-
-    Widget titleSection;
-
-    if (widget.subtitle == null) {
-      titleSection = Padding(
-        padding: EdgeInsets.only(top: 1.5),
-        child: Text(widget.label),
-      );
-    } else {
-      titleSection = Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(height: 8.5),
-          Text(widget.label),
-          SizedBox(height: 4.0),
-          Text(
-            widget.subtitle,
-            style: TextStyle(
-              fontSize: 12.0,
-              letterSpacing: -0.2,
-            ),
-          )
-        ],
-      );
-    }
-
-    rowChildren.add(
-      Expanded(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 15.0,
-          ),
-          child: titleSection,
-        ),
-      ),
-    );
-
-    rowChildren.add(
-      Padding(
-        padding: const EdgeInsets.only(right: 11.0),
-        child: widget.content ?? Container(),
-      ),
-    );
-
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       color: pressed ? Styles.settingsItemPressed : Styles.transparentColor,
@@ -168,9 +107,53 @@ class SettingsItemState extends State<SettingsItem> {
           }
         },
         child: SizedBox(
-          height: widget.subtitle == null ? 44.0 : 57.0,
+          height: widget.subtitle == null ? 44 : 57,
           child: Row(
-            children: rowChildren,
+            children: [
+              if (widget.icon != null)
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 15,
+                    bottom: 2,
+                  ),
+                  child: SizedBox(
+                    height: 29,
+                    width: 29,
+                    child: widget.icon,
+                  ),
+                ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 15,
+                  ),
+                  child: widget.subtitle != null
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(height: 8.5),
+                            Text(widget.label),
+                            SizedBox(height: 4),
+                            Text(
+                              widget.subtitle,
+                              style: TextStyle(
+                                fontSize: 12,
+                                letterSpacing: -0.2,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Padding(
+                          padding: EdgeInsets.only(top: 1.5),
+                          child: Text(widget.label),
+                        ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 11),
+                child: widget.content ?? Container(),
+              ),
+            ],
           ),
         ),
       ),

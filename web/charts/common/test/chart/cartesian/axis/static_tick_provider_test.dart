@@ -52,19 +52,19 @@ void main() {
   LinearScale scale;
 
   setUp(() {
-    context = new MockChartContext();
-    graphicsFactory = new MockGraphicsFactory();
-    formatter = new MockNumericTickFormatter();
-    drawStrategy = new MockDrawStrategy();
-    scale = new LinearScale()..range = new ScaleOutputExtent(0, 300);
+    context = MockChartContext();
+    graphicsFactory = MockGraphicsFactory();
+    formatter = MockNumericTickFormatter();
+    drawStrategy = MockDrawStrategy();
+    scale = LinearScale()..range = ScaleOutputExtent(0, 300);
   });
 
   group('scale is extended with static tick values', () {
     test('values extend existing domain values', () {
-      final tickProvider = new StaticTickProvider<num>([
-        new TickSpec<num>(50, label: '50'),
-        new TickSpec<num>(75, label: '75'),
-        new TickSpec<num>(100, label: '100'),
+      final tickProvider = StaticTickProvider<num>([
+        TickSpec<num>(50, label: '50'),
+        TickSpec<num>(75, label: '75'),
+        TickSpec<num>(100, label: '100'),
       ]);
 
       scale.addDomain(60);
@@ -87,10 +87,10 @@ void main() {
     });
 
     test('values within data extent', () {
-      final tickProvider = new StaticTickProvider<num>([
-        new TickSpec<num>(50, label: '50'),
-        new TickSpec<num>(75, label: '75'),
-        new TickSpec<num>(100, label: '100'),
+      final tickProvider = StaticTickProvider<num>([
+        TickSpec<num>(50, label: '50'),
+        TickSpec<num>(75, label: '75'),
+        TickSpec<num>(100, label: '100'),
       ]);
 
       scale.addDomain(0);
@@ -115,13 +115,13 @@ void main() {
 
   group('formatter', () {
     test('is not called when all ticks have labels', () {
-      final tickProvider = new StaticTickProvider<num>([
-        new TickSpec<num>(50, label: '50'),
-        new TickSpec<num>(75, label: '75'),
-        new TickSpec<num>(100, label: '100'),
+      final tickProvider = StaticTickProvider<num>([
+        TickSpec<num>(50, label: '50'),
+        TickSpec<num>(75, label: '75'),
+        TickSpec<num>(100, label: '100'),
       ]);
 
-      final fakeFormatter = new FakeNumericTickFormatter();
+      final fakeFormatter = FakeNumericTickFormatter();
 
       tickProvider.getTicks(
           context: context,
@@ -136,13 +136,13 @@ void main() {
     });
 
     test('is called when one ticks does not have label', () {
-      final tickProvider = new StaticTickProvider<num>([
-        new TickSpec<num>(50, label: '50'),
-        new TickSpec<num>(75),
-        new TickSpec<num>(100, label: '100'),
+      final tickProvider = StaticTickProvider<num>([
+        TickSpec<num>(50, label: '50'),
+        TickSpec<num>(75),
+        TickSpec<num>(100, label: '100'),
       ]);
 
-      final fakeFormatter = new FakeNumericTickFormatter();
+      final fakeFormatter = FakeNumericTickFormatter();
 
       tickProvider.getTicks(
           context: context,
@@ -157,13 +157,13 @@ void main() {
     });
 
     test('is called when all ticks do not have labels', () {
-      final tickProvider = new StaticTickProvider<num>([
-        new TickSpec<num>(50),
-        new TickSpec<num>(75),
-        new TickSpec<num>(100),
+      final tickProvider = StaticTickProvider<num>([
+        TickSpec<num>(50),
+        TickSpec<num>(75),
+        TickSpec<num>(100),
       ]);
 
-      final fakeFormatter = new FakeNumericTickFormatter();
+      final fakeFormatter = FakeNumericTickFormatter();
 
       tickProvider.getTicks(
           context: context,

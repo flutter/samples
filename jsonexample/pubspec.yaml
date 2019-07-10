@@ -16,6 +16,7 @@ dev_dependencies:
   build_runner: ^1.0.0
   built_value_generator: ^6.1.5
   json_serializable: ^2.2.1
+  pedantic: ^1.7.0
 
   flutter_test:
     sdk: flutter

@@ -44,34 +44,34 @@ void main() {
   setUp(() {
     var myFakeDesktopData = [
       // This datum should get a default bounds line radius value.
-      new MyRow('MyCampaign1', 0, 0, 0, 3.0, null, null),
-      new MyRow('MyCampaign2', 10, 10, 12, 5.0, 4.0, 'shape 1'),
-      new MyRow('MyCampaign3', 10, 10, 14, 4.0, 4.0, 'shape 2'),
+      MyRow('MyCampaign1', 0, 0, 0, 3.0, null, null),
+      MyRow('MyCampaign2', 10, 10, 12, 5.0, 4.0, 'shape 1'),
+      MyRow('MyCampaign3', 10, 10, 14, 4.0, 4.0, 'shape 2'),
       // This datum should always get default radius values.
-      new MyRow('MyCampaign4', 13, 12, 15, null, null, null),
+      MyRow('MyCampaign4', 13, 12, 15, null, null, null),
     ];
 
     numericSeriesList = [
-      new MutableSeries<int>(new Series<MyRow, int>(
+      MutableSeries<int>(Series<MyRow, int>(
           id: 'Desktop',
-          colorFn: (MyRow row, _) => MaterialPalette.blue.shadeDefault,
-          domainFn: (MyRow row, _) => row.campaign,
-          domainLowerBoundFn: (MyRow row, _) => row.campaignLower,
-          domainUpperBoundFn: (MyRow row, _) => row.campaignUpper,
-          measureFn: (MyRow row, _) => 0,
-          measureOffsetFn: (MyRow row, _) => 0,
-          radiusPxFn: (MyRow row, _) => row.radius,
+          colorFn: (row, _) => MaterialPalette.blue.shadeDefault,
+          domainFn: (row, _) => row.campaign,
+          domainLowerBoundFn: (row, _) => row.campaignLower,
+          domainUpperBoundFn: (row, _) => row.campaignUpper,
+          measureFn: (row, _) => 0,
+          measureOffsetFn: (row, _) => 0,
+          radiusPxFn: (row, _) => row.radius,
           data: myFakeDesktopData)
         // Define a bounds line radius function.
         ..setAttribute(boundsLineRadiusPxFnKey,
-            (int index) => myFakeDesktopData[index].boundsRadius))
+            (index) => myFakeDesktopData[index].boundsRadius))
     ];
   });
 
   group('preprocess', () {
     test('with numeric data and simple points', () {
-      renderer = new SymbolAnnotationRenderer<int>(
-          config: new SymbolAnnotationRendererConfig());
+      renderer = SymbolAnnotationRenderer<int>(
+          config: SymbolAnnotationRendererConfig());
 
       renderer.preprocessSeries(numericSeriesList);
 

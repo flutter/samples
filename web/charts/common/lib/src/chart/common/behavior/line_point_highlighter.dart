@@ -133,16 +133,16 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
             LinePointHighlighterFollowLineType.nearest,
         dashPattern = dashPattern ?? [1, 3],
         drawFollowLinesAcrossChart = drawFollowLinesAcrossChart ?? true,
-        symbolRenderer = symbolRenderer ?? new CircleSymbolRenderer() {
+        symbolRenderer = symbolRenderer ?? CircleSymbolRenderer() {
     _lifecycleListener =
-        new LifecycleListener<D>(onAxisConfigured: _updateViewData);
+        LifecycleListener<D>(onAxisConfigured: _updateViewData);
   }
 
   @override
   void attachTo(BaseChart<D> chart) {
     _chart = chart;
 
-    _view = new _LinePointLayoutView<D>(
+    _view = _LinePointLayoutView<D>(
         chart: chart,
         layoutPaintOrder: LayoutViewPaintOrder.linePointHighlighter,
         showHorizontalFollowLine: showHorizontalFollowLine,
@@ -205,7 +205,7 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
           ? detail.radiusPx.toDouble() + radiusPaddingPx
           : defaultRadiusPx;
 
-      final pointKey = '${lineKey}::${detail.domain}';
+      final pointKey = '$lineKey::${detail.domain}';
 
       // If we already have a point for that key, use it.
       _AnimatedPoint<D> animatingPoint;
@@ -213,16 +213,16 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
         animatingPoint = _seriesPointMap[pointKey];
       } else {
         // Create a new point and have it animate in from axis.
-        final point = new _DatumPoint<D>(
+        final point = _DatumPoint<D>(
             datum: datum,
             domain: detail.domain,
             series: series,
             x: domainAxis.getLocation(detail.domain),
             y: measureAxis.getLocation(0.0));
 
-        animatingPoint = new _AnimatedPoint<D>(
+        animatingPoint = _AnimatedPoint<D>(
             key: pointKey, overlaySeries: series.overlaySeries)
-          ..setNewTarget(new _PointRendererElement<D>()
+          ..setNewTarget(_PointRendererElement<D>()
             ..point = point
             ..color = detail.color
             ..fillColor = detail.fillColor
@@ -235,7 +235,7 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
       newSeriesMap[pointKey] = animatingPoint;
 
       // Create a new line using the final point locations.
-      final point = new _DatumPoint<D>(
+      final point = _DatumPoint<D>(
           datum: datum,
           domain: detail.domain,
           series: series,
@@ -246,7 +246,7 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
       _currentKeys.add(pointKey);
 
       // Get the point element we are going to setup.
-      final pointElement = new _PointRendererElement<D>()
+      final pointElement = _PointRendererElement<D>()
         ..point = point
         ..color = detail.color
         ..fillColor = detail.fillColor
@@ -259,7 +259,7 @@ class LinePointHighlighter<D> implements ChartBehavior<D> {
     }
 
     // Animate out points that don't exist anymore.
-    _seriesPointMap.forEach((String key, _AnimatedPoint<D> point) {
+    _seriesPointMap.forEach((key, point) {
       if (_currentKeys.contains(point.key) != true) {
         point.animateOut();
         newSeriesMap[point.key] = point;
@@ -293,7 +293,7 @@ class _LinePointLayoutView<D> extends LayoutView {
 
   final SymbolRenderer symbolRenderer;
 
-  GraphicsFactory _graphicsFactory;
+  GraphicsFactory graphicsFactory;
 
   /// Store a map of series drawn on the chart, mapped by series name.
   ///
@@ -309,21 +309,13 @@ class _LinePointLayoutView<D> extends LayoutView {
     @required this.symbolRenderer,
     this.dashPattern,
     this.drawFollowLinesAcrossChart,
-  }) : this.layoutConfig = new LayoutViewConfig(
+  }) : this.layoutConfig = LayoutViewConfig(
             paintOrder: LayoutViewPaintOrder.linePointHighlighter,
             position: LayoutPosition.DrawArea,
             positionOrder: layoutPaintOrder);
 
   set seriesPointMap(LinkedHashMap<String, _AnimatedPoint<D>> value) {
     _seriesPointMap = value;
-  }
-
-  @override
-  GraphicsFactory get graphicsFactory => _graphicsFactory;
-
-  @override
-  set graphicsFactory(GraphicsFactory value) {
-    _graphicsFactory = value;
   }
 
   @override
@@ -346,17 +338,17 @@ class _LinePointLayoutView<D> extends LayoutView {
     if (animationPercent == 1.0) {
       final keysToRemove = <String>[];
 
-      _seriesPointMap.forEach((String key, _AnimatedPoint<D> point) {
+      _seriesPointMap.forEach((key, point) {
         if (point.animatingOut) {
           keysToRemove.add(key);
         }
       });
 
-      keysToRemove.forEach((String key) => _seriesPointMap.remove(key));
+      keysToRemove.forEach((key) => _seriesPointMap.remove(key));
     }
 
     final points = <_PointRendererElement<D>>[];
-    _seriesPointMap.forEach((String key, _AnimatedPoint<D> point) {
+    _seriesPointMap.forEach((key, point) {
       points.add(point.getCurrentPoint(animationPercent));
     });
 
@@ -449,8 +441,8 @@ class _LinePointLayoutView<D> extends LayoutView {
 
         canvas.drawLine(
             points: [
-              new Point<num>(leftBound, pointElement.point.y),
-              new Point<num>(rightBound, pointElement.point.y),
+              Point<num>(leftBound, pointElement.point.y),
+              Point<num>(rightBound, pointElement.point.y),
             ],
             stroke: StyleFactory.style.linePointHighlighterColor,
             strokeWidthPx: 1.0,
@@ -473,8 +465,8 @@ class _LinePointLayoutView<D> extends LayoutView {
 
         canvas.drawLine(
             points: [
-              new Point<num>(pointElement.point.x, topBound),
-              new Point<num>(
+              Point<num>(pointElement.point.x, topBound),
+              Point<num>(
                   pointElement.point.x, drawBounds.top + drawBounds.height),
             ],
             stroke: StyleFactory.style.linePointHighlighterColor,
@@ -500,7 +492,7 @@ class _LinePointLayoutView<D> extends LayoutView {
         continue;
       }
 
-      final bounds = new Rectangle<double>(
+      final bounds = Rectangle<double>(
           pointElement.point.x - pointElement.radiusPx,
           pointElement.point.y - pointElement.radiusPx,
           pointElement.radiusPx * 2,
@@ -531,7 +523,7 @@ class _DatumPoint<D> extends Point<double> {
       : super(x, y);
 
   factory _DatumPoint.from(_DatumPoint<D> other, [double x, double y]) {
-    return new _DatumPoint<D>(
+    return _DatumPoint<D>(
         datum: other.datum,
         domain: other.domain,
         series: other.series,
@@ -550,7 +542,7 @@ class _PointRendererElement<D> {
   SymbolRenderer symbolRenderer;
 
   _PointRendererElement<D> clone() {
-    return new _PointRendererElement<D>()
+    return _PointRendererElement<D>()
       ..point = this.point
       ..color = this.color
       ..fillColor = this.fillColor
@@ -569,7 +561,7 @@ class _PointRendererElement<D> {
 
     final y = _lerpDouble(previousPoint.y, targetPoint.y, animationPercent);
 
-    point = new _DatumPoint<D>.from(targetPoint, x, y);
+    point = _DatumPoint<D>.from(targetPoint, x, y);
 
     color = getAnimatedColor(previous.color, target.color, animationPercent);
 
@@ -625,7 +617,7 @@ class _AnimatedPoint<D> {
     // Set the target measure value to the axis position for all points.
     final targetPoint = newTarget.point;
 
-    final newPoint = new _DatumPoint<D>.from(targetPoint, targetPoint.x,
+    final newPoint = _DatumPoint<D>.from(targetPoint, targetPoint.x,
         newTarget.measureAxisPosition.roundToDouble());
 
     newTarget.point = newPoint;
@@ -685,7 +677,7 @@ class LinePointHighlighterTester<D> {
   bool isDatumSelected(D datum) {
     var contains = false;
 
-    behavior._seriesPointMap.forEach((String key, _AnimatedPoint<D> point) {
+    behavior._seriesPointMap.forEach((key, point) {
       if (point._currentPoint.point.datum == datum) {
         contains = true;
         return;

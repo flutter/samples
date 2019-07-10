@@ -48,8 +48,7 @@ class BucketingNumericAxis extends NumericAxis {
   /// [threshold] will be rendered at the baseline of the chart. The
   bool _showBucket;
 
-  BucketingNumericAxis()
-      : super(tickProvider: new BucketingNumericTickProvider());
+  BucketingNumericAxis() : super(tickProvider: BucketingNumericTickProvider());
 
   set threshold(num threshold) {
     _threshold = threshold;

@@ -1,0 +1,21 @@
+name: isolate_example
+description: A Flutter sample to demonstrate isolates
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.3.0-dev <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  provider: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic: ^1.7.0
+
+
+flutter:
+  uses-material-design: true

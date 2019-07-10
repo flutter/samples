@@ -227,6 +227,15 @@ class LocalVeggieProvider {
           ],
           1,
         ),
+        Trivia(
+          'The first evidence of avocado consumption by humans dates back to what year?',
+          [
+            '2,000 B.C.',
+            '6,000 B.C.',
+            '10,000 B.C.',
+          ],
+          2,
+        ),
       ],
     ),
     Veggie(
@@ -368,6 +377,15 @@ class LocalVeggieProvider {
             'Romesco',
             'Brittany cabbage',
             'Muscle sprouts',
+          ],
+          0,
+        ),
+        Trivia(
+          'Green cauliflower is sometimes called what?',
+          [
+            'Broccoflower',
+            'Avocadoflower',
+            'Gross',
           ],
           0,
         ),

@@ -49,7 +49,7 @@ import 'linear_scale_viewport.dart' show LinearScaleViewportSettings;
 class LinearScale implements NumericScale {
   final LinearScaleDomainInfo _domainInfo;
   final LinearScaleViewportSettings _viewportSettings;
-  final LinearScaleFunction _scaleFunction = new LinearScaleFunction();
+  final LinearScaleFunction _scaleFunction = LinearScaleFunction();
 
   RangeBandConfig rangeBandConfig = const RangeBandConfig.none();
   StepSizeConfig stepSizeConfig = const StepSizeConfig.auto();
@@ -57,18 +57,18 @@ class LinearScale implements NumericScale {
   bool _scaleReady = false;
 
   LinearScale()
-      : _domainInfo = new LinearScaleDomainInfo(),
-        _viewportSettings = new LinearScaleViewportSettings();
+      : _domainInfo = LinearScaleDomainInfo(),
+        _viewportSettings = LinearScaleViewportSettings();
 
   LinearScale._copy(LinearScale other)
-      : _domainInfo = new LinearScaleDomainInfo.copy(other._domainInfo),
+      : _domainInfo = LinearScaleDomainInfo.copy(other._domainInfo),
         _viewportSettings =
-            new LinearScaleViewportSettings.copy(other._viewportSettings),
+            LinearScaleViewportSettings.copy(other._viewportSettings),
         rangeBandConfig = other.rangeBandConfig,
         stepSizeConfig = other.stepSizeConfig;
 
   @override
-  LinearScale copy() => new LinearScale._copy(this);
+  LinearScale copy() => LinearScale._copy(this);
 
   //
   // Domain methods
@@ -91,8 +91,8 @@ class LinearScale implements NumericScale {
   }
 
   @override
-  NumericExtents get dataExtent => new NumericExtents(
-      _domainInfo.dataDomainStart, _domainInfo.dataDomainEnd);
+  NumericExtents get dataExtent =>
+      NumericExtents(_domainInfo.dataDomainStart, _domainInfo.dataDomainEnd);
 
   @override
   num get minimumDomainStep => _domainInfo.minimumDetectedDomainStep;

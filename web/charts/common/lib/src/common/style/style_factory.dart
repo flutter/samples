@@ -17,7 +17,7 @@ import 'material_style.dart' show MaterialStyle;
 import 'style.dart' show Style;
 
 class StyleFactory {
-  static final StyleFactory _styleFactory = new StyleFactory._internal();
+  static final StyleFactory _styleFactory = StyleFactory._internal();
 
   Style _style = const MaterialStyle();
 

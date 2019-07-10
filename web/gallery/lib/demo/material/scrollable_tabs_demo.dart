@@ -139,15 +139,14 @@ class ScrollableTabsDemoState extends State<ScrollableTabsDemo>
             onSelected: changeDemoStyle,
             itemBuilder: (BuildContext context) =>
                 <PopupMenuItem<TabsDemoStyle>>[
-                  const PopupMenuItem<TabsDemoStyle>(
-                      value: TabsDemoStyle.iconsAndText,
-                      child: Text('Icons and text')),
-                  const PopupMenuItem<TabsDemoStyle>(
-                      value: TabsDemoStyle.iconsOnly,
-                      child: Text('Icons only')),
-                  const PopupMenuItem<TabsDemoStyle>(
-                      value: TabsDemoStyle.textOnly, child: Text('Text only')),
-                ],
+              const PopupMenuItem<TabsDemoStyle>(
+                  value: TabsDemoStyle.iconsAndText,
+                  child: Text('Icons and text')),
+              const PopupMenuItem<TabsDemoStyle>(
+                  value: TabsDemoStyle.iconsOnly, child: Text('Icons only')),
+              const PopupMenuItem<TabsDemoStyle>(
+                  value: TabsDemoStyle.textOnly, child: Text('Text only')),
+            ],
           ),
         ],
         bottom: TabBar(

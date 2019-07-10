@@ -23,7 +23,7 @@ class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (BuildContext context, Widget child) {
+      builder: (context, child) {
         return AppModel<AppState>(
           initialState: AppState(),
           child: child,
@@ -137,10 +137,10 @@ class AppState {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other.runtimeType != runtimeType) return false;
-    final AppState otherAppState = other;
-    return otherAppState.places == places &&
-        otherAppState.selectedCategory == selectedCategory &&
-        otherAppState.viewType == viewType;
+    return other is AppState &&
+        other.places == places &&
+        other.selectedCategory == selectedCategory &&
+        other.viewType == viewType;
   }
 
   @override

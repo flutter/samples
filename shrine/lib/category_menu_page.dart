@@ -34,37 +34,37 @@ class CategoryMenuPage extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return ScopedModelDescendant<AppStateModel>(
       builder: (context, child, model) => GestureDetector(
-            onTap: () {
-              model.setCategory(category);
-              if (onCategoryTap != null) onCategoryTap();
-            },
-            child: model.selectedCategory == category
-                ? Column(
-                    children: <Widget>[
-                      SizedBox(height: 16.0),
-                      Text(
-                        categoryString,
-                        style: theme.textTheme.body2,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 14.0),
-                      Container(
-                        width: 70.0,
-                        height: 2.0,
-                        color: kShrinePink400,
-                      ),
-                    ],
-                  )
-                : Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
-                      categoryString,
-                      style: theme.textTheme.body2
-                          .copyWith(color: kShrineBrown900.withAlpha(153)),
-                      textAlign: TextAlign.center,
-                    ),
+        onTap: () {
+          model.setCategory(category);
+          if (onCategoryTap != null) onCategoryTap();
+        },
+        child: model.selectedCategory == category
+            ? Column(
+                children: <Widget>[
+                  SizedBox(height: 16.0),
+                  Text(
+                    categoryString,
+                    style: theme.textTheme.body2,
+                    textAlign: TextAlign.center,
                   ),
-          ),
+                  SizedBox(height: 14.0),
+                  Container(
+                    width: 70.0,
+                    height: 2.0,
+                    color: kShrinePink400,
+                  ),
+                ],
+              )
+            : Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  categoryString,
+                  style: theme.textTheme.body2
+                      .copyWith(color: kShrineBrown900.withAlpha(153)),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+      ),
     );
   }
 
@@ -75,9 +75,8 @@ class CategoryMenuPage extends StatelessWidget {
         padding: EdgeInsets.only(top: 40.0),
         color: kShrinePink100,
         child: ListView(
-            children: _categories
-                .map((Category c) => _buildCategory(c, context))
-                .toList()),
+          children: _categories.map((c) => _buildCategory(c, context)).toList(),
+        ),
       ),
     );
   }

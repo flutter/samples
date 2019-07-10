@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'app_state.dart';
+import 'core/puzzle_proxy.dart';
 import 'flutter.dart';
 import 'shared_theme.dart';
 
@@ -14,7 +14,7 @@ class ThemePlaster extends SharedTheme {
   @override
   String get name => 'Plaster';
 
-  ThemePlaster(AppState baseTheme) : super(baseTheme);
+  const ThemePlaster();
 
   @override
   Color get puzzleThemeBackground => _chocolate;
@@ -26,7 +26,7 @@ class ThemePlaster extends SharedTheme {
   Color get puzzleAccentColor => _orangeIsh;
 
   @override
-  RoundedRectangleBorder get puzzleBorder => RoundedRectangleBorder(
+  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
         side: const BorderSide(
           color: Color.fromARGB(255, 103, 103, 105),
           width: 8,
@@ -37,7 +37,7 @@ class ThemePlaster extends SharedTheme {
       );
 
   @override
-  Widget tileButton(int i) {
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
     final correctColumn = i % puzzle.width;
     final correctRow = i ~/ puzzle.width;
 
@@ -64,6 +64,8 @@ class ThemePlaster extends SharedTheme {
     );
 
     return createButton(
+      puzzle,
+      small,
       i,
       content,
       color: primary ? _orangeIsh : _yellowIsh,

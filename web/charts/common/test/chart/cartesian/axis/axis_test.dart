@@ -46,7 +46,7 @@ void main() {
     var tester = AxisTester(axis);
     axis.tickDrawStrategy = MockTickDrawStrategy();
     axis.graphicsFactory = MockGraphicsFactory();
-    tester.scale.range = new ScaleOutputExtent(0, 300);
+    tester.scale.range = ScaleOutputExtent(0, 300);
 
     axis.updateTicks();
 

@@ -18,7 +18,7 @@ import 'base_time_stepper.dart' show BaseTimeStepper;
 
 /// Hour stepper.
 class HourTimeStepper extends BaseTimeStepper {
-  static const _defaultIncrements = const [1, 2, 3, 4, 6, 12, 24];
+  static const _defaultIncrements = [1, 2, 3, 4, 6, 12, 24];
   static const _hoursInDay = 24;
   static const _millisecondsInHour = 3600 * 1000;
 
@@ -41,8 +41,7 @@ class HourTimeStepper extends BaseTimeStepper {
             .any((increment) => increment <= 0 || increment > 24) ==
         false);
 
-    return new HourTimeStepper._internal(
-        dateTimeFactory, allowedTickIncrements);
+    return HourTimeStepper._internal(dateTimeFactory, allowedTickIncrements);
   }
 
   @override
@@ -60,7 +59,7 @@ class HourTimeStepper extends BaseTimeStepper {
   DateTime getStepTimeBeforeInclusive(DateTime time, int tickIncrement) {
     final nextDay = dateTimeFactory
         .createDateTime(time.year, time.month, time.day)
-        .add(new Duration(hours: _hoursInDay + 1));
+        .add(Duration(hours: _hoursInDay + 1));
     final nextDayStart = dateTimeFactory.createDateTime(
         nextDay.year, nextDay.month, nextDay.day);
 
@@ -83,6 +82,6 @@ class HourTimeStepper extends BaseTimeStepper {
   /// [time] is expected to be a [DateTime] with the hour at start of the hour.
   @override
   DateTime getNextStepTime(DateTime time, int tickIncrement) {
-    return time.add(new Duration(hours: tickIncrement));
+    return time.add(Duration(hours: tickIncrement));
   }
 }

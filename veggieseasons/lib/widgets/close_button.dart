@@ -20,7 +20,7 @@ class FrostedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: Styles.frostedBackground,
@@ -69,12 +69,12 @@ class _ColorChangingIconState
   }
 
   @override
-  void forEachTween(visitor) {
+  void forEachTween(TweenVisitor<dynamic> visitor) {
     _colorTween = visitor(
       _colorTween,
       widget.color,
-      (dynamic value) => ColorTween(begin: value),
-    );
+      (dynamic value) => ColorTween(begin: value as Color),
+    ) as ColorTween;
   }
 }
 

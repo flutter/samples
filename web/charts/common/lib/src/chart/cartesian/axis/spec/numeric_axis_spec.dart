@@ -68,7 +68,7 @@ class NumericAxisSpec extends AxisSpec<num> {
     bool showAxisLine,
     NumericExtents viewport,
   }) {
-    return new NumericAxisSpec(
+    return NumericAxisSpec(
       renderSpec: renderSpec ?? other.renderSpec,
       tickProviderSpec: tickProviderSpec ?? other.tickProviderSpec,
       tickFormatterSpec: tickFormatterSpec ?? other.tickFormatterSpec,
@@ -88,7 +88,7 @@ class NumericAxisSpec extends AxisSpec<num> {
   }
 
   @override
-  NumericAxis createAxis() => new NumericAxis();
+  NumericAxis createAxis() => NumericAxis();
 
   @override
   bool operator ==(Object other) =>
@@ -141,7 +141,7 @@ class BasicNumericTickProviderSpec implements NumericTickProviderSpec {
 
   @override
   NumericTickProvider createTickProvider(ChartContext context) {
-    final provider = new NumericTickProvider();
+    final provider = NumericTickProvider();
     if (zeroBound != null) {
       provider.zeroBound = zeroBound;
     }
@@ -188,7 +188,7 @@ class NumericEndPointsTickProviderSpec implements NumericTickProviderSpec {
 
   @override
   EndPointsTickProvider<num> createTickProvider(ChartContext context) {
-    return new EndPointsTickProvider<num>();
+    return EndPointsTickProvider<num>();
   }
 
   @override
@@ -204,7 +204,7 @@ class StaticNumericTickProviderSpec implements NumericTickProviderSpec {
 
   @override
   StaticTickProvider<num> createTickProvider(ChartContext context) =>
-      new StaticTickProvider<num>(tickSpecs);
+      StaticTickProvider<num>(tickSpecs);
 
   @override
   bool operator ==(Object other) =>
@@ -232,8 +232,8 @@ class BasicNumericTickFormatterSpec implements NumericTickFormatterSpec {
   @override
   NumericTickFormatter createTickFormatter(ChartContext context) {
     return numberFormat != null
-        ? new NumericTickFormatter.fromNumberFormat(numberFormat)
-        : new NumericTickFormatter(formatter: formatter);
+        ? NumericTickFormatter.fromNumberFormat(numberFormat)
+        : NumericTickFormatter(formatter: formatter);
   }
 
   @override

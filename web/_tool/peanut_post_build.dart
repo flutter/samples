@@ -41,9 +41,9 @@ void main(List<String> args) {
       _tocTemplate(
         fileMap.entries.map(
           (entry) => _Demo(
-                entry.key,
-                entry.value,
-              ),
+            entry.key,
+            entry.value,
+          ),
         ),
       ),
       flush: true);

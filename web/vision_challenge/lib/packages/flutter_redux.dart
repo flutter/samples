@@ -475,9 +475,9 @@ class _StoreStreamListenerState<S, ViewModel>
         ? StreamBuilder<ViewModel>(
             stream: stream,
             builder: (context, snapshot) => widget.builder(
-                  context,
-                  snapshot.hasData ? snapshot.data : latestValue,
-                ),
+              context,
+              snapshot.hasData ? snapshot.data : latestValue,
+            ),
           )
         : widget.builder(context, latestValue);
   }

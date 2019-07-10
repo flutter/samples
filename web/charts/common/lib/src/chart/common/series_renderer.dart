@@ -41,10 +41,10 @@ import 'series_datum.dart' show SeriesDatum;
 /// [rendererIdKey] can be added as an attribute to user-defined [Series]
 /// objects.
 const AttributeKey<String> rendererIdKey =
-    const AttributeKey<String>('SeriesRenderer.rendererId');
+    AttributeKey<String>('SeriesRenderer.rendererId');
 
 const AttributeKey<SeriesRenderer> rendererKey =
-    const AttributeKey<SeriesRenderer>('SeriesRenderer.renderer');
+    AttributeKey<SeriesRenderer>('SeriesRenderer.renderer');
 
 /// A series renderer draws one or more series of data onto a chart canvas.
 abstract class SeriesRenderer<D> extends LayoutView {
@@ -142,24 +142,16 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
 
   Rectangle<int> get drawBounds => _drawAreaBounds;
 
-  GraphicsFactory _graphicsFactory;
+  GraphicsFactory graphicsFactory;
 
   BaseSeriesRenderer({
     @required this.rendererId,
     @required int layoutPaintOrder,
     this.symbolRenderer,
-  }) : this.layoutConfig = new LayoutViewConfig(
+  }) : this.layoutConfig = LayoutViewConfig(
             paintOrder: layoutPaintOrder,
             position: LayoutPosition.DrawArea,
             positionOrder: LayoutViewPositionOrder.drawArea);
-
-  @override
-  GraphicsFactory get graphicsFactory => _graphicsFactory;
-
-  @override
-  set graphicsFactory(GraphicsFactory value) {
-    _graphicsFactory = value;
-  }
 
   @override
   void onAttach(BaseChart<D> chart) {}
@@ -185,7 +177,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     int maxMissing = 0;
     bool hasSpecifiedCategory = false;
 
-    seriesList.forEach((MutableSeries<D> series) {
+    seriesList.forEach((series) {
       if (series.colorFn == null) {
         // If there is no category, give it a default category to match logic.
         String category = series.seriesCategory;
@@ -208,7 +200,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
       if (!emptyCategoryUsesSinglePalette && !hasSpecifiedCategory) {
         final palettes = StyleFactory.style.getOrderedPalettes(maxMissing);
         int index = 0;
-        seriesList.forEach((MutableSeries series) {
+        seriesList.forEach((series) {
           if (series.colorFn == null) {
             final color = palettes[index % palettes.length].shadeDefault;
             index++;
@@ -227,7 +219,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
       // the max for any category to ensure that the gradients look appropriate.
       final colorsByCategory = <String, List<Color>>{};
       int index = 0;
-      missingColorCountPerCategory.keys.forEach((String category) {
+      missingColorCountPerCategory.keys.forEach((category) {
         colorsByCategory[category] =
             colorPalettes[index % colorPalettes.length].makeShades(maxMissing);
         index++;
@@ -236,7 +228,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
         missingColorCountPerCategory[category] = 0;
       });
 
-      seriesList.forEach((MutableSeries series) {
+      seriesList.forEach((series) {
         if (series.colorFn == null) {
           final category = series.seriesCategory ?? defaultCategory;
 
@@ -249,12 +241,12 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
         }
 
         // Fill color defaults to the series color if no accessor is provided.
-        series.fillColorFn ??= (int index) => series.colorFn(index);
+        series.fillColorFn ??= (index) => series.colorFn(index);
       });
     } else {
-      seriesList.forEach((MutableSeries series) {
+      seriesList.forEach((series) {
         // Fill color defaults to the series color if no accessor is provided.
-        series.fillColorFn ??= (int index) => series.colorFn(index);
+        series.fillColorFn ??= (index) => series.colorFn(index);
       });
     }
   }
@@ -346,7 +338,7 @@ abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     var strokeWidthPx = strokeWidthPxFn != null ? strokeWidthPxFn(index) : null;
     strokeWidthPx = strokeWidthPx?.toDouble();
 
-    final details = new DatumDetails<D>(
+    final details = DatumDetails<D>(
         datum: seriesDatum.datum,
         index: seriesDatum.index,
         domain: domainValue,

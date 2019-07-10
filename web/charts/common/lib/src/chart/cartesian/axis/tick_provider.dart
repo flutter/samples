@@ -73,7 +73,7 @@ abstract class BaseTickProvider<D> implements TickProvider<D> {
 
     for (var i = 0; i < domainValues.length; i++) {
       final value = domainValues[i];
-      final tick = new Tick(
+      final tick = Tick(
           value: value,
           textElement: graphicsFactory.createTextElement(labels[i]),
           locationPx: scale[value]);

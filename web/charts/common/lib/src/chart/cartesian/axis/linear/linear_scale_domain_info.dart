@@ -113,6 +113,6 @@ class LinearScaleDomainInfo {
       tmpDomainEnd = _dataDomainEnd.isFinite ? _dataDomainEnd : 1.0;
     }
 
-    return new NumericExtents(tmpDomainStart, tmpDomainEnd);
+    return NumericExtents(tmpDomainStart, tmpDomainEnd);
   }
 }

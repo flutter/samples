@@ -16,15 +16,14 @@
 import 'dart:math';
 
 import 'package:charts_common/src/chart/common/base_chart.dart';
+import 'package:charts_common/src/chart/common/behavior/initial_selection.dart';
 import 'package:charts_common/src/chart/common/chart_canvas.dart';
 import 'package:charts_common/src/chart/common/datum_details.dart';
-import 'package:charts_common/src/chart/common/behavior/initial_selection.dart';
 import 'package:charts_common/src/chart/common/processed_series.dart';
+import 'package:charts_common/src/chart/common/selection_model/selection_model.dart';
 import 'package:charts_common/src/chart/common/series_datum.dart';
 import 'package:charts_common/src/chart/common/series_renderer.dart';
-import 'package:charts_common/src/chart/common/selection_model/selection_model.dart';
 import 'package:charts_common/src/data/series.dart';
-
 import 'package:test/test.dart';
 
 class FakeRenderer extends BaseSeriesRenderer {
@@ -52,7 +51,7 @@ class FakeChart extends BaseChart {
   List<DatumDetails> getDatumDetails(SelectionModelType type) => [];
 
   @override
-  SeriesRenderer makeDefaultRenderer() => new FakeRenderer();
+  SeriesRenderer makeDefaultRenderer() => FakeRenderer();
 
   void requestOnDraw(List<MutableSeries> seriesList) {
     fireOnDraw(seriesList);
@@ -69,7 +68,7 @@ void main() {
 
   InitialSelection _makeBehavior(SelectionModelType selectionModelType,
       {List<String> selectedSeries, List<SeriesDatumConfig> selectedData}) {
-    InitialSelection behavior = new InitialSelection(
+    InitialSelection behavior = InitialSelection(
         selectionModelType: selectionModelType,
         selectedSeriesConfig: selectedSeries,
         selectedDataConfig: selectedData);
@@ -80,36 +79,36 @@ void main() {
   }
 
   setUp(() {
-    _chart = new FakeChart();
+    _chart = FakeChart();
 
-    _series1 = new MutableSeries(new Series(
+    _series1 = MutableSeries(Series(
         id: 'mySeries1',
         data: ['A', 'B', 'C', 'D'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
-    _series2 = new MutableSeries(new Series(
+    _series2 = MutableSeries(Series(
         id: 'mySeries2',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
-    _series3 = new MutableSeries(new Series(
+    _series3 = MutableSeries(Series(
         id: 'mySeries3',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
 
-    _series4 = new MutableSeries(new Series(
+    _series4 = MutableSeries(Series(
         id: 'mySeries4',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (dynamic datum, __) => datum,
-        measureFn: (_, __) {}));
+        measureFn: (_, __) => 0));
   });
 
   test('selects initial datum', () {
     _makeBehavior(infoSelectionType,
-        selectedData: [new SeriesDatumConfig('mySeries1', 'C')]);
+        selectedData: [SeriesDatumConfig('mySeries1', 'C')]);
 
     _chart.requestOnDraw([_series1, _series2]);
 
@@ -124,8 +123,8 @@ void main() {
 
   test('selects multiple initial data', () {
     _makeBehavior(infoSelectionType, selectedData: [
-      new SeriesDatumConfig('mySeries1', 'C'),
-      new SeriesDatumConfig('mySeries1', 'D')
+      SeriesDatumConfig('mySeries1', 'C'),
+      SeriesDatumConfig('mySeries1', 'D')
     ]);
 
     _chart.requestOnDraw([_series1, _series2]);
@@ -169,7 +168,7 @@ void main() {
 
   test('selects series and datum', () {
     _makeBehavior(infoSelectionType,
-        selectedData: [new SeriesDatumConfig('mySeries1', 'C')],
+        selectedData: [SeriesDatumConfig('mySeries1', 'C')],
         selectedSeries: ['mySeries4']);
 
     _chart.requestOnDraw([_series1, _series2, _series3, _series4]);
@@ -198,11 +197,11 @@ void main() {
     // Request a draw with a new series list.
     _chart.draw(
       [
-        new Series(
+        Series(
             id: 'mySeries2',
             data: ['W', 'X', 'Y', 'Z'],
             domainFn: (dynamic datum, __) => datum,
-            measureFn: (_, __) {})
+            measureFn: (_, __) => 0)
       ],
     );
 

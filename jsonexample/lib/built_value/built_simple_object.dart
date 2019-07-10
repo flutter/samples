@@ -33,6 +33,6 @@ abstract class BuiltSimpleObject
 
   BuiltSimpleObject._();
 
-  factory BuiltSimpleObject([updates(BuiltSimpleObjectBuilder b)]) =
+  factory BuiltSimpleObject([void Function(BuiltSimpleObjectBuilder) updates]) =
       _$BuiltSimpleObject;
 }

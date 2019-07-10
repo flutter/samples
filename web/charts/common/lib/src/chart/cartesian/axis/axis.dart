@@ -46,9 +46,9 @@ import 'tick_formatter.dart'
     show TickFormatter, OrdinalTickFormatter, NumericTickFormatter;
 import 'tick_provider.dart' show TickProvider;
 
-const measureAxisIdKey = const AttributeKey<String>('Axis.measureAxisId');
-const measureAxisKey = const AttributeKey<Axis>('Axis.measureAxis');
-const domainAxisKey = const AttributeKey<Axis>('Axis.domainAxis');
+const measureAxisIdKey = AttributeKey<String>('Axis.measureAxisId');
+const measureAxisKey = AttributeKey<Axis>('Axis.measureAxis');
+const domainAxisKey = AttributeKey<Axis>('Axis.domainAxis');
 
 /// Orientation of an Axis.
 enum AxisOrientation { top, right, bottom, left }
@@ -89,14 +89,8 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
   /// Previous [Scale] of this axis, used to calculate tick animation.
   MutableScale<D> _previousScale;
 
-  TickProvider<D> _tickProvider;
-
   /// [TickProvider] for this axis.
-  TickProvider<D> get tickProvider => _tickProvider;
-
-  set tickProvider(TickProvider<D> tickProvider) {
-    _tickProvider = tickProvider;
-  }
+  TickProvider<D> tickProvider;
 
   /// [TickFormatter] for this axis.
   TickFormatter<D> _tickFormatter;
@@ -122,9 +116,12 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
   /// If the output range should be reversed.
   bool reverseOutputRange = false;
 
-  /// Whether or not the axis will configure the viewport to have "niced" ticks
-  /// around the domain values.
-  bool _autoViewport = true;
+  /// Configures whether the viewport should be reset back to default values
+  /// when the domain is reset.
+  ///
+  /// This should generally be disabled when the viewport will be managed
+  /// externally, e.g. from pan and zoom behaviors.
+  bool autoViewport = true;
 
   /// If the axis line should always be drawn.
   bool forceDrawAxisLine;
@@ -143,7 +140,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
 
   Rectangle<int> _componentBounds;
   Rectangle<int> _drawAreaBounds;
-  GraphicsFactory _graphicsFactory;
+  GraphicsFactory graphicsFactory;
 
   /// Order for chart layout painting.
   ///
@@ -156,7 +153,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
       TickFormatter<D> tickFormatter,
       MutableScale<D> scale})
       : this._scale = scale,
-        this._tickProvider = tickProvider,
+        this.tickProvider = tickProvider,
         this._tickFormatter = tickFormatter;
 
   @protected
@@ -171,17 +168,6 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
 
   @override
   ScaleOutputExtent get range => _scale.range;
-
-  /// Configures whether the viewport should be reset back to default values
-  /// when the domain is reset.
-  ///
-  /// This should generally be disabled when the viewport will be managed
-  /// externally, e.g. from pan and zoom behaviors.
-  set autoViewport(bool autoViewport) {
-    _autoViewport = autoViewport;
-  }
-
-  bool get autoViewport => _autoViewport;
 
   void setRangeBandConfig(RangeBandConfig rangeBandConfig) {
     mutableScale.rangeBandConfig = rangeBandConfig;
@@ -222,7 +208,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
     _scale.resetDomain();
     reverseOutputRange = false;
 
-    if (_autoViewport) {
+    if (autoViewport) {
       _scale.resetViewportSettings();
     }
 
@@ -243,7 +229,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
   }
 
   void setOutputRange(int start, int end) {
-    _scale.range = new ScaleOutputExtent(start, end);
+    _scale.range = ScaleOutputExtent(start, end);
   }
 
   /// Request update ticks from tick provider and update the painted ticks.
@@ -268,7 +254,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
         formatterValueCache: _formatterValueCache,
         tickDrawStrategy: tickDrawStrategy,
         orientation: axisOrientation,
-        viewportExtensionEnabled: _autoViewport);
+        viewportExtensionEnabled: autoViewport);
   }
 
   /// Updates the ticks that are actually used for drawing.
@@ -277,7 +263,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
       return;
     }
 
-    final providedTicks = new List.from(_providedTicks ?? []);
+    final providedTicks = List.from(_providedTicks ?? []);
 
     for (AxisTicks<D> animatedTick in _axisTicks) {
       final tick = providedTicks?.firstWhere(
@@ -302,7 +288,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
 
     // Add new ticks
     providedTicks?.forEach((tick) {
-      final animatedTick = new AxisTicks<D>(tick);
+      final animatedTick = AxisTicks<D>(tick);
       if (_previousScale != null) {
         animatedTick.animateInFrom(_previousScale[tick.value].toDouble());
       }
@@ -378,15 +364,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
   //
 
   @override
-  GraphicsFactory get graphicsFactory => _graphicsFactory;
-
-  @override
-  set graphicsFactory(GraphicsFactory value) {
-    _graphicsFactory = value;
-  }
-
-  @override
-  LayoutViewConfig get layoutConfig => new LayoutViewConfig(
+  LayoutViewConfig get layoutConfig => LayoutViewConfig(
       paintOrder: layoutPaintOrder,
       position: _layoutPosition,
       positionOrder: LayoutViewPositionOrder.axis);
@@ -457,8 +435,8 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
         isVertical ? _componentBounds.top : _componentBounds.right;
 
     final outputRange = reverseOutputRange
-        ? new ScaleOutputExtent(outputEnd, outputStart)
-        : new ScaleOutputExtent(outputStart, outputEnd);
+        ? ScaleOutputExtent(outputEnd, outputStart)
+        : ScaleOutputExtent(outputStart, outputEnd);
 
     if (_scale.range != outputRange) {
       _scale.range = outputRange;
@@ -510,9 +488,9 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
 class NumericAxis extends Axis<num> {
   NumericAxis({TickProvider<num> tickProvider})
       : super(
-          tickProvider: tickProvider ?? new NumericTickProvider(),
-          tickFormatter: new NumericTickFormatter(),
-          scale: new LinearScale(),
+          tickProvider: tickProvider ?? NumericTickProvider(),
+          tickFormatter: NumericTickFormatter(),
+          scale: LinearScale(),
         );
 
   void setScaleViewport(NumericExtents viewport) {
@@ -529,7 +507,7 @@ class OrdinalAxis extends Axis<String> {
   }) : super(
           tickProvider: tickProvider ?? const OrdinalTickProvider(),
           tickFormatter: tickFormatter ?? const OrdinalTickFormatter(),
-          scale: new SimpleOrdinalScale(),
+          scale: SimpleOrdinalScale(),
         );
 
   void setScaleViewport(OrdinalViewport viewport) {

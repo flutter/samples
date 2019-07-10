@@ -37,7 +37,7 @@ class ComparisonPointsDecorator<D> extends PointRendererDecorator<D> {
   final bool renderAbove = false;
 
   ComparisonPointsDecorator({PointSymbolRenderer symbolRenderer})
-      : this.symbolRenderer = symbolRenderer ?? new CylinderSymbolRenderer();
+      : this.symbolRenderer = symbolRenderer ?? CylinderSymbolRenderer();
 
   @override
   void decorate(PointRendererElement<D> pointElement, ChartCanvas canvas,
@@ -79,19 +79,19 @@ class ComparisonPointsDecorator<D> extends PointRendererDecorator<D> {
 
     // Construct the points that describe our line p1p2.
     var p1 =
-        new Point<double>(pointElement.point.xLower, pointElement.point.yLower);
+        Point<double>(pointElement.point.xLower, pointElement.point.yLower);
     var p2 =
-        new Point<double>(pointElement.point.xUpper, pointElement.point.yUpper);
+        Point<double>(pointElement.point.xUpper, pointElement.point.yUpper);
 
     // First check to see if there is no intersection at all between the line
     // p1p2 and [drawBounds].
-    final dataBoundsRect = new Rectangle<num>.fromPoints(p1, p2);
+    final dataBoundsRect = Rectangle<num>.fromPoints(p1, p2);
     if (!drawBounds.intersects(dataBoundsRect)) {
       return null;
     }
 
     // Line with end points [p1] and [p2].
-    final p1p2 = new _Line.fromPoints(p1, p2);
+    final p1p2 = _Line.fromPoints(p1, p2);
 
     // Next, slide p1 along the line p1p2 towards the edge of the draw area if
     // the point is located outside of it.
@@ -125,14 +125,14 @@ class ComparisonPointsDecorator<D> extends PointRendererDecorator<D> {
     // with equations y = bounds.top and y = bounds.bottom. We can pass these
     // into a standard line interception method to find our point.
     if (p1.y < bounds.top) {
-      final p = line.intersection(new _Line(0.0, bounds.top.toDouble()));
+      final p = line.intersection(_Line(0.0, bounds.top.toDouble()));
       if (p != null && bounds.containsPoint(p)) {
         return p;
       }
     }
 
     if (p1.y > bounds.bottom) {
-      final p = line.intersection(new _Line(0.0, bounds.bottom.toDouble()));
+      final p = line.intersection(_Line(0.0, bounds.bottom.toDouble()));
       if (p != null && bounds.containsPoint(p)) {
         return p;
       }
@@ -145,16 +145,14 @@ class ComparisonPointsDecorator<D> extends PointRendererDecorator<D> {
     //
     // y = slope * x + yIntercept
     if (p1.x < bounds.left) {
-      final p =
-          line.intersection(new _Line.fromVertical(bounds.left.toDouble()));
+      final p = line.intersection(_Line.fromVertical(bounds.left.toDouble()));
       if (p != null && bounds.containsPoint(p)) {
         return p;
       }
     }
 
     if (p1.x > bounds.right) {
-      final p =
-          line.intersection(new _Line.fromVertical(bounds.right.toDouble()));
+      final p = line.intersection(_Line.fromVertical(bounds.right.toDouble()));
       if (p != null && bounds.containsPoint(p)) {
         return p;
       }
@@ -187,7 +185,7 @@ class _Line {
   factory _Line.fromPoints(Point<num> p1, Point<num> p2) {
     // Handle vertical lines.
     if (p1.x == p2.x) {
-      return new _Line.fromVertical(p1.x);
+      return _Line.fromVertical(p1.x);
     }
 
     // Slope of the line p1p2.
@@ -196,12 +194,12 @@ class _Line {
     // y-intercept of the line p1p2.
     double b = (p1.y - (m * p1.x)).toDouble();
 
-    return new _Line(m, b);
+    return _Line(m, b);
   }
 
   /// Creates a vertical line, with the question x = [xIntercept].
   factory _Line.fromVertical(num xIntercept) {
-    return new _Line(null, null, xIntercept.toDouble());
+    return _Line(null, null, xIntercept.toDouble());
   }
 
   /// Computes the intersection of `this` and [other].
@@ -218,14 +216,14 @@ class _Line {
     // just plug its xIntercept value into the line equation as x and solve for
     // y.
     if (other.vertical) {
-      return new Point<double>(
+      return Point<double>(
           other.xIntercept, slope * other.xIntercept + yIntercept);
     }
 
     // If this line is a vertical line (has undefined slope), then we can just
     // plug its xIntercept value into the line equation as x and solve for y.
     if (vertical) {
-      return new Point<double>(
+      return Point<double>(
           xIntercept, other.slope * xIntercept + other.yIntercept);
     }
 
@@ -236,6 +234,6 @@ class _Line {
     final y = slope * (other.yIntercept - yIntercept) / (slope - other.slope) +
         yIntercept;
 
-    return new Point<double>(x, y);
+    return Point<double>(x, y);
   }
 }

@@ -21,9 +21,8 @@ class PlaceListState extends State<PlaceList> {
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final List<Place> newPlaces = List.from(AppState.of(context).places);
-    final int index =
-        newPlaces.indexWhere((Place place) => place.id == value.id);
+    final newPlaces = List<Place>.from(AppState.of(context).places);
+    final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
     AppState.updateWith(context, places: newPlaces);
@@ -44,11 +43,11 @@ class PlaceListState extends State<PlaceList> {
             shrinkWrap: true,
             children: AppState.of(context)
                 .places
-                .where((Place place) =>
+                .where((place) =>
                     place.category == AppState.of(context).selectedCategory)
-                .map((Place place) => _PlaceListTile(
+                .map((place) => _PlaceListTile(
                       place: place,
-                      onPlaceChanged: (Place value) => _onPlaceChanged(value),
+                      onPlaceChanged: (value) => _onPlaceChanged(value),
                     ))
                 .toList(),
           ),
@@ -73,15 +72,15 @@ class _PlaceListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return PlaceDetails(
-                place: place,
-                onChanged: (Place value) => onPlaceChanged(value),
-              );
-            }),
-          ),
+      onTap: () => Navigator.push<void>(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PlaceDetails(
+            place: place,
+            onChanged: (value) => onPlaceChanged(value),
+          );
+        }),
+      ),
       child: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
@@ -97,7 +96,7 @@ class _PlaceListTile extends StatelessWidget {
               maxLines: 3,
             ),
             Row(
-              children: List.generate(5, (int index) {
+              children: List.generate(5, (index) {
                 return Icon(
                   Icons.star,
                   size: 28.0,

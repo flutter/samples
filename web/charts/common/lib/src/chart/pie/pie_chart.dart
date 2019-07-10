@@ -24,11 +24,11 @@ import '../layout/layout_config.dart' show LayoutConfig, MarginSpec;
 import 'arc_renderer.dart' show ArcRenderer;
 
 class PieChart<D> extends BaseChart<D> {
-  static final _defaultLayoutConfig = new LayoutConfig(
-    topSpec: new MarginSpec.fromPixel(minPixel: 20),
-    bottomSpec: new MarginSpec.fromPixel(minPixel: 20),
-    leftSpec: new MarginSpec.fromPixel(minPixel: 20),
-    rightSpec: new MarginSpec.fromPixel(minPixel: 20),
+  static final _defaultLayoutConfig = LayoutConfig(
+    topSpec: MarginSpec.fromPixel(minPixel: 20),
+    bottomSpec: MarginSpec.fromPixel(minPixel: 20),
+    leftSpec: MarginSpec.fromPixel(minPixel: 20),
+    rightSpec: MarginSpec.fromPixel(minPixel: 20),
   );
 
   PieChart({LayoutConfig layoutConfig})
@@ -38,7 +38,7 @@ class PieChart<D> extends BaseChart<D> {
   void drawInternal(List<MutableSeries<D>> seriesList,
       {bool skipAnimation, bool skipLayout}) {
     if (seriesList.length > 1) {
-      throw new ArgumentError('PieChart can only render a single series');
+      throw ArgumentError('PieChart can only render a single series');
     }
     super.drawInternal(seriesList,
         skipAnimation: skipAnimation, skipLayout: skipLayout);
@@ -46,7 +46,7 @@ class PieChart<D> extends BaseChart<D> {
 
   @override
   SeriesRenderer<D> makeDefaultRenderer() {
-    return new ArcRenderer<D>()..rendererId = SeriesRenderer.defaultRendererId;
+    return ArcRenderer<D>()..rendererId = SeriesRenderer.defaultRendererId;
   }
 
   /// Returns a list of datum details from selection model of [type].
