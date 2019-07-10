@@ -61,7 +61,8 @@ class _MyListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var item = Provider.of<CatalogModel>(context).getByPosition(index);
+    var catalog = Provider.of<CatalogModel>(context);
+    var item = catalog.getByPosition(index);
     var textTheme = Theme.of(context).textTheme.title;
 
     return Padding(
@@ -77,10 +78,8 @@ class _MyListItem extends StatelessWidget {
               ),
             ),
             SizedBox(width: 24),
-            Expanded(
-              child: Text(item.name, style: textTheme),
-            ),
-            SizedBox(width: 24),
+            Text(item.name, style: textTheme),
+            Spacer(),
             _AddButton(item: item),
           ],
         ),

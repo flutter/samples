@@ -4,6 +4,7 @@ import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
+import 'package:provider_shopper/screens/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,24 +13,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Using MultiProvider is convenient when providing multiple objects.
     return MultiProvider(
       providers: [
+        // In this sample app, CatalogModel never changes, so we can use
+        // simple Provider.
         Provider(builder: (context) => CatalogModel()),
-        ChangeNotifierProvider(builder: (context) => CartModel()),
+        // Next, we are providing CartModel. The cart is changing, so we use
+        // ChangeNotifierProvider here. Moreover, CartModel depends
+        // CatalogModel, so we need to use a ProxyProvider.
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+            builder: (context, catalog, previousCart) =>
+                CartModel(catalog, previousCart)),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.yellow,
-          textTheme: TextTheme(
-            display4: TextStyle(
-              fontFamily: 'Corben',
-              fontWeight: FontWeight.w700,
-              fontSize: 24,
-              color: Colors.black,
-            ),
-          ),
-        ),
+        title: 'Provider Demo',
+        theme: appTheme,
         initialRoute: '/',
         routes: {
           '/': (context) => MyCatalog(),

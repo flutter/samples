@@ -26,9 +26,13 @@ class CatalogModel {
     'Currying',
   ];
 
+  /// Get item by [id].
+  Item getById(int id) => Item(id, _itemNames[id % _itemNames.length]);
+
   /// Get item by its position in the catalog.
   Item getByPosition(int index) {
-    return Item(index, _itemNames[index % _itemNames.length]);
+    // In our simplified case, an item's position in the catalog is also its id.
+    return getById(index);
   }
 }
 
@@ -37,6 +41,7 @@ class Item {
   final int id;
   final String name;
   final Color color;
+  final int price = 42;
 
   Item(this.id, this.name)
       : color = Colors.primaries[id % Colors.primaries.length];

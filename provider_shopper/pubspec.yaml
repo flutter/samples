@@ -4,14 +4,14 @@ description: A Flutter app that uses Provider.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   # Import the provider package.
-  provider: ^2.0.0
+  provider: ^3.0.0
 
 dev_dependencies:
   flutter_test:
