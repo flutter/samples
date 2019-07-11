@@ -25,10 +25,10 @@ and change how many time the result will be multiplied by.
 
 ### `page_three.dart`
 
-Shows how expensive it is to move large amounts of data between isolates. This will 
-be done by either creating large amounts of randomly generated numbers on the main isolate
-to send to the secondary isolate to be summated or simply generating the number on the 
-second isolate.
+A demonstration of how expensive it is to move large amounts of data between isolates and 
+an alternative using transferableTypeData. You can create large amounts of randomly generated
+numbers on the main isolate to send to the secondary isolate to be summated, simply
+generating the number on the second isolate, or transfer the data using transferableTypeData.
 
 ## Questions/issues
 
