@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_shopper/common/theme.dart';
 import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
-import 'package:provider_shopper/screens/theme.dart';
 
 void main() {
   runApp(MyApp());
