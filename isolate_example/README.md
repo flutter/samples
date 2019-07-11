@@ -13,19 +13,16 @@ A sample application that demonstrate best practices when using [`isolates`](htt
 
 ### `page_one.dart`
 
-Compares running a large computation on the main isolate vs on a secondary isolate. 
-The `SmoothAnimationWidget` will lower frames when the performance drops.
-
+Compares running a large computation on the main isolate with running the same calculation on a second isolate.
+When the main isolate is used, Flutter is unable to render new frames, and the `SmoothAnimationWidget`'s animation freezes.
 ### `page_two.dart`
 
-An infinite process will be run on the secondary isolate.  The process will be an 
-endless loop of the summation of 100 million randomly generated numbers in increments
-of 10 with the results being printed. The user can start, terminate, pause, resume,
-and change how many time the result will be multiplied by.
+Creates an isolate used to compute an infinate loop of sum of 100M randomly generated numbers while reporting progress. 
+Users can start, terminate, pause, and resume the isolate, as well as modify how the calculation is performed.
 
 ### `page_three.dart`
 
-A demonstration of how expensive it is to move large amounts of data between isolates and 
+Demonstration how expensive it is to move large amounts of data between isolates and 
 an alternative using transferableTypeData. You can create large amounts of randomly generated
 numbers on the main isolate to send to the secondary isolate to be summated, simply
 generating the number on the second isolate, or transfer the data using transferableTypeData.
