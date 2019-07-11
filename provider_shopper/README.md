@@ -32,12 +32,12 @@ two types of functionality:
    just above), and uses it to build the value of `CartModel` (if you only want
    _this_ functionality, simply use `ProxyProvider`).
 
-### `lib/models`
+### `lib/models/*`
 
 This directory contains the model classes that are provided in `main.dart`. These classes
 represent the app state.
 
-### `lib/screens`
+### `lib/screens/*`
 
 This directory contains widgets used to construct the two screens of the app: the catalog and
 the cart. These widgets have access to the current state of both the catalog and the cart
