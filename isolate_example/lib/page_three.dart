@@ -69,6 +69,7 @@ class DataTransferIsolateController extends ChangeNotifier {
   SendPort _newIceSP;
 
   final currentProgress = <String>[];
+  List<bool> runningTest = [false, false, false];
   bool running = false;
   Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
@@ -105,7 +106,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   void generateOnSecondaryIsolate() {
     if (running) return;
-
+    setRunningTest(2);
     running = true;
     currentProgress.clear();
 
@@ -116,8 +117,9 @@ class DataTransferIsolateController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> generateRandomNumbers(bool ttd) async {
+  Future<void> generateRandomNumbers(bool transferableTyped) async {
     if (running) return;
+    (transferableTyped) ? setRunningTest(1) : setRunningTest(0);
 
     running = true;
     Random rng = Random();
@@ -135,7 +137,7 @@ class DataTransferIsolateController extends ChangeNotifier {
         randNums.add(rng.nextInt(100));
       }
 
-      if (ttd) {
+      if (transferableTyped) {
         final transferable =
             TransferableTypedData.fromList([Int32List.fromList(randNums)]);
         await sendNumbers(transferable);
@@ -152,6 +154,11 @@ class DataTransferIsolateController extends ChangeNotifier {
   }
 
   Isolate get newIsolate => _newIsolate;
+
+  void setRunningTest(int whichTest){
+    runningTest = [false, false, false];
+    runningTest[whichTest] = true;
+  }
 
   void dispose() {
     super.dispose();
@@ -255,16 +262,19 @@ Widget createButtons(BuildContext context) {
           RaisedButton(
             child: const Text('Transfer Data to 2nd Isolate'),
             elevation: 8.0,
+            color: (controller.runningTest[0]) ?  Colors.blueAccent : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(false),
           ),
           RaisedButton(
             child: const Text('Transfer Data with TransferableTypedData'),
             elevation: 8.0,
+            color: (controller.runningTest[1]) ?  Colors.blueAccent : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(true),
           ),
           RaisedButton(
             child: const Text('Generate on 2nd Isolate'),
             elevation: 8.0,
+            color: (controller.runningTest[2]) ?  Colors.blueAccent : Colors.grey[300],
             onPressed: controller.generateOnSecondaryIsolate,
           ),
         ],
