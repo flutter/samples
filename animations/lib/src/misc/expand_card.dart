@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ExpandCardDemo extends StatelessWidget {
-  static String routeName = '/expand_card';
+  static const String routeName = '/expand_card';
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +23,6 @@ class _ExpandCardState extends State<ExpandCard>
   bool expanded = false;
 
   double get size => expanded ? 200 : 100;
-
-  void initState() {
-    super.initState();
-  }
 
   void toggleExpanded() {
     setState(() {

@@ -33,18 +33,16 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
+          children: [
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 200),
-              child: Text('${controller.value.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 24)),
-            ),
-            MaterialButton(
-              color: Theme.of(context).primaryColor,
               child: Text(
-                'animate',
-                style: TextStyle(color: Colors.white),
+                '${controller.value.toStringAsFixed(2)}',
+                style: Theme.of(context).textTheme.display3,
               ),
+            ),
+            RaisedButton(
+              child: Text('animate'),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {
                   controller.reverse();
