@@ -12,10 +12,10 @@ git:
   depth: 3
 env:
   - FLUTTER_VERSION=stable
-  - FLUTTER_VERSION=dev
+  - FLUTTER_VERSION=beta
 matrix:
   allow_failures:
-    - env: FLUTTER_VERSION=dev
+    - env: FLUTTER_VERSION=beta
 before_script:
   - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
   - ./flutter/bin/flutter doctor
