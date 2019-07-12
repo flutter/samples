@@ -20,13 +20,13 @@ class ExpandCard extends StatefulWidget {
 class _ExpandCardState extends State<ExpandCard>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(milliseconds: 300);
-  bool selected = false;
+  bool expanded = false;
 
-  double get size => selected ? 200 : 100;
+  double get size => expanded ? 200 : 100;
 
   void toggleExpanded() {
     setState(() {
-      selected = !selected;
+      expanded = !expanded;
     });
   }
 
@@ -40,32 +40,37 @@ class _ExpandCardState extends State<ExpandCard>
             duration: duration,
             width: size,
             height: size,
-            child: AnimatedSwitcher(
+            child: AnimatedCrossFade(
               duration: duration,
-              layoutBuilder:
-                  (Widget currentChild, List<Widget> previousChildren) {
-                List<Widget> children = previousChildren;
-                if (currentChild != null)
-                  children = children.toList()..add(currentChild);
+              crossFadeState: expanded
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
+              // Use Positioned.fill() to pass the constraints to its children.
+              // This allows the Images to use BoxFit.cover to cover the correct
+              // size
+              layoutBuilder: (Widget topChild, Key topChildKey,
+                  Widget bottomChild, Key bottomChildKey) {
                 return Stack(
-                  children: [
-                    // Use Positioned.fill so that the child image receives the
-                    // constraints of the AnimatedContainer
-                    ...children.map((c) => Positioned.fill(child: c)),
+                  children: <Widget>[
+                    Positioned.fill(
+                      key: bottomChildKey,
+                      child: bottomChild,
+                    ),
+                    Positioned.fill(
+                      key: topChildKey,
+                      child: topChild,
+                    ),
                   ],
                 );
               },
-              child: selected
-                  ? Image.asset(
-                      'assets/cat.jpg',
-                      key: ValueKey('cat'),
-                      fit: BoxFit.cover,
-                    )
-                  : Image.asset(
-                      'assets/wolf.jpg',
-                      key: ValueKey('wolf'),
-                      fit: BoxFit.cover,
-                    ),
+              firstChild: Image.asset(
+                'assets/cat.jpg',
+                fit: BoxFit.cover,
+              ),
+              secondChild: Image.asset(
+                'assets/wolf.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
