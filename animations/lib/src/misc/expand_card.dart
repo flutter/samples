@@ -47,13 +47,19 @@ class _ExpandCardState extends State<ExpandCard>
             duration: duration,
             width: size,
             height: size,
-            child: Image.asset('assets/cat.jpg', fit: BoxFit.cover,),
+            child: Image.asset(
+              'assets/cat.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
           secondChild: AnimatedContainer(
             duration: duration,
             width: size,
             height: size,
-            child: Image.asset('assets/wolf.jpg', fit: BoxFit.cover,),
+            child: Image.asset(
+              'assets/wolf.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
