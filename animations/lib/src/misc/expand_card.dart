@@ -7,17 +7,17 @@ class ExpandCardDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: SimpleExpandableCard(),
+        child: ExpandCard(),
       ),
     );
   }
 }
 
-class SimpleExpandableCard extends StatefulWidget {
-  _SimpleExpandableCardState createState() => _SimpleExpandableCardState();
+class ExpandCard extends StatefulWidget {
+  _ExpandCardState createState() => _ExpandCardState();
 }
 
-class _SimpleExpandableCardState extends State<SimpleExpandableCard>
+class _ExpandCardState extends State<ExpandCard>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(milliseconds: 300);
   bool expanded = false;
@@ -42,36 +42,18 @@ class _SimpleExpandableCardState extends State<SimpleExpandableCard>
           alignment: Alignment.center,
           duration: duration,
           crossFadeState:
-          expanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-          firstChild: _ImageContainer(
-              size: size, image: 'assets/wolf.jpg', duration: duration),
-          secondChild: _ImageContainer(
-              size: size, image: 'assets/cat.jpg', duration: duration),
-        ),
-      ),
-    );
-  }
-}
-
-class _ImageContainer extends StatelessWidget {
-  final double size;
-  final String image;
-  final Duration duration;
-
-  _ImageContainer({this.size, this.image, this.duration});
-
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: AnimatedContainer(
-        duration: duration,
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
+              expanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+          firstChild: AnimatedContainer(
+            duration: duration,
+            width: size,
+            height: size,
+            child: Image.asset('assets/cat.jpg', fit: BoxFit.cover,),
+          ),
+          secondChild: AnimatedContainer(
+            duration: duration,
+            width: size,
+            height: size,
+            child: Image.asset('assets/wolf.jpg', fit: BoxFit.cover,),
           ),
         ),
       ),
