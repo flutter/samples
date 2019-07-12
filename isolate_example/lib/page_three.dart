@@ -155,7 +155,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   Isolate get newIsolate => _newIsolate;
 
-  void setRunningTest(int whichTest){
+  void setRunningTest(int whichTest) {
     runningTest = [false, false, false];
     runningTest[whichTest] = true;
   }
@@ -262,19 +262,25 @@ Widget createButtons(BuildContext context) {
           RaisedButton(
             child: const Text('Transfer Data to 2nd Isolate'),
             elevation: 8.0,
-            color: (controller.runningTest[0]) ?  Colors.blueAccent : Colors.grey[300],
+            color: (controller.runningTest[0])
+                ? Colors.blueAccent
+                : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(false),
           ),
           RaisedButton(
             child: const Text('Transfer Data with TransferableTypedData'),
             elevation: 8.0,
-            color: (controller.runningTest[1]) ?  Colors.blueAccent : Colors.grey[300],
+            color: (controller.runningTest[1])
+                ? Colors.blueAccent
+                : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(true),
           ),
           RaisedButton(
             child: const Text('Generate on 2nd Isolate'),
             elevation: 8.0,
-            color: (controller.runningTest[2]) ?  Colors.blueAccent : Colors.grey[300],
+            color: (controller.runningTest[2])
+                ? Colors.blueAccent
+                : Colors.grey[300],
             onPressed: controller.generateOnSecondaryIsolate,
           ),
         ],
