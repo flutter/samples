@@ -20,13 +20,13 @@ class ExpandCard extends StatefulWidget {
 class _ExpandCardState extends State<ExpandCard>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(milliseconds: 300);
-  bool expanded = false;
+  bool selected = false;
 
-  double get size => expanded ? 200 : 100;
+  double get size => selected ? 200 : 100;
 
   void toggleExpanded() {
     setState(() {
-      expanded = !expanded;
+      selected = !selected;
     });
   }
 
@@ -40,37 +40,32 @@ class _ExpandCardState extends State<ExpandCard>
             duration: duration,
             width: size,
             height: size,
-            child: AnimatedCrossFade(
+            child: AnimatedSwitcher(
               duration: duration,
-              crossFadeState: expanded
-                  ? CrossFadeState.showSecond
-                  : CrossFadeState.showFirst,
-              // Use Positioned.fill() to pass the constraints to its children.
-              // This allows the Images to use BoxFit.cover to cover the correct
-              // size
-              layoutBuilder: (Widget topChild, Key topChildKey,
-                  Widget bottomChild, Key bottomChildKey) {
+              layoutBuilder:
+                  (Widget currentChild, List<Widget> previousChildren) {
+                List<Widget> children = previousChildren;
+                if (currentChild != null)
+                  children = children.toList()..add(currentChild);
                 return Stack(
-                  children: <Widget>[
-                    Positioned.fill(
-                      key: bottomChildKey,
-                      child: bottomChild,
-                    ),
-                    Positioned.fill(
-                      key: topChildKey,
-                      child: topChild,
-                    ),
+                  children: [
+                    // Use Positioned.fill so that the child image receives the
+                    // constraints of the AnimatedContainer
+                    ...children.map((c) => Positioned.fill(child: c)),
                   ],
                 );
               },
-              firstChild: Image.asset(
-                'assets/cat.jpg',
-                fit: BoxFit.cover,
-              ),
-              secondChild: Image.asset(
-                'assets/wolf.jpg',
-                fit: BoxFit.cover,
-              ),
+              child: selected
+                  ? Image.asset(
+                      'assets/cat.jpg',
+                      key: ValueKey('cat'),
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      'assets/wolf.jpg',
+                      key: ValueKey('wolf'),
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
         ),
