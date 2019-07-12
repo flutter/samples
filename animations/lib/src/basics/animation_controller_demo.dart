@@ -17,7 +17,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
 
     controller = AnimationController(vsync: this, duration: _duration)
       ..addListener(() {
-        // Marks the widget tree as dirty
+        // Force build() to be called again
         setState(() {});
       });
   }
