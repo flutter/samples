@@ -20,13 +20,13 @@ class ExpandCard extends StatefulWidget {
 class _ExpandCardState extends State<ExpandCard>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(milliseconds: 300);
-  bool expanded = false;
+  bool selected = false;
 
-  double get size => expanded ? 200 : 100;
+  double get size => selected ? 200 : 100;
 
   void toggleExpanded() {
     setState(() {
-      expanded = !expanded;
+      selected = !selected;
     });
   }
 
@@ -42,7 +42,7 @@ class _ExpandCardState extends State<ExpandCard>
             height: size,
             child: AnimatedCrossFade(
               duration: duration,
-              crossFadeState: expanded
+              crossFadeState: selected
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
               // Use Positioned.fill() to pass the constraints to its children.
