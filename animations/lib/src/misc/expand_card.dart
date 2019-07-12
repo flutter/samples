@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ExpandCardDemo extends StatelessWidget {
-  static String routeName = '/simple_expandable_card';
+  static String routeName = '/expand_card';
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Simple Expandable Card'),
-      ),
+      appBar: AppBar(),
       body: Center(
         child: SimpleExpandableCard(),
       ),
@@ -24,21 +22,21 @@ class _SimpleExpandableCardState extends State<SimpleExpandableCard>
   static const Duration duration = Duration(milliseconds: 300);
   bool expanded = false;
 
+  double get size => expanded ? 200 : 100;
+
   void initState() {
     super.initState();
   }
 
-  void _toggleExpanded() {
+  void toggleExpanded() {
     setState(() {
       expanded = !expanded;
     });
   }
 
-  double get size => expanded ? 200 : 100;
-
   Widget build(context) {
     return GestureDetector(
-      onTap: () => _toggleExpanded(),
+      onTap: () => toggleExpanded(),
       child: Card(
         child: AnimatedCrossFade(
           alignment: Alignment.center,
