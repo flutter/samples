@@ -34,27 +34,43 @@ class _ExpandCardState extends State<ExpandCard>
     return GestureDetector(
       onTap: () => toggleExpanded(),
       child: Card(
-        child: AnimatedCrossFade(
-          alignment: Alignment.center,
-          duration: duration,
-          crossFadeState:
-              expanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-          firstChild: AnimatedContainer(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: AnimatedContainer(
             duration: duration,
             width: size,
             height: size,
-            child: Image.asset(
-              'assets/cat.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          secondChild: AnimatedContainer(
-            duration: duration,
-            width: size,
-            height: size,
-            child: Image.asset(
-              'assets/wolf.jpg',
-              fit: BoxFit.cover,
+            child: AnimatedCrossFade(
+              duration: duration,
+              crossFadeState: expanded
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
+              // Use Positioned.fill() to pass the constraints to its children.
+              // This allows the Images to use BoxFit.cover to cover the correct
+              // size
+              layoutBuilder: (Widget topChild, Key topChildKey,
+                  Widget bottomChild, Key bottomChildKey) {
+                return Stack(
+                  children: <Widget>[
+                    Positioned.fill(
+                      key: bottomChildKey,
+                      child: bottomChild,
+                    ),
+                    Positioned.fill(
+                      key: topChildKey,
+                      child: topChild,
+                    ),
+                  ],
+                );
+              },
+              firstChild: Image.asset(
+                'assets/cat.jpg',
+                fit: BoxFit.cover,
+              ),
+              secondChild: Image.asset(
+                'assets/wolf.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
