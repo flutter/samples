@@ -12,16 +12,14 @@ Sample apps that showcasing Flutter's animation features
 
 Building blocks and patterns
 
-**AnimationControllerDemo**
-Demonstrates how to use an `AnimationController`.
+**AnimationControllerDemo** Demonstrates how to use an `AnimationController`.
 
 ### Misc
 
 Other uses-cases and examples
 
-**ExpandCardDemo**
-Demonstrates how to use `AnimatedCrossFade` to fade between two widgets and
-change the size.
+**ExpandCardDemo** Demonstrates how to use `AnimatedCrossFade` to fade between
+two widgets and change the size.
 
 ## Other Resources
 
