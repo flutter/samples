@@ -8,6 +8,11 @@ class CartModel extends ChangeNotifier {
   /// Internal, private state of the cart. Stores the ids of each item.
   final List<int> _itemIds;
 
+  /// Construct a CartModel instance that is backed by a [CatalogModel] and
+  /// an optional previous state of the cart.
+  ///
+  /// If [previous] is not `null`, it's items are copied to the newly
+  /// constructed instance.
   CartModel(this._catalog, CartModel previous)
       : assert(_catalog != null),
         _itemIds = previous?._itemIds ?? [];

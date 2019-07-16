@@ -20,7 +20,7 @@ class MyCart extends StatelessWidget {
                 child: _CartList(),
               ),
             ),
-            Container(height: 4, color: Colors.black),
+            Divider(height: 4, color: Colors.black),
             _CartTotal()
           ],
         ),
@@ -32,7 +32,7 @@ class MyCart extends StatelessWidget {
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.title;
+    var itemNameStyle = Theme.of(context).textTheme.title;
     var cart = Provider.of<CartModel>(context);
 
     return ListView.builder(
@@ -41,7 +41,7 @@ class _CartList extends StatelessWidget {
         leading: Icon(Icons.done),
         title: Text(
           cart.items[index].name,
-          style: textStyle,
+          style: itemNameStyle,
         ),
       ),
     );
@@ -51,7 +51,7 @@ class _CartList extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var textStyle = Theme.of(context).textTheme.display4.copyWith(fontSize: 48);
+    var hugeStyle = Theme.of(context).textTheme.display4.copyWith(fontSize: 48);
 
     return SizedBox(
       height: 200,
@@ -61,7 +61,7 @@ class _CartTotal extends StatelessWidget {
           children: [
             Consumer<CartModel>(
                 builder: (context, cart, child) =>
-                    Text('\$${cart.totalPrice}', style: textStyle)),
+                    Text('\$${cart.totalPrice}', style: hugeStyle)),
             SizedBox(width: 24),
             FlatButton(
               onPressed: () {

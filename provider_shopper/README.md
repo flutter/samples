@@ -20,8 +20,8 @@ This is the app discussed in the [Simple app state management][simple] section o
 
 ### `lib/main.dart`
 
-Here is where we provide the needed objects (a catalog and a shopping cart) to the app.
-We are using `MultiProvider` for providing two objects at once.
+Here the app sets up objects it needs to track state: a catalog and a shopping cart. It builds
+a `MultiProvider` to provide both objects at once to widgets further down the tree.
 
 The `CartModel` instance is provided using a `ChangeNotifierProxyProvider`, which combines
 two types of functionality:

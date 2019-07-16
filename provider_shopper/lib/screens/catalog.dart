@@ -59,7 +59,7 @@ class _MyAppBar extends StatelessWidget {
 class _MyListItem extends StatelessWidget {
   final int index;
 
-  _MyListItem(this.index) : super(key: ValueKey(index));
+  _MyListItem(this.index, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +80,10 @@ class _MyListItem extends StatelessWidget {
               ),
             ),
             SizedBox(width: 24),
-            Text(item.name, style: textTheme),
-            Spacer(),
+            Expanded(
+              child: Text(item.name, style: textTheme),
+            ),
+            SizedBox(width: 24),
             _AddButton(item: item),
           ],
         ),
