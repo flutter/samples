@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:isolate';
@@ -69,7 +68,7 @@ class DataTransferIsolateController extends ChangeNotifier {
   SendPort _newIceSP;
 
   final currentProgress = <String>[];
-  List<bool> runningTest = [false, false, false];
+  int _runningTest = 0;
   bool running = false;
   Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
@@ -106,7 +105,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   void generateOnSecondaryIsolate() {
     if (running) return;
-    setRunningTest(2);
+    _runningTest = 3;
     running = true;
     currentProgress.clear();
 
@@ -119,7 +118,12 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   Future<void> generateRandomNumbers(bool transferableTyped) async {
     if (running) return;
-    (transferableTyped) ? setRunningTest(1) : setRunningTest(0);
+
+    if (transferableTyped) {
+      _runningTest = 2;
+    } else {
+      _runningTest = 1;
+    }
 
     running = true;
     Random rng = Random();
@@ -154,11 +158,7 @@ class DataTransferIsolateController extends ChangeNotifier {
   }
 
   Isolate get newIsolate => _newIsolate;
-
-  void setRunningTest(int whichTest) {
-    runningTest = [false, false, false];
-    runningTest[whichTest] = true;
-  }
+  int get runningTest=> _runningTest;
 
   void dispose() {
     super.dispose();
@@ -262,7 +262,7 @@ Widget createButtons(BuildContext context) {
           RaisedButton(
             child: const Text('Transfer Data to 2nd Isolate'),
             elevation: 8.0,
-            color: (controller.runningTest[0])
+            color: (controller.runningTest== 1)
                 ? Colors.blueAccent
                 : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(false),
@@ -270,7 +270,7 @@ Widget createButtons(BuildContext context) {
           RaisedButton(
             child: const Text('Transfer Data with TransferableTypedData'),
             elevation: 8.0,
-            color: (controller.runningTest[1])
+            color: (controller.runningTest == 2)
                 ? Colors.blueAccent
                 : Colors.grey[300],
             onPressed: () => controller.generateRandomNumbers(true),
@@ -278,7 +278,7 @@ Widget createButtons(BuildContext context) {
           RaisedButton(
             child: const Text('Generate on 2nd Isolate'),
             elevation: 8.0,
-            color: (controller.runningTest[2])
+            color: (controller.runningTest == 3)
                 ? Colors.blueAccent
                 : Colors.grey[300],
             onPressed: controller.generateOnSecondaryIsolate,
