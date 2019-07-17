@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ExpandCardDemo extends StatelessWidget {
   static const String routeName = '/expand_card';
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -30,6 +31,7 @@ class _ExpandCardState extends State<ExpandCard>
     });
   }
 
+  @override
   Widget build(context) {
     return GestureDetector(
       onTap: () => toggleExpanded(),

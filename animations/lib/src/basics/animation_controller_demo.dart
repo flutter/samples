@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AnimationControllerDemo extends StatefulWidget {
   static const String routeName = '/basics/animation_controller';
 
+  @override
   _AnimationControllerDemoState createState() =>
       _AnimationControllerDemoState();
 }
@@ -12,6 +13,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
   static const Duration _duration = Duration(seconds: 1);
   AnimationController controller;
 
+  @override
   void initState() {
     super.initState();
 
@@ -22,11 +24,13 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
       });
   }
 
+  @override
   void dispose() {
     super.dispose();
     controller.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
