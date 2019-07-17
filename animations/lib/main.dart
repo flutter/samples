@@ -36,7 +36,7 @@ final allRoutes = <String, WidgetBuilder>{
 class AnimationSamples extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animations Samples',
+      title: 'Animation Samples',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
@@ -47,13 +47,11 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-
   Widget build(BuildContext context) {
-    final headerStyle =
-    Theme.of(context).textTheme.title;
+    final headerStyle = Theme.of(context).textTheme.title;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animation Examples'),
+        title: Text('Animation Samples'),
       ),
       body: ListView(
         children: [

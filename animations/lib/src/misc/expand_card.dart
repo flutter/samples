@@ -22,7 +22,7 @@ class _ExpandCardState extends State<ExpandCard>
   static const Duration duration = Duration(milliseconds: 300);
   bool selected = false;
 
-  double get size => selected ? 200 : 100;
+  double get size => selected ? 256 : 128;
 
   void toggleExpanded() {
     setState(() {
@@ -40,16 +40,19 @@ class _ExpandCardState extends State<ExpandCard>
             duration: duration,
             width: size,
             height: size,
+            curve: Curves.ease,
             child: AnimatedCrossFade(
               duration: duration,
+              firstCurve: Curves.easeInOutCubic,
+              secondCurve: Curves.easeInOutCubic,
               crossFadeState: selected
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
               // Use Positioned.fill() to pass the constraints to its children.
               // This allows the Images to use BoxFit.cover to cover the correct
               // size
-              layoutBuilder: (Widget topChild, Key topChildKey,
-                  Widget bottomChild, Key bottomChildKey) {
+              layoutBuilder:
+                  (topChild, topChildKey, bottomChild, bottomChildKey) {
                 return Stack(
                   children: <Widget>[
                     Positioned.fill(
@@ -64,11 +67,11 @@ class _ExpandCardState extends State<ExpandCard>
                 );
               },
               firstChild: Image.asset(
-                'assets/cat.jpg',
+                'assets/eat_cape_town_sm.jpg',
                 fit: BoxFit.cover,
               ),
               secondChild: Image.asset(
-                'assets/wolf.jpg',
+                'assets/eat_new_orleans_sm.jpg',
                 fit: BoxFit.cover,
               ),
             ),
