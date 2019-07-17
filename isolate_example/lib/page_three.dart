@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'dart:isolate';
 import 'dart:math';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DataTransferPageStarter extends StatelessWidget {
   @override
@@ -68,8 +68,7 @@ class DataTransferIsolateController extends ChangeNotifier {
   SendPort _newIceSP;
 
   final currentProgress = <String>[];
-  int _runningTest = 0;
-  bool running = false;
+  int runningTest = 0;
   Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
 
@@ -95,7 +94,7 @@ class DataTransferIsolateController extends ChangeNotifier {
       }
 
       if (message is String && message == 'done') {
-        running = false;
+        runningTest = 0;
         _timer.stop();
       }
 
@@ -105,8 +104,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   void generateOnSecondaryIsolate() {
     if (running) return;
-    _runningTest = 3;
-    running = true;
+    runningTest = 3;
     currentProgress.clear();
 
     _timer = Stopwatch();
@@ -120,12 +118,11 @@ class DataTransferIsolateController extends ChangeNotifier {
     if (running) return;
 
     if (transferableTyped) {
-      _runningTest = 2;
+      runningTest = 2;
     } else {
-      _runningTest = 1;
+      runningTest = 1;
     }
 
-    running = true;
     Random rng = Random();
 
     currentProgress.clear();
@@ -159,7 +156,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   Isolate get newIsolate => _newIsolate;
 
-  int get runningTest => _runningTest;
+  bool get running => runningTest != 0;
 
   void dispose() {
     super.dispose();
