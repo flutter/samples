@@ -8,6 +8,7 @@ declare -a  PROJECT_NAMES=(
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \
+    "provider_shopper" \
     "shrine" \
     "veggieseasons" \
 )
