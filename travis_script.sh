@@ -1,6 +1,7 @@
 set -e
 
 declare -a  PROJECT_NAMES=(
+    "animations" \
     "flutter_maps_firestore" \
     "isolate_example" \
     "jsonexample" \
