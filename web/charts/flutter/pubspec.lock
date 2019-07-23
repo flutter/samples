@@ -21,7 +21,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -76,7 +76,7 @@ packages:
     description:
       path: "packages/flutter_web"
       ref: HEAD
-      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
+      resolved-ref: "4520a11a3499ca4c487dddfbbf45e20644de0df8"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -85,7 +85,7 @@ packages:
     description:
       path: "packages/flutter_web_test"
       ref: HEAD
-      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
+      resolved-ref: "4520a11a3499ca4c487dddfbbf45e20644de0df8"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -94,7 +94,7 @@ packages:
     description:
       path: "packages/flutter_web_ui"
       ref: HEAD
-      resolved-ref: "8d4c12a4e9b45f82b5cb862840ac47445e136f7b"
+      resolved-ref: "4520a11a3499ca4c487dddfbbf45e20644de0df8"
       url: "https://github.com/flutter/flutter_web"
     source: git
     version: "0.0.0"
@@ -391,21 +391,21 @@ packages:
       name: vm_service_lib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.21.0"
+    version: "3.22.2"
   watcher:
     dependency: transitive
     description:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.7+10"
+    version: "0.9.7+12"
   web_socket_channel:
     dependency: transitive
     description:
       name: web_socket_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.13"
+    version: "1.0.14"
   yaml:
     dependency: transitive
     description:
@@ -414,4 +414,4 @@ packages:
     source: hosted
     version: "2.1.16"
 sdks:
-  dart: ">=2.2.2 <3.0.0"
+  dart: ">=2.3.0-dev <3.0.0"
