@@ -65,9 +65,9 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
 }
 
 class Card extends StatelessWidget {
-  final String image;
+  final String imageAssetName;
 
-  Card(this.image);
+  Card(this.imageAssetName);
 
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -76,7 +76,7 @@ class Card extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           image: DecorationImage(
-            image: AssetImage(image),
+            image: AssetImage(imageAssetName),
             fit: BoxFit.cover,
           ),
         ),
