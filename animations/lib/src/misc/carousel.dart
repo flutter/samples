@@ -15,9 +15,8 @@ class CarouselDemo extends StatelessWidget {
     'assets/eat_sydney_sm.jpg',
   ];
 
-  final List<Widget> data = [
-    ...fileNames.map((file) => Image.asset(file, fit: BoxFit.cover))
-  ];
+  final List<Widget> data =
+      fileNames.map((file) => Image.asset(file, fit: BoxFit.cover)).toList();
 
   @override
   Widget build(context) {
