@@ -9,13 +9,13 @@ import 'package:flutter/widgets.dart';
 class CarouselDemo extends StatelessWidget {
   static String routeName = '/misc/carousel';
 
-  static List<String> fileNames = [
+  static const List<String> fileNames = [
     'assets/eat_cape_town_sm.jpg',
     'assets/eat_new_orleans_sm.jpg',
     'assets/eat_sydney_sm.jpg',
   ];
 
-  final List<Widget> data =
+  final List<Widget> images =
       fileNames.map((file) => Image.asset(file, fit: BoxFit.cover)).toList();
 
   @override
@@ -24,12 +24,20 @@ class CarouselDemo extends StatelessWidget {
       appBar: AppBar(
         title: Text('Carousel Demo'),
       ),
-      body: Carousel(itemBuilder: widgetBuilder),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Carousel(itemBuilder: widgetBuilder),
+          ),
+        ),
+      ),
     );
   }
 
   Widget widgetBuilder(context, int index) {
-    return data[index % data.length];
+    return images[index % images.length];
   }
 }
 
@@ -45,14 +53,12 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  final _height = 525;
-  final _width = 700;
   PageController _controller;
   int _currentPage;
   bool _pageHasChanged = false;
 
   @override
-  initState() {
+  void initState() {
     super.initState();
     _currentPage = 0;
     _controller = PageController(
@@ -63,6 +69,7 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(context) {
+    var size = MediaQuery.of(context).size;
     return PageView.builder(
         onPageChanged: (value) {
           setState(() {
@@ -71,23 +78,23 @@ class _CarouselState extends State<Carousel> {
           });
         },
         controller: _controller,
-        itemBuilder: (context, index) => builder(index));
+        itemBuilder: (context, index) => builder(index, size));
   }
 
-  Widget builder(int index) {
+  Widget builder(int index, Size size) {
     return AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
           var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
-          var value = result - index;
 
-          // value - The horizontal position of the page between a 1 and 0
+          // The horizontal position of the page between a 1 and 0
+          var value = result - index;
           value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
 
           var actualWidget = Center(
             child: SizedBox(
-              height: Curves.easeOut.transform(value) * _height,
-              width: Curves.easeOut.transform(value) * _width,
+              height: Curves.easeOut.transform(value) * size.height,
+              width: Curves.easeOut.transform(value) * size.width,
               child: child,
             ),
           );
@@ -97,7 +104,7 @@ class _CarouselState extends State<Carousel> {
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
