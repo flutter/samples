@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:animations/src/misc/repeating_animation.dart';
 import 'package:flutter/material.dart';
 
 import 'src/basics/animation_controller_demo.dart';
@@ -10,6 +9,7 @@ import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
+import 'src/misc/repeating_animation.dart';
 
 void main() => runApp(AnimationSamples());
 
