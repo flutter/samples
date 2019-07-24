@@ -3,7 +3,14 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'src/basics/animation_controller_demo.dart';
+
+import 'src/basics/01_animated_container.dart';
+import 'src/basics/02_page_route_builder.dart';
+import 'src/basics/03_animation_controller.dart';
+import 'src/basics/04_tweens.dart';
+import 'src/basics/05_custom_tween.dart';
+import 'src/basics/06_animated_builder.dart';
+
 import 'src/misc/expand_card.dart';
 
 void main() => runApp(AnimationSamples());
@@ -17,8 +24,17 @@ class Demo {
 }
 
 final basicDemos = [
+  Demo('AnimatedContainer', AnimatedContainerDemo.routeName,
+      (context) => AnimatedContainerDemo()),
+  Demo('PageRouteBuilder', PageRouteBuilderDemo.routeName,
+      (context) => PageRouteBuilderDemo()),
   Demo('Animation Controller', AnimationControllerDemo.routeName,
       (context) => AnimationControllerDemo()),
+  Demo('Tweens', TweenDemo.routeName, (context) => TweenDemo()),
+  Demo('Custom Tween', CustomTweenDemo.routeName,
+      (context) => CustomTweenDemo()),
+  Demo('AnimatedBuilder', AnimatedBuilderDemo.routeName,
+      (context) => AnimatedBuilderDemo()),
 ];
 
 final miscDemos = [
