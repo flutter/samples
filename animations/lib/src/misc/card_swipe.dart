@@ -12,9 +12,9 @@ class CardSwipeDemo extends StatefulWidget {
 
 class _CardSwipeDemoState extends State<CardSwipeDemo> {
   var fileNames = [
-    'assets/coast.jpg',
-    'assets/landscape.jpg',
-    'assets/venice.jpg',
+    'assets/eat_cape_town_sm.jpg',
+    'assets/eat_new_orleans_sm.jpg',
+    'assets/eat_sydney_sm.jpg',
   ];
 
   Widget build(BuildContext context) {
@@ -48,9 +48,9 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
               onPressed: () {
                 setState(() {
                   fileNames = [
-                    'assets/coast.jpg',
-                    'assets/landscape.jpg',
-                    'assets/venice.jpg',
+                    'assets/eat_sydney_sm.jpg',
+                    'assets/eat_cape_town_sm.jpg',
+                    'assets/eat_new_orleans_sm.jpg',
                   ];
                 });
               },
