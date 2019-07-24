@@ -3,8 +3,12 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+
 import 'src/basics/animation_controller_demo.dart';
+import 'src/misc/card_swipe.dart';
+import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
+import 'src/misc/focus_image.dart';
 
 void main() => runApp(AnimationSamples());
 
@@ -24,6 +28,9 @@ final basicDemos = [
 final miscDemos = [
   Demo('Expandable Card', ExpandCardDemo.routeName,
       (context) => ExpandCardDemo()),
+  Demo('Carousel', CarouselDemo.routeName, (context) => CarouselDemo()),
+  Demo('Focus Image', FocusImageDemo.routeName, (context) => FocusImageDemo()),
+  Demo('Card Swipe', CardSwipeDemo.routeName, (context) => CardSwipeDemo()),
 ];
 
 final basicDemoRoutes =
