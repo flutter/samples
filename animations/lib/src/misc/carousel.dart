@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-/// This sample is based on the `coverflow` package
-/// https://github.com/efortuna/coverflow
 class CarouselDemo extends StatelessWidget {
   static String routeName = '/misc/carousel';
 
