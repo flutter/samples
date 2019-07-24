@@ -26,41 +26,39 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
       appBar: AppBar(
         title: Text('Card Swipe'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              height: 500,
-              child: Stack(
-                children: <Widget>[
-                  for (final fileName in fileNames)
-                    SwipeableCard(
-                      image: fileName,
-                      onSwiped: () {
-                        setState(() {
-                          fileNames.remove(fileName);
-                        });
-                      },
-                    ),
-                ],
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 500,
+            child: Stack(
+              children: <Widget>[
+                for (final fileName in fileNames)
+                  SwipeableCard(
+                    image: fileName,
+                    onSwiped: () {
+                      setState(() {
+                        fileNames.remove(fileName);
+                      });
+                    },
+                  ),
+              ],
             ),
-            RaisedButton(
-              child: const Text('Refill'),
-              onPressed: () {
-                setState(() {
-                  fileNames = [
-                    'assets/eat_sydney_sm.jpg',
-                    'assets/eat_cape_town_sm.jpg',
-                    'assets/eat_new_orleans_sm.jpg',
-                  ];
-                });
-              },
-            ),
-          ],
-        ),
+          ),
+          RaisedButton(
+            child: const Text('Refill'),
+            onPressed: () {
+              setState(() {
+                fileNames = [
+                  'assets/eat_sydney_sm.jpg',
+                  'assets/eat_cape_town_sm.jpg',
+                  'assets/eat_new_orleans_sm.jpg',
+                ];
+              });
+            },
+          ),
+        ],
       ),
     );
   }
