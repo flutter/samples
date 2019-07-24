@@ -15,50 +15,59 @@ class CardSwipeDemo extends StatefulWidget {
 }
 
 class _CardSwipeDemoState extends State<CardSwipeDemo> {
-  var fileNames = [
-    'assets/eat_cape_town_sm.jpg',
-    'assets/eat_new_orleans_sm.jpg',
-    'assets/eat_sydney_sm.jpg',
-  ];
+  var fileNames;
+  void initState() {
+    _resetCards();
+    super.initState();
+  }
+
+  void _resetCards() {
+    fileNames = [
+      'assets/eat_cape_town_sm.jpg',
+      'assets/eat_new_orleans_sm.jpg',
+      'assets/eat_sydney_sm.jpg',
+    ];
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Card Swipe'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            height: 500,
-            child: Stack(
-              children: <Widget>[
-                for (final fileName in fileNames)
-                  SwipeableCard(
-                    image: fileName,
-                    onSwiped: () {
-                      setState(() {
-                        fileNames.remove(fileName);
-                      });
-                    },
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: ClipRect(
+                  child: Stack(
+                    overflow: Overflow.clip,
+                    children: <Widget>[
+                      for (final fileName in fileNames)
+                        SwipeableCard(
+                          image: fileName,
+                          onSwiped: () {
+                            setState(() {
+                              fileNames.remove(fileName);
+                            });
+                          },
+                        ),
+                    ],
                   ),
-              ],
-            ),
+                ),
+              ),
+              RaisedButton(
+                child: const Text('Refill'),
+                onPressed: () {
+                  setState(() {
+                    _resetCards();
+                  });
+                },
+              ),
+            ],
           ),
-          RaisedButton(
-            child: const Text('Refill'),
-            onPressed: () {
-              setState(() {
-                fileNames = [
-                  'assets/eat_sydney_sm.jpg',
-                  'assets/eat_cape_town_sm.jpg',
-                  'assets/eat_new_orleans_sm.jpg',
-                ];
-              });
-            },
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -101,7 +110,8 @@ class _SwipeableCardState extends State<SwipeableCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Offset> _animation;
-  double _dragStartLocalPosition, _currentPosition;
+  double _dragStartX;
+  bool _isSwipingLeft = false;
   final String image;
 
   _SwipeableCardState(this.image);
@@ -128,26 +138,39 @@ class _SwipeableCardState extends State<SwipeableCard>
   }
 
   void _dragStart(DragStartDetails details) {
-    _dragStartLocalPosition = details.localPosition.dx;
+    _dragStartX = details.localPosition.dx;
   }
 
   void _dragUpdate(DragUpdateDetails details) {
-    _currentPosition = details.localPosition.dx;
-    var delta = _currentPosition - _dragStartLocalPosition;
-    _controller.value = delta / context.size.width;
+    var isSwipingLeft = (details.localPosition.dx - _dragStartX) < 0;
+    if (isSwipingLeft != _isSwipingLeft) {
+      _isSwipingLeft = isSwipingLeft;
+      _updateAnimation(details.localPosition.dx);
+    }
+
+    setState(() {
+      _controller.value =
+          (details.localPosition.dx - _dragStartX).abs() / context.size.width;
+    });
   }
 
   void _dragEnd(DragEndDetails details) {
-    var dx = -details.velocity.pixelsPerSecond.dx / context.size.width;
-    _animate(velocity: dx);
-    _dragStartLocalPosition = 0;
+    var velocity =
+        (details.velocity.pixelsPerSecond.dx / context.size.width).abs();
+    _animate(velocity: velocity);
+  }
+
+  void _updateAnimation(double dragPosition) {
+    _animation = _controller.drive(Tween<Offset>(
+      begin: const Offset(0, 0),
+      end: _isSwipingLeft ? Offset(-1, 0) : Offset(1, 0),
+    ));
   }
 
   void _animate({double velocity = 0}) {
-    double end = (_currentPosition > _dragStartLocalPosition) ? 1.5 : -1.5;
     var description = SpringDescription(mass: 50, stiffness: 1, damping: 1);
     var simulation =
-    ScrollSpringSimulation(description, _controller.value, end, velocity);
+        SpringSimulation(description, _controller.value, 1, velocity);
     _controller.animateWith(simulation).then((_) {
       widget.onSwiped();
     });
