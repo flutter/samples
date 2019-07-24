@@ -71,36 +71,37 @@ class _CarouselState extends State<Carousel> {
   Widget build(context) {
     var size = MediaQuery.of(context).size;
     return PageView.builder(
-        onPageChanged: (value) {
-          setState(() {
-            _pageHasChanged = true;
-            _currentPage = value;
-          });
-        },
-        controller: _controller,
-        itemBuilder: (context, index) => builder(index, size));
+      onPageChanged: (value) {
+        setState(() {
+          _pageHasChanged = true;
+          _currentPage = value;
+        });
+      },
+      controller: _controller,
+      itemBuilder: (context, index) => builder(index, size),
+    );
   }
 
   Widget builder(int index, Size size) {
     return AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
+      animation: _controller,
+      builder: (context, child) {
+        var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
 
-          // The horizontal position of the page between a 1 and 0
-          var value = result - index;
-          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
+        // The horizontal position of the page between a 1 and 0
+        var value = result - index;
+        value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
 
-          var actualWidget = Center(
-            child: SizedBox(
-              height: Curves.easeOut.transform(value) * size.height,
-              width: Curves.easeOut.transform(value) * size.width,
-              child: child,
-            ),
-          );
-          return actualWidget;
-        },
-        child: widget.itemBuilder(context, index));
+        return Center(
+          child: SizedBox(
+            height: Curves.easeOut.transform(value) * size.height,
+            width: Curves.easeOut.transform(value) * size.width,
+            child: child,
+          ),
+        );
+      },
+      child: widget.itemBuilder(context, index),
+    );
   }
 
   @override
