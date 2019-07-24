@@ -21,7 +21,7 @@ class Grid extends StatelessWidget {
       body: GridView.builder(
         itemCount: 40,
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (context, index) {
           return (index >= 20)
               ? SmallCard('assets/eat_cape_town_sm.jpg')
@@ -33,28 +33,21 @@ class Grid extends StatelessWidget {
 }
 
 Route _expandToPageRoute(BuildContext parentContext, String image) {
-  Widget transitionsBuilder(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child,
-      ) {
-    var rectAnimation = _rectTween(parentContext)
-        .chain(CurveTween(curve: Curves.ease))
-        .animate(animation);
-
-    return Stack(
-      children: [
-        PositionedTransition(rect: rectAnimation, child: child),
-      ],
-    );
-  }
-
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) {
       return _SecondPage(image);
     },
-    transitionsBuilder: transitionsBuilder,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var rectAnimation = _rectTween(parentContext)
+          .chain(CurveTween(curve: Curves.ease))
+          .animate(animation);
+
+      return Stack(
+        children: [
+          PositionedTransition(rect: rectAnimation, child: child),
+        ],
+      );
+    },
   );
 }
 
