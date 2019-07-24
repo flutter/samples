@@ -120,7 +120,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     super.initState();
     _controller = AnimationController.unbounded(vsync: this);
     _animation = _controller.drive(Tween<Offset>(
-      begin: const Offset(0, 0),
+      begin: Offset.zero,
       end: Offset(1, 0),
     ));
   }
@@ -162,7 +162,7 @@ class _SwipeableCardState extends State<SwipeableCard>
 
   void _updateAnimation(double dragPosition) {
     _animation = _controller.drive(Tween<Offset>(
-      begin: const Offset(0, 0),
+      begin: Offset.zero,
       end: _isSwipingLeft ? Offset(-1, 0) : Offset(1, 0),
     ));
   }
