@@ -64,9 +64,9 @@ Tween<RelativeRect> _rectTween(BuildContext context) {
 }
 
 class SmallCard extends StatelessWidget {
-  final String image;
+  final String imageAssetName;
 
-  SmallCard(this.image);
+  SmallCard(this.imageAssetName);
 
   Widget build(BuildContext context) {
     return Card(
@@ -74,10 +74,10 @@ class SmallCard extends StatelessWidget {
         child: InkWell(
           onTap: () {
             var nav = Navigator.of(context);
-            nav.push(_expandToPageRoute(context, image));
+            nav.push(_expandToPageRoute(context, imageAssetName));
           },
           child: Image.asset(
-            image,
+            imageAssetName,
             fit: BoxFit.cover,
           ),
         ),
