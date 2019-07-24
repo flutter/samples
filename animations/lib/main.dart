@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:animations/src/misc/repeating_animation.dart';
 import 'package:flutter/material.dart';
 
 import 'src/basics/animation_controller_demo.dart';
@@ -31,6 +32,8 @@ final miscDemos = [
   Demo('Carousel', CarouselDemo.routeName, (context) => CarouselDemo()),
   Demo('Focus Image', FocusImageDemo.routeName, (context) => FocusImageDemo()),
   Demo('Card Swipe', CardSwipeDemo.routeName, (context) => CardSwipeDemo()),
+  Demo('Repeating Animation', RepeatingAnimationDemo.routeName,
+      (context) => RepeatingAnimationDemo()),
 ];
 
 final basicDemoRoutes =
