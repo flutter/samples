@@ -137,10 +137,13 @@ class _SwipeableCardState extends State<SwipeableCard>
     );
   }
 
+  /// Sets the starting position the user dragged from.
   void _dragStart(DragStartDetails details) {
     _dragStartX = details.localPosition.dx;
   }
 
+  /// Changes the animation to animate to the left or right depending on the
+  /// swipe, and sets the AnimationController's value to the swiped amount.
   void _dragUpdate(DragUpdateDetails details) {
     var isSwipingLeft = (details.localPosition.dx - _dragStartX) < 0;
     if (isSwipingLeft != _isSwipingLeft) {
@@ -149,11 +152,15 @@ class _SwipeableCardState extends State<SwipeableCard>
     }
 
     setState(() {
+      // Calculate the amount dragged in unit coordinates (between 0 and 1)
+      // using this widgets width.
       _controller.value =
           (details.localPosition.dx - _dragStartX).abs() / context.size.width;
     });
   }
 
+  /// Runs the fling / spring animation using the final velocity of the drag
+  /// gesture.
   void _dragEnd(DragEndDetails details) {
     var velocity =
         (details.velocity.pixelsPerSecond.dx / context.size.width).abs();
