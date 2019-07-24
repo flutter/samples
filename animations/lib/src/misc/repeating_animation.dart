@@ -32,23 +32,23 @@ class RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _borderRadius,
-      builder: (context, child) {
-        return Scaffold(
-          appBar: AppBar(title: Text('Repeating Animation')),
-          body: Center(
-            child: Container(
+    return Scaffold(
+      appBar: AppBar(title: Text('Repeating Animation')),
+      body: Center(
+        child: AnimatedBuilder(
+          animation: _borderRadius,
+          builder: (context, child) {
+            return Container(
               width: 200,
               height: 200,
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
                 borderRadius: _borderRadius.value,
               ),
-            ),
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ),
     );
   }
 
