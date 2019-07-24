@@ -38,7 +38,7 @@ Route _expandToPageRoute(BuildContext parentContext, String image) {
       return _SecondPage(image);
     },
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var rectAnimation = _rectTween(parentContext)
+      var rectAnimation = _createTween(parentContext)
           .chain(CurveTween(curve: Curves.ease))
           .animate(animation);
 
@@ -51,7 +51,7 @@ Route _expandToPageRoute(BuildContext parentContext, String image) {
   );
 }
 
-Tween<RelativeRect> _rectTween(BuildContext context) {
+Tween<RelativeRect> _createTween(BuildContext context) {
   var windowSize = MediaQuery.of(context).size;
   var box = context.findRenderObject() as RenderBox;
   var rect = box.localToGlobal(Offset.zero) & box.size;
