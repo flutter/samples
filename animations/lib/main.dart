@@ -10,7 +10,6 @@ import 'src/basics/03_animation_controller.dart';
 import 'src/basics/04_tweens.dart';
 import 'src/basics/05_custom_tween.dart';
 import 'src/basics/06_animated_builder.dart';
-
 import 'src/misc/expand_card.dart';
 
 void main() => runApp(AnimationSamples());
