@@ -78,29 +78,25 @@ class _CarouselState extends State<Carousel> {
         });
       },
       controller: _controller,
-      itemBuilder: (context, index) => builder(index, size),
-    );
-  }
+      itemBuilder: (context, index) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
 
-  Widget builder(int index, Size size) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
+          // The horizontal position of the page between a 1 and 0
+          var value = result - index;
+          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
 
-        // The horizontal position of the page between a 1 and 0
-        var value = result - index;
-        value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
-
-        return Center(
-          child: SizedBox(
-            height: Curves.easeOut.transform(value) * size.height,
-            width: Curves.easeOut.transform(value) * size.width,
-            child: child,
-          ),
-        );
-      },
-      child: widget.itemBuilder(context, index),
+          return Center(
+            child: SizedBox(
+              height: Curves.easeOut.transform(value) * size.height,
+              width: Curves.easeOut.transform(value) * size.width,
+              child: child,
+            ),
+          );
+        },
+        child: widget.itemBuilder(context, index),
+      ),
     );
   }
 

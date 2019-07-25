@@ -15,10 +15,11 @@ class CardSwipeDemo extends StatefulWidget {
 }
 
 class _CardSwipeDemoState extends State<CardSwipeDemo> {
-  var fileNames;
+  List<String> fileNames;
+
   void initState() {
-    _resetCards();
     super.initState();
+    _resetCards();
   }
 
   void _resetCards() {
@@ -46,7 +47,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
                     children: <Widget>[
                       for (final fileName in fileNames)
                         SwipeableCard(
-                          image: fileName,
+                          imageAssetName: fileName,
                           onSwiped: () {
                             setState(() {
                               fileNames.remove(fileName);
@@ -95,15 +96,15 @@ class Card extends StatelessWidget {
 }
 
 class SwipeableCard extends StatefulWidget {
-  final String image;
+  final String imageAssetName;
   final VoidCallback onSwiped;
 
   SwipeableCard({
     this.onSwiped,
-    this.image,
+    this.imageAssetName,
   });
 
-  _SwipeableCardState createState() => _SwipeableCardState(this.image);
+  _SwipeableCardState createState() => _SwipeableCardState();
 }
 
 class _SwipeableCardState extends State<SwipeableCard>
@@ -112,9 +113,6 @@ class _SwipeableCardState extends State<SwipeableCard>
   Animation<Offset> _animation;
   double _dragStartX;
   bool _isSwipingLeft = false;
-  final String image;
-
-  _SwipeableCardState(this.image);
 
   void initState() {
     super.initState();
@@ -132,7 +130,7 @@ class _SwipeableCardState extends State<SwipeableCard>
         onHorizontalDragStart: _dragStart,
         onHorizontalDragUpdate: _dragUpdate,
         onHorizontalDragEnd: _dragEnd,
-        child: Card(image),
+        child: Card(widget.imageAssetName),
       ),
     );
   }

@@ -87,9 +87,9 @@ class SmallCard extends StatelessWidget {
 }
 
 class _SecondPage extends StatelessWidget {
-  final String image;
+  final String imageAssetName;
 
-  _SecondPage(this.image);
+  _SecondPage(this.imageAssetName);
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +101,7 @@ class _SecondPage extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 1,
               child: Image.asset(
-                image,
+                imageAssetName,
                 fit: BoxFit.cover,
               ),
             ),
