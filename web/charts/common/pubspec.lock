@@ -203,7 +203,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.2"
+    version: "1.6.4"
   pedantic:
     dependency: "direct dev"
     description:
@@ -350,7 +350,7 @@ packages:
       name: vm_service_lib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.22.2"
+    version: "3.22.2+1"
   watcher:
     dependency: transitive
     description:
