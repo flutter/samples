@@ -41,13 +41,11 @@ class _TweenDemoState extends State<TweenDemo>
               child: Text('\$${animation.value.toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 24)),
             ),
-            MaterialButton(
-              color: Theme.of(context).primaryColor,
+            RaisedButton(
               child: Text(
                 controller.status == AnimationStatus.completed
                     ? 'Buy a Mansion'
                     : 'Win Lottery',
-                style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {

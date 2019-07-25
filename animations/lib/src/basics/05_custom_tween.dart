@@ -43,12 +43,11 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
     return Scaffold(
       appBar: AppBar(
         actions: [
-          MaterialButton(
+          RaisedButton(
             child: Text(
               controller.status == AnimationStatus.completed
                   ? 'Delete Essay'
                   : 'Write Essay',
-              style: TextStyle(color: Colors.white),
             ),
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {

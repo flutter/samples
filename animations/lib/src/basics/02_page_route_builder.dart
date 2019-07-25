@@ -7,8 +7,8 @@ class PageRouteBuilderDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: MaterialButton(
-          child: Text('Go!', style: TextStyle(color: Colors.white)),
+        child: RaisedButton(
+          child: Text('Go!'),
           color: Theme.of(context).primaryColor,
           onPressed: () {
             Navigator.of(context).push(_createRoute());
