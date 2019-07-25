@@ -25,8 +25,8 @@ class _TweenDemoState extends State<TweenDemo>
   }
 
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   Widget build(BuildContext context) {
