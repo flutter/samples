@@ -55,11 +55,9 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                 ),
               ),
             ),
-            MaterialButton(
-              color: Theme.of(context).primaryColor,
+            RaisedButton(
               child: Text(
                 'change',
-                style: TextStyle(color: Colors.white),
               ),
               onPressed: () => change(),
             ),
