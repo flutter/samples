@@ -5,8 +5,7 @@ class TypewriterTween extends Tween<String> {
       : super(begin: begin, end: end);
 
   String lerp(double t) {
-    var endLength = end.length;
-    var cutoff = (endLength * t).round();
+    var cutoff = (end.length * t).round();
     return end.substring(0, cutoff);
   }
 }
