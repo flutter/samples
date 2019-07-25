@@ -21,7 +21,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (_, __, ___) => _Page2(),
+    pageBuilder: (context, animation, secondaryAnimation) => _Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var tween = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero);
       var curveTween = CurveTween(curve: Curves.ease);
