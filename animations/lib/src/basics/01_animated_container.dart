@@ -4,17 +4,9 @@ import 'package:flutter/material.dart';
 
 const _duration = Duration(milliseconds: 400);
 
-double randomBorderRadius() {
-  return Random().nextDouble() * 64;
-}
-
-double randomMargin() {
-  return Random().nextDouble() * 64;
-}
-
-Color randomColor() {
-  return Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
-}
+double randomBorderRadius() => Random().nextDouble() * 64;
+double randomMargin() => Random().nextDouble() * 64;
+Color randomColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 
 class AnimatedContainerDemo extends StatefulWidget {
   static String routeName = '/basics/01_animated_container';
