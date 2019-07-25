@@ -35,6 +35,11 @@ YouTube video showing implementation.
 Twenty-odd samples detailing common tasks with Flutter: how to use text fields,
 streams and StreamBuilders, and more.
 
+#### [Flutter for web samples](web) _(Flutter team)_
+
+A collection of Flutter samples structured as Flutter for web projects. You
+can see them in action at https://flutter.github.io/samples.
+
 ## Architecture / networking / backend
 
 #### [Flutter Architectural Samples](https://github.com/brianegan/flutter_architecture_samples) [![GitHub stars](https://img.shields.io/github/stars/brianegan/flutter_architecture_samples.svg?style=social&label=Star)](https://github.com/brianegan/flutter_architecture_samples) [![GitHub forks](https://img.shields.io/github/forks/brianegan/flutter_architecture_samples.svg?style=social&label=Fork)](https://github.com/brianegan/flutter_architecture_samples/fork)
@@ -55,6 +60,11 @@ The simplest possible app (the counter) using `provider`
 for state management. This was previously known as `scoped_model_counter`,
 and used `scoped_model` for state management.
 
+#### [provider_shopper](provider_shopper) _(Flutter team)_
+
+A slightly more complex example of state management with `provider`.
+This example demonstrates multiple `providers`, navigation between screens,
+and some other advanced topics.
 
 ## UI
 
@@ -82,6 +92,34 @@ More a GitHub search result than a single repo, Matt Carroll's Flutter UI
 challenges showcase some amazing designs powered by Flutter. Make sure to check
 the accompanying YouTube video so you can watch Matt implement them.
 
+#### [Platform Design](platform_design) _(Flutter team)_
+
+An app designed to look great on both iOS and Android, this sample
+shows how to add platform-specific design touches to an app
+while reusing as much code as possible.
+
+#### [Animation examples](animations) _(Flutter team)_
+
+_currently in development_
+
+A collection of animation examples. The app starts with basic concepts like
+`AnimationController` and `Tween`, then progresses to transitions and
+advanced demos.
+
+## Maps
+
+#### [Place tracker](place_tracker) _(Flutter team)_
+
+A simple integration of the Google Maps plugin for Flutter, this app
+shows how to add a map to the Flutter widget hierarchy, create markers,
+and more.
+
+#### [Flutter, maps, and Cloud Firestore](flutter_maps_firestore) _(Flutter team)_
+
+This app shows the use of a Google map with data loaded from Cloud Firestore.
+It was [built live on stage](https://www.youtube.com/watch?v=RpQLFAFqMlw) at
+Cloud Next '19.
+
 ## Full apps
 
 #### [It's All Widgets!](https://itsallwidgets.com?open_source=true)
@@ -100,13 +138,9 @@ It's currently available in the
 and as a [Progressive Web App](https://inkino.app).
 
 #### [FlutterFlip](https://github.com/redbrogdon/flutterflip) [![GitHub stars](https://img.shields.io/github/stars/redbrogdon/flutterflip.svg?style=social&label=Star)](https://github.com/redbrogdon/flutterflip) [![GitHub forks](https://img.shields.io/github/forks/redbrogdon/flutterflip.svg?style=social&label=Fork)](https://github.com/redbrogdon/flutterflip/fork)
-A simple reversi clone built with Flutter. It showcases some implicit animations
-and how to move work off the UI thread into an isolate.
-
-#### [WhatTodo](https://github.com/burhanrashid52/WhatTodo) [![GitHub stars](https://img.shields.io/github/stars/burhanrashid52/WhatTodo.svg?style=social&label=Star)](https://github.com/burhanrashid52/WhatTodo) [![GitHub forks](https://img.shields.io/github/forks/burhanrashid52/WhatTodo.svg?style=social&label=Fork)](https://github.com/burhanrashid52/WhatTodo/fork)
-A simple todo app that tracks daily tasks, built using the BLoC Pattern. You can
-add projects, labels, and due dates to your tasks, and sort them using the same
-criteria.
+A simple reversi clone built with Flutter. It showcases some implicit animations,
+a stream-based, reactive architecture, and a technique to move work off the UI
+thread and into an isolate.
 
 ## Demos
 
