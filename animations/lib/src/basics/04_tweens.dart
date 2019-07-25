@@ -35,7 +35,7 @@ class _TweenDemoState extends State<TweenDemo>
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
+          children: [
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 200),
               child: Text('\$${animation.value.toStringAsFixed(2)}',

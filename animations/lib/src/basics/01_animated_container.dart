@@ -39,7 +39,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
       appBar: AppBar(),
       body: Center(
         child: Column(
-          children: <Widget>[
+          children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(

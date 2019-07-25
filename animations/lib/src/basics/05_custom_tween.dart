@@ -43,7 +43,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
+        actions: [
           MaterialButton(
             child: Text(
               controller.status == AnimationStatus.completed
@@ -65,7 +65,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+          children: [
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Card(
