@@ -11,7 +11,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
           child: Text('Go!', style: TextStyle(color: Colors.white)),
           color: Theme.of(context).primaryColor,
           onPressed: () {
-            Navigator.of(context).push(_route());
+            Navigator.of(context).push(_createRoute());
           },
         ),
       ),
@@ -19,7 +19,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
   }
 }
 
-Route _route() {
+Route _createRoute() {
   return PageRouteBuilder(
     pageBuilder: (_, __, ___) => _Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
