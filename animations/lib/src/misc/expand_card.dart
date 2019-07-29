@@ -60,7 +60,7 @@ class _ExpandCardState extends State<ExpandCard>
               layoutBuilder:
                   (topChild, topChildKey, bottomChild, bottomChildKey) {
                 return Stack(
-                  children: <Widget>[
+                  children: [
                     Positioned.fill(
                       key: bottomChildKey,
                       child: bottomChild,
