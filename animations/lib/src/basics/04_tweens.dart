@@ -1,40 +1,34 @@
-// Copyright 2019 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 
-class AnimationControllerDemo extends StatefulWidget {
-  static const String routeName = '/basics/animation_controller';
+class TweenDemo extends StatefulWidget {
+  static const String routeName = '/basics/tweens';
 
-  @override
-  _AnimationControllerDemoState createState() =>
-      _AnimationControllerDemoState();
+  _TweenDemoState createState() => _TweenDemoState();
 }
 
-class _AnimationControllerDemoState extends State<AnimationControllerDemo>
+class _TweenDemoState extends State<TweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 1);
+  static const double accountBalance = 1000000;
   AnimationController controller;
+  Animation<double> animation;
 
-  @override
   void initState() {
     super.initState();
 
     controller = AnimationController(vsync: this, duration: _duration)
       ..addListener(() {
-        // Force build() to be called again
+        // Marks the widget tree as dirty
         setState(() {});
       });
+    animation = Tween(begin: 0.0, end: accountBalance).animate(controller);
   }
 
-  @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -44,13 +38,15 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
           children: [
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 200),
-              child: Text(
-                '${controller.value.toStringAsFixed(2)}',
-                style: Theme.of(context).textTheme.display3,
-              ),
+              child: Text('\$${animation.value.toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 24)),
             ),
             RaisedButton(
-              child: Text('animate'),
+              child: Text(
+                controller.status == AnimationStatus.completed
+                    ? 'Buy a Mansion'
+                    : 'Win Lottery',
+              ),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {
                   controller.reverse();
