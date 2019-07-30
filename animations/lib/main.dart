@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:animations/src/misc/physics_card_drag.dart';
 import 'package:flutter/material.dart';
 
 import 'src/basics/01_animated_container.dart';
@@ -48,6 +49,8 @@ final miscDemos = [
   Demo('Card Swipe', CardSwipeDemo.routeName, (context) => CardSwipeDemo()),
   Demo('Repeating Animation', RepeatingAnimationDemo.routeName,
       (context) => RepeatingAnimationDemo()),
+  Demo('Spring Physics', PhysicsCardDragDemo.routeName,
+      (context) => PhysicsCardDragDemo()),
 ];
 
 final basicDemoRoutes =
