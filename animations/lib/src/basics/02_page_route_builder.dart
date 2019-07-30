@@ -9,7 +9,6 @@ class PageRouteBuilderDemo extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           child: Text('Go!'),
-          color: Theme.of(context).primaryColor,
           onPressed: () {
             Navigator.of(context).push(_createRoute());
           },
