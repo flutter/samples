@@ -40,19 +40,14 @@ class _DraggableCardState extends State<DraggableCard>
 
   Animation<Alignment> _animation;
 
-  /// Update the animation so that it runs from the dragged point back to the
-  /// center.
-  void _updateAnimation() {
+  /// Calculates and runs a [SpringSimulation]
+  void _runAnimation(Offset pixelsPerSecond, Size size) {
     _animation = _controller.drive(
       AlignmentTween(
         begin: _dragAlignment,
         end: Alignment.center,
       ),
     );
-  }
-
-  /// Calculates and runs a [SpringSimulation]
-  void _runAnimation(Offset pixelsPerSecond, Size size) {
     // Calculate the velocity relative to the unit interval, [0,1],
     // used by the animation controller.
     final unitsPerSecondX = pixelsPerSecond.dx / size.width;
@@ -81,7 +76,6 @@ class _DraggableCardState extends State<DraggableCard>
         _dragAlignment = _animation.value;
       });
     });
-    _updateAnimation();
   }
 
   @override
@@ -106,7 +100,6 @@ class _DraggableCardState extends State<DraggableCard>
         });
       },
       onPanEnd: (details) {
-        _updateAnimation();
         _runAnimation(details.velocity.pixelsPerSecond, size);
       },
       child: Align(
