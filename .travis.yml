@@ -7,7 +7,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - libstdc++6
-      - fonts-droid
+      - fonts-noto
 git:
   depth: 3
 env:
