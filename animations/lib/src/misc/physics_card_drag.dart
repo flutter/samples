@@ -51,6 +51,26 @@ class _DraggableCardState extends State<DraggableCard>
     );
   }
 
+  /// Calculates and runs a [SpringSimulation]
+  void _runAnimation(Offset pixelsPerSecond, Size size) {
+    // Calculate the velocity relative to the unit interval, [0,1],
+    // used by the animation controller.
+    final unitsPerSecondX = pixelsPerSecond.dx / size.width;
+    final unitsPerSecondY = pixelsPerSecond.dy / size.height;
+    final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
+    final unitVelocity = unitsPerSecond.distance;
+
+    const spring = SpringDescription(
+      mass: 30,
+      stiffness: 1,
+      damping: 1,
+    );
+
+    final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
+
+    _controller.animateWith(simulation);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -87,23 +107,7 @@ class _DraggableCardState extends State<DraggableCard>
       },
       onPanEnd: (details) {
         _updateAnimation();
-        // Calculate the velocity relative to the unit interval, [0,1],
-        // used by the animation controller.
-        final pxPerSecond = details.velocity.pixelsPerSecond;
-        final unitsPerSecondX = pxPerSecond.dx / size.width;
-        final unitsPerSecondY = pxPerSecond.dy / size.height;
-        final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
-        final unitVelocity = unitsPerSecond.distance;
-
-        const spring = SpringDescription(
-          mass: 30,
-          stiffness: 1,
-          damping: 1,
-        );
-
-        final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
-
-        _controller.animateWith(simulation);
+        _runAnimation(details.velocity.pixelsPerSecond, size);
       },
       child: Align(
         alignment: _dragAlignment,
