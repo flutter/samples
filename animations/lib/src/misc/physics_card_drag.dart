@@ -1,3 +1,7 @@
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
@@ -27,13 +31,11 @@ class DraggableCard extends StatefulWidget {
   _DraggableCardState createState() => _DraggableCardState();
 }
 
-/// A draggable card that moves back to [Alignment.center] when it's
-/// released.
 class _DraggableCardState extends State<DraggableCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  /// The position the user has dragged the card to. Represented as an
-  /// [Alignment].
+
+  /// The position the user has dragged the card to.
   Alignment _dragAlignment = Alignment.center;
 
   Animation<Alignment> _animation;
@@ -51,6 +53,7 @@ class _DraggableCardState extends State<DraggableCard>
 
   @override
   void initState() {
+    super.initState();
     _controller = AnimationController(vsync: this);
 
     _controller.addListener(() {
@@ -59,7 +62,6 @@ class _DraggableCardState extends State<DraggableCard>
       });
     });
     _updateAnimation();
-    super.initState();
   }
 
   @override
@@ -70,7 +72,7 @@ class _DraggableCardState extends State<DraggableCard>
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return GestureDetector(
       onPanDown: (details) {
         _controller.stop();
@@ -87,18 +89,19 @@ class _DraggableCardState extends State<DraggableCard>
         _updateAnimation();
         // Calculate the velocity relative to the unit interval, [0,1],
         // used by the animation controller.
-        var pxPerSecond = details.velocity.pixelsPerSecond;
-        var unitsPerSecondX = pxPerSecond.dx / size.width;
-        var unitsPerSecondY = pxPerSecond.dy / size.height;
-        var unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
-        var unitVelocity = unitsPerSecond.distance;
+        final pxPerSecond = details.velocity.pixelsPerSecond;
+        final unitsPerSecondX = pxPerSecond.dx / size.width;
+        final unitsPerSecondY = pxPerSecond.dy / size.height;
+        final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
+        final unitVelocity = unitsPerSecond.distance;
 
-        var spring = SpringDescription(
+        const spring = SpringDescription(
           mass: 30,
           stiffness: 1,
           damping: 1,
         );
-        var simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
+
+        final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
 
         _controller.animateWith(simulation);
       },
