@@ -35,7 +35,11 @@ class _DraggableCardState extends State<DraggableCard>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
-  /// The position the user has dragged the card to.
+  /// The alignment of the card as it is dragged or being animated.
+  ///
+  /// While the card is being dragged, this value is set to the values computed
+  /// in the GestureDetector onPanUpdate callback. If the animation is running,
+  /// this value is set to the value of the [_animation].
   Alignment _dragAlignment = Alignment.center;
 
   Animation<Alignment> _animation;
