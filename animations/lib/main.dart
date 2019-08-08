@@ -14,6 +14,7 @@ import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
+import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
 
 void main() => runApp(AnimationSamples());
@@ -48,6 +49,8 @@ final miscDemos = [
   Demo('Card Swipe', CardSwipeDemo.routeName, (context) => CardSwipeDemo()),
   Demo('Repeating Animation', RepeatingAnimationDemo.routeName,
       (context) => RepeatingAnimationDemo()),
+  Demo('Spring Physics', PhysicsCardDragDemo.routeName,
+      (context) => PhysicsCardDragDemo()),
 ];
 
 final basicDemoRoutes =
