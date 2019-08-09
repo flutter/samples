@@ -28,7 +28,7 @@ flutter channel stable
 ### [add2app](add2app)
 
 This project shows how to add a Flutter module to existing Android and iOS
-projects. 
+applications. 
 
 ## Want more info about the repo in general?˚
 
