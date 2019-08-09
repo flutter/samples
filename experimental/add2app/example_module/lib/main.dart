@@ -42,8 +42,7 @@ class _MiniViewState extends State<MiniView> {
     return SizedBox.expand(
       child: Stack(
         children: [
-          if (Scaffold.of(context) == null)
-        Positioned.fill(
+          Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,

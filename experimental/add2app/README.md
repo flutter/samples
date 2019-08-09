@@ -17,6 +17,11 @@ a standalone Flutter module called `example_module`.
 This is the Flutter module that'll be added to all the individual projects
 in the `add2app` folder.
 
+### `SimpleIOSExample`
+
+An iOS application that imports `example_module` and uses it to display
+a `FlutterViewController` containing widgets from the module.
+
 ## Questions/issues
 
 If you have a general question about JSON serialization in Flutter, the
