@@ -1,8 +1,3 @@
 # example_module
 
-A new flutter module project.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.dev/).
+A simple module used to demo Flutter's Add2App features
