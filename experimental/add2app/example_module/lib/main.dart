@@ -1,4 +1,9 @@
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,12 +27,16 @@ class FullScreenView extends StatelessWidget {
       appBar: AppBar(
         title: Text('A Full-screen Flutter View'),
       ),
-      body: MiniView(),
+      body: const MiniView(showExit: true),
     );
   }
 }
 
 class MiniView extends StatefulWidget {
+  final bool showExit;
+
+  const MiniView({this.showExit = false});
+
   @override
   _MiniViewState createState() => _MiniViewState();
 }
@@ -77,11 +86,13 @@ class _MiniViewState extends State<MiniView> {
                   onPressed: () => setState(() => count++),
                   child: Text('Tap me!'),
                 ),
-                SizedBox(height: 16),
-                RaisedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: Text('Exit this screen'),
-                ),
+                if (widget.showExit) ...[
+                  SizedBox(height: 16),
+                  RaisedButton(
+                    onPressed: () => SystemNavigator.pop(),
+                    child: Text('Exit this screen'),
+                  ),
+                ],
               ],
             ),
           ),
