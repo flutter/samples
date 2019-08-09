@@ -25,7 +25,7 @@ flutter channel stable
 
 ## Index
 
-There aren't actually and samples in here just yet. Things are coming, though!
+There aren't actually any samples in here just yet. Things are coming, though!
 
 ## Want more info about the repo in general?
 
