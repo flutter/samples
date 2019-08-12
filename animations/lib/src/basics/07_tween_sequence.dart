@@ -46,8 +46,7 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     }
 
     controller = AnimationController(duration: duration, vsync: this);
-    animation = TweenSequence<Color>(sequenceItems).animate(controller)
-      ..addListener(() => setState(() {}));
+    animation = TweenSequence<Color>(sequenceItems).animate(controller);
   }
 
   @override
@@ -55,12 +54,18 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: MaterialButton(
-          color: animation.value,
-          onPressed: () {
-            controller.forward().then((_) {
-              controller.reset();
-            });
+        child: AnimatedBuilder(
+          animation: animation,
+          builder: (context, child) {
+            return MaterialButton(
+              color: animation.value,
+              onPressed: () {
+                controller.forward().then((_) {
+                  controller.reset();
+                });
+              },
+              child: child,
+            );
           },
           child: Text('Animate', style: TextStyle(color: Colors.white)),
         ),

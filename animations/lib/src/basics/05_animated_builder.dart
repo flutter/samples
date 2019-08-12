@@ -36,7 +36,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
       appBar: AppBar(),
       body: Center(
         child: AnimatedBuilder(
-          animation: this.animation,
+          animation: animation,
           builder: (context, child) {
             return MaterialButton(
               color: animation.value,
