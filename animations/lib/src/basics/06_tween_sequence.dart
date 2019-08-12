@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ChainingTweensDemo extends StatefulWidget {
+class TweenSequenceDemo extends StatefulWidget {
   static const String routeName = '/basics/chaining_tweens';
 
   @override
-  _ChainingTweensDemoState createState() => _ChainingTweensDemoState();
+  _TweenSequenceDemoState createState() => _TweenSequenceDemoState();
 }
 
-class _ChainingTweensDemoState extends State<ChainingTweensDemo>
+class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(seconds: 1);
   AnimationController controller;
