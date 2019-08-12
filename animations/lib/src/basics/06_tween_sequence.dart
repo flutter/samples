@@ -17,7 +17,7 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
   AnimationController controller;
   Animation<Color> animation;
 
-  static final List<Color> colors = [
+  static final colors = [
     Colors.red,
     Colors.orange,
     Colors.yellow,
