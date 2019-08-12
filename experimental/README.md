@@ -35,6 +35,6 @@ install:
 pod install
 ```
 
-## Want more info about the repo in general?˚
+## Want more info about the repo in general?
 
 See the [README](../README.md) in the repo's root folder.
