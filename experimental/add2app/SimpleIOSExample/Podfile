@@ -3,6 +3,7 @@
 
 # Added these two lines for Flutter:
 flutter_application_path = '../example_module'
+system("pushd #{flutter_application_path} && flutter create . && popd")
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 target 'SimpleIOSExample' do
