@@ -4,7 +4,7 @@
 # These three lines add the dependencies for example_module to the workspace
 # for the project:
 flutter_application_path = '../example_module'
-`pushd "#{flutter_application_path}" && flutter packages get . && popd`
+`pushd "#{flutter_application_path}" && flutter create . && popd`
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 target 'SimpleIOSExample' do
