@@ -1,3 +1,7 @@
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
 class TypewriterTween extends Tween<String> {
@@ -26,11 +30,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
   void initState() {
     super.initState();
 
-    controller = AnimationController(vsync: this, duration: _duration)
-      ..addListener(() {
-        // Marks the widget tree as dirty
-        setState(() {});
-      });
+    controller = AnimationController(vsync: this, duration: _duration);
     animation = TypewriterTween(end: message).animate(controller);
   }
 
@@ -70,9 +70,14 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
               child: Card(
                 child: Container(
                   padding: EdgeInsets.all(8.0),
-                  child: Text('${animation.value}',
-                      style:
-                          TextStyle(fontSize: 16, fontFamily: 'SpecialElite')),
+                  child: AnimatedBuilder(
+                    animation: animation,
+                    builder: (context, child) {
+                      return Text('${animation.value}',
+                          style: TextStyle(
+                              fontSize: 16, fontFamily: 'SpecialElite'));
+                    },
+                  ),
                 ),
               ),
             ),
