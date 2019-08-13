@@ -37,7 +37,7 @@ final basicDemos = [
       (context) => AnimationControllerDemo()),
   Demo('Tweens', TweenDemo.routeName, (context) => TweenDemo()),
   Demo('AnimatedBuilder', AnimatedBuilderDemo.routeName,
-          (context) => AnimatedBuilderDemo()),
+      (context) => AnimatedBuilderDemo()),
   Demo('Custom Tween', CustomTweenDemo.routeName,
       (context) => CustomTweenDemo()),
   Demo('Tween Sequences', TweenSequenceDemo.routeName,
