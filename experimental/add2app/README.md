@@ -1,6 +1,6 @@
-# Add2App Sample
+# Add-to-App Sample
 
-***The Add2App sample is designed to build with Flutter's `master` channel. See
+***The Add-to-App sample is designed to build with Flutter's `master` channel. See
 the [README](../README.md) in the `experimental` directory for details.***
 
 This directory contains a bunch of Android and iOS projects that each import
@@ -20,12 +20,19 @@ in the `add2app` folder.
 ### `SimpleIOSExample`
 
 An iOS application that imports `example_module` and uses it to display
-a `FlutterViewController` containing widgets from the module.
+a `FlutterViewController` containing widgets from the module. This project
+uses CocoaPods, so prior to running it for the first time, use this command
+to set up the workspace file:
+
+```bash
+cd SimpleIOSExample
+pod install
+```
 
 ## Questions/issues
 
-If you have a general question about JSON serialization in Flutter, the
-best places to go are:
+If you have a general question about incorporating Flutter into an existing
+iOS or Android app, the best places to go are:
 
 * [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
 * [The Flutter Gitter channel](https://gitter.im/flutter/flutter)

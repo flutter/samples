@@ -25,15 +25,10 @@ flutter channel stable
 
 ## Index
 
-### [add2app](add2app)
+### [Add-to-App](add2app)
 
 This project shows how to add a Flutter module to existing Android and iOS
-applications. It uses CocoaPods, so before compiling it, you need to do a pod
-install:
-
-```bash
-pod install
-```
+applications. 
 
 ## Want more info about the repo in general?
 

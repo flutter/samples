@@ -1,9 +1,10 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-# Added these two lines for Flutter:
+# These three lines add the dependencies for example_module to the workspace
+# for the project:
 flutter_application_path = '../example_module'
-system("pushd #{flutter_application_path} && flutter create . && popd")
+`pushd "#{flutter_application_path}" && flutter packages get . && popd`
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 target 'SimpleIOSExample' do
