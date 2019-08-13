@@ -13,7 +13,7 @@ class TweenSequenceDemo extends StatefulWidget {
 
 class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     with SingleTickerProviderStateMixin {
-  static const Duration duration = Duration(seconds: 1);
+  static const Duration duration = Duration(seconds: 3);
   AnimationController controller;
   Animation<Color> animation;
 
@@ -59,10 +59,9 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
           builder: (context, child) {
             return MaterialButton(
               color: animation.value,
-              onPressed: () {
-                controller.forward().then((_) {
-                  controller.reset();
-                });
+              onPressed: () async {
+                await controller.forward();
+                controller.reset();
               },
               child: child,
             );
