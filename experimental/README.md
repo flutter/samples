@@ -25,7 +25,10 @@ flutter channel stable
 
 ## Index
 
-There aren't actually any samples in here just yet. Things are coming, though!
+### [Add-to-App](add_to_app)
+
+This project shows how to add a Flutter module to existing Android and iOS
+applications. 
 
 ## Want more info about the repo in general?
 
