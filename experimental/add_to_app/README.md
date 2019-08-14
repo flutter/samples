@@ -1,15 +1,11 @@
 # Add-to-App Sample
 
-***The Add-to-App sample is designed to build with Flutter's `master` channel. See
-the [README](../README.md) in the `experimental` directory for details.***
+***The Add-to-App sample is designed to build with Flutter's `master` channel 
+and the latest version of Cocoapods. See the [README](../README.md) in the 
+`experimental` directory for details.***
 
 This directory contains a bunch of Android and iOS projects that each import
 a standalone Flutter module called `example_module`.
-
-## Prerequisites
-
-- Flutter is set to the master channel (`flutter channel master`)
-- Cocoapods is on version 1.7.5 or above (`gem install cocoapods` will update the Cocoapods installation)
 
 ## Goals for this sample
 
