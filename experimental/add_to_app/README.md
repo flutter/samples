@@ -6,6 +6,11 @@ the [README](../README.md) in the `experimental` directory for details.***
 This directory contains a bunch of Android and iOS projects that each import
 a standalone Flutter module called `example_module`.
 
+## Prerequisites
+
+- Flutter is set to the master channel (`flutter channel master`)
+- Cocoapods is on version 1.7.5 or above (`gem install cocoapods` will update the Cocoapods installation)
+
 ## Goals for this sample
 
 * Show developers how to add Flutter to their existing applications.
