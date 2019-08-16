@@ -35,9 +35,9 @@ two widgets and change the size.
 **FocusImageDemo** Demonstrates how to measure the size of a widget and expand
 it using a `PageRouteBuilder`.
 **PhysicsCardDragDemo** Demonstrates how to run an AnimationController with a
-*spring simulation.
+spring simulation.
 **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
-*detection to drive an animation.
+detection to drive an animation.
 
 ## Other Resources
 
