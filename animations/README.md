@@ -12,7 +12,7 @@ Sample apps that showcasing Flutter's animation features
 
 Building blocks and patterns
 
-1. **1. AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer` 
+1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer` 
 2. **PageRouteBuilderDemo** Demonstrates how to use `Tween` and `Animation` to
 *build a custom page route transition.
 3. **AnimationControllerDemo** Demonstrates how to use an `AnimationController`.
@@ -28,20 +28,15 @@ button that changes between different colors.
 
 Other uses-cases and examples
 
-**RepeatingAnimationDemo** Demonstrates how to repeat an animation.
-
-**ExpandCardDemo** Demonstrates how to use `AnimatedCrossFade` to fade between
+- **RepeatingAnimationDemo** Demonstrates how to repeat an animation.
+- **ExpandCardDemo** Demonstrates how to use `AnimatedCrossFade` to fade between
 two widgets and change the size.
-
-**CarouselDemo** Demonstrates how to use `PageView` with a custom animation.
-
-**FocusImageDemo** Demonstrates how to measure the size of a widget and expand
+- **CarouselDemo** Demonstrates how to use `PageView` with a custom animation.
+- **FocusImageDemo** Demonstrates how to measure the size of a widget and expand
 it using a `PageRouteBuilder`.
-
-**PhysicsCardDragDemo** Demonstrates how to run an AnimationController with a
+- **PhysicsCardDragDemo** Demonstrates how to run an AnimationController with a
 spring simulation.
-
-**CardSwipeDemo** A swipeable card that demonstrates how to use gesture
+- **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
 
 ## Other Resources
