@@ -29,13 +29,18 @@ button that changes between different colors.
 Other uses-cases and examples
 
 **RepeatingAnimationDemo** Demonstrates how to repeat an animation.
+
 **ExpandCardDemo** Demonstrates how to use `AnimatedCrossFade` to fade between
 two widgets and change the size.
+
 **CarouselDemo** Demonstrates how to use `PageView` with a custom animation.
+
 **FocusImageDemo** Demonstrates how to measure the size of a widget and expand
 it using a `PageRouteBuilder`.
+
 **PhysicsCardDragDemo** Demonstrates how to run an AnimationController with a
 spring simulation.
+
 **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
 
