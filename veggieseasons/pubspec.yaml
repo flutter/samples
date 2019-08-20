@@ -1,7 +1,7 @@
 name: veggieseasons
 description: An iOS app that shows the fruits and veggies currently in season.
 
-version: 1.0.0+1
+version: 1.1.0
 
 environment:
   sdk: ">=2.3.0-dev <3.0.0"
@@ -11,10 +11,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  font_awesome_flutter: ^8.4.0
+  font_awesome_flutter: ^8.5.0
   intl: ^0.15.8
   scoped_model: ^1.0.1
-  shared_preferences: ^0.5.3+1
+  shared_preferences: ^0.5.3+4
 
 dev_dependencies:
   flutter_test:
