@@ -28,7 +28,7 @@ class RallyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rally',
-      //theme: _buildRallyTheme(),
+      theme: _buildRallyTheme(),
       home: HomePage(),
       initialRoute: '/login',
       routes: {'/login': (BuildContext context) => LoginPage()},
