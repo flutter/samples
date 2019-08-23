@@ -1,3 +1,17 @@
+// Copyright 2019-present the Flutter authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 //import 'package:rally/tabs/accounts.dart';
@@ -35,56 +49,64 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
+  dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Theme(
-                // This theme effectively removes the default visual touch
-                // feedback for tapping a tab, which is replaced with a custom
-                // animation.
-                data: theme.copyWith(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-                child: TabBar(
-                  // Setting isScrollable to true prevents the tabs from being
-                  // wrapped in [Expanded] widgets, which allows for more
-                  // flexible sizes and size animations among tabs.
-                  isScrollable: true,
-                  labelPadding: EdgeInsets.zero,
-                  tabs: _buildTabs(theme),
-                  controller: _tabController,
-                  // This removes the tab indicator.
-                  indicatorColor: Colors.transparent,
-                ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Theme(
+              // This theme effectively removes the default visual touch
+              // feedback for tapping a tab, which is replaced with a custom
+              // animation.
+              data: theme.copyWith(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
               ),
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: _buildTabViews(),
-                ),
-              )
-            ],
-          ),
-        ));
+              child: TabBar(
+                // Setting isScrollable to true prevents the tabs from being
+                // wrapped in [Expanded] widgets, which allows for more
+                // flexible sizes and size animations among tabs.
+                isScrollable: true,
+                labelPadding: EdgeInsets.zero,
+                tabs: _buildTabs(theme),
+                controller: _tabController,
+                // This removes the tab indicator.
+                indicatorColor: Colors.transparent,
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: _buildTabViews(),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   List<Widget> _buildTabs(ThemeData theme) {
     return <Widget>[
-      _buildTab(theme, Icons.pie_chart, "OVERVIEW", 0),
-      _buildTab(theme, Icons.attach_money, "ACCOUNTS", 1),
-      _buildTab(theme, Icons.money_off, "BILLS", 2),
-      _buildTab(theme, Icons.table_chart, "BUDGETS", 3),
-      _buildTab(theme, Icons.settings, "SETTINGS", 4),
+      _buildTab(theme, Icons.pie_chart, 'OVERVIEW', 0),
+      _buildTab(theme, Icons.attach_money, 'ACCOUNTS', 1),
+      _buildTab(theme, Icons.money_off, 'BILLS', 2),
+      _buildTab(theme, Icons.table_chart, 'BUDGETS', 3),
+      _buildTab(theme, Icons.settings, 'SETTINGS', 4),
     ];
   }
 
   List<Widget> _buildTabViews() {
     return <Widget>[
+      //TODO: Views will be added as they are ready.
 //      OverviewView(),
 //      AccountsView(),
 //      BillsView(),
@@ -98,7 +120,11 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget _buildTab(
-      ThemeData theme, IconData iconData, String title, int index) {
+    ThemeData theme,
+    IconData iconData,
+    String title,
+    int index,
+  ) {
     return _RallyTab(
       theme.textTheme.button,
       Icon(iconData),
@@ -114,11 +140,10 @@ class _RallyTab extends StatefulWidget {
   Icon icon;
   bool isExpanded;
 
-  _RallyTab(TextStyle style, Icon icon, String title, bool isExpanded) {
-    titleText = Text(title, style: style);
-    this.icon = icon;
-    this.isExpanded = isExpanded;
-  }
+  _RallyTab(TextStyle style, Icon icon, String title, bool isExpanded)
+      : titleText = Text(title, style: style),
+        this.icon = icon,
+        this.isExpanded = isExpanded;
 
   _RallyTabState createState() => _RallyTabState();
 }
@@ -134,17 +159,12 @@ class _RallyTabState extends State<_RallyTab>
   initState() {
     super.initState();
     _controller = AnimationController(
-        duration: Duration(milliseconds: 200),
-        vsync: this);
-    _titleSizeAnimation = CurvedAnimation(
-        parent: Tween(begin: 0.0, end: 1.0).animate(_controller),
-        curve: Curves.linear);
-    _titleFadeAnimation = CurvedAnimation(
-        parent: Tween(begin: 0.0, end: 1.0).animate(_controller),
-        curve: Curves.easeOut);
-    _iconFadeAnimation = CurvedAnimation(
-        parent: Tween(begin: 0.6, end: 1.0).animate(_controller),
-        curve: Curves.linear);
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    );
+    _titleSizeAnimation = _controller.view;
+    _titleFadeAnimation = _controller.drive(CurveTween(curve: Curves.easeOut));
+    _iconFadeAnimation = _controller.drive(Tween(begin: 0.6, end: 1));
     if (widget.isExpanded) {
       _controller.value = 1.0;
     }
@@ -197,6 +217,7 @@ class _RallyTabState extends State<_RallyTab>
     );
   }
 
+  @override
   dispose() {
     _controller.dispose();
     super.dispose();

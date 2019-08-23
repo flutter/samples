@@ -1,7 +1,21 @@
+// Copyright 2019-present the Flutter authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'colors.dart';
+import 'package:rally/colors.dart';
 import 'package:rally/home.dart';
 import 'package:rally/login.dart';
 
@@ -13,8 +27,8 @@ class RallyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rally Proto',
-      theme: _buildRallyTheme(),
+      title: 'Rally',
+      //theme: _buildRallyTheme(),
       home: HomePage(),
       initialRoute: '/login',
       routes: {'/login': (BuildContext context) => LoginPage()},
@@ -29,7 +43,7 @@ class RallyApp extends StatelessWidget {
       textTheme: _buildRallyTextTheme(base.textTheme),
       inputDecorationTheme: InputDecorationTheme(
         labelStyle:
-        TextStyle(color: RallyColors.gray, fontWeight: FontWeight.w500),
+            TextStyle(color: RallyColors.gray, fontWeight: FontWeight.w500),
         filled: true,
         fillColor: RallyColors.inputBackground,
         focusedBorder: InputBorder.none,
@@ -40,31 +54,32 @@ class RallyApp extends StatelessWidget {
   TextTheme _buildRallyTextTheme(TextTheme base) {
     return base
         .copyWith(
-        body1: base.body1.copyWith(
-          fontFamily: "Roboto Condensed",
-          fontSize: 14.0,
-          fontWeight: FontWeight.w400,
-        ),
-        headline: base.body2.copyWith(
-          fontFamily: "Eczar",
-          fontSize: 40.0,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 1.4,
-        ),
-        body2: base.body2.copyWith(
-          fontFamily: "Eczar",
-          fontSize: 40.0,
-          fontWeight: FontWeight.w400,
-          letterSpacing: 1.4,
-        ),
-        button: base.button.copyWith(
-          fontFamily: "Roboto Condensed",
-          fontWeight: FontWeight.w700,
-          letterSpacing: 2.8,
-        ))
+          body1: base.body1.copyWith(
+            fontFamily: 'Roboto Condensed',
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+          body2: base.body2.copyWith(
+            fontFamily: 'Eczar',
+            fontSize: 40,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 1.4,
+          ),
+          button: base.button.copyWith(
+            fontFamily: 'Roboto Condensed',
+            fontWeight: FontWeight.w700,
+            letterSpacing: 2.8,
+          ),
+          headline: base.body2.copyWith(
+            fontFamily: 'Eczar',
+            fontSize: 40,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1.4,
+          ),
+        )
         .apply(
-      displayColor: Colors.white,
-      bodyColor: Colors.white,
-    );
+          displayColor: Colors.white,
+          bodyColor: Colors.white,
+        );
   }
 }
