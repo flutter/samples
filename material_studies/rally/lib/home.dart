@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage>
   }
 
   List<Widget> _buildTabViews() {
-    return <Widget>[
+    return [
       OverviewView(),
       AccountsView(),
       BillsView(),
