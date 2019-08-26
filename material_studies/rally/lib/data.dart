@@ -28,7 +28,9 @@ class NamedAmounts {
   /// Calculates the sum of the primary amounts of a list of [NamedAmount].
   static double sumPrimaryAmounts(List<NamedAmount> items) {
     return items.fold(
-        0, (sum, next) => sum + next.primaryAmount);
+      0,
+      (sum, next) => sum + next.primaryAmount,
+    );
   }
 }
 
@@ -68,8 +70,7 @@ class BudgetData extends NamedAmount {
 /// Utils for [BudgetData].
 class BudgetItems {
   static double sumAmountsUsed(List<BudgetData> items) {
-    return items.fold(
-        0.0, (sum, next) => sum + next.amountUsed);
+    return items.fold(0.0, (sum, next) => sum + next.amountUsed);
   }
 }
 
