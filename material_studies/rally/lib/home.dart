@@ -14,10 +14,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:rally/tabs/accounts.dart';
-//import 'package:rally/tabs/bills.dart';
-//import 'package:rally/tabs/budgets.dart';
-//import 'package:rally/tabs/overview.dart';
+import 'package:rally/tabs/accounts.dart';
+import 'package:rally/tabs/bills.dart';
+import 'package:rally/tabs/budgets.dart';
+import 'package:rally/tabs/overview.dart';
 import 'package:rally/tabs/settings.dart';
 
 const int tabCount = 5;
@@ -106,15 +106,10 @@ class _HomePageState extends State<HomePage>
 
   List<Widget> _buildTabViews() {
     return <Widget>[
-      //TODO: Views will be added as they are ready.
-//      OverviewView(),
-//      AccountsView(),
-//      BillsView(),
-//      BudgetsView(),
-      SettingsView(),
-      SettingsView(),
-      SettingsView(),
-      SettingsView(),
+      OverviewView(),
+      AccountsView(),
+      BillsView(),
+      BudgetsView(),
       SettingsView(),
     ];
   }

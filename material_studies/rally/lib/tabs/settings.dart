@@ -14,8 +14,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-//import 'package:rally/data.dart';
+import 'package:rally/data.dart';
 
 class SettingsView extends StatefulWidget {
   @override
@@ -23,14 +22,13 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-//  List<Widget> items = DummyDataService.getSettingsTitles()
-//      .map((String title) => _SettingsItem(title))
-//      .toList();
+  List<Widget> items = DummyDataService.getSettingsTitles()
+      .map((title) => _SettingsItem(title))
+      .toList();
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: []);
-//    return ListView(children: items);
+    return ListView(children: items);
   }
 }
 
