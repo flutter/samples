@@ -70,7 +70,10 @@ class BudgetData extends NamedAmount {
 /// Utils for [BudgetData].
 class BudgetItems {
   static double sumAmountsUsed(List<BudgetData> items) {
-    return items.fold(0.0, (sum, next) => sum + next.amountUsed);
+    return items.fold(
+      0.0,
+      (sum, next) => sum + next.amountUsed,
+    );
   }
 }
 
