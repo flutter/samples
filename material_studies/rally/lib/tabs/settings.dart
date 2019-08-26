@@ -14,6 +14,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 import 'package:rally/data.dart';
 
 class SettingsView extends StatefulWidget {
