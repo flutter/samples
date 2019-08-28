@@ -31,7 +31,7 @@ class _BillsViewState extends State<BillsView>
 
   @override
   Widget build(BuildContext context) {
-    double dueTotal = NamedAmounts.sumPrimaryAmounts(items);
+    double dueTotal = sumBillDataPrimaryAmount(items);
     return Container();
 //    List<RallyPieChartSegment> segments =
 //        RallyPieChartSegments.fromBillItems(items);

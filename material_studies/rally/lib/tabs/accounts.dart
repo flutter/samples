@@ -20,18 +20,12 @@ import 'package:rally/data.dart';
 //import 'package:rally/charts/pie_chart.dart';
 
 /// A page that shows a summary of accounts.
-class AccountsView extends StatefulWidget {
-  @override
-  _AccountsViewState createState() => _AccountsViewState();
-}
-
-class _AccountsViewState extends State<AccountsView>
-    with SingleTickerProviderStateMixin {
+class AccountsView extends StatelessWidget {
   final List<AccountData> items = DummyDataService.getAccountDataList();
 
   @override
   Widget build(BuildContext context) {
-    double balanceTotal = NamedAmounts.sumPrimaryAmounts(items);
+    double balanceTotal = sumAccountDataPrimaryAmount(items);
     return Container();
 //    List<RallyPieChartSegment> segments =
 //        RallyPieChartSegments.fromAccountItems(items);

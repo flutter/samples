@@ -29,15 +29,13 @@ class OverviewView extends StatefulWidget {
 class _OverviewViewState extends State<OverviewView> {
   @override
   Widget build(BuildContext context) {
-    final List<AccountData> accountDataList =
-        DummyDataService.getAccountDataList();
-    final List<BillData> billDataList = DummyDataService.getBillDataList();
-    final List<BudgetData> budgetDataList =
-        DummyDataService.getBudgetDataList();
+    final accountDataList = DummyDataService.getAccountDataList();
+    final billDataList = DummyDataService.getBillDataList();
+    final budgetDataList = DummyDataService.getBudgetDataList();
 
     return Padding(
-      padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-      child: ListView(children: <Widget>[
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: ListView(children: [
         _AlertsView(),
         SizedBox(height: 16),
         _FinancialView(
@@ -45,21 +43,21 @@ class _OverviewViewState extends State<OverviewView> {
 //          total: NamedAmounts.sumPrimaryAmounts(accountDataList),
 //          financialItemViews:
 //              FinancialEntityCategoryViews.fromAccountDataList(accountDataList),
-        ),
+            ),
         SizedBox(height: 16),
         _FinancialView(
 //          title: 'Bills',
 //          total: NamedAmounts.sumPrimaryAmounts(billDataList),
 //          financialItemViews:
 //              FinancialEntityCategoryViews.fromBillDataList(billDataList),
-        ),
+            ),
         SizedBox(height: 16),
         _FinancialView(
 //          title: 'Budgets',
 //          total: NamedAmounts.sumPrimaryAmounts(budgetDataList),
 //          financialItemViews: FinancialEntityCategoryViews.fromBudgetItems(
 //              budgetDataList, context),
-        ),
+            ),
         SizedBox(height: 16),
       ]),
     );
@@ -73,10 +71,10 @@ class _AlertsView extends StatelessWidget {
       padding: EdgeInsets.only(left: 16, top: 4, bottom: 4),
       color: RallyColors.cardBackground,
       child: Column(
-        children: <Widget>[
+        children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+            children: [
               Text('Alerts'),
               FlatButton(
                 onPressed: () {},
@@ -88,19 +86,21 @@ class _AlertsView extends StatelessWidget {
           Container(color: RallyColors.primaryBackground, height: 1),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+            children: [
               Expanded(
                 child: Text(
-                    'Heads up, you’ve used up 90% of your Shopping budget for this month.'),
+                    'Heads up, you’ve used up 90% of your Shopping budget for '
+                    'this month.'),
               ),
               SizedBox(
                 width: 100,
                 child: Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.sort, color: RallyColors.white60),
-                    )),
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.sort, color: RallyColors.white60),
+                  ),
+                ),
               ),
             ],
           )

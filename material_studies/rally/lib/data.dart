@@ -12,69 +12,84 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// A simple data model for most entites within Rally.
-class NamedAmount {
-  const NamedAmount({this.name, this.primaryAmount});
+/// Calculates the sum of the primary amounts of a list of [AccountData].
+double sumAccountDataPrimaryAmount(List<AccountData> items) {
+  return items.fold(
+    0,
+    (sum, next) => sum + next.primaryAmount,
+  );
+}
 
-  /// The display name of this entity .
+/// Calculates the sum of the primary amounts of a list of [BillData].
+double sumBillDataPrimaryAmount(List<BillData> items) {
+  return items.fold(
+    0,
+        (sum, next) => sum + next.primaryAmount,
+  );
+}
+
+/// Calculates the sum of the primary amounts of a list of [BudgetData].
+double sumBudgetDataPrimaryAmount(List<BudgetData> items) {
+  return items.fold(
+    0,
+        (sum, next) => sum + next.primaryAmount,
+  );
+}
+
+/// Calculates the sum of the amounts used of a list of [BudgetData].
+double sumBudgetDataAmountUsed(List<BudgetData> items) {
+  return items.fold(
+    0.0,
+    (sum, next) => sum + next.amountUsed,
+  );
+}
+
+/// A data model for an account.
+///
+/// The [primaryAmount] is the balance of the account in USD.
+class AccountData {
+  const AccountData({this.name, this.primaryAmount, this.accountNumber});
+
+  /// The full displayable account number.
+  final String accountNumber;
+
+  /// The display name of this entity.
   final String name;
 
   // The primary amount or value of this entity.
   final double primaryAmount;
 }
 
-/// Utils for [NamedAmount].
-class NamedAmounts {
-  /// Calculates the sum of the primary amounts of a list of [NamedAmount].
-  static double sumPrimaryAmounts(List<NamedAmount> items) {
-    return items.fold(
-      0,
-      (sum, next) => sum + next.primaryAmount,
-    );
-  }
-}
-
-/// A data model for an account.
-///
-/// The [primaryAmount] is the balance of the account in USD.
-class AccountData extends NamedAmount {
-  const AccountData({String name, double primaryAmount, this.accountNumber})
-      : super(name: name, primaryAmount: primaryAmount);
-
-  /// The full displayable account number.
-  final String accountNumber;
-}
-
 /// A data model for a bill.
 ///
 /// The [primaryAmount] is the amount due in USD.
-class BillData extends NamedAmount {
-  const BillData({String name, double primaryAmount, this.dueDate})
-      : super(name: name, primaryAmount: primaryAmount);
+class BillData {
+  const BillData({this.name, this.primaryAmount, this.dueDate});
 
   /// The due date of this bill.
   final String dueDate;
+
+  /// The display name of this entity.
+  final String name;
+
+  // The primary amount or value of this entity.
+  final double primaryAmount;
 }
 
 /// A data model for a budget.
 ///
 /// The [primaryAmount] is the budget cap in USD.
-class BudgetData extends NamedAmount {
-  const BudgetData({String name, double primaryAmount, this.amountUsed})
-      : super(name: name, primaryAmount: primaryAmount);
+class BudgetData {
+  const BudgetData({this.name, this.primaryAmount, this.amountUsed});
 
   /// Amount of the budget that is consumed or used.
   final double amountUsed;
-}
 
-/// Utils for [BudgetData].
-class BudgetItems {
-  static double sumAmountsUsed(List<BudgetData> items) {
-    return items.fold(
-      0.0,
-      (sum, next) => sum + next.amountUsed,
-    );
-  }
+  /// The display name of this entity.
+  final String name;
+
+  // The primary amount or value of this entity.
+  final double primaryAmount;
 }
 
 class DetailedEventData {
@@ -94,7 +109,7 @@ class DetailedEventData {
 /// In a real app, this might be replaced with some asynchronous service.
 class DummyDataService {
   static List<AccountData> getAccountDataList() {
-    return <AccountData>[
+    return [
       AccountData(
         name: 'Checking',
         primaryAmount: 2215.13,
@@ -119,7 +134,7 @@ class DummyDataService {
   }
 
   static List<DetailedEventData> getDetailedEventItems() {
-    return <DetailedEventData>[
+    return [
       DetailedEventData(
           title: 'Genoe', date: DateTime.utc(2019, 1, 24), amount: -16.54),
       DetailedEventData(
@@ -144,7 +159,7 @@ class DummyDataService {
   }
 
   static List<BillData> getBillDataList() {
-    return <BillData>[
+    return [
       BillData(
         name: 'RedPay Credit',
         primaryAmount: 45.36,
@@ -169,7 +184,7 @@ class DummyDataService {
   }
 
   static List<BudgetData> getBudgetDataList() {
-    return <BudgetData>[
+    return [
       BudgetData(
         name: 'Coffee Shops',
         primaryAmount: 70.0,
@@ -194,7 +209,7 @@ class DummyDataService {
   }
 
   static List<String> getSettingsTitles() {
-    return <String>[
+    return [
       'Manage Accounts',
       'Tax Documents',
       'Passcode and Touch ID',

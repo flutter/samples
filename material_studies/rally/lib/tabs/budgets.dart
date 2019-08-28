@@ -30,8 +30,8 @@ class _BudgetsViewState extends State<BudgetsView>
 
   @override
   Widget build(BuildContext context) {
-    double capTotal = NamedAmounts.sumPrimaryAmounts(items);
-    double usedTotal = BudgetItems.sumAmountsUsed(items);
+    double capTotal = sumBudgetDataPrimaryAmount(items);
+    double usedTotal = sumBudgetDataAmountUsed(items);
     return Container();
 //    List<RallyPieChartSegment> segments =
 //        RallyPieChartSegments.fromBudgetItems(items);
