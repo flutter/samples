@@ -24,7 +24,7 @@ double sumAccountDataPrimaryAmount(List<AccountData> items) {
 double sumBillDataPrimaryAmount(List<BillData> items) {
   return items.fold(
     0,
-        (sum, next) => sum + next.primaryAmount,
+    (sum, next) => sum + next.primaryAmount,
   );
 }
 
@@ -32,7 +32,7 @@ double sumBillDataPrimaryAmount(List<BillData> items) {
 double sumBudgetDataPrimaryAmount(List<BudgetData> items) {
   return items.fold(
     0,
-        (sum, next) => sum + next.primaryAmount,
+    (sum, next) => sum + next.primaryAmount,
   );
 }
 
@@ -50,14 +50,14 @@ double sumBudgetDataAmountUsed(List<BudgetData> items) {
 class AccountData {
   const AccountData({this.name, this.primaryAmount, this.accountNumber});
 
-  /// The full displayable account number.
-  final String accountNumber;
-
   /// The display name of this entity.
   final String name;
 
   // The primary amount or value of this entity.
   final double primaryAmount;
+
+  /// The full displayable account number.
+  final String accountNumber;
 }
 
 /// A data model for a bill.
@@ -66,14 +66,14 @@ class AccountData {
 class BillData {
   const BillData({this.name, this.primaryAmount, this.dueDate});
 
-  /// The due date of this bill.
-  final String dueDate;
-
   /// The display name of this entity.
   final String name;
 
   // The primary amount or value of this entity.
   final double primaryAmount;
+
+  /// The due date of this bill.
+  final String dueDate;
 }
 
 /// A data model for a budget.
@@ -82,14 +82,14 @@ class BillData {
 class BudgetData {
   const BudgetData({this.name, this.primaryAmount, this.amountUsed});
 
-  /// Amount of the budget that is consumed or used.
-  final double amountUsed;
-
   /// The display name of this entity.
   final String name;
 
   // The primary amount or value of this entity.
   final double primaryAmount;
+
+  /// Amount of the budget that is consumed or used.
+  final double amountUsed;
 }
 
 class DetailedEventData {
