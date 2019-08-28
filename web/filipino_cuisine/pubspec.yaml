@@ -6,6 +6,7 @@ environment:
 dependencies:
   flutter_web: any
   flutter_web_ui: any
+  http: ^0.12.0
 
 dev_dependencies:
   pedantic: ^1.3.0
