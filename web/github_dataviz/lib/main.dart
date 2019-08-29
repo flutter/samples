@@ -4,9 +4,10 @@
 
 import 'dart:collection';
 import 'dart:convert';
-import 'dart:html';
 
-import 'package:flutter_web/material.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:flutter/material.dart';
 import 'package:github_dataviz/constants.dart';
 import 'package:github_dataviz/data/contribution_data.dart';
 import 'package:github_dataviz/data/data_series.dart';
@@ -181,7 +182,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
   Future loadGitHubData() async {
     String contributorsJsonStr =
-        await HttpRequest.getString("github_data/contributors.json");
+        (await http.get("github_data/contributors.json")).body;
     List jsonObjs = jsonDecode(contributorsJsonStr) as List;
     List<UserContribution> contributionList =
         jsonObjs.map((e) => UserContribution.fromJson(e)).toList();
@@ -190,28 +191,25 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     int numWeeksTotal = contributionList[0].contributions.length;
 
-    String starsByWeekStr =
-        await HttpRequest.getString("github_data/stars.tsv");
+    String starsByWeekStr = (await http.get("github_data/stars.tsv")).body;
     List<StatForWeek> starsByWeekLoaded =
         summarizeWeeksFromTSV(starsByWeekStr, numWeeksTotal);
 
-    String forksByWeekStr =
-        await HttpRequest.getString("github_data/forks.tsv");
+    String forksByWeekStr = (await http.get("github_data/forks.tsv")).body;
     List<StatForWeek> forksByWeekLoaded =
         summarizeWeeksFromTSV(forksByWeekStr, numWeeksTotal);
 
-    String commitsByWeekStr =
-        await HttpRequest.getString("github_data/commits.tsv");
+    String commitsByWeekStr = (await http.get("github_data/commits.tsv")).body;
     List<StatForWeek> commitsByWeekLoaded =
         summarizeWeeksFromTSV(commitsByWeekStr, numWeeksTotal);
 
     String commentsByWeekStr =
-        await HttpRequest.getString("github_data/comments.tsv");
+        (await http.get("github_data/comments.tsv")).body;
     List<StatForWeek> commentsByWeekLoaded =
         summarizeWeeksFromTSV(commentsByWeekStr, numWeeksTotal);
 
     String pullRequestActivityByWeekStr =
-        await HttpRequest.getString("github_data/pull_requests.tsv");
+        (await http.get("github_data/pull_requests.tsv")).body;
     List<StatForWeek> pullRequestActivityByWeekLoaded =
         summarizeWeeksFromTSV(pullRequestActivityByWeekStr, numWeeksTotal);
 

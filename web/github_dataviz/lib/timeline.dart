@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:github_dataviz/constants.dart';
 import 'package:github_dataviz/data/week_label.dart';
 import 'package:github_dataviz/mathutils.dart';
