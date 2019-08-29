@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:particle_background/simple_animations_package.dart';
 
 void main() => runApp(ParticleApp());
