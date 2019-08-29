@@ -4,13 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-repositories {
-    maven {
-        // Path to the Flutter modules's AAR file relative to this build.gradle's location.
-        url '../../../example_module/build/host/outputs/repo'
-    }
-}
-
 android {
     compileOptions {
         sourceCompatibility 1.8
@@ -34,12 +27,13 @@ android {
 }
 
 dependencies {
+    implementation "android.arch.lifecycle:common-java8:1.1.1"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation project(':flutter')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':flutter')
 }

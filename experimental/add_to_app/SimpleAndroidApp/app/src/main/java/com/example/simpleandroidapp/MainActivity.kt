@@ -10,9 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val launchButton = this.findViewById<Button>(R.id.launch_button)
-
-        launchButton.setOnClickListener {
+        val button = findViewById<Button>(R.id.launch_button)
+        button.setOnClickListener {
             startActivity(FlutterActivity.createDefaultIntent(this))
         }
     }
