@@ -1,8 +1,8 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../gallery/demo.dart';
 
@@ -13,19 +13,19 @@ class NavigationIconView {
     String title,
     Color color,
     TickerProvider vsync,
-  })  : _icon = icon,
-        _color = color,
-        _title = title,
-        item = BottomNavigationBarItem(
-          icon: icon,
-          activeIcon: activeIcon,
-          title: Text(title),
-          backgroundColor: color,
-        ),
-        controller = AnimationController(
-          duration: kThemeAnimationDuration,
-          vsync: vsync,
-        ) {
+  }) : _icon = icon,
+       _color = color,
+       _title = title,
+       item = BottomNavigationBarItem(
+         icon: icon,
+         activeIcon: activeIcon,
+         title: Text(title),
+         backgroundColor: color,
+       ),
+       controller = AnimationController(
+         duration: kThemeAnimationDuration,
+         vsync: vsync,
+       ) {
     _animation = controller.drive(CurveTween(
       curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
     ));
@@ -38,8 +38,7 @@ class NavigationIconView {
   final AnimationController controller;
   Animation<double> _animation;
 
-  FadeTransition transition(
-      BottomNavigationBarType type, BuildContext context) {
+  FadeTransition transition(BottomNavigationBarType type, BuildContext context) {
     Color iconColor;
     if (type == BottomNavigationBarType.shifting) {
       iconColor = _color;
@@ -92,12 +91,13 @@ class CustomInactiveIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final IconThemeData iconTheme = IconTheme.of(context);
     return Container(
-        margin: const EdgeInsets.all(4.0),
-        width: iconTheme.size - 8.0,
-        height: iconTheme.size - 8.0,
-        decoration: BoxDecoration(
-          border: Border.all(color: iconTheme.color, width: 2.0),
-        ));
+      margin: const EdgeInsets.all(4.0),
+      width: iconTheme.size - 8.0,
+      height: iconTheme.size - 8.0,
+      decoration: BoxDecoration(
+        border: Border.all(color: iconTheme.color, width: 2.0),
+      ),
+    );
   }
 }
 
@@ -150,25 +150,17 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
         title: 'Event',
         color: Colors.pink,
         vsync: this,
-      )
+      ),
     ];
-
-    for (NavigationIconView view in _navigationViews)
-      view.controller.addListener(_rebuild);
 
     _navigationViews[_currentIndex].controller.value = 1.0;
   }
 
   @override
   void dispose() {
-    for (NavigationIconView view in _navigationViews) view.controller.dispose();
+    for (NavigationIconView view in _navigationViews)
+      view.controller.dispose();
     super.dispose();
-  }
-
-  void _rebuild() {
-    setState(() {
-      // Rebuild in order to animate views.
-    });
   }
 
   Widget _buildTransitionsStack() {
@@ -193,8 +185,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   Widget build(BuildContext context) {
     final BottomNavigationBar botNavBar = BottomNavigationBar(
       items: _navigationViews
-          .map<BottomNavigationBarItem>(
-              (NavigationIconView navigationView) => navigationView.item)
+          .map<BottomNavigationBarItem>((NavigationIconView navigationView) => navigationView.item)
           .toList(),
       currentIndex: _currentIndex,
       type: _type,
@@ -218,8 +209,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
                 _type = value;
               });
             },
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuItem<BottomNavigationBarType>>[
+            itemBuilder: (BuildContext context) => <PopupMenuItem<BottomNavigationBarType>>[
               const PopupMenuItem<BottomNavigationBarType>(
                 value: BottomNavigationBarType.fixed,
                 child: Text('Fixed'),
@@ -227,12 +217,14 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
               const PopupMenuItem<BottomNavigationBarType>(
                 value: BottomNavigationBarType.shifting,
                 child: Text('Shifting'),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
-      body: Center(child: _buildTransitionsStack()),
+      body: Center(
+        child: _buildTransitionsStack(),
+      ),
       bottomNavigationBar: botNavBar,
     );
   }

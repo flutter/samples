@@ -4,8 +4,8 @@
 
 import 'dart:math' as math;
 
-import 'package:flutter_web/rendering.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/material.dart';
 
 const double _kFrontHeadingHeight = 32.0; // front layer beveled rectangle
 const double _kFrontClosedHeight = 92.0; // front layer height when closed
@@ -130,9 +130,7 @@ class _BackAppBar extends StatelessWidget {
     this.leading = const SizedBox(width: 56.0),
     @required this.title,
     this.trailing,
-  })  : assert(leading != null),
-        assert(title != null),
-        super(key: key);
+  }) : assert(leading != null), assert(title != null), super(key: key);
 
   final Widget leading;
   final Widget title;
@@ -197,15 +195,13 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-class _BackdropState extends State<Backdrop>
-    with SingleTickerProviderStateMixin {
+class _BackdropState extends State<Backdrop> with SingleTickerProviderStateMixin {
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
   AnimationController _controller;
   Animation<double> _frontOpacity;
 
-  static final Animatable<double> _frontOpacityTween =
-      Tween<double>(begin: 0.2, end: 1.0).chain(
-          CurveTween(curve: const Interval(0.0, 0.4, curve: Curves.easeInOut)));
+  static final Animatable<double> _frontOpacityTween = Tween<double>(begin: 0.2, end: 1.0)
+    .chain(CurveTween(curve: const Interval(0.0, 0.4, curve: Curves.easeInOut)));
 
   @override
   void initState() {
@@ -228,21 +224,18 @@ class _BackdropState extends State<Backdrop>
     // Warning: this can be safely called from the event handlers but it may
     // not be called at build time.
     final RenderBox renderBox = _backdropKey.currentContext.findRenderObject();
-    return math.max(
-        0.0, renderBox.size.height - _kBackAppBarHeight - _kFrontClosedHeight);
+    return math.max(0.0, renderBox.size.height - _kBackAppBarHeight - _kFrontClosedHeight);
   }
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    _controller.value -=
-        details.primaryDelta / (_backdropHeight ?? details.primaryDelta);
+    _controller.value -= details.primaryDelta / (_backdropHeight ?? details.primaryDelta);
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_controller.isAnimating ||
-        _controller.status == AnimationStatus.completed) return;
+    if (_controller.isAnimating || _controller.status == AnimationStatus.completed)
+      return;
 
-    final double flingVelocity =
-        details.velocity.pixelsPerSecond.dy / _backdropHeight;
+    final double flingVelocity = details.velocity.pixelsPerSecond.dy / _backdropHeight;
     if (flingVelocity < 0.0)
       _controller.fling(velocity: math.max(2.0, -flingVelocity));
     else if (flingVelocity > 0.0)
@@ -253,16 +246,13 @@ class _BackdropState extends State<Backdrop>
 
   void _toggleFrontLayer() {
     final AnimationStatus status = _controller.status;
-    final bool isOpen = status == AnimationStatus.completed ||
-        status == AnimationStatus.forward;
+    final bool isOpen = status == AnimationStatus.completed || status == AnimationStatus.forward;
     _controller.fling(velocity: isOpen ? -2.0 : 2.0);
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
-    final Animation<RelativeRect> frontRelativeRect =
-        _controller.drive(RelativeRectTween(
-      begin: RelativeRect.fromLTRB(
-          0.0, constraints.biggest.height - _kFrontClosedHeight, 0.0, 0.0),
+    final Animation<RelativeRect> frontRelativeRect = _controller.drive(RelativeRectTween(
+      begin: RelativeRect.fromLTRB(0.0, constraints.biggest.height - _kFrontClosedHeight, 0.0, 0.0),
       end: const RelativeRect.fromLTRB(0.0, _kBackAppBarHeight, 0.0, 0.0),
     ));
 
@@ -289,11 +279,12 @@ class _BackdropState extends State<Backdrop>
             ),
           ),
           Expanded(
-              child: Visibility(
-            child: widget.backLayer,
-            visible: _controller.status != AnimationStatus.completed,
-            maintainState: true,
-          )),
+            child: Visibility(
+              child: widget.backLayer,
+              visible: _controller.status != AnimationStatus.completed,
+              maintainState: true,
+            ),
+          ),
         ],
       ),
       // Front layer
@@ -306,12 +297,9 @@ class _BackdropState extends State<Backdrop>
               elevation: 12.0,
               color: Theme.of(context).canvasColor,
               clipper: ShapeBorderClipper(
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        _kFrontHeadingBevelRadius.transform(_controller.value)),
-//                BeveledRectangleBorder(
-//                  borderRadius: _kFrontHeadingBevelRadius.transform(_controller.value),
-//                ),
+                shape: BeveledRectangleBorder(
+                  borderRadius: _kFrontHeadingBevelRadius.transform(_controller.value),
+                ),
               ),
               clipBehavior: Clip.antiAlias,
               child: child,

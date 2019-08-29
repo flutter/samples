@@ -1,18 +1,18 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
+import 'package:flutter/material.dart';
+
+import '../../gallery/demo.dart';
 
 // Each TabBarView contains a _Page and for each _Page there is a list
 // of _CardData objects. Each _CardData object is displayed by a _CardItem.
 
-import 'package:flutter_web/material.dart';
-
-import '../../gallery/demo.dart';
-
 const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 class _Page {
-  _Page({this.label});
+  _Page({ this.label });
   final String label;
   String get id => label[0];
   @override
@@ -20,7 +20,7 @@ class _Page {
 }
 
 class _CardData {
-  const _CardData({this.title, this.imageAsset, this.imageAssetPackage});
+  const _CardData({ this.title, this.imageAsset, this.imageAssetPackage });
   final String title;
   final String imageAsset;
   final String imageAssetPackage;
@@ -94,7 +94,7 @@ final Map<_Page, List<_CardData>> _allPages = <_Page, List<_CardData>>{
 };
 
 class _CardDataItem extends StatelessWidget {
-  const _CardDataItem({this.page, this.data});
+  const _CardDataItem({ this.page, this.data });
 
   static const double height = 272.0;
   final _Page page;
@@ -110,17 +110,20 @@ class _CardDataItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Align(
-              alignment:
-                  page.id == 'H' ? Alignment.centerLeft : Alignment.centerRight,
+              alignment: page.id == 'H'
+                ? Alignment.centerLeft
+                : Alignment.centerRight,
               child: CircleAvatar(child: Text('${page.id}')),
             ),
-            SizedBox(width: 144.0, height: 144.0, child: new Text('image')
-//              Image.asset(
-//                data.imageAsset,
-//                package: data.imageAssetPackage,
-//                fit: BoxFit.contain,
-//              ),
-                ),
+            SizedBox(
+              width: 144.0,
+              height: 144.0,
+              child: Image.asset(
+                data.imageAsset,
+                package: data.imageAssetPackage,
+                fit: BoxFit.contain,
+              ),
+            ),
             Center(
               child: Text(
                 data.title,
@@ -145,18 +148,19 @@ class TabsDemo extends StatelessWidget {
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
-              SliverAppBar(
-                title: const Text('Tabs and scrolling'),
-                actions: <Widget>[MaterialDemoDocumentationButton(routeName)],
-                pinned: true,
-                expandedHeight: 150.0,
-                forceElevated: innerBoxIsScrolled,
-                bottom: TabBar(
-                  tabs: _allPages.keys
-                      .map<Widget>(
-                        (_Page page) => Tab(text: page.label),
-                      )
-                      .toList(),
+              SliverOverlapAbsorber(
+                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                child: SliverAppBar(
+                  title: const Text('Tabs and scrolling'),
+                  actions: <Widget>[MaterialDemoDocumentationButton(routeName)],
+                  pinned: true,
+                  expandedHeight: 150.0,
+                  forceElevated: innerBoxIsScrolled,
+                  bottom: TabBar(
+                    tabs: _allPages.keys.map<Widget>(
+                      (_Page page) => Tab(text: page.label),
+                    ).toList(),
+                  ),
                 ),
               ),
             ];
@@ -171,6 +175,9 @@ class TabsDemo extends StatelessWidget {
                     return CustomScrollView(
                       key: PageStorageKey<_Page>(page),
                       slivers: <Widget>[
+                        SliverOverlapInjector(
+                          handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                        ),
                         SliverPadding(
                           padding: const EdgeInsets.symmetric(
                             vertical: 8.0,

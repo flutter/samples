@@ -1,8 +1,8 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2017 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import 'sections.dart';
 
@@ -10,9 +10,9 @@ const double kSectionIndicatorWidth = 32.0;
 
 // The card for a single section. Displays the section's gradient and background image.
 class SectionCard extends StatelessWidget {
-  const SectionCard({Key key, @required this.section})
-      : assert(section != null),
-        super(key: key);
+  const SectionCard({ Key key, @required this.section })
+    : assert(section != null),
+      super(key: key);
 
   final Section section;
 
@@ -32,17 +32,12 @@ class SectionCard extends StatelessWidget {
             ],
           ),
         ),
-        // TODO(b:119312219): Remove Opacity layer when Image Color Filter
-        // is implemented in paintImage.
-        child: Opacity(
-          opacity: 0.075,
-          child: Image.asset(
-            section.backgroundAsset,
-            package: section.backgroundAssetPackage,
-            color: const Color.fromRGBO(255, 255, 255, 0.075),
-            colorBlendMode: BlendMode.modulate,
-            fit: BoxFit.cover,
-          ),
+        child: Image.asset(
+          section.backgroundAsset,
+          package: section.backgroundAssetPackage,
+          color: const Color.fromRGBO(255, 255, 255, 0.075),
+          colorBlendMode: BlendMode.modulate,
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -57,10 +52,10 @@ class SectionTitle extends StatelessWidget {
     @required this.section,
     @required this.scale,
     @required this.opacity,
-  })  : assert(section != null),
-        assert(scale != null),
-        assert(opacity != null && opacity >= 0.0 && opacity <= 1.0),
-        super(key: key);
+  }) : assert(section != null),
+       assert(scale != null),
+       assert(opacity != null && opacity >= 0.0 && opacity <= 1.0),
+       super(key: key);
 
   final Section section;
   final double scale;
@@ -104,7 +99,7 @@ class SectionTitle extends StatelessWidget {
 
 // Small horizontal bar that indicates the selected section.
 class SectionIndicator extends StatelessWidget {
-  const SectionIndicator({Key key, this.opacity = 1.0}) : super(key: key);
+  const SectionIndicator({ Key key, this.opacity = 1.0 }) : super(key: key);
 
   final double opacity;
 
@@ -122,10 +117,10 @@ class SectionIndicator extends StatelessWidget {
 
 // Display a single SectionDetail.
 class SectionDetailView extends StatelessWidget {
-  SectionDetailView({Key key, @required this.detail})
-      : assert(detail != null && detail.imageAsset != null),
-        assert((detail.imageAsset ?? detail.title) != null),
-        super(key: key);
+  SectionDetailView({ Key key, @required this.detail })
+    : assert(detail != null && detail.imageAsset != null),
+      assert((detail.imageAsset ?? detail.title) != null),
+      super(key: key);
 
   final SectionDetail detail;
 

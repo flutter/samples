@@ -1,10 +1,16 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart' show DragStartBehavior;
 
 import '../../gallery/demo.dart';
+
+const String _kAsset0 = 'people/square/trevor.png';
+const String _kAsset1 = 'people/square/stella.png';
+const String _kAsset2 = 'people/square/sandra.png';
+const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 class DrawerDemo extends StatefulWidget {
   static const String routeName = '/material/drawer';
@@ -17,11 +23,7 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   static const List<String> _drawerContents = <String>[
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
+    'A', 'B', 'C', 'D', 'E',
   ];
 
   static final Animatable<Offset> _drawerDetailsTween = Tween<Offset>(
@@ -70,13 +72,15 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
 
   void _showNotImplementedMessage() {
     Navigator.pop(context); // Dismiss the drawer.
-    _scaffoldKey.currentState.showSnackBar(
-        const SnackBar(content: Text("The drawer's items don't do anything")));
+    _scaffoldKey.currentState.showSnackBar(const SnackBar(
+      content: Text("The drawer's items don't do anything"),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawerDragStartBehavior: DragStartBehavior.down,
       key: _scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
@@ -88,9 +92,7 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
           },
         ),
         title: const Text('Navigation drawer'),
-        actions: <Widget>[
-          MaterialDemoDocumentationButton(DrawerDemo.routeName)
-        ],
+        actions: <Widget>[MaterialDemoDocumentationButton(DrawerDemo.routeName)],
       ),
       drawer: Drawer(
         child: Column(
@@ -98,6 +100,44 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
             UserAccountsDrawerHeader(
               accountName: const Text('Trevor Widget'),
               accountEmail: const Text('trevor.widget@example.com'),
+              currentAccountPicture: const CircleAvatar(
+                backgroundImage: AssetImage(
+                  _kAsset0,
+                  package: _kGalleryAssetsPackage,
+                ),
+              ),
+              otherAccountsPictures: <Widget>[
+                GestureDetector(
+                  dragStartBehavior: DragStartBehavior.down,
+                  onTap: () {
+                    _onOtherAccountsTap(context);
+                  },
+                  child: Semantics(
+                    label: 'Switch to Account B',
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage(
+                        _kAsset1,
+                        package: _kGalleryAssetsPackage,
+                      ),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  dragStartBehavior: DragStartBehavior.down,
+                  onTap: () {
+                    _onOtherAccountsTap(context);
+                  },
+                  child: Semantics(
+                    label: 'Switch to Account C',
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage(
+                        _kAsset2,
+                        package: _kGalleryAssetsPackage,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
               margin: EdgeInsets.zero,
               onDetailsPressed: () {
                 _showDrawerContents = !_showDrawerContents;
@@ -113,6 +153,7 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
               removeTop: true,
               child: Expanded(
                 child: ListView(
+                  dragStartBehavior: DragStartBehavior.down,
                   padding: const EdgeInsets.only(top: 8.0),
                   children: <Widget>[
                     Stack(
@@ -179,11 +220,19 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
                 Container(
                   width: 100.0,
                   height: 100.0,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(
+                        _kAsset0,
+                        package: _kGalleryAssetsPackage,
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    'Tap here to open the drawer',
+                  child: Text('Tap here to open the drawer',
                     style: Theme.of(context).textTheme.subhead,
                   ),
                 ),
@@ -192,6 +241,25 @@ class _DrawerDemoState extends State<DrawerDemo> with TickerProviderStateMixin {
           ),
         ),
       ),
+    );
+  }
+
+  void _onOtherAccountsTap(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Account switching not implemented.'),
+          actions: <Widget>[
+            FlatButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

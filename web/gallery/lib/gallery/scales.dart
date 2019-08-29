@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 class GalleryTextScaleValue {
   const GalleryTextScaleValue(this.scale, this.label);
@@ -12,7 +12,8 @@ class GalleryTextScaleValue {
 
   @override
   bool operator ==(dynamic other) {
-    if (runtimeType != other.runtimeType) return false;
+    if (runtimeType != other.runtimeType)
+      return false;
     final GalleryTextScaleValue typedOther = other;
     return scale == typedOther.scale && label == typedOther.label;
   }
@@ -24,10 +25,10 @@ class GalleryTextScaleValue {
   String toString() {
     return '$runtimeType($label)';
   }
+
 }
 
-const List<GalleryTextScaleValue> kAllGalleryTextScaleValues =
-    <GalleryTextScaleValue>[
+const List<GalleryTextScaleValue> kAllGalleryTextScaleValues = <GalleryTextScaleValue>[
   GalleryTextScaleValue(null, 'System Default'),
   GalleryTextScaleValue(0.8, 'Small'),
   GalleryTextScaleValue(1.0, 'Normal'),

@@ -1,9 +1,16 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
-import 'package:flutter_web/cupertino.dart';
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'demos.dart';
+import 'example_code_parser.dart';
+import 'syntax_highlighter.dart';
 
 class ComponentDemoTabData {
   ComponentDemoTabData({
@@ -21,12 +28,13 @@ class ComponentDemoTabData {
   final String documentationUrl;
 
   @override
-  bool operator ==(Object other) {
-    if (other.runtimeType != runtimeType) return false;
+  bool operator==(Object other) {
+    if (other.runtimeType != runtimeType)
+      return false;
     final ComponentDemoTabData typedOther = other;
-    return typedOther.tabName == tabName &&
-        typedOther.description == description &&
-        typedOther.documentationUrl == documentationUrl;
+    return typedOther.tabName == tabName
+        && typedOther.description == description
+        && typedOther.documentationUrl == documentationUrl;
   }
 
   @override
@@ -38,29 +46,47 @@ class TabbedComponentDemoScaffold extends StatelessWidget {
     this.title,
     this.demos,
     this.actions,
+    this.isScrollable = true,
+    this.showExampleCodeAction = true,
   });
 
   final List<ComponentDemoTabData> demos;
   final String title;
   final List<Widget> actions;
+  final bool isScrollable;
+  final bool showExampleCodeAction;
 
   void _showExampleCode(BuildContext context) {
-    final String tag =
-        demos[DefaultTabController.of(context).index].exampleCodeTag;
+    final String tag = demos[DefaultTabController.of(context).index].exampleCodeTag;
     if (tag != null) {
-      throw new UnimplementedError();
-      // TODO:
-//      Navigator.push(context, MaterialPageRoute<FullScreenCodeDialog>(
-//          builder: (BuildContext context) => FullScreenCodeDialog(exampleCodeTag: tag)
-//      ));
+      Navigator.push(context, MaterialPageRoute<FullScreenCodeDialog>(
+        builder: (BuildContext context) => FullScreenCodeDialog(exampleCodeTag: tag)
+      ));
     }
   }
 
-  void _showApiDocumentation(BuildContext context) {
-    final String url =
-        demos[DefaultTabController.of(context).index].documentationUrl;
-    if (url != null) {
-      // launch(url, forceWebView: true);
+  Future<void> _showApiDocumentation(BuildContext context) async {
+    final String url = demos[DefaultTabController.of(context).index].documentationUrl;
+    if (url == null)
+      return;
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: const Text('Couldn\'t display URL:'),
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(url),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
@@ -71,34 +97,30 @@ class TabbedComponentDemoScaffold extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
-          actions: (actions ?? <Widget>[])
-            ..addAll(
-              <Widget>[
-                Builder(
-                  builder: (BuildContext context) {
-                    return IconButton(
-                      icon: const Icon(Icons.library_books),
-                      onPressed: () => _showApiDocumentation(context),
-                    );
-                  },
-                ),
-                Builder(
-                  builder: (BuildContext context) {
-                    return IconButton(
-                      icon: const Icon(Icons.code),
-                      tooltip: 'Show example code',
-                      onPressed: () => _showExampleCode(context),
-                    );
-                  },
-                )
-              ],
+          actions: <Widget>[
+            ...?actions,
+            Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.library_books, semanticLabel: 'Show documentation'),
+                  onPressed: () => _showApiDocumentation(context),
+                );
+              },
             ),
+            if (showExampleCodeAction)
+              Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    icon: const Icon(Icons.code),
+                    tooltip: 'Show example code',
+                    onPressed: () => _showExampleCode(context),
+                  );
+                },
+              ),
+          ],
           bottom: TabBar(
-            isScrollable: true,
-            tabs: demos
-                .map<Widget>(
-                    (ComponentDemoTabData data) => Tab(text: data.tabName))
-                .toList(),
+            isScrollable: isScrollable,
+            tabs: demos.map<Widget>((ComponentDemoTabData data) => Tab(text: data.tabName)).toList(),
           ),
         ),
         body: TabBarView(
@@ -109,10 +131,12 @@ class TabbedComponentDemoScaffold extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(demo.description,
-                          style: Theme.of(context).textTheme.subhead)),
-                  Expanded(child: demo.demoWidget)
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(demo.description,
+                      style: Theme.of(context).textTheme.subhead,
+                    ),
+                  ),
+                  Expanded(child: demo.demoWidget),
                 ],
               ),
             );
@@ -123,79 +147,115 @@ class TabbedComponentDemoScaffold extends StatelessWidget {
   }
 }
 
-class MaterialDemoDocumentationButton extends StatelessWidget {
-  MaterialDemoDocumentationButton(String routeName, {Key key})
-      : documentationUrl = 'todo',
-        assert(
-          'todo' != null,
-          'A documentation URL was not specified for demo route $routeName in kAllGalleryDemos',
+class FullScreenCodeDialog extends StatefulWidget {
+  const FullScreenCodeDialog({ this.exampleCodeTag });
+
+  final String exampleCodeTag;
+
+  @override
+  FullScreenCodeDialogState createState() => FullScreenCodeDialogState();
+}
+
+class FullScreenCodeDialogState extends State<FullScreenCodeDialog> {
+
+  String _exampleCode;
+
+  @override
+  void didChangeDependencies() {
+    getExampleCode(widget.exampleCodeTag, DefaultAssetBundle.of(context)).then<void>((String code) {
+      if (mounted) {
+        setState(() {
+          _exampleCode = code ?? 'Example code not found';
+        });
+      }
+    });
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final SyntaxHighlighterStyle style = Theme.of(context).brightness == Brightness.dark
+      ? SyntaxHighlighterStyle.darkThemeStyle()
+      : SyntaxHighlighterStyle.lightThemeStyle();
+
+    Widget body;
+    if (_exampleCode == null) {
+      body = const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      body = SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: RichText(
+            text: TextSpan(
+              style: const TextStyle(fontFamily: 'monospace', fontSize: 10.0),
+              children: <TextSpan>[
+                DartSyntaxHighlighter(style).format(_exampleCode),
+              ],
+            ),
+          ),
         ),
-        super(key: key);
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.clear,
+            semanticLabel: 'Close',
+          ),
+          onPressed: () { Navigator.pop(context); },
+        ),
+        title: const Text('Example code'),
+      ),
+      body: body,
+    );
+  }
+}
+
+class MaterialDemoDocumentationButton extends StatelessWidget {
+  MaterialDemoDocumentationButton(String routeName, { Key key })
+    : documentationUrl = kDemoDocumentationUrl[routeName],
+      assert(
+        kDemoDocumentationUrl[routeName] != null,
+        'A documentation URL was not specified for demo route $routeName in kAllGalleryDemos',
+      ),
+      super(key: key);
 
   final String documentationUrl;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: const Icon(Icons.library_books),
-        tooltip: 'API documentation',
-        // TODO(flutter_web): launch(documentationUrl, forceWebView: true)
-        onPressed: () => {});
+      icon: const Icon(Icons.library_books),
+      tooltip: 'API documentation',
+      onPressed: () => launch(documentationUrl, forceWebView: true),
+    );
   }
-}
-
-Widget wrapScaffold(String title, BuildContext context, Key key, Widget child,
-    String routeName) {
-  IconData _backIcon() {
-    switch (Theme.of(context).platform) {
-      case TargetPlatform.android:
-      case TargetPlatform.fuchsia:
-        return Icons.arrow_back;
-      case TargetPlatform.iOS:
-        return Icons.arrow_back_ios;
-    }
-    assert(false);
-    return null;
-  }
-
-  return Scaffold(
-    key: key,
-    appBar: AppBar(
-      leading: IconButton(
-        icon: Icon(_backIcon()),
-        alignment: Alignment.centerLeft,
-        tooltip: 'Back',
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-      title: Text(title),
-      actions: <Widget>[MaterialDemoDocumentationButton(routeName)],
-    ),
-    body: Material(child: Center(child: child)),
-  );
 }
 
 class CupertinoDemoDocumentationButton extends StatelessWidget {
-  CupertinoDemoDocumentationButton(String routeName, {Key key})
-      : documentationUrl = 'todo',
-        assert(
-          'todo' != null,
-          'A documentation URL was not specified for demo route $routeName in kAllGalleryDemos',
-        ),
-        super(key: key);
+  CupertinoDemoDocumentationButton(String routeName, { Key key })
+    : documentationUrl = kDemoDocumentationUrl[routeName],
+      assert(
+        kDemoDocumentationUrl[routeName] != null,
+        'A documentation URL was not specified for demo route $routeName in kAllGalleryDemos',
+      ),
+      super(key: key);
 
   final String documentationUrl;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-        padding: EdgeInsets.zero,
-        child: Semantics(
-          label: 'API documentation',
-          child: const Icon(CupertinoIcons.book),
-        ),
-        // TODO(flutter_web): launch(documentationUrl, forceWebView: true)
-        onPressed: () => {});
+      padding: EdgeInsets.zero,
+      child: Semantics(
+        label: 'API documentation',
+        child: const Icon(CupertinoIcons.book),
+      ),
+      onPressed: () => launch(documentationUrl, forceWebView: true),
+    );
   }
 }
