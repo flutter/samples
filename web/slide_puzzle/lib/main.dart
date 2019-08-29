@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/material.dart';
+
 import 'src/core/puzzle_animator.dart';
-import 'src/flutter.dart';
 import 'src/puzzle_home_state.dart';
 
 void main() => runApp(PuzzleApp());

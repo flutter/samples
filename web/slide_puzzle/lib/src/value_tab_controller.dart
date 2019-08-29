@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ValueTabController<T> extends StatefulWidget {
@@ -68,7 +68,7 @@ class _ValueTabControllerState<T> extends State<ValueTabController<T>>
         controller: _controller,
         enabled: TickerMode.of(context),
         child: ValueListenableProvider.value(
-          valueListenable: _notifier,
+          value: _notifier,
           child: widget.child,
         ),
       );
