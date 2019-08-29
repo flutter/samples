@@ -111,7 +111,7 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
   final List<RallyPieChartSegment> segments;
 
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable;
+    final animation = listenable as Animation<double>;
     return DecoratedBox(
       decoration: _RallyPieChartOutlineDecoration(
           maxFraction: animation.value,
