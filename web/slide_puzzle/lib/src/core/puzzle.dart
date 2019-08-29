@@ -1,7 +1,3 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:math' show Random, max;
@@ -127,7 +123,8 @@ abstract class Puzzle {
         value += delta * delta;
       }
     }
-    return value * incorrectTiles;
+    value *= incorrectTiles;
+    return value;
   }
 
   Puzzle clickRandom({bool vertical}) {
@@ -140,8 +137,8 @@ abstract class Puzzle {
 
   List<int> clickableValues({bool vertical}) {
     final open = openPosition();
-    final doRow = vertical == null || vertical == false;
-    final doColumn = vertical == null || vertical;
+    final doRow = (vertical == null || vertical == false);
+    final doColumn = (vertical == null || vertical);
 
     final values =
         Uint8List((doRow ? (width - 1) : 0) + (doColumn ? (height - 1) : 0));

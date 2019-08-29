@@ -1,13 +1,34 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'dart:async';
 import 'dart:math' show Point, Random;
 
 import 'body.dart';
 import 'puzzle.dart';
-import 'puzzle_proxy.dart';
+
+enum PuzzleEvent { click, reset, noop }
+
+abstract class PuzzleProxy {
+  int get width;
+
+  int get height;
+
+  int get length;
+
+  bool get solved;
+
+  void reset();
+
+  void clickOrShake(int tileValue);
+
+  int get tileCount;
+
+  int get clickCount;
+
+  int get incorrectTiles;
+
+  Point<double> location(int index);
+
+  bool isCorrectPosition(int value);
+}
 
 class PuzzleAnimator implements PuzzleProxy {
   final _rnd = Random();
@@ -36,10 +57,13 @@ class PuzzleAnimator implements PuzzleProxy {
   @override
   int get tileCount => _puzzle.tileCount;
 
+  @override
   int get incorrectTiles => _puzzle.incorrectTiles;
 
+  @override
   int get clickCount => _clickCount;
 
+  @override
   void reset() => _resetCore();
 
   Stream<PuzzleEvent> get onEvent => _controller.stream;
@@ -69,7 +93,7 @@ class PuzzleAnimator implements PuzzleProxy {
     _puzzle = _puzzle.clickRandom(vertical: _nextRandomVertical);
     _nextRandomVertical = !_nextRandomVertical;
     _clickCount++;
-    _controller.add(PuzzleEvent.random);
+    _controller.add(PuzzleEvent.click);
   }
 
   @override
@@ -141,7 +165,7 @@ class PuzzleAnimator implements PuzzleProxy {
       final delta = _puzzle.openPosition() - _puzzle.coordinatesOf(tileValue);
       deltaDouble = Point(delta.x.toDouble(), delta.y.toDouble());
     }
-    deltaDouble *= 0.5 / deltaDouble.magnitude;
+    deltaDouble *= (0.5 / deltaDouble.magnitude);
 
     _locations[tileValue].kick(deltaDouble);
   }

@@ -1,10 +1,7 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 // ignore_for_file: omit_local_variable_types, annotate_overrides
 
 import 'dart:ui' as ui show Image;
+
 import 'package:flutter/material.dart';
 
 // A model on top of DecorationImage that supports slicing up the source image
@@ -141,13 +138,13 @@ class DecorationImagePlus implements DecorationImage {
 
   @override
   String toString() {
-    final List<String> properties = <String>['$image'];
+    final List<String> properties = <String>[];
+    properties.add('$image');
     if (colorFilter != null) properties.add('$colorFilter');
     if (fit != null &&
         !(fit == BoxFit.fill && centerSlice != null) &&
-        !(fit == BoxFit.scaleDown && centerSlice == null)) {
+        !(fit == BoxFit.scaleDown && centerSlice == null))
       properties.add('$fit');
-    }
     properties.add('$alignment');
     if (centerSlice != null) properties.add('centerSlice: $centerSlice');
     if (repeat != ImageRepeat.noRepeat) properties.add('$repeat');
@@ -226,9 +223,8 @@ class DecorationImagePainterPlus implements DecorationImagePainter {
     if (_image == null) return;
 
     if (clipPath != null) {
-      canvas
-        ..save()
-        ..clipPath(clipPath);
+      canvas.save();
+      canvas.clipPath(clipPath);
     }
 
     _paintImage(
