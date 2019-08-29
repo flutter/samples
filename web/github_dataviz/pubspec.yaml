@@ -8,3 +8,6 @@ dependencies:
     sdk: flutter
   intl: ^0.16.0
   http: ^0.12.0
+flutter:
+  assets:
+    - preview.png

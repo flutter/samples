@@ -6,3 +6,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+flutter:
+  assets:
+    - preview.png

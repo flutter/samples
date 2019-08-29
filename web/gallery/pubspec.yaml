@@ -192,6 +192,7 @@ flutter:
     - packages/shrine_images/35-0.jpg
     - packages/shrine_images/36-0.jpg
     - packages/shrine_images/37-0.jpg
+    - preview.png
 
   fonts:
     - family: Raleway

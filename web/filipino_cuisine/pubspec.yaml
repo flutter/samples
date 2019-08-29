@@ -54,6 +54,7 @@ flutter:
     - raisins.png
     - ground_pork.png
     - sausage.png
+    - preview.png
   fonts:
     - family: opr
       fonts:

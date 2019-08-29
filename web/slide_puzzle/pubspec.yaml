@@ -19,6 +19,7 @@ flutter:
   uses-material-design: true
   assets:
     - asset/
+    - preview.png
 
   fonts:
   - family: Plaster
