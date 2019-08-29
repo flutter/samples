@@ -16,39 +16,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:rally/data.dart';
+//import 'package:rally/finance.dart';
+//import 'package:rally/charts/pie_chart.dart';
 
-class SettingsView extends StatefulWidget {
-  @override
-  _SettingsViewState createState() => _SettingsViewState();
-}
-
-class _SettingsViewState extends State<SettingsView> {
-  List<Widget> items = DummyDataService.getSettingsTitles()
-      .map((title) => _SettingsItem(title))
-      .toList();
+/// A page that shows a summary of accounts.
+class AccountsView extends StatelessWidget {
+  final List<AccountData> items = DummyDataService.getAccountDataList();
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: items);
-  }
-}
-
-class _SettingsItem extends StatelessWidget {
-  _SettingsItem(this.title);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-      textColor: Colors.white,
-      child: SizedBox(
-        height: 60,
-        child: Row(children: <Widget>[
-          Text(title),
-        ]),
-      ),
-      onPressed: () {},
-    );
+    double balanceTotal = sumAccountDataPrimaryAmount(items);
+    return Container();
+//    List<RallyPieChartSegment> segments =
+//        RallyPieChartSegments.fromAccountItems(items);
+//    return FinancialEntityView(
+//      heroLabel: 'Total',
+//      heroAmount: balanceTotal,
+//      segments: segments,
+//      wholeAmount: balanceTotal,
+//      financialEntityCards:
+//          FinancialEntityCategoryViews.fromAccountDataList(items),
+//    );
   }
 }
