@@ -16,8 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:rally/data.dart';
-//import 'package:rally/finance.dart';
-//import 'package:rally/charts/pie_chart.dart';
+import 'package:rally/finance.dart';
+import 'package:rally/charts/pie_chart.dart';
 
 /// A page that shows a summary of accounts.
 class AccountsView extends StatelessWidget {
@@ -26,16 +26,13 @@ class AccountsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double balanceTotal = sumAccountDataPrimaryAmount(items);
-    return Container();
-//    List<RallyPieChartSegment> segments =
-//        RallyPieChartSegments.fromAccountItems(items);
-//    return FinancialEntityView(
-//      heroLabel: 'Total',
-//      heroAmount: balanceTotal,
-//      segments: segments,
-//      wholeAmount: balanceTotal,
-//      financialEntityCards:
-//          FinancialEntityCategoryViews.fromAccountDataList(items),
-//    );
+    List<RallyPieChartSegment> segments = fromAccountItems(items);
+    return FinancialEntityView(
+      heroLabel: 'Total',
+      heroAmount: balanceTotal,
+      segments: segments,
+      wholeAmount: balanceTotal,
+      financialEntityCards: fromAccountDataList(items),
+    );
   }
 }

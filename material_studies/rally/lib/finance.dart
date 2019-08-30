@@ -23,13 +23,13 @@ import 'package:rally/data.dart';
 import 'package:rally/formatters.dart';
 
 class FinancialEntityView extends StatelessWidget {
-  FinancialEntityView(
-      {this.heroLabel,
-      this.heroAmount,
-      this.wholeAmount,
-      this.segments,
-      this.financialEntityCards})
-      : assert(segments.length == financialEntityCards.length);
+  FinancialEntityView({
+    this.heroLabel,
+    this.heroAmount,
+    this.wholeAmount,
+    this.segments,
+    this.financialEntityCards,
+  }) : assert(segments.length == financialEntityCards.length);
 
   /// The amounts to assign each item.
   ///
@@ -42,14 +42,19 @@ class FinancialEntityView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
+    return Column(children: [
       RallyPieChart(
         heroLabel: heroLabel,
         heroAmount: heroAmount,
         wholeAmount: wholeAmount,
         segments: segments,
       ),
-      SizedBox(height: 1.0, child: Container(color: Color(0xA026282F))),
+      SizedBox(
+        height: 1.0,
+        child: Container(
+          color: Color(0xA026282F),
+        ),
+      ),
       ListView(shrinkWrap: true, children: financialEntityCards)
     ]);
   }
@@ -78,57 +83,67 @@ class FinancialEntityCategoryView extends StatelessWidget {
     return FlatButton(
       onPressed: () {
         Navigator.push(
-            context,
-            MaterialPageRoute<FinancialEntityCategoryDetailsPage>(
-                builder: (context) => FinancialEntityCategoryDetailsPage()));
+          context,
+          MaterialPageRoute<FinancialEntityCategoryDetailsPage>(
+            builder: (context) => FinancialEntityCategoryDetailsPage(),
+          ),
+        );
       },
       child: SizedBox(
-          height: 68,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(left: 12, right: 12),
-                      child: VerticalFractionBar(
-                        color: indicatorColor,
-                        fraction: indicatorFraction,
-                      ),
+        height: 68,
+        child: Column(
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 12, right: 12),
+                    child: VerticalFractionBar(
+                      color: indicatorColor,
+                      fraction: indicatorFraction,
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .body1
-                                .copyWith(fontSize: 16.0)),
-                        Text(subtitle,
-                            style: Theme.of(context)
-                                .textTheme
-                                .body1
-                                .copyWith(color: RallyColors.gray60))
-                      ],
-                    ),
-                    Spacer(),
-                    Text('\$ ' + Formatters.usd.format(amount),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
                         style: Theme.of(context)
                             .textTheme
-                            .body2
-                            .copyWith(fontSize: 20.0, color: RallyColors.gray)),
-                    SizedBox(width: 32.0, child: suffix)
-                  ],
-                ),
+                            .body1
+                            .copyWith(fontSize: 16.0),
+                      ),
+                      Text(
+                        subtitle,
+                        style: Theme.of(context)
+                            .textTheme
+                            .body1
+                            .copyWith(color: RallyColors.gray60),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  Text(
+                    '\$ ' + Formatters.usd.format(amount),
+                    style: Theme.of(context)
+                        .textTheme
+                        .body2
+                        .copyWith(fontSize: 20.0, color: RallyColors.gray),
+                  ),
+                  SizedBox(width: 32.0, child: suffix),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 16, right: 16),
-                child: SizedBox(
-                    height: 1, child: Container(color: Color(0xAA282828))),
-              )
-            ],
-          )),
+            ),
+            Divider(
+              height: 1,
+              indent: 16,
+              endIndent: 16,
+              color: Color(0xAA282828),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -152,67 +167,63 @@ class FinancialEntityCategoryModel {
   );
 }
 
-/// Utils for [FinancialEntityCategoryView].
-class FinancialEntityCategoryViews {
-  static FinancialEntityCategoryView fromAccountItem(AccountData model, int i) {
-    return FinancialEntityCategoryView(
-      suffix: Icon(Icons.chevron_right, color: Colors.grey),
-      title: model.name,
-      subtitle: '• • • • • • ' + model.accountNumber.substring(6),
-      indicatorColor: RallyColors.accountColor(i),
-      indicatorFraction: 1.0,
-      amount: model.primaryAmount,
-    );
-  }
+FinancialEntityCategoryView fromAccountItem(AccountData model, int i) {
+  return FinancialEntityCategoryView(
+    suffix: Icon(Icons.chevron_right, color: Colors.grey),
+    title: model.name,
+    subtitle: '• • • • • • ${model.accountNumber.substring(6)}',
+    indicatorColor: RallyColors.accountColor(i),
+    indicatorFraction: 1.0,
+    amount: model.primaryAmount,
+  );
+}
 
-  static FinancialEntityCategoryView fromBillItem(BillData model, int i) {
-    return FinancialEntityCategoryView(
-      suffix: Icon(Icons.chevron_right, color: Colors.grey),
-      title: model.name,
-      subtitle: model.dueDate,
-      indicatorColor: RallyColors.billColor(i),
-      indicatorFraction: 1.0,
-      amount: model.primaryAmount,
-    );
-  }
+FinancialEntityCategoryView fromBillItem(BillData model, int i) {
+  return FinancialEntityCategoryView(
+    suffix: Icon(Icons.chevron_right, color: Colors.grey),
+    title: model.name,
+    subtitle: model.dueDate,
+    indicatorColor: RallyColors.billColor(i),
+    indicatorFraction: 1.0,
+    amount: model.primaryAmount,
+  );
+}
 
-  static FinancialEntityCategoryView fromBudgetItem(
-      BudgetData item, int i, BuildContext context) {
-    return FinancialEntityCategoryView(
-      suffix: Text(' LEFT',
-          style: Theme.of(context)
-              .textTheme
-              .body1
-              .copyWith(color: RallyColors.gray60, fontSize: 10.0)),
-      title: item.name,
-      subtitle: Formatters.usdWithSign.format(item.amountUsed) +
-          ' / ' +
-          Formatters.usdWithSign.format(item.primaryAmount),
-      indicatorColor: RallyColors.budgetColor(i),
-      indicatorFraction: item.amountUsed / item.primaryAmount,
-      amount: item.primaryAmount - item.amountUsed,
-    );
-  }
+FinancialEntityCategoryView fromBudgetItem(
+    BudgetData item, int i, BuildContext context) {
+  return FinancialEntityCategoryView(
+    suffix: Text(' LEFT',
+        style: Theme.of(context)
+            .textTheme
+            .body1
+            .copyWith(color: RallyColors.gray60, fontSize: 10.0)),
+    title: item.name,
+    subtitle: Formatters.usdWithSign.format(item.amountUsed) +
+        ' / ' +
+        Formatters.usdWithSign.format(item.primaryAmount),
+    indicatorColor: RallyColors.budgetColor(i),
+    indicatorFraction: item.amountUsed / item.primaryAmount,
+    amount: item.primaryAmount - item.amountUsed,
+  );
+}
 
-  static List<FinancialEntityCategoryView> fromAccountDataList(
-      List<AccountData> items) {
-    return List<FinancialEntityCategoryView>.generate(items.length,
-        (i) => FinancialEntityCategoryViews.fromAccountItem(items[i], i));
-  }
+List<FinancialEntityCategoryView> fromAccountDataList(List<AccountData> items) {
+  return List<FinancialEntityCategoryView>.generate(
+      items.length, (i) => fromAccountItem(items[i], i));
+}
 
-  static List<FinancialEntityCategoryView> fromBillDataList(
-      List<BillData> items) {
-    return List<FinancialEntityCategoryView>.generate(items.length,
-        (i) => FinancialEntityCategoryViews.fromBillItem(items[i], i));
-  }
+List<FinancialEntityCategoryView> fromBillDataList(List<BillData> items) {
+  return List<FinancialEntityCategoryView>.generate(
+      items.length, (i) => fromBillItem(items[i], i));
+}
 
-  static List<FinancialEntityCategoryView> fromBudgetItems(
-      List<BudgetData> items, BuildContext context) {
-    return List<FinancialEntityCategoryView>.generate(
-        items.length,
-        (i) =>
-            FinancialEntityCategoryViews.fromBudgetItem(items[i], i, context));
-  }
+List<FinancialEntityCategoryView> fromBudgetData(
+    List<BudgetData> items, BuildContext context) {
+  return [
+    for (var i = 0; i < items.length; i++) fromBudgetItem(items[i], i, context)
+  ];
+//    List<FinancialEntityCategoryView>.generate(
+//      items.length, (i) => fromBudgetItem(items[i], i, context));
 }
 
 class FinancialEntityCategoryDetailsPage extends StatelessWidget {
@@ -238,7 +249,7 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
           style: Theme.of(context).textTheme.body1.copyWith(fontSize: 18.0),
         ),
       ),
-      body: Column(children: <Widget>[
+      body: Column(children: [
         SizedBox(
             height: 200.0,
             width: double.infinity,
@@ -267,45 +278,56 @@ class _DetailedEventCard extends StatelessWidget {
     return FlatButton(
       onPressed: () {},
       child: SizedBox(
-          height: 68.0,
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 67.0,
-                child: Row(
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .body1
-                                .copyWith(fontSize: 16.0)),
-                        Text(subtitle,
-                            style: Theme.of(context)
-                                .textTheme
-                                .body1
-                                .copyWith(color: RallyColors.gray60))
-                      ],
-                    ),
-                    Spacer(),
-                    Text('\$ ' + Formatters.usd.format(amount),
+        height: 68.0,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 67.0,
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
                         style: Theme.of(context)
                             .textTheme
-                            .body2
-                            .copyWith(fontSize: 20.0, color: RallyColors.gray)),
-                  ],
+                            .body1
+                            .copyWith(fontSize: 16.0),
+                      ),
+                      Text(
+                        subtitle,
+                        style: Theme.of(context)
+                            .textTheme
+                            .body1
+                            .copyWith(color: RallyColors.gray60),
+                      )
+                    ],
+                  ),
+                  Spacer(),
+                  Text(
+                    '\$ ' + Formatters.usd.format(amount),
+                    style: Theme.of(context)
+                        .textTheme
+                        .body2
+                        .copyWith(fontSize: 20.0, color: RallyColors.gray),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: SizedBox(
+                height: 1.0,
+                child: Container(
+                  color: Color(0xAA282828),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: SizedBox(
-                    height: 1.0, child: Container(color: Color(0xAA282828))),
-              )
-            ],
-          )),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

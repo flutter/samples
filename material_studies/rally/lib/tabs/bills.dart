@@ -16,8 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:rally/data.dart';
-//import 'package:rally/finance.dart';
-//import 'package:rally/charts/pie_chart.dart';
+import 'package:rally/finance.dart';
+import 'package:rally/charts/pie_chart.dart';
 
 /// A page that shows a summary of bills.
 class BillsView extends StatefulWidget {
@@ -32,16 +32,13 @@ class _BillsViewState extends State<BillsView>
   @override
   Widget build(BuildContext context) {
     double dueTotal = sumBillDataPrimaryAmount(items);
-    return Container();
-//    List<RallyPieChartSegment> segments =
-//        RallyPieChartSegments.fromBillItems(items);
-//    return FinancialEntityView(
-//      heroLabel: 'Due',
-//      heroAmount: dueTotal,
-//      segments: segments,
-//      wholeAmount: dueTotal,
-//      financialEntityCards:
-//          FinancialEntityCategoryViews.fromBillDataList(items),
-//    );
+    List<RallyPieChartSegment> segments = fromBillItems(items);
+    return FinancialEntityView(
+      heroLabel: 'Due',
+      heroAmount: dueTotal,
+      segments: segments,
+      wholeAmount: dueTotal,
+      financialEntityCards: fromBillDataList(items),
+    );
   }
 }

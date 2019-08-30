@@ -20,12 +20,14 @@ class VerticalFractionBar extends StatelessWidget {
 
   final Color color;
   final double fraction;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 32.0,
-        width: 4.0,
-        child: Column(children: <Widget>[
+      height: 32.0,
+      width: 4.0,
+      child: Column(
+        children: [
           SizedBox(
             height: (1 - fraction) * 32.0,
             child: Container(
@@ -36,6 +38,8 @@ class VerticalFractionBar extends StatelessWidget {
             height: fraction * 32.0,
             child: Container(color: color),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

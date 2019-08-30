@@ -20,7 +20,7 @@ import 'package:rally/colors.dart';
 import 'package:rally/data.dart';
 
 class RallyLineChart extends StatelessWidget {
-  RallyLineChart({this.events});
+  RallyLineChart({this.events = const []}) : assert(events != null);
 
   final List<DetailedEventData> events;
 
@@ -39,25 +39,26 @@ class RallyLineChartPainter extends CustomPainter {
   final List<DetailedEventData> events;
 
   // Number of days to plot.
-  // This is hardcoded to reflect the dummy data, but would be dynamic in a real app.
-  // For demo only.
+  // This is hardcoded to reflect the dummy data, but would be dynamic in a real
+  // app.
   final int numDays = 52;
 
   // Beginning of window. The end is this plus numDays.
-  // This is hardcoded to reflect the dummy data, but would be dynamic in a real app.
-  // For demo only.
+  // This is hardcoded to reflect the dummy data, but would be dynamic in a real
+  // app.
   final DateTime startDate = DateTime.utc(2018, 12, 1);
 
   // Ranges uses to lerp the pixel points.
-  // This is hardcoded to reflect the dummy data, but would be dynamic in a real app.
-  // For demo only.
+  // This is hardcoded to reflect the dummy data, but would be dynamic in a real
+  // app.
   final double maxAmount = 3000.0; // minAmount is assumed to be 0.0
 
-  // The number of milliseconds in a day. This is the inherit period fot the points in this line.
-  final int millisInDay = 24 * 60 * 60 * 1000;
+  // The number of milliseconds in a day. This is the inherit period fot the
+  // points in this line.
+  static const int millisInDay = 24 * 60 * 60 * 1000;
 
-  // Amount to shift the tick drawing by so that the sunday ticks do not start on the edge.
-  // For demo only.
+  // Amount to shift the tick drawing by so that the sunday ticks do not start
+  // on the edge.
   final int tickShift = 3;
 
   // Arbitrary unit of space for absolute positioned painting.
@@ -87,7 +88,7 @@ class RallyLineChartPainter extends CustomPainter {
   }
 
   void _drawLine(Canvas canvas, Rect rect) {
-    Paint linePaint = Paint()
+    final linePaint = Paint()
       ..color = RallyColors.accountColor(2)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;
@@ -96,16 +97,17 @@ class RallyLineChartPainter extends CustomPainter {
     // points would be used that go beyond the boundaries of the screen.
     double lastAmount = 800.0;
 
-    int smoothing = 7; // demo: try 1, 7, 15, etc.
+    // Try changing this value between 1, 7, 15, etc.
+    int smoothing = 7;
 
     // Align the points with equal deltas (1 day) as a cumulative sum.
     int startMillis = startDate.millisecondsSinceEpoch;
-    final List<Offset> points = [
+    final points = [
       Offset(0.0, (maxAmount - lastAmount) / maxAmount * rect.height)
     ];
     for (int i = 0; i < numDays + smoothing; i++) {
       int endMillis = startMillis + millisInDay * 1;
-      List<DetailedEventData> filteredEvents = events.where((e) {
+      final filteredEvents = events.where((e) {
         return startMillis <= e.date.millisecondsSinceEpoch &&
             e.date.millisecondsSinceEpoch <= endMillis;
       }).toList();
@@ -128,34 +130,36 @@ class RallyLineChartPainter extends CustomPainter {
     canvas.drawPath(path, linePaint);
   }
 
+  /// Draw the X-axis increment markers at constant width intervals.
   void _drawXAxisTicks(Canvas canvas, Rect rect) {
     double dayTop = (rect.top + rect.bottom) / 2;
     for (int i = 0; i < numDays; i++) {
       double x = rect.width / numDays * i;
       canvas.drawRect(
-          Rect.fromPoints(
-            Offset(x, i % 7 == tickShift ? rect.top : dayTop),
-            Offset(x, rect.bottom),
-          ),
-          Paint()
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = 1.0
-            ..color = RallyColors.gray25);
+        Rect.fromPoints(
+          Offset(x, i % 7 == tickShift ? rect.top : dayTop),
+          Offset(x, rect.bottom),
+        ),
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0
+          ..color = RallyColors.gray25,
+      );
     }
   }
 
   void _drawXAxisLabels(Canvas canvas, Rect rect) {
-    TextStyle selectedLabelStyle = Theme.of(context).textTheme.body1.copyWith(
+    final selectedLabelStyle = Theme.of(context).textTheme.body1.copyWith(
           fontWeight: FontWeight.w700,
         );
-    TextStyle unselectedLabelStyle = Theme.of(context).textTheme.body1.copyWith(
+    final unselectedLabelStyle = Theme.of(context).textTheme.body1.copyWith(
           fontWeight: FontWeight.w700,
           color: RallyColors.gray25,
         );
 
-    TextPainter leftLabel = TextPainter(
+    final leftLabel = TextPainter(
       text: TextSpan(
-        text: 'DEC 2018',
+        text: 'AUGUST 2019',
         style: unselectedLabelStyle,
       ),
       textDirection: TextDirection.ltr,
@@ -163,8 +167,8 @@ class RallyLineChartPainter extends CustomPainter {
     leftLabel.layout();
     leftLabel.paint(canvas, Offset(rect.left + space / 2, rect.center.dy));
 
-    TextPainter centerLabel = TextPainter(
-      text: TextSpan(text: 'JAN 2019', style: selectedLabelStyle),
+    final centerLabel = TextPainter(
+      text: TextSpan(text: 'SEPTEMBER 2019', style: selectedLabelStyle),
       textDirection: TextDirection.ltr,
     );
     centerLabel.layout();
@@ -172,9 +176,9 @@ class RallyLineChartPainter extends CustomPainter {
     final double y = rect.center.dy;
     centerLabel.paint(canvas, Offset(x, y));
 
-    TextPainter rightLabel = TextPainter(
+    final rightLabel = TextPainter(
       text: TextSpan(
-        text: 'FEB 2018',
+        text: 'OCTOBER 2019',
         style: unselectedLabelStyle,
       ),
       textDirection: TextDirection.ltr,
