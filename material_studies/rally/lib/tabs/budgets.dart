@@ -15,9 +15,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-//import 'package:rally/charts/pie_chart.dart';
+import 'package:rally/charts/pie_chart.dart';
 import 'package:rally/data.dart';
-//import 'package:rally/finance.dart';
+import 'package:rally/finance.dart';
 
 class BudgetsView extends StatefulWidget {
   @override
@@ -32,16 +32,13 @@ class _BudgetsViewState extends State<BudgetsView>
   Widget build(BuildContext context) {
     double capTotal = sumBudgetDataPrimaryAmount(items);
     double usedTotal = sumBudgetDataAmountUsed(items);
-    return Container();
-//    List<RallyPieChartSegment> segments =
-//        RallyPieChartSegments.fromBudgetItems(items);
-//    return FinancialEntityView(
-//      heroLabel: 'Left',
-//      heroAmount: capTotal - usedTotal,
-//      segments: segments,
-//      wholeAmount: capTotal,
-//      financialEntityCards:
-//          FinancialEntityCategoryViews.fromBudgetItems(items, context),
-//    );
+    List<RallyPieChartSegment> segments = fromBudgetItems(items);
+    return FinancialEntityView(
+      heroLabel: 'Left',
+      heroAmount: capTotal - usedTotal,
+      segments: segments,
+      wholeAmount: capTotal,
+      financialEntityCards: buildBudgetDataListViews(items, context),
+    );
   }
 }

@@ -15,30 +15,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:rally/data.dart';
-import 'package:rally/finance.dart';
-import 'package:rally/charts/pie_chart.dart';
+class VerticalFractionBar extends StatelessWidget {
+  VerticalFractionBar({this.color, this.fraction});
 
-/// A page that shows a summary of bills.
-class BillsView extends StatefulWidget {
-  @override
-  _BillsViewState createState() => _BillsViewState();
-}
-
-class _BillsViewState extends State<BillsView>
-    with SingleTickerProviderStateMixin {
-  final List<BillData> items = DummyDataService.getBillDataList();
+  final Color color;
+  final double fraction;
 
   @override
   Widget build(BuildContext context) {
-    double dueTotal = sumBillDataPrimaryAmount(items);
-    List<RallyPieChartSegment> segments = fromBillItems(items);
-    return FinancialEntityView(
-      heroLabel: 'Due',
-      heroAmount: dueTotal,
-      segments: segments,
-      wholeAmount: dueTotal,
-      financialEntityCards: buildBillDataListViews(items),
+    return SizedBox(
+      height: 32.0,
+      width: 4.0,
+      child: Column(
+        children: [
+          SizedBox(
+            height: (1 - fraction) * 32.0,
+            child: Container(
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(
+            height: fraction * 32.0,
+            child: Container(color: color),
+          ),
+        ],
+      ),
     );
   }
 }

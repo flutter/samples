@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:rally/colors.dart';
 import 'package:rally/data.dart';
-//import 'package:rally/finance.dart';
+import 'package:rally/finance.dart';
 import 'package:rally/formatters.dart';
 
 /// A page that shows a status overview.
@@ -39,25 +41,22 @@ class _OverviewViewState extends State<OverviewView> {
         _AlertsView(),
         SizedBox(height: 16),
         _FinancialView(
-//          title: 'Accounts',
-//          total: NamedAmounts.sumPrimaryAmounts(accountDataList),
-//          financialItemViews:
-//              FinancialEntityCategoryViews.fromAccountDataList(accountDataList),
-            ),
+          title: 'Accounts',
+          total: sumAccountDataPrimaryAmount(accountDataList),
+          financialItemViews: buildAccountDataListViews(accountDataList),
+        ),
         SizedBox(height: 16),
         _FinancialView(
-//          title: 'Bills',
-//          total: NamedAmounts.sumPrimaryAmounts(billDataList),
-//          financialItemViews:
-//              FinancialEntityCategoryViews.fromBillDataList(billDataList),
-            ),
+          title: 'Bills',
+          total: sumBillDataPrimaryAmount(billDataList),
+          financialItemViews: buildBillDataListViews(billDataList),
+        ),
         SizedBox(height: 16),
         _FinancialView(
-//          title: 'Budgets',
-//          total: NamedAmounts.sumPrimaryAmounts(budgetDataList),
-//          financialItemViews: FinancialEntityCategoryViews.fromBudgetItems(
-//              budgetDataList, context),
-            ),
+          title: 'Budgets',
+          total: sumBudgetDataPrimaryAmount(budgetDataList),
+          financialItemViews: buildBudgetDataListViews(budgetDataList, context),
+        ),
         SizedBox(height: 16),
       ]),
     );
@@ -111,42 +110,42 @@ class _AlertsView extends StatelessWidget {
 }
 
 class _FinancialView extends StatelessWidget {
-//  _FinancialView({this.title, this.total, this.financialItemViews});
+  _FinancialView({this.title, this.total, this.financialItemViews});
 
-//  final String title;
-//  final double total;
-//  final List<FinancialEntityCategoryView> financialItemViews;
+  final String title;
+  final double total;
+  final List<FinancialEntityCategoryView> financialItemViews;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
       color: RallyColors.cardBackground,
-//      child: Column(
-//        crossAxisAlignment: CrossAxisAlignment.stretch,
-//        children: <Widget>[
-//          Padding(
-//            padding: EdgeInsets.all(16),
-//            child: Text(title),
-//          ),
-//          Padding(
-//            padding: EdgeInsets.only(left: 16, right: 16),
-//            child: Text(
-//              Formatters.usdWithSign.format(total),
-//              style: theme.textTheme.body2.copyWith(
-//                fontSize: 44.0,
-//                fontWeight: FontWeight.w600,
-//              ),
-//            ),
-//          ),
-//          ...financialItemViews.sublist(0, 3),
-//          FlatButton(
-//            child: Text('SEE ALL'),
-//            textColor: Colors.white,
-//            onPressed: () {},
-//          ),
-//        ],
-//      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(title),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            child: Text(
+              Formatters.usdWithSign.format(total),
+              style: theme.textTheme.body2.copyWith(
+                fontSize: 44.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          ...financialItemViews.sublist(0, min(financialItemViews.length, 3)),
+          FlatButton(
+            child: Text('SEE ALL'),
+            textColor: Colors.white,
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }
