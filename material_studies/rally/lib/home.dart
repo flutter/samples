@@ -136,7 +136,8 @@ class _RallyTab extends StatefulWidget {
   bool isExpanded;
 
   _RallyTab(TextStyle style, Icon icon, String title, bool isExpanded)
-      : titleText = Text(title, style: style),
+      : this.style = style,
+        this.titleText = Text(title, style: style),
         this.icon = icon,
         this.isExpanded = isExpanded;
 

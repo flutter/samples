@@ -31,7 +31,7 @@ class RallyApp extends StatelessWidget {
       theme: _buildRallyTheme(),
       home: HomePage(),
       initialRoute: '/login',
-      routes: {'/login': (BuildContext context) => LoginPage()},
+      routes: {'/login': (context) => LoginPage()},
     );
   }
 
