@@ -31,22 +31,33 @@ class RallyPieChartSegment {
 }
 
 List<RallyPieChartSegment> fromAccountItems(List<AccountData> items) {
-  final generator = (i) => RallyPieChartSegment(
-      color: RallyColors.accountColor(i), value: items[i].primaryAmount);
-  return List<RallyPieChartSegment>.generate(items.length, generator);
+  return List<RallyPieChartSegment>.generate(
+    items.length,
+    (i) => RallyPieChartSegment(
+      color: RallyColors.accountColor(i),
+      value: items[i].primaryAmount,
+    ),
+  );
 }
 
 List<RallyPieChartSegment> fromBillItems(List<BillData> items) {
-  final generator = (i) => RallyPieChartSegment(
-      color: RallyColors.billColor(i), value: items[i].primaryAmount);
-  return List<RallyPieChartSegment>.generate(items.length, generator);
+  return List<RallyPieChartSegment>.generate(
+    items.length,
+    (i) => RallyPieChartSegment(
+      color: RallyColors.billColor(i),
+      value: items[i].primaryAmount,
+    ),
+  );
 }
 
 List<RallyPieChartSegment> fromBudgetItems(List<BudgetData> items) {
-  final generator = (i) => RallyPieChartSegment(
+  return List<RallyPieChartSegment>.generate(
+    items.length,
+    (i) => RallyPieChartSegment(
       color: RallyColors.budgetColor(i),
-      value: items[i].primaryAmount - items[i].amountUsed);
-  return List<RallyPieChartSegment>.generate(items.length, generator);
+      value: items[i].primaryAmount - items[i].amountUsed,
+    ),
+  );
 }
 
 /// An animated circular pie chart to represent pieces of a whole, which can

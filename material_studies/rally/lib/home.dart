@@ -130,10 +130,10 @@ class _HomePageState extends State<HomePage>
 }
 
 class _RallyTab extends StatefulWidget {
-  TextStyle style;
-  Text titleText;
-  Icon icon;
-  bool isExpanded;
+  final TextStyle style;
+  final Text titleText;
+  final Icon icon;
+  final bool isExpanded;
 
   _RallyTab(TextStyle style, Icon icon, String title, bool isExpanded)
       : this.style = style,
