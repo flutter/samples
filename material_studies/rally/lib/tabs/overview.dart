@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -41,19 +43,19 @@ class _OverviewViewState extends State<OverviewView> {
         _FinancialView(
           title: 'Accounts',
           total: sumAccountDataPrimaryAmount(accountDataList),
-          financialItemViews: fromAccountDataList(accountDataList),
+          financialItemViews: buildAccountDataListViews(accountDataList),
         ),
         SizedBox(height: 16),
         _FinancialView(
           title: 'Bills',
           total: sumBillDataPrimaryAmount(billDataList),
-          financialItemViews: fromBillDataList(billDataList),
+          financialItemViews: buildBillDataListViews(billDataList),
         ),
         SizedBox(height: 16),
         _FinancialView(
           title: 'Budgets',
           total: sumBudgetDataPrimaryAmount(budgetDataList),
-          financialItemViews: fromBudgetData(budgetDataList, context),
+          financialItemViews: buildBudgetDataListViews(budgetDataList, context),
         ),
         SizedBox(height: 16),
       ]),
@@ -136,7 +138,7 @@ class _FinancialView extends StatelessWidget {
               ),
             ),
           ),
-          ...financialItemViews.sublist(0, 3),
+          ...financialItemViews.sublist(0, min(financialItemViews.length, 3)),
           FlatButton(
             child: Text('SEE ALL'),
             textColor: Colors.white,

@@ -207,23 +207,22 @@ FinancialEntityCategoryView fromBudgetItem(
   );
 }
 
-List<FinancialEntityCategoryView> fromAccountDataList(List<AccountData> items) {
+List<FinancialEntityCategoryView> buildAccountDataListViews(
+    List<AccountData> items) {
   return List<FinancialEntityCategoryView>.generate(
       items.length, (i) => fromAccountItem(items[i], i));
 }
 
-List<FinancialEntityCategoryView> fromBillDataList(List<BillData> items) {
+List<FinancialEntityCategoryView> buildBillDataListViews(List<BillData> items) {
   return List<FinancialEntityCategoryView>.generate(
       items.length, (i) => fromBillItem(items[i], i));
 }
 
-List<FinancialEntityCategoryView> fromBudgetData(
+List<FinancialEntityCategoryView> buildBudgetDataListViews(
     List<BudgetData> items, BuildContext context) {
   return [
     for (var i = 0; i < items.length; i++) fromBudgetItem(items[i], i, context)
   ];
-//    List<FinancialEntityCategoryView>.generate(
-//      items.length, (i) => fromBudgetItem(items[i], i, context));
 }
 
 class FinancialEntityCategoryDetailsPage extends StatelessWidget {
@@ -307,7 +306,7 @@ class _DetailedEventCard extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    '\$ ' + Formatters.usd.format(amount),
+                    '\$${Formatters.usd.format(amount)}',
                     style: Theme.of(context)
                         .textTheme
                         .body2
@@ -317,7 +316,7 @@ class _DetailedEventCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SizedBox(
                 height: 1.0,
                 child: Container(

@@ -32,7 +32,7 @@ class AccountsView extends StatelessWidget {
       heroAmount: balanceTotal,
       segments: segments,
       wholeAmount: balanceTotal,
-      financialEntityCards: fromAccountDataList(items),
+      financialEntityCards: buildAccountDataListViews(items),
     );
   }
 }

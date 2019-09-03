@@ -38,7 +38,7 @@ class _BudgetsViewState extends State<BudgetsView>
       heroAmount: capTotal - usedTotal,
       segments: segments,
       wholeAmount: capTotal,
-      financialEntityCards: fromBudgetData(items, context),
+      financialEntityCards: buildBudgetDataListViews(items, context),
     );
   }
 }
