@@ -5,9 +5,6 @@ showcases custom tabs, custom painted widgets, and custom animations.
 
 For info on the Rally Material Study, see: https://material.io/design/material-studies/rally.html
 
-**This sample is not currently in a finished state. We're in the process
-of building it out.**
-
 ## Goals
 
 * Show how to customize a tab bar.

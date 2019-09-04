@@ -26,11 +26,10 @@ class AccountsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double balanceTotal = sumAccountDataPrimaryAmount(items);
-    List<RallyPieChartSegment> segments = fromAccountItems(items);
     return FinancialEntityView(
       heroLabel: 'Total',
       heroAmount: balanceTotal,
-      segments: segments,
+      segments: buildSegmentsFromAccountItems(items),
       wholeAmount: balanceTotal,
       financialEntityCards: buildAccountDataListViews(items),
     );

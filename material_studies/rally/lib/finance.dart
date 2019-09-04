@@ -42,21 +42,23 @@ class FinancialEntityView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      RallyPieChart(
-        heroLabel: heroLabel,
-        heroAmount: heroAmount,
-        wholeAmount: wholeAmount,
-        segments: segments,
-      ),
-      SizedBox(
-        height: 1.0,
-        child: Container(
-          color: Color(0xA026282F),
+    return Column(
+      children: [
+        RallyPieChart(
+          heroLabel: heroLabel,
+          heroAmount: heroAmount,
+          wholeAmount: wholeAmount,
+          segments: segments,
         ),
-      ),
-      ListView(shrinkWrap: true, children: financialEntityCards)
-    ]);
+        SizedBox(
+          height: 1.0,
+          child: Container(
+            color: Color(0xA026282F),
+          ),
+        ),
+        ListView(shrinkWrap: true, children: financialEntityCards)
+      ],
+    );
   }
 }
 
@@ -167,7 +169,10 @@ class FinancialEntityCategoryModel {
   );
 }
 
-FinancialEntityCategoryView fromAccountItem(AccountData model, int i) {
+FinancialEntityCategoryView buildFinancialEntityFromAccountData(
+  AccountData model,
+  int i,
+) {
   return FinancialEntityCategoryView(
     suffix: Icon(Icons.chevron_right, color: Colors.grey),
     title: model.name,
@@ -178,7 +183,8 @@ FinancialEntityCategoryView fromAccountItem(AccountData model, int i) {
   );
 }
 
-FinancialEntityCategoryView fromBillItem(BillData model, int i) {
+FinancialEntityCategoryView buildFinancialEntityFromBillData(
+    BillData model, int i) {
   return FinancialEntityCategoryView(
     suffix: Icon(Icons.chevron_right, color: Colors.grey),
     title: model.name,
@@ -189,7 +195,7 @@ FinancialEntityCategoryView fromBillItem(BillData model, int i) {
   );
 }
 
-FinancialEntityCategoryView fromBudgetItem(
+FinancialEntityCategoryView buildFinancialEntityFromBudgetData(
     BudgetData item, int i, BuildContext context) {
   return FinancialEntityCategoryView(
     suffix: Text(' LEFT',
@@ -210,18 +216,19 @@ FinancialEntityCategoryView fromBudgetItem(
 List<FinancialEntityCategoryView> buildAccountDataListViews(
     List<AccountData> items) {
   return List<FinancialEntityCategoryView>.generate(
-      items.length, (i) => fromAccountItem(items[i], i));
+      items.length, (i) => buildFinancialEntityFromAccountData(items[i], i));
 }
 
 List<FinancialEntityCategoryView> buildBillDataListViews(List<BillData> items) {
   return List<FinancialEntityCategoryView>.generate(
-      items.length, (i) => fromBillItem(items[i], i));
+      items.length, (i) => buildFinancialEntityFromBillData(items[i], i));
 }
 
 List<FinancialEntityCategoryView> buildBudgetDataListViews(
     List<BudgetData> items, BuildContext context) {
   return [
-    for (var i = 0; i < items.length; i++) fromBudgetItem(items[i], i, context)
+    for (var i = 0; i < items.length; i++)
+      buildFinancialEntityFromBudgetData(items[i], i, context)
   ];
 }
 

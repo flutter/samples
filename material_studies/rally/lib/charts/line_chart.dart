@@ -148,6 +148,7 @@ class RallyLineChartPainter extends CustomPainter {
     }
   }
 
+  /// Set X-axis labels under the X-axis increment markers.
   void _drawXAxisLabels(Canvas canvas, Rect rect) {
     final selectedLabelStyle = Theme.of(context).textTheme.body1.copyWith(
           fontWeight: FontWeight.w700,

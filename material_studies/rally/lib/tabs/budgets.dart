@@ -32,11 +32,10 @@ class _BudgetsViewState extends State<BudgetsView>
   Widget build(BuildContext context) {
     double capTotal = sumBudgetDataPrimaryAmount(items);
     double usedTotal = sumBudgetDataAmountUsed(items);
-    List<RallyPieChartSegment> segments = fromBudgetItems(items);
     return FinancialEntityView(
       heroLabel: 'Left',
       heroAmount: capTotal - usedTotal,
-      segments: segments,
+      segments: buildSegmentsFromBudgetItems(items),
       wholeAmount: capTotal,
       financialEntityCards: buildBudgetDataListViews(items, context),
     );

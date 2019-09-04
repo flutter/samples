@@ -30,7 +30,8 @@ class RallyPieChartSegment {
   const RallyPieChartSegment({this.color, this.value});
 }
 
-List<RallyPieChartSegment> fromAccountItems(List<AccountData> items) {
+List<RallyPieChartSegment> buildSegmentsFromAccountItems(
+    List<AccountData> items) {
   return List<RallyPieChartSegment>.generate(
     items.length,
     (i) => RallyPieChartSegment(
@@ -40,7 +41,7 @@ List<RallyPieChartSegment> fromAccountItems(List<AccountData> items) {
   );
 }
 
-List<RallyPieChartSegment> fromBillItems(List<BillData> items) {
+List<RallyPieChartSegment> buildSegmentsFromBillItems(List<BillData> items) {
   return List<RallyPieChartSegment>.generate(
     items.length,
     (i) => RallyPieChartSegment(
@@ -50,7 +51,8 @@ List<RallyPieChartSegment> fromBillItems(List<BillData> items) {
   );
 }
 
-List<RallyPieChartSegment> fromBudgetItems(List<BudgetData> items) {
+List<RallyPieChartSegment> buildSegmentsFromBudgetItems(
+    List<BudgetData> items) {
   return List<RallyPieChartSegment>.generate(
     items.length,
     (i) => RallyPieChartSegment(

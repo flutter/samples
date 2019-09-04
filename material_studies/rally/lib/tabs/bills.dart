@@ -32,11 +32,10 @@ class _BillsViewState extends State<BillsView>
   @override
   Widget build(BuildContext context) {
     double dueTotal = sumBillDataPrimaryAmount(items);
-    List<RallyPieChartSegment> segments = fromBillItems(items);
     return FinancialEntityView(
       heroLabel: 'Due',
       heroAmount: dueTotal,
-      segments: segments,
+      segments: buildSegmentsFromBillItems(items),
       wholeAmount: dueTotal,
       financialEntityCards: buildBillDataListViews(items),
     );
