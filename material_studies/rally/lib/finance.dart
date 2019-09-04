@@ -184,7 +184,9 @@ FinancialEntityCategoryView buildFinancialEntityFromAccountData(
 }
 
 FinancialEntityCategoryView buildFinancialEntityFromBillData(
-    BillData model, int i) {
+  BillData model,
+  int i,
+) {
   return FinancialEntityCategoryView(
     suffix: Icon(Icons.chevron_right, color: Colors.grey),
     title: model.name,
@@ -196,7 +198,10 @@ FinancialEntityCategoryView buildFinancialEntityFromBillData(
 }
 
 FinancialEntityCategoryView buildFinancialEntityFromBudgetData(
-    BudgetData item, int i, BuildContext context) {
+  BudgetData item,
+  int i,
+  BuildContext context,
+) {
   return FinancialEntityCategoryView(
     suffix: Text(' LEFT',
         style: Theme.of(context)
