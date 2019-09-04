@@ -35,6 +35,10 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
     return Scaffold(
       appBar: AppBar(),
       body: Center(
+        // AnimatedBuilder handles listening to a given animation and calling the builder
+        // whenever the value of the animation change. This can be useful when a Widget
+        // tree contains some animated and non-animated elements, as only the subtree
+        // created by the builder needs to be re-built when the animation changes.
         child: AnimatedBuilder(
           animation: animation,
           builder: (context, child) {
@@ -50,6 +54,10 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
               },
             );
           },
+          // AnimatedBuilder can also accept a pre-built child Widget which is useful
+          // if there is a non-animated Widget contained within the animated widget.
+          // This can improve performance since this widget doesn't need to be rebuilt
+          // when the animation changes.
           child: Text(
             'Change Color',
             style: TextStyle(color: Colors.white),
