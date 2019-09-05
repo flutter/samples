@@ -6,8 +6,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-const _duration = Duration(milliseconds: 400);
-
 double generateBorderRadius() => Random().nextDouble() * 64;
 double generateMargin() => Random().nextDouble() * 64;
 Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
@@ -39,13 +37,20 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
   }
 
   Widget build(BuildContext context) {
+    // This widget is built using an AnimatedContainer, one of the easiest to use
+    // animated Widgets. Whenever the AnimatedContainer's properties, such as decoration,
+    // change, it will handle animating from the previous value to the new value. You can
+    // specify both a Duration and a Curve for the animation.
+    // This Widget is useful for designing animated interfaces that just need to change
+    // the properties of a container. For example, you could use this to design expanding
+    // and shrinking cards.
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 128,
                 height: 128,
@@ -55,7 +60,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                     color: color,
                     borderRadius: BorderRadius.circular(borderRadius),
                   ),
-                  duration: _duration,
+                  duration: Duration(milliseconds: 400),
                 ),
               ),
             ),
