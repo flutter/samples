@@ -1,0 +1,39 @@
+name: rally
+description: Rally
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  intl: ^0.15.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/thumb.png
+  fonts:
+    - family: Roboto Condensed
+      fonts:
+        - asset: fonts/RobotoCondensed-Light.ttf
+          weight: 400
+        - asset: fonts/RobotoCondensed-Regular.ttf
+          weight: 500
+        - asset: fonts/RobotoCondensed-Bold.ttf
+          weight: 700
+    - family: Eczar
+      fonts:
+        - asset: fonts/Eczar-Regular.ttf
+          weight: 400
+        - asset: fonts/Eczar-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Eczar-Bold.ttf
+          weight: 700
