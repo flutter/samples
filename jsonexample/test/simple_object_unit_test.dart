@@ -24,9 +24,9 @@ void main() {
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
-    'aListOfStrings': [],
-    'aListOfInts': [],
-    'aListOfDoubles': []
+    'aListOfStrings': <String>[],
+    'aListOfInts': <int>[],
+    'aListOfDoubles': <double>[]
   };
 
   const unexpectedPropertiesJson = <String, dynamic>{
@@ -73,9 +73,9 @@ void main() {
       expect(simpleObject.aString, "Blah, blah, blah.");
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
-      expect(simpleObject.aListOfStrings, []);
-      expect(simpleObject.aListOfInts, []);
-      expect(simpleObject.aListOfDoubles, []);
+      expect(simpleObject.aListOfStrings, <String>[]);
+      expect(simpleObject.aListOfInts, <int>[]);
+      expect(simpleObject.aListOfDoubles, <double>[]);
     });
 
     test('Extra properties', () {
@@ -124,9 +124,9 @@ void main() {
       expect(simpleObject.aString, "Blah, blah, blah.");
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
-      expect(simpleObject.aListOfStrings, []);
-      expect(simpleObject.aListOfInts, []);
-      expect(simpleObject.aListOfDoubles, []);
+      expect(simpleObject.aListOfStrings, <String>[]);
+      expect(simpleObject.aListOfInts, <int>[]);
+      expect(simpleObject.aListOfDoubles, <double>[]);
     });
 
     test('Unexpected properties are ignored', () {
@@ -178,9 +178,9 @@ void main() {
       expect(simpleObject.aString, "Blah, blah, blah.");
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
-      expect(simpleObject.aListOfStrings, []);
-      expect(simpleObject.aListOfInts, []);
-      expect(simpleObject.aListOfDoubles, []);
+      expect(simpleObject.aListOfStrings, <String>[]);
+      expect(simpleObject.aListOfInts, <int>[]);
+      expect(simpleObject.aListOfDoubles, <double>[]);
     });
 
     test('Unexpected properties are ignored', () {
