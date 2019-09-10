@@ -49,6 +49,11 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     animation = TweenSequence<Color>(sequenceItems).animate(controller);
   }
 
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
