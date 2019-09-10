@@ -28,7 +28,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
 
     controller = AnimationController(vsync: this, duration: _duration)
       // The Widget's build needs to be called every time the animation's
-      // value changes. So add an listener here that will call setState()
+      // value changes. So add a listener here that will call setState()
       // and trigger the build() method to be called by the framework.
       // If your Widget's build is relatively simple, this is a good option.
       // However, if your build method returns a tree of child Widgets and
