@@ -14,7 +14,7 @@ function getFlutterPath() {
 
 declare -a  PROJECT_NAMES=(
     "animations" \
-    "chrome_os_best_practices" \
+    "chrome-os-best-practices" \
     "flutter_maps_firestore" \
     "isolate_example" \
     "jsonexample" \
