@@ -3,7 +3,7 @@ description: A project showcasing a Flutter app following different platform IA 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.3.0-dev <3.0.0"
+  sdk: ">=2.5.0 <3.0.0"
   flutter: ">=1.5.2"
 
 dependencies:
