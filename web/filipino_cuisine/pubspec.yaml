@@ -4,23 +4,64 @@ environment:
   sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
-  flutter_web: any
-  flutter_web_ui: any
+  flutter:
+    sdk: flutter
+  flutter_swiper: ^1.1.6
+  http: ^0.12.0
 
 dev_dependencies:
   pedantic: ^1.3.0
 
-  build_runner: any
-  build_web_compilers: any
 
-# flutter_web packages are not published to pub.dartlang.org
-# These overrides tell the package tools to get them from GitHub
-dependency_overrides:
-  flutter_web:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web
-  flutter_web_ui:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web_ui
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/fc_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - calamares.jpg
+    - beef_caldereta.jpg
+    - pochero.jpg
+    - pork_sisig.jpg
+    - embutido.jpg
+    - black_pepper.png
+    - butter.png
+    - chili.png
+    - egg.png
+    - flour.png
+    - garlic.png
+    - lemon.png
+    - oil.png
+    - onion.png
+    - pork.png
+    - salt.png
+    - squid.png
+    - tomato.png
+    - banana.png
+    - cabbage.png
+    - bokchoy.png
+    - green_beans.png
+    - potato.png
+    - red_pepper.png
+    - yellow_onion.png
+    - red_bell.png
+    - green_bell.png
+    - carrot.png
+    - beef.png
+    - cheese.png
+    - raisins.png
+    - ground_pork.png
+    - sausage.png
+    - preview.png
+  fonts:
+    - family: opr
+      fonts:
+        - asset: fonts/OpenSans-Regular.ttf
+    - family: opb
+      fonts:
+        - asset: fonts/OpenSans-Bold.ttf
+    - family: ark
+      fonts:
+        - asset: fonts/Arkipelago.otf

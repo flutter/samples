@@ -2,8 +2,8 @@
 //    https://pub.dev/packages/simple_animations
 
 import 'dart:math';
-import 'package:flutter_web/widgets.dart';
-import 'package:flutter_web/scheduler.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter/scheduler.dart';
 
 /// Widget to easily create a continuous animation.
 ///

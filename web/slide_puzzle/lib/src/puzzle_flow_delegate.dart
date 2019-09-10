@@ -1,9 +1,5 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'core/puzzle_proxy.dart';
-import 'flutter.dart';
+import 'core/puzzle_animator.dart';
+import 'package:flutter/material.dart';
 
 class PuzzleFlowDelegate extends FlowDelegate {
   final Size _tileSize;

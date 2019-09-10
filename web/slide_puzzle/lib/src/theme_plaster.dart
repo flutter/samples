@@ -1,9 +1,6 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+import 'package:flutter/material.dart';
 
-import 'core/puzzle_proxy.dart';
-import 'flutter.dart';
+import 'app_state.dart';
 import 'shared_theme.dart';
 
 const _yellowIsh = Color.fromARGB(255, 248, 244, 233);
@@ -14,7 +11,7 @@ class ThemePlaster extends SharedTheme {
   @override
   String get name => 'Plaster';
 
-  const ThemePlaster();
+  ThemePlaster(AppState baseTheme) : super(baseTheme);
 
   @override
   Color get puzzleThemeBackground => _chocolate;
@@ -26,18 +23,18 @@ class ThemePlaster extends SharedTheme {
   Color get puzzleAccentColor => _orangeIsh;
 
   @override
-  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
-        side: const BorderSide(
+  RoundedRectangleBorder get puzzleBorder => const RoundedRectangleBorder(
+        side: BorderSide(
           color: Color.fromARGB(255, 103, 103, 105),
           width: 8,
         ),
         borderRadius: BorderRadius.all(
-          Radius.circular(small ? 10 : 18),
+          Radius.circular(18),
         ),
       );
 
   @override
-  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
+  Widget tileButton(int i) {
     final correctColumn = i % puzzle.width;
     final correctRow = i ~/ puzzle.width;
 
@@ -45,10 +42,10 @@ class ThemePlaster extends SharedTheme {
 
     if (i == puzzle.tileCount) {
       assert(puzzle.solved);
-      return Center(
+      return const Center(
         child: Icon(
           Icons.thumb_up,
-          size: small ? 50 : 72,
+          size: 72,
           color: _orangeIsh,
         ),
       );
@@ -59,13 +56,11 @@ class ThemePlaster extends SharedTheme {
       style: TextStyle(
         color: primary ? _yellowIsh : _chocolate,
         fontFamily: 'Plaster',
-        fontSize: small ? 40 : 77,
+        fontSize: 77,
       ),
     );
 
     return createButton(
-      puzzle,
-      small,
       i,
       content,
       color: primary ? _orangeIsh : _yellowIsh,

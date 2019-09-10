@@ -110,7 +110,7 @@ class _Demo {
   String get html => '''
 <div>
   <a href='$buildDir'>
-    <img src='${p.url.join(buildDir, 'preview.png')}' width="300" alt="$name">
+    <img src='${p.url.join(buildDir, 'assets/assets/preview.png')}' width="300" alt="$name">
   </a>
   <a class='demo-title' href='$buildDir'>$name</a>
   <div>

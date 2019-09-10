@@ -1,8 +1,8 @@
 // Package flutter_page_indicator:
 //    https://pub.dartlang.org/packages/flutter_page_indicator
 
-import 'package:flutter_web/material.dart';
-import 'package:flutter_web/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class WarmPainter extends BasePainter {
   WarmPainter(PageIndicator widget, double page, int index, Paint paint)

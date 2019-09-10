@@ -1,9 +1,5 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
+import 'package:flutter/material.dart';
 import 'src/core/puzzle_animator.dart';
-import 'src/flutter.dart';
 import 'src/puzzle_home_state.dart';
 
 void main() => runApp(PuzzleApp());
@@ -25,7 +21,7 @@ class PuzzleApp extends StatelessWidget {
 class _PuzzleHome extends StatefulWidget {
   final int _rows, _columns;
 
-  const _PuzzleHome(this._rows, this._columns);
+  const _PuzzleHome(this._rows, this._columns, {Key key}) : super(key: key);
 
   @override
   PuzzleHomeState createState() =>

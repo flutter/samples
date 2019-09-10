@@ -3,9 +3,9 @@
 
 import 'dart:math' as math;
 
-import 'package:flutter_web/foundation.dart';
-import 'package:flutter_web/material.dart';
-import 'package:flutter_web/rendering.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'infinite_listview.dart';
 

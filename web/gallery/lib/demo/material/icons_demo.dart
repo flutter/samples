@@ -1,8 +1,8 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../gallery/demo.dart';
 
@@ -58,15 +58,15 @@ class IconsDemoState extends State<IconsDemo> {
         child: SafeArea(
           top: false,
           bottom: false,
-          child: ListView(
-            padding: const EdgeInsets.all(24.0),
-            children: <Widget>[
-              _IconsDemoCard(
-                  handleIconButtonPress, Icons.face), // direction-agnostic icon
-              const SizedBox(height: 24.0),
-              _IconsDemoCard(handleIconButtonPress,
-                  Icons.battery_unknown), // direction-aware icon
-            ],
+          child: Scrollbar(
+            child: ListView(
+              padding: const EdgeInsets.all(24.0),
+              children: <Widget>[
+                _IconsDemoCard(handleIconButtonPress, Icons.face), // direction-agnostic icon
+                const SizedBox(height: 24.0),
+                _IconsDemoCard(handleIconButtonPress, Icons.battery_unknown), // direction-aware icon
+              ],
+            ),
           ),
         ),
       ),
@@ -82,21 +82,23 @@ class _IconsDemoCard extends StatelessWidget {
 
   Widget _buildIconButton(double iconSize, IconData icon, bool enabled) {
     return IconButton(
-        icon: Icon(icon),
-        iconSize: iconSize,
-        tooltip: "${enabled ? 'Enabled' : 'Disabled'} icon button",
-        onPressed: enabled ? handleIconButtonPress : null);
+      icon: Icon(icon),
+      iconSize: iconSize,
+      tooltip: "${enabled ? 'Enabled' : 'Disabled'} icon button",
+      onPressed: enabled ? handleIconButtonPress : null,
+    );
   }
 
-  Widget _centeredText(String label) => Padding(
-        // Match the default padding of IconButton.
-        padding: const EdgeInsets.all(8.0),
-        child: Text(label, textAlign: TextAlign.center),
-      );
+  Widget _centeredText(String label) =>
+    Padding(
+      // Match the default padding of IconButton.
+      padding: const EdgeInsets.all(8.0),
+      child: Text(label, textAlign: TextAlign.center),
+    );
 
   TableRow _buildIconRow(double size) {
     return TableRow(
-      children: <Widget>[
+      children: <Widget> [
         _centeredText(size.floor().toString()),
         _buildIconButton(size, icon, true),
         _buildIconButton(size, icon, false),
@@ -107,8 +109,7 @@ class _IconsDemoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle textStyle =
-        theme.textTheme.subhead.copyWith(color: theme.textTheme.caption.color);
+    final TextStyle textStyle = theme.textTheme.subhead.copyWith(color: theme.textTheme.caption.color);
     return Card(
       child: DefaultTextStyle(
         style: textStyle,
@@ -116,12 +117,14 @@ class _IconsDemoCard extends StatelessWidget {
           explicitChildNodes: true,
           child: Table(
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            children: <TableRow>[
-              TableRow(children: <Widget>[
-                _centeredText('Size'),
-                _centeredText('Enabled'),
-                _centeredText('Disabled'),
-              ]),
+            children: <TableRow> [
+              TableRow(
+                children: <Widget> [
+                  _centeredText('Size'),
+                  _centeredText('Enabled'),
+                  _centeredText('Disabled'),
+                ]
+              ),
               _buildIconRow(18.0),
               _buildIconRow(24.0),
               _buildIconRow(36.0),

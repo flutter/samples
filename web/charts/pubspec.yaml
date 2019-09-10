@@ -1,0 +1,13 @@
+name: example
+description: Charts-Flutter Demo
+dependencies:
+  flutter:
+    sdk: flutter
+  charts_flutter: any
+  meta: ^1.1.1
+  intl: ^0.15.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - preview.png

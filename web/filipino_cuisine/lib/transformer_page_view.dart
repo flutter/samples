@@ -3,8 +3,8 @@
 
 import 'dart:async';
 
-import 'package:flutter_web/foundation.dart';
-import 'package:flutter_web/widgets.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 class IndexController extends ChangeNotifier {
   static const int NEXT = 1;

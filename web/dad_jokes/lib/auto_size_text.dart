@@ -1,7 +1,7 @@
 // Package auto_size_text:
 //    https://pub.dartlang.org/packages/auto_size_text
 
-import 'package:flutter_web/widgets.dart';
+import 'package:flutter/widgets.dart';
 
 bool checkTextFits(TextSpan text, Locale locale, double scale, int maxLines,
     double maxWidth, double maxHeight) {

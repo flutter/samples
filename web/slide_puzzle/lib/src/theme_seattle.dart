@@ -1,9 +1,6 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+import 'package:flutter/material.dart';
 
-import 'core/puzzle_proxy.dart';
-import 'flutter.dart';
+import 'app_state.dart';
 import 'shared_theme.dart';
 import 'widgets/decoration_image_plus.dart';
 
@@ -11,7 +8,7 @@ class ThemeSeattle extends SharedTheme {
   @override
   String get name => 'Seattle';
 
-  const ThemeSeattle();
+  ThemeSeattle(AppState proxy) : super(proxy);
 
   @override
   Color get puzzleThemeBackground => const Color.fromARGB(153, 90, 135, 170);
@@ -23,19 +20,18 @@ class ThemeSeattle extends SharedTheme {
   Color get puzzleAccentColor => const Color(0xff000579f);
 
   @override
-  RoundedRectangleBorder puzzleBorder(bool small) =>
-      const RoundedRectangleBorder(
+  RoundedRectangleBorder get puzzleBorder => const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(1),
         ),
       );
 
   @override
-  EdgeInsetsGeometry tilePadding(PuzzleProxy puzzle) =>
+  EdgeInsetsGeometry get tilePadding =>
       puzzle.solved ? const EdgeInsets.all(1) : const EdgeInsets.all(4);
 
   @override
-  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
+  Widget tileButton(int i) {
     if (i == puzzle.tileCount && !puzzle.solved) {
       assert(puzzle.solved);
     }
@@ -45,7 +41,7 @@ class ThemeSeattle extends SharedTheme {
         puzzleHeight: puzzle.height,
         pieceIndex: i,
         fit: BoxFit.cover,
-        image: const AssetImage('seattle.jpg'));
+        image: const AssetImage('asset/seattle.jpg'));
 
     final correctPosition = puzzle.isCorrectPosition(i);
     final content = createInk(
@@ -62,14 +58,14 @@ class ThemeSeattle extends SharedTheme {
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: correctPosition ? Colors.white : Colors.black,
-                  fontSize: small ? 25 : 42,
+                  fontSize: 42,
                 ),
               ),
             ),
       image: decorationImage,
-      padding: EdgeInsets.all(small ? 20 : 32),
+      padding: const EdgeInsets.all(32),
     );
 
-    return createButton(puzzle, small, i, content);
+    return createButton(i, content);
   }
 }

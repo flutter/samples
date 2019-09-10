@@ -1,21 +1,20 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../gallery/demo.dart';
 
 class _PageSelector extends StatelessWidget {
-  const _PageSelector({this.icons});
+  const _PageSelector({ this.icons });
 
   final List<Icon> icons;
 
   void _handleArrowButtonPress(BuildContext context, int delta) {
     final TabController controller = DefaultTabController.of(context);
     if (!controller.indexIsChanging)
-      controller
-          .animateTo((controller.index + delta).clamp(0, icons.length - 1));
+      controller.animateTo((controller.index + delta).clamp(0, icons.length - 1));
   }
 
   @override
@@ -28,24 +27,26 @@ class _PageSelector extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-              margin: const EdgeInsets.only(top: 16.0),
-              child: Row(children: <Widget>[
+            margin: const EdgeInsets.only(top: 16.0),
+            child: Row(
+              children: <Widget>[
                 IconButton(
-                    icon: const Icon(Icons.chevron_left),
-                    color: color,
-                    onPressed: () {
-                      _handleArrowButtonPress(context, -1);
-                    },
-                    tooltip: 'Page back'),
+                  icon: const Icon(Icons.chevron_left),
+                  color: color,
+                  onPressed: () { _handleArrowButtonPress(context, -1); },
+                  tooltip: 'Page back',
+                ),
                 TabPageSelector(controller: controller),
                 IconButton(
-                    icon: const Icon(Icons.chevron_right),
-                    color: color,
-                    onPressed: () {
-                      _handleArrowButtonPress(context, 1);
-                    },
-                    tooltip: 'Page forward')
-              ], mainAxisAlignment: MainAxisAlignment.spaceBetween)),
+                  icon: const Icon(Icons.chevron_right),
+                  color: color,
+                  onPressed: () { _handleArrowButtonPress(context, 1); },
+                  tooltip: 'Page forward',
+                ),
+              ],
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+          ),
           Expanded(
             child: IconTheme(
               data: IconThemeData(
@@ -53,16 +54,17 @@ class _PageSelector extends StatelessWidget {
                 color: color,
               ),
               child: TabBarView(
-                  children: icons.map<Widget>((Icon icon) {
-                return Container(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Card(
-                    child: Center(
-                      child: icon,
+                children: icons.map<Widget>((Icon icon) {
+                  return Container(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Card(
+                      child: Center(
+                        child: icon,
+                      ),
                     ),
-                  ),
-                );
-              }).toList()),
+                  );
+                }).toList(),
+              ),
             ),
           ),
         ],

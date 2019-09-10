@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:flutter_web/material.dart';
-import 'package:flutter_web/painting.dart';
-import 'package:flutter_web/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
 import 'package:github_dataviz/catmull.dart';
 import 'package:github_dataviz/constants.dart';
 import 'package:github_dataviz/data/data_series.dart';

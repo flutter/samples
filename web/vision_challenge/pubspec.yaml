@@ -5,20 +5,21 @@ environment:
   sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
-  flutter_web: any
+  flutter:
+    sdk: flutter
+  redux: ^3.0.0
+  flutter_redux: ^0.5.3
 
-dev_dependencies:
-  build_runner: any
-  build_web_compilers: any
-
-# flutter_web packages are not published to pub.dartlang.org
-# These overrides tell the package tools to get them from GitHub
-dependency_overrides:
-  flutter_web:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web
-  flutter_web_ui:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web_ui
+flutter:
+  uses-material-design: true
+  assets:
+    - 10.png
+    - 20.png
+    - 30.png
+    - 35.png
+    - 40.png
+    - 45.png
+    - 99.png
+    - p0.jpg
+    - p1.jpg
+    - preview.png

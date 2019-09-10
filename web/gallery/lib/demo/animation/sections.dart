@@ -1,15 +1,17 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2017 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+// Raw data for the animation demo.
+
+import 'package:flutter/material.dart';
 
 const Color _mariner = Color(0xFF3B5F8F);
 const Color _mediumPurple = Color(0xFF8266D4);
 const Color _tomato = Color(0xFFF95B57);
 const Color _mySin = Color(0xFFF3A646);
 
-const String _kGalleryAssetsPackage = null;
+const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 class SectionDetail {
   const SectionDetail({
@@ -41,8 +43,9 @@ class Section {
   final List<SectionDetail> details;
 
   @override
-  bool operator ==(Object other) {
-    if (other is! Section) return false;
+  bool operator==(Object other) {
+    if (other is! Section)
+      return false;
     final Section otherSection = other;
     return title == otherSection.title;
   }

@@ -1,12 +1,16 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2016 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../gallery/demo.dart';
 
-enum GridDemoTileStyle { imageOnly, oneLine, twoLine }
+enum GridDemoTileStyle {
+  imageOnly,
+  oneLine,
+  twoLine
+}
 
 typedef BannerTapCallback = void Function(Photo photo);
 
@@ -30,15 +34,11 @@ class Photo {
   bool isFavorite;
   String get tag => assetName; // Assuming that all asset names are unique.
 
-  bool get isValid =>
-      assetName != null &&
-      title != null &&
-      caption != null &&
-      isFavorite != null;
+  bool get isValid => assetName != null && title != null && caption != null && isFavorite != null;
 }
 
 class GridPhotoViewer extends StatefulWidget {
-  const GridPhotoViewer({Key key, this.photo}) : super(key: key);
+  const GridPhotoViewer({ Key key, this.photo }) : super(key: key);
 
   final Photo photo;
 
@@ -61,8 +61,7 @@ class _GridTitleText extends StatelessWidget {
   }
 }
 
-class _GridPhotoViewerState extends State<GridPhotoViewer>
-    with SingleTickerProviderStateMixin {
+class _GridPhotoViewerState extends State<GridPhotoViewer> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Offset> _flingAnimation;
   Offset _offset = Offset.zero;
@@ -88,8 +87,7 @@ class _GridPhotoViewerState extends State<GridPhotoViewer>
   Offset _clampOffset(Offset offset) {
     final Size size = context.size;
     final Offset minOffset = Offset(size.width, size.height) * (1.0 - _scale);
-    return Offset(
-        offset.dx.clamp(minOffset.dx, 0.0), offset.dy.clamp(minOffset.dy, 0.0));
+    return Offset(offset.dx.clamp(minOffset.dx, 0.0), offset.dy.clamp(minOffset.dy, 0.0));
   }
 
   void _handleFlingAnimation() {
@@ -117,11 +115,14 @@ class _GridPhotoViewerState extends State<GridPhotoViewer>
 
   void _handleOnScaleEnd(ScaleEndDetails details) {
     final double magnitude = details.velocity.pixelsPerSecond.distance;
-    if (magnitude < _kMinFlingVelocity) return;
+    if (magnitude < _kMinFlingVelocity)
+      return;
     final Offset direction = details.velocity.pixelsPerSecond / magnitude;
     final double distance = (Offset.zero & context.size).shortestSide;
     _flingAnimation = _controller.drive(Tween<Offset>(
-        begin: _offset, end: _clampOffset(_offset + direction * distance)));
+      begin: _offset,
+      end: _clampOffset(_offset + direction * distance),
+    ));
     _controller
       ..value = 0.0
       ..fling(velocity: magnitude / 1000.0);
@@ -139,8 +140,8 @@ class _GridPhotoViewerState extends State<GridPhotoViewer>
             ..translate(_offset.dx, _offset.dy)
             ..scale(_scale),
           child: Image.asset(
-            '${widget.photo.assetName}',
-            // TODO(flutter_web): package: widget.photo.assetPackage,
+            widget.photo.assetName,
+            package: widget.photo.assetPackage,
             fit: BoxFit.cover,
           ),
         ),
@@ -150,50 +151,52 @@ class _GridPhotoViewerState extends State<GridPhotoViewer>
 }
 
 class GridDemoPhotoItem extends StatelessWidget {
-  GridDemoPhotoItem(
-      {Key key,
-      @required this.photo,
-      @required this.tileStyle,
-      @required this.onBannerTap})
-      : assert(photo != null && photo.isValid),
-        assert(tileStyle != null),
-        assert(onBannerTap != null),
-        super(key: key);
+  GridDemoPhotoItem({
+    Key key,
+    @required this.photo,
+    @required this.tileStyle,
+    @required this.onBannerTap,
+  }) : assert(photo != null && photo.isValid),
+       assert(tileStyle != null),
+       assert(onBannerTap != null),
+       super(key: key);
 
   final Photo photo;
   final GridDemoTileStyle tileStyle;
-  final BannerTapCallback
-      onBannerTap; // User taps on the photo's header or footer.
+  final BannerTapCallback onBannerTap; // User taps on the photo's header or footer.
 
   void showPhoto(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute<void>(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(title: Text(photo.title)),
-        body: SizedBox.expand(
-          child: Hero(
-            tag: photo.tag,
-            child: GridPhotoViewer(photo: photo),
+    Navigator.push(context, MaterialPageRoute<void>(
+      builder: (BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(photo.title),
           ),
-        ),
-      );
-    }));
+          body: SizedBox.expand(
+            child: Hero(
+              tag: photo.tag,
+              child: GridPhotoViewer(photo: photo),
+            ),
+          ),
+        );
+      }
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     final Widget image = GestureDetector(
-        onTap: () {
-          showPhoto(context);
-        },
-        child: Hero(
-            key: Key(photo.assetName),
-            tag: photo.tag,
-            child: Image.asset(
-              '${photo.assetName}',
-              // TODO(flutter_web): package: photo.assetPackage,
-              fit: BoxFit.cover,
-            )));
+      onTap: () { showPhoto(context); },
+      child: Hero(
+        key: Key(photo.assetName),
+        tag: photo.tag,
+        child: Image.asset(
+          photo.assetName,
+          package: photo.assetPackage,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
 
     final IconData icon = photo.isFavorite ? Icons.star : Icons.star_border;
 
@@ -204,9 +207,7 @@ class GridDemoPhotoItem extends StatelessWidget {
       case GridDemoTileStyle.oneLine:
         return GridTile(
           header: GestureDetector(
-            onTap: () {
-              onBannerTap(photo);
-            },
+            onTap: () { onBannerTap(photo); },
             child: GridTileBar(
               title: _GridTitleText(photo.title),
               backgroundColor: Colors.black45,
@@ -222,9 +223,7 @@ class GridDemoPhotoItem extends StatelessWidget {
       case GridDemoTileStyle.twoLine:
         return GridTile(
           footer: GestureDetector(
-            onTap: () {
-              onBannerTap(photo);
-            },
+            onTap: () { onBannerTap(photo); },
             child: GridTileBar(
               backgroundColor: Colors.black45,
               title: _GridTitleText(photo.title),
@@ -244,7 +243,7 @@ class GridDemoPhotoItem extends StatelessWidget {
 }
 
 class GridListDemo extends StatefulWidget {
-  const GridListDemo({Key key}) : super(key: key);
+  const GridListDemo({ Key key }) : super(key: key);
 
   static const String routeName = '/material/grid-list';
 
@@ -346,8 +345,7 @@ class GridListDemoState extends State<GridListDemo> {
           MaterialDemoDocumentationButton(GridListDemo.routeName),
           PopupMenuButton<GridDemoTileStyle>(
             onSelected: changeTileStyle,
-            itemBuilder: (BuildContext context) =>
-                <PopupMenuItem<GridDemoTileStyle>>[
+            itemBuilder: (BuildContext context) => <PopupMenuItem<GridDemoTileStyle>>[
               const PopupMenuItem<GridDemoTileStyle>(
                 value: GridDemoTileStyle.imageOnly,
                 child: Text('Image only'),
@@ -375,17 +373,17 @@ class GridListDemoState extends State<GridListDemo> {
                 mainAxisSpacing: 4.0,
                 crossAxisSpacing: 4.0,
                 padding: const EdgeInsets.all(4.0),
-                childAspectRatio:
-                    (orientation == Orientation.portrait) ? 1.0 : 1.3,
+                childAspectRatio: (orientation == Orientation.portrait) ? 1.0 : 1.3,
                 children: photos.map<Widget>((Photo photo) {
                   return GridDemoPhotoItem(
-                      photo: photo,
-                      tileStyle: _tileStyle,
-                      onBannerTap: (Photo photo) {
-                        setState(() {
-                          photo.isFavorite = !photo.isFavorite;
-                        });
+                    photo: photo,
+                    tileStyle: _tileStyle,
+                    onBannerTap: (Photo photo) {
+                      setState(() {
+                        photo.isFavorite = !photo.isFavorite;
                       });
+                    },
+                  );
                 }).toList(),
               ),
             ),

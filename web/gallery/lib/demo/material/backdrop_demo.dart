@@ -4,14 +4,14 @@
 
 import 'dart:math' as math;
 
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 // This demo displays one Category at a time. The backdrop show a list
 // of all of the categories and the selected category is displayed
 // (CategoryView) on top of the backdrop.
 
 class Category {
-  const Category({this.title, this.assets});
+  const Category({ this.title, this.assets });
   final String title;
   final List<String> assets;
   @override
@@ -95,49 +95,52 @@ const List<Category> allCategories = <Category>[
 ];
 
 class CategoryView extends StatelessWidget {
-  const CategoryView({Key key, this.category}) : super(key: key);
+  const CategoryView({ Key key, this.category }) : super(key: key);
 
   final Category category;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return ListView(
-      key: PageStorageKey<Category>(category),
-      padding: const EdgeInsets.symmetric(
-        vertical: 16.0,
-        horizontal: 64.0,
-      ),
-      children: category.assets.map<Widget>((String asset) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Card(
-              child: Container(
-                width: 144.0,
-                alignment: Alignment.center,
-                child: Column(
-                  children: <Widget>[
-                    Image.asset(
-                      '$asset',
-                      fit: BoxFit.contain,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      alignment: AlignmentDirectional.center,
-                      child: Text(
+    return Scrollbar(
+      child: ListView(
+        key: PageStorageKey<Category>(category),
+        padding: const EdgeInsets.symmetric(
+          vertical: 16.0,
+          horizontal: 64.0,
+        ),
+        children: category.assets.map<Widget>((String asset) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Card(
+                child: Container(
+                  width: 144.0,
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
                         asset,
-                        style: theme.textTheme.caption,
+                        package: 'flutter_gallery_assets',
+                        fit: BoxFit.contain,
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 16.0),
+                        alignment: AlignmentDirectional.center,
+                        child: Text(
+                          asset,
+                          style: theme.textTheme.caption,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 24.0),
-          ],
-        );
-      }).toList(),
+              const SizedBox(height: 24.0),
+            ],
+          );
+        }).toList(),
+      )
     );
   }
 }
@@ -242,8 +245,7 @@ class BackdropDemo extends StatefulWidget {
   _BackdropDemoState createState() => _BackdropDemoState();
 }
 
-class _BackdropDemoState extends State<BackdropDemo>
-    with SingleTickerProviderStateMixin {
+class _BackdropDemoState extends State<BackdropDemo> with SingleTickerProviderStateMixin {
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
   AnimationController _controller;
   Category _category = allCategories[0];
@@ -273,8 +275,7 @@ class _BackdropDemoState extends State<BackdropDemo>
 
   bool get _backdropPanelVisible {
     final AnimationStatus status = _controller.status;
-    return status == AnimationStatus.completed ||
-        status == AnimationStatus.forward;
+    return status == AnimationStatus.completed || status == AnimationStatus.forward;
   }
 
   void _toggleBackdropPanelVisibility() {
@@ -290,19 +291,17 @@ class _BackdropDemoState extends State<BackdropDemo>
   // the user must either tap its heading or the backdrop's menu icon.
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    if (_controller.isAnimating ||
-        _controller.status == AnimationStatus.completed) return;
+    if (_controller.isAnimating || _controller.status == AnimationStatus.completed)
+      return;
 
-    _controller.value -=
-        details.primaryDelta / (_backdropHeight ?? details.primaryDelta);
+    _controller.value -= details.primaryDelta / (_backdropHeight ?? details.primaryDelta);
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_controller.isAnimating ||
-        _controller.status == AnimationStatus.completed) return;
+    if (_controller.isAnimating || _controller.status == AnimationStatus.completed)
+      return;
 
-    final double flingVelocity =
-        details.velocity.pixelsPerSecond.dy / _backdropHeight;
+    final double flingVelocity = details.velocity.pixelsPerSecond.dy / _backdropHeight;
     if (flingVelocity < 0.0)
       _controller.fling(velocity: math.max(2.0, -flingVelocity));
     else if (flingVelocity > 0.0)
@@ -334,14 +333,15 @@ class _BackdropDemoState extends State<BackdropDemo>
     );
 
     final ThemeData theme = Theme.of(context);
-    final List<Widget> backdropItems =
-        allCategories.map<Widget>((Category category) {
+    final List<Widget> backdropItems = allCategories.map<Widget>((Category category) {
       final bool selected = category == _category;
       return Material(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
         ),
-        color: selected ? Colors.white.withOpacity(0.25) : Colors.transparent,
+        color: selected
+          ? Colors.white.withOpacity(0.25)
+          : Colors.transparent,
         child: ListTile(
           title: Text(category.title),
           selected: selected,

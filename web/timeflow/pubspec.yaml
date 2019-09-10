@@ -4,20 +4,9 @@ environment:
   sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
-  flutter_web: any
-  flutter_web_ui: any
-
-dev_dependencies:
-  build_runner: any
-  build_web_compilers: any
-# flutter_web packages are not published to pub.dartlang.org
-# These overrides tell the package tools to get them from GitHub
-dependency_overrides:
-  flutter_web:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web
-  flutter_web_ui:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web_ui
+  flutter:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - preview.png

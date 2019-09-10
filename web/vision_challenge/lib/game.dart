@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:flutter_web/material.dart';
-import 'package:vision_challenge/packages/flutter_redux.dart';
-import 'package:vision_challenge/packages/redux.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 setText(text, size, color) => Text(text,
     style: TextStyle(
