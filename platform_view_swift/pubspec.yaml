@@ -1,6 +1,6 @@
 name: platform_view_swift
 environment:
-  sdk: ">=2.3.0-dev <3.0.0"
+  sdk: ">=2.5.0 <3.0.0"
 
 dependencies:
   flutter:
