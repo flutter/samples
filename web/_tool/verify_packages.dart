@@ -21,7 +21,12 @@ void main() async {
   for (var i = 0; i < packageDirs.length; i++) {
     final dir = packageDirs[i];
     _logWrapped(_ansiMagenta, '\n$dir (${i + 1} of ${packageDirs.length})');
-    results.add(await _run(dir, 'pub', ['upgrade', '--no-precompile']));
+    results.add(await _run(dir, 'flutter', [
+      'pub',
+      'pub',
+      'upgrade',
+      '--no-precompile',
+    ]));
     results.add(await _run(
       dir,
       'dartanalyzer',

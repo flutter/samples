@@ -23,7 +23,7 @@
 // EXCLUDE_FROM_GALLERY_DOCS_START
 import 'dart:collection' show LinkedHashMap;
 import 'dart:math';
-// EXCLUDE_FROM_GALLERY_DOCS_END
+
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
@@ -136,6 +136,7 @@ class DisjointMeasureAxisLineChart extends StatelessWidget {
         ..setAttribute(charts.measureAxisIdKey, 'axis 4'),
     ];
   }
+
   // EXCLUDE_FROM_GALLERY_DOCS_END
 
   @override
@@ -264,5 +265,5 @@ class LinearClicks {
   final int clickCount;
   final double clickRate;
 
-  LinearClicks(this.year, {this.clickCount = null, this.clickRate = null});
+  LinearClicks(this.year, {this.clickCount, this.clickRate});
 }

@@ -39,7 +39,7 @@ class TimelineState extends State<Timeline> {
   void initState() {
     super.initState();
     for (int year = 2015; year < 2020; year++) {
-      String yearLabel = "${year}";
+      String yearLabel = "$year";
       labelPainters[yearLabel] =
           _makeTextPainter(Constants.timelineLineColor, yearLabel);
     }
@@ -174,7 +174,7 @@ class TimelinePainter extends CustomPainter {
         }
 
         if (isYear) {
-          var yearLabel = "${yearNumber}";
+          var yearLabel = "$yearNumber";
           state.labelPainters[yearLabel]
               .paint(canvas, Offset(currX, size.height - labelHeight));
           yearNumber++;
