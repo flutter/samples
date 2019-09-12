@@ -15,10 +15,16 @@
 import 'package:flutter/material.dart';
 
 import 'page_one.dart';
-import 'page_two.dart';
 import 'page_three.dart';
+import 'page_two.dart';
 
-void main() => runApp(MaterialApp(home: StartApp()));
+void main() {
+  runApp(
+    MaterialApp(
+      home: StartApp(),
+    ),
+  );
+}
 
 class StartApp extends StatelessWidget {
   @override
@@ -30,9 +36,18 @@ class StartApp extends StatelessWidget {
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.flash_on), text: 'Performance'),
-                Tab(icon: Icon(Icons.sync), text: 'Infinite Process'),
-                Tab(icon: Icon(Icons.storage), text: 'Data Transfer'),
+                Tab(
+                  icon: Icon(Icons.flash_on),
+                  text: 'Performance',
+                ),
+                Tab(
+                  icon: Icon(Icons.sync),
+                  text: 'Infinite Process',
+                ),
+                Tab(
+                  icon: Icon(Icons.storage),
+                  text: 'Data Transfer',
+                ),
               ],
             ),
             title: Text('Isolate Example'),

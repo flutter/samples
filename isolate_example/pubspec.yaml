@@ -8,13 +8,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-  provider: ^3.0.0
+  provider: ^3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.7.0
+  pedantic: ^1.8.0+1
 
 
 flutter:

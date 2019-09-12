@@ -15,6 +15,20 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// Computes the nth number in the Fibonacci sequence.
+int fib(int n) {
+  int number1 = n - 1;
+  int number2 = n - 2;
+
+  if (n == 1) {
+    return 0;
+  } else if (n == 0) {
+    return 1;
+  } else {
+    return (fib(number1) + fib(number2));
+  }
+}
+
 class PerformancePage extends StatefulWidget {
   @override
   _PerformancePageState createState() => _PerformancePageState();
@@ -65,7 +79,9 @@ class _PerformancePageState extends State<PerformancePage> {
   }
 
   VoidCallback createMainIsolateCallBack(
-      BuildContext context, AsyncSnapshot snapshot) {
+    BuildContext context,
+    AsyncSnapshot snapshot,
+  ) {
     if (snapshot.connectionState == ConnectionState.done) {
       return () {
         setState(() {
@@ -101,27 +117,20 @@ class _PerformancePageState extends State<PerformancePage> {
       return null;
     }
   }
-}
 
-Future<void> computeOnMainIsolate() async {
-  // The isolate will need a little time to disable the buttons before the performance hit.
-  await Future.delayed(Duration(milliseconds: 100), () => fib(45));
-}
+  Future<void> computeOnMainIsolate() async {
+    // A delay is added here to give Flutter the chance to redraw the UI at least
+    // once before the computation (which, since it's run on the main isolate,
+    // will lock up the app) begins executing.
+    await Future.delayed(
+      Duration(milliseconds: 100),
+      () => fib(45),
+    );
+  }
 
-Future<void> computeOnSecondaryIsolate() async {
-  await compute(fib, 45);
-}
-
-int fib(int n) {
-  int number1 = n - 1;
-  int number2 = n - 2;
-
-  if (n == 1) {
-    return 0;
-  } else if (n == 0) {
-    return 1;
-  } else {
-    return (fib(number1) + fib(number2));
+  Future<void> computeOnSecondaryIsolate() async {
+    // Compute the Fibonacci series on a secondary isolate.
+    await compute(fib, 45);
   }
 }
 
@@ -133,44 +142,32 @@ class SmoothAnimationWidget extends StatefulWidget {
 class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
   AnimationController _controller;
-  Animation<BorderRadius> borderRadius;
+  Animation<BorderRadius> _borderAnimation;
 
   @override
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this)
-          ..addStatusListener(
-            (status) {
-              if (status == AnimationStatus.completed) {
-                _controller.reverse();
-              } else if (status == AnimationStatus.dismissed) {
-                _controller.forward();
-              }
-            },
-          );
-
-    borderRadius = BorderRadiusTween(
-      begin: BorderRadius.circular(100.0),
-      end: BorderRadius.circular(0.0),
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.linear,
-      ),
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
     );
 
-    _controller.forward();
+    _borderAnimation = BorderRadiusTween(
+      begin: BorderRadius.circular(100.0),
+      end: BorderRadius.circular(0.0),
+    ).animate(_controller);
+
+    _controller.repeat(reverse: true);
   }
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: borderRadius,
-      builder: (context, child) {
-        return Center(
-          child: Container(
+    return Center(
+      child: AnimatedBuilder(
+        animation: _borderAnimation,
+        builder: (context, child) {
+          return Container(
             child: FlutterLogo(
               size: 200,
             ),
@@ -180,13 +177,16 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
-                colors: [Colors.blueAccent, Colors.redAccent],
+                colors: [
+                  Colors.blueAccent,
+                  Colors.redAccent,
+                ],
               ),
-              borderRadius: borderRadius.value,
+              borderRadius: _borderAnimation.value,
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
