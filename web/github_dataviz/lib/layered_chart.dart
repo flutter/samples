@@ -30,7 +30,7 @@ class LayeredChartState extends State<LayeredChart> {
   double graphHeight;
   List<TextPainter> labelPainter;
   List<TextPainter> milestonePainter;
-  Size lastSize = null;
+  Size lastSize;
 
   void buildPaths(
       Size size,

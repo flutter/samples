@@ -399,7 +399,7 @@ class NumberPicker extends StatelessWidget {
       Notification notification, ScrollController scrollController) {
     return notification is UserScrollNotification &&
         notification.direction == ScrollDirection.idle &&
-        // ignore: invalid_use_of_protected_member
+        // ignore: invalid_use_of_protected_member,invalid_use_of_visible_for_testing_member
         scrollController.position.activity is! HoldScrollActivity;
   }
 
