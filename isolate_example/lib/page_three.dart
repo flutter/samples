@@ -11,9 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import 'dart:typed_data';
+
 import 'dart:isolate';
 import 'dart:math';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,6 +32,8 @@ class DataTransferPageStarter extends StatelessWidget {
 class DataTransferPage extends StatelessWidget {
   @override
   Widget build(context) {
+    final controller = Provider.of<DataTransferIsolateController>(context);
+
     return SafeArea(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -42,17 +46,34 @@ class DataTransferPage extends StatelessWidget {
             padding: EdgeInsets.all(8),
           ),
           LinearProgressIndicator(
-            value: Provider.of<DataTransferIsolateController>(context)
-                .progressPercent,
+            value: controller.progressPercent,
             backgroundColor: Colors.grey[200],
           ),
-          Expanded(child: RunningList()),
+          Expanded(
+            child: RunningList(),
+          ),
           Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [createButtons(context)],
+              RaisedButton(
+                child: const Text('Transfer Data to 2nd Isolate'),
+                color: (controller.runningTest == 1)
+                    ? Colors.blueAccent
+                    : Colors.grey[300],
+                onPressed: () => controller.generateRandomNumbers(false),
+              ),
+              RaisedButton(
+                child: const Text('Transfer Data with TransferableTypedData'),
+                color: (controller.runningTest == 2)
+                    ? Colors.blueAccent
+                    : Colors.grey[300],
+                onPressed: () => controller.generateRandomNumbers(true),
+              ),
+              RaisedButton(
+                child: const Text('Generate on 2nd Isolate'),
+                color: (controller.runningTest == 3)
+                    ? Colors.blueAccent
+                    : Colors.grey[300],
+                onPressed: controller.generateOnSecondaryIsolate,
               ),
             ],
           ),
@@ -63,14 +84,18 @@ class DataTransferPage extends StatelessWidget {
 }
 
 class DataTransferIsolateController extends ChangeNotifier {
-  Isolate _newIsolate;
-  ReceivePort _mIceRP;
-  SendPort _newIceSP;
+  Isolate _isolate;
+  ReceivePort _incomingReceivePort;
+  SendPort _outgoingSendPort;
 
   final currentProgress = <String>[];
   int runningTest = 0;
   Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
+
+  Isolate get newIsolate => _isolate;
+
+  bool get running => runningTest != 0;
 
   DataTransferIsolateController() {
     createIsolate();
@@ -78,18 +103,20 @@ class DataTransferIsolateController extends ChangeNotifier {
   }
 
   Future<void> createIsolate() async {
-    _mIceRP = ReceivePort();
-    _newIsolate =
-        await Isolate.spawn(_secondIsolateEntryPoint, _mIceRP.sendPort);
+    _incomingReceivePort = ReceivePort();
+    _isolate = await Isolate.spawn(
+        _secondIsolateEntryPoint, _incomingReceivePort.sendPort);
   }
 
   void listen() {
-    _mIceRP.listen((dynamic message) {
-      if (message is SendPort) _newIceSP = message;
+    _incomingReceivePort.listen((dynamic message) {
+      if (message is SendPort) {
+        _outgoingSendPort = message;
+      }
 
       if (message is int) {
         currentProgress.insert(
-            0, '$message% - ${_timer.elapsedMilliseconds / 1000} Sec');
+            0, '$message% - ${_timer.elapsedMilliseconds / 1000} seconds');
         progressPercent = message / 100;
       }
 
@@ -109,7 +136,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 
     _timer = Stopwatch();
     _timer.start();
-    _newIceSP.send('start');
+    _outgoingSendPort.send('start');
 
     notifyListeners();
   }
@@ -150,26 +177,22 @@ class DataTransferIsolateController extends ChangeNotifier {
 
   Future<void> sendNumbers(dynamic numList) async {
     return Future<void>(() {
-      _newIceSP.send(numList);
+      _outgoingSendPort.send(numList);
     });
   }
 
-  Isolate get newIsolate => _newIsolate;
-
-  bool get running => runningTest != 0;
-
   void dispose() {
     super.dispose();
-    _newIsolate?.kill(priority: Isolate.immediate);
-    _newIsolate = null;
+    _isolate?.kill(priority: Isolate.immediate);
+    _isolate = null;
   }
 }
 
 class RunningList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<DataTransferIsolateController>(context);
-    final progress = controller.currentProgress;
+    final progress =
+        Provider.of<DataTransferIsolateController>(context).currentProgress;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -234,7 +257,10 @@ Iterable<int> createNums() sync* {
 }
 
 Future<void> generateAndSum(
-    SendPort callerSP, Iterable<int> iter, int length) async {
+  SendPort callerSP,
+  Iterable<int> iter,
+  int length,
+) async {
   int sum = 0;
   int count = 1;
 
@@ -247,42 +273,4 @@ Future<void> generateAndSum(
   }
 
   return sum;
-}
-
-Widget createButtons(BuildContext context) {
-  final controller =
-      Provider.of<DataTransferIsolateController>(context, listen: false);
-  return ButtonBar(
-    alignment: MainAxisAlignment.center,
-    children: [
-      Column(
-        children: [
-          RaisedButton(
-            child: const Text('Transfer Data to 2nd Isolate'),
-            elevation: 8.0,
-            color: (controller.runningTest == 1)
-                ? Colors.blueAccent
-                : Colors.grey[300],
-            onPressed: () => controller.generateRandomNumbers(false),
-          ),
-          RaisedButton(
-            child: const Text('Transfer Data with TransferableTypedData'),
-            elevation: 8.0,
-            color: (controller.runningTest == 2)
-                ? Colors.blueAccent
-                : Colors.grey[300],
-            onPressed: () => controller.generateRandomNumbers(true),
-          ),
-          RaisedButton(
-            child: const Text('Generate on 2nd Isolate'),
-            elevation: 8.0,
-            color: (controller.runningTest == 3)
-                ? Colors.blueAccent
-                : Colors.grey[300],
-            onPressed: controller.generateOnSecondaryIsolate,
-          ),
-        ],
-      ),
-    ],
-  );
 }
