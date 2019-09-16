@@ -73,7 +73,7 @@ class _MiniViewState extends State<MiniView> {
               children: [
                 Text(
                   'Window is ${mediaInfo.size.width} x '
-                  '${mediaInfo.size.height}.',
+                      '${mediaInfo.size.height}.',
                   style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(height: 16),

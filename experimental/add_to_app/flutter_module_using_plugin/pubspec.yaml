@@ -1,7 +1,7 @@
-name: example_module
-description: A simple module used to demo Flutter's Add-to-App features
+name: flutter_module_using_plugin
+description: An example Flutter module that uses a plugin.
 
-version: 1.0.0
+version: 1.0.0+1
 
 environment:
   sdk: ">=2.5.0 <3.0.0"
@@ -9,11 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  path_provider: ^1.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.8.0+1
 
 flutter:
   uses-material-design: true
@@ -25,6 +25,6 @@ flutter:
   # They also do not have any bearing on your native host application's
   # identifiers, which may be completely independent or the same as these.
   module:
-    androidX: false
-    androidPackage: com.example.example_module
-    iosBundleIdentifier: com.example.exampleModule
+    androidX: true
+    androidPackage: dev.flutter.example.flutter_module_using_plugin
+    iosBundleIdentifier: dev.flutter.example.flutterModuleUsingPlugin
