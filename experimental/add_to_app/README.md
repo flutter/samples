@@ -16,14 +16,14 @@ a standalone Flutter module called `flutter_module`.
 ### Flutter modules
 
 There are two Flutter modules included in the codebase: `flutter_module` and
-`flutter_module_with_plugin`. The only significant difference between the two
-is that `flutter_module_with_plugin` depends on a Flutter plugin,
+`flutter_module_using_plugin`. The only significant difference between the two
+is that `flutter_module_using_plugin` depends on a Flutter plugin,
 [`path_provider`](https://pub.dev/packages/path_povider), and `flutter_module`
  doesn't.
 
 Before running any of the Android or iOS apps included in this sample project,
 you first need to resolve the Flutter modules' depencies. Do so by running this
-command from within the `flutter_module` and `flutter_module_with_plugin`
+command from within the `flutter_module` and `flutter_module_using_plugin`
 directories:
 
 ```bash
