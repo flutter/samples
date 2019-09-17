@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -152,7 +152,6 @@
 				17D7E4C45A10187E410660B5 /* Pods-IOSFullScreenUITests.debug.xcconfig */,
 				7030247FF147F5595C8471BF /* Pods-IOSFullScreenUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -704,7 +703,7 @@
 				26DF66FB233136470076ACA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		26DF66FC233136470076ACA6 /* Build configuration list for PBXNativeTarget "IOSFullScreen" */ = {
 			isa = XCConfigurationList;
@@ -713,7 +712,7 @@
 				26DF66FE233136470076ACA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		26DF66FF233136470076ACA6 /* Build configuration list for PBXNativeTarget "IOSFullScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -722,7 +721,7 @@
 				26DF6701233136470076ACA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		26DF6702233136470076ACA6 /* Build configuration list for PBXNativeTarget "IOSFullScreenUITests" */ = {
 			isa = XCConfigurationList;
@@ -731,7 +730,7 @@
 				26DF6704233136470076ACA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
