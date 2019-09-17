@@ -72,8 +72,8 @@ class _MiniViewState extends State<MiniView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Window is ${mediaInfo.size.width} x '
-                      '${mediaInfo.size.height}.',
+                  'Window is ${mediaInfo.size.width.toStringAsFixed(1)} x '
+                      '${mediaInfo.size.height.toStringAsFixed(1)}',
                   style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(height: 16),

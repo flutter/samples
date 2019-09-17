@@ -2,8 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart' as paths;
 
 void main() => runApp(MyApp());
 
@@ -44,6 +47,18 @@ class MiniView extends StatefulWidget {
 class _MiniViewState extends State<MiniView> {
   int count = 0;
 
+  // Start off with a completed future so the FutureBuilder code below doesn't
+  // need to worry about null.
+  Future<void> saveFuture = Future.sync((){});
+
+  Future<void> _saveCount() async {
+    final dir = await paths.getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/count.txt');
+    setState(() {
+      saveFuture = file.writeAsString('$count\n');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaInfo = MediaQuery.of(context);
@@ -72,8 +87,8 @@ class _MiniViewState extends State<MiniView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Window is ${mediaInfo.size.width} x '
-                      '${mediaInfo.size.height}.',
+                  'Window is ${mediaInfo.size.width.toStringAsFixed(1)} x '
+                  '${mediaInfo.size.height.toStringAsFixed(1)}',
                   style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(height: 16),
@@ -85,6 +100,22 @@ class _MiniViewState extends State<MiniView> {
                 RaisedButton(
                   onPressed: () => setState(() => count++),
                   child: Text('Tap me!'),
+                ),
+                FutureBuilder(
+                  future: saveFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return RaisedButton(
+                        onPressed: _saveCount,
+                        child: Text('Save count'),
+                      );
+                    } else {
+                      return RaisedButton(
+                        onPressed: null,
+                        child: Text('Save count'),
+                      );
+                    }
+                  },
                 ),
                 if (widget.showExit) ...[
                   SizedBox(height: 16),

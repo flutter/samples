@@ -1,4 +1,4 @@
-package com.example.androidfullscreen
+package dev.flutter.example.androidfullscreen
 
 import org.junit.Test
 
