@@ -9,15 +9,15 @@ a standalone Flutter module called `flutter_module`.
 
 ## Goals for this sample
 
-* Show developers how to add Flutter to their existing applications.
+* Show developers how to add Flutter to their existing applications.install
 
 ## The important bits
 
-### Flutter modules 
+### Flutter modules
 
 There are two Flutter modules included in the codebase: `flutter_module` and
 `flutter_module_with_plugin`. The only significant difference between the two
-is that `flutter_module_with_plugin` depends on a Flutter plugin, 
+is that `flutter_module_with_plugin` depends on a Flutter plugin,
 [`path_provider`](https://pub.dev/packages/path_povider), and `flutter_module`
  doesn't.
 
@@ -36,7 +36,7 @@ In addition to the Flutter modules, this repo also includes a number of
 Android and iOS applications that demonstrate different ways of importing
 them.
 
-The Android apps are ready to run once you've completed the 
+The Android apps are ready to run once you've completed the
 `flutter packages get` commands listed above. The iOS apps use CocoaPods,
 so you need to run this command to install the dependencies listed in their
 Podfiles prior to running them the first time:
