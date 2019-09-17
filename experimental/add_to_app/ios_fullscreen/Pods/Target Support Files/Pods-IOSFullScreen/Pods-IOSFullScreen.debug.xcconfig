@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant" "${PODS_ROOT}/../../flutter_module/.ios/Flutter" "${PODS_ROOT}/../../flutter_module/.ios/Flutter/engine"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework/Headers"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework/Headers" -iframework "${PODS_ROOT}/../../flutter_module/.ios/Flutter/engine" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant" -iframework "${PODS_ROOT}/../../flutter_module/.ios/Flutter"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "App" -framework "Flutter" -framework "FlutterPluginRegistrant"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
