@@ -49,7 +49,7 @@ class _MiniViewState extends State<MiniView> {
 
   // Start off with a completed future so the FutureBuilder code below doesn't
   // need to worry about null.
-  Future<void> saveFuture = Future.sync((){});
+  Future<void> saveFuture = Future.value(null);
 
   Future<void> _saveCount() async {
     final dir = await paths.getApplicationDocumentsDirectory();

@@ -9,17 +9,19 @@ a standalone Flutter module called `flutter_module`.
 
 ## Goals for this sample
 
-* Show developers how to add Flutter to their existing applications.install
+* Show developers how to add Flutter to their existing applications.
 
 ## The important bits
 
 ### Flutter modules
 
-There are two Flutter modules included in the codebase: `flutter_module` and
-`flutter_module_using_plugin`. The only significant difference between the two
-is that `flutter_module_using_plugin` depends on a Flutter plugin,
-[`path_provider`](https://pub.dev/packages/path_povider), and `flutter_module`
- doesn't.
+There are two Flutter modules included in the codebase:
+
+* `flutter_module` displays the dimensions of the screen, a button that
+  increments a simple counter, and an optional exit button.
+* `flutter_module_using_plugin` does everything `flutter_module` does, and adds
+  another button that will save the counter's value to a file using the
+  [`path_provider`](https://pub.dev/packages/path_povider) Flutter plugin.
 
 Before running any of the Android or iOS apps included in this sample project,
 you first need to resolve the Flutter modules' depencies. Do so by running this
@@ -39,9 +41,14 @@ them.
 The Android apps are ready to run once you've completed the
 `flutter packages get` commands listed above. The iOS apps use CocoaPods,
 so you need to run this command to install the dependencies listed in their
-Podfiles prior to running them the first time:
+Podfiles prior to running them the first time.
+
+This should be done in the individual project directories themselves. For
+example, prior to running `ios_fullscreen` for the first time, you need to run
+these commands:
 
 ```bash
+cd ios_fullscreen
 pod install
 ```
 
@@ -54,12 +61,12 @@ included. Open that workspace file, and the app is ready to build and run.
 These apps showcase a relatively straightforward integration of
 `flutter_module`:
 
-* The Flutter module's code is built as part of the overall app build process.
-* The engine is warmed up at app launch.
+* The Flutter module is built along with the app when the app is built.
+* The Flutter engine is warmed up at app launch.
 * The Flutter view is presented with a full-screen Activity or
   UIViewController.
-* The Flutter view can only exit; it does not launch any new, native Activities
-  or UIViewControllers in response to user actions.
+* The Flutter view is a navigational leaf node; it does not launch any new,
+  native Activities or UIViewControllers in response to user actions.
 
 If you are new to Flutter's add-to-app APIs, these projects are a great place
 to begin learning how to use them.
