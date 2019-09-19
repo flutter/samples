@@ -15,7 +15,7 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       MaterialApp(
-        home: MiniView(),
+        home: Contents(),
       ),
     );
 

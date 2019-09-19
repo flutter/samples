@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Module Title',
       routes: {
         '/': (context) => FullScreenView(),
-        '/mini': (context) => MiniView(),
+        '/mini': (context) => Contents(),
       },
     );
   }
@@ -25,23 +25,23 @@ class FullScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('A Full-screen Flutter View'),
+        title: Text('Full-screen Flutter'),
       ),
-      body: const MiniView(showExit: true),
+      body: const Contents(showExit: true),
     );
   }
 }
 
-class MiniView extends StatefulWidget {
+class Contents extends StatefulWidget {
   final bool showExit;
 
-  const MiniView({this.showExit = false});
+  const Contents({this.showExit = false});
 
   @override
-  _MiniViewState createState() => _MiniViewState();
+  _ContentsState createState() => _ContentsState();
 }
 
-class _MiniViewState extends State<MiniView> {
+class _ContentsState extends State<Contents> {
   int count = 0;
 
   @override
