@@ -33,7 +33,7 @@ class Grid extends StatelessWidget {
 }
 
 Route _createRoute(BuildContext parentContext, String image) {
-  return PageRouteBuilder(
+  return PageRouteBuilder<void>(
     pageBuilder: (context, animation, secondaryAnimation) {
       return _SecondPage(image);
     },
@@ -74,7 +74,7 @@ class SmallCard extends StatelessWidget {
         child: InkWell(
           onTap: () {
             var nav = Navigator.of(context);
-            nav.push(_createRoute(context, imageAssetName));
+            nav.push<void>(_createRoute(context, imageAssetName));
           },
           child: Image.asset(
             imageAssetName,
