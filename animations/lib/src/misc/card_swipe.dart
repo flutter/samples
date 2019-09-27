@@ -176,7 +176,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     var description = SpringDescription(mass: 50, stiffness: 1, damping: 1);
     var simulation =
         SpringSimulation(description, _controller.value, 1, velocity);
-    _controller.animateWith(simulation).then((_) {
+    _controller.animateWith(simulation).then<void>((_) {
       widget.onSwiped();
     });
   }

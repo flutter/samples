@@ -14,7 +14,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
         child: RaisedButton(
           child: Text('Go!'),
           onPressed: () {
-            Navigator.of(context).push(_createRoute());
+            Navigator.of(context).push<void>(_createRoute());
           },
         ),
       ),
@@ -23,7 +23,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
 }
 
 Route _createRoute() {
-  return PageRouteBuilder(
+  return PageRouteBuilder<SlideTransition>(
     pageBuilder: (context, animation, secondaryAnimation) => _Page2(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var tween = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero);
