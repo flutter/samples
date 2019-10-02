@@ -4,8 +4,44 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final model = CounterModel();
+
+  runApp(
+    ChangeNotifierProvider.value(
+      value: model,
+      child: MyApp(),
+    ),
+  );
+}
+
+class CounterModel extends ChangeNotifier {
+  CounterModel() {
+    _channel.setMethodCallHandler(_handleMessage);
+    _channel.invokeMethod('requestCounter');
+  }
+
+  final _channel = MethodChannel('dev.flutter.example/counter');
+
+  int _count = 0;
+
+  int get count => _count;
+
+  void increment() {
+    _channel.invokeMethod('incrementCounter');
+  }
+
+  Future<dynamic> _handleMessage(MethodCall call) async {
+    if (call.method == 'reportCounter') {
+      _count = call.arguments as int;
+      notifyListeners();
+    }
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -32,17 +68,10 @@ class FullScreenView extends StatelessWidget {
   }
 }
 
-class Contents extends StatefulWidget {
+class Contents extends StatelessWidget {
   final bool showExit;
 
   const Contents({this.showExit = false});
-
-  @override
-  _ContentsState createState() => _ContentsState();
-}
-
-class _ContentsState extends State<Contents> {
-  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -73,20 +102,28 @@ class _ContentsState extends State<Contents> {
               children: [
                 Text(
                   'Window is ${mediaInfo.size.width.toStringAsFixed(1)} x '
-                      '${mediaInfo.size.height.toStringAsFixed(1)}',
+                  '${mediaInfo.size.height.toStringAsFixed(1)}',
                   style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Taps: $count',
-                  style: Theme.of(context).textTheme.headline,
+                Consumer<CounterModel>(
+                  builder: (context, model, child) {
+                    return Text(
+                      'Taps: ${model.count}',
+                      style: Theme.of(context).textTheme.headline,
+                    );
+                  },
                 ),
                 SizedBox(height: 16),
-                RaisedButton(
-                  onPressed: () => setState(() => count++),
-                  child: Text('Tap me!'),
+                Consumer<CounterModel>(
+                  builder: (context, model, child) {
+                    return RaisedButton(
+                      onPressed: () => model.increment(),
+                      child: Text('Tap me!'),
+                    );
+                  },
                 ),
-                if (widget.showExit) ...[
+                if (showExit) ...[
                   SizedBox(height: 16),
                   RaisedButton(
                     onPressed: () => SystemNavigator.pop(),
