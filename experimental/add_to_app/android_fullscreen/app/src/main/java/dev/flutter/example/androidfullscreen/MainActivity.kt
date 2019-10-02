@@ -4,11 +4,11 @@
 
 package dev.flutter.example.androidfullscreen
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,16 +22,18 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.launch_button)
 
         button.setOnClickListener {
-            val intent = Intent(this, MyFlutterActivity::class.java)
-            startActivityForResult(intent, 1)
+            val intent = FlutterActivity.createDefaultIntent(this)
+            startActivity(intent)
+            //            val intent = Intent(this, MyFlutterActivity::class.java)
+//            startActivityForResult(intent, 1)
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (data != null) {
-            val counter = data.getIntExtra("counter", 0)
-            counterLabel?.text = "Current counter: $counter"
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (data != null) {
+//            val counter = data.getIntExtra("counter", 0)
+//            counterLabel?.text = "Current counter: $counter"
+//        }
+//    }
 }
