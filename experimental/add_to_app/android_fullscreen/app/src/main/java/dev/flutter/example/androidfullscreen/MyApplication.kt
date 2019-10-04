@@ -10,7 +10,7 @@ import io.flutter.view.FlutterMain
 const val ENGINE_ID = "1"
 
 class MyApplication : Application() {
-    var count = 0
+    val count = ObservableInteger()
 
     private var channel : MethodChannel? = null
 
@@ -21,7 +21,6 @@ class MyApplication : Application() {
         FlutterMain.ensureInitializationComplete(this, null)
 
         val flutterEngine = FlutterEngine(this)
-
         flutterEngine
             .dartExecutor
             .executeDartEntrypoint(
@@ -35,7 +34,7 @@ class MyApplication : Application() {
         channel?.setMethodCallHandler { call, _ ->
             when (call.method) {
                 "incrementCounter" -> {
-                    count++
+                    count.value = count.value + 1
                     reportCounter()
                 }
                 "requestCounter" -> {
@@ -47,6 +46,6 @@ class MyApplication : Application() {
     }
 
     private fun reportCounter() {
-        channel?.invokeMethod("reportCounter", count)
+        channel?.invokeMethod("reportCounter", count.value)
     }
 }

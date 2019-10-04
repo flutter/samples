@@ -10,8 +10,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import io.flutter.embedding.android.FlutterActivity
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Observer {
     private var counterLabel: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         counterLabel = findViewById(R.id.counter_label)
+
         val button = findViewById<Button>(R.id.launch_button)
 
         button.setOnClickListener {
@@ -27,12 +29,22 @@ class MainActivity : AppCompatActivity() {
                 .build(this)
             startActivity(intent)
         }
+
+        val app = application as MyApplication
+        app.count.addObserver(this)
+    }
+
+    override fun onDestroy() {
+        val app = application as MyApplication
+        app.count.deleteObserver(this)
+
+        super.onDestroy()
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onResume() {
-        super.onResume()
-        val app = application as MyApplication
-        counterLabel?.text = "Current count: ${app.count}"
+    override fun update(o: Observable, arg: Any) {
+        if (o is ObservableInteger) {
+            counterLabel?.text = "Current count: ${o.value}"
+        }
     }
 }
