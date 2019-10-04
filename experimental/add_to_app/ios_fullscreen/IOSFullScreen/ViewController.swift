@@ -6,13 +6,13 @@ import UIKit
 import Flutter
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var counterLabel: UILabel!
-    
+
     var methodChannel : FlutterMethodChannel?
-    
+
     var count = 0
-    
+
     override func viewDidLoad() {
         if let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine {
             methodChannel = FlutterMethodChannel(name: "dev.flutter.example/counter",
@@ -31,18 +31,16 @@ class ViewController: UIViewController {
                     print("Unrecognized method name: \(call.method)")
                 }
             })
-
         }
     }
-    
+
     func reportCounter() {
         methodChannel?.invokeMethod("reportCounter", arguments: count)
     }
-    
+
     @IBAction func buttonWasTapped(_ sender: Any) {
         let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine
         let flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!
         self.present(flutterViewController, animated: false, completion: nil)
     }
 }
-
