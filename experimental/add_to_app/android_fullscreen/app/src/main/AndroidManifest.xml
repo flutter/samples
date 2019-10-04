@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyFlutterActivity"
+            android:name="io.flutter.embedding.android.FlutterActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"

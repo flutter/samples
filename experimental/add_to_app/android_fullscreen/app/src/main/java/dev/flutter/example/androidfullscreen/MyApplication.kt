@@ -7,7 +7,7 @@ import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.view.FlutterMain
 
-val ENGINE_ID = "1"
+const val ENGINE_ID = "1"
 
 class MyApplication : Application() {
     var count = 0
