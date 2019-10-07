@@ -25,35 +25,77 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo(this.name, this.route, this.builder);
+  const Demo({this.name, this.route, this.builder});
 }
 
 final basicDemos = [
-  Demo('AnimatedContainer', AnimatedContainerDemo.routeName,
-      (context) => AnimatedContainerDemo()),
-  Demo('PageRouteBuilder', PageRouteBuilderDemo.routeName,
-      (context) => PageRouteBuilderDemo()),
-  Demo('Animation Controller', AnimationControllerDemo.routeName,
-      (context) => AnimationControllerDemo()),
-  Demo('Tweens', TweenDemo.routeName, (context) => TweenDemo()),
-  Demo('AnimatedBuilder', AnimatedBuilderDemo.routeName,
-      (context) => AnimatedBuilderDemo()),
-  Demo('Custom Tween', CustomTweenDemo.routeName,
-      (context) => CustomTweenDemo()),
-  Demo('Tween Sequences', TweenSequenceDemo.routeName,
-      (context) => TweenSequenceDemo()),
+  Demo(
+    name: 'AnimatedContainer',
+    route: AnimatedContainerDemo.routeName,
+    builder: (context) => AnimatedContainerDemo()
+  ),
+  Demo(
+    name: 'PageRouteBuilder',
+    route: PageRouteBuilderDemo.routeName,
+    builder: (context) => PageRouteBuilderDemo()),
+  Demo(
+    name: 'Animation Controller',
+    route: AnimationControllerDemo.routeName,
+    builder: (context) => AnimationControllerDemo()
+  ),
+  Demo(
+    name: 'Tweens',
+    route: TweenDemo.routeName,
+    builder: (context) => TweenDemo()
+  ),
+  Demo(
+    name: 'AnimatedBuilder',
+    route: AnimatedBuilderDemo.routeName,
+    builder: (context) => AnimatedBuilderDemo()
+  ),
+  Demo(
+    name: 'Custom Tween',
+    route: CustomTweenDemo.routeName,
+    builder: (context) => CustomTweenDemo()
+  ),
+  Demo(
+    name: 'Tween Sequences',
+    route: TweenSequenceDemo.routeName,
+    builder: (context) => TweenSequenceDemo()
+  ),
 ];
 
 final miscDemos = [
-  Demo('Expandable Card', ExpandCardDemo.routeName,
-      (context) => ExpandCardDemo()),
-  Demo('Carousel', CarouselDemo.routeName, (context) => CarouselDemo()),
-  Demo('Focus Image', FocusImageDemo.routeName, (context) => FocusImageDemo()),
-  Demo('Card Swipe', CardSwipeDemo.routeName, (context) => CardSwipeDemo()),
-  Demo('Repeating Animation', RepeatingAnimationDemo.routeName,
-      (context) => RepeatingAnimationDemo()),
-  Demo('Spring Physics', PhysicsCardDragDemo.routeName,
-      (context) => PhysicsCardDragDemo()),
+  Demo(
+    name: 'Expandable Card',
+    route: ExpandCardDemo.routeName,
+    builder: (context) => ExpandCardDemo()
+  ),
+  Demo(
+    name: 'Carousel',
+    route: CarouselDemo.routeName,
+    builder: (context) => CarouselDemo()
+  ),
+  Demo(
+    name: 'Focus Image',
+    route: FocusImageDemo.routeName,
+    builder: (context) => FocusImageDemo()
+  ),
+  Demo(
+    name: 'Card Swipe',
+    route: CardSwipeDemo.routeName,
+    builder: (context) => CardSwipeDemo()
+  ),
+  Demo(
+    name: 'Repeating Animation',
+    route: RepeatingAnimationDemo.routeName,
+    builder: (context) => RepeatingAnimationDemo()
+  ),
+  Demo(
+    name: 'Spring Physics',
+    route: PhysicsCardDragDemo.routeName,
+    builder: (context) => PhysicsCardDragDemo()
+  ),
 ];
 
 final basicDemoRoutes =
