@@ -6,7 +6,7 @@ match any new language/SDK features, etc.).
 
 | Sample                    | GH username        | Date Updated   |
 | :------------------------ | -----------------: | -------------: |
-| animations                |                    |                |
+| animations                | theacodes          | 10/7/19        |
 | chrome-os-best-practices  |                    |                |
 | experimental              |                    |                |
 | flutter_maps_firestore    |                    |                |
