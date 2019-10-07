@@ -1,10 +1,33 @@
-# Example of switching between full-screen Flutter and Platform View
+# platform_view_swift
 
-This project demonstrates how to bring up a full-screen iOS view from a full-screen
-Flutter view along with passing data back and forth between the two.
+A Flutter sample app that combines a native iOS UIViewController
+with a full-screen Flutter view.
 
-On iOS we use a CocoaPods dependency to add a Material Design button, and so
-`pod install` needs to be invoked in the `ios/` folder before `flutter run`:
+## Goals for this sample
 
-pushd ios/ ; pod install ; popd
-flutter run
+* Show a simple technique for combining native and Flutter views.
+
+## The important bits
+
+### `lib/main.dart`
+
+The Flutter part of the application is quite simple, and all the action
+takes place in a single file.
+
+### `ios/Runner/PlatformViewController.swift` and `AppDelegate.swift`
+
+These files contain the Swift code repsonsible for setting up a platform
+channel, launching a native UIViewController, and returning control to
+Flutter when finished.
+
+## Questions/issues
+
+If you have a general question about Flutter, the best places to go are:
+
+* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
+* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+If you run into an issue with the sample itself, please file an issue
+in the [main Flutter repo](https://github.com/flutter/flutter/issues).
+
