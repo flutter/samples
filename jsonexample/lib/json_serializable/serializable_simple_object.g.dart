@@ -13,10 +13,10 @@ SerializableSimpleObject _$SerializableSimpleObjectFromJson(
     anInt: json['anInt'] as int,
     aDouble: (json['aDouble'] as num)?.toDouble(),
     aListOfStrings:
-        (json['aListOfStrings'] as List)?.map((dynamic e) => e as String)?.toList(),
-    aListOfInts: (json['aListOfInts'] as List)?.map((dynamic e) => e as int)?.toList(),
+        (json['aListOfStrings'] as List)?.map((e) => e as String)?.toList(),
+    aListOfInts: (json['aListOfInts'] as List)?.map((e) => e as int)?.toList(),
     aListOfDoubles: (json['aListOfDoubles'] as List)
-        ?.map((dynamic e) => (e as num)?.toDouble())
+        ?.map((e) => (e as num)?.toDouble())
         ?.toList(),
   );
 }
