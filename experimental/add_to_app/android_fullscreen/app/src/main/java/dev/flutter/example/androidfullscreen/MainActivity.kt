@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity(), Observer {
         app.count.addObserver(this)
     }
 
+    // Move update to label back to onResume. Remove observer.
+
     override fun onDestroy() {
         val app = application as MyApplication
         app.count.deleteObserver(this)
