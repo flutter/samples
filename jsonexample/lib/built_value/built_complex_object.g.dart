@@ -17,7 +17,7 @@ class _$BuiltComplexObjectSerializer
   final String wireName = 'BuiltComplexObject';
 
   @override
-  Iterable serialize(Serializers serializers, BuiltComplexObject object,
+  Iterable<Object> serialize(Serializers serializers, BuiltComplexObject object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.aString != null) {
@@ -72,12 +72,12 @@ class _$BuiltComplexObjectSerializer
             specifiedType: const FullType(
                 BuiltList, const [const FullType(BuiltSimpleObject)])));
     }
-
     return result;
   }
 
   @override
-  BuiltComplexObject deserialize(Serializers serializers, Iterable serialized,
+  BuiltComplexObject deserialize(
+      Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new BuiltComplexObjectBuilder();
 
@@ -108,25 +108,25 @@ class _$BuiltComplexObjectSerializer
           result.aListOfStrings.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(int)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(double)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
         case 'aListOfObjects':
           result.aListOfObjects.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(BuiltSimpleObject)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
       }
     }
