@@ -14,7 +14,7 @@ match any new language/SDK features, etc.).
 | jsonexample               |                    |                |
 | material_studies/shrine   |                    |                |
 | place_tracker             |                    |                |
-| platform_design           |                    |                |
+| platform_design           | johnpryan          | 10/7/19        |
 | platform_view_swift       |                    |                |
 | provider_counter          |                    |                |
 | provider_shopper          |                    |                |
