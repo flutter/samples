@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 import 'songs_tab.dart';
 import 'news_tab.dart';
@@ -13,8 +12,6 @@ void main() => runApp(MyAdaptingApp());
 class MyAdaptingApp extends StatelessWidget {
   @override
   Widget build(context) {
-    // Change this value to better see animations.
-    timeDilation = 1;
     // Either Material or Cupertino widgets work in either Material or Cupertino
     // Apps.
     return MaterialApp(
@@ -52,7 +49,7 @@ class PlatformAdaptingHomePage extends StatefulWidget {
 
 class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // This app keeps a global key for the songs tab because it owns a bunch of
-  // data. Since changing platform reparents those tabs into different
+  // data. Since changing platform re-parents those tabs into different
   // scaffolds, keeping a global key to it lets this app keep that tab's data as
   // the platform toggles.
   //
