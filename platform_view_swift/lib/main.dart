@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _launchPlatformCount() async {
     final int platformCounter =
-    await _methodChannel.invokeMethod('switchView', _counter);
+        await _methodChannel.invokeMethod('switchView', _counter);
     setState(() => _counter = platformCounter);
   }
 
