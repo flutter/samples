@@ -14,9 +14,9 @@ import io.flutter.view.FlutterMain
 const val ENGINE_ID = "1"
 
 class MyApplication : Application() {
-    val count = ObservableInteger()
+    var count = 0
 
-    private var channel : MethodChannel? = null
+    private var channel: MethodChannel? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -38,7 +38,7 @@ class MyApplication : Application() {
         channel?.setMethodCallHandler { call, _ ->
             when (call.method) {
                 "incrementCounter" -> {
-                    count.value = count.value + 1
+                    count++
                     reportCounter()
                 }
                 "requestCounter" -> {
@@ -50,6 +50,6 @@ class MyApplication : Application() {
     }
 
     private fun reportCounter() {
-        channel?.invokeMethod("reportCounter", count.value)
+        channel?.invokeMethod("reportCounter", count)
     }
 }

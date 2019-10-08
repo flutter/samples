@@ -4,15 +4,13 @@
 
 package dev.flutter.example.androidfullscreen
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import io.flutter.embedding.android.FlutterActivity
-import java.util.*
 
-class MainActivity : AppCompatActivity(), Observer {
+class MainActivity : AppCompatActivity() {
     private var counterLabel: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,24 +27,11 @@ class MainActivity : AppCompatActivity(), Observer {
                 .build(this)
             startActivity(intent)
         }
-
-        val app = application as MyApplication
-        app.count.addObserver(this)
     }
 
-    // Move update to label back to onResume. Remove observer.
-
-    override fun onDestroy() {
+    override fun onResume() {
+        super.onResume()
         val app = application as MyApplication
-        app.count.deleteObserver(this)
-
-        super.onDestroy()
-    }
-
-    @SuppressLint("SetTextI18n")
-    override fun update(o: Observable, arg: Any) {
-        if (o is ObservableInteger) {
-            counterLabel?.text = "Current count: ${o.value}"
-        }
+        counterLabel?.text = "Current count: ${app.count}"
     }
 }
