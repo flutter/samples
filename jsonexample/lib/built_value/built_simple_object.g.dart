@@ -17,7 +17,7 @@ class _$BuiltSimpleObjectSerializer
   final String wireName = 'BuiltSimpleObject';
 
   @override
-  Iterable serialize(Serializers serializers, BuiltSimpleObject object,
+  Iterable<Object> serialize(Serializers serializers, BuiltSimpleObject object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.aString != null) {
@@ -59,12 +59,12 @@ class _$BuiltSimpleObjectSerializer
             specifiedType:
                 const FullType(BuiltList, const [const FullType(double)])));
     }
-
     return result;
   }
 
   @override
-  BuiltSimpleObject deserialize(Serializers serializers, Iterable serialized,
+  BuiltSimpleObject deserialize(
+      Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new BuiltSimpleObjectBuilder();
 
@@ -90,19 +90,19 @@ class _$BuiltSimpleObjectSerializer
           result.aListOfStrings.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(int)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(double)]))
-              as BuiltList);
+              as BuiltList<dynamic>);
           break;
       }
     }

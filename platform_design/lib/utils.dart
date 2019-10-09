@@ -1,11 +1,7 @@
 import 'dart:math';
 
 import 'package:english_words/english_words.dart';
-// This reimplements generateWordPair because english_words's
-// implementation has some performance issues.
-// https://github.com/filiph/english_words/issues/9
 // ignore: implementation_imports
-import 'package:english_words/src/words/unsafe.dart';
 import 'package:flutter/material.dart';
 
 // This file has a number of platform-agnostic non-Widget utility functions.
@@ -26,26 +22,9 @@ const _myListOfRandomColors = [
 
 final _random = Random();
 
-final wordPairIterator = generateWordPair();
-Iterable<WordPair> generateWordPair() sync* {
-  bool filterWord(String word) => unsafe.contains(word);
-  String pickRandom(List<String> list) => list[_random.nextInt(list.length)];
-
-  String prefix;
-  while (true) {
-    if (_random.nextBool()) {
-      prefix = pickRandom(adjectives);
-    } else {
-      prefix = pickRandom(nouns);
-    }
-    final suffix = pickRandom(nouns);
-
-    if (filterWord(prefix) || filterWord(suffix)) continue;
-
-    final wordPair = WordPair(prefix, suffix);
-    yield wordPair;
-  }
-}
+// Avoid customizing the word generator, which can be slow.
+// https://github.com/filiph/english_words/issues/9
+final wordPairIterator = generateWordPairs();
 
 String generateRandomHeadline() {
   final artist = capitalizePair(wordPairIterator.first);

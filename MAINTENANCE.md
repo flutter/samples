@@ -6,7 +6,7 @@ match any new language/SDK features, etc.).
 
 | Sample                    | GH username        | Date Updated   |
 | :------------------------ | -----------------: | -------------: |
-| animations                |                    |                |
+| animations                | theacodes          | 10/7/19        |
 | chrome-os-best-practices  |                    |                |
 | experimental              |                    |                |
 | flutter_maps_firestore    |                    |                |
@@ -14,7 +14,7 @@ match any new language/SDK features, etc.).
 | jsonexample               |                    |                |
 | material_studies/shrine   |                    |                |
 | place_tracker             |                    |                |
-| platform_design           |                    |                |
+| platform_design           | johnpryan          | 10/7/19        |
 | platform_view_swift       | redbrogdon         | 10/7/19        |
 | provider_counter          |                    |                |
 | provider_shopper          |                    |                |
