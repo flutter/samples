@@ -15,7 +15,7 @@ match any new language/SDK features, etc.).
 | material_studies/shrine   |                    |                |
 | place_tracker             |                    |                |
 | platform_design           | johnpryan          | 10/7/19        |
-| platform_view_swift       |                    |                |
+| platform_view_swift       | redbrogdon         | 10/7/19        |
 | provider_counter          |                    |                |
 | provider_shopper          |                    |                |
 | veggieseasons             |                    |                |
