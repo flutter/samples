@@ -8,10 +8,10 @@ import Flutter
 class ViewController: UIViewController {
 
     @IBOutlet weak var counterLabel: UILabel!
-
+    
     var methodChannel : FlutterMethodChannel?
     var count = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,11 +40,12 @@ class ViewController: UIViewController {
     func reportCounter() {
         methodChannel?.invokeMethod("reportCounter", arguments: count)
     }
-
+    
     @IBAction func buttonWasTapped(_ sender: Any) {
         if let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine {
             let flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
             self.present(flutterViewController, animated: false, completion: nil)
         }
-    }
+    }    
 }
+
