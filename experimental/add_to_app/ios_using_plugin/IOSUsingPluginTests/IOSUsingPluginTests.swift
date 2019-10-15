@@ -1,10 +1,6 @@
-//
-//  IOSUsingPluginTests.swift
-//  IOSUsingPluginTests
-//
-//  Created by Andrew Brogdon on 10/13/19.
-//  Copyright © 2019 Andrew Brogdon. All rights reserved.
-//
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
 import XCTest
 @testable import IOSUsingPlugin
