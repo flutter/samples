@@ -5,11 +5,11 @@
 package dev.flutter.example.androidusingplugin
 
 import android.app.Application
+import dev.flutter.plugins.GeneratedPluginRegistrant
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.embedding.engine.plugins.PluginRegistry
 import io.flutter.view.FlutterMain
 
 const val ENGINE_ID = "1"
@@ -33,6 +33,8 @@ class MyApplication : Application() {
             )
 
         FlutterEngineCache.getInstance().put(ENGINE_ID, flutterEngine)
+
+        GeneratedPluginRegistrant.registerWith(flutterEngine)
 
         channel = MethodChannel(flutterEngine.dartExecutor, "dev.flutter.example/counter")
 
