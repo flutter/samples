@@ -10,7 +10,6 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.view.FlutterMain
 
 const val ENGINE_ID = "1"
 
@@ -21,9 +20,6 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        FlutterMain.startInitialization(this)
-        FlutterMain.ensureInitializationComplete(this, null)
 
         val flutterEngine = FlutterEngine(this)
         flutterEngine
@@ -45,7 +41,6 @@ class MyApplication : Application() {
                     reportCounter()
                 }
                 "requestCounter" -> {
-                    print("requestCounter")
                     reportCounter()
                 }
             }
