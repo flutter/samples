@@ -22,5 +22,3 @@ target 'IOSUsingPlugin' do
   end
 
 end
-
-
