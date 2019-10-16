@@ -2,13 +2,47 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart' as paths;
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final model = CounterModel();
+
+  runApp(
+    ChangeNotifierProvider.value(
+      value: model,
+      child: MyApp(),
+    ),
+  );
+}
+
+class CounterModel extends ChangeNotifier {
+  CounterModel() {
+    _channel.setMethodCallHandler(_handleMessage);
+    _channel.invokeMethod('requestCounter');
+  }
+
+  final _channel = MethodChannel('dev.flutter.example/counter');
+
+  int _count = 0;
+
+  int get count => _count;
+
+  void increment() {
+    _channel.invokeMethod('incrementCounter');
+  }
+
+  Future<dynamic> _handleMessage(MethodCall call) async {
+    if (call.method == 'reportCounter') {
+      _count = call.arguments as int;
+      notifyListeners();
+    }
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -35,29 +69,10 @@ class FullScreenView extends StatelessWidget {
   }
 }
 
-class Contents extends StatefulWidget {
+class Contents extends StatelessWidget {
   final bool showExit;
 
   const Contents({this.showExit = false});
-
-  @override
-  _ContentsState createState() => _ContentsState();
-}
-
-class _ContentsState extends State<Contents> {
-  int count = 0;
-
-  // Start off with a completed future so the FutureBuilder code below doesn't
-  // need to worry about null.
-  Future<void> saveFuture = Future.value(null);
-
-  Future<void> _saveCount() async {
-    final dir = await paths.getApplicationDocumentsDirectory();
-    final file = File('${dir.path}/count.txt');
-    setState(() {
-      saveFuture = file.writeAsString('$count\n');
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,32 +107,33 @@ class _ContentsState extends State<Contents> {
                   style: Theme.of(context).textTheme.headline,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Taps: $count',
-                  style: Theme.of(context).textTheme.headline,
-                ),
-                SizedBox(height: 16),
-                RaisedButton(
-                  onPressed: () => setState(() => count++),
-                  child: Text('Tap me!'),
-                ),
-                FutureBuilder(
-                  future: saveFuture,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      return RaisedButton(
-                        onPressed: _saveCount,
-                        child: Text('Save count'),
-                      );
-                    } else {
-                      return RaisedButton(
-                        onPressed: null,
-                        child: Text('Save count'),
-                      );
-                    }
+                Consumer<CounterModel>(
+                  builder: (context, model, child) {
+                    return Text(
+                      'Taps: ${model.count}',
+                      style: Theme.of(context).textTheme.headline,
+                    );
                   },
                 ),
-                if (widget.showExit) ...[
+                SizedBox(height: 16),
+                Consumer<CounterModel>(
+                  builder: (context, model, child) {
+                    return RaisedButton(
+                      onPressed: () => model.increment(),
+                      child: Text('Tap me!'),
+                    );
+                  },
+                ),
+                RaisedButton(
+                  onPressed: () async {
+                    final url = 'https://flutter.dev/docs';
+                    if (await launcher.canLaunch(url)) {
+                      launcher.launch(url);
+                    }
+                  },
+                  child: Text('Open Flutter Docs'),
+                ),
+                if (showExit) ...[
                   SizedBox(height: 16),
                   RaisedButton(
                     onPressed: () => SystemNavigator.pop(),
