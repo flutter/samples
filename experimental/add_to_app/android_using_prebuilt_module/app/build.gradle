@@ -29,16 +29,22 @@ android {
 
 repositories {
     maven {
+        // This maven repo is created when you run `flutter build aar`. It contains compiled code
+        // and resources for flutter_module itself.
         url '../../flutter_module/build/host/outputs/repo'
+    }
+    maven {
+        // This maven repo contains artifacts for Flutter's Android embedding.
+        url 'http://download.flutter.io'
     }
 }
 
 dependencies {
-    releaseCompile ('dev.flutter.example.flutter_module:flutter_release:1.0@aar') {
+    releaseImplementation ('dev.flutter.example.flutter_module:flutter_release:1.0@aar') {
         transitive = true
     }
 
-    debugCompile ('dev.flutter.example.flutter_module:flutter_debug:1.0@aar') {
+    debugImplementation ('dev.flutter.example.flutter_module:flutter_debug:1.0@aar') {
         transitive = true
     }
 

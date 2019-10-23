@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package dev.flutter.example.androidfullscreen
+package dev.flutter.example.androidusingprebuiltmodule
 
 import android.os.Bundle
 import android.widget.Button
