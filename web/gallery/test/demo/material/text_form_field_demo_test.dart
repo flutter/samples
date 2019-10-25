@@ -1,4 +1,4 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2017 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -13,12 +13,19 @@ void main() {
     final Finder submitButton = find.widgetWithText(RaisedButton, 'SUBMIT');
     expect(submitButton, findsOneWidget);
 
-    final Finder nameField = find.widgetWithText(TextFormField, 'Name * ');
+    final Finder nameField = find.widgetWithText(TextFormField, 'Name *');
     expect(nameField, findsOneWidget);
 
-    final Finder passwordField =
-        find.widgetWithText(TextFormField, 'Password *');
+    final Finder phoneNumberField = find.widgetWithText(TextFormField, 'Phone Number *');
+    expect(phoneNumberField, findsOneWidget);
+
+    final Finder passwordField = find.widgetWithText(TextFormField, 'Password *');
     expect(passwordField, findsOneWidget);
+
+    // Verify the that the phone number's TextInputFormatter does what's expected.
+    await tester.enterText(phoneNumberField, '1234567890');
+    await tester.pumpAndSettle();
+    expect(find.text('(123) 456-7890'), findsOneWidget);
 
     await tester.enterText(nameField, '');
     await tester.pumpAndSettle();
@@ -34,8 +41,7 @@ void main() {
     await tester.drag(passwordField, const Offset(0.0, 1200.0));
     await tester.pumpAndSettle();
     expect(find.text('Name is required.'), findsOneWidget);
-    expect(
-        find.text('Please enter only alphabetical characters.'), findsNothing);
+    expect(find.text('Please enter only alphabetical characters.'), findsNothing);
     await tester.enterText(nameField, '#');
     await tester.pumpAndSettle();
 
@@ -45,16 +51,12 @@ void main() {
     await tester.tap(submitButton);
     await tester.pumpAndSettle();
     expect(find.text('Name is required.'), findsNothing);
-    expect(find.text('Please enter only alphabetical characters.'),
-        findsOneWidget);
+    expect(find.text('Please enter only alphabetical characters.'), findsOneWidget);
 
     await tester.enterText(nameField, 'Jane Doe');
-    // TODO(b/123539399): Why does it pass in Flutter without this `drag`?
-    await tester.drag(nameField, const Offset(0.0, -1200.0));
     await tester.tap(submitButton);
     await tester.pumpAndSettle();
     expect(find.text('Name is required.'), findsNothing);
-    expect(
-        find.text('Please enter only alphabetical characters.'), findsNothing);
+    expect(find.text('Please enter only alphabetical characters.'), findsNothing);
   });
 }
