@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'dart:isolate';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class InfiniteProcessPageStarter extends StatelessWidget {
   @override
@@ -32,28 +33,40 @@ class InfiniteProcessPage extends StatelessWidget {
   Widget build(context) {
     final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          child: Text(
-            'Summation Results',
-            style: Theme.of(context).textTheme.title,
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Summation Results',
+              style: Theme.of(context).textTheme.title,
+            ),
           ),
-          padding: EdgeInsets.all(8),
-        ),
-        Expanded(child: RunningList()),
-        SafeArea(
-          child: Column(
+          Expanded(
+            child: RunningList(),
+          ),
+          Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [newButtons(context)],
+              ButtonBar(
+                alignment: MainAxisAlignment.center,
+                children: [
+                  RaisedButton(
+                    child: const Text('Start'),
+                    elevation: 8.0,
+                    onPressed: () => controller.start(),
+                  ),
+                  RaisedButton(
+                    child: const Text('Terminate'),
+                    elevation: 8.0,
+                    onPressed: () => controller.terminate(),
+                  ),
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Switch(
                     value: !controller.paused,
@@ -66,11 +79,23 @@ class InfiniteProcessPage extends StatelessWidget {
                   Text('Pause/Resume'),
                 ],
               ),
-              radioButtonWidget(context),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 1; i <= 3; i++) ...[
+                    Radio<int>(
+                      value: i,
+                      groupValue: controller.currentMultiplier,
+                      onChanged: (val) => controller.setMultiplier(val),
+                    ),
+                    Text('${i}x')
+                  ],
+                ],
+              ),
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -83,8 +108,16 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
 
   int _currentMultiplier = 1;
   List<int> _currentResults = [];
-  bool _running = false;
+  bool _created = false;
   bool _paused = false;
+
+  int get currentMultiplier => _currentMultiplier;
+
+  bool get paused => _paused;
+
+  bool get created => _created;
+
+  List<int> get currentResults => _currentResults;
 
   Future<void> createIsolate() async {
     mIceRP = ReceivePort();
@@ -103,23 +136,28 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   }
 
   Future<void> start() async {
-    if (_running == false && _paused == false) {
+    if (_created == false && _paused == false) {
       await createIsolate();
       listen();
-      _running = true;
+      _created = true;
       notifyListeners();
     }
   }
 
   void terminate() {
     newIsolate.kill();
-    _running = false;
+    _created = false;
     _currentResults.clear();
     notifyListeners();
   }
 
   void pausedSwitch() {
-    (_paused) ? newIsolate.resume(capability) : capability = newIsolate.pause();
+    if (_paused) {
+      newIsolate.resume(capability);
+    } else {
+      capability = newIsolate.pause();
+    }
+
     _paused = !_paused;
     notifyListeners();
   }
@@ -135,18 +173,10 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
     notifyListeners();
   }
 
-  int get multiplier => _currentMultiplier;
-
-  bool get paused => _paused;
-
-  bool get running => _running;
-
-  List<int> get currentResults => _currentResults;
-
   void dispose() {
-    super.dispose();
     newIsolate?.kill(priority: Isolate.immediate);
     newIsolate = null;
+    super.dispose();
   }
 }
 
@@ -171,7 +201,7 @@ class RunningList extends StatelessWidget {
                   leading: Text('${sums.length - index}.'),
                   title: Text('${sums[index]}.'),
                 ),
-                color: (controller.running && !controller.paused)
+                color: (controller.created && !controller.paused)
                     ? Colors.lightGreenAccent
                     : Colors.deepOrangeAccent,
               ),
@@ -197,77 +227,28 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
     if (message is int) multiplyValue = message;
   });
 
-  int forEnd = 10000;
+  // This runs until the isolate is terminated.
   while (true) {
     int sum = 0;
 
-    for (int i = 0; i < forEnd; i++) {
-      sum += await brokenUpComputation(1000);
+    for (int i = 0; i < 10000; i++) {
+      sum += await doSomeWork();
     }
 
-    forEnd += 10;
     callerSP.send(sum * multiplyValue);
   }
 }
 
-Future<int> brokenUpComputation(int num) {
+Future<int> doSomeWork() {
   Random rng = Random();
 
   return Future(() {
     int sum = 0;
 
-    for (int i = 0; i < num; i++) {
+    for (int i = 0; i < 1000; i++) {
       sum += rng.nextInt(100);
     }
+
     return sum;
   });
-}
-
-Widget newButtons(BuildContext context) {
-  final controller =
-      Provider.of<InfiniteProcessIsolateController>(context, listen: false);
-
-  return ButtonBar(
-    alignment: MainAxisAlignment.center,
-    children: [
-      RaisedButton(
-        child: const Text('Start'),
-        elevation: 8.0,
-        onPressed: () => controller.start(),
-      ),
-      RaisedButton(
-        child: const Text('Terminate'),
-        elevation: 8.0,
-        onPressed: () => controller.terminate(),
-      ),
-    ],
-  );
-}
-
-Widget radioButtonWidget(BuildContext context) {
-  final controller = Provider.of<InfiniteProcessIsolateController>(context);
-
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Radio(
-        value: 1,
-        groupValue: controller.multiplier,
-        onChanged: (dynamic _) => controller.setMultiplier(1),
-      ),
-      Text('1x'),
-      Radio(
-        value: 2,
-        groupValue: controller.multiplier,
-        onChanged: (dynamic _) => controller.setMultiplier(2),
-      ),
-      Text('2x'),
-      Radio(
-        value: 3,
-        groupValue: controller.multiplier,
-        onChanged: (dynamic _) => controller.setMultiplier(3),
-      ),
-      Text('3x'),
-    ],
-  );
 }

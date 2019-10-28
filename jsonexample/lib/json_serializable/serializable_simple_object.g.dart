@@ -9,16 +9,16 @@ part of 'serializable_simple_object.dart';
 SerializableSimpleObject _$SerializableSimpleObjectFromJson(
     Map<String, dynamic> json) {
   return SerializableSimpleObject(
-      aString: json['aString'] as String,
-      anInt: json['anInt'] as int,
-      aDouble: (json['aDouble'] as num)?.toDouble(),
-      aListOfStrings:
-          (json['aListOfStrings'] as List)?.map((e) => e as String)?.toList(),
-      aListOfInts:
-          (json['aListOfInts'] as List)?.map((e) => e as int)?.toList(),
-      aListOfDoubles: (json['aListOfDoubles'] as List)
-          ?.map((e) => (e as num)?.toDouble())
-          ?.toList());
+    aString: json['aString'] as String,
+    anInt: json['anInt'] as int,
+    aDouble: (json['aDouble'] as num)?.toDouble(),
+    aListOfStrings:
+        (json['aListOfStrings'] as List)?.map((e) => e as String)?.toList(),
+    aListOfInts: (json['aListOfInts'] as List)?.map((e) => e as int)?.toList(),
+    aListOfDoubles: (json['aListOfDoubles'] as List)
+        ?.map((e) => (e as num)?.toDouble())
+        ?.toList(),
+  );
 }
 
 Map<String, dynamic> _$SerializableSimpleObjectToJson(
@@ -29,5 +29,5 @@ Map<String, dynamic> _$SerializableSimpleObjectToJson(
       'aDouble': instance.aDouble,
       'aListOfStrings': instance.aListOfStrings,
       'aListOfInts': instance.aListOfInts,
-      'aListOfDoubles': instance.aListOfDoubles
+      'aListOfDoubles': instance.aListOfDoubles,
     };

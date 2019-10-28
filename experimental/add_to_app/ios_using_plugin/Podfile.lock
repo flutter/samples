@@ -1,0 +1,35 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_module_using_plugin (0.0.1):
+    - Flutter
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+    - url_launcher
+  - url_launcher (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `../flutter_module_using_plugin/.ios/Flutter/engine`)
+  - flutter_module_using_plugin (from `../flutter_module_using_plugin/.ios/Flutter`)
+  - FlutterPluginRegistrant (from `../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant`)
+  - url_launcher (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: "../flutter_module_using_plugin/.ios/Flutter/engine"
+  flutter_module_using_plugin:
+    :path: "../flutter_module_using_plugin/.ios/Flutter"
+  FlutterPluginRegistrant:
+    :path: "../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant"
+  url_launcher:
+    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_module_using_plugin: ab21df6109f463a98496d1b37ad061e4fd4e3664
+  FlutterPluginRegistrant: 5f023d9f4a14f5b49cc6bb950327099916b47859
+  url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
+
+PODFILE CHECKSUM: f4d84c8c6c48bfdf0126e770a3e88f6f1ef3ffe8
+
+COCOAPODS: 1.7.5

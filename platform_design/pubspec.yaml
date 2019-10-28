@@ -4,7 +4,6 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.5.0 <3.0.0"
-  flutter: ">=1.5.2"
 
 dependencies:
   english_words: ^3.1.5
@@ -17,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.7.0
+  pedantic: ^1.8.0
 
 flutter:
   uses-material-design: true

@@ -60,7 +60,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                     color: color,
                     borderRadius: BorderRadius.circular(borderRadius),
                   ),
-                  duration: Duration(milliseconds: 400),
+                  duration: const Duration(milliseconds: 400),
                 ),
               ),
             ),

@@ -59,14 +59,14 @@ class SelectionCallbackExample extends StatefulWidget {
   static List<charts.Series<TimeSeriesSales, DateTime>> _createRandomData() {
     final random = new Random();
 
-    final us_data = [
+    final usData = [
       new TimeSeriesSales(new DateTime(2017, 9, 19), random.nextInt(100)),
       new TimeSeriesSales(new DateTime(2017, 9, 26), random.nextInt(100)),
       new TimeSeriesSales(new DateTime(2017, 10, 3), random.nextInt(100)),
       new TimeSeriesSales(new DateTime(2017, 10, 10), random.nextInt(100)),
     ];
 
-    final uk_data = [
+    final ukData = [
       new TimeSeriesSales(new DateTime(2017, 9, 19), random.nextInt(100)),
       new TimeSeriesSales(new DateTime(2017, 9, 26), random.nextInt(100)),
       new TimeSeriesSales(new DateTime(2017, 10, 3), random.nextInt(100)),
@@ -78,13 +78,13 @@ class SelectionCallbackExample extends StatefulWidget {
         id: 'US Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: us_data,
+        data: usData,
       ),
       new charts.Series<TimeSeriesSales, DateTime>(
         id: 'UK Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: uk_data,
+        data: ukData,
       )
     ];
   }
@@ -97,14 +97,14 @@ class SelectionCallbackExample extends StatefulWidget {
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
-    final us_data = [
+    final usData = [
       new TimeSeriesSales(new DateTime(2017, 9, 19), 5),
       new TimeSeriesSales(new DateTime(2017, 9, 26), 25),
       new TimeSeriesSales(new DateTime(2017, 10, 3), 78),
       new TimeSeriesSales(new DateTime(2017, 10, 10), 54),
     ];
 
-    final uk_data = [
+    final ukData = [
       new TimeSeriesSales(new DateTime(2017, 9, 19), 15),
       new TimeSeriesSales(new DateTime(2017, 9, 26), 33),
       new TimeSeriesSales(new DateTime(2017, 10, 3), 68),
@@ -116,13 +116,13 @@ class SelectionCallbackExample extends StatefulWidget {
         id: 'US Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: us_data,
+        data: usData,
       ),
       new charts.Series<TimeSeriesSales, DateTime>(
         id: 'UK Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: uk_data,
+        data: ukData,
       )
     ];
   }
@@ -185,7 +185,7 @@ class _SelectionCallbackState extends State<SelectionCallbackExample> {
           child: new Text(_time.toString())));
     }
     _measures?.forEach((String series, num value) {
-      children.add(new Text('${series}: ${value}'));
+      children.add(new Text('$series: $value'));
     });
 
     return new Column(children: children);

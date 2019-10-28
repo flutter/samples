@@ -36,7 +36,7 @@ class CarouselDemo extends StatelessWidget {
     );
   }
 
-  Widget widgetBuilder(context, int index) {
+  Widget widgetBuilder(BuildContext context, int index) {
     return images[index % images.length];
   }
 }

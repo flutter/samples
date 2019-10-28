@@ -139,9 +139,7 @@ class _SongsTabState extends State<SongsTab> {
         CupertinoSliverNavigationBar(
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
-            // TODO(redbrogdon): Change this back to shuffle once the new icon
-            // makes it into Flutter's stable channel.
-            child: Icon(CupertinoIcons.shuffle_thick),
+            child: Icon(CupertinoIcons.shuffle),
             onPressed: _togglePlatform,
           ),
         ),
