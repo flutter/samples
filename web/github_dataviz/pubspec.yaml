@@ -11,3 +11,4 @@ dependencies:
 flutter:
   assets:
     - preview.png
+    - github_data/
