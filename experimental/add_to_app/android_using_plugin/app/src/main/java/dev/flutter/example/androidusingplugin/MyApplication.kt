@@ -16,7 +16,7 @@ const val ENGINE_ID = "1"
 class MyApplication : Application() {
     var count = 0
 
-    private var channel: MethodChannel? = null
+    private lateinit var channel: MethodChannel
 
     override fun onCreate() {
         super.onCreate()
@@ -34,7 +34,7 @@ class MyApplication : Application() {
 
         channel = MethodChannel(flutterEngine.dartExecutor, "dev.flutter.example/counter")
 
-        channel?.setMethodCallHandler { call, _ ->
+        channel.setMethodCallHandler { call, _ ->
             when (call.method) {
                 "incrementCounter" -> {
                     count++
@@ -48,6 +48,6 @@ class MyApplication : Application() {
     }
 
     private fun reportCounter() {
-        channel?.invokeMethod("reportCounter", count)
+        channel.invokeMethod("reportCounter", count)
     }
 }
