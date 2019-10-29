@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/launchFlutterButton"
+        android:id="@+id/launch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Launch Flutter Activity"
@@ -18,12 +18,12 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/counterLabel"
+        android:id="@+id/counter_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Current counter: 0"
-        app:layout_constraintBottom_toTopOf="@+id/launchFlutterButton"
+        app:layout_constraintBottom_toTopOf="@+id/launch_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="HardcodedText" />
