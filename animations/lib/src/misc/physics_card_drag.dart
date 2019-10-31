@@ -40,32 +40,38 @@ class _DraggableCardState extends State<DraggableCard>
   /// While the card is being dragged, this value is set to the values computed
   /// in the GestureDetector onPanUpdate callback. If the animation is running,
   /// this value is set to the value of the [_animation].
-  Alignment _dragAlignment = Alignment.center;
+  var _dragAlignment = Alignment.center;
 
   Animation<Alignment> _animation;
 
+  final _spring = const SpringDescription(
+    mass: 10,
+    stiffness: 1000,
+    damping: 0.7,
+  );
+
+  /// Calculate the velocity relative to the unit interval, [0,1],
+  /// used by the animation controller.
+  double _normalizeVelocity(Offset velocity, Size size) {
+    final normalizedVelocity = Offset(
+      velocity.dx / size.width,
+      velocity.dy / size.height,
+    );
+    // Returning negative implies dragging away from center
+    return -normalizedVelocity.distance;
+  }
+
   /// Calculates and runs a [SpringSimulation]
-  void _runAnimation(Offset pixelsPerSecond, Size size) {
+  void _runAnimation(Offset velocity, Size size) {
     _animation = _controller.drive(
       AlignmentTween(
         begin: _dragAlignment,
         end: Alignment.center,
       ),
     );
-    // Calculate the velocity relative to the unit interval, [0,1],
-    // used by the animation controller.
-    final unitsPerSecondX = pixelsPerSecond.dx / size.width;
-    final unitsPerSecondY = pixelsPerSecond.dy / size.height;
-    final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
-    final unitVelocity = unitsPerSecond.distance;
 
-    const spring = SpringDescription(
-      mass: 30,
-      stiffness: 1,
-      damping: 1,
-    );
-
-    final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
+    final simulation =
+        SpringSimulation(_spring, 0, 1, _normalizeVelocity(velocity, size));
 
     _controller.animateWith(simulation);
   }
@@ -73,13 +79,8 @@ class _DraggableCardState extends State<DraggableCard>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
-
-    _controller.addListener(() {
-      setState(() {
-        _dragAlignment = _animation.value;
-      });
-    });
+    _controller = AnimationController.unbounded(vsync: this)
+      ..addListener(() => setState(() => _dragAlignment = _animation.value));
   }
 
   @override
@@ -92,20 +93,15 @@ class _DraggableCardState extends State<DraggableCard>
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return GestureDetector(
-      onPanDown: (details) {
-        _controller.stop();
-      },
-      onPanUpdate: (details) {
-        setState(() {
-          _dragAlignment += Alignment(
-            details.delta.dx / (size.width / 2),
-            details.delta.dy / (size.height / 2),
-          );
-        });
-      },
-      onPanEnd: (details) {
-        _runAnimation(details.velocity.pixelsPerSecond, size);
-      },
+      onPanStart: (details) => _controller.stop(canceled: true),
+      onPanUpdate: (details) => setState(
+        () => _dragAlignment += Alignment(
+          details.delta.dx / (size.width / 2),
+          details.delta.dy / (size.height / 2),
+        ),
+      ),
+      onPanEnd: (details) =>
+          _runAnimation(details.velocity.pixelsPerSecond, size),
       child: Align(
         alignment: _dragAlignment,
         child: Card(
