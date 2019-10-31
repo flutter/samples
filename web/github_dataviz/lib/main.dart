@@ -182,7 +182,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
   Future loadGitHubData() async {
     String contributorsJsonStr =
-        (await http.get("github_data/contributors.json")).body;
+        (await http.get("assets/github_data/contributors.json")).body;
     List jsonObjs = jsonDecode(contributorsJsonStr) as List;
     List<UserContribution> contributionList =
         jsonObjs.map((e) => UserContribution.fromJson(e)).toList();
@@ -191,25 +191,25 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     int numWeeksTotal = contributionList[0].contributions.length;
 
-    String starsByWeekStr = (await http.get("github_data/stars.tsv")).body;
+    String starsByWeekStr = (await http.get("assets/github_data/stars.tsv")).body;
     List<StatForWeek> starsByWeekLoaded =
         summarizeWeeksFromTSV(starsByWeekStr, numWeeksTotal);
 
-    String forksByWeekStr = (await http.get("github_data/forks.tsv")).body;
+    String forksByWeekStr = (await http.get("assets/github_data/forks.tsv")).body;
     List<StatForWeek> forksByWeekLoaded =
         summarizeWeeksFromTSV(forksByWeekStr, numWeeksTotal);
 
-    String commitsByWeekStr = (await http.get("github_data/commits.tsv")).body;
+    String commitsByWeekStr = (await http.get("assets/github_data/commits.tsv")).body;
     List<StatForWeek> commitsByWeekLoaded =
         summarizeWeeksFromTSV(commitsByWeekStr, numWeeksTotal);
 
     String commentsByWeekStr =
-        (await http.get("github_data/comments.tsv")).body;
+        (await http.get("assets/github_data/comments.tsv")).body;
     List<StatForWeek> commentsByWeekLoaded =
         summarizeWeeksFromTSV(commentsByWeekStr, numWeeksTotal);
 
     String pullRequestActivityByWeekStr =
-        (await http.get("github_data/pull_requests.tsv")).body;
+        (await http.get("assets/github_data/pull_requests.tsv")).body;
     List<StatForWeek> pullRequestActivityByWeekLoaded =
         summarizeWeeksFromTSV(pullRequestActivityByWeekStr, numWeeksTotal);
 
