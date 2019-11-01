@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
+/// The entrypoint for the flutter module.
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -20,6 +21,13 @@ void main() {
   );
 }
 
+/// A simple model that uses a [MethodChannel] as the source of truth for the
+/// state of the counter.
+///
+/// Rather than storing app state data within the Flutter module itself (where
+/// the native portions of the app can't access it), this module passes messages
+/// back to the containing app whenever it needs to increment or retrieve the
+/// value of the counter.
 class CounterModel extends ChangeNotifier {
   CounterModel() {
     _channel.setMethodCallHandler(_handleMessage);
@@ -44,6 +52,10 @@ class CounterModel extends ChangeNotifier {
   }
 }
 
+/// The "app" displayed by this module.
+///
+/// It offers two routes, one suitable for displaying as a full screen and
+/// another designed to be part of a larger UI.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,6 +69,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Wraps [Contents] in a Material [Scaffold] so it looks correct when displayed
+/// full-screen.
 class FullScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -69,6 +83,12 @@ class FullScreenView extends StatelessWidget {
   }
 }
 
+/// The actual content displayed by the module.
+///
+/// This widget displays info about the state of a counter and how much room (in
+/// logical pixels) it's been given. It also offers buttons to increment the
+/// counter, opening the Flutter documentation via the url_launcher plugin, and
+/// (optionally) close the Flutter view.
 class Contents extends StatelessWidget {
   final bool showExit;
 
@@ -126,6 +146,8 @@ class Contents extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () async {
+                    // Use the url_launcher plugin to open the Flutter docs in
+                    // a browser.
                     final url = 'https://flutter.dev/docs';
                     if (await launcher.canLaunch(url)) {
                       launcher.launch(url);
