@@ -92,6 +92,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - preview.png
     - lib/gallery/example_code.dart
     - packages/flutter_gallery_assets/people/ali_landscape.png
     - packages/flutter_gallery_assets/monochrome/red-square-1024x1024.png
