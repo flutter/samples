@@ -9,6 +9,8 @@ import 'package:url_launcher/url_launcher.dart' as launcher;
 
 /// The entrypoint for the flutter module.
 void main() {
+  // This call ensures the Flutter binding has been set up before creating the
+  // MethodChannel-based model.
   WidgetsFlutterBinding.ensureInitialized();
 
   final model = CounterModel();

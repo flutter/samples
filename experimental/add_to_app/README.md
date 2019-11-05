@@ -27,17 +27,9 @@ There are two Flutter modules included in the codebase:
   another button that will open the Flutter documentation in a browser using the
   [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
 
-Both of these modules feature the latest Flutter embedding API. As a result,
-prior to working with them, you need to configure your local installation of
-Flutter to use the new API as well. To do so, run this command:
-
-```
-flutter config --enable-android-embedding-v2
-```
-
-Next, you need to resolve the Flutter modules' dependencies. Do so by running
-this command from within the `flutter_module` and `flutter_module_using_plugin`
-directories:
+Before using them, you need to resolve the Flutter modules' dependencies. Do so
+by running this command from within the `flutter_module` and
+`flutter_module_using_plugin` directories:
 
 ```bash
 flutter packages get
@@ -111,8 +103,9 @@ This can be useful for teams that don't want to require every developer working
 on the app to have the Flutter toolchain installed on their local machines.
 
 Prior to building `android_using_prebuilt_module` for the first time, the
-Flutter module needs to be built into an `aar`. You can do that by running this
-command from the `flutter_module` directory:
+Flutter module should be built into an `aar`. The build can be done in a debug
+or release configuration. To build a debug `aar`, run this command from the
+`flutter_module` directory:
 
 ```
 flutter build aar --debug
@@ -124,8 +117,12 @@ To build a release version of the `aar`, simply omit the debug flag:
 flutter build aar
 ```
 
-If the `flutter_module` project is updated, these commands should be repeated to
-rebuild the `aar` files.
+The Android app is configured to import the appropriate `aar` based on its own
+build configuration, so if you build a debug version of the app, it will look
+for the debug `aar`, and likewise for a release build.
+
+If the `flutter_module` project is updated, the `aar` must be rebuilt via one of
+the commands above in order for those changes to appear in the app.
 
 ## Questions/issues
 
