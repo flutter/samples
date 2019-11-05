@@ -10,6 +10,10 @@ a standalone Flutter module called `flutter_module`.
 ## Goals for this sample
 
 * Show developers how to add Flutter to their existing applications.
+* Show the following options:
+  - Whether to build the Flutter module from source each time the app builds or
+    rely on a separately pre-built module.
+  - Whether plugins are needed by the Flutter module used in the app.
 
 ## The important bits
 
@@ -20,13 +24,12 @@ There are two Flutter modules included in the codebase:
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
 * `flutter_module_using_plugin` does everything `flutter_module` does, and adds
-  another button that will save the counter's value to a file using the
-  [`path_provider`](https://pub.dev/packages/path_povider) Flutter plugin.
+  another button that will open the Flutter documentation in a browser using the
+  [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
 
-Before running any of the Android or iOS apps included in this sample project,
-you first need to resolve the Flutter modules' depencies. Do so by running this
-command from within the `flutter_module` and `flutter_module_using_plugin`
-directories:
+Before using them, you need to resolve the Flutter modules' dependencies. Do so
+by running this command from within the `flutter_module` and
+`flutter_module_using_plugin` directories:
 
 ```bash
 flutter packages get
@@ -38,14 +41,15 @@ In addition to the Flutter modules, this repo also includes a number of
 Android and iOS applications that demonstrate different ways of importing
 them.
 
-The Android apps are ready to run once you've completed the
-`flutter packages get` commands listed above. The iOS apps use CocoaPods,
-so you need to run this command to install the dependencies listed in their
-Podfiles prior to running them the first time.
+With the exception of `android_using_prebuilt_module`, the Android apps are
+ready to run once you've completed the `flutter packages get` commands listed
+above. The iOS apps use CocoaPods, though, so you need to run this command to
+install the dependencies listed in their Podfiles prior to running them the
+first time.
 
 This should be done in the individual project directories themselves. For
-example, prior to running `ios_fullscreen` for the first time, you need to run
-these commands:
+example, prior to running `ios_fullscreen` or `ios_using_plugin` for the first
+time, you need to run these commands:
 
 ```bash
 cd ios_fullscreen
@@ -70,6 +74,55 @@ These apps showcase a relatively straightforward integration of
 
 If you are new to Flutter's add-to-app APIs, these projects are a great place
 to begin learning how to use them.
+
+### `android_using_plugin` and `ios_plugin`
+
+These apps are similar to `android_fullscreen` and `ios_fullscreen`, with the
+following differences:
+
+* Rather than importing `flutter_module`, they import
+  `flutter_module_using_plugin`.
+* They include the native code (Kotlin or Swift) required to initialize plugins
+  at Flutter engine creation time.
+* Their Flutter view includes an additional button that opens the Flutter docs
+  in the mobile device's browser.
+
+If you're interested in learning what additional steps an app needs to take in
+order to use a Flutter module that relies on plugins, these projects can help.
+
+### `android_using_prebuilt_module`
+
+This app is essentially identical to `android_fullscreen` with one key
+difference:
+
+* The Flutter module is *not* built automatically when the app builds. Instead,
+  it's built separately into an `aar`. The Android app is configured to import
+  that `aar` along with its other gradle dependencies.
+
+This can be useful for teams that don't want to require every developer working
+on the app to have the Flutter toolchain installed on their local machines.
+
+Prior to building `android_using_prebuilt_module` for the first time, the
+Flutter module should be built into an `aar`. The build can be done in a debug
+or release configuration. To build a debug `aar`, run this command from the
+`flutter_module` directory:
+
+```
+flutter build aar --debug
+```
+
+To build a release version of the `aar`, simply omit the debug flag:
+
+```
+flutter build aar
+```
+
+The Android app is configured to import the appropriate `aar` based on its own
+build configuration, so if you build a debug version of the app, it will look
+for the debug `aar`, and likewise for a release build.
+
+If the `flutter_module` project is updated, the `aar` must be rebuilt via one of
+the commands above in order for those changes to appear in the app.
 
 ## Questions/issues
 

@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Instantiate Flutter engine
         self.flutterEngine = FlutterEngine(name: "io.flutter", project: nil)
         self.flutterEngine?.run(withEntrypoint: nil)
-        GeneratedPluginRegistrant.register(with: self.flutterEngine)
+        GeneratedPluginRegistrant.register(with: self.flutterEngine!)
+
         return true
     }
 }

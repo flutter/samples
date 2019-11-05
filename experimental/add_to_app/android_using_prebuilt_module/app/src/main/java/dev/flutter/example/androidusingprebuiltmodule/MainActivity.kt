@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity : AppCompatActivity() {
-    private var counterLabel: TextView? = null
+    private lateinit var counterLabel: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val app = application as MyApplication
-        counterLabel?.text = "Current count: ${app.count}"
+        counterLabel.text = "Current count: ${app.count}"
     }
 }
