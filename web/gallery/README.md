@@ -1,28 +1,32 @@
 # Flutter gallery
 
-This is a copy of the [Flutter gallery] hosted at
-[flutter.github.io/samples][hosted url].
+A demo app for Flutter's material design and cupertino widgets, as
+well as many other features of the Flutter SDK.
 
-## Updating
+## Building
 
-To update, copy the contents of the gallery directory, and remove the following
-files and directories:
+You can follow these instructions to build the gallery app
+and install it onto your device.
 
-```bash
-rm  BUILD.gn
-rm -rf tool/
-rm -rf test/
-rm -rf android/ 
-rm -rf ios/
-```
+### Prerequisites
 
-If you changed the `pubspec.yaml` file, make sure to use Google Sans instead of
-San Francisco (which is not available on the web) by copy-pasting the `fonts`
-section from Google Sans:
-- Use "GoogleSans" for ".SF Pro Text".
-- Use "GoogleSansDisplay" for ".SF Pro Display"
-- Use "GoogleSans" for ".SF UI Text"
-- Use "GoogleSansDisplay" for ".SF UI Display".
+If you are new to Flutter, please first follow
+the [Flutter Setup](https://flutter.dev/setup/) guide.
 
-[Flutter gallery]: https://github.com/flutter/flutter/tree/master/examples/flutter_gallery
-[hosted url]: https://flutter.github.io/samples/gallery/#/
+### Building and installing the Flutter app
+
+* `cd $FLUTTER_ROOT/examples/flutter_gallery`
+* `flutter pub get`
+* `flutter run --release`
+
+The `flutter run --release` command both builds and installs the Flutter app.
+
+## Prerelease checklist
+
+* Verify that the About box's license page scrolls and reveals its long
+long stream of license texts.
+
+## Icon
+
+Android launcher icons were generated using Android Asset Studio:
+https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=image&foreground.space.trim=1&foreground.space.pad=0.1&foreColor=607d8b%2C0&crop=0&backgroundShape=square&backColor=fafafa%2C100&effects=none
