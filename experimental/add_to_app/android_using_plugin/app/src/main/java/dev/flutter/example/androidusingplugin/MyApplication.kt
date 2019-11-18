@@ -5,7 +5,7 @@
 package dev.flutter.example.androidusingplugin
 
 import android.app.Application
-import dev.flutter.plugins.GeneratedPluginRegistrant
+import io.flutter.plugins.GeneratedPluginRegistrant
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
