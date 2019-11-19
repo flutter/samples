@@ -1,6 +1,6 @@
 # Add-to-App Sample
 
-***The Add-to-App sample is designed to build with Flutter's `master` channel
+***The Add-to-App sample is designed to build with Flutter's `master` channel.
 See the [README](../README.md) in the `experimental` directory for details.***
 
 This directory contains a bunch of Android and iOS projects that each import
