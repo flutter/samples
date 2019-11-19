@@ -16,13 +16,6 @@ flutter channel master
 flutter upgrade
 ```
 
-You will also need to update CocoaPods to the latest version in order to build
-for iOS. To do so, run the following command on a MacOS machine:
-
-```bash
-sudo gem install cocoapods
-```
-
 When you're done, use this command to return to the safety of the stable
 channel:
 

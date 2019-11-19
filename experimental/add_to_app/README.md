@@ -1,8 +1,7 @@
 # Add-to-App Sample
 
 ***The Add-to-App sample is designed to build with Flutter's `master` channel
-and the latest version of CocoaPods. See the [README](../README.md) in the
-`experimental` directory for details.***
+See the [README](../README.md) in the `experimental` directory for details.***
 
 This directory contains a bunch of Android and iOS projects that each import
 a standalone Flutter module called `flutter_module`.
@@ -14,6 +13,17 @@ a standalone Flutter module called `flutter_module`.
   - Whether to build the Flutter module from source each time the app builds or
     rely on a separately pre-built module.
   - Whether plugins are needed by the Flutter module used in the app.
+
+## Installing Cocoapods
+
+The iOS samples in this repo require the latest version of Cocoapods. To install it,
+run the following command on a MacOS machine:
+
+```bash
+sudo gem install cocoapods
+```
+
+See https://guides.cocoapods.org/using/getting-started.html for more details.
 
 ## The important bits
 
