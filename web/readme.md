@@ -26,13 +26,12 @@ You should see a message printing the URL to access: `http://localhost:8080`
 ## Deploying to GitHub Pages
 
 This project uses [peanut][peanut] to build the samples and commit the output
-to the gh-pages branch. To deploy, run:
+to the gh-pages branch. To deploy, run these commands in the `web/` directory:
 
-```
-# in the web/ directory
-flutter pub global activate peanut
-flutter pub global run peanut
-git push origin gh-pages:gh-pages
+```console
+$ flutter pub global activate peanut
+$ flutter pub global run peanut
+$ git push origin gh-pages:gh-pages
 ```
 
 Note: `flutter packages get` must be run in each sample before running `peanut`.
