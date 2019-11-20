@@ -29,6 +29,7 @@ This project uses [peanut][peanut] to build the samples and commit the output
 to the gh-pages branch. To deploy, run:
 
 ```
+# in the web/ directory
 flutter pub global activate peanut
 flutter pub global run peanut
 git push origin gh-pages:gh-pages
