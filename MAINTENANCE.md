@@ -17,6 +17,6 @@ match any new language/SDK features, etc.).
 | platform_design           | johnpryan          | 10/7/19        |
 | platform_view_swift       | redbrogdon         | 10/7/19        |
 | provider_counter          | redbrogdon         | 11/21/19       |
-| provider_shopper          |                    |                |
+| provider_shopper          | redbrogdon         | 11/21/19       |
 | veggieseasons             |                    |                |
 | web                       |                    |                |

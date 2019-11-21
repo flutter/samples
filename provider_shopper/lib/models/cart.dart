@@ -15,11 +15,16 @@ class CartModel extends ChangeNotifier {
   /// Construct a CartModel instance that is backed by a [CatalogModel] and
   /// an optional previous state of the cart.
   ///
-  /// If [previous] is not `null`, it's items are copied to the newly
+  /// If [previous] is not `null`, its items are copied to the newly
   /// constructed instance.
   CartModel(this._catalog, CartModel previous)
       : assert(_catalog != null),
         _itemIds = previous?._itemIds ?? [];
+
+  /// An empty cart with no Catalog.
+  CartModel.empty()
+      : _catalog = null,
+        _itemIds = [];
 
   /// List of items in the cart.
   List<Item> get items => _itemIds.map((id) => _catalog.getById(id)).toList();
