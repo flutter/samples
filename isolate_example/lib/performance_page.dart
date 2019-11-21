@@ -17,15 +17,15 @@ import 'package:flutter/material.dart';
 
 // Computes the nth number in the Fibonacci sequence.
 int fib(int n) {
-  int number1 = n - 1;
-  int number2 = n - 2;
+  var a = n - 1;
+  var b = n - 2;
 
   if (n == 1) {
     return 0;
   } else if (n == 0) {
     return 1;
   } else {
-    return (fib(number1) + fib(number2));
+    return (fib(a) + fib(b));
   }
 }
 
@@ -49,25 +49,29 @@ class _PerformancePageState extends State<PerformancePage> {
             padding: EdgeInsets.only(top: 150),
             child: Column(
               children: [
-                FutureBuilder<void>(
+                FutureBuilder(
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return RaisedButton(
                       child: const Text('Compute on Main'),
                       elevation: 8.0,
-                      onPressed: createMainIsolateCallBack(context, snapshot),
+                      onPressed:
+                          snapshot.connectionState == ConnectionState.done
+                              ? () => handleComputeOnMain(context)
+                              : null,
                     );
                   },
                 ),
-                FutureBuilder<void>(
+                FutureBuilder(
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return RaisedButton(
-                      child: const Text('Compute on Secondary'),
-                      elevation: 8.0,
-                      onPressed:
-                          createSecondaryIsolateCallBack(context, snapshot),
-                    );
+                        child: const Text('Compute on Secondary'),
+                        elevation: 8.0,
+                        onPressed:
+                            snapshot.connectionState == ConnectionState.done
+                                ? () => handleComputeOnSecondary(context)
+                                : null);
                   },
                 ),
               ],
@@ -78,54 +82,40 @@ class _PerformancePageState extends State<PerformancePage> {
     );
   }
 
-  VoidCallback createMainIsolateCallBack(
-    BuildContext context,
-    AsyncSnapshot snapshot,
-  ) {
-    if (snapshot.connectionState == ConnectionState.done) {
-      return () {
-        setState(() {
-          computeFuture = computeOnMainIsolate()
-            ..then((_) {
-              final snackBar = SnackBar(
-                content: Text('Main Isolate Done!'),
-              );
-              Scaffold.of(context).showSnackBar(snackBar);
-            });
-        });
-      };
-    } else {
-      return null;
-    }
+  void handleComputeOnMain(BuildContext context) {
+    var future = computeOnMainIsolate()
+      ..then((_) {
+        var snackBar = SnackBar(
+          content: Text('Main Isolate Done!'),
+        );
+        Scaffold.of(context).showSnackBar(snackBar);
+      });
+
+    setState(() {
+      computeFuture = future;
+    });
   }
 
-  VoidCallback createSecondaryIsolateCallBack(
-      BuildContext context, AsyncSnapshot snapshot) {
-    if (snapshot.connectionState == ConnectionState.done) {
-      return () {
-        setState(() {
-          computeFuture = computeOnSecondaryIsolate()
-            ..then((_) {
-              final snackBar = SnackBar(
-                content: Text('Secondary Isolate Done!'),
-              );
-              Scaffold.of(context).showSnackBar(snackBar);
-            });
-        });
-      };
-    } else {
-      return null;
-    }
+  void handleComputeOnSecondary(BuildContext context) {
+    var future = computeOnSecondaryIsolate()
+      ..then((_) {
+        var snackBar = SnackBar(
+          content: Text('Secondary Isolate Done!'),
+        );
+        Scaffold.of(context).showSnackBar(snackBar);
+      });
+
+    setState(() {
+      computeFuture = future;
+    });
   }
 
   Future<void> computeOnMainIsolate() async {
-    // A delay is added here to give Flutter the chance to redraw the UI at least
-    // once before the computation (which, since it's run on the main isolate,
-    // will lock up the app) begins executing.
-    await Future.delayed(
-      Duration(milliseconds: 100),
-      () => fib(45),
-    );
+    // A delay is added here to give Flutter the chance to redraw the UI at
+    // least once before the computation (which, since it's run on the main
+    // isolate, will lock up the app) begins executing.
+    await Future<void>.delayed(Duration(milliseconds: 100));
+    fib(45);
   }
 
   Future<void> computeOnSecondaryIsolate() async {
@@ -141,24 +131,22 @@ class SmoothAnimationWidget extends StatefulWidget {
 
 class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController _animationController;
   Animation<BorderRadius> _borderAnimation;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: const Duration(seconds: 1),
-      vsync: this,
-    );
+    _animationController =
+        AnimationController(duration: const Duration(seconds: 1), vsync: this);
 
     _borderAnimation = BorderRadiusTween(
-      begin: BorderRadius.circular(100.0),
-      end: BorderRadius.circular(0.0),
-    ).animate(_controller);
+            begin: BorderRadius.circular(100.0),
+            end: BorderRadius.circular(0.0))
+        .animate(_animationController);
 
-    _controller.repeat(reverse: true);
+    _animationController.repeat(reverse: true);
   }
 
   @override
@@ -169,7 +157,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
         builder: (context, child) {
           return Container(
             child: FlutterLogo(
-              size: 200,
+              size: 200
             ),
             alignment: Alignment.bottomCenter,
             width: 350,
@@ -192,7 +180,7 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 }

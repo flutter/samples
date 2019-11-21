@@ -14,19 +14,19 @@
 
 import 'package:flutter/material.dart';
 
-import 'page_one.dart';
-import 'page_three.dart';
-import 'page_two.dart';
+import 'data_transfer_page.dart';
+import 'infinite_process_page.dart';
+import 'performance_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: StartApp(),
+      home: HomePage(),
     ),
   );
 }
 
-class StartApp extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

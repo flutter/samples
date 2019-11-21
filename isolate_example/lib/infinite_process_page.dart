@@ -102,7 +102,7 @@ class InfiniteProcessPage extends StatelessWidget {
 
 class InfiniteProcessIsolateController extends ChangeNotifier {
   Isolate newIsolate;
-  ReceivePort mIceRP;
+  ReceivePort receivePort;
   SendPort newIceSP;
   Capability capability;
 
@@ -120,12 +120,13 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   List<int> get currentResults => _currentResults;
 
   Future<void> createIsolate() async {
-    mIceRP = ReceivePort();
-    newIsolate = await Isolate.spawn(_secondIsolateEntryPoint, mIceRP.sendPort);
+    receivePort = ReceivePort();
+    newIsolate =
+        await Isolate.spawn(_secondIsolateEntryPoint, receivePort.sendPort);
   }
 
   void listen() {
-    mIceRP.listen((dynamic message) {
+    receivePort.listen((dynamic message) {
       if (message is SendPort) {
         newIceSP = message;
         newIceSP.send(_currentMultiplier);
@@ -224,7 +225,9 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
   callerSP.send(newIceRP.sendPort);
 
   newIceRP.listen((dynamic message) {
-    if (message is int) multiplyValue = message;
+    if (message is int) {
+      multiplyValue = message;
+    }
   });
 
   // This runs until the isolate is terminated.
