@@ -16,7 +16,7 @@ match any new language/SDK features, etc.).
 | place_tracker             |                    |                |
 | platform_design           | johnpryan          | 10/7/19        |
 | platform_view_swift       | redbrogdon         | 10/7/19        |
-| provider_counter          |                    |                |
+| provider_counter          | redbrogdon         | 11/21/19       |
 | provider_shopper          |                    |                |
 | veggieseasons             |                    |                |
 | web                       |                    |                |

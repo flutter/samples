@@ -80,7 +80,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1+1"
+    version: "3.1.0+1"
   quiver:
     dependency: transitive
     description:
