@@ -142,7 +142,9 @@ class DataTransferIsolateController extends ChangeNotifier {
   }
 
   Future<void> generateRandomNumbers(bool transferableTyped) async {
-    if (running) return;
+    if (running) {
+      return;
+    }
 
     if (transferableTyped) {
       runningTest = 2;
@@ -150,7 +152,7 @@ class DataTransferIsolateController extends ChangeNotifier {
       runningTest = 1;
     }
 
-    Random rng = Random();
+    var random = Random();
 
     currentProgress.clear();
 
@@ -162,7 +164,7 @@ class DataTransferIsolateController extends ChangeNotifier {
       randNums.clear();
 
       for (int j = 0; j < 1000000; j++) {
-        randNums.add(rng.nextInt(100));
+        randNums.add(random.nextInt(100));
       }
 
       if (transferableTyped) {
@@ -221,28 +223,28 @@ class RunningList extends StatelessWidget {
   }
 }
 
-Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
-  ReceivePort newIceRP = ReceivePort();
-  callerSP.send(newIceRP.sendPort);
+Future<void> _secondIsolateEntryPoint(SendPort sendPort) async {
+  var receivePort = ReceivePort();
+  sendPort.send(receivePort.sendPort);
   int length = 1;
 
-  newIceRP.listen(
+  receivePort.listen(
     (dynamic message) async {
       if (message is String && message == 'start') {
-        await generateAndSum(callerSP, createNums(), length);
+        await generateAndSum(sendPort, createNums(), length);
 
-        callerSP.send('done');
+        sendPort.send('done');
       } else if (message is TransferableTypedData) {
         await generateAndSum(
-            callerSP, message.materialize().asInt32List(), length);
+            sendPort, message.materialize().asInt32List(), length);
         length++;
       } else if (message is List<int>) {
-        await generateAndSum(callerSP, message, length);
+        await generateAndSum(sendPort, message, length);
         length++;
       }
 
       if (length == 101) {
-        callerSP.send('done');
+        sendPort.send('done');
         length = 1;
       }
     },
@@ -250,9 +252,9 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 }
 
 Iterable<int> createNums() sync* {
-  final rng = Random();
+  var random = Random();
   for (int i = 0; i < 100000000; i++) {
-    yield rng.nextInt(100);
+    yield random.nextInt(100);
   }
 }
 
