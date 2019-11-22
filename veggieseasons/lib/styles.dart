@@ -194,10 +194,10 @@ abstract class Styles {
   // While handy, some of the Font Awesome icons sometimes bleed over their
   // allotted bounds. This padding is used to adjust for that.
   static const seasonIconPadding = {
-    Season.winter: const EdgeInsets.only(right: 0),
-    Season.spring: const EdgeInsets.only(right: 4),
-    Season.summer: const EdgeInsets.only(right: 6),
-    Season.autumn: const EdgeInsets.only(right: 0),
+    Season.winter: EdgeInsets.only(right: 0),
+    Season.spring: EdgeInsets.only(right: 4),
+    Season.summer: EdgeInsets.only(right: 6),
+    Season.autumn: EdgeInsets.only(right: 0),
   };
 
   static const seasonIconData = {

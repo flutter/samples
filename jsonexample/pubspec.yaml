@@ -13,13 +13,12 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   build_runner: ^1.7.1
   built_value_generator: ^6.7.1
   json_serializable: ^3.2.2
-  pedantic: ^1.8.0+1
-
-  flutter_test:
-    sdk: flutter
+  pedantic: ^1.8.0
 
 flutter:
   uses-material-design: true

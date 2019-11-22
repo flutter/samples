@@ -13,7 +13,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.8.0+1
+  pedantic: ^1.8.0
 
 
 flutter:
