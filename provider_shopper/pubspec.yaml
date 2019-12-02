@@ -11,13 +11,12 @@ dependencies:
     sdk: flutter
 
   # Import the provider package.
-  provider: ^3.0.0
+  provider: ^3.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.8.0
-  test: ^1.5.1
 
 flutter:
   uses-material-design: true
