@@ -14,7 +14,8 @@ dependencies:
   string_scanner: 1.0.5
   url_launcher: 5.2.5
   cupertino_icons: 0.1.2
-  video_player: 0.10.2+5
+  video_player: 0.10.4+1
+  video_player_web: 0.1.0
   scoped_model: 1.0.1
   shrine_images: 1.1.2
 
