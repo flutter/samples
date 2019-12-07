@@ -12,3 +12,8 @@ xcuserdata/
 .build/
 
 Pods
+
+## Pre-built Flutter frameworks for flutter_module
+Flutter/Debug/
+Flutter/Profile/
+Flutter/Release/

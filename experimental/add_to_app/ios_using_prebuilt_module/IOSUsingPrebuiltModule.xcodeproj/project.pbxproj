@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		269CD2AF239B23BA0091DFB6 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AD239B23BA0091DFB6 /* App.framework */; };
+		269CD2B0239B23BA0091DFB6 /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AD239B23BA0091DFB6 /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		269CD2B1239B23BA0091DFB6 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AE239B23BA0091DFB6 /* Flutter.framework */; };
+		269CD2B2239B23BA0091DFB6 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AE239B23BA0091DFB6 /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DC0F6C2398363A00D41B08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F6B2398363A00D41B08 /* AppDelegate.swift */; };
 		26DC0F6E2398363A00D41B08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F6D2398363A00D41B08 /* ViewController.swift */; };
 		26DC0F712398363A00D41B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F6F2398363A00D41B08 /* Main.storyboard */; };
@@ -33,7 +37,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		269CD2B3239B23BA0091DFB6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				269CD2B0239B23BA0091DFB6 /* App.framework in Embed Frameworks */,
+				269CD2B2239B23BA0091DFB6 /* Flutter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		269CD2AD239B23BA0091DFB6 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = "Flutter/$(CONFIGURATION)/App.framework"; sourceTree = "<group>"; };
+		269CD2AE239B23BA0091DFB6 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = "Flutter/$(CONFIGURATION)/Flutter.framework"; sourceTree = "<group>"; };
 		26DC0F682398363A00D41B08 /* IOSUsingPrebuiltModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSUsingPrebuiltModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DC0F6B2398363A00D41B08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26DC0F6D2398363A00D41B08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				269CD2AF239B23BA0091DFB6 /* App.framework in Frameworks */,
+				269CD2B1239B23BA0091DFB6 /* Flutter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		269CD2AC239B23BA0091DFB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				269CD2AD239B23BA0091DFB6 /* App.framework */,
+				269CD2AE239B23BA0091DFB6 /* Flutter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		26DC0F5F2398363A00D41B08 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +113,7 @@
 				26DC0F7F2398363B00D41B08 /* IOSUsingPrebuiltModuleTests */,
 				26DC0F8A2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests */,
 				26DC0F692398363A00D41B08 /* Products */,
+				269CD2AC239B23BA0091DFB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +168,7 @@
 				26DC0F642398363A00D41B08 /* Sources */,
 				26DC0F652398363A00D41B08 /* Frameworks */,
 				26DC0F662398363A00D41B08 /* Resources */,
+				269CD2B3239B23BA0091DFB6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -433,6 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = IOSUsingPrebuiltModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +488,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
+				);
 				INFOPLIST_FILE = IOSUsingPrebuiltModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
