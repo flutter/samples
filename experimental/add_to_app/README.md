@@ -1,10 +1,7 @@
 # Add-to-App Sample
 
-***The Add-to-App sample is designed to build with Flutter's `master` channel.
-See the [README](../README.md) in the `experimental` directory for details.***
-
-This directory contains a bunch of Android and iOS projects that each import
-a standalone Flutter module called `flutter_module`.
+This directory contains a bunch of Android and iOS projects that each import a
+standalone Flutter module.
 
 ## Goals for this sample
 
@@ -16,8 +13,8 @@ a standalone Flutter module called `flutter_module`.
 
 ## Installing Cocoapods
 
-The iOS samples in this repo require the latest version of Cocoapods. To install it,
-run the following command on a MacOS machine:
+The iOS samples in this repo require the latest version of Cocoapods. To install
+it, run the following command on a MacOS machine:
 
 ```bash
 sudo gem install cocoapods
@@ -33,7 +30,7 @@ There are two Flutter modules included in the codebase:
 
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
-* `flutter_module_using_plugin` does everything `flutter_module` does, and adds
+* `flutter_module_using_plugin` does everything `flutter_module` does and adds
   another button that will open the Flutter documentation in a browser using the
   [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
 
@@ -53,16 +50,10 @@ them.
 
 With the exception of `android_using_prebuilt_module`, the Android apps are
 ready to run once you've completed the `flutter packages get` commands listed
-above. The iOS apps use CocoaPods, though, so you need to run this command to
-install the dependencies listed in their Podfiles prior to running them the
-first time.
-
-This should be done in the individual project directories themselves. For
-example, prior to running `ios_fullscreen` or `ios_using_plugin` for the first
-time, you need to run these commands:
+above. The iOS apps use CocoaPods, though, so you need to run this command
+within their project directories to install their dependencies:
 
 ```bash
-cd ios_fullscreen
 pod install
 ```
 
@@ -100,30 +91,31 @@ following differences:
 If you're interested in learning what additional steps an app needs to take in
 order to use a Flutter module that relies on plugins, these projects can help.
 
-### `android_using_prebuilt_module`
+### `android_using_prebuilt_module` and  `ios_using_prebuilt_module`
 
-This app is essentially identical to `android_fullscreen` with one key
-difference:
+These apps are essentially identical to `android_fullscreen` and
+`ios_fullscreen`, respectively, with one key difference. Rather than being set
+up to compile the `flutter_module` from source each time the app is built, they
+import a the module as a prebuilt `aar` (Android) or framework (iOS). This can
+be useful for teams that don't want to require every developer working on the
+app to have the Flutter toolchain installed on their local machines.
 
-* The Flutter module is *not* built automatically when the app builds. Instead,
-  it's built separately into an `aar`. The Android app is configured to import
-  that `aar` along with its other gradle dependencies.
+Prior to building either project for the first time, the `flutter_module` needs
+to be built.
 
-This can be useful for teams that don't want to require every developer working
-on the app to have the Flutter toolchain installed on their local machines.
+**Building for `android_using_prebuilt_module`**
 
-Prior to building `android_using_prebuilt_module` for the first time, the
-Flutter module should be built into an `aar`. The build can be done in a debug
-or release configuration. To build a debug `aar`, run this command from the
+`flutter_module` can be built into an `aar` using either a debug or release
+configuration. To build a debug `aar`, run this command from the
 `flutter_module` directory:
 
-```
+```bash
 flutter build aar --debug
 ```
 
 To build a release version of the `aar`, simply omit the debug flag:
 
-```
+```bash
 flutter build aar
 ```
 
@@ -133,6 +125,24 @@ for the debug `aar`, and likewise for a release build.
 
 If the `flutter_module` project is updated, the `aar` must be rebuilt via one of
 the commands above in order for those changes to appear in the app.
+
+**Building for `ios_using_prebuilt_module`**
+
+`flutter_module` can be compiled into frameworks for `ios_using_prebuilt_module`
+by running this command from the `flutter_module` directory:
+
+```bash
+flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
+```
+
+This will output frameworks for debug, profile, and release modes into
+`ios_using_prebuilt_module/Flutter`. The project file for
+`ios_using_prebuilt_module` has been configured to find the frameworks there.
+
+For more information on how to modify an existing iOS app to reference prebuilt
+Flutter frameworks, see this article in the Flutter GitHub wiki:
+
+https://flutter.dev/docs/development/add-to-app/ios/project-setup
 
 ## Questions/issues
 
