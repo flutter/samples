@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -32,11 +34,21 @@ class MyApp extends StatelessWidget {
         buttonTheme: ButtonThemeData(
           buttonColor: Color(0xFF6200EE),
           textTheme: ButtonTextTheme.primary,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
             foregroundColor: colorScheme.onSecondary),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        ),
+        cardTheme: CardTheme(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        ),
         dividerColor: Color(0xFF000000),
-        textTheme: Typography.englishLike2018.apply(),
+        textTheme:
+            Typography.englishLike2018.merge(GoogleFonts.robotoTextTheme()),
       ),
       home: Home(),
     );
@@ -362,19 +374,62 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 32),
 
+            // CARD
+            Header('CARD'),
+            Card(
+              clipBehavior: Clip.antiAlias,
+              child: Column(
+                  children: [
+                    AspectRatio(
+                        aspectRatio: 5 / 2,
+                        child: Image.asset(
+                          'assets/placeholder.png',
+                          fit: BoxFit.fitWidth,
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(height: 24),
+                          Text(
+                            'Overline',
+                            style: Theme.of(context).textTheme.overline,
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'Headline 6',
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh felis, pellentesque eu ex id, condimentum elementum ex.',
+                            style: Theme.of(context).textTheme.body2,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+            ),
+            SizedBox(height: 32),
+
             // TEXT FIELD
             Header('TEXT FIELD'),
+
+            // This was in the original design but applying theming doesn't work
+            // since the border is already overridden.
+//            SizedBox(height: 16),
+//            TextField(
+//              decoration: InputDecoration(
+//                border: OutlineInputBorder(),
+//                labelText: 'Label',
+//                helperText: 'Helper text',
+//              ),
+//            ),
             SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Label',
-                helperText: 'Helper text',
-              ),
-            ),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
+//                filled: true,
                 labelText: 'Label',
                 helperText: 'Helper text',
               ),
