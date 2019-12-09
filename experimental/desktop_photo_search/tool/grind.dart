@@ -12,8 +12,16 @@ import 'package:grinder/grinder.dart';
 void main(List<String> args) => grind(args);
 
 @DefaultTask()
-@Depends(generateJsonBindings, analyzeSource, test)
+@Depends(pubGet, generateJsonBindings, analyzeSource, test)
 void build() {}
+
+@Task()
+Future<void> pubGet() async => _logProcessOutput(
+      Process.start(
+        'flutter',
+        ['pub', 'get'],
+      ),
+    );
 
 @Task()
 Future<void> generateJsonBindings() async => _logProcessOutput(
@@ -47,6 +55,14 @@ Future<void> test() async => _logProcessOutput(
       ),
     );
 
+@Task()
+Future<void> clean() => _logProcessOutput(
+      Process.start(
+        'flutter',
+        ['clean'],
+      ),
+    );
+
 Future<void> _logProcessOutput(Future<Process> proc) async {
   final process = await proc;
   final output = StreamGroup.merge([process.stdout, process.stderr]);
@@ -54,6 +70,3 @@ Future<void> _logProcessOutput(Future<Process> proc) async {
     log(utf8.decode(message));
   }
 }
-
-@Task()
-void clean() => defaultClean();
