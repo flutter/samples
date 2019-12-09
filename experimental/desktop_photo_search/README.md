@@ -1,8 +1,8 @@
 # Photo Search app
 
 This macOS application enables you to search [Unsplash](https://unsplash.com/)
-for photographs that interest you. To use this application you will need to add
-an **Access Key** from [Unsplash API](https://unsplash.com/developers) to
+for photographs that interest you. To use it, you need to add an
+**Access Key** from [Unsplash API](https://unsplash.com/developers) to
 [unsplash_access_key.dart](lib/unsplash_access_key.dart).
 
 ## A quick tour of the code
@@ -13,9 +13,7 @@ desktop specific plugins:
   - [file_choser] to enable the application user to select where to save a photo
     from the Unsplash API.
   - [menubar] for exposing Image Search functionality through the menu bar.
-  - [url_launcher_fde] and [url_launcher] plugin, which is used for allowing
-  the user of the app to click through on web links exposed via the
-  [Unsplash API](https://unsplash.com/developers).
+  - [url_launcher_fde] and [url_launcher] plugin, which are used to open external links.
   - [shared_preferences_fde] and [shared_preferences] for storing and retrieving
     a list of favourited Photos.
 

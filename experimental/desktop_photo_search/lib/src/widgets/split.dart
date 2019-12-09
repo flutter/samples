@@ -111,8 +111,9 @@ class _SplitState extends State<Split> {
     double secondSize = axisSize * secondFraction;
 
     // Clamp the sizes to be sure there is enough space for the dividers.
-    firstSize = firstSize.clamp(halfDivider, axisSize - halfDivider);
-    secondSize = secondSize.clamp(halfDivider, axisSize - halfDivider);
+    firstSize = firstSize.clamp(halfDivider, axisSize - halfDivider) as double;
+    secondSize =
+        secondSize.clamp(halfDivider, axisSize - halfDivider) as double;
 
     // Remove space from each child to place the divider in the middle.
     firstSize = firstSize - halfDivider;
@@ -125,7 +126,7 @@ class _SplitState extends State<Split> {
         // Update the fraction of space consumed by the children,
         // being sure not to allocate any negative space.
         firstFraction += fractionalDelta;
-        firstFraction = firstFraction.clamp(0.0, 1.0);
+        firstFraction = firstFraction.clamp(0.0, 1.0) as double;
       });
     }
 

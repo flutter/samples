@@ -77,7 +77,7 @@ class _DataTreeInkWellState extends State<DataTreeInkWell>
 
     return AnimatedBuilder(
       animation: controller,
-      builder: (BuildContext context, Widget child) {
+      builder: (context, child) {
         return IconTheme(
           data: IconThemeData(color: iconColor.value),
           child: Container(
@@ -148,8 +148,8 @@ class _DataTreeNodeState extends State<DataTreeNode>
         duration: const Duration(milliseconds: 200), vsync: this);
     _heightFactor = _controller.drive(_easeInTween);
     _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
-    _isExpanded =
-        PageStorage.of(context)?.readState(context) ?? widget.initiallyExpanded;
+    _isExpanded = (PageStorage.of(context)?.readState(context) ??
+        widget.initiallyExpanded) as bool;
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -167,7 +167,7 @@ class _DataTreeNodeState extends State<DataTreeNode>
       if (_isExpanded) {
         _controller.forward();
       } else {
-        _controller.reverse().then<void>((void value) {
+        _controller.reverse().then<void>((value) {
           if (!mounted) {
             return;
           }
@@ -306,7 +306,7 @@ class _EntryItemState extends State<EntryItem> {
   Widget _buildNodes(Entry root, double indent) {
     return DataTreeNode(
       key: PageStorageKey<Entry>(root),
-      onSelectionChanged: (bool isSelected) {
+      onSelectionChanged: (isSelected) {
         setState(() {
           root.isSelected = isSelected;
         });
@@ -317,7 +317,7 @@ class _EntryItemState extends State<EntryItem> {
         child: Text(root.title),
       ),
       indent: indent,
-      children: root.children.map<Widget>((Entry entry) {
+      children: root.children.map<Widget>((entry) {
         return _buildNodes(entry, indent + 28);
       }).toList(),
     );
@@ -338,7 +338,7 @@ class DataTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListView.builder(
         itemCount: entries.length * 2 - 1,
-        itemBuilder: (BuildContext context, int index) {
+        itemBuilder: (context, index) {
           if (index % 2 == 1) {
             return const DataTreeRule();
           }

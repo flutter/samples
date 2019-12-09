@@ -20,6 +20,7 @@ class _PhotoEntry extends Entry {
 
   @override
   bool get isSelected => false;
+
   @override
   set isSelected(bool selected) {
     _model._setSelectedPhoto(_photo);
@@ -31,7 +32,7 @@ class _SearchEntry extends Entry {
       : super(
           query,
           List<Entry>.unmodifiable(
-            photos.map((photo) => _PhotoEntry(photo, model)),
+            photos.map<Entry>((photo) => _PhotoEntry(photo, model)),
           ),
         );
 }

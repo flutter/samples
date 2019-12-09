@@ -38,8 +38,8 @@ class Unsplash {
     List<num> collections = const [],
     SearchPhotosOrientation orientation,
   }) async {
-    final searchPhotosUrl =
-        _unsplashBaseUrl.replace(path: '/search/photos', queryParameters: {
+    final searchPhotosUrl = _unsplashBaseUrl
+        .replace(path: '/search/photos', queryParameters: <String, String>{
       'query': query,
       if (page != 1) 'page': '$page',
       if (perPage != 10) 'per_page': '$perPage',
@@ -61,9 +61,11 @@ class Unsplash {
         'Authorization': 'Client-ID $_accessKey',
       },
     );
-    final body = json.decode(response.body);
+    final dynamic body = json.decode(response.body);
 
-    if (body is Map && body['errors'] is List && body['errors'].isNotEmpty) {
+    if (body is Map &&
+        body['errors'] is List &&
+        body['errors'].isNotEmpty as bool) {
       final apiError = ApiError.fromJson(response.body);
       throw UnsplashException(apiError.errors.join(', '));
     }

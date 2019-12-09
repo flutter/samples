@@ -24,7 +24,8 @@ class PhotoDetails extends StatelessWidget {
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -98,4 +99,5 @@ class PhotoDetails extends StatelessWidget {
           ),
         ),
       );
+  }
 }

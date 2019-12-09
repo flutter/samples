@@ -22,7 +22,7 @@ import 'unsplash_access_key.dart';
 
 void main() {
   Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((LogRecord rec) {
+  Logger.root.onRecord.listen((rec) {
     // ignore: avoid_print
     print('${rec.loggerName} ${rec.level.name}: ${rec.time}: ${rec.message}');
   });
@@ -51,7 +51,6 @@ class UnsplashSearchApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      debugShowCheckedModeBanner: false,
       home: const UnsplashHomePage(title: 'Photo Search'),
     );
   }
@@ -69,7 +68,7 @@ class UnsplashHomePage extends StatelessWidget {
         menubar.MenuItem(
           label: 'Search ...',
           onClicked: () {
-            showDialog(
+            showDialog<void>(
               context: context,
               builder: (context) =>
                   PhotoSearchDialog(photoSearchModel.addSearch),
@@ -111,7 +110,7 @@ class UnsplashHomePage extends StatelessWidget {
               child: Text('Search for Photos using the Fab button'),
             ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => showDialog(
+        onPressed: () => showDialog<void>(
           context: context,
           builder: (context) => PhotoSearchDialog(photoSearchModel.addSearch),
         ),
