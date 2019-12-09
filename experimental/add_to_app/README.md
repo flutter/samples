@@ -50,8 +50,9 @@ them.
 
 With the exception of `android_using_prebuilt_module`, the Android apps are
 ready to run once you've completed the `flutter packages get` commands listed
-above. The iOS apps use CocoaPods, though, so you need to run this command
-within their project directories to install their dependencies:
+above. Two of the iOS apps (`ios_fullscreen` and `ios_using_plugin`) use
+Cocoapods, though, so you need to run this command within their project
+directories to install their dependencies:
 
 ```bash
 pod install
@@ -105,31 +106,25 @@ to be built.
 
 **Building for `android_using_prebuilt_module`**
 
-`flutter_module` can be built into an `aar` using either a debug or release
-configuration. To build a debug `aar`, run this command from the
-`flutter_module` directory:
-
-```bash
-flutter build aar --debug
-```
-
-To build a release version of the `aar`, simply omit the debug flag:
+To build `flutter_module` as an aar, run this command from the `flutter_module`
+directory:
 
 ```bash
 flutter build aar
 ```
 
-The Android app is configured to import the appropriate `aar` based on its own
-build configuration, so if you build a debug version of the app, it will look
-for the debug `aar`, and likewise for a release build.
+It will produce `aar` files for debug, profile, and release mode. The Android
+app is configured to import the appropriate `aar` based on its own build
+configuration, so if you build a debug version of the app, it will look
+for the debug `aar`, and so on.
 
-If the `flutter_module` project is updated, the `aar` must be rebuilt via one of
-the commands above in order for those changes to appear in the app.
+If the `flutter_module` project is updated, the `aar` files must be rebuilt via
+one of the commands above in order for those changes to appear in the app.
 
 **Building for `ios_using_prebuilt_module`**
 
-`flutter_module` can be compiled into frameworks for `ios_using_prebuilt_module`
-by running this command from the `flutter_module` directory:
+To build `flutter_module` as a set of frameworks, run this command from the
+`flutter_module` directory:
 
 ```bash
 flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
