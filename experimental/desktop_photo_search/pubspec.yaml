@@ -1,0 +1,52 @@
+name: desktop_photo_search
+description: Search for Photos, using the Unsplash API.
+version: 1.0.0+1
+
+environment:
+  sdk: ^2.7.0-dev
+  flutter: ^1.13.1-pre
+
+dependencies:
+  flutter:
+    sdk: flutter
+  built_collection: ^4.3.0
+  built_value: ^7.0.0
+  cupertino_icons: ^0.1.2
+  file_chooser:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/file_chooser
+  logging: ^0.11.3+2
+  menubar:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/menubar
+  meta: ^1.1.8
+  pedantic: ^1.8.0
+  provider: ^3.2.0
+  shared_preferences: ^0.5.4+6
+  shared_preferences_fde:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/flutter_plugins/shared_preferences_fde
+  uuid: ^2.0.4
+  url_launcher: ^5.2.7
+  url_launcher_fde:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/flutter_plugins/url_launcher_fde
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  async: ^2.4.0
+  build: ^1.2.2
+  build_runner: ^1.7.2
+  built_value_generator: ^7.0.0
+  grinder: ^0.8.3
+  source_gen: ^0.9.4
+  test: ^1.9.4
+  tuneup: ^0.3.6
+
+flutter:
+  uses-material-design: true
