@@ -359,6 +359,7 @@ class _PlatformItem extends StatelessWidget {
       case TargetPlatform.fuchsia:
         return 'Fuchsia';
       case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
         return 'Cupertino';
     }
     assert(false);
