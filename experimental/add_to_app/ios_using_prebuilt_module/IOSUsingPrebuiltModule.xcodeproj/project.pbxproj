@@ -16,26 +16,7 @@
 		26DC0F712398363A00D41B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F6F2398363A00D41B08 /* Main.storyboard */; };
 		26DC0F732398363B00D41B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F722398363B00D41B08 /* Assets.xcassets */; };
 		26DC0F762398363B00D41B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F742398363B00D41B08 /* LaunchScreen.storyboard */; };
-		26DC0F812398363B00D41B08 /* IOSUsingPrebuiltModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F802398363B00D41B08 /* IOSUsingPrebuiltModuleTests.swift */; };
-		26DC0F8C2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F8B2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		26DC0F7D2398363B00D41B08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26DC0F602398363A00D41B08 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26DC0F672398363A00D41B08;
-			remoteInfo = IOSUsingPrebuiltModule;
-		};
-		26DC0F882398363C00D41B08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26DC0F602398363A00D41B08 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26DC0F672398363A00D41B08;
-			remoteInfo = IOSUsingPrebuiltModule;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		269CD2B3239B23BA0091DFB6 /* Embed Frameworks */ = {
@@ -62,12 +43,6 @@
 		26DC0F722398363B00D41B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26DC0F752398363B00D41B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26DC0F772398363B00D41B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26DC0F7C2398363B00D41B08 /* IOSUsingPrebuiltModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSUsingPrebuiltModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26DC0F802398363B00D41B08 /* IOSUsingPrebuiltModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSUsingPrebuiltModuleTests.swift; sourceTree = "<group>"; };
-		26DC0F822398363B00D41B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26DC0F872398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSUsingPrebuiltModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26DC0F8B2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSUsingPrebuiltModuleUITests.swift; sourceTree = "<group>"; };
-		26DC0F8D2398363C00D41B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,20 +52,6 @@
 			files = (
 				269CD2AF239B23BA0091DFB6 /* App.framework in Frameworks */,
 				269CD2B1239B23BA0091DFB6 /* Flutter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26DC0F792398363B00D41B08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26DC0F842398363C00D41B08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				26DC0F6A2398363A00D41B08 /* IOSUsingPrebuiltModule */,
-				26DC0F7F2398363B00D41B08 /* IOSUsingPrebuiltModuleTests */,
-				26DC0F8A2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests */,
 				26DC0F692398363A00D41B08 /* Products */,
 				269CD2AC239B23BA0091DFB6 /* Frameworks */,
 			);
@@ -121,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				26DC0F682398363A00D41B08 /* IOSUsingPrebuiltModule.app */,
-				26DC0F7C2398363B00D41B08 /* IOSUsingPrebuiltModuleTests.xctest */,
-				26DC0F872398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,24 +95,6 @@
 				26DC0F772398363B00D41B08 /* Info.plist */,
 			);
 			path = IOSUsingPrebuiltModule;
-			sourceTree = "<group>";
-		};
-		26DC0F7F2398363B00D41B08 /* IOSUsingPrebuiltModuleTests */ = {
-			isa = PBXGroup;
-			children = (
-				26DC0F802398363B00D41B08 /* IOSUsingPrebuiltModuleTests.swift */,
-				26DC0F822398363B00D41B08 /* Info.plist */,
-			);
-			path = IOSUsingPrebuiltModuleTests;
-			sourceTree = "<group>";
-		};
-		26DC0F8A2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				26DC0F8B2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.swift */,
-				26DC0F8D2398363C00D41B08 /* Info.plist */,
-			);
-			path = IOSUsingPrebuiltModuleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,42 +118,6 @@
 			productReference = 26DC0F682398363A00D41B08 /* IOSUsingPrebuiltModule.app */;
 			productType = "com.apple.product-type.application";
 		};
-		26DC0F7B2398363B00D41B08 /* IOSUsingPrebuiltModuleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26DC0F932398363C00D41B08 /* Build configuration list for PBXNativeTarget "IOSUsingPrebuiltModuleTests" */;
-			buildPhases = (
-				26DC0F782398363B00D41B08 /* Sources */,
-				26DC0F792398363B00D41B08 /* Frameworks */,
-				26DC0F7A2398363B00D41B08 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26DC0F7E2398363B00D41B08 /* PBXTargetDependency */,
-			);
-			name = IOSUsingPrebuiltModuleTests;
-			productName = IOSUsingPrebuiltModuleTests;
-			productReference = 26DC0F7C2398363B00D41B08 /* IOSUsingPrebuiltModuleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		26DC0F862398363C00D41B08 /* IOSUsingPrebuiltModuleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 26DC0F962398363C00D41B08 /* Build configuration list for PBXNativeTarget "IOSUsingPrebuiltModuleUITests" */;
-			buildPhases = (
-				26DC0F832398363C00D41B08 /* Sources */,
-				26DC0F842398363C00D41B08 /* Frameworks */,
-				26DC0F852398363C00D41B08 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				26DC0F892398363C00D41B08 /* PBXTargetDependency */,
-			);
-			name = IOSUsingPrebuiltModuleUITests;
-			productName = IOSUsingPrebuiltModuleUITests;
-			productReference = 26DC0F872398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,14 +130,6 @@
 				TargetAttributes = {
 					26DC0F672398363A00D41B08 = {
 						CreatedOnToolsVersion = 10.3;
-					};
-					26DC0F7B2398363B00D41B08 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 26DC0F672398363A00D41B08;
-					};
-					26DC0F862398363C00D41B08 = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 26DC0F672398363A00D41B08;
 					};
 				};
 			};
@@ -252,8 +147,6 @@
 			projectRoot = "";
 			targets = (
 				26DC0F672398363A00D41B08 /* IOSUsingPrebuiltModule */,
-				26DC0F7B2398363B00D41B08 /* IOSUsingPrebuiltModuleTests */,
-				26DC0F862398363C00D41B08 /* IOSUsingPrebuiltModuleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,20 +162,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		26DC0F7A2398363B00D41B08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26DC0F852398363C00D41B08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,36 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		26DC0F782398363B00D41B08 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				26DC0F812398363B00D41B08 /* IOSUsingPrebuiltModuleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		26DC0F832398363C00D41B08 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				26DC0F8C2398363C00D41B08 /* IOSUsingPrebuiltModuleUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		26DC0F7E2398363B00D41B08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26DC0F672398363A00D41B08 /* IOSUsingPrebuiltModule */;
-			targetProxy = 26DC0F7D2398363B00D41B08 /* PBXContainerItemProxy */;
-		};
-		26DC0F892398363C00D41B08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 26DC0F672398363A00D41B08 /* IOSUsingPrebuiltModule */;
-			targetProxy = 26DC0F882398363C00D41B08 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		26DC0F6F2398363A00D41B08 /* Main.storyboard */ = {
@@ -504,84 +354,6 @@
 			};
 			name = Release;
 		};
-		26DC0F942398363C00D41B08 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPrebuiltModuleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.flutter.example.IOSUsingPrebuiltModuleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSUsingPrebuiltModule.app/IOSUsingPrebuiltModule";
-			};
-			name = Debug;
-		};
-		26DC0F952398363C00D41B08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPrebuiltModuleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.flutter.example.IOSUsingPrebuiltModuleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSUsingPrebuiltModule.app/IOSUsingPrebuiltModule";
-			};
-			name = Release;
-		};
-		26DC0F972398363C00D41B08 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPrebuiltModuleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.flutter.example.IOSUsingPrebuiltModuleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IOSUsingPrebuiltModule;
-			};
-			name = Debug;
-		};
-		26DC0F982398363C00D41B08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPrebuiltModuleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.flutter.example.IOSUsingPrebuiltModuleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IOSUsingPrebuiltModule;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,24 +371,6 @@
 			buildConfigurations = (
 				26DC0F912398363C00D41B08 /* Debug */,
 				26DC0F922398363C00D41B08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		26DC0F932398363C00D41B08 /* Build configuration list for PBXNativeTarget "IOSUsingPrebuiltModuleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26DC0F942398363C00D41B08 /* Debug */,
-				26DC0F952398363C00D41B08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		26DC0F962398363C00D41B08 /* Build configuration list for PBXNativeTarget "IOSUsingPrebuiltModuleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				26DC0F972398363C00D41B08 /* Debug */,
-				26DC0F982398363C00D41B08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
