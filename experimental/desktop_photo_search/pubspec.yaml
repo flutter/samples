@@ -32,10 +32,7 @@ dependencies:
   transparent_image: ^1.0.0
   uuid: ^2.0.4
   url_launcher: ^5.3.0
-  url_launcher_fde:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/flutter_plugins/url_launcher_fde
+  url_launcher_macos: ^0.0.1
 
 dev_dependencies:
   flutter_test:
