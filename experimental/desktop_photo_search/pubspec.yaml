@@ -29,6 +29,7 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/flutter_plugins/shared_preferences_fde
+  transparent_image: ^1.0.0
   uuid: ^2.0.4
   url_launcher: ^5.2.7
   url_launcher_fde:

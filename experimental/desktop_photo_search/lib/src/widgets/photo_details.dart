@@ -4,8 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:meta/meta.dart';
+import 'package:transparent_image/transparent_image.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 import '../../unsplash_access_key.dart';
 import '../unsplash/photo.dart';
@@ -15,7 +16,7 @@ final _unsplashHomepage = Uri.encodeFull(
 
 typedef PhotoDetailsPhotoSaveCallback = void Function(Photo);
 
-class PhotoDetails extends StatelessWidget {
+class PhotoDetails extends StatefulWidget {
   const PhotoDetails({
     @required this.photo,
     @required this.onPhotoSave,
@@ -24,80 +25,102 @@ class PhotoDetails extends StatelessWidget {
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
 
   @override
+  _PhotoDetailsState createState() => _PhotoDetailsState();
+}
+
+class _PhotoDetailsState extends State<PhotoDetails>
+    with SingleTickerProviderStateMixin {
+  Widget _buildPhotoAttribution(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        style: Theme.of(context).textTheme.body1,
+        children: [
+          const TextSpan(text: 'Photo by '),
+          TextSpan(
+            text: widget.photo.user.name,
+            style: const TextStyle(
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () async {
+                final url = Uri.encodeFull(
+                    'https://unsplash.com/@${widget.photo.user.username}?utm_source=$unsplashAppName&utm_medium=referral');
+                if (await url_launcher.canLaunch(url)) {
+                  await url_launcher.launch(url);
+                }
+              },
+          ),
+          const TextSpan(text: ' on '),
+          TextSpan(
+            text: 'Unsplash',
+            style: const TextStyle(
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () async {
+                if (await url_launcher.canLaunch(_unsplashHomepage)) {
+                  await url_launcher.launch(_unsplashHomepage);
+                }
+              },
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 16),
-              Card(
-                shape: ContinuousRectangleBorder(
-                  side: BorderSide(color: Colors.black12),
-                  borderRadius: BorderRadius.circular(4),
-                ),
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 16),
+            Card(
+              shape: ContinuousRectangleBorder(
+                side: BorderSide(color: Colors.black12),
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: AnimatedSize(
+                vsync: this,
+                duration: Duration(milliseconds: 750),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
-                  child: Image.network(photo.urls.small),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: 400,
+                      minHeight: 400,
+                    ),
+                    child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: widget.photo.urls.small,
+                    ),
+                  ),
                 ),
               ),
-              const SizedBox(height: 8),
-              Padding(
-                padding: const EdgeInsets.only(left: 4),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        style: Theme.of(context).textTheme.body1,
-                        children: [
-                          const TextSpan(text: 'Photo by '),
-                          TextSpan(
-                            text: photo.user.name,
-                            style: const TextStyle(
-                              decoration: TextDecoration.underline,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                final url = Uri.encodeFull(
-                                    'https://unsplash.com/@${photo.user.username}?utm_source=$unsplashAppName&utm_medium=referral');
-                                if (await url_launcher.canLaunch(url)) {
-                                  await url_launcher.launch(url);
-                                }
-                              },
-                          ),
-                          const TextSpan(text: ' on '),
-                          TextSpan(
-                            text: 'Unsplash',
-                            style: const TextStyle(
-                              decoration: TextDecoration.underline,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                if (await url_launcher
-                                    .canLaunch(_unsplashHomepage)) {
-                                  await url_launcher.launch(_unsplashHomepage);
-                                }
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    IconButton(
-                      visualDensity: VisualDensity.compact,
-                      icon: Icon(Icons.cloud_download),
-                      onPressed: () => onPhotoSave(photo),
-                    ),
-                  ],
-                ),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.only(left: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildPhotoAttribution(context),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    icon: Icon(Icons.cloud_download),
+                    onPressed: () => widget.onPhotoSave(widget.photo),
+                  ),
+                ],
               ),
-              const SizedBox(height: 48),
-            ],
-          ),
+            ),
+            const SizedBox(height: 48),
+          ],
         ),
-      );
+      ),
+    );
   }
 }
