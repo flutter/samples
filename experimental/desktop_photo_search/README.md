@@ -14,8 +14,6 @@ desktop specific plugins:
     from the Unsplash API.
   - [menubar] for exposing Image Search functionality through the menu bar.
   - [url_launcher_fde] and [url_launcher] plugin, which are used to open external links.
-  - [shared_preferences_fde] and [shared_preferences] for storing and retrieving
-    a list of favourited Photos.
 
 The Unsplash API client entry point is in the [Unsplash] class, and is built
 atop [http], [built_value] and [built_collection] for JSON Rest API access.
@@ -54,7 +52,5 @@ and how to switch between Flutter release channels.
 [macOS-read-write]: https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_files_user-selected_read-write
 [macOS-security]: https://github.com/google/flutter-desktop-embedding/blob/master/macOS-Security.md
 [menubar]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/menubar
-[shared_preferences]: https://pub.dev/packages/shared_preferences
-[shared_preferences_fde]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/flutter_plugins/shared_preferences_fde
 [url_launcher]: https://pub.dev/packages/url_launcher
 [url_launcher_fde]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/flutter_plugins/url_launcher_fde

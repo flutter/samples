@@ -454,29 +454,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
-  shared_preferences:
-    dependency: "direct main"
-    description:
-      name: shared_preferences
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.4+8"
-  shared_preferences_fde:
-    dependency: "direct main"
-    description:
-      path: "plugins/flutter_plugins/shared_preferences_fde"
-      ref: HEAD
-      resolved-ref: ab3b14f7231289dc66b7ad21c607cb90dd896fc0
-      url: "https://github.com/google/flutter-desktop-embedding.git"
-    source: git
-    version: "0.0.1"
-  shared_preferences_platform_interface:
-    dependency: transitive
-    description:
-      name: shared_preferences_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
