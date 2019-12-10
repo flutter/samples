@@ -13,7 +13,7 @@ desktop specific plugins:
   - [file_choser] to enable the application user to select where to save a photo
     from the Unsplash API.
   - [menubar] for exposing Image Search functionality through the menu bar.
-  - [url_launcher_fde] and [url_launcher] plugin, which are used to open external links.
+  - [url_launcher] to open external links.
 
 The Unsplash API client entry point is in the [Unsplash] class, and is built
 atop [http], [built_value] and [built_collection] for JSON Rest API access.
@@ -53,4 +53,3 @@ and how to switch between Flutter release channels.
 [macOS-security]: https://github.com/google/flutter-desktop-embedding/blob/master/macOS-Security.md
 [menubar]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/menubar
 [url_launcher]: https://pub.dev/packages/url_launcher
-[url_launcher_fde]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/flutter_plugins/url_launcher_fde
