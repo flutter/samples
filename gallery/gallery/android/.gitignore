@@ -1,0 +1,12 @@
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+
+# Visual Studio Code related
+.classpath
+.project
+.settings/

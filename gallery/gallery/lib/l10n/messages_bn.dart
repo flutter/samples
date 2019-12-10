@@ -1,0 +1,842 @@
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that provides messages for a bn locale. All the
+// messages from the main program should be duplicated here with the same
+// function name.
+
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names
+
+import 'package:intl/intl.dart';
+import 'package:intl/message_lookup_by_library.dart';
+
+final messages = new MessageLookup();
+
+typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
+
+class MessageLookup extends MessageLookupByLibrary {
+  String get localeName => 'bn';
+
+  static m0(value) => "এই অ্যাপের সোর্স কোড দেখতে ${value}-এ দেখুন।";
+
+  static m1(title) => "${title} ট্যাবের প্লেসহোল্ডার";
+
+  static m2(totalRestaurants) =>
+      "${Intl.plural(totalRestaurants, zero: 'রেস্তোরাঁ নেই', one: '১টি রেস্তোঁরা', other: '${totalRestaurants}টি রেস্তোঁরা')}";
+
+  static m3(numberOfStops) =>
+      "${Intl.plural(numberOfStops, zero: 'ননস্টপ', one: '১টি স্টপ', other: '${numberOfStops}টি স্টপ')}";
+
+  static m4(totalProperties) =>
+      "${Intl.plural(totalProperties, zero: 'কোনও প্রপার্টি ভাড়া পাওয়া যাবে না', one: '১টি প্রপার্টি ভাড়া পাওয়া যাবে', other: '${totalProperties}টি প্রপার্টি ভাড়া পাওয়া যাবে')}";
+
+  static m5(value) => "আইটেম ${value}";
+
+  static m6(error) => "ক্লিপবোর্ডে কপি করা যায়নি: {সমস্যা}";
+
+  static m7(name, phoneNumber) => "${name} ফোন নম্বর হল ${phoneNumber}";
+
+  static m8(value) => "আপনি বেছে নিয়েছেন: \"${value}\"";
+
+  static m9(accountName, accountNumber, amount) =>
+      "${accountName} অ্যাকাউন্ট ${accountNumber}-এ ${amount}।";
+
+  static m10(amount) => "এই মাসে এটিএম ফি হিসেবে আপনি ${amount} খরচ করেছেন";
+
+  static m11(percent) =>
+      "ভাল হয়েছে! আপনার চেকিং অ্যাকাউন্ট আগের মাসের থেকে ${percent} বেশি।";
+
+  static m12(percent) =>
+      "আপডেট, আপনি এই মাসে ${percent} কেনাকাটার বাজেট ব্যবহার করে ফেলেছেন।";
+
+  static m13(amount) => "এই সপ্তাহে রেস্তোরাঁয় আপনি ${amount} খরচ করেছেন।";
+
+  static m14(count) =>
+      "${Intl.plural(count, one: 'আপনার ট্যাক্সের সম্ভাব্য ছাড় বাড়ান! ১টি অ্যাসাইন না করা ট্রানজ্যাকশনে বিভাগ অ্যাসাইন করুন।', other: 'আপনার ট্যাক্সের সম্ভাব্য ছাড় বাড়ান! ${count}টি অ্যাসাইন না করা ট্রানজ্যাকশনে বিভাগ অ্যাসাইন করুন।')}";
+
+  static m15(billName, date, amount) =>
+      "${billName} ${date}-এ ${amount} টাকার বিল বাকি আছে।";
+
+  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+      "${budgetName} বাজেটের ${amountTotal}-এর মধ্যে ${amountUsed} খরচ হয়েছে, ${amountLeft} বাকি আছে";
+
+  static m17(quantity) =>
+      "${Intl.plural(quantity, zero: 'কোনও আইটেম নেই', one: '১টি আইটেম', other: '${quantity}টি আইটেম')}";
+
+  static m18(price) => "x ${price}";
+
+  static m19(quantity) => "পরিমাণ: ${quantity}";
+
+  static m20(quantity) =>
+      "${Intl.plural(quantity, zero: 'শপিং কার্ট, কোনও আইটেম নেই', one: 'শপিং কার্ট, ১টি আইটেম আছে', other: 'শপিং কার্ট, ${quantity}টি আইটেম আছে')}";
+
+  static m21(product) => "সরান {প্রোডাক্ট}";
+
+  static m22(value) => "আইটেম ${value}";
+
+  final messages = _notInlinedMessages(_notInlinedMessages);
+  static _notInlinedMessages(_) => <String, Function>{
+        "aboutDialogDescription": m0,
+        "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
+            "Flutter স্যাম্পেল Github রিপোজিটরি"),
+        "bottomNavigationAccountTab":
+            MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট"),
+        "bottomNavigationAlarmTab":
+            MessageLookupByLibrary.simpleMessage("অ্যালার্ম"),
+        "bottomNavigationCalendarTab":
+            MessageLookupByLibrary.simpleMessage("ক্যালেন্ডার"),
+        "bottomNavigationCameraTab":
+            MessageLookupByLibrary.simpleMessage("ক্যামেরা"),
+        "bottomNavigationCommentsTab":
+            MessageLookupByLibrary.simpleMessage("মন্তব্য"),
+        "bottomNavigationContentPlaceholder": m1,
+        "buttonText": MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "buttonTextCreate": MessageLookupByLibrary.simpleMessage("তৈরি করুন"),
+        "chipBiking": MessageLookupByLibrary.simpleMessage("সাইকেল চালানো"),
+        "chipElevator": MessageLookupByLibrary.simpleMessage("লিফ্ট"),
+        "chipFireplace": MessageLookupByLibrary.simpleMessage("ফায়ারপ্লেস"),
+        "chipLarge": MessageLookupByLibrary.simpleMessage("বড়"),
+        "chipMedium": MessageLookupByLibrary.simpleMessage("মাজারি"),
+        "chipSmall": MessageLookupByLibrary.simpleMessage("ছোট"),
+        "chipTurnOnLights":
+            MessageLookupByLibrary.simpleMessage("লাইট চালু করুন"),
+        "chipWasher": MessageLookupByLibrary.simpleMessage("ওয়াশিং মেশিন"),
+        "colorsAmber": MessageLookupByLibrary.simpleMessage("হলদে বাদামি"),
+        "colorsBlue": MessageLookupByLibrary.simpleMessage("নীল"),
+        "colorsBlueGrey": MessageLookupByLibrary.simpleMessage("নীলচে ধূসর"),
+        "colorsBrown": MessageLookupByLibrary.simpleMessage("বাদামি"),
+        "colorsCyan": MessageLookupByLibrary.simpleMessage("সবুজ-নীল"),
+        "colorsDeepOrange": MessageLookupByLibrary.simpleMessage("গাঢ় কমলা"),
+        "colorsDeepPurple":
+            MessageLookupByLibrary.simpleMessage("গাঢ় লাল-বেগুনি"),
+        "colorsGreen": MessageLookupByLibrary.simpleMessage("সবুজ"),
+        "colorsGrey": MessageLookupByLibrary.simpleMessage("ধূসর"),
+        "colorsIndigo": MessageLookupByLibrary.simpleMessage("নীলচে বেগুনি"),
+        "colorsLightBlue": MessageLookupByLibrary.simpleMessage("হালকা নীল"),
+        "colorsLightGreen": MessageLookupByLibrary.simpleMessage("হালকা সবুজ"),
+        "colorsLime": MessageLookupByLibrary.simpleMessage("লেবু রঙ"),
+        "colorsOrange": MessageLookupByLibrary.simpleMessage("কমলা"),
+        "colorsPink": MessageLookupByLibrary.simpleMessage("গোলাপী"),
+        "colorsPurple": MessageLookupByLibrary.simpleMessage("বেগুনি"),
+        "colorsRed": MessageLookupByLibrary.simpleMessage("লাল"),
+        "colorsTeal": MessageLookupByLibrary.simpleMessage("সবজে নীল"),
+        "colorsYellow": MessageLookupByLibrary.simpleMessage("হলুদ"),
+        "craneDescription": MessageLookupByLibrary.simpleMessage(
+            "নিজের মতো সাজিয়ে নেওয়া ট্রাভেল অ্যাপ"),
+        "craneEat": MessageLookupByLibrary.simpleMessage("খাদ্য"),
+        "craneEat0": MessageLookupByLibrary.simpleMessage("ন্যাপলি, ইতালি"),
+        "craneEat0SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("কাঠের চুলায় পিৎজা"),
+        "craneEat1":
+            MessageLookupByLibrary.simpleMessage("ডালাস, মার্কিন যুক্তরাষ্ট্র"),
+        "craneEat10": MessageLookupByLibrary.simpleMessage("লিসবন, পর্তুগাল"),
+        "craneEat10SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "মহিলাটি বিশাল পাস্ট্রমি স্যান্ডউইচ ধরে রয়েছে"),
+        "craneEat1SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "ডিনার স্টাইলের চেয়ারের সাথে খালি বার"),
+        "craneEat2":
+            MessageLookupByLibrary.simpleMessage("কর্ডোবা, আর্জেন্টিনা"),
+        "craneEat2SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("বার্গার"),
+        "craneEat3": MessageLookupByLibrary.simpleMessage(
+            "পোর্টল্যান্ড, মার্কিন যুক্তরাষ্ট্র"),
+        "craneEat3SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("কোরিয়ান ট্যাকো"),
+        "craneEat4": MessageLookupByLibrary.simpleMessage("প্যারিস, ফ্রান্স"),
+        "craneEat4SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("চকোলেট ডেজার্ট"),
+        "craneEat5":
+            MessageLookupByLibrary.simpleMessage("সিওল, দক্ষিণ কোরিয়া"),
+        "craneEat5SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "আর্টসির রেস্তোঁরা বসার জায়গা"),
+        "craneEat6": MessageLookupByLibrary.simpleMessage(
+            "সিয়াটেল, মার্কিন যুক্তরাষ্ট্র"),
+        "craneEat6SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("চিংড়ি মাছের খাবার"),
+        "craneEat7": MessageLookupByLibrary.simpleMessage(
+            "ন্যাসভেলি, মার্কিন যুক্তরাষ্ট্র"),
+        "craneEat7SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("বেকারির প্রবেশদ্বার"),
+        "craneEat8": MessageLookupByLibrary.simpleMessage(
+            "আটলান্টা, মার্কিন যুক্তরাষ্ট্র"),
+        "craneEat8SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("প্লেট ভর্তি চিংড়ি মাছ"),
+        "craneEat9": MessageLookupByLibrary.simpleMessage("মাদ্রিদ, স্পেন"),
+        "craneEat9SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("পেস্ট্রি সহ ক্যাফে কাউন্টার"),
+        "craneEatRestaurants": m2,
+        "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
+            "গন্তব্যের হিসেবে রেস্তোরাঁ দেখুন"),
+        "craneFly": MessageLookupByLibrary.simpleMessage("উড়া"),
+        "craneFly0": MessageLookupByLibrary.simpleMessage(
+            "অ্যাসপেন, মার্কিন যুক্তরাষ্ট্র"),
+        "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "চিরসবুজ গাছ সহ একটি তুষারময় আড়াআড়ি কুটীর"),
+        "craneFly1": MessageLookupByLibrary.simpleMessage(
+            "বিগ সার, মার্কিন যুক্তরাষ্ট্র"),
+        "craneFly10": MessageLookupByLibrary.simpleMessage("কায়েরো, মিশর"),
+        "craneFly10SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "সূর্যাস্তের সময় আল-আজহার মসজিদের টাওয়ার"),
+        "craneFly11": MessageLookupByLibrary.simpleMessage("লিসবন, পর্তুগাল"),
+        "craneFly11SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("সমুদ্রে ইটের বাতিঘর"),
+        "craneFly12":
+            MessageLookupByLibrary.simpleMessage("নাপা, মার্কিন যুক্তরাষ্ট্র"),
+        "craneFly12SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("তাল গাছ সহ পুল"),
+        "craneFly13": MessageLookupByLibrary.simpleMessage("বালি, ইন্দোনেশিয়া"),
+        "craneFly13SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "তাল গাছ সহ সমুদ্রের পাশের পুল"),
+        "craneFly1SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("ফিল্ডে টেন্ট"),
+        "craneFly2":
+            MessageLookupByLibrary.simpleMessage("কুম্ভ উপত্যকা, নেপাল"),
+        "craneFly2SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "বরফের পাহাড়ের সামনে প্রার্থনার পতাকা"),
+        "craneFly3": MessageLookupByLibrary.simpleMessage("মাচু পিচ্চু, পেরু"),
+        "craneFly3SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("মাচু পিচ্চু দুর্গ"),
+        "craneFly4": MessageLookupByLibrary.simpleMessage("মালে, মালদ্বীপ"),
+        "craneFly4SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("ওভার ওয়াটার বাংলো"),
+        "craneFly5":
+            MessageLookupByLibrary.simpleMessage("ভিতজানাউ, সুইজারল্যান্ড"),
+        "craneFly5SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "পাহাড়ের সামনে লেক সাইড হোটেল"),
+        "craneFly6":
+            MessageLookupByLibrary.simpleMessage("মেক্সিকো সিটি, মেক্সিকো"),
+        "craneFly6SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "প্যালাসিও দে বেলারাস আর্টেসের এরিয়াল ভিউ"),
+        "craneFly7": MessageLookupByLibrary.simpleMessage(
+            "মাউন্ট রুসমোর, মার্কিন যুক্তরাষ্ট্র"),
+        "craneFly7SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("মাউন্ট রাশমোর"),
+        "craneFly8": MessageLookupByLibrary.simpleMessage("সিঙ্গাপুর"),
+        "craneFly8SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("সুপারট্রি গ্রোভ"),
+        "craneFly9": MessageLookupByLibrary.simpleMessage("হাভানা, কিউবা"),
+        "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "একজন পুরনো নীল গাড়িতে ঝুঁকে দেখছে"),
+        "craneFlyStops": m3,
+        "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
+            "গন্তব্যের হিসেবে ফ্লাইট খুঁজুন"),
+        "craneFormDate": MessageLookupByLibrary.simpleMessage("তারিখ বেছে নিন"),
+        "craneFormDates":
+            MessageLookupByLibrary.simpleMessage("তারিখ বেছে নিন"),
+        "craneFormDestination":
+            MessageLookupByLibrary.simpleMessage("গন্তব্য বেছে নিন"),
+        "craneFormDiners": MessageLookupByLibrary.simpleMessage("ডাইনার্স"),
+        "craneFormLocation":
+            MessageLookupByLibrary.simpleMessage("লোকেশন বেছে নিন"),
+        "craneFormOrigin":
+            MessageLookupByLibrary.simpleMessage("উৎপত্তি স্থল বেছে নিন"),
+        "craneFormTime": MessageLookupByLibrary.simpleMessage("সময় বেছে নিন"),
+        "craneFormTravelers": MessageLookupByLibrary.simpleMessage("ভ্রমণকারী"),
+        "craneSleep": MessageLookupByLibrary.simpleMessage("ঘুম"),
+        "craneSleep0": MessageLookupByLibrary.simpleMessage("মালে, মালদ্বীপ"),
+        "craneSleep0SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("ওভার ওয়াটার বাংলো"),
+        "craneSleep1": MessageLookupByLibrary.simpleMessage(
+            "অ্যাসপেন, মার্কিন যুক্তরাষ্ট্র"),
+        "craneSleep10": MessageLookupByLibrary.simpleMessage("কায়েরো, মিশর"),
+        "craneSleep10SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "সূর্যাস্তের সময় আল-আজহার মসজিদের টাওয়ার"),
+        "craneSleep11": MessageLookupByLibrary.simpleMessage("তাইপেই, তাইওয়ান"),
+        "craneSleep11SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "তাইপেই ১০১ স্কাই স্ক্র্যাপার"),
+        "craneSleep1SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "চিরসবুজ গাছ সহ একটি তুষারময় আড়াআড়ি কুটীর"),
+        "craneSleep2":
+            MessageLookupByLibrary.simpleMessage("মাচু পিচ্চু, পেরু"),
+        "craneSleep2SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("মাচু পিচ্চু দুর্গ"),
+        "craneSleep3": MessageLookupByLibrary.simpleMessage("হাভানা, কিউবা"),
+        "craneSleep3SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "একজন পুরনো নীল গাড়িতে ঝুঁকে দেখছে"),
+        "craneSleep4":
+            MessageLookupByLibrary.simpleMessage("ভিতজানাউ, সুইজারল্যান্ড"),
+        "craneSleep4SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "পাহাড়ের সামনে লেক সাইড হোটেল"),
+        "craneSleep5": MessageLookupByLibrary.simpleMessage(
+            "বিগ সার, মার্কিন যুক্তরাষ্ট্র"),
+        "craneSleep5SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("ফিল্ডে টেন্ট"),
+        "craneSleep6":
+            MessageLookupByLibrary.simpleMessage("নাপা, মার্কিন যুক্তরাষ্ট্র"),
+        "craneSleep6SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("তাল গাছ সহ পুল"),
+        "craneSleep7":
+            MessageLookupByLibrary.simpleMessage("পোর্টো, পর্তুগাল"),
+        "craneSleep7SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "রিবেরিয়া স্কোয়ারে রঙিন অ্যাপার্টমেন্ট"),
+        "craneSleep8": MessageLookupByLibrary.simpleMessage("তুলুম, মেক্সিকো"),
+        "craneSleep8SemanticLabel": MessageLookupByLibrary.simpleMessage(
+            "সমুদ্র সৈকতের কোনও একটি পাহাড়ে মায়ান সভ্যতার ধ্বংসাবশেষ"),
+        "craneSleep9": MessageLookupByLibrary.simpleMessage("লিসবন, পর্তুগাল"),
+        "craneSleep9SemanticLabel":
+            MessageLookupByLibrary.simpleMessage("সমুদ্রে ইটের বাতিঘর"),
+        "craneSleepProperties": m4,
+        "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
+            "গন্তব্যের হিসেবে প্রপার্টি দেখুন"),
+        "cupertinoAlertAllow":
+            MessageLookupByLibrary.simpleMessage("অনুমতি দিন"),
+        "cupertinoAlertApplePie":
+            MessageLookupByLibrary.simpleMessage("আপেল পাই"),
+        "cupertinoAlertCancel":
+            MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
+        "cupertinoAlertCheesecake":
+            MessageLookupByLibrary.simpleMessage("চিজকেক"),
+        "cupertinoAlertChocolateBrownie":
+            MessageLookupByLibrary.simpleMessage("চকলেট ব্রাউনি"),
+        "cupertinoAlertDessertDescription": MessageLookupByLibrary.simpleMessage(
+            "নিচে উল্লেখ করা তালিকা থেকে পছন্দের মিষ্টি বেছে নিন। আপনার পছন্দের হিসেবে এলাকার খাবারের দোকানের সাজেস্ট করা একটি তালিকা কাস্টমাইজ করা হবে।"),
+        "cupertinoAlertDiscard":
+            MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
+        "cupertinoAlertDontAllow":
+            MessageLookupByLibrary.simpleMessage("অনুমতি দেবেন না"),
+        "cupertinoAlertFavoriteDessert":
+            MessageLookupByLibrary.simpleMessage("পছন্দের মিষ্টি বেছে নিন"),
+        "cupertinoAlertLocationDescription": MessageLookupByLibrary.simpleMessage(
+            "আপনার বর্তমান লোকেশন ম্যাপে দেখানো হবে এবং সেই সাথে দিকনির্দেশের ও আশেপাশের সার্চের ফলাফলের জন্য ব্যবহার হবে এবং যাত্রাপথের আনুমানিক সময় জানতে ব্যবহার হবে।"),
+        "cupertinoAlertLocationTitle": MessageLookupByLibrary.simpleMessage(
+            "অ্যাপ ব্যবহার করার সময়ে \"Maps\"-কে আপনার লোকেশন অ্যাক্সেস করার অনুমতি দিতে চান?"),
+        "cupertinoAlertTiramisu":
+            MessageLookupByLibrary.simpleMessage("তিরামিসু"),
+        "cupertinoButton": MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "cupertinoButtonWithBackground":
+            MessageLookupByLibrary.simpleMessage("ব্যাকগ্রাউন্ড সহ"),
+        "cupertinoShowAlert":
+            MessageLookupByLibrary.simpleMessage("সতর্কতা দেখান"),
+        "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
+            "অ্যাকশন চিপ হল বিকল্পগুলির একটি সেট যা প্রাথমিক কন্টেন্ট সম্পর্কিত অ্যাকশন ট্রিগার করে। অ্যাকশন চিপ নিয়ম করে কতটা প্রাসঙ্গিক সেই হিসেবে UI-তে দেখা যায়।"),
+        "demoActionChipTitle":
+            MessageLookupByLibrary.simpleMessage("অ্যাকশন চিপ"),
+        "demoAlertDialogDescription": MessageLookupByLibrary.simpleMessage(
+            "সতর্কতা সংক্রান্ত ডায়ালগ পরিস্থিতি সম্পর্কে ব্যবহারকারীকে জানায়, যা খেয়াল রাখতে হয়। সতর্কতা সংক্রান্ত ডায়ালগে ঐচ্ছিক শীর্ষক এবং ঐচ্ছিক অ্যাকশনের তালিকা দেওয়া থাকে।"),
+        "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("সতর্কতা"),
+        "demoAlertTitleDialogTitle":
+            MessageLookupByLibrary.simpleMessage("সতর্ক বার্তার শীর্ষক"),
+        "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
+            "নিচের নেভিগেশন বার কোনও স্ক্রিনের নীচের দিকে তিন থেকে পাঁচটি গন্তব্য দেখায়। প্রতিটি গন্তব্য একটি আইকন এবং একটি এচ্ছিক টেক্সট লেবেল দিয়ে দেখানো হয়। নিচের নেভিগেশন আইকন ট্যাপ করা হলে, ব্যবহারকারীকে সেই আইকনের সাথে জড়িত একেবারে উপরের নেভিগেশন গন্তব্যে নিয়ে যাওয়া হয়।"),
+        "demoBottomNavigationPersistentLabels":
+            MessageLookupByLibrary.simpleMessage("সব সময় দেখা যাবে এমন লেবেল"),
+        "demoBottomNavigationSelectedLabel":
+            MessageLookupByLibrary.simpleMessage("বেছে নেওয়া লেবেল"),
+        "demoBottomNavigationSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ক্রস-ফেডিং ভিউ সহ নিচের দিকে নেভিগেশন"),
+        "demoBottomNavigationTitle":
+            MessageLookupByLibrary.simpleMessage("নিচের দিকে নেভিগেশন"),
+        "demoBottomSheetAddLabel":
+            MessageLookupByLibrary.simpleMessage("যোগ করুন"),
+        "demoBottomSheetButtonText":
+            MessageLookupByLibrary.simpleMessage("বটম শিট দেখান"),
+        "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("হেডার"),
+        "demoBottomSheetItem": m5,
+        "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
+            "\'মোডাল বটম শিট\' হল মেনু অথবা ডায়ালগের একটি বিকল্প এবং এটি ব্যবহারকারীকে অ্যাপের অন্যান্য ফিচার ইন্টার‌্যাক্ট করতে বাধা দেয়।"),
+        "demoBottomSheetModalTitle":
+            MessageLookupByLibrary.simpleMessage("মোডাল বটম শিট"),
+        "demoBottomSheetPersistentDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "সব সময় দেখা যায় এমন বোটম শিট অ্যাপের প্রধান কন্টেন্টের সাথে সম্পর্কিত অন্যান্য তথ্য দেখায়। ব্যবহারকারী অ্যাপের অন্যান্য ফিচারেরে সাথে ইন্ট্যারঅ্যাক্ট করলে সব সময় দেখা যায় এমন বোটম শিট।"),
+        "demoBottomSheetPersistentTitle": MessageLookupByLibrary.simpleMessage(
+            "সব সময় দেখা যায় এমন বোটম শিট"),
+        "demoBottomSheetSubtitle": MessageLookupByLibrary.simpleMessage(
+            "সব সময় দেখা যায় এমন এবং মোডাল বটম শিট"),
+        "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("বটম শিট"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("টেক্সট ফিল্ড"),
+        "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ফ্ল্যাট, বাড়ানো, আউটলাইন এবং অনেক কিছু"),
+        "demoButtonTitle": MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "সারিবদ্ধ এলিমেন্ট যা ইনপুট, অ্যাট্রিবিউট বা অ্যাকশনকে তুলে ধরে"),
+        "demoChipTitle": MessageLookupByLibrary.simpleMessage("চিপস"),
+        "demoChoiceChipDescription": MessageLookupByLibrary.simpleMessage(
+            "পছন্দের চিপ সেটের থেকে একটি পছন্দকে তুলে ধরে। পছন্দের চিপে প্রাসঙ্গিক বর্ণনামূলক টেক্সট বা বিভাগ থাকে।"),
+        "demoChoiceChipTitle":
+            MessageLookupByLibrary.simpleMessage("পছন্দের চিপ"),
+        "demoCodeTooltip":
+            MessageLookupByLibrary.simpleMessage("কোডের উদাহরণ"),
+        "demoCodeViewerCopiedToClipboardMessage":
+            MessageLookupByLibrary.simpleMessage("ক্লিপবোর্ডে কপি করা হয়েছে।"),
+        "demoCodeViewerCopyAll":
+            MessageLookupByLibrary.simpleMessage("সব কিছু কপি করুন"),
+        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
+            "রঙ এবং গ্রেডিয়েন্টের জন্য ধ্রুবক যা মেটেরিয়াল ডিজাইনের রঙের প্যালেট তুলে ধরে।"),
+        "demoColorsSubtitle":
+            MessageLookupByLibrary.simpleMessage("আগে থেকে যেসব দেখানো রঙ"),
+        "demoColorsTitle": MessageLookupByLibrary.simpleMessage("রঙ"),
+        "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
+            "একটি অ্যাকশন শিট হল নির্দিষ্ট ধরনের অ্যালার্ট যা ব্যবহারকারীদের কাছে বর্তমান প্রসঙ্গ সম্পর্কিত দুটি বা তারও বেশি সেট তুলে ধরে. অ্যাকশন শিটে শীর্ষক, অতিরিক্ত মেসেজ এবং অ্যাকশনের তালিকা থাকতে পারে।"),
+        "demoCupertinoActionSheetTitle":
+            MessageLookupByLibrary.simpleMessage("অ্যাকশন শিট"),
+        "demoCupertinoAlertButtonsOnlyTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "শুধুমাত্র সতর্কতা বিষয়ক বোতাম"),
+        "demoCupertinoAlertButtonsTitle":
+            MessageLookupByLibrary.simpleMessage("সতর্কতা সংক্রান্ত বোতাম"),
+        "demoCupertinoAlertDescription": MessageLookupByLibrary.simpleMessage(
+            "সতর্কতা সংক্রান্ত ডায়ালগ পরিস্থিতি সম্পর্কে ব্যবহারকারীকে জানায়, যা খেয়াল রাখতে হয়। সতর্কতা সংক্রান্ত ডায়ালগে ঐচ্ছিক শীর্ষক, ঐচ্ছিক কন্টেন্ট এবং ঐচ্ছিক অ্যাকশনের তালিকা দেওয়া থাকে। শীর্ষক কন্টেন্টের উপরে দেওয়া থাকে এবং অ্যাকশন কন্টেন্টের নিচে উল্লেখ করা থাকে।"),
+        "demoCupertinoAlertTitle":
+            MessageLookupByLibrary.simpleMessage("সতর্কতা"),
+        "demoCupertinoAlertWithTitleTitle":
+            MessageLookupByLibrary.simpleMessage("শীর্ষক সহ সতর্কতা"),
+        "demoCupertinoAlertsSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-স্টাইলে সতর্কতা ডায়ালগ"),
+        "demoCupertinoAlertsTitle":
+            MessageLookupByLibrary.simpleMessage("সতর্কতা"),
+        "demoCupertinoButtonsDescription": MessageLookupByLibrary.simpleMessage(
+            "একটি iOS-স্টাইল বোতাম। এটির সাহায্যে আপনি টেক্সট এবং/বা কোনও একটি আইকন যা টাচ করলে ফেড-আউট বা ফেড-ইন হয়। বিকল্প হিসেবে একটি ব্যাকগ্রাউন্ড থাকতে পারে।"),
+        "demoCupertinoButtonsSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-স্টাইল বোতাম"),
+        "demoCupertinoButtonsTitle":
+            MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "demoCupertinoSegmentedControlDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "একটি ব্যবহার করলে অন্যটি ফ্রিজ হয়ে যাবে এমন কিছু বিকল্পের মধ্যে থেকে বেছে নেওয়ার জন্য ব্যবহার করা হয়। বিভাগীয় নিয়ন্ত্রনে একটি বিকল্প বেছে নিলে, অন্য বিকল্পগুলি আর বেছে নেওয়া যাবে না।"),
+        "demoCupertinoSegmentedControlSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-স্টাইলে বিভাগীয় নিয়ন্ত্রন"),
+        "demoCupertinoSegmentedControlTitle":
+            MessageLookupByLibrary.simpleMessage("বিভাগীয় নিয়ন্ত্রন"),
+        "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
+            "সাধারণ, সতর্কতা, ফুল-স্ক্রিন"),
+        "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ডায়ালগ"),
+        "demoDocumentationTooltip":
+            MessageLookupByLibrary.simpleMessage("এপিআই ডকুমেন্টেশান"),
+        "demoFilterChipDescription": MessageLookupByLibrary.simpleMessage(
+            "কন্টেন্ট ফিল্টার করার একটি পদ্ধতি হিসেবে ফিল্টার চিপ ট্যাগ বা বর্ণনামূলক শব্দ ব্যবহার করে।"),
+        "demoFilterChipTitle":
+            MessageLookupByLibrary.simpleMessage("ফিল্টার চিপ"),
+        "demoFlatButtonDescription": MessageLookupByLibrary.simpleMessage(
+            "ফ্ল্যাট বোতাম প্রেস করলে কালি ছড়িয়ে পড়ে কিন্তু লিফ্ট করে না। প্যাডিং সহ ফ্ল্যাট বোতাম টুলবার, ডায়ালগ এবং ইনলাইনে ব্যবহার করুন"),
+        "demoFlatButtonTitle":
+            MessageLookupByLibrary.simpleMessage("ফ্ল্যাট বোতাম"),
+        "demoFloatingButtonDescription": MessageLookupByLibrary.simpleMessage(
+            "ফ্লোটিং অ্যাকশন বোতাম হল একটি সার্কুলার আইকন বোতাম যা কন্টেন্টের উপরে থাকে, অ্যাপ্লিকেশনের প্রাথমিক অ্যাকশন দেখানোর জন্য।"),
+        "demoFloatingButtonTitle":
+            MessageLookupByLibrary.simpleMessage("ভাসমান অ্যাকশন বোতাম"),
+        "demoFullscreenDialogDescription": MessageLookupByLibrary.simpleMessage(
+            "ফুল-স্ক্রিন ডায়ালগ প্রপার্টি নির্দিষ্ট করে পরের পৃষ্ঠাটি একটি ফুল-স্ক্রিন মোডাল ডায়ালগ হবে কিনা"),
+        "demoFullscreenDialogTitle":
+            MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন"),
+        "demoFullscreenTooltip":
+            MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন"),
+        "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("তথ্য"),
+        "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
+            "ইনপুট চিপে কোনও একটি এন্টিটি (ব্যক্তি, জায়গা অথবা বস্তু) বা কথোপকথন সংক্রান্ত টেক্সট সারিবদ্ধভাবে থাকে যেখানে জটিল তথ্য দেওয়া থাকে।"),
+        "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("ইনপুট চিপ"),
+        "demoInvalidURL":
+            MessageLookupByLibrary.simpleMessage("URL ডিসপ্লে করতে পারছে না:"),
+        "demoListsDescription": MessageLookupByLibrary.simpleMessage(
+            "একক নির্দিষ্ট উচ্চতাসম্পন্ন সারি যেখানে কিছু টেক্সট সহ লিডিং অথবা ট্রেলিং আইকন রয়েছে।"),
+        "demoListsSecondary":
+            MessageLookupByLibrary.simpleMessage("গৌণ টেক্সট"),
+        "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "তালিকার লে-আউট স্ক্রল করা হচ্ছে"),
+        "demoListsTitle": MessageLookupByLibrary.simpleMessage("তালিকা"),
+        "demoOneLineListsTitle":
+            MessageLookupByLibrary.simpleMessage("প্রতি সারিতে একটি লাইন"),
+        "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
+            "এই ডেমোর জন্য উপলভ্য বিকল্প দেখতে এখানে ট্যাপ করুন।"),
+        "demoOptionsFeatureTitle":
+            MessageLookupByLibrary.simpleMessage("বিকল্প দেখুন"),
+        "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("বিকল্প"),
+        "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
+            "আউটলাইন বোতাম প্রেস করলে অস্বচ্ছ হয়ে বড় হয়ে যায়। সেটি প্রায়ই একটি বিকল্প সেকেন্ডারি অ্যাকশন নির্দেশ করতে বড় হওয়া বোতামের সাথে ব্যবহার হয়।"),
+        "demoOutlineButtonTitle":
+            MessageLookupByLibrary.simpleMessage("আউটলাইন বোতাম"),
+        "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
+            "বড় হওয়া বোতাম প্রায়ই ফ্ল্যাট লে-আউটকে আকার দিতে সাহায্য করে। ব্যস্ত বা চওড়া জায়গাতে তারা আরও গুরুত্ব দেয়।"),
+        "demoRaisedButtonTitle": MessageLookupByLibrary.simpleMessage(
+            "ক্রমশ উপরের দিকে যাওয়া বোতাম"),
+        "demoSelectionControlsCheckboxDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "চেকবক্স ব্যবহারকারীকে একটি সেট থেকে একাধিক বিকল্প বেছে নিতে দেয়। একটি সাধারণ চেকবক্সের মান সত্য বা মিথ্যা এবং একটি ট্রাইস্টেট চেকবক্সের মানটিও শূন্য হতে পারে।"),
+        "demoSelectionControlsCheckboxTitle":
+            MessageLookupByLibrary.simpleMessage("চেকবক্স"),
+        "demoSelectionControlsRadioDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "রেডিও বোতাম সেট থেকে ব্যবহারকারীকে একটি বিকল্প বেছে নিতে দেয়। একচেটিয়া নির্বাচনের জন্য রেডিও বোতামগুলি ব্যবহার করুন যদি আপনি মনে করেন যে ব্যবহারকারীর পাশাপাশি সমস্ত উপলভ্য বিকল্পগুলি দেখতে হবে।"),
+        "demoSelectionControlsRadioTitle":
+            MessageLookupByLibrary.simpleMessage("রেডিও"),
+        "demoSelectionControlsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "চেকবক্স, রেডিও বোতাম এবং সুইচ"),
+        "demoSelectionControlsSwitchDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "অন/অফ করার সুইচগুলি একটি সিঙ্গেল সেটিংসের বিকল্পের স্ট্যাটাসকে পরিবর্তন করে। যে বিকল্পটি স্যুইচ নিয়ন্ত্রণ করে এবং সেই সাথে এটির মধ্যে থাকা স্ট্যাটাস সম্পর্কিত ইনলাইন লেবেল থেকে মুছে ফেলা উচিত।"),
+        "demoSelectionControlsSwitchTitle":
+            MessageLookupByLibrary.simpleMessage("পাল্টান"),
+        "demoSelectionControlsTitle":
+            MessageLookupByLibrary.simpleMessage("বেছে নেওয়ার বিষয়ে নিয়ন্ত্রণ"),
+        "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
+            "একটি সাধারণ ডায়ালগ ব্যবহারকারীদের কাছে একাধিক বিকল্পের মধ্যে একটি বেছে নেওয়ার সুযোগ করে দেয়। একটি সাধারণ ডায়ালগে একটি ঐচ্ছিক শীর্ষক থাকলে, তা বেছে নেওয়ার বিকল্পগুলি উপরে উল্লেখ করা আছে।"),
+        "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("সাধারণ"),
+        "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
+            "বিভিন্ন স্ক্রিনে, ডেটা সেটে ও অন্যান্য ইন্টার‌্যাকশনে ট্যাবগুলি কন্টেন্ট সাজায়।"),
+        "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "আলাদাভাবে স্ক্রল করা যায় এমন ভিউ সহ ট্যাব"),
+        "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ট্যাব"),
+        "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "টেক্সট ফিল্ড ব্যবহারকারীকে UI-এ টেক্সট লেখার অনুমতি দেয়। সেগুলি সাধারণত ফর্ম ও ডায়ালগ হিসেবে দেখা যায়।"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("ইমেল"),
+        "demoTextFieldEnterPassword":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড লিখুন।"),
+        "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
+            "(###) ###-#### - একটি মার্কিন যুক্তরাষ্ট্রের ফোন নম্বর লিখুন।"),
+        "demoTextFieldFormErrors": MessageLookupByLibrary.simpleMessage(
+            "জমা দেওয়ার আগে লাল রঙের ভুলগুলি সংশোধন করুন।"),
+        "demoTextFieldHidePasswordLabel":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড লুকান"),
+        "demoTextFieldKeepItShort": MessageLookupByLibrary.simpleMessage(
+            "ছোট রাখুন, এটি শুধুমাত্র একটি ডেমো।"),
+        "demoTextFieldLifeStory":
+            MessageLookupByLibrary.simpleMessage("জীবনের গল্প"),
+        "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("নাম*"),
+        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameRequired":
+            MessageLookupByLibrary.simpleMessage("নাম লিখতে হবে।"),
+        "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
+            "৮ অক্ষরের বেশি হওয়া চলবে না।"),
+        "demoTextFieldOnlyAlphabeticalChars":
+            MessageLookupByLibrary.simpleMessage(
+                "কেবল বর্ণানুক্রমিক অক্ষর লিখুন।"),
+        "demoTextFieldPassword":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড*"),
+        "demoTextFieldPasswordsDoNotMatch":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড মিলছে না"),
+        "demoTextFieldPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("ফোন নম্বর*"),
+        "demoTextFieldRequiredField": MessageLookupByLibrary.simpleMessage(
+            "* প্রয়োজনীয় ফিল্ড নির্দেশ করে"),
+        "demoTextFieldRetypePassword":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড আবার টাইপ করুন*"),
+        "demoTextFieldSalary": MessageLookupByLibrary.simpleMessage("বেতন"),
+        "demoTextFieldShowPasswordLabel":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড দেখুন"),
+        "demoTextFieldSubmit": MessageLookupByLibrary.simpleMessage("জমা দিন"),
+        "demoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "এডিট করা যাবে এমন টেক্সট ও নম্বরের সিঙ্গল লাইন"),
+        "demoTextFieldTellUsAboutYourself": MessageLookupByLibrary.simpleMessage(
+            "আপনার সম্পর্কে আমাদের জানান (যেমন, আপনি কী করেন অথবা আপনি কী করতে পছন্দ করেন)"),
+        "demoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("টেক্সট ফিল্ড"),
+        "demoTextFieldUSD":
+            MessageLookupByLibrary.simpleMessage("মার্কিন ডলার"),
+        "demoTextFieldWhatDoPeopleCallYou":
+            MessageLookupByLibrary.simpleMessage("লোকজন আপনাকে কী বলে ডাকে?"),
+        "demoTextFieldWhereCanWeReachYou": MessageLookupByLibrary.simpleMessage(
+            "আমরা আপনার সাথে কীভাবে যোগাযোগ করব?"),
+        "demoTextFieldYourEmailAddress":
+            MessageLookupByLibrary.simpleMessage("আপনার ইমেল আইডি"),
+        "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
+            "টগল বোতাম ব্যবহার করে একই ধরনের বিকল্প গ্রুপ করতে পারেন। সম্পর্কিত টগল বোতামের একটি গ্রুপে গুরুত্ব দিতে, সাধারণ কন্টেনার শেয়ার করতে হবে"),
+        "demoToggleButtonTitle":
+            MessageLookupByLibrary.simpleMessage("টগল বোতাম"),
+        "demoTwoLineListsTitle":
+            MessageLookupByLibrary.simpleMessage("প্রতি সারিতে দু\'টি লাইন"),
+        "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
+            "মেটেরিয়াল ডিজাইনে খুঁজে পাওয়া বিভিন্ন লেখার স্টাইল।"),
+        "demoTypographySubtitle": MessageLookupByLibrary.simpleMessage(
+            "পূর্বনির্ধারিত সব টেক্সট স্টাইল"),
+        "demoTypographyTitle":
+            MessageLookupByLibrary.simpleMessage("লেখার ধরন"),
+        "dialogAddAccount":
+            MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট যোগ করুন"),
+        "dialogAgree": MessageLookupByLibrary.simpleMessage("সম্মত"),
+        "dialogCancel": MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
+        "dialogDisagree": MessageLookupByLibrary.simpleMessage("অসম্মত"),
+        "dialogDiscard": MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
+        "dialogDiscardTitle":
+            MessageLookupByLibrary.simpleMessage("ড্রাফ্ট বাতিল করতে চান?"),
+        "dialogFullscreenDescription":
+            MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন ডায়ালগ ডেমো"),
+        "dialogFullscreenSave":
+            MessageLookupByLibrary.simpleMessage("সেভ করুন"),
+        "dialogFullscreenTitle":
+            MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন ডায়ালগ"),
+        "dialogLocationDescription": MessageLookupByLibrary.simpleMessage(
+            "অ্যাপ যাতে লোকেশন বেছে নিতে পারে তার জন্য Google-কে সাহায্য করুন। এর মানে হল, যখন কোন অ্যাপ চালা থাকে না, তখনও Google-এ যে কোনও লোকেশনের তথ্য পাঠানো হবে।"),
+        "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
+            "Google-এর লোকেশন সংক্রান্ত পরিষেবা ব্যবহার করতে চান?"),
+        "dialogSelectedOption": m8,
+        "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
+            "ব্যাক-আপ অ্যাকাউন্ট সেট করুন"),
+        "dialogShow": MessageLookupByLibrary.simpleMessage("ডায়ালগ দেখান"),
+        "homeCategoryReference":
+            MessageLookupByLibrary.simpleMessage("রেফারেন্স স্টাইল এবং মিডিয়া"),
+        "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("বিভাগ"),
+        "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("গ্যালারি"),
+        "rallyAccountAmount": m9,
+        "rallyAccountDataCarSavings":
+            MessageLookupByLibrary.simpleMessage("গাড়ির জন্য সেভিং"),
+        "rallyAccountDataChecking":
+            MessageLookupByLibrary.simpleMessage("চেক করা হচ্ছে"),
+        "rallyAccountDataHomeSavings":
+            MessageLookupByLibrary.simpleMessage("হোম সেভিংস"),
+        "rallyAccountDataVacation":
+            MessageLookupByLibrary.simpleMessage("ছুটি"),
+        "rallyAccountDetailDataAccountOwner":
+            MessageLookupByLibrary.simpleMessage("অ্যাকাউন্টের মালিক"),
+        "rallyAccountDetailDataAnnualPercentageYield":
+            MessageLookupByLibrary.simpleMessage("বার্ষিক লাভের শতাংশ"),
+        "rallyAccountDetailDataInterestPaidLastYear":
+            MessageLookupByLibrary.simpleMessage("গত বছরে পে করা সুদ"),
+        "rallyAccountDetailDataInterestRate":
+            MessageLookupByLibrary.simpleMessage("সুদের হার"),
+        "rallyAccountDetailDataInterestYtd":
+            MessageLookupByLibrary.simpleMessage("সুদ YTD"),
+        "rallyAccountDetailDataNextStatement":
+            MessageLookupByLibrary.simpleMessage("পরবর্তী স্টেটমেন্ট"),
+        "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("মোট"),
+        "rallyAccounts": MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট"),
+        "rallyAlerts": MessageLookupByLibrary.simpleMessage("সতর্কতা"),
+        "rallyAlertsMessageATMFees": m10,
+        "rallyAlertsMessageCheckingAccount": m11,
+        "rallyAlertsMessageHeadsUpShopping": m12,
+        "rallyAlertsMessageSpentOnRestaurants": m13,
+        "rallyAlertsMessageUnassignedTransactions": m14,
+        "rallyBillAmount": m15,
+        "rallyBills": MessageLookupByLibrary.simpleMessage("বিল"),
+        "rallyBillsDue": MessageLookupByLibrary.simpleMessage("বাকি আছে"),
+        "rallyBudgetAmount": m16,
+        "rallyBudgetCategoryClothing":
+            MessageLookupByLibrary.simpleMessage("জামাকাপড়"),
+        "rallyBudgetCategoryCoffeeShops":
+            MessageLookupByLibrary.simpleMessage("কফি শপ"),
+        "rallyBudgetCategoryGroceries":
+            MessageLookupByLibrary.simpleMessage("মুদিখানা"),
+        "rallyBudgetCategoryRestaurants":
+            MessageLookupByLibrary.simpleMessage("রেস্তোরাঁ"),
+        "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("বাকি আছে"),
+        "rallyBudgets": MessageLookupByLibrary.simpleMessage("বাজেট"),
+        "rallyDescription":
+            MessageLookupByLibrary.simpleMessage("ব্যক্তিগত ফাইনান্স অ্যাপ"),
+        "rallyFinanceLeft": MessageLookupByLibrary.simpleMessage("বাকি আছে"),
+        "rallyLoginButtonLogin": MessageLookupByLibrary.simpleMessage("লগ-ইন"),
+        "rallyLoginLabelLogin": MessageLookupByLibrary.simpleMessage("লগ-ইন"),
+        "rallyLoginLoginToRally":
+            MessageLookupByLibrary.simpleMessage("Rally-তে লগ-ইন করুন"),
+        "rallyLoginNoAccount":
+            MessageLookupByLibrary.simpleMessage("কোনো অ্যাকাউন্ট নেই?"),
+        "rallyLoginPassword": MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড"),
+        "rallyLoginRememberMe":
+            MessageLookupByLibrary.simpleMessage("আমাকে মনে রাখো"),
+        "rallyLoginSignUp":
+            MessageLookupByLibrary.simpleMessage("সাইন আপ করুন"),
+        "rallyLoginUsername": MessageLookupByLibrary.simpleMessage("ইউজারনেম"),
+        "rallySeeAll": MessageLookupByLibrary.simpleMessage("সবগুলি দেখুন"),
+        "rallySeeAllAccounts":
+            MessageLookupByLibrary.simpleMessage("সব অ্যাকাউন্ট দেখুন"),
+        "rallySeeAllBills":
+            MessageLookupByLibrary.simpleMessage("সব বিল দেখুন"),
+        "rallySeeAllBudgets":
+            MessageLookupByLibrary.simpleMessage("সব বাজেট দেখুন"),
+        "rallySettingsFindAtms":
+            MessageLookupByLibrary.simpleMessage("এটিএম খুঁজুন"),
+        "rallySettingsHelp": MessageLookupByLibrary.simpleMessage("সহায়তা"),
+        "rallySettingsManageAccounts":
+            MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট ম্যানেজ করুন"),
+        "rallySettingsNotifications":
+            MessageLookupByLibrary.simpleMessage("বিজ্ঞপ্তি"),
+        "rallySettingsPaperlessSettings":
+            MessageLookupByLibrary.simpleMessage("বিনা পেপারের সেটিংস"),
+        "rallySettingsPasscodeAndTouchId":
+            MessageLookupByLibrary.simpleMessage("পাসকোড এবং টাচ আইডি"),
+        "rallySettingsPersonalInformation":
+            MessageLookupByLibrary.simpleMessage("ব্যক্তিগত তথ্য"),
+        "rallySettingsSignOut":
+            MessageLookupByLibrary.simpleMessage("সাইন-আউট করুন"),
+        "rallySettingsTaxDocuments":
+            MessageLookupByLibrary.simpleMessage("ট্যাক্স ডকুমেন্ট"),
+        "rallyTitleAccounts":
+            MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট"),
+        "rallyTitleBills": MessageLookupByLibrary.simpleMessage("বিল"),
+        "rallyTitleBudgets": MessageLookupByLibrary.simpleMessage("বাজেট"),
+        "rallyTitleOverview": MessageLookupByLibrary.simpleMessage("এক নজরে"),
+        "rallyTitleSettings": MessageLookupByLibrary.simpleMessage("সেটিংস"),
+        "settingsAbout":
+            MessageLookupByLibrary.simpleMessage("ফ্লাটার গ্যালারি সম্পর্কে"),
+        "settingsAttribution": MessageLookupByLibrary.simpleMessage(
+            "লন্ডনে TOASTER দ্বারা ডিজাইন করা হয়েছে"),
+        "settingsButtonCloseLabel":
+            MessageLookupByLibrary.simpleMessage("সেটিংস বন্ধ করুন"),
+        "settingsButtonLabel": MessageLookupByLibrary.simpleMessage("সেটিংস"),
+        "settingsDarkTheme": MessageLookupByLibrary.simpleMessage("গাঢ়"),
+        "settingsFeedback": MessageLookupByLibrary.simpleMessage("মতামত জানান"),
+        "settingsLightTheme": MessageLookupByLibrary.simpleMessage("আলো"),
+        "settingsLocale": MessageLookupByLibrary.simpleMessage("লোকেল"),
+        "settingsPlatformAndroid":
+            MessageLookupByLibrary.simpleMessage("Android"),
+        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
+        "settingsPlatformMechanics":
+            MessageLookupByLibrary.simpleMessage("প্ল্যাটফর্ম মেকানিক্স"),
+        "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("স্লো মোশন"),
+        "settingsSystemDefault":
+            MessageLookupByLibrary.simpleMessage("সিস্টেম"),
+        "settingsTextDirection":
+            MessageLookupByLibrary.simpleMessage("টেক্সটের মাধ্যমে দিকনির্দেশ"),
+        "settingsTextDirectionLTR": MessageLookupByLibrary.simpleMessage("LTR"),
+        "settingsTextDirectionLocaleBased":
+            MessageLookupByLibrary.simpleMessage("লোকেলের উপর ভিত্তি করে"),
+        "settingsTextDirectionRTL": MessageLookupByLibrary.simpleMessage("RTL"),
+        "settingsTextScaling":
+            MessageLookupByLibrary.simpleMessage("টেক্সট স্কেলিং"),
+        "settingsTextScalingHuge":
+            MessageLookupByLibrary.simpleMessage("সবচেয়ে বড়"),
+        "settingsTextScalingLarge": MessageLookupByLibrary.simpleMessage("বড়"),
+        "settingsTextScalingNormal":
+            MessageLookupByLibrary.simpleMessage("সাধারণ"),
+        "settingsTextScalingSmall": MessageLookupByLibrary.simpleMessage("ছোট"),
+        "settingsTheme": MessageLookupByLibrary.simpleMessage("থিম"),
+        "settingsTitle": MessageLookupByLibrary.simpleMessage("সেটিংস"),
+        "shrineCancelButtonCaption":
+            MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
+        "shrineCartClearButtonCaption":
+            MessageLookupByLibrary.simpleMessage("কার্ট মুছে দিন"),
+        "shrineCartItemCount": m17,
+        "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("কার্ট"),
+        "shrineCartShippingCaption":
+            MessageLookupByLibrary.simpleMessage("শিপিং:"),
+        "shrineCartSubtotalCaption":
+            MessageLookupByLibrary.simpleMessage("সাবটোটাল:"),
+        "shrineCartTaxCaption":
+            MessageLookupByLibrary.simpleMessage("ট্যাক্স:"),
+        "shrineCartTotalCaption": MessageLookupByLibrary.simpleMessage("মোট"),
+        "shrineCategoryNameAccessories":
+            MessageLookupByLibrary.simpleMessage("অ্যাক্সেসরি"),
+        "shrineCategoryNameAll": MessageLookupByLibrary.simpleMessage("সব"),
+        "shrineCategoryNameClothing":
+            MessageLookupByLibrary.simpleMessage("পোশাক"),
+        "shrineCategoryNameHome": MessageLookupByLibrary.simpleMessage("বাড়ি"),
+        "shrineDescription":
+            MessageLookupByLibrary.simpleMessage("ফ্যাশ্যানেবল রিটেল অ্যাপ"),
+        "shrineLoginPasswordLabel":
+            MessageLookupByLibrary.simpleMessage("পাসওয়ার্ড"),
+        "shrineLoginUsernameLabel":
+            MessageLookupByLibrary.simpleMessage("ইউজারনেম"),
+        "shrineLogoutButtonCaption":
+            MessageLookupByLibrary.simpleMessage("লগ-আউট"),
+        "shrineMenuCaption": MessageLookupByLibrary.simpleMessage("মেনু"),
+        "shrineNextButtonCaption":
+            MessageLookupByLibrary.simpleMessage("পরবর্তী"),
+        "shrineProductBlueStoneMug":
+            MessageLookupByLibrary.simpleMessage("নীল রঙের পাথরের মগ"),
+        "shrineProductCeriseScallopTee":
+            MessageLookupByLibrary.simpleMessage("সেরাইজ স্ক্যালোপ টি"),
+        "shrineProductChambrayNapkins":
+            MessageLookupByLibrary.simpleMessage("শ্যামব্র্যয় ন্যাপকিন"),
+        "shrineProductChambrayShirt":
+            MessageLookupByLibrary.simpleMessage("শ্যামব্র্যয় শার্ট"),
+        "shrineProductClassicWhiteCollar":
+            MessageLookupByLibrary.simpleMessage("ক্লাসিক হোয়াইট কলার"),
+        "shrineProductClaySweater":
+            MessageLookupByLibrary.simpleMessage("ক্লে সোয়েটার"),
+        "shrineProductCopperWireRack":
+            MessageLookupByLibrary.simpleMessage("কপার ওয়্যার তাক"),
+        "shrineProductFineLinesTee":
+            MessageLookupByLibrary.simpleMessage("ফাইন লাইন টি"),
+        "shrineProductGardenStrand":
+            MessageLookupByLibrary.simpleMessage("গার্ডেন স্ট্র্যান্ড"),
+        "shrineProductGatsbyHat":
+            MessageLookupByLibrary.simpleMessage("গ্যাস্টবি হ্যাট"),
+        "shrineProductGentryJacket":
+            MessageLookupByLibrary.simpleMessage("জেন্ট্রি জ্যাকেট"),
+        "shrineProductGiltDeskTrio":
+            MessageLookupByLibrary.simpleMessage("গিল্ট ডেস্ক ট্রাও"),
+        "shrineProductGingerScarf":
+            MessageLookupByLibrary.simpleMessage("জিনজার স্কার্ফ"),
+        "shrineProductGreySlouchTank":
+            MessageLookupByLibrary.simpleMessage("গ্রে স্লচ ট্যাঙ্ক"),
+        "shrineProductHurrahsTeaSet":
+            MessageLookupByLibrary.simpleMessage("হারাহ্‌য়ের টি সেট"),
+        "shrineProductKitchenQuattro":
+            MessageLookupByLibrary.simpleMessage("কিচেন কোয়াট্রো"),
+        "shrineProductNavyTrousers":
+            MessageLookupByLibrary.simpleMessage("নীল পায়জামা"),
+        "shrineProductPlasterTunic":
+            MessageLookupByLibrary.simpleMessage("প্লাস্টার টিউনিক"),
+        "shrineProductPrice": m18,
+        "shrineProductQuantity": m19,
+        "shrineProductQuartetTable":
+            MessageLookupByLibrary.simpleMessage("চৌকো টেবিল"),
+        "shrineProductRainwaterTray":
+            MessageLookupByLibrary.simpleMessage("বৃষ্টির জল পাস করানোর ট্রে"),
+        "shrineProductRamonaCrossover":
+            MessageLookupByLibrary.simpleMessage("রামোনা ক্রসওভার"),
+        "shrineProductSeaTunic":
+            MessageLookupByLibrary.simpleMessage("সি টিউনিক"),
+        "shrineProductSeabreezeSweater":
+            MessageLookupByLibrary.simpleMessage("সিব্রিজ সোয়েটার"),
+        "shrineProductShoulderRollsTee":
+            MessageLookupByLibrary.simpleMessage("শোল্ডার রোল টি"),
+        "shrineProductShrugBag":
+            MessageLookupByLibrary.simpleMessage("শ্রাগ ব্যাগ"),
+        "shrineProductSootheCeramicSet":
+            MessageLookupByLibrary.simpleMessage("মসৃণ সেরামিক সেট"),
+        "shrineProductStellaSunglasses":
+            MessageLookupByLibrary.simpleMessage("স্টেলা সানগ্লাস"),
+        "shrineProductStrutEarrings":
+            MessageLookupByLibrary.simpleMessage("স্ট্রাট ইয়াররিং"),
+        "shrineProductSucculentPlanters":
+            MessageLookupByLibrary.simpleMessage("সাকলেন্ট প্ল্যান্টার্স"),
+        "shrineProductSunshirtDress":
+            MessageLookupByLibrary.simpleMessage("সানশার্ট ড্রেস"),
+        "shrineProductSurfAndPerfShirt":
+            MessageLookupByLibrary.simpleMessage("সার্ফ এবং পার্ফ শার্ট"),
+        "shrineProductVagabondSack":
+            MessageLookupByLibrary.simpleMessage("ভ্যাগাবন্ড স্যাক"),
+        "shrineProductVarsitySocks":
+            MessageLookupByLibrary.simpleMessage("ভারসিটি সক্‌স"),
+        "shrineProductWalterHenleyWhite":
+            MessageLookupByLibrary.simpleMessage("ওয়াল্টার হেনলি (সাদা)"),
+        "shrineProductWeaveKeyring":
+            MessageLookupByLibrary.simpleMessage("উইভ কীরিং"),
+        "shrineProductWhitePinstripeShirt":
+            MessageLookupByLibrary.simpleMessage("সাদা পিনস্ট্রাইপ শার্ট"),
+        "shrineProductWhitneyBelt":
+            MessageLookupByLibrary.simpleMessage("হুইটনি বেল্ট"),
+        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderProductAddToCart":
+            MessageLookupByLibrary.simpleMessage("কার্টে যোগ করুন"),
+        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineTooltipCloseCart":
+            MessageLookupByLibrary.simpleMessage("কার্ট বন্ধ করুন"),
+        "shrineTooltipCloseMenu":
+            MessageLookupByLibrary.simpleMessage("মেনু বন্ধ করুন"),
+        "shrineTooltipOpenMenu":
+            MessageLookupByLibrary.simpleMessage("মেনু খুলুন"),
+        "shrineTooltipRemoveItem":
+            MessageLookupByLibrary.simpleMessage("আইটেম সরান"),
+        "shrineTooltipSearch":
+            MessageLookupByLibrary.simpleMessage("সার্চ করুন"),
+        "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("সেটিংস"),
+        "starterAppDescription":
+            MessageLookupByLibrary.simpleMessage("কাজ করে এমন শুরু করার লেআউট"),
+        "starterAppDrawerItem": m22,
+        "starterAppGenericBody":
+            MessageLookupByLibrary.simpleMessage("মুখ্য অংশ"),
+        "starterAppGenericButton":
+            MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "starterAppGenericHeadline":
+            MessageLookupByLibrary.simpleMessage("শিরোনাম"),
+        "starterAppGenericSubtitle":
+            MessageLookupByLibrary.simpleMessage("সাবটাইটেল"),
+        "starterAppGenericTitle":
+            MessageLookupByLibrary.simpleMessage("শীর্ষক"),
+        "starterAppTitle":
+            MessageLookupByLibrary.simpleMessage("শুরু করার অ্যাপ"),
+        "starterAppTooltipAdd":
+            MessageLookupByLibrary.simpleMessage("যোগ করুন"),
+        "starterAppTooltipFavorite":
+            MessageLookupByLibrary.simpleMessage("পছন্দ"),
+        "starterAppTooltipSearch":
+            MessageLookupByLibrary.simpleMessage("খুঁজুন"),
+        "starterAppTooltipShare":
+            MessageLookupByLibrary.simpleMessage("শেয়ার করুন")
+      };
+}
