@@ -317,5 +317,31 @@ void main() {
             'UnsplashException: OAuth error: The access token is invalid');
       }
     });
+
+    test('handles broken JSON', () async {
+      const apiError = '{"tot'; // truncated JSON.
+
+      final httpClient = MockClient((req) async {
+        return Response(
+          apiError,
+          401,
+          request: req,
+          headers: {'content-type': 'application/json'},
+        );
+      });
+
+      final unsplashClient = Unsplash(
+        accessKey: 'not-an-access-key',
+        httpClient: httpClient,
+      );
+
+      try {
+        await unsplashClient.searchPhotos(query: 'red');
+        fail('UnsplashException should have been thrown');
+      } on UnsplashException catch (e) {
+        expect(e.toString(),
+            'UnsplashException: Invalid JSON received');
+      }
+    });
   });
 }

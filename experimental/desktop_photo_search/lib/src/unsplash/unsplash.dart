@@ -61,7 +61,13 @@ class Unsplash {
         'Authorization': 'Client-ID $_accessKey',
       },
     );
-    final dynamic body = json.decode(response.body);
+
+    dynamic body;
+    try {
+      body = json.decode(response.body);
+    } catch (e) {
+      throw UnsplashException('Invalid JSON received');
+    }
 
     if (body is Map &&
         body['errors'] is List &&
