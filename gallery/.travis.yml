@@ -1,0 +1,34 @@
+os:
+  - linux
+sudo: false
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++6
+      - fonts-noto
+git:
+  depth: 3
+env:
+  - FLUTTER_VERSION=stable
+  - FLUTTER_VERSION=beta
+matrix:
+  allow_failures:
+    - env: FLUTTER_VERSION=stable
+before_script:
+  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
+  - ./flutter/bin/flutter doctor
+  - chmod +x travis_script.sh
+script:
+  - ./travis_script.sh
+cache:
+  directories:
+    - $HOME/shared/.pub-cache
+notifications:
+  email:
+    rami-a+github@gmail.com
+
+# Only building master means that we don't run two builds for each pull request.
+branches:
+  only: [master]

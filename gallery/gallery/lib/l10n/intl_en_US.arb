@@ -1,0 +1,1896 @@
+{
+  "@@last_modified": "2019-11-06T15:50:09.076419",
+  "aboutFlutterSamplesRepo": "Flutter samples Github repo",
+  "@aboutFlutterSamplesRepo": {
+    "description": "Represents a link to the Flutter samples github repository."
+  },
+  "aboutDialogDescription": "To see the source code for this app, please visit the {value}.",
+  "@aboutDialogDescription": {
+    "description": "A description about how to view the source code for this app.",
+    "placeholders": {
+      "value": {
+        "example": "Flutter samples Github repo"
+      }
+    }
+  },
+  "homeHeaderGallery": "Gallery",
+  "@homeHeaderGallery": {
+    "description": "Header title on home screen for Gallery section."
+  },
+  "homeHeaderCategories": "Categories",
+  "@homeHeaderCategories": {
+    "description": "Header title on home screen for Categories section."
+  },
+  "shrineDescription": "A fashionable retail app",
+  "@shrineDescription": {
+    "description": "Study description for Shrine."
+  },
+  "rallyDescription": "A personal finance app",
+  "@rallyDescription": {
+    "description": "Study description for Rally."
+  },
+  "rallyAccountDataChecking": "Checking",
+  "@rallyAccountDataChecking": {
+    "description": "Name for account made up by user."
+  },
+  "rallyAccountDataHomeSavings": "Home Savings",
+  "@rallyAccountDataHomeSavings": {
+    "description": "Name for account made up by user."
+  },
+  "rallyAccountDataCarSavings": "Car Savings",
+  "@rallyAccountDataCarSavings": {
+    "description": "Name for account made up by user."
+  },
+  "rallyAccountDataVacation": "Vacation",
+  "@rallyAccountDataVacation": {
+    "description": "Name for account made up by user."
+  },
+  "rallyAccountDetailDataAnnualPercentageYield": "Annual Percentage Yield",
+  "@rallyAccountDetailDataAnnualPercentageYield": {
+    "description": "Title for account statistics. Below a percentage such as 0.10% will be displayed."
+  },
+  "rallyAccountDetailDataInterestRate": "Interest Rate",
+  "@rallyAccountDetailDataInterestRate": {
+    "description": "Title for account statistics. Below a dollar amount such as $100 will be displayed."
+  },
+  "rallyAccountDetailDataInterestYtd": "Interest YTD",
+  "@rallyAccountDetailDataInterestYtd": {
+    "description": "Title for account statistics. Below a dollar amount such as $100 will be displayed."
+  },
+  "rallyAccountDetailDataInterestPaidLastYear": "Interest Paid Last Year",
+  "@rallyAccountDetailDataInterestPaidLastYear": {
+    "description": "Title for account statistics. Below a dollar amount such as $100 will be displayed."
+  },
+  "rallyAccountDetailDataNextStatement": "Next Statement",
+  "@rallyAccountDetailDataNextStatement": {
+    "description": "Title for an account detail. Below a date for when the next account statement is released."
+  },
+  "rallyAccountDetailDataAccountOwner": "Account Owner",
+  "@rallyAccountDetailDataAccountOwner": {
+    "description": "Title for an account detail. Below the name of the account owner will be displayed."
+  },
+  "rallyBudgetCategoryCoffeeShops": "Coffee Shops",
+  "@rallyBudgetCategoryCoffeeShops": {
+    "description": "Category for budget, to sort expenses / bills in."
+  },
+  "rallyBudgetCategoryGroceries": "Groceries",
+  "@rallyBudgetCategoryGroceries": {
+    "description": "Category for budget, to sort expenses / bills in."
+  },
+  "rallyBudgetCategoryRestaurants": "Restaurants",
+  "@rallyBudgetCategoryRestaurants": {
+    "description": "Category for budget, to sort expenses / bills in."
+  },
+  "rallyBudgetCategoryClothing": "Clothing",
+  "@rallyBudgetCategoryClothing": {
+    "description": "Category for budget, to sort expenses / bills in."
+  },
+  "rallySettingsManageAccounts": "Manage Accounts",
+  "@rallySettingsManageAccounts": {
+    "description": "Link to go to the page 'Manage Accounts."
+  },
+  "rallySettingsTaxDocuments": "Tax Documents",
+  "@rallySettingsTaxDocuments": {
+    "description": "Link to go to the page 'Tax Documents'."
+  },
+  "rallySettingsPasscodeAndTouchId": "Passcode and Touch ID",
+  "@rallySettingsPasscodeAndTouchId": {
+    "description": "Link to go to the page 'Passcode and Touch ID'."
+  },
+  "rallySettingsNotifications": "Notifications",
+  "@rallySettingsNotifications": {
+    "description": "Link to go to the page 'Notifications'."
+  },
+  "rallySettingsPersonalInformation": "Personal Information",
+  "@rallySettingsPersonalInformation": {
+    "description": "Link to go to the page 'Personal Information'."
+  },
+  "rallySettingsPaperlessSettings": "Paperless Settings",
+  "@rallySettingsPaperlessSettings": {
+    "description": "Link to go to the page 'Paperless Settings'."
+  },
+  "rallySettingsFindAtms": "Find ATMs",
+  "@rallySettingsFindAtms": {
+    "description": "Link to go to the page 'Find ATMs'."
+  },
+  "rallySettingsHelp": "Help",
+  "@rallySettingsHelp": {
+    "description": "Link to go to the page 'Help'."
+  },
+  "rallySettingsSignOut": "Sign out",
+  "@rallySettingsSignOut": {
+    "description": "Link to go to the page 'Sign out'."
+  },
+  "rallyAccountTotal": "Total",
+  "@rallyAccountTotal": {
+    "description": "Title for 'total account value' overview page, a dollar value is displayed next to it."
+  },
+  "rallyBillsDue": "Due",
+  "@rallyBillsDue": {
+    "description": "Title for 'bills due' page, a dollar value is displayed next to it."
+  },
+  "rallyBudgetLeft": "Left",
+  "@rallyBudgetLeft": {
+    "description": "Title for 'budget left' page, a dollar value is displayed next to it."
+  },
+  "rallyAccounts": "Accounts",
+  "@rallyAccounts": {
+    "description": "Link text for accounts page."
+  },
+  "rallyBills": "Bills",
+  "@rallyBills": {
+    "description": "Link text for bills page."
+  },
+  "rallyBudgets": "Budgets",
+  "@rallyBudgets": {
+    "description": "Link text for budgets page."
+  },
+  "rallyAlerts": "Alerts",
+  "@rallyAlerts": {
+    "description": "Title for alerts part of overview page."
+  },
+  "rallySeeAll": "SEE ALL",
+  "@rallySeeAll": {
+    "description": "Link text for button to see all data for category."
+  },
+  "rallyFinanceLeft": " LEFT",
+  "@rallyFinanceLeft": {
+    "description": "Displayed as 'dollar amount left', for example $46.70 LEFT, for a budget category."
+  },
+  "rallyTitleOverview": "OVERVIEW",
+  "@rallyTitleOverview": {
+    "description": "The navigation link to the overview page."
+  },
+  "rallyTitleAccounts": "ACCOUNTS",
+  "@rallyTitleAccounts": {
+    "description": "The navigation link to the accounts page."
+  },
+  "rallyTitleBills": "BILLS",
+  "@rallyTitleBills": {
+    "description": "The navigation link to the bills page."
+  },
+  "rallyTitleBudgets": "BUDGETS",
+  "@rallyTitleBudgets": {
+    "description": "The navigation link to the budgets page."
+  },
+  "rallyTitleSettings": "SETTINGS",
+  "@rallyTitleSettings": {
+    "description": "The navigation link to the settings page."
+  },
+  "rallyLoginLoginToRally": "Login to Rally",
+  "@rallyLoginLoginToRally": {
+    "description": "Title for login page for the Rally app (Rally does not need to be translated as it is a product name)."
+  },
+  "rallyLoginNoAccount": "Don't have an account?",
+  "@rallyLoginNoAccount": {
+    "description": "Prompt for signing up for an account."
+  },
+  "rallyLoginSignUp": "SIGN UP",
+  "@rallyLoginSignUp": {
+    "description": "Button text to sign up for an account."
+  },
+  "rallyLoginUsername": "Username",
+  "@rallyLoginUsername": {
+    "description": "The username field in an login form."
+  },
+  "rallyLoginPassword": "Password",
+  "@rallyLoginPassword": {
+    "description": "The password field in an login form."
+  },
+  "rallyLoginLabelLogin": "Login",
+  "@rallyLoginLabelLogin": {
+    "description": "The label text to login."
+  },
+  "rallyLoginRememberMe": "Remember Me",
+  "@rallyLoginRememberMe": {
+    "description": "Text if the user wants to stay logged in."
+  },
+  "rallyLoginButtonLogin": "LOGIN",
+  "@rallyLoginButtonLogin": {
+    "description": "Text for login button."
+  },
+  "rallyAlertsMessageHeadsUpShopping": "Heads up, you’ve used up {percent} of your Shopping budget for this month.",
+  "@rallyAlertsMessageHeadsUpShopping": {
+    "description": "Alert message shown when for example, user has used more than 90% of their shopping budget.",
+    "placeholders": {
+      "percent": "90%"
+    }
+  },
+  "rallyAlertsMessageSpentOnRestaurants": "You’ve spent {amount} on Restaurants this week.",
+  "@rallyAlertsMessageSpentOnRestaurants": {
+    "description": "Alert message shown when for example, user has spent $120 on Restaurants this week.",
+    "placeholders": {
+       "amount": "$120"
+    }
+  },
+  "rallyAlertsMessageATMFees": "You’ve spent {amount} in ATM fees this month",
+  "@rallyAlertsMessageATMFees": {
+    "description": "Alert message shown when for example, the user has spent $24 in ATM fees this month.",
+    "placeholders": {
+       "amount": "24"
+    }
+  },
+  "rallyAlertsMessageCheckingAccount": "Good work! Your checking account is {percent} higher than last month.",
+  "@rallyAlertsMessageCheckingAccount": {
+    "description": "Alert message shown when for example, the checking account is 1% higher than last month.",
+    "placeholders": {
+       "percent": "1%"
+    }
+  },
+  "rallyAlertsMessageUnassignedTransactions": "{count, plural, =1{Increase your potential tax deduction! Assign categories to 1 unassigned transaction.}other{Increase your potential tax deduction! Assign categories to {count} unassigned transactions.}}",
+  "@rallyAlertsMessageUnassignedTransactions": {
+    "description": "Alert message shown when you have unassigned transactions.",
+    "placeholders": {
+       "count": "2"
+    }
+  },
+  "rallySeeAllAccounts": "See all accounts",
+  "@rallySeeAllAccounts": {
+    "description": "Semantics label for button to see all accounts. Accounts refer to bank account here."
+  },
+  "rallySeeAllBills": "See all bills",
+  "@rallySeeAllBills": {
+    "description": "Semantics label for button to see all bills."
+  },
+  "rallySeeAllBudgets": "See all budgets",
+  "@rallySeeAllBudgets": {
+    "description": "Semantics label for button to see all budgets."
+  },
+  "rallyAccountAmount": "{accountName} account {accountNumber} with {amount}.",
+  "@rallyAccountAmount": {
+    "description": "Semantics label for row with bank account name (for example checking) and its bank account number (for example 123), with how much money is deposited in it (for example $12).",
+    "placeholders": {
+      "accountName": "Home Savings",
+      "accountNumber": "1234",
+      "amount": "$12"
+    }
+  },
+  "rallyBillAmount": "{billName} bill due {date} for {amount}.",
+  "@rallyBillAmount": {
+    "description": "Semantics label for row with a bill (example name is rent), when the bill is due (1/12/2019 for example) and for how much money ($12).",
+    "placeholders": {
+      "billName": "Rent",
+      "date": "1/24/2019",
+      "amount": "$12"
+    }
+  },
+  "rallyBudgetAmount": "{budgetName} budget with {amountUsed} used of {amountTotal}, {amountLeft} left",
+  "@rallyBudgetAmount": {
+    "description": "Semantics label for row with a budget (housing budget for example), with how much is used of the budget (for example $5), the total budget (for example $100) and the amount left in the budget (for example $95).",
+    "placeholders": {
+      "budgetName": "Groceries",
+      "amountUsed": "$5",
+      "amountTotal": "$100",
+      "amountLeft": "$95"
+    }
+  },
+  "craneDescription": "A personalized travel app",
+  "@craneDescription": {
+    "description": "Study description for Crane."
+  },
+  "homeCategoryReference": "REFERENCE STYLES & MEDIA",
+  "@homeCategoryReference": {
+    "description": "Category title on home screen for reference styles & media."
+  },
+  "demoInvalidURL": "Couldn't display URL:",
+  "@demoInvalidURL": {
+    "description": "Error message when opening the URL for a demo."
+  },
+  "demoOptionsTooltip": "Options",
+  "@demoOptionsTooltip": {
+    "description": "Tooltip for options button in a demo."
+  },
+  "demoInfoTooltip": "Info",
+  "@demoInfoTooltip": {
+    "description": "Tooltip for info button in a demo."
+  },
+  "demoCodeTooltip": "Code Sample",
+  "@demoCodeTooltip": {
+    "description": "Tooltip for code sample button in a demo."
+  },
+  "demoDocumentationTooltip": "API Documentation",
+  "@demoDocumentationTooltip": {
+    "description": "Tooltip for API documentation button in a demo."
+  },
+  "demoFullscreenTooltip": "Full Screen",
+  "@demoFullscreenTooltip": {
+    "description": "Tooltip for Full Screen button in a demo."
+  },
+  "demoCodeViewerCopyAll": "COPY ALL",
+  "@demoCodeViewerCopyAll": {
+    "description": "Caption for a button to copy all text."
+  },
+  "demoCodeViewerCopiedToClipboardMessage": "Copied to clipboard.",
+  "@demoCodeViewerCopiedToClipboardMessage": {
+    "description": "A message displayed to the user after clicking the COPY ALL button, if the text is successfully copied to the clipboard."
+  },
+  "demoCodeViewerFailedToCopyToClipboardMessage": "Failed to copy to clipboard: {error}",
+  "@demoCodeViewerFailedToCopyToClipboardMessage": {
+    "description": "A message displayed to the user after clicking the COPY ALL button, if the text CANNOT be copied to the clipboard.",
+    "placeholders": {
+      "error": {
+        "example": "Your browser does not have clipboard support."
+      }
+    }
+  },
+  "demoOptionsFeatureTitle": "View options",
+  "@demoOptionsFeatureTitle": {
+    "description": "Title for an alert that explains what the options button does."
+  },
+  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "@demoOptionsFeatureDescription": {
+    "description": "Description for an alert that explains what the options button does."
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Title for the settings screen."
+  },
+  "settingsButtonLabel": "Settings",
+  "@settingsButtonLabel": {
+    "description": "Accessibility label for the settings button when settings are not showing."
+  },
+  "settingsButtonCloseLabel": "Close settings",
+  "@settingsButtonCloseLabel": {
+    "description": "Accessibility label for the settings button when settings are showing."
+  },
+  "settingsSystemDefault": "System",
+  "@settingsSystemDefault": {
+    "description": "Option label to indicate the system default will be used."
+  },
+  "settingsTextScaling": "Text scaling",
+  "@settingsTextScaling": {
+    "description": "Title for text scaling setting."
+  },
+  "settingsTextScalingSmall": "Small",
+  "@settingsTextScalingSmall": {
+    "description": "Option label for small text scale setting."
+  },
+  "settingsTextScalingNormal": "Normal",
+  "@settingsTextScalingNormal": {
+    "description": "Option label for normal text scale setting."
+  },
+  "settingsTextScalingLarge": "Large",
+  "@settingsTextScalingLarge": {
+    "description": "Option label for large text scale setting."
+  },
+  "settingsTextScalingHuge": "Huge",
+  "@settingsTextScalingHuge": {
+    "description": "Option label for huge text scale setting."
+  },
+  "settingsTextDirection": "Text direction",
+  "@settingsTextDirection": {
+    "description": "Title for text direction setting."
+  },
+  "settingsTextDirectionLocaleBased": "Based on locale",
+  "@settingsTextDirectionLocaleBased": {
+    "description": "Option label for locale-based text direction setting."
+  },
+  "settingsTextDirectionLTR": "LTR",
+  "@settingsTextDirectionLTR": {
+    "description": "Option label for left-to-right text direction setting."
+  },
+  "settingsTextDirectionRTL": "RTL",
+  "@settingsTextDirectionRTL": {
+    "description": "Option label for right-to-left text direction setting."
+  },
+  "settingsLocale": "Locale",
+  "@settingsLocale": {
+    "description": "Title for locale setting."
+  },
+  "settingsPlatformMechanics": "Platform mechanics",
+  "@settingsPlatformMechanics": {
+    "description": "Title for platform mechanics (iOS/Android) setting."
+  },
+  "settingsPlatformAndroid": "Android",
+  "@settingsPlatformAndroid": {
+    "description": "Title for Android platform setting."
+  },
+  "settingsPlatformIOS": "iOS",
+  "@settingsPlatformIOS": {
+    "description": "Title for iOS platform setting."
+  },
+  "settingsTheme": "Theme",
+  "@settingsTheme": {
+    "description": "Title for the theme setting."
+  },
+  "settingsDarkTheme": "Dark",
+  "@settingsDarkTheme": {
+    "description": "Title for the dark theme setting."
+  },
+  "settingsLightTheme": "Light",
+  "@settingsLightTheme": {
+    "description": "Title for the light theme setting."
+  },
+  "settingsSlowMotion": "Slow motion",
+  "@settingsSlowMotion": {
+    "description": "Title for slow motion setting."
+  },
+  "settingsAbout": "About Flutter Gallery",
+  "@settingsAbout": {
+    "description": "Title for information button."
+  },
+  "settingsFeedback": "Send feedback",
+  "@settingsFeedback": {
+    "description": "Title for feedback button."
+  },
+  "settingsAttribution": "Designed by TOASTER in London",
+  "@settingsAttribution": {
+    "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
+  },
+  "demoBottomNavigationTitle": "Bottom navigation",
+  "@demoBottomNavigationTitle": {
+    "description": "Title for the material bottom navigation component demo."
+  },
+  "demoBottomNavigationSubtitle": "Bottom navigation with cross-fading views",
+  "@demoBottomNavigationSubtitle": {
+    "description": "Subtitle for the material bottom navigation component demo."
+  },
+  "demoBottomNavigationPersistentLabels": "Persistent labels",
+  "@demoBottomNavigationPersistentLabels": {
+    "description": "Option title for bottom navigation with persistent labels."
+  },
+  "demoBottomNavigationSelectedLabel": "Selected label",
+  "@demoBottomNavigationSelectedLabel": {
+    "description": "Option title for bottom navigation with only a selected label."
+  },
+  "demoBottomNavigationDescription": "Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.",
+  "@demoBottomNavigationDescription": {
+    "description": "Description for the material bottom navigation component demo."
+  },
+  "demoButtonTitle": "Buttons",
+  "@demoButtonTitle": {
+    "description": "Title for the material buttons component demo."
+  },
+  "demoButtonSubtitle": "Flat, raised, outline, and more",
+  "@demoButtonSubtitle": {
+    "description": "Subtitle for the material buttons component demo."
+  },
+  "demoFlatButtonTitle": "Flat Button",
+  "@demoFlatButtonTitle": {
+    "description": "Title for the flat button component demo."
+  },
+  "demoFlatButtonDescription": "A flat button displays an ink splash on press but does not lift. Use flat buttons on toolbars, in dialogs and inline with padding",
+  "@demoFlatButtonDescription": {
+    "description": "Description for the flat button component demo."
+  },
+  "demoRaisedButtonTitle": "Raised Button",
+  "@demoRaisedButtonTitle": {
+    "description": "Title for the raised button component demo."
+  },
+  "demoRaisedButtonDescription": "Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.",
+  "@demoRaisedButtonDescription": {
+    "description": "Description for the raised button component demo."
+  },
+  "demoOutlineButtonTitle": "Outline Button",
+  "@demoOutlineButtonTitle": {
+    "description": "Title for the outline button component demo."
+  },
+  "demoOutlineButtonDescription": "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action.",
+  "@demoOutlineButtonDescription": {
+    "description": "Description for the outline button component demo."
+  },
+  "demoToggleButtonTitle": "Toggle Buttons",
+  "@demoToggleButtonTitle": {
+    "description": "Title for the toggle buttons component demo."
+  },
+  "demoToggleButtonDescription": "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container",
+  "@demoToggleButtonDescription": {
+    "description": "Description for the toggle buttons component demo."
+  },
+  "demoFloatingButtonTitle": "Floating Action Button",
+  "@demoFloatingButtonTitle": {
+    "description": "Title for the floating action button component demo."
+  },
+  "demoFloatingButtonDescription": "A floating action button is a circular icon button that hovers over content to promote a primary action in the application.",
+  "@demoFloatingButtonDescription": {
+    "description": "Description for the floating action button component demo."
+  },
+  "demoChipTitle": "Chips",
+  "@demoChipTitle": {
+    "description": "Title for the material chips component demo."
+  },
+  "demoChipSubtitle": "Compact elements that represent an input, attribute, or action",
+  "@demoChipSubtitle": {
+    "description": "Subtitle for the material chips component demo."
+  },
+  "demoActionChipTitle": "Action Chip",
+  "@demoActionChipTitle": {
+    "description": "Title for the action chip component demo."
+  },
+  "demoActionChipDescription": "Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI.",
+  "@demoActionChipDescription": {
+    "description": "Description for the action chip component demo."
+  },
+  "demoChoiceChipTitle": "Choice Chip",
+  "@demoChoiceChipTitle": {
+    "description": "Title for the choice chip component demo."
+  },
+  "demoChoiceChipDescription": "Choice chips represent a single choice from a set. Choice chips contain related descriptive text or categories.",
+  "@demoChoiceChipDescription": {
+    "description": "Description for the choice chip component demo."
+  },
+  "demoFilterChipTitle": "Filter Chip",
+  "@demoFilterChipTitle": {
+    "description": "Title for the filter chip component demo."
+  },
+  "demoFilterChipDescription": "Filter chips use tags or descriptive words as a way to filter content.",
+  "@demoFilterChipDescription": {
+    "description": "Description for the filter chip component demo."
+  },
+  "demoInputChipTitle": "Input Chip",
+  "@demoInputChipTitle": {
+    "description": "Title for the input chip component demo."
+  },
+  "demoInputChipDescription": "Input chips represent a complex piece of information, such as an entity (person, place, or thing) or conversational text, in a compact form.",
+  "@demoInputChipDescription": {
+    "description": "Description for the input chip component demo."
+  },
+  "demoDialogTitle": "Dialogs",
+  "@demoDialogTitle": {
+    "description": "Title for the material dialog component demo."
+  },
+  "demoDialogSubtitle": "Simple, alert, and fullscreen",
+  "@demoDialogSubtitle": {
+    "description": "Subtitle for the material dialog component demo."
+  },
+  "demoAlertDialogTitle": "Alert",
+  "@demoAlertDialogTitle": {
+    "description": "Title for the alert dialog component demo."
+  },
+  "demoAlertDialogDescription": "An alert dialog informs the user about situations that require acknowledgement. An alert dialog has an optional title and an optional list of actions.",
+  "@demoAlertDialogDescription": {
+    "description": "Description for the alert dialog component demo."
+  },
+  "demoAlertTitleDialogTitle": "Alert With Title",
+  "@demoAlertTitleDialogTitle": {
+    "description": "Title for the alert dialog with title component demo."
+  },
+  "demoSimpleDialogTitle": "Simple",
+  "@demoSimpleDialogTitle": {
+    "description": "Title for the simple dialog component demo."
+  },
+  "demoSimpleDialogDescription": "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.",
+  "@demoSimpleDialogDescription": {
+    "description": "Description for the simple dialog component demo."
+  },
+  "demoFullscreenDialogTitle": "Fullscreen",
+  "@demoFullscreenDialogTitle": {
+    "description": "Title for the fullscreen dialog component demo."
+  },
+  "demoFullscreenDialogDescription": "The fullscreenDialog property specifies whether the incoming page is a fullscreen modal dialog",
+  "@demoFullscreenDialogDescription": {
+    "description": "Description for the fullscreen dialog component demo."
+  },
+  "demoCupertinoButtonsTitle": "Buttons",
+  "@demoCupertinoButtonsTitle": {
+    "description": "Title for the cupertino buttons component demo."
+  },
+  "demoCupertinoButtonsSubtitle": "iOS-style buttons",
+  "@demoCupertinoButtonsSubtitle": {
+    "description": "Subtitle for the cupertino buttons component demo."
+  },
+  "demoCupertinoButtonsDescription": "An iOS-style button. It takes in text and/or an icon that fades out and in on touch. May optionally have a background.",
+  "@demoCupertinoButtonsDescription": {
+    "description": "Description for the cupertino buttons component demo."
+  },
+  "demoCupertinoAlertsTitle": "Alerts",
+  "@demoCupertinoAlertsTitle": {
+    "description": "Title for the cupertino alerts component demo."
+  },
+  "demoCupertinoAlertsSubtitle": "iOS-style alert dialogs",
+  "@demoCupertinoAlertsSubtitle": {
+    "description": "Subtitle for the cupertino alerts component demo."
+  },
+  "demoCupertinoAlertTitle": "Alert",
+  "@demoCupertinoAlertTitle": {
+    "description": "Title for the cupertino alert component demo."
+  },
+  "demoCupertinoAlertDescription": "An alert dialog informs the user about situations that require acknowledgement. An alert dialog has an optional title, optional content, and an optional list of actions. The title is displayed above the content and the actions are displayed below the content.",
+  "@demoCupertinoAlertDescription": {
+    "description": "Description for the cupertino alert component demo."
+  },
+  "demoCupertinoAlertWithTitleTitle": "Alert With Title",
+  "@demoCupertinoAlertWithTitleTitle": {
+    "description": "Title for the cupertino alert with title component demo."
+  },
+  "demoCupertinoAlertButtonsTitle": "Alert With Buttons",
+  "@demoCupertinoAlertButtonsTitle": {
+    "description": "Title for the cupertino alert with buttons component demo."
+  },
+  "demoCupertinoAlertButtonsOnlyTitle": "Alert Buttons Only",
+  "@demoCupertinoAlertButtonsOnlyTitle": {
+    "description": "Title for the cupertino alert buttons only component demo."
+  },
+  "demoCupertinoActionSheetTitle": "Action Sheet",
+  "@demoCupertinoActionSheetTitle": {
+    "description": "Title for the cupertino action sheet component demo."
+  },
+  "demoCupertinoActionSheetDescription": "An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions.",
+  "@demoCupertinoActionSheetDescription": {
+    "description": "Description for the cupertino action sheet component demo."
+  },
+  "demoCupertinoSegmentedControlTitle": "Segmented Control",
+  "@demoCupertinoSegmentedControlTitle": {
+    "description": "Title for the cupertino segmented control component demo."
+  },
+  "demoCupertinoSegmentedControlSubtitle": "iOS-style segmented control",
+  "@demoCupertinoSegmentedControlSubtitle": {
+    "description": "Subtitle for the cupertino segmented control component demo."
+  },
+  "demoCupertinoSegmentedControlDescription": "Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.",
+  "@demoCupertinoSegmentedControlDescription": {
+    "description": "Description for the cupertino segmented control component demo."
+  },
+  "demoColorsTitle": "Colors",
+  "@demoColorsTitle": {
+    "description": "Title for the colors demo."
+  },
+  "demoColorsSubtitle": "All of the predefined colors",
+  "@demoColorsSubtitle": {
+    "description": "Subtitle for the colors demo."
+  },
+  "demoColorsDescription": "Color and color swatch constants which represent Material Design's color palette.",
+  "@demoColorsDescription": {
+    "description": "Description for the colors demo. Material Design should remain capitalized."
+  },
+  "demoTypographyTitle": "Typography",
+  "@demoTypographyTitle": {
+    "description": "Title for the typography demo."
+  },
+  "demoTypographySubtitle": "All of the predefined text styles",
+  "@demoTypographySubtitle": {
+    "description": "Subtitle for the typography demo."
+  },
+  "demoTypographyDescription": "Definitions for the various typographical styles found in Material Design.",
+  "@demoTypographyDescription": {
+    "description": "Description for the typography demo. Material Design should remain capitalized."
+  },
+  "buttonText": "BUTTON",
+  "@buttonText": {
+    "description": "Text for a generic button."
+  },
+  "demoBottomSheetTitle": "Bottom sheet",
+  "@demoBottomSheetTitle": {
+    "description": "Title for bottom sheet demo."
+  },
+  "demoBottomSheetSubtitle": "Persistent and modal bottom sheets",
+  "@demoBottomSheetSubtitle": {
+    "description": "Description for bottom sheet demo."
+  },
+  "demoBottomSheetPersistentTitle": "Persistent bottom sheet",
+  "@demoBottomSheetPersistentTitle": {
+    "description": "Title for persistent bottom sheet demo."
+  },
+  "demoBottomSheetPersistentDescription": "A persistent bottom sheet shows information that supplements the primary content of the app. A persistent bottom sheet remains visible even when the user interacts with other parts of the app.",
+  "@demoBottomSheetPersistentDescription": {
+    "description": "Description for persistent bottom sheet demo."
+  },
+  "demoBottomSheetModalTitle": "Modal bottom sheet",
+  "@demoBottomSheetModalTitle": {
+    "description": "Title for modal bottom sheet demo."
+  },
+  "demoBottomSheetModalDescription": "A modal bottom sheet is an alternative to a menu or a dialog and prevents the user from interacting with the rest of the app.",
+  "@demoBottomSheetModalDescription": {
+    "description": "Description for modal bottom sheet demo."
+  },
+  "demoBottomSheetAddLabel": "Add",
+  "@demoBottomSheetAddLabel": {
+    "description": "Semantic label for add icon."
+  },
+  "demoBottomSheetButtonText": "SHOW BOTTOM SHEET",
+  "@demoBottomSheetButtonText": {
+    "description": "Button text to show bottom sheet."
+  },
+  "demoBottomSheetHeader": "Header",
+  "@demoBottomSheetHeader": {
+    "description": "Generic header placeholder."
+  },
+  "demoBottomSheetItem": "Item {value}",
+  "@demoBottomSheetItem": {
+    "description": "Generic item placeholder.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoListsTitle": "Lists",
+  "@demoListsTitle": {
+    "description": "Title for lists demo."
+  },
+  "demoListsSubtitle": "Scrolling list layouts",
+  "@demoListsSubtitle": {
+    "description": "Subtitle for lists demo."
+  },
+  "demoListsDescription": "A single fixed-height row that typically contains some text as well as a leading or trailing icon.",
+  "@demoListsDescription": {
+    "description": "Description for lists demo. This describes what a single row in a list consists of."
+  },
+  "demoOneLineListsTitle": "One Line",
+  "@demoOneLineListsTitle": {
+    "description": "Title for lists demo with only one line of text per row."
+  },
+  "demoTwoLineListsTitle": "Two Lines",
+  "@demoTwoLineListsTitle": {
+    "description": "Title for lists demo with two lines of text per row."
+  },
+  "demoListsSecondary": "Secondary text",
+  "@demoListsSecondary": {
+    "description": "Text that appears in the second line of a list item."
+  },
+  "demoTabsTitle": "Tabs",
+  "@demoTabsTitle": {
+    "description": "Title for tabs demo."
+  },
+  "demoTabsSubtitle": "Tabs with independently scrollable views",
+  "@demoTabsSubtitle": {
+    "description": "Subtitle for tabs demo."
+  },
+  "demoTabsDescription": "Tabs organize content across different screens, data sets, and other interactions.",
+  "@demoTabsDescription": {
+    "description": "Description for tabs demo."
+  },
+  "demoSelectionControlsTitle": "Selection controls",
+  "@demoSelectionControlsTitle": {
+    "description": "Title for selection controls demo."
+  },
+  "demoSelectionControlsSubtitle": "Checkboxes, radio buttons, and switches",
+  "@demoSelectionControlsSubtitle": {
+    "description": "Subtitle for selection controls demo."
+  },
+  "demoSelectionControlsCheckboxTitle": "Checkbox",
+  "@demoSelectionControlsCheckboxTitle": {
+    "description": "Title for the checkbox (selection controls) demo."
+  },
+  "demoSelectionControlsCheckboxDescription": "Checkboxes allow the user to select multiple options from a set. A normal checkbox's value is true or false and a tristate checkbox's value can also be null.",
+  "@demoSelectionControlsCheckboxDescription": {
+    "description": "Description for the checkbox (selection controls) demo."
+  },
+  "demoSelectionControlsRadioTitle": "Radio",
+  "@demoSelectionControlsRadioTitle": {
+    "description": "Title for the radio button (selection controls) demo."
+  },
+  "demoSelectionControlsRadioDescription": "Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.",
+  "@demoSelectionControlsRadioDescription": {
+    "description": "Description for the radio button (selection controls) demo."
+  },
+  "demoSelectionControlsSwitchTitle": "Switch",
+  "@demoSelectionControlsSwitchTitle": {
+    "description": "Title for the switches (selection controls) demo."
+  },
+  "demoSelectionControlsSwitchDescription": "On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.",
+  "@demoSelectionControlsSwitchDescription": {
+    "description": "Description for the switches (selection controls) demo."
+  },
+  "demoBottomTextFieldsTitle": "Text fields",
+  "@demoBottomTextFieldsTitle": {
+    "description": "Title for text fields demo."
+  },
+  "demoBottomSheetSubtitle": "Persistent and modal bottom sheets",
+  "@demoBottomSheetSubtitle": {
+    "description": "Description for bottom sheet demo."
+  },
+  "demoTextFieldTitle": "Text fields",
+  "@demoTextFieldTitle": {
+    "description": "Title for text fields demo."
+  },
+  "demoTextFieldSubtitle": "Single line of editable text and numbers",
+  "@demoTextFieldSubtitle": {
+    "description": "Description for text fields demo."
+  },
+  "demoTextFieldDescription": "Text fields allow users to enter text into a UI. They typically appear in forms and dialogs.",
+  "@demoTextFieldDescription": {
+    "description": "Description for text fields demo."
+  },
+  "demoTextFieldShowPasswordLabel": "Show password",
+  "@demoTextFieldShowPasswordLabel": {
+    "description": "Label for show password icon."
+  },
+  "demoTextFieldHidePasswordLabel": "Hide password",
+  "@demoTextFieldHidePasswordLabel": {
+    "description": "Label for hide password icon."
+  },
+  "demoTextFieldFormErrors": "Please fix the errors in red before submitting.",
+  "@demoTextFieldFormErrors": {
+    "description": "Text that shows up on form errors."
+  },
+  "demoTextFieldNameRequired": "Name is required.",
+  "@demoTextFieldNameRequired": {
+    "description": "Shows up as submission error if name is not given in the form."
+  },
+  "demoTextFieldOnlyAlphabeticalChars": "Please enter only alphabetical characters.",
+  "@demoTextFieldOnlyAlphabeticalChars": {
+    "description": "Error that shows if non-alphabetical characters are given."
+  },
+  "demoTextFieldEnterUSPhoneNumber": "(###) ###-#### - Enter a US phone number.",
+  "@demoTextFieldEnterUSPhoneNumber": {
+    "description": "Error that shows up if non-valid non-US phone number is given."
+  },
+  "demoTextFieldEnterPassword": "Please enter a password.",
+  "@demoTextFieldEnterPassword": {
+    "description": "Error that shows up if password is not given."
+  },
+  "demoTextFieldPasswordsDoNotMatch": "The passwords don't match",
+  "@demoTextFieldPasswordsDoNotMatch": {
+    "description": "Error that shows up, if the re-typed password does not match the already given password."
+  },
+  "demoTextFieldWhatDoPeopleCallYou": "What do people call you?",
+  "@demoTextFieldWhatDoPeopleCallYou": {
+    "description": "Placeholder for name field in form."
+  },
+  "demoTextFieldNameField": "Name*",
+  "@demoTextFieldNameField": {
+    "description": "The label for a name input field that is required (hence the star)."
+  },
+  "demoTextFieldWhereCanWeReachYou": "Where can we reach you?",
+  "@demoTextFieldWhereCanWeReachYou": {
+    "description": "Placeholder for when entering a phone number in a form."
+  },
+  "demoTextFieldPhoneNumber": "Phone number*",
+  "@demoTextFieldPhoneNumber": {
+    "description": "The label for a phone number input field that is required (hence the star)."
+  },
+  "demoTextFieldYourEmailAddress": "Your email address",
+  "@demoTextFieldYourEmailAddress": {
+    "description": "The label for an email address input field."
+  },
+  "demoTextFieldEmail": "E-mail",
+  "@demoTextFieldEmail": {
+    "description": "The label for an email address input field"
+  },
+  "demoTextFieldTellUsAboutYourself": "Tell us about yourself (e.g., write down what you do or what hobbies you have)",
+  "@demoTextFieldTellUsAboutYourself": {
+    "description": "The placeholder text for biography/life story input field."
+  },
+  "demoTextFieldKeepItShort": "Keep it short, this is just a demo.",
+  "@demoTextFieldKeepItShort": {
+    "description": "Helper text for biography/life story input field."
+  },
+  "demoTextFieldLifeStory": "Life story",
+  "@demoTextFieldLifeStory": {
+    "description": "The label for for biography/life story input field."
+  },
+  "demoTextFieldSalary": "Salary",
+  "@demoTextFieldSalary": {
+    "description": "The label for salary input field."
+  },
+  "demoTextFieldUSD": "USD",
+  "@demoTextFieldUSD": {
+    "description": "US currency, used as suffix in input field for salary."
+  },
+  "demoTextFieldNoMoreThan": "No more than 8 characters.",
+  "@demoTextFieldNoMoreThan": {
+    "description": "Helper text for password input field."
+  },
+  "demoTextFieldPassword": "Password*",
+  "@demoTextFieldPassword": {
+    "description": "Label for password input field, that is required (hence the star)."
+  },
+  "demoTextFieldRetypePassword": "Re-type password*",
+  "@demoTextFieldRetypePassword": {
+    "description": "Label for repeat password input field."
+  },
+  "demoTextFieldSubmit": "SUBMIT",
+  "@demoTextFieldSubmit": {
+    "description": "The submit button text for form."
+  },
+  "demoTextFieldNameHasPhoneNumber": "{name} phone number is {phoneNumber}",
+  "@demoTextFieldNameHasPhoneNumber": {
+    "description": "Text that shows up when valid phone number and name is submitted in form.",
+    "placeholders": {
+      "name": {
+        "example": "Peter"
+      },
+      "phoneNumber": {
+        "phoneNumber": "+1 (000) 000-0000"
+      }
+    }
+  },
+  "demoTextFieldRequiredField": "* indicates required field",
+  "@demoTextFieldRequiredField": {
+    "description": "Helper text to indicate that * means that it is a required field."
+  },
+  "bottomNavigationCommentsTab": "Comments",
+  "@bottomNavigationCommentsTab": {
+    "description": "Title for Comments tab of bottom navigation."
+  },
+  "bottomNavigationCalendarTab": "Calendar",
+  "@bottomNavigationCalendarTab": {
+    "description": "Title for Calendar tab of bottom navigation."
+  },
+  "bottomNavigationAccountTab": "Account",
+  "@bottomNavigationAccountTab": {
+    "description": "Title for Account tab of bottom navigation."
+  },
+  "bottomNavigationAlarmTab": "Alarm",
+  "@bottomNavigationAlarmTab": {
+    "description": "Title for Alarm tab of bottom navigation."
+  },
+  "bottomNavigationCameraTab": "Camera",
+  "@bottomNavigationCameraTab": {
+    "description": "Title for Camera tab of bottom navigation."
+  },
+  "bottomNavigationContentPlaceholder": "Placeholder for {title} tab",
+  "@bottomNavigationContentPlaceholder": {
+    "description": "Accessibility label for the content placeholder in the bottom navigation demo",
+    "placeholders": {
+      "title": {
+        "example": "Account"
+      }
+    }
+  },
+  "buttonTextCreate": "Create",
+  "@buttonTextCreate": {
+    "description": "Tooltip text for a create button."
+  },
+  "dialogSelectedOption": "You selected: \"{value}\"",
+  "@dialogSelectedOption": {
+    "description": "Message displayed after an option is selected from a dialog",
+    "placeholders": {
+      "value": {
+        "example": "AGREE"
+      }
+    }
+  },
+  "chipTurnOnLights": "Turn on lights",
+  "@chipTurnOnLights": {
+    "description": "A chip component to turn on the lights."
+  },
+  "chipSmall": "Small",
+  "@chipSmall": {
+    "description": "A chip component to select a small size."
+  },
+  "chipMedium": "Medium",
+  "@chipMedium": {
+    "description": "A chip component to select a medium size."
+  },
+  "chipLarge": "Large",
+  "@chipLarge": {
+    "description": "A chip component to select a large size."
+  },
+  "chipElevator": "Elevator",
+  "@chipElevator": {
+    "description": "A chip component to filter selection by elevators."
+  },
+  "chipWasher": "Washer",
+  "@chipWasher": {
+    "description": "A chip component to filter selection by washers."
+  },
+  "chipFireplace": "Fireplace",
+  "@chipFireplace": {
+    "description": "A chip component to filter selection by fireplaces."
+  },
+  "chipBiking": "Biking",
+  "@chipBiking": {
+    "description": "A chip component to that indicates a biking selection."
+  },
+  "dialogDiscardTitle": "Discard draft?",
+  "@dialogDiscardTitle": {
+    "description": "Alert dialog message to discard draft."
+  },
+  "dialogLocationTitle": "Use Google's location service?",
+  "@dialogLocationTitle": {
+    "description": "Alert dialog title to use location services."
+  },
+  "dialogLocationDescription": "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.",
+  "@dialogLocationDescription": {
+    "description": "Alert dialog description to use location services."
+  },
+  "dialogCancel": "CANCEL",
+  "@dialogCancel": {
+    "description": "Alert dialog cancel option."
+  },
+  "dialogDiscard": "DISCARD",
+  "@dialogDiscard": {
+    "description": "Alert dialog discard option."
+  },
+  "dialogDisagree": "DISAGREE",
+  "@dialogDisagree": {
+    "description": "Alert dialog disagree option."
+  },
+  "dialogAgree": "AGREE",
+  "@dialogAgree": {
+    "description": "Alert dialog agree option."
+  },
+  "dialogSetBackup": "Set backup account",
+  "@dialogSetBackup": {
+    "description": "Alert dialog title for setting a backup account."
+  },
+  "dialogAddAccount": "Add account",
+  "@dialogAddAccount": {
+    "description": "Alert dialog option for adding an account."
+  },
+  "dialogShow": "SHOW DIALOG",
+  "@dialogShow": {
+    "description": "Button text to display a dialog."
+  },
+  "dialogFullscreenTitle": "Full Screen Dialog",
+  "@dialogFullscreenTitle": {
+    "description": "Title for full screen dialog demo."
+  },
+  "dialogFullscreenSave": "SAVE",
+  "@dialogFullscreenSave": {
+    "description": "Save button for full screen dialog demo."
+  },
+  "dialogFullscreenDescription": "A full screen dialog demo",
+  "@dialogFullscreenDescription": {
+    "description": "Description for full screen dialog demo."
+  },
+  "cupertinoButton": "Button",
+  "@cupertinoButton": {
+    "description": "Button text for a generic iOS-style button."
+  },
+  "cupertinoButtonWithBackground": "With Background",
+  "@cupertinoButtonWithBackground": {
+    "description": "Button text for a iOS-style button with a filled background."
+  },
+  "cupertinoAlertCancel": "Cancel",
+  "@cupertinoAlertCancel": {
+    "description": "iOS-style alert cancel option."
+  },
+  "cupertinoAlertDiscard": "Discard",
+  "@cupertinoAlertDiscard": {
+    "description": "iOS-style alert discard option."
+  },
+  "cupertinoAlertLocationTitle": "Allow \"Maps\" to access your location while you are using the app?",
+  "@cupertinoAlertLocationTitle": {
+    "description": "iOS-style alert title for location permission."
+  },
+  "cupertinoAlertLocationDescription": "Your current location will be displayed on the map and used for directions, nearby search results, and estimated travel times.",
+  "@cupertinoAlertLocationDescription": {
+    "description": "iOS-style alert description for location permission."
+  },
+  "cupertinoAlertAllow": "Allow",
+  "@cupertinoAlertAllow": {
+    "description": "iOS-style alert allow option."
+  },
+  "cupertinoAlertDontAllow": "Don't Allow",
+  "@cupertinoAlertDontAllow": {
+    "description": "iOS-style alert don't allow option."
+  },
+  "cupertinoAlertFavoriteDessert": "Select Favorite Dessert",
+  "@cupertinoAlertFavoriteDessert": {
+    "description": "iOS-style alert title for selecting favorite dessert."
+  },
+  "cupertinoAlertDessertDescription": "Please select your favorite type of dessert from the list below. Your selection will be used to customize the suggested list of eateries in your area.",
+  "@cupertinoAlertDessertDescription": {
+    "description": "iOS-style alert description for selecting favorite dessert."
+  },
+  "cupertinoAlertCheesecake": "Cheesecake",
+  "@cupertinoAlertCheesecake": {
+    "description": "iOS-style alert cheesecake option."
+  },
+  "cupertinoAlertTiramisu": "Tiramisu",
+  "@cupertinoAlertTiramisu": {
+    "description": "iOS-style alert tiramisu option."
+  },
+  "cupertinoAlertApplePie": "Apple Pie",
+  "@cupertinoAlertApplePie": {
+    "description": "iOS-style alert apple pie option."
+  },
+  "cupertinoAlertChocolateBrownie": "Chocolate Brownie",
+  "@cupertinoAlertChocolateBrownie": {
+    "description": "iOS-style alert chocolate brownie option."
+  },
+  "cupertinoShowAlert": "Show Alert",
+  "@cupertinoShowAlert": {
+    "description": "Button text to show iOS-style alert."
+  },
+  "colorsRed": "RED",
+  "@colorsRed": {
+    "description": "Tab title for the color red."
+  },
+  "colorsPink": "PINK",
+  "@colorsPink": {
+    "description": "Tab title for the color pink."
+  },
+  "colorsPurple": "PURPLE",
+  "@colorsPurple": {
+    "description": "Tab title for the color purple."
+  },
+  "colorsDeepPurple": "DEEP PURPLE",
+  "@colorsDeepPurple": {
+    "description": "Tab title for the color deep purple."
+  },
+  "colorsIndigo": "INDIGO",
+  "@colorsIndigo": {
+    "description": "Tab title for the color indigo."
+  },
+  "colorsBlue": "BLUE",
+  "@colorsBlue": {
+    "description": "Tab title for the color blue."
+  },
+  "colorsLightBlue": "LIGHT BLUE",
+  "@colorsLightBlue": {
+    "description": "Tab title for the color light blue."
+  },
+  "colorsCyan": "CYAN",
+  "@colorsCyan": {
+    "description": "Tab title for the color cyan."
+  },
+  "colorsTeal": "TEAL",
+  "@colorsTeal": {
+    "description": "Tab title for the color teal."
+  },
+  "colorsGreen": "GREEN",
+  "@colorsGreen": {
+    "description": "Tab title for the color green."
+  },
+  "colorsLightGreen": "LIGHT GREEN",
+  "@colorsLightGreen": {
+    "description": "Tab title for the color light green."
+  },
+  "colorsLime": "LIME",
+  "@colorsLime": {
+    "description": "Tab title for the color lime."
+  },
+  "colorsYellow": "YELLOW",
+  "@colorsYellow": {
+    "description": "Tab title for the color yellow."
+  },
+  "colorsAmber": "AMBER",
+  "@colorsAmber": {
+    "description": "Tab title for the color amber."
+  },
+  "colorsOrange": "ORANGE",
+  "@colorsOrange": {
+    "description": "Tab title for the color orange."
+  },
+  "colorsDeepOrange": "DEEP ORANGE",
+  "@colorsDeepOrange": {
+    "description": "Tab title for the color deep orange."
+  },
+  "colorsBrown": "BROWN",
+  "@colorsBrown": {
+    "description": "Tab title for the color brown."
+  },
+  "colorsGrey": "GREY",
+  "@colorsGrey": {
+    "description": "Tab title for the color grey."
+  },
+  "colorsBlueGrey": "BLUE GREY",
+  "@colorsBlueGrey": {
+    "description": "Tab title for the color blue grey."
+  },
+  "starterAppTitle": "Starter app",
+  "@starterAppTitle": {
+    "description": "The title and name for the starter app."
+  },
+  "starterAppDescription": "A responsive starter layout",
+  "@starterAppDescription": {
+    "description": "The description for the starter app."
+  },
+  "starterAppGenericButton": "BUTTON",
+  "@starterAppGenericButton": {
+    "description": "Generic placeholder for button."
+  },
+  "starterAppTooltipAdd": "Add",
+  "@starterAppTooltipAdd": {
+    "description": "Tooltip on add icon."
+  },
+  "starterAppTooltipFavorite": "Favorite",
+  "@starterAppTooltipFavorite": {
+    "description": "Tooltip on favorite icon."
+  },
+  "starterAppTooltipShare": "Share",
+  "@starterAppTooltipShare": {
+    "description": "Tooltip on share icon."
+  },
+  "starterAppTooltipSearch": "Search",
+  "@starterAppTooltipSearch": {
+    "description": "Tooltip on search icon."
+  },
+  "starterAppGenericTitle": "Title",
+  "@starterAppGenericTitle": {
+    "description": "Generic placeholder for title in app bar."
+  },
+  "starterAppGenericSubtitle": "Subtitle",
+  "@starterAppGenericSubtitle": {
+    "description": "Generic placeholder for subtitle in drawer."
+  },
+  "starterAppGenericHeadline": "Headline",
+  "@starterAppGenericHeadline": {
+    "description": "Generic placeholder for headline in drawer."
+  },
+  "starterAppGenericBody": "Body",
+  "@starterAppGenericBody": {
+    "description": "Generic placeholder for body text in drawer."
+  },
+  "starterAppDrawerItem": "Item {value}",
+  "@starterAppDrawerItem": {
+    "description": "Generic placeholder drawer item.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "shrineMenuCaption": "MENU",
+  "@shrineMenuCaption": {
+    "description": "Caption for a menu page."
+  },
+  "shrineCategoryNameAll": "ALL",
+  "@shrineCategoryNameAll": {
+    "description": "A tab showing products from all categories."
+  },
+  "shrineCategoryNameAccessories": "ACCESSORIES",
+  "@shrineCategoryNameAccessories": {
+    "description": "A category of products consisting of accessories (clothing items)."
+  },
+  "shrineCategoryNameClothing": "CLOTHING",
+  "@shrineCategoryNameClothing": {
+    "description": "A category of products consisting of clothing."
+  },
+  "shrineCategoryNameHome": "HOME",
+  "@shrineCategoryNameHome": {
+    "description": "A category of products consisting of items used at home."
+  },
+  "shrineLogoutButtonCaption": "LOGOUT",
+  "@shrineLogoutButtonCaption": {
+    "description": "Label for a logout button."
+  },
+  "shrineLoginUsernameLabel": "Username",
+  "@shrineLoginUsernameLabel": {
+    "description": "On the login screen, a label for a textfield for the user to input their username."
+  },
+  "shrineLoginPasswordLabel": "Password",
+  "@shrineLoginPasswordLabel": {
+    "description": "On the login screen, a label for a textfield for the user to input their password."
+  },
+  "shrineCancelButtonCaption": "CANCEL",
+  "@shrineCancelButtonCaption": {
+    "description": "On the login screen, the caption for a button to cancel login."
+  },
+  "shrineNextButtonCaption": "NEXT",
+  "@shrineNextButtonCaption": {
+    "description": "On the login screen, the caption for a button to proceed login."
+  },
+  "shrineCartPageCaption": "CART",
+  "@shrineCartPageCaption": {
+    "description": "Caption for a shopping cart page."
+  },
+  "shrineProductQuantity": "Quantity: {quantity}",
+  "@shrineProductQuantity": {
+    "description": "A text showing the number of items for a specific product.",
+    "placeholders": {
+      "quantity": {
+        "example": "3"
+      }
+    }
+  },
+  "shrineProductPrice": "x {price}",
+  "@shrineProductPrice": {
+    "description": "A text showing the unit price of each product. Used as: 'Quantity: 3 x $129'. The currency will be handled by the formatter.",
+    "placeholders": {
+      "price": {
+        "example": "$129"
+      }
+    }
+  },
+  "shrineCartItemCount": "{quantity, plural, =0{NO ITEMS} =1{1 ITEM} other{{quantity} ITEMS}}",
+  "@shrineCartItemCount": {
+    "description": "A text showing the total number of items in the cart.",
+    "placeholders": {
+      "quantity": {
+        "example": "3"
+      }
+    }
+  },
+  "shrineCartClearButtonCaption": "CLEAR CART",
+  "@shrineCartClearButtonCaption": {
+    "description": "Caption for a button used to clear the cart."
+  },
+  "shrineCartTotalCaption": "TOTAL",
+  "@shrineCartTotalCaption": {
+    "description": "Label for a text showing total price of the items in the cart."
+  },
+  "shrineCartSubtotalCaption": "Subtotal:",
+  "@shrineCartSubtotalCaption": {
+    "description": "Label for a text showing the subtotal price of the items in the cart (excluding shipping and tax)."
+  },
+  "shrineCartShippingCaption": "Shipping:",
+  "@shrineCartShippingCaption": {
+    "description": "Label for a text showing the shipping cost for the items in the cart."
+  },
+  "shrineCartTaxCaption": "Tax:",
+  "@shrineCartTaxCaption": {
+    "description": "Label for a text showing the tax for the items in the cart."
+  },
+  "shrineProductVagabondSack": "Vagabond sack",
+  "@shrineProductVagabondSack": {
+    "description": "Name of the product 'Vagabond sack'."
+  },
+  "shrineProductStellaSunglasses": "Stella sunglasses",
+  "@shrineProductStellaSunglasses": {
+    "description": "Name of the product 'Stella sunglasses'."
+  },
+  "shrineProductWhitneyBelt": "Whitney belt",
+  "@shrineProductWhitneyBelt": {
+    "description": "Name of the product 'Whitney belt'."
+  },
+  "shrineProductGardenStrand": "Garden strand",
+  "@shrineProductGardenStrand": {
+    "description": "Name of the product 'Garden strand'."
+  },
+  "shrineProductStrutEarrings": "Strut earrings",
+  "@shrineProductStrutEarrings": {
+    "description": "Name of the product 'Strut earrings'."
+  },
+  "shrineProductVarsitySocks": "Varsity socks",
+  "@shrineProductVarsitySocks": {
+    "description": "Name of the product 'Varsity socks'."
+  },
+  "shrineProductWeaveKeyring": "Weave keyring",
+  "@shrineProductWeaveKeyring": {
+    "description": "Name of the product 'Weave keyring'."
+  },
+  "shrineProductGatsbyHat": "Gatsby hat",
+  "@shrineProductGatsbyHat": {
+    "description": "Name of the product 'Gatsby hat'."
+  },
+  "shrineProductShrugBag": "Shrug bag",
+  "@shrineProductShrugBag": {
+    "description": "Name of the product 'Shrug bag'."
+  },
+  "shrineProductGiltDeskTrio": "Gilt desk trio",
+  "@shrineProductGiltDeskTrio": {
+    "description": "Name of the product 'Gilt desk trio'."
+  },
+  "shrineProductCopperWireRack": "Copper wire rack",
+  "@shrineProductCopperWireRack": {
+    "description": "Name of the product 'Copper wire rack'."
+  },
+  "shrineProductSootheCeramicSet": "Soothe ceramic set",
+  "@shrineProductSootheCeramicSet": {
+    "description": "Name of the product 'Soothe ceramic set'."
+  },
+  "shrineProductHurrahsTeaSet": "Hurrahs tea set",
+  "@shrineProductHurrahsTeaSet": {
+    "description": "Name of the product 'Hurrahs tea set'."
+  },
+  "shrineProductBlueStoneMug": "Blue stone mug",
+  "@shrineProductBlueStoneMug": {
+    "description": "Name of the product 'Blue stone mug'."
+  },
+  "shrineProductRainwaterTray": "Rainwater tray",
+  "@shrineProductRainwaterTray": {
+    "description": "Name of the product 'Rainwater tray'."
+  },
+  "shrineProductChambrayNapkins": "Chambray napkins",
+  "@shrineProductChambrayNapkins": {
+    "description": "Name of the product 'Chambray napkins'."
+  },
+  "shrineProductSucculentPlanters": "Succulent planters",
+  "@shrineProductSucculentPlanters": {
+    "description": "Name of the product 'Succulent planters'."
+  },
+  "shrineProductQuartetTable": "Quartet table",
+  "@shrineProductQuartetTable": {
+    "description": "Name of the product 'Quartet table'."
+  },
+  "shrineProductKitchenQuattro": "Kitchen quattro",
+  "@shrineProductKitchenQuattro": {
+    "description": "Name of the product 'Kitchen quattro'."
+  },
+  "shrineProductClaySweater": "Clay sweater",
+  "@shrineProductClaySweater": {
+    "description": "Name of the product 'Clay sweater'."
+  },
+  "shrineProductSeaTunic": "Sea tunic",
+  "@shrineProductSeaTunic": {
+    "description": "Name of the product 'Sea tunic'."
+  },
+  "shrineProductPlasterTunic": "Plaster tunic",
+  "@shrineProductPlasterTunic": {
+    "description": "Name of the product 'Plaster tunic'."
+  },
+  "shrineProductWhitePinstripeShirt": "White pinstripe shirt",
+  "@shrineProductWhitePinstripeShirt": {
+    "description": "Name of the product 'White pinstripe shirt'."
+  },
+  "shrineProductChambrayShirt": "Chambray shirt",
+  "@shrineProductChambrayShirt": {
+    "description": "Name of the product 'Chambray shirt'."
+  },
+  "shrineProductSeabreezeSweater": "Seabreeze sweater",
+  "@shrineProductSeabreezeSweater": {
+    "description": "Name of the product 'Seabreeze sweater'."
+  },
+  "shrineProductGentryJacket": "Gentry jacket",
+  "@shrineProductGentryJacket": {
+    "description": "Name of the product 'Gentry jacket'."
+  },
+  "shrineProductNavyTrousers": "Navy trousers",
+  "@shrineProductNavyTrousers": {
+    "description": "Name of the product 'Navy trousers'."
+  },
+  "shrineProductWalterHenleyWhite": "Walter henley (white)",
+  "@shrineProductWalterHenleyWhite": {
+    "description": "Name of the product 'Walter henley (white)'."
+  },
+  "shrineProductSurfAndPerfShirt": "Surf and perf shirt",
+  "@shrineProductSurfAndPerfShirt": {
+    "description": "Name of the product 'Surf and perf shirt'."
+  },
+  "shrineProductGingerScarf": "Ginger scarf",
+  "@shrineProductGingerScarf": {
+    "description": "Name of the product 'Ginger scarf'."
+  },
+  "shrineProductRamonaCrossover": "Ramona crossover",
+  "@shrineProductRamonaCrossover": {
+    "description": "Name of the product 'Ramona crossover'."
+  },
+  "shrineProductChambrayShirt": "Chambray shirt",
+  "@shrineProductChambrayShirt": {
+    "description": "Name of the product 'Chambray shirt'."
+  },
+  "shrineProductClassicWhiteCollar": "Classic white collar",
+  "@shrineProductClassicWhiteCollar": {
+    "description": "Name of the product 'Classic white collar'."
+  },
+  "shrineProductCeriseScallopTee": "Cerise scallop tee",
+  "@shrineProductCeriseScallopTee": {
+    "description": "Name of the product 'Cerise scallop tee'."
+  },
+  "shrineProductShoulderRollsTee": "Shoulder rolls tee",
+  "@shrineProductShoulderRollsTee": {
+    "description": "Name of the product 'Shoulder rolls tee'."
+  },
+  "shrineProductGreySlouchTank": "Grey slouch tank",
+  "@shrineProductGreySlouchTank": {
+    "description": "Name of the product 'Grey slouch tank'."
+  },
+  "shrineProductSunshirtDress": "Sunshirt dress",
+  "@shrineProductSunshirtDress": {
+    "description": "Name of the product 'Sunshirt dress'."
+  },
+  "shrineProductFineLinesTee": "Fine lines tee",
+  "@shrineProductFineLinesTee": {
+    "description": "Name of the product 'Fine lines tee'."
+  },
+  "shrineTooltipSearch": "Search",
+  "@shrineTooltipSearch": {
+    "description": "The tooltip text for a search button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "shrineTooltipSettings": "Settings",
+  "@shrineTooltipSettings": {
+    "description": "The tooltip text for a settings button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "shrineTooltipOpenMenu": "Open menu",
+  "@shrineTooltipOpenMenu": {
+    "description": "The tooltip text for a menu button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "shrineTooltipCloseMenu": "Close menu",
+  "@shrineTooltipCloseMenu": {
+    "description": "The tooltip text for a button to close a menu. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "shrineTooltipCloseCart": "Close cart",
+  "@shrineTooltipCloseCart": {
+    "description": "The tooltip text for a button to close the shopping cart page. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "shrineScreenReaderCart": "{quantity, plural, =0{Shopping cart, no items} =1{Shopping cart, 1 item} other{Shopping cart, {quantity} items}}",
+  "@shrineScreenReaderCart": {
+    "description": "The description of a shopping cart button containing some products. Used by screen readers, such as TalkBack and VoiceOver.",
+    "placeholders": {
+      "quantity": {
+        "example": "3"
+      }
+    }
+  },
+  "shrineScreenReaderProductAddToCart": "Add to cart",
+  "@shrineScreenReaderProductAddToCart": {
+    "description": "An announcement made by screen readers, such as TalkBack and VoiceOver to indicate the action of a button for adding a product to the cart."
+  },
+  "shrineScreenReaderRemoveProductButton": "Remove {product}",
+  "@shrineScreenReaderRemoveProductButton": {
+    "description": "A tooltip for a button to remove a product. This will be read by screen readers, such as TalkBack and VoiceOver when a product is added to the shopping cart.",
+    "placeholders": {
+      "product": {
+        "example": "Ginger scarf"
+      }
+    }
+  },
+  "shrineTooltipRemoveItem": "Remove item",
+  "@shrineTooltipRemoveItem": {
+    "description": "The tooltip text for a button to remove an item (a product) in a shopping cart. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver."
+  },
+  "craneFormDiners": "Diners",
+  "@craneFormDiners": {
+    "description": "Form field label to enter the number of diners."
+  },
+  "craneFormDate": "Select Date",
+  "@craneFormDate": {
+    "description": "Form field label to select a date."
+  },
+  "craneFormTime": "Select Time",
+  "@craneFormTime": {
+    "description": "Form field label to select a time."
+  },
+  "craneFormLocation": "Select Location",
+  "@craneFormLocation": {
+    "description": "Form field label to select a location."
+  },
+  "craneFormTravelers": "Travelers",
+  "@craneFormTravelers": {
+    "description": "Form field label to select the number of travellers."
+  },
+  "craneFormOrigin": "Choose Origin",
+  "@craneFormOrigin": {
+    "description": "Form field label to choose a travel origin."
+  },
+  "craneFormDestination": "Choose Destination",
+  "@craneFormDestination": {
+    "description": "Form field label to choose a travel destination."
+  },
+  "craneFormDates": "Select Dates",
+  "@craneFormDates": {
+    "description": "Form field label to select multiple dates."
+  },
+  "craneFly": "FLY",
+  "@craneFly": {
+    "description": "Title for FLY tab."
+  },
+  "craneSleep": "SLEEP",
+  "@craneSleep": {
+    "description": "Title for SLEEP tab."
+  },
+  "craneEat": "EAT",
+  "@craneEat": {
+    "description": "Title for EAT tab."
+  },
+  "craneFlySubhead": "Explore Flights by Destination",
+  "@craneFlySubhead": {
+    "description": "Subhead for FLY tab."
+  },
+  "craneSleepSubhead": "Explore Properties by Destination",
+  "@craneSleepSubhead": {
+    "description": "Subhead for SLEEP tab."
+  },
+  "craneEatSubhead": "Explore Restaurants by Destination",
+  "@craneEatSubhead": {
+    "description": "Subhead for EAT tab."
+  },
+  "craneFlyStops": "{numberOfStops, plural, =0{Nonstop} =1{1 stop} other{{numberOfStops} stops}}",
+  "@craneFlyStops": {
+    "description": "Label indicating if a flight is nonstop or how many layovers it includes.",
+    "placeholders": {
+      "numberOfStops": {
+        "example": 2
+      }
+    }
+  },
+  "craneSleepProperties": "{totalProperties, plural, =0{No Available Properties} =1{1 Available Properties} other{{totalProperties} Available Properties}}",
+  "@craneSleepProperties": {
+    "description": "Text indicating the number of available properties (temporary rentals). Always plural.",
+    "placeholders": {
+      "totalProperties": {
+        "example": "100"
+      }
+    }
+  },
+  "craneEatRestaurants": "{totalRestaurants, plural, =0{No Restaurants} =1{1 Restaurant} other{{totalRestaurants} Restaurants}}",
+  "@craneEatRestaurants": {
+    "description": "Text indicating the number of restaurants. Always plural.",
+    "placeholders": {
+      "totalRestaurants": {
+        "example": "100"
+      }
+    }
+  },
+  "craneFly0": "Aspen, United States",
+  "@craneFly0": {
+    "description": "Label for city."
+  },
+  "craneFly1": "Big Sur, United States",
+  "@craneFly1": {
+    "description": "Label for city."
+  },
+  "craneFly2": "Khumbu Valley, Nepal",
+  "@craneFly2": {
+    "description": "Label for city."
+  },
+  "craneFly3": "Machu Picchu, Peru",
+  "@craneFly3": {
+    "description": "Label for city."
+  },
+  "craneFly4": "Malé, Maldives",
+  "@craneFly4": {
+    "description": "Label for city."
+  },
+  "craneFly5": "Vitznau, Switzerland",
+  "@craneFly5": {
+    "description": "Label for city."
+  },
+  "craneFly6": "Mexico City, Mexico",
+  "@craneFly6": {
+    "description": "Label for city."
+  },
+  "craneFly7": "Mount Rushmore, United States",
+  "@craneFly7": {
+    "description": "Label for city."
+  },
+  "craneFly8": "Singapore",
+  "@craneFly8": {
+    "description": "Label for city."
+  },
+  "craneFly9": "Havana, Cuba",
+  "@craneFly9": {
+    "description": "Label for city."
+  },
+  "craneFly10": "Cairo, Egypt",
+  "@craneFly10": {
+    "description": "Label for city."
+  },
+  "craneFly11": "Lisbon, Portugal",
+  "@craneFly11": {
+    "description": "Label for city."
+  },
+  "craneFly12": "Napa, United States",
+  "@craneFly12": {
+    "description": "Label for city."
+  },
+  "craneFly13": "Bali, Indonesia",
+  "@craneFly13": {
+    "description": "Label for city."
+  },
+  "craneSleep0": "Malé, Maldives",
+  "@craneSleep0": {
+    "description": "Label for city."
+  },
+  "craneSleep1": "Aspen, United States",
+  "@craneSleep1": {
+    "description": "Label for city."
+  },
+  "craneSleep2": "Machu Picchu, Peru",
+  "@craneSleep2": {
+    "description": "Label for city."
+  },
+  "craneSleep3": "Havana, Cuba",
+  "@craneSleep3": {
+    "description": "Label for city."
+  },
+  "craneSleep4": "Vitznau, Switzerland",
+  "@craneSleep4": {
+    "description": "Label for city."
+  },
+  "craneSleep5": "Big Sur, United States",
+  "@craneSleep5": {
+    "description": "Label for city."
+  },
+  "craneSleep6": "Napa, United States",
+  "@craneSleep6": {
+    "description": "Label for city."
+  },
+  "craneSleep7": "Porto, Portugal",
+  "@craneSleep7": {
+    "description": "Label for city."
+  },
+  "craneSleep8": "Tulum, Mexico",
+  "@craneSleep8": {
+    "description": "Label for city."
+  },
+  "craneSleep9": "Lisbon, Portugal",
+  "@craneSleep9": {
+    "description": "Label for city."
+  },
+  "craneSleep10": "Cairo, Egypt",
+  "@craneSleep10": {
+    "description": "Label for city."
+  },
+  "craneSleep11": "Taipei, Taiwan",
+  "@craneSleep11": {
+    "description": "Label for city."
+  },
+  "craneEat0": "Naples, Italy",
+  "@craneEat0": {
+    "description": "Label for city."
+  },
+  "craneEat1": "Dallas, United States",
+  "@craneEat1": {
+    "description": "Label for city."
+  },
+  "craneEat2": "Córdoba, Argentina",
+  "@craneEat2": {
+    "description": "Label for city."
+  },
+  "craneEat3": "Portland, United States",
+  "@craneEat3": {
+    "description": "Label for city."
+  },
+  "craneEat4": "Paris, France",
+  "@craneEat4": {
+    "description": "Label for city."
+  },
+  "craneEat5": "Seoul, South Korea",
+  "@craneEat5": {
+    "description": "Label for city."
+  },
+  "craneEat6": "Seattle, United States",
+  "@craneEat6": {
+    "description": "Label for city."
+  },
+  "craneEat7": "Nashville, United States",
+  "@craneEat7": {
+    "description": "Label for city."
+  },
+  "craneEat8": "Atlanta, United States",
+  "@craneEat8": {
+    "description": "Label for city."
+  },
+  "craneEat9": "Madrid, Spain",
+  "@craneEat9": {
+    "description": "Label for city."
+  },
+  "craneEat10": "Lisbon, Portugal",
+  "@craneEat10": {
+    "description": "Label for city."
+  },
+  "craneFly0SemanticLabel": "Chalet in a snowy landscape with evergreen trees",
+  "@craneFly0SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly1SemanticLabel": "Tent in a field",
+  "@craneFly1SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly2SemanticLabel": "Prayer flags in front of snowy mountain",
+  "@craneFly2SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly3SemanticLabel": "Machu Picchu citadel",
+  "@craneFly3SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly4SemanticLabel": "Overwater bungalows",
+  "@craneFly4SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly5SemanticLabel": "Lake-side hotel in front of mountains",
+  "@craneFly5SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly6SemanticLabel": "Aerial view of Palacio de Bellas Artes",
+  "@craneFly6SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly7SemanticLabel": "Mount Rushmore",
+  "@craneFly7SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly8SemanticLabel": "Supertree Grove",
+  "@craneFly8SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly9SemanticLabel": "Man leaning on an antique blue car",
+  "@craneFly9SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly10SemanticLabel": "Al-Azhar Mosque towers during sunset",
+  "@craneFly10SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly11SemanticLabel": "Brick lighthouse at sea",
+  "@craneFly11SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly12SemanticLabel": "Pool with palm trees",
+  "@craneFly12SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneFly13SemanticLabel": "Sea-side pool with palm trees",
+  "@craneFly13SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep0SemanticLabel": "Overwater bungalows",
+  "@craneSleep0SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep1SemanticLabel": "Chalet in a snowy landscape with evergreen trees",
+  "@craneSleep1SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep2SemanticLabel": "Machu Picchu citadel",
+  "@craneSleep2SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep3SemanticLabel": "Man leaning on an antique blue car",
+  "@craneSleep3SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep4SemanticLabel": "Lake-side hotel in front of mountains",
+  "@craneSleep4SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep5SemanticLabel": "Tent in a field",
+  "@craneSleep5SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep6SemanticLabel": "Pool with palm trees",
+  "@craneSleep6SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep7SemanticLabel": "Colorful apartments at Riberia Square",
+  "@craneSleep7SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep8SemanticLabel": "Mayan ruins on a cliff above a beach",
+  "@craneSleep8SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep9SemanticLabel": "Brick lighthouse at sea",
+  "@craneSleep9SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep10SemanticLabel": "Al-Azhar Mosque towers during sunset",
+  "@craneSleep10SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneSleep11SemanticLabel": "Taipei 101 skyscraper",
+  "@craneSleep11SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat0SemanticLabel": "Pizza in a wood-fired oven",
+  "@craneEat0SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat1SemanticLabel": "Empty bar with diner-style stools",
+  "@craneEat1SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat2SemanticLabel": "Burger",
+  "@craneEat2SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat3SemanticLabel": "Korean taco",
+  "@craneEat3SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat4SemanticLabel": "Chocolate dessert",
+  "@craneEat4SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat5SemanticLabel": "Artsy restaurant seating area",
+  "@craneEat5SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat6SemanticLabel": "Shrimp dish",
+  "@craneEat6SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat7SemanticLabel": "Bakery entrance",
+  "@craneEat7SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat8SemanticLabel": "Plate of crawfish",
+  "@craneEat8SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat9SemanticLabel": "Cafe counter with pastries",
+  "@craneEat9SemanticLabel": {
+    "description": "Semantic label for an image."
+  },
+  "craneEat10SemanticLabel": "Woman holding huge pastrami sandwich",
+  "@craneEat10SemanticLabel": {
+    "description": "Semantic label for an image."
+  }
+}
