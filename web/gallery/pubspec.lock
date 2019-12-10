@@ -131,12 +131,17 @@ packages:
   flutter_goldens_client:
     dependency: transitive
     description:
-      path: "../../../flutter/packages/flutter_goldens_client"
+      path: "../../../../../flutter/packages/flutter_goldens_client"
       relative: true
     source: path
     version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -506,7 +511,21 @@ packages:
       name: video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.2+5"
+    version: "0.10.4+1"
+  video_player_platform_interface:
+    dependency: transitive
+    description:
+      name: video_player_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  video_player_web:
+    dependency: "direct main"
+    description:
+      name: video_player_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   vm_service:
     dependency: "direct dev"
     description:
@@ -551,4 +570,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.4.0 <3.0.0"
-  flutter: ">=1.9.1+hotfix.4 <2.0.0"
+  flutter: ">=1.10.0 <2.0.0"
