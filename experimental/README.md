@@ -4,7 +4,7 @@ In this directory, you'll find samples that target Flutter's master channel.
 They may take advantage of new SDK features that haven't landed in the
 stable channel, and they may crash, lock up your machine, or otherwise fail to
 run correctly. In other words, consider everything in this directory to be an
-experiment. 
+experiment.
 
 We're maintaining these samples here so that folks can see some of Flutter's
 upcoming features as they evolve, and get a sense for how they'll eventually
@@ -28,7 +28,7 @@ flutter channel stable
 ### [Add-to-App](add_to_app)
 
 This project shows how to add a Flutter module to existing Android and iOS
-applications. 
+applications.
 
 ## Want more info about the repo in general?
 
