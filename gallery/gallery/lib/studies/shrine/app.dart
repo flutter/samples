@@ -18,8 +18,6 @@ import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-const _defaultLetterSpacing = 0.03;
-
 class ShrineApp extends StatefulWidget {
   const ShrineApp({Key key, this.navigatorKey}) : super(key: key);
 
@@ -104,7 +102,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
         ),
         initialRoute: '/login',
         onGenerateRoute: _getRoute,
-        theme: _shrineTheme.copyWith(
+        theme: shrineTheme.copyWith(
           platform: GalleryOptions.of(context).platform,
         ),
         // L10n settings.
@@ -128,7 +126,9 @@ Route<dynamic> _getRoute(RouteSettings settings) {
   );
 }
 
-final ThemeData _shrineTheme = _buildShrineTheme();
+const _defaultLetterSpacing = 0.03;
+
+final ThemeData shrineTheme = _buildShrineTheme();
 
 IconThemeData _customIconTheme(IconThemeData original) {
   return original.copyWith(color: shrineBrown900);
@@ -137,7 +137,7 @@ IconThemeData _customIconTheme(IconThemeData original) {
 ThemeData _buildShrineTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-    colorScheme: shrineColorScheme,
+    colorScheme: _shrineColorScheme,
     accentColor: shrineBrown900,
     primaryColor: shrinePink100,
     buttonColor: shrinePink100,
@@ -146,7 +146,7 @@ ThemeData _buildShrineTheme() {
     textSelectionColor: shrinePink100,
     errorColor: shrineErrorRed,
     buttonTheme: const ButtonThemeData(
-      colorScheme: shrineColorScheme,
+      colorScheme: _shrineColorScheme,
       textTheme: ButtonTextTheme.normal,
     ),
     primaryIconTheme: _customIconTheme(base.iconTheme),
@@ -206,7 +206,7 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       );
 }
 
-const ColorScheme shrineColorScheme = ColorScheme(
+const ColorScheme _shrineColorScheme = ColorScheme(
   primary: shrinePink100,
   primaryVariant: shrineBrown900,
   secondary: shrinePink50,
