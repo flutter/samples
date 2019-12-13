@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 
-const _defaultLetterSpacing = 0.03;
+const defaultLetterSpacing = 0.03;
+const mediumLetterSpacing = 0.04;
+const largeLetterSpacing = 1.0;
 
 final ThemeData shrineTheme = _buildShrineTheme();
 
@@ -48,35 +50,35 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       .copyWith(
     headline: base.headline.copyWith(
       fontWeight: FontWeight.w500,
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     title: base.title.copyWith(
       fontSize: 18,
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     caption: base.caption.copyWith(
       fontWeight: FontWeight.w400,
       fontSize: 14,
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     body2: base.body2.copyWith(
       fontWeight: FontWeight.w500,
       fontSize: 16,
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     body1: base.body1.copyWith(
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     subhead: base.subhead.copyWith(
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     display1: base.display1.copyWith(
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
     button: base.button.copyWith(
       fontWeight: FontWeight.w500,
       fontSize: 14,
-      letterSpacing: _defaultLetterSpacing,
+      letterSpacing: defaultLetterSpacing,
     ),
   )
       .apply(
