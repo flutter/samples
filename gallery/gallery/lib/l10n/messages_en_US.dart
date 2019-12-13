@@ -82,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Back to Gallery"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Account"),
         "bottomNavigationAlarmTab":

@@ -13,6 +13,10 @@
       }
     }
   },
+  "backToGallery": "Back to Gallery",
+  "@backToGallery": {
+    "description": "Semantic label for back button to exit a study and return to the gallery home page."
+  },
   "homeHeaderGallery": "Gallery",
   "@homeHeaderGallery": {
     "description": "Header title on home screen for Gallery section."

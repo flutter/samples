@@ -229,6 +229,14 @@ class GalleryLocalizations {
         desc: r'Represents a link to the Flutter samples github repository.');
   }
 
+  String get backToGallery {
+    return Intl.message(r'Back to Gallery',
+        locale: _localeName,
+        name: 'backToGallery',
+        desc:
+            r'Semantic label for back button to exit a study and return to the gallery.');
+  }
+
   String get bottomNavigationAccountTab {
     return Intl.message(r'Account',
         locale: _localeName,
