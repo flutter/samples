@@ -40,9 +40,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
   Widget build(BuildContext context) {
     final ThemeData localTheme = Theme.of(context);
 
-    print('local text theme = ${localTheme.textTheme}');
-    print('default text style = ${DefaultTextStyle.of(context)}');
-
     return Scaffold(
       backgroundColor: shrinePink50,
       body: SafeArea(
