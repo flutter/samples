@@ -1813,7 +1813,7 @@ class GalleryLocalizations {
   }
 
   String get demoSnackbarsAction {
-    return Intl.message(r'You pressed the snackbars action.',
+    return Intl.message(r'You pressed the snackbar action.',
         locale: _localeName,
         name: 'demoSnackbarsAction',
         desc:

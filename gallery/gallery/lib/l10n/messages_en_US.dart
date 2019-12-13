@@ -469,7 +469,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
-            "You pressed the snackbars action."),
+            "You pressed the snackbar action."),
         "demoSnackbarsActionButtonLabel":
             MessageLookupByLibrary.simpleMessage("ACTION"),
         "demoSnackbarsButtonLabel":

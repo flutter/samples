@@ -774,7 +774,7 @@
   "@demoSnackbarsActionButtonLabel": {
     "description": "Label for action button text on the snackbar."
   },
-  "demoSnackbarsAction": "You pressed the snackbars action.",
+  "demoSnackbarsAction": "You pressed the snackbar action.",
   "@demoSnackbarsAction": {
     "description": "Text that appears when you press on a snackbars action. Make sure to not translate index."
   },

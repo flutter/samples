@@ -736,7 +736,7 @@
   <string
     name="demoSnackbarsAction"
     description="Text that appears when you press on a snackbars action. Make sure to not translate index."
-    >You pressed the snackbars action.</string>
+    >You pressed the snackbar action.</string>
   <string
     name="demoSelectionControlsTitle"
     description="Title for selection controls demo."
