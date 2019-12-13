@@ -18,7 +18,7 @@ import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-const _defaultLetterSpacing = 3.5;
+const _defaultLetterSpacing = 0.03;
 
 class ShrineApp extends StatefulWidget {
   const ShrineApp({Key key, this.navigatorKey}) : super(key: key);
