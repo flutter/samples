@@ -18,6 +18,7 @@ import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
+import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
@@ -317,6 +318,22 @@ List<GalleryDemo> materialDemos(BuildContext context) {
             type: SelectionControlsDemoType.switches,
           ),
           code: CodeSegments.selectionControlsDemoSwitches,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoSnackbarsTitle,
+      icon: GalleryIcons.snackbar,
+      subtitle: GalleryLocalizations.of(context).demoSnackbarsSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoSnackbarsTitle,
+          description:
+              GalleryLocalizations.of(context).demoSnackbarsDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/SnackBar-class.html',
+          buildRoute: (context) => SnackbarsDemo(),
+          code: CodeSegments.snackbarsDemo,
         ),
       ],
     ),
