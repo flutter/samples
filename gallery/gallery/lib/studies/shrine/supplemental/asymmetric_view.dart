@@ -168,9 +168,6 @@ class DesktopAsymmetricView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget _gap = Container(width: 24);
-    final Widget _flex = Expanded(flex: 1, child: Container());
-
     // Determine the scale factor for the desktop asymmetric view.
 
     final double textScaleFactor =
@@ -205,8 +202,43 @@ class DesktopAsymmetricView extends StatelessWidget {
           )
         : columnWidth;
 
+    return AnimatedBuilder(
+      animation: PageStatus.of(context).cartController,
+      builder: (context, child) => ExcludeSemantics(
+        excluding: !productPageIsVisible(context),
+        child: DesktopColumns(
+          columnCount: columnCount,
+          products: products,
+          largeImageWidth: actualColumnWidth,
+          smallImageWidth: columnCount > 1
+              ? columnWidth - columnGapWidth
+              : actualColumnWidth,
+        ),
+      ),
+    );
+  }
+}
+
+class DesktopColumns extends StatelessWidget {
+  DesktopColumns({
+    @required this.columnCount,
+    @required this.products,
+    @required this.largeImageWidth,
+    @required this.smallImageWidth,
+  });
+
+  final int columnCount;
+  final List<Product> products;
+  final double largeImageWidth;
+  final double smallImageWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget _gap = Container(width: 24);
+    final Widget _flex = Expanded(flex: 1, child: Container());
+
     final List<DesktopProductCardColumn> productCardColumns =
-        List<DesktopProductCardColumn>.generate(columnCount, (currentColumn) {
+    List<DesktopProductCardColumn>.generate(columnCount, (currentColumn) {
       final bool alignToEnd =
           (currentColumn % 2 == 1) || (currentColumn == columnCount - 1);
       final bool startLarge = (currentColumn % 2 == 1);
@@ -216,42 +248,35 @@ class DesktopAsymmetricView extends StatelessWidget {
         alignToEnd: alignToEnd,
         startLarge: startLarge,
         products: products,
-        largeImageWidth: actualColumnWidth,
-        smallImageWidth:
-            columnCount > 1 ? columnWidth - columnGapWidth : actualColumnWidth,
+        largeImageWidth: largeImageWidth,
+        smallImageWidth: smallImageWidth,
       );
     });
 
-    return AnimatedBuilder(
-      animation: PageStatus.of(context).cartController,
-      builder: (context, child) => ExcludeSemantics(
-        excluding: !productPageIsVisible(context),
-        child: ListView(
-          scrollDirection: Axis.vertical,
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: [
+        Container(height: 60),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(height: 60),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _flex,
-                ...List<Widget>.generate(
-                  2 * columnCount - 1,
+            _flex,
+            ...List<Widget>.generate(
+              2 * columnCount - 1,
                   (generalizedColumnIndex) {
-                    if (generalizedColumnIndex % 2 == 0) {
-                      return productCardColumns[generalizedColumnIndex ~/ 2];
-                    } else {
-                      return _gap;
-                    }
-                  },
-                ),
-                _flex,
-              ],
+                if (generalizedColumnIndex % 2 == 0) {
+                  return productCardColumns[generalizedColumnIndex ~/ 2];
+                } else {
+                  return _gap;
+                }
+              },
             ),
-            Container(height: 60),
+            _flex,
           ],
-          physics: const AlwaysScrollableScrollPhysics(),
         ),
-      ),
+        Container(height: 60),
+      ],
+      physics: const AlwaysScrollableScrollPhysics(),
     );
   }
 }
