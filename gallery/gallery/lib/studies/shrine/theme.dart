@@ -48,44 +48,44 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
-    headline: base.headline.copyWith(
-      fontWeight: FontWeight.w500,
-      letterSpacing: defaultLetterSpacing,
-    ),
-    title: base.title.copyWith(
-      fontSize: 18,
-      letterSpacing: defaultLetterSpacing,
-    ),
-    caption: base.caption.copyWith(
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-      letterSpacing: defaultLetterSpacing,
-    ),
-    body2: base.body2.copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 16,
-      letterSpacing: defaultLetterSpacing,
-    ),
-    body1: base.body1.copyWith(
-      letterSpacing: defaultLetterSpacing,
-    ),
-    subhead: base.subhead.copyWith(
-      letterSpacing: defaultLetterSpacing,
-    ),
-    display1: base.display1.copyWith(
-      letterSpacing: defaultLetterSpacing,
-    ),
-    button: base.button.copyWith(
-      fontWeight: FontWeight.w500,
-      fontSize: 14,
-      letterSpacing: defaultLetterSpacing,
-    ),
-  )
+        headline: base.headline.copyWith(
+          fontWeight: FontWeight.w500,
+          letterSpacing: defaultLetterSpacing,
+        ),
+        title: base.title.copyWith(
+          fontSize: 18,
+          letterSpacing: defaultLetterSpacing,
+        ),
+        caption: base.caption.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: defaultLetterSpacing,
+        ),
+        body2: base.body2.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16,
+          letterSpacing: defaultLetterSpacing,
+        ),
+        body1: base.body1.copyWith(
+          letterSpacing: defaultLetterSpacing,
+        ),
+        subhead: base.subhead.copyWith(
+          letterSpacing: defaultLetterSpacing,
+        ),
+        display1: base.display1.copyWith(
+          letterSpacing: defaultLetterSpacing,
+        ),
+        button: base.button.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: defaultLetterSpacing,
+        ),
+      )
       .apply(
-    fontFamily: 'Rubik',
-    displayColor: shrineBrown900,
-    bodyColor: shrineBrown900,
-  );
+        fontFamily: 'Rubik',
+        displayColor: shrineBrown900,
+        bodyColor: shrineBrown900,
+      );
 }
 
 const ColorScheme _shrineColorScheme = ColorScheme(
