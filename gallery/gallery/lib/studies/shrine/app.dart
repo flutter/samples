@@ -18,6 +18,8 @@ import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+const _defaultLetterSpacing = 0.03;
+
 class ShrineApp extends StatefulWidget {
   const ShrineApp({Key key, this.navigatorKey}) : super(key: key);
 
@@ -164,12 +166,29 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
-        headline: base.headline.copyWith(fontWeight: FontWeight.w500),
-        title: base.title.copyWith(fontSize: 18),
-        caption:
-            base.caption.copyWith(fontWeight: FontWeight.w400, fontSize: 14),
-        body2: base.body2.copyWith(fontWeight: FontWeight.w500, fontSize: 16),
-        button: base.button.copyWith(fontWeight: FontWeight.w500, fontSize: 14),
+        headline: base.headline.copyWith(
+          fontWeight: FontWeight.w500,
+          letterSpacing: _defaultLetterSpacing,
+        ),
+        title: base.title.copyWith(
+          fontSize: 18,
+          letterSpacing: _defaultLetterSpacing,
+        ),
+        caption: base.caption.copyWith(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          letterSpacing: _defaultLetterSpacing,
+        ),
+        body2: base.body2.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 16,
+          letterSpacing: _defaultLetterSpacing,
+        ),
+        button: base.button.copyWith(
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          letterSpacing: _defaultLetterSpacing,
+        ),
       )
       .apply(
         fontFamily: 'Rubik',
