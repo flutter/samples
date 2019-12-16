@@ -24,8 +24,6 @@ declare -a  PROJECT_NAMES=(
     "platform_view_swift" \
     "provider_counter" \
     "provider_shopper" \
-    "material_studies/rally" \
-    "material_studies/shrine" \
     "veggieseasons" \
 )
 
