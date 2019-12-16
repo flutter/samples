@@ -15,6 +15,7 @@ function getFlutterPath() {
 declare -a  PROJECT_NAMES=(
     "animations" \
     "chrome-os-best-practices" \
+    "gallery/gallery" \
     "flutter_maps_firestore" \
     "isolate_example" \
     "jsonexample" \
@@ -23,8 +24,6 @@ declare -a  PROJECT_NAMES=(
     "platform_view_swift" \
     "provider_counter" \
     "provider_shopper" \
-    "material_studies/rally" \
-    "material_studies/shrine" \
     "veggieseasons" \
 )
 

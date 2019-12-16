@@ -847,10 +847,13 @@ class _StudyWrapperState extends State<_StudyWrapper> {
               ),
               Align(
                 alignment: AlignmentDirectional.bottomStart,
-                child: Semantics(
-                  sortKey: const OrdinalSortKey(0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Semantics(
+                    sortKey: const OrdinalSortKey(0),
+                    label: GalleryLocalizations.of(context).backToGallery,
+                    button: true,
+                    excludeSemantics: true,
                     child: FloatingActionButton.extended(
                       focusNode: backButtonFocusNode,
                       onPressed: () {
