@@ -14,6 +14,10 @@
     description="A description about how to view the source code for this app."
     >To see the source code for this app, please visit the {value}.</string>
   <string
+    name="backToGallery"
+    description="Semantic label for back button to exit a study and return to the gallery."
+    >Back to Gallery</string>
+  <string
     name="homeHeaderGallery"
     description="Header title on home screen for Gallery section."
     >Gallery</string>
