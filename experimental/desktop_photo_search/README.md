@@ -10,7 +10,7 @@ for photographs that interest you. To use it, you need to add an
 This Flutter project builds a desktop application. It utilises the following
 desktop specific plugins:
 
-  - [file_choser] to enable the application user to select where to save a photo
+  - [file_chooser] to enable the application user to select where to save a photo
     from the Unsplash API.
   - [menubar] for exposing Image Search functionality through the menu bar.
   - [url_launcher] to open external links.
@@ -27,7 +27,7 @@ To access the network, macOS requires applications enable the
 [com.apple.security.network.client entitlement][macOS-client]. For this
 sample, this entitlement is required to access the Unsplash API.
 
-Likewise, to save a Photo to the local file system using the `file_choser` plugin requires the
+Likewise, to save a Photo to the local file system using the `file_chooser` plugin requires the
 [com.apple.security.files.user-selected.read-write entitlement][macOS-read-write].
 
 Please see [macOS Signing and Security][macOS-security] for more detail.
@@ -45,7 +45,7 @@ and how to switch between Flutter release channels.
 
 [built_collection]: https://pub.dev/packages/built_collection
 [built_value]: https://pub.dev/packages/built_value
-[file_choser]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/file_chooser
+[file_chooser]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/file_chooser
 [flutter_channels]: https://github.com/flutter/flutter/wiki/Flutter-build-release-channels
 [http]: https://pub.dev/packages/http
 [macOS-client]: https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_network_client
