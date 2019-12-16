@@ -440,9 +440,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Satu Baris"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Ketik di sini untuk melihat pilihan yang tersedia untuk tunjuk cara ini."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Lihat pilihan"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Pilihan"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Butang garis bentuk menjadi legap dan terangkat apabila ditekan. Butang ini sering digandingkan dengan butang timbul untuk menunjukkan tindakan sekunder alternatif."),

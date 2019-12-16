@@ -437,9 +437,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Bir sətir"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Bu demo üçün əlçatan seçimlərə baxmaq üçün bura toxunun."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Seçimlərə baxın"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Seçimlər"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Haşiyəli düymələrə basdıqda qeyri-şəffaf və qabarıq olurlar. Onlar, adətən, alternativ, ikinci dərəcəli əməliyyatı göstərmək üçün qabarıq düymələrlə birləşdirilir."),

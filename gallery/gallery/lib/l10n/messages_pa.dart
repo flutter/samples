@@ -428,9 +428,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ਇੱਕ ਲਾਈਨ"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "ਇਸ ਡੈਮੋ ਲਈ ਉਪਲਬਧ ਵਿਕਲਪ ਦੇਖਣ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।"),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("ਵਿਕਲਪ ਦੇਖੋ"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("ਵਿਕਲਪ"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ਰੂਪ-ਰੇਖਾ ਬਟਨ ਦਬਾਏ ਜਾਣ \'ਤੇ ਧੁੰਦਲੇ ਹੋ ਜਾਂਦੇ ਹਨ ਅਤੇ ਉੱਪਰ ਉੱਠਦੇ ਹਨ। ਵਿਕਲਪਿਕ, ਸੈਕੰਡਰੀ ਕਾਰਵਾਈ ਦਰਸਾਉਣ ਲਈ ਉਹਨਾਂ ਨੂੰ ਅਕਸਰ ਉਭਰੇ ਹੋਏ ਬਟਨਾਂ ਨਾਲ ਜੋੜਾਬੱਧ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"),

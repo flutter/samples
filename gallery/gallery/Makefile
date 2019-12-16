@@ -1,4 +1,4 @@
-ROOT := $(shell git rev-parse --show-toplevel)
+ROOT := $(shell git rev-parse --show-toplevel)/gallery
 FLUTTER := $(shell which flutter)
 FLUTTER_BIN_DIR := $(shell dirname $(FLUTTER))
 FLUTTER_DIR := $(FLUTTER_BIN_DIR:/bin=)

@@ -15,7 +15,7 @@
     >To see the source code for this app, please visit the {value}.</string>
   <string
     name="backToGallery"
-    description="Semantic label for back button to exit a study and return to the gallery."
+    description="Semantic label for back button to exit a study and return to the gallery home page."
     >Back to Gallery</string>
   <string
     name="homeHeaderGallery"

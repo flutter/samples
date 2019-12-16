@@ -291,7 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoAlertFavoriteDessert": MessageLookupByLibrary.simpleMessage(
             "Pilih Makanan Penutup Favorit"),
         "cupertinoAlertLocationDescription": MessageLookupByLibrary.simpleMessage(
-            "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk petunjuk arah, hasil penelusuran di sekitar, dan estimasi waktu tempuh."),
+            "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk rute, hasil penelusuran di sekitar, dan estimasi waktu tempuh."),
         "cupertinoAlertLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Izinkan \"Maps\" mengakses lokasi Anda selagi Anda menggunakan aplikasi?"),
         "cupertinoAlertTiramisu":
@@ -434,9 +434,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Satu Baris"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Ketuk di sini guna melihat opsi yang tersedia untuk demo ini."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Opsi tampilan"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Opsi"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Tombol outline akan menjadi buram dan terangkat saat ditekan. Tombol tersebut sering dipasangkan dengan tombol timbul untuk menandakan tindakan kedua dan alternatif."),
