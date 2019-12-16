@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "विकल्प देखें",
+  "demoOptionsFeatureDescription": "इस डेमो के लिए उपलब्ध विकल्पों को देखने के लिए यहां टैप करें.",
   "demoCodeViewerCopyAll": "सभी को कॉपी करें",
   "shrineScreenReaderRemoveProductButton": "{product} हटाएं",
   "shrineScreenReaderProductAddToCart": "कार्ट में जोड़ें",

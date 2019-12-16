@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "オプションの表示",
+  "demoOptionsFeatureDescription": "ここをタップすると、このデモの利用可能なオプションが表示されます。",
   "demoCodeViewerCopyAll": "すべてコピー",
   "shrineScreenReaderRemoveProductButton": "{product}を削除",
   "shrineScreenReaderProductAddToCart": "カートに追加",

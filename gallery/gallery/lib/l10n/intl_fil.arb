@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Mga opsyon sa view",
+  "demoOptionsFeatureDescription": "Mag-tap dito para makita ang mga available na opsyon para sa demo na ito.",
   "demoCodeViewerCopyAll": "KOPYAHIN LAHAT",
   "shrineScreenReaderRemoveProductButton": "Alisin ang {product}",
   "shrineScreenReaderProductAddToCart": "Idagdag sa cart",

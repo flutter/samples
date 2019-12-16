@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Seçenekleri göster",
+  "demoOptionsFeatureDescription": "Bu demodaki kullanılabilir seçenekleri görmek için buraya dokunun.",
   "demoCodeViewerCopyAll": "TÜMÜNÜ KOPYALA",
   "shrineScreenReaderRemoveProductButton": "{product} ürününü kaldır",
   "shrineScreenReaderProductAddToCart": "Sepete ekle",
