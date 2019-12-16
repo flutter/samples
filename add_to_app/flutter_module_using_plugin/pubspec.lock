@@ -120,7 +120,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   provider:
     dependency: "direct main"
     description:
@@ -202,7 +202,7 @@ packages:
       name: url_launcher_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.1+2"
   url_launcher_platform_interface:
     dependency: transitive
     description:
@@ -216,7 +216,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0+1"
+    version: "0.1.0+2"
   vector_math:
     dependency: transitive
     description:
