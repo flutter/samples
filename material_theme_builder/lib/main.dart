@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
@@ -8,47 +7,90 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = ColorScheme(
+    final ColorScheme colorScheme = ColorScheme.light(
       primary: Color(0xFF6200EE),
-      secondary: Color(0xFF018786),
+      secondary: Color(0xFF03DAC6),
       primaryVariant: Color(0xFF3700B3),
-      secondaryVariant: Color(0xFF03DAC6),
+      secondaryVariant: Color(0xFF018786),
       surface: Color(0xFFFFFFFF),
       background: Color(0xFFFFFFFF),
       error: Color(0xFFB00020),
       onPrimary: Color(0xFFFFFFFF),
-      onSecondary: Color(0xFFFFFFFF),
+      onSecondary: Color(0xFF000000),
       onSurface: Color(0xFF000000),
       onError: Color(0xFFFFFFFF),
       onBackground: Color(0xFF000000),
       brightness: Brightness.light,
     );
 
+    final TextTheme textTheme = TextTheme(
+      display4: GoogleFonts.roboto(
+        fontSize: 96,
+      ),
+      display3: GoogleFonts.roboto(
+        fontSize: 60,
+      ),
+      display2: GoogleFonts.roboto(
+        fontSize: 48,
+      ),
+      display1: GoogleFonts.roboto(
+        fontSize: 34,
+      ),
+      headline: GoogleFonts.roboto(
+        fontSize: 24,
+      ),
+      title: GoogleFonts.roboto(
+        fontSize: 20,
+      ),
+      subhead: GoogleFonts.roboto(
+        fontSize: 16,
+      ),
+      subtitle: GoogleFonts.roboto(
+        fontSize: 14,
+      ),
+      body1: GoogleFonts.roboto(
+        fontSize: 16,
+      ),
+      body2: GoogleFonts.roboto(
+        fontSize: 14,
+      ),
+      button: GoogleFonts.roboto(
+        fontSize: 14,
+      ),
+      caption: GoogleFonts.roboto(
+        fontSize: 12,
+      ),
+      overline: GoogleFonts.roboto(
+        fontSize: 10,
+      ),
+    ); // TextTheme
+
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: colorScheme,
-        primaryColor: Color(0xFF6200EE),
-        accentColor: Color(0xFF018786),
-        backgroundColor: Color(0xFF6200EE),
+        primaryColor: colorScheme.primary,
+        accentColor: colorScheme.secondary,
+        backgroundColor: colorScheme.background,
         buttonTheme: ButtonThemeData(
-          buttonColor: Color(0xFF6200EE),
           textTheme: ButtonTextTheme.primary,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
             foregroundColor: colorScheme.onSecondary),
         inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(4)),
         ),
         cardTheme: CardTheme(
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         dividerColor: Color(0xFF000000),
-        textTheme:
-            Typography.englishLike2018.merge(GoogleFonts.robotoTextTheme()),
+        textTheme: textTheme,
+        primaryTextTheme: textTheme,
+        accentTextTheme: textTheme,
       ),
       home: Home(),
     );
@@ -73,6 +115,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text('Build a Material Theme'),
       ),
@@ -86,19 +129,19 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 RaisedButton(
-                  child: Text('Button'),
+                  child: Text('BUTTON'),
                   onPressed: () {
                     print('RaisedButton was touched');
                   },
                 ),
                 FlatButton(
-                  child: Text('Button'),
+                  child: Text('BUTTON'),
                   onPressed: () {
                     print('FlatButton was touched');
                   },
                 ),
                 OutlineButton(
-                  child: Text('Button'),
+                  child: Text('BUTTON'),
                   onPressed: () {
                     print('OutlineButton was touched');
                   },
@@ -112,9 +155,9 @@ class _HomeState extends State<Home> {
             SizedBox(height: 16),
             AppBar(
               leading: IconButton(
-                icon: Icon(Icons.more),
+                icon: Icon(Icons.menu),
                 onPressed: () {
-                  print('More was touched');
+                  print('Menu was touched');
                 },
               ),
               title: Text('Headline 6'),
@@ -238,7 +281,9 @@ class _HomeState extends State<Home> {
             // LINEAR PROGRESS INDICATOR
             Header('LINEAR PROGRESS INDICATOR'),
             SizedBox(height: 16),
-            LinearProgressIndicator(value: .5),
+            LinearProgressIndicator(
+              backgroundColor: Color(0xFFE6E6E6),
+            ),
             SizedBox(height: 32),
 
             // CHIPS
@@ -387,13 +432,13 @@ class _HomeState extends State<Home> {
                           fit: BoxFit.fitWidth,
                         )),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           SizedBox(height: 24),
                           Text(
-                            'Overline',
+                            'OVERLINE',
                             style: Theme.of(context).textTheme.overline,
                           ),
                           SizedBox(height: 16),
@@ -448,9 +493,9 @@ class _HomeState extends State<Home> {
                   child: TabBar(
                     indicatorColor: Theme.of(context).colorScheme.onPrimary,
                     tabs: [
-                      Tab(text: 'Button'),
-                      Tab(text: 'Button'),
-                      Tab(text: 'Button'),
+                      Tab(text: 'BUTTON'),
+                      Tab(text: 'BUTTON'),
+                      Tab(text: 'BUTTON'),
                     ],
                   ),
                 ),
