@@ -6,17 +6,20 @@ import 'package:path/path.dart' as p;
 void main(List<String> args) => grind(args);
 
 @Task('Get packages')
-Future<void> pubGet({String directory}) async => await _runProcess(
-      'flutter',
-      ['pub', 'get', if (directory != null) directory],
-    );
+Future<void> pubGet({String directory}) async {
+  await _runProcess(
+    'flutter',
+    ['pub', 'get', if (directory != null) directory],
+  );
+}
 
 @Task('Run Flutter unit tests')
 Future<void> test() async => await _runProcess('flutter', ['test']);
 
 @Task('Format dart files')
-Future<void> format({String path = '.'}) async =>
-    await _runProcess('flutter', ['format', path]);
+Future<void> format({String path = '.'}) async {
+  await _runProcess('flutter', ['format', path]);
+}
 
 @Task('Generate localizations files')
 Future<void> generateLocalizations() async {
