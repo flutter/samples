@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "옵션 보기",
+  "demoOptionsFeatureDescription": "이 데모의 사용 가능한 옵션을 보려면 여기를 탭하세요.",
   "demoCodeViewerCopyAll": "모두 복사",
   "shrineScreenReaderRemoveProductButton": "{상품} 삭제",
   "shrineScreenReaderProductAddToCart": "장바구니에 추가",

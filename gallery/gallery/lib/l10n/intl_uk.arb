@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Параметри перегляду",
+  "demoOptionsFeatureDescription": "Натисніть, щоб переглянути параметри для цієї демо-версії.",
   "demoCodeViewerCopyAll": "КОПІЮВАТИ ВСЕ",
   "shrineScreenReaderRemoveProductButton": "Вилучити товар \"{product}\"",
   "shrineScreenReaderProductAddToCart": "Додати в кошик",

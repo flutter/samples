@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "პარამეტრების ნახვა",
+  "demoOptionsFeatureDescription": "შეეხეთ აქ ამ დემოს ხელმისაწვდომი ვარიანტების სანახავად.",
   "demoCodeViewerCopyAll": "ყველას კოპირება",
   "shrineScreenReaderRemoveProductButton": "ამოიშალოს {product}",
   "shrineScreenReaderProductAddToCart": "კალათაში დამატება",

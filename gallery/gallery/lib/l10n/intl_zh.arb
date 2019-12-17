@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "查看选项",
+  "demoOptionsFeatureDescription": "点按此处即可查看此演示可用的选项。",
   "demoCodeViewerCopyAll": "全部复制",
   "shrineScreenReaderRemoveProductButton": "移除{product}",
   "shrineScreenReaderProductAddToCart": "加入购物车",

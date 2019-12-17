@@ -389,9 +389,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("목록"),
         "demoOneLineListsTitle": MessageLookupByLibrary.simpleMessage("한 줄"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "이 데모의 사용 가능한 옵션을 보려면 여기를 탭하세요."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("옵션 보기"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("옵션"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "윤곽 버튼은 누르면 불투명해지면서 올라옵니다. 돌출 버튼과 함께 사용하여 대체 작업이나 보조 작업을 나타내는 경우가 많습니다."),

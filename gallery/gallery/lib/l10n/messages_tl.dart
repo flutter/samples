@@ -444,9 +444,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Isang Linya"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Mag-tap dito para makita ang mga available na opsyon para sa demo na ito."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Mga opsyon sa view"),
         "demoOptionsTooltip":
             MessageLookupByLibrary.simpleMessage("Mga Opsyon"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(

@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "عرض الخيارات",
+  "demoOptionsFeatureDescription": "انقر هنا لعرض الخيارات المتاحة لهذا العرض التوضيحي.",
   "demoCodeViewerCopyAll": "نسخ الكل",
   "shrineScreenReaderRemoveProductButton": "إزالة {product}",
   "shrineScreenReaderProductAddToCart": "إضافة إلى سلة التسوق",

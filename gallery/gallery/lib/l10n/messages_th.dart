@@ -432,9 +432,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("หนึ่งบรรทัด"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "แตะที่นี่เพื่อดูตัวเลือกสำหรับการสาธิตนี้"),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("ดูตัวเลือก"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("ตัวเลือก"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ปุ่มที่เติมขอบจะเปลี่ยนเป็นสีทึบและยกขึ้นเมื่อกด มักจับคู่กับปุ่มแบบยกขึ้นเพื่อระบุว่ามีการดำเนินการสำรองอย่างอื่น"),

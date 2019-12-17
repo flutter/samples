@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Opsi tampilan",
+  "demoOptionsFeatureDescription": "Ketuk di sini guna melihat opsi yang tersedia untuk demo ini.",
   "demoCodeViewerCopyAll": "SALIN SEMUA",
   "shrineScreenReaderRemoveProductButton": "Hapus {product}",
   "shrineScreenReaderProductAddToCart": "Tambahkan ke keranjang",
@@ -428,7 +428,7 @@
   "cupertinoAlertCancel": "Batal",
   "cupertinoAlertDiscard": "Hapus",
   "cupertinoAlertLocationTitle": "Izinkan \"Maps\" mengakses lokasi Anda selagi Anda menggunakan aplikasi?",
-  "cupertinoAlertLocationDescription": "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk petunjuk arah, hasil penelusuran di sekitar, dan estimasi waktu tempuh.",
+  "cupertinoAlertLocationDescription": "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk rute, hasil penelusuran di sekitar, dan estimasi waktu tempuh.",
   "cupertinoAlertAllow": "Izinkan",
   "cupertinoAlertDontAllow": "Jangan Izinkan",
   "cupertinoAlertFavoriteDessert": "Pilih Makanan Penutup Favorit",

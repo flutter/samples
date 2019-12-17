@@ -238,7 +238,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'backToGallery',
         desc:
-            r'Semantic label for back button to exit a study and return to the gallery.');
+            r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
   String get bottomNavigationAccountTab {
