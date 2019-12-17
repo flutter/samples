@@ -59,7 +59,7 @@ List<List<Product>> balancedLayout({
     final imageHeight = productSize.height / productSize.width *
         (lastElementIsLarge[targetColumn] ? largeImageWidth : smallImageWidth);
 
-    columnHeight[targetColumn] += imageHeight;
+    columnHeight[targetColumn] += imageHeight + 84 * 2;
 
     // Update column.
     lastElementIsLarge[targetColumn] = ! lastElementIsLarge[targetColumn];
