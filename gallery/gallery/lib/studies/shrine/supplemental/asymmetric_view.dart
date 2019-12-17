@@ -241,23 +241,28 @@ class DesktopColumns extends StatelessWidget {
     final Widget _gap = Container(width: 24);
     final Widget _flex = Expanded(flex: 1, child: Container());
 
-    final List<List<Product>> productCardLists = balancedLayout(
+    /* final List<List<Product>> productCardLists = balancedLayout(
       columnCount: columnCount,
       products: products,
       largeImageWidth: largeImageWidth,
       smallImageWidth: smallImageWidth,
     );
 
-    /*
+     */
 
-    List<List<Product>>
+    balancedLayout(
+      columnCount: columnCount,
+      products: products,
+      largeImageWidth: largeImageWidth,
+      smallImageWidth: smallImageWidth,
+    );
+
+    var productCardLists = List<List<Product>>
         .generate(columnCount, (column) => []);
 
     for (int productIndex = 0; productIndex < products.length; ++productIndex) {
       productCardLists[productIndex % columnCount].add(products[productIndex]);
     }
-
-     */
 
     final List<DesktopProductCardColumn> productCardColumns =
     List<DesktopProductCardColumn>.generate(columnCount, (column) {
