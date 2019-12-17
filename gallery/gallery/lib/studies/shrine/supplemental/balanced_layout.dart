@@ -9,6 +9,71 @@ import 'package:collection/collection.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
 
+class _TaggedHeightData {
+  const _TaggedHeightData({
+    @required this.index,
+    @required this.height,
+  });
+
+  final int index;
+  final double height;
+}
+
+List<List<int>> balancedDistribution({
+  int subsetCount,
+  List<double> data,
+  List<double> biases,
+}) {
+  assert (biases.length == subsetCount);
+
+  List<Set<_TaggedHeightData>> result = List<Set<_TaggedHeightData>>
+      .generate(subsetCount, (column) => Set());
+
+  List<double> columnHeight = List<double>
+      .generate(subsetCount, (column) => (column % 2 == 0 ? 0 : 84));
+
+  PriorityQueue<_ColumnHeightData> columnCandidates =
+      PriorityQueue<_ColumnHeightData>(_compareColumnHeightData);
+
+  columnCandidates.addAll(
+      [for (int subsetIndex = 0; subsetIndex < subsetCount; ++subsetIndex)
+        _ColumnHeightData(
+          height: columnHeight[subsetIndex],
+          columnIndex: subsetIndex,
+        )]
+  );
+
+  for (int index = 0; index < data.length; ++index) {
+    // Form data.
+    final object = _TaggedHeightData(index: index, height: data[index]);
+
+    // Select column.
+    final targetColumnData = columnCandidates.removeFirst();
+    final targetColumn = targetColumnData.columnIndex;
+
+    // Add to column.
+    result[targetColumn].add(object);
+
+    // Update column height.
+    columnHeight[targetColumn] += object.height + 84 * 2;
+
+    // Update columnCandidates.
+    columnCandidates.add(
+      _ColumnHeightData(
+        height: columnHeight[targetColumn],
+        columnIndex: targetColumn,
+      ),
+    );
+  }
+
+  // Fundamental finished.
+
+
+
+
+
+}
+
 List<List<Product>> balancedLayout({
   int columnCount,
   List<Product> products,
