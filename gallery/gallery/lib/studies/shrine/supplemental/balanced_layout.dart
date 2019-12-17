@@ -15,7 +15,7 @@ List<List<Product>> balancedLayout({
 }) {
   final List<Size> productSizes = [
     for (var product in products)
-      imageSize(
+      _imageSize(
         Image.asset(
           product.assetName,
           package: product.assetPackage,
@@ -32,12 +32,12 @@ List<List<Product>> balancedLayout({
   List<bool> lastElementIsLarge = List<bool>
       .generate(columnCount, (column) => (column % 2 == 1));
 
-  PriorityQueue<ColumnHeightData> columnCandidates =
-      PriorityQueue<ColumnHeightData>(_compareColumnHeightData);
+  PriorityQueue<_ColumnHeightData> columnCandidates =
+      PriorityQueue<_ColumnHeightData>(_compareColumnHeightData);
 
   columnCandidates.addAll(
     [for (int columnIndex = 0; columnIndex < columnCount; ++columnIndex)
-      ColumnHeightData(
+      _ColumnHeightData(
         height: columnHeight[columnIndex],
         columnIndex: columnIndex,
       )]
@@ -65,7 +65,7 @@ List<List<Product>> balancedLayout({
 
     // Update columnCandidates.
     columnCandidates.add(
-      ColumnHeightData(
+      _ColumnHeightData(
         height: columnHeight[targetColumn],
         columnIndex: targetColumn,
       ),
@@ -75,7 +75,7 @@ List<List<Product>> balancedLayout({
   return result;
 }
 
-Size imageSize(Image imageWidget) {
+Size _imageSize(Image imageWidget) {
   Size result;
 
   imageWidget.image.resolve(ImageConfiguration()).addListener(
@@ -93,8 +93,8 @@ Size imageSize(Image imageWidget) {
   return result;
 }
 
-class ColumnHeightData {
-  const ColumnHeightData({
+class _ColumnHeightData {
+  const _ColumnHeightData({
     @required this.height,
     @required this.columnIndex,
   });
@@ -103,7 +103,7 @@ class ColumnHeightData {
   final int columnIndex;
 }
 
-int _compareColumnHeightData (ColumnHeightData a, ColumnHeightData b) {
+int _compareColumnHeightData (_ColumnHeightData a, _ColumnHeightData b) {
   if (a.height < b.height) {
     return -1;
   } else if (a.height > b.height) {
