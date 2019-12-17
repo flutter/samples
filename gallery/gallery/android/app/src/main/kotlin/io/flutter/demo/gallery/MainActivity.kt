@@ -1,4 +1,4 @@
-package com.example.gallery
+package io.flutter.demo.gallery
 
 import android.os.Bundle
 
