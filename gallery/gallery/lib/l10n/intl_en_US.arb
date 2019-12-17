@@ -754,6 +754,34 @@
   "@demoTabsDescription": {
     "description": "Description for tabs demo."
   },
+  "demoSnackbarsTitle": "Snackbars",
+  "@demoSnackbarsTitle": {
+    "description": "Title for snackbars demo."
+  },
+  "demoSnackbarsSubtitle": "Snackbars show messages at the bottom of the screen",
+  "@demoSnackbarsSubtitle": {
+    "description": "Subtitle for snackbars demo."
+  },
+  "demoSnackbarsDescription": "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.",
+  "@demoSnackbarsDescription": {
+    "description": "Description for snackbars demo."
+  },
+  "demoSnackbarsButtonLabel": "SHOW A SNACKBAR",
+  "@demoSnackbarsButtonLabel": {
+    "description": "Label for button to show a snackbar."
+  },
+  "demoSnackbarsText": "This is a snackbar.",
+  "@demoSnackbarsText": {
+    "description": "Text to show on a snackbar."
+  },
+  "demoSnackbarsActionButtonLabel": "ACTION",
+  "@demoSnackbarsActionButtonLabel": {
+    "description": "Label for action button text on the snackbar."
+  },
+  "demoSnackbarsAction": "You pressed the snackbar action.",
+  "@demoSnackbarsAction": {
+    "description": "Text that appears when you press on a snackbars’ action."
+  },
   "demoSelectionControlsTitle": "Selection controls",
   "@demoSelectionControlsTitle": {
     "description": "Title for selection controls demo."

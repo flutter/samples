@@ -83,6 +83,10 @@ class GalleryLocalizations {
   /// Returns a list of localizations delegates containing this delegate along with
   /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
   /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
     delegate,
@@ -1818,6 +1822,56 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoSimpleDialogTitle',
         desc: r'Title for the simple dialog component demo.');
+  }
+
+  String get demoSnackbarsAction {
+    return Intl.message(r'You pressed the snackbar action.',
+        locale: _localeName,
+        name: 'demoSnackbarsAction',
+        desc: r'Text that appears when you press on a snackbars’ action.');
+  }
+
+  String get demoSnackbarsActionButtonLabel {
+    return Intl.message(r'ACTION',
+        locale: _localeName,
+        name: 'demoSnackbarsActionButtonLabel',
+        desc: r'Label for action button text on the snackbar.');
+  }
+
+  String get demoSnackbarsButtonLabel {
+    return Intl.message(r'SHOW A SNACKBAR',
+        locale: _localeName,
+        name: 'demoSnackbarsButtonLabel',
+        desc: r'Label for button to show a snackbar.');
+  }
+
+  String get demoSnackbarsDescription {
+    return Intl.message(
+        r'Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.',
+        locale: _localeName,
+        name: 'demoSnackbarsDescription',
+        desc: r'Description for snackbars demo.');
+  }
+
+  String get demoSnackbarsSubtitle {
+    return Intl.message(r'Snackbars show messages at the bottom of the screen',
+        locale: _localeName,
+        name: 'demoSnackbarsSubtitle',
+        desc: r'Subtitle for snackbars demo.');
+  }
+
+  String get demoSnackbarsText {
+    return Intl.message(r'This is a snackbar.',
+        locale: _localeName,
+        name: 'demoSnackbarsText',
+        desc: r'Text to show on a snackbar.');
+  }
+
+  String get demoSnackbarsTitle {
+    return Intl.message(r'Snackbars',
+        locale: _localeName,
+        name: 'demoSnackbarsTitle',
+        desc: r'Title for snackbars demo.');
   }
 
   String get demoTabsDescription {

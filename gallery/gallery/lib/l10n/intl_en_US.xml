@@ -714,6 +714,34 @@
     description="Description for tabs demo."
     >Tabs organize content across different screens, data sets, and other interactions.</string>
   <string
+    name="demoSnackbarsTitle"
+    description="Title for snackbars demo."
+    >Snackbars</string>
+  <string
+    name="demoSnackbarsSubtitle"
+    description="Subtitle for snackbars demo."
+    >Snackbars show messages at the bottom of the screen</string>
+  <string
+    name="demoSnackbarsDescription"
+    description="Description for snackbars demo."
+    >Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.</string>
+  <string
+    name="demoSnackbarsButtonLabel"
+    description="Label for button to show a snackbar."
+    >SHOW A SNACKBAR</string>
+  <string
+    name="demoSnackbarsText"
+    description="Text to show on a snackbar."
+    >This is a snackbar.</string>
+  <string
+    name="demoSnackbarsActionButtonLabel"
+    description="Label for action button text on the snackbar."
+    >ACTION</string>
+  <string
+    name="demoSnackbarsAction"
+    description="Text that appears when you press on a snackbars’ action."
+    >You pressed the snackbar action.</string>
+  <string
     name="demoSelectionControlsTitle"
     description="Title for selection controls demo."
     >Selection controls</string>

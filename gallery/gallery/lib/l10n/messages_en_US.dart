@@ -470,6 +470,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "You pressed the snackbar action."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACTION"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("SHOW A SNACKBAR"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snackbars show messages at the bottom of the screen"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("This is a snackbar."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Snackbars"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tabs organize content across different screens, data sets, and other interactions."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
