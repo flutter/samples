@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:gallery/demos/reference/colors_demo.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
 
