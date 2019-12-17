@@ -10,6 +10,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/supplemental/desktop_product_columns.dart';
 import 'package:gallery/studies/shrine/supplemental/product_columns.dart';
@@ -240,12 +241,23 @@ class DesktopColumns extends StatelessWidget {
     final Widget _gap = Container(width: 24);
     final Widget _flex = Expanded(flex: 1, child: Container());
 
-    final List<List<Product>> productCardLists = List<List<Product>>
+    final List<List<Product>> productCardLists = balancedLayout(
+      columnCount: columnCount,
+      products: products,
+      largeImageWidth: largeImageWidth,
+      smallImageWidth: smallImageWidth,
+    );
+
+    /*
+
+    List<List<Product>>
         .generate(columnCount, (column) => []);
 
     for (int productIndex = 0; productIndex < products.length; ++productIndex) {
       productCardLists[productIndex % columnCount].add(products[productIndex]);
     }
+
+     */
 
     final List<DesktopProductCardColumn> productCardColumns =
     List<DesktopProductCardColumn>.generate(columnCount, (column) {
