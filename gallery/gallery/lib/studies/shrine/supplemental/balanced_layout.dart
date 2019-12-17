@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
@@ -72,7 +74,22 @@ List<List<Product>> balancedLayout({
     );
   }
 
+  print(standardDeviation(columnHeight));
+
   return result;
+}
+
+double average(List<double> data) {
+  return data.fold<double>(0, (a, b) => a + b) / data.length;
+}
+
+double standardDeviation(List<double> data) {
+  final double mean = average(data);
+  final List<double> squareDeviations = [
+    for (final elem in data)
+      math.pow(elem - mean, 2).toDouble(),
+  ];
+  return math.sqrt(average(squareDeviations));
 }
 
 Size _imageSize(Image imageWidget) {
