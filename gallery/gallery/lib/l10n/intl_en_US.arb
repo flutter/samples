@@ -768,7 +768,7 @@
   },
   "demoSnackbarsText": "This is a snackbar.",
   "@demoSnackbarsText": {
-    "description": "Label for button to show a snackbar. Make sure to not translate index."
+    "description": "Text to show on a snackbar."
   },
   "demoSnackbarsActionButtonLabel": "ACTION",
   "@demoSnackbarsActionButtonLabel": {
@@ -776,7 +776,7 @@
   },
   "demoSnackbarsAction": "You pressed the snackbar action.",
   "@demoSnackbarsAction": {
-    "description": "Text that appears when you press on a snackbars action. Make sure to not translate index."
+    "description": "Text that appears when you press on a snackbars’ action."
   },
   "demoSelectionControlsTitle": "Selection controls",
   "@demoSelectionControlsTitle": {

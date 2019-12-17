@@ -83,6 +83,10 @@ class GalleryLocalizations {
   /// Returns a list of localizations delegates containing this delegate along with
   /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
   /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
     delegate,
@@ -1816,8 +1820,7 @@ class GalleryLocalizations {
     return Intl.message(r'You pressed the snackbar action.',
         locale: _localeName,
         name: 'demoSnackbarsAction',
-        desc:
-            r'Text that appears when you press on a snackbars action. Make sure to not translate index.');
+        desc: r'Text that appears when you press on a snackbars’ action.');
   }
 
   String get demoSnackbarsActionButtonLabel {
@@ -1853,8 +1856,7 @@ class GalleryLocalizations {
     return Intl.message(r'This is a snackbar.',
         locale: _localeName,
         name: 'demoSnackbarsText',
-        desc:
-            r'Label for button to show a snackbar. Make sure to not translate index.');
+        desc: r'Text to show on a snackbar.');
   }
 
   String get demoSnackbarsTitle {
