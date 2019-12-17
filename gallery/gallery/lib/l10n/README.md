@@ -22,7 +22,7 @@ This allows use of the English message through your localizations delegate in
 the application code immediately without having to wait for the translations
 to be completed.
 
-## How to Generate GalleryLocalizations via Grinder
+## How to Generate GalleryLocalizations with Grinder
 
 From the `samples/gallery/gallery/` directory:
 1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by running `flutter pub get`.
