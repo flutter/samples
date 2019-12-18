@@ -305,6 +305,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("With Background"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Show Alert"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Home"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profile"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI."),
         "demoActionChipTitle":
@@ -396,6 +400,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style segmented control"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmented Control"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Tab Bar"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alert, and fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogs"),

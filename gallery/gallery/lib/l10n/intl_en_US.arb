@@ -645,6 +645,30 @@
   "@demoCupertinoSegmentedControlDescription": {
     "description": "Description for the cupertino segmented control component demo."
   },
+  "demoCupertinoTabBarTitle": "Tab Bar",
+  "@demoCupertinoTabBarTitle": {
+    "description": "Title for the cupertino bottom tab bar demo."
+  },
+  "demoCupertinoTabBarSubtitle": "iOS-style bottom tab bar",
+  "@demoCupertinoTabBarSubtitle": {
+    "description": "Subtitle for the cupertino bottom tab bar demo."
+  },
+  "demoCupertinoTabBarDescription": "An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.",
+  "@demoCupertinoTabBarDescription": {
+    "description": "Description for the cupertino bottom tab bar demo."
+  },
+  "cupertinoTabBarHomeTab": "Home",
+  "@cupertinoTabBarHomeTab": {
+    "description": "Title for the home tab in the bottom tab bar demo."
+  },
+  "cupertinoTabBarChatTab": "Chat",
+  "@cupertinoTabBarChatTab": {
+    "description": "Title for the chat tab in the bottom tab bar demo."
+  },
+  "cupertinoTabBarProfileTab": "Profile",
+  "@cupertinoTabBarProfileTab": {
+    "description": "Title for the profile tab in the bottom tab bar demo."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."

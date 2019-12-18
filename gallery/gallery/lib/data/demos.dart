@@ -10,6 +10,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
@@ -463,6 +464,22 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/cupertino/CupertinoSegmentedControl-class.html',
           buildRoute: (_) => CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
+      icon: GalleryIcons.bottomNavigation,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoTabBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoTabBarDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoTabBar-class.html',
+          buildRoute: (_) => CupertinoTabBarDemo(),
+          code: CodeSegments.cupertinoNavigationDemo,
         ),
       ],
     ),

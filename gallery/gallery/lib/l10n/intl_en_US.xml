@@ -610,6 +610,30 @@
     description="Description for the cupertino segmented control component demo."
     >Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.</string>
   <string
+    name="demoCupertinoTabBarTitle"
+    description="Title for the cupertino bottom tab bar demo."
+    >Tab Bar</string>
+  <string
+    name="demoCupertinoTabBarSubtitle"
+    description="Subtitle for the cupertino bottom tab bar demo."
+    >iOS-style bottom tab bar</string>
+  <string
+    name="demoCupertinoTabBarDescription"
+    description="Description for the cupertino bottom tab bar demo."
+    >An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.</string>
+  <string
+    name="cupertinoTabBarHomeTab"
+    description="Title for the home tab in the bottom tab bar demo."
+    >Home</string>
+  <string
+    name="cupertinoTabBarChatTab"
+    description="Title for the chat tab in the bottom tab bar demo."
+    >Chat</string>
+  <string
+    name="cupertinoTabBarProfileTab"
+    description="Title for the profile tab in the bottom tab bar demo."
+    >Profile</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>
