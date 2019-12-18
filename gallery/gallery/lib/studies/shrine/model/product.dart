@@ -10,37 +10,29 @@ import '../../../l10n/gallery_localizations.dart';
 class Category {
   const Category({
     @required this.name,
-    @required this.id,
   }) : assert(name != null);
 
   // A function taking a BuildContext as input and
   // returns the internationalized name of the category.
   final String Function(BuildContext) name;
-
-  // An integer ID for the category.
-  final int id;
 }
 
 Category categoryAll = Category(
   name: (context) => GalleryLocalizations.of(context).shrineCategoryNameAll,
-  id: 0,
 );
 
 Category categoryAccessories = Category(
   name: (context) =>
       GalleryLocalizations.of(context).shrineCategoryNameAccessories,
-  id: 1,
 );
 
 Category categoryClothing = Category(
   name: (context) =>
       GalleryLocalizations.of(context).shrineCategoryNameClothing,
-  id: 2,
 );
 
 Category categoryHome = Category(
   name: (context) => GalleryLocalizations.of(context).shrineCategoryNameHome,
-  id: 3,
 );
 
 List<Category> categories = [
