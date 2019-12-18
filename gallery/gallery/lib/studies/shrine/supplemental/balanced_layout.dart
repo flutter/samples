@@ -172,7 +172,11 @@ List<List<Product>> balancedLayout({
     smallImageWidth: smallImageWidth,
   );
 
+  // Check if this layout is cached.
+
   if (cache.containsKey(encodedParameters)) {
+    print('Layout $encodedParameters is cached.');
+
     return generateLayout(
       products: products,
       layout: cache[encodedParameters],
@@ -199,6 +203,8 @@ List<List<Product>> balancedLayout({
 
   if (hasNullSize) {
     // If some image sizes are not read, return default layout.
+    // Default layout is not cached.
+
     List<List<Product>> result = List<List<Product>>.generate(columnCount, (columnIndex) => []);
     for (var index = 0; index < products.length; ++index) {
       result[index % columnCount].add(products[index]);
@@ -221,12 +227,16 @@ List<List<Product>> balancedLayout({
         .generate(columnCount, (column) => (column % 2 == 0 ? 0 : 84)),
   );
 
+  // Add tailored layout to cache.
+
   cache[encodedParameters] = layout;
 
   final List<List<Product>> result = generateLayout(
     products: products,
     layout: layout,
   );
+
+  print('Caching layout $encodedParameters');
 
   return result;
 }
