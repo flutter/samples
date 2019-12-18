@@ -9,6 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/supplemental/product_card.dart';
 
+/// Height of the text below each product card.
+const productCardAdditionalHeight = 84.0 * 2;
+
+/// Height of the divider between product cards.
+const productCardDividerHeight = 84.0;
+
+/// Height of the space at the top of every other column.
+const columnTopSpace = 84.0;
+
 class DesktopProductCardColumn extends StatelessWidget {
   const DesktopProductCardColumn({
     @required this.alignToEnd,
@@ -41,7 +50,7 @@ class DesktopProductCardColumn extends StatelessWidget {
           crossAxisAlignment:
               alignToEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
-            if (lowerStart) Container(height: 84),
+            if (lowerStart) Container(height: columnTopSpace),
             ...List<Widget>.generate(currentColumnWidgetCount, (index) {
               Widget card;
               if (index % 2 == 0) {
@@ -60,7 +69,7 @@ class DesktopProductCardColumn extends StatelessWidget {
               } else {
                 // This is just a divider.
                 card = Container(
-                  height: 84,
+                  height: productCardDividerHeight,
                 );
               }
               return RepaintBoundary(child: card);

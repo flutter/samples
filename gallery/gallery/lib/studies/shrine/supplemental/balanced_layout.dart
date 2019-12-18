@@ -17,12 +17,6 @@ const _emptyElement = -1;
 /// [_deviationImprovementThreshold] pixels.
 const _deviationImprovementThreshold = 10;
 
-/// Height of the text below each product card.
-const productCardAdditionalHeight = 84.0 * 2;
-
-/// Height of the space at the top of every other column.
-const columnTopSpace = 84.0;
-
 /// Height of a product image, paired with the product's id.
 class _TaggedHeightData {
   const _TaggedHeightData({
