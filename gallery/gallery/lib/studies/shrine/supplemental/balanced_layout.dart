@@ -69,19 +69,17 @@ List<List<Product>> _generateLayout({
 Size _imageSize(Image imageWidget) {
   Size result;
 
-  imageWidget.image
-      .resolve(ImageConfiguration())
-      .addListener(
-        ImageStreamListener(
-          (info, synchronousCall) {
-            final finalImage = info.image;
-            result = Size(
-              finalImage.width.toDouble(),
-              finalImage.height.toDouble(),
-            );
-          },
-        ),
-      );
+  imageWidget.image.resolve(ImageConfiguration()).addListener(
+    ImageStreamListener(
+      (info, synchronousCall) {
+        final finalImage = info.image;
+        result = Size(
+          finalImage.width.toDouble(),
+          finalImage.height.toDouble(),
+        );
+      },
+    ),
+  );
 
   return result;
 }
@@ -284,7 +282,8 @@ List<List<Product>> balancedLayout({
     columnCount: columnCount,
     data: productHeights,
     biases: List<double>.generate(
-      columnCount, (column) => (column % 2 == 0 ? 0 : columnTopSpace),
+      columnCount,
+      (column) => (column % 2 == 0 ? 0 : columnTopSpace),
     ),
   );
 
