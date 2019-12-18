@@ -13,6 +13,7 @@ import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/supplemental/desktop_product_columns.dart';
+import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:gallery/studies/shrine/supplemental/product_columns.dart';
 import 'package:gallery/studies/shrine/supplemental/product_card.dart';
 
@@ -242,6 +243,7 @@ class DesktopColumns extends StatelessWidget {
     final Widget _flex = Expanded(flex: 1, child: Container());
 
     final List<List<Product>> productCardLists = balancedLayout(
+      cache: LayoutCache.of(context),
       columnCount: columnCount,
       products: products,
       largeImageWidth: largeImageWidth,

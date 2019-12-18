@@ -161,11 +161,13 @@ List<List<int>> balancedDistribution({
 }
 
 List<List<Product>> balancedLayout({
+  Map<String, List<List<int>>> cache,
   int columnCount,
   List<Product> products,
   double largeImageWidth,
   double smallImageWidth,
 }) {
+
   final List<Size> productSizes = [
     for (var product in products)
       _imageSize(
