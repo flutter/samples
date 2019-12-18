@@ -10,6 +10,7 @@ import 'package:collection/collection.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 
 const _emptyElement = -1;
+const _heightDeviationTolerance = 10;
 
 class _TaggedHeightData {
   const _TaggedHeightData({
@@ -74,6 +75,9 @@ void iterateUntilBalanced(
     for (int source = 0; source < columnCount; ++source) {
       for (int target = source + 1; target < columnCount; ++target) {
         totalTries ++;
+
+        print('trial $totalTries -> heights: $columnHeights');
+
         // Attempt to switch an object from source and an object from target.
         bool success = false;
 
@@ -92,7 +96,7 @@ void iterateUntilBalanced(
               continue;
             } else {
               final double score = (columnHeights[source] - a.height + b.height - bestHeight).abs();
-              if (score < scoreLimit) {
+              if (score < scoreLimit - _heightDeviationTolerance) {
                 success = true;
                 if (bestScore == null || score < bestScore) {
                   bestScore = score;
@@ -108,6 +112,7 @@ void iterateUntilBalanced(
           ++ failedMoves;
         } else {
           failedMoves = 0;
+          print('found choices: ${bestChoiceForA.height}, ${bestChoiceForB.height}');
           if (bestChoiceForA.index != _emptyElement) {
             columnObjects[source].remove(bestChoiceForA);
             columnObjects[target].add(bestChoiceForA);
