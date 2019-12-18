@@ -963,7 +963,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'MainAxisAlignment'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'spaceAround'),
+      TextSpan(style: codeStyle.baseStyle, text: 'spaceEvenly'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            children'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),

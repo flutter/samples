@@ -27,7 +27,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
         style: CupertinoTheme.of(context).textTheme.textStyle,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
                 mainAxisSize: MainAxisSize.min,
