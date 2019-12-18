@@ -40,6 +40,56 @@ List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
   return result;
 }
 
+/// Encode parameters for caching.
+String _encodeParameters({
+  @required int columnCount,
+  @required List<Product> products,
+  @required double largeImageWidth,
+  @required double smallImageWidth,
+}) {
+  final String productString =
+  [for(final product in products) product.id.toString()].join(',');
+  return '$columnCount;$productString,$largeImageWidth,$smallImageWidth';
+}
+
+/// Given a layout, replace integers by their corresponding products.
+List<List<Product>> _generateLayout({
+  @required List<Product> products,
+  @required List<List<int>> layout,
+}) {
+  return [
+    for (final column in layout)
+      [
+        for (final index in column)
+          products [index],
+      ]
+  ];
+}
+
+/// Returns the size of an [Image] widget.
+Size _imageSize(Image imageWidget) {
+  Size result;
+
+  imageWidget.image.resolve(ImageConfiguration()).addListener(
+      ImageStreamListener(
+              (info, synchronousCall) {
+            final finalImage = info.image;
+            result = Size(
+              finalImage.width.toDouble(),
+              finalImage.height.toDouble(),
+            );
+          }
+      )
+  );
+
+  return result;
+}
+
+/// Given [columnObjects], list of the set of objects in each column,
+/// and [columnHeights], list of heights of each column,
+/// [_iterateUntilBalanced] moves and swaps objects between columns
+/// until their heights are sufficiently close to each other.
+/// This prevents the layout having significant, avoidable gaps at the bottom.
 void _iterateUntilBalanced(
   List<Set<_TaggedHeightData>> columnObjects,
   List<double> columnHeights,
@@ -120,7 +170,13 @@ void _iterateUntilBalanced(
   }
 }
 
-List<List<int>> balancedDistribution({
+/// Given a list of numbers [data], representing the heights of each image,
+/// and a list of numbers [biases], representing the heights of the space
+/// above each column, [_balancedDistribution] returns a layout of [data]
+/// so that the height of each column is sufficiently close to each other,
+/// represented as a list of lists of integers, each integer being an ID
+/// for a product.
+List<List<int>> _balancedDistribution({
   int columnCount,
   List<double> data,
   List<double> biases,
@@ -147,48 +203,6 @@ List<List<int>> balancedDistribution({
           object.index,
       ],
   ];
-}
-
-String _encodeParameters({
-  @required int columnCount,
-  @required List<Product> products,
-  @required double largeImageWidth,
-  @required double smallImageWidth,
-}) {
-  final String productString =
-      [for(final product in products) product.id.toString()].join(',');
-  return '$columnCount;$productString,$largeImageWidth,$smallImageWidth';
-}
-
-List<List<Product>> _generateLayout({
-  @required List<Product> products,
-  @required List<List<int>> layout,
-}) {
-  return [
-    for (final column in layout)
-      [
-        for (final index in column)
-          products [index],
-      ]
-  ];
-}
-
-Size _imageSize(Image imageWidget) {
-  Size result;
-
-  imageWidget.image.resolve(ImageConfiguration()).addListener(
-      ImageStreamListener(
-              (info, synchronousCall) {
-            final finalImage = info.image;
-            result = Size(
-              finalImage.width.toDouble(),
-              finalImage.height.toDouble(),
-            );
-          }
-      )
-  );
-
-  return result;
 }
 
 List<List<Product>> balancedLayout({
@@ -252,7 +266,7 @@ List<List<Product>> balancedLayout({
       productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + productCardAdditionalHeight,
   ];
 
-  final List<List<int>> layout = balancedDistribution(
+  final List<List<int>> layout = _balancedDistribution(
     columnCount: columnCount,
     data: productHeights,
     biases: List<double>
