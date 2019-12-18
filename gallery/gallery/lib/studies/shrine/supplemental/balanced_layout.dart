@@ -10,13 +10,17 @@ import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 const _emptyElement = -1;
 const _deviationImprovementThreshold = 10;
 
+/// Height of a product image, paired with the product's id.
 class _TaggedHeightData {
   const _TaggedHeightData({
     @required this.index,
     @required this.height,
   });
 
+  /// The id of the corresponding product.
   final int index;
+
+  /// The height of the product image.
   final double height;
 
   bool isBetterCandidateThan(_TaggedHeightData other, {double heightTarget}) {
