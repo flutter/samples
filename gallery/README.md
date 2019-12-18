@@ -19,7 +19,15 @@ This includes:
 - Windows
 
 That being said, extra steps must be taken to [enable Desktop support](
-https://github.com/flutter/flutter/wiki/Desktop-shells#tooling).
+https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). To for example
+run the macOS app:
+
+```
+cd gallery/
+flutter config --enable-macos-desktop
+flutter create --org io.flutter .
+flutter run -d macos
+```
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
 platform it runs on. This is determined based on window size as outlined in
