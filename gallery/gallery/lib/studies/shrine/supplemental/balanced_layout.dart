@@ -22,11 +22,6 @@ class _TaggedHeightData {
 
   /// The height of the product image.
   final double height;
-
-  bool isBetterCandidateThan(_TaggedHeightData other, {double heightTarget}) {
-    return other == null ||
-        (height - heightTarget).abs() < (other.height - heightTarget).abs();
-  }
 }
 
 List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
