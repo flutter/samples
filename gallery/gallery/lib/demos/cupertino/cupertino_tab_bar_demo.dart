@@ -18,7 +18,7 @@ class _TabInfo {
 class CupertinoTabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _tabInfo = <_TabInfo>[
+    final _tabInfo = [
       _TabInfo(
         GalleryLocalizations.of(context).cupertinoTabBarHomeTab,
         CupertinoIcons.home,
