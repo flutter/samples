@@ -14,6 +14,7 @@ import 'package:gallery/studies/shrine/login.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/scrim.dart';
+import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -35,6 +36,8 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
   AnimationController _expandingController;
 
   AppStateModel _model;
+
+  Map<String, List<List<int>>> _layouts = {};
 
   @override
   void initState() {
@@ -87,15 +90,18 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
         navigatorKey: widget.navigatorKey,
         title: 'Shrine',
         debugShowCheckedModeBanner: false,
-        home: PageStatus(
-          menuController: _controller,
-          cartController: _expandingController,
-          child: HomePage(
-            backdrop: backdrop,
-            scrim: Scrim(controller: _expandingController),
-            expandingBottomSheet: ExpandingBottomSheet(
-              hideController: _controller,
-              expandingController: _expandingController,
+        home: LayoutCache(
+          layouts: _layouts,
+          child: PageStatus(
+            menuController: _controller,
+            cartController: _expandingController,
+            child: HomePage(
+              backdrop: backdrop,
+              scrim: Scrim(controller: _expandingController),
+              expandingBottomSheet: ExpandingBottomSheet(
+                hideController: _controller,
+                expandingController: _expandingController,
+              ),
             ),
           ),
         ),
