@@ -238,7 +238,6 @@ class DesktopColumns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget _gap = Container(width: 24);
-    final Widget _flex = Expanded(flex: 1, child: Container());
 
     final List<List<Product>> productCardLists = balancedLayout(
       context: context,
@@ -274,7 +273,7 @@ class DesktopColumns extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _flex,
+            Spacer(),
             ...List<Widget>.generate(
               2 * columnCount - 1,
               (generalizedColumnIndex) {
@@ -285,7 +284,7 @@ class DesktopColumns extends StatelessWidget {
                 }
               },
             ),
-            _flex,
+            Spacer(),
           ],
         ),
         Container(height: 60),
