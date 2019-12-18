@@ -650,9 +650,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("ສົ່ງຄຳຕິຊົມ"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("ແຈ້ງ"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("ພາສາ"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("ໂຄງສ້າງຂອງແພລດຟອມ"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("ສະໂລໂມຊັນ"),

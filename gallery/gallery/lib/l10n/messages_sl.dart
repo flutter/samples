@@ -681,9 +681,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pošiljanje povratnih informacij"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Svetla"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Jezik"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Mehanika okolja"),
         "settingsSlowMotion":

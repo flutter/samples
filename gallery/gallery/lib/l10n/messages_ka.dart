@@ -685,9 +685,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("გამოხმაურების გაგზავნა"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("ღია"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("ლოკალი"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("პლატფორმის მექანიკა"),
         "settingsSlowMotion":

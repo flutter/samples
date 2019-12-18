@@ -83,10 +83,6 @@ class GalleryLocalizations {
   /// Returns a list of localizations delegates containing this delegate along with
   /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
   /// and GlobalWidgetsLocalizations.delegate.
-  ///
-  /// Additional delegates can be added by appending to this list in
-  /// MaterialApp. This list does not have to be used at all if a custom list
-  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
     delegate,
@@ -2771,20 +2767,6 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'settingsLocale',
         desc: r'Title for locale setting.');
-  }
-
-  String get settingsPlatformAndroid {
-    return Intl.message(r'Android',
-        locale: _localeName,
-        name: 'settingsPlatformAndroid',
-        desc: r'Title for Android platform setting.');
-  }
-
-  String get settingsPlatformIOS {
-    return Intl.message(r'iOS',
-        locale: _localeName,
-        name: 'settingsPlatformIOS',
-        desc: r'Title for iOS platform setting.');
   }
 
   String get settingsPlatformMechanics {

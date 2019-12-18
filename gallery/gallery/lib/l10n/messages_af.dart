@@ -678,9 +678,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stuur terugvoer"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Lig"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Locale"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Platformmeganika"),
         "settingsSlowMotion":

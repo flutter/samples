@@ -668,9 +668,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("Tuma maoni"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Meupe"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Lugha"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Umakanika wa mfumo"),
         "settingsSlowMotion":

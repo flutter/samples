@@ -685,9 +685,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Argia"),
         "settingsLocale":
             MessageLookupByLibrary.simpleMessage("Lurraldeko ezarpenak"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Plataformaren mekanika"),
         "settingsSlowMotion":

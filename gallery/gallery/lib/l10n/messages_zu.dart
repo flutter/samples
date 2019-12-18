@@ -701,9 +701,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thumela impendulo"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Ukukhanya"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Isifunda"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("I-Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("I-iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("I-Platform mechanics"),
         "settingsSlowMotion":

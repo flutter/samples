@@ -672,9 +672,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إرسال التعليقات"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("فاتح"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("اللغة"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("آليات الأنظمة الأساسية"),
         "settingsSlowMotion":

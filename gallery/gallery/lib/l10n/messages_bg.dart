@@ -670,9 +670,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Изпращане на отзиви"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Светла"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Локал"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Механика на платформата"),
         "settingsSlowMotion":

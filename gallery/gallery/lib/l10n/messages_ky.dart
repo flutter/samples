@@ -684,9 +684,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Пикир билдирүү"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Жарык"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Тил параметри"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Платформанын механикасы"),
         "settingsSlowMotion":

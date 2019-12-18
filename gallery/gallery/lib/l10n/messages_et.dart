@@ -673,9 +673,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tagasiside saatmine"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Hele"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Lokaat"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Platvormi mehaanika"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("Aegluubis"),

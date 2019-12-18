@@ -694,9 +694,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ഫീഡ്ബാക്ക് അയയ്ക്കുക"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("പ്രകാശം"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("പ്രാദേശിക ഭാഷ"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("പ്ലാറ്റ്‌ഫോം മെക്കാനിക്‌സ്"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("സ്ലോ മോഷൻ"),

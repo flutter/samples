@@ -669,9 +669,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Gửi phản hồi"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Sáng"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Cơ chế nền tảng"),
         "settingsSlowMotion":

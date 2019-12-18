@@ -619,9 +619,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("ግብረመልስ ላክ"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("ብርሃን"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("የአካባቢ"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("የመሣሪያ ስርዓት ሜካኒክ አሰራር"),
         "settingsSlowMotion":

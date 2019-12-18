@@ -594,9 +594,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("의견 보내기"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("밝게"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("언어"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("플랫폼 메커니즘"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("슬로우 모션"),

@@ -695,9 +695,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("అభిప్రాయాన్ని పంపు"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("కాంతివంతం"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("లొకేల్"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("ప్లాట్‌ఫామ్ మెకానిక్స్"),
         "settingsSlowMotion":

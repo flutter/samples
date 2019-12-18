@@ -580,9 +580,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("傳送意見回饋"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("淺色"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("語言代碼"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("平台操作"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("慢動作"),

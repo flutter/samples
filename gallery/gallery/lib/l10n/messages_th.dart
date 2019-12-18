@@ -671,9 +671,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ส่งความคิดเห็น"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("สีสว่าง"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("ภาษา"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("กลไกการทำงานของแพลตฟอร์ม"),
         "settingsSlowMotion":

@@ -658,9 +658,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Skicka feedback"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Ljust"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Språkkod"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Plattformsmekanik"),
         "settingsSlowMotion":

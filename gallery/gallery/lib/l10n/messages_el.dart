@@ -693,9 +693,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Φωτεινό"),
         "settingsLocale":
             MessageLookupByLibrary.simpleMessage("Τοπικές ρυθμίσεις"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Μηχανική πλατφόρμας"),
         "settingsSlowMotion":

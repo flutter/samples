@@ -683,9 +683,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Magpadala ng feedback"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Maliwanag"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Wika"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Mechanics ng platform"),
         "settingsSlowMotion":

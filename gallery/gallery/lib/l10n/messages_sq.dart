@@ -682,9 +682,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("E ndriçuar"),
         "settingsLocale":
             MessageLookupByLibrary.simpleMessage("Gjuha e përdorimit"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Mekanika e platformës"),
         "settingsSlowMotion":

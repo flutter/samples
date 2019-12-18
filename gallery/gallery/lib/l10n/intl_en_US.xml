@@ -370,14 +370,6 @@
     description="Title for platform mechanics (iOS/Android) setting."
     >Platform mechanics</string>
   <string
-    name="settingsPlatformAndroid"
-    description="Title for Android platform setting."
-    >Android</string>
-  <string
-    name="settingsPlatformIOS"
-    description="Title for iOS platform setting."
-    >iOS</string>
-  <string
     name="settingsTheme"
     description="Title for the theme setting."
     >Theme</string>

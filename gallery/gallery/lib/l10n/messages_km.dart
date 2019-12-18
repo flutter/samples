@@ -678,9 +678,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ផ្ញើមតិកែលម្អ"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("ភ្លឺ"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("ភាសា"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("មេកានិច​ប្រព័ន្ធ"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("ចលនា​យឺត"),

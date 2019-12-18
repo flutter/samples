@@ -683,9 +683,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Vaalea"),
         "settingsLocale":
             MessageLookupByLibrary.simpleMessage("Kieli- ja maa-asetus"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Alustan mekaniikka"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("Hidastus"),

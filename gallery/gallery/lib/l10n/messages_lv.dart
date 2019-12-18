@@ -671,9 +671,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sūtīt atsauksmes"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Gaišs"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Lokalizācija"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Platformas mehānika"),
         "settingsSlowMotion":

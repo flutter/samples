@@ -698,9 +698,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsLightTheme":
             MessageLookupByLibrary.simpleMessage("Šviesioji tema"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Lokalė"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Platformos mechanika"),
         "settingsSlowMotion":

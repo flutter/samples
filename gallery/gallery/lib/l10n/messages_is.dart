@@ -676,9 +676,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Senda ábendingu"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Ljóst"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Tungumálskóði"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Uppbygging kerfis"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("Hægspilun"),

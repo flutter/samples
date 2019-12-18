@@ -17,14 +17,11 @@ import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 
+// TODO: Remove once TargetPlatform includes all desktop platforms.
 void setOverrideForDesktop() {
   if (kIsWeb) return;
 
-  if (Platform.isMacOS) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  } else if (Platform.isFuchsia) {
+  if (Platform.isLinux || Platform.isWindows) {
     debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   }
 }

@@ -681,9 +681,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("মতামত পঠিয়াওক"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("পাতল"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("ল’কেল"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("প্লেটফ’ৰ্ম মেকানিকসমূহ"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("মন্থৰ গতি"),

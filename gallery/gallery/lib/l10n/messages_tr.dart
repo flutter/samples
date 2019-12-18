@@ -660,9 +660,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Geri bildirim gönder"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("Açık"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("Yerel ayar"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("Platform mekaniği"),
         "settingsSlowMotion":

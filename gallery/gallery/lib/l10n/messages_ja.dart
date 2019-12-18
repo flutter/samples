@@ -605,9 +605,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsFeedback": MessageLookupByLibrary.simpleMessage("フィードバックを送信"),
         "settingsLightTheme": MessageLookupByLibrary.simpleMessage("ライト"),
         "settingsLocale": MessageLookupByLibrary.simpleMessage("言語 / 地域"),
-        "settingsPlatformAndroid":
-            MessageLookupByLibrary.simpleMessage("Android"),
-        "settingsPlatformIOS": MessageLookupByLibrary.simpleMessage("iOS"),
         "settingsPlatformMechanics":
             MessageLookupByLibrary.simpleMessage("プラットフォームのメカニクス"),
         "settingsSlowMotion": MessageLookupByLibrary.simpleMessage("スロー モーション"),
