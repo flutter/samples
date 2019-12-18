@@ -48,7 +48,7 @@ String _encodeParameters({
   @required double smallImageWidth,
 }) {
   final String productString =
-  [for(final product in products) product.id.toString()].join(',');
+      [for (final product in products) product.id.toString()].join(',');
   return '$columnCount;$productString,$largeImageWidth,$smallImageWidth';
 }
 
@@ -60,8 +60,7 @@ List<List<Product>> _generateLayout({
   return [
     for (final column in layout)
       [
-        for (final index in column)
-          products [index],
+        for (final index in column) products[index],
       ]
   ];
 }
@@ -70,17 +69,19 @@ List<List<Product>> _generateLayout({
 Size _imageSize(Image imageWidget) {
   Size result;
 
-  imageWidget.image.resolve(ImageConfiguration()).addListener(
-      ImageStreamListener(
-              (info, synchronousCall) {
+  imageWidget.image
+      .resolve(ImageConfiguration())
+      .addListener(
+        ImageStreamListener(
+          (info, synchronousCall) {
             final finalImage = info.image;
             result = Size(
               finalImage.width.toDouble(),
               finalImage.height.toDouble(),
             );
-          }
-      )
-  );
+          },
+        ),
+      );
 
   return result;
 }
@@ -115,21 +116,26 @@ void _iterateUntilBalanced(
 
         bool success = false;
 
-        final double bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
+        final double bestHeight =
+            (columnHeights[source] + columnHeights[target]) / 2;
         final double scoreLimit = (columnHeights[source] - bestHeight).abs();
 
-        final List<_TaggedHeightData> sourceObjects = toListAndAddEmpty(columnObjects[source]);
-        final List<_TaggedHeightData> targetObjects = toListAndAddEmpty(columnObjects[target]);
+        final List<_TaggedHeightData> sourceObjects =
+            toListAndAddEmpty(columnObjects[source]);
+        final List<_TaggedHeightData> targetObjects =
+            toListAndAddEmpty(columnObjects[target]);
 
         _TaggedHeightData bestA, bestB;
         double bestScore;
 
         for (final a in sourceObjects) {
           for (final b in targetObjects) {
-            if (a.index == _emptyElement && b.index == _emptyElement){
+            if (a.index == _emptyElement && b.index == _emptyElement) {
               continue;
             } else {
-              final double score = (columnHeights[source] - a.height + b.height - bestHeight).abs();
+              final double score =
+                  (columnHeights[source] - a.height + b.height - bestHeight)
+                      .abs();
               if (score < scoreLimit - _deviationImprovementThreshold) {
                 success = true;
                 if (bestScore == null || score < bestScore) {
@@ -143,7 +149,7 @@ void _iterateUntilBalanced(
         }
 
         if (!success) {
-          ++ failedMoves;
+          ++failedMoves;
         } else {
           failedMoves = 0;
 
@@ -181,10 +187,10 @@ List<List<int>> _balancedDistribution({
   List<double> data,
   List<double> biases,
 }) {
-  assert (biases.length == columnCount);
+  assert(biases.length == columnCount);
 
-  List<Set<_TaggedHeightData>> columnObjects = List<Set<_TaggedHeightData>>
-      .generate(columnCount, (column) => Set());
+  List<Set<_TaggedHeightData>> columnObjects =
+      List<Set<_TaggedHeightData>>.generate(columnCount, (column) => Set());
 
   List<double> columnHeights = List<double>.from(biases);
 
@@ -199,8 +205,7 @@ List<List<int>> _balancedDistribution({
   return [
     for (final column in columnObjects)
       [
-        for (final object in column)
-          object.index,
+        for (final object in column) object.index,
       ],
   ];
 }
@@ -212,7 +217,6 @@ List<List<Product>> balancedLayout({
   double largeImageWidth,
   double smallImageWidth,
 }) {
-
   final String encodedParameters = _encodeParameters(
     columnCount: columnCount,
     products: products,
@@ -251,7 +255,8 @@ List<List<Product>> balancedLayout({
     // If some image sizes are not read, return default layout.
     // Default layout is not cached.
 
-    List<List<Product>> result = List<List<Product>>.generate(columnCount, (columnIndex) => []);
+    List<List<Product>> result =
+        List<List<Product>>.generate(columnCount, (columnIndex) => []);
     for (var index = 0; index < products.length; ++index) {
       result[index % columnCount].add(products[index]);
     }
@@ -263,14 +268,19 @@ List<List<Product>> balancedLayout({
 
   final List<double> productHeights = [
     for (final productSize in productSizes)
-      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + productCardAdditionalHeight,
+      productSize.height /
+              productSize.width *
+              (largeImageWidth + smallImageWidth) /
+              2 +
+          productCardAdditionalHeight,
   ];
 
   final List<List<int>> layout = _balancedDistribution(
     columnCount: columnCount,
     data: productHeights,
-    biases: List<double>
-        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : columnTopSpace)),
+    biases: List<double>.generate(
+      columnCount, (column) => (column % 2 == 0 ? 0 : columnTopSpace),
+    ),
   );
 
   // Add tailored layout to cache.
