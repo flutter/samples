@@ -242,7 +242,7 @@ class DesktopColumns extends StatelessWidget {
     final Widget _flex = Expanded(flex: 1, child: Container());
 
     final List<List<Product>> productCardLists = balancedLayout(
-      cacheContext: context,
+      context: context,
       columnCount: columnCount,
       products: products,
       largeImageWidth: largeImageWidth,

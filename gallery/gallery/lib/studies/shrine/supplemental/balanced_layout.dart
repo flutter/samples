@@ -197,7 +197,7 @@ Size _imageSize(Image imageWidget) {
 }
 
 List<List<Product>> balancedLayout({
-  BuildContext cacheContext,
+  BuildContext context,
   int columnCount,
   List<Product> products,
   double largeImageWidth,
@@ -213,10 +213,10 @@ List<List<Product>> balancedLayout({
 
   // Check if this layout is cached.
 
-  if (LayoutCache.of(cacheContext).containsKey(encodedParameters)) {
+  if (LayoutCache.of(context).containsKey(encodedParameters)) {
     return _generateLayout(
       products: products,
-      layout: LayoutCache.of(cacheContext)[encodedParameters],
+      layout: LayoutCache.of(context)[encodedParameters],
     );
   }
 
@@ -266,7 +266,7 @@ List<List<Product>> balancedLayout({
 
   // Add tailored layout to cache.
 
-  LayoutCache.of(cacheContext)[encodedParameters] = layout;
+  LayoutCache.of(context)[encodedParameters] = layout;
 
   final List<List<Product>> result = _generateLayout(
     products: products,
