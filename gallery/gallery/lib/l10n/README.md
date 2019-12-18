@@ -24,7 +24,7 @@ to be completed.
 
 ## How to Generate GalleryLocalizations with Grinder
 
-From the `samples/gallery/` directory:
+From the `samples/gallery/gallery/` directory:
 1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
 running `flutter pub get`.
 2. Then run `flutter pub run grinder l10n` to generate `GalleryLocalizations`.

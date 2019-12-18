@@ -19,8 +19,8 @@ This includes:
 - Windows
 
 That being said, extra steps must be taken to [enable Desktop support](
-https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). To for example
-run the macOS app:
+https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
+example, to run the macOS app:
 
 ```
 cd gallery/
@@ -52,13 +52,18 @@ platform it runs on. This is determined based on window size as outlined in
 ## Generating localized strings and highlighted code segments
 
 To generate localized strings or highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed by running
-`flutter pub get`.
+have [grinder](https://pub.dev/packages/grinder) installed. You can install it
+by getting the packages in `samples/gallery/gallery/`:
+```
+flutter pub get
+```
 
 To generate localized strings (see separate [README](gallery/lib/l10n/README.md)
 for more details):
 
-    flutter pub run grinder l10n
+```
+flutter pub run grinder l10n
+```
 
 To generate code segments (see separate [README](codeviewer_cli/README.md) for
 more details):

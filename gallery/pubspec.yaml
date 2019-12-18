@@ -1,9 +1,0 @@
-name: gallery_tools
-description: The l10n, codeviewer and gallery grinder workflows.
-
-environment:
-  sdk: ">=2.3.0 <3.0.0"
-
-dev_dependencies:
-  grinder: ^0.8.0
-  intl_translation:

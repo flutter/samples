@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:meta/meta.dart';
 
+const _l10nDir = '../gallery/lib/l10n';
 const _intlHeader = '''
 <?xml version="1.0" encoding="utf-8"?>
 <!--
@@ -36,11 +37,10 @@ String _escapeXml(String xml) {
 }
 
 /// Processes the XML files.
-Future<void> englishArbsToXmls(
-    String inputArbFilePath, String outputXmlFilePath) async {
+Future<void> englishArbsToXmls() async {
   await generateXmlFromArb(
-    inputArb: File(inputArbFilePath),
-    outputXml: File(outputXmlFilePath),
+    inputArb: File('$_l10nDir/intl_en_US.arb'),
+    outputXml: File('$_l10nDir/intl_en_US.xml'),
     xmlHeader: _intlHeader,
   );
 }
