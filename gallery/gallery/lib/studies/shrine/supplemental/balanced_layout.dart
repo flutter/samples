@@ -24,6 +24,8 @@ class _TaggedHeightData {
   final double height;
 }
 
+/// Converts a set of [_TaggedHeightData] elements to a list,
+/// and add an empty element.
 List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
   List<_TaggedHeightData> result = List<_TaggedHeightData>.from(set);
   result.add(_TaggedHeightData(index: _emptyElement, height: 0));
@@ -50,6 +52,9 @@ void _iterateUntilBalanced(
         // and an object B from target column, such that switching them
         // causes the height of the two columns to be closer.
 
+        // A or B can be empty; in this case, moving an object from one
+        // column to the other is the best choice.
+
         bool success = false;
 
         final double bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
@@ -58,7 +63,7 @@ void _iterateUntilBalanced(
         final List<_TaggedHeightData> sourceObjects = toListAndAddEmpty(columnObjects[source]);
         final List<_TaggedHeightData> targetObjects = toListAndAddEmpty(columnObjects[target]);
 
-        _TaggedHeightData bestChoiceForA, bestChoiceForB;
+        _TaggedHeightData bestA, bestB;
         double bestScore;
 
         for (final a in sourceObjects) {
@@ -71,8 +76,8 @@ void _iterateUntilBalanced(
                 success = true;
                 if (bestScore == null || score < bestScore) {
                   bestScore = score;
-                  bestChoiceForA = a;
-                  bestChoiceForB = b;
+                  bestA = a;
+                  bestB = b;
                 }
               }
             }
@@ -85,16 +90,16 @@ void _iterateUntilBalanced(
           failedMoves = 0;
 
           // Switch A and B.
-          if (bestChoiceForA.index != _emptyElement) {
-            columnObjects[source].remove(bestChoiceForA);
-            columnObjects[target].add(bestChoiceForA);
+          if (bestA.index != _emptyElement) {
+            columnObjects[source].remove(bestA);
+            columnObjects[target].add(bestA);
           }
-          if (bestChoiceForB.index != _emptyElement) {
-            columnObjects[target].remove(bestChoiceForB);
-            columnObjects[source].add(bestChoiceForB);
+          if (bestB.index != _emptyElement) {
+            columnObjects[target].remove(bestB);
+            columnObjects[source].add(bestB);
           }
-          columnHeights[source] += bestChoiceForB.height - bestChoiceForA.height;
-          columnHeights[target] += bestChoiceForA.height - bestChoiceForB.height;
+          columnHeights[source] += bestB.height - bestA.height;
+          columnHeights[target] += bestA.height - bestB.height;
         }
 
         if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
