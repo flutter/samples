@@ -7,8 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 
+/// A placeholder id for an empty element. See [_iterateUntilBalanced]
+/// for more information.
 const _emptyElement = -1;
+
+/// To avoid infinite loops, improvements to the layout are only performed
+/// when a column's height changes by more than
+/// [_deviationImprovementThreshold] pixels.
 const _deviationImprovementThreshold = 10;
+
+/// Height of the text below each product card.
+const _productCardAdditionalHeight = 84.0 * 2;
+
+/// Height of the space at the top of every other column.
+const _columnTopSpace = 84.0;
 
 /// Height of a product image, paired with the product's id.
 class _TaggedHeightData {
@@ -153,7 +165,7 @@ String _encodeParameters({
   return '$columnCount;$productString,$largeImageWidth,$smallImageWidth';
 }
 
-List<List<Product>> generateLayout({
+List<List<Product>> _generateLayout({
   @required List<Product> products,
   @required List<List<int>> layout,
 }) {
@@ -202,7 +214,7 @@ List<List<Product>> balancedLayout({
   // Check if this layout is cached.
 
   if (LayoutCache.of(cacheContext).containsKey(encodedParameters)) {
-    return generateLayout(
+    return _generateLayout(
       products: products,
       layout: LayoutCache.of(cacheContext)[encodedParameters],
     );
@@ -242,21 +254,21 @@ List<List<Product>> balancedLayout({
 
   final List<double> productHeights = [
     for (final productSize in productSizes)
-      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + 84 * 2,
+      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + _productCardAdditionalHeight,
   ];
 
   final List<List<int>> layout = balancedDistribution(
     columnCount: columnCount,
     data: productHeights,
     biases: List<double>
-        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : 84)),
+        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : _columnTopSpace)),
   );
 
   // Add tailored layout to cache.
 
   LayoutCache.of(cacheContext)[encodedParameters] = layout;
 
-  final List<List<Product>> result = generateLayout(
+  final List<List<Product>> result = _generateLayout(
     products: products,
     layout: layout,
   );
