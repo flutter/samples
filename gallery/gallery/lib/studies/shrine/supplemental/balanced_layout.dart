@@ -17,61 +17,109 @@ class _TaggedHeightData {
 
   final int index;
   final double height;
+
+  bool isBetterCandidateThan(_TaggedHeightData other, {double heightTarget}) {
+    return other == null ||
+        (height - heightTarget).abs() < (other.height - heightTarget).abs();
+  }
+}
+
+class _ColumnHeightData {
+  const _ColumnHeightData({
+    @required this.height,
+    @required this.columnIndex,
+  });
+
+  final double height;
+  final int columnIndex;
+}
+
+int _compareColumnHeightData (_ColumnHeightData a, _ColumnHeightData b) {
+  if (a.height < b.height) {
+    return -1;
+  } else if (a.height > b.height) {
+    return 1;
+  } else if (a.columnIndex < b.columnIndex) {
+    return -1;
+  } else if (a.columnIndex > b.columnIndex) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+void iterateUntilBalanced(
+  List<Set<_TaggedHeightData>> columnObjects,
+  List<double> columnHeights,
+) {
+  int failedMoves = 0;
+  final int columnCount = columnObjects.length;
+  while (true) {
+    for (int source = 0; source < columnCount; ++source) {
+      for (int target = 0; target < columnCount; ++target) {
+        if (source != target) {
+          // Attempt to move an object from source to target
+          bool success;
+          if (columnHeights[source] <= columnHeights[target]) {
+            success = false;
+          } else {
+            final double difference =
+                columnHeights[source] - columnHeights[target];
+            _TaggedHeightData candidate;
+            success = false;
+            for (final newCandidate in columnObjects[source]) {
+              if (newCandidate.height < difference) {
+                if (newCandidate.isBetterCandidateThan(candidate, heightTarget: difference / 2)) {
+                  candidate = newCandidate;
+                  success = true;
+                }
+              }
+            }
+            columnObjects[source].remove(candidate);
+            columnObjects[target].add(candidate);
+            columnHeights[source] -= candidate.height;
+            columnHeights[target] += candidate.height;
+          }
+          if (!success) {
+            ++ failedMoves;
+          }
+          if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
+            // Sufficiently balanced.
+            return;
+          }
+        }
+      }
+    }
+  }
 }
 
 List<List<int>> balancedDistribution({
-  int subsetCount,
+  int columnCount,
   List<double> data,
   List<double> biases,
 }) {
-  assert (biases.length == subsetCount);
+  assert (biases.length == columnCount);
 
-  List<Set<_TaggedHeightData>> result = List<Set<_TaggedHeightData>>
-      .generate(subsetCount, (column) => Set());
+  List<Set<_TaggedHeightData>> columnObjects = List<Set<_TaggedHeightData>>
+      .generate(columnCount, (column) => Set());
 
-  List<double> columnHeight = List<double>
-      .generate(subsetCount, (column) => (column % 2 == 0 ? 0 : 84));
+  List<double> columnHeights = List<double>.from(biases);
 
-  PriorityQueue<_ColumnHeightData> columnCandidates =
-      PriorityQueue<_ColumnHeightData>(_compareColumnHeightData);
-
-  columnCandidates.addAll(
-      [for (int subsetIndex = 0; subsetIndex < subsetCount; ++subsetIndex)
-        _ColumnHeightData(
-          height: columnHeight[subsetIndex],
-          columnIndex: subsetIndex,
-        )]
-  );
-
-  for (int index = 0; index < data.length; ++index) {
-    // Form data.
-    final object = _TaggedHeightData(index: index, height: data[index]);
-
-    // Select column.
-    final targetColumnData = columnCandidates.removeFirst();
-    final targetColumn = targetColumnData.columnIndex;
-
-    // Add to column.
-    result[targetColumn].add(object);
-
-    // Update column height.
-    columnHeight[targetColumn] += object.height + 84 * 2;
-
-    // Update columnCandidates.
-    columnCandidates.add(
-      _ColumnHeightData(
-        height: columnHeight[targetColumn],
-        columnIndex: targetColumn,
-      ),
-    );
+  for (var i = 0; i < data.length; ++i) {
+    final int column = i % columnCount;
+    columnHeights[column] += data[i];
+    columnObjects[column].add(_TaggedHeightData(index: i, height: data[i]));
   }
 
-  // Fundamental finished.
+  iterateUntilBalanced(columnObjects, columnHeights);
 
-
-
-
-
+  return [
+    for (final column in columnObjects)
+      [
+        for (final object in column)
+          object.index,
+      ],
+  ];
 }
 
 List<List<Product>> balancedLayout({
@@ -90,56 +138,25 @@ List<List<Product>> balancedLayout({
       ),
   ];
 
-  List<List<Product>> result = List<List<Product>>
-      .generate(columnCount, (column) => []);
+  final List<double> productHeights = [
+    for (final productSize in productSizes)
+      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + 84 * 2,
+  ];
 
-  List<double> columnHeight = List<double>
-      .generate(columnCount, (column) => (column % 2 == 0 ? 0 : 84));
-
-  List<bool> lastElementIsLarge = List<bool>
-      .generate(columnCount, (column) => (column % 2 == 1));
-
-  PriorityQueue<_ColumnHeightData> columnCandidates =
-      PriorityQueue<_ColumnHeightData>(_compareColumnHeightData);
-
-  columnCandidates.addAll(
-    [for (int columnIndex = 0; columnIndex < columnCount; ++columnIndex)
-      _ColumnHeightData(
-        height: columnHeight[columnIndex],
-        columnIndex: columnIndex,
-      )]
+  final List<List<int>> distribution = balancedDistribution(
+    columnCount: columnCount,
+    data: productHeights,
+    biases: List<double>
+        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : 84)),
   );
 
-  for (int productIndex = 0; productIndex < products.length; ++productIndex) {
-    final product = products[productIndex];
-    final productSize = productSizes[productIndex];
-
-    // Select column.
-    final targetColumnData = columnCandidates.removeFirst();
-    final targetColumn = targetColumnData.columnIndex;
-
-    // Add to column.
-    result[targetColumn].add(product);
-
-    // Update column height.
-    final imageHeight = productSize.height / productSize.width *
-        (lastElementIsLarge[targetColumn] ? largeImageWidth : smallImageWidth);
-
-    columnHeight[targetColumn] += imageHeight + 84 * 2;
-
-    // Update column.
-    lastElementIsLarge[targetColumn] = ! lastElementIsLarge[targetColumn];
-
-    // Update columnCandidates.
-    columnCandidates.add(
-      _ColumnHeightData(
-        height: columnHeight[targetColumn],
-        columnIndex: targetColumn,
-      ),
-    );
-  }
-
-  print(standardDeviation(columnHeight));
+  final List<List<Product>> result = [
+    for (final column in distribution)
+      [
+        for (final index in column)
+          products[index],
+      ]
+  ];
 
   return result;
 }
@@ -174,28 +191,3 @@ Size _imageSize(Image imageWidget) {
 
   return result;
 }
-
-class _ColumnHeightData {
-  const _ColumnHeightData({
-    @required this.height,
-    @required this.columnIndex,
-  });
-
-  final double height;
-  final int columnIndex;
-}
-
-int _compareColumnHeightData (_ColumnHeightData a, _ColumnHeightData b) {
-  if (a.height < b.height) {
-    return -1;
-  } else if (a.height > b.height) {
-    return 1;
-  } else if (a.columnIndex < b.columnIndex) {
-    return -1;
-  } else if (a.columnIndex > b.columnIndex) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
