@@ -616,11 +616,11 @@
   <string
     name="demoCupertinoTabBarSubtitle"
     description="Subtitle for the cupertino bottom tab bar demo."
-    >iOS-styled bottom tab bar</string>
+    >iOS-style bottom tab bar</string>
   <string
     name="demoCupertinoTabBarDescription"
     description="Description for the cupertino bottom tab bar demo."
-    >An iOS-styled bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.</string>
+    >An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.</string>
   <string
     name="cupertinoTabBarHomeTab"
     description="Title for the home tab in the bottom tab bar demo."

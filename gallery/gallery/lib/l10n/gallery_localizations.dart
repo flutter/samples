@@ -1562,14 +1562,14 @@ class GalleryLocalizations {
 
   String get demoCupertinoTabBarDescription {
     return Intl.message(
-        r'An iOS-styled bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.',
+        r'An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.',
         locale: _localeName,
         name: 'demoCupertinoTabBarDescription',
         desc: r'Description for the cupertino bottom tab bar demo.');
   }
 
   String get demoCupertinoTabBarSubtitle {
-    return Intl.message(r'iOS-styled bottom tab bar',
+    return Intl.message(r'iOS-style bottom tab bar',
         locale: _localeName,
         name: 'demoCupertinoTabBarSubtitle',
         desc: r'Subtitle for the cupertino bottom tab bar demo.');

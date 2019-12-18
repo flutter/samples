@@ -401,9 +401,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmented Control"),
         "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
-            "An iOS-styled bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default."),
+            "An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default."),
         "demoCupertinoTabBarSubtitle":
-            MessageLookupByLibrary.simpleMessage("iOS-styled bottom tab bar"),
+            MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Tab Bar"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(

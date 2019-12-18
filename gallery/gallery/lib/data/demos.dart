@@ -449,22 +449,6 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
-      icon: GalleryIcons.bottomNavigation,
-      subtitle: GalleryLocalizations.of(context).demoCupertinoTabBarSubtitle,
-      configurations: [
-        GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoTabBarDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoTabBar-class.html',
-          buildRoute: (_) => CupertinoTabBarDemo(),
-          code: CodeSegments.cupertinoNavigationDemo,
-        ),
-      ],
-    ),
-    GalleryDemo(
       title:
           GalleryLocalizations.of(context).demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
@@ -480,6 +464,22 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/cupertino/CupertinoSegmentedControl-class.html',
           buildRoute: (_) => CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
+      icon: GalleryIcons.bottomNavigation,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoTabBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCupertinoTabBarTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoTabBarDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoTabBar-class.html',
+          buildRoute: (_) => CupertinoTabBarDemo(),
+          code: CodeSegments.cupertinoNavigationDemo,
         ),
       ],
     ),

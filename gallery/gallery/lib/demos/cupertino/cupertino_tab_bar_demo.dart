@@ -46,36 +46,13 @@ class CupertinoTabBarDemo extends StatelessWidget {
           ],
         ),
         tabBuilder: (context, index) {
-          switch (index) {
-            case 0:
-              return CupertinoTabView(
-                builder: (context) => _CupertinoDemoTab(
-                  title: _tabInfo[0].title,
-                  icon: _tabInfo[0].icon,
-                ),
-                defaultTitle: _tabInfo[0].title,
-              );
-              break;
-            case 1:
-              return CupertinoTabView(
-                builder: (context) => _CupertinoDemoTab(
-                  title: _tabInfo[1].title,
-                  icon: _tabInfo[1].icon,
-                ),
-                defaultTitle: _tabInfo[1].title,
-              );
-              break;
-            case 2:
-              return CupertinoTabView(
-                builder: (context) => _CupertinoDemoTab(
-                  title: _tabInfo[2].title,
-                  icon: _tabInfo[2].icon,
-                ),
-                defaultTitle: _tabInfo[2].title,
-              );
-              break;
-          }
-          return null;
+          return CupertinoTabView(
+            builder: (context) => _CupertinoDemoTab(
+              title: _tabInfo[index].title,
+              icon: _tabInfo[index].icon,
+            ),
+            defaultTitle: _tabInfo[index].title,
+          );
         },
       ),
     );

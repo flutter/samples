@@ -649,11 +649,11 @@
   "@demoCupertinoTabBarTitle": {
     "description": "Title for the cupertino bottom tab bar demo."
   },
-  "demoCupertinoTabBarSubtitle": "iOS-styled bottom tab bar",
+  "demoCupertinoTabBarSubtitle": "iOS-style bottom tab bar",
   "@demoCupertinoTabBarSubtitle": {
     "description": "Subtitle for the cupertino bottom tab bar demo."
   },
-  "demoCupertinoTabBarDescription": "An iOS-styled bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.",
+  "demoCupertinoTabBarDescription": "An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.",
   "@demoCupertinoTabBarDescription": {
     "description": "Description for the cupertino bottom tab bar demo."
   },
