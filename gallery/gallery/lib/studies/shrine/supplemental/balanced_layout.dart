@@ -42,9 +42,11 @@ List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
 
 /// Sort a list of integers, then return the sorted list.
 /// Used in list comprehensions using "for".
-List<int> _sorted(List<int> list) {
-  list.sort();
-  return list;
+extension ListSorter<T> on List<T> {
+  List<T> sorted () {
+    this.sort();
+    return this;
+  }
 }
 
 /// Encode parameters for caching.
@@ -209,7 +211,7 @@ List<List<int>> _balancedDistribution({
 
   return [
     for (final column in columnObjects)
-      _sorted([for (final object in column) object.index]),
+      [for (final object in column) object.index].sorted(),
   ];
 }
 
