@@ -16,6 +16,7 @@ import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
+import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
@@ -82,21 +83,26 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
     final Widget backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
 
+    final Map<String, List<List<int>>> layouts = {};
+
     return ScopedModel<AppStateModel>(
       model: _model,
       child: MaterialApp(
         navigatorKey: widget.navigatorKey,
         title: 'Shrine',
         debugShowCheckedModeBanner: false,
-        home: PageStatus(
-          menuController: _controller,
-          cartController: _expandingController,
-          child: HomePage(
-            backdrop: backdrop,
-            scrim: Scrim(controller: _expandingController),
-            expandingBottomSheet: ExpandingBottomSheet(
-              hideController: _controller,
-              expandingController: _expandingController,
+        home: LayoutCache(
+          layouts: layouts,
+          child: PageStatus(
+            menuController: _controller,
+            cartController: _expandingController,
+            child: HomePage(
+              backdrop: backdrop,
+              scrim: Scrim(controller: _expandingController),
+              expandingBottomSheet: ExpandingBottomSheet(
+                hideController: _controller,
+                expandingController: _expandingController,
+              ),
             ),
           ),
         ),
