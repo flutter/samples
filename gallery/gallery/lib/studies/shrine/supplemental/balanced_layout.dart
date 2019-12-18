@@ -42,7 +42,7 @@ List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
 
 /// Sort a list of integers, then return the sorted list.
 /// Used in list comprehensions using "for".
-List<int> _sorted (List<int> list) {
+List<int> _sorted(List<int> list) {
   list.sort();
   return list;
 }
