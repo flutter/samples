@@ -247,13 +247,6 @@ class DesktopColumns extends StatelessWidget {
       smallImageWidth: smallImageWidth,
     );
 
-    /* var productCardLists = List<List<Product>>
-        .generate(columnCount, (column) => []);
-
-    for (int productIndex = 0; productIndex < products.length; ++productIndex) {
-      productCardLists[productIndex % columnCount].add(products[productIndex]);
-    } */
-
     final List<DesktopProductCardColumn> productCardColumns =
     List<DesktopProductCardColumn>.generate(columnCount, (column) {
       final bool alignToEnd =
