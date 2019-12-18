@@ -83,10 +83,6 @@ class GalleryLocalizations {
   /// Returns a list of localizations delegates containing this delegate along with
   /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
   /// and GlobalWidgetsLocalizations.delegate.
-  ///
-  /// Additional delegates can be added by appending to this list in
-  /// MaterialApp. This list does not have to be used at all if a custom list
-  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
     delegate,
@@ -97,7 +93,6 @@ class GalleryLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en', 'US'),
     Locale('af'),
     Locale('am'),
     Locale('ar'),
@@ -125,6 +120,7 @@ class GalleryLocalizations {
     Locale('en', 'IN'),
     Locale('en', 'NZ'),
     Locale('en', 'SG'),
+    Locale('en', 'US'),
     Locale('en', 'ZA'),
     Locale('es'),
     Locale('es', '419'),
@@ -1174,6 +1170,27 @@ class GalleryLocalizations {
         desc: r'Button text to show iOS-style alert.');
   }
 
+  String get cupertinoTabBarChatTab {
+    return Intl.message(r'Chat',
+        locale: _localeName,
+        name: 'cupertinoTabBarChatTab',
+        desc: r'Title for the chat tab in the bottom tab bar demo.');
+  }
+
+  String get cupertinoTabBarHomeTab {
+    return Intl.message(r'Home',
+        locale: _localeName,
+        name: 'cupertinoTabBarHomeTab',
+        desc: r'Title for the home tab in the bottom tab bar demo.');
+  }
+
+  String get cupertinoTabBarProfileTab {
+    return Intl.message(r'Profile',
+        locale: _localeName,
+        name: 'cupertinoTabBarProfileTab',
+        desc: r'Title for the profile tab in the bottom tab bar demo.');
+  }
+
   String get demoActionChipDescription {
     return Intl.message(
         r'Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI.',
@@ -1537,6 +1554,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoSegmentedControlTitle',
         desc: r'Title for the cupertino segmented control component demo.');
+  }
+
+  String get demoCupertinoTabBarDescription {
+    return Intl.message(
+        r'An iOS-styled bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarDescription',
+        desc: r'Description for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTabBarSubtitle {
+    return Intl.message(r'iOS-styled bottom tab bar',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarSubtitle',
+        desc: r'Subtitle for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTabBarTitle {
+    return Intl.message(r'Tab Bar',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarTitle',
+        desc: r'Title for the cupertino bottom tab bar demo.');
   }
 
   String get demoDialogSubtitle {
