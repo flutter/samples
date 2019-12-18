@@ -26,6 +26,7 @@ class _TaggedHeightData {
 
 /// Converts a set of [_TaggedHeightData] elements to a list,
 /// and add an empty element.
+/// Used for iteration.
 List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
   List<_TaggedHeightData> result = List<_TaggedHeightData>.from(set);
   result.add(_TaggedHeightData(index: _emptyElement, height: 0));
@@ -102,8 +103,9 @@ void _iterateUntilBalanced(
           columnHeights[target] += bestA.height - bestB.height;
         }
 
+        // If no two columns' heights can be made closer by switching
+        // elements, the layout is sufficiently balanced.
         if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
-          // Sufficiently balanced.
           return;
         }
       }
