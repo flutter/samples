@@ -9,6 +9,8 @@ import 'package:collection/collection.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
 
+const _emptyElement = -1;
+
 class _TaggedHeightData {
   const _TaggedHeightData({
     @required this.index,
@@ -48,6 +50,12 @@ int _compareColumnHeightData (_ColumnHeightData a, _ColumnHeightData b) {
   }
 }
 
+List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
+  List<_TaggedHeightData> result = List<_TaggedHeightData>.from(set);
+  result.add(_TaggedHeightData(index: _emptyElement, height: 0));
+  return result;
+}
+
 void iterateUntilBalanced(
   List<Set<_TaggedHeightData>> columnObjects,
   List<double> columnHeights,
@@ -55,44 +63,68 @@ void iterateUntilBalanced(
   int failedMoves = 0;
   int totalTries = 0; // TODO: remove
   final int columnCount = columnObjects.length;
+
+  // No need to rearrange a 1-column layout.
+  if (columnCount == 1) {
+    return;
+  }
+
   while (true) {
+    // Loop through all possible 2-combinations of columns.
     for (int source = 0; source < columnCount; ++source) {
-      for (int target = 0; target < columnCount; ++target) {
-        if (source != target) {
-          totalTries ++;
-          // Attempt to move an object from source to target
-          bool success;
-          if (columnHeights[source] <= columnHeights[target]) {
-            success = false;
-          } else {
-            final double difference =
-                columnHeights[source] - columnHeights[target];
-            _TaggedHeightData candidate;
-            success = false;
-            for (final newCandidate in columnObjects[source]) {
-              if (newCandidate.height < difference) {
-                if (newCandidate.isBetterCandidateThan(candidate, heightTarget: difference / 2)) {
-                  candidate = newCandidate;
-                  success = true;
+      for (int target = source + 1; target < columnCount; ++target) {
+        totalTries ++;
+        // Attempt to switch an object from source and an object from target.
+        bool success = false;
+
+        final double bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
+        final double scoreLimit = (columnHeights[source] - bestHeight).abs();
+
+        final List<_TaggedHeightData> sourceObjects = toListAndAddEmpty(columnObjects[source]);
+        final List<_TaggedHeightData> targetObjects = toListAndAddEmpty(columnObjects[target]);
+
+        _TaggedHeightData bestChoiceForA, bestChoiceForB;
+        double bestScore;
+
+        for (final a in sourceObjects) {
+          for (final b in targetObjects) {
+            if (a.index == _emptyElement && b.index == _emptyElement){
+              continue;
+            } else {
+              final double score = (columnHeights[source] - a.height + b.height - bestHeight).abs();
+              if (score < scoreLimit) {
+                success = true;
+                if (bestScore == null || score < bestScore) {
+                  bestScore = score;
+                  bestChoiceForA = a;
+                  bestChoiceForB = b;
                 }
               }
             }
-            if (candidate != null) {
-              columnObjects[source].remove(candidate);
-              columnObjects[target].add(candidate);
-              columnHeights[source] -= candidate.height;
-              columnHeights[target] += candidate.height;
-            }
           }
-          if (!success) {
-            ++ failedMoves;
+        }
+
+        if (!success) {
+          ++ failedMoves;
+        } else {
+          failedMoves = 0;
+          if (bestChoiceForA.index != _emptyElement) {
+            columnObjects[source].remove(bestChoiceForA);
+            columnObjects[target].add(bestChoiceForA);
           }
-          if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
-            // Sufficiently balanced.
-            print('balanced: $columnHeights');
-            print('total tries: $totalTries');
-            return;
+          if (bestChoiceForB.index != _emptyElement) {
+            columnObjects[target].remove(bestChoiceForB);
+            columnObjects[source].add(bestChoiceForB);
           }
+          columnHeights[source] += bestChoiceForB.height - bestChoiceForA.height;
+          columnHeights[target] += bestChoiceForA.height - bestChoiceForB.height;
+        }
+
+        if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
+          // Sufficiently balanced.
+          print('balanced: $columnHeights');
+          print('total tries: $totalTries');
+          return;
         }
       }
     }
@@ -161,6 +193,8 @@ List<List<Product>> balancedLayout({
 
     return result;
   }
+
+  // All images have sizes. Use tailored layout.
 
   final List<double> productHeights = [
     for (final productSize in productSizes)
