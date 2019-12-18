@@ -203,7 +203,7 @@ class DesktopAsymmetricView extends StatelessWidget {
           )
         : columnWidth;
 
-    final int columnCount = min(idealColumnCount, max (products.length, 1));
+    final int columnCount = min(idealColumnCount, max(products.length, 1));
 
     return AnimatedBuilder(
       animation: PageStatus.of(context).cartController,
@@ -249,20 +249,22 @@ class DesktopColumns extends StatelessWidget {
     );
 
     final List<DesktopProductCardColumn> productCardColumns =
-    List<DesktopProductCardColumn>.generate(columnCount, (column) {
-      final bool alignToEnd =
-          (column % 2 == 1) || (column == columnCount - 1);
-      final bool startLarge = (column % 2 == 1);
-      final bool lowerStart = (column % 2 == 1);
-      return DesktopProductCardColumn(
-        alignToEnd: alignToEnd,
-        startLarge: startLarge,
-        lowerStart: lowerStart,
-        products: productCardLists[column],
-        largeImageWidth: largeImageWidth,
-        smallImageWidth: smallImageWidth,
-      );
-    });
+        List<DesktopProductCardColumn>.generate(
+          columnCount,
+          (column) {
+            final bool alignToEnd = (column % 2 == 1) || (column == columnCount - 1);
+            final bool startLarge = (column % 2 == 1);
+            final bool lowerStart = (column % 2 == 1);
+            return DesktopProductCardColumn(
+              alignToEnd: alignToEnd,
+              startLarge: startLarge,
+              lowerStart: lowerStart,
+              products: productCardLists[column],
+              largeImageWidth: largeImageWidth,
+              smallImageWidth: smallImageWidth,
+            );
+          },
+        );
 
     return ListView(
       scrollDirection: Axis.vertical,
@@ -274,7 +276,7 @@ class DesktopColumns extends StatelessWidget {
             _flex,
             ...List<Widget>.generate(
               2 * columnCount - 1,
-                  (generalizedColumnIndex) {
+              (generalizedColumnIndex) {
                 if (generalizedColumnIndex % 2 == 0) {
                   return productCardColumns[generalizedColumnIndex ~/ 2];
                 } else {
