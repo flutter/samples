@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:gallery/studies/shrine/supplemental/desktop_product_columns.dart';
 import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 
 /// A placeholder id for an empty element. See [_iterateUntilBalanced]
@@ -17,10 +18,10 @@ const _emptyElement = -1;
 const _deviationImprovementThreshold = 10;
 
 /// Height of the text below each product card.
-const _productCardAdditionalHeight = 84.0 * 2;
+const productCardAdditionalHeight = 84.0 * 2;
 
 /// Height of the space at the top of every other column.
-const _columnTopSpace = 84.0;
+const columnTopSpace = 84.0;
 
 /// Height of a product image, paired with the product's id.
 class _TaggedHeightData {
@@ -254,14 +255,14 @@ List<List<Product>> balancedLayout({
 
   final List<double> productHeights = [
     for (final productSize in productSizes)
-      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + _productCardAdditionalHeight,
+      productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + productCardAdditionalHeight,
   ];
 
   final List<List<int>> layout = balancedDistribution(
     columnCount: columnCount,
     data: productHeights,
     biases: List<double>
-        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : _columnTopSpace)),
+        .generate(columnCount, (column) => (column % 2 == 0 ? 0 : columnTopSpace)),
   );
 
   // Add tailored layout to cache.
