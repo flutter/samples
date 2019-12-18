@@ -33,7 +33,10 @@ Future<void> generateLocalizations() async {
     'gen_l10n.dart',
   );
 
+  await pubGet(directory: 'gallery');
+  final arbDirPath = path.join('gallery', 'lib', 'l10n');
   Dart.run(l10nScriptFile, arguments: [
+    '--arb-dir=$arbDirPath',
     '--template-arb-file=intl_en_US.arb',
     '--output-localization-file=gallery_localizations.dart',
     '--output-class=GalleryLocalizations',
@@ -46,7 +49,14 @@ Future<void> l10n() async {
   final l10nPath = path.join(Directory.current.path, 'l10n_cli');
   await pubGet(directory: l10nPath);
 
-  Dart.run(path.join(l10nPath, 'bin', 'main.dart'));
+  final inputArbFilePath =
+      path.join('gallery', 'lib', 'l10n', 'intl_en_US.arb');
+  final outputXmlFilePath =
+      path.join('gallery', 'lib', 'l10n', 'intl_en_US.xml');
+  Dart.run(path.join(l10nPath, 'bin', 'main.dart'), arguments: [
+    '--input-arb-file=$inputArbFilePath',
+    '--output-xml-file=$outputXmlFilePath',
+  ]);
   await format(path: path.join('gallery', 'lib', 'l10n'));
 }
 
