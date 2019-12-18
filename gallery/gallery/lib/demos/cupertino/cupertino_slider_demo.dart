@@ -32,15 +32,18 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CupertinoSlider(
-                    value: _value,
-                    min: 0.0,
-                    max: 100.0,
-                    onChanged: (value) {
-                      setState(() {
-                        _value = value;
-                      });
-                    },
+                  SizedBox(
+                    width: double.infinity,
+                    child: CupertinoSlider(
+                      value: _value,
+                      min: 0.0,
+                      max: 100.0,
+                      onChanged: (value) {
+                        setState(() {
+                          _value = value;
+                        });
+                      },
+                    ),
                   ),
                   MergeSemantics(
                     child: Text(
@@ -55,16 +58,19 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  CupertinoSlider(
-                    value: _discreteValue,
-                    min: 0.0,
-                    max: 100.0,
-                    divisions: 5,
-                    onChanged: (value) {
-                      setState(() {
-                        _discreteValue = value;
-                      });
-                    },
+                  SizedBox(
+                    width: double.infinity,
+                    child: CupertinoSlider(
+                      value: _discreteValue,
+                      min: 0.0,
+                      max: 100.0,
+                      divisions: 5,
+                      onChanged: (value) {
+                        setState(() {
+                          _discreteValue = value;
+                        });
+                      },
+                    ),
                   ),
                   MergeSemantics(
                     child: Text(
