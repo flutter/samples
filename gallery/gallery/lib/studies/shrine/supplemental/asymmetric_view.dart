@@ -189,7 +189,7 @@ class DesktopAsymmetricView extends StatelessWidget {
     final double columnGapWidth = 24 * imageScaleFactor;
     final double windowWidth = MediaQuery.of(context).size.width;
 
-    final int columnCount = max(
+    final int idealColumnCount = max(
       1,
       ((windowWidth + columnGapWidth - 2 * minimumBoundaryWidth - sidebar) /
               (columnWidth + columnGapWidth))
@@ -197,12 +197,14 @@ class DesktopAsymmetricView extends StatelessWidget {
     );
 
     // Limit column width to fit within window when there is only one column.
-    final double actualColumnWidth = columnCount == 1
+    final double actualColumnWidth = idealColumnCount == 1
         ? min(
             columnWidth,
             windowWidth - sidebar - 2 * minimumBoundaryWidth,
           )
         : columnWidth;
+
+    final int columnCount = min(idealColumnCount, max (products.length, 1));
 
     return AnimatedBuilder(
       animation: PageStatus.of(context).cartController,
