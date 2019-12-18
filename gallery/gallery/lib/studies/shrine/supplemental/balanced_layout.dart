@@ -160,6 +160,30 @@ List<List<int>> balancedDistribution({
   ];
 }
 
+String _encodeParameters({
+  @required int columnCount,
+  @required List<Product> products,
+  @required double largeImageWidth,
+  @required double smallImageWidth,
+}) {
+  final String productString =
+      [for(final product in products) product.id.toString()].join(',');
+  return '$columnCount;$productString,$largeImageWidth,$smallImageWidth';
+}
+
+List<List<Product>> generateLayout({
+  @required List<Product> products,
+  @required List<List<int>> layout,
+}) {
+  return [
+    for (final column in layout)
+      [
+        for (final index in column)
+          products [index],
+      ]
+  ];
+}
+
 List<List<Product>> balancedLayout({
   Map<String, List<List<int>>> cache,
   int columnCount,
@@ -167,6 +191,20 @@ List<List<Product>> balancedLayout({
   double largeImageWidth,
   double smallImageWidth,
 }) {
+
+  final String encodedParameters = _encodeParameters(
+    columnCount: columnCount,
+    products: products,
+    largeImageWidth: largeImageWidth,
+    smallImageWidth: smallImageWidth,
+  );
+
+  if (cache.containsKey(encodedParameters)) {
+    return generateLayout(
+      products: products,
+      layout: cache[encodedParameters],
+    );
+  }
 
   final List<Size> productSizes = [
     for (var product in products)
@@ -203,20 +241,19 @@ List<List<Product>> balancedLayout({
       productSize.height / productSize.width * (largeImageWidth + smallImageWidth) / 2 + 84 * 2,
   ];
 
-  final List<List<int>> distribution = balancedDistribution(
+  final List<List<int>> layout = balancedDistribution(
     columnCount: columnCount,
     data: productHeights,
     biases: List<double>
         .generate(columnCount, (column) => (column % 2 == 0 ? 0 : 84)),
   );
 
-  final List<List<Product>> result = [
-    for (final column in distribution)
-      [
-        for (final index in column)
-          products[index],
-      ]
-  ];
+  cache[encodedParameters] = layout;
+
+  final List<List<Product>> result = generateLayout(
+    products: products,
+    layout: layout,
+  );
 
   return result;
 }
