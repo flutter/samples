@@ -437,9 +437,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("سطر واحد"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "انقر هنا لعرض الخيارات المتاحة لهذا العرض التوضيحي."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("عرض الخيارات"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("الخيارات"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "تصبح الأزرار المخطَّطة غير شفافة وترتفع عند الضغط عليها. وغالبًا ما يتم إقرانها مع الأزرار البارزة للإشارة إلى إجراء ثانوي بديل."),

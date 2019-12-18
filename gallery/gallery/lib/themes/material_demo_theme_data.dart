@@ -22,6 +22,9 @@ class MaterialDemoThemeData {
     indicatorColor: _colorScheme.onPrimary,
     primaryColor: _colorScheme.primary,
     scaffoldBackgroundColor: _colorScheme.background,
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+    ),
     typography: Typography(
       platform: defaultTargetPlatform,
       englishLike: Typography.englishLike2018,

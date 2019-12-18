@@ -447,9 +447,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Yksi rivi"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Voit näyttää esittelystä saatavilla olevat vaihtoehdot napauttamalla tästä."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Näytä asetukset"),
         "demoOptionsTooltip":
             MessageLookupByLibrary.simpleMessage("Vaihtoehdot"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(

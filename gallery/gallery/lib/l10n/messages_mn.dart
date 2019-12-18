@@ -442,9 +442,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Нэг шугам"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Энэ демо хувилбарын боломжит сонголтуудыг харахын тулд энд товшино уу."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Сонголтуудыг харах"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Сонголт"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Гадна хүрээтэй товчлуурыг дарсан үед тодорч, дээшилдэг. Нэмэлт сонголт болон хоёрдогч үйлдлийг заахын тулд тэдгээрийг ихэвчлэн товгор товчлууртай хослуулдаг."),

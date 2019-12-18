@@ -452,9 +452,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ஒரு வரி"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
-        "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            "இந்த டெமோவிற்குக் கிடைக்கக்கூடிய விருப்பங்களைப் பார்க்க இங்கே தட்டவும்."),
+        "demoOptionsFeatureTitle": MessageLookupByLibrary.simpleMessage(
+            "விருப்பங்களைக் காட்டுவதற்கான பட்டன்"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Options"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action."),

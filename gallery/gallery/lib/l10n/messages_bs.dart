@@ -430,7 +430,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoFullscreenDialogTitle":
             MessageLookupByLibrary.simpleMessage("Preko cijelog ekrana"),
         "demoFullscreenTooltip":
-            MessageLookupByLibrary.simpleMessage("Preko cijelog ekrana"),
+            MessageLookupByLibrary.simpleMessage("Cijeli ekran"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informacije"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Čipovi unosa predstavljaju kompleksne informacije, kao što su entitet (osoba, mjesto ili stvar) ili tekst razgovora, u kompaktnoj formi."),

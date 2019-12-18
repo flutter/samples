@@ -426,9 +426,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("एक लाइन"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "इस डेमो के लिए उपलब्ध विकल्पों को देखने के लिए यहां टैप करें."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("विकल्प देखें"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("विकल्प"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "आउटलाइन बटन दबाने पर धुंधले हो जाते हैं और ऊपर की ओर उठ जाते हैं. इन्हें विकल्प के तौर पर, दूसरी कार्रवाई के रुप में अक्सर उभरे हुए बटन के साथ जोड़ा जाता है."),

@@ -98,14 +98,14 @@ packages:
       name: flare_dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.2"
   flare_flutter:
     dependency: "direct main"
     description:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -247,6 +247,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   pub_semver:
     dependency: transitive
     description:
@@ -281,7 +288,14 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.4+9"
+    version: "0.5.6"
+  shared_preferences_macos:
+    dependency: transitive
+    description:
+      name: shared_preferences_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+3"
   shared_preferences_platform_interface:
     dependency: transitive
     description:
@@ -289,6 +303,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  shared_preferences_web:
+    dependency: transitive
+    description:
+      name: shared_preferences_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2+2"
   shrine_images:
     dependency: "direct main"
     description:
@@ -356,7 +377,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.7"
+    version: "5.4.1"
   url_launcher_fde:
     dependency: "direct main"
     description:
@@ -366,20 +387,27 @@ packages:
       url: "git://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.0.1"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+2"
   url_launcher_platform_interface:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.4"
   url_launcher_web:
     dependency: "direct main"
     description:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0+1"
+    version: "0.1.0+2"
   vector_math:
     dependency: transitive
     description:
@@ -410,4 +438,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">=2.4.0 <3.0.0"
-  flutter: ">=1.10.0 <2.0.0"
+  flutter: ">=1.12.13+hotfix.4 <2.0.0"

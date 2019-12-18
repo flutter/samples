@@ -441,9 +441,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Մեկ գիծ"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Հպեք այստեղ և դիտեք հնարավոր ընտրանքները ցուցադրական տարբերակի համար։"),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Դիտեք ընտրանքները"),
         "demoOptionsTooltip":
             MessageLookupByLibrary.simpleMessage("Ընտրանքներ"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(

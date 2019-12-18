@@ -438,9 +438,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Один рядок"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Натисніть, щоб переглянути параметри для цієї демо-версії."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Параметри перегляду"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Параметри"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Кнопки з контуром стають прозорими й піднімаються, якщо їх натиснути. Зазвичай їх використовують з опуклими кнопками для позначення альтернативних і другорядних дій."),

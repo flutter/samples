@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Näytä asetukset",
+  "demoOptionsFeatureDescription": "Voit näyttää esittelystä saatavilla olevat vaihtoehdot napauttamalla tästä.",
   "demoCodeViewerCopyAll": "KOPIOI KAIKKI",
   "shrineScreenReaderRemoveProductButton": "Poista {product}",
   "shrineScreenReaderProductAddToCart": "Lisää ostoskoriin",

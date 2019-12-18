@@ -1,6 +1,6 @@
 {
-  "demoOptionsFeatureTitle": "View options",
-  "demoOptionsFeatureDescription": "Tap here to view available options for this demo.",
+  "demoOptionsFeatureTitle": "Опцияларды көру",
+  "demoOptionsFeatureDescription": "Осы демо нұсқасында қолжетімді опцияларды көру үшін түртіңіз.",
   "demoCodeViewerCopyAll": "БАРЛЫҒЫН КӨШІРУ",
   "shrineScreenReaderRemoveProductButton": "{product} өшіру",
   "shrineScreenReaderProductAddToCart": "Себетке қосу",

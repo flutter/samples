@@ -450,9 +450,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ერთი ხაზი"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "შეეხეთ აქ ამ დემოს ხელმისაწვდომი ვარიანტების სანახავად."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("პარამეტრების ნახვა"),
         "demoOptionsTooltip":
             MessageLookupByLibrary.simpleMessage("ვარიანტები"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(

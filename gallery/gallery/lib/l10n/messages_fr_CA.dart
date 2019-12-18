@@ -446,9 +446,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Une ligne"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Touchez ici pour voir les options proposées pour cette démonstration."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Afficher les options"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Options"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Les boutons contour deviennent opaques et s\'élèvent lorsqu\'on appuie sur ceux-ci. Ils sont souvent utilisés en association avec des boutons surélevés pour indiquer une autre action, secondaire."),
