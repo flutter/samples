@@ -527,22 +527,56 @@ class DemoWrapper extends StatelessWidget {
         context: context,
         removeTop: true,
         removeBottom: true,
-        child: Focus(
+        child: FocusScope(
+          node: InheritedDemoFocusNodes.of(context).innerFocusScope,
           onFocusChange: (hasFocus) {
             if (hasFocus && hasCycled) {
               hasCycled = !hasCycled;
               FocusScope.of(context).requestFocus(
                   InheritedDemoFocusNodes.of(context).backButtonFocusNode);
+            } else if (hasFocus) {
+              InheritedDemoFocusNodes.of(context)
+                  .innerFocusScope
+                  .traversalChildren
+                  .toList()
+                  .first
+                  .requestFocus();
             }
           },
-          child: ApplyTextOptions(
-            child: CupertinoTheme(
-              data: CupertinoThemeData().copyWith(brightness: Brightness.light),
-              child: child,
+          child: DefaultFocusTraversal(
+            policy: DemoFocusTraversalPolicy(
+              focusScope: InheritedDemoFocusNodes.of(context).innerFocusScope,
+              context: context,
+            ),
+            child: ApplyTextOptions(
+              child: CupertinoTheme(
+                data:
+                    CupertinoThemeData().copyWith(brightness: Brightness.light),
+                child: child,
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class DemoFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
+  DemoFocusTraversalPolicy({
+    this.focusScope,
+    this.context,
+  }) : assert(focusScope != null && context != null);
+
+  final FocusScopeNode focusScope;
+  final BuildContext context;
+
+  @override
+  bool next(FocusNode currentNode) {
+    if (currentNode == focusScope.traversalChildren.toList().last) {
+      InheritedDemoFocusNodes.of(context).backButtonFocusNode.requestFocus();
+      return true;
+    }
+    return super.next(currentNode);
   }
 }

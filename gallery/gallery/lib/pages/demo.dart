@@ -52,6 +52,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
 
   AnimationController _codeBackgroundColorController;
   FocusNode backButonFocusNode;
+  FocusScopeNode innerFocusScope;
 
   GalleryDemoConfiguration get _currentConfig {
     return widget.demo.configurations[_configIndex];
@@ -86,12 +87,14 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       });
     });
     backButonFocusNode = FocusNode();
+    innerFocusScope = FocusScopeNode();
   }
 
   @override
   void dispose() {
     _codeBackgroundColorController.dispose();
     backButonFocusNode.dispose();
+    innerFocusScope.dispose();
     super.dispose();
   }
 
@@ -489,6 +492,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
 
     return InheritedDemoFocusNodes(
       backButtonFocusNode: backButonFocusNode,
+      innerFocusScope: innerFocusScope,
       child: FeatureDiscoveryController(page),
     );
   }
@@ -786,10 +790,12 @@ class InheritedDemoFocusNodes extends InheritedWidget {
   InheritedDemoFocusNodes({
     @required Widget child,
     @required this.backButtonFocusNode,
+    @required this.innerFocusScope,
   })  : assert(child != null),
         super(child: child);
 
   final FocusNode backButtonFocusNode;
+  final FocusScopeNode innerFocusScope;
 
   static InheritedDemoFocusNodes of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType();
