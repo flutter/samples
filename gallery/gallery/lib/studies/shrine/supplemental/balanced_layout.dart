@@ -36,7 +36,6 @@ void _iterateUntilBalanced(
   List<double> columnHeights,
 ) {
   int failedMoves = 0;
-  int totalTries = 0; // TODO: remove
   final int columnCount = columnObjects.length;
 
   // No need to rearrange a 1-column layout.
@@ -48,9 +47,10 @@ void _iterateUntilBalanced(
     // Loop through all possible 2-combinations of columns.
     for (int source = 0; source < columnCount; ++source) {
       for (int target = source + 1; target < columnCount; ++target) {
-        totalTries ++;
+        // Tries to find an object A from source column
+        // and an object B from target column, such that switching them
+        // causes the height of the two columns to be closer.
 
-        // Attempt to switch an object from source and an object from target.
         bool success = false;
 
         final double bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
@@ -84,6 +84,8 @@ void _iterateUntilBalanced(
           ++ failedMoves;
         } else {
           failedMoves = 0;
+
+          // Switch A and B.
           if (bestChoiceForA.index != _emptyElement) {
             columnObjects[source].remove(bestChoiceForA);
             columnObjects[target].add(bestChoiceForA);
