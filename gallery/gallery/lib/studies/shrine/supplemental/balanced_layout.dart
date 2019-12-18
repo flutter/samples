@@ -144,15 +144,15 @@ List<List<Product>> balancedLayout({
       ),
   ];
 
-  bool hasNull = false;
+  bool hasNullSize = false;
   for (final productSize in productSizes) {
     if (productSize == null) {
-      hasNull = true;
+      hasNullSize = true;
       break;
     }
   }
 
-  if (hasNull) {
+  if (hasNullSize) {
     // If some image sizes are not read, return default layout.
     List<List<Product>> result = List<List<Product>>.generate(columnCount, (columnIndex) => []);
     for (var index = 0; index < products.length; ++index) {
