@@ -53,11 +53,13 @@ void iterateUntilBalanced(
   List<double> columnHeights,
 ) {
   int failedMoves = 0;
+  int totalTries = 0; // TODO: remove
   final int columnCount = columnObjects.length;
   while (true) {
     for (int source = 0; source < columnCount; ++source) {
       for (int target = 0; target < columnCount; ++target) {
         if (source != target) {
+          totalTries ++;
           // Attempt to move an object from source to target
           bool success;
           if (columnHeights[source] <= columnHeights[target]) {
@@ -88,6 +90,7 @@ void iterateUntilBalanced(
           if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
             // Sufficiently balanced.
             print('balanced: $columnHeights');
+            print('total tries: $totalTries');
             return;
           }
         }
