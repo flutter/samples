@@ -67,5 +67,6 @@ flutter pub run grinder l10n
 
 To generate code segments (see separate [README](codeviewer_cli/README.md) for
 more details):
-
-    flutter pub run grinder update-code-segments
+```
+flutter pub run grinder update-code-segments
+```
