@@ -210,6 +210,11 @@ List<List<int>> _balancedDistribution({
   ];
 }
 
+/// Generates a balanced layout for [columnCount] columns,
+/// with products specified by the list [products],
+/// where the larger images have width [largeImageWidth]
+/// and the smaller images have width [smallImageWidth].
+/// The current [context] is also given to allow caching.
 List<List<Product>> balancedLayout({
   BuildContext context,
   int columnCount,
