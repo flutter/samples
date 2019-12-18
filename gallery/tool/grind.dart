@@ -1,7 +1,11 @@
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
-import 'package:path/path.dart' as p;
+import 'package:path/path.dart' as path;
 
 void main(List<String> args) => grind(args);
 
@@ -13,9 +17,6 @@ Future<void> pubGet({String directory}) async {
   );
 }
 
-@Task('Run Flutter unit tests')
-Future<void> test() async => await _runProcess('flutter', ['test']);
-
 @Task('Format dart files')
 Future<void> format({String path = '.'}) async {
   await _runProcess('flutter', ['format', path]);
@@ -23,7 +24,7 @@ Future<void> format({String path = '.'}) async {
 
 @Task('Generate localizations files')
 Future<void> generateLocalizations() async {
-  final l10nScriptFile = p.join(
+  final l10nScriptFile = path.join(
     _flutterRootPath(),
     'dev',
     'tools',
@@ -42,25 +43,26 @@ Future<void> generateLocalizations() async {
 @Task('Transform arb to xml for English')
 @Depends(generateLocalizations)
 Future<void> l10n() async {
-  final l10nPath = p.join(Directory.current.parent.path, 'l10n_cli');
+  final l10nPath = path.join(Directory.current.path, 'l10n_cli');
   await pubGet(directory: l10nPath);
 
-  Dart.run(p.join(l10nPath, 'bin', 'main.dart'));
-  await format(path: p.join('lib', 'l10n'));
-}
-
-@Task('Generate code segments')
-Future<void> generateCodeSegments() async {
-  final codeviewerPath =
-      p.join(Directory.current.parent.path, 'codeviewer_cli');
-  await pubGet(directory: codeviewerPath);
-  Dart.run(p.join(codeviewerPath, 'bin', 'main.dart'));
+  Dart.run(path.join(l10nPath, 'bin', 'main.dart'));
+  await format(path: path.join('gallery', 'lib', 'l10n'));
 }
 
 @Task('Update code segments')
-@Depends(generateCodeSegments)
 Future<void> updateCodeSegments() async {
-  await format(path: p.join('lib', 'codeviewer', 'code_segments.dart'));
+  final codeviewerPath = path.join(Directory.current.path, 'codeviewer_cli');
+  await pubGet(directory: codeviewerPath);
+
+  final sourceDirectoryPath = path.join('gallery', 'lib', 'demos');
+  final targetFilePath =
+      path.join('gallery', 'lib', 'codeviewer', 'code_segments.dart');
+  Dart.run(path.join(codeviewerPath, 'bin', 'main.dart'), arguments: [
+    '--source-directory=$sourceDirectoryPath',
+    '--target-file=$targetFilePath',
+  ]);
+  await format(path: targetFilePath);
 }
 
 Future<void> _runProcess(String executable, List<String> arguments) async {
@@ -73,9 +75,7 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
 String _flutterRootPath() {
   final flutterBinPath =
       Platform.environment['PATH'].split(':').lastWhere((setting) {
-    return p.canonicalize(setting).endsWith(
-          'flutter${p.separator}bin',
-        );
+    return path.canonicalize(setting).endsWith(path.join('flutter', 'bin'));
   });
   return Directory(flutterBinPath).parent.path;
 }
