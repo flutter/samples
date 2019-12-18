@@ -481,7 +481,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           documentationUrl:
               'https://api.flutter.dev/flutter/cupertino/CupertinoSlider-class.html',
           buildRoute: (_) => CupertinoSliderDemo(),
-          code: CodeSegments.cupertinoNavigationDemo, // TODO
+          code: CodeSegments.cupertinoSliderDemo,
         ),
       ],
     ),
@@ -498,7 +498,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           documentationUrl:
               'https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html',
           buildRoute: (_) => CupertinoSwitchDemo(),
-          code: CodeSegments.cupertinoNavigationDemo, // TODO
+          code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
     ),
