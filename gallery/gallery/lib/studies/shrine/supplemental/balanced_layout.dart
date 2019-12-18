@@ -166,6 +166,24 @@ List<List<Product>> generateLayout({
   ];
 }
 
+Size _imageSize(Image imageWidget) {
+  Size result;
+
+  imageWidget.image.resolve(ImageConfiguration()).addListener(
+      ImageStreamListener(
+              (info, synchronousCall) {
+            final finalImage = info.image;
+            result = Size(
+              finalImage.width.toDouble(),
+              finalImage.height.toDouble(),
+            );
+          }
+      )
+  );
+
+  return result;
+}
+
 List<List<Product>> balancedLayout({
   BuildContext cacheContext,
   int columnCount,
@@ -241,24 +259,6 @@ List<List<Product>> balancedLayout({
   final List<List<Product>> result = generateLayout(
     products: products,
     layout: layout,
-  );
-
-  return result;
-}
-
-Size _imageSize(Image imageWidget) {
-  Size result;
-
-  imageWidget.image.resolve(ImageConfiguration()).addListener(
-    ImageStreamListener(
-      (info, synchronousCall) {
-        final finalImage = info.image;
-        result = Size(
-          finalImage.width.toDouble(),
-          finalImage.height.toDouble(),
-        );
-      }
-    )
   );
 
   return result;
