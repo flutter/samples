@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 
 const _emptyElement = -1;
 const _deviationImprovementThreshold = 10;
@@ -158,7 +159,7 @@ List<List<Product>> generateLayout({
 }
 
 List<List<Product>> balancedLayout({
-  Map<String, List<List<int>>> cache,
+  BuildContext cacheContext,
   int columnCount,
   List<Product> products,
   double largeImageWidth,
@@ -174,12 +175,14 @@ List<List<Product>> balancedLayout({
 
   // Check if this layout is cached.
 
-  if (cache.containsKey(encodedParameters)) {
+  print('old cache = ${LayoutCache.of(cacheContext).layouts}');
+
+  if (LayoutCache.of(cacheContext).layouts.containsKey(encodedParameters)) {
     print('Layout $encodedParameters is cached.');
 
     return generateLayout(
       products: products,
-      layout: cache[encodedParameters],
+      layout: LayoutCache.of(cacheContext).layouts[encodedParameters],
     );
   }
 
@@ -229,7 +232,8 @@ List<List<Product>> balancedLayout({
 
   // Add tailored layout to cache.
 
-  cache[encodedParameters] = layout;
+  LayoutCache.of(cacheContext).layouts[encodedParameters] = layout;
+  print('new cache = ${LayoutCache.of(cacheContext).layouts}');
 
   final List<List<Product>> result = generateLayout(
     products: products,

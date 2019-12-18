@@ -38,6 +38,8 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
   AppStateModel _model;
 
+  Map<String, List<List<int>>> _layouts = {};
+
   @override
   void initState() {
     super.initState();
@@ -83,8 +85,6 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
     final Widget backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
 
-    final Map<String, List<List<int>>> layouts = {};
-
     return ScopedModel<AppStateModel>(
       model: _model,
       child: MaterialApp(
@@ -92,7 +92,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
         title: 'Shrine',
         debugShowCheckedModeBanner: false,
         home: LayoutCache(
-          layouts: layouts,
+          layouts: _layouts,
           child: PageStatus(
             menuController: _controller,
             cartController: _expandingController,

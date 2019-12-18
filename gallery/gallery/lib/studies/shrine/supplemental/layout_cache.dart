@@ -11,8 +11,8 @@ class LayoutCache extends InheritedWidget {
     @required Widget child,
   }) : super(key: key, child: child);
 
-  static Map<String, List<List<int>>> of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<LayoutCache>().layouts;
+  static LayoutCache of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<LayoutCache>();
   }
 
   final Map<String, List<List<int>>> layouts;
