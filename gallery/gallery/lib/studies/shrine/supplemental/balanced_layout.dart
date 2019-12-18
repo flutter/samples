@@ -5,12 +5,11 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:collection/collection.dart';
 
 import 'package:gallery/studies/shrine/model/product.dart';
 
 const _emptyElement = -1;
-const _heightDeviationTolerance = 10;
+const _deviationImprovementThreshold = 10;
 
 class _TaggedHeightData {
   const _TaggedHeightData({
@@ -24,30 +23,6 @@ class _TaggedHeightData {
   bool isBetterCandidateThan(_TaggedHeightData other, {double heightTarget}) {
     return other == null ||
         (height - heightTarget).abs() < (other.height - heightTarget).abs();
-  }
-}
-
-class _ColumnHeightData {
-  const _ColumnHeightData({
-    @required this.height,
-    @required this.columnIndex,
-  });
-
-  final double height;
-  final int columnIndex;
-}
-
-int _compareColumnHeightData (_ColumnHeightData a, _ColumnHeightData b) {
-  if (a.height < b.height) {
-    return -1;
-  } else if (a.height > b.height) {
-    return 1;
-  } else if (a.columnIndex < b.columnIndex) {
-    return -1;
-  } else if (a.columnIndex > b.columnIndex) {
-    return 1;
-  } else {
-    return 0;
   }
 }
 
@@ -96,7 +71,7 @@ void iterateUntilBalanced(
               continue;
             } else {
               final double score = (columnHeights[source] - a.height + b.height - bestHeight).abs();
-              if (score < scoreLimit - _heightDeviationTolerance) {
+              if (score < scoreLimit - _deviationImprovementThreshold) {
                 success = true;
                 if (bestScore == null || score < bestScore) {
                   bestScore = score;
@@ -263,17 +238,17 @@ List<List<Product>> balancedLayout({
   return result;
 }
 
-double average(List<double> data) {
+double _average(List<double> data) {
   return data.fold<double>(0, (a, b) => a + b) / data.length;
 }
 
-double standardDeviation(List<double> data) {
-  final double mean = average(data);
+double _standardDeviation(List<double> data) {
+  final double mean = _average(data);
   final List<double> squareDeviations = [
     for (final elem in data)
       math.pow(elem - mean, 2).toDouble(),
   ];
-  return math.sqrt(average(squareDeviations));
+  return math.sqrt(_average(squareDeviations));
 }
 
 Size _imageSize(Image imageWidget) {
