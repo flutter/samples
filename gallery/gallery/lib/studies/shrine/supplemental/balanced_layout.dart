@@ -49,8 +49,6 @@ void _iterateUntilBalanced(
       for (int target = source + 1; target < columnCount; ++target) {
         totalTries ++;
 
-        print('trial $totalTries -> heights: $columnHeights');
-
         // Attempt to switch an object from source and an object from target.
         bool success = false;
 
@@ -85,7 +83,6 @@ void _iterateUntilBalanced(
           ++ failedMoves;
         } else {
           failedMoves = 0;
-          print('found choices: ${bestChoiceForA.height}, ${bestChoiceForB.height}');
           if (bestChoiceForA.index != _emptyElement) {
             columnObjects[source].remove(bestChoiceForA);
             columnObjects[target].add(bestChoiceForA);
@@ -100,8 +97,6 @@ void _iterateUntilBalanced(
 
         if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
           // Sufficiently balanced.
-          print('balanced: $columnHeights');
-          print('total tries: $totalTries');
           return;
         }
       }
