@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Failed to copy to clipboard: ${error}";
 
+  static m23(value) => "Continuous: ${value}";
+
+  static m24(value) => "Discrete: ${value}";
+
   static m7(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
 
   static m8(value) => "You selected: \"${value}\"";
@@ -400,6 +404,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style segmented control"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmented Control"),
+        "demoCupertinoSliderContinuous": m23,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "A slider can be used to select from either a continuous or a discrete set of values."),
+        "demoCupertinoSliderDiscrete": m24,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style slider"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slider"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "A switch is used to toggle the on/off state of a single setting."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style switch"),
         "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
             "An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default."),
         "demoCupertinoTabBarSubtitle":

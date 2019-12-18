@@ -97,7 +97,6 @@ class GalleryLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en', 'US'),
     Locale('af'),
     Locale('am'),
     Locale('ar'),
@@ -125,6 +124,7 @@ class GalleryLocalizations {
     Locale('en', 'IN'),
     Locale('en', 'NZ'),
     Locale('en', 'SG'),
+    Locale('en', 'US'),
     Locale('en', 'ZA'),
     Locale('es'),
     Locale('es', '419'),
@@ -1558,6 +1558,61 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoSegmentedControlTitle',
         desc: r'Title for the cupertino segmented control component demo.');
+  }
+
+  String demoCupertinoSliderContinuous(Object value) {
+    return Intl.message(r'Continuous: $value',
+        locale: _localeName,
+        name: 'demoCupertinoSliderContinuous',
+        desc:
+            r'A label for a continuous slider that indicates what value it is set to.',
+        args: <Object>[value]);
+  }
+
+  String get demoCupertinoSliderDescription {
+    return Intl.message(
+        r'A slider can be used to select from either a continuous or a discrete set of values.',
+        locale: _localeName,
+        name: 'demoCupertinoSliderDescription',
+        desc: r'Description for the cupertino slider component demo.');
+  }
+
+  String demoCupertinoSliderDiscrete(Object value) {
+    return Intl.message(r'Discrete: $value',
+        locale: _localeName,
+        name: 'demoCupertinoSliderDiscrete',
+        desc:
+            r'A label for a discrete slider that indicates what value it is set to.',
+        args: <Object>[value]);
+  }
+
+  String get demoCupertinoSliderSubtitle {
+    return Intl.message(r'iOS-style slider',
+        locale: _localeName,
+        name: 'demoCupertinoSliderSubtitle',
+        desc: r'Subtitle for the cupertino slider component demo.');
+  }
+
+  String get demoCupertinoSliderTitle {
+    return Intl.message(r'Slider',
+        locale: _localeName,
+        name: 'demoCupertinoSliderTitle',
+        desc: r'Title for the cupertino slider component demo.');
+  }
+
+  String get demoCupertinoSwitchDescription {
+    return Intl.message(
+        r'A switch is used to toggle the on/off state of a single setting.',
+        locale: _localeName,
+        name: 'demoCupertinoSwitchDescription',
+        desc: r'Description for the cupertino switch component demo.');
+  }
+
+  String get demoCupertinoSwitchSubtitle {
+    return Intl.message(r'iOS-style switch',
+        locale: _localeName,
+        name: 'demoCupertinoSwitchSubtitle',
+        desc: r'Subtitle for the cupertino switch component demo.');
   }
 
   String get demoCupertinoTabBarDescription {
