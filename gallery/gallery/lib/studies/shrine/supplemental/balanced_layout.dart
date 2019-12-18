@@ -32,7 +32,7 @@ List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
   return result;
 }
 
-void iterateUntilBalanced(
+void _iterateUntilBalanced(
   List<Set<_TaggedHeightData>> columnObjects,
   List<double> columnHeights,
 ) {
@@ -129,7 +129,7 @@ List<List<int>> balancedDistribution({
     columnObjects[column].add(_TaggedHeightData(index: i, height: data[i]));
   }
 
-  iterateUntilBalanced(columnObjects, columnHeights);
+  _iterateUntilBalanced(columnObjects, columnHeights);
 
   return [
     for (final column in columnObjects)
@@ -236,19 +236,6 @@ List<List<Product>> balancedLayout({
   );
 
   return result;
-}
-
-double _average(List<double> data) {
-  return data.fold<double>(0, (a, b) => a + b) / data.length;
-}
-
-double _standardDeviation(List<double> data) {
-  final double mean = _average(data);
-  final List<double> squareDeviations = [
-    for (final elem in data)
-      math.pow(elem - mean, 2).toDouble(),
-  ];
-  return math.sqrt(_average(squareDeviations));
 }
 
 Size _imageSize(Image imageWidget) {
