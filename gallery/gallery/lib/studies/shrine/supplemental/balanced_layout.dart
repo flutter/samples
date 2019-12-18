@@ -75,16 +75,19 @@ void iterateUntilBalanced(
                 }
               }
             }
-            columnObjects[source].remove(candidate);
-            columnObjects[target].add(candidate);
-            columnHeights[source] -= candidate.height;
-            columnHeights[target] += candidate.height;
+            if (candidate != null) {
+              columnObjects[source].remove(candidate);
+              columnObjects[target].add(candidate);
+              columnHeights[source] -= candidate.height;
+              columnHeights[target] += candidate.height;
+            }
           }
           if (!success) {
             ++ failedMoves;
           }
           if (failedMoves >= columnCount * (columnCount - 1) ~/ 2) {
             // Sufficiently balanced.
+            print('balanced: $columnHeights');
             return;
           }
         }
@@ -137,6 +140,24 @@ List<List<Product>> balancedLayout({
         ),
       ),
   ];
+
+  bool hasNull = false;
+  for (final productSize in productSizes) {
+    if (productSize == null) {
+      hasNull = true;
+      break;
+    }
+  }
+
+  if (hasNull) {
+    // If some image sizes are not read, return default layout.
+    List<List<Product>> result = List<List<Product>>.generate(columnCount, (columnIndex) => []);
+    for (var index = 0; index < products.length; ++index) {
+      result[index % columnCount].add(products[index]);
+    }
+
+    return result;
+  }
 
   final List<double> productHeights = [
     for (final productSize in productSizes)
