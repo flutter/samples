@@ -175,11 +175,7 @@ List<List<Product>> balancedLayout({
 
   // Check if this layout is cached.
 
-  print('old cache = ${LayoutCache.of(cacheContext)}');
-
   if (LayoutCache.of(cacheContext).containsKey(encodedParameters)) {
-    print('Layout $encodedParameters is cached.');
-
     return generateLayout(
       products: products,
       layout: LayoutCache.of(cacheContext)[encodedParameters],
@@ -233,14 +229,11 @@ List<List<Product>> balancedLayout({
   // Add tailored layout to cache.
 
   LayoutCache.of(cacheContext)[encodedParameters] = layout;
-  print('new cache = ${LayoutCache.of(cacheContext)}');
 
   final List<List<Product>> result = generateLayout(
     products: products,
     layout: layout,
   );
-
-  print('Caching layout $encodedParameters');
 
   return result;
 }

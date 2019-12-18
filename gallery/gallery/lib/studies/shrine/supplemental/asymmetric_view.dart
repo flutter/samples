@@ -236,9 +236,6 @@ class DesktopColumns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('rebuilt! ${Random().nextDouble()}');
-    print('parameters = $columnCount : $products : $largeImageWidth : $smallImageWidth');
-
     final Widget _gap = Container(width: 24);
     final Widget _flex = Expanded(flex: 1, child: Container());
 
