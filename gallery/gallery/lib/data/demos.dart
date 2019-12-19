@@ -25,7 +25,6 @@ import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/pages/demo.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 class GalleryDemo {
