@@ -127,6 +127,7 @@ class DialogDemo extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
       body: Center(
