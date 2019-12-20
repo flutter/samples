@@ -57,7 +57,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
+                children: [
                   SizedBox(
                     width: double.infinity,
                     child: CupertinoSlider(
