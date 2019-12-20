@@ -62,8 +62,8 @@ Each app should:
 * Have no analyzer errors or warnings.
 * Be formatted with `flutter format`.
 * Include at least one working test in its `test` folder.
-* Be wired into the list of projects in [the CI script](travis.sh), which runs
-  the analyzer, the formatter, and `flutter test`.
+* Be wired into the list of projects in [the CI script](travis_script.sh), which
+  runs the analyzer, the formatter, and `flutter test`.
 
 In addition, sample code is, at the end of the day, still code. It should be
 written with at least as much care as the Flutter code you'd find in the SDK
@@ -82,14 +82,14 @@ APIs that haven't landed in the SDK's `stable` channel. They build against
 
 All submissions, including submissions by project members, require review.
 
-This repo is part of the [flutter](https://github.com/flutter) GitHub account,
+This repo is part of the [Flutter](https://github.com/flutter) GitHub account,
 which means that a lot of folks have the ability to push and merge code. The
-primary maintainers of this repo, though, are:
+primary maintainers, though, are:
 
-* @RedBrogdon
-* @johnpryan
-* @domesticmouse
-* @theacodes
+* [@RedBrogdon](https://github.com/RedBrogdon)
+* [@johnpryan](https://github.com/johnpryan)
+* [@domesticmouse](https://github.com/domesticmouse)
+* [@theacodes](https://github.com/theacodes)
 
 You are free to add one of these folks (particularly @RedBrogdon) as a reviewer
 to any PR sent to this repo. We're happy to comment, answer (or ask) questions,
@@ -100,9 +100,10 @@ Material!), and you're updating or fixing that sample, you are *not* expected to
 wait on one of the above folks before merging the code. Have it reviewed by
 someone you trust on your own team, and then merge it.
 
-If you're updating a sample you've never worked on before, though, or changing
-something that's a meta-concern like the CI setup, web hosting, project setup,
-etc., please include one of the above folks as a reviewer.
+If you're adding a new sample, updating a sample you've never worked on before,
+though, or changing something that's a meta-concern like the CI setup, web
+hosting, project setup, etc., please include one of the primary maintainers as a
+reviewer.
 
 ## File headers
 
