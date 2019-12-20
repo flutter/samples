@@ -155,13 +155,18 @@ class _SwitchDemoState extends State<_SwitchDemo> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Switch(
-        value: switchValue,
-        onChanged: (value) {
-          setState(() {
-            switchValue = value;
-          });
-        },
+      child: Semantics(
+        container: true,
+        label:
+            GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+        child: Switch(
+          value: switchValue,
+          onChanged: (value) {
+            setState(() {
+              switchValue = value;
+            });
+          },
+        ),
       ),
     );
   }

@@ -645,6 +645,44 @@
   "@demoCupertinoSegmentedControlDescription": {
     "description": "Description for the cupertino segmented control component demo."
   },
+  "demoCupertinoSliderTitle": "Slider",
+  "@demoCupertinoSliderTitle": {
+    "description": "Title for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderSubtitle": "iOS-style slider",
+  "@demoCupertinoSliderSubtitle": {
+    "description": "Subtitle for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderDescription": "A slider can be used to select from either a continuous or a discrete set of values.",
+  "@demoCupertinoSliderDescription": {
+    "description": "Description for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderContinuous": "Continuous: {value}",
+  "@demoCupertinoSliderContinuous": {
+    "description": "A label for a continuous slider that indicates what value it is set to.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoCupertinoSliderDiscrete": "Discrete: {value}",
+  "@demoCupertinoSliderDiscrete": {
+    "description": "A label for a discrete slider that indicates what value it is set to.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoCupertinoSwitchSubtitle": "iOS-style switch",
+  "@demoCupertinoSwitchSubtitle": {
+    "description": "Subtitle for the cupertino switch component demo."
+  },
+  "demoCupertinoSwitchDescription": "A switch is used to toggle the on/off state of a single setting.",
+  "@demoCupertinoSwitchDescription": {
+    "description": "Description for the cupertino switch component demo."
+  },
   "demoCupertinoTabBarTitle": "Tab Bar",
   "@demoCupertinoTabBarTitle": {
     "description": "Title for the cupertino bottom tab bar demo."

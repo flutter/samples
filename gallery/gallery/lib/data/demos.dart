@@ -10,8 +10,10 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
@@ -464,6 +466,39 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/cupertino/CupertinoSegmentedControl-class.html',
           buildRoute: (_) => CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCupertinoSliderTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoSliderSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCupertinoSliderTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoSliderDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoSlider-class.html',
+          buildRoute: (_) => CupertinoSliderDemo(),
+          code: CodeSegments.cupertinoSliderDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+      icon: GalleryIcons.switches,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoSwitchSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title:
+              GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoSwitchDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html',
+          buildRoute: (_) => CupertinoSwitchDemo(),
+          code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
     ),

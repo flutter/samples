@@ -610,6 +610,34 @@
     description="Description for the cupertino segmented control component demo."
     >Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.</string>
   <string
+    name="demoCupertinoSliderTitle"
+    description="Title for the cupertino slider component demo."
+    >Slider</string>
+  <string
+    name="demoCupertinoSliderSubtitle"
+    description="Subtitle for the cupertino slider component demo."
+    >iOS-style slider</string>
+  <string
+    name="demoCupertinoSliderDescription"
+    description="Description for the cupertino slider component demo."
+    >A slider can be used to select from either a continuous or a discrete set of values.</string>
+  <string
+    name="demoCupertinoSliderContinuous"
+    description="A label for a continuous slider that indicates what value it is set to."
+    >Continuous: {value}</string>
+  <string
+    name="demoCupertinoSliderDiscrete"
+    description="A label for a discrete slider that indicates what value it is set to."
+    >Discrete: {value}</string>
+  <string
+    name="demoCupertinoSwitchSubtitle"
+    description="Subtitle for the cupertino switch component demo."
+    >iOS-style switch</string>
+  <string
+    name="demoCupertinoSwitchDescription"
+    description="Description for the cupertino switch component demo."
+    >A switch is used to toggle the on/off state of a single setting.</string>
+  <string
     name="demoCupertinoTabBarTitle"
     description="Title for the cupertino bottom tab bar demo."
     >Tab Bar</string>
