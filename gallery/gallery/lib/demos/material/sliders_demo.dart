@@ -48,11 +48,7 @@ class SlidersDemo extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
-      body: Theme(
-        // Set platform to display material sliders only.
-        data: Theme.of(context).copyWith(platform: TargetPlatform.android),
-        child: sliders,
-      ),
+      body: sliders,
     );
   }
 }
@@ -64,13 +60,13 @@ class _Sliders extends StatefulWidget {
 }
 
 class _SlidersState extends State<_Sliders> {
-  double _continuousValue = 25.0;
-  double _discreteValue = 20.0;
+  double _continuousValue = 25;
+  double _discreteValue = 20;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -89,8 +85,7 @@ class _SlidersState extends State<_Sliders> {
                       final double newValue = double.tryParse(value);
                       if (newValue != null && newValue != _continuousValue) {
                         setState(() {
-                          _continuousValue =
-                              newValue.clamp(0.0, 100.0) as double;
+                          _continuousValue = newValue.clamp(0, 100) as double;
                         });
                       }
                     },
@@ -101,10 +96,10 @@ class _SlidersState extends State<_Sliders> {
                   ),
                 ),
               ),
-              Slider.adaptive(
+              Slider(
                 value: _continuousValue,
-                min: 0.0,
-                max: 100.0,
+                min: 0,
+                max: 100,
                 onChanged: (value) {
                   setState(() {
                     _continuousValue = value;
@@ -115,14 +110,14 @@ class _SlidersState extends State<_Sliders> {
                   .demoSlidersContinuousWithEditableNumericalValue),
             ],
           ),
-          const SizedBox(height: 40.0),
+          const SizedBox(height: 80),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Slider.adaptive(
+              Slider(
                 value: _discreteValue,
-                min: 0.0,
-                max: 200.0,
+                min: 0,
+                max: 200,
                 divisions: 5,
                 label: _discreteValue.round().toString(),
                 onChanged: (value) {
@@ -150,13 +145,13 @@ class _RangeSliders extends StatefulWidget {
 }
 
 class _RangeSlidersState extends State<_RangeSliders> {
-  RangeValues _continuousValues = const RangeValues(25.0, 75.0);
-  RangeValues _discreteValues = const RangeValues(40.0, 120.0);
+  RangeValues _continuousValues = const RangeValues(25, 75);
+  RangeValues _discreteValues = const RangeValues(40, 120);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -165,8 +160,8 @@ class _RangeSlidersState extends State<_RangeSliders> {
             children: [
               RangeSlider(
                 values: _continuousValues,
-                min: 0.0,
-                max: 100.0,
+                min: 0,
+                max: 100,
                 onChanged: (values) {
                   setState(() {
                     _continuousValues = values;
@@ -176,14 +171,14 @@ class _RangeSlidersState extends State<_RangeSliders> {
               Text(GalleryLocalizations.of(context).demoSlidersContinuous),
             ],
           ),
-          const SizedBox(height: 40.0),
+          const SizedBox(height: 80),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               RangeSlider(
                 values: _discreteValues,
-                min: 0.0,
-                max: 200.0,
+                min: 0,
+                max: 200,
                 divisions: 5,
                 labels: RangeLabels(
                   _discreteValues.start.round().toString(),
@@ -210,13 +205,13 @@ class _RangeSlidersState extends State<_RangeSliders> {
 
 Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
   final thumbPath = Path();
-  final height = math.sqrt(3.0) / 2.0;
-  final centerHeight = size * height / 3.0;
-  final halfSize = size / 2.0;
-  final sign = invert ? -1.0 : 1.0;
+  final height = math.sqrt(3) / 2;
+  final centerHeight = size * height / 3;
+  final halfSize = size / 2;
+  final sign = invert ? -1 : 1;
   thumbPath.moveTo(
       thumbCenter.dx - halfSize, thumbCenter.dy + sign * centerHeight);
-  thumbPath.lineTo(thumbCenter.dx, thumbCenter.dy - 2.0 * sign * centerHeight);
+  thumbPath.lineTo(thumbCenter.dx, thumbCenter.dy - 2 * sign * centerHeight);
   thumbPath.lineTo(
       thumbCenter.dx + halfSize, thumbCenter.dy + sign * centerHeight);
   thumbPath.close();
@@ -225,8 +220,8 @@ Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
 
 Path _rightTriangle(double size, Offset thumbCenter, {bool invert = false}) {
   final thumbPath = Path();
-  final halfSize = size / 2.0;
-  final sign = invert ? -1.0 : 1.0;
+  final halfSize = size / 2;
+  final sign = invert ? -1 : 1;
   thumbPath.moveTo(thumbCenter.dx + halfSize * sign, thumbCenter.dy);
   thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy - size);
   thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy + size);
@@ -241,8 +236,8 @@ Path _leftTriangle(double size, Offset thumbCenter) =>
     _rightTriangle(size, thumbCenter, invert: true);
 
 class _CustomRangeThumbShape extends RangeSliderThumbShape {
-  static const double _thumbSize = 4.0;
-  static const double _disabledThumbSize = 3.0;
+  static const double _thumbSize = 4;
+  static const double _disabledThumbSize = 3;
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
@@ -300,13 +295,15 @@ class _CustomRangeThumbShape extends RangeSliderThumbShape {
         break;
     }
     canvas.drawPath(
-        thumbPath, Paint()..color = colorTween.evaluate(enableAnimation));
+      thumbPath,
+      Paint()..color = colorTween.evaluate(enableAnimation),
+    );
   }
 }
 
 class _CustomThumbShape extends SliderComponentShape {
-  static const double _thumbSize = 4.0;
-  static const double _disabledThumbSize = 3.0;
+  static const double _thumbSize = 4;
+  static const double _disabledThumbSize = 3;
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
@@ -341,14 +338,16 @@ class _CustomThumbShape extends SliderComponentShape {
     final size = _thumbSize * sizeTween.evaluate(enableAnimation);
     final thumbPath = _downTriangle(size, thumbCenter);
     canvas.drawPath(
-        thumbPath, Paint()..color = colorTween.evaluate(enableAnimation));
+      thumbPath,
+      Paint()..color = colorTween.evaluate(enableAnimation),
+    );
   }
 }
 
 class _CustomValueIndicatorShape extends SliderComponentShape {
-  static const double _indicatorSize = 4.0;
-  static const double _disabledIndicatorSize = 3.0;
-  static const double _slideUpHeight = 40.0;
+  static const double _indicatorSize = 4;
+  static const double _disabledIndicatorSize = 3;
+  static const double _slideUpHeight = 40;
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
@@ -379,16 +378,16 @@ class _CustomValueIndicatorShape extends SliderComponentShape {
       end: sliderTheme.valueIndicatorColor,
     );
     final slideUpTween = Tween<double>(
-      begin: 0.0,
+      begin: 0,
       end: _slideUpHeight,
     );
     final size = _indicatorSize * sizeTween.evaluate(enableAnimation);
     final slideUpOffset =
-        Offset(0.0, -slideUpTween.evaluate(activationAnimation));
+        Offset(0, -slideUpTween.evaluate(activationAnimation));
     final thumbPath = _upTriangle(size, thumbCenter + slideUpOffset);
     final paintColor = enableColor
         .evaluate(enableAnimation)
-        .withAlpha((255.0 * activationAnimation.value).round());
+        .withAlpha((255 * activationAnimation.value).round());
     canvas.drawPath(
       thumbPath,
       Paint()..color = paintColor,
@@ -399,12 +398,12 @@ class _CustomValueIndicatorShape extends SliderComponentShape {
         Paint()
           ..color = paintColor
           ..style = PaintingStyle.stroke
-          ..strokeWidth = 2.0);
+          ..strokeWidth = 2);
     labelPainter.paint(
       canvas,
       thumbCenter +
           slideUpOffset +
-          Offset(-labelPainter.width / 2.0, -labelPainter.height - 4.0),
+          Offset(-labelPainter.width / 2, -labelPainter.height - 4),
     );
   }
 }
@@ -415,14 +414,14 @@ class _CustomSliders extends StatefulWidget {
 }
 
 class _CustomSlidersState extends State<_CustomSliders> {
-  double _discreteCustomValue = 25.0;
-  RangeValues _continuousCustomValues = const RangeValues(40.0, 160.0);
+  double _discreteCustomValue = 25;
+  RangeValues _continuousCustomValues = const RangeValues(40, 160);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -448,8 +447,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
                 ),
                 child: Slider(
                   value: _discreteCustomValue,
-                  min: 0.0,
-                  max: 200.0,
+                  min: 0,
+                  max: 200,
                   divisions: 5,
                   semanticFormatterCallback: (value) =>
                       value.round().toString(),
@@ -465,7 +464,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   .demoSlidersDiscreteSliderWithCustomTheme),
             ],
           ),
-          const SizedBox(height: 40.0),
+          const SizedBox(height: 80),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -482,8 +481,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
                 ),
                 child: RangeSlider(
                   values: _continuousCustomValues,
-                  min: 0.0,
-                  max: 200.0,
+                  min: 0,
+                  max: 200,
                   onChanged: (values) {
                     setState(() {
                       _continuousCustomValues = values;
