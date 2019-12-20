@@ -20,7 +20,7 @@ control provider) and still be as important a part of the Flutter-verse as
 anything you see here. You can let us know on the
 [FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
 when you've published something and Tweet about it with the
-[#flutterio](https://twitter.com/search?q=%23flutterio) hashtag.
+[#FlutterDev](https://twitter.com/search?q=%23FlutterDev) hashtag.
 
 ## So what should be contributed here, then?
 
@@ -43,17 +43,76 @@ us first through the issue tracker with your idea so that we can help out and
 possibly guide you. Coordinating up front makes it much easier to avoid
 frustration later on.
 
+## A few ground rules
+
+This is monorepo containing a bunch of projects. While different codebases have
+different needs, there are a few basic conventions that every project here is
+expected to follow. All of them are based on our experience over the last
+couple years keeping the repo tidy and running smooth.
+
+Each app should:
+
+* Be designed to build against the current
+  [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
+  release of the Flutter SDK.
+* Include the same
+  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/gallery/gallery/analysis_options.yaml)
+  file used throughout the repo. These files include a base set of analyzer
+  conventions and lints.
+* Have no analyzer errors or warnings.
+* Be formatted with `flutter format`.
+* Include at least one working test in its `test` folder.
+* Be wired into the list of projects in [the CI script](travis.sh), which runs
+  the analyzer, the formatter, and `flutter test`.
+
+In addition, sample code is, at the end of the day, still code. It should be
+written with at least as much care as the Flutter code you'd find in the SDK
+itself. For that reason, most of the
+[Flutter style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
+also applies to code in this repo.
+
+### The `experimental` folder
+
+Projects in the repo's top-level `experimental` directory are allowed to skirt
+some of the above rules. These apps are either experimental in nature or use
+APIs that haven't landed in the SDK's `stable` channel. They build against
+`master`, and aren't (by default) wired into our CI system.
+
 ## Code reviews
 
 All submissions, including submissions by project members, require review.
+
+This repo is part of the [flutter](https://github.com/flutter) GitHub account,
+which means that a lot of folks have the ability to push and merge code. The
+primary maintainers of this repo, though, are:
+
+* @RedBrogdon
+* @johnpryan
+* @domesticmouse
+* @theacodes
+
+You are free to add one of these folks (particularly @RedBrogdon) as a reviewer
+to any PR sent to this repo. We're happy to comment, answer (or ask) questions,
+and provide feedback.
+
+If you're part of a team that's already landed a sample in the repo (Hi,
+Material!), and you're updating or fixing that sample, you are *not* expected to
+wait on one of the above folks before merging the code. Have it reviewed by
+someone you trust on your own team, and then merge it.
+
+If you're updating a sample you've never worked on before, though, or changing
+something that's a meta-concern like the CI setup, web hosting, project setup,
+etc., please include one of the above folks as a reviewer.
 
 ## File headers
 
 All files in the project must start with the following header.
 
-    // Copyright 2018 The Chromium Authors. All rights reserved.
-    // Use of this source code is governed by a BSD-style license that can be
-    // found in the LICENSE file.
+```
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+```
 
 ## The small print
 
