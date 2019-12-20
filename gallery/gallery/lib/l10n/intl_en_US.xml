@@ -542,6 +542,58 @@
     description="Description for the simple dialog component demo."
     >A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.</string>
   <string
+    name="demoSlidersTitle"
+    description="Title for the sliders component demo."
+    >Sliders</string>
+  <string
+    name="demoSlidersSubtitle"
+    description="Short description for the sliders component demo."
+    >Widgets for selecting a value by swiping</string>
+  <string
+    name="demoSlidersDescription"
+    description="Description for the sliders demo."
+    >Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</string>
+  <string
+    name="demoRangeSlidersTitle"
+    description="Title for the range sliders component demo."
+    >Range Sliders</string>
+  <string
+    name="demoRangeSlidersDescription"
+    description="Description for the range sliders demo."
+    >Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</string>
+  <string
+    name="demoCustomSlidersTitle"
+    description="Title for the custom sliders component demo."
+    >Custom Sliders</string>
+  <string
+    name="demoCustomSlidersDescription"
+    description="Description for the custom sliders demo."
+    >Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.</string>
+  <string
+    name="demoSlidersContinuousWithEditableNumericalValue"
+    description="Text to describe a slider has a continuous value with an editable numerical value."
+    >Continuous with Editable Numerical Value</string>
+  <string
+    name="demoSlidersDiscrete"
+    description="Text to describe that we have a slider with discrete values."
+    >Discrete</string>
+  <string
+    name="demoSlidersDiscreteSliderWithCustomTheme"
+    description="Text to describe that we have a slider with discrete values and a custom theme. "
+    >Discrete Slider with Custom Theme</string>
+  <string
+    name="demoSlidersContinuousRangeSliderWithCustomTheme"
+    description="Text to describe that we have a range slider with continuous values and a custom theme. "
+    >Continuous Range Slider with Custom Theme</string>
+  <string
+    name="demoSlidersContinuous"
+    description="Text to describe that we have a slider with continuous values."
+    >Continuous</string>
+  <string
+    name="demoSlidersEditableNumericalValue"
+    description="Label for input field that has an editable numerical value."
+    >Editable numerical value</string>
+  <string
     name="demoFullscreenDialogTitle"
     description="Title for the fullscreen dialog component demo."
     >Fullscreen</string>

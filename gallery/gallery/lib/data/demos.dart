@@ -21,6 +21,7 @@ import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
+import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
@@ -321,6 +322,41 @@ List<GalleryDemo> materialDemos(BuildContext context) {
             type: SelectionControlsDemoType.switches,
           ),
           code: CodeSegments.selectionControlsDemoSwitches,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoSlidersTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: GalleryLocalizations.of(context).demoSlidersSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoSlidersTitle,
+          description: GalleryLocalizations.of(context).demoSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/Slider-class.html',
+          buildRoute: (context) => SlidersDemo(type: SlidersDemoType.sliders),
+          code: CodeSegments.slidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoRangeSlidersTitle,
+          description:
+              GalleryLocalizations.of(context).demoRangeSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/RangeSlider-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.rangeSliders),
+          code: CodeSegments.rangeSlidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCustomSlidersTitle,
+          description:
+              GalleryLocalizations.of(context).demoCustomSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/SliderTheme-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.customSliders),
+          code: CodeSegments.customSlidersDemo,
         ),
       ],
     ),

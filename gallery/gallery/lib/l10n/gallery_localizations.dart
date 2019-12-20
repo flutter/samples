@@ -1637,6 +1637,21 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino bottom tab bar demo.');
   }
 
+  String get demoCustomSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.',
+        locale: _localeName,
+        name: 'demoCustomSlidersDescription',
+        desc: r'Description for the custom sliders demo.');
+  }
+
+  String get demoCustomSlidersTitle {
+    return Intl.message(r'Custom Sliders',
+        locale: _localeName,
+        name: 'demoCustomSlidersTitle',
+        desc: r'Title for the custom sliders component demo.');
+  }
+
   String get demoDialogSubtitle {
     return Intl.message(r'Simple, alert, and fullscreen',
         locale: _localeName,
@@ -1844,6 +1859,21 @@ class GalleryLocalizations {
         desc: r'Title for the raised button component demo.');
   }
 
+  String get demoRangeSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.',
+        locale: _localeName,
+        name: 'demoRangeSlidersDescription',
+        desc: r'Description for the range sliders demo.');
+  }
+
+  String get demoRangeSlidersTitle {
+    return Intl.message(r'Range Sliders',
+        locale: _localeName,
+        name: 'demoRangeSlidersTitle',
+        desc: r'Title for the range sliders component demo.');
+  }
+
   String get demoSelectionControlsCheckboxDescription {
     return Intl.message(
         r'Checkboxes allow the user to select multiple options from a set. A normal checkbox'
@@ -1920,6 +1950,74 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoSimpleDialogTitle',
         desc: r'Title for the simple dialog component demo.');
+  }
+
+  String get demoSlidersContinuous {
+    return Intl.message(r'Continuous',
+        locale: _localeName,
+        name: 'demoSlidersContinuous',
+        desc:
+            r'Text to describe that we have a slider with continuous values.');
+  }
+
+  String get demoSlidersContinuousRangeSliderWithCustomTheme {
+    return Intl.message(r'Continuous Range Slider with Custom Theme',
+        locale: _localeName,
+        name: 'demoSlidersContinuousRangeSliderWithCustomTheme',
+        desc:
+            r'Text to describe that we have a range slider with continuous values and a custom theme. ');
+  }
+
+  String get demoSlidersContinuousWithEditableNumericalValue {
+    return Intl.message(r'Continuous with Editable Numerical Value',
+        locale: _localeName,
+        name: 'demoSlidersContinuousWithEditableNumericalValue',
+        desc:
+            r'Text to describe a slider has a continuous value with an editable numerical value.');
+  }
+
+  String get demoSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.',
+        locale: _localeName,
+        name: 'demoSlidersDescription',
+        desc: r'Description for the sliders demo.');
+  }
+
+  String get demoSlidersDiscrete {
+    return Intl.message(r'Discrete',
+        locale: _localeName,
+        name: 'demoSlidersDiscrete',
+        desc: r'Text to describe that we have a slider with discrete values.');
+  }
+
+  String get demoSlidersDiscreteSliderWithCustomTheme {
+    return Intl.message(r'Discrete Slider with Custom Theme',
+        locale: _localeName,
+        name: 'demoSlidersDiscreteSliderWithCustomTheme',
+        desc:
+            r'Text to describe that we have a slider with discrete values and a custom theme. ');
+  }
+
+  String get demoSlidersEditableNumericalValue {
+    return Intl.message(r'Editable numerical value',
+        locale: _localeName,
+        name: 'demoSlidersEditableNumericalValue',
+        desc: r'Label for input field that has an editable numerical value.');
+  }
+
+  String get demoSlidersSubtitle {
+    return Intl.message(r'Widgets for selecting a value by swiping',
+        locale: _localeName,
+        name: 'demoSlidersSubtitle',
+        desc: r'Short description for the sliders component demo.');
+  }
+
+  String get demoSlidersTitle {
+    return Intl.message(r'Sliders',
+        locale: _localeName,
+        name: 'demoSlidersTitle',
+        desc: r'Title for the sliders component demo.');
   }
 
   String get demoSnackbarsAction {

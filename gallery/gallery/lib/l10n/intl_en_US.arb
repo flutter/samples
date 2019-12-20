@@ -577,6 +577,58 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+  "demoSlidersTitle": "Sliders",
+  "@demoSlidersTitle": {
+    "description": "Title for the sliders component demo."
+  },
+  "demoSlidersSubtitle": "Widgets for selecting a value by swiping",
+  "@demoSlidersSubtitle": {
+    "description": "Short description for the sliders component demo."
+  },
+  "demoSlidersDescription": "Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.",
+  "@demoSlidersDescription": {
+    "description": "Description for the sliders demo."
+  },
+  "demoRangeSlidersTitle": "Range Sliders",
+  "@demoRangeSlidersTitle": {
+    "description": "Title for the range sliders component demo."
+  },
+  "demoRangeSlidersDescription": "Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.",
+  "@demoRangeSlidersDescription": {
+    "description": "Description for the range sliders demo."
+  },
+  "demoCustomSlidersTitle": "Custom Sliders",
+  "@demoCustomSlidersTitle": {
+    "description": "Title for the custom sliders component demo."
+  },
+  "demoCustomSlidersDescription": "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.",
+  "@demoCustomSlidersDescription": {
+    "description": "Description for the custom sliders demo."
+  },
+  "demoSlidersContinuousWithEditableNumericalValue": "Continuous with Editable Numerical Value",
+  "@demoSlidersContinuousWithEditableNumericalValue": {
+    "description": "Text to describe a slider has a continuous value with an editable numerical value."
+  },
+  "demoSlidersDiscrete": "Discrete",
+  "@demoSlidersDiscrete": {
+    "description": "Text to describe that we have a slider with discrete values."
+  },
+  "demoSlidersDiscreteSliderWithCustomTheme": "Discrete Slider with Custom Theme",
+  "@demoSlidersDiscreteSliderWithCustomTheme": {
+    "description": "Text to describe that we have a slider with discrete values and a custom theme. "
+  },
+  "demoSlidersContinuousRangeSliderWithCustomTheme": "Continuous Range Slider with Custom Theme",
+  "@demoSlidersContinuousRangeSliderWithCustomTheme": {
+    "description": "Text to describe that we have a range slider with continuous values and a custom theme. "
+  },
+  "demoSlidersContinuous": "Continuous",
+  "@demoSlidersContinuous": {
+    "description": "Text to describe that we have a slider with continuous values."
+  },
+  "demoSlidersEditableNumericalValue": "Editable numerical value",
+  "@demoSlidersEditableNumericalValue": {
+    "description": "Label for input field that has an editable numerical value."
+  },
   "demoFullscreenDialogTitle": "Fullscreen",
   "@demoFullscreenDialogTitle": {
     "description": "Title for the fullscreen dialog component demo."
