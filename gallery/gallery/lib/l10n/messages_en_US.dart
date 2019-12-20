@@ -458,6 +458,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Raised Button"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Range Sliders"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Checkboxes allow the user to select multiple options from a set. A normal checkbox\'s value is true or false and a tristate checkbox\'s value can also be null."),
@@ -480,6 +484,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Continuous"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Continuous with Editable Numerical Value"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters."),
+        "demoSlidersDisabled": MessageLookupByLibrary.simpleMessage("Disabled"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Discrete"),
+        "demoSlidersDiscreteWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage("Discrete with Custom Theme"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Editable numerical value"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgets for selecting a value by swiping"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Sliders"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "You pressed the snackbar action."),
         "demoSnackbarsActionButtonLabel":
