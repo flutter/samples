@@ -346,6 +346,16 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               SlidersDemo(type: SlidersDemoType.rangeSliders),
           code: CodeSegments.rangeSlidersDemo,
         ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCustomSlidersTitle,
+          description:
+              GalleryLocalizations.of(context).demoCustomSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/SliderTheme-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.customSliders),
+          code: CodeSegments.customSlidersDemo,
+        ),
       ],
     ),
     GalleryDemo(

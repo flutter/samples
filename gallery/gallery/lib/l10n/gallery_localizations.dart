@@ -97,7 +97,6 @@ class GalleryLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en', 'US'),
     Locale('af'),
     Locale('am'),
     Locale('ar'),
@@ -125,6 +124,7 @@ class GalleryLocalizations {
     Locale('en', 'IN'),
     Locale('en', 'NZ'),
     Locale('en', 'SG'),
+    Locale('en', 'US'),
     Locale('en', 'ZA'),
     Locale('es'),
     Locale('es', '419'),
@@ -1582,6 +1582,21 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino bottom tab bar demo.');
   }
 
+  String get demoCustomSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.',
+        locale: _localeName,
+        name: 'demoCustomSlidersDescription',
+        desc: r'Description for the custom sliders demo.');
+  }
+
+  String get demoCustomSlidersTitle {
+    return Intl.message(r'Custom Sliders',
+        locale: _localeName,
+        name: 'demoCustomSlidersTitle',
+        desc: r'Title for the custom sliders component demo.');
+  }
+
   String get demoDialogSubtitle {
     return Intl.message(r'Simple, alert, and fullscreen',
         locale: _localeName,
@@ -1890,6 +1905,14 @@ class GalleryLocalizations {
             r'Text to describe that we have a slider with continuous values.');
   }
 
+  String get demoSlidersContinuousRangeSliderWithCustomTheme {
+    return Intl.message(r'Continuous Range Slider with Custom Theme',
+        locale: _localeName,
+        name: 'demoSlidersContinuousRangeSliderWithCustomTheme',
+        desc:
+            r'Text to describe that we have a range slider with continuous values and a custom theme. ');
+  }
+
   String get demoSlidersContinuousWithEditableNumericalValue {
     return Intl.message(r'Continuous with Editable Numerical Value',
         locale: _localeName,
@@ -1906,13 +1929,6 @@ class GalleryLocalizations {
         desc: r'Description for the sliders demo.');
   }
 
-  String get demoSlidersDisabled {
-    return Intl.message(r'Disabled',
-        locale: _localeName,
-        name: 'demoSlidersDisabled',
-        desc: r'Text to describe that we have a disabled slider.');
-  }
-
   String get demoSlidersDiscrete {
     return Intl.message(r'Discrete',
         locale: _localeName,
@@ -1920,10 +1936,10 @@ class GalleryLocalizations {
         desc: r'Text to describe that we have a slider with discrete values.');
   }
 
-  String get demoSlidersDiscreteWithCustomTheme {
-    return Intl.message(r'Discrete with Custom Theme',
+  String get demoSlidersDiscreteSliderWithCustomTheme {
+    return Intl.message(r'Discrete Slider with Custom Theme',
         locale: _localeName,
-        name: 'demoSlidersDiscreteWithCustomTheme',
+        name: 'demoSlidersDiscreteSliderWithCustomTheme',
         desc:
             r'Text to describe that we have a slider with discrete values and a custom theme. ');
   }

@@ -406,6 +406,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Tab Bar"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Custom Sliders"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alert, and fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogs"),
@@ -486,15 +490,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
         "demoSlidersContinuous":
             MessageLookupByLibrary.simpleMessage("Continuous"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Continuous Range Slider with Custom Theme"),
         "demoSlidersContinuousWithEditableNumericalValue":
             MessageLookupByLibrary.simpleMessage(
                 "Continuous with Editable Numerical Value"),
         "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters."),
-        "demoSlidersDisabled": MessageLookupByLibrary.simpleMessage("Disabled"),
         "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Discrete"),
-        "demoSlidersDiscreteWithCustomTheme":
-            MessageLookupByLibrary.simpleMessage("Discrete with Custom Theme"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Discrete Slider with Custom Theme"),
         "demoSlidersEditableNumericalValue":
             MessageLookupByLibrary.simpleMessage("Editable numerical value"),
         "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(

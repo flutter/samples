@@ -597,21 +597,29 @@
   "@demoRangeSlidersDescription": {
     "description": "Description for the range sliders demo."
   },
+  "demoCustomSlidersTitle": "Custom Sliders",
+  "@demoCustomSlidersTitle": {
+    "description": "Title for the custom sliders component demo."
+  },
+  "demoCustomSlidersDescription": "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.",
+  "@demoCustomSlidersDescription": {
+    "description": "Description for the custom sliders demo."
+  },
   "demoSlidersContinuousWithEditableNumericalValue": "Continuous with Editable Numerical Value",
   "@demoSlidersContinuousWithEditableNumericalValue": {
     "description": "Text to describe a slider has a continuous value with an editable numerical value."
-  },
-  "demoSlidersDisabled": "Disabled",
-  "@demoSlidersDisabled": {
-    "description": "Text to describe that we have a disabled slider."
   },
   "demoSlidersDiscrete": "Discrete",
   "@demoSlidersDiscrete": {
     "description": "Text to describe that we have a slider with discrete values."
   },
-  "demoSlidersDiscreteWithCustomTheme": "Discrete with Custom Theme",
-  "@demoSlidersDiscreteWithCustomTheme": {
+  "demoSlidersDiscreteSliderWithCustomTheme": "Discrete Slider with Custom Theme",
+  "@demoSlidersDiscreteSliderWithCustomTheme": {
     "description": "Text to describe that we have a slider with discrete values and a custom theme. "
+  },
+  "demoSlidersContinuousRangeSliderWithCustomTheme": "Continuous Range Slider with Custom Theme",
+  "@demoSlidersContinuousRangeSliderWithCustomTheme": {
+    "description": "Text to describe that we have a range slider with continuous values and a custom theme. "
   },
   "demoSlidersContinuous": "Continuous",
   "@demoSlidersContinuous": {

@@ -10,6 +10,7 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 enum SlidersDemoType {
   sliders,
   rangeSliders,
+  customSliders,
 }
 
 class SlidersDemo extends StatelessWidget {
@@ -23,6 +24,8 @@ class SlidersDemo extends StatelessWidget {
         return GalleryLocalizations.of(context).demoSlidersTitle;
       case SlidersDemoType.rangeSliders:
         return GalleryLocalizations.of(context).demoRangeSlidersTitle;
+      case SlidersDemoType.customSliders:
+        return GalleryLocalizations.of(context).demoCustomSlidersTitle;
     }
     return '';
   }
@@ -37,6 +40,8 @@ class SlidersDemo extends StatelessWidget {
       case SlidersDemoType.rangeSliders:
         sliders = _RangeSliders();
         break;
+      case SlidersDemoType.customSliders:
+        sliders = _CustomSliders();
     }
     return Scaffold(
       appBar: AppBar(
@@ -52,6 +57,156 @@ class SlidersDemo extends StatelessWidget {
   }
 }
 // BEGIN slidersDemo
+
+class _Sliders extends StatefulWidget {
+  @override
+  _SlidersState createState() => _SlidersState();
+}
+
+class _SlidersState extends State<_Sliders> {
+  double _continuousValue = 25.0;
+  double _discreteValue = 20.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Semantics(
+                label: GalleryLocalizations.of(context)
+                    .demoSlidersEditableNumericalValue,
+                child: SizedBox(
+                  width: 64,
+                  height: 48,
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    onSubmitted: (value) {
+                      final double newValue = double.tryParse(value);
+                      if (newValue != null && newValue != _continuousValue) {
+                        setState(() {
+                          _continuousValue =
+                              newValue.clamp(0.0, 100.0) as double;
+                        });
+                      }
+                    },
+                    keyboardType: TextInputType.number,
+                    controller: TextEditingController(
+                      text: _continuousValue.toStringAsFixed(0),
+                    ),
+                  ),
+                ),
+              ),
+              Slider.adaptive(
+                value: _continuousValue,
+                min: 0.0,
+                max: 100.0,
+                onChanged: (value) {
+                  setState(() {
+                    _continuousValue = value;
+                  });
+                },
+              ),
+              Text(GalleryLocalizations.of(context)
+                  .demoSlidersContinuousWithEditableNumericalValue),
+            ],
+          ),
+          const SizedBox(height: 40.0),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Slider.adaptive(
+                value: _discreteValue,
+                min: 0.0,
+                max: 200.0,
+                divisions: 5,
+                label: _discreteValue.round().toString(),
+                onChanged: (value) {
+                  setState(() {
+                    _discreteValue = value;
+                  });
+                },
+              ),
+              Text(GalleryLocalizations.of(context).demoSlidersDiscrete),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// END
+
+// BEGIN rangeSlidersDemo
+
+class _RangeSliders extends StatefulWidget {
+  @override
+  _RangeSlidersState createState() => _RangeSlidersState();
+}
+
+class _RangeSlidersState extends State<_RangeSliders> {
+  RangeValues _continuousValues = const RangeValues(25.0, 75.0);
+  RangeValues _discreteValues = const RangeValues(40.0, 120.0);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RangeSlider(
+                values: _continuousValues,
+                min: 0.0,
+                max: 100.0,
+                onChanged: (values) {
+                  setState(() {
+                    _continuousValues = values;
+                  });
+                },
+              ),
+              Text(GalleryLocalizations.of(context).demoSlidersContinuous),
+            ],
+          ),
+          const SizedBox(height: 40.0),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RangeSlider(
+                values: _discreteValues,
+                min: 0.0,
+                max: 200.0,
+                divisions: 5,
+                labels: RangeLabels(
+                  _discreteValues.start.round().toString(),
+                  _discreteValues.end.round().toString(),
+                ),
+                onChanged: (values) {
+                  setState(() {
+                    _discreteValues = values;
+                  });
+                },
+              ),
+              Text(GalleryLocalizations.of(context).demoSlidersDiscrete),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// END
+
+// BEGIN customSlidersDemo
 
 Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
   final thumbPath = Path();
@@ -254,15 +409,14 @@ class _CustomValueIndicatorShape extends SliderComponentShape {
   }
 }
 
-class _Sliders extends StatefulWidget {
+class _CustomSliders extends StatefulWidget {
   @override
-  _SlidersState createState() => _SlidersState();
+  _CustomSlidersState createState() => _CustomSlidersState();
 }
 
-class _SlidersState extends State<_Sliders> {
-  double _continuousValue = 25.0;
-  double _discreteValue = 20.0;
+class _CustomSlidersState extends State<_CustomSliders> {
   double _discreteCustomValue = 25.0;
+  RangeValues _continuousCustomValues = const RangeValues(40.0, 160.0);
 
   @override
   Widget build(BuildContext context) {
@@ -270,74 +424,8 @@ class _SlidersState extends State<_Sliders> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Semantics(
-                label: GalleryLocalizations.of(context)
-                    .demoSlidersEditableNumericalValue,
-                child: SizedBox(
-                  width: 64,
-                  height: 48,
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    onSubmitted: (value) {
-                      final double newValue = double.tryParse(value);
-                      if (newValue != null && newValue != _continuousValue) {
-                        setState(() {
-                          _continuousValue =
-                              newValue.clamp(0.0, 100.0) as double;
-                        });
-                      }
-                    },
-                    keyboardType: TextInputType.number,
-                    controller: TextEditingController(
-                      text: _continuousValue.toStringAsFixed(0),
-                    ),
-                  ),
-                ),
-              ),
-              Slider.adaptive(
-                value: _continuousValue,
-                min: 0.0,
-                max: 100.0,
-                onChanged: (value) {
-                  setState(() {
-                    _continuousValue = value;
-                  });
-                },
-              ),
-              Text(GalleryLocalizations.of(context)
-                  .demoSlidersContinuousWithEditableNumericalValue),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Slider.adaptive(value: 0.25, onChanged: null),
-              Text(GalleryLocalizations.of(context).demoSlidersDisabled),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Slider.adaptive(
-                value: _discreteValue,
-                min: 0.0,
-                max: 200.0,
-                divisions: 5,
-                label: _discreteValue.round().toString(),
-                onChanged: (value) {
-                  setState(() {
-                    _discreteValue = value;
-                  });
-                },
-              ),
-              Text(GalleryLocalizations.of(context).demoSlidersDiscrete),
-            ],
-          ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -374,81 +462,10 @@ class _SlidersState extends State<_Sliders> {
                 ),
               ),
               Text(GalleryLocalizations.of(context)
-                  .demoSlidersDiscreteWithCustomTheme),
+                  .demoSlidersDiscreteSliderWithCustomTheme),
             ],
           ),
-        ],
-      ),
-    );
-  }
-}
-
-// END
-
-// BEGIN rangeSlidersDemo
-
-class _RangeSliders extends StatefulWidget {
-  @override
-  _RangeSlidersState createState() => _RangeSlidersState();
-}
-
-class _RangeSlidersState extends State<_RangeSliders> {
-  RangeValues _continuousValues = const RangeValues(25.0, 75.0);
-  RangeValues _discreteValues = const RangeValues(40.0, 120.0);
-  RangeValues _discreteCustomValues = const RangeValues(40.0, 160.0);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              RangeSlider(
-                values: _continuousValues,
-                min: 0.0,
-                max: 100.0,
-                onChanged: (values) {
-                  setState(() {
-                    _continuousValues = values;
-                  });
-                },
-              ),
-              Text(GalleryLocalizations.of(context).demoSlidersContinuous),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              RangeSlider(
-                  values: const RangeValues(0.25, 0.75), onChanged: null),
-              Text(GalleryLocalizations.of(context).demoSlidersDisabled),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              RangeSlider(
-                values: _discreteValues,
-                min: 0.0,
-                max: 200.0,
-                divisions: 5,
-                labels: RangeLabels(
-                  _discreteValues.start.round().toString(),
-                  _discreteValues.end.round().toString(),
-                ),
-                onChanged: (values) {
-                  setState(() {
-                    _discreteValues = values;
-                  });
-                },
-              ),
-              Text(GalleryLocalizations.of(context).demoSlidersDiscrete),
-            ],
-          ),
+          const SizedBox(height: 40.0),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -464,23 +481,18 @@ class _RangeSlidersState extends State<_RangeSliders> {
                   showValueIndicator: ShowValueIndicator.never,
                 ),
                 child: RangeSlider(
-                  values: _discreteCustomValues,
+                  values: _continuousCustomValues,
                   min: 0.0,
                   max: 200.0,
-                  divisions: 5,
-                  labels: RangeLabels(
-                    _discreteCustomValues.start.round().toString(),
-                    _discreteCustomValues.end.round().toString(),
-                  ),
                   onChanged: (values) {
                     setState(() {
-                      _discreteCustomValues = values;
+                      _continuousCustomValues = values;
                     });
                   },
                 ),
               ),
               Text(GalleryLocalizations.of(context)
-                  .demoSlidersDiscreteWithCustomTheme),
+                  .demoSlidersContinuousRangeSliderWithCustomTheme),
             ],
           ),
         ],

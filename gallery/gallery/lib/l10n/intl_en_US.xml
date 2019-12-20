@@ -562,21 +562,29 @@
     description="Description for the range sliders demo."
     >Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</string>
   <string
+    name="demoCustomSlidersTitle"
+    description="Title for the custom sliders component demo."
+    >Custom Sliders</string>
+  <string
+    name="demoCustomSlidersDescription"
+    description="Description for the custom sliders demo."
+    >Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.</string>
+  <string
     name="demoSlidersContinuousWithEditableNumericalValue"
     description="Text to describe a slider has a continuous value with an editable numerical value."
     >Continuous with Editable Numerical Value</string>
-  <string
-    name="demoSlidersDisabled"
-    description="Text to describe that we have a disabled slider."
-    >Disabled</string>
   <string
     name="demoSlidersDiscrete"
     description="Text to describe that we have a slider with discrete values."
     >Discrete</string>
   <string
-    name="demoSlidersDiscreteWithCustomTheme"
+    name="demoSlidersDiscreteSliderWithCustomTheme"
     description="Text to describe that we have a slider with discrete values and a custom theme. "
-    >Discrete with Custom Theme</string>
+    >Discrete Slider with Custom Theme</string>
+  <string
+    name="demoSlidersContinuousRangeSliderWithCustomTheme"
+    description="Text to describe that we have a range slider with continuous values and a custom theme. "
+    >Continuous Range Slider with Custom Theme</string>
   <string
     name="demoSlidersContinuous"
     description="Text to describe that we have a slider with continuous values."
