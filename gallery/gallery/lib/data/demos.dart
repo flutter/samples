@@ -20,6 +20,7 @@ import 'package:gallery/demos/material/button_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
+import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
 import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
@@ -279,6 +280,35 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/material/ListTile-class.html',
           buildRoute: (context) => ListDemo(type: ListDemoType.twoLine),
           code: CodeSegments.listDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: 'Progress indicators',
+      icon: GalleryIcons.progressActivity,
+      subtitle: 'Linear, circular, indeterminate',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Circular Progress Indicators',
+          description:
+              'A Material Design circular progress indicator, which spins to indicate that the application is busy.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.circular,
+          ),
+          code: CodeSegments.listDemo, // TODO
+        ),
+        GalleryDemoConfiguration(
+          title: 'Linear Progress Indicators',
+          description:
+              'A Material Design linear progress indicator, also known as a progress bar.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.linear,
+          ),
+          code: CodeSegments.listDemo, // TODO
         ),
       ],
     ),
