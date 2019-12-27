@@ -637,6 +637,18 @@
   "@demoFullscreenDialogDescription": {
     "description": "Description for the fullscreen dialog component demo."
   },
+  "demoCupertinoActivityIndicatorTitle": "Activity Indicator",
+  "@demoCupertinoActivityIndicatorTitle": {
+    "description": "Title for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorSubtitle": "iOS-style activity indicators",
+  "@demoCupertinoActivityIndicatorSubtitle": {
+    "description": "Subtitle for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorDescription": "An iOS-style activity indicator that spins clockwise.",
+  "@demoCupertinoActivityIndicatorDescription": {
+    "description": "Description for the cupertino activity indicator component demo."
+  },
   "demoCupertinoButtonsTitle": "Buttons",
   "@demoCupertinoButtonsTitle": {
     "description": "Title for the cupertino buttons component demo."
