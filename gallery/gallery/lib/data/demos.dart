@@ -8,6 +8,7 @@ import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
+import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
@@ -443,6 +444,21 @@ List<GalleryDemo> materialDemos(BuildContext context) {
 List<GalleryDemo> cupertinoDemos(BuildContext context) {
   return [
     GalleryDemo(
+      title: 'Activity Indicator',
+      icon: GalleryIcons.cupertinoProgress,
+      subtitle: 'iOS-style activity indicators',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Activity Indicator',
+          description: 'An iOS-style activity indicator that spins clockwise.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoActivityIndicator-class.html',
+          buildRoute: (_) => CupertinoProgressIndicatorDemo(),
+          code: CodeSegments.cupertinoButtonDemo, // TODO
+        ),
+      ],
+    ),
+    GalleryDemo(
       title: GalleryLocalizations.of(context).demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
       subtitle: GalleryLocalizations.of(context).demoCupertinoButtonsSubtitle,
@@ -553,7 +569,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
-      icon: GalleryIcons.switches,
+      icon: GalleryIcons.cupertinoSwitch,
       subtitle: GalleryLocalizations.of(context).demoCupertinoSwitchSubtitle,
       configurations: [
         GalleryDemoConfiguration(
