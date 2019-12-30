@@ -57,9 +57,11 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
   String _title(BuildContext context) {
     switch (widget.type) {
       case ProgressIndicatorDemoType.circular:
-        return 'Circular';
+        return GalleryLocalizations.of(context)
+            .demoCircularProgressIndicatorTitle;
       case ProgressIndicatorDemoType.linear:
-        return 'Linear';
+        return GalleryLocalizations.of(context)
+            .demoLinearProgressIndicatorTitle;
     }
     return '';
   }

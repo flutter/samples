@@ -285,31 +285,33 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: 'Progress indicators',
+      title: GalleryLocalizations.of(context).demoProgressIndicatorTitle,
       icon: GalleryIcons.progressActivity,
-      subtitle: 'Linear, circular, indeterminate',
+      subtitle: GalleryLocalizations.of(context).demoProgressIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Circular Progress Indicators',
-          description:
-              'A Material Design circular progress indicator, which spins to indicate that the application is busy.',
+          title: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html',
           buildRoute: (context) => ProgressIndicatorDemo(
             type: ProgressIndicatorDemoType.circular,
           ),
-          code: CodeSegments.listDemo, // TODO
+          code: CodeSegments.progressIndicatorsDemo,
         ),
         GalleryDemoConfiguration(
-          title: 'Linear Progress Indicators',
-          description:
-              'A Material Design linear progress indicator, also known as a progress bar.',
+          title:
+              GalleryLocalizations.of(context).demoLinearProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoLinearProgressIndicatorDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html',
           buildRoute: (context) => ProgressIndicatorDemo(
             type: ProgressIndicatorDemoType.linear,
           ),
-          code: CodeSegments.listDemo, // TODO
+          code: CodeSegments.progressIndicatorsDemo,
         ),
       ],
     ),
@@ -444,17 +446,21 @@ List<GalleryDemo> materialDemos(BuildContext context) {
 List<GalleryDemo> cupertinoDemos(BuildContext context) {
   return [
     GalleryDemo(
-      title: 'Activity Indicator',
+      title:
+          GalleryLocalizations.of(context).demoCupertinoActivityIndicatorTitle,
       icon: GalleryIcons.cupertinoProgress,
-      subtitle: 'iOS-style activity indicators',
+      subtitle: GalleryLocalizations.of(context)
+          .demoCupertinoActivityIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Activity Indicator',
-          description: 'An iOS-style activity indicator that spins clockwise.',
+          title: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/cupertino/CupertinoActivityIndicator-class.html',
           buildRoute: (_) => CupertinoProgressIndicatorDemo(),
-          code: CodeSegments.cupertinoButtonDemo, // TODO
+          code: CodeSegments.cupertinoActivityIndicatorDemo,
         ),
       ],
     ),
