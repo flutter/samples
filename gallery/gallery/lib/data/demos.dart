@@ -69,8 +69,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: 'Bottom app bar',
       icon: GalleryIcons.bottomAppBar,
-      subtitle:
-          'Displays navigation and key actions at the bottom of mobile screens',
+      subtitle: 'Displays navigation and actions at the bottom',
       configurations: [
         GalleryDemoConfiguration(
           title: 'Bottom app bar',
