@@ -97,6 +97,7 @@ class GalleryLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('en', 'US'),
     Locale('af'),
     Locale('am'),
     Locale('ar'),
@@ -124,7 +125,6 @@ class GalleryLocalizations {
     Locale('en', 'IN'),
     Locale('en', 'NZ'),
     Locale('en', 'SG'),
-    Locale('en', 'US'),
     Locale('en', 'ZA'),
     Locale('es'),
     Locale('es', '419'),
