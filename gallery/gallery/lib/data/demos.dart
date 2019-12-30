@@ -67,18 +67,18 @@ class GalleryDemoConfiguration {
 List<GalleryDemo> materialDemos(BuildContext context) {
   return [
     GalleryDemo(
-      title: 'Bottom app bar',
+      title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
-      subtitle: 'Displays navigation and actions at the bottom',
+      subtitle: GalleryLocalizations.of(context).demoBottomAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Bottom app bar',
+          title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
           description:
-              'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
+              GalleryLocalizations.of(context).demoBottomAppBarDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/BottomAppBar-class.html',
           buildRoute: (_) => BottomAppBarDemo(),
-          code: CodeSegments.bottomNavigationDemo, // TODO
+          code: CodeSegments.bottomAppBarDemo,
         ),
       ],
     ),

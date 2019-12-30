@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+// BEGIN bottomAppBarDemo
+
 class BottomAppBarDemo extends StatefulWidget {
   @override
   State createState() => _BottomAppBarDemoState();
@@ -38,45 +40,56 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bottom app bar'),
+        title: Text(GalleryLocalizations.of(context).demoBottomAppBarTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 88),
         children: [
           SwitchListTile(
-            title: Text('Floating Action Button'),
+            title: Text(
+              GalleryLocalizations.of(context).demoFloatingButtonTitle,
+            ),
             value: _showFab,
             onChanged: _onShowFabChanged,
           ),
           SwitchListTile(
-            title: Text('Notch'),
+            title: Text(GalleryLocalizations.of(context).bottomAppBarNotch),
             value: _showNotch,
             onChanged: _onShowNotchChanged,
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text('Floating Action Button Position'),
+            child: Text(GalleryLocalizations.of(context).bottomAppBarPosition),
           ),
           RadioListTile<FloatingActionButtonLocation>(
-            title: Text('Docked - End'),
+            title: Text(
+              GalleryLocalizations.of(context).bottomAppBarPositionDockedEnd,
+            ),
             value: FloatingActionButtonLocation.endDocked,
             groupValue: _fabLocation,
             onChanged: _onFabLocationChanged,
           ),
           RadioListTile<FloatingActionButtonLocation>(
-            title: Text('Docked - Center'),
+            title: Text(
+              GalleryLocalizations.of(context).bottomAppBarPositionDockedCenter,
+            ),
             value: FloatingActionButtonLocation.centerDocked,
             groupValue: _fabLocation,
             onChanged: _onFabLocationChanged,
           ),
           RadioListTile<FloatingActionButtonLocation>(
-            title: Text('Floating - End'),
+            title: Text(
+              GalleryLocalizations.of(context).bottomAppBarPositionFloatingEnd,
+            ),
             value: FloatingActionButtonLocation.endFloat,
             groupValue: _fabLocation,
             onChanged: _onFabLocationChanged,
           ),
           RadioListTile<FloatingActionButtonLocation>(
-            title: Text('Floating - Center'),
+            title: Text(
+              GalleryLocalizations.of(context)
+                  .bottomAppBarPositionFloatingCenter,
+            ),
             value: FloatingActionButtonLocation.centerFloat,
             groupValue: _fabLocation,
             onChanged: _onFabLocationChanged,
@@ -125,30 +138,26 @@ class _DemoBottomAppBar extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              tooltip: 'Menu',
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               icon: const Icon(Icons.menu),
               onPressed: () {
                 print('Menu button pressed');
               },
             ),
-            if (kCenterLocations.contains(fabLocation))
-              const Expanded(child: SizedBox()),
+            if (kCenterLocations.contains(fabLocation)) const Spacer(),
             IconButton(
-              tooltip: 'Search',
+              tooltip: GalleryLocalizations.of(context).starterAppTooltipSearch,
               icon: const Icon(Icons.search),
               onPressed: () {
                 print('Search button pressed');
               },
             ),
             IconButton(
-              tooltip: 'More',
-              icon: Icon(
-                Theme.of(context).platform == TargetPlatform.iOS
-                    ? Icons.more_horiz
-                    : Icons.more_vert,
-              ),
+              tooltip:
+                  GalleryLocalizations.of(context).starterAppTooltipFavorite,
+              icon: const Icon(Icons.favorite),
               onPressed: () {
-                print('More button pressed');
+                print('Favorite button pressed');
               },
             ),
           ],
@@ -157,3 +166,5 @@ class _DemoBottomAppBar extends StatelessWidget {
     );
   }
 }
+
+// END

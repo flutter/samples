@@ -88,6 +88,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Back to Gallery"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Notch"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Floating Action Button Position"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Docked - Center"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Docked - End"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Floating - Center"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Floating - End"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Account"),
         "bottomNavigationAlarmTab":
@@ -322,6 +333,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alert"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alert With Title"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Displays navigation and actions at the bottom"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Bottom app bar"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon."),
         "demoBottomNavigationPersistentLabels":
