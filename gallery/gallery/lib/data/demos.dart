@@ -14,6 +14,7 @@ import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
@@ -65,6 +66,23 @@ class GalleryDemoConfiguration {
 
 List<GalleryDemo> materialDemos(BuildContext context) {
   return [
+    GalleryDemo(
+      title: 'Bottom app bar',
+      icon: GalleryIcons.bottomAppBar,
+      subtitle:
+          'Displays navigation and key actions at the bottom of mobile screens',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Bottom app bar',
+          description:
+              'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/BottomAppBar-class.html',
+          buildRoute: (_) => BottomAppBarDemo(),
+          code: CodeSegments.bottomNavigationDemo, // TODO
+        ),
+      ],
+    ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
