@@ -64,6 +64,8 @@ Each app should:
 * Include at least one working test in its `test` folder.
 * Be wired into the list of projects in [the CI script](travis_script.sh), which
   runs the analyzer, the formatter, and `flutter test`.
+* Avoid adding an onerous amount of blobs (typically images or other assets) to
+  the repo.
 
 In addition, sample code is, at the end of the day, still code. It should be
 written with at least as much care as the Flutter code you'd find in the SDK
@@ -100,8 +102,8 @@ Material!), and you're updating or fixing that sample, you are *not* expected to
 wait on one of the above folks before merging the code. Have it reviewed by
 someone you trust on your own team, and then merge it.
 
-If you're adding a new sample, updating a sample you've never worked on before,
-though, or changing something that's a meta-concern like the CI setup, web
+However, if you're adding a new sample, updating a sample you've never worked on
+before, or changing something that's a meta-concern like the CI setup, web
 hosting, project setup, etc., please include one of the primary maintainers as a
 reviewer.
 
