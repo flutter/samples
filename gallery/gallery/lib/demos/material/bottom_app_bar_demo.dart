@@ -13,10 +13,9 @@ class BottomAppBarDemo extends StatefulWidget {
 }
 
 class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
-  bool _showFab = true;
-  bool _showNotch = true;
-  FloatingActionButtonLocation _fabLocation =
-      FloatingActionButtonLocation.endDocked;
+  var _showFab = true;
+  var _showNotch = true;
+  var _fabLocation = FloatingActionButtonLocation.endDocked;
 
   void _onShowNotchChanged(bool value) {
     setState(() {
@@ -123,8 +122,7 @@ class _DemoBottomAppBar extends StatelessWidget {
   final FloatingActionButtonLocation fabLocation;
   final NotchedShape shape;
 
-  static final List<FloatingActionButtonLocation> kCenterLocations =
-      <FloatingActionButtonLocation>[
+  static final centerLocations = <FloatingActionButtonLocation>[
     FloatingActionButtonLocation.centerDocked,
     FloatingActionButtonLocation.centerFloat,
   ];
@@ -144,7 +142,7 @@ class _DemoBottomAppBar extends StatelessWidget {
                 print('Menu button pressed');
               },
             ),
-            if (kCenterLocations.contains(fabLocation)) const Spacer(),
+            if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
               tooltip: GalleryLocalizations.of(context).starterAppTooltipSearch,
               icon: const Icon(Icons.search),
