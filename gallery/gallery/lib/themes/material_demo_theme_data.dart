@@ -25,6 +25,8 @@ class MaterialDemoThemeData {
     highlightColor: Colors.transparent,
     indicatorColor: _colorScheme.onPrimary,
     primaryColor: _colorScheme.primary,
+    accentColor: _colorScheme.primary,
+    backgroundColor: Colors.white,
     scaffoldBackgroundColor: _colorScheme.background,
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,

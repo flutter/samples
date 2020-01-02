@@ -1464,6 +1464,21 @@ class GalleryLocalizations {
         desc: r'Title for the choice chip component demo.');
   }
 
+  String get demoCircularProgressIndicatorDescription {
+    return Intl.message(
+        r'A Material Design circular progress indicator, which spins to indicate that the application is busy.',
+        locale: _localeName,
+        name: 'demoCircularProgressIndicatorDescription',
+        desc: r'Description for circular progress indicator demo.');
+  }
+
+  String get demoCircularProgressIndicatorTitle {
+    return Intl.message(r'Circular Progress Indicator',
+        locale: _localeName,
+        name: 'demoCircularProgressIndicatorTitle',
+        desc: r'Title for circular progress indicator demo.');
+  }
+
   String get demoCodeTooltip {
     return Intl.message(r'Code Sample',
         locale: _localeName,
@@ -1533,6 +1548,29 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoActionSheetTitle',
         desc: r'Title for the cupertino action sheet component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorDescription {
+    return Intl.message(
+        r'An iOS-style activity indicator that spins clockwise.',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorDescription',
+        desc:
+            r'Description for the cupertino activity indicator component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorSubtitle {
+    return Intl.message(r'iOS-style activity indicators',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorSubtitle',
+        desc: r'Subtitle for the cupertino activity indicator component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorTitle {
+    return Intl.message(r'Activity Indicator',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorTitle',
+        desc: r'Title for the cupertino activity indicator component demo.');
   }
 
   String get demoCupertinoAlertButtonsOnlyTitle {
@@ -1839,6 +1877,21 @@ class GalleryLocalizations {
         desc: r'Error message when opening the URL for a demo.');
   }
 
+  String get demoLinearProgressIndicatorDescription {
+    return Intl.message(
+        r'A Material Design linear progress indicator, also known as a progress bar.',
+        locale: _localeName,
+        name: 'demoLinearProgressIndicatorDescription',
+        desc: r'Description for linear progress indicator demo.');
+  }
+
+  String get demoLinearProgressIndicatorTitle {
+    return Intl.message(r'Linear Progress Indicator',
+        locale: _localeName,
+        name: 'demoLinearProgressIndicatorTitle',
+        desc: r'Title for linear progress indicator demo.');
+  }
+
   String get demoListsDescription {
     return Intl.message(
         r'A single fixed-height row that typically contains some text as well as a leading or trailing icon.',
@@ -1912,6 +1965,20 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoOutlineButtonTitle',
         desc: r'Title for the outline button component demo.');
+  }
+
+  String get demoProgressIndicatorSubtitle {
+    return Intl.message(r'Linear, circular, indeterminate',
+        locale: _localeName,
+        name: 'demoProgressIndicatorSubtitle',
+        desc: r'Subtitle for progress indicators demo.');
+  }
+
+  String get demoProgressIndicatorTitle {
+    return Intl.message(r'Progress indicators',
+        locale: _localeName,
+        name: 'demoProgressIndicatorTitle',
+        desc: r'Title for progress indicators demo.');
   }
 
   String get demoRaisedButtonDescription {

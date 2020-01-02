@@ -638,6 +638,18 @@
     description="Description for the fullscreen dialog component demo."
     >The fullscreenDialog property specifies whether the incoming page is a fullscreen modal dialog</string>
   <string
+    name="demoCupertinoActivityIndicatorTitle"
+    description="Title for the cupertino activity indicator component demo."
+    >Activity Indicator</string>
+  <string
+    name="demoCupertinoActivityIndicatorSubtitle"
+    description="Subtitle for the cupertino activity indicator component demo."
+    >iOS-style activity indicators</string>
+  <string
+    name="demoCupertinoActivityIndicatorDescription"
+    description="Description for the cupertino activity indicator component demo."
+    >An iOS-style activity indicator that spins clockwise.</string>
+  <string
     name="demoCupertinoButtonsTitle"
     description="Title for the cupertino buttons component demo."
     >Buttons</string>
@@ -841,6 +853,30 @@
     name="demoListsSecondary"
     description="Text that appears in the second line of a list item."
     >Secondary text</string>
+  <string
+    name="demoProgressIndicatorTitle"
+    description="Title for progress indicators demo."
+    >Progress indicators</string>
+  <string
+    name="demoProgressIndicatorSubtitle"
+    description="Subtitle for progress indicators demo."
+    >Linear, circular, indeterminate</string>
+  <string
+    name="demoCircularProgressIndicatorTitle"
+    description="Title for circular progress indicator demo."
+    >Circular Progress Indicator</string>
+  <string
+    name="demoCircularProgressIndicatorDescription"
+    description="Description for circular progress indicator demo."
+    >A Material Design circular progress indicator, which spins to indicate that the application is busy.</string>
+  <string
+    name="demoLinearProgressIndicatorTitle"
+    description="Title for linear progress indicator demo."
+    >Linear Progress Indicator</string>
+  <string
+    name="demoLinearProgressIndicatorDescription"
+    description="Description for linear progress indicator demo."
+    >A Material Design linear progress indicator, also known as a progress bar.</string>
   <string
     name="demoTabsTitle"
     description="Title for tabs demo."

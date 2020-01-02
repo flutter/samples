@@ -8,6 +8,7 @@ import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
+import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
@@ -21,6 +22,7 @@ import 'package:gallery/demos/material/button_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
+import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
 import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
@@ -300,6 +302,37 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
+      title: GalleryLocalizations.of(context).demoProgressIndicatorTitle,
+      icon: GalleryIcons.progressActivity,
+      subtitle: GalleryLocalizations.of(context).demoProgressIndicatorSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.circular,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title:
+              GalleryLocalizations.of(context).demoLinearProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoLinearProgressIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.linear,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
       title: GalleryLocalizations.of(context).demoSelectionControlsTitle,
       icon: GalleryIcons.checkBox,
       subtitle: GalleryLocalizations.of(context).demoSelectionControlsSubtitle,
@@ -430,6 +463,25 @@ List<GalleryDemo> materialDemos(BuildContext context) {
 List<GalleryDemo> cupertinoDemos(BuildContext context) {
   return [
     GalleryDemo(
+      title:
+          GalleryLocalizations.of(context).demoCupertinoActivityIndicatorTitle,
+      icon: GalleryIcons.cupertinoProgress,
+      subtitle: GalleryLocalizations.of(context)
+          .demoCupertinoActivityIndicatorSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoActivityIndicator-class.html',
+          buildRoute: (_) => CupertinoProgressIndicatorDemo(),
+          code: CodeSegments.cupertinoActivityIndicatorDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
       title: GalleryLocalizations.of(context).demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
       subtitle: GalleryLocalizations.of(context).demoCupertinoButtonsSubtitle,
@@ -540,7 +592,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
-      icon: GalleryIcons.switches,
+      icon: GalleryIcons.cupertinoSwitch,
       subtitle: GalleryLocalizations.of(context).demoCupertinoSwitchSubtitle,
       configurations: [
         GalleryDemoConfiguration(

@@ -379,6 +379,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choice chips represent a single choice from a set. Choice chips contain related descriptive text or categories."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Choice Chip"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "A Material Design circular progress indicator, which spins to indicate that the application is busy."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Circular Progress Indicator"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Code Sample"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Copied to clipboard."),
@@ -394,6 +399,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Action Sheet"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "An iOS-style activity indicator that spins clockwise."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-style activity indicators"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Activity Indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alert Buttons Only"),
         "demoCupertinoAlertButtonsTitle":
@@ -473,6 +486,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Input Chip"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Couldn\'t display URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "A Material Design linear progress indicator, also known as a progress bar."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Linear Progress Indicator"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "A single fixed-height row that typically contains some text as well as a leading or trailing icon."),
         "demoListsSecondary":
@@ -491,6 +509,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Outline Button"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Linear, circular, indeterminate"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Progress indicators"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces."),
         "demoRaisedButtonTitle":

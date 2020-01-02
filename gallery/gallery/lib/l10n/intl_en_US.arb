@@ -673,6 +673,18 @@
   "@demoFullscreenDialogDescription": {
     "description": "Description for the fullscreen dialog component demo."
   },
+  "demoCupertinoActivityIndicatorTitle": "Activity Indicator",
+  "@demoCupertinoActivityIndicatorTitle": {
+    "description": "Title for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorSubtitle": "iOS-style activity indicators",
+  "@demoCupertinoActivityIndicatorSubtitle": {
+    "description": "Subtitle for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorDescription": "An iOS-style activity indicator that spins clockwise.",
+  "@demoCupertinoActivityIndicatorDescription": {
+    "description": "Description for the cupertino activity indicator component demo."
+  },
   "demoCupertinoButtonsTitle": "Buttons",
   "@demoCupertinoButtonsTitle": {
     "description": "Title for the cupertino buttons component demo."
@@ -891,6 +903,30 @@
   "demoListsSecondary": "Secondary text",
   "@demoListsSecondary": {
     "description": "Text that appears in the second line of a list item."
+  },
+  "demoProgressIndicatorTitle": "Progress indicators",
+  "@demoProgressIndicatorTitle": {
+    "description": "Title for progress indicators demo."
+  },
+  "demoProgressIndicatorSubtitle": "Linear, circular, indeterminate",
+  "@demoProgressIndicatorSubtitle": {
+    "description": "Subtitle for progress indicators demo."
+  },
+  "demoCircularProgressIndicatorTitle": "Circular Progress Indicator",
+  "@demoCircularProgressIndicatorTitle": {
+    "description": "Title for circular progress indicator demo."
+  },
+  "demoCircularProgressIndicatorDescription": "A Material Design circular progress indicator, which spins to indicate that the application is busy.",
+  "@demoCircularProgressIndicatorDescription": {
+    "description": "Description for circular progress indicator demo."
+  },
+  "demoLinearProgressIndicatorTitle": "Linear Progress Indicator",
+  "@demoLinearProgressIndicatorTitle": {
+    "description": "Title for linear progress indicator demo."
+  },
+  "demoLinearProgressIndicatorDescription": "A Material Design linear progress indicator, also known as a progress bar.",
+  "@demoLinearProgressIndicatorDescription": {
+    "description": "Description for linear progress indicator demo."
   },
   "demoTabsTitle": "Tabs",
   "@demoTabsTitle": {
