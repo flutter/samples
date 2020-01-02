@@ -36,49 +36,54 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "클립보드에 복사할 수 없습니다. {오류}";
 
-  static m7(name, phoneNumber) => "${name}의 전화번호는 ${phoneNumber}입니다.";
+  static m7(value) => "연속: ${value}";
 
-  static m8(value) => "\'${value}\'을(를) 선택했습니다.";
+  static m8(value) => "분리: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name}의 전화번호는 ${phoneNumber}입니다.";
+
+  static m10(value) => "\'${value}\'을(를) 선택했습니다.";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName} 계좌 ${accountNumber}의 잔액은 ${amount}입니다.";
 
-  static m10(amount) => "이번 달에 ATM 수수료로 ${amount}을(를) 사용했습니다.";
+  static m12(amount) => "이번 달에 ATM 수수료로 ${amount}을(를) 사용했습니다.";
 
-  static m11(percent) => "잘하고 계십니다. 입출금계좌 잔고가 지난달에 비해 ${percent} 많습니다.";
+  static m13(percent) => "잘하고 계십니다. 입출금계좌 잔고가 지난달에 비해 ${percent} 많습니다.";
 
-  static m12(percent) => "이번 달 쇼핑 예산의 ${percent}를 사용했습니다.";
+  static m14(percent) => "이번 달 쇼핑 예산의 ${percent}를 사용했습니다.";
 
-  static m13(amount) => "이번 주에 음식점에서 ${amount}을(를) 사용했습니다.";
+  static m15(amount) => "이번 주에 음식점에서 ${amount}을(를) 사용했습니다.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: '세금 공제 가능액을 늘릴 수 있습니다. 1개의 미할당 거래에 카테고리를 지정하세요.', other: '세금 공제 가능액을 늘릴 수 있습니다. ${count}개의 미할당 거래에 카테고리를 지정하세요.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName} 청구서(${amount}) 결제 기한은 ${date}입니다.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} 예산 ${amountTotal} 중 ${amountUsed} 사용, ${amountLeft} 남음";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: '항목 없음', one: '항목 1개', other: '항목 ${quantity}개')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "수량: ${quantity}";
+  static m21(quantity) => "수량: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: '장바구니, 상품 없음', one: '장바구니, 상품 1개', other: '장바구니, 상품 ${quantity}개')}";
 
-  static m21(product) => "{상품} 삭제";
+  static m23(product) => "{상품} 삭제";
 
-  static m22(value) => "항목 ${value}";
+  static m24(value) => "항목 ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
-            MessageLookupByLibrary.simpleMessage("Flutter 샘플 Github 저장소"),
+            MessageLookupByLibrary.simpleMessage("Flutter 샘플 GitHub 저장소"),
+        "backToGallery": MessageLookupByLibrary.simpleMessage("갤러리로 돌아가기"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("계정"),
         "bottomNavigationAlarmTab": MessageLookupByLibrary.simpleMessage("알람"),
@@ -271,6 +276,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoButtonWithBackground":
             MessageLookupByLibrary.simpleMessage("배경 포함"),
         "cupertinoShowAlert": MessageLookupByLibrary.simpleMessage("알림 표시"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("채팅"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("홈"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("프로필"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "작업 칩은 주 콘텐츠와 관련된 작업을 실행하는 옵션 세트입니다. 작업 칩은 동적이고 맥락에 맞는 방식으로 UI에 표시되어야 합니다."),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("작업 칩"),
@@ -355,6 +364,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS 스타일 세그먼트 컨트롤"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("세그먼트 컨트롤"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "슬라이더는 연속적이거나 분리된 값의 세트 중에 선택하는 데 사용됩니다."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 스타일 슬라이더"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("슬라이더"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "스위치는 단일 설정을 켜짐/꺼짐 상태 간에 전환하는 데 사용됩니다."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 스타일 스위치"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS 스타일의 하단 탐색 탭바입니다. 여러 개의 탭이 표시되고 그중 하나가 활성화됩니다. 기본적으로 첫 번째 탭이 활성화됩니다."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 스타일 하단 탭바"),
+        "demoCupertinoTabBarTitle": MessageLookupByLibrary.simpleMessage("탭바"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("단순함, 알림, 전체 화면"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("대화상자"),
@@ -421,6 +447,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "단순 대화상자는 사용자가 택일할 몇 가지 옵션을 제공합니다. 단순 대화상자에는 옵션 위에 표시되는 제목이 선택사항으로 포함됩니다."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("단순함"),
+        "demoSnackbarsAction":
+            MessageLookupByLibrary.simpleMessage("스낵바 작업을 눌렀습니다."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("작업"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("스낵바 표시"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "스낵바는 앱이 실행했거나 실행할 예정인 프로세스를 사용자에게 알려 줍니다. 화면 하단에 임시로 나타납니다. 사용자 환경을 방해하지 않고 사용자 입력이 없어도 사라져야 합니다."),
+        "demoSnackbarsSubtitle":
+            MessageLookupByLibrary.simpleMessage("스낵바는 화면 하단에 메시지를 표시합니다."),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage("스낵바입니다."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("스낵바"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "탭을 사용하면 다양한 화면, 데이터 세트 및 기타 상호작용에서 콘텐츠를 정리할 수 있습니다."),
         "demoTabsSubtitle":
@@ -441,7 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("데모이므로 간결하게 적으세요."),
         "demoTextFieldLifeStory": MessageLookupByLibrary.simpleMessage("전기"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("이름*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("이름을 입력해야 합니다."),
         "demoTextFieldNoMoreThan":
@@ -498,14 +536,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "앱이 Google을 통해 위치 정보를 파악할 수 있도록 설정하세요. 이 경우 실행되는 앱이 없을 때도 익명의 위치 데이터가 Google에 전송됩니다."),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("Google의 위치 서비스를 사용하시겠습니까?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage("백업 계정 설정"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("대화상자 표시"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("참조 스타일 및 미디어"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("카테고리"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("갤러리"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("자동차 구매 저축"),
         "rallyAccountDataChecking":
@@ -529,15 +567,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("합계"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("계정"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("알림"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("청구서"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("마감일:"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("의류"),
         "rallyBudgetCategoryCoffeeShops":
@@ -620,7 +658,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineCancelButtonCaption": MessageLookupByLibrary.simpleMessage("취소"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("장바구니 비우기"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("장바구니"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("배송:"),
@@ -679,8 +717,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("네이비 트라우저"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("플라스터 튜닉"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("테이블 4개 세트"),
         "shrineProductRainwaterTray":
@@ -717,10 +755,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("화이트 핀스트라이프 셔츠"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("휘트니 벨트"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("장바구니에 추가"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("장바구니 닫기"),
         "shrineTooltipCloseMenu": MessageLookupByLibrary.simpleMessage("메뉴 닫기"),
@@ -731,7 +769,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("설정"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("반응형 스타터 레이아웃"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("본문"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("버튼"),
         "starterAppGenericHeadline":

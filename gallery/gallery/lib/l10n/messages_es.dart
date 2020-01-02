@@ -37,53 +37,59 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "No se ha podido copiar en el portapapeles: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Continuo: ${value}";
+
+  static m8(value) => "Específico: ${value}";
+
+  static m9(name, phoneNumber) =>
       "El número de teléfono de ${name} es ${phoneNumber}";
 
-  static m8(value) => "Has seleccionado: \"${value}\"";
+  static m10(value) => "Has seleccionado: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m11(accountName, accountNumber, amount) =>
       "Cuenta ${accountName} (${accountNumber}) con ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Has pagado ${amount} de comisiones por utilizar cajeros automáticos este mes.";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "¡Bien hecho! El saldo positivo de tu cuenta corriente está un ${percent} más alto que el mes pasado.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Aviso: Has utilizado un ${percent} de tu presupuesto para compras este mes.";
 
-  static m13(amount) => "Has gastado ${amount} en restaurantes esta semana.";
+  static m15(amount) => "Has gastado ${amount} en restaurantes esta semana.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Aumenta tu posible deducción fiscal Asigna categorías a 1 transacción sin asignar.', other: 'Aumenta tu posible deducción fiscal Asigna categorías a ${count} transacciones sin asignar.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Fecha límite de la factura ${billName} (${amount}): ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Has gastado ${amountUsed} de ${amountTotal} del presupuesto ${budgetName}. Cantidad restante: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'NO HAY ELEMENTOS', one: '1 ELEMENTO', other: '${quantity} ELEMENTOS')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Cantidad: ${quantity}";
+  static m21(quantity) => "Cantidad: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Carrito: 0 artículos', one: 'Carrito: 1 artículo', other: 'Carrito: ${quantity} artículos')}";
 
-  static m21(product) => "Quitar ${product}";
+  static m23(product) => "Quitar ${product}";
 
-  static m22(value) => "Artículo ${value}";
+  static m24(value) => "Artículo ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Ejemplos de Flutter en el repositorio de Github"),
+            "Ejemplos de Flutter en el repositorio de GitHub"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Volver a la galería"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Cuenta"),
         "bottomNavigationAlarmTab":
@@ -315,6 +321,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Con fondo"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Mostrar alerta"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Página principal"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Perfil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Los chips de acción son un conjunto de opciones que permiten llevar a cabo tareas relacionadas con el contenido principal. Deberían aparecer de forma dinámica y según el contexto en la interfaz."),
         "demoActionChipTitle":
@@ -412,6 +423,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Control segmentado similar al de iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Control segmentado"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Los controles deslizantes sirven para seleccionar valores de un conjunto de valores continuos o específicos."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Control deslizante similar al de iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Control deslizante"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Los interruptores sirven para activar o desactivar un solo ajuste."),
+        "demoCupertinoSwitchSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Interruptor similar al de iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Una barra de pestañas de navegación situada en la parte inferior similar a la de iOS. Muestra varias pestañas, con una de ellas activa, que de forma predeterminada es la primera."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Barra de pestañas de la parte inferior similar a la de iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de pestañas"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sencillo, con alerta y a pantalla completa"),
         "demoDialogTitle":
@@ -488,6 +517,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Un cuadro de diálogo sencillo ofrece al usuario la posibilidad de elegir entre diversas opciones e incluye un título opcional que se muestra encima de las opciones."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Sencillo"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Has tocado la acción del snackbar."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACCIÓN"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("MOSTRAR UN SNACKBAR"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Los snackbar proporcionan a los usuarios información sobre un proceso que una aplicación ha completado o va a iniciar. Aparecen de manera temporal en la parte inferior de la pantalla. No deberían interrumpir la experiencia de usuario, y desaparecen sin que los usuarios tengan que hacer nada."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Los snackbar muestran mensajes en la parte inferior de la pantalla"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Esto es un snackbar."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Snackbar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "En las pestañas se organiza contenido en distintas pantallas, conjuntos de datos y otras interacciones."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -511,7 +553,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Biografía"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Nombre*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired": MessageLookupByLibrary.simpleMessage(
             "Es obligatorio indicar el nombre."),
         "demoTextFieldNoMoreThan":
@@ -576,7 +618,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permite que Google ayude a las aplicaciones a determinar la ubicación haciendo que el usuario envíe datos de ubicación anónimos a Google aunque las aplicaciones no se estén ejecutando."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "¿Quieres utilizar el servicio de ubicación de Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Crear cuenta de copia de seguridad"),
         "dialogShow":
@@ -586,7 +628,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categorías"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galería"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Ahorros para el coche"),
         "rallyAccountDataChecking":
@@ -613,15 +655,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Cuentas"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertas"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Facturas"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Pendiente:"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Ropa"),
         "rallyBudgetCategoryCoffeeShops":
@@ -728,7 +770,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCELAR"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("VACIAR CARRITO"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("CARRITO"),
         "shrineCartShippingCaption":
@@ -790,8 +832,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalones azul marino"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Túnica color yeso"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Mesa cuadrada"),
         "shrineProductRainwaterTray": MessageLookupByLibrary.simpleMessage(
@@ -831,10 +873,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Camisa blanca de rayas diplomáticas"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Cinturón Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Añadir al carrito"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Cerrar carrito"),
         "shrineTooltipCloseMenu":
@@ -848,7 +890,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ajustes"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Diseño de inicio adaptable"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Cuerpo"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("BOTÓN"),

@@ -37,51 +37,57 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Mübadilə buferinə kopyalamaq alınmadı: ${error}";
 
-  static m7(name, phoneNumber) => "${name} telefon nömrəsi: ${phoneNumber}";
+  static m7(value) => "Ardıcıl: ${value}";
 
-  static m8(value) => "\"${value}\" seçdiniz";
+  static m8(value) => "Ayrı: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} telefon nömrəsi: ${phoneNumber}";
+
+  static m10(value) => "\"${value}\" seçdiniz";
+
+  static m11(accountName, accountNumber, amount) =>
       "${amount} ilə ${accountName} hesabı ${accountNumber}.";
 
-  static m10(amount) => "Bu ay bankomat rüsumları üçün ${amount} xərcləmisiniz";
+  static m12(amount) => "Bu ay bankomat rüsumları üçün ${amount} xərcləmisiniz";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Afərin! Ödəniş hesabınızın balansı keçən ayla müqayisədə ${percent} çoxdur.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Nəzərə alın ki, bu aylıq Alış-veriş büdcənizin ${percent} qədərindən çoxunu istifadə etmisiniz.";
 
-  static m13(amount) => "Bu həftə restoranlarda ${amount} xərcləmisiniz.";
+  static m15(amount) => "Bu həftə restoranlarda ${amount} xərcləmisiniz.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Potensial vergi ödənişini artırın! 1 təyin edilməmiş əməliyyata kateqoriya təyin edin.', other: 'Potensial vergi ödənişini artırın! ${count} təyin edilməmiş əməliyyata kateqoriya təyin edin.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${date} tarixinə ${amount} məbləğində ${billName} ödənişi.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} büdcəsi ${amountUsed}/${amountTotal} istifadə edilib, ${amountLeft} qalıb";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ELEMENT YOXDUR', one: '1 ELEMENT', other: '${quantity} ELEMENT')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Miqdar: ${quantity}";
+  static m21(quantity) => "Miqdar: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Alış-veriş səbəti, element yoxdur', one: 'Alış-veriş səbəti, 1 element', other: 'Alış-veriş səbəti, ${quantity} element')}";
 
-  static m21(product) => "${product} məhsulunu silin";
+  static m23(product) => "${product} məhsulunu silin";
 
-  static m22(value) => "Element ${value}";
+  static m24(value) => "Element ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter nümunələrinin Github yaddaş yeri"),
+            "Flutter nümunələrinin GitHub yaddaş yeri"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Qalereyaya geri qayıdın"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Hesab"),
         "bottomNavigationAlarmTab":
@@ -301,6 +307,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Arxa fonlu"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Xəbərdarlığı Göstərin"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Söhbət"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Əsas səhifə"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Əməliyyat çipləri əsas məzmun ilə əlaqədar əməliyyatı işə salan seçimlər qrupudur. Əməliyyat çipləri İstifadəçi İnterfeysində dinamik və kontekstual tərzdə görünməlidir."),
         "demoActionChipTitle":
@@ -397,6 +409,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS üslubunda seqmentləşdirilmiş nəzarət"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Seqmentləşdirilmiş Nəzarət"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Ardıcıl və ya ayrı dəyərlər arasından seçim etmək üçün slayder istifadə edilə bilər."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS üslublu slayder"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slayder"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Ayarı aktiv/deaktiv etmək üçün dəyişdirici istifadə edilir."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS üslublu dəyişdirici"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS üslublu alt naviqasiya tabı paneli. Bir tab aktiv olmaqla (defolt olaraq ilk tab) bir neçə tabı göstərir."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS üslublu alt tab paneli"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Tab Paneli"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sadə, xəbərdarlıq və tam ekran"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialoqlar"),
@@ -471,6 +501,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Sadə dialoq istifadəçiyə bir neçə seçim təqdim edir. Sadə dialoqda seçimlərin yuxarısında göstərilən şərti başlıq olur."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Sadə"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Snekpanel əməliyyatına toxunmusunuz."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ƏMƏLİYYAT"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("SNEKPANEL GÖSTƏRİN"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snekpanellər tətbiqin icra etdiyi və ya edəcəyi prosesi istifadəçilərə bildirir. Onlar ekranın aşağısına doğru müvəqqəti göstərilir. Onlar istifadəçinin təcrübəsinə mane olmamalıdır, yoxa çıxmaq üçün istifadəçi girişinə ehtiyac duymurlar."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snekpanellər ekranın aşağısında mesajlar göstərir"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Bu, snekpaneldir."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Snekpanellər"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tablar müxtəlif ekranlar, data dəstləri və digər qarşılıqlı əməliyyatlarda məzmunu təşkil edir."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -492,7 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Həyat hekayəsi"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Ad*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ad tələb edilir."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -555,7 +599,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google\'a məkanı müəyyənləşdirməkdə tətbiqlərə kömək etmək imkanı verin. Bu, hətta heç bir tətbiq icra olunmadıqda belə Google\'a anonim məkan məlumatları göndərmək deməkdir."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google\'un məkan xidmətindən istifadə edilsin?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Yedəkləmə hesabı ayarlayın"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("DİALOQU GÖSTƏRİN"),
@@ -564,7 +608,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kateqoriyalar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Qalereya"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Avtomobil Qənaəti"),
         "rallyAccountDataChecking":
@@ -588,15 +632,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Cəmi"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Hesablar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Xəbərdarlıqlar"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hesablar"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Son tarix"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Geyim"),
         "rallyBudgetCategoryCoffeeShops":
@@ -697,7 +741,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("LƏĞV EDİN"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("SƏBƏTİ TƏMİZLƏYİN"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("SƏBƏT"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Göndərmə:"),
@@ -758,8 +802,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tünd mavi şalvar"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Açıq rəngli kofta"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Dörbucaq masa"),
         "shrineProductRainwaterTray":
@@ -798,10 +842,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cızıqlı ağ köynək"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Vitni kəməri"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Səbətə əlavə edin"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Səbəti bağlayın"),
         "shrineTooltipCloseMenu":
@@ -815,7 +859,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Responsiv starter tətbiq düzəni"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Əsas"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("DÜYMƏ"),

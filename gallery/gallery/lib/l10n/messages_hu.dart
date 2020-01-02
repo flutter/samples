@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Nem sikerült a vágólapra másolni: ${error}";
 
-  static m7(name, phoneNumber) => "${name} telefonszáma: ${phoneNumber}";
+  static m7(value) => "Folyamatos: ${value}";
 
-  static m8(value) => "Az Ön által választott érték: „${value}”";
+  static m8(value) => "Diszkrét: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} telefonszáma: ${phoneNumber}";
+
+  static m10(value) => "Az Ön által választott érték: „${value}”";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName} bankszámla (${accountNumber}) ${amount} összeggel.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "${amount} összeget költött ATM-díjakra ebben a hónapban";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Nagyszerű! Folyószámlája ${percent}-kal magasabb, mint múlt hónapban.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Előrejelzés: Az e havi Shopping-költségkeret ${percent}-át használta fel.";
 
-  static m13(amount) => "${amount} összeget költött éttermekre ezen a héten.";
+  static m15(amount) => "${amount} összeget költött éttermekre ezen a héten.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Növelje a lehetséges adókedvezményt! Rendeljen kategóriát 1 hozzárendelés nélküli tranzakcióhoz.', other: 'Növelje a lehetséges adókedvezményt! Rendeljen kategóriákat ${count} hozzárendelés nélküli tranzakcióhoz.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${amount} összegű ${billName} számla esedékességi dátuma: ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${amountTotal} összegű ${budgetName} költségkeret, amelyből felhasználásra került ${amountUsed}, és maradt ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'NINCSENEK TÉTELEK', one: '1 TÉTEL', other: '${quantity} TÉTEL')}";
 
-  static m18(price) => "× ${price}";
+  static m20(price) => "× ${price}";
 
-  static m19(quantity) => "Mennyiség: ${quantity}";
+  static m21(quantity) => "Mennyiség: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Kosár, üres', one: 'Kosár, 1 tétel', other: 'Kosár, ${quantity} tétel')}";
 
-  static m21(product) => "${product} eltávolítása";
+  static m23(product) => "${product} eltávolítása";
 
-  static m22(value) => "${value} elem";
+  static m24(value) => "${value} elem";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-minták Github-adattára"),
+            "Flutter-minták GitHub-adattára"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Vissza a Galériához"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Fiók"),
         "bottomNavigationAlarmTab":
@@ -317,6 +323,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Háttérrel"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Értesítés megjelenítése"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Csevegés"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Kezdőlap"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "A műveletszelvények olyan beállításcsoportokat jelentenek, amelyek aktiválnak valamilyen műveletet az elsődleges tartalommal kapcsolatban. A műveletszelvényeknek dinamikusan, a kontextusnak megfelelően kell megjelenniük a kezelőfelületen."),
         "demoActionChipTitle":
@@ -411,6 +423,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-stílusú szegmentált vezérlés"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Szegmentált vezérlés"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "A csúszkával folyamatos vagy diszkrét értékkészletből lehet választani."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-stílusú csúszka"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Csúszka"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "A kapcsolóval egy adott beállítás be- vagy kikapcsolt állapotát lehet állítani."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-stílusú kapcsoló"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-stílusú, alsó navigációs lapfülsáv. Több lapfület jelenít meg, amelyek közül az egyik aktív (alapértelmezés szerint az első)."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-stílusú fülsáv"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Fülsáv"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Egyszerű, értesítő és teljes képernyős"),
         "demoDialogTitle":
@@ -488,6 +518,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Egy egyszerű párbeszédpanel választást kínál a felhasználónak több lehetőség közül. Az egyszerű párbeszédpanel nem kötelező címmel rendelkezik, amely a választási lehetőségek felett jelenik meg."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Egyszerű"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Megnyomta az információs sávról elvégezhető művelet gombját."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("MŰVELET"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("PÉLDA AZ INFORMÁCIÓS SÁVRA"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Az információs sávok arról tájékoztatják a felhasználókat, hogy valamelyik alkalmazás melyik folyamatot végezte el vagy fogja elvégezni. A képernyő alján, rövid időre jelennek meg. Nem zavarhatják meg a felhasználói élményt, és nem követelhetnek meg felhasználói beavatkozást ahhoz, hogy eltűnjenek."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Az információs sávok üzeneteket jelenítenek meg a képernyő alján"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Ez egy információs sáv."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Információs sávok"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "A lapok rendszerezik a tartalmakat különböző képernyőkön, adathalmazokban és egyéb interakciók során."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -510,7 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Élettörténet"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Név*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("A név megadása kötelező."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -575,7 +619,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hagyja, hogy a Google segítsen az alkalmazásoknak a helymeghatározásban. Ez névtelen helyadatok küldését jelenti a Google-nak, még akkor is, ha egyetlen alkalmazás sem fut."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Használni kívánja a Google Helyszolgáltatásokat?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Helyreállítási fiók beállítása"),
         "dialogShow": MessageLookupByLibrary.simpleMessage(
@@ -585,7 +629,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategóriák"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galéria"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings": MessageLookupByLibrary.simpleMessage(
             "Autóval kapcsolatos megtakarítások"),
         "rallyAccountDataChecking":
@@ -609,15 +653,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Összesen"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Fiókok"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Értesítések"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Számlák"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Esedékes"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Ruházat"),
         "rallyBudgetCategoryCoffeeShops":
@@ -727,7 +771,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("MÉGSE"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("KOSÁR TÖRLÉSE"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("KOSÁR"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Szállítás:"),
@@ -790,8 +834,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Matrózkék nadrág"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("„Plaster” tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Négyzet alakú asztal"),
         "shrineProductRainwaterTray":
@@ -829,10 +873,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fehér csíkos ing"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("„Whitney” öv"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Hozzáadás a kosárhoz"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Kosár bezárása"),
         "shrineTooltipCloseMenu":
@@ -846,7 +890,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Beállítások"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Interaktív kezdő elrendezés"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Szövegtörzs"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("GOMB"),

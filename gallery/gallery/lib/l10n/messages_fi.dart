@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Kopiointi leikepöydälle epäonnistui: ${error}";
 
-  static m7(name, phoneNumber) => "Puhelinnumero (${name}) on ${phoneNumber}";
+  static m7(value) => "Jatkuva: ${value}";
 
-  static m8(value) => "Valitsit: \"${value}\"";
+  static m8(value) => "Diskreetti: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "Puhelinnumero (${name}) on ${phoneNumber}";
+
+  static m10(value) => "Valitsit: \"${value}\"";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName}tili ${accountNumber}, jolla on ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Tässä kuussa olet käyttänyt ${amount} pankkiautomaattien maksuihin";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Hienoa – käyttötilisi saldo on ${percent} viime kuuta korkeampi.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Hei, olet käyttänyt tämän kuun ostosbudjetista ${percent}.";
 
-  static m13(amount) => "Tässä kuussa olet käyttänyt ${amount} ravintoloihin.";
+  static m15(amount) => "Tässä kuussa olet käyttänyt ${amount} ravintoloihin.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Lisää mahdollisten verovähennystesi määrää! Anna 1 tuntemattomalle tapahtumalle luokka.', other: 'Lisää mahdollisten verovähennystesi määrää! Anna ${count} tuntemattomalle tapahtumalle luokat.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Lasku ${billName}, ${amount} ${date} mennessä";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Budjetti ${budgetName}, ${amountUsed} käytetty, kokonaismäärä ${amountTotal}, ${amountLeft} jäljellä";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'EI TUOTTEITA', one: '1 TUOTE', other: '${quantity} TUOTETTA')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Määrä: ${quantity}";
+  static m21(quantity) => "Määrä: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Ostoskori, ei tuotteita', one: 'Ostoskori, 1 tuote', other: 'Ostoskori, ${quantity} tuotetta')}";
 
-  static m21(product) => "Poista ${product}";
+  static m23(product) => "Poista ${product}";
 
-  static m22(value) => "Tuote ${value}";
+  static m24(value) => "Tuote ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-näytteiden Github-kirjasto"),
+            "Flutter-näytteiden GitHub-kirjasto"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Takaisin Galleriaan"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Tili"),
         "bottomNavigationAlarmTab":
@@ -311,6 +317,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sisältää taustan"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Näytä ilmoitus"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Koti"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profiili"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Toimintoelementit ovat vaihtoehtoja, jotka käynnistävät pääsisältöön liittyvän toiminnon. Toimintoelementtien pitäisi tulla näkyviin käyttöliittymissä dynaamisesti ja sopivassa asiayhteydessä."),
         "demoActionChipTitle":
@@ -406,6 +416,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-tyylinen segmenttihallinta"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmenttihallinta"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Liukusäätimellä voi valita jatkuvasta tai diskreetistä arvojoukosta."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-tyylinen liukusäädin"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Liukusäädin"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Kytkimellä tietty asetus laitetaan päälle tai pois päältä."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-tyylinen kytkin"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-tyylinen alareunan välilehtipalkki siirtymistä varten. Näyttää useita välilehtiä, joista yksi on aktiivinen (oletuksena ensimmäinen välilehti)."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-tyylinen alareunan välilehtipalkki"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Välilehtipalkki"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Yksinkertainen, ilmoitus ja koko näyttö"),
         "demoDialogTitle":
@@ -483,6 +511,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Yksinkertainen valintaikkuna tarjoaa käyttäjälle mahdollisuuden valita useista vaihtoehdoista. Yksinkertaisessa valintaikkunassa on valinnainen otsikko, joka näkyy vaihtoehtojen yläpuolella."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Yksinkertainen"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Valitsit pikatiedotteen toiminnon."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("TOIMINTO"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("NÄYTÄ PIKATIEDOTE"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Pikatiedotteet ilmoittavat käyttäjille prosessista, jonka sovellus on suorittanut tai tulee suorittamaan. Ne näkyvät väliaikaisesti näytön alaosassa. Niiden ei pitäisi häiritä käyttökokemusta, ja ne katoavat itsestään."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Pikatiedotteet näyttävät viestejä näytön alareunassa"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Tämä on pikatiedote."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Pikatiedotteet"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Välilehdille järjestetään sisältöä eri näytöiltä, datajoukoista ja muista tilanteista."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -505,7 +547,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Elämäntarina"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nimi*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nimi on pakollinen."),
         "demoTextFieldNoMoreThan":
@@ -570,7 +612,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Anna Googlen auttaa sovelluksia sijainnin määrittämisessä. Googlelle lähetetään anonyymejä sijaintitietoja – myös kun sovelluksia ei ole käytössä."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Käytetäänkö Googlen sijaintipalvelua?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Luo varmuuskopiointitili"),
         "dialogShow":
@@ -579,7 +621,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("VIITETYYLIT JA ‑MEDIA"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Luokat"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleria"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Autosäästötili"),
         "rallyAccountDataChecking":
@@ -603,15 +645,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Yhteensä"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Tilit"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Ilmoitukset"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Laskut"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Maksettavaa"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Vaatteet"),
         "rallyBudgetCategoryCoffeeShops":
@@ -714,7 +756,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("PERUUTA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("TYHJENNÄ OSTOSKORI"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("OSTOSKORI"),
         "shrineCartShippingCaption":
@@ -777,8 +819,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Laivastonsiniset housut"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Luonnonvalkoinen tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Neliosainen pöytäsarja"),
         "shrineProductRainwaterTray":
@@ -817,10 +859,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Valkoinen liituraitapaita"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-vyö"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Lisää ostoskoriin"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Sulje ostoskori"),
         "shrineTooltipCloseMenu":
@@ -834,7 +876,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Asetukset"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Responsiivinen aloitusasettelu"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Leipäteksti"),
         "starterAppGenericButton":

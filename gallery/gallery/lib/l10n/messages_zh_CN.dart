@@ -36,49 +36,55 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "未能复制到剪贴板：${error}";
 
-  static m7(name, phoneNumber) => "${name}的手机号码是 ${phoneNumber}";
+  static m7(value) => "连续：${value}";
 
-  static m8(value) => "您已选择：“${value}”";
+  static m8(value) => "间续：${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name}的手机号码是 ${phoneNumber}";
+
+  static m10(value) => "您已选择：“${value}”";
+
+  static m11(accountName, accountNumber, amount) =>
       "账号为 ${accountNumber} 的${accountName}账户中的存款金额为 ${amount}。";
 
-  static m10(amount) => "本月您已支付 ${amount}的 ATM 取款手续费";
+  static m12(amount) => "本月您已支付 ${amount}的 ATM 取款手续费";
 
-  static m11(percent) => "做得好！您的支票帐号余额比上个月多 ${percent}。";
+  static m13(percent) => "做得好！您的支票帐号余额比上个月多 ${percent}。";
 
-  static m12(percent) => "注意，您已使用本月购物预算的 ${percent}。";
+  static m14(percent) => "注意，您已使用本月购物预算的 ${percent}。";
 
-  static m13(amount) => "本周您已在餐馆花费 ${amount}。";
+  static m15(amount) => "本周您已在餐馆花费 ${amount}。";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: '提高您可能获享的减免税额！为 1 笔未指定类别的交易指定类别。', other: '提高您可能获享的减免税额！为 ${count} 笔未指定类别的交易指定类别。')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName}帐单的付款日期为 ${date}，应付金额为 ${amount}。";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}预算的总金额为 ${amountTotal}，已用 ${amountUsed}，剩余 ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: '无商品', one: '1 件商品', other: '${quantity} 件商品')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "数量：${quantity}";
+  static m21(quantity) => "数量：${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: '购物车，无商品', one: '购物车，1 件商品', other: '购物车，${quantity} 件商品')}";
 
-  static m21(product) => "移除${product}";
+  static m23(product) => "移除${product}";
 
-  static m22(value) => "项 ${value}";
+  static m24(value) => "项 ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("Flutter 示例 GitHub 代码库"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("返回 Flutter Gallery"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("帐号"),
         "bottomNavigationAlarmTab": MessageLookupByLibrary.simpleMessage("闹钟"),
@@ -261,6 +267,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoButtonWithBackground":
             MessageLookupByLibrary.simpleMessage("设有背景"),
         "cupertinoShowAlert": MessageLookupByLibrary.simpleMessage("显示提醒"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("聊天"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("首页"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("个人资料"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "操作信息块是一组选项，可触发与主要内容相关的操作。操作信息块应以动态和与上下文相关的形式显示在界面中。"),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("操作信息块"),
@@ -344,6 +354,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS 样式的分段控件"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("分段控件"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription":
+            MessageLookupByLibrary.simpleMessage("滑块可用于从一组连续或间续的值中选择值。"),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 样式的滑块"),
+        "demoCupertinoSliderTitle": MessageLookupByLibrary.simpleMessage("滑块"),
+        "demoCupertinoSwitchDescription":
+            MessageLookupByLibrary.simpleMessage("开关用于切换单个设置的开启/关闭状态。"),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 样式的开关"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS 样式的底部导航标签页栏。显示多个标签页，其中一个标签页（默认为第一个标签页）处于活动状态。"),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 样式的底部标签页栏"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("标签页栏"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage("简易、提醒和全屏"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("对话框"),
         "demoDocumentationTooltip":
@@ -405,6 +432,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "简易对话框可以让用户在多个选项之间做选择。您可以选择性地为简易对话框提供标题（标题会显示在选项上方）。"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("简洁"),
+        "demoSnackbarsAction":
+            MessageLookupByLibrary.simpleMessage("您已按下该信息提示控件上的操作按钮。"),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("操作"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("显示信息提示控件"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "信息提示控件会告知用户应用已执行或将要执行的程序。它们会暂时性显示在屏幕底部，不会干扰用户体验，并且不需要用户输入任何内容就会消失。"),
+        "demoSnackbarsSubtitle":
+            MessageLookupByLibrary.simpleMessage("信息提示控件会在屏幕底部显示信息"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage("这是信息提示控件。"),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("信息提示控件"),
         "demoTabsDescription":
             MessageLookupByLibrary.simpleMessage("标签页用于整理各个屏幕、数据集和其他互动中的内容。"),
         "demoTabsSubtitle":
@@ -425,7 +464,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("请确保内容简洁，因为这只是一个演示。"),
         "demoTextFieldLifeStory": MessageLookupByLibrary.simpleMessage("生平事迹"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("姓名*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("必须填写姓名。"),
         "demoTextFieldNoMoreThan":
@@ -480,14 +519,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "让 Google 协助应用判断位置，即代表系统会将匿名的位置数据发送给 Google（即使设备并没有运行任何应用）。"),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("要使用 Google 的位置信息服务吗？"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage("设置备份帐号"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("显示对话框"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("参考资料样式和媒体"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("类别"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("图库"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("购车储蓄"),
         "rallyAccountDataChecking":
@@ -510,15 +549,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("总计"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("帐号"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("提醒"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("帐单"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("应付"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("服饰"),
         "rallyBudgetCategoryCoffeeShops":
@@ -600,7 +639,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineCancelButtonCaption": MessageLookupByLibrary.simpleMessage("取消"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("清空购物车"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("购物车"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("运费："),
@@ -655,8 +694,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("海军蓝裤子"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("石膏色束腰外衣"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("四方桌"),
         "shrineProductRainwaterTray":
@@ -694,10 +733,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("白色细条纹衬衫"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney 皮带"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("加入购物车"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart": MessageLookupByLibrary.simpleMessage("关闭购物车"),
         "shrineTooltipCloseMenu": MessageLookupByLibrary.simpleMessage("关闭菜单"),
         "shrineTooltipOpenMenu": MessageLookupByLibrary.simpleMessage("打开菜单"),
@@ -706,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("设置"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("自适应入门布局"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("正文"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("按钮"),
         "starterAppGenericHeadline": MessageLookupByLibrary.simpleMessage("标题"),

@@ -36,51 +36,57 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Ekki tókst að afrita á klippiborð: ${error}";
 
-  static m7(name, phoneNumber) => "Símanúmer ${name} er ${phoneNumber}";
+  static m7(value) => "Samfelld: ${value}";
 
-  static m8(value) => "Þú valdir: „${value}“";
+  static m8(value) => "Samsettur: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "Símanúmer ${name} er ${phoneNumber}";
+
+  static m10(value) => "Þú valdir: „${value}“";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName}, reikningur ${accountNumber}, að upphæð ${amount}.";
 
-  static m10(amount) => "Þú hefur eytt ${amount} í hraðbankagjöld í mánuðinum";
+  static m12(amount) => "Þú hefur eytt ${amount} í hraðbankagjöld í mánuðinum";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Vel gert! Þú átt ${percent} meira inni á veltureikningnum þínum en í síðasta mánuði.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Athugaðu að þú ert búin(n) með ${percent} af kostnaðarhámarki mánaðarins.";
 
-  static m13(amount) => "Þú hefur eytt ${amount} á veitingastöðum í vikunni.";
+  static m15(amount) => "Þú hefur eytt ${amount} á veitingastöðum í vikunni.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Auktu hugsanlegan frádrátt frá skatti! Úthluta flokkum á 1 óúthlutaða færslu.', other: 'Auktu hugsanlegan frádrátt frá skatti! Úthluta flokkum á ${count} óúthlutaðar færslur.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName}, gjalddagi ${date}, að upphæð ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} kostnaðarhámark þar sem ${amountUsed} er notað af ${amountTotal} og ${amountLeft} er eftir";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ENGIN ATRIÐI', one: '1 ATRIÐI', other: '${quantity} ATRIÐI')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Magn: ${quantity}";
+  static m21(quantity) => "Magn: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Karfa, engir hlutir', one: 'Karfa, 1 hlutur', other: 'Karfa, ${quantity} hlutir')}";
 
-  static m21(product) => "Fjarlægja ${product}";
+  static m23(product) => "Fjarlægja ${product}";
 
-  static m22(value) => "Vara ${value}";
+  static m24(value) => "Vara ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-sýnishorn í Github-geymslu"),
+            "Flutter-sýnishorn í GitHub-geymslu"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Til baka í gallerí"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Reikningur"),
         "bottomNavigationAlarmTab":
@@ -310,6 +316,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Með bakgrunni"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Sýna viðvörun"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Spjall"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Heim"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Prófíll"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Aðgerðarkubbar eru hópur valkosta sem ræsa aðgerð sem tengist upprunaefni. Birting aðgerðarkubba ætti að vera kvik og í samhengi í notandaviðmóti."),
         "demoActionChipTitle":
@@ -404,6 +415,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hlutaval með iOS-stíl"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Hlutaval"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Hægt er að nota sleða til að velja úr samfelldum gildum eða samsettum gildum."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Sleði með iOS-stíl"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Sleði"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Rofi er notaður til að skipta á milli þess að slökkt sé á einni stillingu eða kveikt sé á henni."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Rofi með iOS-stíl"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Neðri flettiflipastika með OS-stíl. Sýnir marga flipa þar sem einn er virkur, sem er sjálfkrafa fyrsti flipinn."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Neðri flipastika með OS-stíl"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Flipastika"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Einfaldur, tilkynning og allur skjárinn"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Gluggar"),
@@ -477,6 +506,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Einfaldur gluggi býður notanda að velja á milli nokkurra valkosta. Einfaldur gluggi getur haft titil sem birtist fyrir ofan valkostina."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Einfalt"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Þú ýttir á aðgerð snarlbars."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("HASAR"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("SÝNA SNARLBAR"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snarlbarir gefa notendum upplýsingar um aðgerðir sem eru í gangi í forriti eða sem munu fara í gang. Þeir birtast tímabundið neðarlega á skjánum. Þeir ættu ekki að hafa áhrif á upplifun notandans og hann þarf ekki að bregðast við þeim til að þeir hverfi."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snarlbarir sýna skilaboð neðst á skjánum"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Þetta er snarlbar."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Snarlbarir"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Flipar raða efni á mismunandi skjái, mismunandi gagnasöfn og önnur samskipti."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -499,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Æviskeið"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Heiti*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nafn er áskilið."),
         "demoTextFieldNoMoreThan":
@@ -563,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Leyfðu Google að hjálpa forritum að ákvarða staðsetningu. Í þessu felst að senda nafnlaus staðsetningargögn til Google, jafnvel þótt engin forrit séu í gangi."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Nota staðsetningarþjónustu Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Velja afritunarreikning"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SÝNA GLUGGA"),
@@ -571,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("TILVÍSUNARSTÍLAR OG EFNI"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Flokkar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Myndasafn"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Bílasparnaður"),
         "rallyAccountDataChecking":
@@ -595,15 +638,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Samtals"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Reikningar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Tilkynningar"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Reikningar"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Til greiðslu"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Klæðnaður"),
         "rallyBudgetCategoryCoffeeShops":
@@ -707,7 +750,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HÆTTA VIÐ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("HREINSA KÖRFU"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("KARFA"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Sending:"),
@@ -770,8 +813,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dökkbláar buxur"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Ljós skokkur"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Ferhyrnt borð"),
         "shrineProductRainwaterTray":
@@ -810,10 +853,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hvít teinótt skyrta"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belti"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Setja í körfu"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Loka körfu"),
         "shrineTooltipCloseMenu":
@@ -827,7 +870,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stillingar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Hraðvirkt upphafsútlit"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Meginmál"),
         "starterAppGenericButton":

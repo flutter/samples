@@ -36,53 +36,59 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Gagal menyalin ke papan keratan: ${error}";
 
-  static m7(name, phoneNumber) => "Nombor telefon ${name} ialah ${phoneNumber}";
+  static m7(value) => "Berterusan: ${value}";
 
-  static m8(value) => "Anda memilih: \"${value}\"";
+  static m8(value) => "Diskret: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "Nombor telefon ${name} ialah ${phoneNumber}";
+
+  static m10(value) => "Anda memilih: \"${value}\"";
+
+  static m11(accountName, accountNumber, amount) =>
       "Akaun ${accountName} bagi ${accountNumber} sebanyak ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Anda sudah membelanjakan ${amount} untuk yuran ATM pada bulan ini";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Syabas! Akaun semasa anda adalah ${percent} lebih tinggi daripada bulan lalu.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Makluman, anda telah menggunakan ${percent} daripada belanjawan Beli-belah anda untuk bulan ini.";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "Anda sudah membelanjakan ${amount} pada Restoran minggu ini.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Tingkatkan potongan cukai berpotensi anda! Tetapkan kategori kepada 1 transaksi yang tidak ditentukan.', other: 'Tingkatkan potongan cukai berpotensi anda! Tetapkan kategori kepada ${count} transaksi yang tidak ditentukan.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Bil ${billName} perlu dijelaskan pada ${date} sebanyak ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Belanjawan ${budgetName} dengan ${amountUsed} digunakan daripada ${amountTotal}, baki ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'TIADA ITEM', one: '1 ITEM', other: '${quantity} ITEM')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Kuantiti: ${quantity}";
+  static m21(quantity) => "Kuantiti: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Troli Beli-belah, tiada item', one: 'Troli Beli-belah, 1 item', other: 'Troli Beli-belah, ${quantity} item')}";
 
-  static m21(product) => "Alih keluar ${product}";
+  static m23(product) => "Alih keluar ${product}";
 
-  static m22(value) => "Item ${value}";
+  static m24(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Repositori Github sampel Flutter"),
+            "Repositori GitHub sampel Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Kembali ke Gallery"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Akaun"),
         "bottomNavigationAlarmTab":
@@ -306,6 +312,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dengan Latar Belakang"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Tunjukkan Makluman"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Laman Utama"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Cip tindakan ialah satu set pilihan yang mencetuskan tindakan yang berkaitan dengan kandungan utama. Cip tindakan seharusnya dipaparkan secara dinamik dan kontekstual dalam UI."),
         "demoActionChipTitle":
@@ -401,6 +412,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Kawalan disegmenkan gaya iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Kawalan Disegmenkan"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Peluncur boleh digunakan untuk memilih daripada set nilai berterusan atau diskret."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Peluncur gaya iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Peluncur"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Suis digunakan untuk menogol keadaan hidup/mati tetapan tunggal."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Suis gaya iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Bar tab navigasi bawah gaya iOS. Memaparkan berbilang tab dengan satu tab sedang aktif, tab pertama secara lalai."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Bar tab bawah gaya iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Bar Tab"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ringkas, makluman dan skrin penuh"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialog"),
@@ -475,6 +504,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dialog ringkas menawarkan pengguna satu pilihan antara beberapa pilihan. Dialog ringkas mempunyai tajuk pilihan yang dipaparkan di bahagian atas pilihan itu."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Ringkas"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Anda menekan tindakan bar snek."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("TINDAKAN"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("TUNJUKKAN BAR SNEK"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Bar snek memberitahu pengguna tentang proses yang telah dilakukan atau yang akan dilakukan oleh apl. Bar snek ini dipaparkan di bahagian bawah skrin secara sementara. Bar snek tidak sepatutnya mengganggu pengalaman pengguna dan tidak memerlukan input pengguna untuk hilang."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Bar snek menunjukkan mesej di bahagian bawah skrin"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Ini ialah Bar Snek."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Bar snek"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tab menyusun kandungan untuk semua skrin, set data dan interaksi lain yang berbeza-beza."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -496,7 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Kisah hidup"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nama*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nama diperlukan."),
         "demoTextFieldNoMoreThan":
@@ -560,7 +602,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Benarkan Google membantu apl menentukan lokasi. Ini bermakna menghantar data lokasi awanama kepada Google, walaupun semasa tiada apl yang berjalan."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Gunakan perkhidmatan lokasi Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Tetapkan akaun sandaran"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("TUNJUKKAN DIALOG"),
@@ -569,7 +611,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategori"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeri"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Simpanan Kereta"),
         "rallyAccountDataChecking":
@@ -594,15 +636,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Jumlah"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Akaun"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Makluman"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bil"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Tarikh Akhir"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Pakaian"),
         "rallyBudgetCategoryCoffeeShops":
@@ -704,7 +746,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("BATAL"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("KOSONGKAN TROLI"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("TROLI"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Penghantaran:"),
@@ -766,8 +808,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -806,10 +848,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Tambahkan ke troli"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Tutup troli"),
         "shrineTooltipCloseMenu":
@@ -823,7 +865,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tetapan"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Reka letak permulaan yang responsif"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Kandungan"),
         "starterAppGenericButton":

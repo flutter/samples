@@ -37,53 +37,59 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "No s\'ha pogut copiar al porta-retalls: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Continu: ${value}";
+
+  static m8(value) => "Discret: ${value}";
+
+  static m9(name, phoneNumber) =>
       "El número de telèfon de ${name} és ${phoneNumber}";
 
-  static m8(value) => "Has seleccionat: \"${value}\"";
+  static m10(value) => "Has seleccionat: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m11(accountName, accountNumber, amount) =>
       "Import al compte ${accountName} amb el número ${accountNumber}: ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Has gastat ${amount} en comissions de caixers automàtics aquest mes";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Ben fet. El teu compte corrent és un ${percent} superior al mes passat.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Atenció! Has fet servir un ${percent} del teu pressupost per a compres d\'aquest mes.";
 
-  static m13(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
+  static m15(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Augmenta la teva possible deducció fiscal. Assigna categories a 1 transacció sense assignar.', other: 'Augmenta la teva possible deducció fiscal. Assigna categories a ${count} transaccions sense assignar.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Data de venciment de la factura ${billName} (${amount}): ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Has gastat ${amountUsed} de ${amountTotal} del pressupost ${budgetName}; import restant: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'CAP ARTICLE', one: '1 ARTICLE', other: '${quantity} ARTICLES')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Quantitat: ${quantity}";
+  static m21(quantity) => "Quantitat: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Carretó, cap article', one: 'Carretó, 1 article', other: 'Carretó, ${quantity} articles')}";
 
-  static m21(product) => "Suprimeix ${product}";
+  static m23(product) => "Suprimeix ${product}";
 
-  static m22(value) => "Article ${value}";
+  static m24(value) => "Article ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Repositori Github de mostres Flutter"),
+            "Repositori GitHub de mostres Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Torna a la galeria"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Compte"),
         "bottomNavigationAlarmTab":
@@ -311,6 +317,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Amb fons"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Mostra l\'alerta"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Xat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Inici"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Perfil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les etiquetes d\'acció són un conjunt d\'opcions que activen una acció relacionada amb el contingut principal. Es mostren de manera dinàmica i contextual a les interfícies d\'usuari."),
         "demoActionChipTitle":
@@ -407,6 +417,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Control segmentat d\'estil iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Control segmentat"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Pots utilitzar el control lliscant per fer seleccions en conjunts de valors tant discrets com continus."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Control lliscant d\'estil iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Control lliscant"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Els interruptors s\'utilitzen per commutar una única opció de configuració a activada o desactivada."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Interruptor d\'estil iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Una barra de pestanyes de navegació d\'estil iOS situada a la part inferior. Mostra diverses pestanyes quan n\'hi ha una d\'activada, la primera de manera predeterminada."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Barra de pestanyes d\'estil iOS a la part inferior"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de pestanyes"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerta i pantalla completa"),
         "demoDialogTitle":
@@ -482,6 +510,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Un quadre de diàleg simple ofereix a l\'usuari diverses opcions per triar-ne una. Pot tenir un títol opcional que es mostra a sobre dels resultats."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Senzill"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Has premut l\'acció de la barra de notificacions."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACCIÓ"),
+        "demoSnackbarsButtonLabel": MessageLookupByLibrary.simpleMessage(
+            "MOSTRA UNA BARRA DE NOTIFICACIONS"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Les barres de notificacions informen els usuaris dels processos que han dut o duran a terme les aplicacions i es mostren temporalment a la part inferior de la pantalla. No interrompen l\'experiència d\'usuari ni cal cap acció perquè deixin de mostrar-se."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Les barres de notificacions mostren missatges a la part inferior de la pantalla"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Això és una barra de notificacions."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Barres de notificacions"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Les pestanyes organitzen el contingut en diferents pantalles, conjunts de dades i altres interaccions."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -504,7 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Biografia"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nom*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("El nom és obligatori."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -569,7 +611,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permet que Google pugui ajudar les aplicacions a determinar la ubicació, és a dir, que s\'enviïn dades d\'ubicació anònimes a Google fins i tot quan no s\'estigui executant cap aplicació."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vols fer servir els serveis d\'ubicació de Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Defineix el compte de la còpia de seguretat"),
         "dialogShow":
@@ -579,7 +621,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Estalvis del cotxe"),
         "rallyAccountDataChecking":
@@ -606,15 +648,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertes"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Factures"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Venciment"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Roba"),
         "rallyBudgetCategoryCoffeeShops":
@@ -723,7 +765,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCEL·LA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("BUIDA EL CARRETÓ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("CARRETÓ"),
         "shrineCartShippingCaption":
@@ -786,8 +828,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalons blau marí"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Túnica color guix"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Taula rodona"),
         "shrineProductRainwaterTray":
@@ -825,10 +867,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Camisa a ratlles blanca"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Cinturó Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Afegeix al carretó"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Tanca el carretó"),
         "shrineTooltipCloseMenu":
@@ -842,7 +884,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Configuració"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Un disseny d\'inici responsiu"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Cos"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("BOTÓ"),
         "starterAppGenericHeadline":

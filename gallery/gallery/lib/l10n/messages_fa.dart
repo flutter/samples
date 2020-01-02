@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "در بریده‌دان کپی نشد: ${error}";
 
-  static m7(name, phoneNumber) => "شماره تلفن ${name} ‏${phoneNumber} است";
+  static m7(value) => "پیوسته: ${value}";
 
-  static m8(value) => "«${value}» را انتخاب کردید";
+  static m8(value) => "گسسته: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "شماره تلفن ${name} ‏${phoneNumber} است";
+
+  static m10(value) => "«${value}» را انتخاب کردید";
+
+  static m11(accountName, accountNumber, amount) =>
       "حساب ${accountName} به شماره ${accountNumber} با موجودی ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "این ماه ${amount} بابت کارمزد خودپرداز پرداخت کرده‌اید";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "آفرین! حساب جاری‌تان ${percent} بالاتر از ماه گذشته است.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "هشدار، شما ${percent} از بودجه خرید این ماه را مصرف کرده‌اید.";
 
-  static m13(amount) => "شما این هفته ${amount} برای رستوران پرداخت کرده‌اید.";
+  static m15(amount) => "شما این هفته ${amount} برای رستوران پرداخت کرده‌اید.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'کاهش مالیات احتمالی را افزایش دهید! دسته‌ها را به ۱ تراکنش اختصاص‌داده‌نشده اختصاص دهید.', other: 'کاهش مالیات احتمالی را افزایش دهید! دسته‌ها را به ${count} تراکنش اختصاص‌داده‌نشده اختصاص دهید.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "صورت‌حساب ${billName} با موعد پرداخت ${date} به‌مبلغ ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "بودجه ${budgetName} با مبلغ کلی ${amountTotal} که ${amountUsed} از آن مصرف‌شده و ${amountLeft} باقی‌مانده است";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'موردی وجود ندارد', one: '۱ مورد', other: '${quantity} مورد')}";
 
-  static m18(price) => "×‏${price}";
+  static m20(price) => "×‏${price}";
 
-  static m19(quantity) => "کمیت: ${quantity}";
+  static m21(quantity) => "کمیت: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'سبد خرید، بدون مورد', one: 'سبد خرید، ۱ مورد', other: 'سبد خرید، ${quantity} مورد')}";
 
-  static m21(product) => "برداشتن ${product}";
+  static m23(product) => "برداشتن ${product}";
 
-  static m22(value) => "مورد ${value}";
+  static m24(value) => "مورد ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("مخزن جی‌تاب نمونه‌های فلاتر"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("بازگشت به گالری"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("حساب"),
         "bottomNavigationAlarmTab":
@@ -299,6 +305,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("دارای پس‌زمینه"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("نمایش هشدار"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("گپ"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("صفحه اصلی"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("نمایه"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "تراشه‌های کنش مجموعه‌ای از گزینه‌ها هستند که کنشی مرتبط با محتوای اصلی را راه‌اندازی می‌کنند. تراشه‌های کنش باید به‌صورت پویا و مرتبط با محتوا در رابط کاربری نشان داده شوند."),
         "demoActionChipTitle":
@@ -392,12 +403,30 @@ class MessageLookup extends MessageLookupByLibrary {
                 "کنترل تقسیم‌بندی‌شده سبک iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("کنترل تقسیم‌بندی‌شده"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "از لغزنده می‌توان برای انتخاب مجموعه‌ای از مقادیر پیوسته یا گسسته استفاده کرد."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("لغزنده سبک iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("لغزنده"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "از کلید برای تغییر وضعیت خاموش/روشن یک تنظیم استفاده می‌شود."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("کلید سبک iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "نوار برگه پیمایش پایین سبک iOS این نوار برگه چندین برگه را نمایش می‌دهد که یک برگه از آن (نوار اول به‌طور پیش‌فرض) فعال خواهد بود."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("نوار برگه پایین سبک iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("نوار برگه"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("ساده، هشدار، و تمام‌صفحه"),
         "demoDialogTitle":
             MessageLookupByLibrary.simpleMessage("کادرهای گفتگو"),
         "demoDocumentationTooltip": MessageLookupByLibrary.simpleMessage(
-            "اسناد رابط برنامه‌نویسی نرم‌افزار"),
+            "اسناد میانای برنامه‌سازی کاربردی"),
         "demoFilterChipDescription": MessageLookupByLibrary.simpleMessage(
             "تراشه‌های فیلتر از برچسب‌ها یا واژه‌های توصیفی برای فیلتر کردن محتوا استفاده می‌کنند."),
         "demoFilterChipTitle":
@@ -466,6 +495,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "کادر گفتگو ساده، انتخاب بین گزینه‌های متفاوت را به کاربر ارائه می‌دهد. کادر گفتگو ساده، عنوانی اختیاری دارد که در بالای گزینه‌ها نمایش داده می‌شود."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ساده"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "دکمه کنش روی نوار توضیحات را فشار دادید."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("کنش"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("نمایش نوار توضیحات"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "نوارهای توضیحات فرایندی را که یک برنامه انجام داده است یا انجام خواهد داد، به کاربران اعلام می‌کنند. این نوارها در پایین صفحه موقتاً ظاهر می‌شوند. این نوارها نباید تجربه کاربر را مختل کنند و برای ناپدید شدن نیازی به ورودی کاربر ندارند."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "نوارهای توضیحات پیام‌ها را در پایین صفحه نمایش می‌دهند"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("این نوار توضیحات است."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("نوارهای توضیحات"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "برگه‌ها محتوا در صفحه‌نمایش‌ها، مجموعه‌های داده و تراکنش‌های دیگر سازماندهی می‌کنند."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -487,7 +530,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("داستان زندگی"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("نام*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("نام لازم است."),
         "demoTextFieldNoMoreThan":
@@ -549,7 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "به Google اجازه دهید به برنامه‌ها کمک کند مکان را تعیین کنند. با این کار، داده‌های مکانی به‌صورت ناشناس به Google ارسال می‌شوند، حتی وقتی هیچ برنامه‌ای اجرا نمی‌شود."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "از «خدمات مکان Google» استفاده شود؟"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("تنظیم حساب پشتیبان"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("نمایش کادر گفتگو"),
@@ -557,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سبک‌های مرجع و رسانه"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("دسته‌ها"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("گالری"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("پس‌انداز خودرو"),
         "rallyAccountDataChecking":
@@ -581,15 +624,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("مجموع"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("حساب‌ها"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("هشدارها"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("صورت‌حساب‌ها"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("سررسید"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("پوشاک"),
         "rallyBudgetCategoryCoffeeShops":
@@ -690,7 +733,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لغو"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("پاک‌کردن سبد خرید"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("سبد خرید"),
         "shrineCartShippingCaption":
@@ -751,8 +794,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شلوار سورمه‌ای"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("نیم‌تنه پلاستر"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("میز کوارتت"),
         "shrineProductRainwaterTray":
@@ -791,10 +834,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("پیراهن راه‌راه سفید"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("کمربند ویتنی"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("افزودن به سبد خرید"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("بستن سبد خرید"),
         "shrineTooltipCloseMenu":
@@ -808,7 +851,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تنظیمات"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("طرح‌بندی راه‌انداز سازگار"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("متن اصلی"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("دکمه"),
