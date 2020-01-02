@@ -54,7 +54,7 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
     super.dispose();
   }
 
-  String _title(BuildContext context) {
+  String get _title {
     switch (widget.type) {
       case ProgressIndicatorDemoType.circular:
         return GalleryLocalizations.of(context)
@@ -64,26 +64,6 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
             .demoLinearProgressIndicatorTitle;
     }
     return '';
-  }
-
-  void _handleTap() {
-    setState(() {
-      // valueAnimation.isAnimating is part of our build state
-      if (_controller.isAnimating) {
-        _controller.stop();
-      } else {
-        switch (_controller.status) {
-          case AnimationStatus.dismissed:
-          case AnimationStatus.forward:
-            _controller.forward();
-            break;
-          case AnimationStatus.reverse:
-          case AnimationStatus.completed:
-            _controller.reverse();
-            break;
-        }
-      }
-    });
   }
 
   Widget _buildIndicators(BuildContext context, Widget child) {
@@ -113,19 +93,15 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_title(context)),
+        title: Text(_title),
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: GestureDetector(
-            onTap: _handleTap,
-            behavior: HitTestBehavior.opaque,
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              child: AnimatedBuilder(
-                animation: _animation,
-                builder: _buildIndicators,
-              ),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            child: AnimatedBuilder(
+              animation: _animation,
+              builder: _buildIndicators,
             ),
           ),
         ),
