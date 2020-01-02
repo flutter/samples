@@ -14,6 +14,7 @@ import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
@@ -65,6 +66,22 @@ class GalleryDemoConfiguration {
 
 List<GalleryDemo> materialDemos(BuildContext context) {
   return [
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
+      icon: GalleryIcons.bottomAppBar,
+      subtitle: GalleryLocalizations.of(context).demoBottomAppBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
+          description:
+              GalleryLocalizations.of(context).demoBottomAppBarDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/BottomAppBar-class.html',
+          buildRoute: (_) => BottomAppBarDemo(),
+          code: CodeSegments.bottomAppBarDemo,
+        ),
+      ],
+    ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
