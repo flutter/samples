@@ -241,6 +241,54 @@ class GalleryLocalizations {
             r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
+  String get bottomAppBarNotch {
+    return Intl.message(r'Notch',
+        locale: _localeName,
+        name: 'bottomAppBarNotch',
+        desc:
+            r'A toggle for whether to have a notch (or cutout) in the bottom app bar demo.');
+  }
+
+  String get bottomAppBarPosition {
+    return Intl.message(r'Floating Action Button Position',
+        locale: _localeName,
+        name: 'bottomAppBarPosition',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar demo.');
+  }
+
+  String get bottomAppBarPositionDockedCenter {
+    return Intl.message(r'Docked - Center',
+        locale: _localeName,
+        name: 'bottomAppBarPositionDockedCenter',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it in the center.');
+  }
+
+  String get bottomAppBarPositionDockedEnd {
+    return Intl.message(r'Docked - End',
+        locale: _localeName,
+        name: 'bottomAppBarPositionDockedEnd',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it at the end.');
+  }
+
+  String get bottomAppBarPositionFloatingCenter {
+    return Intl.message(r'Floating - Center',
+        locale: _localeName,
+        name: 'bottomAppBarPositionFloatingCenter',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center.');
+  }
+
+  String get bottomAppBarPositionFloatingEnd {
+    return Intl.message(r'Floating - End',
+        locale: _localeName,
+        name: 'bottomAppBarPositionFloatingEnd',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it at the end.');
+  }
+
   String get bottomNavigationAccountTab {
     return Intl.message(r'Account',
         locale: _localeName,
@@ -1230,6 +1278,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoAlertTitleDialogTitle',
         desc: r'Title for the alert dialog with title component demo.');
+  }
+
+  String get demoBottomAppBarDescription {
+    return Intl.message(
+        r'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
+        locale: _localeName,
+        name: 'demoBottomAppBarDescription',
+        desc: r'Description for the material bottom app bar component demo.');
+  }
+
+  String get demoBottomAppBarSubtitle {
+    return Intl.message(r'Displays navigation and actions at the bottom',
+        locale: _localeName,
+        name: 'demoBottomAppBarSubtitle',
+        desc: r'Subtitle for the material bottom app bar component demo.');
+  }
+
+  String get demoBottomAppBarTitle {
+    return Intl.message(r'Bottom app bar',
+        locale: _localeName,
+        name: 'demoBottomAppBarTitle',
+        desc: r'Title for the material bottom app bar component demo.');
   }
 
   String get demoBottomNavigationDescription {

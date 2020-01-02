@@ -36,49 +36,54 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "クリップボードにコピーできませんでした。${error}";
 
-  static m7(name, phoneNumber) => "${name} さんの電話番号は ${phoneNumber} です";
+  static m7(value) => "連続: ${value}";
 
-  static m8(value) => "「${value}」を選択しました";
+  static m8(value) => "不連続: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} さんの電話番号は ${phoneNumber} です";
+
+  static m10(value) => "「${value}」を選択しました";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName}、口座番号 ${accountNumber}、残高 ${amount}。";
 
-  static m10(amount) => "今月は ATM 手数料に ${amount} 使いました";
+  static m12(amount) => "今月は ATM 手数料に ${amount} 使いました";
 
-  static m11(percent) => "がんばりました！当座預金口座の残高が先月より ${percent} 増えました。";
+  static m13(percent) => "がんばりました！当座預金口座の残高が先月より ${percent} 増えました。";
 
-  static m12(percent) => "今月のショッピング予算の ${percent} を使いました。";
+  static m14(percent) => "今月のショッピング予算の ${percent} を使いました。";
 
-  static m13(amount) => "今週はレストランに ${amount} 使いました。";
+  static m15(amount) => "今週はレストランに ${amount} 使いました。";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: '税額控除を受けられる可能性を高めましょう。1 件の未割り当ての取引にカテゴリを割り当ててください。', other: '税額控除を受けられる可能性を高めましょう。${count} 件の未割り当ての取引にカテゴリを割り当ててください。')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName}、支払い期限 ${date}、金額 ${amount}。";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}、使用済み予算 ${amountUsed}、総予算 ${amountTotal}、予算残高 ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'アイテムなし', one: '1 件のアイテム', other: '${quantity} 件のアイテム')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "数量: ${quantity}";
+  static m21(quantity) => "数量: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'ショッピングカートにアイテムはありません', one: 'ショッピングカートに1件のアイテムがあります', other: 'ショッピングカートに${quantity}件のアイテムがあります')}";
 
-  static m21(product) => "${product}を削除";
+  static m23(product) => "${product}を削除";
 
-  static m22(value) => "項目 ${value}";
+  static m24(value) => "項目 ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
-            MessageLookupByLibrary.simpleMessage("Flutter サンプル Github レポジトリ"),
+            MessageLookupByLibrary.simpleMessage("Flutter サンプル GitHub レポジトリ"),
+        "backToGallery": MessageLookupByLibrary.simpleMessage("ギャラリーに戻る"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("口座"),
         "bottomNavigationAlarmTab":
@@ -273,6 +278,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoButtonWithBackground":
             MessageLookupByLibrary.simpleMessage("背景付き"),
         "cupertinoShowAlert": MessageLookupByLibrary.simpleMessage("アラートを表示"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("チャット"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("ホーム"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("プロフィール"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "アクション チップは、メイン コンテンツに関連するアクションをトリガーするオプションの集合です。アクション チップは UI にコンテキストに基づいて動的に表示されます。"),
         "demoActionChipTitle":
@@ -360,6 +369,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS スタイルのセグメンテッド コントロール"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("セグメンテッド コントロール"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "スライダーでは、連続する値の集合または不連続な値の集合から値を選択できます。"),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS スタイルのスライダー"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("スライダー"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "スイッチでは、1 つの設定のオン / オフ状態を切り替えることができます。"),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS スタイルのスイッチ"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS スタイルのボトム ナビゲーション タブバーには複数のタブが表示され、そのうちの 1 つのタブ（デフォルトでは最初のタブ）がアクティブになります。"),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS スタイルのボトムタブバー"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("タブバー"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("シンプル、アラート、全画面表示"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ダイアログ"),
@@ -428,6 +455,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "シンプル ダイアログでは、ユーザーに複数の選択肢を提示できます。必要に応じて、選択肢の上に表示するタイトルを設定できます。"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("シンプル"),
+        "demoSnackbarsAction":
+            MessageLookupByLibrary.simpleMessage("スナックバーのアクションを押しました。"),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("アクション"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("スナックバーを表示"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "スナックバーを使用して、アプリが実行したまたはこれから実行するプロセスをユーザーに伝えます。スナックバーは画面の下部に一時的に表示されるため、ユーザーの操作性を妨げることがありません。また、削除するためのユーザーの入力操作も必要ありません。"),
+        "demoSnackbarsSubtitle":
+            MessageLookupByLibrary.simpleMessage("スナックバーでは、画面の下部にメッセージが表示されます"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("これがスナックバーです。"),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("スナックバー"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "タブを使うことで、さまざまな画面、データセットや、その他のインタラクションにまたがるコンテンツを整理できます。"),
         "demoTabsSubtitle":
@@ -448,7 +488,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("簡単にご記入ください。これはデモです。"),
         "demoTextFieldLifeStory": MessageLookupByLibrary.simpleMessage("略歴"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("名前*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("名前は必須です。"),
         "demoTextFieldNoMoreThan":
@@ -506,7 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google を利用してアプリが位置情報を特定できるようにします。この場合、アプリが起動していなくても匿名の位置情報が Google に送信されます。"),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("Google の位置情報サービスを使用しますか？"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("バックアップ アカウントの設定"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ダイアログを表示"),
@@ -514,7 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("リファレンス スタイルとメディア"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("カテゴリ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ギャラリー"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("マイカー貯金"),
         "rallyAccountDataChecking":
@@ -538,15 +578,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("合計"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("口座"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("アラート"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("請求"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("期限"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("衣料品"),
         "rallyBudgetCategoryCoffeeShops":
@@ -630,7 +670,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("キャンセル"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("カートをクリア"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("カート"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("送料:"),
@@ -689,8 +729,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ズボン（ネイビー）"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("チュニック（パステル）"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("カルテット テーブル"),
         "shrineProductRainwaterTray":
@@ -729,10 +769,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ホワイト ピンストライプ シャツ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ホイットニー ベルト"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("カートに追加"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("カートを閉じます"),
         "shrineTooltipCloseMenu":
@@ -745,7 +785,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("設定"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("レスポンシブ スターター レイアウト"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("本文"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("ボタン"),
         "starterAppGenericHeadline":

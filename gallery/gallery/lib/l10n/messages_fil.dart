@@ -37,54 +37,60 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Hindi nakopya sa clipboard: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Tuloy-tuloy: ${value}";
+
+  static m8(value) => "Discrete: ${value}";
+
+  static m9(name, phoneNumber) =>
       "Ang numero ng telepono ni/ng ${name} ay ${phoneNumber}";
 
-  static m8(value) => "Pinili mo ang: \"${value}\"";
+  static m10(value) => "Pinili mo ang: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m11(accountName, accountNumber, amount) =>
       "${accountName} account ${accountNumber} na may ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Gumastos ka ng ${amount} sa mga bayarin sa ATM ngayong buwan";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Magaling! Mas mataas nang ${percent} ang iyong checking account kaysa sa nakaraang buwan.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Babala, nagamit mo na ang ${percent} ng iyong Badyet sa pamimili para sa buwang ito.";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "Gumastos ka ng ${amount} sa Mga Restaurant ngayong linggo.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Lakihan ang puwedeng mabawas sa iyong buwis! Magtalaga ng mga kategorya sa 1 transaksyong hindi nakatalaga.', other: 'Lakihan ang puwedeng mabawas sa iyong buwis! Magtalaga ng mga kategorya sa ${count} na transaksyong hindi nakatalaga.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Bill sa ${billName} na nagkakahalagang ${amount} na dapat bayaran bago ang ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Badyet sa ${budgetName} na may nagamit nang ${amountUsed} sa ${amountTotal}, ${amountLeft} ang natitira";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'WALANG ITEM', one: '1 ITEM', other: '${quantity} NA ITEM')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Dami: ${quantity}";
+  static m21(quantity) => "Dami: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Shopping cart, walang item', one: 'Shopping cart, 1 item', other: 'Shopping cart, ${quantity} na item')}";
 
-  static m21(product) => "Alisin ang ${product}";
+  static m23(product) => "Alisin ang ${product}";
 
-  static m22(value) => "Item ${value}";
+  static m24(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Mga flutter sample ng Github repo"),
+            "Mga flutter sample ng GitHub repo"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Bumalik sa Gallery"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Account"),
         "bottomNavigationAlarmTab":
@@ -310,6 +316,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("May Background"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Ipakita ang Alerto"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Home"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profile"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga action chip ay isang hanay ng mga opsyon na nagti-trigger ng pagkilos na nauugnay sa pangunahing content. Dapat dynamic at ayon sa konteksto lumabas ang mga action chip sa UI."),
         "demoActionChipTitle":
@@ -404,6 +414,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-style na naka-segment na control"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Naka-segment na Control"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Puwedeng gumamit ng slider para pumili sa tuloy-tuloy o discrete na hanay ng mga value."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style na slider"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slider"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Ginagamit ang isang switch para i-on/i-off ang isang setting."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style na switch"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Isang iOS-style na tab bar ng pag-navigate sa ibaba. Nagpapakita ng maraming tab habang isang tab lang ang aktibo, ang unang tab bilang default."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-style na tab bar sa ibaba"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Tab Bar"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerto, at fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Mga Dialog"),
@@ -479,6 +507,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Isang simpleng dialog na nag-aalok sa user na pumili sa pagitan ng ilang opsyon. May opsyonal na pamagat ang simpleng dialog na ipinapakita sa itaas ng mga opsyon."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Pinindot mo ang pagkilos ng snackbar."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("PAGKILOS"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("MAGPAKITA NG SNACKBAR"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ipinapaalam ng Mga Snackbar sa mga user ang isang proseso na isinasagawa o isasagawa ng app. Panandaliang lumalabas ang mga ito, papunta sa ibaba ng screen. Hindi dapat makaabala ang mga ito sa karanasan ng user, at hindi kinakailangan ng mga ito na mawala ang input ng user."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nagpapakita ang Mga Snackbar ng mga mensahe sa ibaba ng screen"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Ito ay isang snackbar."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Mga Snackbar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Inaayos ng mga tab ang content na nasa magkakaibang screen, data set, at iba pang pakikipag-ugnayan."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -501,7 +543,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kwento ng buhay"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Pangalan*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Kinakailangan ang pangalan."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -568,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Payagan ang Google na tulungan ang mga app na tukuyin ang lokasyon. Nangangahulugan ito na magpapadala ng anonymous na data ng lokasyon sa Google, kahit na walang gumaganang app."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Gamitin ang serbisyo ng lokasyon ng Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Itakda ang backup na account"),
         "dialogShow":
@@ -578,7 +620,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Mga Kategorya"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Mga Ipon sa Kotse"),
         "rallyAccountDataChecking":
@@ -603,15 +645,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Kabuuan"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Mga Account"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Mga Alerto"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Mga Bill"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Nakatakda"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Damit"),
         "rallyBudgetCategoryCoffeeShops":
@@ -713,7 +755,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("KANSELAHIN"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("I-CLEAR ANG CART"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("CART"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Pagpapadala:"),
@@ -775,8 +817,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy na pantalon"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster na tunic"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet na mesa"),
         "shrineProductRainwaterTray":
@@ -815,10 +857,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Puting pinstripe na t-shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney na sinturon"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Idagdag sa cart"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Isara ang cart"),
         "shrineTooltipCloseMenu":
@@ -832,7 +874,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mga Setting"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Isang responsive na panimulang layout"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Nilalaman"),
         "starterAppGenericButton":

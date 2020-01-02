@@ -441,6 +441,42 @@
   "@settingsAttribution": {
     "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
   },
+  "demoBottomAppBarTitle": "Bottom app bar",
+  "@demoBottomAppBarTitle": {
+    "description": "Title for the material bottom app bar component demo."
+  },
+  "demoBottomAppBarSubtitle": "Displays navigation and actions at the bottom",
+  "@demoBottomAppBarSubtitle": {
+    "description": "Subtitle for the material bottom app bar component demo."
+  },
+  "demoBottomAppBarDescription": "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.",
+  "@demoBottomAppBarDescription": {
+    "description": "Description for the material bottom app bar component demo."
+  },
+  "bottomAppBarNotch": "Notch",
+  "@bottomAppBarNotch": {
+    "description": "A toggle for whether to have a notch (or cutout) in the bottom app bar demo."
+  },
+  "bottomAppBarPosition": "Floating Action Button Position",
+  "@bottomAppBarPosition": {
+    "description": "A setting for the position of the floating action button in the bottom app bar demo."
+  },
+  "bottomAppBarPositionDockedEnd": "Docked - End",
+  "@bottomAppBarPositionDockedEnd": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it at the end."
+  },
+  "bottomAppBarPositionDockedCenter": "Docked - Center",
+  "@bottomAppBarPositionDockedCenter": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it in the center."
+  },
+  "bottomAppBarPositionFloatingEnd": "Floating - End",
+  "@bottomAppBarPositionFloatingEnd": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it at the end."
+  },
+  "bottomAppBarPositionFloatingCenter": "Floating - Center",
+  "@bottomAppBarPositionFloatingCenter": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center."
+  },
   "demoBottomNavigationTitle": "Bottom navigation",
   "@demoBottomNavigationTitle": {
     "description": "Title for the material bottom navigation component demo."

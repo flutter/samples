@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "تعذّر نسخ النص إلى الحافظة: ${error}";
 
-  static m7(name, phoneNumber) => "رقم هاتف ${name} هو ${phoneNumber}.";
+  static m7(value) => "متصل القيم: ${value}";
 
-  static m8(value) => "لقد اخترت القيمة التالية: \"${value}\"";
+  static m8(value) => "منفصل القيم: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "رقم هاتف ${name} هو ${phoneNumber}.";
+
+  static m10(value) => "لقد اخترت القيمة التالية: \"${value}\"";
+
+  static m11(accountName, accountNumber, amount) =>
       "الحساب ${accountName} رقم ${accountNumber} بمبلغ ${amount}.";
 
-  static m10(amount) => "أنفقت ${amount} كرسوم لأجهزة الصراف الآلي هذا الشهر";
+  static m12(amount) => "أنفقت ${amount} كرسوم لأجهزة الصراف الآلي هذا الشهر";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "عمل رائع! الرصيد الحالي في حسابك الجاري أعلى بنسبة ${percent} من الشهر الماضي.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "تنبيه: لقد استهلكت ${percent} من ميزانية التسوّق لهذا الشهر.";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "أنفقت هذا الشهر مبلغ ${amount} على تناول الطعام في المطاعم.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, zero: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على ${count} معاملة لم يتم ضبطها.', one: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على معاملة واحدة لم يتم ضبطها.', two: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على معاملتين (${count}) لم يتم ضبطهما.', few: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على ${count} معاملات لم يتم ضبطها.', many: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على ${count} معاملة لم يتم ضبطها.', other: 'يمكنك زيادة خصم الضرائب المحتملة. ضبط الفئات على ${count} معاملة لم يتم ضبطها.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "تاريخ استحقاق الفاتورة ${billName} التي تبلغ ${amount} هو ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "ميزانية ${budgetName} مع استخدام ${amountUsed} من إجمالي ${amountTotal}، المبلغ المتبقي ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ما مِن عناصر.', one: 'عنصر واحد', two: 'عنصران (${quantity})', few: '${quantity} عناصر', many: '${quantity} عنصرًا', other: '${quantity} عنصر')}";
 
-  static m18(price) => "x ‏${price}";
+  static m20(price) => "x ‏${price}";
 
-  static m19(quantity) => "الكمية: ${quantity}";
+  static m21(quantity) => "الكمية: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'سلة التسوق، ما مِن عناصر', one: 'سلة التسوق، عنصر واحد', two: 'سلة التسوق، عنصران (${quantity})', few: 'سلة التسوق، ${quantity} عناصر', many: 'سلة التسوق، ${quantity} عنصرًا', other: 'سلة التسوق، ${quantity} عنصر')}";
 
-  static m21(product) => "إزالة ${product}";
+  static m23(product) => "إزالة ${product}";
 
-  static m22(value) => "السلعة ${value}";
+  static m24(value) => "السلعة ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "عينات Flutter في مستودع Github"),
+            "عينات Flutter في مستودع GitHub"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("الرجوع إلى \"معرض الصور\""),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("الحساب"),
         "bottomNavigationAlarmTab":
@@ -304,6 +310,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("زر مزوّد بخلفية"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("عرض التنبيه"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("الدردشة"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("علامة التبويب الرئيسية"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "شرائح الإجراءات هي مجموعة من الخيارات التي تشغّل إجراءً ذا صلة بالمحتوى الأساسي. ينبغي أن يكون ظهور شرائح الإجراءات في واجهة المستخدم ديناميكيًا ومناسبًا للسياق."),
         "demoActionChipTitle":
@@ -397,6 +409,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عنصر تحكّم شريحة بنمط iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("عنصر تحكّم شريحة"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "يمكن استخدام شريط تمرير للاختيار من مجموعة قيم متصلة أو مجموعة قيم منفصلة."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("شريط تمرير بنمط iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("شريط التمرير"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "يُستخدَم مفتاح التبديل لتفعيل إعداد فردي أو إيقافه."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("مفتاح تبديل بنمط iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "شريط علامات تبويب للتنقل السفلي بنمط iOS. يعرض عدة علامات تبويب، حيث تكون هناك علامة تبويب واحدة نشطة وبشكل افتراضي تكون هي علامة التبويب الأولى."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "شريط علامات التبويب السفلي بنمط iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("شريط علامات التبويب"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "مربعات حوار بسيطة ومخصّصة للتنبيهات وبملء الشاشة"),
         "demoDialogTitle":
@@ -471,6 +501,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "يتيح مربع الحوار البسيط للمستخدم إمكانية الاختيار من بين عدة خيارات. ويشتمل مربع الحوار البسيط على عنوان اختياري يتم عرضه أعلى هذه الخيارات."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("بسيط"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "لقد ضغطت على إجراء في \"شريط الإعلام المنبثق\"."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("إجراء"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("عرض شريط إعلام منبثق"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "تُعلِم \"أشرطة الإعلام منبثقة\" المستخدمين بعملية نفّذها التطبيق أو بعملية سينفّذها التطبيق. تظهر مؤقتًا باتجاه أسفل الشاشة ويُفترَض ألا تشوش على تجربة المستخدم وألا تتطلب تدخل المستخدم لإخفائها."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "تعرض \"أشرطة الإعلام المنبثقة\" رسائل في أسفل الشاشة"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("هذا \"شريط إعلام منبثق\"."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("أشرطة إعلام منبثقة"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "تساعد علامات التبويب على تنظيم المحتوى في الشاشات المختلفة ومجموعات البيانات والتفاعلات الأخرى."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -494,7 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قصة حياة"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("الاسم*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("الاسم مطلوب."),
         "demoTextFieldNoMoreThan":
@@ -556,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يمكنك السماح لشركة Google بمساعدة التطبيقات في تحديد الموقع الجغرافي. ويعني هذا أنه سيتم إرسال بيانات مجهولة المصدر عن الموقع الجغرافي إلى Google، حتى عند عدم تشغيل أي تطبيقات."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "هل تريد استخدام خدمة الموقع الجغرافي من Google؟"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "تحديد حساب النسخة الاحتياطية"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("عرض مربع الحوار"),
@@ -564,7 +608,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الأنماط والوسائط المرجعية"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("معرض الصور"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("المدّخرات المخصّصة للسيارة"),
         "rallyAccountDataChecking":
@@ -591,16 +635,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("الإجمالي"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("الحسابات"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("التنبيهات"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("الفواتير"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("الفواتير المستحقة"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("الملابس"),
         "rallyBudgetCategoryCoffeeShops":
@@ -703,7 +747,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إلغاء"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("محو سلة التسوق"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("سلة التسوّق"),
         "shrineCartShippingCaption":
@@ -768,8 +812,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سروال بلون أزرق داكن"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("بلوزة من نوع \"بلاستر\""),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("طاولة رباعية الأرجل"),
         "shrineProductRainwaterTray":
@@ -808,10 +852,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قميص ذو خطوط بيضاء"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("حزام \"ويتني\""),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("إضافة إلى سلة التسوق"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("إغلاق سلة التسوق"),
         "shrineTooltipCloseMenu":
@@ -825,7 +869,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "تطبيق نموذجي يتضمّن تنسيقًا تفاعليًا"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("النص"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("زر"),
         "starterAppGenericHeadline":

@@ -406,6 +406,42 @@
     description="Title for attribution (TOASTER is a proper name and should remain in English)."
     >Designed by TOASTER in London</string>
   <string
+    name="demoBottomAppBarTitle"
+    description="Title for the material bottom app bar component demo."
+    >Bottom app bar</string>
+  <string
+    name="demoBottomAppBarSubtitle"
+    description="Subtitle for the material bottom app bar component demo."
+    >Displays navigation and actions at the bottom</string>
+  <string
+    name="demoBottomAppBarDescription"
+    description="Description for the material bottom app bar component demo."
+    >Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.</string>
+  <string
+    name="bottomAppBarNotch"
+    description="A toggle for whether to have a notch (or cutout) in the bottom app bar demo."
+    >Notch</string>
+  <string
+    name="bottomAppBarPosition"
+    description="A setting for the position of the floating action button in the bottom app bar demo."
+    >Floating Action Button Position</string>
+  <string
+    name="bottomAppBarPositionDockedEnd"
+    description="A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it at the end."
+    >Docked - End</string>
+  <string
+    name="bottomAppBarPositionDockedCenter"
+    description="A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it in the center."
+    >Docked - Center</string>
+  <string
+    name="bottomAppBarPositionFloatingEnd"
+    description="A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it at the end."
+    >Floating - End</string>
+  <string
+    name="bottomAppBarPositionFloatingCenter"
+    description="A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center."
+    >Floating - Center</string>
+  <string
     name="demoBottomNavigationTitle"
     description="Title for the material bottom navigation component demo."
     >Bottom navigation</string>
