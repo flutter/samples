@@ -37,54 +37,60 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Det gick inte att kopiera till urklipp: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Kontinuerlig: ${value}";
+
+  static m8(value) => "Diskret: ${value}";
+
+  static m9(name, phoneNumber) =>
       "Telefonnumret till ${name} är ${phoneNumber}";
 
-  static m8(value) => "Du har valt ${value}";
+  static m10(value) => "Du har valt ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m11(accountName, accountNumber, amount) =>
       "${accountName}-kontot ${accountNumber} med ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Du har lagt ${amount} på avgifter för uttag den här månaden";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Bra jobbat! Du har ${percent} mer på kontot den här månaden.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Du har använt ${percent} av din budget för inköp den här månaden.";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "Du har lagt ${amount} på restaurangbesök den här veckan.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Öka ditt potentiella skatteavdrag! Tilldela kategorier till 1 ej tilldelad transaktion.', other: 'Öka ditt potentiella skatteavdrag! Tilldela kategorier till ${count} ej tilldelade transaktioner.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName}-fakturan på ${amount} förfaller den ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}-budget med ${amountUsed} använt av ${amountTotal}, ${amountLeft} kvar";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'INGA OBJEKT', one: '1 OBJEKT', other: '${quantity} OBJEKT')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Kvantitet: ${quantity}";
+  static m21(quantity) => "Kvantitet: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Kundvagnen. Den är tom', one: 'Kundvagnen. Den innehåller 1 vara', other: 'Kundvagnen. Den innehåller ${quantity} varor')}";
 
-  static m21(product) => "Ta bort ${product}";
+  static m23(product) => "Ta bort ${product}";
 
-  static m22(value) => "Artikel ${value}";
+  static m24(value) => "Artikel ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Github-lagringsplats för Flutter-exempel"),
+            "GitHub-lagringsplats för Flutter-exempel"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Tillbaka till galleriet"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Konto"),
         "bottomNavigationAlarmTab":
@@ -293,6 +299,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Med bakgrund"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Visa avisering"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chatt"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Startsida"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Med åtgärdsbrickor får du en uppsättning alternativ som utlöser en åtgärd för huvudinnehållet. Åtgärdsbrickor ska visas dynamiskt och i rätt sammanhang i användargränssnittet."),
         "demoActionChipTitle":
@@ -385,6 +396,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Segmentstyrning i iOS-stil"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmentstyrning"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett skjutreglage kan användas till att välja från en uppsättning kontinuerliga eller diskreta värden."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage i iOS-stil"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett reglage används till att aktivera eller inaktivera en enskild inställning."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Reglage i iOS-stil"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett flikfält för navigering i iOS-stil längst ned på skärmen. Flera flikar visa samtidigt, men bara en är aktiverad (den första fliken som standard)."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Nedre flikfält i iOS-stil"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Flikfält"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Enkel, avisering och helskärm"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogruta"),
@@ -459,6 +488,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Med en enkel dialogruta får användaren välja mellan flera alternativ. En enkel dialogruta har en valfri titel som visas ovanför alternativen."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Enkel"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Du tryckte på åtgärden för meddelandefält."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ÅTGÄRD"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("VISA ETT MEDDELANDEFÄLT"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Meddelandefälten visar användarna vilken process som utförs eller ska utföras i en app. De visas tillfälligt, långt ned på skärmen. Meddelandefält ska inte störa användarupplevelsen, och användarna behöver inte göra något för att de ska försvinna."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Meddelandefält innehåller meddelanden och visas längst ned på skärmen"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Det här är ett meddelandefält."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Meddelandefält"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Flikar organiserar innehåll på olika skärmar och med olika dataset och andra interaktioner."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -480,7 +523,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Livsberättelse"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Namn*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Du måste ange namn."),
         "demoTextFieldNoMoreThan":
@@ -545,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google hjälper appar att avgöra enhetens plats. Detta innebär att anonym platsinformation skickas till Google, även när inga appar körs."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vill du använda Googles platstjänst?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Ange konto för säkerhetskopiering"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("VISA DIALOGRUTA"),
@@ -554,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorier"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleri"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Sparkonto för bil"),
         "rallyAccountDataChecking":
@@ -578,15 +621,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Totalt"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Konton"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Aviseringar"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Fakturor"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Förfaller"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Kläder"),
         "rallyBudgetCategoryCoffeeShops":
@@ -690,7 +733,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("AVBRYT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("RENSA KUNDVAGNEN"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("KUNDVAGN"),
         "shrineCartShippingCaption":
@@ -753,8 +796,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Marinblå byxor"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Gipsvit tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Bord – Quartet"),
         "shrineProductRainwaterTray":
@@ -793,10 +836,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kritstrecksrandig skjorta"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Bälte – Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Lägg i kundvagnen"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Stäng kundvagnen"),
         "shrineTooltipCloseMenu":
@@ -810,7 +853,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Inställningar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("En responsiv startlayout"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Brödtext"),
         "starterAppGenericButton":

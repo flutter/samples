@@ -36,51 +36,56 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "ສຳເນົາໄປໃສ່ຄລິບບອດບໍ່ສຳເລັດ: ${error}";
 
-  static m7(name, phoneNumber) => "ເບີໂທລະສັບຂອງ ${name} ແມ່ນ ${phoneNumber}";
+  static m7(value) => "ຕໍ່ເນື່ອງ: ${value}";
 
-  static m8(value) => "ທ່ານເລືອກ: \"${value}\" ແລ້ວ";
+  static m8(value) => "ບໍ່ຕໍ່ເນື່ອງ: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "ເບີໂທລະສັບຂອງ ${name} ແມ່ນ ${phoneNumber}";
+
+  static m10(value) => "ທ່ານເລືອກ: \"${value}\" ແລ້ວ";
+
+  static m11(accountName, accountNumber, amount) =>
       "ບັນຊີ ${accountName} ໝາຍເລກ ${accountNumber} ຈຳນວນ ${amount}.";
 
-  static m10(amount) => "ທ່ານຈ່າຍຄ່າທຳນຽມ ATM ໃນເດືອນນີ້ໄປ ${amount}";
+  static m12(amount) => "ທ່ານຈ່າຍຄ່າທຳນຽມ ATM ໃນເດືອນນີ້ໄປ ${amount}";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "ດີຫຼາຍ! ບັນຊີເງິນຝາກຂອງທ່ານມີເງິນຫຼາຍກວ່າເດືອນແລ້ວ ${percent}.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "ກະລຸນາຮັບຊາບ, ຕອນນີ້ທ່ານໃຊ້ງົບປະມານຊື້ເຄື່ອງເດືອນນີ້ໄປແລ້ວ ${percent}.";
 
-  static m13(amount) => "ທ່ານໃຊ້ເງິນຢູ່ຮ້ານອາຫານໃນອາທິດນີ້ໄປແລ້ວ ${amount}.";
+  static m15(amount) => "ທ່ານໃຊ້ເງິນຢູ່ຮ້ານອາຫານໃນອາທິດນີ້ໄປແລ້ວ ${amount}.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'ເພີ່ມການຫຼຸດພາສີທີ່ເປັນໄປໄດ້ຂອງທ່ານ! ມອບໝາຍໝວດໝູ່ໃຫ້ 1 ທຸລະກຳທີ່ຍັງບໍ່ໄດ້ຮັບມອບໝາຍເທື່ອ.', other: 'ເພີ່ມການຫຼຸດພາສີທີ່ເປັນໄປໄດ້ຂອງທ່ານ! ມອບໝາຍໝວດໝູ່ໃຫ້ ${count} ທຸລະກຳທີ່ຍັງບໍ່ໄດ້ຮັບມອບໝາຍເທື່ອ.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "ບິນ ${billName} ຮອດກຳນົດ ${date} ຈຳນວນ ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "ງົບປະມານ ${budgetName} ໃຊ້ໄປແລ້ວ ${amountUsed} ຈາກຈຳນວນ ${amountTotal}, ເຫຼືອ ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ບໍ່ມີລາຍການ', one: '1 ລາຍການ', other: '${quantity} ລາຍການ')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "ຈຳນວນ: ${quantity}";
+  static m21(quantity) => "ຈຳນວນ: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'ກະຕ່າຊື້ເຄື່ອງ, ບໍ່ມີລາຍການ', one: 'ກະຕ່າຊື້ເຄື່ອງ, 1 ລາຍການ', other: 'ກະຕ່າຊື້ເຄື່ອງ, ${quantity} ລາຍການ')}";
 
-  static m21(product) => "ລຶບ ${product} ອອກ";
+  static m23(product) => "ລຶບ ${product} ອອກ";
 
-  static m22(value) => "ລາຍການ ${value}";
+  static m24(value) => "ລາຍການ ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
             "ບ່ອນເກັບ GitHub ສຳລັບຕົວຢ່າງ Flutter"),
+        "backToGallery": MessageLookupByLibrary.simpleMessage("ກັບໄປຄັງຮູບ"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ບັນຊີ"),
         "bottomNavigationAlarmTab":
@@ -289,6 +294,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ມີພື້ນຫຼັງ"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("ສະແດງການແຈ້ງເຕືອນ"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("ສົນທະນາ"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("ໜ້າຫຼັກ"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("ໂປຣໄຟລ໌"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ຊິບຄຳສັ່ງເປັນຊຸດຕົວເລືອກທີ່ຈະເອີ້ນຄຳສັ່ງວຽກທີ່ກ່ຽວກັບເນື້ອຫາຫຼັກ. ຊິບຄຳສັ່ງຄວນຈະສະແດງແບບໄດນາມິກ ແລະ ຕາມບໍລິບົດໃນສ່ວນຕິດຕໍ່ຜູ້ໃຊ້."),
         "demoActionChipTitle":
@@ -383,6 +394,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ການຄວບຄຸມແຍກສ່ວນແບບ iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("ການຄວບຄຸມແບບແຍກສ່ວນ"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "ແຖບເລື່ອນສາມາດໃຊ້ເພື່ອເລືອກຈາກຊຸດຄ່າຕໍ່ເນື່ອງ ຫຼື ບໍ່ຕໍ່ເນື່ອງໄດ້"),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("ແຖບເລື່ອນແບບ iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("ແຖບເລື່ອນ"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "ປຸ່ມກົດແມ່ນໃຊ້ເພື່ອສະຫຼັບສະຖານະ ເປີດ/ປິດ ຂອງການຕັ້ງຄ່າດ່ຽວໃດໜຶ່ງ."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("ປຸ່ມກົດແບບ iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "ແຖບການນຳທາງລຸ່ມສຸດແບບ iOS. ສະແດງຫຼາຍແຖບທີ່ມີແຖບນຳໃຊ້ຢູ່ແຖບດຽວ, ແຖບທຳອິດເປັນຄ່າເລີ່ມຕົ້ນ."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("ແຖບລຸ່ມສຸດແບບ iOS"),
+        "demoCupertinoTabBarTitle": MessageLookupByLibrary.simpleMessage("ແຖບ"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ງ່າຍໆ, ການແຈ້ງເຕືອນ ແລະ ເຕັມຈໍ"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ກ່ອງໂຕ້ຕອບ"),
@@ -454,6 +482,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ກ່ອງໂຕ້ຕອບງ່າຍໆທີ່ສະເໜີຕົວເລືອກໃຫ້ຜູ້ໃຊ້ລະຫວ່າງຫຼາຍໆຕົວເລືອກ. ກ່ອງໂຕ້ຕອບແບບງ່າຍໆຈະມີຊື່ແບບບໍ່ບັງຄັບທີ່ສະແດງທາງເທິງຕົວເລືອກ."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ງ່າຍໆ"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "ທ່ານກົດຄຳສັ່ງແຖບສະແດງຂໍ້ຄວາມແລ້ວ."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ຄຳສັ່ງ"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ສະແດງແຖບສະແດງຂໍ້ຄວາມ"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "ແຖບສະແດງຂໍ້ຄວາມຈະແຈ້ງເຕືອນຜູ້ໃຊ້ກ່ຽວກັບຂັ້ນຕອນທີ່ແອັບໃດໜຶ່ງດຳເນີນໄປແລ້ວ ຫຼື ຈະດຳເນີນການ. ພວກມັນຈະປາກົດຊົ່ວຄາວ, ຢູ່ລຸ່ມສຸດຂອງໜ້າຈໍ. ພວກມັນຈະບໍ່ລົບກວນປະສົບການຂອງຜູ້ໃຊ້ ແລະ ຜູ້ໃຊ້ບໍ່ຈຳເປັນຕ້ອງກົດເພື່ອໃຫ້ຫາຍໄປ."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ແຖບສະແດງຂໍ້ຄວາມຈະສະແດງຂໍ້ຄວາມຢູ່ລຸ່ມສຸດຂອງໜ້າຈໍ"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("ນີ້ແມ່ນແຖບສະແດງຂໍ້ຄວາມ."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("ແຖບສະແດງຂໍ້ຄວາມ"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ແຖບຕ່າງໆຈະເປັນການຈັດລະບຽບເນື້ອຫາໃນແຕ່ລະໜ້າຈໍ, ຊຸດຂໍ້ມູນ ແລະ ການໂຕ້ຕອບອື່ນໆ."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -475,7 +517,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("ເລື່ອງລາວຊີວິດ"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("ຊື່*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("ຕ້ອງລະບຸຊື່."),
         "demoTextFieldNoMoreThan":
@@ -538,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "ໃຫ້ Google ຊ່ວຍລະບຸສະຖານທີ່. ນີ້ໝາຍເຖິງການສົ່ງຂໍ້ມູນສະຖານທີ່ທີ່ບໍ່ລະບຸຕົວຕົນໄປໃຫ້ Google, ເຖິງແມ່ນວ່າຈະບໍ່ມີແອັບເປີດໃຊ້ຢູ່ກໍຕາມ."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "ໃຊ້ບໍລິການສະຖານທີ່ຂອງ Google ບໍ?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("ຕັ້ງບັນຊີສຳຮອງ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ສະແດງກ່ອງໂຕ້ຕອບ"),
@@ -546,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ຮູບແບບການອ້າງອີງ ແລະ ສື່"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ໝວດໝູ່"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ຄັງຮູບພາບ"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("ເງິນທ້ອນສຳລັບຊື້ລົດ"),
         "rallyAccountDataChecking":
@@ -572,15 +614,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("ຮວມ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ບັນຊີ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ການແຈ້ງເຕືອນ"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("ໃບບິນ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ຮອດກຳນົດ"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ເສື້ອ​ຜ້າ"),
         "rallyBudgetCategoryCoffeeShops":
@@ -679,7 +721,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ຍົກເລີກ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ລ້າງລົດເຂັນ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("ກະຕ່າ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ການສົ່ງ:"),
@@ -740,8 +782,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ໂສ້ງຂາຍາວສີຟ້າແກ່"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("ເສື້ອຄຸມສີພລາສເຕີ"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("ໂຕະສຳລັບ 4 ຄົນ"),
         "shrineProductRainwaterTray":
@@ -780,10 +822,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ເສື້ອເຊີດສີຂາວລາຍທາງລວງຕັ້ງ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ສາຍແອວ Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("ເພີ່ມໃສ່​ກະຕ່າ"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("ປິດກະຕ່າ"),
         "shrineTooltipCloseMenu":
@@ -797,7 +839,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ການຕັ້ງຄ່າ"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ໂຄງຮ່າງເລີ່ມຕົ້ນທີ່ມີການຕອບສະໜອງ"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("ສ່ວນເນື້ອຫາ"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("ປຸ່ມ"),

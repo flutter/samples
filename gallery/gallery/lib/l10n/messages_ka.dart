@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "გაცვლის ბუფერში კოპირება ვერ მოხერხდა: ${error}";
 
-  static m7(name, phoneNumber) => "${name} ტელეფონის ნომერია ${phoneNumber}";
+  static m7(value) => "უწყვეტი: ${value}";
 
-  static m8(value) => "თქვენ აირჩიეთ: „${value}“";
+  static m8(value) => "დისკრეტული: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} ტელეფონის ნომერია ${phoneNumber}";
+
+  static m10(value) => "თქვენ აირჩიეთ: „${value}“";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName} ანგარიში ${accountNumber}, თანხა ${amount}.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "ამ თვეში ბანკომატების გადასახადებში დახარჯული გაქვთ ${amount}";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "კარგია! თქვენს მიმდინარე ანგარიშზე ნაშთი გასულ თვესთან შედარებით ${percent}-ით მეტია.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "გატყობინებთ, რომ ამ თვეში უკვე დახარჯული გაქვთ საყიდლებისთვის განკუთვნილი ბიუჯეტის ${percent}.";
 
-  static m13(amount) => "რესტორნებში ამ კვირაში დახარჯული გაქვთ ${amount}.";
+  static m15(amount) => "რესტორნებში ამ კვირაში დახარჯული გაქვთ ${amount}.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'გაზარდეთ თქვენი პოტენციური საგადასახადო გამოქვითვა! მიანიჭეთ კატეგორია 1 მიუმაგრებელ ტრანსაქციას.', other: 'გაზარდეთ თქვენი პოტენციური საგადასახადო გამოქვითვა! მიანიჭეთ კატეგორია ${count} მიუმაგრებელ ტრანსაქციას.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName} ანგარიშის გასწორების ვადაა ${date}, თანხა: ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} ბიუჯეტი, დახარჯული თანხა: ${amountUsed} / ${amountTotal}-დან, დარჩენილი თანხა: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ერთეულები არ არის', one: '1 ერთეული', other: '${quantity} ერთეული')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "რაოდენობა: ${quantity}";
+  static m21(quantity) => "რაოდენობა: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'საყიდლების კალათა, ერთეულები არ არის', one: 'საყიდლების კალათა, 1 ერთეული', other: 'საყიდლების კალათა, ${quantity} ერთეული')}";
 
-  static m21(product) => "ამოიშალოს ${product}";
+  static m23(product) => "ამოიშალოს ${product}";
 
-  static m22(value) => "ერთეული ${value}";
+  static m24(value) => "ერთეული ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-ის ნიმუშების საცავი Github-ზე"),
+            "Flutter-ის ნიმუშების საცავი GitHub-ზე"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("გალერეაში დაბრუნება"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ანგარიში"),
         "bottomNavigationAlarmTab":
@@ -313,6 +319,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("თეთრი ფონი"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("გაფრთხილების ჩვენება"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("ჩეთი"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("მთავარი"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("პროფილი"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "მოქმედების ჩიპები ოფციების ნაკრებია, რომელიც უშვებს ქმედებასთან დაკავშირებულ პირველად შემცველობას. მოქმედების ჩიპები დინამიურად და კონტექსტუალურად უნდა გამოჩნდეს UI-ს სახით."),
         "demoActionChipTitle":
@@ -410,6 +421,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-სტილის სეგმენტირებული მართვა"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("სეგმენტირებული მართვა"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "სლაიდერის გამოყენება შესაძლებელია მნიშვნელობათა უწყვეტი ან დისკრეტული სიმრავლიდან ასარჩევად."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-სტილის სლაიდერი"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("სლაიდერი"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "გადამრთველი გამოიყენება ცალკეული პარამეტრის ჩართვა/გამორთვისთვის."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-სტილის გადამრთველი"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-სტილის ქვედა ნავიგაციის ჩანართების ზოლი. ეკრანზე აჩვენებს რამდენიმე ჩანართს, რომელთაგან აქტიურია ერთი, ნაგულისხმევად, პირველი."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-სტილის ქვედა ჩანართების ზოლი"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("ჩანართების ზოლი"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "მარტივი, გამაფრთხილებელი და სრულეკრანიანი"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("დიალოგები"),
@@ -486,6 +515,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "მარტივი დიალოგი მომხმარებელს რამდენიმე ვარიანტს შორის არჩევანის გაკეთების საშუალებას აძლევს. სურვილისამებრ, მარტივ დიალოგს შეიძლება ჰქონდეს სათაური, რომელიც გამოჩნდება არჩევანის ზემოთ."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("მარტივი"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "თქვენ დააჭირეთ სნეკ-ზოლის მოქმედებას."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("მოქმედება"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("სნეკ-ზოლის ჩვენება"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "სნეკ-ზოლები მომხმარებლებს აწვდის ინფორმაციას იმ პროცესის შესახებ, რომელიც აპმა შეასრულა ან რომელსაც შეასრულებს. ისინი ჩნდება დროებით, ეკრანის ქვედა ნაწილში. ისინი არ უნდა უშლიდნენ ხელს მომხმარებელს და გასაქრობად მომხმარებლისგან რამის გაკეთება არ სჭირდებათ."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "სნეკ-ზოლები აჩვენებს შეტყობინებებს ეკრანის ქვედა ნაწილში"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("ეს არის სნეკ-ზოლი."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("სნეკ-ზოლები"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ჩანართების მეშვეობით ხდება კონტენტის ორგანიზება სხვადასხვა ეკრანის, მონაცემთა ნაკრების და სხვა ინტერაქციების ფარგლებში."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -508,7 +551,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ცხოვრებისეული ამბავი"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("სახელი*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("საჭიროა სახელი."),
         "demoTextFieldNoMoreThan":
@@ -573,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google-ისთვის ნების დართვა, რომ აპებს მდებარეობის ამოცნობაში დაეხმაროს. ეს ნიშნავს, რომ Google-ში გადაიგზავნება მდებარეობის ანონიმური მონაცემები მაშინაც კი, როდესაც აპები გაშვებული არ არის."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "გსურთ Google-ის მდებარეობის სერვისის გამოყენება?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "სარეზერვო ანგარიშის დაყენება"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("დიალოგის ჩვენება"),
@@ -582,7 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("კატეგორიები"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("გალერეა"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("დანაზოგები მანქანისთვის"),
         "rallyAccountDataChecking":
@@ -608,15 +651,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("სულ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ანგარიშები"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("გაფრთხილებები"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("გადასახადები"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("გადასახდელია"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ტანსაცმელი"),
         "rallyBudgetCategoryCoffeeShops":
@@ -718,7 +761,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("გაუქმება"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("კალათის გასუფთავება"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("კალათა"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("მიწოდება:"),
@@ -781,8 +824,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("მუქი ლურჯი შარვალი"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("თაბაშირისფერი ტუნიკა"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet-ის მაგიდა"),
         "shrineProductRainwaterTray":
@@ -821,10 +864,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("თეთრი ზოლებიანი მაისური"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-ს ქამარი"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("კალათაში დამატება"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("კალათის დახურვა"),
         "shrineTooltipCloseMenu":
@@ -838,7 +881,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("პარამეტრები"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ადაპტირებადი საწყისი განლაგება"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("ძირითადი ტექსტი"),
         "starterAppGenericButton":

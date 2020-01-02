@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "କ୍ଲିପ୍‌ବୋର୍ଡକୁ କପି କରିବାରେ ବିଫଳ ହେଲା: ${error}";
 
-  static m7(name, phoneNumber) => "${name}ଙ୍କ ଫୋନ୍ ନମ୍ବର ${phoneNumber} ଅଟେ";
+  static m7(value) => "ଅବିରତ: ${value}";
 
-  static m8(value) => "ଆପଣ ଏହା ଚୟନ କରିଛନ୍ତି: \"${value}\"";
+  static m8(value) => "ଭିନ୍ନ: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name}ଙ୍କ ଫୋନ୍ ନମ୍ବର ${phoneNumber} ଅଟେ";
+
+  static m10(value) => "ଆପଣ ଏହା ଚୟନ କରିଛନ୍ତି: \"${value}\"";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountName}ଙ୍କ ଆକାଉଣ୍ଟ ନମ୍ବର ${accountNumber}ରେ ${amount} ଜମା କରାଯାଇଛି।";
 
-  static m10(amount) => "ଆପଣ ଏହି ମାସରେ ATM ଶୁଳ୍କରେ ${amount} ଖର୍ଚ୍ଚ କରିଛନ୍ତି";
+  static m12(amount) => "ଆପଣ ଏହି ମାସରେ ATM ଶୁଳ୍କରେ ${amount} ଖର୍ଚ୍ଚ କରିଛନ୍ତି";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "ବଢ଼ିଆ କାମ! ଗତ ମାସଠାରୁ ଆପଣଙ୍କ ଆକାଉଣ୍ଟର ଚେକିଂ ${percent} ବଢ଼ିଛି।";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "ଆପଣ ଏହି ମାସ ପାଇଁ ${percent} ସପିଂ ବଜେଟ୍ ବ୍ୟବହାର କରିଛନ୍ତି।";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "ଆପଣ ଏହି ମାସରେ ରେଷ୍ଟୁରାଣ୍ଟଗୁଡ଼ିକରେ ${amount} ଖର୍ଚ୍ଚ କରିଛନ୍ତି।";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'ଆପଣଙ୍କର କରରେ ସମ୍ଭାବ୍ୟ ଛାଡ଼କୁ ବଢ଼ାନ୍ତୁ! 1ଟି ଆସାଇନ୍ କରାଯାଇନଥିବା ଟ୍ରାଞ୍ଜାକ୍ସନ୍‌ରେ ବର୍ଗଗୁଡ଼ିକୁ ଆସାଇନ୍ କରନ୍ତୁ।', other: 'ଆପଣଙ୍କର କରରେ ସମ୍ଭାବ୍ୟ ଛାଡ଼କୁ ବଢ଼ାନ୍ତୁ! ${count}ଟି ଆସାଇନ୍ କରାଯାଇନଥିବା ଟ୍ରାଞ୍ଜାକ୍ସନ୍‌ରେ ବର୍ଗଗୁଡ଼ିକୁ ଆସାଇନ୍ କରନ୍ତୁ।')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName} ପାଇଁ ${amount} ପେମେଣ୍ଟ କରିବାର ଧାର୍ଯ୍ୟ ସମୟ ${date} ଅଟେ।";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} ବଜେଟ୍‌ରେ ${amountTotal}ରୁ ${amountUsed} ବ୍ୟବହୃତ ହୋଇଛି, ${amountLeft} ବାକି ଅଛି";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'କୌଣସି ଆଇଟମ୍ ନାହିଁ', one: '1ଟି ଆଇଟମ୍', other: '${quantity}ଟି ଆଇଟମ୍')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "ପରିମାଣ: ${quantity}";
+  static m21(quantity) => "ପରିମାଣ: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'ସପିଂ କାର୍ଟ, କୌଣସି ଆଇଟମ୍ ନାହିଁ', one: 'ସପିଂ କାର୍ଟ, 1ଟି ଆଇଟମ୍', other: 'ସପିଂ କାର୍ଟ, ${quantity}ଟି ଆଇଟମ୍')}";
 
-  static m21(product) => "${product} କାଢ଼ନ୍ତୁ";
+  static m23(product) => "${product} କାଢ଼ନ୍ତୁ";
 
-  static m22(value) => "ଆଇଟମ୍ ${value}";
+  static m24(value) => "ଆଇଟମ୍ ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("ଫ୍ଲଟର୍ ସାମ୍ପଲ୍ ଗିଥୁବ୍ ରେପୋ"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("ଗ୍ୟାଲେରୀକୁ ଫେରନ୍ତୁ"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ଆକାଉଣ୍ଟ"),
         "bottomNavigationAlarmTab":
@@ -317,6 +323,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ପୃଷ୍ଠପଟ ସହିତ"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("ଆଲର୍ଟ ଦେଖାନ୍ତୁ"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("ଚାଟ୍"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("ହୋମ୍"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("ପ୍ରୋଫାଇଲ୍"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ଆକ୍ସନ୍ ଚିପ୍ସ, ବିକଳ୍ପଗୁଡ଼ିକର ଏକ ସେଟ୍ ଯାହା ପ୍ରାଥମିକ ବିଷୟବସ୍ତୁ ସମ୍ପର୍କିତ କାର୍ଯ୍ୟଗୁଡ଼ିକୁ ଟ୍ରିଗର୍ କରିଥାଏ। ଏକ UIରେ ଆକ୍ସନ୍ ଚିପ୍ସ ଗତିଶୀଳ ଏବଂ ପ୍ରାସଙ୍ଗିକ ଭାବରେ ଦେଖାଯିବା ଉଚିତ।"),
         "demoActionChipTitle":
@@ -410,6 +420,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-ଶୈଳୀର ବର୍ଗୀକୃତ ନିୟନ୍ତ୍ରଣ"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("ବର୍ଗୀକୃତ ନିୟନ୍ତ୍ରଣ"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "ମୂଲ୍ୟଗୁଡ଼ିକର ଏକ ଅବିରତ ବା ଏକ ଭିନ୍ନ ସେଟ୍‌ରୁ ଚୟନ କରିବା ପାଇଁ ଏକ ସ୍ଲାଇଡର୍ ବ୍ୟବହାର କରାଯାଇପାରେ।"),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ଷ୍ଟାଇଲ୍ ସ୍ଲାଇଡର୍"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("ସ୍ଲାଇଡର୍"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "ଏକ ସ୍ୱିଚ୍ ଯାହା ଏକ ସିଙ୍ଗଲ୍ ସେଟିଂସ୍‌ର ଚାଲୁ/ବନ୍ଦ ସ୍ଥିତିକୁ ଟୋଗଲ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୋଇଥାଏ।"),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ଷ୍ଟାଇଲ୍ ସ୍ୱିଚ୍"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "ଏକ iOS-ଷ୍ଟାଇଲ୍ ବଟମ୍ ନାଭିଗେସନ୍ ଟାବ୍ ବାର୍। ଏକାଧିକ ଟାବ୍ ଦେଖାଏ, ଯେଉଁଥିରେ ଡିଫଲ୍ଟ ଭାବେ ପ୍ରଥମ ଟାବ୍ ସକ୍ରିୟ ଥାଏ।"),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ଷ୍ଟାଇଲ୍ ବଟମ୍ ଟାବ୍ ବାର୍"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("ଟାବ୍ ବାର୍"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ସରଳ, ଆଲର୍ଟ ଏବଂ ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ଡାଏଲଗ୍‍ଗୁଡ଼ିକ"),
@@ -485,6 +513,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ଏକ ସରଳ ଡାଏଲଗ୍ ଉପଯୋଗକର୍ତ୍ତାଙ୍କୁ ବିଭିନ୍ନ ବିକଳ୍ପଗୁଡ଼ିକ ମଧ୍ୟରୁ ଏକ ପସନ୍ଦ ପ୍ରଦାନ କରେ। ଏକ ସରଳ ଡାଏଲଗ୍‍‍ରେ ଏକ ଇଚ୍ଛାଧୀନ ଟାଇଟେଲ୍ ଥାଏ ଯାହା ପସନ୍ଦଗୁଡ଼ିକ ଉପରେ ପ୍ରଦର୍ଶିତ ହୁଏ।"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ସରଳ"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "ଆପଣ ସ୍ନାକ୍‌ବାର୍ କାର୍ଯ୍ୟକୁ ଦବାଇଛନ୍ତି।"),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("କାର୍ଯ୍ୟ"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ଏକ ସ୍ନାକ୍‌ବାର୍ ଦେଖାନ୍ତୁ"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "ସ୍ନାକ୍‌ବାର୍ ଉପଯୋଗକର୍ତ୍ତାମାନଙ୍କୁ ସେହି ପ୍ରକ୍ରିୟା ବିଷୟରେ ସୂଚନା ଦେଇଥାଏ, ଯାହା ଏକ ଆପ୍ କାର୍ଯ୍ୟ କରିଛି ବା କାର୍ଯ୍ୟ କରିବ। ସେଗୁଡ଼ିକ ସ୍କ୍ରିନ୍‌ର ତଳ ଆଡ଼କୁ ଅସ୍ଥାୟୀ ଭାବେ ଦେଖାଯାଏ। ସେଗୁଡ଼ିକ ଉପଯୋଗକର୍ତ୍ତାଙ୍କ ଅନୁଭବରେ ବାଧା ଉପୁଯାଇବା ଆବଶ୍ୟକ ନୁହେଁ ଏବଂ ଅଦୃଶ୍ୟ ହେବାକୁ ଉପଯୋଗକର୍ତ୍ତା ଇନ୍‌ପୁଟ୍ ଆବଶ୍ୟକ ନୁହେଁ।"),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ସ୍ନାକ୍‌ବାର୍ ସ୍କ୍ରିନ୍‌ର ତଳେ ମେସେଜ୍‌ଗୁଡ଼ିକ ଦେଖାଏ"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("ଏହା ଏକ ସ୍ନାକ୍‌ବାର୍ ଅଟେ।"),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("ସ୍ନାକ୍‌ବାର୍"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ଟାବ୍, ଭିନ୍ନ ସ୍କ୍ରିନ୍, ଡାଟା ସେଟ୍ ଏବଂ ଅନ୍ୟ ଇଣ୍ଟରାକ୍ସନ୍‌ଗୁଡ଼ିକରେ ବିଷୟବସ୍ତୁ ସଂଗଠିତ କରେ।"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -506,7 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("ଲାଇଫ୍ ଷ୍ଟୋରୀ"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("ନାମ*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("ନାମ ଆବଶ୍ୟକ ଅଟେ।"),
         "demoTextFieldNoMoreThan":
@@ -573,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Googleକୁ ଲୋକେସନ୍ ନିର୍ଦ୍ଧାରଣ କରିବାରେ ଆପ୍ସର ସାହାଯ୍ୟ କରିବାକୁ ଦିଅନ୍ତୁ। ଏହାର ଅର୍ଥ ହେଲା, କୌଣସି ଆପ୍ ଚାଲୁ ନଥିବା ସମୟରେ ମଧ୍ୟ Googleକୁ ଲୋକେସନ୍ ଡାଟା ପଠାଇବା।"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Googleର ଲୋକେସନ୍ ସେବା ବ୍ୟବହାର କରିବେ?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "ବ୍ୟାକ୍‍ଅପ୍ ଆକାଉଣ୍ଟ ସେଟ୍ କରନ୍ତୁ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ଡାଏଲଗ୍ ଦେଖାନ୍ତୁ"),
@@ -582,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("ବର୍ଗଗୁଡ଼ିକ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ଗ୍ୟାଲେରୀ"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("କାର୍ ସେଭିଂସ୍"),
         "rallyAccountDataChecking":
@@ -606,15 +648,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("ମୋଟ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ଆକାଉଣ୍ଟଗୁଡ଼ିକ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ଆଲର୍ଟଗୁଡ଼ିକ"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("ବିଲ୍‌ଗୁଡ଼ିକ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ଧାର୍ଯ୍ୟ ସମୟ"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("କପଡ଼ା"),
         "rallyBudgetCategoryCoffeeShops":
@@ -715,7 +757,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ବାତିଲ୍ କରନ୍ତୁ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("କାର୍ଟ ଖାଲି କରନ୍ତୁ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("କାର୍ଟ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ସିପିଂ:"),
@@ -776,8 +818,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ନେଭି ଟ୍ରାଉଜର୍"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("ପ୍ଲାଷ୍ଟର୍ ଟ୍ୟୁନିକ୍"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("କ୍ୱାର୍ଟେଟ୍ ଟେବଲ୍"),
         "shrineProductRainwaterTray":
@@ -816,10 +858,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ଧଳା ପିନ୍‌ଷ୍ଟ୍ରିପ୍ ସାର୍ଟ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ହ୍ୱିଟ୍‌ନେ ବେଲ୍ଟ"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("କାର୍ଟରେ ଯୋଗ କରନ୍ତୁ"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("କାର୍ଟ ବନ୍ଦ କରନ୍ତୁ"),
         "shrineTooltipCloseMenu":
@@ -834,7 +876,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ସେଟିଂସ୍"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ଏକ ପ୍ରତିକ୍ରିୟାଶୀଳ ଷ୍ଟାର୍ଟର୍ ଲେଆଉଟ୍"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("ବଡି"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("ବଟନ୍"),
         "starterAppGenericHeadline":
