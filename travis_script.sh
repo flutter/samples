@@ -64,7 +64,7 @@ popd
 echo "Initializing 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
-flutter build aar
+"${localSdkPath}/bin/flutter" build aar
 popd
 
 declare -a ADD_TO_APP_PROJECT_NAMES=(
