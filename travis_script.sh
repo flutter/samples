@@ -1,12 +1,13 @@
 set -e
 
-# Backs up one directory at a time, looking for one called "flutter".
+# Backs up one directory at a time, looking for one called "flutter". Once it
+# finds that directory, an absolute path to it is returned.
 function getFlutterPath() {
     local path=".."
     local counter=0
 
     while [[ "${counter}" -lt 10 ]]; do
-        [ -d "${path}/flutter" ] && echo "${path}/flutter" && return 0
+        [ -d "${path}/flutter" ] && echo "$(pwd)/${path}/flutter" && return 0
         let counter++
         path="${path}/.."
     done
