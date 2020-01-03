@@ -67,14 +67,19 @@ pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" build aar
 popd
 
-declare -a ADD_TO_APP_PROJECT_NAMES=(
+declare -a ANDROID_PROJECT_NAMES=(
     "add_to_app/android_fullscreen" \
+    "add_to_app/android_using_plugin" \
+    "add_to_app/android_using_prebuilt_module" \
 )
 
-for PROJECT_NAME in "${ADD_TO_APP_PROJECT_NAMES[@]}"
+for PROJECT_NAME in "$ANDROID_PROJECT_NAMES[@]}"
 do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
+
+    ./gradlew build
+
     popd
 done
 
