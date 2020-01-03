@@ -15,7 +15,7 @@ void main() {
   final model = CounterModel();
 
   runApp(
-    ChangeNotifierProvider<CounterModel>.value(
+    ChangeNotifierProvider.value(
       value: model,
       child: MyApp(),
     ),
