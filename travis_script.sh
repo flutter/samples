@@ -38,22 +38,22 @@ declare -a  PROJECT_NAMES=(
     "veggieseasons" \
 )
 
-for PROJECT_NAME in "${PROJECT_NAMES[@]}"
-do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
-    pushd "${PROJECT_NAME}"
+# for PROJECT_NAME in "${PROJECT_NAMES[@]}"
+# do
+#     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
+#     pushd "${PROJECT_NAME}"
 
-    # Run the analyzer to find any static analysis issues.
-    "${localSdkPath}/bin/flutter" analyze
+#     # Run the analyzer to find any static analysis issues.
+#     "${localSdkPath}/bin/flutter" analyze
 
-    # Run the formatter on all the dart files to make sure everything's linted.
-    "${localSdkPath}/bin/flutter" format -n --set-exit-if-changed .
+#     # Run the formatter on all the dart files to make sure everything's linted.
+#     "${localSdkPath}/bin/flutter" format -n --set-exit-if-changed .
 
-    # Run the actual tests.
-    "${localSdkPath}/bin/flutter" test
+#     # Run the actual tests.
+#     "${localSdkPath}/bin/flutter" test
 
-    popd
-done
+#     popd
+# done
 
 
 echo "Initializing 'flutter_module'."

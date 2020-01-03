@@ -2,6 +2,7 @@ os:
   - linux
 dist: trusty
 language: android
+
 addons:
   apt:
     sources:
@@ -9,23 +10,35 @@ addons:
     packages:
       - libstdc++6
       - fonts-noto
+
 git:
   depth: 3
+
+android:
+  components:
+    - build-tools-28.0.3
+    - android-28
+
 env:
   - FLUTTER_VERSION=stable
   - FLUTTER_VERSION=beta
+
 jobs:
   allow_failures:
     - env: FLUTTER_VERSION=beta
+
 before_script:
   - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
   - ./flutter/bin/flutter doctor
   - chmod +x travis_script.sh
+
 script:
   - ./travis_script.sh
+
 cache:
   directories:
     - $HOME/shared/.pub-cache
+
 notifications:
   email:
     brogdon+github@gmail.com
