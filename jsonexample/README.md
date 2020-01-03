@@ -30,7 +30,7 @@ instantiating models and populating their fields.
 Each tab page in the app deserializes one type of data with one library.
 These Widgets show what app code using the above libraries might look like.
 
-## Generating 
+## Generating
 
 The lib/build_value and lib/json_serializable use build_runner to generate
 files. If you make a change to these files, you need to re-run the generator
