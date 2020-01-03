@@ -59,12 +59,12 @@ declare -a PROJECT_NAMES=(
 echo "Initializing 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" packages get
+"${localSdkPath}/bin/flutter" build aar
 popd
 
 echo "Initializing 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
-"${localSdkPath}/bin/flutter" build aar
 popd
 
 declare -a ANDROID_PROJECT_NAMES=(
