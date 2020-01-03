@@ -17,13 +17,15 @@ localSdkPath=$(getFlutterPath)
 
 if [ -z "$localSdkPath" ]
 then
-    echo "Failed to find Flutter SDK!."
+    echo "Failed to find the Flutter SDK!."
     exit 1
 fi
 
 echo "Flutter SDK found at ${localSdkPath}"
 
 declare -a PROJECT_NAMES=(
+    "add_to_app/flutter_module" \
+    "add_to_app/flutter_module_using_plugin" \
     "animations" \
     "chrome-os-best-practices" \
     "gallery/gallery" \
@@ -55,16 +57,9 @@ do
     popd
 done
 
-
-echo "Initializing 'flutter_module'."
+echo "Building the aar files for 'flutter_module'."
 pushd add_to_app/flutter_module
-"${localSdkPath}/bin/flutter" packages get
 "${localSdkPath}/bin/flutter" build aar
-popd
-
-echo "Initializing 'flutter_module_using_plugin'."
-pushd add_to_app/flutter_module_using_plugin
-"${localSdkPath}/bin/flutter" packages get
 popd
 
 declare -a ANDROID_PROJECT_NAMES=(

@@ -13,7 +13,7 @@ void main() {
   // MethodChannel-based model.
   WidgetsFlutterBinding.ensureInitialized();
 
-  final model = CounterModel();
+  final model = ChannelBackedCounterModel();
 
   runApp(
     ChangeNotifierProvider.value(
@@ -23,15 +23,21 @@ void main() {
   );
 }
 
-/// A simple model that uses a [MethodChannel] as the source of truth for the
-/// state of the counter.
+/// A simple model that keeps track of a counter value.
+abstract class CounterModel extends ChangeNotifier {
+  int get count;
+  void increment();
+}
+
+/// An implementation of [CounterModel] that uses a [MethodChannel] as the
+/// source of truth for the state of the counter.
 ///
 /// Rather than storing app state data within the Flutter module itself (where
 /// the native portions of the app can't access it), this module passes messages
 /// back to the containing app whenever it needs to increment or retrieve the
 /// value of the counter.
-class CounterModel extends ChangeNotifier {
-  CounterModel() {
+class ChannelBackedCounterModel extends CounterModel {
+  ChannelBackedCounterModel() {
     _channel.setMethodCallHandler(_handleMessage);
     _channel.invokeMethod('requestCounter');
   }
