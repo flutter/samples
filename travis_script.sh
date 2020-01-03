@@ -23,7 +23,7 @@ fi
 
 echo "Flutter SDK found at ${localSdkPath}"
 
-declare -a  PROJECT_NAMES=(
+declare -a PROJECT_NAMES=(
     "animations" \
     "chrome-os-best-practices" \
     "gallery/gallery" \
@@ -73,7 +73,7 @@ declare -a ANDROID_PROJECT_NAMES=(
     "add_to_app/android_using_prebuilt_module" \
 )
 
-for PROJECT_NAME in "$ANDROID_PROJECT_NAMES[@]}"
+for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
 do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
