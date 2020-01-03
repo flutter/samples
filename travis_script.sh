@@ -12,6 +12,14 @@ function getFlutterPath() {
     done
 }
 
+localSdkPath=$(getFlutterPath)
+
+if [ -z "$localSdkPath" ]
+then
+    echo "Failed to find Flutter SDK!."
+    exit 1
+fi
+
 declare -a  PROJECT_NAMES=(
     "animations" \
     "chrome-os-best-practices" \
@@ -32,14 +40,6 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
 
-    localSdkPath=$(getFlutterPath)
-
-    if [ -z "$localSdkPath" ]
-    then
-        echo "Failed to find Flutter SDK for '${PROJECT_NAME}'."
-        exit 1
-    fi
-
     # Run the analyzer to find any static analysis issues.
     "${localSdkPath}/bin/flutter" analyze
 
@@ -49,6 +49,29 @@ do
     # Run the actual tests.
     "${localSdkPath}/bin/flutter" test
 
+    popd
+done
+
+
+echo "Initializing 'flutter_module'."
+pushd add_to_app/flutter_module
+"${localSdkPath}/bin/flutter" packages get
+popd
+
+echo "Initializing 'flutter_module_using_plugin'."
+pushd add_to_app/flutter_module_using_plugin
+"${localSdkPath}/bin/flutter" packages get
+flutter build aar
+popd
+
+declare -a ADD_TO_APP_PROJECT_NAMES=(
+    "add_to_app/android_fullscreen" \
+)
+
+for PROJECT_NAME in "${ADD_TO_APP_PROJECT_NAMES[@]}"
+do
+    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
+    pushd "${PROJECT_NAME}"
     popd
 done
 
