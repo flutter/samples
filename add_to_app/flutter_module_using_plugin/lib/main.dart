@@ -23,8 +23,8 @@ void main() {
   );
 }
 
-/// An implementation of [CounterModel] that uses a [MethodChannel] as the
-/// source of truth for the state of the counter.
+/// A simple model that uses a [MethodChannel] as the source of truth for the
+/// state of a counter.
 ///
 /// Rather than storing app state data within the Flutter module itself (where
 /// the native portions of the app can't access it), this module passes messages
