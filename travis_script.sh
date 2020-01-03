@@ -33,9 +33,9 @@ do
     pushd "${PROJECT_NAME}"
 
     localSdkPath=$(getFlutterPath)
-    
+
     if [ -z "$localSdkPath" ]
-    then 
+    then
         echo "Failed to find Flutter SDK for '${PROJECT_NAME}'."
         exit 1
     fi

@@ -1,6 +1,7 @@
 os:
   - linux
-sudo: false
+dist: trusty
+language: android
 addons:
   apt:
     sources:
@@ -13,7 +14,7 @@ git:
 env:
   - FLUTTER_VERSION=stable
   - FLUTTER_VERSION=beta
-matrix:
+jobs:
   allow_failures:
     - env: FLUTTER_VERSION=beta
 before_script:
