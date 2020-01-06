@@ -1,18 +1,31 @@
 set -e
 
-# Backs up one directory at a time, looking for one called "flutter".
+# Backs up one directory at a time, looking for one called "flutter". Once it
+# finds that directory, an absolute path to it is returned.
 function getFlutterPath() {
-    local path=".."
+    local path=""
     local counter=0
 
     while [[ "${counter}" -lt 10 ]]; do
-        [ -d "${path}/flutter" ] && echo "${path}/flutter" && return 0
+        [ -d "${path}flutter" ] && echo "$(pwd)/${path}flutter" && return 0
         let counter++
-        path="${path}/.."
+        path="${path}../"
     done
 }
 
-declare -a  PROJECT_NAMES=(
+localSdkPath=$(getFlutterPath)
+
+if [ -z "$localSdkPath" ]
+then
+    echo "Failed to find the Flutter SDK!."
+    exit 1
+fi
+
+echo "Flutter SDK found at ${localSdkPath}"
+
+declare -a PROJECT_NAMES=(
+    "add_to_app/flutter_module" \
+    "add_to_app/flutter_module_using_plugin" \
     "animations" \
     "chrome-os-best-practices" \
     "gallery/gallery" \
@@ -32,14 +45,6 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
 
-    localSdkPath=$(getFlutterPath)
-    
-    if [ -z "$localSdkPath" ]
-    then 
-        echo "Failed to find Flutter SDK for '${PROJECT_NAME}'."
-        exit 1
-    fi
-
     # Run the analyzer to find any static analysis issues.
     "${localSdkPath}/bin/flutter" analyze
 
@@ -48,6 +53,28 @@ do
 
     # Run the actual tests.
     "${localSdkPath}/bin/flutter" test
+
+    popd
+done
+
+echo "Building the aar files for 'flutter_module'."
+pushd add_to_app/flutter_module
+"${localSdkPath}/bin/flutter" build aar
+popd
+
+declare -a ANDROID_PROJECT_NAMES=(
+    "add_to_app/android_fullscreen" \
+    "add_to_app/android_using_plugin" \
+    "add_to_app/android_using_prebuilt_module" \
+)
+
+for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
+do
+    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
+    pushd "${PROJECT_NAME}"
+
+    ./gradlew assembleDebug
+    ./gradlew assembleRelease
 
     popd
 done
