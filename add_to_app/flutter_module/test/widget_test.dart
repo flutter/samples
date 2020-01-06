@@ -11,8 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_module/main.dart';
 import 'package:provider/provider.dart';
 
-class MockCounterModel extends ChangeNotifier
-    implements CounterModel {
+class MockCounterModel extends ChangeNotifier implements CounterModel {
   int _count = 0;
 
   int get count => _count;
