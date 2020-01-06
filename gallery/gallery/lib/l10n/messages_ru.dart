@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "colorsBlue": MessageLookupByLibrary.simpleMessage("СИНИЙ"),
         "colorsBlueGrey": MessageLookupByLibrary.simpleMessage("СИНЕ-СЕРЫЙ"),
         "colorsBrown": MessageLookupByLibrary.simpleMessage("КОРИЧНЕВЫЙ"),
-        "colorsCyan": MessageLookupByLibrary.simpleMessage("БИРЮЗОВЫЙ"),
+        "colorsCyan": MessageLookupByLibrary.simpleMessage("ЦИАН"),
         "colorsDeepOrange":
             MessageLookupByLibrary.simpleMessage("НАСЫЩЕННЫЙ ОРАНЖЕВЫЙ"),
         "colorsDeepPurple":
