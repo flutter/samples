@@ -6,7 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "dev.flutter.example.androidusingprebuiltmodule"
         minSdkVersion 19

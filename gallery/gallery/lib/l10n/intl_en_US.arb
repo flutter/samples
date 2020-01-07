@@ -441,6 +441,42 @@
   "@settingsAttribution": {
     "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
   },
+  "demoBottomAppBarTitle": "Bottom app bar",
+  "@demoBottomAppBarTitle": {
+    "description": "Title for the material bottom app bar component demo."
+  },
+  "demoBottomAppBarSubtitle": "Displays navigation and actions at the bottom",
+  "@demoBottomAppBarSubtitle": {
+    "description": "Subtitle for the material bottom app bar component demo."
+  },
+  "demoBottomAppBarDescription": "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.",
+  "@demoBottomAppBarDescription": {
+    "description": "Description for the material bottom app bar component demo."
+  },
+  "bottomAppBarNotch": "Notch",
+  "@bottomAppBarNotch": {
+    "description": "A toggle for whether to have a notch (or cutout) in the bottom app bar demo."
+  },
+  "bottomAppBarPosition": "Floating Action Button Position",
+  "@bottomAppBarPosition": {
+    "description": "A setting for the position of the floating action button in the bottom app bar demo."
+  },
+  "bottomAppBarPositionDockedEnd": "Docked - End",
+  "@bottomAppBarPositionDockedEnd": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it at the end."
+  },
+  "bottomAppBarPositionDockedCenter": "Docked - Center",
+  "@bottomAppBarPositionDockedCenter": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it in the center."
+  },
+  "bottomAppBarPositionFloatingEnd": "Floating - End",
+  "@bottomAppBarPositionFloatingEnd": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it at the end."
+  },
+  "bottomAppBarPositionFloatingCenter": "Floating - Center",
+  "@bottomAppBarPositionFloatingCenter": {
+    "description": "A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center."
+  },
   "demoBottomNavigationTitle": "Bottom navigation",
   "@demoBottomNavigationTitle": {
     "description": "Title for the material bottom navigation component demo."
@@ -577,6 +613,58 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+  "demoSlidersTitle": "Sliders",
+  "@demoSlidersTitle": {
+    "description": "Title for the sliders component demo."
+  },
+  "demoSlidersSubtitle": "Widgets for selecting a value by swiping",
+  "@demoSlidersSubtitle": {
+    "description": "Short description for the sliders component demo."
+  },
+  "demoSlidersDescription": "Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.",
+  "@demoSlidersDescription": {
+    "description": "Description for the sliders demo."
+  },
+  "demoRangeSlidersTitle": "Range Sliders",
+  "@demoRangeSlidersTitle": {
+    "description": "Title for the range sliders component demo."
+  },
+  "demoRangeSlidersDescription": "Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.",
+  "@demoRangeSlidersDescription": {
+    "description": "Description for the range sliders demo."
+  },
+  "demoCustomSlidersTitle": "Custom Sliders",
+  "@demoCustomSlidersTitle": {
+    "description": "Title for the custom sliders component demo."
+  },
+  "demoCustomSlidersDescription": "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.",
+  "@demoCustomSlidersDescription": {
+    "description": "Description for the custom sliders demo."
+  },
+  "demoSlidersContinuousWithEditableNumericalValue": "Continuous with Editable Numerical Value",
+  "@demoSlidersContinuousWithEditableNumericalValue": {
+    "description": "Text to describe a slider has a continuous value with an editable numerical value."
+  },
+  "demoSlidersDiscrete": "Discrete",
+  "@demoSlidersDiscrete": {
+    "description": "Text to describe that we have a slider with discrete values."
+  },
+  "demoSlidersDiscreteSliderWithCustomTheme": "Discrete Slider with Custom Theme",
+  "@demoSlidersDiscreteSliderWithCustomTheme": {
+    "description": "Text to describe that we have a slider with discrete values and a custom theme. "
+  },
+  "demoSlidersContinuousRangeSliderWithCustomTheme": "Continuous Range Slider with Custom Theme",
+  "@demoSlidersContinuousRangeSliderWithCustomTheme": {
+    "description": "Text to describe that we have a range slider with continuous values and a custom theme. "
+  },
+  "demoSlidersContinuous": "Continuous",
+  "@demoSlidersContinuous": {
+    "description": "Text to describe that we have a slider with continuous values."
+  },
+  "demoSlidersEditableNumericalValue": "Editable numerical value",
+  "@demoSlidersEditableNumericalValue": {
+    "description": "Label for input field that has an editable numerical value."
+  },
   "demoFullscreenDialogTitle": "Fullscreen",
   "@demoFullscreenDialogTitle": {
     "description": "Title for the fullscreen dialog component demo."
@@ -584,6 +672,18 @@
   "demoFullscreenDialogDescription": "The fullscreenDialog property specifies whether the incoming page is a fullscreen modal dialog",
   "@demoFullscreenDialogDescription": {
     "description": "Description for the fullscreen dialog component demo."
+  },
+  "demoCupertinoActivityIndicatorTitle": "Activity Indicator",
+  "@demoCupertinoActivityIndicatorTitle": {
+    "description": "Title for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorSubtitle": "iOS-style activity indicators",
+  "@demoCupertinoActivityIndicatorSubtitle": {
+    "description": "Subtitle for the cupertino activity indicator component demo."
+  },
+  "demoCupertinoActivityIndicatorDescription": "An iOS-style activity indicator that spins clockwise.",
+  "@demoCupertinoActivityIndicatorDescription": {
+    "description": "Description for the cupertino activity indicator component demo."
   },
   "demoCupertinoButtonsTitle": "Buttons",
   "@demoCupertinoButtonsTitle": {
@@ -644,6 +744,44 @@
   "demoCupertinoSegmentedControlDescription": "Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.",
   "@demoCupertinoSegmentedControlDescription": {
     "description": "Description for the cupertino segmented control component demo."
+  },
+  "demoCupertinoSliderTitle": "Slider",
+  "@demoCupertinoSliderTitle": {
+    "description": "Title for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderSubtitle": "iOS-style slider",
+  "@demoCupertinoSliderSubtitle": {
+    "description": "Subtitle for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderDescription": "A slider can be used to select from either a continuous or a discrete set of values.",
+  "@demoCupertinoSliderDescription": {
+    "description": "Description for the cupertino slider component demo."
+  },
+  "demoCupertinoSliderContinuous": "Continuous: {value}",
+  "@demoCupertinoSliderContinuous": {
+    "description": "A label for a continuous slider that indicates what value it is set to.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoCupertinoSliderDiscrete": "Discrete: {value}",
+  "@demoCupertinoSliderDiscrete": {
+    "description": "A label for a discrete slider that indicates what value it is set to.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoCupertinoSwitchSubtitle": "iOS-style switch",
+  "@demoCupertinoSwitchSubtitle": {
+    "description": "Subtitle for the cupertino switch component demo."
+  },
+  "demoCupertinoSwitchDescription": "A switch is used to toggle the on/off state of a single setting.",
+  "@demoCupertinoSwitchDescription": {
+    "description": "Description for the cupertino switch component demo."
   },
   "demoCupertinoTabBarTitle": "Tab Bar",
   "@demoCupertinoTabBarTitle": {
@@ -765,6 +903,30 @@
   "demoListsSecondary": "Secondary text",
   "@demoListsSecondary": {
     "description": "Text that appears in the second line of a list item."
+  },
+  "demoProgressIndicatorTitle": "Progress indicators",
+  "@demoProgressIndicatorTitle": {
+    "description": "Title for progress indicators demo."
+  },
+  "demoProgressIndicatorSubtitle": "Linear, circular, indeterminate",
+  "@demoProgressIndicatorSubtitle": {
+    "description": "Subtitle for progress indicators demo."
+  },
+  "demoCircularProgressIndicatorTitle": "Circular Progress Indicator",
+  "@demoCircularProgressIndicatorTitle": {
+    "description": "Title for circular progress indicator demo."
+  },
+  "demoCircularProgressIndicatorDescription": "A Material Design circular progress indicator, which spins to indicate that the application is busy.",
+  "@demoCircularProgressIndicatorDescription": {
+    "description": "Description for circular progress indicator demo."
+  },
+  "demoLinearProgressIndicatorTitle": "Linear Progress Indicator",
+  "@demoLinearProgressIndicatorTitle": {
+    "description": "Title for linear progress indicator demo."
+  },
+  "demoLinearProgressIndicatorDescription": "A Material Design linear progress indicator, also known as a progress bar.",
+  "@demoLinearProgressIndicatorDescription": {
+    "description": "Description for linear progress indicator demo."
   },
   "demoTabsTitle": "Tabs",
   "@demoTabsTitle": {

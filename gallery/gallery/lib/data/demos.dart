@@ -8,17 +8,23 @@ import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
+import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
+import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
+import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
@@ -61,6 +67,22 @@ class GalleryDemoConfiguration {
 
 List<GalleryDemo> materialDemos(BuildContext context) {
   return [
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
+      icon: GalleryIcons.bottomAppBar,
+      subtitle: GalleryLocalizations.of(context).demoBottomAppBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
+          description:
+              GalleryLocalizations.of(context).demoBottomAppBarDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/BottomAppBar-class.html',
+          buildRoute: (_) => BottomAppBarDemo(),
+          code: CodeSegments.bottomAppBarDemo,
+        ),
+      ],
+    ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
@@ -279,6 +301,37 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
+      title: GalleryLocalizations.of(context).demoProgressIndicatorTitle,
+      icon: GalleryIcons.progressActivity,
+      subtitle: GalleryLocalizations.of(context).demoProgressIndicatorSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCircularProgressIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.circular,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title:
+              GalleryLocalizations.of(context).demoLinearProgressIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoLinearProgressIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.linear,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
       title: GalleryLocalizations.of(context).demoSelectionControlsTitle,
       icon: GalleryIcons.checkBox,
       subtitle: GalleryLocalizations.of(context).demoSelectionControlsSubtitle,
@@ -318,6 +371,41 @@ List<GalleryDemo> materialDemos(BuildContext context) {
             type: SelectionControlsDemoType.switches,
           ),
           code: CodeSegments.selectionControlsDemoSwitches,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoSlidersTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: GalleryLocalizations.of(context).demoSlidersSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoSlidersTitle,
+          description: GalleryLocalizations.of(context).demoSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/Slider-class.html',
+          buildRoute: (context) => SlidersDemo(type: SlidersDemoType.sliders),
+          code: CodeSegments.slidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoRangeSlidersTitle,
+          description:
+              GalleryLocalizations.of(context).demoRangeSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/RangeSlider-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.rangeSliders),
+          code: CodeSegments.rangeSlidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCustomSlidersTitle,
+          description:
+              GalleryLocalizations.of(context).demoCustomSlidersDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/SliderTheme-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.customSliders),
+          code: CodeSegments.customSlidersDemo,
         ),
       ],
     ),
@@ -373,6 +461,25 @@ List<GalleryDemo> materialDemos(BuildContext context) {
 
 List<GalleryDemo> cupertinoDemos(BuildContext context) {
   return [
+    GalleryDemo(
+      title:
+          GalleryLocalizations.of(context).demoCupertinoActivityIndicatorTitle,
+      icon: GalleryIcons.cupertinoProgress,
+      subtitle: GalleryLocalizations.of(context)
+          .demoCupertinoActivityIndicatorSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCupertinoActivityIndicatorDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoActivityIndicator-class.html',
+          buildRoute: (_) => CupertinoProgressIndicatorDemo(),
+          code: CodeSegments.cupertinoActivityIndicatorDemo,
+        ),
+      ],
+    ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
@@ -463,6 +570,39 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/cupertino/CupertinoSegmentedControl-class.html',
           buildRoute: (_) => CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCupertinoSliderTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoSliderSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCupertinoSliderTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoSliderDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoSlider-class.html',
+          buildRoute: (_) => CupertinoSliderDemo(),
+          code: CodeSegments.cupertinoSliderDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+      icon: GalleryIcons.cupertinoSwitch,
+      subtitle: GalleryLocalizations.of(context).demoCupertinoSwitchSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title:
+              GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          description:
+              GalleryLocalizations.of(context).demoCupertinoSwitchDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html',
+          buildRoute: (_) => CupertinoSwitchDemo(),
+          code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
     ),

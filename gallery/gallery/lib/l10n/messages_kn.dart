@@ -37,53 +37,59 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "ಫ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲು ವಿಫಲವಾಗಿದೆ: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "ನಿರಂತರ: ${value}";
+
+  static m8(value) => "ಪ್ರತ್ಯೇಕ: ${value}";
+
+  static m9(name, phoneNumber) =>
       "${name} ಅವರ ಫೋನ್ ಸಂಖ್ಯೆ ${phoneNumber} ಆಗಿದೆ";
 
-  static m8(value) => "ನೀವು ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ: \"${value}\"";
+  static m10(value) => "ನೀವು ಆಯ್ಕೆಮಾಡಿದ್ದೀರಿ: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m11(accountName, accountNumber, amount) =>
       "${accountName} ಖಾತೆ ${accountNumber} ${amount} ಮೊತ್ತದೊಂದಿಗೆ.";
 
-  static m10(amount) => "ನೀವು ಈ ತಿಂಗಳು ATM ಶುಲ್ಕಗಳಲ್ಲಿ ${amount} ವ್ಯಯಿಸಿದ್ದೀರಿ";
+  static m12(amount) => "ನೀವು ಈ ತಿಂಗಳು ATM ಶುಲ್ಕಗಳಲ್ಲಿ ${amount} ವ್ಯಯಿಸಿದ್ದೀರಿ";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "ಒಳ್ಳೆಯ ಕೆಲಸ ಮಾಡಿದ್ದೀರಿ! ನಿಮ್ಮ ಪರಿಶೀಲನೆ ಖಾತೆಯು ಹಿಂದಿನ ತಿಂಗಳಿಗಿಂತ ಶೇಕಡಾ ${percent} ಹೆಚ್ಚಿದೆ.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "ಗಮನಿಸಿ, ಈ ತಿಂಗಳ ನಿಮ್ಮ ಶಾಪಿಂಗ್ ಬಜೆಟ್‌ನಲ್ಲಿ ನೀವು ಶೇಕಡಾ ${percent} ಬಳಸಿದ್ದೀರಿ.";
 
-  static m13(amount) =>
+  static m15(amount) =>
       "ನೀವು ಈ ವಾರ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳಲ್ಲಿ ${amount} ಖರ್ಚುಮಾಡಿದ್ದೀರಿ.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'ನಿಮ್ಮ ಸಂಭವನೀಯ ತೆರಿಗೆ ಕಡಿತಗಳನ್ನು ಹೆಚ್ಚಿಸಿ! 1 ನಿಯೋಜಿಸದ ವಹಿವಾಟಿಗೆ ವರ್ಗವನ್ನು ನಿಯೋಜಿಸಿ.', other: 'ನಿಮ್ಮ ಸಂಭವನೀಯ ತೆರಿಗೆ ಕಡಿತಗಳನ್ನು ಹೆಚ್ಚಿಸಿ! ${count} ನಿಯೋಜಿಸದ ವಹಿವಾಟುಗಳಿಗೆ ವರ್ಗಗಳನ್ನು ನಿಯೋಜಿಸಿ.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${amount} ಗಾಗಿ ${date} ರಂದು ${billName} ಬಿಲ್ ಪಾವತಿ ಬಾಕಿಯಿದೆ.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${amountTotal} ರಲ್ಲಿನ ${budgetName} ಬಜೆಟ್‌ನ ${amountUsed} ಮೊತ್ತವನ್ನು ಬಳಸಲಾಗಿದೆ, ${amountLeft} ಬಾಕಿಯಿದೆ";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'ಯಾವುದೇ ಐಟಂಗಳಿಲ್ಲ', one: '1 ಐಟಂ', other: '${quantity} ಐಟಂಗಳು')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "ಪ್ರಮಾಣ: ${quantity}";
+  static m21(quantity) => "ಪ್ರಮಾಣ: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'ಶಾಪಿಂಗ್ ಕಾರ್ಟ್, ಯಾವುದೇ ಐಟಂಗಳಿಲ್ಲ', one: 'ಶಾಪಿಂಗ್ ಕಾರ್ಟ್, 1 ಐಟಂ', other: 'ಶಾಪಿಂಗ್ ಕಾರ್ಟ್, ${quantity} ಐಟಂಗಳು')}";
 
-  static m21(product) => "${product} ತೆಗೆದುಹಾಕಿ";
+  static m23(product) => "${product} ತೆಗೆದುಹಾಕಿ";
 
-  static m22(value) => "ಐಟಂ ${value}";
+  static m24(value) => "ಐಟಂ ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
             "ಫ್ಲಟರ್ ಸ್ಯಾಂಪಲ್ಸ್ ಗಿಥಬ್ ರೆಪೊ"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("ಗ್ಯಾಲರಿಗೆ ಹಿಂದಿರುಗಿ"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ಖಾತೆ"),
         "bottomNavigationAlarmTab":
@@ -319,6 +325,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoButtonWithBackground":
             MessageLookupByLibrary.simpleMessage("ಹಿನ್ನೆಲೆ ಒಳಗೊಂಡಂತೆ"),
         "cupertinoShowAlert": MessageLookupByLibrary.simpleMessage("ಶೋ ಅಲರ್ಟ್"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("ಚಾಟ್"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("ಹೋಮ್"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("ಪ್ರೊಫೈಲ್"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ಆ್ಯಕ್ಷನ್ ಚಿಪ್‌ಗಳು ಎನ್ನುವುದು ಪ್ರಾಥಮಿಕ ವಿಷಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕ್ರಿಯೆಯನ್ನು ಟ್ರಿಗರ್ ಮಾಡುವ ಆಯ್ಕೆಗಳ ಒಂದು ಗುಂಪಾಗಿದೆ. ಆ್ಯಕ್ಷನ್ ಚಿಪ್‌ಗಳು UI ನಲ್ಲಿ ಕ್ರಿಯಾತ್ಮಕವಾಗಿ ಮತ್ತು ಸಂದರ್ಭೋಚಿತವಾಗಿ ಗೋಚರಿಸಬೇಕು."),
         "demoActionChipTitle":
@@ -414,6 +424,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-ಶೈಲಿಯ ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣ"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣ"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "ನಿರಂತರ ಅಥವಾ ಪ್ರತ್ಯೇಕ ಮೌಲ್ಯಗಳ ಗುಂಪಿನಿಂದ ಆಯ್ಕೆಮಾಡಲು ಸ್ಲೈಡರ್ ಅನ್ನು ಬಳಸಬಹುದು."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ಸ್ಟೈಲ್ ಸ್ಲೈಡರ್"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("ಸ್ಲೈಡರ್"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "ಸೆಟ್ಟಿಂಗ್ ಒಂದರ ಸ್ಥಿತಿಯನ್ನು ಟಾಗಲ್ ಆನ್/ಆಫ್ ಮಾಡಲು ಸ್ವಿಚ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ಸ್ಟೈಲ್ ಸ್ವಿಚ್"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-ಸ್ಟೈಲ್ ಬಾಟಮ್ ನ್ಯಾವಿಗೇಶನ್ ಟ್ಯಾಬ್ ಬಾರ್. ಒಂದು ಟ್ಯಾಬ್ ಸಕ್ರಿಯವಾಗಿರುವುದರ ಜೊತೆಗೆ ಬಹು ಟ್ಯಾಬ್‌ಗಳನ್ನು ಡಿಸ್‌ಪ್ಲೇ ಮಾಡುತ್ತದೆ, ಮೊದಲ ಟ್ಯಾಬ್ ಡೀಫಾಲ್ಟ್ ಆಗಿದೆ."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-ಸ್ಟೈಲ್ ಬಾಟಮ್ ಟ್ಯಾಬ್ ಬಾರ್"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("ಟ್ಯಾಬ್ ಬಾರ್"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ಸರಳ, ಅಲರ್ಟ್ ಮತ್ತು ಫುಲ್‌ಸ್ಕ್ರೀನ್"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ಡೈಲಾಗ್‌ಗಳು"),
@@ -488,6 +516,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ಸರಳ ಡೈಲಾಗ್ ಬಳಕೆದಾರರಿಗೆ ಹಲವಾರು ಆಯ್ಕೆಗಳ ನಡುವೆ ಒಂದು ಆಯ್ಕೆಯನ್ನು ನೀಡುತ್ತದೆ. ಸರಳ ಡೈಲಾಗ್ ಐಚ್ಛಿಕ ಶೀರ್ಷಿಕೆಯನ್ನು ಹೊಂದಿದೆ, ಅದನ್ನು ಆಯ್ಕೆಗಳ ಮೇಲೆ ಡಿಸ್‌ಪ್ಲೇ ಮಾಡಲಾಗುತ್ತದೆ."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ಸರಳ"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "ನೀವು ಸ್ನ್ಯಾಕ್‌ಬಾರ್ ಆ್ಯಕ್ಷನ್ ಅನ್ನು ಒತ್ತಿರುವಿರಿ."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ಆ್ಯಕ್ಷನ್"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ಸ್ನ್ಯಾಕ್‌ಬಾರ್ ಅನ್ನು ತೋರಿಸಿ"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "ಆ್ಯಪ್ ನಿರ್ವಹಿಸಿದ ಅಥವಾ ನಿರ್ವಹಿಸುವ ಪ್ರಕ್ರಿಯೆಯ ಬಗ್ಗೆ ಸ್ನ್ಯಾಕ್‌ಬಾರ್‌ಗಳು ಬಳಕೆದಾರರಿಗೆ ತಿಳಿಸುತ್ತವೆ. ಅವುಗಳು ತಾತ್ಕಾಲಿಕವಾಗಿ, ಸ್ಕ್ರೀನ್‌‍ನ ಕೆಳಭಾಗದಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ. ಅವರು ಬಳಕೆದಾರರ ಅನುಭವವನ್ನು ಅಡ್ಡಿಪಡಿಸಬಾರದು ಮತ್ತು ಕಾಣೆಯಾಗಲು ಅವರಿಗೆ ಬಳಕೆದಾರರ ಇನ್‌ಪುಟ್‌ನ ಅಗತ್ಯವಿಲ್ಲ."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ಸ್ನ್ಯಾಕ್‌ಬಾರ್‌ಗಳು ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಭಾಗದಲ್ಲಿ ಸಂದೇಶಗಳನ್ನು ತೋರಿಸುತ್ತದೆ"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("ಇದು ಸ್ನ್ಯಾಕ್‌ಬಾರ್ ಆಗಿದೆ."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("ಸ್ನ್ಯಾಕ್‌ಬಾರ್‌ಗಳು"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ಬೇರೆ ಸ್ಕ್ರೀನ್‌ಗಳು, ಡೇಟಾ ಸೆಟ್‌ಗಳು ಮತ್ತು ಇತರ ಸಂವಹನಗಳಾದ್ಯಂತ ವಿಷಯವನ್ನು ಟ್ಯಾಬ್‌ಗಳು ಆಯೋಜಿಸುತ್ತವೆ."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -510,7 +552,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ಆತ್ಮಕಥೆ"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("ಹೆಸರು*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("ಹೆಸರು ಅಗತ್ಯವಿದೆ."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -576,7 +618,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "ಸ್ಥಳವನ್ನು ಪತ್ತೆಹಚ್ಚುವುದಕ್ಕೆ ಆ್ಯಪ್‌ಗಳಿಗೆ ಸಹಾಯ ಮಾಡಲು Google ಗೆ ಅವಕಾಶ ನೀಡಿ. ಅಂದರೆ, ಯಾವುದೇ ಆ್ಯಪ್‌ಗಳು ರನ್ ಆಗದೇ ಇರುವಾಗಲೂ, Google ಗೆ ಅನಾಮಧೇಯ ಸ್ಥಳದ ಡೇಟಾವನ್ನು ಕಳುಹಿಸುವುದು ಎಂದರ್ಥ."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google ನ ಸ್ಥಳ ಸೇವೆಯನ್ನು ಬಳಸುವುದೇ?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("ಬ್ಯಾಕಪ್ ಖಾತೆಯನ್ನು ಹೊಂದಿಸಿ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ಡೈಲಾಗ್ ತೋರಿಸಿ"),
@@ -584,7 +626,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ಉಲ್ಲೇಖ ಶೈಲಿಗಳು ಮತ್ತು ಮಾಧ್ಯಮ"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ವರ್ಗಗಳು"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ಗ್ಯಾಲರಿ"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("ಕಾರ್ ಉಳಿತಾಯ"),
         "rallyAccountDataChecking":
@@ -608,15 +650,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("ಒಟ್ಟು"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ಖಾತೆಗಳು"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ಅಲರ್ಟ್‌ಗಳು"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("ಬಿಲ್‌ಗಳು"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ಅಂತಿಮ ದಿನಾಂಕ"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ಉಡುಗೆ"),
         "rallyBudgetCategoryCoffeeShops":
@@ -722,7 +764,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ರದ್ದುಗೊಳಿಸಿ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ಕಾರ್ಟ್ ತೆರವುಗೊಳಿಸಿ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("ಕಾರ್ಟ್"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ಶಿಪ್ಪಿಂಗ್:"),
@@ -783,8 +825,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ನೇವಿ ಟ್ರೌಸರ್ಸ್"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("ಪ್ಲಾಸ್ಟರ್ ಟ್ಯೂನಿಕ್"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("ಕ್ವಾರ್ಟೆಟ್ ಟೇಬಲ್"),
         "shrineProductRainwaterTray":
@@ -823,10 +865,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ವೈಟ್ ಪಿನ್‌ಸ್ಟ್ರೈಪ್ ಶರ್ಟ್"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ವಿಟ್ನೀ ಬೆಲ್ಟ್"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("ಕಾರ್ಟ್‌ಗೆ ಸೇರಿಸಿ"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("ಕಾರ್ಟ್ ಮುಚ್ಚಿರಿ"),
         "shrineTooltipCloseMenu":
@@ -840,7 +882,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ಸೆಟ್ಟಿಂಗ್‌ಗಳು"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("ಸ್ಪಂದನಾಶೀಲ ಸ್ಟಾರ್ಟರ್ ಲೇಔಟ್"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("ಮುಖ್ಯ ಭಾಗ"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("ಬಟನ್"),
