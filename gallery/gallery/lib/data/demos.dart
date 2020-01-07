@@ -31,7 +31,6 @@ import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/pages/demo.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 class GalleryDemo {
@@ -669,35 +668,14 @@ class DemoWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool hasCycled = true;
-    return MaterialApp(
-      theme: MaterialDemoThemeData.themeData.copyWith(
+    return Theme(
+      data: MaterialDemoThemeData.themeData.copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-      supportedLocales: GalleryLocalizations.supportedLocales,
-      locale: GalleryOptions.of(context).locale,
-      // Remove the MediaQuery padding because the demo is rendered inside of a
-      // different page that already accounts for this padding.
-      home: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        removeBottom: true,
-        child: Focus(
-          onFocusChange: (hasFocus) {
-            if (hasFocus && hasCycled) {
-              hasCycled = !hasCycled;
-              FocusScope.of(context).requestFocus(
-                  InheritedDemoFocusNodes.of(context).backButtonFocusNode);
-            }
-          },
-          child: ApplyTextOptions(
-            child: CupertinoTheme(
-              data: CupertinoThemeData().copyWith(brightness: Brightness.light),
-              child: child,
-            ),
-          ),
+      child: ApplyTextOptions(
+        child: CupertinoTheme(
+          data: CupertinoThemeData().copyWith(brightness: Brightness.light),
+          child: child,
         ),
       ),
     );

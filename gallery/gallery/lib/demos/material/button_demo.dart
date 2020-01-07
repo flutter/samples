@@ -58,6 +58,7 @@ class ButtonDemo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
       body: buttons,

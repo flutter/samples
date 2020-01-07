@@ -48,6 +48,7 @@ class SelectionControlsDemo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
       body: controls,
