@@ -117,6 +117,7 @@ class TypographyDemo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoTypographyTitle),
       ),
       body: Scrollbar(child: ListView(children: styleItems)),

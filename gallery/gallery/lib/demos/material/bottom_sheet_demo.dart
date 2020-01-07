@@ -50,8 +50,8 @@ class BottomSheetDemo extends StatelessWidget {
         return MaterialPageRoute<Widget>(
           builder: (context) => Scaffold(
             appBar: AppBar(
-              title: Text(_title(context)),
               automaticallyImplyLeading: false,
+              title: Text(_title(context)),
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () {},

@@ -51,7 +51,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
   int _demoViewedCount;
 
   AnimationController _codeBackgroundColorController;
-  FocusNode backButonFocusNode;
 
   GalleryDemoConfiguration get _currentConfig {
     return widget.demo.configurations[_configIndex];
@@ -85,13 +84,11 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         preferences.setInt(_demoViewedCountKey, _demoViewedCount + 1);
       });
     });
-    backButonFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
     _codeBackgroundColorController.dispose();
-    backButonFocusNode.dispose();
     super.dispose();
   }
 
@@ -191,7 +188,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         onPressed: () {
           Navigator.maybePop(context);
         },
-        focusNode: backButonFocusNode,
       ),
       actions: [
         if (_hasOptions)
@@ -487,10 +483,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       );
     }
 
-    return InheritedDemoFocusNodes(
-      backButtonFocusNode: backButonFocusNode,
-      child: FeatureDiscoveryController(page),
-    );
+    return FeatureDiscoveryController(page);
   }
 }
 
@@ -780,20 +773,4 @@ class CodeDisplayPage extends StatelessWidget {
       ],
     );
   }
-}
-
-class InheritedDemoFocusNodes extends InheritedWidget {
-  InheritedDemoFocusNodes({
-    @required Widget child,
-    @required this.backButtonFocusNode,
-  })  : assert(child != null),
-        super(child: child);
-
-  final FocusNode backButtonFocusNode;
-
-  static InheritedDemoFocusNodes of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType();
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }

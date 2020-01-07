@@ -243,6 +243,7 @@ class ColorsDemo extends StatelessWidget {
       length: palettes.length,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(GalleryLocalizations.of(context).demoColorsTitle),
           bottom: TabBar(
             isScrollable: true,
