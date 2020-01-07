@@ -205,7 +205,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           documentationUrl:
               'https://api.flutter.dev/flutter/material/Card-class.html',
           buildRoute: (context) => CardsDemo(),
-          code: CodeSegments.tabsDemo,
+          code: CodeSegments.cardsDemo,
         ),
       ],
     ),

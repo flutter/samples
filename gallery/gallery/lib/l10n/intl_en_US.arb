@@ -546,13 +546,13 @@
     "description": "Description for the floating action button component demo."
   },
   "demoCardTitle": "Cards",
-    "@demoChipTitle": {
-      "description": "Title for the material cards component demo."
-    },
-    "demoCardSubtitle": "Baseline cards with rounded corners",
-    "@demoChipSubtitle": {
-      "description": "Subtitle for the material cards component demo."
-    },
+  "@demoChipTitle": {
+    "description": "Title for the material cards component demo."
+  },
+  "demoCardSubtitle": "Baseline cards with rounded corners",
+  "@demoChipSubtitle": {
+    "description": "Subtitle for the material cards component demo."
+  },
   "demoChipTitle": "Chips",
   "@demoChipTitle": {
     "description": "Title for the material chips component demo."

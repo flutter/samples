@@ -5,6 +5,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// BEGIN cardsDemo
+
 enum CardDemoType {
   standard,
   tappable,
@@ -396,3 +398,5 @@ class _CardsDemoState extends State<CardsDemo> {
     );
   }
 }
+
+// END
