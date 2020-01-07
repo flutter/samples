@@ -14,6 +14,7 @@ import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
+import 'package:gallery/demos/material/cards_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
@@ -165,6 +166,22 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://docs.flutter.io/flutter/material/FloatingActionButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.floating),
           code: CodeSegments.buttonDemoFloating,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoActionChipDescription,
+      icon: GalleryIcons.cards,
+      subtitle: 'Baseline cards with rounded corners',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Cards',
+          description:
+              'A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/Card-class.html',
+          buildRoute: (context) => CardsDemo(),
+          code: CodeSegments.tabsDemo,
         ),
       ],
     ),

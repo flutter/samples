@@ -505,9 +505,21 @@
   "@demoFloatingButtonDescription": {
     "description": "Description for the floating action button component demo."
   },
+  "demoCardTitle": "Cards",
+    "@demoChipTitle": {
+      "description": "Title for the material cards component demo."
+    },
+    "demoCardSubtitle": "Baseline cards with rounded corners",
+    "@demoChipSubtitle": {
+      "description": "Subtitle for the material cards component demo."
+    },
   "demoChipTitle": "Chips",
   "@demoChipTitle": {
     "description": "Title for the material chips component demo."
+  },
+  "demoCardDescription": "A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.",
+  "@demoChipDescription": {
+    "description": "Description for the material cards component demo."
   },
   "demoChipSubtitle": "Compact elements that represent an input, attribute, or action",
   "@demoChipSubtitle": {
