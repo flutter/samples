@@ -477,9 +477,13 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
 
     // Add the splash page functionality for desktop.
     if (isDesktop) {
-      page = SplashPage(
-        isAnimated: false,
-        child: page,
+      page = MediaQuery.removePadding(
+        removeTop: true,
+        context: context,
+        child: SplashPage(
+          isAnimated: false,
+          child: page,
+        ),
       );
     }
 
