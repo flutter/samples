@@ -129,7 +129,7 @@ class DialogDemo extends StatelessWidget {
       // changing type.
       key: ValueKey(type),
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<Widget>(
+        return _NoAnimationMaterialPageRoute<void>(
           builder: (context) => Scaffold(
             key: _scaffoldKey,
             appBar: AppBar(
@@ -167,6 +167,26 @@ class DialogDemo extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+/// A MaterialPageRoute without any transition animations.
+class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
+  _NoAnimationMaterialPageRoute({
+    @required WidgetBuilder builder,
+    RouteSettings settings,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+  }) : super(
+            builder: builder,
+            maintainState: maintainState,
+            settings: settings,
+            fullscreenDialog: fullscreenDialog);
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    return child;
   }
 }
 
