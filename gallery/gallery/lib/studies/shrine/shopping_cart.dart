@@ -11,6 +11,7 @@ import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:gallery/studies/shrine/theme.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
 const _startColumnWidth = 60.0;
@@ -99,6 +100,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                         child: Text(
                           GalleryLocalizations.of(context)
                               .shrineCartClearButtonCaption,
+                          style: TextStyle(letterSpacing: largeLetterSpacing),
                         ),
                       ),
                       onPressed: () {
@@ -126,7 +128,10 @@ class ShoppingCartSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle smallAmountStyle =
         Theme.of(context).textTheme.body1.copyWith(color: shrineBrown600);
-    final TextStyle largeAmountStyle = Theme.of(context).textTheme.display1;
+    final TextStyle largeAmountStyle = Theme.of(context)
+        .textTheme
+        .display1
+        .copyWith(letterSpacing: mediumLetterSpacing);
     final NumberFormat formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),

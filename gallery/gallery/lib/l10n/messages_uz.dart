@@ -37,52 +37,58 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Klipbordga nusxalanmadi: ${error}";
 
-  static m7(name, phoneNumber) => "${name} telefoni raqami: ${phoneNumber}";
+  static m7(value) => "Uzluksiz: ${value}";
 
-  static m8(value) => "Siz tanlagan qiymat: \"${value}\"";
+  static m8(value) => "Diskret: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} telefoni raqami: ${phoneNumber}";
+
+  static m10(value) => "Siz tanlagan qiymat: \"${value}\"";
+
+  static m11(accountName, accountNumber, amount) =>
       "${accountNumber} raqamli ${accountName} hisobida ${amount} bor.";
 
-  static m10(amount) =>
+  static m12(amount) =>
       "Siz bu oy bankomatlar komissiyasi uchun ${amount} sarfladingiz";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Juda yaxshi! Bu oy hisobingizda oldingi oyga nisbatan ${percent} koʻp mablagʻ bor.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Diqqat! Bu oy budjetingizdan ${percent} sarfladingiz.";
 
-  static m13(amount) => "Bu hafta restoranlar uchun ${amount} sarfladingiz.";
+  static m15(amount) => "Bu hafta restoranlar uchun ${amount} sarfladingiz.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, one: 'Soliq imtiyozlaringizni oshiring! Noaniq 1 ta tranzaksiyani turkumlang.', other: 'Soliq imtiyozlaringizni oshiring! Noaniq ${count} ta tranzaksiyani turkumlang.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "${billName} uchun ${date} sanasigacha ${amount} toʻlash kerak.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} uchun ajratilgan ${amountTotal} dan ${amountUsed} ishlatildi, qolgan balans: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'HECH NIMA', one: '1 TA ELEMENT', other: '${quantity} TA ELEMENT')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Soni: ${quantity}";
+  static m21(quantity) => "Soni: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Savatchaga hech nima joylanmagan', one: 'Savatchada 1 ta mahsulot', other: 'Savatchada ${quantity} ta mahsulot')}";
 
-  static m21(product) => "Olib tashlash: ${product}";
+  static m23(product) => "Olib tashlash: ${product}";
 
-  static m22(value) => "${value}-band";
+  static m24(value) => "${value}-band";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Github omboridan Flutter namunalari"),
+            "GitHub omboridan Flutter namunalari"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Galereyaga qaytish"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Hisob"),
         "bottomNavigationAlarmTab":
@@ -307,6 +313,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Orqa fon bilan"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Bildirishnomani koʻrsatish"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Boshi"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Amal chiplari asosiy kontentga oid amallarni faollashtiradigan parametrlar toʻplamini ifodalaydi. Amal chiplari dinamik tarzda chiqib, inteyfeysni boyitadi."),
         "demoActionChipTitle":
@@ -404,6 +414,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Segmentlangan boshqaruv elementlari"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Slayder uzluksiz yoki diskret qiymatlarni tanlashda ishlatiladi."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS uslubidagi slayder"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slayder"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Kalit tugma biror sozlamani yoqishi yoki faolsizlantirishi mumkin."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS uslubidagi kalit"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS uslubidagi quyi navigatsiya varaqlari paneli Bir nechta faol varaqlarni chiqaradi va birinchi varaq asosiy hisoblanadi."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS uslubidagi varaqlar paneli"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Varaqlar paneli"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Oddiy, bildirishnoma va butun ekran"),
         "demoDialogTitle":
@@ -479,6 +507,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Oddiy muloqot oynasida foydalanuvchiga tanlash uchun bir nechta variant beriladi. Oynada sarlavha boʻlsa, u variantlar ustida joylashadi."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Oddiy"),
+        "demoSnackbarsAction":
+            MessageLookupByLibrary.simpleMessage("Snekbar amalini bosdingiz."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("AMAL"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("SNEKBARNI CHIQARISH"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snekbarlar foydalanuvchilarga ilovaning amali yoki jarayoni haqida xabar qiladi. Ular ekranning quyi qismida vaqtincha chiqadi. Snekbarlar foydalanishga xalaqit qilmasligi kerak va bezovta qilmasdan yopilish kerak."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snekbarlar ekranning quyi qismida xabarlar chiqaradi"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Bu – snekbar."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Snekbarlar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Varaqlarda turli ekranlardagi kontent, axborot toʻplamlari va boshqa amallar jamlanadi."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -500,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Tarjimayi hol"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Ism*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ismni kiriting."),
         "demoTextFieldNoMoreThan":
@@ -563,7 +605,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google ilovalarga joylashuvni aniqlashda yordam berishi uchun ruxsat bering. Bu shuni bildiradiki, hech qanday ilova ishlamayotgan boʻlsa ham joylashuv axboroti maxfiy tarzda Googlega yuboriladi."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Googlening joylashuvni aniqlash xizmatidan foydalanilsinmi?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Hisobni tanlash"),
         "dialogShow":
@@ -573,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Turkumlar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallereya"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Avtomobil olish uchun"),
         "rallyAccountDataChecking":
@@ -597,15 +639,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Jami"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Hisoblar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Bildirishnomalar"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hisob-kitob"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Muddati"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Kiyim-kechak"),
         "rallyBudgetCategoryCoffeeShops":
@@ -707,7 +749,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("BEKOR QILISH"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("SAVATCHANI TOZALASH"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("SAVATCHA"),
         "shrineCartShippingCaption":
@@ -770,8 +812,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kalta klesh shimlari"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Aylana stol"),
         "shrineProductRainwaterTray":
@@ -810,10 +852,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Oq chiziqli koʻylak"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Charm kamar"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Savatga joylash"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Savatchani yopish"),
         "shrineTooltipCloseMenu":
@@ -827,7 +869,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sozlamalar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Moslashuvchan maket"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Asosiy qism"),
         "starterAppGenericButton":

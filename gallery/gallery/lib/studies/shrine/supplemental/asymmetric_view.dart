@@ -10,6 +10,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/supplemental/desktop_product_columns.dart';
 import 'package:gallery/studies/shrine/supplemental/product_columns.dart';
@@ -168,9 +169,6 @@ class DesktopAsymmetricView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget _gap = Container(width: 24);
-    final Widget _flex = Expanded(flex: 1, child: Container());
-
     // Determine the scale factor for the desktop asymmetric view.
 
     final double textScaleFactor =
@@ -190,7 +188,7 @@ class DesktopAsymmetricView extends StatelessWidget {
     final double columnGapWidth = 24 * imageScaleFactor;
     final double windowWidth = MediaQuery.of(context).size.width;
 
-    final int columnCount = max(
+    final int idealColumnCount = max(
       1,
       ((windowWidth + columnGapWidth - 2 * minimumBoundaryWidth - sidebar) /
               (columnWidth + columnGapWidth))
@@ -198,60 +196,100 @@ class DesktopAsymmetricView extends StatelessWidget {
     );
 
     // Limit column width to fit within window when there is only one column.
-    final double actualColumnWidth = columnCount == 1
+    final double actualColumnWidth = idealColumnCount == 1
         ? min(
             columnWidth,
             windowWidth - sidebar - 2 * minimumBoundaryWidth,
           )
         : columnWidth;
 
-    final List<DesktopProductCardColumn> productCardColumns =
-        List<DesktopProductCardColumn>.generate(columnCount, (currentColumn) {
-      final bool alignToEnd =
-          (currentColumn % 2 == 1) || (currentColumn == columnCount - 1);
-      final bool startLarge = (currentColumn % 2 == 1);
-      return DesktopProductCardColumn(
-        columnCount: columnCount,
-        currentColumn: currentColumn,
-        alignToEnd: alignToEnd,
-        startLarge: startLarge,
-        products: products,
-        largeImageWidth: actualColumnWidth,
-        smallImageWidth:
-            columnCount > 1 ? columnWidth - columnGapWidth : actualColumnWidth,
-      );
-    });
+    final int columnCount = min(idealColumnCount, max(products.length, 1));
 
     return AnimatedBuilder(
       animation: PageStatus.of(context).cartController,
       builder: (context, child) => ExcludeSemantics(
         excluding: !productPageIsVisible(context),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            Container(height: 60),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _flex,
-                ...List<Widget>.generate(
-                  2 * columnCount - 1,
-                  (generalizedColumnIndex) {
-                    if (generalizedColumnIndex % 2 == 0) {
-                      return productCardColumns[generalizedColumnIndex ~/ 2];
-                    } else {
-                      return _gap;
-                    }
-                  },
-                ),
-                _flex,
-              ],
-            ),
-            Container(height: 60),
-          ],
-          physics: const AlwaysScrollableScrollPhysics(),
+        child: DesktopColumns(
+          columnCount: columnCount,
+          products: products,
+          largeImageWidth: actualColumnWidth,
+          smallImageWidth: columnCount > 1
+              ? columnWidth - columnGapWidth
+              : actualColumnWidth,
         ),
       ),
+    );
+  }
+}
+
+class DesktopColumns extends StatelessWidget {
+  DesktopColumns({
+    @required this.columnCount,
+    @required this.products,
+    @required this.largeImageWidth,
+    @required this.smallImageWidth,
+  });
+
+  final int columnCount;
+  final List<Product> products;
+  final double largeImageWidth;
+  final double smallImageWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget _gap = Container(width: 24);
+
+    final List<List<Product>> productCardLists = balancedLayout(
+      context: context,
+      columnCount: columnCount,
+      products: products,
+      largeImageWidth: largeImageWidth,
+      smallImageWidth: smallImageWidth,
+    );
+
+    final List<DesktopProductCardColumn> productCardColumns =
+        List<DesktopProductCardColumn>.generate(
+      columnCount,
+      (column) {
+        final bool alignToEnd =
+            (column % 2 == 1) || (column == columnCount - 1);
+        final bool startLarge = (column % 2 == 1);
+        final bool lowerStart = (column % 2 == 1);
+        return DesktopProductCardColumn(
+          alignToEnd: alignToEnd,
+          startLarge: startLarge,
+          lowerStart: lowerStart,
+          products: productCardLists[column],
+          largeImageWidth: largeImageWidth,
+          smallImageWidth: smallImageWidth,
+        );
+      },
+    );
+
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: [
+        Container(height: 60),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Spacer(),
+            ...List<Widget>.generate(
+              2 * columnCount - 1,
+              (generalizedColumnIndex) {
+                if (generalizedColumnIndex % 2 == 0) {
+                  return productCardColumns[generalizedColumnIndex ~/ 2];
+                } else {
+                  return _gap;
+                }
+              },
+            ),
+            Spacer(),
+          ],
+        ),
+        Container(height: 60),
+      ],
+      physics: const AlwaysScrollableScrollPhysics(),
     );
   }
 }

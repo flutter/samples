@@ -10,6 +10,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/colors.dart';
+import 'package:gallery/studies/shrine/theme.dart';
 
 const _horizontalPadding = 24.0;
 
@@ -117,6 +118,7 @@ class _UsernameTextField extends StatelessWidget {
           decoration: InputDecoration(
             labelText:
                 GalleryLocalizations.of(context).shrineLoginUsernameLabel,
+            labelStyle: TextStyle(letterSpacing: mediumLetterSpacing),
           ),
         ),
       ),
@@ -143,6 +145,7 @@ class _PasswordTextField extends StatelessWidget {
           decoration: InputDecoration(
             labelText:
                 GalleryLocalizations.of(context).shrineLoginPasswordLabel,
+            labelStyle: TextStyle(letterSpacing: mediumLetterSpacing),
           ),
         ),
       ),
@@ -192,6 +195,7 @@ class _CancelAndNextButtons extends StatelessWidget {
                 padding: buttonTextPadding,
                 child: Text(
                   GalleryLocalizations.of(context).shrineNextButtonCaption,
+                  style: TextStyle(letterSpacing: largeLetterSpacing),
                 ),
               ),
               elevation: 8,

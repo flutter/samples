@@ -1,16 +1,34 @@
+# Codeviewer
+
 A command-line application to highlight dart source code.
 
 ## Overview
 
 Code segments are highlighted before the app is compiled.
-This is done because the highlighting process can take 300ms to finish, creating a noticeable delay when the demo switches to code page.
+This is done because the highlighting process can take 300ms to finish, creating
+a noticeable delay when the demo switches to code page.
 
 The highlighter takes all files in the `gallery/lib/demos/` folder and scans each.
-Highlighted code widgets are stored in the `gallery/lib/codeviewer/code_segments.dart` file.
-Under the root directory, run `make update-code-segments` to run the highlighter.
+Highlighted code widgets are stored in the
+`gallery/lib/codeviewer/code_segments.dart` file.
 
-Wrap a block of code with lines `// BEGIN yourDemoName` and `// END` to mark it for highlighting. The block in between, as well as any copyright notice and imports at the beginning of the file, are automatically taken and highlighted, and stored as `static TextSpan yourDemoName(BuildContext context)` in `gallery/lib/codeviewer/code_segments.dart`.
-To display the code, go to `gallery/lib/data/demos.dart`, and add `code: CodeSegments.yourDemoName,` to your `GalleryDemoConfiguration` object.
+## How to generate code segments
+
+From the `samples/gallery/gallery/` directory:
+1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
+running `flutter pub get`.
+2. Then run `flutter pub run grinder update-code-segments` to generate code
+segments with highlighting.
+
+## How to define a block of code to generate highlighting for
+
+Wrap a block of code with lines `// BEGIN yourDemoName` and `// END` to mark it
+for highlighting. The block in between, as well as any copyright notice and
+imports at the beginning of the file, are automatically taken and highlighted,
+and stored as `static TextSpan yourDemoName(BuildContext context)` in
+`gallery/lib/codeviewer/code_segments.dart`. To display the code, go to
+`gallery/lib/data/demos.dart`, and add `code: CodeSegments.yourDemoName,` to
+your `GalleryDemoConfiguration` object.
 
 ## Multiple blocks of code
 

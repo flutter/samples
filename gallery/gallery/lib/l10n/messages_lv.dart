@@ -37,51 +37,57 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Neizdevās kopēt starpliktuvē: ${error}";
 
-  static m7(name, phoneNumber) => "${name} tālruņa numurs ir ${phoneNumber}";
+  static m7(value) => "Nepārtraukts: ${value}";
 
-  static m8(value) => "Jūs atlasījāt: “${value}”";
+  static m8(value) => "Atsevišķas vērtības: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(name, phoneNumber) => "${name} tālruņa numurs ir ${phoneNumber}";
+
+  static m10(value) => "Jūs atlasījāt: “${value}”";
+
+  static m11(accountName, accountNumber, amount) =>
       "Kontā (${accountName}; numurs: ${accountNumber}) ir šāda summa: ${amount}.";
 
-  static m10(amount) => "Šomēnes esat iztērējis ${amount} par maksu bankomātos";
+  static m12(amount) => "Šomēnes esat iztērējis ${amount} par maksu bankomātos";
 
-  static m11(percent) =>
+  static m13(percent) =>
       "Labs darbs! Jūsu norēķinu konts ir par ${percent} augstāks nekā iepriekšējā mēnesī.";
 
-  static m12(percent) =>
+  static m14(percent) =>
       "Uzmanību! Jūs esat izmantojis ${percent} no sava iepirkšanās budžeta šim mēnesim.";
 
-  static m13(amount) => "Šonedēļ esat iztērējis ${amount} restorānos.";
+  static m15(amount) => "Šonedēļ esat iztērējis ${amount} restorānos.";
 
-  static m14(count) =>
+  static m16(count) =>
       "${Intl.plural(count, zero: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas ${count} darījumiem, kuriem vēl nav pievienotas kategorijas.', one: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas 1 darījumam, kuram vēl nav pievienota kategorija.', other: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas ${count} darījumiem, kuriem vēl nav pievienotas kategorijas.')}";
 
-  static m15(billName, date, amount) =>
+  static m17(billName, date, amount) =>
       "Rēķins (${billName}) par summu ${amount} ir jāapmaksā līdz šādam datumam: ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Budžets ${budgetName} ar iztērētu summu ${amountUsed} no ${amountTotal}, atlikusī summa: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m19(quantity) =>
       "${Intl.plural(quantity, zero: 'NAV VIENUMU', one: '1 VIENUMS', other: '${quantity} VIENUMI')}";
 
-  static m18(price) => "x ${price}";
+  static m20(price) => "x ${price}";
 
-  static m19(quantity) => "Daudzums: ${quantity}";
+  static m21(quantity) => "Daudzums: ${quantity}";
 
-  static m20(quantity) =>
+  static m22(quantity) =>
       "${Intl.plural(quantity, zero: 'Iepirkumu grozs, nav preču', one: 'Iepirkumu grozs, 1 prece', other: 'Iepirkumu grozs, ${quantity} preces')}";
 
-  static m21(product) => "Noņemt produktu: ${product}";
+  static m23(product) => "Noņemt produktu: ${product}";
 
-  static m22(value) => "Vienums ${value}";
+  static m24(value) => "Vienums ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Skaņu paraugi Github krātuvē"),
+            "Skaņu paraugi GitHub krātuvē"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Atpakaļ uz galeriju"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Konts"),
         "bottomNavigationAlarmTab":
@@ -298,6 +304,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ar fonu"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Parādīt brīdinājumu"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Tērzēšana"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Sākums"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profils"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Darbību žetoni ir tādu opciju kopa, kas aktivizē ar primāro saturu saistītu darbību. Darbību žetoniem lietotāja saskarnē jābūt redzamiem dinamiski un atbilstoši kontekstam."),
         "demoActionChipTitle":
@@ -393,6 +405,24 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS stila segmentēta pārvaldība"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmentēta pārvaldība"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Izmantojot slīdni, var atlasīt vērtību no nepārtraukta diapazona vai atsevišķu vērtību kopas."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stila slīdnis"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slīdnis"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Izmantojot slēdzi, var pārslēgt vienu iestatījumu no ieslēgta stāvokļa uz izslēgtu vai otrādi."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stila slēdzis"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS stila apakšējā navigācijas ciļņu josla Šeit tiek rādītas vairākas cilnes, un viena no tām ir aktīva. Pēc noklusējuma aktīva ir pirmā cilne."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS stila apakšējā ciļņu josla"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Ciļņu josla"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Vienkārši, brīdinājuma un pilnekrāna režīma"),
         "demoDialogTitle":
@@ -469,6 +499,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vienkāršā dialoglodziņā lietotājam tiek piedāvāts izvēlēties starp vairākām opcijām. Vienkāršam dialoglodziņam ir neobligāts virsraksts, kas tiek attēlots virs izvēlēm."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Vienkāršs"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Jūs nospiedāt paziņojumu joslas darbības pogu."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("DARBĪBA"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("RĀDĪT PAZIŅOJUMU JOSLU"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Paziņojumu joslās tiek rādīta informācija par procesiem, ko lietotnes ir veikušas vai drīz veiks. Paziņojumu joslas tiek īslaicīgi rādītas ekrāna apakšā. Tās nedrīkst traucēt lietošanu, un nav nepieciešama lietotāja ievade, lai tās pazustu."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Paziņojumu joslās ekrāna apakšā tiek rādīti ziņojumi"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Šī ir paziņojumu josla."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Paziņojumu joslas"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Cilnēs saturs ir sakārtots vairākos ekrānos, datu kopās un citos mijiedarbības veidos."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -491,7 +535,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Biogrāfija"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Vārds*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m9,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ir jāievada vārds."),
         "demoTextFieldNoMoreThan":
@@ -556,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google varēs palīdzēt lietotnēm noteikt atrašanās vietu. Tas nozīmē, ka uzņēmumam Google tiks nosūtīti anonīmi atrašanās vietas dati, pat ja neviena lietotne nedarbosies."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vai izmantot Google atrašanās vietas pakalpojumu?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m10,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Dublējuma konta iestatīšana"),
         "dialogShow":
@@ -566,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorijas"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
-        "rallyAccountAmount": m9,
+        "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Ietaupījumi automašīnai"),
         "rallyAccountDataChecking":
@@ -591,15 +635,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Kopā"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Konti"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Brīdinājumi"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m12,
+        "rallyAlertsMessageCheckingAccount": m13,
+        "rallyAlertsMessageHeadsUpShopping": m14,
+        "rallyAlertsMessageSpentOnRestaurants": m15,
+        "rallyAlertsMessageUnassignedTransactions": m16,
+        "rallyBillAmount": m17,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rēķini"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Termiņš"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m18,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Apģērbs"),
         "rallyBudgetCategoryCoffeeShops":
@@ -704,7 +748,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ATCELT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("NOTĪRĪT GROZU"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m19,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("GROZS"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Piegāde:"),
@@ -766,8 +810,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tumši zilas bikses"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Ģipša krāsas tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m20,
+        "shrineProductQuantity": m21,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Četrvietīgs galds"),
         "shrineProductRainwaterTray":
@@ -806,10 +850,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Balts svītrains krekls"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney josta"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m22,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Pievienot grozam"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m23,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Aizvērt grozu"),
         "shrineTooltipCloseMenu":
@@ -823,7 +867,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Iestatījumi"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Adaptīvs sākuma izkārtojums"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m24,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Pamatteksts"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("POGA"),

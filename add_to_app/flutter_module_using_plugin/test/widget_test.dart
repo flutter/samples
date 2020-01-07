@@ -9,13 +9,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_module_using_plugin/main.dart';
+import 'package:provider/provider.dart';
+
+class MockCounterModel extends ChangeNotifier implements CounterModel {
+  int _count = 0;
+
+  int get count => _count;
+
+  void increment() {
+    _count++;
+    notifyListeners();
+  }
+}
 
 void main() {
   testWidgets('MiniView smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       MaterialApp(
-        home: Contents(),
+        home: ChangeNotifierProvider<CounterModel>.value(
+          value: MockCounterModel(),
+          child: Contents(),
+        ),
       ),
     );
 

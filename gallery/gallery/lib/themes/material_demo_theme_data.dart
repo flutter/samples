@@ -12,16 +12,25 @@ class MaterialDemoThemeData {
       color: _colorScheme.primary,
       iconTheme: IconThemeData(color: _colorScheme.onPrimary),
     ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      color: _colorScheme.primary,
+    ),
     buttonTheme: ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
       colorScheme: _colorScheme,
     ),
     canvasColor: _colorScheme.background,
     cursorColor: _colorScheme.primary,
+    toggleableActiveColor: _colorScheme.primary,
     highlightColor: Colors.transparent,
     indicatorColor: _colorScheme.onPrimary,
     primaryColor: _colorScheme.primary,
+    accentColor: _colorScheme.primary,
+    backgroundColor: Colors.white,
     scaffoldBackgroundColor: _colorScheme.background,
+    snackBarTheme: SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+    ),
     typography: Typography(
       platform: defaultTargetPlatform,
       englishLike: Typography.englishLike2018,
