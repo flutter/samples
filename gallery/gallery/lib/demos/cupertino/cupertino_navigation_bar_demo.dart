@@ -69,8 +69,12 @@ class _NoAnimationCupertinoPageRoute<T> extends CupertinoPageRoute<T> {
   }) : super(builder: builder, title: title);
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return child;
   }
 }
