@@ -21,6 +21,7 @@ class PlatformWidget extends StatelessWidget {
       case TargetPlatform.android:
         return androidBuilder(context);
       case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
         return iosBuilder(context);
       default:
         assert(false, 'Unexpected platform $defaultTargetPlatform');
