@@ -310,7 +310,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: GalleryLocalizations.of(context).demoContextMenuTitle,
           description: GalleryLocalizations.of(context).demoMenuDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/PopupMenuButton-class.html',
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
           buildRoute: (context) => MenuDemo(
             type: MenuDemoType.contextMenu,
           ),
@@ -320,7 +320,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: GalleryLocalizations.of(context).demoSectionedMenuTitle,
           description: GalleryLocalizations.of(context).demoMenuDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/PopupMenuButton-class.html',
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
           buildRoute: (context) => MenuDemo(
             type: MenuDemoType.sectionedMenu,
           ),
@@ -330,7 +330,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: GalleryLocalizations.of(context).demoChecklistMenuTitle,
           description: GalleryLocalizations.of(context).demoMenuDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/PopupMenuButton-class.html',
+              'https://api.flutter.dev/flutter/material/CheckedPopupMenuItem-class.html',
           buildRoute: (context) => MenuDemo(
             type: MenuDemoType.checklistMenu,
           ),
@@ -340,7 +340,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: GalleryLocalizations.of(context).demoSimpleMenuTitle,
           description: GalleryLocalizations.of(context).demoMenuDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/PopupMenuButton-class.html',
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
           buildRoute: (context) => MenuDemo(
             type: MenuDemoType.simpleMenu,
           ),

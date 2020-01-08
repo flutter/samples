@@ -39,7 +39,6 @@ class _MenuDemoState extends State<MenuDemo> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   SimpleValue _simpleValue;
-
   List<CheckedValue> _checkedValues;
 
   @override
