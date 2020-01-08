@@ -698,6 +698,18 @@
     description="Description for the cupertino action sheet component demo."
     >An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions.</string>
   <string
+    name="demoCupertinoNavigationBarTitle"
+    description="Title for the cupertino navigation bar component demo."
+    >Navigation Bar</string>
+  <string
+    name="demoCupertinoNavigationBarSubtitle"
+    description="Subtitle for the cupertino navigation bar component demo."
+    >iOS-style navigation bar</string>
+  <string
+    name="demoCupertinoNavigationBarDescription"
+    description="Description for the cupertino navigation bar component demo."
+    >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
+  <string
     name="demoCupertinoSegmentedControlTitle"
     description="Title for the cupertino segmented control component demo."
     >Segmented Control</string>

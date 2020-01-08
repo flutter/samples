@@ -733,6 +733,18 @@
   "@demoCupertinoActionSheetDescription": {
     "description": "Description for the cupertino action sheet component demo."
   },
+  "demoCupertinoNavigationBarTitle": "Navigation Bar",
+  "@demoCupertinoNavigationBarTitle": {
+    "description": "Title for the cupertino navigation bar component demo."
+  },
+  "demoCupertinoNavigationBarSubtitle": "iOS-style navigation bar",
+  "@demoCupertinoNavigationBarSubtitle": {
+    "description": "Subtitle for the cupertino navigation bar component demo."
+  },
+  "demoCupertinoNavigationBarDescription": "An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.",
+  "@demoCupertinoNavigationBarDescription": {
+    "description": "Description for the cupertino navigation bar component demo."
+  },
   "demoCupertinoSegmentedControlTitle": "Segmented Control",
   "@demoCupertinoSegmentedControlTitle": {
     "description": "Title for the cupertino segmented control component demo."

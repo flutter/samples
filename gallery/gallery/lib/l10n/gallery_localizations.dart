@@ -1645,6 +1645,28 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino buttons component demo.');
   }
 
+  String get demoCupertinoNavigationBarDescription {
+    return Intl.message(
+        r'An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarDescription',
+        desc: r'Description for the cupertino navigation bar component demo.');
+  }
+
+  String get demoCupertinoNavigationBarSubtitle {
+    return Intl.message(r'iOS-style navigation bar',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarSubtitle',
+        desc: r'Subtitle for the cupertino navigation bar component demo.');
+  }
+
+  String get demoCupertinoNavigationBarTitle {
+    return Intl.message(r'Navigation Bar',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarTitle',
+        desc: r'Title for the cupertino navigation bar component demo.');
+  }
+
   String get demoCupertinoSegmentedControlDescription {
     return Intl.message(
         r'Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.',
