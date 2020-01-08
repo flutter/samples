@@ -578,6 +578,30 @@
     description="Description for the simple dialog component demo."
     >A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.</string>
   <string
+    name="demoGridListsTitle"
+    description="Title for the grid lists component demo."
+    >Grid Lists</string>
+  <string
+    name="demoGridListsSubtitle"
+    description="Subtitle for the grid lists component demo."
+    >Row and column layout</string>
+  <string
+    name="demoGridListsDescription"
+    description="Description for the grid lists component demo."
+    >Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.</string>
+  <string
+    name="demoGridListsImageOnlyTitle"
+    description="Title for the grid lists image-only component demo."
+    >Image only</string>
+  <string
+    name="demoGridListsHeaderTitle"
+    description="Title for the grid lists component demo with headers on each tile."
+    >With header</string>
+  <string
+    name="demoGridListsFooterTitle"
+    description="Title for the grid lists component demo with footers on each tile."
+    >With footer</string>
+  <string
     name="demoSlidersTitle"
     description="Title for the sliders component demo."
     >Sliders</string>
@@ -1329,6 +1353,62 @@
     name="colorsBlueGrey"
     description="Tab title for the color blue grey."
     >BLUE GREY</string>
+  <string
+    name="placeChennai"
+    description="Title for Chennai location."
+    >Chennai</string>
+  <string
+    name="placeTanjore"
+    description="Title for Tanjore location."
+    >Tanjore</string>
+  <string
+    name="placeChettinad"
+    description="Title for Chettinad location."
+    >Chettinad</string>
+  <string
+    name="placePondicherry"
+    description="Title for Pondicherry location."
+    >Pondicherry</string>
+  <string
+    name="placeFlowerMarket"
+    description="Title for Flower Market location."
+    >Flower Market</string>
+  <string
+    name="placeBronzeWorks"
+    description="Title for Bronze Works location."
+    >Bronze Works</string>
+  <string
+    name="placeMarket"
+    description="Title for Market location."
+    >Market</string>
+  <string
+    name="placeThanjavurTemple"
+    description="Title for Thanjavur Temple location."
+    >Thanjavur Temple</string>
+  <string
+    name="placeSaltFarm"
+    description="Title for Salt Farm location."
+    >Salt Farm</string>
+  <string
+    name="placeScooters"
+    description="Title for image of people riding on scooters."
+    >Scooters</string>
+  <string
+    name="placeSilkMaker"
+    description="Title for an image of a silk maker."
+    >Silk Maker</string>
+  <string
+    name="placeLunchPrep"
+    description="Title for an image of preparing lunch."
+    >Lunch Prep</string>
+  <string
+    name="placeBeach"
+    description="Title for Beach location."
+    >Beach</string>
+  <string
+    name="placeFisherman"
+    description="Title for an image of a fisherman."
+    >Fisherman</string>
   <string
     name="starterAppTitle"
     description="The title and name for the starter app."

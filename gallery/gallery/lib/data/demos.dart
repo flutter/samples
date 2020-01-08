@@ -22,6 +22,7 @@ import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
+import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
@@ -275,6 +276,41 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/widgets/PageRoute/fullscreenDialog.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.fullscreen),
           code: CodeSegments.dialogDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoGridListsTitle,
+      icon: GalleryIcons.gridOn,
+      subtitle: GalleryLocalizations.of(context).demoGridListsSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoGridListsImageOnlyTitle,
+          description:
+              GalleryLocalizations.of(context).demoGridListsDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/widgets/GridView-class.html',
+          buildRoute: (context) =>
+              GridListDemo(type: GridListDemoType.imageOnly),
+          code: CodeSegments.gridListsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoGridListsHeaderTitle,
+          description:
+              GalleryLocalizations.of(context).demoGridListsDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/widgets/GridView-class.html',
+          buildRoute: (context) => GridListDemo(type: GridListDemoType.header),
+          code: CodeSegments.gridListsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoGridListsFooterTitle,
+          description:
+              GalleryLocalizations.of(context).demoGridListsDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/widgets/GridView-class.html',
+          buildRoute: (context) => GridListDemo(type: GridListDemoType.footer),
+          code: CodeSegments.gridListsDemo,
         ),
       ],
     ),

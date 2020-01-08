@@ -613,6 +613,30 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+  "demoGridListsTitle": "Grid Lists",
+  "@demoGridListsTitle": {
+    "description": "Title for the grid lists component demo."
+  },
+  "demoGridListsSubtitle": "Row and column layout",
+  "@demoGridListsSubtitle": {
+    "description": "Subtitle for the grid lists component demo."
+  },
+  "demoGridListsDescription": "Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.",
+  "@demoGridListsDescription": {
+    "description": "Description for the grid lists component demo."
+  },
+  "demoGridListsImageOnlyTitle": "Image only",
+  "@demoGridListsImageOnlyTitle": {
+    "description": "Title for the grid lists image-only component demo."
+  },
+  "demoGridListsHeaderTitle": "With header",
+  "@demoGridListsHeaderTitle": {
+    "description": "Title for the grid lists component demo with headers on each tile."
+  },
+  "demoGridListsFooterTitle": "With footer",
+  "@demoGridListsFooterTitle": {
+    "description": "Title for the grid lists component demo with footers on each tile."
+  },
   "demoSlidersTitle": "Sliders",
   "@demoSlidersTitle": {
     "description": "Title for the sliders component demo."
@@ -1401,6 +1425,62 @@
   "colorsBlueGrey": "BLUE GREY",
   "@colorsBlueGrey": {
     "description": "Tab title for the color blue grey."
+  },
+  "placeChennai": "Chennai",
+  "@placeChennai": {
+    "description": "Title for Chennai location."
+  },
+  "placeTanjore": "Tanjore",
+  "@placeTanjore": {
+    "description": "Title for Tanjore location."
+  },
+  "placeChettinad": "Chettinad",
+  "@placeChettinad": {
+    "description": "Title for Chettinad location."
+  },
+  "placePondicherry": "Pondicherry",
+  "@placePondicherry": {
+    "description": "Title for Pondicherry location."
+  },
+  "placeFlowerMarket": "Flower Market",
+  "@placeFlowerMarket": {
+    "description": "Title for Flower Market location."
+  },
+  "placeBronzeWorks": "Bronze Works",
+  "@placeBronzeWorks": {
+    "description": "Title for Bronze Works location."
+  },
+  "placeMarket": "Market",
+  "@placeMarket": {
+    "description": "Title for Market location."
+  },
+  "placeThanjavurTemple": "Thanjavur Temple",
+  "@placeThanjavurTemple": {
+    "description": "Title for Thanjavur Temple location."
+  },
+  "placeSaltFarm": "Salt Farm",
+  "@placeSaltFarm": {
+    "description": "Title for Salt Farm location."
+  },
+  "placeScooters": "Scooters",
+  "@placeScooters": {
+    "description": "Title for image of people riding on scooters."
+  },
+  "placeSilkMaker": "Silk Maker",
+  "@placeSilkMaker": {
+    "description": "Title for an image of a silk maker."
+  },
+  "placeLunchPrep": "Lunch Prep",
+  "@placeLunchPrep": {
+    "description": "Title for an image of preparing lunch."
+  },
+  "placeBeach": "Beach",
+  "@placeBeach": {
+    "description": "Title for Beach location."
+  },
+  "placeFisherman": "Fisherman",
+  "@placeFisherman": {
+    "description": "Title for an image of a fisherman."
   },
   "starterAppTitle": "Starter app",
   "@starterAppTitle": {
