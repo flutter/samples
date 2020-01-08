@@ -388,6 +388,12 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
 
   bool get _cartIsVisible => _thumbnailOpacityAnimation.value == 0;
 
+  // We take 16 pts off of the bottom padding to ensure the collapsed shopping
+  // cart is not too tall.
+  double get _bottomSafeArea {
+    return max(MediaQuery.of(context).viewPadding.bottom - 16, 0);
+  }
+
   Widget _buildThumbnails(BuildContext context, int numProducts) {
     final bool isDesktop = isDisplayDesktop(context);
 
@@ -425,7 +431,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
                 width: min(numProducts, _maxThumbnailCount) *
                         _paddedThumbnailHeight(context) +
                     (numProducts > 0 ? _thumbnailGap : 0),
-                height: _height,
+                height: _height - _bottomSafeArea,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: ProductThumbnailRow(),
               ),
@@ -473,7 +479,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
     _widthAnimation = _getWidthAnimation(expandedCartWidth);
     _height = isDesktop
         ? _desktopHeightFor(numProducts, context)
-        : _mobileHeightFor(context);
+        : _mobileHeightFor(context) + _bottomSafeArea;
     _heightAnimation = _getHeightAnimation(screenHeight);
     _topStartShapeAnimation = _getShapeTopStartAnimation(context);
     _bottomStartShapeAnimation = _getShapeBottomStartAnimation(context);
