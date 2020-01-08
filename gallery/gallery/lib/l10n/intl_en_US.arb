@@ -665,6 +665,124 @@
   "@demoSlidersEditableNumericalValue": {
     "description": "Label for input field that has an editable numerical value."
   },
+  "demoMenuTitle": "Menu",
+  "@demoMenuTitle": {
+    "description": "Title for the menu component demo."
+  },
+  "demoContextMenuTitle": "Context menu",
+  "@demoContextMenuTitle": {
+    "description": "Title for the context menu component demo."
+  },
+  "demoSectionedMenuTitle": "Sectioned menu",
+  "@demoSectionedMenuTitle": {
+    "description": "Title for the sectioned menu component demo."
+  },
+  "demoSimpleMenuTitle": "Simple menu",
+  "@demoSimpleMenuTitle": {
+    "description": "Title for the simple menu component demo."
+  },
+  "demoChecklistMenuTitle": "Checklist menu",
+  "@demoChecklistMenuTitle": {
+    "description": "Title for the checklist menu component demo."
+  },
+  "demoMenuSubtitle": "Menu buttons and simple menus",
+  "@demoMenuSubtitle": {
+    "description": "Short description for the sliders component demo."
+  },
+  "demoMenuDescription": "A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.",
+  "@demoMenuDescription": {
+    "description": "Description for the menu demo."
+  },
+  "demoMenuItemValueOne": "Menu item value one",
+  "@demoMenuItemValueOne": {
+    "description": "The menu number one."
+  },
+  "demoMenuItemValueTwo": "Menu item value two",
+  "@demoMenuItemValueTwo": {
+    "description": "The menu item number two"
+  },
+  "demoMenuItemValueThree": "Menu item value three",
+  "@demoMenuItemValueThree": {
+    "description": "The menu item number three."
+  },
+  "demoMenuOne": "One",
+  "@demoMenuOne": {
+    "description": "The number one."
+  },
+  "demoMenuTwo": "Two",
+  "@demoMenuTwo": {
+    "description": "The number two."
+  },
+  "demoMenuThree": "Three",
+  "@demoMenuThree": {
+    "description": "The number three."
+  },
+  "demoMenuFour": "Four",
+  "@demoMenuFour": {
+    "description": "The number four."
+  },
+  "demoMenuAnItemWithAContextMenuButton": "An item with a context menu button",
+  "@demoMenuAnItemWithAContextMenuButton": {
+    "description": "Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuContextMenuItemOne": "Context menu item one",
+  "@demoMenuContextMenuItemOne": {
+    "description": "Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuADisabledMenuItem": "A disabled menu item",
+  "@demoMenuADisabledMenuItem": {
+    "description": "Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuContextMenuItemThree": "Context menu item three",
+  "@demoMenuContextMenuItemThree": {
+    "description": "Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuAnItemWithASectionedMenu": "An item with a sectioned menu",
+  "@demoMenuAnItemWithASectionedMenu": {
+    "description": "Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuPreview": "Preview",
+  "@demoMenuPreview": {
+    "description": "Example text in a menu. A menu displays a list of choices on a temporary surface."
+  },
+  "demoMenuShare": "Share",
+  "@demoMenuShare": {
+    "description": "Example text in a menu. A menu displays a list of choices on a temporary surface."
+  },
+  "demoMenuGetLink": "Get link",
+  "@demoMenuGetLink": {
+    "description": "Example text in a menu. A menu displays a list of choices on a temporary surface."
+  },
+  "demoMenuRemove": "Remove",
+  "@demoMenuRemove": {
+    "description": "Example text in a menu. A menu displays a list of choices on a temporary surface."
+  },
+  "demoMenuSelected": "Selected: {value}",
+  "@demoMenuSelected": {
+    "description": "A text to show what value was selected.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoMenuChecked": "Checked: {value}",
+  "@demoMenuChecked": {
+    "description": "A text to show what value was checked.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
+  "@demoMenuAnItemWithASimpleMenu": {
+    "description": "Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
+  "demoMenuAnItemWithAChecklistMenu": "An item with a checklist menu",
+  "@demoMenuAnItemWithAChecklistMenu": {
+    "description": "Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+  },
   "demoFullscreenDialogTitle": "Fullscreen",
   "@demoFullscreenDialogTitle": {
     "description": "Title for the fullscreen dialog component demo."
