@@ -39,6 +39,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoBottomAppBarTitle),
       ),
       body: ListView(
