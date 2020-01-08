@@ -286,6 +286,7 @@ class _MenuDemoState extends State<MenuDemo> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text(GalleryLocalizations.of(context).demoMenuTitle),
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
