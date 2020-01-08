@@ -12,7 +12,7 @@ class CupertinoNavigationBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(onGenerateRoute: (settings) {
-      return _NoAnimationCupertinoPageRoute(
+      return _NoAnimationCupertinoPageRoute<void>(
         title: GalleryLocalizations.of(context).demoCupertinoNavigationBarTitle,
         builder: (context) => CupertinoPageScaffold(
           child: CustomScrollView(
