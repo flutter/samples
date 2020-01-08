@@ -93,6 +93,7 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title),
       ),
       body: Center(

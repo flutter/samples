@@ -21,6 +21,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
         middle: Text(GalleryLocalizations.of(context).demoCupertinoSliderTitle),
       ),
       child: DefaultTextStyle(
