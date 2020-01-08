@@ -486,6 +486,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fullscreen"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Full Screen"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("With footer"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("With header"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Image only"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Row and column layout"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Grid Lists"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Info"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Input chips represent a complex piece of information, such as an entity (person, place, or thing) or conversational text, in a compact form."),
@@ -675,6 +687,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Beach"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronze Works"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Fisherman"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Flower Market"),
+        "placeLunchPrep": MessageLookupByLibrary.simpleMessage("Lunch Prep"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Market"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Salt Farm"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scooters"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Silk Maker"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur Temple"),
         "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Car Savings"),

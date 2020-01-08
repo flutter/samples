@@ -1870,6 +1870,51 @@ class GalleryLocalizations {
         desc: r'Tooltip for Full Screen button in a demo.');
   }
 
+  String get demoGridListsDescription {
+    return Intl.message(
+        r'Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.',
+        locale: _localeName,
+        name: 'demoGridListsDescription',
+        desc: r'Description for the grid lists component demo.');
+  }
+
+  String get demoGridListsFooterTitle {
+    return Intl.message(r'With footer',
+        locale: _localeName,
+        name: 'demoGridListsFooterTitle',
+        desc:
+            r'Title for the grid lists component demo with footers on each tile.');
+  }
+
+  String get demoGridListsHeaderTitle {
+    return Intl.message(r'With header',
+        locale: _localeName,
+        name: 'demoGridListsHeaderTitle',
+        desc:
+            r'Title for the grid lists component demo with headers on each tile.');
+  }
+
+  String get demoGridListsImageOnlyTitle {
+    return Intl.message(r'Image only',
+        locale: _localeName,
+        name: 'demoGridListsImageOnlyTitle',
+        desc: r'Title for the grid lists image-only component demo.');
+  }
+
+  String get demoGridListsSubtitle {
+    return Intl.message(r'Row and column layout',
+        locale: _localeName,
+        name: 'demoGridListsSubtitle',
+        desc: r'Subtitle for the grid lists component demo.');
+  }
+
+  String get demoGridListsTitle {
+    return Intl.message(r'Grid Lists',
+        locale: _localeName,
+        name: 'demoGridListsTitle',
+        desc: r'Title for the grid lists component demo.');
+  }
+
   String get demoInfoTooltip {
     return Intl.message(r'Info',
         locale: _localeName,
@@ -2622,6 +2667,104 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'homeHeaderGallery',
         desc: r'Header title on home screen for Gallery section.');
+  }
+
+  String get placeBeach {
+    return Intl.message(r'Beach',
+        locale: _localeName,
+        name: 'placeBeach',
+        desc: r'Title for Beach location.');
+  }
+
+  String get placeBronzeWorks {
+    return Intl.message(r'Bronze Works',
+        locale: _localeName,
+        name: 'placeBronzeWorks',
+        desc: r'Title for Bronze Works location.');
+  }
+
+  String get placeChennai {
+    return Intl.message(r'Chennai',
+        locale: _localeName,
+        name: 'placeChennai',
+        desc: r'Title for Chennai location.');
+  }
+
+  String get placeChettinad {
+    return Intl.message(r'Chettinad',
+        locale: _localeName,
+        name: 'placeChettinad',
+        desc: r'Title for Chettinad location.');
+  }
+
+  String get placeFisherman {
+    return Intl.message(r'Fisherman',
+        locale: _localeName,
+        name: 'placeFisherman',
+        desc: r'Title for an image of a fisherman.');
+  }
+
+  String get placeFlowerMarket {
+    return Intl.message(r'Flower Market',
+        locale: _localeName,
+        name: 'placeFlowerMarket',
+        desc: r'Title for Flower Market location.');
+  }
+
+  String get placeLunchPrep {
+    return Intl.message(r'Lunch Prep',
+        locale: _localeName,
+        name: 'placeLunchPrep',
+        desc: r'Title for an image of preparing lunch.');
+  }
+
+  String get placeMarket {
+    return Intl.message(r'Market',
+        locale: _localeName,
+        name: 'placeMarket',
+        desc: r'Title for Market location.');
+  }
+
+  String get placePondicherry {
+    return Intl.message(r'Pondicherry',
+        locale: _localeName,
+        name: 'placePondicherry',
+        desc: r'Title for Pondicherry location.');
+  }
+
+  String get placeSaltFarm {
+    return Intl.message(r'Salt Farm',
+        locale: _localeName,
+        name: 'placeSaltFarm',
+        desc: r'Title for Salt Farm location.');
+  }
+
+  String get placeScooters {
+    return Intl.message(r'Scooters',
+        locale: _localeName,
+        name: 'placeScooters',
+        desc: r'Title for image of people riding on scooters.');
+  }
+
+  String get placeSilkMaker {
+    return Intl.message(r'Silk Maker',
+        locale: _localeName,
+        name: 'placeSilkMaker',
+        desc: r'Title for an image of a silk maker.');
+  }
+
+  String get placeTanjore {
+    return Intl.message(r'Tanjore',
+        locale: _localeName,
+        name: 'placeTanjore',
+        desc: r'Title for Tanjore location.');
+  }
+
+  String get placeThanjavurTemple {
+    return Intl.message(r'Thanjavur Temple',
+        locale: _localeName,
+        name: 'placeThanjavurTemple',
+        desc: r'Title for Thanjavur Temple location.');
   }
 
   String rallyAccountAmount(

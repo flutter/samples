@@ -27,6 +27,7 @@ dependencies:
       ref: 76bfbf9654c3842d735181383f7ab86c312a2483
   shared_preferences: ^0.5.4+8
   collection: ^1.14.0
+  flutter_gallery_assets: 0.1.9+2
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +48,19 @@ flutter:
     - packages/rally_assets/thumb.png
     - assets/crane/logo/
     - assets/crane/destinations/
+    - packages/flutter_gallery_assets/places/india_chennai_flower_market.png
+    - packages/flutter_gallery_assets/places/india_thanjavur_market.png
+    - packages/flutter_gallery_assets/places/india_tanjore_bronze_works.png
+    - packages/flutter_gallery_assets/places/india_tanjore_market_merchant.png
+    - packages/flutter_gallery_assets/places/india_tanjore_thanjavur_temple.png
+    - packages/flutter_gallery_assets/places/india_pondicherry_salt_farm.png
+    - packages/flutter_gallery_assets/places/india_chennai_highway.png
+    - packages/flutter_gallery_assets/places/india_chettinad_silk_maker.png
+    - packages/flutter_gallery_assets/places/india_tanjore_thanjavur_temple_carvings.png
+    - packages/flutter_gallery_assets/places/india_chettinad_produce.png
+    - packages/flutter_gallery_assets/places/india_tanjore_market_technology.png
+    - packages/flutter_gallery_assets/places/india_pondicherry_beach.png
+    - packages/flutter_gallery_assets/places/india_pondicherry_fisherman.png
     - packages/shrine_images/diamond.png
     - packages/shrine_images/slanted_menu.png
     - packages/shrine_images/0-0.jpg
