@@ -66,6 +66,8 @@ Future<void> updateCodeSegments() async {
 Future<void> analyze() async {
   final codeviewerPath =
       path.join(Directory.current.parent.path, 'codeviewer_cli');
+  await pubGet(directory: codeviewerPath);
+
   final tmpCodeSegmentsPath =
       path.join('lib', 'codeviewer', 'tmp_code_segments.dart');
   final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
