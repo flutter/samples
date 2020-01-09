@@ -1,4 +1,4 @@
-package com.example.isolate_example
+package dev.flutter.isolate_example
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
