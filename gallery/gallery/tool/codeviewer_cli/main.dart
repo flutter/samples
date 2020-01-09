@@ -16,11 +16,17 @@ void main(List<String> arguments) {
       help: 'The file path for the output target file.',
       defaultsTo: path.join(
           Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart'),
+    )
+    ..addFlag(
+      'dry-run',
+      help: 'Write the output to stdout.',
+      defaultsTo: false,
     );
   final argResults = parser.parse(arguments);
 
   writeSegments(
     sourceDirectoryPath: path.join(Directory.current.path, 'lib', 'demos'),
     targetFilePath: argResults['target'] as String,
+    isDryRun: argResults['dry-run'] as bool,
   );
 }

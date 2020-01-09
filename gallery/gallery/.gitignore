@@ -71,9 +71,6 @@
 # Web related
 lib/generated_plugin_registrant.dart
 
-# Code segments analyzer file
-lib/codeviewer/tmp_code_segments.dart
-
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3

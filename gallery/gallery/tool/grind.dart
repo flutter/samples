@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
@@ -66,22 +68,22 @@ Future<void> verifyCodeSegments() async {
   final codeviewerPath =
       path.join(Directory.current.path, 'tool', 'codeviewer_cli', 'main.dart');
 
-  final tmpCodeSegmentsPath = path.join(
-      Directory.current.path, 'lib', 'codeviewer', 'tmp_code_segments.dart');
+  // We use stdin and stdout to write and format the code segments, as we do
+  // not have permissions to write to files in Travis CI
+  final codeSegmentsUnformatted =
+      Dart.run(codeviewerPath, arguments: ['--dry-run'], quiet: true);
+  final codeSegmentsFormatted = await _startProcess(
+    path.normalize(path.join(dartVM.path, '../dartfmt')),
+    input: codeSegmentsUnformatted,
+  );
+
+  // Read the original code segments file
   final codeSegmentsPath = path.join(
       Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart');
-
-  // Generate temp segments file and format it with dartfmt, as we do not
-  // have permissions to write to the file in Travis CI
-  Dart.run(codeviewerPath, arguments: ['--target=$tmpCodeSegmentsPath']);
-  final datfmtPath = path.normalize(path.join(dartVM.path, '../dartfmt'));
-  final dartfmtResult = await Process.run(datfmtPath, [tmpCodeSegmentsPath]);
-
-  String codeSegmentsOutput = dartfmtResult.stdout as String;
-  String expectedCodeSegmentsOutput =
+  final expectedCodeSegmentsOutput =
       await File(codeSegmentsPath).readAsString();
 
-  if (codeSegmentsOutput.trim() != expectedCodeSegmentsOutput.trim()) {
+  if (codeSegmentsFormatted != expectedCodeSegmentsOutput) {
     stderr.writeln(
       'The contents of $codeSegmentsPath are different from that produced by '
       'codeviewer_cli. Did you forget to run update-code-segments after '
@@ -95,6 +97,26 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
   final result = await Process.run(executable, arguments);
   stdout.write(result.stdout);
   stderr.write(result.stderr);
+}
+
+// Use completer to make sure that we capture all the stdout output.
+// Reference: https://github.com/dart-lang/sdk/issues/31666
+Future<String> _startProcess(String executable,
+    {List<String> arguments = const [], String input}) async {
+  final List<int> output = <int>[];
+  final Completer<int> completer = Completer<int>();
+  final Process process = await Process.start(executable, arguments);
+  process.stdin.writeln(input);
+  process.stdout.listen((event) {
+    output.addAll(event);
+  }, onDone: () async => completer.complete(await process.exitCode));
+  await process.stdin.close();
+
+  final int exitCode = await completer.future;
+  if (exitCode != 0) {
+    exit(exitCode);
+  }
+  return Future<String>.value(utf8.decoder.convert(output));
 }
 
 /// Return the flutter root path from the environment variables.
