@@ -83,7 +83,7 @@ Future<void> verifyCodeSegments() async {
   final expectedCodeSegmentsOutput =
       await File(codeSegmentsPath).readAsString();
 
-  if (codeSegmentsFormatted != expectedCodeSegmentsOutput) {
+  if (codeSegmentsFormatted.trim() != expectedCodeSegmentsOutput.trim()) {
     stderr.writeln(
       'The contents of $codeSegmentsPath are different from that produced by '
       'codeviewer_cli. Did you forget to run update-code-segments after '
@@ -103,16 +103,16 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
 // Reference: https://github.com/dart-lang/sdk/issues/31666
 Future<String> _startProcess(String executable,
     {List<String> arguments = const [], String input}) async {
-  final List<int> output = <int>[];
-  final Completer<int> completer = Completer<int>();
-  final Process process = await Process.start(executable, arguments);
+  final output = <int>[];
+  final completer = Completer<int>();
+  final process = await Process.start(executable, arguments);
   process.stdin.writeln(input);
   process.stdout.listen((event) {
     output.addAll(event);
   }, onDone: () async => completer.complete(await process.exitCode));
   await process.stdin.close();
 
-  final int exitCode = await completer.future;
+  final exitCode = await completer.future;
   if (exitCode != 0) {
     exit(exitCode);
   }
