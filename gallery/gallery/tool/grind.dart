@@ -58,8 +58,34 @@ Future<void> updateCodeSegments() async {
   await pubGet(directory: codeviewerPath);
 
   Dart.run(path.join(codeviewerPath, 'bin', 'main.dart'));
-  final targetFilePath = path.join('lib', 'codeviewer', 'code_segments.dart');
-  await format(path: targetFilePath);
+  final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
+  await format(path: codeSegmentsPath);
+}
+
+@Task('Verify and analyze dart files')
+Future<void> analyze() async {
+  final codeviewerPath =
+      path.join(Directory.current.parent.path, 'codeviewer_cli');
+  final tmpCodeSegmentsPath =
+      path.join('lib', 'codeviewer', 'tmp_code_segments.dart');
+  final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
+
+  Dart.run(path.join(codeviewerPath, 'bin', 'main.dart'),
+      arguments: ['--target=$tmpCodeSegmentsPath']);
+  await format(path: tmpCodeSegmentsPath);
+
+  String codeSegmentsOutput = await File(tmpCodeSegmentsPath).readAsString();
+  String expectedCodeSegmentsOutput =
+      await File(codeSegmentsPath).readAsString();
+
+  if (codeSegmentsOutput.trim() != expectedCodeSegmentsOutput.trim()) {
+    stderr.writeln(
+      'The contents of $codeSegmentsPath are different from that produced by '
+      'codeviewer_cli. Did you forget to run update-code-segments after '
+      'updating a demo?',
+    );
+    exit(1);
+  }
 }
 
 Future<void> _runProcess(String executable, List<String> arguments) async {
