@@ -57,6 +57,21 @@ do
     popd
 done
 
+declare -a ANALYZE_PROJECT_NAMES=(
+    "gallery/gallery" \
+)
+
+for PROJECT_NAME in "${ANALYZE_PROJECT_NAMES[@]}"
+do
+    echo "== Testing '${PROJECT_NAME}' with custom analyzer on Flutter's $FLUTTER_VERSION channel =="
+    pushd "${PROJECT_NAME}"
+
+    # Run grinder analyze command to find any custom static analysis issues.
+    "${localSdkPath}/bin/flutter" pub run grinder analyze
+
+    popd
+done
+
 echo "Building the aar files for 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" build aar
