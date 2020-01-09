@@ -54,9 +54,9 @@ Future<void> l10n() async {
 @Task('Update code segments')
 Future<void> updateCodeSegments() async {
   final codeviewerPath =
-      path.join(Directory.current.path, 'tool', 'codeviewer_cli');
+      path.join(Directory.current.path, 'tool', 'codeviewer_cli', 'main.dart');
 
-  Dart.run(path.join(codeviewerPath, 'main.dart'));
+  Dart.run(codeviewerPath);
   final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
   await format(path: codeSegmentsPath);
 }
@@ -64,18 +64,20 @@ Future<void> updateCodeSegments() async {
 @Task('Verify code segments')
 Future<void> verifyCodeSegments() async {
   final codeviewerPath =
-      path.join(Directory.current.path, 'tool', 'codeviewer_cli');
+      path.join(Directory.current.path, 'tool', 'codeviewer_cli', 'main.dart');
 
   final tmpCodeSegmentsPath = path.join(
       Directory.current.path, 'lib', 'codeviewer', 'tmp_code_segments.dart');
   final codeSegmentsPath = path.join(
       Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart');
 
-  Dart.run(path.join(codeviewerPath, 'main.dart'),
-      arguments: ['--target=$tmpCodeSegmentsPath']);
-  await format(path: tmpCodeSegmentsPath);
+  // Generate temp segments file and format it with dartfmt, as we do not
+  // have permissions to write to the file in Travis CI
+  Dart.run(codeviewerPath, arguments: ['--target=$tmpCodeSegmentsPath']);
+  final datfmtPath = path.normalize(path.join(dartVM.path, '../dartfmt'));
+  final dartfmtResult = await Process.run(datfmtPath, [tmpCodeSegmentsPath]);
 
-  String codeSegmentsOutput = await File(tmpCodeSegmentsPath).readAsString();
+  String codeSegmentsOutput = dartfmtResult.stdout as String;
   String expectedCodeSegmentsOutput =
       await File(codeSegmentsPath).readAsString();
 
