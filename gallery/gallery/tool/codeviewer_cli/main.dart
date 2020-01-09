@@ -20,7 +20,6 @@ void main(List<String> arguments) {
     ..addFlag(
       'dry-run',
       help: 'Write the output to stdout.',
-      defaultsTo: false,
     );
   final argResults = parser.parse(arguments);
 

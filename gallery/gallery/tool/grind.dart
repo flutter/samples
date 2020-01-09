@@ -68,8 +68,8 @@ Future<void> verifyCodeSegments() async {
   final codeviewerPath =
       path.join(Directory.current.path, 'tool', 'codeviewer_cli', 'main.dart');
 
-  // We use stdin and stdout to write and format the code segments, as we do
-  // not have permissions to write to files in Travis CI
+  // We use stdin and stdout to write and format the code segments, to avoid
+  // creating any files.
   final codeSegmentsUnformatted =
       Dart.run(codeviewerPath, arguments: ['--dry-run'], quiet: true);
   final codeSegmentsFormatted = await _startProcess(
@@ -77,7 +77,7 @@ Future<void> verifyCodeSegments() async {
     input: codeSegmentsUnformatted,
   );
 
-  // Read the original code segments file
+  // Read the original code segments file.
   final codeSegmentsPath = path.join(
       Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart');
   final expectedCodeSegmentsOutput =
@@ -99,7 +99,7 @@ Future<void> _runProcess(String executable, List<String> arguments) async {
   stderr.write(result.stderr);
 }
 
-// Use completer to make sure that we capture all the stdout output.
+// Function to make sure we capture all of the stdout.
 // Reference: https://github.com/dart-lang/sdk/issues/31666
 Future<String> _startProcess(String executable,
     {List<String> arguments = const [], String input}) async {

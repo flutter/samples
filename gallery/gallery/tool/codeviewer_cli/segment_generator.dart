@@ -256,8 +256,8 @@ void _formatSegments(Map<String, String> segments, IOSink output) {
 void writeSegments(
     {String sourceDirectoryPath, String targetFilePath, bool isDryRun}) {
   Map<String, String> segments = _createSegments(sourceDirectoryPath);
-  IOSink target = isDryRun ? stdout : File(targetFilePath).openWrite();
-  _formatSegments(segments, target);
+  IOSink output = isDryRun ? stdout : File(targetFilePath).openWrite();
+  _formatSegments(segments, output);
 }
 
 class PreformatterException implements Exception {
