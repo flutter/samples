@@ -54,10 +54,9 @@ Future<void> l10n() async {
 @Task('Update code segments')
 Future<void> updateCodeSegments() async {
   final codeviewerPath =
-      path.join(Directory.current.parent.path, 'codeviewer_cli');
-  await pubGet(directory: codeviewerPath);
+      path.join(Directory.current.path, 'tool', 'codeviewer_cli');
 
-  Dart.run(path.join(codeviewerPath, 'bin', 'main.dart'));
+  Dart.run(path.join(codeviewerPath, 'main.dart'));
   final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
   await format(path: codeSegmentsPath);
 }
@@ -65,14 +64,13 @@ Future<void> updateCodeSegments() async {
 @Task('Verify and analyze dart files')
 Future<void> analyze() async {
   final codeviewerPath =
-      path.join(Directory.current.parent.path, 'codeviewer_cli');
-  await pubGet(directory: codeviewerPath);
+      path.join(Directory.current.path, 'tool', 'codeviewer_cli');
 
   final tmpCodeSegmentsPath =
       path.join('lib', 'codeviewer', 'tmp_code_segments.dart');
   final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
 
-  Dart.run(path.join(codeviewerPath, 'bin', 'main.dart'),
+  Dart.run(path.join(codeviewerPath, 'main.dart'),
       arguments: ['--target=$tmpCodeSegmentsPath']);
   await format(path: tmpCodeSegmentsPath);
 
