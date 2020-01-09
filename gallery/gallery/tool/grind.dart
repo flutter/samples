@@ -107,13 +107,19 @@ Future<String> _startProcess(String executable,
   final completer = Completer<int>();
   final process = await Process.start(executable, arguments);
   process.stdin.writeln(input);
-  process.stdout.listen((event) {
-    output.addAll(event);
-  }, onDone: () async => completer.complete(await process.exitCode));
+  process.stdout.listen(
+    (event) {
+      output.addAll(event);
+    },
+    onDone: () async => completer.complete(await process.exitCode),
+  );
   await process.stdin.close();
 
   final exitCode = await completer.future;
   if (exitCode != 0) {
+    stderr.write(
+      'Running "$executable ${arguments.join(' ')}" failed with $exitCode.\n',
+    );
     exit(exitCode);
   }
   return Future<String>.value(utf8.decoder.convert(output));
