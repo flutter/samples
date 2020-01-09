@@ -2709,6 +2709,36 @@ class GalleryLocalizations {
         desc: r'Title for the toggle buttons component demo.');
   }
 
+  String get demoTooltipDescription {
+    return Intl.message(
+        r'Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.',
+        locale: _localeName,
+        name: 'demoTooltipDescription',
+        desc: r'Description for tooltip demo.');
+  }
+
+  String get demoTooltipInstructions {
+    return Intl.message(r'Long press or hover to display the tooltip.',
+        locale: _localeName,
+        name: 'demoTooltipInstructions',
+        desc:
+            r'Instructions for how to trigger a tooltip in the tooltip demo.');
+  }
+
+  String get demoTooltipSubtitle {
+    return Intl.message(r'Short message displayed on long press or hover',
+        locale: _localeName,
+        name: 'demoTooltipSubtitle',
+        desc: r'Subtitle for tooltip demo.');
+  }
+
+  String get demoTooltipTitle {
+    return Intl.message(r'Tooltips',
+        locale: _localeName,
+        name: 'demoTooltipTitle',
+        desc: r'Title for tooltip demo.');
+  }
+
   String get demoTwoLineListsTitle {
     return Intl.message(r'Two Lines',
         locale: _localeName,

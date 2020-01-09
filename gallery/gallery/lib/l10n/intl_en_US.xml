@@ -1210,6 +1210,22 @@
     description="Helper text to indicate that * means that it is a required field."
     >* indicates required field</string>
   <string
+    name="demoTooltipTitle"
+    description="Title for tooltip demo."
+    >Tooltips</string>
+  <string
+    name="demoTooltipSubtitle"
+    description="Subtitle for tooltip demo."
+    >Short message displayed on long press or hover</string>
+  <string
+    name="demoTooltipDescription"
+    description="Description for tooltip demo."
+    >Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.</string>
+  <string
+    name="demoTooltipInstructions"
+    description="Instructions for how to trigger a tooltip in the tooltip demo."
+    >Long press or hover to display the tooltip.</string>
+  <string
     name="bottomNavigationCommentsTab"
     description="Title for Comments tab of bottom navigation."
     >Comments</string>
