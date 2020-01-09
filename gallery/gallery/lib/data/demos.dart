@@ -303,7 +303,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoMenuTitle,
-      icon: GalleryIcons.menu,
+      icon: GalleryIcons.moreVert,
       subtitle: GalleryLocalizations.of(context).demoMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(

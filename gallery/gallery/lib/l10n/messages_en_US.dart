@@ -507,13 +507,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Scrolling list layouts"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Lists"),
         "demoMenuADisabledMenuItem":
-            MessageLookupByLibrary.simpleMessage("A disabled menu item"),
+            MessageLookupByLibrary.simpleMessage("Disabled menu item"),
         "demoMenuAnItemWithAChecklistMenu":
             MessageLookupByLibrary.simpleMessage(
                 "An item with a checklist menu"),
         "demoMenuAnItemWithAContextMenuButton":
-            MessageLookupByLibrary.simpleMessage(
-                "An item with a context menu button"),
+            MessageLookupByLibrary.simpleMessage("An item with a context menu"),
         "demoMenuAnItemWithASectionedMenu":
             MessageLookupByLibrary.simpleMessage(
                 "An item with a sectioned menu"),
@@ -529,11 +528,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuFour": MessageLookupByLibrary.simpleMessage("Four"),
         "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Get link"),
         "demoMenuItemValueOne":
-            MessageLookupByLibrary.simpleMessage("Menu item value one"),
+            MessageLookupByLibrary.simpleMessage("Menu item one"),
         "demoMenuItemValueThree":
-            MessageLookupByLibrary.simpleMessage("Menu item value three"),
+            MessageLookupByLibrary.simpleMessage("Menu item three"),
         "demoMenuItemValueTwo":
-            MessageLookupByLibrary.simpleMessage("Menu item value two"),
+            MessageLookupByLibrary.simpleMessage("Menu item two"),
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("One"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Preview"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Remove"),

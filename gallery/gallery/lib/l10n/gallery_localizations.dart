@@ -1937,11 +1937,11 @@ class GalleryLocalizations {
   }
 
   String get demoMenuADisabledMenuItem {
-    return Intl.message(r'A disabled menu item',
+    return Intl.message(r'Disabled menu item',
         locale: _localeName,
         name: 'demoMenuADisabledMenuItem',
         desc:
-            r'Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuAnItemWithAChecklistMenu {
@@ -1949,15 +1949,15 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoMenuAnItemWithAChecklistMenu',
         desc:
-            r'Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuAnItemWithAContextMenuButton {
-    return Intl.message(r'An item with a context menu button',
+    return Intl.message(r'An item with a context menu',
         locale: _localeName,
         name: 'demoMenuAnItemWithAContextMenuButton',
         desc:
-            r'Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuAnItemWithASectionedMenu {
@@ -1965,7 +1965,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoMenuAnItemWithASectionedMenu',
         desc:
-            r'Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuAnItemWithASimpleMenu {
@@ -1973,7 +1973,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoMenuAnItemWithASimpleMenu',
         desc:
-            r'Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String demoMenuChecked(Object value) {
@@ -1989,7 +1989,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoMenuContextMenuItemOne',
         desc:
-            r'Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuContextMenuItemThree {
@@ -1997,7 +1997,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoMenuContextMenuItemThree',
         desc:
-            r'Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used in as an example in a demo.');
+            r'Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
   }
 
   String get demoMenuDescription {
@@ -2017,29 +2017,28 @@ class GalleryLocalizations {
     return Intl.message(r'Get link',
         locale: _localeName,
         name: 'demoMenuGetLink',
-        desc:
-            r'Example text in a menu. A menu displays a list of choices on a temporary surface.');
+        desc: r'Button to get link for content.');
   }
 
   String get demoMenuItemValueOne {
-    return Intl.message(r'Menu item value one',
+    return Intl.message(r'Menu item one',
         locale: _localeName,
         name: 'demoMenuItemValueOne',
-        desc: r'The menu number one.');
+        desc: r'The first item in a menu.');
   }
 
   String get demoMenuItemValueThree {
-    return Intl.message(r'Menu item value three',
+    return Intl.message(r'Menu item three',
         locale: _localeName,
         name: 'demoMenuItemValueThree',
-        desc: r'The menu item number three.');
+        desc: r'The third item in a menu.');
   }
 
   String get demoMenuItemValueTwo {
-    return Intl.message(r'Menu item value two',
+    return Intl.message(r'Menu item two',
         locale: _localeName,
         name: 'demoMenuItemValueTwo',
-        desc: r'The menu item number two');
+        desc: r'The second item in a menu.');
   }
 
   String get demoMenuOne {
@@ -2051,16 +2050,14 @@ class GalleryLocalizations {
     return Intl.message(r'Preview',
         locale: _localeName,
         name: 'demoMenuPreview',
-        desc:
-            r'Example text in a menu. A menu displays a list of choices on a temporary surface.');
+        desc: r'Button to preview content.');
   }
 
   String get demoMenuRemove {
     return Intl.message(r'Remove',
         locale: _localeName,
         name: 'demoMenuRemove',
-        desc:
-            r'Example text in a menu. A menu displays a list of choices on a temporary surface.');
+        desc: r'Button to remove content.');
   }
 
   String demoMenuSelected(Object value) {
@@ -2075,15 +2072,14 @@ class GalleryLocalizations {
     return Intl.message(r'Share',
         locale: _localeName,
         name: 'demoMenuShare',
-        desc:
-            r'Example text in a menu. A menu displays a list of choices on a temporary surface.');
+        desc: r'Button to share content.');
   }
 
   String get demoMenuSubtitle {
     return Intl.message(r'Menu buttons and simple menus',
         locale: _localeName,
         name: 'demoMenuSubtitle',
-        desc: r'Short description for the sliders component demo.');
+        desc: r'Short description for the menu component demo.');
   }
 
   String get demoMenuThree {

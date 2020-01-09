@@ -651,7 +651,7 @@
     >Checklist menu</string>
   <string
     name="demoMenuSubtitle"
-    description="Short description for the sliders component demo."
+    description="Short description for the menu component demo."
     >Menu buttons and simple menus</string>
   <string
     name="demoMenuDescription"
@@ -659,16 +659,16 @@
     >A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</string>
   <string
     name="demoMenuItemValueOne"
-    description="The menu number one."
-    >Menu item value one</string>
+    description="The first item in a menu."
+    >Menu item one</string>
   <string
     name="demoMenuItemValueTwo"
-    description="The menu item number two"
-    >Menu item value two</string>
+    description="The second item in a menu."
+    >Menu item two</string>
   <string
     name="demoMenuItemValueThree"
-    description="The menu item number three."
-    >Menu item value three</string>
+    description="The third item in a menu."
+    >Menu item three</string>
   <string
     name="demoMenuOne"
     description="The number one."
@@ -687,39 +687,39 @@
     >Four</string>
   <string
     name="demoMenuAnItemWithAContextMenuButton"
-    description="Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
-    >An item with a context menu button</string>
+    description="Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a context menu</string>
   <string
     name="demoMenuContextMenuItemOne"
-    description="Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+    description="Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >Context menu item one</string>
   <string
     name="demoMenuADisabledMenuItem"
-    description="Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
-    >A disabled menu item</string>
+    description="Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Disabled menu item</string>
   <string
     name="demoMenuContextMenuItemThree"
-    description="Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+    description="Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >Context menu item three</string>
   <string
     name="demoMenuAnItemWithASectionedMenu"
-    description="Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+    description="Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a sectioned menu</string>
   <string
     name="demoMenuPreview"
-    description="Example text in a menu. A menu displays a list of choices on a temporary surface."
+    description="Button to preview content."
     >Preview</string>
   <string
     name="demoMenuShare"
-    description="Example text in a menu. A menu displays a list of choices on a temporary surface."
+    description="Button to share content."
     >Share</string>
   <string
     name="demoMenuGetLink"
-    description="Example text in a menu. A menu displays a list of choices on a temporary surface."
+    description="Button to get link for content."
     >Get link</string>
   <string
     name="demoMenuRemove"
-    description="Example text in a menu. A menu displays a list of choices on a temporary surface."
+    description="Button to remove content."
     >Remove</string>
   <string
     name="demoMenuSelected"
@@ -731,11 +731,11 @@
     >Checked: {value}</string>
   <string
     name="demoMenuAnItemWithASimpleMenu"
-    description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+    description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a simple menu</string>
   <string
     name="demoMenuAnItemWithAChecklistMenu"
-    description="Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used in as an example in a demo."
+    description="Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a checklist menu</string>
   <string
     name="demoFullscreenDialogTitle"
