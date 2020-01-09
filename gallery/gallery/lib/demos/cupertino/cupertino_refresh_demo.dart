@@ -19,18 +19,9 @@ class CupertinoRefreshControlDemo extends StatefulWidget {
 class _CupertinoRefreshControlDemoState
     extends State<CupertinoRefreshControlDemo> {
   static const listCount = 20;
-  List<int> randomList;
+  var randomList = List<int>.generate(listCount, (i) => i + 1);
 
-  @override
-  void initState() {
-    super.initState();
-    _repopulateList();
-  }
-
-  void _repopulateList() {
-    final random = Random();
-    randomList = List<int>.generate(listCount, (i) => i + 1)..shuffle(random);
-  }
+  void _shuffleList() => randomList.shuffle(Random());
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +47,10 @@ class _CupertinoRefreshControlDemoState
           ),
           CupertinoSliverRefreshControl(
             onRefresh: () {
-              return Future<void>.delayed(const Duration(seconds: 2))
+              return Future<void>.delayed(const Duration(seconds: 1))
                 ..then<void>((_) {
                   if (mounted) {
-                    setState(() => _repopulateList());
+                    setState(() => _shuffleList());
                   }
                 });
             },
