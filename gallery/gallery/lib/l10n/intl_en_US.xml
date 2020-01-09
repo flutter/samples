@@ -654,6 +654,114 @@
     description="Label for input field that has an editable numerical value."
     >Editable numerical value</string>
   <string
+    name="demoMenuTitle"
+    description="Title for the menu component demo."
+    >Menu</string>
+  <string
+    name="demoContextMenuTitle"
+    description="Title for the context menu component demo."
+    >Context menu</string>
+  <string
+    name="demoSectionedMenuTitle"
+    description="Title for the sectioned menu component demo."
+    >Sectioned menu</string>
+  <string
+    name="demoSimpleMenuTitle"
+    description="Title for the simple menu component demo."
+    >Simple menu</string>
+  <string
+    name="demoChecklistMenuTitle"
+    description="Title for the checklist menu component demo."
+    >Checklist menu</string>
+  <string
+    name="demoMenuSubtitle"
+    description="Short description for the menu component demo."
+    >Menu buttons and simple menus</string>
+  <string
+    name="demoMenuDescription"
+    description="Description for the menu demo."
+    >A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</string>
+  <string
+    name="demoMenuItemValueOne"
+    description="The first item in a menu."
+    >Menu item one</string>
+  <string
+    name="demoMenuItemValueTwo"
+    description="The second item in a menu."
+    >Menu item two</string>
+  <string
+    name="demoMenuItemValueThree"
+    description="The third item in a menu."
+    >Menu item three</string>
+  <string
+    name="demoMenuOne"
+    description="The number one."
+    >One</string>
+  <string
+    name="demoMenuTwo"
+    description="The number two."
+    >Two</string>
+  <string
+    name="demoMenuThree"
+    description="The number three."
+    >Three</string>
+  <string
+    name="demoMenuFour"
+    description="The number four."
+    >Four</string>
+  <string
+    name="demoMenuAnItemWithAContextMenuButton"
+    description="Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a context menu</string>
+  <string
+    name="demoMenuContextMenuItemOne"
+    description="Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Context menu item one</string>
+  <string
+    name="demoMenuADisabledMenuItem"
+    description="Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Disabled menu item</string>
+  <string
+    name="demoMenuContextMenuItemThree"
+    description="Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Context menu item three</string>
+  <string
+    name="demoMenuAnItemWithASectionedMenu"
+    description="Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a sectioned menu</string>
+  <string
+    name="demoMenuPreview"
+    description="Button to preview content."
+    >Preview</string>
+  <string
+    name="demoMenuShare"
+    description="Button to share content."
+    >Share</string>
+  <string
+    name="demoMenuGetLink"
+    description="Button to get link for content."
+    >Get link</string>
+  <string
+    name="demoMenuRemove"
+    description="Button to remove content."
+    >Remove</string>
+  <string
+    name="demoMenuSelected"
+    description="A text to show what value was selected."
+    >Selected: {value}</string>
+  <string
+    name="demoMenuChecked"
+    description="A text to show what value was checked."
+    >Checked: {value}</string>
+  <string
+    name="demoMenuAnItemWithASimpleMenu"
+    description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a simple menu</string>
+  <string
+    name="demoMenuAnItemWithAChecklistMenu"
+    description="Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a checklist menu</string>
+  <string
     name="demoFullscreenDialogTitle"
     description="Title for the fullscreen dialog component demo."
     >Fullscreen</string>

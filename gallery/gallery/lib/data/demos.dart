@@ -24,6 +24,7 @@ import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
+import 'package:gallery/demos/material/menu_demo.dart';
 import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
 import 'package:gallery/demos/material/sliders_demo.dart';
@@ -334,6 +335,53 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/material/ListTile-class.html',
           buildRoute: (context) => ListDemo(type: ListDemoType.twoLine),
           code: CodeSegments.listDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoMenuTitle,
+      icon: GalleryIcons.moreVert,
+      subtitle: GalleryLocalizations.of(context).demoMenuSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoContextMenuTitle,
+          description: GalleryLocalizations.of(context).demoMenuDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.contextMenu,
+          ),
+          code: CodeSegments.menuDemoContext,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoSectionedMenuTitle,
+          description: GalleryLocalizations.of(context).demoMenuDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.sectionedMenu,
+          ),
+          code: CodeSegments.menuDemoSectioned,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoChecklistMenuTitle,
+          description: GalleryLocalizations.of(context).demoMenuDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/CheckedPopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.checklistMenu,
+          ),
+          code: CodeSegments.menuDemoChecklist,
+        ),
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoSimpleMenuTitle,
+          description: GalleryLocalizations.of(context).demoMenuDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.simpleMenu,
+          ),
+          code: CodeSegments.menuDemoSimple,
         ),
       ],
     ),

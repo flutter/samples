@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Discrete: ${value}";
 
+  static m25(value) => "Checked: ${value}";
+
+  static m26(value) => "Selected: ${value}";
+
   static m9(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
 
   static m10(value) => "You selected: \"${value}\"";
@@ -372,6 +376,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Checklist menu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Compact elements that represent an input, attribute, or action"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chips"),
@@ -395,6 +401,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "All of the predefined colors"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Colors"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Context menu"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions."),
         "demoCupertinoActionSheetTitle":
@@ -517,6 +525,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Scrolling list layouts"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Lists"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Disabled menu item"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "An item with a checklist menu"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("An item with a context menu"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "An item with a sectioned menu"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("An item with a simple menu"),
+        "demoMenuChecked": m25,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Context menu item one"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Context menu item three"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Four"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Get link"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menu item one"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menu item three"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menu item two"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("One"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Preview"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "demoMenuSelected": m26,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menu buttons and simple menus"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Three"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Two"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("One Line"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -540,6 +585,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters."),
         "demoRangeSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Range Sliders"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Sectioned menu"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Checkboxes allow the user to select multiple options from a set. A normal checkbox\'s value is true or false and a tristate checkbox\'s value can also be null."),
@@ -562,6 +609,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Simple menu"),
         "demoSlidersContinuous":
             MessageLookupByLibrary.simpleMessage("Continuous"),
         "demoSlidersContinuousRangeSliderWithCustomTheme":
