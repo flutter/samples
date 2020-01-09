@@ -703,6 +703,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Toggle Buttons"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Long press or hover to display the tooltip."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Short message displayed on long press or hover"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Tooltips"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Two Lines"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(

@@ -31,6 +31,7 @@ import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
+import 'package:gallery/demos/material/tooltip_demo.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -538,6 +539,21 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/material/TextField-class.html',
           buildRoute: (_) => TextFieldDemo(),
           code: CodeSegments.textFieldDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoTooltipTitle,
+      icon: GalleryIcons.tooltip,
+      subtitle: GalleryLocalizations.of(context).demoTooltipSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoTooltipTitle,
+          description: GalleryLocalizations.of(context).demoTooltipDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/Tooltip-class.html',
+          buildRoute: (_) => TooltipDemo(),
+          code: CodeSegments.tooltipDemo,
         ),
       ],
     ),

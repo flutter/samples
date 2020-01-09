@@ -1282,6 +1282,22 @@
   "@demoTextFieldRequiredField": {
     "description": "Helper text to indicate that * means that it is a required field."
   },
+  "demoTooltipTitle": "Tooltips",
+  "@demoTooltipTitle": {
+    "description": "Title for tooltip demo."
+  },
+  "demoTooltipSubtitle": "Short message displayed on long press or hover",
+  "@demoTooltipSubtitle": {
+    "description": "Subtitle for tooltip demo."
+  },
+  "demoTooltipDescription": "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.",
+  "@demoTooltipDescription": {
+    "description": "Description for tooltip demo."
+  },
+  "demoTooltipInstructions": "Long press or hover to display the tooltip.",
+  "@demoTooltipInstructions": {
+    "description": "Instructions for how to trigger a tooltip in the tooltip demo."
+  },
   "bottomNavigationCommentsTab": "Comments",
   "@bottomNavigationCommentsTab": {
     "description": "Title for Comments tab of bottom navigation."
