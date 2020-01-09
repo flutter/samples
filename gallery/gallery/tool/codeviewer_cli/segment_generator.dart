@@ -216,7 +216,8 @@ class TaggedString {
 void _formatSegments(Map<String, String> segments, IOSink output) {
   output.write(_globalPrologue);
 
-  for (final name in segments.keys) {
+  final sortedNames = segments.keys.toList()..sort();
+  for (final name in sortedNames) {
     String code = segments[name];
 
     output.writeln('  static TextSpan $name (BuildContext context) {');
