@@ -1,4 +1,4 @@
-package com.example.animations
+package dev.flutter.animations
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
