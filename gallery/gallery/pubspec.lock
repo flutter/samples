@@ -365,7 +365,7 @@ packages:
     source: hosted
     version: "2.0.0"
   string_scanner:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: string_scanner
       url: "https://pub.dartlang.org"

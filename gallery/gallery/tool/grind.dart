@@ -61,14 +61,15 @@ Future<void> updateCodeSegments() async {
   await format(path: codeSegmentsPath);
 }
 
-@Task('Verify and analyze dart files')
-Future<void> analyze() async {
+@Task('Verify code segments')
+Future<void> verifyCodeSegments() async {
   final codeviewerPath =
       path.join(Directory.current.path, 'tool', 'codeviewer_cli');
 
-  final tmpCodeSegmentsPath =
-      path.join('lib', 'codeviewer', 'tmp_code_segments.dart');
-  final codeSegmentsPath = path.join('lib', 'codeviewer', 'code_segments.dart');
+  final tmpCodeSegmentsPath = path.join(
+      Directory.current.path, 'lib', 'codeviewer', 'tmp_code_segments.dart');
+  final codeSegmentsPath = path.join(
+      Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart');
 
   Dart.run(path.join(codeviewerPath, 'main.dart'),
       arguments: ['--target=$tmpCodeSegmentsPath']);

@@ -9,7 +9,7 @@ import 'package:path/path.dart' as path;
 
 import 'segment_generator.dart';
 
-main(List<String> arguments) {
+void main(List<String> arguments) {
   final parser = ArgParser()
     ..addOption(
       'target',
