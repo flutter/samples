@@ -887,6 +887,18 @@
   "@demoCupertinoNavigationBarDescription": {
     "description": "Description for the cupertino navigation bar component demo."
   },
+  "demoCupertinoPullToRefreshTitle": "Pull To Refresh",
+  "@demoCupertinoPullToRefreshTitle": {
+    "description": "Title for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshSubtitle": "iOS-style pull to refresh control",
+  "@demoCupertinoPullToRefreshSubtitle": {
+    "description": "Subtitle for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshDescription": "A widget implementing the iOS-style pull to refresh content control.",
+  "@demoCupertinoPullToRefreshDescription": {
+    "description": "Description for the cupertino pull-to-refresh component demo."
+  },
   "demoCupertinoSegmentedControlTitle": "Segmented Control",
   "@demoCupertinoSegmentedControlTitle": {
     "description": "Title for the cupertino segmented control component demo."

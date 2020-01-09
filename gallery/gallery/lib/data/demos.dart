@@ -12,6 +12,7 @@ import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
@@ -670,6 +671,24 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               'https://api.flutter.dev/flutter/cupertino/CupertinoNavigationBar-class.html',
           buildRoute: (_) => CupertinoNavigationBarDemo(),
           code: CodeSegments.cupertinoNavigationBarDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCupertinoPullToRefreshTitle,
+      icon: GalleryIcons.cupertinoPullToRefresh,
+      subtitle:
+          GalleryLocalizations.of(context).demoCupertinoPullToRefreshSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title:
+              GalleryLocalizations.of(context).demoCupertinoPullToRefreshTitle,
+          description: GalleryLocalizations.of(context)
+              .demoCupertinoPullToRefreshDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/cupertino/CupertinoSliverRefreshControl-class.html',
+          buildRoute: (_) => CupertinoRefreshControlDemo(),
+          code: CodeSegments.cupertinoRefreshDemo,
         ),
       ],
     ),

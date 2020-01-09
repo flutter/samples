@@ -842,6 +842,18 @@
     description="Description for the cupertino navigation bar component demo."
     >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
   <string
+    name="demoCupertinoPullToRefreshTitle"
+    description="Title for the cupertino pull-to-refresh component demo."
+    >Pull To Refresh</string>
+  <string
+    name="demoCupertinoPullToRefreshSubtitle"
+    description="Subtitle for the cupertino pull-to-refresh component demo."
+    >iOS-style pull to refresh control</string>
+  <string
+    name="demoCupertinoPullToRefreshDescription"
+    description="Description for the cupertino pull-to-refresh component demo."
+    >A widget implementing the iOS-style pull to refresh content control.</string>
+  <string
     name="demoCupertinoSegmentedControlTitle"
     description="Title for the cupertino segmented control component demo."
     >Segmented Control</string>

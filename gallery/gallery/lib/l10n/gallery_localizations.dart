@@ -1681,6 +1681,28 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino navigation bar component demo.');
   }
 
+  String get demoCupertinoPullToRefreshDescription {
+    return Intl.message(
+        r'A widget implementing the iOS-style pull to refresh content control.',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshDescription',
+        desc: r'Description for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshSubtitle {
+    return Intl.message(r'iOS-style pull to refresh control',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshSubtitle',
+        desc: r'Subtitle for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshTitle {
+    return Intl.message(r'Pull To Refresh',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshTitle',
+        desc: r'Title for the cupertino pull-to-refresh component demo.');
+  }
+
   String get demoCupertinoSegmentedControlDescription {
     return Intl.message(
         r'Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.',
