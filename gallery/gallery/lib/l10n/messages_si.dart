@@ -363,8 +363,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "දිගටම පවතින සහ ආදර්ශ පහළ පත්‍ර"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("පහළ පත්‍රය"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("පෙළ ක්ෂේත්‍ර"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "පැතලි, එසවූ, වැටිසන සහ තවත් දේ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("බොත්තම්"),

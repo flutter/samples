@@ -359,8 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Secções inferiores persistentes e modais"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Secção inferior"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Campos de texto"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sem relevo, em relevo, de contorno e muito mais"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botões"),

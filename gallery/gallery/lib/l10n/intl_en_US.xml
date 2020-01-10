@@ -918,6 +918,22 @@
     description="Title for the profile tab in the bottom tab bar demo."
     >Profile</string>
   <string
+    name="demoCupertinoTextFieldTitle"
+    description="Title for the cupertino text field demo."
+    >Text Fields</string>
+  <string
+    name="demoCupertinoTextFieldSubtitle"
+    description="Subtitle for the cupertino text field demo."
+    >iOS-style text fields</string>
+  <string
+    name="demoCupertinoTextFieldDescription"
+    description="Description for the cupertino text field demo."
+    >A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.</string>
+  <string
+    name="demoCupertinoTextFieldPIN"
+    description="The placeholder for a text field where a user would enter their PIN number."
+    >PIN</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>
@@ -1106,10 +1122,6 @@
     description="Description for the switches (selection controls) demo."
     >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</string>
   <string
-    name="demoBottomTextFieldsTitle"
-    description="Title for text fields demo."
-    >Text fields</string>
-  <string
     name="demoTextFieldTitle"
     description="Title for text fields demo."
     >Text fields</string>
@@ -1176,7 +1188,7 @@
   <string
     name="demoTextFieldEmail"
     description="The label for an email address input field"
-    >E-mail</string>
+    >Email</string>
   <string
     name="demoTextFieldTellUsAboutYourself"
     description="The placeholder text for biography/life story input field."

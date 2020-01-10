@@ -357,8 +357,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Doimiy va modal quyi ekranlar"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Quyi ekran"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Matn maydonchalari"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Yassi, qavariq, atrofi chizilgan va turli xil"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tugmalar"),

@@ -973,6 +973,22 @@
   "@cupertinoTabBarProfileTab": {
     "description": "Title for the profile tab in the bottom tab bar demo."
   },
+  "demoCupertinoTextFieldTitle": "Text Fields",
+  "@demoCupertinoTextFieldTitle": {
+    "description": "Title for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldSubtitle": "iOS-style text fields",
+  "@demoCupertinoTextFieldSubtitle": {
+    "description": "Subtitle for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldDescription": "A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.",
+  "@demoCupertinoTextFieldDescription": {
+    "description": "Description for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldPIN": "PIN",
+  "@demoCupertinoTextFieldPIN": {
+    "description": "The placeholder for a text field where a user would enter their PIN number."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."
@@ -1166,14 +1182,6 @@
   "@demoSelectionControlsSwitchDescription": {
     "description": "Description for the switches (selection controls) demo."
   },
-  "demoBottomTextFieldsTitle": "Text fields",
-  "@demoBottomTextFieldsTitle": {
-    "description": "Title for text fields demo."
-  },
-  "demoBottomSheetSubtitle": "Persistent and modal bottom sheets",
-  "@demoBottomSheetSubtitle": {
-    "description": "Description for bottom sheet demo."
-  },
   "demoTextFieldTitle": "Text fields",
   "@demoTextFieldTitle": {
     "description": "Title for text fields demo."
@@ -1238,7 +1246,7 @@
   "@demoTextFieldYourEmailAddress": {
     "description": "The label for an email address input field."
   },
-  "demoTextFieldEmail": "E-mail",
+  "demoTextFieldEmail": "Email",
   "@demoTextFieldEmail": {
     "description": "The label for an email address input field"
   },

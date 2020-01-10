@@ -368,8 +368,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "ಪರ್ಸಿಸ್ಟಂಟ್ ಮತ್ತು ಮೋಡಲ್ ಬಾಟಮ್ ಶೀಟ್‌ಗಳು"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("ಕೆಳಭಾಗದ ಶೀಟ್"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ಪಠ್ಯ ಫೀಲ್ಡ್‌ಗಳು"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ಫ್ಲಾಟ್, ಉಬ್ಬುವ, ಔಟ್‌ಲೈನ್ ಮತ್ತು ಇನ್ನಷ್ಟು"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ಬಟನ್‌ಗಳು"),

@@ -371,8 +371,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "സ്ഥിരമായ, മോഡൽ ബോട്ടം ഷീറ്റുകൾ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("ബോട്ടം ഷീറ്റ്"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ടെക്‌സ്റ്റ് ഫീൽഡുകൾ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ഫ്ലാറ്റ്, റെയ്‌സ്‌ഡ്, ഔട്ട്‌ലൈൻ എന്നിവയും മറ്റും"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ബട്ടണുകൾ"),

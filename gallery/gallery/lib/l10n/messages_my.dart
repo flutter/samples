@@ -369,8 +369,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "မပြောင်းလဲသော အောက်ခြေမီနူးပါ စာမျက်နှာပုံစံများ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("အောက်ခြေမီနူးပါ စာမျက်နှာ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("စာသားအကွက်များ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "အပြား၊ အမြင့်၊ ဘောင်မျဉ်းပါခြင်းနှင့် အခြားများ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ခလုတ်များ"),

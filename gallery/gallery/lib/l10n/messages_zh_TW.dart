@@ -307,8 +307,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("持續性和強制回應底部資訊表"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("底部資訊表"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("文字欄位"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("平面、凸起、外框等等"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("按鈕"),

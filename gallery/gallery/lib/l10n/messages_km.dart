@@ -364,8 +364,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "សន្លឹកខាងក្រោម​លក្ខណៈម៉ូដល និងភើស៊ីស្ទើន"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("សន្លឹក​ខាងក្រោម"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("កន្លែងបញ្ចូលអក្សរ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ប៊ូតុង​រាបស្មើ ប៊ូតុង​ផុសឡើង ប៊ូតុង​មានបន្ទាត់ជុំវិញ និង​ច្រើនទៀត"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ប៊ូតុង"),

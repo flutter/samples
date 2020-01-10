@@ -351,8 +351,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Laha za kawaida na endelevu za chini"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Laha ya chini"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Sehemu za maandishi"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Bapa, iliyoinuliwa, mpaka wa mstari na zaidi"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Vitufe"),

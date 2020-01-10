@@ -1413,13 +1413,6 @@ class GalleryLocalizations {
         desc: r'Title for bottom sheet demo.');
   }
 
-  String get demoBottomTextFieldsTitle {
-    return Intl.message(r'Text fields',
-        locale: _localeName,
-        name: 'demoBottomTextFieldsTitle',
-        desc: r'Title for text fields demo.');
-  }
-
   String get demoButtonSubtitle {
     return Intl.message(r'Flat, raised, outline, and more',
         locale: _localeName,
@@ -1801,6 +1794,36 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoTabBarTitle',
         desc: r'Title for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTextFieldDescription {
+    return Intl.message(
+        r'A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldDescription',
+        desc: r'Description for the cupertino text field demo.');
+  }
+
+  String get demoCupertinoTextFieldPIN {
+    return Intl.message(r'PIN',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldPIN',
+        desc:
+            r'The placeholder for a text field where a user would enter their PIN number.');
+  }
+
+  String get demoCupertinoTextFieldSubtitle {
+    return Intl.message(r'iOS-style text fields',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldSubtitle',
+        desc: r'Subtitle for the cupertino text field demo.');
+  }
+
+  String get demoCupertinoTextFieldTitle {
+    return Intl.message(r'Text Fields',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldTitle',
+        desc: r'Title for the cupertino text field demo.');
   }
 
   String get demoCustomSlidersDescription {
@@ -2518,7 +2541,7 @@ class GalleryLocalizations {
   }
 
   String get demoTextFieldEmail {
-    return Intl.message(r'E-mail',
+    return Intl.message(r'Email',
         locale: _localeName,
         name: 'demoTextFieldEmail',
         desc: r'The label for an email address input field');

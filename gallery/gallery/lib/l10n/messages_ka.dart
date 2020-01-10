@@ -364,8 +364,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "მუდმივი და მოდალური ქვედა ფურცლები"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("ქვედა ფურცელი"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ტექსტური ველები"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ბრტყელი, ამოწეული, კონტურული და სხვა"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ღილაკები"),

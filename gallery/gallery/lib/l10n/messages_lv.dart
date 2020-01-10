@@ -350,8 +350,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pastāvīgā un modālā ekrāna apakšdaļa"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage(
             "Ekrāna apakšdaļas izklājlapa"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Teksta lauki"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plakanas, paceltas, konturētas un citu veidu"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Pogas"),

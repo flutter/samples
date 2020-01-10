@@ -352,8 +352,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Пастаянныя і мадальныя ніжнія аркушы"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Ніжні аркуш"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Тэкставыя палі"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Плоская, выпуклая, с контурам і іншыя"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Кнопкі"),

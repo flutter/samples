@@ -366,8 +366,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "सधैँ देखिइरहने र मोडल नामक फेदका पानाहरू"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("फेदको पाना"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("पाठ फिल्डहरू"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("समतल, उठाइएको, आउटलाइन र थप"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("बटनहरू"),

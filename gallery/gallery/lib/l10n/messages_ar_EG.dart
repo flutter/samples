@@ -355,8 +355,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "البطاقات السفلية المقيِّدة والعادية"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("البطاقة السفلية"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("حقول النص"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "أزرار منبسطة وبارزة ومخطَّطة وغيرها"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("الأزرار"),

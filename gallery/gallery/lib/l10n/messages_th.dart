@@ -349,8 +349,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistent และ Modal Bottom Sheet"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom Sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ช่องข้อความ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "แบนราบ ยกขึ้น เติมขอบ และอื่นๆ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ปุ่ม"),

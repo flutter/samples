@@ -364,8 +364,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle": MessageLookupByLibrary.simpleMessage(
             "ପର୍ସିଷ୍ଟେଣ୍ଟ ଏବଂ ମୋଡାଲ୍ ବଟମ୍ ସିଟ୍"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("ତଳ ସିଟ୍"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ଟେକ୍ସଟ୍ ଫିଲ୍ଡ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ସମତଳ, ଉଠିଥିବା, ଆଉଟ୍‍ଲାଇନ୍ ଏବଂ ଆହୁରି ଅନେକ କିଛି"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ବଟନ୍‍ଗୁଡ଼ିକ"),

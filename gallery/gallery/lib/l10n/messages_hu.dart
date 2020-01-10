@@ -368,8 +368,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Állandó és modális alsó lapok"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Alsó lap"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Szövegmezők"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lapos, kiemelkedő, körülrajzolt és továbbiak"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Gombok"),
