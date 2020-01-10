@@ -1681,6 +1681,28 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino navigation bar component demo.');
   }
 
+  String get demoCupertinoPullToRefreshDescription {
+    return Intl.message(
+        r'A widget implementing the iOS-style pull to refresh content control.',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshDescription',
+        desc: r'Description for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshSubtitle {
+    return Intl.message(r'iOS-style pull to refresh control',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshSubtitle',
+        desc: r'Subtitle for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshTitle {
+    return Intl.message(r'Pull To Refresh',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshTitle',
+        desc: r'Title for the cupertino pull-to-refresh component demo.');
+  }
+
   String get demoCupertinoSegmentedControlDescription {
     return Intl.message(
         r'Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.',
@@ -2707,6 +2729,36 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoToggleButtonTitle',
         desc: r'Title for the toggle buttons component demo.');
+  }
+
+  String get demoTooltipDescription {
+    return Intl.message(
+        r'Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.',
+        locale: _localeName,
+        name: 'demoTooltipDescription',
+        desc: r'Description for tooltip demo.');
+  }
+
+  String get demoTooltipInstructions {
+    return Intl.message(r'Long press or hover to display the tooltip.',
+        locale: _localeName,
+        name: 'demoTooltipInstructions',
+        desc:
+            r'Instructions for how to trigger a tooltip in the tooltip demo.');
+  }
+
+  String get demoTooltipSubtitle {
+    return Intl.message(r'Short message displayed on long press or hover',
+        locale: _localeName,
+        name: 'demoTooltipSubtitle',
+        desc: r'Subtitle for tooltip demo.');
+  }
+
+  String get demoTooltipTitle {
+    return Intl.message(r'Tooltips',
+        locale: _localeName,
+        name: 'demoTooltipTitle',
+        desc: r'Title for tooltip demo.');
   }
 
   String get demoTwoLineListsTitle {

@@ -442,6 +442,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style navigation bar"),
         "demoCupertinoNavigationBarTitle":
             MessageLookupByLibrary.simpleMessage("Navigation Bar"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "A widget implementing the iOS-style pull to refresh content control."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-style pull to refresh control"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull To Refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected."),
@@ -703,6 +711,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Toggle Buttons"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Long press or hover to display the tooltip."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Short message displayed on long press or hover"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Tooltips"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Two Lines"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(

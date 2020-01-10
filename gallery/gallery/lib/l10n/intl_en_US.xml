@@ -842,6 +842,18 @@
     description="Description for the cupertino navigation bar component demo."
     >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
   <string
+    name="demoCupertinoPullToRefreshTitle"
+    description="Title for the cupertino pull-to-refresh component demo."
+    >Pull To Refresh</string>
+  <string
+    name="demoCupertinoPullToRefreshSubtitle"
+    description="Subtitle for the cupertino pull-to-refresh component demo."
+    >iOS-style pull to refresh control</string>
+  <string
+    name="demoCupertinoPullToRefreshDescription"
+    description="Description for the cupertino pull-to-refresh component demo."
+    >A widget implementing the iOS-style pull to refresh content control.</string>
+  <string
     name="demoCupertinoSegmentedControlTitle"
     description="Title for the cupertino segmented control component demo."
     >Segmented Control</string>
@@ -1209,6 +1221,22 @@
     name="demoTextFieldRequiredField"
     description="Helper text to indicate that * means that it is a required field."
     >* indicates required field</string>
+  <string
+    name="demoTooltipTitle"
+    description="Title for tooltip demo."
+    >Tooltips</string>
+  <string
+    name="demoTooltipSubtitle"
+    description="Subtitle for tooltip demo."
+    >Short message displayed on long press or hover</string>
+  <string
+    name="demoTooltipDescription"
+    description="Description for tooltip demo."
+    >Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.</string>
+  <string
+    name="demoTooltipInstructions"
+    description="Instructions for how to trigger a tooltip in the tooltip demo."
+    >Long press or hover to display the tooltip.</string>
   <string
     name="bottomNavigationCommentsTab"
     description="Title for Comments tab of bottom navigation."

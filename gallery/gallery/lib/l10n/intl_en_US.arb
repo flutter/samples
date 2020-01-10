@@ -887,6 +887,18 @@
   "@demoCupertinoNavigationBarDescription": {
     "description": "Description for the cupertino navigation bar component demo."
   },
+  "demoCupertinoPullToRefreshTitle": "Pull To Refresh",
+  "@demoCupertinoPullToRefreshTitle": {
+    "description": "Title for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshSubtitle": "iOS-style pull to refresh control",
+  "@demoCupertinoPullToRefreshSubtitle": {
+    "description": "Subtitle for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshDescription": "A widget implementing the iOS-style pull to refresh content control.",
+  "@demoCupertinoPullToRefreshDescription": {
+    "description": "Description for the cupertino pull-to-refresh component demo."
+  },
   "demoCupertinoSegmentedControlTitle": "Segmented Control",
   "@demoCupertinoSegmentedControlTitle": {
     "description": "Title for the cupertino segmented control component demo."
@@ -1281,6 +1293,22 @@
   "demoTextFieldRequiredField": "* indicates required field",
   "@demoTextFieldRequiredField": {
     "description": "Helper text to indicate that * means that it is a required field."
+  },
+  "demoTooltipTitle": "Tooltips",
+  "@demoTooltipTitle": {
+    "description": "Title for tooltip demo."
+  },
+  "demoTooltipSubtitle": "Short message displayed on long press or hover",
+  "@demoTooltipSubtitle": {
+    "description": "Subtitle for tooltip demo."
+  },
+  "demoTooltipDescription": "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.",
+  "@demoTooltipDescription": {
+    "description": "Description for tooltip demo."
+  },
+  "demoTooltipInstructions": "Long press or hover to display the tooltip.",
+  "@demoTooltipInstructions": {
+    "description": "Instructions for how to trigger a tooltip in the tooltip demo."
   },
   "bottomNavigationCommentsTab": "Comments",
   "@bottomNavigationCommentsTab": {
