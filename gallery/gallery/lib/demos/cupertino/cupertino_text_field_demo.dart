@@ -10,10 +10,11 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 class CupertinoTextFieldDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text('Text Fields'),
+        middle: Text(localizations.demoCupertinoTextFieldTitle),
       ),
       child: SafeArea(
         child: ListView(
@@ -22,8 +23,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: CupertinoTextField(
-                placeholder:
-                    GalleryLocalizations.of(context).demoTextFieldEmail,
+                placeholder: localizations.demoTextFieldEmail,
                 keyboardType: TextInputType.emailAddress,
                 clearButtonMode: OverlayVisibilityMode.editing,
                 autocorrect: false,
@@ -32,8 +32,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: CupertinoTextField(
-                placeholder:
-                    GalleryLocalizations.of(context).rallyLoginPassword,
+                placeholder: localizations.rallyLoginPassword,
                 clearButtonMode: OverlayVisibilityMode.editing,
                 obscureText: true,
                 autocorrect: false,
@@ -55,8 +54,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
                   ),
                 ),
               ),
-              placeholder:
-                  GalleryLocalizations.of(context).demoCupertinoTextFieldPIN,
+              placeholder: localizations.demoCupertinoTextFieldPIN,
             ),
           ],
         ),
