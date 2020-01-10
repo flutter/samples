@@ -213,13 +213,11 @@ class TaggedString {
   final double order;
 }
 
-void _formatSegments(Map<String, String> segments, String targetFilePath) {
-  File targetFile = File(targetFilePath);
-  IOSink output = targetFile.openWrite();
-
+void _formatSegments(Map<String, String> segments, IOSink output) {
   output.write(_globalPrologue);
 
-  for (final name in segments.keys) {
+  final sortedNames = segments.keys.toList()..sort();
+  for (final name in sortedNames) {
     String code = segments[name];
 
     output.writeln('  static TextSpan $name (BuildContext context) {');
@@ -248,16 +246,19 @@ void _formatSegments(Map<String, String> segments, String targetFilePath) {
 /// [sourceDirectoryPath] and reads every file in it,
 /// collects code segments marked by "// BEGIN <segment_name>" and "// END",
 /// highlights them, and writes to the file specified by
-/// [targetFilePath].
+/// [targetFilePath]. If [isDryRun] is true, the output will
+/// be written to stdout.
 ///
 /// The output file is a dart source file with a class "CodeSegments" and
 /// static methods of type TextSpan(BuildContext context).
 /// Each method generates a widget that displays a segment of code.
 ///
 /// The target file is overwritten.
-void writeSegments({String sourceDirectoryPath, String targetFilePath}) {
+void writeSegments(
+    {String sourceDirectoryPath, String targetFilePath, bool isDryRun}) {
   Map<String, String> segments = _createSegments(sourceDirectoryPath);
-  _formatSegments(segments, targetFilePath);
+  IOSink output = isDryRun ? stdout : File(targetFilePath).openWrite();
+  _formatSegments(segments, output);
 }
 
 class PreformatterException implements Exception {
