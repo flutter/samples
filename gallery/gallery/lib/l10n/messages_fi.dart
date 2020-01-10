@@ -360,8 +360,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle": MessageLookupByLibrary.simpleMessage(
             "Näkyvissä pysyvä tai modaalinen alaosa"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("Alaosa"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Tekstikentät"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Litteä, korotettu, ääriviivat ja muita"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Painikkeet"),

@@ -371,8 +371,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistent and modal bottom sheets"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
@@ -475,6 +473,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Tab Bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style text fields"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text Fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
         "demoCustomSlidersTitle":
@@ -658,7 +664,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tabs"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Text fields allow users to enter text into a UI. They typically appear in forms and dialogs."),
-        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Please enter a password."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(

@@ -353,8 +353,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نیچے کی مستقل اور موڈل شیٹس"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("نیچے کی شیٹ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("متن کے فیلڈز"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ہموار، ابھرا ہوا، آؤٹ لائن، اور مزید"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("بٹنز"),

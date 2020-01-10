@@ -367,8 +367,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "స్థిరమైన నమూనా దిగువున ఉండే షిట్‌లు"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("దిగువున ఉన్న షీట్"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("వచన ఫీల్డ్‌లు"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ఫ్లాట్, పెరిగిన, అవుట్ లైన్ మరియు మరిన్ని"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("బటన్‌లు"),

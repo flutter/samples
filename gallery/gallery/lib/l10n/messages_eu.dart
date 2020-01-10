@@ -359,8 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Beheko orri finko eta modalak"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Beheko orria"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Testu-eremuak"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Laua, goratua, ingeradaduna eta beste"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botoiak"),

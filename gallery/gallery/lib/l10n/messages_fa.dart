@@ -348,8 +348,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "برگه‌های پایانی مودال و پایدار"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("برگه پایانی"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("فیلدهای نوشتاری"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "مسطح، برجسته، برون‌نما، و موارد دیگر"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("دکمه‌ها"),

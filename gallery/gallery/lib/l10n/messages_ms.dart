@@ -357,8 +357,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Helaian bawah mod dan berterusan"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Helaian bawah"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Medan teks"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Rata, timbul, garis bentuk dan pelbagai lagi"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Butang"),

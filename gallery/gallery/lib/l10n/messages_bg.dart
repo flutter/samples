@@ -350,8 +350,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Постоянен и модален долен лист"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Долен лист"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Текстови полета"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Плоски, повдигащи се, с контури и др."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Бутони"),

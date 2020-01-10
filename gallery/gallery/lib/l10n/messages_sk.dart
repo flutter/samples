@@ -353,8 +353,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Trvalé a modálne dolné hárky"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Dolný hárok"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Textové polia"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ploché, zvýšené, s obrysom a ďalšie"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tlačidlá"),

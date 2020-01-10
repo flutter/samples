@@ -362,8 +362,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Foile persistente și modale din partea de jos"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Foaia din partea de jos"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Câmpuri de text"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plate, ridicate, cu contur și altele"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Butoane"),

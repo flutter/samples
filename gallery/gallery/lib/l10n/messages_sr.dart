@@ -365,8 +365,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Трајне и модалне доње табеле"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Доња табела"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Поља за унос текста"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Равна, издигнута, оивичена и друга"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Дугмад"),

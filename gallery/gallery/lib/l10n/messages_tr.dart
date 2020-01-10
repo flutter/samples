@@ -342,8 +342,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sürekli ve kalıcı alt sayfalar"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Alt sayfa"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Metin-alanları"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Düz, yükseltilmiş, dış çizgili ve fazlası"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Düğmeler"),

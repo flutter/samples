@@ -315,8 +315,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("지속적 하단 시트 및 모달 하단 시트"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("하단 시트"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("입력란"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("평면, 돌출, 윤곽 등"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("버튼"),

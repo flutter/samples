@@ -342,8 +342,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vedvarende felt og modalfelt nederst"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Felt nederst"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Tekstfelter"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flatt, hevet, omriss med mer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knapper"),

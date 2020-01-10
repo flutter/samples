@@ -358,8 +358,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mga persistent at modal na bottom sheet"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Mga field ng text"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, nakaangat, outline, at higit pa"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Mga Button"),

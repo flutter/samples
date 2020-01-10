@@ -17,6 +17,7 @@ import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_text_field_demo.dart';
 import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
@@ -668,6 +669,21 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               '$_docsBaseUrl/cupertino/CupertinoTabBar-class.html',
           buildRoute: (_) => CupertinoTabBarDemo(),
           code: CodeSegments.cupertinoNavigationDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoTextFieldTitle,
+      icon: GalleryIcons.textFieldsAlt,
+      subtitle: localizations.demoCupertinoTextFieldSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoTextFieldTitle,
+          description: localizations.demoCupertinoTextFieldDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoTextField-class.html',
+          buildRoute: (_) => CupertinoTextFieldDemo(),
+          code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
     ),

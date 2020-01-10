@@ -360,8 +360,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pàgines modal i persistent inferiors"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Pàgina inferior"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Camps de text"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Pla, amb relleu, perfilat i més"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botons"),

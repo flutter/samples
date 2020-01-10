@@ -359,8 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Blywende en modale blaaie onder"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Blad onder"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Teksvelde"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, verhewe, buitelyn, en meer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knoppies"),

@@ -351,8 +351,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sheet bawah persisten dan modal"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Sheet bawah"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Kolom teks"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Datar, timbul, outline, dan lain-lain"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tombol"),

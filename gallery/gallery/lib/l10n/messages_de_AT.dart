@@ -352,8 +352,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistente und modale Blätter am unteren Rand"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Blatt am unteren Rand"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Textfelder"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flach, erhöht, mit Umriss und mehr"),
         "demoButtonTitle":

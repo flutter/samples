@@ -356,8 +356,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "सातत्यपूर्ण आणि मोडल तळाची पत्रके"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("तळाचे पत्रक"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("मजकूर भाग"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "सपाट, उंच केलेली, आउटलाइन आणि आणखी बरीच"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("बटणे"),

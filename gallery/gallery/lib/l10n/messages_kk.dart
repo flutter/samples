@@ -347,8 +347,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Тұрақты және модальдік төменгі парақшалар"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Төменгі парақша"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Мәтін өрістері"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Тегіс, көтеріңкі, контурлы және тағы басқа"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Түймелер"),
