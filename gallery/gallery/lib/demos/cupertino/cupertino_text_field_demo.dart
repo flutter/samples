@@ -49,7 +49,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    width: 0.0,
+                    width: 0,
                     color: CupertinoColors.inactiveGray,
                   ),
                 ),
