@@ -1280,6 +1280,28 @@ class GalleryLocalizations {
         desc: r'Title for the alert dialog with title component demo.');
   }
 
+  String get demoBannerDescription {
+    return Intl.message(
+        r'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.',
+        locale: _localeName,
+        name: 'demoBannerDescription',
+        desc: r'Description for the material banner component demo.');
+  }
+
+  String get demoBannerSubtitle {
+    return Intl.message(r'Displaying a Banner within a list',
+        locale: _localeName,
+        name: 'demoBannerSubtitle',
+        desc: r'Subtitle for the material banner component demo.');
+  }
+
+  String get demoBannerTitle {
+    return Intl.message(r'Banner',
+        locale: _localeName,
+        name: 'demoBannerTitle',
+        desc: r'Title for the material banner component demo.');
+  }
+
   String get demoBottomAppBarDescription {
     return Intl.message(
         r'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
@@ -1432,6 +1454,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoButtonTitle',
         desc: r'Title for the material buttons component demo.');
+  }
+
+  String get demoCardDescription {
+    return Intl.message(
+        r'A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.',
+        locale: _localeName,
+        name: 'demoCardDescription',
+        desc: r'Description for the material cards component demo.');
+  }
+
+  String get demoCardSubtitle {
+    return Intl.message(r'Baseline cards with rounded corners',
+        locale: _localeName,
+        name: 'demoCardSubtitle',
+        desc: r'Subtitle for the material cards component demo.');
+  }
+
+  String get demoCardTitle {
+    return Intl.message(r'Cards',
+        locale: _localeName,
+        name: 'demoCardTitle',
+        desc: r'Title for the material cards component demo.');
   }
 
   String get demoChipSubtitle {

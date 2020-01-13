@@ -15,6 +15,7 @@ import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/material/banner_demo.dart';
 import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
@@ -68,6 +69,22 @@ class GalleryDemoConfiguration {
 
 List<GalleryDemo> materialDemos(BuildContext context) {
   return [
+    GalleryDemo(
+      title: 'Banner',
+      icon: GalleryIcons.backdrop,
+      subtitle: 'Displaying a Banner within a list',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Banner',
+          description:
+              'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.',
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
+          buildRoute: (_) => BannerDemo(),
+          code: CodeSegments.bannerDemo,
+        ),
+      ],
+    ),
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
@@ -193,14 +210,13 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoActionChipDescription,
+      title: GalleryLocalizations.of(context).demoCardTitle,
       icon: GalleryIcons.cards,
-      subtitle: 'Baseline cards with rounded corners',
+      subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Cards',
-          description:
-              'A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.',
+          title: GalleryLocalizations.of(context).demoCardTitle,
+          description: GalleryLocalizations.of(context).demoCardDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/Card-class.html',
           buildRoute: (context) => CardsDemo(),

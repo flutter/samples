@@ -333,6 +333,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alert"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alert With Title"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Displaying a Banner within a list"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -372,6 +377,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Baseline cards with rounded corners"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Cards"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Compact elements that represent an input, attribute, or action"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chips"),

@@ -442,6 +442,18 @@
     description="A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center."
     >Floating - Center</string>
   <string
+    name="demoBannerTitle"
+    description="Title for the material banner component demo."
+    >Banner</string>
+  <string
+    name="demoBannerSubtitle"
+    description="Subtitle for the material banner component demo."
+    >Displaying a Banner within a list</string>
+  <string
+    name="demoBannerDescription"
+    description="Description for the material banner component demo."
+    >A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.</string>
+  <string
     name="demoBottomNavigationTitle"
     description="Title for the material bottom navigation component demo."
     >Bottom navigation</string>
@@ -510,9 +522,21 @@
     description="Description for the floating action button component demo."
     >A floating action button is a circular icon button that hovers over content to promote a primary action in the application.</string>
   <string
+    name="demoCardTitle"
+    description="Title for the material cards component demo."
+    >Cards</string>
+  <string
+    name="demoCardSubtitle"
+    description="Subtitle for the material cards component demo."
+    >Baseline cards with rounded corners</string>
+  <string
     name="demoChipTitle"
     description="Title for the material chips component demo."
     >Chips</string>
+  <string
+    name="demoCardDescription"
+    description="Description for the material cards component demo."
+    >A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.</string>
   <string
     name="demoChipSubtitle"
     description="Subtitle for the material chips component demo."
