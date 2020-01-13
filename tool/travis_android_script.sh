@@ -45,8 +45,8 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
 
-    ./gradlew assembleDebug
-    ./gradlew assembleRelease
+    ./gradlew --stacktrace assembleDebug
+    ./gradlew --stacktrace assembleRelease
 
     popd
 done
