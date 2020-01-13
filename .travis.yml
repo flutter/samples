@@ -1,7 +1,5 @@
-os:
-  - linux
+os: linux
 dist: trusty
-language: android
 
 addons:
   apt:
@@ -19,21 +17,31 @@ android:
     - build-tools-28.0.3
     - android-28
 
-env:
-  - FLUTTER_VERSION=stable
-  - FLUTTER_VERSION=beta
-
 jobs:
+  include:
+    - name: "Android tests, stable channel"
+      language: android
+      script: ./tool/travis_android_script.sh
+      env: FLUTTER_VERSION=stable
+    - name: "Flutter tests, stable channel"
+      language: ruby
+      script: ./tool/travis_flutter_script.sh
+      env: FLUTTER_VERSION=stable
+    - name: "Android tests, beta channel"
+      language: android
+      script: ./tool/travis_android_script.sh
+      env: FLUTTER_VERSION=beta
+    - name: "Flutter tests, beta channel"
+      language: ruby
+      script: ./tool/travis_flutter_script.sh
+      env: FLUTTER_VERSION=beta
   allow_failures:
     - env: FLUTTER_VERSION=beta
 
 before_script:
   - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
   - ./flutter/bin/flutter doctor
-  - chmod +x travis_script.sh
-
-script:
-  - ./travis_script.sh
+  - chmod +x tool/travis_*_script.sh
 
 cache:
   directories:
@@ -43,6 +51,7 @@ notifications:
   email:
     brogdon+github@gmail.com
 
-# Only building master means that we don't run two builds for each pull request.
+# Building master alone means that we don't run two builds for
+# each pull request.
 branches:
   only: [master]
