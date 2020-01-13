@@ -6,3 +6,5 @@
 version:
   revision: 9299c02cf708497d6f72edda8efae0bb8340660e
   channel: beta
+
+project_type: app
