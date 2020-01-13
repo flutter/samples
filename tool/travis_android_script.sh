@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Backs up one directory at a time, looking for one called "flutter". Once it
@@ -30,7 +32,7 @@ pushd add_to_app/flutter_module
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
-pushd add_to_app/flutter_module
+pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
 popd
 

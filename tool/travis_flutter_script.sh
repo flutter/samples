@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Backs up one directory at a time, looking for one called "flutter". Once it
