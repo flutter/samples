@@ -340,8 +340,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistent ແລະ modal bottom sheets"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ຊ່ອງຂໍ້ຄວາມ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ຮາບພຽງ, ຍົກຂຶ້ນ, ມີເສັ້ນຂອບ ແລະ ອື່ນໆ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ປຸ່ມ"),

@@ -342,8 +342,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permanent och modalt ark på nedre delen av skärmen"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage(
             "Ark på nedre delen av skärmen"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Textfält"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Platt, upphöjd, kontur och fler"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knappar"),

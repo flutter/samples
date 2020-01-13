@@ -357,8 +357,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Püsivad ja modaalsed alumised lehed"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Alumine leht"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Tekstiväljad"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Samatasandiline, tõstetud, mitmetasandiline ja muud"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Nupud"),

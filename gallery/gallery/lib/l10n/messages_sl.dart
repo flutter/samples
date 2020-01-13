@@ -362,8 +362,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Trajni in modalni listi na dnu zaslona"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("List na dnu zaslona"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Besedilna polja"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ravni, dvignjeni, orisni in drugo"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Gumbi"),

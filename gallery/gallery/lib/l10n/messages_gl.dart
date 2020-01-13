@@ -360,8 +360,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Follas mostradas de xeito permanente e de modo situadas na parte inferior"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Folla inferior"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Campos de texto"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plano, con relevo, contorno e moito máis"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botóns"),

@@ -361,8 +361,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistente en modale bladen onderaan"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Blad onderaan"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Tekstvelden"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, verhoogd, contour en meer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knoppen"),

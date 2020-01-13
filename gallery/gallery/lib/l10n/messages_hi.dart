@@ -343,8 +343,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "हमेशा दिखने वाली और मॉडल बॉटम शीट"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("बॉटम शीट"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("टेक्स्ट फ़ील्ड"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "सादे, उभरे हुए, आउटलाइट, और दूसरे तरह के बटन"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("बटन"),

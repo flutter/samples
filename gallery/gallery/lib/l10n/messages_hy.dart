@@ -354,8 +354,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ներքևի ստատիկ և մոդալ թերթեր"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Ներքևի թերթ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Տեքստային դաշտեր"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Հարթ, բարձրացված, ուրվագծային և այլն"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Կոճակներ"),

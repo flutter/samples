@@ -366,8 +366,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "நிலைத்திருக்கும் மற்றும் மோடல் கீழ்த் திரைகள்"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("கீழ்த் திரை"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("உரைப் புலங்கள்"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),

@@ -344,8 +344,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ਸਥਾਈ ਅਤੇ ਮਾਡਲ ਹੇਠਲੀ ਸ਼ੀਟ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("ਹੇਠਲੀ ਸ਼ੀਟ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ਲਿਖਤ ਖੇਤਰ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ਸਮਤਲ, ਉਭਰਿਆ ਹੋਇਆ, ਰੂਪ-ਰੇਖਾ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ਬਟਨ"),

@@ -359,8 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hojas inferiores modales y persistentes"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Hoja inferior"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Campos de texto"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Planos, con relieve, con contorno, etc."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botones"),

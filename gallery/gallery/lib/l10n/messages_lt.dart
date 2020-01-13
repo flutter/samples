@@ -369,8 +369,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nuolatinis ir modalinis apatinio lapo mygtukai"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Apatinio lapo mygtukas"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Teksto laukai"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plokštieji, iškilieji, kontūriniai ir kt."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Mygtukai"),

@@ -344,8 +344,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("גיליון תחתון מודלי וקבוע"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("גיליון תחתון"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("שדות טקסט"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("שטוח, בולט, קווי מתאר ועוד"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("לחצנים"),

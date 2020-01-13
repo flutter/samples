@@ -321,8 +321,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("ጽኑ እና ሞዳል የግርጌ ሉሆች"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("የግርጌ ሉህ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("የጽሑፍ መስኮች"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("ዝርግ፣ ከፍ ያለ፣ ቢጋር እና ተጨማሪ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("አዝራሮች"),

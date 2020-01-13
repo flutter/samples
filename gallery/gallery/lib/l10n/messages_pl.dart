@@ -366,8 +366,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Trwałe i modalne plansze dolne"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Plansza dolna"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Pola tekstowe"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Płaski, podniesiony, z konturem i inne"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Przyciski"),

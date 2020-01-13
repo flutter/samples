@@ -375,8 +375,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Amashidi waphansi aphoqelelayo nawe-modal"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Ishidi eliphansi"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Izinkambu zombhalo"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Okuphansi, okuphakanyisiwe, uhlaka, nokuningi"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Izinkinobho"),

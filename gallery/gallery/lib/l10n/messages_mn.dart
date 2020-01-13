@@ -356,8 +356,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Тогтмол болон зайлшгүй харилцах доод хүснэгт"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Доод хүснэгт"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Текстийн талбар"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Хавтгай, товгор, гадна хүрээ болон бусад"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Товчлуур"),

@@ -362,8 +362,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "একেবাৰে নিম্নাংশৰ অবিৰত আৰু ম’ডাল শ্বীটসমূহ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("একেবাৰে নিম্নাংশৰ শ্বীট"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("পাঠৰ ক্ষেত্ৰসমূহ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "সমতল, উঠঙা, ৰূপৰেখা আৰু বহুতো"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("বুটামসমূহ"),

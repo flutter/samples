@@ -351,8 +351,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bảng cách điệu và bảng cố định dưới cùng"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bảng dưới cùng"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Trường văn bản"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Nút dẹt, lồi, có đường viền, v.v."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Nút"),
