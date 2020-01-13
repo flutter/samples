@@ -365,8 +365,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Trajne i modalne donje tabele"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Donja tabela"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Polja za unos teksta"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ravna, izdignuta, oivičena i druga"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Dugmad"),

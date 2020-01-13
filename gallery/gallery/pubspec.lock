@@ -118,6 +118,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_gallery_assets:
+    dependency: "direct main"
+    description:
+      name: flutter_gallery_assets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.9+2"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -358,7 +365,7 @@ packages:
     source: hosted
     version: "2.0.0"
   string_scanner:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: string_scanner
       url: "https://pub.dartlang.org"

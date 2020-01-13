@@ -352,8 +352,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Постійна й модальна сторінки, що розгортаються знизу"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage(
             "Сторінка, що розгортається знизу"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Текстові поля"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Пласкі, опуклі, з контуром тощо"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Кнопки"),

@@ -344,8 +344,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Faste og modale felter i bunden"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Felt i bunden"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Tekstfelter"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flade, hævede, kontur og meget mere"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knapper"),

@@ -318,8 +318,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("永続ボトムシートとモーダル ボトムシート"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("ボトムシート"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("テキスト欄"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("フラット、浮き出し、アウトラインなど"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ボタン"),

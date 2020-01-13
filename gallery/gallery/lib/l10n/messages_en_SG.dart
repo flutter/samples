@@ -351,8 +351,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistent and modal bottom sheets"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),

@@ -359,8 +359,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Fletët e përkohshme dhe modale të poshtme"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Fleta e poshtme"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Fushat me tekst"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "I rrafshët, i ngritur, me kontur etj."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Butonat"),

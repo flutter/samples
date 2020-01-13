@@ -363,8 +363,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ылдый жакта жайгашкан туруктуу жана модалдык барактар"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Ылдый жактагы меню"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Текст киргизилүүчү талаалар"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Түз, көтөрүлгөн, четки сызыктар жана башкалар"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Баскычтар"),

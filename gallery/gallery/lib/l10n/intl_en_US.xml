@@ -602,6 +602,30 @@
     description="Description for the simple dialog component demo."
     >A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.</string>
   <string
+    name="demoGridListsTitle"
+    description="Title for the grid lists component demo."
+    >Grid Lists</string>
+  <string
+    name="demoGridListsSubtitle"
+    description="Subtitle for the grid lists component demo."
+    >Row and column layout</string>
+  <string
+    name="demoGridListsDescription"
+    description="Description for the grid lists component demo."
+    >Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.</string>
+  <string
+    name="demoGridListsImageOnlyTitle"
+    description="Title for the grid lists image-only component demo."
+    >Image only</string>
+  <string
+    name="demoGridListsHeaderTitle"
+    description="Title for the grid lists component demo with headers on each tile."
+    >With header</string>
+  <string
+    name="demoGridListsFooterTitle"
+    description="Title for the grid lists component demo with footers on each tile."
+    >With footer</string>
+  <string
     name="demoSlidersTitle"
     description="Title for the sliders component demo."
     >Sliders</string>
@@ -653,6 +677,114 @@
     name="demoSlidersEditableNumericalValue"
     description="Label for input field that has an editable numerical value."
     >Editable numerical value</string>
+  <string
+    name="demoMenuTitle"
+    description="Title for the menu component demo."
+    >Menu</string>
+  <string
+    name="demoContextMenuTitle"
+    description="Title for the context menu component demo."
+    >Context menu</string>
+  <string
+    name="demoSectionedMenuTitle"
+    description="Title for the sectioned menu component demo."
+    >Sectioned menu</string>
+  <string
+    name="demoSimpleMenuTitle"
+    description="Title for the simple menu component demo."
+    >Simple menu</string>
+  <string
+    name="demoChecklistMenuTitle"
+    description="Title for the checklist menu component demo."
+    >Checklist menu</string>
+  <string
+    name="demoMenuSubtitle"
+    description="Short description for the menu component demo."
+    >Menu buttons and simple menus</string>
+  <string
+    name="demoMenuDescription"
+    description="Description for the menu demo."
+    >A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</string>
+  <string
+    name="demoMenuItemValueOne"
+    description="The first item in a menu."
+    >Menu item one</string>
+  <string
+    name="demoMenuItemValueTwo"
+    description="The second item in a menu."
+    >Menu item two</string>
+  <string
+    name="demoMenuItemValueThree"
+    description="The third item in a menu."
+    >Menu item three</string>
+  <string
+    name="demoMenuOne"
+    description="The number one."
+    >One</string>
+  <string
+    name="demoMenuTwo"
+    description="The number two."
+    >Two</string>
+  <string
+    name="demoMenuThree"
+    description="The number three."
+    >Three</string>
+  <string
+    name="demoMenuFour"
+    description="The number four."
+    >Four</string>
+  <string
+    name="demoMenuAnItemWithAContextMenuButton"
+    description="Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a context menu</string>
+  <string
+    name="demoMenuContextMenuItemOne"
+    description="Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Context menu item one</string>
+  <string
+    name="demoMenuADisabledMenuItem"
+    description="Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Disabled menu item</string>
+  <string
+    name="demoMenuContextMenuItemThree"
+    description="Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >Context menu item three</string>
+  <string
+    name="demoMenuAnItemWithASectionedMenu"
+    description="Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a sectioned menu</string>
+  <string
+    name="demoMenuPreview"
+    description="Button to preview content."
+    >Preview</string>
+  <string
+    name="demoMenuShare"
+    description="Button to share content."
+    >Share</string>
+  <string
+    name="demoMenuGetLink"
+    description="Button to get link for content."
+    >Get link</string>
+  <string
+    name="demoMenuRemove"
+    description="Button to remove content."
+    >Remove</string>
+  <string
+    name="demoMenuSelected"
+    description="A text to show what value was selected."
+    >Selected: {value}</string>
+  <string
+    name="demoMenuChecked"
+    description="A text to show what value was checked."
+    >Checked: {value}</string>
+  <string
+    name="demoMenuAnItemWithASimpleMenu"
+    description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a simple menu</string>
+  <string
+    name="demoMenuAnItemWithAChecklistMenu"
+    description="Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+    >An item with a checklist menu</string>
   <string
     name="demoFullscreenDialogTitle"
     description="Title for the fullscreen dialog component demo."
@@ -722,6 +854,30 @@
     description="Description for the cupertino action sheet component demo."
     >An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions.</string>
   <string
+    name="demoCupertinoNavigationBarTitle"
+    description="Title for the cupertino navigation bar component demo."
+    >Navigation Bar</string>
+  <string
+    name="demoCupertinoNavigationBarSubtitle"
+    description="Subtitle for the cupertino navigation bar component demo."
+    >iOS-style navigation bar</string>
+  <string
+    name="demoCupertinoNavigationBarDescription"
+    description="Description for the cupertino navigation bar component demo."
+    >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
+  <string
+    name="demoCupertinoPullToRefreshTitle"
+    description="Title for the cupertino pull-to-refresh component demo."
+    >Pull To Refresh</string>
+  <string
+    name="demoCupertinoPullToRefreshSubtitle"
+    description="Subtitle for the cupertino pull-to-refresh component demo."
+    >iOS-style pull to refresh control</string>
+  <string
+    name="demoCupertinoPullToRefreshDescription"
+    description="Description for the cupertino pull-to-refresh component demo."
+    >A widget implementing the iOS-style pull to refresh content control.</string>
+  <string
     name="demoCupertinoSegmentedControlTitle"
     description="Title for the cupertino segmented control component demo."
     >Segmented Control</string>
@@ -785,6 +941,22 @@
     name="cupertinoTabBarProfileTab"
     description="Title for the profile tab in the bottom tab bar demo."
     >Profile</string>
+  <string
+    name="demoCupertinoTextFieldTitle"
+    description="Title for the cupertino text field demo."
+    >Text Fields</string>
+  <string
+    name="demoCupertinoTextFieldSubtitle"
+    description="Subtitle for the cupertino text field demo."
+    >iOS-style text fields</string>
+  <string
+    name="demoCupertinoTextFieldDescription"
+    description="Description for the cupertino text field demo."
+    >A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.</string>
+  <string
+    name="demoCupertinoTextFieldPIN"
+    description="The placeholder for a text field where a user would enter their PIN number."
+    >PIN</string>
   <string
     name="demoColorsTitle"
     description="Title for the colors demo."
@@ -974,10 +1146,6 @@
     description="Description for the switches (selection controls) demo."
     >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</string>
   <string
-    name="demoBottomTextFieldsTitle"
-    description="Title for text fields demo."
-    >Text fields</string>
-  <string
     name="demoTextFieldTitle"
     description="Title for text fields demo."
     >Text fields</string>
@@ -1044,7 +1212,7 @@
   <string
     name="demoTextFieldEmail"
     description="The label for an email address input field"
-    >E-mail</string>
+    >Email</string>
   <string
     name="demoTextFieldTellUsAboutYourself"
     description="The placeholder text for biography/life story input field."
@@ -1089,6 +1257,22 @@
     name="demoTextFieldRequiredField"
     description="Helper text to indicate that * means that it is a required field."
     >* indicates required field</string>
+  <string
+    name="demoTooltipTitle"
+    description="Title for tooltip demo."
+    >Tooltips</string>
+  <string
+    name="demoTooltipSubtitle"
+    description="Subtitle for tooltip demo."
+    >Short message displayed on long press or hover</string>
+  <string
+    name="demoTooltipDescription"
+    description="Description for tooltip demo."
+    >Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.</string>
+  <string
+    name="demoTooltipInstructions"
+    description="Instructions for how to trigger a tooltip in the tooltip demo."
+    >Long press or hover to display the tooltip.</string>
   <string
     name="bottomNavigationCommentsTab"
     description="Title for Comments tab of bottom navigation."
@@ -1341,6 +1525,62 @@
     name="colorsBlueGrey"
     description="Tab title for the color blue grey."
     >BLUE GREY</string>
+  <string
+    name="placeChennai"
+    description="Title for Chennai location."
+    >Chennai</string>
+  <string
+    name="placeTanjore"
+    description="Title for Tanjore location."
+    >Tanjore</string>
+  <string
+    name="placeChettinad"
+    description="Title for Chettinad location."
+    >Chettinad</string>
+  <string
+    name="placePondicherry"
+    description="Title for Pondicherry location."
+    >Pondicherry</string>
+  <string
+    name="placeFlowerMarket"
+    description="Title for Flower Market location."
+    >Flower Market</string>
+  <string
+    name="placeBronzeWorks"
+    description="Title for Bronze Works location."
+    >Bronze Works</string>
+  <string
+    name="placeMarket"
+    description="Title for Market location."
+    >Market</string>
+  <string
+    name="placeThanjavurTemple"
+    description="Title for Thanjavur Temple location."
+    >Thanjavur Temple</string>
+  <string
+    name="placeSaltFarm"
+    description="Title for Salt Farm location."
+    >Salt Farm</string>
+  <string
+    name="placeScooters"
+    description="Title for image of people riding on scooters."
+    >Scooters</string>
+  <string
+    name="placeSilkMaker"
+    description="Title for an image of a silk maker."
+    >Silk Maker</string>
+  <string
+    name="placeLunchPrep"
+    description="Title for an image of preparing lunch."
+    >Lunch Prep</string>
+  <string
+    name="placeBeach"
+    description="Title for Beach location."
+    >Beach</string>
+  <string
+    name="placeFisherman"
+    description="Title for an image of a fisherman."
+    >Fisherman</string>
   <string
     name="starterAppTitle"
     description="The title and name for the starter app."

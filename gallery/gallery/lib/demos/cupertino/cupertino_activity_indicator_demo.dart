@@ -12,6 +12,7 @@ class CupertinoProgressIndicatorDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
         middle: Text(
           GalleryLocalizations.of(context).demoCupertinoActivityIndicatorTitle,
         ),

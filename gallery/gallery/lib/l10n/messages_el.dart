@@ -368,8 +368,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Μόνιμα και αποκλειστικά φύλλα κάτω μέρους"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Φύλλο κάτω μέρους"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Πεδία κειμένου"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Επίπεδο, ανασηκωμένο, με περίγραμμα και περισσότερα"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Κουμπιά"),

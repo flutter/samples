@@ -353,8 +353,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Trvalé a modální spodní tabulky"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Spodní tabulka"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Textová pole"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ploché, zvýšené, obrysové a další"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tlačítka"),

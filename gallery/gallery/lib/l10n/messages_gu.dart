@@ -353,8 +353,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "પર્સીસ્ટન્ટ અને મોડલ બોટમ શીટ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("બોટમ શીટ"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("ટેક્સ્ટ ફીલ્ડ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "સમતલ, ઉપસી આવેલા, આઉટલાઇન અને બીજા ઘણા બટન"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("બટન"),

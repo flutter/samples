@@ -350,8 +350,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Постоянный и модальный нижние экраны"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Нижний экран"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Текстовые поля"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Плоские, приподнятые, контурные и не только"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Кнопки"),

@@ -361,8 +361,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pages de contenu flottantes et fixes en bas de l\'écran"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage(
             "Page de contenu en bas de l\'écran"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Champs de texte"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, en relief, avec contours et plus encore"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Boutons"),

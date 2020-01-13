@@ -20,6 +20,7 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
         middle: Text(
           GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
         ),

@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Discrete: ${value}";
 
+  static m25(value) => "Checked: ${value}";
+
+  static m26(value) => "Selected: ${value}";
+
   static m9(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
 
   static m10(value) => "You selected: \"${value}\"";
@@ -372,8 +376,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Persistent and modal bottom sheets"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Bottom sheet"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
@@ -382,6 +384,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
             "Baseline cards with rounded corners"),
         "demoCardTitle": MessageLookupByLibrary.simpleMessage("Cards"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Checklist menu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Compact elements that represent an input, attribute, or action"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chips"),
@@ -405,6 +409,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "All of the predefined colors"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Colors"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Context menu"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions."),
         "demoCupertinoActionSheetTitle":
@@ -437,6 +443,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style buttons"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Buttons"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style navigation bar"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigation Bar"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "A widget implementing the iOS-style pull to refresh content control."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-style pull to refresh control"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull To Refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected."),
@@ -462,6 +483,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Tab Bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-style text fields"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text Fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
         "demoCustomSlidersTitle":
@@ -489,6 +518,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fullscreen"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Full Screen"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("With footer"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("With header"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Image only"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Row and column layout"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Grid Lists"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Info"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Input chips represent a complex piece of information, such as an entity (person, place, or thing) or conversational text, in a compact form."),
@@ -508,6 +549,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Scrolling list layouts"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Lists"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Disabled menu item"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "An item with a checklist menu"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("An item with a context menu"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "An item with a sectioned menu"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("An item with a simple menu"),
+        "demoMenuChecked": m25,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Context menu item one"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Context menu item three"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Four"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Get link"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menu item one"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menu item three"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menu item two"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("One"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Preview"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "demoMenuSelected": m26,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Share"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menu buttons and simple menus"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Three"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Two"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("One Line"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -531,6 +609,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters."),
         "demoRangeSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Range Sliders"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Sectioned menu"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Checkboxes allow the user to select multiple options from a set. A normal checkbox\'s value is true or false and a tristate checkbox\'s value can also be null."),
@@ -553,6 +633,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Simple menu"),
         "demoSlidersContinuous":
             MessageLookupByLibrary.simpleMessage("Continuous"),
         "demoSlidersContinuousRangeSliderWithCustomTheme":
@@ -592,7 +674,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tabs"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Text fields allow users to enter text into a UI. They typically appear in forms and dialogs."),
-        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Please enter a password."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -645,6 +727,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Toggle Buttons"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Long press or hover to display the tooltip."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Short message displayed on long press or hover"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Tooltips"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Two Lines"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -678,6 +767,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Beach"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronze Works"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Fisherman"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Flower Market"),
+        "placeLunchPrep": MessageLookupByLibrary.simpleMessage("Lunch Prep"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Market"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Salt Farm"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scooters"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Silk Maker"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur Temple"),
         "rallyAccountAmount": m11,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Car Savings"),

@@ -57,6 +57,11 @@ do
     popd
 done
 
+echo "Run code segments check for 'gallery/gallery'."
+pushd gallery/gallery
+"${localSdkPath}/bin/flutter" pub run grinder verify-code-segments
+popd
+
 echo "Building the aar files for 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" build aar

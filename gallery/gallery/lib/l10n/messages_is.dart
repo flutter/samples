@@ -360,8 +360,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Föst blöð og gluggablöð neðst"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Blað neðst"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Textareitir"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sléttur, upphleyptur, með útlínum og fleira"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Hnappar"),

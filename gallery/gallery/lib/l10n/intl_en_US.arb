@@ -637,6 +637,30 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+  "demoGridListsTitle": "Grid Lists",
+  "@demoGridListsTitle": {
+    "description": "Title for the grid lists component demo."
+  },
+  "demoGridListsSubtitle": "Row and column layout",
+  "@demoGridListsSubtitle": {
+    "description": "Subtitle for the grid lists component demo."
+  },
+  "demoGridListsDescription": "Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.",
+  "@demoGridListsDescription": {
+    "description": "Description for the grid lists component demo."
+  },
+  "demoGridListsImageOnlyTitle": "Image only",
+  "@demoGridListsImageOnlyTitle": {
+    "description": "Title for the grid lists image-only component demo."
+  },
+  "demoGridListsHeaderTitle": "With header",
+  "@demoGridListsHeaderTitle": {
+    "description": "Title for the grid lists component demo with headers on each tile."
+  },
+  "demoGridListsFooterTitle": "With footer",
+  "@demoGridListsFooterTitle": {
+    "description": "Title for the grid lists component demo with footers on each tile."
+  },
   "demoSlidersTitle": "Sliders",
   "@demoSlidersTitle": {
     "description": "Title for the sliders component demo."
@@ -688,6 +712,124 @@
   "demoSlidersEditableNumericalValue": "Editable numerical value",
   "@demoSlidersEditableNumericalValue": {
     "description": "Label for input field that has an editable numerical value."
+  },
+  "demoMenuTitle": "Menu",
+  "@demoMenuTitle": {
+    "description": "Title for the menu component demo."
+  },
+  "demoContextMenuTitle": "Context menu",
+  "@demoContextMenuTitle": {
+    "description": "Title for the context menu component demo."
+  },
+  "demoSectionedMenuTitle": "Sectioned menu",
+  "@demoSectionedMenuTitle": {
+    "description": "Title for the sectioned menu component demo."
+  },
+  "demoSimpleMenuTitle": "Simple menu",
+  "@demoSimpleMenuTitle": {
+    "description": "Title for the simple menu component demo."
+  },
+  "demoChecklistMenuTitle": "Checklist menu",
+  "@demoChecklistMenuTitle": {
+    "description": "Title for the checklist menu component demo."
+  },
+  "demoMenuSubtitle": "Menu buttons and simple menus",
+  "@demoMenuSubtitle": {
+    "description": "Short description for the menu component demo."
+  },
+  "demoMenuDescription": "A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.",
+  "@demoMenuDescription": {
+    "description": "Description for the menu demo."
+  },
+  "demoMenuItemValueOne": "Menu item one",
+  "@demoMenuItemValueOne": {
+    "description": "The first item in a menu."
+  },
+  "demoMenuItemValueTwo": "Menu item two",
+  "@demoMenuItemValueTwo": {
+    "description": "The second item in a menu."
+  },
+  "demoMenuItemValueThree": "Menu item three",
+  "@demoMenuItemValueThree": {
+    "description": "The third item in a menu."
+  },
+  "demoMenuOne": "One",
+  "@demoMenuOne": {
+    "description": "The number one."
+  },
+  "demoMenuTwo": "Two",
+  "@demoMenuTwo": {
+    "description": "The number two."
+  },
+  "demoMenuThree": "Three",
+  "@demoMenuThree": {
+    "description": "The number three."
+  },
+  "demoMenuFour": "Four",
+  "@demoMenuFour": {
+    "description": "The number four."
+  },
+  "demoMenuAnItemWithAContextMenuButton": "An item with a context menu",
+  "@demoMenuAnItemWithAContextMenuButton": {
+    "description": "Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuContextMenuItemOne": "Context menu item one",
+  "@demoMenuContextMenuItemOne": {
+    "description": "Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuADisabledMenuItem": "Disabled menu item",
+  "@demoMenuADisabledMenuItem": {
+    "description": "Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuContextMenuItemThree": "Context menu item three",
+  "@demoMenuContextMenuItemThree": {
+    "description": "Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuAnItemWithASectionedMenu": "An item with a sectioned menu",
+  "@demoMenuAnItemWithASectionedMenu": {
+    "description": "Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuPreview": "Preview",
+  "@demoMenuPreview": {
+    "description": "Button to preview content."
+  },
+  "demoMenuShare": "Share",
+  "@demoMenuShare": {
+    "description": "Button to share content."
+  },
+  "demoMenuGetLink": "Get link",
+  "@demoMenuGetLink": {
+    "description": "Button to get link for content."
+  },
+  "demoMenuRemove": "Remove",
+  "@demoMenuRemove": {
+    "description": "Button to remove content."
+  },
+  "demoMenuSelected": "Selected: {value}",
+  "@demoMenuSelected": {
+    "description": "A text to show what value was selected.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoMenuChecked": "Checked: {value}",
+  "@demoMenuChecked": {
+    "description": "A text to show what value was checked.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
+  "@demoMenuAnItemWithASimpleMenu": {
+    "description": "Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
+  },
+  "demoMenuAnItemWithAChecklistMenu": "An item with a checklist menu",
+  "@demoMenuAnItemWithAChecklistMenu": {
+    "description": "Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
   },
   "demoFullscreenDialogTitle": "Fullscreen",
   "@demoFullscreenDialogTitle": {
@@ -756,6 +898,30 @@
   "demoCupertinoActionSheetDescription": "An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions.",
   "@demoCupertinoActionSheetDescription": {
     "description": "Description for the cupertino action sheet component demo."
+  },
+  "demoCupertinoNavigationBarTitle": "Navigation Bar",
+  "@demoCupertinoNavigationBarTitle": {
+    "description": "Title for the cupertino navigation bar component demo."
+  },
+  "demoCupertinoNavigationBarSubtitle": "iOS-style navigation bar",
+  "@demoCupertinoNavigationBarSubtitle": {
+    "description": "Subtitle for the cupertino navigation bar component demo."
+  },
+  "demoCupertinoNavigationBarDescription": "An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.",
+  "@demoCupertinoNavigationBarDescription": {
+    "description": "Description for the cupertino navigation bar component demo."
+  },
+  "demoCupertinoPullToRefreshTitle": "Pull To Refresh",
+  "@demoCupertinoPullToRefreshTitle": {
+    "description": "Title for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshSubtitle": "iOS-style pull to refresh control",
+  "@demoCupertinoPullToRefreshSubtitle": {
+    "description": "Subtitle for the cupertino pull-to-refresh component demo."
+  },
+  "demoCupertinoPullToRefreshDescription": "A widget implementing the iOS-style pull to refresh content control.",
+  "@demoCupertinoPullToRefreshDescription": {
+    "description": "Description for the cupertino pull-to-refresh component demo."
   },
   "demoCupertinoSegmentedControlTitle": "Segmented Control",
   "@demoCupertinoSegmentedControlTitle": {
@@ -830,6 +996,22 @@
   "cupertinoTabBarProfileTab": "Profile",
   "@cupertinoTabBarProfileTab": {
     "description": "Title for the profile tab in the bottom tab bar demo."
+  },
+  "demoCupertinoTextFieldTitle": "Text Fields",
+  "@demoCupertinoTextFieldTitle": {
+    "description": "Title for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldSubtitle": "iOS-style text fields",
+  "@demoCupertinoTextFieldSubtitle": {
+    "description": "Subtitle for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldDescription": "A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.",
+  "@demoCupertinoTextFieldDescription": {
+    "description": "Description for the cupertino text field demo."
+  },
+  "demoCupertinoTextFieldPIN": "PIN",
+  "@demoCupertinoTextFieldPIN": {
+    "description": "The placeholder for a text field where a user would enter their PIN number."
   },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
@@ -1024,14 +1206,6 @@
   "@demoSelectionControlsSwitchDescription": {
     "description": "Description for the switches (selection controls) demo."
   },
-  "demoBottomTextFieldsTitle": "Text fields",
-  "@demoBottomTextFieldsTitle": {
-    "description": "Title for text fields demo."
-  },
-  "demoBottomSheetSubtitle": "Persistent and modal bottom sheets",
-  "@demoBottomSheetSubtitle": {
-    "description": "Description for bottom sheet demo."
-  },
   "demoTextFieldTitle": "Text fields",
   "@demoTextFieldTitle": {
     "description": "Title for text fields demo."
@@ -1096,7 +1270,7 @@
   "@demoTextFieldYourEmailAddress": {
     "description": "The label for an email address input field."
   },
-  "demoTextFieldEmail": "E-mail",
+  "demoTextFieldEmail": "Email",
   "@demoTextFieldEmail": {
     "description": "The label for an email address input field"
   },
@@ -1151,6 +1325,22 @@
   "demoTextFieldRequiredField": "* indicates required field",
   "@demoTextFieldRequiredField": {
     "description": "Helper text to indicate that * means that it is a required field."
+  },
+  "demoTooltipTitle": "Tooltips",
+  "@demoTooltipTitle": {
+    "description": "Title for tooltip demo."
+  },
+  "demoTooltipSubtitle": "Short message displayed on long press or hover",
+  "@demoTooltipSubtitle": {
+    "description": "Subtitle for tooltip demo."
+  },
+  "demoTooltipDescription": "Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.",
+  "@demoTooltipDescription": {
+    "description": "Description for tooltip demo."
+  },
+  "demoTooltipInstructions": "Long press or hover to display the tooltip.",
+  "@demoTooltipInstructions": {
+    "description": "Instructions for how to trigger a tooltip in the tooltip demo."
   },
   "bottomNavigationCommentsTab": "Comments",
   "@bottomNavigationCommentsTab": {
@@ -1413,6 +1603,62 @@
   "colorsBlueGrey": "BLUE GREY",
   "@colorsBlueGrey": {
     "description": "Tab title for the color blue grey."
+  },
+  "placeChennai": "Chennai",
+  "@placeChennai": {
+    "description": "Title for Chennai location."
+  },
+  "placeTanjore": "Tanjore",
+  "@placeTanjore": {
+    "description": "Title for Tanjore location."
+  },
+  "placeChettinad": "Chettinad",
+  "@placeChettinad": {
+    "description": "Title for Chettinad location."
+  },
+  "placePondicherry": "Pondicherry",
+  "@placePondicherry": {
+    "description": "Title for Pondicherry location."
+  },
+  "placeFlowerMarket": "Flower Market",
+  "@placeFlowerMarket": {
+    "description": "Title for Flower Market location."
+  },
+  "placeBronzeWorks": "Bronze Works",
+  "@placeBronzeWorks": {
+    "description": "Title for Bronze Works location."
+  },
+  "placeMarket": "Market",
+  "@placeMarket": {
+    "description": "Title for Market location."
+  },
+  "placeThanjavurTemple": "Thanjavur Temple",
+  "@placeThanjavurTemple": {
+    "description": "Title for Thanjavur Temple location."
+  },
+  "placeSaltFarm": "Salt Farm",
+  "@placeSaltFarm": {
+    "description": "Title for Salt Farm location."
+  },
+  "placeScooters": "Scooters",
+  "@placeScooters": {
+    "description": "Title for image of people riding on scooters."
+  },
+  "placeSilkMaker": "Silk Maker",
+  "@placeSilkMaker": {
+    "description": "Title for an image of a silk maker."
+  },
+  "placeLunchPrep": "Lunch Prep",
+  "@placeLunchPrep": {
+    "description": "Title for an image of preparing lunch."
+  },
+  "placeBeach": "Beach",
+  "@placeBeach": {
+    "description": "Title for Beach location."
+  },
+  "placeFisherman": "Fisherman",
+  "@placeFisherman": {
+    "description": "Title for an image of a fisherman."
   },
   "starterAppTitle": "Starter app",
   "@starterAppTitle": {

@@ -352,8 +352,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sabit və modal alt vərəqlər"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Aşağıdakı vərəq"),
-        "demoBottomTextFieldsTitle":
-            MessageLookupByLibrary.simpleMessage("Mətn sahələri"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Yastı, qabarıq, haşiyəli və digərləri"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Düymələr"),
