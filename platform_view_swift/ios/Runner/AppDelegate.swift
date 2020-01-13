@@ -6,14 +6,14 @@ import UIKit
 import Flutter
 
 @UIApplicationMain
-@objc class AppDelegate: FlutterAppDelegate, PlatformViewControllerDelegate
-{
-    var flutterResult: FlutterResult?
-    
-    override func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        GeneratedPluginRegistrant.register(with: self)
+@objc class AppDelegate: FlutterAppDelegate, PlatformViewControllerDelegate {
+  var flutterResult: FlutterResult?
+
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GeneratedPluginRegistrant.register(with: self)
         let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
         let channel = FlutterMethodChannel.init(name: "dev.flutter.sample/platform_view_swift", binaryMessenger: controller.binaryMessenger)
         
@@ -34,8 +34,8 @@ import Flutter
             }
         });
         
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    }
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
     
     func didUpdateCounter(counter: Int) {
         flutterResult?(counter)
