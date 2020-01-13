@@ -27,7 +27,6 @@ declare -a PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
-    "chrome-os-best-practices" \
     "gallery/gallery" \
     "flutter_maps_firestore" \
     "isolate_example" \
