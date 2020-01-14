@@ -1,4 +1,4 @@
-package io.flutter.veggieseasons.veggieseasons
+package dev.flutter.veggieseasons
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
