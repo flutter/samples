@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Backs up one directory at a time, looking for one called "flutter". Once it
@@ -56,31 +58,11 @@ do
     popd
 done
 
+# Test that the code segment widgets that get displayed in the Flutter Material
+# gallery have been generated using the latest gallery code.
 echo "Run code segments check for 'gallery/gallery'."
 pushd gallery/gallery
 "${localSdkPath}/bin/flutter" pub run grinder verify-code-segments
 popd
-
-echo "Building the aar files for 'flutter_module'."
-pushd add_to_app/flutter_module
-"${localSdkPath}/bin/flutter" build aar
-popd
-
-declare -a ANDROID_PROJECT_NAMES=(
-    "add_to_app/android_fullscreen" \
-    "add_to_app/android_using_plugin" \
-    "add_to_app/android_using_prebuilt_module" \
-)
-
-for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
-do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
-    pushd "${PROJECT_NAME}"
-
-    ./gradlew assembleDebug
-    ./gradlew assembleRelease
-
-    popd
-done
 
 echo "-- Success --"
