@@ -87,11 +87,6 @@ polished UI examples.
 A repo full of short, specific examples (with animated screenshots!) showing
 commonly used widgets and how to put them to work.
 
-#### [Flutter Challenges](https://github.com/matthew-carroll?tab=repositories&q=flutter_ui_challenge)
-More a GitHub search result than a single repo, Matt Carroll's Flutter UI
-challenges showcase some amazing designs powered by Flutter. Make sure to check
-the accompanying YouTube video so you can watch Matt implement them.
-
 #### [Platform Design](platform_design) _(Flutter team)_
 
 An app designed to look great on both iOS and Android, this sample
