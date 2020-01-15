@@ -105,14 +105,14 @@ packages:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.4"
+    version: "7.0.6"
   built_value_generator:
     dependency: "direct dev"
     description:
       name: built_value_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.4"
+    version: "7.0.6"
   charcode:
     dependency: transitive
     description:
@@ -195,7 +195,7 @@ packages:
     description:
       path: "plugins/file_chooser"
       ref: HEAD
-      resolved-ref: aeff699d71972f20151757cc93ec3cac1daaa2f1
+      resolved-ref: "5aaea0eae9661c6e6cacf4e59ce480a17e86bec8"
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
@@ -324,7 +324,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: aeff699d71972f20151757cc93ec3cac1daaa2f1
+      resolved-ref: "5aaea0eae9661c6e6cacf4e59ce480a17e86bec8"
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.0.1"
