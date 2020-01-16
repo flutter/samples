@@ -1,11 +1,3 @@
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - libstdc++6
-      - fonts-noto
-
 git:
   depth: 3
 
@@ -24,6 +16,13 @@ jobs:
     #   os: linux
     #   dist: trusty
     #   language: android
+      # addons:
+      #   apt:
+      #     sources:
+      #       - ubuntu-toolchain-r-test
+      #     packages:
+      #       - libstdc++6
+      #       - fonts-noto
     #   script: ./tool/travis_android_script.sh
     #   env: FLUTTER_VERSION=stable
     # - name: "Flutter tests, stable channel"
