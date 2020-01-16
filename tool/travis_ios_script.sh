@@ -28,7 +28,9 @@ echo "Flutter SDK found at ${localSdkPath}"
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" packages get
+echo "_________________________"
 xcodebuild -version
+echo "_________________________"
 cat .ios/Flutter/Generated.xcconfig
 popd
 
