@@ -31,19 +31,19 @@ pushd add_to_app/flutter_module
 echo "_________________________"
 xcodebuild -version
 echo "_________________________"
-ls ~/flutter
+ls "${localSdkPath}"
 echo "_________________________"
-ls ~/flutter/bin
+ls "${localSdkPath}/bin"
 echo "_________________________"
-ls ~/flutter/bin/cache
+ls "${localSdkPath}/bin/cache"
 echo "_________________________"
-ls ~/flutter/bin/cache/artifacts
+ls "${localSdkPath}/bin/cache/artifacts"
 echo "_________________________"
-ls ~/flutter/bin/cache/artifacts/engine
+ls "${localSdkPath}/bin/cache/artifacts/engine"
 echo "_________________________"
-ls ~/flutter/bin/cache/artifacts/engine/ios
+ls "${localSdkPath}/bin/cache/artifacts/engine/ios"
 echo "_________________________"
-ls ~/flutter/bin/cache/artifacts/engine/ios/Flutter.framework
+ls "${localSdkPath}/bin/cache/artifacts/engine/ios/Flutter.framework"
 
 cat .ios/Flutter/Generated.xcconfig
 popd
