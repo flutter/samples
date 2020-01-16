@@ -28,7 +28,6 @@ echo "Flutter SDK found at ${localSdkPath}"
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" packages get
-"${localSdkPath}/bin/flutter" build aar
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
@@ -36,19 +35,24 @@ pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
 popd
 
-declare -a ANDROID_PROJECT_NAMES=(
-    "add_to_app/android_fullscreen" \
-    "add_to_app/android_using_plugin" \
-    "add_to_app/android_using_prebuilt_module" \
+declare -a IOS_PROJECT_NAMES=(
+    "add_to_app/ios_fullscreen" \
 )
 
-for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
+for PROJECT_NAME in "${IOS_PROJECT_NAMES[@]}"
 do
     echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${PROJECT_NAME}"
 
-    ./gradlew --stacktrace assembleDebug
-    ./gradlew --stacktrace assembleRelease
+    pod install
+
+    xcodebuild -workspace IOSFullScreen.xcworkspace -scheme IOSFullScreen \
+    CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- \
+    EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+
+    xcodebuild -workspace IOSFullScreen.xcworkspace -scheme IOSFullScreen \
+    CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- \
+    EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
 
     popd
 done

@@ -1,6 +1,3 @@
-os: linux
-dist: trusty
-
 addons:
   apt:
     sources:
@@ -20,18 +17,26 @@ android:
 jobs:
   include:
     - name: "Android tests, stable channel"
+      os: linux
+      dist: trusty
       language: android
       script: ./tool/travis_android_script.sh
       env: FLUTTER_VERSION=stable
     - name: "Flutter tests, stable channel"
+      os: linux
+      dist: trusty
       language: ruby
       script: ./tool/travis_flutter_script.sh
       env: FLUTTER_VERSION=stable
     - name: "Android tests, beta channel"
+      os: linux
+      dist: trusty
       language: android
       script: ./tool/travis_android_script.sh
       env: FLUTTER_VERSION=beta
     - name: "Flutter tests, beta channel"
+      os: linux
+      dist: trusty
       language: ruby
       script: ./tool/travis_flutter_script.sh
       env: FLUTTER_VERSION=beta
