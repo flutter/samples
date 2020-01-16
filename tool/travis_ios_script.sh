@@ -25,6 +25,9 @@ fi
 
 echo "Flutter SDK found at ${localSdkPath}"
 
+echo "Pre-caching ios artifacts, such as the Flutter.framework"
+"${localSdkPath}/bin/flutter" precache --no-web --no-linux --no-windows --no-fuschsia
+
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
 "${localSdkPath}/bin/flutter" packages get
