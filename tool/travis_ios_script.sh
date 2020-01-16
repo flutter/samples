@@ -51,9 +51,6 @@ declare -a IOS_PROJECT_NAMES=(
     "IOSUsingPrebuiltModule" \
 )
 
-    echo "First parameter : ${array1[$i]} -- second parameter : ${array2[$i]}"
-done
-
 for ((i=0; i<${#array1[@]}; i++))
 do
     echo "== Testing '${IOS_PROJECT_PATHS[$i]}' on Flutter's $FLUTTER_VERSION channel =="
