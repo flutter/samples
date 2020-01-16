@@ -11,6 +11,7 @@ import 'package:veggieseasons/screens/home.dart';
 import 'package:veggieseasons/styles.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
