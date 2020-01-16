@@ -10,6 +10,7 @@ jobs:
   include:
     - name: "iOS tests, stable channel"
       language: objective-c
+      osx_image: xcode11.2
       script: ./tool/travis_ios_script.sh
       env: FLUTTER_VERSION=stable
     # - name: "Android tests, stable channel"
