@@ -1,10 +1,10 @@
 git:
   depth: 3
 
-android:
-  components:
-    - build-tools-28.0.3
-    - android-28
+# android:
+#   components:
+#     - build-tools-28.0.3
+#     - android-28
 
 osx_image: xcode11.2
 
