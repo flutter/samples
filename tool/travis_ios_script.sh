@@ -39,26 +39,35 @@ pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
 popd
 
-declare -a IOS_PROJECT_NAMES=(
+declare -a IOS_PROJECT_PATHS=(
     "add_to_app/ios_fullscreen" \
     "add_to_app/ios_using_plugin" \
     "add_to_app/ios_using_prebuilt_module" \
 )
 
-for PROJECT_NAME in "${IOS_PROJECT_NAMES[@]}"
+declare -a IOS_PROJECT_NAMES=(
+    "IOSFullScreen" \
+    "IOSUsingPlugin" \
+    "IOSUsingPrebuiltModule" \
+)
+
+    echo "First parameter : ${array1[$i]} -- second parameter : ${array2[$i]}"
+done
+
+for ((i=0; i<${#array1[@]}; i++))
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
-    pushd "${PROJECT_NAME}"
+    echo "== Testing '${IOS_PROJECT_PATHS[$i]}' on Flutter's $FLUTTER_VERSION channel =="
+    pushd "${IOS_PROJECT_PATHS[$i]}"
 
     pod install
 
-    xcodebuild -workspace IOSFullScreen.xcworkspace -scheme IOSFullScreen \
-    CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- \
-    EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+    xcodebuild -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
+    -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
 
-    xcodebuild -workspace IOSFullScreen.xcworkspace -scheme IOSFullScreen \
-    CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- \
-    EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+    xcodebuild -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
+    -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
 
     popd
 done
