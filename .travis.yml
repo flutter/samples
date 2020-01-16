@@ -11,6 +11,7 @@ osx_image: xcode11.2
 jobs:
   include:
     - name: "iOS tests, stable channel"
+      os: osx
       language: objective-c
       script: ./tool/travis_ios_script.sh
       env: FLUTTER_VERSION=stable
