@@ -31,6 +31,20 @@ pushd add_to_app/flutter_module
 echo "_________________________"
 xcodebuild -version
 echo "_________________________"
+ls ~/flutter
+echo "_________________________"
+ls ~/flutter/bin
+echo "_________________________"
+ls ~/flutter/bin/cache
+echo "_________________________"
+ls ~/flutter/bin/cache/artifacts
+echo "_________________________"
+ls ~/flutter/bin/cache/artifacts/engine
+echo "_________________________"
+ls ~/flutter/bin/cache/artifacts/engine/ios
+echo "_________________________"
+ls ~/flutter/bin/cache/artifacts/engine/ios/Flutter.framework
+
 cat .ios/Flutter/Generated.xcconfig
 popd
 
