@@ -41,7 +41,7 @@ jobs:
       osx_image: xcode11.2
       language: objective-c
       script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=stable
+      env: FLUTTER_VERSION=beta
 
     - name: "Android tests, beta channel"
       os: linux
