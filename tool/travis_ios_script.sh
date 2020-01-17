@@ -39,42 +39,47 @@ pushd add_to_app/flutter_module_using_plugin
 "${localSdkPath}/bin/flutter" packages get
 popd
 
-declare -a IOS_PROJECT_PATHS=(
-    "add_to_app/ios_fullscreen" \
-    "add_to_app/ios_using_plugin" \
-    "add_to_app/ios_using_prebuilt_module" \
-)
 
-declare -a IOS_PROJECT_NAMES=(
-    "IOSFullScreen" \
-    "IOSUsingPlugin" \
-    "IOSUsingPrebuiltModule" \
-)
+echo "== Testing 'add_to_app/ios_fullscreen' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/ios_fullscreen"
 
-declare -a COCOAPOD_USE=(
-    true \
-    true \
-    false \
-)
+pod install
 
-for ((i=0; i<${#IOS_PROJECT_PATHS[@]}; i++))
-do
-    echo "== Testing '${IOS_PROJECT_PATHS[$i]}' on Flutter's $FLUTTER_VERSION channel =="
-    pushd "${IOS_PROJECT_PATHS[$i]}"
+xcodebuild -quiet -workspace "IOSFullScreen.xcworkspace" \
+-scheme "IOSFullScreen" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
 
-    if ["${COCOAPOD_USE[$i]}" = true]; then
-        pod install
-    fi
+xcodebuild -quiet -workspace "IOSFullScreen.xcworkspace" \
+-scheme "IOSFullScreen" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
 
-    xcodebuild -quiet -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
-    -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-    CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+popd
 
-    xcodebuild -quiet -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
-    -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-    CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+echo "== Testing 'add_to_app/ios_using_plugin' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/ios_using_plugin"
 
-    popd
-done
+pod install
+
+xcodebuild -quiet -workspace "IOSUsingPlugin.xcworkspace" \
+-scheme "IOSUsingPlugin" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+
+xcodebuild -quiet -workspace "IOSUsingPlugin.xcworkspace" \
+-scheme "IOSUsingPlugin" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+
+popd
+
+echo "== Testing 'add_to_app/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/ios_using_prebuilt_module"
+
+xcodebuild -quiet CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+
+xcodebuild -quiet CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+
+popd
+
 
 echo "-- Success --"
