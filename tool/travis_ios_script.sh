@@ -51,12 +51,22 @@ declare -a IOS_PROJECT_NAMES=(
     "IOSUsingPrebuiltModule" \
 )
 
+declare -a COCOAPOD_USE=(
+    true \
+    true \
+    false \
+)
+
+dec
+
 for ((i=0; i<${#IOS_PROJECT_PATHS[@]}; i++))
 do
     echo "== Testing '${IOS_PROJECT_PATHS[$i]}' on Flutter's $FLUTTER_VERSION channel =="
     pushd "${IOS_PROJECT_PATHS[$i]}"
 
-    pod install
+    if ["${COCOAPOD_USE[$i]}" = true]; then
+        pod install
+    fi
 
     xcodebuild -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
     -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
