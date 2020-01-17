@@ -1,24 +1,6 @@
 git:
   depth: 3
 
-# android:
-#   components:
-#     - build-tools-28.0.3
-#     - android-28
-
-osx_image: xcode11.2
-
-jobs:
-  include:
-    - name: "iOS tests, stable channel"
-      os: osx
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=stable
-    # - name: "Android tests, stable channel"
-    #   os: linux
-    #   dist: trusty
-    #   language: android
       # addons:
       #   apt:
       #     sources:
@@ -26,26 +8,59 @@ jobs:
       #     packages:
       #       - libstdc++6
       #       - fonts-noto
-    #   script: ./tool/travis_android_script.sh
-    #   env: FLUTTER_VERSION=stable
-    # - name: "Flutter tests, stable channel"
-    #   os: linux
-    #   dist: trusty
-    #   language: ruby
-    #   script: ./tool/travis_flutter_script.sh
-    #   env: FLUTTER_VERSION=stable
-    # - name: "Android tests, beta channel"
-    #   os: linux
-    #   dist: trusty
-    #   language: android
-    #   script: ./tool/travis_android_script.sh
-    #   env: FLUTTER_VERSION=beta
-    # - name: "Flutter tests, beta channel"
-    #   os: linux
-    #   dist: trusty
-    #   language: ruby
-    #   script: ./tool/travis_flutter_script.sh
-    #   env: FLUTTER_VERSION=beta
+
+jobs:
+  include:
+    - name: "iOS tests, stable channel"
+      os: osx
+      osx_image: xcode11.2
+      language: objective-c
+      script: ./tool/travis_ios_script.sh
+      env: FLUTTER_VERSION=stable
+
+    - name: "Android tests, stable channel"
+      os: linux
+      dist: trusty
+      language: android
+      android:
+        components:
+          - build-tools-28.0.3
+          - android-28
+      script: ./tool/travis_android_script.sh
+      env: FLUTTER_VERSION=stable
+
+    - name: "Flutter tests, stable channel"
+      os: linux
+      dist: trusty
+      language: ruby
+      script: ./tool/travis_flutter_script.sh
+      env: FLUTTER_VERSION=stable
+
+    - name: "iOS tests, beta channel"
+      os: osx
+      osx_image: xcode11.2
+      language: objective-c
+      script: ./tool/travis_ios_script.sh
+      env: FLUTTER_VERSION=stable
+
+    - name: "Android tests, beta channel"
+      os: linux
+      dist: trusty
+      language: android
+      android:
+        components:
+          - build-tools-28.0.3
+          - android-28
+      script: ./tool/travis_android_script.sh
+      env: FLUTTER_VERSION=beta
+
+    - name: "Flutter tests, beta channel"
+      os: linux
+      dist: trusty
+      language: ruby
+      script: ./tool/travis_flutter_script.sh
+      env: FLUTTER_VERSION=beta
+
   allow_failures:
     - env: FLUTTER_VERSION=beta
 
