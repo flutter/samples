@@ -57,8 +57,6 @@ declare -a COCOAPOD_USE=(
     false \
 )
 
-dec
-
 for ((i=0; i<${#IOS_PROJECT_PATHS[@]}; i++))
 do
     echo "== Testing '${IOS_PROJECT_PATHS[$i]}' on Flutter's $FLUTTER_VERSION channel =="
@@ -68,11 +66,11 @@ do
         pod install
     fi
 
-    xcodebuild -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
+    xcodebuild -quiet -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
     -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
     CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
 
-    xcodebuild -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
+    xcodebuild -quiet -workspace "${IOS_PROJECT_NAMES[$i]}.xcworkspace" \
     -scheme "${IOS_PROJECT_NAMES[$i]}" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
     CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
 
