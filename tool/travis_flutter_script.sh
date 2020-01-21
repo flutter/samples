@@ -15,17 +15,17 @@ function getFlutterPath() {
     done
 }
 
-localSdkPath=$(getFlutterPath)
+readonly LOCAL_SDK_PATH=$(getFlutterPath)
 
-if [ -z "$localSdkPath" ]
+if [ -z "${LOCAL_SDK_PATH}" ]
 then
-    echo "Failed to find the Flutter SDK!."
+    echo "Failed to find the Flutter SDK!"
     exit 1
 fi
 
-echo "Flutter SDK found at ${localSdkPath}"
+echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
 
-declare -a PROJECT_NAMES=(
+declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
@@ -43,17 +43,17 @@ declare -a PROJECT_NAMES=(
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
     pushd "${PROJECT_NAME}"
 
     # Run the analyzer to find any static analysis issues.
-    "${localSdkPath}/bin/flutter" analyze
+    "${LOCAL_SDK_PATH}/bin/flutter" analyze
 
     # Run the formatter on all the dart files to make sure everything's linted.
-    "${localSdkPath}/bin/flutter" format -n --set-exit-if-changed .
+    "${LOCAL_SDK_PATH}/bin/flutter" format -n --set-exit-if-changed .
 
     # Run the actual tests.
-    "${localSdkPath}/bin/flutter" test
+    "${LOCAL_SDK_PATH}/bin/flutter" test
 
     popd
 done
@@ -62,7 +62,7 @@ done
 # gallery have been generated using the latest gallery code.
 echo "Run code segments check for 'gallery/gallery'."
 pushd gallery/gallery
-"${localSdkPath}/bin/flutter" pub run grinder verify-code-segments
+"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-code-segments
 popd
 
 echo "-- Success --"
