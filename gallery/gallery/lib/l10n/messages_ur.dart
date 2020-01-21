@@ -41,45 +41,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "علیحدہ: ${value}";
 
-  static m9(name, phoneNumber) => "${name} کا فون نمبر ${phoneNumber} ہے";
+  static m9(value) => "چیک کردہ: ${value}";
 
-  static m10(value) => "آپ نے منتخب کیا: \"${value}\"";
+  static m10(value) => "منتخب کردہ: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} کا فون نمبر ${phoneNumber} ہے";
+
+  static m12(value) => "آپ نے منتخب کیا: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${amount} کے ساتھ ${accountName} اکاؤنٹ ${accountNumber}۔";
 
-  static m12(amount) => "آپ نے اس مہینے ATM فیس میں ${amount} خرچ کیے ہیں";
+  static m14(amount) => "آپ نے اس مہینے ATM فیس میں ${amount} خرچ کیے ہیں";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "بہت خوب! آپ کا چیکنگ اکاؤنٹ پچھلے مہینے سے ${percent} زیادہ ہے۔";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "آگاہ رہیں، آپ نے اس ماہ کے لیے اپنی خریداری کے بجٹ کا ${percent} استعمال کر لیا ہے۔";
 
-  static m15(amount) => "آپ نے اس ہفتے ریسٹورینٹس پر ${amount} خرچ کیے ہیں۔";
+  static m17(amount) => "آپ نے اس ہفتے ریسٹورینٹس پر ${amount} خرچ کیے ہیں۔";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'اپنے امکانی ٹیکس کٹوتی کو بڑھائیں! زمرے کو 1 غیر تفویض کردہ ٹرانزیکشن میں تفویض کریں۔', other: 'اپنے امکانی ٹیکس کٹوتی کو بڑھائیں! زمرے کو ${count} غیر تفویض کردہ ٹرانزیکشنز میں تفویض کریں۔')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${amount} کے لیے ${billName} بل کی آخری تاریخ ${date}";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} بجٹ جس کا ${amountUsed} استعمال کیا گیا ${amountTotal} ہے، ${amountLeft} باقی ہے";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'کوئی آئٹمز نہیں ہیں', one: '1 آئٹم', other: '${quantity} آئٹمز')}";
 
-  static m20(price) => "x ‏${price}";
+  static m22(price) => "x ‏${price}";
 
-  static m21(quantity) => "مقدار: ${quantity}";
+  static m23(quantity) => "مقدار: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'شاپنگ کارٹ، کوئی آئٹم نہیں', one: 'شاپنگ کارٹ، 1 آئٹم', other: 'شاپنگ کارٹ، ${quantity} آئٹمز')}";
 
-  static m23(product) => "${product} ہٹائیں";
+  static m25(product) => "${product} ہٹائیں";
 
-  static m24(value) => "آئٹم ${value}";
+  static m26(value) => "آئٹم ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -88,6 +92,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("فلوٹر نمونے جیٹ بک ریپوزٹری"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("گیلری پر واپس جائیں"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("نشان"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "فلوٹنگ کارروائی کے بٹن کی پوزیشن"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("ڈاک سے منسلک کیا گیا - مرکز"),
+        "bottomAppBarPositionDockedEnd": MessageLookupByLibrary.simpleMessage(
+            "ڈاک سے منسلک کیا گیا - اختتام"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("فلوٹنگ - مرکز"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("فلوٹنگ - اختتام"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("اکاؤنٹ"),
         "bottomNavigationAlarmTab":
@@ -324,6 +339,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("الرٹ"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("عنوان کے ساتھ الرٹ"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "نیچے کی ایپ بارز نیچے کے نیویگیشن دراز اور چار کارروائیوں تک رسائی فراہم کرتی ہیں، اس میں فلوٹنگ کارروائی کا بٹن شامل ہے۔"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "سب سے نیچے نیویگیشن اور کارروائیاں ڈسپلے کرتا ہے"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("نیچے کا ایپ بار"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "باٹم نیویگیشن بارز ایک اسکرین کے نیچے تین سے پانچ منازل کو ڈسپلے کرتا ہے۔ ہر منزل کی نمائندگی ایک آئیکن اور ایک اختیاری ٹیکسٹ لیبل کے ذریعے کی جاتی ہے۔ جب نیچے میں نیویگیشن آئیکن ٹیپ ہوجاتا ہے، تو صارف کو اس آئیکن سے وابستہ اعلی سطحی نیویگیشن منزل تک لے جایا جاتا ہے۔"),
         "demoBottomNavigationPersistentLabels":
@@ -353,9 +374,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نیچے کی مستقل اور موڈل شیٹس"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("نیچے کی شیٹ"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("متن کے فیلڈز"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ہموار، ابھرا ہوا، آؤٹ لائن، اور مزید"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("بٹنز"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("چیک لسٹ مینو"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "مختصر عناصر وہ ہیں جو ان پٹ، انتساب، یا ایکشن کی نمائندگی کر تے ہیں"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("چپس"),
@@ -363,6 +388,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "چوائس چپس ایک ہی سیٹ کے واحد چوائس کی نمائندگی کرتا ہے۔ چوائس چپس میں متعلقہ وضاحتی ٹیکسٹ یا زمرے ہوتے ہیں۔"),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("چوائس چپس"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "مٹیریل ڈیزائن سرکلر پیش رفت کا انڈیکیٹر، جو ایپلیکیشن کو مصروف بتانے کے لیے گھومتا ہے۔"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("سرکلر پیش رفت کا انڈیکیٹر"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("کوڈ کا نمونہ"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("کلپ بورڈ پر کاپی ہو گیا۔"),
@@ -374,10 +404,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("پیشگی متعین کردہ سبھی رنگ"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("رنگ"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("سیاق و سباق کا مینو"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "کارروائی شیٹ الرٹ کا ایک مخصوص طرز ہے جو صارف کو موجودہ سیاق و سباق سے متعلق دو یا اس سے زائد انتخابات کا ایک مجموعہ پیش کرتا ہے۔ کارروائی شیٹ میں ایک عنوان، ایک اضافی پیغام اور کارروائیوں کی فہرست ہو سکتی ہے۔"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("کارروائی شیٹ"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "ایک iOS طرز کے سرگرمی انڈیکیٹرز جو گھڑی وار گھومتے ہیں۔"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS طرز کے سرگرمی انڈیکیٹرز"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("سرگرمی انڈیکیٹر"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("صرف الرٹ بٹنز"),
         "demoCupertinoAlertButtonsTitle":
@@ -397,6 +436,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS طرز کے بٹن"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("بٹنز"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "ایک iOS طرز کا نیویگیشن بار۔ نیویگیشن بار ایک ٹول بار ہے جو ٹول بار کے وسط میں کم سے کم ایک صفحہ کے عنوان پر مشتمل ہوتا ہے۔"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS طرز کا نیویگیشن بار"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("نیویگیشن بار"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "مواد کے کنٹرول کو ریفریش کرنے کے لیے ویجیٹ iOS طرز کو نافذ کر رہا ہے۔"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS طرز والا کنٹرول کو ریفریش کرنے کے لیے کھینچیں"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("ریفریش کرنے کے لیے کھینچیں"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "باہمی خصوصی اختیارات کی ایک بڑی تعداد کے مابین منتخب کرنے کے لئے استعمال کیا جاتا ہے۔ جب سیگمینٹ کردہ کنٹرول کا کوئی آپشن منتخب کیا جاتا ہے، تو سیگمینٹ کردہ کنٹرول کے دیگر اختیارات کو منتخب کرنا بند کردیا جاتا ہے۔"),
@@ -423,6 +477,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS طرز کے نیچے والی ٹیب بار"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("ٹیب بار"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "سلائیڈرز بار کے ساتھ اقدار کے رینج کی عکاسی کرتے ہیں، جہاں سے صارفین ایک ہی قدر یا اقدار کے رینج کو منتخب کر سکتے ہیں۔ ان سلائیڈرز کو تھیم شدہ اور حسب ضرورت بنایا جا سکتا ہے۔"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("حسب ضرورت سلائیڈرز"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("سادہ الرٹ اور پوری اسکرین"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ڈائیلاگز"),
@@ -445,18 +503,73 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("پوری اسکرین"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("پوری اسکرین"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "ایک جیسا ڈیٹا، عموماً تصاویر پیش کرنے کے لیے گرڈ لسٹ سب سے زیادہ مناسب ہیں۔ گرڈ کی فہرست میں موجود ہر آئٹم کو ٹائل کہا جاتا ہے۔"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("فوٹر کے ساتھ"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("ہیڈر کے ساتھ"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("صرف تصویر"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("قطار اور کالم کا لے آؤٹ"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("گرڈ کی فہرستیں"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("معلومات"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "ان پٹ چپس مختصر شکل میں ہستی (شخص، جگہ، یا چیز) یا گفتگو والے ٹیکسٹ جیسی معلومات کے ایک اہم حصے کی نمائندگی کرتے ہیں۔"),
         "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("ان پٹ چپ"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL نہیں دکھایا جا سکا:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "مٹیریل ڈیزائن لینئیر پیش رفت کا انڈیکیٹر، جسے پیش رفت بار کے نام سے بھی جانا جاتا ہے۔"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("لینئیر پیش رفت کا انڈیکیٹر"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "ایک واحد مقررہ اونچائی والی قطار جس میں عام طور پر کچھ متن کے ساتھ ساتھ آگے یا پیچھے کرنے والا ایک آئیکن ہوتا ہے۔"),
         "demoListsSecondary": MessageLookupByLibrary.simpleMessage("ثانوی متن"),
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("اسکرولنگ فہرست کا لے آؤٹس"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("فہرستیں"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "مینو آئٹم غیر فعال کر دیا گیا"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("چیک لسٹ مینو والا ایک آئٹم"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "سیاق و سباق کے مینو والا ایک آئٹم"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "سیکشن کردہ مینو والا ایک آئٹم"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("آسان مینو والا ایک آئٹم"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "سیاق و سباق کے مینو والا پہلا آئٹم"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "سیاق و سباق کے مینو والا تیسرا آئٹم"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "مینو عارضی سطح پر انتخابات کی ایک فہرست ڈسپلے کرتا ہے۔ یہ اس وقت ظاہر ہوتے ہیں جب صارفین بٹن، ایکشن یا دیگر کنٹرول کے ساتھ تعامل کرتے ہیں۔"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("چار"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("لنک حاصل کریں"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("پہلا مینو آئٹم"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("تیسرا مینو آئٹم"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("دوسرا مینو آئٹم"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("ایک"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("پیش منظر"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("ہٹائیں"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("اشتراک کریں"),
+        "demoMenuSubtitle":
+            MessageLookupByLibrary.simpleMessage("مینو کے بٹنز اور آسان مینو"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("تین"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("مینو"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("دو"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ایک لائن"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -468,10 +581,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "آؤٹ لائن بٹنز کے دبائیں جانے پر وہ دھندلے اور بلند ہوجاتے ہیں۔ یہ متبادل، ثانوی کارروائی کی نشاندہی کرنے کے لیے اکثر ابھرے ہوئے بٹنوں کے ساتھ جوڑے جاتے ہیں۔"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("آؤٹ لائن بٹن"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("لینئیر، سرکلر، غیر متعین"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("پیش رفت کے انڈیکیٹرز"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ابھرے ہوئے بٹن اُن لے آؤٹس میں شامل کریں جو زیادہ تر ہموار ہیں۔ یہ مصروف یا وسیع خالی جگہوں والے افعال پر زور دیتے ہیں۔"),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("ابھرا ہوا بٹن"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "سلائیڈرز بار کے ساتھ اقدار کے رینج کی عکاسی کرتے ہیں۔ ان میں بار کے دونوں کناروں پر آئیکنز ہو سکتے ہیں جو اقدار کے رینج کی عکاسی کرتے ہیں۔ یہ والیوم، چمک، یا تصویر کے فلٹرز کا اطلاق کرنے جیسی ترتیبات کو ایڈجسٹ کرنے کے لیے مثالی ہیں۔"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("رینج سلائیڈرز"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("سیکشن کردہ مینو"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "چیک باکسز صارف کو سیٹ سے متعدد اختیارات کو منتخب کرنے کی اجازت دیتا ہے۔ عام چیک باکس کی قدر صحیح یا غلط ہوتی ہے اور تین حالتوں والے چیک باکس کو خالی بھی چھوڑا جا سکتا ہے۔"),
@@ -494,6 +617,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ایک سادہ ڈائیلاگ صارف کو کئی اختیارات کے درمیان انتخاب پیش کرتا ہے ایک سادہ ڈائیلاگ کا اختیاری عنوان ہوتا ہے جو انتخابات کے اوپر دکھایا جاتا ہے۔"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("سادہ"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("آسان مینو"),
+        "demoSlidersContinuous": MessageLookupByLibrary.simpleMessage("مسلسل"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "حسب ضرورت تھیم کے ساتھ مسلسل رینج سلائیڈر"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "قابل ترمیم عددی قدر کے ساتھ جاری رکھیں"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "سلائیڈرز بار کے ساتھ اقدار کے رینج کی عکاسی کرتے ہیں، جہاں سے صارفین ایک ہی قدر منتخب کر سکتے ہیں۔ یہ والیوم، چمک، یا تصویر کے فلٹرز کا اطلاق کرنے جیسی ترتیبات کو ایڈجسٹ کرنے کے لیے مثالی ہیں۔"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("علیحدہ"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "حسب ضرورت تھیم کے ساتھ علیحدہ سلائیڈر"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("قابل ترمیم عددی قدر"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "سوائپ کر کے قدر منتخب کرنے کے لیے ویجیٹس"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("سلائیڈرز"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "آپ نے اسنیک بار ایکشن دبایا۔"),
         "demoSnackbarsActionButtonLabel":
@@ -529,7 +672,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("زندگی کی کہانی"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("نام*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("نام درکار ہے۔"),
         "demoTextFieldNoMoreThan":
@@ -569,6 +712,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "گروپ سے متعلق اختیارات کے لیے ٹوگل بٹنز استعمال کئے جا سکتے ہیں۔ متعلقہ ٹوگل بٹنز کے گروپوں پر زور دینے کے لئے، ایک گروپ کو مشترکہ کنٹینر کا اشتراک کرنا ہوگا"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("ٹوگل بٹنز"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "ٹول ٹپس ٹیکسٹ لیبلز فراہم کرتے ہیں جو بٹن کے فنکشن یا دوسرے صارف انٹرفیس کارروائی کی وضاحت کرنے میں مدد کرتے ہیں۔ جب صارف کسی عنصر کے اوپر کرسر گھماتے ہیں، اس پر فوکس کرتے ہیں یا لانگ پریس کرتے ہیں تب ٹول ٹپس معلوماتی متن کو ڈسپلے کرتی ہیں۔"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "ٹول ٹپ کو ڈسپلے کرنے کے لیے لانگ پریس کریں یا اس پر کرسر گھمائیں۔"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "لانگ پریس یا کرسر گھمانے پر مختصر پیغام ڈسپلے کر دیا گیا"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("ٹول ٹپس"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("دو لائنز"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -595,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google کو مقام کا تعین کرنے میں ایپس کی مدد کرنے دیں۔ اس کا مطلب یہ ہے کہ Google کو گمنام مقام کا ڈیٹا تب بھی بھیجا جائے گا، جب کوئی بھی ایپ نہیں چل رہی ہیں۔"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google کی مقام کی سروس کا استعمال کریں؟"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("بیک اپ اکاؤنٹ ترتیب دیں"),
         "dialogShow":
@@ -604,7 +754,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حوالہ کی طرزیں اور میڈیا"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("زمرے"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("گیلری"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("ساحل"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("کانسی کے کام"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("چنئی"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("چیتیناد"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("ماہی گیر"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("پھولوں کی مارکیٹ"),
+        "placeLunchPrep": MessageLookupByLibrary.simpleMessage("لنچ کی تیاری"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("مارکیٹ"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("پانڈچیری"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("نمک کا کھیت"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("اسکوٹرز"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("ریشم بنانے والا"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("تنجور"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("تنجاور مندر"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("کار کی سیونگز"),
         "rallyAccountDataChecking":
@@ -628,15 +796,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("کل"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("اکاؤنٹس"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("الرٹس"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("بلز"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("آخری تاریخ"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("لباس"),
         "rallyBudgetCategoryCoffeeShops":
@@ -734,7 +902,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("منسوخ کریں"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("کارٹ کو صاف کریں"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("کارٹ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ترسیل:"),
@@ -794,8 +962,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نیوی پتلونیں"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("پلاسٹر ٹیونک"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("کوآرٹیٹ ٹیبل"),
         "shrineProductRainwaterTray":
@@ -834,10 +1002,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سفید پن اسٹراپ شرٹ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("وہائٹنے نیلٹ"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("کارٹ میں شامل کریں"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("کارٹ بند کریں"),
         "shrineTooltipCloseMenu":
@@ -852,7 +1020,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ترتیبات"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("ایک ذمہ دار اسٹارٹر لے آؤٹ"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("مضمون"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("بٹن"),
         "starterAppGenericHeadline":

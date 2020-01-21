@@ -41,47 +41,51 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Zehatza: ${value}";
 
-  static m9(name, phoneNumber) =>
+  static m9(value) => "Markatuta: ${value}";
+
+  static m10(value) => "Hautatuta: ${value}";
+
+  static m11(name, phoneNumber) =>
       "${name} erabiltzailearen telefono-zenbakia ${phoneNumber} da";
 
-  static m10(value) => "Hau hautatu duzu: \"${value}\"";
+  static m12(value) => "Hau hautatu duzu: \"${value}\"";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} bankuko ${accountNumber} kontua (${amount}).";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "Hilabete honetan ${amount} gastatu duzu kutxazainetako komisioetan";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Primeran. Joan den hilean baino ${percent} diru gehiago duzu kontu korrontean.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Adi: hilabete honetako erosketa-aurrekontuaren ${percent} erabili duzu.";
 
-  static m15(amount) => "Aste honetan ${amount} gastatu duzu jatetxeetan.";
+  static m17(amount) => "Aste honetan ${amount} gastatu duzu jatetxeetan.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Zerga-kenkari potentzial handiagoa! Esleitu kategoriak esleitu gabeko transakzio bati.', other: 'Zerga-kenkari potentzial handiagoa! Esleitu kategoriak esleitu gabeko ${count} transakziori.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName} faktura (${amount}) data honetan ordaindu behar da: ${date}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "\"${budgetName}\" izeneko aurrekontua: ${amountUsed}/${amountTotal} erabilita; ${amountLeft} gelditzen da";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'EZ DAGO PRODUKTURIK', one: '1 PRODUKTU', other: '${quantity} PRODUKTU')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Zenbatekoa: ${quantity}";
+  static m23(quantity) => "Zenbatekoa: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Erosketa-saskia. Hutsik dago.', one: 'Erosketa-saskia. Produktu bat dauka.', other: 'Erosketa-saskia. ${quantity} produktu dauzka.')}";
 
-  static m23(product) => "Kendu ${product}";
+  static m25(product) => "Kendu ${product}";
 
-  static m24(value) => "Elementua: ${value}";
+  static m26(value) => "Elementua: ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -90,6 +94,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "GitHub irudi-biltegiko Flutter laginak"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Itzuli galeriara"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Koska"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Ekintza-botoi gainerakorraren kokapena"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Ainguratuta - Erdian"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Ainguratuta - Amaieran"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Gainerakorra - Erdian"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Gainerakorra - Amaieran"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Kontua"),
         "bottomNavigationAlarmTab":
@@ -329,6 +344,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerta"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alerta izenburuduna"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Aplikazioaren behealdeko barrak nabigazio-panel lerrakor bat erakusten du, bai eta erabilgarri dauden ekintzak ere (gehienez, lau). Barra horretan agertzen da ekintza-botoi gainerakorra ere."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nabigazio-aukerak eta erabilgarri dauden ekintzak bistaratzen ditu behealdean"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Aplikazioaren behealdeko barra"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Beheko nabigazioak hiru eta bost helmuga artean bistaratzen ditu pantailaren beheko aldean. Ikono eta aukerako testu-etiketa bana ageri dira helmuga bakoitzeko. Beheko nabigazioko ikono bat sakatzean, ikono horri loturiko nabigazio-helmuga nagusira eramango da erabiltzailea."),
         "demoBottomNavigationPersistentLabels":
@@ -359,9 +380,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Beheko orri finko eta modalak"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Beheko orria"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Testu-eremuak"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Laua, goratua, ingeradaduna eta beste"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botoiak"),
+        "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Egiaztapen-zerrendaren menua"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sarrera, atributu edo ekintza bat adierazten duten elementu trinkoak"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Pilulak"),
@@ -369,6 +394,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Aukera-pilulek multzo bateko aukera bakarra erakusten dute. Erlazionatutako testu deskribatzailea edo kategoriak ere badauzkate."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Aukera-pilula"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Material diseinuaren garapen-adierazle zirkular bat, zeinak bira egiten baitu aplikazioa lanpetuta dagoela adierazteko."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Garapen-adierazle zirkularra"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Kodearen lagina"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -381,10 +412,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Kolore lehenetsi guztiak"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Koloreak"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Laster-menua"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Ekintza-orria alerta-estilo bat da, eta bi aukera edo gehiago ematen dizkio erabiltzaileari uneko testuingurua kontuan hartuta. Ekintza-orriek izenburu bat, mezu gehigarri bat eta ekintza-zerrenda bat izan ditzakete."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Ekintza-orria"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS estiloko jardueren adierazle bat, eskuinetara bira egiten duena."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS estiloko jardueren adierazleak"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Jardueren adierazlea"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alerta-botoiak bakarrik"),
         "demoCupertinoAlertButtonsTitle":
@@ -405,6 +446,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS estiloko botoiak"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Botoiak"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS estiloko nabigazio-barra bat. Nabigazio-barra tresna-barra bat da, tresna-barraren erdian orriaren izena daukana, besterik gabe."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS estiloko nabigazio-barra"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Nabigazio-barra"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Edukia kontrolatzeko iOS estiloko \"Tiratu freskatzeko\" motako aukera inplementatzeko widget bat."),
+        "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Edukia kontrolatzeko iOS estiloko \"Tiratu freskatzeko\" motako aukera"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Tiratu freskatzeko"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Bata bestearen baztergarri diren zenbait aukeraren artean hautatzeko erabiltzen da. Segmentatutako kontroleko aukera bat hautatzen denean, segmentatutako kontroleko gainerako aukerak desautatu egiten dira."),
@@ -431,6 +487,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS estiloko beheko fitxa-barra"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Fitxa-barra"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Graduatzaileek balioen barruti bat islatzen dute barra batean, eta erabiltzaileek barruti horretako balio bakarra edo azpi-barruti bat hauta dezakete bertan. Graduatzaileei gaiak ezar dakizkieke eta pertsonalizatu egin daitezke."),
+        "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Graduatzaile pertsonalizatuak"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Arrunta, alerta eta pantaila osoa"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Leihoak"),
@@ -454,6 +514,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantaila osoa"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Pantaila osoa"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Sareta itxurako zerrendak oso egokiak dira datu homogeneoak aurkezteko, batez ere irudiak. Sareta itxurako zerrendetan, lauza esaten zaio elementu bakoitzari."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Oinarekin"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Goiburuarekin"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Irudia soilik"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Errenkaden eta zutabeen diseinua"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Sareta itxurako zerrendak"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informazioa"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Sarrera-pilulek informazio konplexua ematen dute modu trinkoan; adibidez, entitate bat (pertsona, toki edo gauza bat) edo elkarrizketa bateko testua."),
@@ -461,6 +533,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sarrera-pilula"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Ezin izan da bistaratu URLa:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Material diseinuaren garapen-adierazle lineal bat; garapen-barra ere baderitzo."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Garapen-adierazle lineala"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Altuera finkoko lerro bakarra; testua eta haren atzean edo aurrean ikono bat izan ohi ditu."),
         "demoListsSecondary":
@@ -468,6 +545,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Zerrenda lerrakorren diseinuak"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Zerrendak"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Menuko desgaitutako aukera"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Egiaztapen-zerrendaren menu bat duen aukera bat"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Laster-menu bat duen aukera bat"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Menu sekziodun bat duen aukera bat"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Menu sinple bat duen aukera bat"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Laster-menuko lehen aukera"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Laster-menuko hirugarren aukera"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Menuek aukera-zerrenda bat erakusten dute aldi batez. Erabiltzaileek botoi, ekintza edo bestelako kontrol-aukera batekin interakzioan jarduten dutenean agertzen dira menuak."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Lau"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Eskuratu esteka"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menuko lehen aukera"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menuko hirugarren aukera"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menuko bigarren aukera"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Bat"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Aurreikusi"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Kendu"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Partekatu"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menuko botoiak eta menu sinpleak"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Hiru"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menua"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Bi"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Lerro bat"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -479,10 +595,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Botoi ingeradadunak opaku bihurtu eta goratu egiten dira sakatzean. Botoi goratuekin batera agertu ohi dira, ekintza alternatibo edo sekundario bat dagoela adierazteko."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botoi ingeradaduna"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineala, zirkularra, zehaztugabea"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Garapen-adierazleak"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Botoi goratuek dimentsioa ematen diete nagusiki lauak diren diseinuei. Funtzioak nabarmentzen dituzte espazio bete edo zabaletan."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botoi goratua"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Graduatzaileek balio barruti bat islatzen dute, barra batean. Ikono bana izan dezakete bi muturretan, balioen barrutia zein den erakusteko. Oso erabilgarriak dira irudiei iragazkiak aplikatzeko edo, orokorrean, ezarpenak doitzeko; esaterako, distira edo bolumena."),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Barruti zehatzeko graduatzaileak"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu sekzioduna"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kontrol-laukiei esker, multzo bereko aukera bat baino gehiago hauta ditzake erabiltzaileak. Kontrol-laukiek Egia eta Gezurra balioak izan ohi dituzte. Hiru aukerakoak badira, aldiz, balio nulua izan ohi dute bi horiez gain."),
@@ -506,6 +632,30 @@ class MessageLookup extends MessageLookupByLibrary {
             "Leiho arruntek hainbat aukera eskaintzen dizkiote erabiltzaileari, nahi duena aukera dezan. Aukeren gainean bistaratzen den izenburu bat izan dezakete leiho arruntek."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Arrunta"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu sinplea"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Etengabea"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Barruti zehatzeko graduatzaile etengabea gai pertsonalizatuarekin"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Etengabea, zenbakizko balio editagarriarekin"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Graduatzaileek balioen barruti bat islatzen dute barra batean, eta erabiltzaileek barruti horretako balio bakarra hauta dezakete bertan. Oso erabilgarriak dira irudiei iragazkiak aplikatzeko edo, orokorrean, ezarpenak doitzeko; esaterako, distira edo bolumena."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage(
+            "Erabiltzaileak zehaztutako balioak dituen graduatzailea"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Erabiltzaileak zehaztutako balioak dituen graduatzailea gai pertsonalizatuarekin"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Zenbakizko balio editagarria"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Hatza pasatuta balio bat hautatzeko balio duten widgetak"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Graduatzaileak"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Snackbar-aren ekintza sakatu duzu."),
         "demoSnackbarsActionButtonLabel":
@@ -543,7 +693,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Biografia"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Izena*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Izena behar da."),
         "demoTextFieldNoMoreThan":
@@ -582,6 +732,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Erlazionatutako aukerak taldekatzeko erabil daitezke etengailuak. Erlazionatutako etengailuen talde bat nabarmentzeko, taldeak edukiontzi bera partekatu beharko luke."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Etengailuak"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Aholkuak testu-etiketak dira, zeinek botoi baten edo erabiltzaile-interfazeko ekintza baten funtzioa azaltzen baitute. Aholkuek testu informatibo bat bistaratzen dute erabiltzaileak aukera baten gainetik pasatzen direnean, aukera baten gainean fokua jartzen dutenean edo aukera bat luze sakatzen dutenean."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Aholkua bistaratzeko, sakatu luze edo pasatu gainetik."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Luze sakatzean edo gainetik pasatzean erakusten den mezu laburra"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Aholkuak"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Bi lerro"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -607,7 +764,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Utzi Google-ri aplikazioei kokapena zehazten laguntzen. Horretarako, kokapen-datu anonimoak bidaliko zaizkio Google-ri, baita aplikazioak martxan ez daudenean ere."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google-ren kokapen-zerbitzua erabili nahi duzu?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Ezarri babeskopiak egiteko kontua"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ERAKUTSI LEIHOA"),
@@ -616,7 +773,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoriak"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Hondartza"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Brontze-meategiak"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Arrantzalea"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("Lore-azoka"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Bazkaria prestatzen"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Merkatua"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Gatzaga"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scooterrak"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Zetagilea"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur tenplua"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Autorako aurrezkiak"),
         "rallyAccountDataChecking":
@@ -643,15 +817,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Guztira"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Kontuak"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertak"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Fakturak"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Epemuga:"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Arropa"),
         "rallyBudgetCategoryCoffeeShops":
@@ -760,7 +934,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("UTZI"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("GARBITU SASKIA"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("SASKIA"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Bidalketa:"),
@@ -823,8 +997,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Galtza urdin ilunak"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Igeltsu-koloreko tunika"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Laurentzako mahaia"),
         "shrineProductRainwaterTray":
@@ -864,10 +1038,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Marra fineko alkandora zuria"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney gerrikoa"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Gehitu saskian"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Itxi saskia"),
         "shrineTooltipCloseMenu":
@@ -881,7 +1055,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ezarpenak"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Hasierako diseinu sentikorra"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Gorputza"),
         "starterAppGenericButton":

@@ -41,48 +41,52 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Διακριτό: ${value}";
 
-  static m9(name, phoneNumber) =>
+  static m9(value) => "Ελέγχθηκε: ${value}";
+
+  static m10(value) => "Επιλέχθηκε: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Ο αριθμός τηλεφώνου του χρήστη ${name} είναι ${phoneNumber}";
 
-  static m10(value) => "Επιλέξατε \"${value}\"";
+  static m12(value) => "Επιλέξατε \"${value}\"";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Λογαριασμός ${accountName} με αριθμό ${accountNumber} και ποσό ${amount}.";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "Δαπανήσατε ${amount} σε προμήθειες ATM αυτόν τον μήνα.";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Συγχαρητήρια! Ο τρεχούμενος λογαριασμός σας παρουσιάζει αύξηση ${percent} συγκριτικά με τον προηγούμενο μήνα.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Έχετε υπόψη ότι χρησιμοποιήσατε το ${percent} του προϋπολογισμού αγορών σας γι\' αυτόν τον μήνα.";
 
-  static m15(amount) =>
+  static m17(amount) =>
       "Δαπανήσατε ${amount} σε εστιατόρια αυτήν την εβδομάδα.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Αυξήστε την πιθανή έκπτωση φόρου! Εκχωρήστε κατηγορίες σε 1 μη εκχωρημένη συναλλαγή.', other: 'Αυξήστε την πιθανή έκπτωση φόρου! Εκχωρήστε κατηγορίες σε ${count} μη εκχωρημένες συναλλαγές.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Λογαριασμός ${billName} με προθεσμία στις ${date} και ποσό ${amount}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Προϋπολογισμός ${budgetName} από τον οποίο έχουν χρησιμοποιηθεί ${amountUsed} από το συνολικό ποσό των ${amountTotal}, απομένουν ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ΚΑΝΕΝΑ ΣΤΟΙΧΕΙΟ', one: '1 ΣΤΟΙΧΕΙΟ', other: '${quantity} ΣΤΟΙΧΕΙΑ')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Ποσότητα: ${quantity}";
+  static m23(quantity) => "Ποσότητα: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Καλάθι αγορών, κανένα στοιχείο', one: 'Καλάθι αγορών, 1 στοιχείο', other: 'Καλάθι αγορών, ${quantity} στοιχεία')}";
 
-  static m23(product) => "Κατάργηση ${product}";
+  static m25(product) => "Κατάργηση ${product}";
 
-  static m24(value) => "Στοιχείο ${value}";
+  static m26(value) => "Στοιχείο ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -91,6 +95,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Χώρος φύλαξης GitHub δειγμάτων Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Πίσω στη Συλλογή"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Εγκοπή"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Θέση κινούμενου κουμπιού ενεργειών"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Προσδεδεμένο - Κέντρο"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Προσδεδεμένο - Τέλος"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Κινούμενο - Κέντρο"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Κινούμενο - Τέλος"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Λογαριασμός"),
         "bottomNavigationAlarmTab":
@@ -338,6 +353,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ειδοποίηση"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Ειδοποίηση με τίτλο"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Οι γραμμές εφαρμογών στο κάτω μέρος παρέχουν πρόσβαση σε ένα συρτάρι πλοήγησης στο κάτω μέρος και έως τέσσερις ενέργειες, συμπεριλαμβανομένου του κινούμενου κουμπιού ενεργειών."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Προβάλλει πλοήγηση και ενέργειες στο κάτω μέρος"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Γραμμή εφαρμογής στο κάτω μέρος"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Οι γραμμές πλοήγησης κάτω μέρους εμφανίζουν από τρεις έως πέντε προορισμούς στο κάτω μέρος μιας οθόνης. Κάθε προορισμός αντιπροσωπεύεται από ένα εικονίδιο και μια προαιρετική ετικέτα κειμένου. Με το πάτημα ενός εικονιδίου πλοήγησης στο κάτω μέρος, ο χρήστης μεταφέρεται στον προορισμό της πλοήγησης ανώτερου επιπέδου που συσχετίζεται με αυτό το εικονίδιο."),
         "demoBottomNavigationPersistentLabels":
@@ -368,9 +389,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Μόνιμα και αποκλειστικά φύλλα κάτω μέρους"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Φύλλο κάτω μέρους"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Πεδία κειμένου"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Επίπεδο, ανασηκωμένο, με περίγραμμα και περισσότερα"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Κουμπιά"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Μενού λίστας ελέγχου"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Συμπαγή στοιχεία που αντιπροσωπεύουν μια εισαγωγή, ένα χαρακτηριστικό ή μια δράση"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Τσιπ"),
@@ -378,6 +403,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Τα τσιπ επιλογής αντιπροσωπεύουν μία επιλογή από ένα σύνολο. Τα τσιπ επιλογής περιέχουν σχετικό περιγραφικό κείμενο ή κατηγορίες."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Τσιπ επιλογής"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Μια κυκλική ένδειξη προόδου του Material Design, που περιστρέφεται για να υποδείξει ότι η εφαρμογή είναι απασχολημένη."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Κυκλική ένδειξη προόδου"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Δείγμα κώδικα"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -390,10 +420,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Όλα τα προκαθορισμένα χρώματα"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Χρώματα"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Μενού περιβάλλοντος"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
-            "Ένα φύλλο ενεργειών είναι ένα συγκεκριμένο στυλ ειδοποίησης που παρουσιάζει στον χρήστη ένα σύνολο δύο ή περισσότερων επιλογών που σχετίζονται με το τρέχον περιβάλλον. Ένα φύλλο ενεργειών μπορεί να έχει τίτλο, επιπλέον μήνυμα και μια λίστα ενεργειών."),
+            "Ένα φύλλο ενεργειών είναι ένα συγκεκριμένο στιλ ειδοποίησης που παρουσιάζει στον χρήστη ένα σύνολο δύο ή περισσότερων επιλογών που σχετίζονται με το τρέχον περιβάλλον. Ένα φύλλο ενεργειών μπορεί να έχει τίτλο, επιπλέον μήνυμα και μια λίστα ενεργειών."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Φύλλο ενεργειών"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ένδειξη δραστηριότητας σε στιλ iOS που περιστρέφεται δεξιόστροφα."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Ενδείξεις δραστηριότητας σε στιλ iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ένδειξη δραστηριότητας"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Μόνο κουμπιά ειδοποίησης"),
         "demoCupertinoAlertButtonsTitle":
@@ -405,15 +445,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoAlertWithTitleTitle":
             MessageLookupByLibrary.simpleMessage("Ειδοποίηση με τίτλο"),
         "demoCupertinoAlertsSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Παράθυρα διαλόγου ειδοποίησης σε στυλ iOS"),
+            "Παράθυρα διαλόγου ειδοποίησης σε στιλ iOS"),
         "demoCupertinoAlertsTitle":
             MessageLookupByLibrary.simpleMessage("Ειδοποιήσεις"),
         "demoCupertinoButtonsDescription": MessageLookupByLibrary.simpleMessage(
-            "Ένα κουμπί σε στυλ iOS. Εμφανίζει κείμενο ή/και ένα εικονίδιο που εξαφανίζεται και εμφανίζεται σταδιακά με το άγγιγμα. Μπορεί να έχει φόντο προαιρετικά."),
+            "Ένα κουμπί σε στιλ iOS. Εμφανίζει κείμενο ή/και ένα εικονίδιο που εξαφανίζεται και εμφανίζεται σταδιακά με το άγγιγμα. Μπορεί να έχει φόντο προαιρετικά."),
         "demoCupertinoButtonsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Κουμπιά σε στυλ iOS"),
+            MessageLookupByLibrary.simpleMessage("Κουμπιά σε στιλ iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Κουμπιά"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Μια γραμμή πλοήγησης τύπου iOS. Η γραμμή πλοήγησης είναι μια γραμμή εργαλείων που αποτελείται, κατά το ελάχιστο, από έναν τίτλο σελίδας στο μέσο της γραμμής εργαλείων."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Γραμμή πλοήγησης τύπου iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Γραμμή πλοήγησης"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ένα γραφικό στοιχείο που χρησιμοποιεί το στοιχείο ελέγχου περιεχομένου τύπου iOS για ανανέωση με σύρσιμο προς τα κάτω."),
+        "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Στοιχείο ελέγχου τύπου iOS για ανανέωση με σύρσιμο προς τα κάτω"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Ανανέωση με σύρσιμο προς τα κάτω"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Χρησιμοποιείται για τον ορισμό μιας επιλογής μέσα από έναν αριθμό επιλογών που αποκλείουν η μία την άλλη. Όταν ορίζεται μία επιλογή στον τμηματοποιημένο έλεγχο, καταργείται ο ορισμός των άλλων επιλογών στον τμηματοποιημένο έλεγχο."),
@@ -427,19 +481,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ένα ρυθμιστικό που μπορεί να χρησιμοποιηθεί για την επιλογή ανάμεσα σε ένα συνεχές ή διακριτό σύνολο τιμών."),
         "demoCupertinoSliderDiscrete": m8,
         "demoCupertinoSliderSubtitle":
-            MessageLookupByLibrary.simpleMessage("Ρυθμιστικό σε στυλ iOS"),
+            MessageLookupByLibrary.simpleMessage("Ρυθμιστικό σε στιλ iOS"),
         "demoCupertinoSliderTitle":
             MessageLookupByLibrary.simpleMessage("Ρυθμιστικό"),
         "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
             "Ένας διακόπτης που χρησιμοποιείται για την εναλλαγή της κατάστασης ενεργοποίησης/απενεργοποίησης μιας μεμονωμένης ρύθμισης."),
         "demoCupertinoSwitchSubtitle":
-            MessageLookupByLibrary.simpleMessage("Διακόπτης σε στυλ iOS"),
+            MessageLookupByLibrary.simpleMessage("Διακόπτης σε στιλ iOS"),
         "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
-            "Μια κάτω γραμμή πλοήγησης καρτελών σε στυλ iOS. Εμφανίζει πολλές καρτέλες, από τις οποίες μία είναι ενεργή, από προεπιλογή η πρώτη."),
+            "Μια κάτω γραμμή πλοήγησης καρτελών σε στιλ iOS. Εμφανίζει πολλές καρτέλες, από τις οποίες μία είναι ενεργή, από προεπιλογή η πρώτη."),
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Κάτω γραμμή καρτελών σε στυλ iOS"),
+            "Κάτω γραμμή καρτελών σε στιλ iOS"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Γραμμή καρτελών"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Τα ρυθμιστικά αντικατοπτρίζουν ένα εύρος τιμών κατά μήκος μιας γραμμής, μέσω της οποίας οι χρήστες μπορούν να επιλέξουν μία τιμή ή ένα εύρος τιμών. Μπορείτε να προσαρμόσετε ή να προσθέσετε θέμα στα ρυθμιστικά."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Προσαρμοσμένα ρυθμιστικά"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Απλό, ειδοποίηση και σε πλήρη οθόνη"),
         "demoDialogTitle":
@@ -464,6 +522,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Πλήρης οθόνη"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Πλήρης οθόνη"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Οι λίστες πλέγματος είναι κατάλληλες για παρουσίαση ομοιογενών δεδομένων, συνήθως εικόνων. Κάθε στοιχείο σε μια λίστα πλέγματος ονομάζεται πλακίδιο."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Με υποσέλιδο"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Με κεφαλίδα"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Μόνο εικόνα"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Διάταξη σειράς και στήλης"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Λίστες πλέγματος"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Πληροφορίες"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Τα τσιπ εισαγωγής αντιπροσωπεύουν ένα περίπλοκο τμήμα πληροφοριών, όπως μια οντότητα (άτομο, μέρος ή πράγμα) ή κείμενο συνομιλίας, σε συμπαγή μορφή."),
@@ -471,6 +541,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Τσιπ εισαγωγής"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Δεν ήταν δυνατή η προβολή του URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Μια γραμμική ένδειξη προόδου του Material Design, η οποία είναι επίσης γνωστή ως γραμμή προόδου."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Γραμμική ένδειξη προόδου"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Μία γραμμή σταθερού ύψους που συνήθως περιέχει κείμενο καθώς και ένα εικονίδιο στην αρχή ή στο τέλος."),
         "demoListsSecondary":
@@ -478,6 +553,46 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Διατάξεις κυλιόμενων λιστών"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Λίστες"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "Απενεργοποιημένο στοιχείο μενού"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Ένα στοιχείο με μενού λίστας ελέγχου"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Ένα στοιχείο με μενού περιβάλλοντος"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Ένα στοιχείο με μενού χωρισμένο σε ενότητες"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Ένα στοιχείο με απλό μενού"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Στοιχείο μενού περιβάλλοντος ένα"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Στοιχείο μενού περιβάλλοντος τρία"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Ένα μενού παρουσιάζει μια λίστα επιλογών σε μια προσωρινή επιφάνεια. Εμφανίζονται όταν οι χρήστες αλληλεπιδρούν με ένα κουμπί, μια ενέργεια ή άλλο στοιχείο ελέγχου."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Τέσσερα"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Λήψη συνδέσμου"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Στοιχείο μενού ένα"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Στοιχείο μενού τρία"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Στοιχείο μενού δύο"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Ένα"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Προεπισκόπηση"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Κατάργηση"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Κοινοποίηση"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Κουμπιά μενού και απλά μενού"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Τρία"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Μενού"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Δύο"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Μία γραμμή"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -489,10 +604,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Τα κουμπιά με περίγραμμα γίνονται αδιαφανή και ανυψώνονται κατά το πάτημα. Συχνά συνδυάζονται με ανυψωμένα κουμπιά για να υποδείξουν μια εναλλακτική, δευτερεύουσα ενέργεια."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Κουμπί με περίγραμμα"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Γραμμική, κυκλική, απροσδιόριστη"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ενδείξεις προόδου"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Τα ανυψωμένα κουμπιά προσθέτουν διάσταση στις κυρίως επίπεδες διατάξεις. Δίνουν έμφαση σε λειτουργίες σε γεμάτους ή μεγάλους χώρους."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Ανασηκωμένο κουμπί"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Τα ρυθμιστικά αντικατοπτρίζουν ένα εύρος τιμών κατά μήκος μιας γραμμής. Διαθέτουν εικονίδια και στα δύο άκρα της γραμμής, τα οποία αντικατοπτρίζουν ένα εύρος τιμών. Είναι ιδανικά για προσαρμογή ρυθμίσεων, όπως η ένταση ήχου, η φωτεινότητα και η εφαρμογή φίλτρων εικόνας."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Ρυθμιστικά εύρους"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Μενού με ενότητες"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Τα πλαίσια ελέγχου επιτρέπουν στον χρήστη να επιλέξει πολλές επιλογές από ένα σύνολο. Μια τιμή ενός κανονικού πλαισίου ελέγχου είναι είτε true είτε false και η τιμή ενός πλαισίου ελέγχου τριπλής κατάστασης μπορεί, επίσης, να είναι null."),
@@ -515,6 +640,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Ένα απλό παράθυρο διαλόγου που προσφέρει στον χρήστη τη δυνατότητα επιλογής μεταξύ διαφόρων επιλογών. Ένα απλό παράθυρο διαλόγου με προαιρετικό τίτλο που εμφανίζεται πάνω από τις επιλογές."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Απλό"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Απλό μενού"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Συνεχές"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Συνεχές ρυθμιστικό εύρους με προσαρμοσμένο θέμα"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Συνεχές με αριθμητική τιμή με δυνατότητα επεξεργασίας"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Τα ρυθμιστικά αντικατοπτρίζουν ένα εύρος τιμών κατά μήκος μιας γραμμής, μέσω της οποίας οι χρήστες μπορούν να επιλέξουν μία τιμή. Είναι ιδανικά για προσαρμογή ρυθμίσεων, όπως η ένταση ήχου, η φωτεινότητα και η εφαρμογή φίλτρων εικόνας."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Διακριτό"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Διακριτό ρυθμιστικό με προσαρμοσμένο θέμα"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Αριθμητική τιμή με δυνατότητα επεξεργασίας"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Γραφικά στοιχεία για επιλογή μιας τιμής μέσω σάρωσης"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Ρυθμιστικά"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Πατήσατε την ενέργεια της αναδυόμενης ειδοποίησης χωρίς δυνατότητα παράβλεψης."),
         "demoSnackbarsActionButtonLabel":
@@ -552,7 +699,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Βιογραφία"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Όνομα*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Το όνομα είναι υποχρεωτικό."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -592,6 +739,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Μπορείτε να χρησιμοποιήσετε κουμπιά εναλλαγής για να ομαδοποιήσετε τις σχετικές επιλογές. Για να δοθεί έμφαση σε ομάδες σχετικών κουμπιών εναλλαγής, μια ομάδα θα πρέπει να μοιράζεται ένα κοινό κοντέινερ."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Κουμπιά εναλλαγής"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Οι επεξηγήσεις εργαλείου παρέχουν ετικέτες κειμένου που βοηθούν με την επεξήγηση της λειτουργίας ενός κουμπιού ή άλλης ενέργειας της διεπαφής χρήστη. Οι επεξηγήσεις εργαλείου προβάλουν ενημερωτικό κείμενο όταν οι χρήστες τοποθετούν τον δείκτη πάνω από ένα στοιχείο, εστιάζουν ή πατούν παρατεταμένα σε ένα στοιχείο."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Παρατεταμένο πάτημα ή τοποθέτηση του δείκτη για εμφάνιση της επεξήγησης εργαλείου."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Σύντομο μήνυμα που εμφανίζεται με παρατεταμένο πάτημα ή τοποθέτηση του δείκτη"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Επεξηγήσεις εργαλείου"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Δύο γραμμές"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -618,7 +773,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Επιτρέψτε στην Google να διευκολύνει τις εφαρμογές να προσδιορίζουν την τοποθεσία σας. Αυτό συνεπάγεται την αποστολή ανώνυμων δεδομένων τοποθεσίας στην Google, ακόμη και όταν δεν εκτελούνται εφαρμογές."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Χρήση της υπηρεσίας τοποθεσίας της Google;"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Ρύθμιση λογαριασμού δημιουργίας αντιγράφων ασφαλείας"),
         "dialogShow":
@@ -628,7 +783,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Κατηγορίες"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Συλλογή"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Παραλία"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Χυτήριο χαλκού"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Τσενάι"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Τσέτιναντ"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Ψαράς"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Αγορά λουλουδιών"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Προετοιμασία γεύματος"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Αγορά"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Αλυκή"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Σκούτερ"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Παραγωγός μεταξιού"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Ναός Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Οικονομίες αυτοκινήτου"),
         "rallyAccountDataChecking":
@@ -653,15 +827,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Σύνολο"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Λογαριασμοί"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Ειδοποιήσεις"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Λογαριασμοί"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Προθεσμία"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Ρουχισμός"),
         "rallyBudgetCategoryCoffeeShops":
@@ -767,7 +941,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ΑΚΥΡΩΣΗ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ΑΔΕΙΑΣΜΑ ΚΑΛΑΘΙΟΥ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("ΚΑΛΑΘΙ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Αποστολή:"),
@@ -829,8 +1003,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Παντελόνια Navy"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Τουνίκ με σχέδια"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Τραπέζι Quartet"),
         "shrineProductRainwaterTray":
@@ -869,10 +1043,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Λευκό ριγέ πουκάμισο"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Ζώνη Whitney"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Προσθήκη στο καλάθι"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Κλείσιμο καλαθιού"),
         "shrineTooltipCloseMenu":
@@ -887,7 +1061,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ρυθμίσεις"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Μια αποκριτική διάταξη για την εφαρμογή Starter"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Σώμα"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("ΚΟΥΜΠΙ"),

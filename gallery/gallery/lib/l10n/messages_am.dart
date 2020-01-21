@@ -40,43 +40,47 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "ውሱን፦ ${value}";
 
-  static m9(name, phoneNumber) => "የ${name} ስልክ ቁጥር ${phoneNumber} ነው";
+  static m9(value) => "ምልክት ተደርጎበታል፦ ${value}";
 
-  static m10(value) => "እርስዎ ይህን መርጠዋል፦ «${value}»";
+  static m10(value) => "ተመርጧል፦ ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "የ${name} ስልክ ቁጥር ${phoneNumber} ነው";
+
+  static m12(value) => "እርስዎ ይህን መርጠዋል፦ «${value}»";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} መለያ ${accountNumber} በ ${amount}።";
 
-  static m12(amount) => "በዚህ ወር በኤቲኤም ክፍያዎች ላይ ${amount} አውጥተዋል";
+  static m14(amount) => "በዚህ ወር በኤቲኤም ክፍያዎች ላይ ${amount} አውጥተዋል";
 
-  static m13(percent) => "ጥሩ ስራ! የእርስዎ ተንቀሳቃሽ ሒሳብ ከባለፈው ወር በ${percent} ጨምሯል።";
+  static m15(percent) => "ጥሩ ስራ! የእርስዎ ተንቀሳቃሽ ሒሳብ ከባለፈው ወር በ${percent} ጨምሯል።";
 
-  static m14(percent) => "ማሳሰቢያ፣ የዚህ ወር የሸመታ ባጀትዎን ${percent} ተጠቅመዋል።";
+  static m16(percent) => "ማሳሰቢያ፣ የዚህ ወር የሸመታ ባጀትዎን ${percent} ተጠቅመዋል።";
 
-  static m15(amount) => "በዚህ ሳምንት በምግብ ቤቶች ላይ ${amount} አውጥተዋል።";
+  static m17(amount) => "በዚህ ሳምንት በምግብ ቤቶች ላይ ${amount} አውጥተዋል።";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'የእርስዎን ሊቀነስ የሚችል ግብር ይጨምሩ! ወደ 1 ያልተመደበ ግብይት ምድቦችን ይመድቡ።', other: 'የእርስዎን ሊቀነስ የሚችል ግብር ይጨምሩ! ወደ ${count} ያልተመደቡ ግብይቶች ምድቦችን ይመድቡ።')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "የ${billName} ${amount} መክፈያ ጊዜ ${date} ደርሷል።";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} በጀት ${amountUsed} ከ${amountTotal} ጥቅም ላይ ውሏል፣ ${amountLeft} ይቀራል";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ምንም ንጥሎች የሉም', one: '1 ንጥል', other: '${quantity} ንጥሎች')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "መጠን፦ ${quantity}";
+  static m23(quantity) => "መጠን፦ ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'የግዢ ዕቃዎች ጋሪ፣ ምንም ንጥሎች የሉም', one: 'የግዢ ዕቃዎች ጋሪ፣ 1 ንጥል', other: 'የግዢ ዕቃዎች ጋሪ፣ ${quantity} ንጥሎች')}";
 
-  static m23(product) => "${product} አስወግድ";
+  static m25(product) => "${product} አስወግድ";
 
-  static m24(value) => "ንጥል ${value}";
+  static m26(value) => "ንጥል ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -85,6 +89,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("የFlutter ናሙናዎች የGitHub ማከማቻ"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ወደ ማዕከለ-ስዕላት ተመለስ"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("ስርጉድ"),
+        "bottomAppBarPosition":
+            MessageLookupByLibrary.simpleMessage("ተንሳፋፊ የድርጊት አዝራር አቀማመጥ"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("ተሰክቷል - መሃል"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("ተሰክቷል - ማብቂያ"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("ተንሳፋፊ - መሃል"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("ተንሳፋፊ - ማብቂያ"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("መለያ"),
         "bottomNavigationAlarmTab":
@@ -294,6 +309,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("ማንቂያ"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("ከአርእስት ጋር ማስጠንቀቂያ ስጥ"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "የግርጌ መተግበሪያ አሞሌዎች ለግርጌ ዳሰሳ መሳቢያ እና እስከ አራት ለሚደርሱ እርምጃዎች ለተንሳፋፊ የእርምጃ አዝራር ጨምሮ መዳረሻን ያቀርባሉ።"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ዳሰሳን እና እርምጃዎችን በግርጌው ላይ ያሳያል"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("የግርጌ መተግበሪያ አሞሌ"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "የግርጌ ዳሰሳ አሞሌዎች በአንድ ማያ ግርጌ ላይ ከሶስት እስከ አምስት መድረሻዎች ድረስ ያሳያሉ። እያንዳንዱ መድረሻ በአዶ እና በአማራጭ የጽሑፍ መሰየሚያ ይወከላል። የግርጌ ዳሰሳ አዶ መታ ሲደረግ ተጠቃሚው ከዚያ አዶ ጋር የተጎዳኘ የከፍተኛ ደረጃ የዳሰሳ መድረሻ ይወሰዳል።"),
         "demoBottomNavigationPersistentLabels":
@@ -321,15 +342,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("ጽኑ እና ሞዳል የግርጌ ሉሆች"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("የግርጌ ሉህ"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("የጽሑፍ መስኮች"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("ዝርግ፣ ከፍ ያለ፣ ቢጋር እና ተጨማሪ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("አዝራሮች"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("የማረጋገጫ ዝርዝር ምናሌ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "አንድ ግቤት፣ አይነት ወይም እርምጃ የሚወክሉ እምቅ ክፍለ-አባላት"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("ቺፖች"),
         "demoChoiceChipDescription": MessageLookupByLibrary.simpleMessage(
             "የምርጫ ቺፖች ከአንድ ስብስብ ውስጥ አንድ ነጠላ ምርጫን ይወክላሉ። የምርጫ ቺፖች ገላጭ ጽሑፍ ወይም ምድቦችን ይይዛሉ።"),
         "demoChoiceChipTitle": MessageLookupByLibrary.simpleMessage("የምርጫ ቺፕ"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "መተግበሪያው ባተሌ እንደሆነ ለመጠቆም የሚሽከረከር የቁስ ንድፍ ክበባዊ ግስጋሴ ጠቋሚ።"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("ክበባዊ የግስጋሴ ጠቋሚ"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("የኮድ ናሙና"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("ወደ ቅንጥብ ሰሌዳ ተገልብጧል።"),
@@ -341,10 +371,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("ሁሉም አስቀድመው የተገለጹ ቀለማት"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("ቀለማት"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("የዓውድ ምናሌ"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "የእርምጃ ሉህ ከሁለት ወይም ከዚያ በላይ አሁን ካለው ዓውድ ጋር ግንኙነት ያላቸው ምርጫዎች ጋር የምርጫ ስብስብ ለተጠቃሚው የሚያቀርብ የተወሰነ የማንቂያ ቅጥ ነው። የእርምጃ ሉህ አርእስት፣ ተጨማሪ መልዕክት፣ እና የእርምጃዎች ዝርዝር ሊኖረው ይችላል።"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("የእርምጃ ሉህ"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "በሰዓት አቅጣጫ የሚሽከረከር የiOS-ቅጥ እንቅስቃሴ ጠቋሚ"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ቅጥ እንቅስቃሴ ጠቋሚዎች"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("የእንቅስቃሴ ጠቋሚ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("የማንቂያ አዝራሮች ብቻ"),
         "demoCupertinoAlertButtonsTitle":
@@ -364,6 +403,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-ቅጥ አዝራሮች"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("አዝራሮች"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "የiOS-ቅጥ አሰሳ ምናሌ። የአሰሳ ምናሌ በመሣሪያ አሞሌ መሃል የገጽ አርዕስትን በውስጡ ቢያንስ የያዘ የመሣሪያ አሞሌ ነው።"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ቅጥ የአሰሳ ምናሌ"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("የአሰሳ አሞሌ"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "የይዘት መቆጣጠሪያን ለማደስ የiOS-ቅጥ መጎተትን ተግባራዊ የሚያደርግ ምግብር።"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage("መቆጣጠሪያን ለማደስ የiOS-ቅጥ መጎተት"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("ለማደስ ይጎትቱ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "በአንድ ላይ በልዩ ሁኔታ ከሚታዩ አማራጮች ቁጥር መካከል ለመምረጥ ጥቅም ላይ ይውላል። በተከፋፈለው መቆጣጠሪያ ውስጥ አንድ አማራጭ ሲመረጥ፣ በተከፋፈለው መቆጣጠሪያ ውስጥ ያሉት ሌሎች አማራጮች መመረጥ ያቆማሉ።"),
@@ -389,6 +442,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("የiOS-ቅጥ የታች ትር አሞሌ"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("የትር አሞሌ"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ተጠቃሚዎች አንድን ነጠላ እሴት ወይም የእሴቶች ክልል ሊመርጡ የሚችሉበት አሞሌ ላይ ያሉትን የእሴቶች ክልል ተንሸራታቾች ያንጸባርቃሉ። ተንሸራታቾቹ ገጽታ ሊኖራቸው እና ብጁ ሊደረጉ ይችላሉ።"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("ብጁ ተንሸራታቾች"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("ቀላል፣ ማንቂያ እና ሙሉ ማያ ገጽ"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ንግግሮች"),
@@ -410,18 +467,70 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ሙሉ ማያ ገጽ"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("የሙሉ ገጽ ዕይታ"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "ፍርግርግ ዝርዝሮች ተመሳሳይነት ያለውን ውሂብ በተለይ ደግሞ ምስሎች ለማቅረብ በጣም የተሻሉ አማራጮች ናቸው። በፍርግርግ ዝርዝር ውስጥ ያለው እያንዳንዱ ንጥል ስድር ይባላል።"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("ከግርጌ ማስታወሻ ጋር"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("ከአርዕስት ጋር"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("ምስል ብቻ"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("የረድፍ እና የዓምድ አቀማመጥ"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("ፍርግርግ ዝርዝሮች"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("መረጃ"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "የግቤት ቺፖች እንደ ህጋዊ አካል (ሰው፣ ቦታ ወይም ነገር) ውስብስብ ወይም የውይይት ጽሑፍ ያለ በእምቅ መልኩ ያለ ውስብስብ የመረጃ ክፍልን ይወክላሉ።"),
         "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("የግቤት ቺፕ"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("ዩአርኤልን ማሳየት አልተቻለም፦"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "የቁስ ንድፍ የቀጥታ መስመር የግስጋሴ ጠቋሚ፣ በተጨማሪ የግስጋሴ አሞሌ በመባል የሚታወቅ"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("የቀጥታ መስመር የግስጋሴ ጠቋሚ"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "በተለምዶ የተወሰነ ጽሑፍና እንዲሁም መሪ ወይም ተከታይ አዶ የያዘ አንድ ባለነጠላ ቋሚ ረድፍ።"),
         "demoListsSecondary": MessageLookupByLibrary.simpleMessage("ሁለተኛ ጽሑፍ"),
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("የዝርዝር አቀማመጦችን በመሸብለል ላይ"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("ዝርዝሮች"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("የተሰናከለ ምናሌ ንጥል"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("ንጥል ከማረጋገጫ ምናሌ ጋር"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("ከዓውድ ምናሌ ጋር ያለ ንጥል"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("ከተከፋፈለ ምናሌ ጋር ያለ ንጥል"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("ንጥል ከቀላል ምናሌ ጋር"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("ዓውድ ምናሌ ንጥል አንድ"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("የዓውድ ምናሌ ንጥል ሦስት"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "ምናሌ በጊዜያዊ ቦታ ላይ የምርጫዎችን ዝርዝር ያሳያል። ተጠቃሚዎች ከአዝራር፣ ከድርጊት ወይም ሌላ መቆጣጠሪያ ጋር መስተጋብር ሲፈጽሙ ብቅ ይላሉ።"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("አራት"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("አገናኝ ያግኙ"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("ምናሌ ንጥል አንድ"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("ምናሌ ንጥል ሦስት"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("ምናሌ ንጥል ሁለት"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("አንድ"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("ቅድመ ዕይታ"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("አስወግድ"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("አጋራ"),
+        "demoMenuSubtitle":
+            MessageLookupByLibrary.simpleMessage("የምናሌ አዝራሮች እና ቀላል ምናሌዎች"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("ሦስት"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("ምናሌ"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("ሁለት"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("አንድ መስመር"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -433,10 +542,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "የቢጋር አዝራሮች የማይታዩ ይሆኑና በሚጫኑበት ጊዜ ከፍ ይላሉ። አማራጭን፣ ሁለተኛ እርምጃን ለመጠቆም ብዙውን ጊዜ ከፍ ካሉ አዝራሮች ጋር ይጣመራሉ።"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("የቢጋር አዝራር"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("ቀጥታ መስመር፣ ክበባዊ፣ ያልተወሰነ"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("የግስጋሴ ጠቋሚዎች"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ከፍ ያሉ አዝራሮች ብዙውን ጊዜ ለዝርግ አቀማመጦች ስፋት ያክላሉ። በባተሌ ወይም ሰፊ ቦታዎች ላይ ተግባራት ላይ አጽዕኖት ይሰጣሉ።"),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("ከፍ ያለ አዝራር"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ተንሸራታቾች ከአሞሌ ጋር የእሴቶችን ክልል ያንጸባርቃሉ። የእሴቶችን ክልል በሚያንጸባርቀው አሞሌ ሁለቱም ማብቂያዎች ላይ አዶዎች ሊኖራቸው ይችላል። እንደ ድምፅ፣ ብሩህነት የመሳሰሉ ቅንብሮችን ለማስተካከል ወይም የምስል ማጣሪያዎችን ተፈጻሚ ለማድረግ ተመራጭ ናቸው።"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("የክልል ተንሸራታቾች"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("በክፍል የተከፋፈለ ምናሌ"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "አመልካች ሳጥኖች ተጠቃሚው ከአንድ ስብስብ በርካታ አማራጮችን እንዲሰበስብ ያስችለዋል። የአንድ መደበኛ አመልካች ሳጥኑ እሴት እውነት ወይም ሐሰት ነው፣ እና የአንድ ባለሶስት-ሁኔታ እሴት እንዲሁም አልቦ መሆን ይችላል።"),
@@ -459,6 +578,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ቀላል ንግግር ለተጠቃሚው በበርካታ አማራጮች መካከል ምርጫን ያቀርባል። ቀላል ንግግር ከምርጫዎ በላይ የሚታይ አማራጭ አርዕስት አለው።"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ቀላል"),
+        "demoSimpleMenuTitle": MessageLookupByLibrary.simpleMessage("ቀላል ምናሌ"),
+        "demoSlidersContinuous": MessageLookupByLibrary.simpleMessage("ተከታታይ"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage("ቀጣይ የክልል ተንሸራታች ከብጁ ገጽታ ጋር"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "አርትዕ ሊደረግ ከሚችል አሃዛዊ እሴት ጋር ቀጣይ"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ተጠቃሚዎች አንድን ነጠላ እሴት ሊመርጡ የሚችሉበት አሞሌ ላይ ያሉትን የእሴቶች ክልል ተንሸራታቾች ያንጸባርቃሉ። እንደ ድምፅ፣ ብሩህነት የመሳሰሉ ቅንብሮችን ለማስተካከል ወይም የምስል ማጣሪያዎችን ተፈጻሚ ለማድረግ ተመራጭ ናቸው።"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("ውሱን"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage("ውሱን ተንሸራታች ከብጁ ገጽታ ጋር"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("አርትዕ ሊደረግ የሚችል አሃዛዊ እሴት"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "በጣት ጠረግ በማድረግ እሴት ለመምረጥ የሚሆኑ ምግብሮች"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("ተንሸራታቾች"),
         "demoSnackbarsAction":
             MessageLookupByLibrary.simpleMessage("እርስዎ የቅሩስ ቤት ድርጊቱን ተጭነዋል።"),
         "demoSnackbarsActionButtonLabel":
@@ -493,7 +629,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("የህይወት ታሪክ"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("ስም*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("ስም ያስፈልጋል።"),
         "demoTextFieldNoMoreThan":
@@ -532,6 +668,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "ተዛማጅ አማራጮችን ለመቦደን የቀያይር አዝራሮች ጥቅም ላይ ሊውሉ ይችላሉ። ተዛማጅነት ያላቸው መቀያየሪያ አዝራሮችን ቡድኖች አጽዕኖት ለመስጠት፣ ቡድን የጋራ መያዣን ማጋራት አለበት።"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("መቀያየሪያ አዝራሮች"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "የመሣሪያ ጥቆማዎች የአዝራርን ወይም ሌላ የተጠቃሚ በይነገጽ እርምጃ ለማብራራት የሚያግዙ የጽሑፍ መሰየሚያዎችን ያቀርባሉ። የመሣሪያ ጥቆማዎች ተጠቃሚዎች አንድ አባለ ነገር ላይ ሲያንዣብቡ፣ ሲያተኩሩ ወይም በረዥም ሲጫኑ መረጃ ሰጪ ጽሑፍን ያሳያል።"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "የመሣሪያ ጥቆማን ለማሳየት ረዥም ይጫኑ ወይም ያንዣብቡ።"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "በረዥም መጫን ወይም ማንዣበብ ላይ የሚታይ አጭር መልዕክት"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("የመሣሪያ ጥቆማዎች"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ሁለት መስመሮች"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -554,7 +697,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "መተግበሪያዎች አካባቢ እንዲያውቁ Google ያግዛቸው። ይሄ ማለት ስም-አልባ የአካባቢ ውሂብ ለGoogle መላክ ማለት ነው፣ ምንም እያሄዱ ያሉ መተግበሪያዎች ባይኖሩም እንኳ።"),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("የGoogle አካባቢ አገልግሎትን ይጠቀም?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("የምትኬ መለያ አቀናብር"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ንግግርን አሳይ"),
@@ -563,7 +706,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ምድቦች"),
         "homeHeaderGallery":
             MessageLookupByLibrary.simpleMessage("የሥነ ጥበብ ማዕከል"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("የባሕር ዳርቻ"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("የነሐስ ሥራዎች"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("ቸናይ"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("የቼቲናድ"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("ዓሣ አስጋሪ"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("የአበባ ገበያ"),
+        "placeLunchPrep": MessageLookupByLibrary.simpleMessage("የምሳ ዝግጅት"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("ገበያ"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("ፖንዲቼሪ"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("የጨው እርሻ"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("ዶቅደቄዎች"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("ሐር ሠሪ"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("ታንጆሬ"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("የታንጁቩር ቤተ መቅደስ"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("የመኪና ቁጠባ"),
         "rallyAccountDataChecking":
@@ -587,15 +745,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("ጠቅላላ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("መለያዎች"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ማንቂያዎች"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("ሒሳብ መጠየቂያዎች"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("የሚደርሰው"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("አልባሳት"),
         "rallyBudgetCategoryCoffeeShops":
@@ -687,7 +845,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ይቅር"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ጋሪን አጽዳ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("ጋሪ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("መላኪያ፦"),
@@ -747,8 +905,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ኔቪ ሱሪ"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("ፕላስተር ሸማ"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("ባለአራት ጠረጴዛ"),
         "shrineProductRainwaterTray":
@@ -786,10 +944,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ነጭ ባለቀጭን መስመር ሸሚዝ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney ቀበቶ"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("ወደ ጋሪ አክል"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("ጋሪን ዝጋ"),
         "shrineTooltipCloseMenu":
@@ -802,7 +960,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("ቅንብሮች"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("ምላሽ የሚሰጥ የጀማር አቀማመጥ"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("አካል"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("አዝራር"),
         "starterAppGenericHeadline":

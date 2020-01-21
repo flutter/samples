@@ -41,45 +41,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Konkrečios: ${value}";
 
-  static m9(name, phoneNumber) => "${name} telefono numeris: ${phoneNumber}";
+  static m9(value) => "Pažymėta: ${value}";
 
-  static m10(value) => "Pasirinkote: \"${value}\"";
+  static m10(value) => "Pasirinkta: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} telefono numeris: ${phoneNumber}";
+
+  static m12(value) => "Pasirinkote: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} sąskaita (${accountNumber}), kurioje yra ${amount}.";
 
-  static m12(amount) => "Šį mėnesį išleidote ${amount} bankomato mokesčiams";
+  static m14(amount) => "Šį mėnesį išleidote ${amount} bankomato mokesčiams";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Puiku! Einamoji sąskaita ${percent} didesnė nei pastarąjį mėnesį.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Dėmesio, šį mėnesį išnaudojote ${percent} apsipirkimo biudžeto.";
 
-  static m15(amount) => "Šią savaitę išleidote ${amount} restoranuose.";
+  static m17(amount) => "Šią savaitę išleidote ${amount} restoranuose.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Gaukite didesnę mokesčių lengvatą! Priskirkite kategorijas 1 nepriskirtai operacijai.', few: 'Gaukite didesnę mokesčių lengvatą! Priskirkite kategorijas ${count} nepriskirtoms operacijoms.', many: 'Gaukite didesnę mokesčių lengvatą! Priskirkite kategorijas ${count} nepriskirtos operacijos.', other: 'Gaukite didesnę mokesčių lengvatą! Priskirkite kategorijas ${count} nepriskirtų operacijų.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Sąskaitą „${billName}“, kurios suma ${amount}, reikia apmokėti iki ${date}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Biudžetas „${budgetName}“, kurio išnaudota suma: ${amountUsed} iš ${amountTotal}; likusi suma: ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'NĖRA JOKIŲ ELEMENTŲ', one: '1 ELEMENTAS', few: '${quantity} ELEMENTAI', many: '${quantity} ELEMENTO', other: '${quantity} ELEMENTŲ')}";
 
-  static m20(price) => "po ${price}";
+  static m22(price) => "po ${price}";
 
-  static m21(quantity) => "Kiekis: ${quantity}";
+  static m23(quantity) => "Kiekis: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Pirkinių krepšelis, nėra jokių prekių', one: 'Pirkinių krepšelis, 1 prekė', few: 'Pirkinių krepšelis, ${quantity} prekės', many: 'Pirkinių krepšelis, ${quantity} prekės', other: 'Pirkinių krepšelis, ${quantity} prekių')}";
 
-  static m23(product) => "Pašalinti produktą: ${product}";
+  static m25(product) => "Pašalinti produktą: ${product}";
 
-  static m24(value) => "Prekė ${value}";
+  static m26(value) => "Prekė ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -88,6 +92,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "„Flutter“ pavyzdžiai, „GitHub“ talpykla"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Atgal į galeriją"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Įranta"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Slankiojo veiksmo mygtuko pozicija"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage(
+                "Prijungta prie doko – per vidurį"),
+        "bottomAppBarPositionDockedEnd": MessageLookupByLibrary.simpleMessage(
+            "Prijungta prie doko – pabaigoje"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Slankusis – per vidurį"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Slankusis – pabaigoje"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Paskyra"),
         "bottomNavigationAlarmTab":
@@ -339,6 +355,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Įspėjimas"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Įspėjimas su pavadinimu"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Apatinėse programų juostose galima pasiekti apatinį naršymo skydelį ir iki keturių veiksmų, įskaitant slankųjį veiksmo mygtuką."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Pateikiami naršymo elementai ir veiksmai apačioje"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Apatinė programų juosta"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Apatinėse naršymo juostose ekrano apačioje pateikiama nuo trijų iki penkių paskirties vietų. Kiekvieną paskirties vietą nurodo piktograma ir pasirenkama teksto etiketė. Palietęs apatinės naršymo juostos piktogramą, naudotojas patenka į pagrindinę su piktograma susietą naršymo paskirties vietą."),
         "demoBottomNavigationPersistentLabels":
@@ -369,9 +391,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nuolatinis ir modalinis apatinio lapo mygtukai"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Apatinio lapo mygtukas"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Teksto laukai"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plokštieji, iškilieji, kontūriniai ir kt."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Mygtukai"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontrolinio sąrašo meniu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Kompaktiški elementai, kuriuose yra įvestis, atributas ar veiksmas"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Fragmentai"),
@@ -379,6 +405,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pasirinkimo fragmentai nurodo vieną pasirinkimą iš rinkinio. Pasirinkimo fragmentuose įtraukiamas susijęs aprašomasis tekstas ar kategorijos."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Pasirinkimo fragmentas"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Trimačių objektų dizaino apskritas eigos indikatorius, kuris sukasi nurodydamas, kad programa užimta."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Apskritas eigos indikatorius"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Kodo pavyzdys"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -391,10 +423,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Visos iš anksto nustatytos spalvos"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Spalvos"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontekstinis meniu"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Veiksmų lapas – tai konkretaus stiliaus įspėjimas, kai naudotojui rodomas dviejų ar daugiau pasirinkimo variantų, susijusių su dabartiniu kontekstu, rinkinys. Galima nurodyti veiksmų lapo pavadinimą, papildomą pranešimą ir veiksmų sąrašą."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Veiksmų lapas"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Pagal laikrodžio rodyklę besisukantis „iOS“ stiliaus veiklos indikatorius."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "„iOS“ stiliaus veiklos indikatoriai"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Veiklos indikatorius"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Tik įspėjimo mygtukai"),
         "demoCupertinoAlertButtonsTitle":
@@ -415,6 +457,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("„iOS“ stiliaus mygtukai"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Mygtukai"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "„iOS“ stiliaus naršymo juosta. Naršymo juosta – tai įrankių juosta, kurią sudaro bent puslapio pavadinimas, pateiktas įrankių juostos centre."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "„iOS“ stiliaus naršymo juosta"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Naršymo juosta"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Valdiklis, apimantis „iOS“ stiliaus turinio atnaujinimo patraukus valdymą."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "„iOS“ stiliaus atnaujinimo patraukus valdiklis"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Atnaujinimas patraukus"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Naudojama renkantis iš įvairių bendrai išskiriamų parinkčių. Pasirinkus vieną segmentuoto valdiklio parinktį, kitos jo parinktys nebepasirenkamos."),
@@ -441,6 +499,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "„iOS“ stiliaus apatinė skirtukų juosta"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Skirtukų juosta"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Šliaužikliai atspindi juostos verčių diapazoną, iš kurio naudotojai gali pasirinkti vieną vertę arba verčių diapazoną. Galima nustatyti šliaužiklių temas arba juos tinkinti."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Tinkinti šliaužikliai"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Paprasti, įspėjimo ir viso ekrano"),
         "demoDialogTitle":
@@ -465,6 +527,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Visas ekranas"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Visas ekranas"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tinklelio sąrašai tinkamiausi norint rodyti vienos rūšies duomenis, įprastai vaizdus. Kiekvienas tinklelio sąrašo elementas vadinamas išklotinės elementu."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Su porašte"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Su antrašte"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Tik vaizdas"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Eilučių ir stulpelių išdėstymas"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Tinklelio sąrašai"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informacija"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Įvesties fragmentai glaustai pateikia sudėtinę informaciją, pvz., subjekto (asmens, vietos ar daikto) informaciją ar pokalbių tekstą."),
@@ -472,6 +546,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Įvesties fragmentas"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Nepavyko pateikti URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Trimačių objektų dizaino linijinis eigos indikatorius, taip pat vadinamas eigos juosta."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Linijinis eigos indikatorius"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Viena fiksuoto aukščio eilutė, kurioje paprastai yra teksto bei piktograma pradžioje ar pabaigoje."),
         "demoListsSecondary":
@@ -479,6 +559,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Slenkamojo sąrašo išdėstymai"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Sąrašai"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Išjungtas meniu elementas"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontrolinio sąrašo meniu elementas"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontekstinio meniu elementas"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Į skiltis suskirstyto meniu elementas"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Paprasto meniu elementas"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Pirmas kontekstinio meniu elementas"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Trečias kontekstinio meniu elementas"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Meniu pateikiamas laikinai rodomų pasirinkimų sąrašas. Jie rodomi naudotojams naudojant mygtuką, atliekant veiksmą ar naudojant kitą valdiklį."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Keturi"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Gauti nuorodą"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Pirmas meniu elementas"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Trečias meniu elementas"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Antras meniu elementas"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Vienas"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Peržiūrėti"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Pašalinti"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Bendrinti"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Meniu mygtukai ir paprasti meniu"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Trys"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Meniu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Du"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Viena eilutė"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -490,10 +609,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Paspaudus kontūrinius mygtukus jie tampa nepermatomi ir pakyla. Jie dažnai teikiami su iškiliaisiais mygtukais norint nurodyti alternatyvų, antrinį veiksmą."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Kontūrinis mygtukas"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Linijinis, apskritas, neapibrėžtas"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Eigos indikatoriai"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Iškilieji mygtukai padidina daugumą plokščiųjų išdėstymų. Jie paryškina funkcijas užimtose ar plačiose erdvėse."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Iškilusis mygtukas"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Šliaužikliai atspindi juostos verčių diapazoną. Jie gali būti su piktogramomis abiejose verčių diapazoną atspindinčios juostos pusėse. Jais galima lengvai koreguoti nustatymus, pvz., garsumą, šviesumą, arba taikyti vaizdų filtrus."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Diapazono šliaužikliai"),
+        "demoSectionedMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Į skiltis suskirstytas meniu"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Naudotojas žymimaisiais laukeliais gali pasirinkti kelias parinktis iš rinkinio. Įprasto žymimojo laukelio vertė yra „true“ (tiesa) arba „false“ (netiesa), o trijų parinkčių žymimojo laukelio vertė bė minėtųjų gali būti ir nulis."),
@@ -517,6 +646,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "Rodant paprastą dialogo langą naudotojui galima rinktis iš kelių parinkčių. Nurodomas pasirenkamas paprasto dialogo lango pavadinimas, kuris pateikiamas virš pasirinkimo variantų."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Paprastas"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Paprastas meniu"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Tolydusis"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Tinkintos temos tolydusis diapazono šliaužiklis"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Tolydusis su redaguojama skaitine verte"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Šliaužikliai atspindi juostos verčių diapazoną, iš kurio naudotojai gali pasirinkti vieną vertę. Jais galima lengvai koreguoti nustatymus, pvz., garsumą, šviesumą, arba taikyti vaizdų filtrus."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Diskretusis"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Tinkintos temos diskretusis šliaužiklis"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Redaguojama skaitinė vertė"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Vertės pasirinkimo perbraukiant valdikliai"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Šliaužikliai"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Paspaudėte laikinos juostos veiksmo mygtuką."),
         "demoSnackbarsActionButtonLabel":
@@ -554,7 +706,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Gyvenimo istorija"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Vardas*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired": MessageLookupByLibrary.simpleMessage(
             "Būtina nurodyti vardą ir pavardę."),
         "demoTextFieldNoMoreThan":
@@ -594,6 +746,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Perjungimo mygtukais galima grupuoti susijusias parinktis. Norint pažymėti susijusių perjungimo mygtukų grupes, turėtų būti bendrinamas bendras grupės sudėtinis rodinys"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Perjungimo mygtukai"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Patarimuose teikiamos teksto etiketės, padedančios paaiškinti mygtuko ar kito naudotojo sąsajos veiksmo funkciją. Patarimuose pateikiama informatyvaus teksto, naudotojams užvedus pelės žymeklį virš elemento, paryškinus jį ar ilgai paspaudus."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Ilgai paspauskite arba užveskite pelės žymeklį, kad būtų pateiktas patarimas."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Trumpas pranešimas, pateikiamas ilgai paspaudus arba užvedus pelės žymeklį"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Patarimai"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Dvi eilutės"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -620,7 +779,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Leisti „Google“ padėti programoms nustatyti vietovę. Tai reiškia anoniminių vietovės duomenų siuntimą „Google“, net kai nevykdomos jokios programos."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Naudoti „Google“ vietovės paslaugą?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Atsarginės kopijos paskyros nustatymas"),
         "dialogShow":
@@ -630,7 +789,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorijos"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Paplūdimys"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronzos liejykla"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Čenajus"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Četinadas"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Žvejys"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Gėlių turgus"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Priešpiečių ruošimas"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Prekyvietė"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pudučeris"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Druskos ūkis"),
+        "placeScooters":
+            MessageLookupByLibrary.simpleMessage("Važiuojantys paspirtukais"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Šilko gamintojas"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tandžavūras"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Tandžavūro šventykla"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Santaupos automobiliui"),
         "rallyAccountDataChecking":
@@ -657,15 +836,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Iš viso"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Paskyros"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Įspėjimai"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Sąskaitos"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Terminas"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Apranga"),
         "rallyBudgetCategoryCoffeeShops":
@@ -773,7 +952,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ATŠAUKTI"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("IŠVALYTI KREPŠELĮ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("KREPŠELIS"),
         "shrineCartShippingCaption":
@@ -837,8 +1016,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tamsiai mėlynos kelnės"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Lengvo audinio tunika"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Keturių dalių stalas"),
         "shrineProductRainwaterTray":
@@ -877,10 +1056,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Balti dryžuoti marškiniai"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("„Whitney“ diržas"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Pridėti į krepšelį"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Uždaryti krepšelį"),
         "shrineTooltipCloseMenu":
@@ -894,7 +1073,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nustatymai"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Interaktyvus pradedančiųjų programos išdėstymas"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Pagrindinė dalis"),
         "starterAppGenericButton":

@@ -40,45 +40,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Samsettur: ${value}";
 
-  static m9(name, phoneNumber) => "Símanúmer ${name} er ${phoneNumber}";
+  static m9(value) => "Merkt: ${value}";
 
-  static m10(value) => "Þú valdir: „${value}“";
+  static m10(value) => "Valið: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "Símanúmer ${name} er ${phoneNumber}";
+
+  static m12(value) => "Þú valdir: „${value}“";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName}, reikningur ${accountNumber}, að upphæð ${amount}.";
 
-  static m12(amount) => "Þú hefur eytt ${amount} í hraðbankagjöld í mánuðinum";
+  static m14(amount) => "Þú hefur eytt ${amount} í hraðbankagjöld í mánuðinum";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Vel gert! Þú átt ${percent} meira inni á veltureikningnum þínum en í síðasta mánuði.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Athugaðu að þú ert búin(n) með ${percent} af kostnaðarhámarki mánaðarins.";
 
-  static m15(amount) => "Þú hefur eytt ${amount} á veitingastöðum í vikunni.";
+  static m17(amount) => "Þú hefur eytt ${amount} á veitingastöðum í vikunni.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Auktu hugsanlegan frádrátt frá skatti! Úthluta flokkum á 1 óúthlutaða færslu.', other: 'Auktu hugsanlegan frádrátt frá skatti! Úthluta flokkum á ${count} óúthlutaðar færslur.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName}, gjalddagi ${date}, að upphæð ${amount}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} kostnaðarhámark þar sem ${amountUsed} er notað af ${amountTotal} og ${amountLeft} er eftir";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ENGIN ATRIÐI', one: '1 ATRIÐI', other: '${quantity} ATRIÐI')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Magn: ${quantity}";
+  static m23(quantity) => "Magn: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Karfa, engir hlutir', one: 'Karfa, 1 hlutur', other: 'Karfa, ${quantity} hlutir')}";
 
-  static m23(product) => "Fjarlægja ${product}";
+  static m25(product) => "Fjarlægja ${product}";
 
-  static m24(value) => "Vara ${value}";
+  static m26(value) => "Vara ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -87,6 +91,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter-sýnishorn í GitHub-geymslu"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Til baka í gallerí"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Hak"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Staðsetning fljótandi aðgerðahnapps"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Festur - miðja"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Festur - lok"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Fljótandi - miðja"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Fljótandi - lok"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Reikningur"),
         "bottomNavigationAlarmTab":
@@ -331,6 +346,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Viðvörun"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Viðvörun með titli"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Forritastika neðst veitir aðgang að yfirlitsskúffu neðst ásamt allt að fjórum aðgerðum, þ.m.t. fljótandi aðgerðahnappi."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Birtir yfirlit og aðgerðir neðst á skjánum"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Forritastika neðst"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Yfirlitsstikur neðst birta þrjá til fimm áfangastaði neðst á skjánum. Hver áfangastaður er auðkenndur með tákni og valfrjálsu textamerki. Þegar ýtt er á yfirlitstákn neðst fer notandinn á efstu staðsetninguna sem tengist tákninu."),
         "demoBottomNavigationPersistentLabels":
@@ -360,9 +381,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Föst blöð og gluggablöð neðst"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Blað neðst"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Textareitir"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sléttur, upphleyptur, með útlínum og fleira"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Hnappar"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Gátlistavalmynd"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Þjappaðar einingar sem tákna inntak, eigind eða aðgerð"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Kubbar"),
@@ -370,6 +395,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Valkubbar tákna eitt val úr mengi. Valkubbar innihalda tengdan lýsandi texta eða flokka."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Valkubbur"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Hringlaga stöðuvísir, sem snýst til að tákna að forritið sé upptekið."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Hringlaga stöðuvísir"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Kóðasýnishorn"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -382,10 +412,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Allir fyrirfram skilgreindu litirnir"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Litir"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Efnisvalmynd"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Aðgerðablað er sérstök gerð af viðvörun sem býður notandanum upp á tvo eða fleiri valkosti sem tengjast núverandi samhengi. Aðgerðablað getur haft titil, viðbótarskilaboð og lista yfir aðgerðir."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Aðgerðablað"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Virknivísir með iOS-stíl sem snýst réttsælis."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("Virknivísar með iOS-stíl"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Virknivísir"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Aðeins viðvörunarhnappar"),
         "demoCupertinoAlertButtonsTitle":
@@ -406,6 +445,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hnappar með iOS-stíl"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Hnappar"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Yfirlitsstika í iOS-stíl. Yfirlitsstikan er tækjastika sem samanstendur að lágmarki af síðutitli í miðju tækjastikunnar."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Yfirlitsstika með iOS-stíl"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Yfirlitsstika"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Græja sem veitir stýringu með iOS-stíl fyrir valkostinn að draga til að endurnýja efni."),
+        "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Stýring með iOS-stíl fyrir valkostinn að draga til að endurnýja"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Dragðu til að endurnýja"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Notað til að velja á milli valkosta sem útiloka hvern annan. Þegar einn valkostur í hlutavali er valinn er ekki lengur hægt að velja hina valkostina."),
@@ -431,6 +484,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Neðri flipastika með OS-stíl"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Flipastika"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sleðar endurspegla gildissvið á stiku þar sem notendur geta valið eitt gildi eða gildissvið. Hægt er að breyta og sérstilla sleðana."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Sérsniðnir sleðar"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Einfaldur, tilkynning og allur skjárinn"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Gluggar"),
@@ -453,6 +510,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Allur skjárinn"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Allur skjárinn"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Töfluyfirlit henta best fyrir einsleit gögn, yfirleitt myndir. Hvert atriði í töfluyfirlitinu kallast reitur."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Með síðufæti"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Með haus"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Aðeins myndir"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Útlit lína og dálka"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Töfluyfirlit"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Upplýsingar"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Innsláttarkubbar tákna flóknar upplýsingar á borð við einingar (einstakling, stað eða hlut) eða samtalstexta á þjöppuðu sniði."),
@@ -460,12 +529,52 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Innsláttarkubbur"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Ekki var hægt að birta vefslóð:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Línulegur stöðuvísir, einnig þekktur sem framvindustika."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Línulegur stöðuvísir"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Ein lína í fastri hæð sem yfirleitt inniheldur texta og tákn á undan eða á eftir."),
         "demoListsSecondary": MessageLookupByLibrary.simpleMessage("Aukatexti"),
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Útlit lista sem flettist"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Listar"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Óvirkt valmyndaratriði"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("Atriði með gátlistavalmynd"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Atriði með efnisvalmynd"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("Atriði með skiptri valmynd"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Atriði með einfaldri valmynd"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Fyrsta atriði efnisvalmyndar"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Þriðja atriði efnisvalmyndar"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Valmynd birtir vallista á yfirborði sem svo hverfur. Listar hverfa þegar notandi velur hnapp, aðgerð eða aðrar stýringar."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Fjögur"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Fá tengil"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Valmyndaratriði eitt"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Valmyndaratriði þrjú"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Valmyndaratriði tvö"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Eitt"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Forskoða"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Fjarlægja"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Deila"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Valmyndarhnappar og einfaldar valmyndir"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Þrjú"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Valmynd"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Tvö"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Ein lína"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -477,10 +586,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hnappar með útlínum verða ógagnsæir og lyftast upp þegar ýtt er á þá. Þeir fylgja oft upphleyptum hnöppum til að gefa til kynna aukaaðgerð."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Hnappur með útlínum"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Línulegir, hringlaga, óákveðið"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Stöðuvísar"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Upphleyptir hnappar gefa flatri uppsetningu aukna vídd. Þeir undirstrika virkni á stórum svæðum eða þar sem mikið er um að vera."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Upphleyptur hnappur"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sleðar endurspegla svið gilda á stiku. Þeir kunna að hafa tákn á sitt hvorum endanum sem gefa til kynna gildissvið. Þeir eru hentugir til að breyta stillingum á borð við hljóðstyrk eða birtu eða til að nota myndasíur."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Sviðssleðar"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Hlutavalmynd"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Gátreitir gera notanda kleift að velja marga valkosti úr mengi. Gildi venjulegs gátreits er rétt eða rangt og eitt af gildum gátreits með þrjú gildi getur einnig verið núll."),
@@ -504,6 +623,27 @@ class MessageLookup extends MessageLookupByLibrary {
             "Einfaldur gluggi býður notanda að velja á milli nokkurra valkosta. Einfaldur gluggi getur haft titil sem birtist fyrir ofan valkostina."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Einfalt"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Einföld valmynd"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Samfelldur"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Samfelldur gildissleði með sérstilltu þema"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Samfelldur með breytanlegu númeragildi"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Sleðar endurspegla gildissvið á stiku þar sem notendur geta valið eitt gildi. Þeir eru hentugir til að breyta stillingum á borð við hljóðstyrk eða birtu eða til að nota myndasíur."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Stakrænn"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Stakrænn sleði með sérstilltu þema"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Breytilegt tölugildi"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Græjur til að velja gildi með stroku"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Sleðar"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Þú ýttir á aðgerð snarlbars."),
         "demoSnackbarsActionButtonLabel":
@@ -540,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Æviskeið"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Heiti*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nafn er áskilið."),
         "demoTextFieldNoMoreThan":
@@ -579,6 +719,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hægt er að nota hnappa til að slökkva og kveikja á flokkun tengdra valkosta. Til að leggja áherslu á flokka tengdra hnappa til að slökkva og kveikja ætti flokkur að vera með sameiginlegan geymi"),
         "demoToggleButtonTitle": MessageLookupByLibrary.simpleMessage(
             "Hnappar til að slökkva og kveikja"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Ábendingar veita textamerki sem hjálpa til við að útskýra virkni hnapps eða annarrar aðgerðar í viðmóti. Ábendingar birta upplýsingatexta þegar notendur halda bendli yfir einingu, velja hana eða halda inni."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Halda inni eða halda bendli yfir til að birta ábendingu."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Stutt skilaboð sem birtast þegar takka er haldið inni eða bendli yfir"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Ábendingar"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Tvær línur"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -604,7 +751,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Leyfðu Google að hjálpa forritum að ákvarða staðsetningu. Í þessu felst að senda nafnlaus staðsetningargögn til Google, jafnvel þótt engin forrit séu í gangi."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Nota staðsetningarþjónustu Google?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Velja afritunarreikning"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SÝNA GLUGGA"),
@@ -612,7 +759,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("TILVÍSUNARSTÍLAR OG EFNI"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Flokkar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Myndasafn"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Strönd"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronze Works"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Fiskimaður"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Blómamarkaður"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Hádegisverður undirbúinn"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Markaður"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Saltvinnsla"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Létt bifhjól"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Silk Maker"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur-hof"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Bílasparnaður"),
         "rallyAccountDataChecking":
@@ -636,15 +801,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Samtals"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Reikningar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Tilkynningar"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Reikningar"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Til greiðslu"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Klæðnaður"),
         "rallyBudgetCategoryCoffeeShops":
@@ -748,7 +913,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HÆTTA VIÐ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("HREINSA KÖRFU"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("KARFA"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Sending:"),
@@ -811,8 +976,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dökkbláar buxur"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Ljós skokkur"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Ferhyrnt borð"),
         "shrineProductRainwaterTray":
@@ -851,10 +1016,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hvít teinótt skyrta"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belti"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Setja í körfu"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Loka körfu"),
         "shrineTooltipCloseMenu":
@@ -868,7 +1033,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stillingar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Hraðvirkt upphafsútlit"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Meginmál"),
         "starterAppGenericButton":

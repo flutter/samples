@@ -40,43 +40,47 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "間續：${value}";
 
-  static m9(name, phoneNumber) => "${name}的電話號碼是 ${phoneNumber}";
+  static m9(value) => "已勾選：${value}";
 
-  static m10(value) => "您已選取：「${value}」";
+  static m10(value) => "已選擇：${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name}的電話號碼是 ${phoneNumber}";
+
+  static m12(value) => "您已選取：「${value}」";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName}帳戶 (${accountNumber}) 存入 ${amount}。";
 
-  static m12(amount) => "您這個月已支付 ${amount} 的自動櫃員機費用";
+  static m14(amount) => "您這個月已支付 ${amount} 的自動櫃員機費用";
 
-  static m13(percent) => "做得好！您的支票帳戶結餘比上個月多了 ${percent}。";
+  static m15(percent) => "做得好！您的支票帳戶結餘比上個月多了 ${percent}。";
 
-  static m14(percent) => "請注意，您在這個月已經使用了「購物」預算的 ${percent}。";
+  static m16(percent) => "請注意，您在這個月已經使用了「購物」預算的 ${percent}。";
 
-  static m15(amount) => "您這個星期已於「餐廳」方面花了 ${amount}。";
+  static m17(amount) => "您這個星期已於「餐廳」方面花了 ${amount}。";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: '增加您可能獲得的稅務減免！為 1 個未指定的交易指定類別。', other: '增加您可能獲得的稅務減免！為 ${count} 個未指定的交易指定類別。')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName}帳單於 ${date} 到期，金額為 ${amount}。";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}財務預算已使用 ${amountTotal} 中的 ${amountUsed}，尚餘 ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: '沒有項目', one: '1 個項目', other: '${quantity} 個項目')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "數量：${quantity}";
+  static m23(quantity) => "數量：${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: '購物車，冇產品', one: '購物車，1 件產品', other: '購物車，${quantity} 件產品')}";
 
-  static m23(product) => "移除${product}";
+  static m25(product) => "移除${product}";
 
-  static m24(value) => "項目 ${value}";
+  static m26(value) => "項目 ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -84,6 +88,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("Flutter 範例的 GitHub 存放區"),
         "backToGallery": MessageLookupByLibrary.simpleMessage("返回圖片庫"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("凹口"),
+        "bottomAppBarPosition":
+            MessageLookupByLibrary.simpleMessage("懸浮動作按鈕位置"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("已固定 - 中間"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("已固定 - 末端"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("懸浮 - 中間"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("懸浮 - 末端"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("帳戶"),
         "bottomNavigationAlarmTab": MessageLookupByLibrary.simpleMessage("鬧鐘"),
@@ -279,6 +294,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("通知"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("具有標題的通知"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "在底部應用程式列中，您可存取底部導覽列和最多 4 個動作，包括懸浮動作按鈕。"),
+        "demoBottomAppBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("在底部顯示導覽和動作"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("底部應用程式列"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "底部的導覽列會在螢幕底部顯示 3 至 5 個目的地。每個目的地均以圖示和選擇性的文字標籤標示。當使用者輕按底部導覽列的圖示時，畫面將會顯示與圖示相關的頂層導覽目的地。"),
         "demoBottomNavigationPersistentLabels":
@@ -306,15 +327,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle":
             MessageLookupByLibrary.simpleMessage("固定及強制回應底部工作表"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("底部工作表"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("文字欄位"),
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("平面、凸起、外框等等"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("按鈕"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("檢查清單選單"),
         "demoChipSubtitle":
             MessageLookupByLibrary.simpleMessage("顯示輸入內容、屬性或動作的精簡元素"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("方塊"),
         "demoChoiceChipDescription": MessageLookupByLibrary.simpleMessage(
             "選擇方塊從一組選項中顯示單一選項。選擇方塊載有相關的說明文字或類別。"),
         "demoChoiceChipTitle": MessageLookupByLibrary.simpleMessage("選擇方塊"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "一種 Material Design 環形進度指標，轉動時即表示應用程式忙碌中。"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("環形進度指標"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("程式碼範本"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("已複製到剪貼簿。"),
@@ -324,11 +354,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("代表質感設計調色碟的顏色和色板常數。"),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage("所有預先定義的顏色"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("顏色"),
+        "demoContextMenuTitle": MessageLookupByLibrary.simpleMessage("內容選單"),
         "demoCupertinoActionSheetDescription":
             MessageLookupByLibrary.simpleMessage(
                 "動作表是一種特定樣式的通知，根據目前情況向使用者提供兩個或以上的相關選項。您可按需要為動作表設定標題、額外訊息和動作清單。"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("動作表"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage("順時針方向轉動的 iOS 樣式活動指標"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 樣式活動指標"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("活動指標"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("只限通知按鈕"),
         "demoCupertinoAlertButtonsTitle":
@@ -346,6 +383,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoButtonsSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式按鈕"),
         "demoCupertinoButtonsTitle": MessageLookupByLibrary.simpleMessage("按鈕"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS 樣式的導覽列。導覽列為於中間設有頁面標題的工具列。"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 樣式導覽列"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("導覽列"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage("採用 iOS 樣式的拉動以重新整理內容控制項的小工具。"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS 樣式的拉動，用於重新整理控制項"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("拉動以重新整理"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "用以在多個互相排斥的選項之間進行選擇。選擇了劃分控制的其中一個選項後，便將無法選擇其他劃分控制選項。"),
@@ -369,6 +419,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式底部分頁列"),
         "demoCupertinoTabBarTitle": MessageLookupByLibrary.simpleMessage("分頁列"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "滑桿上列有特定範圍內的值，使用者可選擇其中一個值或某範圍的值。您可選擇滑桿的設計主題，亦可加以自訂。"),
+        "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage("自訂滑桿"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage("簡單、通知和全螢幕"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("對話框"),
         "demoDocumentationTooltip":
@@ -388,16 +441,64 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoFullscreenDialogTitle":
             MessageLookupByLibrary.simpleMessage("全螢幕"),
         "demoFullscreenTooltip": MessageLookupByLibrary.simpleMessage("全屏幕"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "格狀清單最適合用於展示同類資料，通常為圖片。格狀清單中的每個項目稱為圖塊。"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("設有頁尾"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("設有頁首"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("只限圖片"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("列和欄的版面配置"),
+        "demoGridListsTitle": MessageLookupByLibrary.simpleMessage("格狀清單"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("資料"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "輸入方塊以精簡的形式顯示複雜的資訊，如實體 (人物、地點或事物) 或對話文字。"),
         "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("輸入方塊"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage("無法顯示網址："),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "一種 Material Design 直線進度指標，亦稱為進度列。"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("直線進度指標"),
         "demoListsDescription":
             MessageLookupByLibrary.simpleMessage("這種固定高度的單列一般載有文字和在開頭或結尾載有圖示。"),
         "demoListsSecondary": MessageLookupByLibrary.simpleMessage("次行文字"),
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage("可捲動清單的版面配置"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("清單"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("已停用選單項目"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("設有檢查清單選單的項目"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("設有內容選單的項目"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("設有分類選單的項目"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("設有簡單選單的項目"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("第一個內容選單項目"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("第三個內容選單項目"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "選單會在臨時界面中顯示選項清單，並會在使用者與按鈕、操作或其他控制項互動時出現。"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("四"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("取得連結"),
+        "demoMenuItemValueOne": MessageLookupByLibrary.simpleMessage("第一個選單項目"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("第三個選單項目"),
+        "demoMenuItemValueTwo": MessageLookupByLibrary.simpleMessage("第二個選單項目"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("一"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("預覽"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("移除"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("分享"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage("選單按鈕和簡單選單"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("三"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("選單"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("二"),
         "demoOneLineListsTitle": MessageLookupByLibrary.simpleMessage("單行"),
         "demoOptionsFeatureDescription":
             MessageLookupByLibrary.simpleMessage("輕按這裡即可查看此示範的可用選項。"),
@@ -406,9 +507,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "外框按鈕會在使用者按下時轉為不透明並升起。這類按鈕通常會與凸起的按鈕一同使用，用於指出次要的替代動作。"),
         "demoOutlineButtonTitle": MessageLookupByLibrary.simpleMessage("外框按鈕"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("直線、環形、不確定"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("進度指標"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "凸起的按鈕可為主要為平面的版面配置增添層次。這類按鈕可在擁擠或寬闊的空間中突顯其功能。"),
         "demoRaisedButtonTitle": MessageLookupByLibrary.simpleMessage("凸起的按鈕"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "滑桿上列有特定範圍內的值，兩端可用圖示來代表不同的值。滑桿最適合用來調整設定，例如調校音量或光暗，以及套用圖片濾鏡。"),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage("範圍滑桿"),
+        "demoSectionedMenuTitle": MessageLookupByLibrary.simpleMessage("分類選單"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "選框讓使用者從一組選項中選擇多個選項。一般選框的數值為 true 或 false，而三值選框則可包括空白值。"),
@@ -431,6 +540,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "簡單對話框讓使用者在幾個選項之間選擇。您可按需要為簡單對話框設定標題 (標題會在選項上方顯示)。"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("簡單"),
+        "demoSimpleMenuTitle": MessageLookupByLibrary.simpleMessage("簡單選單"),
+        "demoSlidersContinuous": MessageLookupByLibrary.simpleMessage("連續"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage("自訂主題的連續範圍滑桿"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("可編輯的連續數值"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "滑桿上列有特定範圍內的值，使用者可選擇其中一個值。滑桿最適合用來調整設定，例如調校音量或光暗，以及套用圖片濾鏡。"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("不連續"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage("自訂主題的不連續滑桿"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("可編輯的數值"),
+        "demoSlidersSubtitle":
+            MessageLookupByLibrary.simpleMessage("滑動來選擇值的小工具"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("滑桿"),
         "demoSnackbarsAction":
             MessageLookupByLibrary.simpleMessage("您已按下資訊列動作。"),
         "demoSnackbarsActionButtonLabel":
@@ -462,7 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("保持精簡，這只是示範。"),
         "demoTextFieldLifeStory": MessageLookupByLibrary.simpleMessage("生平事跡"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("名稱*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("必須提供名稱。"),
         "demoTextFieldNoMoreThan":
@@ -497,6 +622,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "切換按鈕可用於將相關的選項分組。為突顯相關的切換按鈕群組，單一群組應共用同一個容器"),
         "demoToggleButtonTitle": MessageLookupByLibrary.simpleMessage("切換按鈕"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "附帶文字標籤的提示，用於說明按鈕功能或其他使用者介面的操作。提示會在使用者將滑鼠游標移至、對準或長按元素時顯示說明文字。"),
+        "demoTooltipInstructions":
+            MessageLookupByLibrary.simpleMessage("長按或將滑鼠游標懸停時便會顯示提示。"),
+        "demoTooltipSubtitle":
+            MessageLookupByLibrary.simpleMessage("長按或將滑鼠游標懸停時顯示的短訊息"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("提示"),
         "demoTwoLineListsTitle": MessageLookupByLibrary.simpleMessage("雙行"),
         "demoTypographyDescription":
             MessageLookupByLibrary.simpleMessage("在質感設計所定義的不同排版樣式。"),
@@ -517,14 +649,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "允許 Google 協助應用程式判斷您的位置。這麼做會將匿名的位置資料傳送給 Google (即使您未執行任何應用程式)。"),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("要使用 Google 的定位服務嗎？"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage("設定備份帳戶"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("顯示對話框"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("參考樣式和媒體"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("類別"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("相片集"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("海灘"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("青銅廠"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("欽奈"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("切蒂納德"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("漁夫"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("花墟"),
+        "placeLunchPrep": MessageLookupByLibrary.simpleMessage("準備午餐"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("市場"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("本地治里"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("鹽田"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("綿羊仔電單車"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("製絲人"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("坦賈武爾"),
+        "placeThanjavurTemple": MessageLookupByLibrary.simpleMessage("坦賈武爾寺廟"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("買車儲蓄"),
         "rallyAccountDataChecking":
@@ -547,15 +693,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("總計"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("帳戶"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("通知"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("帳單"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("到期"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("服飾"),
         "rallyBudgetCategoryCoffeeShops":
@@ -637,7 +783,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineCancelButtonCaption": MessageLookupByLibrary.simpleMessage("取消"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("清除購物車"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("購物車"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("運費："),
@@ -693,8 +839,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("軍藍色長褲"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("灰色長袍"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("4 座位桌子"),
         "shrineProductRainwaterTray":
@@ -731,10 +877,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("白色細條紋恤衫"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney 腰帶"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("加入購物車"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart": MessageLookupByLibrary.simpleMessage("閂埋購物車"),
         "shrineTooltipCloseMenu": MessageLookupByLibrary.simpleMessage("閂埋選單"),
         "shrineTooltipOpenMenu": MessageLookupByLibrary.simpleMessage("打開選單"),
@@ -743,7 +889,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("設定"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("回應式入門版面配置"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("內文"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("按鈕"),
         "starterAppGenericHeadline": MessageLookupByLibrary.simpleMessage("標題"),

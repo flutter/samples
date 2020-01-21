@@ -40,45 +40,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Салангид: {утга}";
 
-  static m9(name, phoneNumber) => "${name}-н утасны дугаар ${phoneNumber}";
+  static m9(value) => "Шалгасан: {утга}";
 
-  static m10(value) => "Та дараахыг сонгосон: \"${value}\"";
+  static m10(value) => "Сонгосон: {утга}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name}-н утасны дугаар ${phoneNumber}";
+
+  static m12(value) => "Та дараахыг сонгосон: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${amount}-тай ${accountName}-н ${accountNumber} дугаартай данс.";
 
-  static m12(amount) => "Та энэ сар ATM-н хураамжид ${amount} зарцуулсан байна";
+  static m14(amount) => "Та энэ сар ATM-н хураамжид ${amount} зарцуулсан байна";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Сайн ажиллалаа! Таны чекийн данс өнгөрсөн сарынхаас ${percent}-р илүү байна.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Сануулга: Tа энэ сарын худалдан авалтынхаа төсвийн ${percent}-г ашигласан байна.";
 
-  static m15(amount) => "Та энэ сар ресторанд ${amount} зарцуулсан байна.";
+  static m17(amount) => "Та энэ сар ресторанд ${amount} зарцуулсан байна.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Татварын боломжит хасалтаа нэмэгдүүлээрэй! 1 оноогоогүй гүйлгээнд ангилал оноогоорой.', other: 'Татварын боломжит хасалтаа нэмэгдүүлээрэй! ${count} оноогоогүй гүйлгээнд ангилал оноогоорой.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName}-н ${amount}-н тооцоог ${date}-с өмнө хийх ёстой.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} төсвийн ${amountTotal}-с ${amountUsed}-г ашигласан, ${amountLeft} үлдсэн";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ЗҮЙЛС АЛГА', one: '1 ЗҮЙЛ', other: '${quantity} ЗҮЙЛ')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Тоо хэмжээ: ${quantity}";
+  static m23(quantity) => "Тоо хэмжээ: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Худалдан авах сагс, зүйлс алга', one: 'Худалдан авах сагс, 1 зүйл', other: 'Худалдан авах сагс, ${quantity} зүйл')}";
 
-  static m23(product) => "Хасах ${product}";
+  static m25(product) => "Хасах ${product}";
 
-  static m24(value) => "Зүйл ${value}";
+  static m26(value) => "Зүйл ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -87,6 +91,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "GitHub агуулахад хадгалсан Flutter-н дээж"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Галерей руу буцах"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Хэрчлээс"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Үйлдлийн хөвөгч товчлуурын байршил"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Суурилуулсан - төвд"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Суурилуулсан - төгсгөлд"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Хөвөгч - төвд"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Хөвөгч - төгсгөлд"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Данс"),
         "bottomNavigationAlarmTab":
@@ -326,6 +341,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Сэрэмжлүүлэг"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Гарчигтай сэрэмжлүүлэг"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Доод талд байрлах аппын самбар нь доод талын навигацийн шургуулга болон үйлдлийн хөвөгч товчлуурыг оролцуулаад дөрөв хүртэлх үйлдэлд хандах боломжийг олгодог."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Навигац болон үйлдлийг доод талд үзүүлдэг"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Доод талд байрлах аппын самбар"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Доод навигацийн самбар нь дэлгэцийн доод хэсэгт 3-5 очих газар үзүүлдэг. Очих газар бүрийг дүрс тэмдэг болон нэмэлт текстэн шошгоор илэрхийлдэг. Доод навигацийн дүрс тэмдэг дээр товшсон үед хэрэглэгчийг тухайн дүрс тэмдэгтэй холбоотой дээд түвшний навигацийн очих газарт аваачна."),
         "demoBottomNavigationPersistentLabels":
@@ -356,9 +377,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Тогтмол болон зайлшгүй харилцах доод хүснэгт"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Доод хүснэгт"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Текстийн талбар"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Хавтгай, товгор, гадна хүрээ болон бусад"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Товчлуур"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Шалгах хуудасны цэс"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Оруулга, атрибут эсвэл үйлдлийг илэрхийлдэг товч тодорхой элемент"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Чипүүд"),
@@ -366,6 +391,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Сонголтын чип нь багцаас нэг сонголтыг илэрхийлдэг. Сонголтын чип нь контенттой холбоотой тайлбарласан текст эсвэл ангиллыг агуулдаг."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Сонголтын чип"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Материалын загварын эргэлтийн үйл явцын заалт нь аппликэйшн ажиллаж байгаа гэдгийг зааж эргэлддэг."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Эргэлтийн үйл явцын заалт"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Кодын жишээ"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Түр санах ойд хуулсан."),
@@ -377,10 +407,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Урьдчилан тодорхойлсон бүх өнгө"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Өнгө"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Хам сэдэв цэс"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Үйлдлийн хүснэгт нь хэрэглэгчид одоогийн хам сэдэвтэй холбоотой хоёр эсвэл түүнээс дээш сонголтын багцыг харуулах тодорхой загварын сэрэмжлүүлэг юм. Үйлдлийн хүснэгт нь гарчиг, нэмэлт зурвас болон үйлдлийн жагсаалттай байж болно."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Үйлдлийн хүснэгт"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Цагийн зүүний дагуу эргэдэг iOS загварын үйл ажиллагааны заалт."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS загварын үйл ажиллагааны заалт"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Үйл ажиллагааны заалт"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Зөвхөн сэрэмжлүүлгийн товчлуур"),
@@ -402,6 +442,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS загварын товчлуурууд"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Товчлуур"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS загварын навигацийн самбар. Навигацийн самбар нь хамгийн багадаа хуудасны гарчгаас бүрддэг самбар бөгөөд энэ нь самбарын дунд хэсэгт байдаг."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS загварын навигацийн самбар"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Навигацийн самбар"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS загварын татаж сэргээдэг хяналтыг хэрэгжүүлдэг жижиг хэрэгсэл"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS загварын татаж сэргээдэг хяналт"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Татаж сэргээдэг"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Хэд хэдэн харилцан адилгүй сонголтоос сонгоход ашигладаг. Хэсэгчилсэн хяналтын нэг сонголтыг сонгосон үед үүний бусад сонголтыг сонгохоо болино."),
@@ -428,6 +484,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS загварын доод табын самбар"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Табын самбар"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Слайдер нь самбар дагуух утгын мужийг илэрхийлдэг бөгөөд хэрэглэгчид тэндээс дан утга эсвэл утгын мужийг сонгож болно. Слайдерыг загвартай болгох, өөрчлөх боломжтой."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Захиалгат слайдер"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Энгийн, сэрэмжлүүлэг болон бүтэн дэлгэц"),
         "demoDialogTitle":
@@ -452,6 +512,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Бүтэн дэлгэц"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Бүтэн дэлгэц"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Торон жагсаалт нь ихэвчлэн зураг зэрэг жигд тархацтай өгөгдлийг үзүүлэхэд хамгийн тохиромжтой. Торон жагсаалтын зүйл бүрийг дөрвөлж гэж нэрлэдэг."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Хөл хэсэгтэй"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Толгой хэсэгтэй"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Зөвхөн зураг"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Мөр болон баганын байршил"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Торон жагсаалт"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Мэдээлэл"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Оруулгын чип нь нэгж (хүн, газар эсвэл зүйл) эсвэл харилцан ярианы текст зэрэг цогц мэдээллийг товч тодорхой хэлбэрээр илэрхийлдэг."),
@@ -459,6 +531,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Оруулгын чип"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL-г үзүүлж чадсангүй:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Материалын загварын шугаман үйл явцын заалт нь мөн явцын заалт гэж танигдсан."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Шугаман үйл явцын заалт"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Тогтмол өндөртэй ганц мөр нь ихэвчлэн зарим текст болон эхлэх эсвэл төгсгөх дүрс тэмдэг агуулдаг."),
         "demoListsSecondary":
@@ -466,6 +543,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Жагсаалтын бүдүүвчийг гүйлгэх"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Жагсаалтууд"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "Цэсийн идэвхгүй болгосон зүйл"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("Шалгах хуудасны цэстэй зүйл"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Хам сэдэв цэстэй зүйл"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("Хэсэгчилсэн цэстэй зүйл"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Энгийн цэстэй зүйл"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Хадам сэдэв цэсийн нэгдүгээр зүйл"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Хадам сэдэв цэсийн гуравдугаар зүйл"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Цэс нь түр зуурын гадаргуу дээр сонголтын жагсаалтыг үзүүлдэг. Энэ нь хэрэглэгчид товчлуур, үйлдэл эсвэл бусад хяналттай харилцах үед харагддаг."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Дөрөв"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Холбоос авах"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Цэсийн нэгдүгээр зүйл"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Цэсийн гуравдугаар зүйл"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Цэсийн хоёрдугаар зүйл"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Нэг"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Урьдчилан үзэх"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Хасах"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Хуваалцах"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Цэсийн товчлуур болон энгийн цэс"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Гурав"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Цэс"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Хоёр"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Нэг шугам"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -477,10 +590,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Гадна хүрээтэй товчлуурыг дарсан үед тодорч, дээшилдэг. Нэмэлт сонголт болон хоёрдогч үйлдлийг заахын тулд тэдгээрийг ихэвчлэн товгор товчлууртай хослуулдаг."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Гадна хүрээтэй товчлуур"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Шугаман, эргэлтийн, тогтоогоогүй"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Үйл явцын заалт"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Товгор товчлуур нь ихэвчлэн хавтгай бүдүүвчид хэмжээс нэмдэг. Тэд шигүү эсвэл өргөн зайтай функцийг онцолдог."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Товгор товчлуур"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Слайдер нь самбар дагуух утгын мужийг илэрхийлдэг. Энэ нь самбарын төгсгөлийн аль алинд утгын мужийг илэрхийлдэг дүрс тэмдэгтэй байх боломжтой. Энэ нь дууны түвшин, гэрэлтүүлэг зэрэг тохиргоог тохируулах эсвэл зургийн шүүлтүүрийг хэрэгжүүлэхэд яг таг тохирдог."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Мужийн слайдер"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Хэсэглэсэн цэс"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Checkboxes нь хэрэглэгчид багцаас олон сонголт сонгохыг зөвшөөрдөг. Энгийн checkbox-н утга нь үнэн эсвэл худал, tristate checkbox-н утга нь мөн тэг байж болно."),
@@ -503,6 +626,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Энгийн харилцах цонх нь хэрэглэгчид хэд хэдэн сонголтыг санал болгодог. Энгийн харилцах цонх нь сонголтын дээр үзэгдэх сонгох боломжтой гарчигтай байна."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Энгийн"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Энгийн цэс"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Тасралтгүй"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Захиалгат загвар болон тасралтгүй утгатай мужийн слайдер"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Засаж болдог тоон утгатай тасралтгүй"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Слайдер нь самбар дагуух утгын мужийг илэрхийлдэг бөгөөд хэрэглэгчид тэндээс дан утгыг сонгож болно. Энэ нь дууны түвшин, гэрэлтүүлэг зэрэг тохиргоог тохируулах эсвэл зургийн шүүлтүүрийг хэрэгжүүлэхэд яг таг тохирдог."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Салангид"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Захиалгат загвар болон салангид утгатай слайдер"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Засаж болдог тоон утга"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Шудрах замаар утга сонгоход зориулсан жижиг хэрэгсэл"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Слайдер"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Та snackbar-н үйлдлийг дарлаа."),
         "demoSnackbarsActionButtonLabel":
@@ -537,7 +681,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Амьдралын түүх"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Нэр*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Нэр оруулах шаардлагатай."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -577,6 +721,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Асаах товчийг холбоотой сонголтыг бүлэглэхэд ашиглаж болно. Асаах товчтой холбоотой бүлгийг онцлохын тулд тухайн бүлэг нийтлэг контэйнер хуваалцсан байх шаардлагатай"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Асаах товч"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Зөвлөмж нь товчлуурын функц эсвэл хэрэглэгчийн бусад харилцан үйлдлийн талаар тайлбарлахад тусалдаг текстийн шошгыг үзүүлдэг. Зөвлөмж нь хэрэглэгчид элемент дээр зөөх, сонгох эсвэл удаан дарах үед мэдээллийн текстийг үзүүлдэг."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Зөвлөмжийг үзүүлэхийн тулд удаан дарах эсвэл зөөнө үү."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Удаан дарах эсвэл зөөхөд үзүүлдэг богино зурвас"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Зөвлөмж"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Хоёр шугам"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -603,7 +754,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google-д аппуудад байршлыг тодорхойлоход туслахыг зөвшөөрнө үү. Ингэснээр ямар ч апп ажиллаагүй байсан ч байршлын өгөгдлийг үл мэдэгдэх байдлаар Google-д илгээнэ."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google-н байршлын үйлчилгээг ашиглах уу?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Нөөц бүртгэл тохируулна уу"),
         "dialogShow":
@@ -612,7 +763,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ЛАВЛАХ ЗАГВАР, МЕДИА"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Ангилал"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерей"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Далайн эрэг"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Хүрэл эдлэлийн урлан"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Ченнай"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Четтинад"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Загасчин"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Цэцгийн зах"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Үдийн хоолны бэлтгэл"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Маркет"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Пондичерри"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Давсны ферм"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Скүтер"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Торго нэхэгч"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Танжор"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Танжавүр сүм"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Автомашины хадгаламж"),
         "rallyAccountDataChecking":
@@ -637,15 +806,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Нийт"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Данснууд"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Сэрэмжлүүлэг"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Тооцоо"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Эцсийн хугацаа"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Хувцас"),
         "rallyBudgetCategoryCoffeeShops":
@@ -745,7 +914,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ЦУЦЛАХ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("САГСЫГ ЦЭВЭРЛЭХ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("САГС"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Тээвэрлэлт:"),
@@ -807,8 +976,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Цэнхэр өмд"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Нимгэн урт цамц"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Квадрат ширээ"),
         "shrineProductRainwaterTray":
@@ -847,10 +1016,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Босоо судалтай цагаан цамц"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Уитни бүс"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Сагсанд нэмэх"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Сагсыг хаах"),
         "shrineTooltipCloseMenu":
@@ -864,7 +1033,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Тохиргоо"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Хариу үйлдэл сайтай гарааны бүдүүвч"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Үндсэн хэсэг"),
         "starterAppGenericButton":
