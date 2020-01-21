@@ -41,46 +41,50 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "သီးခြား- ${value}";
 
-  static m9(name, phoneNumber) => "${name} ၏ ဖုန်းနံပါတ်သည် ${phoneNumber}";
+  static m9(value) => "အမှန်ခြစ်ထားသည်- ${value}";
 
-  static m10(value) => "သင်ရွေးထားသည့်အရာ- \"${value}\"";
+  static m10(value) => "ရွေးထားသော- ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} ၏ ဖုန်းနံပါတ်သည် ${phoneNumber}";
+
+  static m12(value) => "သင်ရွေးထားသည့်အရာ- \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${amount} ထည့်ထားသော ${accountName} အကောင့် ${accountNumber}။";
 
-  static m12(amount) => "ဤလထဲတွင် ATM ကြေး ${amount} အသုံးပြုပြီးပါပြီ";
+  static m14(amount) => "ဤလထဲတွင် ATM ကြေး ${amount} အသုံးပြုပြီးပါပြီ";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "ကောင်းပါသည်။ သင်၏ ဘဏ်စာရင်းရှင် အကောင့်သည် ယခင်လထက် ${percent} ပိုများနေသည်။";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "သတိ၊ ဤလအတွက် သင်၏ \'စျေးဝယ်ခြင်း\' ငွေစာရင်းမှနေ၍ ${percent} သုံးပြီးသွားပါပြီ။";
 
-  static m15(amount) =>
+  static m17(amount) =>
       "ဤအပတ်ထဲတွင် \'စားသောက်ဆိုင်\' များအတွက် ${amount} သုံးပြီးပါပြီ။";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'သင်၏အခွန်နုတ်ယူနိုင်ခြေကို တိုးမြှင့်ပါ။ မသတ်မှတ်ရသေးသော အရောင်းအဝယ် ၁ ခုတွင် အမျိုးအစားများ သတ်မှတ်ပါ။', other: 'သင်၏အခွန်နုတ်ယူနိုင်ခြေကို တိုးမြှင့်ပါ။ မသတ်မှတ်ရသေးသော အရောင်းအဝယ် ${count} ခုတွင် အမျိုးအစားများ သတ်မှတ်ပါ။')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName} ငွေတောင်းခံလွှာအတွက် ${date} တွင် ${amount} ပေးရပါမည်။";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${amountTotal} အနက် ${amountUsed} အသုံးပြုထားသော ${budgetName} အသုံးစရိတ်တွင် ${amountLeft} ကျန်ပါသည်";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'မည်သည့်ပစ္စည်းမျှ မရှိပါ', one: 'ပစ္စည်း ၁ ခု', other: 'ပစ္စည်း ${quantity} ခု')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "အရေအတွက်- ${quantity}";
+  static m23(quantity) => "အရေအတွက်- ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'ဈေးခြင်းတောင်း၊ ပစ္စည်းမရှိပါ', one: 'ဈေးခြင်းတောင်း၊ ပစ္စည်း ၁ ခု', other: 'ဈေးခြင်းတောင်း၊ ပစ္စည်း ${quantity} ခု')}";
 
-  static m23(product) => "${product} ကို ဖယ်ရှားရန်";
+  static m25(product) => "${product} ကို ဖယ်ရှားရန်";
 
-  static m24(value) => "ပစ္စည်း ${value}";
+  static m26(value) => "ပစ္စည်း ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -89,6 +93,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter နမူနာ GitHub ပြတိုက်"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ပြခန်းသို့ ပြန်သွားရန်"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("အချိုင့်"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "အလွတ်ရွှေ့နိုင်သည့် လုပ်ဆောင်ချက်ခလုတ် တည်နေရာ"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("နေရာချထားသည် - အလယ်"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("နေရာချထားသည် - အဆုံး"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage(
+                "အလွတ်ရွှေ့နိုင်သည် - အလယ်တွင်ထားရန်"),
+        "bottomAppBarPositionFloatingEnd": MessageLookupByLibrary.simpleMessage(
+            "အလွတ်ရွှေ့နိုင်သည် - အဆုံးတွင်ထားရန်"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("အကောင့်"),
         "bottomNavigationAlarmTab":
@@ -339,6 +355,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("သတိပေးချက်"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("ခေါင်းစဉ်ပါသည့် သတိပေးချက်"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "အောက်ခြေရှိ အက်ပ်ဘားများသည် အောက်ခြေ လမ်းညွှန်အံဆွဲနှင့် အလွတ်ရွှေ့နိုင်သည့် လုပ်ဆောင်ချက် ခလုတ်အပါအဝင် လုပ်ဆောင်ချက် လေးခုအထိ အသုံးပြုခွင့်ရရှိစေသည်။"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "အောက်ခြေတွင် လမ်းညွှန်ချက်နှင့် လုပ်ဆောင်ချက်များကို ပြပေးသည်"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("အောက်ခြေရှိ အက်ပ်ဘား"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "အောက်ခြေမီနူးပါ လမ်းညွှန်ဘားသည် သွားရောက်ရန်နေရာ သုံးခုမှ ငါးခုအထိ မျက်နှာပြင်၏ အောက်ခြေတွင် ဖော်ပြပေးသည်။ သွားရောက်ရန်နေရာတစ်ခုစီတွင် သင်္ကေတတစ်ခုစီရှိပြီး အညွှန်းပါနိုင်ပါသည်။ အောက်ခြေမီနူးပါ လမ်းညွှန်သင်္ကေတကို တို့လိုက်သည့်အခါ ၎င်းသင်္ကေတနှင့် ဆက်စပ်နေသည့် ထိပ်တန်းအဆင့် သွားရောက်ရန်နေရာတစ်ခုကို ဖွင့်ပေးပါသည်။"),
         "demoBottomNavigationPersistentLabels":
@@ -369,9 +391,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "မပြောင်းလဲသော အောက်ခြေမီနူးပါ စာမျက်နှာပုံစံများ"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("အောက်ခြေမီနူးပါ စာမျက်နှာ"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("စာသားအကွက်များ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "အပြား၊ အမြင့်၊ ဘောင်မျဉ်းပါခြင်းနှင့် အခြားများ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ခလုတ်များ"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ဆောင်ရွက်ရန်စာရင်းပါ မီနူး"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "အဝင်၊ ရည်ညွှန်းချက် သို့မဟုတ် လုပ်ဆောင်ချက်ကို ကိုယ်စားပြုသည့် ကျစ်လစ်သော အကြောင်းအရာများ"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("ချစ်ပ်များ"),
@@ -379,6 +405,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "ရွေးချယ်မှုချစ်ပ်များသည် အစုတစ်ခုရှိ ရွေးချယ်မှုတစ်ခုကို ကိုယ်စားပြုသည်။ ရွေးချယ်မှုချစ်ပ်များတွင် သက်ဆိုင်ရာ အကြောင်းအရာစာသား သို့မဟုတ် အမျိုးအစားများပါဝင်သည်။"),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("ရွေးချယ်မှု ချစ်ပ်"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "အပလီကေးရှင်းတစ်ခုက အလုပ်လုပ်နေကြောင်း ပြသရန် \'ရုပ်ဝတ္ထုဒီဇိုင်း\' စက်ဝိုင်းပုံ တိုးတက်မှုအညွှန်းက လည်ပတ်သည်။"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "စက်ဝိုင်းပုံ တိုးတက်မှု အညွှန်း"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("နမူနာကုဒ်"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -391,10 +423,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ကြိုတင်သတ်မှတ်ထားသည့် အရောင်အားလုံး"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("အရောင်များ"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("အကြောင်းအရာမီနူး"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "လုပ်ဆောင်ချက် စာမျက်နှာတစ်ခုသည် တိကျသည့် သတိပေးချက်ပုံစံဖြစ်ပြီး လက်ရှိအကြောင်းအရာနှင့် သက်ဆိုင်သည့် ရွေးချယ်မှု နှစ်ခု သို့မဟုတ် ၎င်းအထက်ကို အသုံးပြုသူအား ဖော်ပြပါသည်။ လုပ်ဆောင်ချက် စာမျက်နှာတွင် ခေါင်းစဉ်၊ နောက်ထပ်မက်ဆေ့ဂျ်နှင့် လုပ်ဆောင်ချက်စာရင်း ပါရှိနိုင်သည်။"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("လုပ်ဆောင်ချက် စာမျက်နှာ"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "နာရီလက်တံအတိုင်း လည်သည့် iOS ပုံစံ လုပ်ဆောင်ချက်အညွှန်း"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS ပုံစံ လုပ်ဆောင်ချက် အညွှန်း"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("လုပ်ဆောင်ချက် အညွှန်း"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("သတိပေးချက် ခလုတ်များသာ"),
         "demoCupertinoAlertButtonsTitle":
@@ -415,6 +457,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-ပုံစံ ခလုတ်များ"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("ခလုတ်များ"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS ပုံစံပြုလုပ်ထားသော လမ်းညွှန်ဘား လမ်းညွှန်ဘားဆိုသည်မှာ ကိရိယာဘားတစ်ခုဖြစ်ပြီး ၎င်း၏ အလယ်တွင် စာမျက်နှာခေါင်းစဉ် အနည်းအကျဉ်းမျှ ပါဝင်သည်။"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS ပုံစံ လမ်းညွှန်ဘား"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("လမ်းညွှန်ဘား"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS ပုံစံ ဆွဲချပြီး ပြန်လည်စတင်ခြင်း အကြောင်းအရာထိန်းချုပ်မှုကို ထည့်သွင်းနေသော ဝိဂျက်။"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS ပုံစံ ဆွဲချ၍ ပြန်လည်စတင်ခြင်း ထိန်းချုပ်မှု"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("ပြန်လည်စတင်ရန် ဆွဲချပါ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "နှစ်ဦးနှစ်ဖက် သီးသန့်သတ်မှတ်ချက်များအကြား ရွေးချယ်ရန် အသုံးပြုထားသည်။ အပိုင်းလိုက် ထိန်းချုပ်မှုအတွင်းရှိ သတ်မှတ်ချက်တစ်ခုကို ရွေးချယ်သည့်အခါ ထိုအတွင်းရှိ အခြားသတ်မှတ်ချက်များအတွက် ရွေးချယ်မှု ရပ်ဆိုင်းသွားပါသည်။"),
@@ -441,6 +498,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS ပုံစံ အောက်ခြေတဘ်ဘား"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("တဘ်ဘား"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ရွှေ့တုံးများသည် ဘားတန်းတစ်ခုပေါ်တွင် တန်ဖိုးများစွာကို ကိုယ်စားပြုပေးပြီး အသုံးပြုသူသည် ၎င်းတို့အနက်မှ တန်ဖိုးတစ်ခု သို့မဟုတ် တန်ဖိုးအပိုင်းအခြားတစ်ခုကို ရွေးချယ်နိုင်ပါသည်။ ရွှေ့တုံးများကို အပြင်အဆင်ထည့်သွင်းပြီး စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("စိတ်ကြိုက် ရွှေ့တုံးများ"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ရိုးရှင်းသော၊ သတိပေးချက်နှင့် မျက်နှာပြင်အပြည့်"),
         "demoDialogTitle":
@@ -465,6 +526,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("မျက်နှာပြင်အပြည့်"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("မျက်နှာပြင် အပြည့်"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "ဇယားကွက်စာရင်းများသည် ယေဘုယျအားဖြင့် ပုံကဲ့သို့ မျိုးတူသော ဒေတာများကို ဖော်ပြရန်အတွက် အသင့်လျော်ဆုံးဖြစ်သည်။ ဇယားကွက်စာရင်းအတွင်းရှိ အရာကို အကွက်ဟုခေါ်သည်။"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("အောက်ခြေမှတ်စုနှင့်တကွ"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("ခေါင်းစီးနှင့်တကွ"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("ပုံသီးသန့်"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("အတန်းနှင့် ကော်လံ အနေအထား"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("ဇယားကွက်စာရင်းများ"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("အချက်အလက်"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "အဝင်ချစ်ပ်သည် အစုအဖွဲ့ (လူပုဂ္ဂိုလ်၊ နေရာ သို့မဟုတ် အရာဝတ္ထု) သို့မဟုတ် စကားဝိုင်းစာသားကဲ့သို့ ရှုပ်ထွေးသော အချက်အလက်များကို ကျစ်လစ်သည့်ပုံစံဖြင့် ကိုယ်စားပြုသည်။"),
@@ -472,6 +545,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("အဝင်ချစ်ပ်"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL ကို ပြ၍မရပါ-"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'ရုပ်ဝတ္ထုဒီဇိုင်း\' မျဉ်းဖြောင့် တိုးတက်မှုအညွှန်းကို တိုးတက်မှုဘားဟုလည်း ခေါ်သည်။"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "မျဉ်းဖြောင့် တိုးတက်မှုအညွှန်း"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "ယေဘုယျအားဖြင့် စာသားအချို့အပြင် ထိပ်ပိုင်း သို့မဟုတ် နောက်ပိုင်းတွင် သင်္ကေတများ ပါဝင်သည့် တိကျသောအမြင့်ရှိသော စာကြောင်းတစ်ကြောင်း။"),
         "demoListsSecondary":
@@ -479,6 +558,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "လှိမ့်ခြင်းစာရင်း အပြင်အဆင်များ"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("စာရင်းများ"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "မီနူးအကြောင်းအရာကို ပိတ်ထားသည်"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "ဆောင်ရွက်ရန်စာရင်း မီနူးပါ အကြောင်းအရာ"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("အကြောင်းအရာမီနူးပါသည့် အရာ"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "အပိုင်းခွဲထားသည့် မီနူးပါ အကြောင်းအရာ"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "ရိုးရှင်းသော မီနူးပါ အကြောင်းအရာ"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("အကြောင်းအရာမီနူး နံပါတ်တစ်"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("အကြောင်းအရာမီနူး နံပါတ်သုံး"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "မီနူးသည် ယာယီမျက်နှာပြင်ပေါ်တွင် ရွေးချယ်စရာစာရင်းတစ်ခုကို ဖော်ပြပေးသည်။ အသုံးပြုသူက ခလုတ်၊ လုပ်ဆောင်ချက် သို့မဟုတ် အခြားထိန်းချုပ်မှုတို့ကို အသုံးပြုသည့်အခါ ၎င်းပေါ်လာပါမည်။"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("လေး"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("လင့်ခ်ရယူရန်"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("မီနူးအကြောင်းအရာ တစ်"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("မီနူးအကြောင်းအရာ သုံး"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("မီနူးအကြောင်းအရာ နှစ်"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("တစ်"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("အစမ်းကြည့်ရန်"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("ဖယ်ရှားရန်"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("မျှဝေရန်"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "မီနူးခလုတ်များနှင့် ရိုးရှင်းသော မီနူး"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("သုံး"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("မီနူး"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("နှစ်"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("တစ်ကြောင်း"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -491,10 +608,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "ဘောင်မျဉ်းပါသည့် ခလုတ်များကို နှိပ်လိုက်သည့်အခါ ဖျော့သွားပြီး မြှင့်တက်လာသည်။ ကွဲပြားသည့် ဒုတိယလုပ်ဆောင်ချက်တစ်ခုကို ဖော်ပြရန် ၎င်းတို့ကို ခလုတ်မြင့်များနှင့် မကြာခဏ တွဲထားလေ့ရှိသည်။"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("ဘောင်မျဉ်းပါ ခလုတ်"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "မျဉ်းဖြောင့်၊ စက်ဝိုင်း၊ သတ်မှတ်ချက်မရှိ"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("တိုးတက်မှု အညွှန်းများ"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ခလုတ်မြင့်များသည် အများအားဖြင့် အပြားလိုက် အပြင်အဆင်များတွင် ထုထည်အားဖြင့်ဖြည့်ပေးသည်။ ၎င်းတို့သည် ကျယ်ပြန့်သော သို့မဟုတ် ခလုတ်များပြားသော နေရာများတွင် လုပ်ဆောင်ချက်များကို အထူးပြုသည်။"),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("ခလုတ်မြင့်"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ရွှေ့တုံးများသည် ဘားတန်းတစ်ခုပေါ်ရှိ တန်ဖိုးအပိုင်းအခြားတစ်ခုကို ကိုယ်စားပြုသည်။ ဘားတန်းတစ်ခု၏ အဆုံးတစ်ဖက်တစ်ချက်တွင် သင်္ကေတတစ်ခုစီ ရှိနိုင်ပြီး တန်ဖိုးအပိုင်းအခြားတစ်ခုကို ကိုယ်စားပြုနိုင်သည်။ ၎င်းတို့သည် အသံ၊ တောက်ပမှုတို့ကို ချိန်ညှိသည့်အခါ သို့မဟုတ် ဓာတ်ပုံအရောင်စစ်မှန်ပြားများ အသုံးပြုသည့်အခါ အသင့်လျော်ဆုံးဖြစ်သည်။"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("အပိုင်းအခြား ရွှေ့တုံး"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("အပိုင်းခွဲထားသော မီနူး"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "အမှန်ခြစ်ရန်နေရာများသည် အုပ်စုတစ်ခုမှ တစ်ခုထက်ပို၍ ရွေးချယ်ခွင့်ပေးသည်။ ပုံမှန်အမှန်ခြစ်ရန်နေရာ၏ တန်ဖိုးသည် အမှန် သို့မဟုတ် အမှားဖြစ်ပြီး အခြေအနေသုံးမျိုးပါ အမှန်ခြစ်ရန်နေရာ၏ တန်ဖိုးသည် ဗလာလည်း ဖြစ်နိုင်သည်။"),
@@ -518,6 +645,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "ရိုးရှင်းသည့် ဒိုင်ယာလော့ဂ်သည် မတူညီသည့် ရွေးချယ်မှုများစွာမှ အသုံးပြုသူအား ရွေးခွင့်ပြုသည်။ ရိုးရှင်းသည့် ဒိုင်ယာလော့ဂ်တွင် ရွေးချယ်မှုများ၏ အပေါ်တွင် ဖော်ပြသော ချန်လှပ်ထားနိုင်သည့် ခေါင်းစဉ်ပါဝင်သည်။"),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("ရိုးရှင်းသော"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ရိုးရှင်းသော မီနူး"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("ဆက်တိုက်"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "စိတ်ကြိုက်အပြင်အဆင်နှင့် ဆက်တိုက်အပိုင်းအခြားရွှေ့တုံး"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "တည်းဖြတ်နိုင်သည့် ဆက်တိုက် ကိန်းဂဏန်းတန်ဖိုး"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ရွှေ့တုံးများသည် ဘားတန်းတစ်ခုပေါ်တွင် တန်ဖိုးများစွာကို ကိုယ်စားပြုပေးပြီး အသုံးပြုသူသည် ၎င်းတို့အနက်မှ တန်ဖိုးတစ်ခုကို ရွေးချယ်နိုင်ပါသည်။ ၎င်းတို့သည် အသံ၊ တောက်ပမှုတို့ကို ချိန်ညှိသည့်အခါ သို့မဟုတ် ဓာတ်ပုံအရောင်စစ်မှန်ပြားများ အသုံးပြုသည့်အခါ အသင့်လျော်ဆုံးဖြစ်သည်။"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("သီးခြား"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "စိတ်ကြိုက်အပြင်အဆင်နှင့် သီးခြားရွှေ့တုံး"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "တည်းဖြတ်၍ရသော ကိန်းဂဏန်းတန်ဖိုး"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ပွတ်ဆွဲခြင်းဖြင့် တန်ဖိုးတစ်ခုကို ရွေးချယ်ရန် ဝိဂျက်များ"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("ရွှေ့တုံးများ"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "သင်သည် မုန့်ဘားလုပ်ဆောင်ချက်ကို နှိပ်လိုက်သည်။"),
         "demoSnackbarsActionButtonLabel":
@@ -552,7 +702,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("ဘဝဇာတ်ကြောင်း"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("အမည်*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("အမည် လိုအပ်ပါသည်။"),
         "demoTextFieldNoMoreThan":
@@ -593,6 +743,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "သက်ဆိုင်ရာ ရွေးချယ်စရာများကို အုပ်စုဖွဲ့ရန် အဖွင့်အပိတ်ခလုတ်များကို အသုံးပြုနိုင်သည်။ သက်ဆိုင်ရာ အဖွင့်ပိတ်ခလုတ်များကို အထူးပြုရန် အုပ်စုတစ်ခုသည် တူညီသည့် ကွန်တိန်နာကို အသုံးပြုသင့်သည်။"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("အဖွင့်အပိတ်ခလုတ်များ"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "အကြံပြုချက်ပြ ပေါ့အပ် ဝင်းဒိုးများတွင် ခလုတ်တစ်ခု၏ လုပ်ဆောင်ချက် သို့မဟုတ် အသုံးပြုသူ အင်တာဖေ့စ်လုပ်ဆောင်ချက် အခြားတစ်ခုကို ကူညီ၍ ရှင်းလင်းဖော်ပြပေးသော စာသားအညွှန်းများပါဝင်သည်။ အကြံပြုချက်ပြ ပေါ့အပ် ဝင်းဒိုးသည် အသုံးပြုသူက အကြောင်းအရာတစ်ခုကို အပေါ်မှနေ၍ အုပ်ခြင်း၊ အာရုံစိုက်လိုက်ခြင်း သို့မဟုတ် ကြာရှည်စွာ ဖိထားလိုက်ခြင်းတို့ ပြုလုပ်သည့်အခါ အချက်အလက်ပြည့်စုံသည့် စာသားတစ်ခုကို ဖော်ပြသည်။"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "အကြံပြုချက်ပြ ပေါ့အပ် ဝင်းဒိုးကို ဖော်ပြရန် ကြာရှည်စွာ ဖိပါ သို့မဟုတ် အပေါ်မှနေ၍ အုပ်လိုက်ပါ။"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ကြာရှည်စွာ ဖိထားလျှင် သို့မဟုတ် အပေါ်တွင် အုပ်လိုက်လျှင် မက်ဆေ့ဂျ်တိုတစ်စောင် ဖော်ပြပေးသည်"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage(
+            "အကြံပြုချက်ပြ ပေါ့အပ် ဝင်းဒိုး"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("နှစ်ကြောင်း"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -619,7 +777,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "အက်ပ်များက တည်နေရာဆုံးဖြတ်ရာတွင် Google အား ကူညီခွင့်ပြုလိုက်ပါ။ ဆိုလိုသည်မှာ မည်သည့်အက်ပ်မျှ အသုံးပြုနေခြင်းမရှိသည့်အခါတွင်ပင် တည်နေရာဒေတာများကို Google သို့ အမည်မဖော်ဘဲ ပို့ခြင်းဖြစ်သည်။"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google ၏ တည်နေရာ ဝန်ဆောင်မှုကို သုံးလိုသလား။"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "အရန်အကောင့် စနစ်ထည့်သွင်းရန်"),
         "dialogShow":
@@ -629,7 +787,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("အမျိုးအစားများ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ပြခန်း"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("ကမ်းခြေ"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("ကြေးထည်"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("ငါးဖမ်းသူ"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("ပန်းဈေး"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("နေ့လည်စာ ပြင်ဆင်ခြင်း"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("စျေး"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("ဆားခြံ"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("စကူတာများ"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("ပိုးချည် ပြုလုပ်သူ"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur ဘုရားကျောင်း"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("ကား စုငွေများ"),
         "rallyAccountDataChecking":
@@ -654,17 +829,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("စုစုပေါင်း"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("အကောင့်များ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("သတိပေးချက်များ"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills":
             MessageLookupByLibrary.simpleMessage("ငွေတောင်းခံလွှာများ"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("နောက်ဆုံးထား ပေးရမည့်ရက်"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("အဝတ်အထည်"),
         "rallyBudgetCategoryCoffeeShops":
@@ -771,7 +946,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("မလုပ်တော့"),
         "shrineCartClearButtonCaption": MessageLookupByLibrary.simpleMessage(
             "စျေးခြင်းတောင်းကို ရှင်းလင်းရန်"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("ဈေးခြင်းတောင်း"),
         "shrineCartShippingCaption":
@@ -835,8 +1010,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -875,11 +1050,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage(
                 "ဈေးခြင်းတောင်းသို့ ပေါင်းထည့်မည်"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("ဈေးခြင်းတောင်းကို ပိတ်ရန်"),
         "shrineTooltipCloseMenu":
@@ -894,7 +1069,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ဆက်တင်များ"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "တုံ့ပြန်မှုကောင်းမွန်သော အစပြုရန် အပြင်အဆင်"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("စာကိုယ်"),
         "starterAppGenericButton":

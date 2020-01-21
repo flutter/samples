@@ -1413,6 +1413,13 @@ class GalleryLocalizations {
         desc: r'Title for bottom sheet demo.');
   }
 
+  String get demoBottomTextFieldsTitle {
+    return Intl.message(r'Text fields',
+        locale: _localeName,
+        name: 'demoBottomTextFieldsTitle',
+        desc: r'Title for text fields demo.');
+  }
+
   String get demoButtonSubtitle {
     return Intl.message(r'Flat, raised, outline, and more',
         locale: _localeName,

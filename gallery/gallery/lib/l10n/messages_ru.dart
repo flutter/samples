@@ -41,47 +41,51 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Дискретный ползунок: ${value}";
 
-  static m9(name, phoneNumber) => "${name}: ${phoneNumber}";
+  static m9(value) => "Отмеченное значение: ${value}";
 
-  static m10(value) => "Вы выбрали значение \"${value}\".";
+  static m10(value) => "Выбранное значение: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name}: ${phoneNumber}";
+
+  static m12(value) => "Вы выбрали значение \"${value}\".";
+
+  static m13(accountName, accountNumber, amount) =>
       "Счет \"${accountName}\" с номером ${accountNumber}. Баланс: ${amount}.";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "В этом месяце вы потратили ${amount} на оплату комиссии в банкоматах.";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Отлично! В этом месяце на вашем счете на ${percent} больше средств по сравнению с прошлым месяцем.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Внимание! Вы израсходовали ${percent} своего бюджета на этот месяц.";
 
-  static m15(amount) =>
+  static m17(amount) =>
       "На этой неделе вы потратили ${amount} на еду и напитки в ресторанах.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Увеличьте сумму возможного налогового вычета, назначив категорию для одной нераспределенной транзакции.', few: 'Увеличьте сумму возможного налогового вычета, назначив категории для ${count} нераспределенных транзакций.', many: 'Увеличьте сумму возможного налогового вычета, назначив категории для ${count} нераспределенных транзакций.', other: 'Увеличьте сумму возможного налогового вычета, назначив категории для ${count} нераспределенной транзакции.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Счет \"${billName}\" на сумму ${amount}. Срок оплаты: ${date}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Бюджет \"${budgetName}\". Израсходовано: ${amountUsed} из ${amountTotal}. Осталось: ${amountLeft}.";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'НЕТ ТОВАРОВ', one: '1 ТОВАР', few: '${quantity} ТОВАРА', many: '${quantity} ТОВАРОВ', other: '${quantity} ТОВАРА')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Количество: ${quantity}";
+  static m23(quantity) => "Количество: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Нет товаров в корзине', one: '1 товар в корзине', few: '${quantity} товара в корзине', many: '${quantity} товаров в корзине', other: '${quantity} товара в корзине')}";
 
-  static m23(product) => "${product}: удалить товар";
+  static m25(product) => "${product}: удалить товар";
 
-  static m24(value) => "Пункт ${value}";
+  static m26(value) => "Пункт ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -90,6 +94,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Пример Flutter из хранилища GitHub"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Назад на главную"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Выемка"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Положение плавающей командной кнопки"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("На панели в центре"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("На панели с краю"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Над панелью в центре"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Над панелью с краю"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Банковский счет"),
         "bottomNavigationAlarmTab":
@@ -320,6 +335,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Оповещение"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Оповещение с заголовком"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "На нижней панели приложения можно разместить панель навигации и до четырех действий, включая плавающую командную кнопку."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "На панели в нижней части экрана располагаются элементы навигации и доступные действия"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Нижняя панель приложения"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "На панели навигации в нижней части экрана можно разместить от трех до пяти разделов. Каждый раздел представлен значком и может иметь текстовую надпись. Если пользователь нажмет на один из значков, то перейдет в соответствующий раздел верхнего уровня."),
         "demoBottomNavigationPersistentLabels":
@@ -350,9 +371,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Постоянный и модальный нижние экраны"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Нижний экран"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Текстовые поля"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Плоские, приподнятые, контурные и не только"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Кнопки"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Меню с контрольным списком"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Компактные элементы, обозначающие объект, атрибут или действие"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Чипы"),
@@ -360,6 +385,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Каждый чип выбора представляет собой один из вариантов выбора. Чип выбора может содержать описание или название категории."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Чип выбора"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Кольцевой индикатор прогресса в стиле Material Design показывает, что приложение обрабатывает запрос пользователя."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Кольцевой индикатор прогресса"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Пример кода"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -372,10 +403,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Все стандартные цвета"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Цвета"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Контекстное меню"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Окно действия – тип оповещения, в котором пользователю предлагается как минимум два варианта действий в зависимости от контекста. Окно может иметь заголовок, дополнительное сообщение, а также список действий."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Окно действия"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Вращающийся по часовой стрелке индикатор выполнения в стиле iOS."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Индикаторы выполнения в стиле iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Индикатор выполнения"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Только кнопки из оповещения"),
         "demoCupertinoAlertButtonsTitle":
@@ -396,6 +437,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Кнопки в стиле iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Кнопки"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Панель навигации в стиле iOS – это панель инструментов, обязательным атрибутом которой является название страницы, расположенное посередине."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Панель навигации в стиле iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Панель навигации"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Элемент управления в стиле iOS для обновления страницы с помощью движения сверху вниз."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Элемент управления в стиле iOS для обновления страницы"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Обновление страницы с помощью движения сверху вниз"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Позволяет переключаться между несколькими взаимоисключающими вариантами (сегментами). Выделен только тот вариант, который был выбран."),
@@ -423,6 +480,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Нижняя панель вкладок в стиле iOS"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Панель вкладок"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Ползунки позволяют выбрать одно из значений или указать диапазон значений. К ползункам также можно применить тему и собственные настройки."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Настраиваемые ползунки"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Обычные, с оповещением и полноэкранные"),
         "demoDialogTitle":
@@ -447,6 +508,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Полноэкранный режим"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Полноэкранный режим"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Табличные списки больше всего подходят для показа однотипных данных, например изображений. Объекты, включенные в такие списки, называются элементами."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("С нижним колонтитулом"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("С верхним колонтитулом"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Только изображение"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Макет строк и столбцов"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Табличные списки"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Информация"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Чипы записи представляют сложные данные в компактной форме, например объекты (людей, места, вещи) или текстовые диалоги."),
@@ -454,6 +527,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Чип записи"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Не удалось открыть URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Линейный индикатор прогресса в стиле Material Design, который также называют индикатором выполнения."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Линейный индикатор прогресса"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Одна строка с фиксированным размером, которая обычно содержит текст и значок."),
         "demoListsSecondary":
@@ -461,6 +540,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Макеты прокручиваемых списков"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Списки"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Недоступный пункт меню"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Объект, у которого есть меню с контрольным списком"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Объект, у которого есть контекстное меню"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Объект, у которого есть меню с разделами"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Объект, у которого есть простое меню"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Первый пункт контекстного меню"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Третий пункт контекстного меню"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Меню содержит список вариантов, которые располагаются в отдельном блоке. Список появляется, когда пользователь нажимает кнопку, выполняет действие или взаимодействует с другим элементом управления."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("4"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Получить ссылку"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Первый пункт меню"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Третий пункт меню"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Второй пункт меню"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("1"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Предпросмотр"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Удалить"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Поделиться"),
+        "demoMenuSubtitle":
+            MessageLookupByLibrary.simpleMessage("Кнопки меню и простые меню"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("3"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Меню"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("2"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Одна строка"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -472,10 +590,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Контурные кнопки при нажатии становятся непрозрачными и поднимаются. Часто они используются вместе с приподнятыми кнопками, чтобы обозначить альтернативное, дополнительное действие."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Контурная кнопка"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Линейные, кольцевые и неопределенные"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Индикаторы прогресса"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Приподнятые кнопки позволяют сделать плоские макеты более объемными, а функции на насыщенных или широких страницах – более заметными."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Приподнятая кнопка"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Ползунки позволяют выбрать нужное значение в заданном диапазоне. Для понятности по краям диапазона можно расположить значки. С помощью ползунков удобно регулировать уровень громкости, настраивать яркость и фильтры изображений."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Ползунки диапазона"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Меню с разделами"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "С помощью флажка пользователь может выбрать несколько параметров из списка. Чаще всего у флажка есть два состояния. В некоторых случаях предусмотрено третье."),
@@ -499,6 +627,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "В обычном диалоговом окне пользователю предлагается несколько вариантов на выбор. Если у окна есть заголовок, он располагается над вариантами."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Обычное"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Простое меню"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Непрерывный"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Непрерывный ползунок диапазона с пользовательской темой"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Непрерывный ползунок с возможностью редактировать числовое значение"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Ползунки позволяют выбрать нужное значение в заданном диапазоне. С помощью ползунков удобно регулировать уровень громкости, настраивать яркость и фильтры изображений."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Дискретный"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Дискретный ползунок с пользовательской темой"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Числовое значение"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Чтобы выбрать определенное значение, пользователю нужно провести пальцем по экрану"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Ползунки"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Вы нажали кнопку на снэк-панели."),
         "demoSnackbarsActionButtonLabel":
@@ -535,7 +685,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Биография"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Имя*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Введите имя."),
         "demoTextFieldNoMoreThan":
@@ -575,6 +725,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "С помощью переключателей можно сгруппировать связанные параметры. У группы связанных друг с другом переключателей должен быть общий контейнер."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Переключатели"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Подсказки помогают понять, как работают кнопки и другие элементы интерфейса. Они появляются при долгом нажатии на элемент, переходе к нему или наведении на него указателя."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Чтобы увидеть подсказку, наведите указатель на элемент или нажмите на него и удерживайте."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Короткое сообщение, которое появляется при долгом нажатии или наведении указателя"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Подсказки"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Две строки"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -601,7 +758,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Отправка анонимных геоданных в Google помогает приложениям точнее определять ваше местоположение. Данные будут отправляться, даже если не запущено ни одно приложение."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Использовать геолокацию Google?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Настройка аккаунта для резервного копирования"),
         "dialogShow":
@@ -611,7 +768,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категории"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерея"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Пляж"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage(
+            "Завод по производству изделий из бронзы"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Ченнай"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Четтинад"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Рыбак"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Цветочный рынок"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Приготовление обеда"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Рынок"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Пондичерри"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Соляная ферма"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Скутеристы"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Рабочий на шелковой фабрике"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Танджор"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Храм в Танджавуре"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Сбережения на машину"),
         "rallyAccountDataChecking":
@@ -638,15 +814,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccounts":
             MessageLookupByLibrary.simpleMessage("Банковские счета"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Оповещения"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Счета"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Срок"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Одежда"),
         "rallyBudgetCategoryCoffeeShops":
@@ -749,7 +925,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ОТМЕНА"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ОЧИСТИТЬ КОРЗИНУ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("КОРЗИНА"),
         "shrineCartShippingCaption":
@@ -812,8 +988,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Короткие брюки клеш"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Кремовая туника"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Круглый стол"),
         "shrineProductRainwaterTray":
@@ -852,10 +1028,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Рубашка в белую полоску"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Кожаный ремень"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Добавить в корзину"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Закрыть корзину"),
         "shrineTooltipCloseMenu":
@@ -869,7 +1045,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Настройки"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Адаптивный макет"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Основной текст"),
         "starterAppGenericButton":

@@ -1182,6 +1182,10 @@
   "@demoSelectionControlsSwitchDescription": {
     "description": "Description for the switches (selection controls) demo."
   },
+  "demoBottomTextFieldsTitle": "Text fields",
+  "@demoBottomTextFieldsTitle": {
+    "description": "Title for text fields demo."
+  },
   "demoTextFieldTitle": "Text fields",
   "@demoTextFieldTitle": {
     "description": "Title for text fields demo."

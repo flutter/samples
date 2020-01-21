@@ -190,7 +190,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.0"
+    version: "0.16.1"
   intl_translation:
     dependency: "direct main"
     description:
