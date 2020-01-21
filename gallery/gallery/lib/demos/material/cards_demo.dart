@@ -328,7 +328,8 @@ class TravelDestinationContent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // three line description
+                // This array contains the three line description on each card
+                // demo.
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
@@ -380,6 +381,7 @@ class CardsDemo extends StatefulWidget {
 class _CardsDemoState extends State<CardsDemo> {
   @override
   Widget build(BuildContext context) {
+    Widget child;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -388,26 +390,41 @@ class _CardsDemoState extends State<CardsDemo> {
       body: Scrollbar(
         child: ListView(
           padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
-          children: destinations(context).map<Widget>((destination) {
-            Widget child;
-            switch (destination.type) {
-              case CardDemoType.standard:
-                child = TravelDestinationItem(destination: destination);
-                break;
-              case CardDemoType.tappable:
-                child = TappableTravelDestinationItem(destination: destination);
-                break;
-              case CardDemoType.selectable:
-                child =
-                    SelectableTravelDestinationItem(destination: destination);
-                break;
-            }
+          children: [
+            for (final destination in destinations(context)) ...[
+              Container(
+                margin: const EdgeInsets.only(bottom: 8),
+                child: (destination.type == CardDemoType.standard)
+                    ? TravelDestinationItem(destination: destination)
+                    : destination.type == CardDemoType.tappable
+                        ? TappableTravelDestinationItem(
+                            destination: destination)
+                        : SelectableTravelDestinationItem(
+                            destination: destination),
+              ),
+            ],
+          ],
 
-            return Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              child: child,
-            );
-          }).toList(),
+//          children: destinations(context).map<Widget>((destination) {
+//            Widget child;
+//            switch (destination.type) {
+//              case CardDemoType.standard:
+//                child = TravelDestinationItem(destination: destination);
+//                break;
+//              case CardDemoType.tappable:
+//                child = TappableTravelDestinationItem(destination: destination);
+//                break;
+//              case CardDemoType.selectable:
+//                child =
+//                    SelectableTravelDestinationItem(destination: destination);
+//                break;
+//            }
+//
+//            return Container(
+//              margin: const EdgeInsets.only(bottom: 8),
+//              child: child,
+//            );
+//          }).toList(),
         ),
       ),
     );

@@ -13,7 +13,7 @@
       }
     }
   },
-  "signIn": "Sign In",
+  "signIn": "SIGN IN",
   "@signIn": {
     "description": "Sign in label to sign into website."
   },
@@ -81,7 +81,7 @@
   },
   "cardsDemoTravelDestinationLocation1": "Thanjavur, Tamil Nadu",
   "@cardsDemoTravelDestinationLocation1": {
-    "description": "Thanjavur, Tamil Nadu"
+    "description": "Thanjavur, Tamil Nadu is a location"
   },
   "cardsDemoTravelDestinationTitle2": "Artisans of Southern India",
   "@cardsDemoTravelDestinationTitle2": {
@@ -97,7 +97,7 @@
   },
   "cardsDemoTravelDestinationLocation2": "Sivaganga, Tamil Nadu",
   "@cardsDemoTravelDestinationLocation2": {
-    "description": "Sivaganga, Tamil Nadu"
+    "description": "Sivaganga, Tamil Nadu is a location"
   },
   "cardsDemoTravelDestinationTitle3": "Brihadisvara Temple",
   "@cardsDemoTravelDestinationTitle3": {

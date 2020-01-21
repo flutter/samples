@@ -19,7 +19,7 @@ class BannerDemo extends StatefulWidget {
 }
 
 class _BannerDemoState extends State<BannerDemo> {
-  static const _numItems = 20;
+  static const _itemCount = 20;
   var _displayBanner = true;
   var _showMultipleActions = true;
   var _showLeading = true;
@@ -47,7 +47,10 @@ class _BannerDemoState extends State<BannerDemo> {
     final banner = MaterialBanner(
       content: Text(GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading
-          ? const CircleAvatar(child: Icon(Icons.access_alarm))
+          ? CircleAvatar(
+              child: Icon(Icons.access_alarm),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            )
           : null,
       actions: [
         FlatButton(
@@ -101,7 +104,7 @@ class _BannerDemoState extends State<BannerDemo> {
         ],
       ),
       body: ListView.builder(
-          itemCount: _displayBanner ? _numItems + 1 : _numItems,
+          itemCount: _displayBanner ? _itemCount + 1 : _itemCount,
           itemBuilder: (context, index) {
             if (index == 0 && _displayBanner) {
               return banner;
