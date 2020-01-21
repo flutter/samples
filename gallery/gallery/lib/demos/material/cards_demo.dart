@@ -381,7 +381,6 @@ class CardsDemo extends StatefulWidget {
 class _CardsDemoState extends State<CardsDemo> {
   @override
   Widget build(BuildContext context) {
-    Widget child;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
