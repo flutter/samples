@@ -15,28 +15,28 @@ function getFlutterPath() {
     done
 }
 
-localSdkPath=$(getFlutterPath)
+readonly LOCAL_SDK_PATH=$(getFlutterPath)
 
-if [ -z "$localSdkPath" ]
+if [ -z "${LOCAL_SDK_PATH}" ]
 then
-    echo "Failed to find the Flutter SDK!."
+    echo "Failed to find the Flutter SDK!"
     exit 1
 fi
 
-echo "Flutter SDK found at ${localSdkPath}"
+echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
 
 echo "Pre-caching ios artifacts, such as the Flutter.framework"
-"${localSdkPath}/bin/flutter" precache --no-web --no-linux --no-windows --no-fuchsia --no-android
+"${LOCAL_SDK_PATH}/bin/flutter" precache --no-web --no-linux --no-windows --no-fuchsia --no-android --no-macos
 
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
-"${localSdkPath}/bin/flutter" packages get
-"${localSdkPath}/bin/flutter" build ios-framework --output=../ios_using_prebuilt_module/Flutter
+"${LOCAL_SDK_PATH}/bin/flutter" packages get
+"${LOCAL_SDK_PATH}/bin/flutter" build ios-framework --output=../ios_using_prebuilt_module/Flutter
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
-"${localSdkPath}/bin/flutter" packages get
+"${LOCAL_SDK_PATH}/bin/flutter" packages get
 popd
 
 
@@ -45,13 +45,16 @@ pushd "add_to_app/ios_fullscreen"
 
 pod install
 
-xcodebuild -quiet -workspace "IOSFullScreen.xcworkspace" \
+xcodebuild -workspace "IOSFullScreen.xcworkspace" \
 -scheme "IOSFullScreen" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Debug | xcpretty
 
-xcodebuild -quiet -workspace "IOSFullScreen.xcworkspace" \
+xcodebuild -workspace "IOSFullScreen.xcworkspace" \
 -scheme "IOSFullScreen" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
+-destination generic/platform=iOS | xcpretty
 
 popd
 
@@ -60,24 +63,30 @@ pushd "add_to_app/ios_using_plugin"
 
 pod install
 
-xcodebuild -quiet -workspace "IOSUsingPlugin.xcworkspace" \
+xcodebuild -workspace "IOSUsingPlugin.xcworkspace" \
 -scheme "IOSUsingPlugin" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Debug | xcpretty
 
-xcodebuild -quiet -workspace "IOSUsingPlugin.xcworkspace" \
+xcodebuild -workspace "IOSUsingPlugin.xcworkspace" \
 -scheme "IOSUsingPlugin" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
+-destination generic/platform=iOS | xcpretty
 
 popd
 
 echo "== Testing 'add_to_app/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
 pushd "add_to_app/ios_using_prebuilt_module"
 
-xcodebuild -quiet CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Debug
+xcodebuild CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Debug | xcpretty
 
-xcodebuild -quiet CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- CONFIGURATION=Release
+xcodebuild CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
+-destination generic/platform=iOS | xcpretty
 
 popd
 
