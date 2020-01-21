@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
+
 // BEGIN cardsDemo
 
 enum CardDemoType {
@@ -16,16 +18,22 @@ enum CardDemoType {
 
 class TravelDestination {
   const TravelDestination({
+    @required this.assetName,
+    @required this.assetPackage,
     @required this.title,
     @required this.description,
     @required this.city,
     @required this.location,
     this.type = CardDemoType.standard,
-  })  : assert(title != null),
+  })  : assert(assetName != null),
+        assert(assetPackage != null),
+        assert(title != null),
         assert(description != null),
         assert(city != null),
         assert(location != null);
 
+  final String assetName;
+  final String assetPackage;
   final String title;
   final String description;
   final String city;
@@ -35,6 +43,8 @@ class TravelDestination {
 
 List<TravelDestination> destinations(BuildContext context) => [
       TravelDestination(
+        assetName: 'places/india_thanjavur_market.png',
+        assetPackage: _kGalleryAssetsPackage,
         title:
             GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle1,
         description: GalleryLocalizations.of(context)
@@ -44,6 +54,8 @@ List<TravelDestination> destinations(BuildContext context) => [
             .cardsDemoTravelDestinationLocation1,
       ),
       TravelDestination(
+        assetName: 'places/india_chettinad_silk_maker.png',
+        assetPackage: _kGalleryAssetsPackage,
         title:
             GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle2,
         description: GalleryLocalizations.of(context)
@@ -54,6 +66,8 @@ List<TravelDestination> destinations(BuildContext context) => [
         type: CardDemoType.tappable,
       ),
       TravelDestination(
+        assetName: 'places/india_tanjore_thanjavur_temple.png',
+        assetPackage: _kGalleryAssetsPackage,
         title:
             GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle3,
         description: GalleryLocalizations.of(context)
@@ -276,7 +290,18 @@ class TravelDestinationContent extends StatelessWidget {
           height: 184,
           child: Stack(
             children: [
-              Container(color: theme.colorScheme.secondary),
+              Positioned.fill(
+                // In order to have the ink splash appear above the image, you
+                // must use Ink.image. This allows the image to be painted as
+                // part of the Material and display ink effects above it. Using
+                // a standard Image will obscure the ink splash.
+                child: Ink.image(
+                  image: AssetImage(destination.assetName,
+                      package: destination.assetPackage),
+                  fit: BoxFit.cover,
+                  child: Container(),
+                ),
+              ),
               Positioned(
                 bottom: 16,
                 left: 16,
