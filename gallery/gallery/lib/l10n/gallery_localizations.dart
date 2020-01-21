@@ -241,6 +241,38 @@ class GalleryLocalizations {
             r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
+  String get bannerDemoLeadingText {
+    return Intl.message(r'Leading Icon',
+        locale: _localeName,
+        name: 'bannerDemoLeadingText',
+        desc:
+            r'If user clicks this button the leading icon in the Banner will disappear');
+  }
+
+  String get bannerDemoMultipleText {
+    return Intl.message(r'Multiple actions',
+        locale: _localeName,
+        name: 'bannerDemoMultipleText',
+        desc:
+            r'When the user clicks this button the Banner will toggle multiple actions or a single action');
+  }
+
+  String get bannerDemoResetText {
+    return Intl.message(r'Reset the banner',
+        locale: _localeName,
+        name: 'bannerDemoResetText',
+        desc: r'Show the Banner to the user again.');
+  }
+
+  String get bannerDemoText {
+    return Intl.message(
+        r'Your password was updated on your other device. Please sign in again.',
+        locale: _localeName,
+        name: 'bannerDemoText',
+        desc:
+            r'Password was updated on a different device and the user is required to sign in again');
+  }
+
   String get bottomAppBarNotch {
     return Intl.message(r'Notch',
         locale: _localeName,
@@ -2958,6 +2990,14 @@ class GalleryLocalizations {
         desc: r'Button text to display a dialog.');
   }
 
+  String get dismiss {
+    return Intl.message(r'DISMISS',
+        locale: _localeName,
+        name: 'dismiss',
+        desc:
+            r'When text is pressed the banner widget will be removed from the screen.');
+  }
+
   String get homeCategoryReference {
     return Intl.message(r'REFERENCE STYLES & MEDIA',
         locale: _localeName,
@@ -4185,6 +4225,13 @@ class GalleryLocalizations {
         name: 'shrineTooltipSettings',
         desc:
             r'The tooltip text for a settings button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver.');
+  }
+
+  String get signIn {
+    return Intl.message(r'Sign In',
+        locale: _localeName,
+        name: 'signIn',
+        desc: r'Sign in label to sign into website.');
   }
 
   String get starterAppDescription {

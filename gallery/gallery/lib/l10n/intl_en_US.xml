@@ -14,6 +14,30 @@
     description="A description about how to view the source code for this app."
     >To see the source code for this app, please visit the {value}.</string>
   <string
+    name="signIn"
+    description="Sign in label to sign into website."
+    >Sign In</string>
+  <string
+    name="bannerDemoText"
+    description="Password was updated on a different device and the user is required to sign in again"
+    >Your password was updated on your other device. Please sign in again.</string>
+  <string
+    name="bannerDemoResetText"
+    description="Show the Banner to the user again."
+    >Reset the banner</string>
+  <string
+    name="bannerDemoMultipleText"
+    description="When the user clicks this button the Banner will toggle multiple actions or a single action"
+    >Multiple actions</string>
+  <string
+    name="bannerDemoLeadingText"
+    description="If user clicks this button the leading icon in the Banner will disappear"
+    >Leading Icon</string>
+  <string
+    name="dismiss"
+    description="When text is pressed the banner widget will be removed from the screen."
+    >DISMISS</string>
+  <string
     name="backToGallery"
     description="Semantic label for back button to exit a study and return to the gallery home page."
     >Back to Gallery</string>

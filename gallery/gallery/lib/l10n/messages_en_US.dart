@@ -92,6 +92,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Back to Gallery"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Leading Icon"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Multiple actions"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Reset the banner"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Your password was updated on your other device. Please sign in again."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Notch"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Floating Action Button Position"),
@@ -762,6 +770,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("REFERENCE STYLES & MEDIA"),
         "homeHeaderCategories":
@@ -1026,6 +1035,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Search"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Settings"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("A responsive starter layout"),
         "starterAppDrawerItem": m24,

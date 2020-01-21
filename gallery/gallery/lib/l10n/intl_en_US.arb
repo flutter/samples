@@ -14,13 +14,25 @@
     }
   },
   "signIn": "Sign In",
-  "@signIn":
+  "@signIn": {
     "description": "Sign in label to sign into website."
   },
   "bannerDemoText": "Your password was updated on your other device. Please sign in again.",
   "@bannerDemoText": {
     "description": "Password was updated on a different device and the user is required to sign in again"
   },
+  "bannerDemoResetText": "Reset the banner",
+  "@bannerDemoResetText": {
+    "description": "Show the Banner to the user again."
+  },
+  "bannerDemoMultipleText": "Multiple actions",
+  "@bannerDemoMultipleText": {
+    "description": "When the user clicks this button the Banner will toggle multiple actions or a single action"
+  },
+  "bannerDemoLeadingText": "Leading Icon",
+  "@bannerDemoLeadingText": {
+    "description": "If user clicks this button the leading icon in the Banner will disappear"
+   },
   "dismiss": "DISMISS",
   "@dismiss": {
     "description": "When text is pressed the banner widget will be removed from the screen."

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:gallery/l10n/gallery_localizations.dart';
 
 // BEGIN bannerDemo
 
@@ -13,10 +14,6 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
-  const BannerDemo({Key key}) : super(key: key);
-
-  static const String routeName = '/material/banner';
-
   @override
   _BannerDemoState createState() => _BannerDemoState();
 }
@@ -48,14 +45,14 @@ class _BannerDemoState extends State<BannerDemo> {
   @override
   Widget build(BuildContext context) {
     final Widget banner = MaterialBanner(
-      content: const Text(
-          'Your password was updated on your other device. Please sign in again.'),
+      content: Text(
+          GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading
           ? const CircleAvatar(child: Icon(Icons.access_alarm))
           : null,
-      actions: <Widget>[
+      actions: [
         FlatButton(
-          child: const Text('SIGN IN'),
+          child: Text(GalleryLocalizations.of(context).signIn),
           onPressed: () {
             setState(() {
               _displayBanner = false;
@@ -64,7 +61,7 @@ class _BannerDemoState extends State<BannerDemo> {
         ),
         if (_showMultipleActions)
           FlatButton(
-            child: const Text('DISMISS'),
+            child: Text(GalleryLocalizations.of(context).dismiss),
             onPressed: () {
               setState(() {
                 _displayBanner = false;
@@ -76,25 +73,25 @@ class _BannerDemoState extends State<BannerDemo> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Banner'),
-        actions: <Widget>[
+        title: Text(GalleryLocalizations.of(context).demoBannerTitle),
+        actions: [
           PopupMenuButton<BannerDemoAction>(
             onSelected: handleDemoAction,
             itemBuilder: (context) => <PopupMenuEntry<BannerDemoAction>>[
-              const PopupMenuItem<BannerDemoAction>(
+              PopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.reset,
-                child: Text('Reset the banner'),
+                child: Text(GalleryLocalizations.of(context).bannerDemoResetText),
               ),
               const PopupMenuDivider(),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showMultipleActions,
                 checked: _showMultipleActions,
-                child: const Text('Multiple actions'),
+                child: Text(GalleryLocalizations.of(context).bannerDemoMultipleText),
               ),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showLeading,
                 checked: _showLeading,
-                child: const Text('Leading icon'),
+                child: Text(GalleryLocalizations.of(context).bannerDemoLeadingText),
               ),
             ],
           ),

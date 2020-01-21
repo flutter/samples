@@ -79,14 +79,14 @@ List<GalleryDemo> materialDemos(BuildContext context) {
   final localizations = GalleryLocalizations.of(context);
   return [
     GalleryDemo(
-      title: 'Banner',
-      icon: GalleryIcons.backdrop,
-      subtitle: 'Displaying a Banner within a list',
+      title: localizations.demoBannerTitle,
+      icon: GalleryIcons.listsLeaveBehind,
+      subtitle: localizations.demoBannerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Banner',
+          title: localizations.demoBannerTitle,
           description:
-              'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.',
+              localizations.demoBannerDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
           buildRoute: (_) => BannerDemo(),
