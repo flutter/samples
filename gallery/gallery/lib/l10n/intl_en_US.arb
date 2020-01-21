@@ -13,6 +13,18 @@
       }
     }
   },
+  "signIn": "Sign In",
+  "@signIn":
+    "description": "Sign in label to sign into website."
+  },
+  "bannerDemoText": "Your password was updated on your other device. Please sign in again.",
+  "@bannerDemoText": {
+    "description": "Password was updated on a different device and the user is required to sign in again"
+  },
+  "dismiss": "DISMISS",
+  "@dismiss": {
+    "description": "When text is pressed the banner widget will be removed from the screen."
+  },
   "backToGallery": "Back to Gallery",
   "@backToGallery": {
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
