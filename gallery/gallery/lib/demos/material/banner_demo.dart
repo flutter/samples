@@ -19,10 +19,10 @@ class BannerDemo extends StatefulWidget {
 }
 
 class _BannerDemoState extends State<BannerDemo> {
-  static const int _numItems = 20;
-  bool _displayBanner = true;
-  bool _showMultipleActions = true;
-  bool _showLeading = true;
+  static const _numItems = 20;
+  var _displayBanner = true;
+  var _showMultipleActions = true;
+  var _showLeading = true;
 
   void handleDemoAction(BannerDemoAction action) {
     setState(() {
@@ -44,7 +44,7 @@ class _BannerDemoState extends State<BannerDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget banner = MaterialBanner(
+    final banner = MaterialBanner(
       content: Text(GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading
           ? const CircleAvatar(child: Icon(Icons.access_alarm))
@@ -72,6 +72,7 @@ class _BannerDemoState extends State<BannerDemo> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoBannerTitle),
         actions: [
           PopupMenuButton<BannerDemoAction>(

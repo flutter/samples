@@ -379,6 +379,116 @@ class GalleryLocalizations {
         desc: r'Tooltip text for a create button.');
   }
 
+  String get cardsDemoExplore {
+    return Intl.message(r'Explore',
+        locale: _localeName,
+        name: 'cardsDemoExplore',
+        desc: r'Click to see more about the content in the cards demo.');
+  }
+
+  String cardsDemoExploreSemantics(Object destinationName) {
+    return Intl.message(r'Explore $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoExploreSemantics',
+        desc:
+            r'Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoSelectable {
+    return Intl.message(r'Selectable (long press)',
+        locale: _localeName,
+        name: 'cardsDemoSelectable',
+        desc:
+            r'If the user taps and hold this card. The card will toggled between on and off.');
+  }
+
+  String cardsDemoShareSemantics(Object destinationName) {
+    return Intl.message(r'Share $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoShareSemantics',
+        desc:
+            r'Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoTappable {
+    return Intl.message(r'Tappable',
+        locale: _localeName,
+        name: 'cardsDemoTappable',
+        desc: r'The user can tap this button');
+  }
+
+  String get cardsDemoTravelDestinationCity1 {
+    return Intl.message(r'Thanjavur',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity1',
+        desc: r'Thanjavur the city');
+  }
+
+  String get cardsDemoTravelDestinationCity2 {
+    return Intl.message(r'Chettinad',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity2',
+        desc: r'Chettinad the city');
+  }
+
+  String get cardsDemoTravelDestinationDescription1 {
+    return Intl.message(r'Number 10',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription1',
+        desc: r'Number 10');
+  }
+
+  String get cardsDemoTravelDestinationDescription2 {
+    return Intl.message(r'Silk Spinners',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription2',
+        desc: r'Silk Spinners');
+  }
+
+  String get cardsDemoTravelDestinationDescription3 {
+    return Intl.message(r'Temples',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription3',
+        desc: r'Temples');
+  }
+
+  String get cardsDemoTravelDestinationLocation1 {
+    return Intl.message(r'Thanjavur, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation1',
+        desc: r'Thanjavur, Tamil Nadu');
+  }
+
+  String get cardsDemoTravelDestinationLocation2 {
+    return Intl.message(r'Sivaganga, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation2',
+        desc: r'Sivaganga, Tamil Nadu');
+  }
+
+  String get cardsDemoTravelDestinationTitle1 {
+    return Intl.message(r'Top 10 Cities to Visit in Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle1',
+        desc: r'The top 10 cities that you can visit in Tamil Nadu');
+  }
+
+  String get cardsDemoTravelDestinationTitle2 {
+    return Intl.message(r'Artisans of Southern India',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle2',
+        desc: r'Artist that are from Southern India');
+  }
+
+  String get cardsDemoTravelDestinationTitle3 {
+    return Intl.message(r'Brihadisvara Temple',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle3',
+        desc: r'Brihadisvara Temple');
+  }
+
   String get chipBiking {
     return Intl.message(r'Biking',
         locale: _localeName,
@@ -1321,7 +1431,7 @@ class GalleryLocalizations {
   }
 
   String get demoBannerSubtitle {
-    return Intl.message(r'Displaying a Banner within a list',
+    return Intl.message(r'Displaying a banner within a list',
         locale: _localeName,
         name: 'demoBannerSubtitle',
         desc: r'Subtitle for the material banner component demo.');

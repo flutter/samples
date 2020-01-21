@@ -24,6 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Placeholder for ${title} tab";
 
+  static m25(destinationName) => "Explore ${destinationName}";
+
+  static m26(destinationName) => "Share ${destinationName}";
+
   static m2(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'No Restaurants', one: '1 Restaurant', other: '${totalRestaurants} Restaurants')}";
 
@@ -41,9 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Discrete: ${value}";
 
-  static m25(value) => "Checked: ${value}";
+  static m27(value) => "Checked: ${value}";
 
-  static m26(value) => "Selected: ${value}";
+  static m28(value) => "Selected: ${value}";
 
   static m9(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
 
@@ -124,6 +128,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("BUTTON"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Create"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Explore"),
+        "cardsDemoExploreSemantics": m25,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Selectable (long press)"),
+        "cardsDemoShareSemantics": m26,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("Tappable"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Number 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Silk Spinners"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Temples"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Top 10 Cities to Visit in Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Artisans of Southern India"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisvara Temple"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Biking"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Elevator"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Fireplace"),
@@ -348,7 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
             "A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed."),
         "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Displaying a Banner within a list"),
+            "Displaying a banner within a list"),
         "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."),
@@ -569,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "An item with a sectioned menu"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("An item with a simple menu"),
-        "demoMenuChecked": m25,
+        "demoMenuChecked": m27,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("Context menu item one"),
         "demoMenuContextMenuItemThree":
@@ -587,7 +618,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("One"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Preview"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Remove"),
-        "demoMenuSelected": m26,
+        "demoMenuSelected": m28,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Share"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Menu buttons and simple menus"),

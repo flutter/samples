@@ -42,6 +42,66 @@
     description="Semantic label for back button to exit a study and return to the gallery home page."
     >Back to Gallery</string>
   <string
+    name="cardsDemoTappable"
+    description="The user can tap this button"
+    >Tappable</string>
+  <string
+    name="cardsDemoSelectable"
+    description="If the user taps and hold this card. The card will toggled between on and off."
+    >Selectable (long press)</string>
+  <string
+    name="cardsDemoExplore"
+    description="Click to see more about the content in the cards demo."
+    >Explore</string>
+  <string
+    name="cardsDemoExploreSemantics"
+    description="Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil"
+    >Explore {destinationName}</string>
+  <string
+    name="cardsDemoShareSemantics"
+    description="Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil"
+    >Share {destinationName}</string>
+  <string
+    name="cardsDemoTravelDestinationTitle1"
+    description="The top 10 cities that you can visit in Tamil Nadu"
+    >Top 10 Cities to Visit in Tamil Nadu</string>
+  <string
+    name="cardsDemoTravelDestinationDescription1"
+    description="Number 10"
+    >Number 10</string>
+  <string
+    name="cardsDemoTravelDestinationCity1"
+    description="Thanjavur the city"
+    >Thanjavur</string>
+  <string
+    name="cardsDemoTravelDestinationLocation1"
+    description="Thanjavur, Tamil Nadu"
+    >Thanjavur, Tamil Nadu</string>
+  <string
+    name="cardsDemoTravelDestinationTitle2"
+    description="Artist that are from Southern India"
+    >Artisans of Southern India</string>
+  <string
+    name="cardsDemoTravelDestinationDescription2"
+    description="Silk Spinners"
+    >Silk Spinners</string>
+  <string
+    name="cardsDemoTravelDestinationCity2"
+    description="Chettinad the city"
+    >Chettinad</string>
+  <string
+    name="cardsDemoTravelDestinationLocation2"
+    description="Sivaganga, Tamil Nadu"
+    >Sivaganga, Tamil Nadu</string>
+  <string
+    name="cardsDemoTravelDestinationTitle3"
+    description="Brihadisvara Temple"
+    >Brihadisvara Temple</string>
+  <string
+    name="cardsDemoTravelDestinationDescription3"
+    description="Temples"
+    >Temples</string>
+  <string
     name="homeHeaderGallery"
     description="Header title on home screen for Gallery section."
     >Gallery</string>
@@ -472,7 +532,7 @@
   <string
     name="demoBannerSubtitle"
     description="Subtitle for the material banner component demo."
-    >Displaying a Banner within a list</string>
+    >Displaying a banner within a list</string>
   <string
     name="demoBannerDescription"
     description="Description for the material banner component demo."
