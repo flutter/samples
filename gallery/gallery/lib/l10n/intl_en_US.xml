@@ -16,7 +16,7 @@
   <string
     name="signIn"
     description="Sign in label to sign into website."
-    >Sign In</string>
+    >SIGN IN</string>
   <string
     name="bannerDemoText"
     description="Password was updated on a different device and the user is required to sign in again"
@@ -75,7 +75,7 @@
     >Thanjavur</string>
   <string
     name="cardsDemoTravelDestinationLocation1"
-    description="Thanjavur, Tamil Nadu"
+    description="Thanjavur, Tamil Nadu is a location"
     >Thanjavur, Tamil Nadu</string>
   <string
     name="cardsDemoTravelDestinationTitle2"
@@ -91,7 +91,7 @@
     >Chettinad</string>
   <string
     name="cardsDemoTravelDestinationLocation2"
-    description="Sivaganga, Tamil Nadu"
+    description="Sivaganga, Tamil Nadu is a location"
     >Sivaganga, Tamil Nadu</string>
   <string
     name="cardsDemoTravelDestinationTitle3"

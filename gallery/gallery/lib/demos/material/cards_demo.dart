@@ -391,7 +391,7 @@ class _CardsDemoState extends State<CardsDemo> {
         child: ListView(
           padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
           children: [
-            for (final destination in destinations(context)) ...[
+            for (final destination in destinations(context))
               Container(
                 margin: const EdgeInsets.only(bottom: 8),
                 child: (destination.type == CardDemoType.standard)
@@ -402,29 +402,7 @@ class _CardsDemoState extends State<CardsDemo> {
                         : SelectableTravelDestinationItem(
                             destination: destination),
               ),
-            ],
           ],
-
-//          children: destinations(context).map<Widget>((destination) {
-//            Widget child;
-//            switch (destination.type) {
-//              case CardDemoType.standard:
-//                child = TravelDestinationItem(destination: destination);
-//                break;
-//              case CardDemoType.tappable:
-//                child = TappableTravelDestinationItem(destination: destination);
-//                break;
-//              case CardDemoType.selectable:
-//                child =
-//                    SelectableTravelDestinationItem(destination: destination);
-//                break;
-//            }
-//
-//            return Container(
-//              margin: const EdgeInsets.only(bottom: 8),
-//              child: child,
-//            );
-//          }).toList(),
         ),
       ),
     );

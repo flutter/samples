@@ -1066,7 +1066,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Search"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Settings"),
-        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("A responsive starter layout"),
         "starterAppDrawerItem": m24,

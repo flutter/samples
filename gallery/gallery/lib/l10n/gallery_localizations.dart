@@ -458,14 +458,14 @@ class GalleryLocalizations {
     return Intl.message(r'Thanjavur, Tamil Nadu',
         locale: _localeName,
         name: 'cardsDemoTravelDestinationLocation1',
-        desc: r'Thanjavur, Tamil Nadu');
+        desc: r'Thanjavur, Tamil Nadu is a location');
   }
 
   String get cardsDemoTravelDestinationLocation2 {
     return Intl.message(r'Sivaganga, Tamil Nadu',
         locale: _localeName,
         name: 'cardsDemoTravelDestinationLocation2',
-        desc: r'Sivaganga, Tamil Nadu');
+        desc: r'Sivaganga, Tamil Nadu is a location');
   }
 
   String get cardsDemoTravelDestinationTitle1 {
@@ -4338,7 +4338,7 @@ class GalleryLocalizations {
   }
 
   String get signIn {
-    return Intl.message(r'Sign In',
+    return Intl.message(r'SIGN IN',
         locale: _localeName,
         name: 'signIn',
         desc: r'Sign in label to sign into website.');

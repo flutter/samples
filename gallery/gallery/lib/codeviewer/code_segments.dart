@@ -6318,8 +6318,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.baseStyle, text: 'context'),
       TextSpan(style: codeStyle.punctuationStyle, text: '))'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.punctuationStyle, text: '...['),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.classStyle, text: 'Container'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
@@ -6398,77 +6396,8 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
-      TextSpan(style: codeStyle.punctuationStyle, text: '],'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
       TextSpan(style: codeStyle.punctuationStyle, text: '],'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '//          children: destinations(context).map<Widget>((destination) {'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle, text: '//            Widget child;'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//            switch (destination.type) {'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//              case CardDemoType.standard:'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '//                child = TravelDestinationItem(destination: destination);'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//                break;'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//              case CardDemoType.tappable:'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '//                child = TappableTravelDestinationItem(destination: destination);'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//                break;'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//              case CardDemoType.selectable:'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle, text: '//                child ='),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '//                    SelectableTravelDestinationItem(destination: destination);'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//                break;'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//            }'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//            return Container('),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text: '//              margin: const EdgeInsets.only(bottom: 8),'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(
-          style: codeStyle.commentStyle, text: '//              child: child,'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//            );'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.commentStyle, text: '//          }).toList(),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a        '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
