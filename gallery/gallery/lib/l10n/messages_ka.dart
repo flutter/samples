@@ -41,46 +41,50 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "დისკრეტული: ${value}";
 
-  static m9(name, phoneNumber) => "${name} ტელეფონის ნომერია ${phoneNumber}";
+  static m9(value) => "მონიშნულია: ${value}";
 
-  static m10(value) => "თქვენ აირჩიეთ: „${value}“";
+  static m10(value) => "არჩეულია: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} ტელეფონის ნომერია ${phoneNumber}";
+
+  static m12(value) => "თქვენ აირჩიეთ: „${value}“";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} ანგარიში ${accountNumber}, თანხა ${amount}.";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "ამ თვეში ბანკომატების გადასახადებში დახარჯული გაქვთ ${amount}";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "კარგია! თქვენს მიმდინარე ანგარიშზე ნაშთი გასულ თვესთან შედარებით ${percent}-ით მეტია.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "გატყობინებთ, რომ ამ თვეში უკვე დახარჯული გაქვთ საყიდლებისთვის განკუთვნილი ბიუჯეტის ${percent}.";
 
-  static m15(amount) => "რესტორნებში ამ კვირაში დახარჯული გაქვთ ${amount}.";
+  static m17(amount) => "რესტორნებში ამ კვირაში დახარჯული გაქვთ ${amount}.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'გაზარდეთ თქვენი პოტენციური საგადასახადო გამოქვითვა! მიანიჭეთ კატეგორია 1 მიუმაგრებელ ტრანსაქციას.', other: 'გაზარდეთ თქვენი პოტენციური საგადასახადო გამოქვითვა! მიანიჭეთ კატეგორია ${count} მიუმაგრებელ ტრანსაქციას.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName} ანგარიშის გასწორების ვადაა ${date}, თანხა: ${amount}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} ბიუჯეტი, დახარჯული თანხა: ${amountUsed} / ${amountTotal}-დან, დარჩენილი თანხა: ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ერთეულები არ არის', one: '1 ერთეული', other: '${quantity} ერთეული')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "რაოდენობა: ${quantity}";
+  static m23(quantity) => "რაოდენობა: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'საყიდლების კალათა, ერთეულები არ არის', one: 'საყიდლების კალათა, 1 ერთეული', other: 'საყიდლების კალათა, ${quantity} ერთეული')}";
 
-  static m23(product) => "ამოიშალოს ${product}";
+  static m25(product) => "ამოიშალოს ${product}";
 
-  static m24(value) => "ერთეული ${value}";
+  static m26(value) => "ერთეული ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -89,6 +93,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter-ის ნიმუშების საცავი GitHub-ზე"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("გალერეაში დაბრუნება"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("ჭრილი"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "მოქმედების მოლივლივე ღილაკის პოზიცია"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("ჩამაგრებული — ცენტრში"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("ჩამაგრებული — ბოლოში"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("მოლივლივე — ცენტრში"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("მოლივლივე — ბოლოში"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ანგარიში"),
         "bottomNavigationAlarmTab":
@@ -334,6 +349,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("გაფრთხილება"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("გაფრთხილება სათაურით"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "აპების ქვედა ზოლები უზრუნველყოფს წვდომას ნავიგაციის ქვედა უჯრაზე და ოთხამდე მოქმედებაზე, მათ შორის მოქმედების მოლივლივე ღილაკზე."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ნავიგაციასა და მოქმედებებს აჩვენებს ბოლოში"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("აპების ქვედა ზოლი"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "ნავიგაციის ქვედა ზოლები ეკრანის ქვედა ნაწილში აჩვენებს სამიდან ხუთ დანიშნულების ადგილამდე. დანიშნულების თითოეული ადგილი წარმოდგენილია ხატულათი და არასვალდებულო ტექსტური ლეიბლით. ქვედა ნავიგაციის ხატულაზე შეხებისას მომხმარებელი გადადის ხატულასთან დაკავშირებულ ზედა დონის სამიზნე ნავიგაციაზე."),
         "demoBottomNavigationPersistentLabels":
@@ -364,9 +385,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "მუდმივი და მოდალური ქვედა ფურცლები"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("ქვედა ფურცელი"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("ტექსტური ველები"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ბრტყელი, ამოწეული, კონტურული და სხვა"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ღილაკები"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("საკონტროლო სიის მენიუ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "კომპაქტური ელემენტები, რომლებიც წარმოადგენენ შენატანს, ატრიბუტს ან ქმედებას"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("ჩიპები"),
@@ -374,6 +399,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "არჩევანის ჩიპები წარმოადგენს ნაკრებიდან ერთ არჩევანს. არჩევანის ჩიპები შეიცავს დაკავშირებულ აღმნიშვნელ ტექსტს ან კატეგორიას."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Choice Chip"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Material Design-ის პროგრესის წრიული ინდიკატორი, რომლის ბრუნვაც მიუთითებს, რომ აპლიკაცია დაკავებულია."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("პროგრესის წრიული ინდიკატორი"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("კოდის ნიმუში"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -386,10 +416,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "წინასწარ განსაზღვრული ყველა ფერი"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("ფერები"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("კონტექსტური მენიუ"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "ქმედებათა ფურცელი არის გაფრთხილების კონკრეტული სტილი, რომელიც მომხმარებელს სთავაზობს მიმდინარე კონტექსტთან დაკავშირებულ ორ ან მეტ არჩევანს. ქმედებათა ფურცელს შეიძლება ჰქონდეს სათაური, დამატებითი შეტყობინება და ქმედებათა სია."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("ქმედებათა ფურცელი"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-სტილის აქტივობის ინდიკატორი, რომელიც ბრუნავს საათის მიმართულებით."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-სტილის აქტივობის ინდიკატორი"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("აქტივობის ინდიკატორი"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "მხოლოდ გამაფრთხილებელი ღილაკები"),
@@ -411,6 +451,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-ის სტილის ღილაკები"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("ღილაკები"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-სტილის ნავიგაციის ზოლი. ნავიგაციის ზოლი წარმოადგენს ხელსაწყოთა ზოლს, რომელიც შეიცავს, სულ მცირე, ხელსაწყოთა ზოლის შუაში მოთავსებულ გვერდის სათაურს."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-სტილის ნავიგაციის ზოლი"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("ნავიგაციის ზოლი"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "ვიჯეტი, რომელიც ახორციელებს კონტენტის მართვას iOS-სტილის ჩამოწევით განახლებით."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "მართვა iOS-სტილის ჩამოწევით განახლებით"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("ჩამოწევით განახლება"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "გამოიყენება რამდენიმე ურთიერთგამომრიცხავ ვარიანტს შორის არჩევისთვის. როდესაც სეგმენტირებულ მართვაში ერთ ვარიანტს ირჩევთ, სხვა ვარიანტების არჩევა უქმდება."),
@@ -437,6 +492,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS-სტილის ქვედა ჩანართების ზოლი"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("ჩანართების ზოლი"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "სლაიდერები ზოლის გასწვრივ ასახავს მნიშვნელობათა დიაპაზონს, რომელთაგანაც მომხმარებლებს შეუძლიათ აირჩიონ ერთი მნიშვნელობა ან მნიშვნელობათა დიაპაზონი. სლაიდერს შეიძლება ჰქონდეს თემა და იყოს მორგებული."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("მორგებული სლაიდერები"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "მარტივი, გამაფრთხილებელი და სრულეკრანიანი"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("დიალოგები"),
@@ -460,6 +519,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("სრულ ეკრანზე"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("სრულ ეკრანზე"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "ცხრილის სახის სიები საუკეთესოა ერთგვაროვანი მონაცემების, ჩვეულებრივ სურათების, პრეზენტირებისთვის. თითოეულ ერთეულს ცხრილის სახის სიაში ეწოდება მოზაიკა."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("ქვედა კოლონტიტულით"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("ზედა კოლონტიტულით"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("მხოლოდ სურათები"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "მწკრივებისა და სვეტების განლაგება"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("ცხრილის სახის სიები"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("ინფორმაცია"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "ჩიპის შეუყვანა წარმოადგენს ინფორმაციის კომპლექსურ ნაწილს, როგორიც არის ერთეული (პიროვნება, ადგილი ან საგანი) ან საუბრის ტექსტი კომპაქტურ ფორმაში."),
@@ -467,6 +538,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("შეყვანის ჩიპი"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "URL-ის ჩვენება ვერ მოხერხდა:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Material Design-ის პროგრესის წრფივი ინდიკატორი, რომელიც ასევე ცნობილია როგორც პროგრესის ზოლი."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("პროგრესის წრფივი ინდიკატორი"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "ფიქსირებული სიმაღლის ერთი მწკრივი, რომელიც, ჩვეულებრივ, შეიცავს ტექსტს, ასევე ხატულას თავში ან ბოლოში."),
         "demoListsSecondary":
@@ -474,6 +550,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "განლაგებების სიაში გადაადგილება"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("სიები"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("მენიუს ერთეულის გათიშვა"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "ერთეული საკონტროლო სიის მენიუთი"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("ერთეული კონტექსტური მენიუთი"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "ერთეული სექციებად დაყოფილი მენიუთი"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("ერთეული მარტივი მენიუთი"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "კონტექსტური მენიუს პირველი ერთეული"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "კონტექსტური მენიუს მესამე ერთეული"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "მენიუ აჩვენებს ასარჩევი ვარიანტების სიას დროებით ზედაპირზე. ისინი გამოჩნდება მომხმარებლის ინტერაქციისას ღილაკზე, მოქმედებაზე ან მართვის სხვა საშუალებაზე."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("ოთხი"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("ბმულის მიღება"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("მენიუს პირველი ერთეული"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("მენიუს მესამე ერთეული"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("მენიუს მეორე ერთეული"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("ერთი"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("გადახედვა"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("ამოღება"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("გაზიარება"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "მენიუს ღილაკები და მარტივი მენიუები"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("სამი"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("მენიუ"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("ორი"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ერთი ხაზი"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -486,10 +600,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "კონტურულ ღილაკებზე დაჭერისას ისინი ხდება გაუმჭვირვალე და იწევა. ისინი ხშირად წყვილდება ამოწეულ ღილაკებთან ალტერნატიული, მეორეული ქმედების მისანიშნებლად."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("კონტურული ღილაკი"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "წრფივი, წრიული, განუსაზღვრელი"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("პროგრესის ინდიკატორები"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ამოწეული ღილაკები ბრტყელ განლაგებების უფრო მოცულობითს ხდის. გადატვირთულ ან ფართო სივრცეებზე ფუნქციებს კი — უფრო შესამჩნევს."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("ამოწეული ღილაკი"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "სლაიდერები ზოლის გასწვრივ ასახავს მნიშვნელობათა დიაპაზონს. სლაიდერებს ზოლის ორივე ბოლოში შეიძლება ჰქონდეს ხატულები, რომლებიც ასახავს მნიშვნელობათა დიაპაზონს. ისინი იდეალურია ისეთი პარამეტრების კორექტირებისთვის, როგორიც არის ხმის სიმძლავრე და სიკაშკაშე, ან სურათის ფილტრების მისადაგებისთვის."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("დიაპაზონის სლაიდერები"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("სექციებად დაყოფილი მენიუ"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "მოსანიშნი ველები მომხმარებელს საშუალებას აძლევს, აირჩიოს რამდენიმე ვარიანტი ნაკრებიდან. ჩვეულებრივი მოსანიშნი ველის მნიშვნელობებია სწორი ან არასწორი, ხოლო სამმდგომარეობიანი მოსანიშნი ველის მნიშვნელობა შეიძლება იყოს ნულიც."),
@@ -513,6 +637,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "მარტივი დიალოგი მომხმარებელს რამდენიმე ვარიანტს შორის არჩევანის გაკეთების საშუალებას აძლევს. სურვილისამებრ, მარტივ დიალოგს შეიძლება ჰქონდეს სათაური, რომელიც გამოჩნდება არჩევანის ზემოთ."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("მარტივი"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("მარტივი მენიუ"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("უწყვეტი"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "უწყვეტი დიაპაზონის სლაიდერი მორგებული თემით"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "უწყვეტი რედაქტირებადი რიცხობრივი მნიშვნელობით"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "სლაიდერები ზოლის გასწვრივ ასახავს მნიშვნელობათა დიაპაზონს, რომელთაგანაც მომხმარებლებს შეუძლიათ აირჩიონ ერთი მნიშვნელობა. ისინი იდეალურია ისეთი პარამეტრების კორექტირებისთვის, როგორიც არის ხმის სიმძლავრე და სიკაშკაშე, ან სურათის ფილტრების მისადაგებისთვის."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("დისკრეტული"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "დისკრეტული სლაიდერი მორგებული თემით"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "რედაქტირებადი რიცხობრივი მნიშვნელობა"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ვიჯეტები მნიშვნელობის გადაფურცვლით ასარჩევად"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("სლაიდერები"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "თქვენ დააჭირეთ სნეკ-ზოლის მოქმედებას."),
         "demoSnackbarsActionButtonLabel":
@@ -549,7 +696,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ცხოვრებისეული ამბავი"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("სახელი*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("საჭიროა სახელი."),
         "demoTextFieldNoMoreThan":
@@ -589,6 +736,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "გადართვის ღილაკების მეშვეობით შესაძლებელია მსგავსი ვარიანტების დაჯგუფება. გადართვის ღილაკების დაკავშირებული ჯგუფებს უნდა ჰქონდეს საერთო კონტეინერი."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("გადართვის ღილაკები"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "მინიშნებები გაწვდიან ტექსტურ ლეიბლებს, რომლებშიც ახსნილია ღილაკის ან სამომხმარებლო ინტერფეისის სხვა მოქმედებების ფუნქცია. მინიშნებები აჩვენებს ინფორმაციის შემცველ ტექსტს მომხმარებლის მიერ ელემენტზე გადატარებისას, ფოკუსირებისას ან ხანგრძლივად დაჭერისას."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "ხანგრძლივად დააჭირეთ ან გადაატარეთ მინიშნების საჩვენებლად."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "მოკლე შეტყობინება, რომელიც გამოჩნდება ხანგრძლივი დაჭერით ან გადატარებით"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("მინიშნებები"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("ორი ხაზი"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -614,7 +768,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google-ისთვის ნების დართვა, რომ აპებს მდებარეობის ამოცნობაში დაეხმაროს. ეს ნიშნავს, რომ Google-ში გადაიგზავნება მდებარეობის ანონიმური მონაცემები მაშინაც კი, როდესაც აპები გაშვებული არ არის."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "გსურთ Google-ის მდებარეობის სერვისის გამოყენება?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "სარეზერვო ანგარიშის დაყენება"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("დიალოგის ჩვენება"),
@@ -623,7 +777,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("კატეგორიები"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("გალერეა"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("სანაპირო"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("ბრინჯაოს ნაკეთობები"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("ჩენაი"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("ჩეტინადი"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("მეთევზე"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("ყვავილების ბაზრობა"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("ლანჩის მომზადება"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("ბაზრობა"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("პონდიჩერი"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Salt Farm"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("სკუტერები"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("მეაბრეშუმე"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("ტანჯური"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("ტანჯავურის ტაძარი"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("დანაზოგები მანქანისთვის"),
         "rallyAccountDataChecking":
@@ -649,15 +821,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("სულ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ანგარიშები"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("გაფრთხილებები"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("გადასახადები"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("გადასახდელია"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ტანსაცმელი"),
         "rallyBudgetCategoryCoffeeShops":
@@ -759,7 +931,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("გაუქმება"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("კალათის გასუფთავება"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("კალათა"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("მიწოდება:"),
@@ -822,8 +994,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("მუქი ლურჯი შარვალი"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("თაბაშირისფერი ტუნიკა"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet-ის მაგიდა"),
         "shrineProductRainwaterTray":
@@ -862,10 +1034,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("თეთრი ზოლებიანი მაისური"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-ს ქამარი"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("კალათაში დამატება"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("კალათის დახურვა"),
         "shrineTooltipCloseMenu":
@@ -879,7 +1051,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("პარამეტრები"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ადაპტირებადი საწყისი განლაგება"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("ძირითადი ტექსტი"),
         "starterAppGenericButton":

@@ -41,45 +41,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "වෙන් වූ: ${value}";
 
-  static m9(name, phoneNumber) => "${name} දුරකථන අංකය ${phoneNumber}";
+  static m9(value) => "පරීක්ෂා කළ: ${value}";
 
-  static m10(value) => "ඔබ මෙය තෝරා ඇත: \"${value}\"";
+  static m10(value) => "තෝරා ගත්: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} දුරකථන අංකය ${phoneNumber}";
+
+  static m12(value) => "ඔබ මෙය තෝරා ඇත: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} ගිණුම ${accountNumber} ${amount}කි.";
 
-  static m12(amount) => "ඔබ මේ මාසයේ ATM ගාස්තු සඳහා ${amount} වියදම් කර ඇත";
+  static m14(amount) => "ඔබ මේ මාසයේ ATM ගාස්තු සඳහා ${amount} වියදම් කර ඇත";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "හොඳ වැඩක්! ඔබගේ ගෙවීම් ගිණුම පසුගිය මාසයට වඩා ${percent} වැඩිය.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "දැනුම්දීමයි, ඔබ මේ මාසය සඳහා ඔබේ සාප්පු සවාරි අයවැයෙන් ${percent} භාවිත කර ඇත.";
 
-  static m15(amount) => "ඔබ මේ සතියේ අවන්හල් සඳහා ${amount} වියදම් කර ඇත";
+  static m17(amount) => "ඔබ මේ සතියේ අවන්හල් සඳහා ${amount} වියදම් කර ඇත";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'ඔබේ විය හැකි බදු අඩු කිරීම වැඩි කරන්න! නොපවරන ලද ගනුදෙනු 1කට වර්ගීකරණ පවරන්න.', other: 'ඔබේ විය හැකි බදු අඩු කිරීම වැඩි කරන්න! නොපවරන ලද ගනුදෙනු ${count}කට වර්ගීකරණ පවරන්න.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName} බිල්පත ${date} දිනට ${amount}කි.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${amountTotal} කින් ${amountUsed}ක් භාවිත කළ ${budgetName} අයවැය, ඉතිරි ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'අයිතම නැත', one: 'අයිතම 1', other: 'අයිතම ${quantity}')}";
 
-  static m20(price) => "x {මිල}";
+  static m22(price) => "x {මිල}";
 
-  static m21(quantity) => "ප්‍රමාණය: ${quantity}";
+  static m23(quantity) => "ප්‍රමාණය: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'සාප්පු යාමේ කරත්තය, අයිතම නැත', one: 'සාප්පු යාමේ කරත්තය, අයිතම 1', other: 'සාප්පු යාමේ කරත්තය, අයිතම ${quantity}')}";
 
-  static m23(product) => "ඉවත් කරන්න ${product}";
+  static m25(product) => "ඉවත් කරන්න ${product}";
 
-  static m24(value) => "අයිතමය ${value}";
+  static m26(value) => "අයිතමය ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -88,6 +92,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter නිදර්ශන GitHub ගබඩාව"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ගැලරිය වෙත ආපසු යන්න"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("නොච්"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "පාවෙන ක්‍රියා බොත්තමේ පිහිටීම"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("රඳවා ඇත - මැද"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("රඳවා ඇත - අග"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("පාවෙන - මැද"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("පාවෙන - අග"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("ගිණුම"),
         "bottomNavigationAlarmTab":
@@ -333,6 +348,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("ඇඟවීම"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("මාතෘකාව සමග ඇඟවීම"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "පහළ යෙදුම් තීරුව පහළ සංචාලන ලාච්චුවකට සහ පාවෙන ක්‍රියා බොත්තම ඇතුළුව ක්‍රියා හතරක් දක්වා ප්‍රවේශය සපයයි."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "පහළදී සංචාලනය සහ ක්‍රියා සංදර්ශනය කරයි"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("පහළ යෙදුම් තීරුව"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "පහළ සංචාලන තීරු තිරයක පහළින්ම ගමනාන්ත තුනක් හෝ පහක් පෙන්වයි. එක් එක් ගමනාන්තය නිරූපකයක් සහ විකල්ප පෙළ ලේබලයක් මගින් නියෝජනය කෙරේ. පහළ සංචාලන නිරූපකයක් තට්ටු කළ විට, පරිශීලකයා එම නිරූපකය හා සම්බන්ධ ඉහළම මට්ටමේ සංචාලන ගමනාන්තයට ගෙන යනු ලැබේ."),
         "demoBottomNavigationPersistentLabels":
@@ -363,9 +384,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "දිගටම පවතින සහ ආදර්ශ පහළ පත්‍ර"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("පහළ පත්‍රය"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("පෙළ ක්ෂේත්‍ර"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "පැතලි, එසවූ, වැටිසන සහ තවත් දේ"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("බොත්තම්"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("පිරික්සුම් ලැයිස්තු මෙනුව"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "ආදානය, ආරෝපණය හෝ ක්‍රියාව නියෝජනය කරන සංගත අංගයකි"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("චිප"),
@@ -373,6 +398,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "තේරීම් චිප කට්ටලයකින් තනි තේරීමක් නියෝජනය කරයි. තේරීම් චිප අදාළ විස්තරාත්මක පෙළ හෝ කාණ්ඩ අඩංගු වේ."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("චිපය තේරීම"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "යෙදුම කාර්ය බහුල බව දැක්වීමට භ්‍රමණය වන ද්‍රව්‍ය සැලසුම් වෘත්තාකාර ප්‍රගති දර්ශකයකි."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("වෘත්තාකාර ප්‍රගති දර්ශකය"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("කේත සාම්පලය"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -385,10 +415,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("පූර්ව නිශ්චිත වර්ණ සියල්ල"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("වර්ණ"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("සන්දර්භ මෙනුව"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "ක්‍රියා පත්‍රයක් යනු වත්මන් සංදර්භයට සම්බන්ධිත තෝරා ගැනීම් දෙකක හෝ වැඩි ගණනක කුලකයක් සහිත පරිශීලකට ඉදිරිපත් කරන විශේෂිත ඇඟවීමේ විලාසයකි. ක්‍රියා පත්‍රයක මාතෘකාවක්, අමතර පණිවිඩයක් සහ ක්‍රියා ලැයිස්තුවක් තිබිය හැකිය."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("ක්‍රියා පත්‍රය"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "දක්ෂිණාවර්තව භ්‍රමණය වන iOS-විලාසයේ ක්‍රියාකාරකම් දර්ශකය."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-විලාස ක්‍රියාකාරකම් දර්ශක"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("ක්‍රියාකාරකම් දර්ශකය"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ඇඟවීම් බොත්තම් පමණයි"),
         "demoCupertinoAlertButtonsTitle":
@@ -409,6 +449,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-විලාස බොත්තම්"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("බොත්තම්"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-විලාසයේ සංචලන තීරුවකි. සංචාලන තීරුව යනු මෙවලම් තීරුව මධ්‍යයේ අවම වශයෙන් පිටු මාතෘකාවකින් සමන්විත මෙවලම් තීරුවකි."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-විලාස සංචලන තීරුව"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("සංචලන තීරුව"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-විලාසයේ නැවුම් කිරීමට ඇදීමේ පාලනය ක්‍රියාත්මක කරන විජට් එකකි."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-විලාසයේ නැවුම් කිරීමට ඇදීමේ පාලනය"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("නැවුම් කිරීමට අදින්න"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "අන්‍යෝන්‍ය වශයෙන් බහිෂ්කාර විකල්ප ගණනාවක් අතර තෝරා ගැනීමට භාවිත කරයි. කොටස් කළ පාලනයේ එක් විකල්පයක් තෝරා ගත් විට, කොටස් කළ පාලනයේ අනෙක් විකල්ප තෝරා ගැනීම නතර වේ."),
@@ -434,6 +489,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-විලාස බොත්තම් ටැබ තීරුව"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("ටැබ තීරුව"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ස්ලයිඩර් තීරුවක් ඔස්සේ අගයන් පරාසයක් පිළිබිඹු කරන අතර එමඟින් පරිශීලකයන්ට තනි අගයක් හෝ අගයන් පරාසයක් තෝරා ගත හැකිය. ස්ලයිඩර් තේමා ගත කර අභිරුචිකරණය කළ හැකිය."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("අභිරුචි ස්ලයිඩර්"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("සරල, ඇඟවීම සහ පූර්ණ තිරය"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("සංවාද"),
@@ -457,12 +516,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("පූර්ණ තිරය"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("පූර්ණ තිරය"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "සාමාන්‍යයෙන් රූප, සමජාතීය දත්ත ඉදිරිපත් කිරීම සඳහා ජාලක ලැයිස්තු වඩාත් සුදුසු වේ. ජාලක ලැයිස්තුවක ඇති එක් එක් අයිතමය ටයිලයක් ලෙස හැඳින්වේ."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("පාදකය සමග"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("ශීර්ෂකය සමග"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("රූපය පමණී"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("පේළී සහ තීරු පිරිසැලසුම"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("ජාලක ලැයිස්තු"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("තතු"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "ආදාන චිප (පුද්ගලයෙක්, ස්ථානයක් හෝ දෙයක්) වැනි සංකීර්ණ තොරතුරු කොටසක් හෝ සංයුක්ත ආකෘතියක සංවාදාත්මක පෙළක් නියෝජනය කරයි."),
         "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("ආදාන චිපය"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL සංදර්ශනය කළ නොහැකි විය:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "ද්‍රව්‍ය සැලසුම් රේඛීය ප්‍රගති දර්ශකයකි, එය ප්‍රගති තීරුවක් ලෙස ද හැඳින්වේ."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("රේඛීය ප්‍රගති දර්ශකය"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "සාමාන්‍යයෙන් සමහර පෙළ මෙන්ම ඉදිරිපස හෝ පසුපස අයිකනයක් අඩංගු වන තනි ස්ථීර උසක් ඇති පේළියකි."),
         "demoListsSecondary":
@@ -470,6 +546,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "අනුචලනය කිරීමේ ලැයිස්තු පිරිසැලසුම්"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("ලැයිස්තු"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("අබල කළ මෙනු අයිතමය"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "පිරික්සුම් ලැයිස්තු මෙනුවක් සහිත අයිතමයක්"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "සන්දර්භය මෙනුවක් සහිත අයිතමයක්"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "කොටස් කළ මෙනුවක් සහිත අයිතමයක්"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("සරල මෙනුවක් සහිත අයිතමයක්"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("සන්දර්භ මෙනු අයිතම එක"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("සන්දර්භ මෙනු අයිතමය තුන"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "මෙනුවක් තාවකාලික මතුපිටක තේරීම් ලැයිස්තුවක් පෙන්වයි. පරිශීලකයන් බොත්තමක්, ක්‍රියාවක් හෝ වෙනත් පාලනයක් සමඟ අන්තර්ක්‍රියා කරන විට ඒවා දිස් වේ."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("හතර"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("සබැඳිය ලබා ගන්න"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("මෙනු අයිතම එක"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("මෙනු අයිතම තුන"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("මෙනු අයිතම දෙක"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("එක"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("පෙරදසුන"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("ඉවත් කරන්න"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("බෙදා ගන්න"),
+        "demoMenuSubtitle":
+            MessageLookupByLibrary.simpleMessage("මෙනු බොත්තම් සහ සරල මෙනු"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("තුන"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("මෙනුව"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("දෙක"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("පේළි එකයි"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -481,10 +596,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "වැටිසන බොත්තම් එබූ විට අපැහැදිලි වන අතර ඉස්සේ. ඒවා නිතර විකල්ප, ද්විතීයික ක්‍රියාවක් දැක්වීමට එසවූ බොත්තම් සමග යුගළ වේ."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("සරාංශ බොත්තම"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "රේඛීය, වෘත්තාකාර, අවිනිශ්චිත"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("ප්‍රගති දර්ශක"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "එසවූ බොත්තම් බොහෝ විට පැතලි පිරිසැලසුම් වෙත පිරිවිතර එක් කරයි. ඒවා කාර්ය බහුල හෝ පුළුල් ඉඩවල ශ්‍රිත අවධාරණය කරයි."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("එසවූ බොත්තම"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ස්ලයිඩර් තීරුවක් ඔස්සේ අගයන් පරාසයක් පිළිබිඹු කරයි. ඔවුන්ට අගයන් පරාසයක් පිළිබිඹු කරන තීරුවේ දෙකෙළවරම අයිකන තබා ගත හැකිය. පරිමාව, දීප්තිය හෝ රූප පෙරහන් යෙදීම වැනි සැකසීම් සීරුමාරු කිරීම සඳහා ඒවා ඉතා සුදුසුය."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("පරාස ස්ලයිඩර්"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("කොටස් කළ මෙනුව"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "තේරීම් කොටු පරිශීලකයන්ට කට්ටලයකින් විකල්ප කීපයක් තේරීමට ඉඩ දෙයි. සාමාන්‍ය තේරීම් කොටුවක අගය සත්‍ය හෝ අසත්‍ය වන අතර ත්‍රිවිධාකාර තේරීම් කොටුවක අගය ද ශුන්‍ය විය හැකිය."),
@@ -507,6 +632,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "සරල සංවාදයක් විකල්ප කීපයක් අතර තෝරා ගැනීමක් පිරිනමයි. සරල සංවාදයක තෝරා ගැනීම් ඉහළ සංදර්ශනය වන විකල්ප මාතෘකාවක් ඇත."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("සරල"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("සරල මෙනුව"),
+        "demoSlidersContinuous": MessageLookupByLibrary.simpleMessage("අඛණ්ඩ"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "අභිරුචි තේමාව සමග අඛණ්ඩ පරාස ස්ලයිඩරය"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "සංස්කරණය කළ හැකි සංඛ්‍යාත්මක අගය සමඟ පවත්වාගෙන යයි"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "ස්ලයිඩර් තීරුවක් ඔස්සේ අගයන් පරාසයක් පිළිබිඹු කරන අතර එමඟින් පරිශීලකයන්ට තනි අගයක් තෝරා ගත හැකිය. පරිමාව, දීප්තිය හෝ රූප පෙරහන් යෙදීම වැනි සැකසීම් සීරුමාරු කිරීම සඳහා ඒවා ඉතා සුදුසුය."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("විවික්ත"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "අභිරුචි තේමාව සමග විවික්ත ස්ලයිඩරය"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "සංස්කරණය කළ හැකි සංඛ්‍යාත්මක අගය"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ස්වයිප් කිරීමෙන් අගයක් තේරීම සඳහා විජට්"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("ස්ලයිඩර්"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "ඔබ ස්නැක්බාර් ක්‍රියාව ඔබා ඇත."),
         "demoSnackbarsActionButtonLabel":
@@ -542,7 +688,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("ජීවිත කථාව"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("නම*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("නම අවශ්‍යයි."),
         "demoTextFieldNoMoreThan":
@@ -583,6 +729,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "සම්බන්ධිත විකල්ප සමූහගත කිරීමට ටොගල බොත්තම් භාවිත කළ හැකිය. සම්බන්ධිත ටොගල බොත්තම සමූහ අවධාරණය කිරීමට, සමූහයක් පොදු බහාලුමක් බෙදා ගත යුතුය"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("ටොගල බොත්තම්"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "මෙවලම් ඉඟි බොත්තමක හෝ වෙනත් පරිශීලක අතුරුමුහුණත් ක්‍රියාවක ශ්‍රිතය පැහැදිලි කිරීමට සහාය වන පෙළ ලේබල සපයයි. පරිශීලකයන් මූලාංගයක් උඩින් තබා ගන්නා විට, අවධානය යොමු කරන විට හෝ දිගු ඔබන විට මෙවලම් ඉඟි තොරතුරු විස්තර කරන පෙළ පෙන්වයි."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "මෙවලම් ඉඟිය පෙන්වීමට දිගු ඔබන්න නැතහොත් උඩින් තබා ගන්න."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "දිගු එබීමක හෝ උඩින් තබා ගැනීමක සංදර්ශනය වන කෙටි පණිවිඩය"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("මෙවලම් ඉඟි"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("පේළි දෙකයි"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -609,7 +762,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "යෙදුම්වලට ස්ථානය තීරණය කිරීම සඳහා සහාය වීමට Google හට ඉඩ දෙන්න. මෙයින් අදහස් කරන්නේ කිසිදු යෙදුමක් හෝ ධාවනය නොවන විට පවා Google වෙත නිර්නාමික ස්ථාන දත්ත යැවීමයි."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google හි පිහිටීම් සේවාව භාවිත කරන්නද?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("උපස්ථ ගිණුම සකසන්න"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("සංවාදය පෙන්වන්න"),
@@ -618,7 +771,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("ප්‍රවර්ග"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ගැලරිය"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("වෙරළ"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("ලෝකඩ වැඩ"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("චෙන්නායි"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("චෙට්ටිනාඩ්"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("ධීවරයා"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("මල් වෙළඳපොළ"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("දිවා ආහාරය පිළියෙළ කිරීම"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("වෙළඳපොළ"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("පොන්ඩිචෙරි"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("ලුණු ලේවාය"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("ස්කූටර්"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("සේද කර්මාන්තකරු"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("තන්ජෝර්"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("තන්ජාවූර් කෝවිල"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("මෝටර් රථ සුරැකුම්"),
         "rallyAccountDataChecking":
@@ -642,15 +813,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("එකතුව"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("ගිණුම්"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ඇඟවීම්"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("බිල්පත්"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("නියමිත"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ඇඳුම්"),
         "rallyBudgetCategoryCoffeeShops":
@@ -749,7 +920,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("අවලංගු කරන්න"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("කරත්තය හිස් කරන්න"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("බහලුම"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("නැව්ගත කිරීම:"),
@@ -809,8 +980,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -849,10 +1020,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("කරත්තයට එක් කරන්න"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("බහලුම වසන්න"),
         "shrineTooltipCloseMenu":
@@ -866,7 +1037,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("සැකසීම්"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("ප්‍රතිචාරාත්මක පිරිසැලසුමක්"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("අන්තර්ගතය"),
         "starterAppGenericButton":

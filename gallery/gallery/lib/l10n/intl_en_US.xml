@@ -1122,6 +1122,10 @@
     description="Description for the switches (selection controls) demo."
     >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</string>
   <string
+    name="demoBottomTextFieldsTitle"
+    description="Title for text fields demo."
+    >Text fields</string>
+  <string
     name="demoTextFieldTitle"
     description="Title for text fields demo."
     >Text fields</string>

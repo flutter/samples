@@ -41,47 +41,51 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "ជាក់លាក់៖ ${value}";
 
-  static m9(name, phoneNumber) => "លេខទូរសព្ទ​របស់ ${name} គឺ ${phoneNumber}";
+  static m9(value) => "បាន​ធីក​៖ ${value}";
 
-  static m10(value) => "អ្នកបាន​ជ្រើសរើស៖ \"${value}\"";
+  static m10(value) => "បាន​ជ្រើសរើស​៖ ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "លេខទូរសព្ទ​របស់ ${name} គឺ ${phoneNumber}";
+
+  static m12(value) => "អ្នកបាន​ជ្រើសរើស៖ \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "គណនី ${accountName} ${accountNumber} ដែលមាន​ទឹកប្រាក់ ${amount}។";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "អ្នកបានចំណាយ​អស់ ${amount} សម្រាប់ថ្លៃសេវា ATM នៅខែនេះ";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "ល្អណាស់! គណនីមូលប្បទានបត្រ​របស់អ្នកគឺ​ខ្ពស់ជាង​ខែមុន ${percent}។";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "សូមប្រុងប្រយ័ត្ន អ្នកបានប្រើអស់ ${percent} នៃថវិកាទិញ​ទំនិញរបស់អ្នក​សម្រាប់ខែនេះ។";
 
-  static m15(amount) =>
+  static m17(amount) =>
       "អ្នកបាន​ចំណាយអស់ ${amount} លើភោជនីយដ្ឋាន​នៅសប្ដាហ៍នេះ។";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'បង្កើន​ការកាត់ពន្ធ​របស់អ្នក​ដែលអាច​មាន! កំណត់​ប្រភេទ​ទៅ​ប្រតិបត្តិការ 1 ដែលមិនបានកំណត់។', other: 'បង្កើន​ការកាត់ពន្ធ​របស់អ្នក​ដែលអាច​មាន! កំណត់​ប្រភេទ​ទៅ​ប្រតិបត្តិការ ${count} ដែលមិនបានកំណត់។')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "វិក្កយបត្រ ${billName} ដែលមានតម្លៃ ${amount} ផុតកំណត់​នៅថ្ងៃទី ${date}។";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "ថវិកា ${budgetName} ដែលចំណាយអស់ ${amountUsed} នៃទឹកប្រាក់សរុប ${amountTotal} ហើយនៅសល់ ${amountLeft}";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'មិនមាន​ទំនិញ​ទេ', one: 'ទំនិញ 1', other: 'ទំនិញ ${quantity}')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "បរិមាណ៖ ${quantity}";
+  static m23(quantity) => "បរិមាណ៖ ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'រទេះទិញទំនិញ គ្មានទំនិញ', one: 'រទេះទិញទំនិញ ទំនិញ 1', other: 'រទេះទិញទំនិញ ទំនិញ ${quantity}')}";
 
-  static m23(product) => "ដក ${product} ចេញ";
+  static m25(product) => "ដក ${product} ចេញ";
 
-  static m24(value) => "ធាតុទី ${value}";
+  static m26(value) => "ធាតុទី ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -90,6 +94,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "ឃ្លាំង GitHub នៃគំរូ Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ត្រឡប់​ទៅ Gallery"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("ក្បាលឆក"),
+        "bottomAppBarPosition":
+            MessageLookupByLibrary.simpleMessage("ទីតាំងប៊ូតុងសកម្មភាពអណ្ដែត"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("ភ្ជាប់ - កណ្ដាល"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("ភ្ជាប់ - ចុង"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("អណ្ដែត - កណ្ដាល"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("អណ្ដែត - ចុង"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("គណនី"),
         "bottomNavigationAlarmTab":
@@ -334,6 +349,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ការជូនដំណឹង"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("ជូនដំណឹង​រួមជាមួយ​ចំណងជើង"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "របារកម្មវិធី​ផ្នែកខាងក្រោមផ្ដល់​សិទ្ធិចូលប្រើ​ថត​​រុករក​នៅផ្នែកខាងក្រោម និងសកម្មភាព​រហូតដល់បួន រួមទាំងប៊ូតុងសកម្មភាពអណ្ដែត​ផងដែរ។"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "បង្ហាញ​ការរុករក និងសកម្មភាព​នៅផ្នែកខាងក្រោម"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("របារកម្មវិធី​ផ្នែកខាងក្រោម"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "របាររុករក​ខាងក្រោម​បង្ហាញគោលដៅបីទៅប្រាំ​នៅខាងក្រោម​អេក្រង់។ គោលដៅនីមួយៗ​ត្រូវបានតំណាង​ដោយរូបតំណាង និងស្លាកអក្សរ​ជាជម្រើស។ នៅពេលចុច​រូបរុករកខាងក្រោម អ្នកប្រើប្រាស់ត្រូវបាន​នាំទៅគោលដៅ​រុករកផ្នែកខាងលើ ដែលពាក់ព័ន្ធ​នឹងរូបតំណាងនោះ។"),
         "demoBottomNavigationPersistentLabels":
@@ -364,9 +385,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "សន្លឹកខាងក្រោម​លក្ខណៈម៉ូដល និងភើស៊ីស្ទើន"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("សន្លឹក​ខាងក្រោម"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("កន្លែងបញ្ចូលអក្សរ"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ប៊ូតុង​រាបស្មើ ប៊ូតុង​ផុសឡើង ប៊ូតុង​មានបន្ទាត់ជុំវិញ និង​ច្រើនទៀត"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ប៊ូតុង"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ​បញ្ជី​ត្រួតពិនិត្យ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "ធាតុ​ចង្អៀតដែល​តំណាងឱ្យ​ធាតុ​បញ្ចូល លក្ខណៈ ឬ​សកម្មភាព"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("ឈីប"),
@@ -374,6 +399,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "ឈីប​ជម្រើស​តំណាងឱ្យ​ជម្រើស​តែមួយ​ពី​បណ្ដុំ​មួយ​។ ឈីប​ជម្រើស​មាន​ប្រភេទ ឬ​អត្ថបទ​បែប​ពណ៌នា​ដែល​ពាក់ព័ន្ធ​។"),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("ឈីប​ជម្រើស"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "សូចនាករដំណើរការរាងរង្វង់នៃរចនាប័ទ្មសម្ភារ ដែលវិលដើម្បី​បង្ហាញថា​កម្មវិធី​កំពុងជាប់រវល់។"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("សូចនាករដំណើរការរាងរង្វង់"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("គំរូកូដ"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("បានចម្លង​ទៅ​ឃ្លីបបត។"),
@@ -385,10 +415,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ពណ៌ដែល​បានកំណត់​ជាមុន​ទាំងអស់"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("ពណ៌"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ​បរិបទ"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "បញ្ជីសកម្មភាព​គឺជា​រចនាប័ទ្មនៃ​ការជូនដំណឹង​ជាក់លាក់ ដែល​បង្ហាញ​អ្នកប្រើប្រាស់​នូវបណ្ដុំ​ជម្រើសពីរ ឬច្រើនដែល​ពាក់ព័ន្ធនឹង​បរិបទ​បច្ចុប្បន្ន។ បញ្ជី​សកម្មភាព​អាចមាន​ចំណងជើង សារបន្ថែម និង​បញ្ជី​សកម្មភាព។"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("បញ្ជី​សកម្មភាព"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "សូចនាករសកម្មភាពរចនាប័ទ្ម iOS ដែលវិលស្របទ្រនិចនាឡិកា។"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "សូចនាករសកម្មភាពរចនាប័ទ្ម iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("សូចនាករសកម្មភាព"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង​ជូនដំណឹង​តែប៉ុណ្ណោះ"),
         "demoCupertinoAlertButtonsTitle":
@@ -409,6 +449,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង​ដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "របារ​រុករក​ដែលមាន​រចនាប័ទ្ម iOS​។ របារ​រុករក​គឺជា​របារ​ឧបករណ៍​ដែល​យ៉ាងហោចណាស់មាន​ចំណងជើង​ទំព័រ នៅផ្នែក​កណ្ដាលនៃ​របារ​ឧបករណ៍​។"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("របារ​រុករក​រចនាប័ទ្ម iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("របារ​រុករក"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "ធាតុ​ក្រាហ្វិក​ដែល​ប្រើ​ការគ្រប់គ្រងខ្លឹមសារ​តាមរយៈ​ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ​​រចនាប័ទ្ម iOS​។"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "ការគ្រប់គ្រង​ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ​​រចនាប័ទ្ម iOS"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ប្រើ​ដើម្បី​ជ្រើសរើស​រវាង​ជម្រើស​ដាច់ដោយឡែក​ផ្សេងៗគ្នា​មួយចំនួន។ នៅពេល​ជម្រើស​មួយ​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​ត្រូវបានជ្រើសរើស ជម្រើស​ផ្សេងទៀត​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​មិនត្រូវបានជ្រើសរើស​ទៀតទេ។"),
@@ -436,6 +491,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "របារផ្ទាំង​នៅផ្នែក​ខាងក្រោម​ដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("របារ​ផ្ទាំង"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "របាររំកិល​បង្ហាញ​ចន្លោះតម្លៃ​នៅលើរបារ ដែលអ្នកប្រើប្រាស់​អាចជ្រើសរើសតម្លៃមួយ ឬចន្លោះតម្លៃ។ អ្នកអាចកំណត់រចនាប័ទ្ម និងប្ដូរ​របាររំកិល​តាមបំណង។"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("របាររំកិលផ្ទាល់ខ្លួន"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ធម្មតា ការជូនដំណឹង និងពេញ​អេក្រង់"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ប្រអប់"),
@@ -459,6 +518,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ពេញ​អេក្រង់"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("អេក្រង់ពេញ"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "បញ្ជី​ក្រឡា​មានភាព​ស័ក្តិសម​បំផុត​សម្រាប់​បង្ហាញ​ទិន្នន័យ​ដែលមាន​លក្ខណៈ​ដូចៗគ្នា ដោយ​ជាធម្មតា​គឺជា​រូបភាព​។ គេ​ហៅ​ធាតុ​នីមួយៗ​នៅក្នុង​បញ្ជី​ក្រឡា​ថា​ប្រអប់។"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("មាន​ជើងទំព័រ"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("មាន​ក្បាលទំព័រ"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("រូបភាព​តែប៉ុណ្ណោះ"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("ប្លង់​ជួរដេក និង​ជួរឈរ"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("បញ្ជី​ក្រឡា"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("ព័ត៌មាន"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "ឈីប​ធាតុបញ្ចូល​តំណាងឱ្យ​ព័ត៌មានដ៏ស្មុគស្មាញ ដូចជា​ធាតុ (មនុស្ស ទីកន្លែង ឬ​វត្ថុ) ឬ​អត្ថបទ​សន្ទនា ជា​ទម្រង់​ចង្អៀត។"),
@@ -466,6 +537,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ឈីប​ធាតុ​បញ្ចូល"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("មិនអាច​បង្ហាញ URL បានទេ៖"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "សូចនាករដំណើរការរាងបន្ទាត់ត្រង់នៃរចនាប័ទ្មសម្ភារ ដែលអាចហៅម្យ៉ាងទៀតថារបារ​ដំណើរការ។"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "សូចនាករដំណើរការរាងបន្ទាត់ត្រង់"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "ជួរដេកតែមួយដែលមានកម្ពស់ថេរ ដែលជាទូទៅមានអក្សរមួយចំនួន ក៏ដូចជារូបតំណាងនៅពីមុខ ឬពីក្រោយ។"),
         "demoListsSecondary":
@@ -473,6 +550,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("ប្លង់​បញ្ជី​រំកិល"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("បញ្ជី"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("ធាតុ​ម៉ឺនុយ​ដែលបានបិទ"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "ធាតុ​ដែលមាន​ម៉ឺនុយ​បញ្ជី​ត្រួតពិនិត្យ"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("ធាតុ​ដែលមាន​ម៉ឺនុយ​បរិបទ"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("ធាតុ​ដែលមាន​ម៉ឺនុយ​តាមផ្នែក"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("ធាតុ​ដែលមាន​ម៉ឺនុយ​ធម្មតា"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "ធាតុ​ទីមួយ​ក្នុង​ម៉ឺនុយ​បរិបទ"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "ធាតុ​ទីបី​ក្នុង​ម៉ឺនុយ​បរិបទ"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "ម៉ឺនុយ​បង្ហាញ​បញ្ជី​ជម្រើស​នៅលើ​ផ្ទៃ​បណ្ដោះ​អាសន្ន​។ ជម្រើស​ទាំងនោះ​បង្ហាញ នៅពេល​អ្នកប្រើប្រាស់​ធ្វើអន្តរកម្ម​ជាមួយ​ប៊ូតុង សកម្មភាព ឬ​ការគ្រប់គ្រង​ផ្សេងទៀត​។"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("បួន"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("យក​តំណ"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("ធាតុម៉ឺនុយទីមួយ"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("ធាតុម៉ឺនុយទីបី"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("ធាតុម៉ឺនុយទីពីរ"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("មួយ"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("មើលសាកល្បង"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("លុប"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("ចែករំលែក"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ប៊ូតុង​ម៉ឺនុយ និង​ម៉ឺនុយ​ធម្មតា"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("បី"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("ពីរ"),
         "demoOneLineListsTitle": MessageLookupByLibrary.simpleMessage("មួយជួរ"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
             "សូមចុច​ត្រង់នេះ ដើម្បីមើល​ជម្រើសដែលមាន​សម្រាប់​ការសាកល្បង​នេះ។"),
@@ -483,10 +596,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "ប៊ូតុង​មានបន្ទាត់ជុំវិញ​ប្រែជា​ស្រអាប់ និង​ផុសឡើង​នៅពេលចុច។ ជាញឹកញាប់ ប៊ូតុងទាំងនេះត្រូវបានដាក់ជាគូជាមួយប៊ូតុងផុសឡើង ដើម្បីរំលេចសកម្មភាពបន្ទាប់បន្សំផ្សេង។"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុងមាន​បន្ទាត់ជុំវិញ"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "បន្ទាត់ត្រង់ រង្វង់ មិនកំណត់"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("សូចនាករដំណើរការ"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "ប៊ូតុង​ផុសឡើង​បន្ថែមវិមាត្រ​ទៅប្លង់​ដែលរាបស្មើភាគច្រើន។ ប៊ូតុង​ទាំងនេះ​រំលេច​មុខងារ​នៅកន្លែង​ដែលមមាញឹក ឬទូលាយ។"),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង​ផុសឡើង"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "របាររំកិល​បង្ហាញ​ចន្លោះតម្លៃ​នៅលើរបារ។ របាររំកិល​ទាំងនេះ​អាចមាន​រូបតំណាងនៅចុងទាំងពីរនៃរបារ ដែលបង្ហាញចន្លោះតម្លៃ។ របាររំកិលទាំងនេះស័ក្តិសមសម្រាប់​ការកែតម្រូវការកំណត់​ផ្សេងៗដូចជា កម្រិតសំឡេង ពន្លឺ ឬការអនុវត្តតម្រងរូបភាពជាដើម។"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("របាររំកិលចន្លោះតម្លៃ"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ​តាមផ្នែក"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ប្រអប់​ធីក​អនុញ្ញាតឱ្យ​អ្នកប្រើប្រាស់​ជ្រើសរើស​ជម្រើសច្រើន​ពីបណ្ដុំ​មួយ។ តម្លៃរបស់​ប្រអប់​ធីកធម្មតា​គឺពិត ឬមិនពិត ហើយតម្លៃ​របស់ប្រអប់ធីក​ដែលមាន​បីស្ថានភាពក៏អាច​ទទេ​បានផងដែរ។"),
@@ -509,6 +632,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "ប្រអប់ធម្មតា​ផ្ដល់ជូន​អ្នកប្រើប្រាស់​នូវជម្រើសមួយ​រវាង​ជម្រើស​មួយចំនួន។ ប្រអប់ធម្មតា​មាន​ចំណងជើង​ដែលជាជម្រើស ដែល​បង្ហាញនៅលើ​ជម្រើស។"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("ធម្មតា"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ​ធម្មតា"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("គ្មានចំណុចតម្លៃ"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "របាររំកិល​គ្មានចំណុចតម្លៃ រួមជាមួយរចនាប័ទ្មផ្ទាល់ខ្លួន"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "គ្មានចំណុចតម្លៃ រួមជាមួយតម្លៃលេខដែលអាចកែបាន"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "របាររំកិលបង្ហាញចន្លោះតម្លៃ​នៅលើរបារ ដែលអ្នកប្រើប្រាស់​អាចជ្រើសរើសតម្លៃមួយ។ របាររំកិលទាំងនេះស័ក្តិសមសម្រាប់​ការកែតម្រូវការកំណត់​ផ្សេងៗដូចជា កម្រិតសំឡេង ពន្លឺ ឬការអនុវត្តតម្រងរូបភាពជាដើម។"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("ជាក់លាក់"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "របាររំកិលតម្លៃជាក់លាក់ រួម​ជាមួយរចនាប័ទ្ម​ផ្ទាល់ខ្លួន"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("តម្លៃលេខដែលអាចកែបាន"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ធាតុ​ក្រាហ្វិកសម្រាប់ជ្រើសរើស​តម្លៃដោយការអូស"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("របាររំកិល"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "អ្នកបានចុច​សកម្មភាពរបស់​របារសារខ្លីៗ។"),
         "demoSnackbarsActionButtonLabel":
@@ -545,7 +689,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("រឿងរ៉ាវជីវិត"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("ឈ្មោះ*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("តម្រូវ​ឱ្យ​មាន​ឈ្មោះ។"),
         "demoTextFieldNoMoreThan":
@@ -587,6 +731,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "អាចប្រើ​ប៊ូតុងបិទ/បើក ដើម្បី​ដាក់ជម្រើស​ដែលពាក់ព័ន្ធ​ជាក្រុមបាន។ ដើម្បីរំលេចក្រុមប៊ូតុងបិទ/បើកដែលពាក់ព័ន្ធ ក្រុមប៊ូតុងគួរតែប្រើទម្រង់ផ្ទុកទូទៅរួមគ្នា"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុងបិទ/បើក"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "កំណត់​ពន្យល់​ផ្ដល់​ស្លាក​អត្ថបទ​ដែល​ជួយ​ពន្យល់​អំពី​មុខងារ​របស់​ប៊ូតុង ឬ​សកម្មភាព​នៃ​ផ្ទៃប៉ះ​ផ្សេងទៀត​។ កំណត់​ពន្យល់​បង្ហាញ​អត្ថបទ​ដែលផ្ដល់​ព័ត៌មាន​ជាប្រយោជន៍ នៅពេល​អ្នកប្រើប្រាស់​ដាក់ព្រួញ ផ្ដោត ឬ​ចុចលើ​ធាតុ​ឱ្យយូរ​។"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "ចុច​ឱ្យយូរ ឬ​ដាក់ព្រួញ ដើម្បី​បង្ហាញ​កំណត់​ពន្យល់​។"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "សារ​ខ្លី​ដែលបង្ហាញ​នៅពេល​ចុច​ឱ្យយូរ ឬ​ដាក់ព្រួញ"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("កំណត់​ពន្យល់"),
         "demoTwoLineListsTitle": MessageLookupByLibrary.simpleMessage("ពីរជួរ"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
             "និយមន័យសម្រាប់​រចនាប័ទ្មនៃ​ការរចនាអក្សរ ដែលបានរកឃើញ​នៅក្នុងរចនាប័ទ្មសម្ភារ។"),
@@ -611,7 +763,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "ឱ្យ Google ជួយ​កម្មវិធី​ក្នុងការកំណត់​ទីតាំង។ មានន័យថា​ផ្ញើទិន្នន័យ​ទីតាំង​អនាមិក​ទៅ Google ទោះបីជា​មិនមាន​កម្មវិធី​កំពុងដំណើរការ​ក៏ដោយ។"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "ប្រើ​សេវាកម្ម​ទីតាំង​របស់ Google?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("កំណត់​គណនី​បម្រុង​ទុក"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("បង្ហាញ​ប្រអប់"),
@@ -619,7 +771,26 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("មេឌៀ និងរចនាប័ទ្ម​យោង"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ប្រភេទ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("សាល​រូបភាព"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("ឆ្នេរ"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("រោងចក្រ​ស្ល​សំរឹទ្ធ"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("ជិនណៃ"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("ចិត្តធីណាដ"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("អ្នក​នេសាទ"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("ផ្សារ​លក់​ផ្កា"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("ការរៀបចំ​អាហារ​ថ្ងៃត្រង់"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("ទីផ្សារ"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("ផនឌីឈ័ររី"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("ស្រែ​អំបិល"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("កង់រុញ​ដោយ​ជើង"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("ឧបករណ៍ផលិតសូត្រ"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("ថាន់ចរ"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("ប្រាសាទ​ថាន់ចាវួរ"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("គណនី​សន្សំទិញរថយន្ត"),
         "rallyAccountDataChecking":
@@ -644,15 +815,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("សរុប"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("គណនី"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ការជូនដំណឹង"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("វិក្កយបត្រ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ចំនួនត្រូវបង់"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("សម្លៀក​បំពាក់"),
         "rallyBudgetCategoryCoffeeShops":
@@ -750,7 +921,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("បោះបង់"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("សម្អាត​រទេះ"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("រទេះ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ការ​ដឹកជញ្ជូន៖"),
@@ -812,8 +983,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ខោជើងវែង Navy"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("តុ Quartet"),
         "shrineProductRainwaterTray":
@@ -852,10 +1023,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("អាវឆ្នូតពណ៌ស"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ខ្សែក្រវ៉ាត់ Whitney"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("បញ្ចូលទៅរទេះ"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("បិទ​ទំព័រ​រទេះ"),
         "shrineTooltipCloseMenu":
@@ -869,7 +1040,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ការកំណត់"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ស្រទាប់​ចាប់ផ្ដើមដែល​ឆ្លើយតបរហ័ស"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("តួ​អត្ថបទ"),
         "starterAppGenericButton":

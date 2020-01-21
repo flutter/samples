@@ -40,45 +40,49 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "পৃথক মান: ${value}";
 
-  static m9(name, phoneNumber) => "${name} ফোন নম্বর হল ${phoneNumber}";
+  static m9(value) => "চেক করা হয়েছে: ${value}";
 
-  static m10(value) => "আপনি বেছে নিয়েছেন: \"${value}\"";
+  static m10(value) => "বেছে নেওয়া হয়েছে: ${value}";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m11(name, phoneNumber) => "${name} ফোন নম্বর হল ${phoneNumber}";
+
+  static m12(value) => "আপনি বেছে নিয়েছেন: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName} অ্যাকাউন্ট ${accountNumber}-এ ${amount}।";
 
-  static m12(amount) => "এই মাসে এটিএম ফি হিসেবে আপনি ${amount} খরচ করেছেন";
+  static m14(amount) => "এই মাসে এটিএম ফি হিসেবে আপনি ${amount} খরচ করেছেন";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "ভাল হয়েছে! আপনার চেকিং অ্যাকাউন্ট আগের মাসের থেকে ${percent} বেশি।";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "আপডেট, আপনি এই মাসে ${percent} কেনাকাটার বাজেট ব্যবহার করে ফেলেছেন।";
 
-  static m15(amount) => "এই সপ্তাহে রেস্তোরাঁয় আপনি ${amount} খরচ করেছেন।";
+  static m17(amount) => "এই সপ্তাহে রেস্তোরাঁয় আপনি ${amount} খরচ করেছেন।";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'আপনার ট্যাক্সের সম্ভাব্য ছাড় বাড়ান! ১টি অ্যাসাইন না করা ট্রানজ্যাকশনে বিভাগ অ্যাসাইন করুন।', other: 'আপনার ট্যাক্সের সম্ভাব্য ছাড় বাড়ান! ${count}টি অ্যাসাইন না করা ট্রানজ্যাকশনে বিভাগ অ্যাসাইন করুন।')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName} ${date}-এ ${amount} টাকার বিল বাকি আছে।";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} বাজেটের ${amountTotal}-এর মধ্যে ${amountUsed} খরচ হয়েছে, ${amountLeft} বাকি আছে";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'কোনও আইটেম নেই', one: '১টি আইটেম', other: '${quantity}টি আইটেম')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "পরিমাণ: ${quantity}";
+  static m23(quantity) => "পরিমাণ: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'শপিং কার্ট, কোনও আইটেম নেই', one: 'শপিং কার্ট, ১টি আইটেম আছে', other: 'শপিং কার্ট, ${quantity}টি আইটেম আছে')}";
 
-  static m23(product) => "সরান {প্রোডাক্ট}";
+  static m25(product) => "সরান {প্রোডাক্ট}";
 
-  static m24(value) => "আইটেম ${value}";
+  static m26(value) => "আইটেম ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -87,6 +91,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter স্যাম্পেল GitHub রিপোজিটরি"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("গ্যালারিতে ফিরুন"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("নচ"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "যেখানে ফ্লোটিং অ্যাকশন বোতাম আছে"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("ডক করা - মাঝখানে"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("ডক করা - নিচের দিকে"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("ফ্লোটিং - মাঝখানে"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("ফ্লোটিং - নিচের দিকে"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট"),
         "bottomNavigationAlarmTab":
@@ -328,6 +343,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("সতর্কতা"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("সতর্ক বার্তার শীর্ষক"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "স্ক্রিনের নিচের দিকের অ্যাপ বার থেকে নিচের নেভিগেশন ড্রয়ার এবং ফ্লোটিং অ্যাকশন বোতাম সহ সর্বোচ্চ আরও চারটে অ্যাকশন অ্যাক্সেস করার অনুমতি দেয়।"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "স্ক্রিনের নিচের দিকে নেভিগেশন এবং অ্যাকশনের বিকল্প দেখান"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "স্ক্রিনের নিচের দিকে থাকা অ্যাপ বার"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "নিচের নেভিগেশন বার কোনও স্ক্রিনের নীচের দিকে তিন থেকে পাঁচটি গন্তব্য দেখায়। প্রতিটি গন্তব্য একটি আইকন এবং একটি এচ্ছিক টেক্সট লেবেল দিয়ে দেখানো হয়। নিচের নেভিগেশন আইকন ট্যাপ করা হলে, ব্যবহারকারীকে সেই আইকনের সাথে জড়িত একেবারে উপরের নেভিগেশন গন্তব্যে নিয়ে যাওয়া হয়।"),
         "demoBottomNavigationPersistentLabels":
@@ -356,9 +377,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetSubtitle": MessageLookupByLibrary.simpleMessage(
             "সব সময় দেখা যায় এমন এবং মোডাল বটম শিট"),
         "demoBottomSheetTitle": MessageLookupByLibrary.simpleMessage("বটম শিট"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("টেক্সট ফিল্ড"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ফ্ল্যাট, বাড়ানো, আউটলাইন এবং অনেক কিছু"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("চেকলিস্ট মেনু"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "সারিবদ্ধ এলিমেন্ট যা ইনপুট, অ্যাট্রিবিউট বা অ্যাকশনকে তুলে ধরে"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("চিপস"),
@@ -366,6 +391,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "পছন্দের চিপ সেটের থেকে একটি পছন্দকে তুলে ধরে। পছন্দের চিপে প্রাসঙ্গিক বর্ণনামূলক টেক্সট বা বিভাগ থাকে।"),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("পছন্দের চিপ"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "একটি বৃত্তাকার মেটেরিয়াল ডিজাইনের প্রগ্রেস নির্দেশক, যেটি অ্যাপ্লিকেশন কাজ করছে কিনা তা বোঝানোর জন্য ঘোরে।"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("বৃত্তাকার প্রগ্রেস নির্দেশক"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("কোডের উদাহরণ"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -378,10 +408,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("আগে থেকে যেসব দেখানো রঙ"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("রঙ"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("সংশ্লিষ্ট মেনু"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "একটি অ্যাকশন শিট হল নির্দিষ্ট ধরনের অ্যালার্ট যা ব্যবহারকারীদের কাছে বর্তমান প্রসঙ্গ সম্পর্কিত দুটি বা তারও বেশি সেট তুলে ধরে. অ্যাকশন শিটে শীর্ষক, অতিরিক্ত মেসেজ এবং অ্যাকশনের তালিকা থাকতে পারে।"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("অ্যাকশন শিট"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "একটি iOS-স্টাইলে অ্যাক্টিভিটি নির্দেশক যেটি ঘড়ির কাঁটার দিকে ঘোরে।"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-স্টাইলে অ্যাক্টিভিটি নির্দেশক"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("অ্যাক্টিভিটি নির্দেশক"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "শুধুমাত্র সতর্কতা বিষয়ক বোতাম"),
@@ -403,6 +443,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-স্টাইল বোতাম"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("বোতাম"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "একটি iOS-স্টাইলে নেভিগেশন বার। নেভিগেশন বার হল এমন একটি টুলবার যাতে কমপক্ষে একটি পৃষ্ঠার শীর্ষক থাকে, এটি টুলবারের মাঝে থাকে।"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-স্টাইলে নেভিগেশন বার"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("নেভিগেশন বার"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-স্টাইলে কন্টেন্টের নিয়ন্ত্রণ রিফ্রেশ করতে টেনে আনার জন্য যে উইজেট ব্যবহার করা হয়।"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-স্টাইলে নিয়ন্ত্রণ রিফ্রেশ করতে টানুন"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("রিফ্রেশ করতে টানুন"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "একটি ব্যবহার করলে অন্যটি ফ্রিজ হয়ে যাবে এমন কিছু বিকল্পের মধ্যে থেকে বেছে নেওয়ার জন্য ব্যবহার করা হয়। বিভাগীয় নিয়ন্ত্রনে একটি বিকল্প বেছে নিলে, অন্য বিকল্পগুলি আর বেছে নেওয়া যাবে না।"),
@@ -429,6 +484,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-স্টাইল বোতাম ট্যাব বার"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("ট্যাব বার"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "বারের সাথে সাথে স্লাইডার মানেরও ব্যাপ্তি দেখায়, যেখান থেকে ব্যবহারকারী কোনও একটি মান বা ব্যাপ্তির মান বেছে নিতে পারেন। স্লাইডারকে থিম প্রয়োগ করে সাজানো এবং কাস্টমাইজ করা যায়।"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("কাস্টম স্লাইডার"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "সাধারণ, সতর্কতা, ফুল-স্ক্রিন"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ডায়ালগ"),
@@ -452,12 +511,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("ফুল-স্ক্রিন"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "গ্রিডের তালিকা একই ধরনের ডেটা, সাধারণত ছবি, দেখানোর জন্য সবচেয়ে বেশি ব্যবহার করা হয়। গ্রিড তালিকায় থাকা প্রতিটি আইটেমকে একটি টাইল বলা হয়।"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("ফুটার সহ"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("হেডার সহ"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("শুধুমাত্র ছবি"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("সারি এবং কলামের লেআউট"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("গ্রিডের তালিকা"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("তথ্য"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "ইনপুট চিপে কোনও একটি এন্টিটি (ব্যক্তি, জায়গা অথবা বস্তু) বা কথোপকথন সংক্রান্ত টেক্সট সারিবদ্ধভাবে থাকে যেখানে জটিল তথ্য দেওয়া থাকে।"),
         "demoInputChipTitle": MessageLookupByLibrary.simpleMessage("ইনপুট চিপ"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL ডিসপ্লে করতে পারছে না:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "একটি মেটেরিয়াল ডিজাইন লিনিয়ার প্রগ্রেস নির্দেশক, যেটি প্রগ্রেস বার হিসেবেও পরিচিত।"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("লিনিয়ার প্রগ্রেস নির্দেশক"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "একক নির্দিষ্ট উচ্চতাসম্পন্ন সারি যেখানে কিছু টেক্সট সহ লিডিং অথবা ট্রেলিং আইকন রয়েছে।"),
         "demoListsSecondary":
@@ -465,6 +541,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "তালিকার লে-আউট স্ক্রল করা হচ্ছে"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("তালিকা"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("মেনু আইটেম দেখানো বন্ধ করুন"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("চেকলিস্ট মেনু সহ একটি আইটেম"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "সংশ্লিষ্ট মেনু সহ একটি আইটেম"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "বিভাগ অনুযায়ী ভাগ করা মেনু সহ একটি আইটেম"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("সহজ মেনু সহ একটি আইটেম"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("সংশ্লিষ্ট মেনুর প্রথম আইটেম"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("সংশ্লিষ্ট মেনুর তৃতীয় আইটেম"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "এমন একটি মেনু যা অস্থায়ী সারফেসে পছন্দের তালিকা দেখায়। ব্যবহারকারী কোনও বোতাম, অ্যাকশন বা অন্যান্য নিয়ন্ত্রণ ব্যবহার করলে এগুলি দেখা যায়।"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("চার"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("লিঙ্ক পান"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("মেনুর প্রথম আইটেম"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("মেনুর তৃতীয় আইটেম"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("মেনুর দ্বিতীয় আইটেম"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("এক"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("প্রিভিউ"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("সরিয়ে দিন"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("শেয়ার করুন"),
+        "demoMenuSubtitle":
+            MessageLookupByLibrary.simpleMessage("মেনু বোতাম এবং সহজ মেনু"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("তিন"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("মেনু"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("দুই"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("প্রতি সারিতে একটি লাইন"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -476,10 +589,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "আউটলাইন বোতাম প্রেস করলে অস্বচ্ছ হয়ে বড় হয়ে যায়। সেটি প্রায়ই একটি বিকল্প সেকেন্ডারি অ্যাকশন নির্দেশ করতে বড় হওয়া বোতামের সাথে ব্যবহার হয়।"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("আউটলাইন বোতাম"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "লিনিয়ার, বৃত্তাকার, অনির্দিষ্ট"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("কতটা এগিয়েছে তার নির্দেশক"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "বড় হওয়া বোতাম প্রায়ই ফ্ল্যাট লে-আউটকে আকার দিতে সাহায্য করে। ব্যস্ত বা চওড়া জায়গাতে তারা আরও গুরুত্ব দেয়।"),
         "demoRaisedButtonTitle": MessageLookupByLibrary.simpleMessage(
             "ক্রমশ উপরের দিকে যাওয়া বোতাম"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "বারের সাথে সাথে স্লাইডার মানেরও ব্যাপ্তি দেখায়। এর মধ্যে বারের দুই পাশের শেষে মানের ব্যাপ্তি নির্দেশক আইকন থাকতে পারে। ভলিউম, উজ্জ্বলতা বা ছবিতে ফিল্টার প্রয়োগ করা এমন সেটিংস অ্যাডজাস্ট করার জন্য এটি একটি আদর্শ বিকল্প।"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("রেঞ্জ স্লাইডার"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("বিভাগ অনুযায়ী ভাগ করা মেনু"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "চেকবক্স ব্যবহারকারীকে একটি সেট থেকে একাধিক বিকল্প বেছে নিতে দেয়। একটি সাধারণ চেকবক্সের মান সত্য বা মিথ্যা এবং একটি ট্রাইস্টেট চেকবক্সের মানটিও শূন্য হতে পারে।"),
@@ -502,6 +625,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "একটি সাধারণ ডায়ালগ ব্যবহারকারীদের কাছে একাধিক বিকল্পের মধ্যে একটি বেছে নেওয়ার সুযোগ করে দেয়। একটি সাধারণ ডায়ালগে একটি ঐচ্ছিক শীর্ষক থাকলে, তা বেছে নেওয়ার বিকল্পগুলি উপরে উল্লেখ করা আছে।"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("সাধারণ"),
+        "demoSimpleMenuTitle": MessageLookupByLibrary.simpleMessage("সহজ মেনু"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("নিরবিচ্ছিন্ন"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "কাস্টম থিমের সাথে নিরবিচ্ছিন্ন ব্যাপ্তি স্লাইডার"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "এডিট করা যাবে এমন সাংখ্যিক মান দিয়ে চালিয়ে যান"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "বারের সাথে সাথে স্লাইডার মানেরও ব্যাপ্তি দেখায়, যেখান থেকে ব্যবহারকারী কোনও একটি মান বেছে নিতে পারেন। ভলিউম, উজ্জ্বলতা বা ছবিতে ফিল্টার প্রয়োগ করা এমন সেটিংস অ্যাডজাস্ট করার জন্য এটি একটি আদর্শ বিকল্প।"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("পৃথক মান"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "কাস্টম থিম সহ পৃথক মানের স্লাইডার"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "এডিট করা যায় এমন সাংখ্যিক মান"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "কোনও একটি মান সোয়াইপ করে বেছে নেওয়ার উইজেট"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("স্লাইডার"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "আপনি স্ন্যাকবার অ্যাকশন প্রেস করেছেন।"),
         "demoSnackbarsActionButtonLabel":
@@ -537,7 +681,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("জীবনের গল্প"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("নাম*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("নাম লিখতে হবে।"),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -577,6 +721,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "টগল বোতাম ব্যবহার করে একই ধরনের বিকল্প গ্রুপ করতে পারেন। সম্পর্কিত টগল বোতামের একটি গ্রুপে গুরুত্ব দিতে, সাধারণ কন্টেনার শেয়ার করতে হবে"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("টগল বোতাম"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "টুলটিপস এমন একটি টেক্সট লেবেল দেখায় যেটি বোতাম বা অন্যান্য ইউজার ইন্টারফেসের অ্যাকশন কীভাবে কাজ করে সেই বিষয়ে বোঝাতে সহায়তা করে। ব্যবহারকারীরা যখন কোনও এলিমেন্টের উপর কারসার নিয়ে যান, ফোকাস করেন বা অনেকক্ষণ প্রেস করে ধরে থাকেন তখন টুলটিপ তথ্যপূর্ণ মেসেজ দেখায়।"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "টুলটিপ দেখানোর জন্য অনেকক্ষণ প্রেস করে ধরে রাখুন বা স্ক্রিনের উপরে যান।"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "অনেকক্ষণ বোতাম প্রেস করে রাখলে বা উপরে নিয়ে গেলে একটি ছোট মেসেজ দেখায়"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("টুলটিপ"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("প্রতি সারিতে দু\'টি লাইন"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -603,7 +754,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "অ্যাপ যাতে লোকেশন বেছে নিতে পারে তার জন্য Google-কে সাহায্য করুন। এর মানে হল, যখন কোন অ্যাপ চালা থাকে না, তখনও Google-এ যে কোনও লোকেশনের তথ্য পাঠানো হবে।"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google-এর লোকেশন সংক্রান্ত পরিষেবা ব্যবহার করতে চান?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "ব্যাক-আপ অ্যাকাউন্ট সেট করুন"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ডায়ালগ দেখান"),
@@ -611,7 +762,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("রেফারেন্স স্টাইল এবং মিডিয়া"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("বিভাগ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("গ্যালারি"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("সমুদ্র সৈকত"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("যেখানে ব্রোঞ্জের কাজ হয়"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("চেন্নাই"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("চেট্টিনাড"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("জেলে"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("ফুলের বাজার"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("লাঞ্চ তৈরি করা"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("বাজার"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("পুদুচেরী"),
+        "placeSaltFarm":
+            MessageLookupByLibrary.simpleMessage("নুন তৈরি করার ফার্ম"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("স্কুটার"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("যারা সিল্ক তৈরি করেন"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("তাঞ্জোর"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("তাঞ্জাভুর মন্দির"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("গাড়ির জন্য সেভিং"),
         "rallyAccountDataChecking":
@@ -635,15 +806,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("মোট"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("অ্যাকাউন্ট"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("সতর্কতা"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("বিল"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("বাকি আছে"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("জামাকাপড়"),
         "rallyBudgetCategoryCoffeeShops":
@@ -738,7 +909,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("বাতিল করুন"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("কার্ট মুছে দিন"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("কার্ট"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("শিপিং:"),
@@ -800,8 +971,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("নীল পায়জামা"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("প্লাস্টার টিউনিক"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("চৌকো টেবিল"),
         "shrineProductRainwaterTray":
@@ -840,10 +1011,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("সাদা পিনস্ট্রাইপ শার্ট"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("হুইটনি বেল্ট"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("কার্টে যোগ করুন"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("কার্ট বন্ধ করুন"),
         "shrineTooltipCloseMenu":
@@ -857,7 +1028,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("সেটিংস"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("কাজ করে এমন শুরু করার লেআউট"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("মুখ্য অংশ"),
         "starterAppGenericButton":

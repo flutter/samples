@@ -41,46 +41,50 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Aralıklı: ${value}";
 
-  static m9(name, phoneNumber) =>
+  static m9(value) => "İşaretlendi: ${value}";
+
+  static m10(value) => "Seçildi: ${value}";
+
+  static m11(name, phoneNumber) =>
       "${name} adlı kişinin telefon numarası: ${phoneNumber}";
 
-  static m10(value) => "Şunu seçtiniz: \"${value}\"";
+  static m12(value) => "Şunu seçtiniz: \"${value}\"";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Bakiyesi ${amount} olan ${accountNumber} numaralı ${accountName} hesabı.";
 
-  static m12(amount) => "Bu ay ${amount} tutarında ATM komisyonu ödediniz.";
+  static m14(amount) => "Bu ay ${amount} tutarında ATM komisyonu ödediniz.";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Harika! Çek hesabınız geçen aya göre ${percent} daha fazla.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Dikkat! Bu ayın Alışveriş bütçenizi ${percent} oranında harcadınız.";
 
-  static m15(amount) => "Bu hafta Restoranlarda ${amount} harcadınız.";
+  static m17(amount) => "Bu hafta Restoranlarda ${amount} harcadınız.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Olası vergi iadenizi artırın. 1 atanmamış işleme kategoriler atayın.', other: 'Olası vergi iadenizi artırın. ${count} atanmamış işleme kategoriler atayın.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Son ödeme tarihi ${date} olan ${amount} tutarındaki ${billName} faturası.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Toplamı ${amountTotal} olan ve ${amountUsed} kullanıldıktan sonra ${amountLeft} kalan ${budgetName} bütçesi";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ÖĞE YOK', one: '1 ÖĞE', other: '${quantity} ÖĞE')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Miktar: ${quantity}";
+  static m23(quantity) => "Miktar: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Alışveriş sepeti, ürün yok', one: 'Alışveriş sepeti, 1 ürün', other: 'Alışveriş sepeti, ${quantity} ürün')}";
 
-  static m23(product) => "${product} ürününü kaldır";
+  static m25(product) => "${product} ürününü kaldır";
 
-  static m24(value) => "Ürün ${value}";
+  static m26(value) => "Ürün ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -88,6 +92,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
             "Flutter örnekleri GitHub havuzu"),
         "backToGallery": MessageLookupByLibrary.simpleMessage("Galeriye dön"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Çentik"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Kayan İşlem Düğmesinin Konumu"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Yerleştirilmiş - Ortada"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Yerleştirilmiş - Uçta"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Kayan - Ortada"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Kayan - Uçta"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Hesap"),
         "bottomNavigationAlarmTab":
@@ -313,6 +328,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Uyarı"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Başlıklı Uyarı"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Alt uygulama çubuğu, hem alt gezinme çekmecesine hem de kayan işlem düğmesi dahil olmak üzere dörde kadar işleme erişim sağlar."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Gezinmeyi ve işlemleri altta gösterir"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Alt uygulama çubuğu"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Alt gezinme çubukları, ekranın altında 3 ila beş arasında varış noktası görüntüler. Her bir varış noktası bir simge ve tercihe bağlı olarak metin etiketiyle temsil edilir. Kullanıcı, bir alt gezinme simgesine dokunduğunda, bu simge ile ilişkilendirilmiş üst düzey gezinme varış noktasına gider."),
         "demoBottomNavigationPersistentLabels":
@@ -342,9 +363,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sürekli ve kalıcı alt sayfalar"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Alt sayfa"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Metin-alanları"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Düz, yükseltilmiş, dış çizgili ve fazlası"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Düğmeler"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Liste menü"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Giriş, özellik ve işlem temsil eden kompakt öğeler"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Çipler"),
@@ -352,6 +377,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Seçenek çipleri, bir dizi seçenekten tek bir seçeneği temsil eder. Seçenek çipleri ilgili açıklayıcı metin veya kategoriler içerir."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Seçenek Çipi"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Dönerek uygulamanın meşgul olduğunu gösteren Materyal Tasarıma sahip dairesel ilerleme durumu göstergesi"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Dairesel İlerleme Durumu Göstergesi"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Kod Örneği"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Panoya kopyalandı."),
@@ -363,10 +394,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Önceden tanımlanmış renklerin tümü"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Renkler"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("İçerik menüsü"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "İşlem sayfası, kullanıcıya geçerli bağlamla ilgili iki veya daha fazla seçenek sunan belirli bir uyarı tarzıdır. Bir işlem sayfasının başlığı, ek mesajı ve işlemler listesi olabilir."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("İşlem Sayfası"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Saat yönünde dönen iOS-tarzında işlem göstergesi"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stili işlem göstergeleri"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Etkinlik Göstergesi"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Yalnızca Uyarı Düğmeleri"),
         "demoCupertinoAlertButtonsTitle":
@@ -387,6 +428,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS tarzı düğmeler"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Düğmeler"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stili bir gezinme çubuğu. Gezinme çubuğu, ortasında sayfa başlığını minimum düzeyde içeren bir araç çubuğudur."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stili gezinme çubuğu"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Gezinme Çubuğu"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stili yenilemek için aşağı çekme denetimini uygulayan widget."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stili yenilemek için aşağı çekme denetimi"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Yenilemek için Aşağı Çekin"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Birbirini dışlayan bir dizi seçenek arasında seçim yapmak için kullanıldı. Segmentlere ayrılmış kontrolde bir seçenek belirlendiğinde, segmentlere ayrılmış denetimdeki diğer seçenek belirlenemez."),
@@ -413,6 +469,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS tarzında alt sekme çubuğu"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Sekme Çubuğu"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Kullanıcılar, kaydırma çubuklarını kullanarak belirtilen değer aralığı içinde bir değer veya değer aralığını seçebilir. Kaydırma çubukları temalı veya özelleştirilmiş olabilir."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Özel Kaydırma Çubukları"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("Basit, uyarı ve tam ekran"),
         "demoDialogTitle":
@@ -437,6 +497,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tam Ekran"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Tam Ekran"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tablo Listeler, genellikle resimler gibi benzer türdeki verileri sunmanın en uygun yöntemidir. Tablodaki her öğeye kutu denir."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Alt bilgisi olan"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Üst bilgisi olan"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Yalnızca resim"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Satır ve sütun düzeni"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Tablo Listeler"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Bilgi"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Giriş çipleri, bir varlık (kişi, yer veya şey) gibi karmaşık bir bilgi parçasını ya da kompakt bir formda konuşma dili metnini temsil eder."),
@@ -444,6 +516,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Giriş Çipi"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL görüntülenemedi:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "İlerleme çubuğu olarak da bilinen, Materyal Tasarıma sahip doğrusal ilerleme durumu göstergesi"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Doğrusal İlerleme Durumu Göstergesi"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Tipik olarak biraz metnin yanı sıra başında veya sonunda simge olan sabit yükseklikli tek satır."),
         "demoListsSecondary":
@@ -451,6 +529,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Kayan liste düzenleri"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Listeler"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Devre dışı menü öğesi"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("Liste menüsü olan öğe"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("İçerik menüsü olan öğe"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Bölümlere ayrılmış menüsü olan öğe"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Basit menüsü olan öğe"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("İçerik menüsü öğesi bir"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("İçerik menüsü öğesi üç"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Menü, geçici bir yüzeyde seçenekler listesini görüntüler. Menüler, kullanıcılar bir düğme, işlem veya başka bir kontrolle etkileşimde bulunduğunda görünür."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Dört"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Bağlantıyı al"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menü öğesi bir"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menü öğesi üç"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menü öğesi iki"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Bir"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Önizle"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Kaldır"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Paylaş"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menü düğmeleri ve basit menüler"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Üç"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menü"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("İki"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Tek Satır"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -463,10 +578,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dış çizgili düğmeler basıldığında opak olur ve yükselir. Alternatif, ikincil işlemi belirtmek için genellikle yükseltilmiş düğmelerle eşlenirler."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Dış Çizgili Düğme"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Doğrusal, dairesel, belirsiz"),
+        "demoProgressIndicatorTitle": MessageLookupByLibrary.simpleMessage(
+            "İlerleme durumu göstergeleri"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Yükseltilmiş düğmeler çoğunlukla düz düzenlere boyut ekler. Yoğun veya geniş alanlarda işlevleri vurgular."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Yükseltilmiş Düğme"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Kaydırma çubukları, bir çubuk boyunca çeşitli değerler yansıtır. Kaydırma çubuklarının her iki ucunda değer aralığının alt ve üst değerlerini gösteren simgeler bulunabilir. Kaydırma çubukları, ses düzeyi ve parlaklık gibi ayarları düzenlemek veya görüntü filtreleri uygulamak için idealdir."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Aralık Kaydırma Çubukları"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Bölümlere ayrılmış menü"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Onay kutuları, kullanıcıya bir dizi seçenek arasından birden fazlasını belirlemesine olanak sağlar. Normal bir onay kutusunun değeri true (doğru) veya false (yanlış) olur. Üç durumlu onay kutusunun değeri boş da olabilir."),
@@ -489,6 +614,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Basit iletişim kutusu, kullanıcıya birkaç seçenek arasından seçim yapma olanağı sunar. Basit iletişim kutusunun seçeneklerin üzerinde görüntülenen isteğe bağlı bir başlığı vardır."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Basit"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Basit menü"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Sürekli"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Özelleştirilmiş Temaya Sahip Sürekli Aralık Değerli Çubuğu"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Düzenlenebilir Sayısal Değere Sahip Kesintisiz"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Kullanıcılar, kaydırma çubuklarını kullanarak belirtilen değer aralığı içinde bir değeri seçebilir. Kaydırma çubukları, ses düzeyi ve parlaklık gibi ayarları düzenlemek veya görüntü filtreleri uygulamak için idealdir."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Ayrık"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Özelleştirilmiş Temaya Sahip Ayrık Değerli Kaydırma Çubuğu"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Düzenlenebilir sayısal değer"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kaydırarak bir değer seçmeyi sağlayan widget"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Kaydırma Çubukları"),
         "demoSnackbarsAction":
             MessageLookupByLibrary.simpleMessage("Snackbar işlemine bastınız."),
         "demoSnackbarsActionButtonLabel":
@@ -524,7 +672,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Hayat hikayesi"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Ad*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ad gerekli."),
         "demoTextFieldNoMoreThan":
@@ -563,6 +711,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Açma/kapatma düğmeleri benzer seçenekleri gruplamak için kullanılabilir. Benzer açma/kapatma düğmesi gruplarını vurgulamak için grubun ortak bir kapsayıcıyı paylaşması gerekir."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Açma/Kapatma Düğmeleri"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "İpuçları, bir düğmenin işlevini veya diğer kullanıcı arayüzü işlemini açıklamaya yardımcı olan metin etiketleri sağlar. İpuçları, kullanıcı fareyle bir öğenin üzerine geldiğinde veya öğeye odaklandığında ya da uzun bastığında bilgilendirici metin görüntüler."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "İpucunu görüntülemek için uzun basın veya fareyle üzerine gelin."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Uzun basmada veya fareyle üzerine gelmede görüntülenen kısa mesaj"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("İpuçları"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("İki Satır"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -588,7 +743,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google\'ın, uygulamaların konum tespiti yapmasına yardımcı olmasına izin verin. Bu, hiçbir uygulama çalışmıyorken bile anonim konum verilerinin Google\'a gönderilmesi anlamına gelir."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google\'ın konum hizmeti kullanılsın mı?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Yedekleme hesabı ayarla"),
         "dialogShow":
@@ -598,7 +753,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoriler"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeri"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Kumsal"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("Bronz İşler"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Balıkçı"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Çiçek Pazarı"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Öğle Yemeği Hazırlığı"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Pazar"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Tuz Çiftliği"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scooter\'lar"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("İpek Üreticisi"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur Tapınağı"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Araba İçin Biriktirilen"),
         "rallyAccountDataChecking":
@@ -622,16 +795,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Toplam"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Hesaplar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Uyarılar"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Faturalar"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Ödenecek tutar:"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Giyim"),
         "rallyBudgetCategoryCoffeeShops":
@@ -731,7 +904,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("İPTAL"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ALIŞVERİŞ SEPETİNİ BOŞALT"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("ALIŞVERİŞ SEPETİ"),
         "shrineCartShippingCaption":
@@ -794,8 +967,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lacivert pantolon"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("İnce tunik"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Dört kişilik masa"),
         "shrineProductRainwaterTray":
@@ -834,10 +1007,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("İnce çizgili beyaz gömlek"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney kemer"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Sepete ekle"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Alışveriş sepetini kapat"),
         "shrineTooltipCloseMenu":
@@ -851,7 +1024,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Duyarlı başlangıç düzeni"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Gövde"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("DÜĞME"),

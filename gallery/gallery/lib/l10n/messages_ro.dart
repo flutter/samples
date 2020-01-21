@@ -41,48 +41,52 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m8(value) => "Distinctă: ${value}";
 
-  static m9(name, phoneNumber) =>
+  static m9(value) => "Bifat: ${value}";
+
+  static m10(value) => "Selectat: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Numărul de telefon al persoanei de contact ${name} este ${phoneNumber}";
 
-  static m10(value) => "Ați selectat: „${value}”";
+  static m12(value) => "Ați selectat: „${value}”";
 
-  static m11(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Contul ${accountName} ${accountNumber} cu ${amount}.";
 
-  static m12(amount) =>
+  static m14(amount) =>
       "Luna aceasta ați cheltuit ${amount} pentru comisioanele de la bancomat";
 
-  static m13(percent) =>
+  static m15(percent) =>
       "Felicitări! Contul dvs. curent este cu ${percent} mai bogat decât luna trecută.";
 
-  static m14(percent) =>
+  static m16(percent) =>
       "Atenție, ați folosit ${percent} din bugetul de cumpărături pentru luna aceasta.";
 
-  static m15(amount) =>
+  static m17(amount) =>
       "Săptămâna aceasta ați cheltuit ${amount} în restaurante.";
 
-  static m16(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Creșteți-vă potențiala deducere fiscală! Atribuiți categorii unei tranzacții neatribuite.', few: 'Creșteți-vă potențiala deducere fiscală! Atribuiți categorii pentru ${count} tranzacții neatribuite.', other: 'Creșteți-vă potențiala deducere fiscală! Atribuiți categorii pentru ${count} de tranzacții neatribuite.')}";
 
-  static m17(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Factura ${billName} în valoare de ${amount} este scadentă pe ${date}.";
 
-  static m18(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Bugetul pentru ${budgetName} cu ${amountUsed} cheltuiți din ${amountTotal}, ${amountLeft} rămași";
 
-  static m19(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'NICIUN ARTICOL', one: 'UN ARTICOL', few: '${quantity} ARTICOLE', other: '${quantity} ARTICOLE')}";
 
-  static m20(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m21(quantity) => "Cantitate: ${quantity}";
+  static m23(quantity) => "Cantitate: ${quantity}";
 
-  static m22(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Coș de cumpărături, niciun articol', one: 'Coș de cumpărături, un articol', few: 'Coș de cumpărături, ${quantity} articole', other: 'Coș de cumpărături, ${quantity} de articole')}";
 
-  static m23(product) => "Eliminați ${product}";
+  static m25(product) => "Eliminați ${product}";
 
-  static m24(value) => "Articol ${value}";
+  static m26(value) => "Articol ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -91,6 +95,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Directorul GitHub cu exemple din Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Înapoi la Galerie"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Decupaj"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Poziția butonului flotant pentru acțiuni"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Andocat – Centru"),
+        "bottomAppBarPositionDockedEnd": MessageLookupByLibrary.simpleMessage(
+            "Andocat – Capătul din dreapta"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Flotant – Centru"),
+        "bottomAppBarPositionFloatingEnd": MessageLookupByLibrary.simpleMessage(
+            "Flotant – Capătul din dreapta"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Cont"),
         "bottomNavigationAlarmTab":
@@ -333,6 +348,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alertă"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alertă cu titlu"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Barele de aplicații din partea de jos oferă acces la un panou de navigare din partea de jos și la maximum patru acțiuni, între care butonul flotant pentru acțiuni."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Afișează navigarea și acțiunile în partea de jos"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Bara de aplicații din partea de jos"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Barele de navigare din partea de jos afișează între trei și cinci destinații în partea de jos a ecranului. Fiecare destinație este reprezentată de o pictogramă și o etichetă cu text opțională. Când atinge o pictogramă de navigare din partea de jos, utilizatorul este direcționat la destinația de navigare principală asociată pictogramei respective."),
         "demoBottomNavigationPersistentLabels":
@@ -362,9 +383,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Foile persistente și modale din partea de jos"),
         "demoBottomSheetTitle":
             MessageLookupByLibrary.simpleMessage("Foaia din partea de jos"),
+        "demoBottomTextFieldsTitle":
+            MessageLookupByLibrary.simpleMessage("Câmpuri de text"),
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plate, ridicate, cu contur și altele"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Butoane"),
+        "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Meniu cu listă de verificare"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Elemente compacte care reprezintă o intrare, un atribut sau o acțiune"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Cipuri"),
@@ -372,6 +397,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cipurile de opțiune reprezintă o singură opțiune dintr-un set. Ele conțin categorii sau texte descriptive asociate."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Cip de opțiune"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicator de progres circular pentru design material, care se rotește pentru a indica faptul că aplicația este ocupată."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicator de progres circular"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Exemplu de cod"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -384,10 +415,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Toate culorile predefinite"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Culori"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Meniu contextual"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Foaia de acțiune este un tip de alertă care îi oferă utilizatorului două sau mai multe opțiuni asociate contextului actual. Foaia de acțiune poate să conțină un titlu, un mesaj suplimentar și o listă de acțiuni."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Foaie de acțiune"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicator de activitate în stil iOS care se rotește spre dreapta."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicatori de activitate în stil iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicator de activitate"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Doar butoane pentru alerte"),
         "demoCupertinoAlertButtonsTitle":
@@ -408,6 +449,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Butoane în stil iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Butoane"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Bară de navigare în stil iOS. Bara de navigare este o bară de instrumente formată cel puțin dintr-un titlu de pagină plasat în centru."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Bară de navigare în stil iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Bară de navigare"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Widget care implementează setarea pentru conținut Trageți pentru a actualiza în stil iOS."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Setarea Trageți pentru a actualiza în stil iOS"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Trageți pentru a actualiza"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Folosit pentru a alege opțiuni care se exclud reciproc. Când selectați o opțiune din controlul segmentat, celelalte opțiuni sunt deselectate."),
@@ -434,6 +491,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bară cu file din partea de jos în stil iOS"),
         "demoCupertinoTabBarTitle":
             MessageLookupByLibrary.simpleMessage("Bară cu file"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glisoarele reprezintă un interval de valori de-a lungul unei bare, din care utilizatorii pot selecta o singură valoare sau un interval de valori. Glisoarele pot să fie personalizate sau să aibă teme."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Glisoare personalizate"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, pentru alerte și pe ecran complet"),
         "demoDialogTitle":
@@ -458,6 +519,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ecran complet"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Ecran complet"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Listele grilă sunt ideale pentru prezentarea datelor omogene, de obicei, a imaginilor. Fiecare element al unei liste grilă se numește secțiune."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Cu subsol"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Cu antet"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Numai imagine"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Aspectul rândurilor și al coloanelor"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Liste grilă"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informații"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Cipurile de intrare reprezintă informații complexe, cum ar fi o entitate (o persoană, o locație sau un obiect) sau un text conversațional, în formă compactă."),
@@ -465,6 +538,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cip de intrare"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Nu s-a putut afișa adresa URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicator de progres liniar pentru design material, numit și bară de progres."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicator de progres liniar"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Un singur rând cu înălțime fixă, care conține de obicei text și o pictogramă la început sau la sfârșit."),
         "demoListsSecondary":
@@ -472,6 +550,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Aspecte de liste derulante"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Liste"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Element de meniu dezactivat"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Element cu meniu cu listă de verificare"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Element cu meniu contextual"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Element cu meniu cu secțiuni"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Element cu meniu simplu"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Elementul de meniu contextual unu"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Elementul de meniu contextual trei"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Meniul afișează o listă de opțiuni pe o suprafață temporară. Acestea apar atunci când utilizatorii interacționează cu un buton, o acțiune sau altă comandă."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Patru"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Obțineți linkul"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Elementul de meniu unu"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Elementul de meniu trei"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Elementul de meniu doi"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Unu"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Previzualizați"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Eliminați"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Trimiteți"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Butoane de meniu și meniuri simple"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Trei"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Meniu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Doi"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Un rând"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -483,10 +600,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Butoanele cu contur devin opace și se ridică la apăsare. Sunt de multe ori asociate cu butoane ridicate, pentru a indica o acțiune secundară alternativă."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Buton cu contur"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Liniar, circular, nedeterminat"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicatori de progres"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Butoanele ridicate conferă dimensiune aspectelor în mare parte plate. Acestea evidențiază funcții în spații pline sau ample."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Buton ridicat"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glisoarele reprezintă un interval de valori de-a lungul unei bare. Acestea pot avea pictograme la ambele capete ale barei, care reflectă un interval de valori. Sunt ideale pentru reglarea setărilor, precum volumul, luminozitatea sau aplicarea filtrelor de imagine."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Glisoare pentru interval"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Meniu cu secțiuni"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Cu ajutorul casetelor de selectare, utilizatorii pot să aleagă mai multe opțiuni dintr-un set. Valoarea normală a unei casete este true sau false. O casetă cu trei stări poate avea și valoarea null."),
@@ -509,6 +636,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Caseta de dialog simplă îi oferă utilizatorului posibilitatea de a alege dintre mai multe opțiuni. Caseta de dialog simplă are un titlu opțional, afișat deasupra opțiunilor."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simplă"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Meniu simplu"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Continuu"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Glisor cu interval continuu și temă personalizată"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Continuu cu valoare numerică ce poate fi editată"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glisoarele reflectă un interval de valori de-a lungul unei bare, din care utilizatorii pot selecta o singură valoare. Acestea sunt ideale pentru reglarea setărilor, precum volumul, luminozitatea sau aplicarea filtrelor de imagine."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Distinct"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Glisor distinct cu temă personalizată"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Valoare numerică ce poate fi editată"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgeturi pentru selectarea unei valori prin glisare"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Glisoare"),
         "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
             "Ați apăsat pe acțiunea din bara de notificare."),
         "demoSnackbarsActionButtonLabel":
@@ -544,7 +693,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Povestea vieții"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nume*"),
-        "demoTextFieldNameHasPhoneNumber": m9,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Numele este obligatoriu."),
         "demoTextFieldNoMoreThan":
@@ -584,6 +733,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Butoanele de comutare pot fi folosite pentru a grupa opțiunile similare. Pentru a evidenția grupuri de butoane de comutare similare, este necesar ca un grup să aibă un container comun."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Butoane de comutare"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Baloanele explicative afișează etichete cu text care explică funcția unui buton sau altă acțiune din interfața de utilizare. Baloanele explicative afișează text informativ atunci când utilizatorii plasează cursorul pe, selectează sau apasă lung un element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Apăsați lung sau plasați cursorul pentru a afișa balonul explicativ."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Scurt mesaj afișat la apăsarea lungă sau la plasarea cursorului"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Baloane explicative"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Două rânduri"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -610,7 +767,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Acceptați ajutor de la Google pentru ca aplicațiile să vă detecteze locația. Aceasta înseamnă că veți trimite la Google date anonime privind locațiile, chiar și când nu rulează nicio aplicație."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Folosiți serviciul de localizare Google?"),
-        "dialogSelectedOption": m10,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Setați contul pentru backup"),
         "dialogShow":
@@ -620,7 +777,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categorii"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerie"),
-        "rallyAccountAmount": m11,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Plajă"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Obiecte din bronz"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Pescar"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Piață de flori"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Prepararea mesei de prânz"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Piață"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Fermă de sare"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scutere"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Producător de mătase"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Templul Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Economii pentru mașină"),
         "rallyAccountDataChecking":
@@ -646,15 +822,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Conturi"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alerte"),
-        "rallyAlertsMessageATMFees": m12,
-        "rallyAlertsMessageCheckingAccount": m13,
-        "rallyAlertsMessageHeadsUpShopping": m14,
-        "rallyAlertsMessageSpentOnRestaurants": m15,
-        "rallyAlertsMessageUnassignedTransactions": m16,
-        "rallyBillAmount": m17,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Facturi"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Data scadentă"),
-        "rallyBudgetAmount": m18,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Îmbrăcăminte"),
         "rallyBudgetCategoryCoffeeShops":
@@ -758,7 +934,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ANULAȚI"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("GOLIȚI COȘUL"),
-        "shrineCartItemCount": m19,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("COȘ DE CUMPĂRĂTURI"),
         "shrineCartShippingCaption":
@@ -820,8 +996,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantaloni bleumarin"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tunică Plaster"),
-        "shrineProductPrice": m20,
-        "shrineProductQuantity": m21,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Masă Quartet"),
         "shrineProductRainwaterTray": MessageLookupByLibrary.simpleMessage(
@@ -860,11 +1036,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cămașă cu dungi fine albe"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Curea Whitney"),
-        "shrineScreenReaderCart": m22,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage(
                 "Adăugați în coșul de cumpărături"),
-        "shrineScreenReaderRemoveProductButton": m23,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart": MessageLookupByLibrary.simpleMessage(
             "Închideți coșul de cumpărături"),
         "shrineTooltipCloseMenu":
@@ -877,7 +1053,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("Setări"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Un aspect adaptabil pentru Starter"),
-        "starterAppDrawerItem": m24,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Corp"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("BUTON"),
