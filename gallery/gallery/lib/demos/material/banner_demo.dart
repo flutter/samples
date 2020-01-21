@@ -45,8 +45,7 @@ class _BannerDemoState extends State<BannerDemo> {
   @override
   Widget build(BuildContext context) {
     final Widget banner = MaterialBanner(
-      content: Text(
-          GalleryLocalizations.of(context).bannerDemoText),
+      content: Text(GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading
           ? const CircleAvatar(child: Icon(Icons.access_alarm))
           : null,
@@ -80,18 +79,21 @@ class _BannerDemoState extends State<BannerDemo> {
             itemBuilder: (context) => <PopupMenuEntry<BannerDemoAction>>[
               PopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.reset,
-                child: Text(GalleryLocalizations.of(context).bannerDemoResetText),
+                child:
+                    Text(GalleryLocalizations.of(context).bannerDemoResetText),
               ),
               const PopupMenuDivider(),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showMultipleActions,
                 checked: _showMultipleActions,
-                child: Text(GalleryLocalizations.of(context).bannerDemoMultipleText),
+                child: Text(
+                    GalleryLocalizations.of(context).bannerDemoMultipleText),
               ),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showLeading,
                 checked: _showLeading,
-                child: Text(GalleryLocalizations.of(context).bannerDemoLeadingText),
+                child: Text(
+                    GalleryLocalizations.of(context).bannerDemoLeadingText),
               ),
             ],
           ),
@@ -104,7 +106,10 @@ class _BannerDemoState extends State<BannerDemo> {
               return banner;
             }
             return ListTile(
-              title: Text('Item ${_displayBanner ? index : index + 1}'),
+              title: Text(
+                GalleryLocalizations.of(context)
+                    .starterAppDrawerItem(_displayBanner ? index : index + 1),
+              ),
             );
           }),
     );
