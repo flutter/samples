@@ -85,8 +85,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoBannerTitle,
-          description:
-              localizations.demoBannerDescription,
+          description: localizations.demoBannerDescription,
           documentationUrl:
               'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
           buildRoute: (_) => BannerDemo(),
