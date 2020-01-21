@@ -241,6 +241,38 @@ class GalleryLocalizations {
             r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
+  String get bannerDemoLeadingText {
+    return Intl.message(r'Leading Icon',
+        locale: _localeName,
+        name: 'bannerDemoLeadingText',
+        desc:
+            r'If user clicks this button the leading icon in the Banner will disappear');
+  }
+
+  String get bannerDemoMultipleText {
+    return Intl.message(r'Multiple actions',
+        locale: _localeName,
+        name: 'bannerDemoMultipleText',
+        desc:
+            r'When the user clicks this button the Banner will toggle multiple actions or a single action');
+  }
+
+  String get bannerDemoResetText {
+    return Intl.message(r'Reset the banner',
+        locale: _localeName,
+        name: 'bannerDemoResetText',
+        desc: r'Show the Banner to the user again.');
+  }
+
+  String get bannerDemoText {
+    return Intl.message(
+        r'Your password was updated on your other device. Please sign in again.',
+        locale: _localeName,
+        name: 'bannerDemoText',
+        desc:
+            r'Password was updated on a different device and the user is required to sign in again');
+  }
+
   String get bottomAppBarNotch {
     return Intl.message(r'Notch',
         locale: _localeName,
@@ -345,6 +377,116 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'buttonTextCreate',
         desc: r'Tooltip text for a create button.');
+  }
+
+  String get cardsDemoExplore {
+    return Intl.message(r'Explore',
+        locale: _localeName,
+        name: 'cardsDemoExplore',
+        desc: r'Click to see more about the content in the cards demo.');
+  }
+
+  String cardsDemoExploreSemantics(Object destinationName) {
+    return Intl.message(r'Explore $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoExploreSemantics',
+        desc:
+            r'Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoSelectable {
+    return Intl.message(r'Selectable (long press)',
+        locale: _localeName,
+        name: 'cardsDemoSelectable',
+        desc:
+            r'If the user taps and hold this card. The card will toggled between on and off.');
+  }
+
+  String cardsDemoShareSemantics(Object destinationName) {
+    return Intl.message(r'Share $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoShareSemantics',
+        desc:
+            r'Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoTappable {
+    return Intl.message(r'Tappable',
+        locale: _localeName,
+        name: 'cardsDemoTappable',
+        desc: r'The user can tap this button');
+  }
+
+  String get cardsDemoTravelDestinationCity1 {
+    return Intl.message(r'Thanjavur',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity1',
+        desc: r'Thanjavur the city');
+  }
+
+  String get cardsDemoTravelDestinationCity2 {
+    return Intl.message(r'Chettinad',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity2',
+        desc: r'Chettinad the city');
+  }
+
+  String get cardsDemoTravelDestinationDescription1 {
+    return Intl.message(r'Number 10',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription1',
+        desc: r'Number 10');
+  }
+
+  String get cardsDemoTravelDestinationDescription2 {
+    return Intl.message(r'Silk Spinners',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription2',
+        desc: r'Silk Spinners');
+  }
+
+  String get cardsDemoTravelDestinationDescription3 {
+    return Intl.message(r'Temples',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription3',
+        desc: r'Temples');
+  }
+
+  String get cardsDemoTravelDestinationLocation1 {
+    return Intl.message(r'Thanjavur, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation1',
+        desc: r'Thanjavur, Tamil Nadu is a location');
+  }
+
+  String get cardsDemoTravelDestinationLocation2 {
+    return Intl.message(r'Sivaganga, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation2',
+        desc: r'Sivaganga, Tamil Nadu is a location');
+  }
+
+  String get cardsDemoTravelDestinationTitle1 {
+    return Intl.message(r'Top 10 Cities to Visit in Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle1',
+        desc: r'The top 10 cities that you can visit in Tamil Nadu');
+  }
+
+  String get cardsDemoTravelDestinationTitle2 {
+    return Intl.message(r'Artisans of Southern India',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle2',
+        desc: r'Artist that are from Southern India');
+  }
+
+  String get cardsDemoTravelDestinationTitle3 {
+    return Intl.message(r'Brihadisvara Temple',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle3',
+        desc: r'Brihadisvara Temple');
   }
 
   String get chipBiking {
@@ -1280,6 +1422,28 @@ class GalleryLocalizations {
         desc: r'Title for the alert dialog with title component demo.');
   }
 
+  String get demoBannerDescription {
+    return Intl.message(
+        r'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.',
+        locale: _localeName,
+        name: 'demoBannerDescription',
+        desc: r'Description for the material banner component demo.');
+  }
+
+  String get demoBannerSubtitle {
+    return Intl.message(r'Displaying a banner within a list',
+        locale: _localeName,
+        name: 'demoBannerSubtitle',
+        desc: r'Subtitle for the material banner component demo.');
+  }
+
+  String get demoBannerTitle {
+    return Intl.message(r'Banner',
+        locale: _localeName,
+        name: 'demoBannerTitle',
+        desc: r'Title for the material banner component demo.');
+  }
+
   String get demoBottomAppBarDescription {
     return Intl.message(
         r'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
@@ -1432,6 +1596,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoButtonTitle',
         desc: r'Title for the material buttons component demo.');
+  }
+
+  String get demoCardDescription {
+    return Intl.message(
+        r'A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.',
+        locale: _localeName,
+        name: 'demoCardDescription',
+        desc: r'Description for the material cards component demo.');
+  }
+
+  String get demoCardSubtitle {
+    return Intl.message(r'Baseline cards with rounded corners',
+        locale: _localeName,
+        name: 'demoCardSubtitle',
+        desc: r'Subtitle for the material cards component demo.');
+  }
+
+  String get demoCardTitle {
+    return Intl.message(r'Cards',
+        locale: _localeName,
+        name: 'demoCardTitle',
+        desc: r'Title for the material cards component demo.');
   }
 
   String get demoChecklistMenuTitle {
@@ -2921,6 +3107,14 @@ class GalleryLocalizations {
         desc: r'Button text to display a dialog.');
   }
 
+  String get dismiss {
+    return Intl.message(r'DISMISS',
+        locale: _localeName,
+        name: 'dismiss',
+        desc:
+            r'When text is pressed the banner widget will be removed from the screen.');
+  }
+
   String get homeCategoryReference {
     return Intl.message(r'REFERENCE STYLES & MEDIA',
         locale: _localeName,
@@ -4148,6 +4342,13 @@ class GalleryLocalizations {
         name: 'shrineTooltipSettings',
         desc:
             r'The tooltip text for a settings button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver.');
+  }
+
+  String get signIn {
+    return Intl.message(r'SIGN IN',
+        locale: _localeName,
+        name: 'signIn',
+        desc: r'Sign in label to sign into website.');
   }
 
   String get starterAppDescription {

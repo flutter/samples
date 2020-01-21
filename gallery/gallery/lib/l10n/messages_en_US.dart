@@ -24,6 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Placeholder for ${title} tab";
 
+  static m27(destinationName) => "Explore ${destinationName}";
+
+  static m28(destinationName) => "Share ${destinationName}";
+
   static m2(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'No Restaurants', one: '1 Restaurant', other: '${totalRestaurants} Restaurants')}";
 
@@ -92,6 +96,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flutter samples Github repo"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Back to Gallery"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Leading Icon"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Multiple actions"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Reset the banner"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Your password was updated on your other device. Please sign in again."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Notch"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Floating Action Button Position"),
@@ -116,6 +128,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("BUTTON"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Create"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Explore"),
+        "cardsDemoExploreSemantics": m27,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Selectable (long press)"),
+        "cardsDemoShareSemantics": m28,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("Tappable"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Number 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Silk Spinners"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Temples"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Top 10 Cities to Visit in Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Artisans of Southern India"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisvara Temple"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Biking"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Elevator"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Fireplace"),
@@ -337,6 +376,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alert"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alert With Title"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Displaying a banner within a list"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -376,6 +420,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Baseline cards with rounded corners"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Cards"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Checklist menu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -754,6 +803,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("REFERENCE STYLES & MEDIA"),
         "homeHeaderCategories":
@@ -1018,6 +1068,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Search"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Settings"),
+        "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("A responsive starter layout"),
         "starterAppDrawerItem": m26,

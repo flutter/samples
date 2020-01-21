@@ -13,9 +13,99 @@
       }
     }
   },
+  "signIn": "SIGN IN",
+  "@signIn": {
+    "description": "Sign in label to sign into website."
+  },
+  "bannerDemoText": "Your password was updated on your other device. Please sign in again.",
+  "@bannerDemoText": {
+    "description": "Password was updated on a different device and the user is required to sign in again"
+  },
+  "bannerDemoResetText": "Reset the banner",
+  "@bannerDemoResetText": {
+    "description": "Show the Banner to the user again."
+  },
+  "bannerDemoMultipleText": "Multiple actions",
+  "@bannerDemoMultipleText": {
+    "description": "When the user clicks this button the Banner will toggle multiple actions or a single action"
+  },
+  "bannerDemoLeadingText": "Leading Icon",
+  "@bannerDemoLeadingText": {
+    "description": "If user clicks this button the leading icon in the Banner will disappear"
+   },
+  "dismiss": "DISMISS",
+  "@dismiss": {
+    "description": "When text is pressed the banner widget will be removed from the screen."
+  },
   "backToGallery": "Back to Gallery",
   "@backToGallery": {
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
+  },
+  "cardsDemoTappable": "Tappable",
+  "@cardsDemoTappable": {
+    "description": "The user can tap this button"
+  },
+  "cardsDemoSelectable": "Selectable (long press)",
+  "@cardsDemoSelectable": {
+    "description": "If the user taps and hold this card. The card will toggled between on and off."
+  },
+  "cardsDemoExplore": "Explore",
+  "@cardsDemoExplore": {
+    "description": "Click to see more about the content in the cards demo."
+  },
+  "cardsDemoExploreSemantics": "Explore {destinationName}",
+  "@cardsDemoExploreSemantics": {
+    "description": "Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil",
+    "placeholders": {
+      "destinationName": "Tamil"
+    }
+  },
+  "cardsDemoShareSemantics": "Share {destinationName}",
+  "@cardsDemoShareSemantics": {
+    "description": "Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil",
+    "placeholders": {
+      "destinationName": "Tamil"
+    }
+  },
+  "cardsDemoTravelDestinationTitle1": "Top 10 Cities to Visit in Tamil Nadu",
+  "@cardsDemoTravelDestinationTitle1": {
+    "description": "The top 10 cities that you can visit in Tamil Nadu"
+  },
+  "cardsDemoTravelDestinationDescription1": "Number 10",
+  "@cardsDemoTravelDestinationDescription1": {
+    "description": "Number 10"
+  },
+  "cardsDemoTravelDestinationCity1": "Thanjavur",
+  "@cardsDemoTravelDestinationCity1": {
+    "description": "Thanjavur the city"
+  },
+  "cardsDemoTravelDestinationLocation1": "Thanjavur, Tamil Nadu",
+  "@cardsDemoTravelDestinationLocation1": {
+    "description": "Thanjavur, Tamil Nadu is a location"
+  },
+  "cardsDemoTravelDestinationTitle2": "Artisans of Southern India",
+  "@cardsDemoTravelDestinationTitle2": {
+    "description": "Artist that are from Southern India"
+  },
+  "cardsDemoTravelDestinationDescription2": "Silk Spinners",
+  "@cardsDemoTravelDestinationDescription2": {
+    "description": "Silk Spinners"
+  },
+  "cardsDemoTravelDestinationCity2": "Chettinad",
+  "@cardsDemoTravelDestinationCity2": {
+    "description": "Chettinad the city"
+  },
+  "cardsDemoTravelDestinationLocation2": "Sivaganga, Tamil Nadu",
+  "@cardsDemoTravelDestinationLocation2": {
+    "description": "Sivaganga, Tamil Nadu is a location"
+  },
+  "cardsDemoTravelDestinationTitle3": "Brihadisvara Temple",
+  "@cardsDemoTravelDestinationTitle3": {
+    "description": "Brihadisvara Temple"
+  },
+  "cardsDemoTravelDestinationDescription3": "Temples",
+  "@cardsDemoTravelDestinationDescription3": {
+    "description": "Temples"
   },
   "homeHeaderGallery": "Gallery",
   "@homeHeaderGallery": {
@@ -477,6 +567,18 @@
   "@bottomAppBarPositionFloatingCenter": {
     "description": "A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center."
   },
+  "demoBannerTitle": "Banner",
+  "@demoBannerTitle": {
+    "description": "Title for the material banner component demo."
+  },
+  "demoBannerSubtitle": "Displaying a banner within a list",
+  "@demoBannerSubtitle": {
+    "description": "Subtitle for the material banner component demo."
+  },
+  "demoBannerDescription": "A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.",
+  "@demoBannerDescription": {
+    "description": "Description for the material banner component demo."
+  },
   "demoBottomNavigationTitle": "Bottom navigation",
   "@demoBottomNavigationTitle": {
     "description": "Title for the material bottom navigation component demo."
@@ -545,9 +647,21 @@
   "@demoFloatingButtonDescription": {
     "description": "Description for the floating action button component demo."
   },
+  "demoCardTitle": "Cards",
+  "@demoCardTitle": {
+    "description": "Title for the material cards component demo."
+  },
+  "demoCardSubtitle": "Baseline cards with rounded corners",
+  "@demoCardSubtitle": {
+    "description": "Subtitle for the material cards component demo."
+  },
   "demoChipTitle": "Chips",
   "@demoChipTitle": {
     "description": "Title for the material chips component demo."
+  },
+  "demoCardDescription": "A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.",
+  "@demoCardDescription": {
+    "description": "Description for the material cards component demo."
   },
   "demoChipSubtitle": "Compact elements that represent an input, attribute, or action",
   "@demoChipSubtitle": {

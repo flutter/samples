@@ -18,10 +18,12 @@ import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_text_field_demo.dart';
+import 'package:gallery/demos/material/banner_demo.dart';
 import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
+import 'package:gallery/demos/material/cards_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/grid_list_demo.dart';
@@ -76,6 +78,21 @@ class GalleryDemoConfiguration {
 List<GalleryDemo> materialDemos(BuildContext context) {
   final localizations = GalleryLocalizations.of(context);
   return [
+    GalleryDemo(
+      title: localizations.demoBannerTitle,
+      icon: GalleryIcons.listsLeaveBehind,
+      subtitle: localizations.demoBannerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoBannerTitle,
+          description: localizations.demoBannerDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
+          buildRoute: (_) => BannerDemo(),
+          code: CodeSegments.bannerDemo,
+        ),
+      ],
+    ),
     GalleryDemo(
       title: localizations.demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
@@ -181,6 +198,21 @@ List<GalleryDemo> materialDemos(BuildContext context) {
               'https://docs.flutter.io/flutter/material/FloatingActionButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.floating),
           code: CodeSegments.buttonDemoFloating,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: GalleryLocalizations.of(context).demoCardTitle,
+      icon: GalleryIcons.cards,
+      subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: GalleryLocalizations.of(context).demoCardTitle,
+          description: GalleryLocalizations.of(context).demoCardDescription,
+          documentationUrl:
+              'https://api.flutter.dev/flutter/material/Card-class.html',
+          buildRoute: (context) => CardsDemo(),
+          code: CodeSegments.cardsDemo,
         ),
       ],
     ),
