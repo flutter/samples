@@ -142,38 +142,35 @@ class _BackdropTitle extends AnimatedWidget {
         ),
         // Here, we do a custom cross fade between backTitle and frontTitle.
         // This makes a smooth animation between the two texts.
-        Semantics(
-          container: true,
-          child: Stack(
-            children: [
-              Opacity(
-                opacity: CurvedAnimation(
-                  parent: ReverseAnimation(animation),
-                  curve: const Interval(0.5, 1),
-                ).value,
-                child: FractionalTranslation(
-                  translation: Tween<Offset>(
-                    begin: Offset.zero,
-                    end: Offset(0.5 * textDirectionScalar, 0),
-                  ).evaluate(animation),
-                  child: backTitle,
-                ),
+        Stack(
+          children: [
+            Opacity(
+              opacity: CurvedAnimation(
+                parent: ReverseAnimation(animation),
+                curve: const Interval(0.5, 1),
+              ).value,
+              child: FractionalTranslation(
+                translation: Tween<Offset>(
+                  begin: Offset.zero,
+                  end: Offset(0.5 * textDirectionScalar, 0),
+                ).evaluate(animation),
+                child: backTitle,
               ),
-              Opacity(
-                opacity: CurvedAnimation(
-                  parent: animation,
-                  curve: const Interval(0.5, 1),
-                ).value,
-                child: FractionalTranslation(
-                  translation: Tween<Offset>(
-                    begin: Offset(-0.25 * textDirectionScalar, 0),
-                    end: Offset.zero,
-                  ).evaluate(animation),
-                  child: frontTitle,
-                ),
+            ),
+            Opacity(
+              opacity: CurvedAnimation(
+                parent: animation,
+                curve: const Interval(0.5, 1),
+              ).value,
+              child: FractionalTranslation(
+                translation: Tween<Offset>(
+                  begin: Offset(-0.25 * textDirectionScalar, 0),
+                  end: Offset.zero,
+                ).evaluate(animation),
+                child: frontTitle,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ]),
     );

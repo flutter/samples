@@ -12,7 +12,7 @@ void main() {
     // Build our app, provide it with a model, and trigger a frame.
     await tester.pumpWidget(
       ChangeNotifierProvider(
-        builder: (context) => Counter(),
+        create: (context) => Counter(),
         child: MyApp(),
       ),
     );

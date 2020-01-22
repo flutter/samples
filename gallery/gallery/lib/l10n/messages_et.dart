@@ -37,53 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Lõikelauale kopeerimine ebaõnnestus: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Pidev: ${value}";
+
+  static m8(value) => "Diskreetne: ${value}";
+
+  static m9(value) => "Kontrollitud: ${value}";
+
+  static m10(value) => "Valitud: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Kontakti ${name} telefoninumber on ${phoneNumber}";
 
-  static m8(value) => "Teie valik: „${value}”";
+  static m12(value) => "Teie valik: „${value}”";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Konto ${accountName} (${accountNumber}) – ${amount}.";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Olete sel kuul pangaautomaatidest välja võtnud ${amount}";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Tubli! Teie deposiidikonto saldo on eelmise kuuga võrreldes ${percent} suurem.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Tähelepanu! Olete sel kuu kulutanud ${percent} oma ostueelarvest.";
 
-  static m13(amount) => "Olete sel nädalal restoranides kulutanud ${amount}.";
+  static m17(amount) => "Olete sel nädalal restoranides kulutanud ${amount}.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Suurendage oma potentsiaalset maksuvabastust! Määrake kategooriad 1 määramata tehingule.', other: 'Suurendage oma potentsiaalset maksuvabastust! Määrake kategooriad ${count} määramata tehingule.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Arve ${billName} summas ${amount} tuleb tasuda kuupäevaks ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Eelarve ${budgetName} summast ${amountTotal} on kasutatud ${amountUsed}, järel on ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ÜKSUSI POLE', one: '1 ÜKSUS', other: '${quantity} ÜKSUST')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Kogus: ${quantity}";
+  static m23(quantity) => "Kogus: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Ostukorv, üksusi pole', one: 'Ostukorv, 1 üksus', other: 'Ostukorv, ${quantity} üksust')}";
 
-  static m21(product) => "Eemalda ${product}";
+  static m25(product) => "Eemalda ${product}";
 
-  static m22(value) => "Üksus ${value}";
+  static m26(value) => "Üksus ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutteri näidiste Githubi andmehoidla"),
+            "Flutteri näidiste GitHubi andmehoidla"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Tagasi galeriisse"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Sälk"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Hõljuva toimingunupu asukoht"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Dokitud – keskel"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Dokitud – lõpus"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Hõljuv – keskel"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Hõljuv – lõpus"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Konto"),
         "bottomNavigationAlarmTab":
@@ -309,6 +330,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Koos taustaga"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Kuva hoiatus"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Avaleht"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profiil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Toimingukiibid on valikukomplekt, mis käivitab primaarse sisuga seotud toimingu. Toimingukiibid peaksid kasutajaliideses ilmuma dünaamiliselt ja kontekstiliselt."),
         "demoActionChipTitle":
@@ -318,6 +344,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Hoiatus"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Hoiatus koos pealkirjaga"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Alumised rakenduseribad võimaldavad juurdepääsu alumisele navigeerimissahtlile ja kuni neljale toimingule, sealhulgas hõljuvale toimingunupule."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kuvab navigeerimise ja toimingud allosas"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Alumine rakenduseriba"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Alumisel navigeerimisribal kuvatakse ekraanikuva allservas 3–5 sihtkohta. Iga sihtkohta esindab ikoon ja valikuline tekstisilt. Alumise navigeerimisikooni puudutamisel suunatakse kasutaja selle ikooniga seotud ülatasemel navigeerimise sihtkohta."),
         "demoBottomNavigationPersistentLabels":
@@ -351,6 +383,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Samatasandiline, tõstetud, mitmetasandiline ja muud"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Nupud"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontroll-lehe menüü"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Kompaktsed elemendid, mis tähistavad sisendit, atribuuti või toimingut"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Kiibid"),
@@ -358,6 +392,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Valikukiibid tähistavad komplektist ühte valikut. Valikukiibid sisaldavad seotud kirjeldavat teksti või kategooriaid."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Valikukiip"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Materiaalse disainiga ringikujuline edenemisnäidik, mille keerlemine näitab, et rakendus on hõivatud."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Ringikujuline edenemisnäidik"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Näidiskood"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kopeeritud lõikelauale."),
@@ -369,10 +409,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Kõik eelmääratud värvid"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Värvid"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontekstimenüü"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Toiminguleht on teatud tüüpi hoiatus, mis pakub kasutajale vähemalt kahte valikut, mis on seotud praeguse kontekstiga. Toimingulehel võib olla pealkiri, lisasõnum ja toimingute loend."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Toiminguleht"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-i stiilis päripäeva liikuv tegevuste näidik."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-i stiilis tegevuste näidikud"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Tegevuste näidik"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Ainult hoiatusnupud"),
         "demoCupertinoAlertButtonsTitle":
@@ -393,6 +443,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-i stiilis nupud"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Nupud"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-i stiilis navigeerimisriba. Navigeerimisriba on tööriistariba, mis koosneb vähemalt lehe pealkirjast ja asub tööriistariba keskel."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-i stiilis navigeerimisriba"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigeerimisriba"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Vidin, mis juurutab värskendamiseks allatõmbamise iOS-i stiilis juhtelemendi."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Värskendamiseks allatõmbamise iOS-i stiilis juhtelement"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Värskendamiseks allatõmbamine"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kasutatakse mitme üksteist välistava valiku vahel valimiseks. Kui segmenditud juhtimises on üks valik tehtud, siis teisi valikuid segmenditud juhtimises teha ei saa."),
@@ -401,6 +467,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS-i stiilis segmenditud juhtimine"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmenditud juhtimine"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Liugurit saab kasutada nii pidevate kui ka diskreetsete väärtuste valimiseks."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-i stiilis liugur"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Liugur"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Lülitit kasutatakse ühe konkreetse seade sisse-/väljalülitatud oleku määramiseks."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-i stiilis lüliti"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-i stiilis alumine vahekaartide navigeerimisriba. Kuvab mitu vahekaarti, millest üks on aktiivne (vaikimisi esimene vahekaart)."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-i stiilis alumine vahekaardiriba"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Vahekaardiriba"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Liugurid kajastavad väärtuste vahemikku ribal, millest kasutajad saavad valida ühe väärtuse või väärtuste vahemiku. Liuguritele saab teemasid määrata ja neid kohandada."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Kohandatud liugurid"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lihtne, hoiatus ja täisekraan"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialoogid"),
@@ -424,6 +512,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Täisekraan"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Täisekraan"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ruudustikloendid sobivad kõige paremini homogeensete andmete (nt piltide) esitamiseks. Iga ruudustikloendis olevat üksust nimetatakse paaniks."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Jalusega"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Päisega"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Ainult pilt"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Ridade ja veergudega paigutus"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Ruudustikloendid"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Teave"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Sisendkiibid tähistavad kompaktsel kujul keerulist teavet, näiteks üksust (isik, koht või asi) või meilivestluse teksti."),
@@ -431,6 +531,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sisendkiip"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL-i ei saanud kuvada:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Materiaalse disainiga lineaarne edenemisnäidik, mida nimetatakse ka edenemisribaks."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Lineaarne edenemisnäidik"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Üks fikseeritud kõrgusega rida, mis sisaldab tavaliselt teksti ja ikooni rea alguses või lõpus."),
         "demoListsSecondary":
@@ -438,6 +543,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Loendi paigutuste kerimine"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Loendid"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Keelatud menüü-üksus"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontroll-loendi menüüga üksus"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Kontekstimenüüga üksus"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("Jaotistega menüüga üksus"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Lihtsa menüüga üksus"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Kontekstimenüü üksus 1"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Kontekstimenüü üksus 3"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Menüü kuvab ajutisel pinnal valikute loendi. Need kuvatakse siis, kui kasutajad nuppe, toiminguid või muid juhtelemente kasutavad."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Neli"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Hangi link"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menüü-üksus 1"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menüü-üksus 3"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menüü-üksus 2"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Üks"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Eelvaade"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Eemalda"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Jaga"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menüünupud ja lihtsad menüüd"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Kolm"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menüü"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Kaks"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Üks rida"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -449,10 +590,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mitmetasandilised nupud muutuvad vajutamisel läbipaistvaks ja tõusevad ülespoole. Need seotakse sageli tõstetud nuppudega, et pakkuda alternatiivset (teisest) toimingut."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Mitmetasandiline nupp"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineaarne, ringikujuline, määramatu"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Edenemisnäidikud"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Tõstetud nupud pakuvad peamiselt ühetasandiliste nuppude kõrval lisamõõdet. Need tõstavad tihedalt täidetud või suurtel aladel esile funktsioone."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Tõstetud nupp"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Liugurid kajastavad väärtuste vahemikku ribal. Nende mõlemas otsas võivad olla ikoonid, mis kajastavad väärtuste vahemikku. Need sobivad hästi selliste seadete kohandamiseks nagu helitugevus, heledus või pildifiltrite rakendamine."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Vahemiku liugurid"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Jaotistega menüü"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Märkeruudud võimaldavad kasutajal teha komplektis mitu valikut. Tavapärane märkeruudu väärtus on Tõene või Väär. Kolme valikuga märkeruudu üks väärtustest võib olla ka Null."),
@@ -475,6 +626,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Lihtne dialoog pakub kasutajale valikut mitme võimaluse vahel. Lihtsal dialoogil on valikuline pealkiri, mis kuvatakse valikute kohal."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Lihtne"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Lihtne menüü"),
+        "demoSlidersContinuous": MessageLookupByLibrary.simpleMessage("Pidev"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Pideva vahemiku kohandatud teemaga liugur"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Pidev muudetav arvväärtus"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Liugurid kajastavad väärtuste vahemikku ribal, millest kasutajad saavad valida ühe väärtuse. Need sobivad hästi selliste seadete kohandamiseks nagu helitugevus, heledus või pildifiltrite rakendamine."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Diskreetne"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Diskreetse vahemiku kohandatud teemaga liugur"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Muudetav arvväärtus"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Vidinad, millega valida väärtus pühkides"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Liugurid"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Vajutasite teaberiba toimingut."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("MÄRUL"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("KUVA TEABERIBA"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Teaberibad teavitavad protsessi kasutajaid rakenduse praegustest või tulevastest toimingutest. Need kuvatakse ajutiselt ekraani alaosas. Need ei tohiks kasutuskogemust häirida ja kasutaja ei pea nende eemaldamiseks sekkuma."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Teaberibad kuvavad ekraani alaosas sõnumeid"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("See on teaberiba."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Teaberibad"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Vahekaartidega saab korrastada eri kuvadel, andkekogumites ja muudes interaktiivsetes asukohtades olevat sisu."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -496,7 +681,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Elulugu"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nimi*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nimi on nõutav."),
         "demoTextFieldNoMoreThan":
@@ -536,6 +721,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lülitusnuppe saab kasutada seotud valikute grupeerimiseks. Seotud lülitusnuppude gruppide esiletõstmiseks peab grupp jagama ühist konteinerit"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Lülitusnupp"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Kohtspikrid kuvavad tekstisildid, mis aitavad selgitada nupu või muud kasutajaliidese toimingu funktsiooni. Kohtspikrid kuvavad informatiivse teksti, kui kasutaja kursorit elemendil hõljutab, sellele fokuseerib või seda pikalt vajutab."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Pika vajutuse või kursori hõljutamise korral kuvatakse kohtspikker."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lühike sõnum, mis kuvatakse pika vajutuse või kursori hõljutamise korral"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Kohtspikrid"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Kaks rida"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -561,7 +753,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lubage Google\'il rakendusi asukoha tuvastamisel aidata. See tähendab, et Google\'ile saadetakse anonüümseid asukohaandmeid isegi siis, kui ükski rakendus ei tööta."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Kas kasutada Google\'i asukohateenuseid?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Varundamiskonto määramine"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("KUVA DIALOOG"),
@@ -570,7 +762,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategooriad"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerii"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Rand"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("Bronzeworks"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Kalur"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("Lilleturg"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Lõunasöögi valmistamine"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Turg"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Soolafarm"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Motorollerid"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Siidimeister"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavuri tempel"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Autolaenukonto"),
         "rallyAccountDataChecking":
@@ -596,15 +804,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Kokku"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Kontod"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Hoiatused"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Arved"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Maksta"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Riided"),
         "rallyBudgetCategoryCoffeeShops":
@@ -705,7 +913,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("TÜHISTA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("TÜHJENDA KORV"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("OSTUKORV"),
         "shrineCartShippingCaption":
@@ -767,8 +975,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -807,10 +1015,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Lisa ostukorvi"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Sule ostukorv"),
         "shrineTooltipCloseMenu":
@@ -823,7 +1031,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("Seaded"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Automaatselt kohanduva stardirakenduse paigutus"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Sisu"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("NUPP"),
         "starterAppGenericHeadline":

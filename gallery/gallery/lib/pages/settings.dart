@@ -316,7 +316,7 @@ class SettingsAttribution extends StatelessWidget {
     return MergeSemantics(
       child: Padding(
         padding: EdgeInsetsDirectional.only(
-          start: isDesktop ? 48 : 32,
+          start: isDesktop ? 24 : 32,
           end: isDesktop ? 0 : 32,
           top: verticalPadding,
           bottom: verticalPadding,
@@ -350,9 +350,8 @@ class _SettingsLink extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsetsDirectional.only(
-          start: isDesktop ? 48 : 32,
-          end: isDesktop ? 0 : 32,
+        padding: EdgeInsets.symmetric(
+          horizontal: isDesktop ? 24 : 32,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

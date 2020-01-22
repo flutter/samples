@@ -37,52 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Gagal menyalin ke papan klip: ${error}";
 
-  static m7(name, phoneNumber) => "Nomor telepon ${name} adalah ${phoneNumber}";
+  static m7(value) => "Berkelanjutan: ${value}";
 
-  static m8(value) => "Anda memilih: \"${value}\"";
+  static m8(value) => "Berlainan: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(value) => "Dicentang: ${value}";
+
+  static m10(value) => "Dipilih: ${value}";
+
+  static m11(name, phoneNumber) =>
+      "Nomor telepon ${name} adalah ${phoneNumber}";
+
+  static m12(value) => "Anda memilih: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "Rekening atas nama ${accountName} dengan nomor ${accountNumber} sejumlah ${amount}.";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Anda telah menghabiskan ${amount} biaya penggunaan ATM bulan ini";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Kerja bagus. Rekening giro Anda ${percent} lebih tinggi daripada bulan sebelumnya.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Perhatian, Anda telah menggunakan ${percent} dari anggaran Belanja untuk bulan ini.";
 
-  static m13(amount) => "Anda menghabiskan ${amount} di Restoran minggu ini.";
+  static m17(amount) => "Anda menghabiskan ${amount} di Restoran minggu ini.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Tingkatkan potensi potongan pajak Anda. Tetapkan kategori untuk 1 transaksi yang belum ditetapkan.', other: 'Tingkatkan potensi potongan pajak Anda. Tetapkan kategori untuk ${count} transaksi yang belum ditetapkan.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Tagihan ${billName} jatuh tempo pada ${date} sejumlah ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Anggaran ${budgetName} dengan ${amountUsed} yang digunakan dari jumlah total ${amountTotal}, tersisa ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'TIDAK ADA ITEM', one: '1 ITEM', other: '${quantity} ITEM')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Kuantitas: ${quantity}";
+  static m23(quantity) => "Kuantitas: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Keranjang belanja, tidak ada item', one: 'Keranjang belanja, 1 item', other: 'Keranjang belanja, ${quantity} item')}";
 
-  static m21(product) => "Hapus ${product}";
+  static m25(product) => "Hapus ${product}";
 
-  static m22(value) => "Item ${value}";
+  static m26(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Repositori Github sampel flutter"),
+            "Repositori GitHub sampel flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Kembali ke Galeri"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Notch"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Posisi Tombol Tindakan Mengambang"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Tersemat - Tengah"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Tersemat - Ujung"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Mengambang - Tengah"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Mengambang - Ujung"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Akun"),
         "bottomNavigationAlarmTab":
@@ -291,7 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoAlertFavoriteDessert": MessageLookupByLibrary.simpleMessage(
             "Pilih Makanan Penutup Favorit"),
         "cupertinoAlertLocationDescription": MessageLookupByLibrary.simpleMessage(
-            "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk petunjuk arah, hasil penelusuran di sekitar, dan estimasi waktu tempuh."),
+            "Lokasi Anda saat ini akan ditampilkan di peta dan digunakan untuk rute, hasil penelusuran di sekitar, dan estimasi waktu tempuh."),
         "cupertinoAlertLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Izinkan \"Maps\" mengakses lokasi Anda selagi Anda menggunakan aplikasi?"),
         "cupertinoAlertTiramisu":
@@ -301,6 +323,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dengan Latar Belakang"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Tampilkan Notifikasi"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Beranda"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Action chip adalah sekumpulan opsi yang memicu tindakan terkait konten utama. Action chip akan muncul secara dinamis dan kontekstual dalam UI."),
         "demoActionChipTitle":
@@ -311,6 +338,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Notifikasi"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Notifikasi dengan Judul"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Panel aplikasi bawah memberikan akses ke maksimal empat tindakan, termasuk tombol tindakan mengambang, serta ke panel navigasi bawah."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menampilkan navigasi dan tindakan di bagian bawah"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Panel aplikasi bawah"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Menu navigasi bawah menampilkan tiga hingga lima tujuan di bagian bawah layar. Tiap tujuan direpresentasikan dengan ikon dan label teks opsional. Jika ikon navigasi bawah diketuk, pengguna akan dialihkan ke tujuan navigasi tingkat teratas yang terkait dengan ikon tersebut."),
         "demoBottomNavigationPersistentLabels":
@@ -345,6 +378,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Datar, timbul, outline, dan lain-lain"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tombol"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu checklist"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Elemen ringkas yang merepresentasikan masukan, atribut, atau tindakan"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chip"),
@@ -352,6 +387,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choice chip merepresentasikan satu pilihan dari sekumpulan pilihan. Choice chip berisi teks deskriptif atau kategori yang terkait."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Choice Chip"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indikator progres putar Desain Material, yang berputar untuk menunjukkan bahwa aplikasi sedang sibuk."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indikator Progres Putar"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Contoh Kode"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Disalin ke papan klip."),
@@ -363,10 +403,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Semua warna yang telah ditentukan"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Warna"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu konteks"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Sheet tindakan adalah gaya khusus notifikasi yang menghadirkan serangkaian dua atau beberapa pilihan terkait dengan konteks saat ini kepada pengguna. Sheet tindakan dapat memiliki judul, pesan tambahan, dan daftar tindakan."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Sheet Tindakan"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indikator aktivitas gaya iOS yang berputar searah jarum jam."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indikator aktivitas gaya iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indikator Aktivitas"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Hanya Tombol Notifikasi"),
         "demoCupertinoAlertButtonsTitle":
@@ -387,6 +437,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tombol gaya iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Tombol"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Menu navigasi gaya iOS. Menu navigasi adalah toolbar yang minimal berisi judul halaman, di bagian tengah toolbar."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Menu navigasi gaya iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Menu Navigasi"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Widget yang mengimplementasikan kontrol terhadap konten tarik untuk memuat ulang gaya iOS."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontrol tarik untuk memuat ulang gaya iOS"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Tarik Untuk Memuat Ulang"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Digunakan untuk memilih sejumlah opsi yang sama eksklusifnya. Ketika satu opsi di kontrol tersegmen dipilih, opsi lain di kontrol tersegmen tidak lagi tersedia untuk dipilih."),
@@ -394,6 +459,28 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kontrol tersegmen gaya iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Kontrol Tersegmen"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Penggeser dapat digunakan untuk memilih kumpulan nilai berkelanjutan atau yang berlainan."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Penggeser gaya iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Penggeser"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Tombol akses digunakan untuk mengalihkan status aktif/nonaktif setelan tunggal."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Tombol akses gaya iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Panel tab navigasi bawah gaya iOS. Menampilkan beberapa tab dengan satu tab pertama yang aktif secara default."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Panel tab bawah gaya iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Panel Tab"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Penggeser menunjukkan rentang nilai di sepanjang panel, tempat pengguna dapat memilih nilai tunggal atau rentang nilai. Penggeser dapat disesuaikan dan diubah temanya."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Penggeser Kustom"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sederhana, notifikasi, dan layar penuh"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialog"),
@@ -417,6 +504,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Layar Penuh"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Layar Penuh"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Daftar Petak sangat cocok untuk menyajikan data homogen, biasanya berupa gambar. Setiap item dalam daftar petak disebut kotak."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Dengan footer"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Dengan header"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Hanya gambar"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Tata letak baris dan kolom"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Daftar Petak"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Info"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Input chip merepresentasikan informasi yang kompleks, seperti entitas (orang, tempat, atau barang) atau teks percakapan, dalam bentuk yang ringkas."),
@@ -424,6 +523,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Input Chip"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Tidak dapat menampilkan URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indikator progres linear Desain Material, disebut juga status progres."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indikator Progres Linear"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Baris tunggal dengan ketinggian tetap yang biasanya berisi teks serta ikon di awal atau akhir."),
         "demoListsSecondary":
@@ -431,21 +535,67 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Tata letak daftar scroll"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Daftar"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Item menu nonaktif"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage("Item dengan menu checklist"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Item dengan menu konteks"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage("Item dengan menu bagian"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Item dengan menu sederhana"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Item menu konteks satu"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Item menu konteks tiga"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Menu menampilkan daftar pilihan pada permukaan sementara Daftar tersebut muncul ketika pengguna berinteraksi dengan tombol, tindakan, atau kontrol lainnya."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Empat"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Dapatkan link"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Item menu satu"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Item menu tiga"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Item menu dua"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Satu"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Pratinjau"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Hapus"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Bagikan"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Tombol menu dan menu sederhana"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tiga"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Dua"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Satu Baris"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Ketuk di sini guna melihat opsi yang tersedia untuk demo ini."),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Opsi tampilan"),
         "demoOptionsTooltip": MessageLookupByLibrary.simpleMessage("Opsi"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Tombol outline akan menjadi buram dan terangkat saat ditekan. Tombol tersebut sering dipasangkan dengan tombol timbul untuk menandakan tindakan kedua dan alternatif."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Tombol Outline"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("Linear, putar, tidak tentu"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indikator progres"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Tombol timbul menambahkan dimensi ke sebagian besar tata letak datar. Tombol tersebut mempertegas fungsi pada ruang yang sibuk atau lapang."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Tombol Timbul"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Penggeser menunjukkan rentang nilai di sepanjang panel. Penggeser bisa memiliki ikon di kedua ujung panel yang menunjukkan rentang nilai. Penggeser cocok untuk menyesuaikan setelan seperti volume, kecerahan, atau menerapkan filter gambar."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Penggeser Rentang"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu dengan bagian"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kotak centang memungkinkan pengguna memilih beberapa opsi dari suatu kumpulan. Nilai kotak centang normal adalah true atau false dan nilai kotak centang tristate juga dapat null."),
@@ -469,6 +619,42 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dialog sederhana akan menawarkan pilihan di antara beberapa opsi kepada pengguna. Dialog sederhana memiliki judul opsional yang ditampilkan di atas pilihan tersebut."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Sederhana"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menu sederhana"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Berkelanjutan"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Penggeser Rentang Berkelanjutan dengan Tema Kustom"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Berkelanjutan dengan Nilai Angka yang Dapat Diedit"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Penggeser menunjukkan rentang nilai di sepanjang panel, tempat pengguna dapat memilih nilai tunggal. Penggeser cocok untuk menyesuaikan setelan seperti volume, kecerahan, atau menerapkan filter gambar."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Berlainan"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Penggeser Berlainan dengan Tema Kustom"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Nilai angka yang dapat diedit"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widget untuk memilih nilai dengan menggeser"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Penggeser"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Anda menekan tindakan snackbar."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("TINDAKAN"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("TAMPILKAN SNACKBAR"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snackbar memberi tahu pengguna proses yang telah dilakukan atau akan dilakukan aplikasi. Snackbar muncul sementara, di bagian bawah layar. Snackbar tidak akan mengganggu pengalaman pengguna, dan tidak memerlukan masukan pengguna agar dapat menghilang."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snackbar menampilkan pesan di bagian bawah layar"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Ini adalah snackbar."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Snackbar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tab yang mengatur konten di beragam jenis layar, set data, dan interaksi lainnya."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -490,7 +676,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Kisah hidup"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nama*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nama wajib diisi."),
         "demoTextFieldNoMoreThan":
@@ -527,6 +713,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Tombol yang dapat digunakan untuk opsi terkait grup. Untuk mempertegas grup tombol yang terkait, sebuah grup harus berbagi container yang sama"),
         "demoToggleButtonTitle": MessageLookupByLibrary.simpleMessage("Tombol"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Tooltip memberikan label teks yang membantu menjelaskan fungsi tombol atau tindakan antarmuka pengguna lainnya. Tooltip menampilkan teks informatif saat pengguna mengarahkan kursor, memfokuskan, atau menekan lama pada suatu elemen."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Tekan lama atau arahkan kursor untuk menampilkan tooltip."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Pesan singkat yang ditampilkan saat menekan lama atau mengarahkan kursor"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Tooltip"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Dua Baris"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -552,7 +745,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Izinkan Google membantu aplikasi menentukan lokasi. Ini berarti data lokasi anonim akan dikirimkan ke Google, meskipun tidak ada aplikasi yang berjalan."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Gunakan layanan lokasi Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Setel akun cadangan"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("TAMPILKAN DIALOG"),
@@ -561,7 +754,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategori"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeri"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Pantai"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Kerajinan Perunggu"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Nelayan"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Pasar Bunga"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Persiapan Makan Siang"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Pasar"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Ladang Garam"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Skuter"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Penenun Sutra"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Kuil Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Tabungan untuk Mobil"),
         "rallyAccountDataChecking":
@@ -586,15 +797,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Rekening"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Notifikasi"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Tagihan"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Batas Waktu"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Pakaian"),
         "rallyBudgetCategoryCoffeeShops":
@@ -690,7 +901,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("BATAL"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("KOSONGKAN KERANJANG"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("KERANJANG"),
         "shrineCartShippingCaption":
@@ -752,8 +963,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Celana panjang navy"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tunik plaster"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Meja kuartet"),
         "shrineProductRainwaterTray":
@@ -792,10 +1003,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kaus pinstripe putih"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Sabuk Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Tambahkan ke keranjang"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Tutup keranjang"),
         "shrineTooltipCloseMenu":
@@ -810,7 +1021,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Setelan"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Tata letak awal yang responsif"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Isi"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("TOMBOL"),

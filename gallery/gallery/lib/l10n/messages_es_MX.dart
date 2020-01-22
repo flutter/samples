@@ -36,53 +36,75 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "No se pudo copiar al portapapeles: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Continuo: ${value}";
+
+  static m8(value) => "Discreto: ${value}";
+
+  static m9(value) => "Marcado: ${value}";
+
+  static m10(value) => "Seleccionado: ${value}";
+
+  static m11(name, phoneNumber) =>
       "El número de teléfono de ${name} es ${phoneNumber}";
 
-  static m8(value) => "Seleccionaste: \"${value}\"";
+  static m12(value) => "Seleccionaste: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Cuenta ${accountName} ${accountNumber} con ${amount}";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Este mes, gastaste ${amount} en tarifas de cajeros automáticos";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "¡Buen trabajo! El saldo de la cuenta corriente es un ${percent} mayor al mes pasado.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Atención, utilizaste un ${percent} del presupuesto para compras de este mes.";
 
-  static m13(amount) => "Esta semana, gastaste ${amount} en restaurantes";
+  static m17(amount) => "Esta semana, gastaste ${amount} en restaurantes";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Aumenta tu potencial de deducción de impuestos. Asigna categorías a 1 transacción sin asignar.', other: 'Aumenta tu potencial de deducción de impuestos. Asigna categorías a ${count} transacciones sin asignar.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Factura de ${billName} con vencimiento el ${date} de ${amount}";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Se usó un total de ${amountUsed} de ${amountTotal} del presupuesto ${budgetName}; el saldo restante es ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'SIN ARTÍCULOS', one: '1 ARTÍCULO', other: '${quantity} ARTÍCULOS')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Cantidad: ${quantity}";
+  static m23(quantity) => "Cantidad: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Carrito de compras sin artículos', one: 'Carrito de compras con 1 artículo', other: 'Carrito de compras con ${quantity} artículos')}";
 
-  static m21(product) => "Quitar ${product}";
+  static m25(product) => "Quitar ${product}";
 
-  static m22(value) => "Artículo ${value}";
+  static m26(value) => "Artículo ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
             "Repositorio de GitHub con muestras de Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Volver a la Galería"),
+        "bottomAppBarNotch":
+            MessageLookupByLibrary.simpleMessage("Con recorte"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Posición del botón de acción flotante"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Anclado (centro)"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Anclado (extremo)"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Flotante (centro)"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Flotante (extremo)"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Cuenta"),
         "bottomNavigationAlarmTab":
@@ -309,6 +331,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Con fondo"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Mostrar alerta"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Inicio"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Perfil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Los chips de acciones son un conjunto de opciones que activan una acción relacionada al contenido principal. Deben aparecer de forma dinámica y en contexto en la IU."),
         "demoActionChipTitle":
@@ -318,6 +345,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerta"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alerta con título"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Las barras de apps inferiores proporcionan acceso a un panel lateral de navegación en la parte inferior y hasta cuatro acciones, incluido el botón de acción flotante."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Muestra la navegación y las acciones en la parte inferior"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de la app inferior"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Las barras de navegación inferiores muestran entre tres y cinco destinos en la parte inferior de la pantalla. Cada destino se representa con un ícono y una etiqueta de texto opcional. Cuando el usuario presiona un ícono de navegación inferior, se lo redirecciona al destino de navegación de nivel superior que está asociado con el ícono."),
         "demoBottomNavigationPersistentLabels":
@@ -353,6 +386,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Planos, con relieve, con contorno, etc."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botones"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú de lista de tareas"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Son elementos compactos que representan una entrada, un atributo o una acción"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chips"),
@@ -360,6 +395,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los chips de selecciones representan una única selección de un conjunto. Estos incluyen categorías o texto descriptivo relacionado."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Chip de selección"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Corresponde a un indicador de progreso circular de material design que gira para indicar que la aplicación está ocupada."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador de progreso circular"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Ejemplo de código"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -373,10 +414,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Todos los colores predefinidos"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Colores"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú contextual"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Una hoja de acciones es un estilo específico de alerta que brinda al usuario un conjunto de dos o más opciones relacionadas con el contexto actual. Una hoja de acciones puede tener un título, un mensaje adicional y una lista de acciones."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Hoja de acción"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Corresponde a un indicador de actividad de estilo iOS que gira en sentido horario."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicadores de actividad de estilo iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicador de actividad"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Solo botones de alerta"),
         "demoCupertinoAlertButtonsTitle":
@@ -397,6 +448,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Botones con estilo de iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Botones"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Corresponde a una barra de navegación similar a la de iOS. La barra de navegación es una barra de herramientas que básicamente contiene el título de una página en medio de la barra."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Barra de navegación similar a la de iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de navegación"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Corresponde a un widget que implementa el control de contenido con la función \"desliza hacia abajo para actualizar\" similar al de iOS."),
+        "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Control con la función \"desliza hacia abajo para actualizar\" similar al de iOS"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Deslizar hacia abajo para actualizar"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Se usa para seleccionar entre varias opciones mutuamente excluyentes. Cuando se selecciona una opción del control segmentado, se anula la selección de las otras."),
@@ -405,6 +471,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Control segmentado de estilo iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Control segmentado"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Un control deslizante se puede utilizar para seleccionar contenido de un conjunto de valores continuos o discretos."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Control deslizante de estilo iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Control deslizante"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Un interruptor se utiliza para cambiar el estado de una única opción de configuración a activado o desactivado."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Interruptor de estilo iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Corresponde a una barra de pestañas de navegación inferior de estilo iOS. Muestra varias pestañas (la primera activa de forma predeterminada)."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Barra de pestañas inferior de estilo iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de pestañas"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Los controles deslizantes reflejan un rango de valores en una barra, en la que los usuarios pueden elegir un solo valor o un rango. Los controles se pueden personalizar según un tema."),
+        "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Controles deslizantes personalizados"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, de alerta y de pantalla completa"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Diálogos"),
@@ -428,6 +516,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalla completa"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Pantalla completa"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Las listas de cuadrícula funcionan mejor para mostrar datos homogéneos, como imágenes. Cada elemento de una lista de cuadrícula se llama mosaico."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Con pie de página"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Con encabezado"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Solo imagen"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Diseño de filas y columnas"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Listas de cuadrícula"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Información"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Los chips de entrada representan datos complejos, como una entidad (persona, objeto o lugar), o texto conversacional de forma compacta."),
@@ -435,6 +535,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chip de entrada"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("No se pudo mostrar la URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Corresponde a un indicador de progreso lineal de material design, también conocido como barra de progreso."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador de progreso lineal"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Una fila de altura única y fija que suele tener texto y un ícono al principio o al final"),
         "demoListsSecondary":
@@ -442,6 +548,46 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Diseños de lista que se puede desplazar"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Listas"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "Elemento de menú inhabilitado"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Un elemento con un menú de lista de tareas"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Un elemento con un menú contextual"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Un elemento con un menú dividido"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Un elemento con un menú simple"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Primer elemento del menú contextual"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Tercer elemento del menú contextual"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Un menú muestra una lista de opciones en una superficie temporal. Aparece cuando los usuarios interactúan con un botón, una acción u otro control."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Cuatro"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Obtener vínculo"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Primer elemento del menú"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Tercer elemento del menú"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Segundo elemento del menú"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Uno"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Obtener vista previa"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Quitar"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Compartir"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Botones de menú y menús simples"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tres"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menú"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Dos"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Una línea"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -453,10 +599,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los botones con contorno se vuelven opacos y se elevan cuando se los presiona. A menudo, se combinan con botones con relieve para indicar una acción secundaria alternativa."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botón con contorno"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineales, circulares, indeterminados"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicadores de progreso"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Los botones con relieve agregan profundidad a los diseños más que nada planos. Destacan las funciones en espacios amplios o con muchos elementos."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botón con relieve"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Los controles deslizantes reflejan un rango de valores en una barra. Es posible que tengan íconos en ambos extremos de la barra que suponen un rango de valores. Son ideales para ajustar opciones de configuración como el volumen y el brillo, o bien para aplicar filtros de imagen."),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Controles deslizantes de rangos"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú dividido"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Las casillas de verificación permiten que el usuario seleccione varias opciones de un conjunto. El valor de una casilla de verificación normal es verdadero o falso y el valor de una casilla de verificación de triestado también puede ser nulo."),
@@ -479,6 +635,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Un diálogo simple le ofrece al usuario la posibilidad de elegir entre varias opciones. Un diálogo simple tiene un título opcional que se muestra encima de las opciones."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Simple"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú simple"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Continuos"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Control deslizante de rango continuo con tema personalizado"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Continuos con un valor numérico que se puede editar"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Los controles deslizantes reflejan un rango de valores en una barra, en la que los usuarios pueden elegir un solo valor. Son ideales para ajustar opciones de configuración como el volumen y el brillo, o bien para aplicar filtros de imagen."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Discretos"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Control deslizante discreto con tema personalizado"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Valor numérico que se puede editar"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgets para seleccionar un valor mediante el gesto de deslizar"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Controles deslizantes"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Presionaste la acción de la barra de notificaciones."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACCIÓN"),
+        "demoSnackbarsButtonLabel": MessageLookupByLibrary.simpleMessage(
+            "MOSTRAR UNA BARRA DE NOTIFICACIONES"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Las barras de notificaciones informan a los usuarios sobre un proceso que realizó o realizará una app. Aparecen temporalmente en la parte inferior de la pantalla. No deberían interrumpir la experiencia del usuario, y no requieren una entrada del usuario para desaparecer."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Las barras de notificaciones muestran mensajes en la parte inferior de la pantalla"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Esta es una barra de notificaciones."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Barras de notificaciones"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Las pestañas organizan el contenido en diferentes pantallas, conjuntos de datos y otras interacciones."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -502,7 +696,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Historia de vida"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Nombre*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("El nombre es obligatorio."),
         "demoTextFieldNoMoreThan":
@@ -543,6 +737,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Puedes usar los botones de activación para agrupar opciones relacionadas. Para destacar los grupos de botones de activación relacionados, el grupo debe compartir un contenedor común."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botones de activación"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "La información sobre la herramienta proporciona etiquetas de texto para explicar la función que cumple un botón, o bien otra acción de la interfaz de usuario. Este texto informativo se muestra cuando un usuario coloca el cursor sobre un elemento, lo enfoca o lo mantiene presionado."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Coloca el cursor sobre un elemento o mantenlo presionado para que se muestre la información sobre la herramienta."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mensaje breve que se muestra cuando se mantiene presionado o se coloca el cursor sobre un elemento"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage(
+            "Información sobre la herramienta"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Dos líneas"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -568,7 +770,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permite que Google ayude a las apps a determinar la ubicación. Esto implica el envío de datos de ubicación anónimos a Google, incluso cuando no se estén ejecutando apps."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "¿Quieres usar el servicio de ubicación de Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Configurar cuenta para copia de seguridad"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("MOSTRAR DIÁLOGO"),
@@ -577,7 +779,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categorías"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galería"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Playa"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Fundidora de bronce"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Pescador"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Mercado de flores"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Preparación del almuerzo"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Mercado"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Puducherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Salina"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Escúteres"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Fabricante de seda"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Templo en Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Ahorros de vehículo"),
         "rallyAccountDataChecking":
@@ -604,15 +825,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Cuentas"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertas"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Facturas"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Debes"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Indumentaria"),
         "rallyBudgetCategoryCoffeeShops":
@@ -719,7 +940,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCELAR"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("VACIAR CARRITO"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("CARRITO"),
         "shrineCartShippingCaption":
@@ -782,8 +1003,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalones azul marino"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Túnica color yeso"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Mesa para cuatro"),
         "shrineProductRainwaterTray": MessageLookupByLibrary.simpleMessage(
@@ -822,10 +1043,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Camisa de rayas finas"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Cinturón"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Agregar al carrito"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Cerrar carrito"),
         "shrineTooltipCloseMenu":
@@ -839,7 +1060,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Configuración"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Diseño de inicio responsivo"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Cuerpo"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("BOTÓN"),

@@ -242,6 +242,7 @@ class _BackdropState extends State<Backdrop>
                       color: _isSettingsOpen & !_controller.isAnimating
                           ? Colors.transparent
                           : Theme.of(context).colorScheme.secondaryVariant,
+                      clipBehavior: Clip.antiAlias,
                       child: InkWell(
                         onTap: toggleSettings,
                         child: Padding(

@@ -8,24 +8,40 @@ import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
+import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_text_field_demo.dart';
+import 'package:gallery/demos/material/banner_demo.dart';
+import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 import 'package:gallery/demos/material/bottom_navigation_demo.dart';
 import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
+import 'package:gallery/demos/material/cards_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
+import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
+import 'package:gallery/demos/material/menu_demo.dart';
+import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
+import 'package:gallery/demos/material/sliders_demo.dart';
 import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
+import 'package:gallery/demos/material/tooltip_demo.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/pages/demo.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
+
+const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 
 class GalleryDemo {
   GalleryDemo({
@@ -60,30 +76,56 @@ class GalleryDemoConfiguration {
 }
 
 List<GalleryDemo> materialDemos(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context);
   return [
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoBottomNavigationTitle,
-      icon: GalleryIcons.bottomNavigation,
-      subtitle: GalleryLocalizations.of(context).demoBottomNavigationSubtitle,
+      title: localizations.demoBannerTitle,
+      icon: GalleryIcons.listsLeaveBehind,
+      subtitle: localizations.demoBannerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context)
-              .demoBottomNavigationPersistentLabels,
-          description:
-              GalleryLocalizations.of(context).demoBottomNavigationDescription,
+          title: localizations.demoBannerTitle,
+          description: localizations.demoBannerDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html',
+              'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
+          buildRoute: (_) => BannerDemo(),
+          code: CodeSegments.bannerDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoBottomAppBarTitle,
+      icon: GalleryIcons.bottomAppBar,
+      subtitle: localizations.demoBottomAppBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoBottomAppBarTitle,
+          description: localizations.demoBottomAppBarDescription,
+          documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
+          buildRoute: (_) => BottomAppBarDemo(),
+          code: CodeSegments.bottomAppBarDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoBottomNavigationTitle,
+      icon: GalleryIcons.bottomNavigation,
+      subtitle: localizations.demoBottomNavigationSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoBottomNavigationPersistentLabels,
+          description: localizations.demoBottomNavigationDescription,
+          documentationUrl:
+              '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) =>
               BottomNavigationDemo(type: BottomNavigationDemoType.withLabels),
           code: CodeSegments.bottomNavigationDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context)
-              .demoBottomNavigationSelectedLabel,
-          description:
-              GalleryLocalizations.of(context).demoBottomNavigationDescription,
+          title: localizations.demoBottomNavigationSelectedLabel,
+          description: localizations.demoBottomNavigationDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html',
+              '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => BottomNavigationDemo(
               type: BottomNavigationDemoType.withoutLabels),
           code: CodeSegments.bottomNavigationDemo,
@@ -91,77 +133,67 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoBottomSheetTitle,
+      title: localizations.demoBottomSheetTitle,
       icon: GalleryIcons.bottomSheets,
-      subtitle: GalleryLocalizations.of(context).demoBottomSheetSubtitle,
+      subtitle: localizations.demoBottomSheetSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title:
-              GalleryLocalizations.of(context).demoBottomSheetPersistentTitle,
-          description: GalleryLocalizations.of(context)
-              .demoBottomSheetPersistentDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/BottomSheet-class.html',
+          title: localizations.demoBottomSheetPersistentTitle,
+          description: localizations.demoBottomSheetPersistentDescription,
+          documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
           buildRoute: (_) =>
               BottomSheetDemo(type: BottomSheetDemoType.persistent),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoBottomSheetModalTitle,
-          description:
-              GalleryLocalizations.of(context).demoBottomSheetModalDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/BottomSheet-class.html',
+          title: localizations.demoBottomSheetModalTitle,
+          description: localizations.demoBottomSheetModalDescription,
+          documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
           buildRoute: (_) => BottomSheetDemo(type: BottomSheetDemoType.modal),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoButtonTitle,
+      title: localizations.demoButtonTitle,
       icon: GalleryIcons.genericButtons,
-      subtitle: GalleryLocalizations.of(context).demoButtonSubtitle,
+      subtitle: localizations.demoButtonSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoFlatButtonTitle,
-          description:
-              GalleryLocalizations.of(context).demoFlatButtonDescription,
+          title: localizations.demoFlatButtonTitle,
+          description: localizations.demoFlatButtonDescription,
           documentationUrl:
               'https://docs.flutter.io/flutter/material/FlatButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.flat),
           code: CodeSegments.buttonDemoFlat,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoRaisedButtonTitle,
-          description:
-              GalleryLocalizations.of(context).demoRaisedButtonDescription,
+          title: localizations.demoRaisedButtonTitle,
+          description: localizations.demoRaisedButtonDescription,
           documentationUrl:
               'https://docs.flutter.io/flutter/material/RaisedButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.raised),
           code: CodeSegments.buttonDemoRaised,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoOutlineButtonTitle,
-          description:
-              GalleryLocalizations.of(context).demoOutlineButtonDescription,
+          title: localizations.demoOutlineButtonTitle,
+          description: localizations.demoOutlineButtonDescription,
           documentationUrl:
               'https://docs.flutter.io/flutter/material/OutlineButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.outline),
           code: CodeSegments.buttonDemoOutline,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoToggleButtonTitle,
-          description:
-              GalleryLocalizations.of(context).demoToggleButtonDescription,
+          title: localizations.demoToggleButtonTitle,
+          description: localizations.demoToggleButtonDescription,
           documentationUrl:
               'https://docs.flutter.io/flutter/material/ToggleButtons-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.toggle),
           code: CodeSegments.buttonDemoToggle,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoFloatingButtonTitle,
-          description:
-              GalleryLocalizations.of(context).demoFloatingButtonDescription,
+          title: localizations.demoFloatingButtonTitle,
+          description: localizations.demoFloatingButtonDescription,
           documentationUrl:
               'https://docs.flutter.io/flutter/material/FloatingActionButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.floating),
@@ -170,150 +202,239 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoChipTitle,
-      icon: GalleryIcons.chips,
-      subtitle: GalleryLocalizations.of(context).demoChipSubtitle,
+      title: GalleryLocalizations.of(context).demoCardTitle,
+      icon: GalleryIcons.cards,
+      subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoActionChipTitle,
-          description:
-              GalleryLocalizations.of(context).demoActionChipDescription,
+          title: GalleryLocalizations.of(context).demoCardTitle,
+          description: GalleryLocalizations.of(context).demoCardDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/ActionChip-class.html',
+              'https://api.flutter.dev/flutter/material/Card-class.html',
+          buildRoute: (context) => CardsDemo(),
+          code: CodeSegments.cardsDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoChipTitle,
+      icon: GalleryIcons.chips,
+      subtitle: localizations.demoChipSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoActionChipTitle,
+          description: localizations.demoActionChipDescription,
+          documentationUrl: '$_docsBaseUrl/material/ActionChip-class.html',
           buildRoute: (_) => ChipDemo(type: ChipDemoType.action),
           code: CodeSegments.chipDemoAction,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoChoiceChipTitle,
-          description:
-              GalleryLocalizations.of(context).demoChoiceChipDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/ChoiceChip-class.html',
+          title: localizations.demoChoiceChipTitle,
+          description: localizations.demoChoiceChipDescription,
+          documentationUrl: '$_docsBaseUrl/material/ChoiceChip-class.html',
           buildRoute: (_) => ChipDemo(type: ChipDemoType.choice),
           code: CodeSegments.chipDemoChoice,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoFilterChipTitle,
-          description:
-              GalleryLocalizations.of(context).demoFilterChipDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/FilterChip-class.html',
+          title: localizations.demoFilterChipTitle,
+          description: localizations.demoFilterChipDescription,
+          documentationUrl: '$_docsBaseUrl/material/FilterChip-class.html',
           buildRoute: (_) => ChipDemo(type: ChipDemoType.filter),
           code: CodeSegments.chipDemoFilter,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoInputChipTitle,
-          description:
-              GalleryLocalizations.of(context).demoInputChipDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/InputChip-class.html',
+          title: localizations.demoInputChipTitle,
+          description: localizations.demoInputChipDescription,
+          documentationUrl: '$_docsBaseUrl/material/InputChip-class.html',
           buildRoute: (_) => ChipDemo(type: ChipDemoType.input),
           code: CodeSegments.chipDemoInput,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoDialogTitle,
+      title: localizations.demoDialogTitle,
       icon: GalleryIcons.dialogs,
-      subtitle: GalleryLocalizations.of(context).demoDialogSubtitle,
+      subtitle: localizations.demoDialogSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoAlertDialogTitle,
-          description:
-              GalleryLocalizations.of(context).demoAlertDialogDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/AlertDialog-class.html',
+          title: localizations.demoAlertDialogTitle,
+          description: localizations.demoAlertDialogDescription,
+          documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.alert),
           code: CodeSegments.dialogDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoAlertTitleDialogTitle,
-          description:
-              GalleryLocalizations.of(context).demoAlertDialogDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/AlertDialog-class.html',
+          title: localizations.demoAlertTitleDialogTitle,
+          description: localizations.demoAlertDialogDescription,
+          documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.alertTitle),
           code: CodeSegments.dialogDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoSimpleDialogTitle,
-          description:
-              GalleryLocalizations.of(context).demoSimpleDialogDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/SimpleDialog-class.html',
+          title: localizations.demoSimpleDialogTitle,
+          description: localizations.demoSimpleDialogDescription,
+          documentationUrl: '$_docsBaseUrl/material/SimpleDialog-class.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.simple),
           code: CodeSegments.dialogDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoFullscreenDialogTitle,
-          description:
-              GalleryLocalizations.of(context).demoFullscreenDialogDescription,
+          title: localizations.demoFullscreenDialogTitle,
+          description: localizations.demoFullscreenDialogDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/widgets/PageRoute/fullscreenDialog.html',
+              '$_docsBaseUrl/widgets/PageRoute/fullscreenDialog.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.fullscreen),
           code: CodeSegments.dialogDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoListsTitle,
-      icon: GalleryIcons.listAlt,
-      subtitle: GalleryLocalizations.of(context).demoListsSubtitle,
+      title: localizations.demoGridListsTitle,
+      icon: GalleryIcons.gridOn,
+      subtitle: localizations.demoGridListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoOneLineListsTitle,
-          description: GalleryLocalizations.of(context).demoListsDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/ListTile-class.html',
+          title: localizations.demoGridListsImageOnlyTitle,
+          description: localizations.demoGridListsDescription,
+          documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
+          buildRoute: (context) =>
+              GridListDemo(type: GridListDemoType.imageOnly),
+          code: CodeSegments.gridListsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoGridListsHeaderTitle,
+          description: localizations.demoGridListsDescription,
+          documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
+          buildRoute: (context) => GridListDemo(type: GridListDemoType.header),
+          code: CodeSegments.gridListsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoGridListsFooterTitle,
+          description: localizations.demoGridListsDescription,
+          documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
+          buildRoute: (context) => GridListDemo(type: GridListDemoType.footer),
+          code: CodeSegments.gridListsDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoListsTitle,
+      icon: GalleryIcons.listAlt,
+      subtitle: localizations.demoListsSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoOneLineListsTitle,
+          description: localizations.demoListsDescription,
+          documentationUrl: '$_docsBaseUrl/material/ListTile-class.html',
           buildRoute: (context) => ListDemo(type: ListDemoType.oneLine),
           code: CodeSegments.listDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoTwoLineListsTitle,
-          description: GalleryLocalizations.of(context).demoListsDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/ListTile-class.html',
+          title: localizations.demoTwoLineListsTitle,
+          description: localizations.demoListsDescription,
+          documentationUrl: '$_docsBaseUrl/material/ListTile-class.html',
           buildRoute: (context) => ListDemo(type: ListDemoType.twoLine),
           code: CodeSegments.listDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoSelectionControlsTitle,
-      icon: GalleryIcons.checkBox,
-      subtitle: GalleryLocalizations.of(context).demoSelectionControlsSubtitle,
+      title: localizations.demoMenuTitle,
+      icon: GalleryIcons.moreVert,
+      subtitle: localizations.demoMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context)
-              .demoSelectionControlsCheckboxTitle,
-          description: GalleryLocalizations.of(context)
-              .demoSelectionControlsCheckboxDescription,
+          title: localizations.demoContextMenuTitle,
+          description: localizations.demoMenuDescription,
+          documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.contextMenu,
+          ),
+          code: CodeSegments.menuDemoContext,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoSectionedMenuTitle,
+          description: localizations.demoMenuDescription,
+          documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.sectionedMenu,
+          ),
+          code: CodeSegments.menuDemoSectioned,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoChecklistMenuTitle,
+          description: localizations.demoMenuDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/material/Checkbox-class.html',
+              '$_docsBaseUrl/material/CheckedPopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.checklistMenu,
+          ),
+          code: CodeSegments.menuDemoChecklist,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoSimpleMenuTitle,
+          description: localizations.demoMenuDescription,
+          documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
+          buildRoute: (context) => MenuDemo(
+            type: MenuDemoType.simpleMenu,
+          ),
+          code: CodeSegments.menuDemoSimple,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoProgressIndicatorTitle,
+      icon: GalleryIcons.progressActivity,
+      subtitle: localizations.demoProgressIndicatorSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCircularProgressIndicatorTitle,
+          description: localizations.demoCircularProgressIndicatorDescription,
+          documentationUrl:
+              '$_docsBaseUrl/material/CircularProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.circular,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoLinearProgressIndicatorTitle,
+          description: localizations.demoLinearProgressIndicatorDescription,
+          documentationUrl:
+              '$_docsBaseUrl/material/LinearProgressIndicator-class.html',
+          buildRoute: (context) => ProgressIndicatorDemo(
+            type: ProgressIndicatorDemoType.linear,
+          ),
+          code: CodeSegments.progressIndicatorsDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoSelectionControlsTitle,
+      icon: GalleryIcons.checkBox,
+      subtitle: localizations.demoSelectionControlsSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoSelectionControlsCheckboxTitle,
+          description: localizations.demoSelectionControlsCheckboxDescription,
+          documentationUrl: '$_docsBaseUrl/material/Checkbox-class.html',
           buildRoute: (context) => SelectionControlsDemo(
             type: SelectionControlsDemoType.checkbox,
           ),
           code: CodeSegments.selectionControlsDemoCheckbox,
         ),
         GalleryDemoConfiguration(
-          title:
-              GalleryLocalizations.of(context).demoSelectionControlsRadioTitle,
-          description: GalleryLocalizations.of(context)
-              .demoSelectionControlsRadioDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/Radio-class.html',
+          title: localizations.demoSelectionControlsRadioTitle,
+          description: localizations.demoSelectionControlsRadioDescription,
+          documentationUrl: '$_docsBaseUrl/material/Radio-class.html',
           buildRoute: (context) => SelectionControlsDemo(
             type: SelectionControlsDemoType.radio,
           ),
           code: CodeSegments.selectionControlsDemoRadio,
         ),
         GalleryDemoConfiguration(
-          title:
-              GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
-          description: GalleryLocalizations.of(context)
-              .demoSelectionControlsSwitchDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/Switch-class.html',
+          title: localizations.demoSelectionControlsSwitchTitle,
+          description: localizations.demoSelectionControlsSwitchDescription,
+          documentationUrl: '$_docsBaseUrl/material/Switch-class.html',
           buildRoute: (context) => SelectionControlsDemo(
             type: SelectionControlsDemoType.switches,
           ),
@@ -322,49 +443,88 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoSnackbarsTitle,
-      icon: GalleryIcons.snackbar,
-      subtitle: GalleryLocalizations.of(context).demoSnackbarsSubtitle,
+      title: localizations.demoSlidersTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: localizations.demoSlidersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoSnackbarsTitle,
-          description:
-              GalleryLocalizations.of(context).demoSnackbarsDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/SnackBar-class.html',
+          title: localizations.demoSlidersTitle,
+          description: localizations.demoSlidersDescription,
+          documentationUrl: '$_docsBaseUrl/material/Slider-class.html',
+          buildRoute: (context) => SlidersDemo(type: SlidersDemoType.sliders),
+          code: CodeSegments.slidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoRangeSlidersTitle,
+          description: localizations.demoRangeSlidersDescription,
+          documentationUrl: '$_docsBaseUrl/material/RangeSlider-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.rangeSliders),
+          code: CodeSegments.rangeSlidersDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoCustomSlidersTitle,
+          description: localizations.demoCustomSlidersDescription,
+          documentationUrl: '$_docsBaseUrl/material/SliderTheme-class.html',
+          buildRoute: (context) =>
+              SlidersDemo(type: SlidersDemoType.customSliders),
+          code: CodeSegments.customSlidersDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoSnackbarsTitle,
+      icon: GalleryIcons.snackbar,
+      subtitle: localizations.demoSnackbarsSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoSnackbarsTitle,
+          description: localizations.demoSnackbarsDescription,
+          documentationUrl: '$_docsBaseUrl/material/SnackBar-class.html',
           buildRoute: (context) => SnackbarsDemo(),
           code: CodeSegments.snackbarsDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoTabsTitle,
+      title: localizations.demoTabsTitle,
       icon: GalleryIcons.tabs,
-      subtitle: GalleryLocalizations.of(context).demoTabsSubtitle,
+      subtitle: localizations.demoTabsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoTabsTitle,
-          description: GalleryLocalizations.of(context).demoTabsDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/TabBarView-class.html',
+          title: localizations.demoTabsTitle,
+          description: localizations.demoTabsDescription,
+          documentationUrl: '$_docsBaseUrl/material/TabBarView-class.html',
           buildRoute: (context) => TabsDemo(),
           code: CodeSegments.tabsDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoTextFieldTitle,
+      title: localizations.demoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
-      subtitle: GalleryLocalizations.of(context).demoTextFieldSubtitle,
+      subtitle: localizations.demoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoTextFieldTitle,
-          description:
-              GalleryLocalizations.of(context).demoTextFieldDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/TextField-class.html',
+          title: localizations.demoTextFieldTitle,
+          description: localizations.demoTextFieldDescription,
+          documentationUrl: '$_docsBaseUrl/material/TextField-class.html',
           buildRoute: (_) => TextFieldDemo(),
           code: CodeSegments.textFieldDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoTooltipTitle,
+      icon: GalleryIcons.tooltip,
+      subtitle: localizations.demoTooltipSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoTooltipTitle,
+          description: localizations.demoTooltipDescription,
+          documentationUrl: '$_docsBaseUrl/material/Tooltip-class.html',
+          buildRoute: (_) => TooltipDemo(),
+          code: CodeSegments.tooltipDemo,
         ),
       ],
     ),
@@ -372,75 +532,67 @@ List<GalleryDemo> materialDemos(BuildContext context) {
 }
 
 List<GalleryDemo> cupertinoDemos(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context);
   return [
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoCupertinoButtonsTitle,
-      icon: GalleryIcons.genericButtons,
-      subtitle: GalleryLocalizations.of(context).demoCupertinoButtonsSubtitle,
+      title: localizations.demoCupertinoActivityIndicatorTitle,
+      icon: GalleryIcons.cupertinoProgress,
+      subtitle: localizations.demoCupertinoActivityIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCupertinoButtonsTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoButtonsDescription,
+          title: localizations.demoCupertinoActivityIndicatorTitle,
+          description: localizations.demoCupertinoActivityIndicatorDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoButton-class.html',
-          buildRoute: (_) => CupertinoButtonDemo(),
-          code: CodeSegments.cupertinoButtonDemo,
+              '$_docsBaseUrl/cupertino/CupertinoActivityIndicator-class.html',
+          buildRoute: (_) => CupertinoProgressIndicatorDemo(),
+          code: CodeSegments.cupertinoActivityIndicatorDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoCupertinoAlertsTitle,
+      title: localizations.demoCupertinoAlertsTitle,
       icon: GalleryIcons.dialogs,
-      subtitle: GalleryLocalizations.of(context).demoCupertinoAlertsSubtitle,
+      subtitle: localizations.demoCupertinoAlertsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCupertinoAlertTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoAlertDescription,
+          title: localizations.demoCupertinoAlertTitle,
+          description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) => CupertinoAlertDemo(type: AlertDemoType.alert),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
-          title:
-              GalleryLocalizations.of(context).demoCupertinoAlertWithTitleTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoAlertDescription,
+          title: localizations.demoCupertinoAlertWithTitleTitle,
+          description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) => CupertinoAlertDemo(type: AlertDemoType.alertTitle),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
-          title:
-              GalleryLocalizations.of(context).demoCupertinoAlertButtonsTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoAlertDescription,
+          title: localizations.demoCupertinoAlertButtonsTitle,
+          description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) =>
               CupertinoAlertDemo(type: AlertDemoType.alertButtons),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context)
-              .demoCupertinoAlertButtonsOnlyTitle,
-          description:
-              GalleryLocalizations.of(context).demoCupertinoAlertDescription,
+          title: localizations.demoCupertinoAlertButtonsOnlyTitle,
+          description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) =>
               CupertinoAlertDemo(type: AlertDemoType.alertButtonsOnly),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCupertinoActionSheetTitle,
-          description: GalleryLocalizations.of(context)
-              .demoCupertinoActionSheetDescription,
+          title: localizations.demoCupertinoActionSheetTitle,
+          description: localizations.demoCupertinoActionSheetDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoActionSheet-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoActionSheet-class.html',
           buildRoute: (_) =>
               CupertinoAlertDemo(type: AlertDemoType.actionSheet),
           code: CodeSegments.cupertinoAlertDemo,
@@ -448,21 +600,122 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
       ],
     ),
     GalleryDemo(
-      title:
-          GalleryLocalizations.of(context).demoCupertinoSegmentedControlTitle,
-      icon: GalleryIcons.tabs,
-      subtitle: GalleryLocalizations.of(context)
-          .demoCupertinoSegmentedControlSubtitle,
+      title: localizations.demoCupertinoButtonsTitle,
+      icon: GalleryIcons.genericButtons,
+      subtitle: localizations.demoCupertinoButtonsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context)
-              .demoCupertinoSegmentedControlTitle,
-          description: GalleryLocalizations.of(context)
-              .demoCupertinoSegmentedControlDescription,
+          title: localizations.demoCupertinoButtonsTitle,
+          description: localizations.demoCupertinoButtonsDescription,
           documentationUrl:
-              'https://api.flutter.dev/flutter/cupertino/CupertinoSegmentedControl-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
+          buildRoute: (_) => CupertinoButtonDemo(),
+          code: CodeSegments.cupertinoButtonDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoNavigationBarTitle,
+      icon: GalleryIcons.bottomSheetPersistent,
+      subtitle: localizations.demoCupertinoNavigationBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoNavigationBarTitle,
+          description: localizations.demoCupertinoNavigationBarDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoNavigationBar-class.html',
+          buildRoute: (_) => CupertinoNavigationBarDemo(),
+          code: CodeSegments.cupertinoNavigationBarDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoPullToRefreshTitle,
+      icon: GalleryIcons.cupertinoPullToRefresh,
+      subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoPullToRefreshTitle,
+          description: localizations.demoCupertinoPullToRefreshDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoSliverRefreshControl-class.html',
+          buildRoute: (_) => CupertinoRefreshControlDemo(),
+          code: CodeSegments.cupertinoRefreshDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoSegmentedControlTitle,
+      icon: GalleryIcons.tabs,
+      subtitle: localizations.demoCupertinoSegmentedControlSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoSegmentedControlTitle,
+          description: localizations.demoCupertinoSegmentedControlDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoSegmentedControl-class.html',
           buildRoute: (_) => CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoSliderTitle,
+      icon: GalleryIcons.sliders,
+      subtitle: localizations.demoCupertinoSliderSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoSliderTitle,
+          description: localizations.demoCupertinoSliderDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoSlider-class.html',
+          buildRoute: (_) => CupertinoSliderDemo(),
+          code: CodeSegments.cupertinoSliderDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoSelectionControlsSwitchTitle,
+      icon: GalleryIcons.cupertinoSwitch,
+      subtitle: localizations.demoCupertinoSwitchSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoSelectionControlsSwitchTitle,
+          description: localizations.demoCupertinoSwitchDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoSwitch-class.html',
+          buildRoute: (_) => CupertinoSwitchDemo(),
+          code: CodeSegments.cupertinoSwitchDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoTabBarTitle,
+      icon: GalleryIcons.bottomNavigation,
+      subtitle: localizations.demoCupertinoTabBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoTabBarTitle,
+          description: localizations.demoCupertinoTabBarDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoTabBar-class.html',
+          buildRoute: (_) => CupertinoTabBarDemo(),
+          code: CodeSegments.cupertinoNavigationDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoTextFieldTitle,
+      icon: GalleryIcons.textFieldsAlt,
+      subtitle: localizations.demoCupertinoTextFieldSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoTextFieldTitle,
+          description: localizations.demoCupertinoTextFieldDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoTextField-class.html',
+          buildRoute: (_) => CupertinoTextFieldDemo(),
+          code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
     ),
@@ -470,33 +723,31 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
 }
 
 List<GalleryDemo> referenceDemos(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context);
   return [
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoColorsTitle,
+      title: localizations.demoColorsTitle,
       icon: GalleryIcons.colors,
-      subtitle: GalleryLocalizations.of(context).demoColorsSubtitle,
+      subtitle: localizations.demoColorsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoColorsTitle,
-          description: GalleryLocalizations.of(context).demoColorsDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/MaterialColor-class.html',
+          title: localizations.demoColorsTitle,
+          description: localizations.demoColorsDescription,
+          documentationUrl: '$_docsBaseUrl/material/MaterialColor-class.html',
           buildRoute: (_) => ColorsDemo(),
           code: CodeSegments.colorsDemo,
         ),
       ],
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoTypographyTitle,
+      title: localizations.demoTypographyTitle,
       icon: GalleryIcons.customTypography,
-      subtitle: GalleryLocalizations.of(context).demoTypographySubtitle,
+      subtitle: localizations.demoTypographySubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoTypographyTitle,
-          description:
-              GalleryLocalizations.of(context).demoTypographyDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/TextTheme-class.html',
+          title: localizations.demoTypographyTitle,
+          description: localizations.demoTypographyDescription,
+          documentationUrl: '$_docsBaseUrl/material/TextTheme-class.html',
           buildRoute: (_) => TypographyDemo(),
           code: CodeSegments.typographyDemo,
         ),
@@ -512,71 +763,16 @@ class DemoWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool hasCycled = true;
-    return MaterialApp(
-      theme: MaterialDemoThemeData.themeData.copyWith(
+    return Theme(
+      data: MaterialDemoThemeData.themeData.copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-      supportedLocales: GalleryLocalizations.supportedLocales,
-      locale: GalleryOptions.of(context).locale,
-      // Remove the MediaQuery padding because the demo is rendered inside of a
-      // different page that already accounts for this padding.
-      home: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        removeBottom: true,
-        child: FocusScope(
-          node: InheritedDemoFocusNodes.of(context).innerFocusScope,
-          onFocusChange: (hasFocus) {
-            if (hasFocus && hasCycled) {
-              hasCycled = !hasCycled;
-              FocusScope.of(context).requestFocus(
-                  InheritedDemoFocusNodes.of(context).backButtonFocusNode);
-            } else if (hasFocus) {
-              InheritedDemoFocusNodes.of(context)
-                  .innerFocusScope
-                  .traversalChildren
-                  .toList()
-                  .first
-                  .requestFocus();
-            }
-          },
-          child: DefaultFocusTraversal(
-            policy: DemoFocusTraversalPolicy(
-              focusScope: InheritedDemoFocusNodes.of(context).innerFocusScope,
-              context: context,
-            ),
-            child: ApplyTextOptions(
-              child: CupertinoTheme(
-                data:
-                    CupertinoThemeData().copyWith(brightness: Brightness.light),
-                child: child,
-              ),
-            ),
-          ),
+      child: ApplyTextOptions(
+        child: CupertinoTheme(
+          data: CupertinoThemeData().copyWith(brightness: Brightness.light),
+          child: child,
         ),
       ),
     );
-  }
-}
-
-class DemoFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
-  DemoFocusTraversalPolicy({
-    this.focusScope,
-    this.context,
-  }) : assert(focusScope != null && context != null);
-
-  final FocusScopeNode focusScope;
-  final BuildContext context;
-
-  @override
-  bool next(FocusNode currentNode) {
-    if (currentNode == focusScope.traversalChildren.toList().last) {
-      InheritedDemoFocusNodes.of(context).backButtonFocusNode.requestFocus();
-      return true;
-    }
-    return super.next(currentNode);
   }
 }

@@ -37,53 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "No s\'ha pogut copiar al porta-retalls: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Continu: ${value}";
+
+  static m8(value) => "Discret: ${value}";
+
+  static m9(value) => "Marcat: ${value}";
+
+  static m10(value) => "Seleccionat: ${value}";
+
+  static m11(name, phoneNumber) =>
       "El número de telèfon de ${name} és ${phoneNumber}";
 
-  static m8(value) => "Has seleccionat: \"${value}\"";
+  static m12(value) => "Has seleccionat: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Import al compte ${accountName} amb el número ${accountNumber}: ${amount}.";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Has gastat ${amount} en comissions de caixers automàtics aquest mes";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Ben fet. El teu compte corrent és un ${percent} superior al mes passat.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Atenció! Has fet servir un ${percent} del teu pressupost per a compres d\'aquest mes.";
 
-  static m13(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
+  static m17(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Augmenta la teva possible deducció fiscal. Assigna categories a 1 transacció sense assignar.', other: 'Augmenta la teva possible deducció fiscal. Assigna categories a ${count} transaccions sense assignar.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Data de venciment de la factura ${billName} (${amount}): ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Has gastat ${amountUsed} de ${amountTotal} del pressupost ${budgetName}; import restant: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'CAP ARTICLE', one: '1 ARTICLE', other: '${quantity} ARTICLES')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Quantitat: ${quantity}";
+  static m23(quantity) => "Quantitat: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Carretó, cap article', one: 'Carretó, 1 article', other: 'Carretó, ${quantity} articles')}";
 
-  static m21(product) => "Suprimeix ${product}";
+  static m25(product) => "Suprimeix ${product}";
 
-  static m22(value) => "Article ${value}";
+  static m26(value) => "Article ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Repositori Github de mostres Flutter"),
+            "Repositori GitHub de mostres Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Torna a la galeria"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Retall"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Posició del botó d\'acció flotant"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Acoblat: al centre"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Acoblat: al final"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Flotant: al centre"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Flotant: al final"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Compte"),
         "bottomNavigationAlarmTab":
@@ -311,6 +332,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Amb fons"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Mostra l\'alerta"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Xat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Inici"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Perfil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les etiquetes d\'acció són un conjunt d\'opcions que activen una acció relacionada amb el contingut principal. Es mostren de manera dinàmica i contextual a les interfícies d\'usuari."),
         "demoActionChipTitle":
@@ -320,6 +345,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerta"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alerta amb el títol"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Les barres d\'aplicacions de la part inferior permeten accedir a un tauler de navegació de la part inferior i a un màxim de quatre accions, inclosa la del botó d\'acció flotant."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mostra la navegació i les accions a la part inferior"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Barra de l\'aplicació de la part inferior"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "A les barres de navegació inferior es mostren entre tres i cinc destinacions. Cada destinació es representa amb una icona i una etiqueta de text opcional. En tocar una icona de la navegació inferior, es redirigirà l\'usuari a la destinació de navegació de nivell superior associada amb la icona."),
         "demoBottomNavigationPersistentLabels":
@@ -355,6 +386,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Pla, amb relleu, perfilat i més"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botons"),
+        "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Menú amb llista de comprovació"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Elements compactes que representen una entrada, un atribut o una acció"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Etiquetes"),
@@ -362,6 +395,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Les etiquetes de selecció representen una opció única d\'entre les d\'un conjunt i contenen text descriptiu relacionat o categories."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Etiqueta de selecció"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador de progrés circular de Material Design; gira per indicar que l\'aplicació està ocupada."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador de progrés circular"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Exemple de codi"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -375,10 +414,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Tots els colors predefinits"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Colors"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú contextual"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Un full d\'accions és un estil específic d\'alertes que ofereix a l\'usuari dues o més opcions relacionades amb el context actual. Pot incloure un títol, un missatge addicional i una llista d\'accions."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Full d\'accions"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador d\'activitat d\'estil iOS que gira en sentit horari."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador d\'activitat d\'estil iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicador d\'activitat"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Només botons d\'alerta"),
         "demoCupertinoAlertButtonsTitle":
@@ -399,6 +448,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Botons d\'estil iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Botons"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Una barra de navegació d\'estil iOS. La barra de navegació és una barra d\'eines que consisteix com a mínim en un títol de pàgina al mig de la barra."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Barra de navegació d\'estil iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de navegació"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Un widget que implementa el control de contingut amb la funció \"Llisca cap avall per actualitzar\" d\'estil iOS."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Control \"Llisca cap avall per actualitzar\" d\'estil iOS"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Llisca cap avall per actualitzar"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "S\'utilitza per triar una opció d\'entre diverses que són excloents entre si. Quan se selecciona una opció al control segmentat, les altres deixen d\'estar disponibles."),
@@ -407,6 +472,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Control segmentat d\'estil iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Control segmentat"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Pots utilitzar el control lliscant per fer seleccions en conjunts de valors tant discrets com continus."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Control lliscant d\'estil iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Control lliscant"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Els interruptors s\'utilitzen per commutar una única opció de configuració a activada o desactivada."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Interruptor d\'estil iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Una barra de pestanyes de navegació d\'estil iOS situada a la part inferior. Mostra diverses pestanyes quan n\'hi ha una d\'activada, la primera de manera predeterminada."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Barra de pestanyes d\'estil iOS a la part inferior"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Barra de pestanyes"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Els controls lliscants mostren un interval de valors al llarg d\'una barra i els usuaris poden seleccionar-ne un o un interval. Pots personalitzar els controls lliscants i aplicar-hi temes."),
+        "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Controls lliscants personalitzats"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerta i pantalla completa"),
         "demoDialogTitle":
@@ -430,6 +517,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalla completa"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Pantalla completa"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Les llistes amb quadrícula són les més adequades per presentar dades homogènies, normalment imatges. Cada element d\'una llista amb quadrícula s\'anomena \"mosaic\"."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Amb peu de pàgina"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Amb capçalera"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Només imatge"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Disseny de fila i columna"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Llistes amb quadrícula"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informació"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les etiquetes d\'entrada representen una informació complexa, com ara una entitat (persona, lloc o cosa) o un text de conversa, en format compacte."),
@@ -437,6 +536,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Etiqueta d\'entrada"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "No s\'ha pogut mostrar l\'URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Indicador de progrés lineal de Material Design; també es coneix com a barra de progrés."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicador de progrés lineal"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Una fila d\'alçada fixa que normalment conté text i una icona al principi o al final."),
         "demoListsSecondary":
@@ -444,6 +548,46 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Desplaçar-se per dissenys de llistes"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Llistes"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Element de menú desactivat"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Un element amb un menú amb llista de comprovació"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Un element amb un menú contextual"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Un element amb un menú amb seccions"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Un element amb un menú senzill"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Element de menú contextual u"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Element de menú contextual tres"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Un menú mostra una llista d\'opcions sobre una superfície temporal. Es mostren quan els usuaris fan determinades accions o interaccionen amb un botó o un altre control."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Quatre"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Obtén l\'enllaç"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Element de menú u"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Element de menú tres"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Element de menú dos"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("U"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Previsualitza"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Suprimeix"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Comparteix"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Botons de menú i menús senzills"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tres"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menú"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Dos"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Una línia"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -455,10 +599,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els botons perfilats es tornen opacs i s\'eleven en prémer-los. Normalment estan vinculats amb botons amb relleu per indicar una acció secundaria o alternativa."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botó perfilat"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineals, circulars, indeterminats"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Indicadors de progrés"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Els botons amb relleu aporten dimensió als dissenys plans. Destacar les funcions en espais amplis o amb molts elements."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botó amb relleu"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Els controls lliscants mostren un interval de valors al llarg d\'una barra, que pot tenir icones als dos extrems. Són ideals per ajustar opcions de configuració com el volum o la brillantor, o bé per aplicar filtres d\'imatge."),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Controls lliscants d\'intervals"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú amb seccions"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Les caselles de selecció permeten que l\'usuari seleccioni diverses opcions d\'un conjunt. Normalment, el valor d\'una casella de selecció és vertader o fals; en cas d\'una casella de selecció amb tres estats, el tercer valor també pot ser nul."),
@@ -482,6 +636,43 @@ class MessageLookup extends MessageLookupByLibrary {
             "Un quadre de diàleg simple ofereix a l\'usuari diverses opcions per triar-ne una. Pot tenir un títol opcional que es mostra a sobre dels resultats."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Senzill"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menú senzill"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Valors continus"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Control lliscant d\'interval amb valors continus i un tema personalitzat"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Valors continus amb un valor numèric editable"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Els controls lliscants mostren un interval de valors al llarg d\'una barra i els usuaris poden seleccionar-ne un. Són ideals per ajustar opcions de configuració com el volum o la brillantor, o bé per aplicar filtres d\'imatge."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Valors discrets"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Control lliscant de valors discrets amb un tema personalitzat"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Valor numèric editable"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgets per seleccionar un valor fent lliscar el dit"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Controls lliscants"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Has premut l\'acció de la barra de notificacions."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACCIÓ"),
+        "demoSnackbarsButtonLabel": MessageLookupByLibrary.simpleMessage(
+            "MOSTRA UNA BARRA DE NOTIFICACIONS"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Les barres de notificacions informen els usuaris dels processos que han dut o duran a terme les aplicacions i es mostren temporalment a la part inferior de la pantalla. No interrompen l\'experiència d\'usuari ni cal cap acció perquè deixin de mostrar-se."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Les barres de notificacions mostren missatges a la part inferior de la pantalla"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Això és una barra de notificacions."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Barres de notificacions"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Les pestanyes organitzen el contingut en diferents pantalles, conjunts de dades i altres interaccions."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -504,7 +695,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Biografia"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nom*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("El nom és obligatori."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -544,6 +735,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els botons de commutació poden utilitzar-se per agrupar opcions relacionades. Per destacar grups de botons de commutació relacionats, un grup ha de compartir un contenidor comú."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botons de commutació"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Les descripcions emergents proporcionen etiquetes de text que ajuden a explicar la funció d\'un botó o d\'altres accions de la interfície d\'usuari. Les descripcions emergents mostren text informatiu quan els usuaris passen el cursor per sobre d\'un element, el seleccionen amb el teclat o el mantenen premut."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Mantén premut o passa el cursor per sobre d\'un element perquè es mostri la descripció emergent."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Missatge breu que es mostra en mantenir premuda una opció o en passar el cursor per sobre"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Descripcions emergents"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Dues línies"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -569,7 +768,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permet que Google pugui ajudar les aplicacions a determinar la ubicació, és a dir, que s\'enviïn dades d\'ubicació anònimes a Google fins i tot quan no s\'estigui executant cap aplicació."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vols fer servir els serveis d\'ubicació de Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Defineix el compte de la còpia de seguretat"),
         "dialogShow":
@@ -579,7 +778,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Platja"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Obres de bronze"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Madràs"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Pescador"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Mercat de flors"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Preparació del dinar"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Mercat"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Salina"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Escúters"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Teler de seda"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Temple de Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Estalvis del cotxe"),
         "rallyAccountDataChecking":
@@ -606,15 +823,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertes"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Factures"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Venciment"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Roba"),
         "rallyBudgetCategoryCoffeeShops":
@@ -723,7 +940,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCEL·LA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("BUIDA EL CARRETÓ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("CARRETÓ"),
         "shrineCartShippingCaption":
@@ -786,8 +1003,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalons blau marí"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Túnica color guix"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Taula rodona"),
         "shrineProductRainwaterTray":
@@ -825,10 +1042,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Camisa a ratlles blanca"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Cinturó Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Afegeix al carretó"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Tanca el carretó"),
         "shrineTooltipCloseMenu":
@@ -842,7 +1059,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Configuració"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Un disseny d\'inici responsiu"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Cos"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("BOTÓ"),
         "starterAppGenericHeadline":

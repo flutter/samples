@@ -37,52 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Imeshindwa kuyaweka kwenye ubao wa kunakili: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Endelevu: ${value}";
+
+  static m8(value) => "Zenye kikomo: ${value}";
+
+  static m9(value) => "Imeteuliwa: ${value}";
+
+  static m10(value) => "Imechaguliwa: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Nambari ya simu ya ${name} ni ${phoneNumber}";
 
-  static m8(value) => "Umechagua: \"${value}\"";
+  static m12(value) => "Umechagua: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Akaunti ya ${accountName} ${accountNumber} iliyo na ${amount}.";
 
-  static m10(amount) => "Umetumia ${amount} katika ada za ATM mwezi huu";
+  static m14(amount) => "Umetumia ${amount} katika ada za ATM mwezi huu";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Kazi nzuri! Kiwango cha akaunti yako ya hundi kimezidi cha mwezi uliopita kwa ${percent}.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Arifa: umetumia ${percent} ya bajeti yako ya Ununuzi kwa mwezi huu.";
 
-  static m13(amount) => "Umetumia ${amount} kwenye Mikahawa wiki hii.";
+  static m17(amount) => "Umetumia ${amount} kwenye Mikahawa wiki hii.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Ongeza kiwango cha kodi unayoweza kupunguziwa! Weka aina kwenye muamala 1 ambao hauna aina.', other: 'Ongeza kiwango cha kodi unayoweza kupunguziwa! Weka aina kwenye miamala ${count} ambayo haina aina.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Bili ya ${amount} ya ${billName} inapaswa kulipwa ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Bajeti ya ${budgetName} yenye ${amountUsed} ambazo zimetumika kati ya ${amountTotal}, zimesalia ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'HAKUNA BIDHAA', one: 'BIDHAA 1', other: 'BIDHAA ${quantity}')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Kiasi: ${quantity}";
+  static m23(quantity) => "Kiasi: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Kikapu, hakuna bidhaa', one: 'Kikapu, bidhaa 1', other: 'Kikapu, bidhaa ${quantity}')}";
 
-  static m21(product) => "Ondoa ${product}";
+  static m25(product) => "Ondoa ${product}";
 
-  static m22(value) => "Bidhaa ya ${value}";
+  static m26(value) => "Bidhaa ya ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Hifadhi ya Github ya sampuli za Flutter"),
+            "Hifadhi ya GitHub ya sampuli za Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Rudi kwenye Gallery"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Pengo"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Nafasi ya Kitufe cha Kutenda Kinachoelea"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage(
+                "Kilichoambatishwa - Katikati"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Kilichoambatishwa - Mwisho"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Kinachoelea - Katikati"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Kinachoelea - Mwisho"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Akaunti"),
         "bottomNavigationAlarmTab":
@@ -300,6 +322,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Na Mandharinyuma"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Onyesha Arifa"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Piga gumzo"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Skrini ya kwanza"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Wasifu"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Chipu za kutenda ni seti ya chaguo zinazosababisha kitendo kinachohusiana na maudhui ya msingi. Chipu za kutenda zinafaa kuonekana kwa urahisi na kwa utaratibu katika kiolesura."),
         "demoActionChipTitle":
@@ -309,6 +337,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Arifa"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Arifa Yenye Jina"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Pau za chini za programu hutoa uwezo wa kufikia droo ya chini ya kusogeza na hadi vitendo vinne, ikiwa ni pamoja na kitufe cha kutenda kinachoelea."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Huonyesha usogezaji na vitendo katika sehemu ya chini"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Upau wa chini wa programu"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Sehemu za chini za viungo muhimu huonyesha vituo vitatu hadi vitano katika sehemu ya chini ya skrini. Kila kituo kinawakilishwa na aikoni na lebo ya maandishi isiyo ya lazima. Aikoni ya usogezaji ya chini inapoguswa, mtumiaji hupelekwa kwenye kituo cha usogezaji cha kiwango cha juu kinachohusiana na aikoni hiyo."),
         "demoBottomNavigationPersistentLabels":
@@ -344,6 +378,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Bapa, iliyoinuliwa, mpaka wa mstari na zaidi"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Vitufe"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyu ya orodha hakikishi"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Vipengee vilivyoshikamana vinavyowakilisha ingizo, sifa au kitendo"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chipu"),
@@ -351,6 +387,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Chipu za kuchagua zinawakilisha chaguo moja kwenye seti. Chipu za kuchagua zina aina au maandishi ya ufafanuzi yanayohusiana."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Chipu ya Kuchagua"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Kiashirio cha Usanifu Bora cha shughuli cha mduara, kinachozunguka kuonyesha kuwa programu inatumika."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kiashirio cha Shughuli cha Mduara"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Sampuli ya Msimbo"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -364,10 +406,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Rangi zote zilizobainishwa mapema"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Rangi"),
+        "demoContextMenuTitle": MessageLookupByLibrary.simpleMessage("Menyu"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Laha ya kutenda ni muundo mahususi wa arifa unaompa mtumiaji seti ya chaguo mbili au zaidi zinazohusiana na muktadha wa sasa. Laha ya kutenda inaweza kuwa na kichwa, ujumbe wa ziada na orodha ya vitendo."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Laha la Kutenda"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Kiashirio cha shughuli cha muundo wa iOS chenye mzunguko wa saa."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Viashirio vya shughuli vya muundo wa iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Kiashirio cha Shughuli"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Vitufe vya Arifa Pekee"),
         "demoCupertinoAlertButtonsTitle":
@@ -388,6 +439,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vitufe vya muundo wa iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Vitufe"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Sehemu ya viungo muhimu ya muundo wa iOS. Sehemu ya viungo muhimu ni upau wa vidhibiti ambao kwa kiasi kidogo una kichwa cha ukurasa, katikati ya upau wa vidhibiti."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Sehemu ya viungo muhimu ya muundo wa iOs"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Sehemu ya Viungo Muhimu"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Wijeti inayotekeleza kidhibiti cha maudhui cha \"vuta ili uonyeshe upya\" cha muundo wa iOS."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kidhibiti cha \"vuta ili uonyeshe upya\" cha muundo wa iOS"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Vuta ili Uonyeshe Upya"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Hutumika kuchagua kati ya chaguo kadhaa za kipekee. Chaguo moja katika udhibiti wa vikundi ikichaguliwa, chaguo zingine katika udhibiti wa vikundi hazitachaguliwa."),
@@ -396,6 +463,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Udhibiti wa vikundi vya muundo wa iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Udhibiti wa Vikundi"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Kitelezi kinaweza kutumiwa ili kuchagua kati ya seti za thamani endelevu au zenye kikomo."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Kitelezi cha muundo wa iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Kitelezi"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Swichi inatumika kugeuza hali ya kuwasha/kuzima ya chaguo moja la mipangilio."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Swichi ya muundo wa iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Upau wa kichupo cha kusogeza wa upande wa chini wa muundo wa iOS. Huonyesha vichupo vingi huku kichupo kimoja kikitumika, kichupo cha kwanza kwa chaguomsingi."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Upau wa kichupo wa upande wa chini wa muundo wa iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Upao wa Kichupo"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Vitelezi huonyesha thamani mbalimbali kwenye upau, ambapo watumiaji wanaweza kuchagua thamani moja au thamani mbalimbali. Unaweza kuwekea vitelezi mapendeleo na dhamira."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Vitelezi Maalum"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Rahisi, arifa na skrini nzima"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Vidirisha"),
@@ -419,6 +508,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Skrini nzima"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Skrini Nzima"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Orodha za Gridi zinafaa zaidi kwa kuwasilisha data ya aina moja, picha kwa kawaida. Kila kipengee katika orodha ya gridi huitwa kigae."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Yenye vijachini"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Yenye vijajuu"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Picha pekee"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Muundo wa safu mlalo na safu wima"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Orodha za Gridi"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Maelezo"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Chipu za kuingiza huwakilisha taarifa ya kina, kama vile huluki (mtu, mahali au kitu) au maandishi ya mazungumzo katika muundo wa kushikamana."),
@@ -426,6 +527,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chipu ya Kuingiza"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Imeshindwa kuonyesha URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Kiashirio cha Usanifu Bora cha shughuli cha mstari, pia huitwa upau wa shughuli."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kiashirio cha Shughuli cha Mstari"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Safu wima moja ya urefu usiobadilika ambayo kwa kawaida ina baadhi ya maandishi na pia aikoni ya mwanzoni au mwishoni."),
         "demoListsSecondary": MessageLookupByLibrary.simpleMessage(
@@ -433,6 +540,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Miundo ya orodha za kusogeza"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Orodha"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "Kipengee cha menyu kilichozimwa"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Kipengee chenye menyu ya orodha hakikishi"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Kipengee chenye menyu"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Kipengee chenye menyu ya vijisehemu"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Kipengee chenye menyu sahili"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Kipengee cha kwanza cha menyu"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Kipengee cha tatu cha menyu"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Menyu huonyesha orodha ya chaguo kwenye sehemu ya muda mfupi. Huonekana watumiaji wanapotumia kitufe, kitendo au kidhibiti kingine."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Nne"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Pata kiungo"),
+        "demoMenuItemValueOne": MessageLookupByLibrary.simpleMessage(
+            "Kipengee cha kwanza cha menyu"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Kipengee cha tatu cha menyu"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Kipengee cha pili cha menyu"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Moja"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Kagua kwanza"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Ondoa"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Shiriki"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Vitufe vya menyu na menyu sahili"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tatu"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menyu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Mbili"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Mstari Mmoja"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -444,10 +588,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vitufe vya mipaka ya mistari huwa havipenyezi nuru na huinuka vinapobonyezwa. Mara nyingi vinaoanishwa na vitufe vilivyoinuliwa ili kuashiria kitendo mbadala, cha pili."),
         "demoOutlineButtonTitle": MessageLookupByLibrary.simpleMessage(
             "Kitufe chenye Mpaka wa Mstari"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Cha mstari, cha mviringo, kisichopimika"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Viashirio vya shughuli"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Vitufe vilivyoinuliwa huongeza kivimbe kwenye miundo iliyo bapa kwa sehemu kubwa. Vinasisitiza utendaji kwenye nafasi pana au yenye shughuli nyingi."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Kitufe Kilichoinuliwa"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Vitelezi huonyesha thamani mbalimbali kwenye upau. Vinaweza kuwa na aikoni kwenye pande zote za upau zinazoonyesha thamani mbalimbali. Hutumika kurekebisha mipangilio kama vile kiwango cha sauti, mwangaza au kutumia vichujio vya picha."),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Vitelezi vya Fungu la Visanduku"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyu yenye vijisehemu"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Visanduku vya kuteua humruhusu mtumiaji kuteua chaguo nyingi kwenye seti. Thamani ya kawaida ya kisanduku cha kuteua ni ndivyo au saivyo na thamani ya hali tatu ya kisanduku cha kuteua pia inaweza kuwa batili."),
@@ -470,6 +624,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Kidirisha rahisi humpa mtumiaji chaguo kati ya chaguo nyingi. Kidirisha rahisi kina kichwa kisicho cha lazima kinachoonyeshwa juu ya chaguo."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Rahisi"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyu sahili"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Endelevu"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Kitelezi cha Fungu Endelevu la Visanduku chenye Mandhari Maalum"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Endelevu yenye Thamani ya Nambari Inayoweza Kubadilishwa"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Vitelezi huonyesha thamani mbalimbali kwenye upau, ambapo watumiaji wanaweza kuchagua thamani moja. Hutumika kurekebisha mipangilio kama vile kiwango cha sauti, mwangaza au kutumia vichujio vya picha."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Zenye kikomo"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Kitelezi chenye Kikomo kilicho na Mandhari Maalum"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Thamani ya nambari inayoweza kubadilishwa"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Wijeti za kuchagua thamani kwa kutelezesha kidole"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Vitelezi"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Umebonyeza kitendo cha kidirisha cha arifa."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("KITENDO"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ONYESHA KIDIRISHA CHA ARIFA"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Vidirisha vya arifa huwajulisha watumiaji kuhusu mchakato ambao programu imetekeleza au itatekeleza. Huonekana kwa muda mfupi, kuelekea sehemu ya chini ya skrini. Havifai kusumbua hali ya utumiaji, na havihitaji mtumiaji achukue hatua yoyote ili viondoke."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Vidirisha vya arifa huonyesha ujumbe katika sehemu ya chini ya skrini"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Hiki ni kidirisha cha arifa."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Vidirisha vya arifa"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Vichupo hupanga maudhui kwenye skrini tofauti, seti za data na shughuli zingine."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -492,7 +683,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Hadithi ya wasifu"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Jina*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ni sharti ujaze jina."),
         "demoTextFieldNoMoreThan":
@@ -531,6 +722,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vitufe vya kugeuza vinaweza kutumiwa kuweka chaguo zinazohusiana katika vikundi. Ili kusisitiza vikundi vya vitufe vya kugeuza vinavyohusiana, kikundi kinafaa kushiriki metadata ya kawaida"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Vitufe vya Kugeuza"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Vidirisha vya vidokezo hutoa lebo za matini zinazosaidia kueleza umuhimu wa kitufe au kitendo kingine cha kiolesura. Vidirisha vya vidokezo huonyesha matini ya maelezo watumiaji wanapoelea, lenga au kubonyeza kipengee kwa muda mrefu."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Bonyeza kwa muda mrefu au uelee ili uonyeshe kidirisha cha vidokezo."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Ujumbe mfupi unaoonyeshwa ukibonyeza kwa muda mrefu au kuelea juu"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Vidirisha vya vidokezo"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Mistari Miwili"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -556,7 +755,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ruhusu Google isaidie programu kutambua mahali. Hii inamaanisha kutuma data isiyokutambulisha kwa Google, hata wakati hakuna programu zinazotumika."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Ungependa kutumia huduma ya mahali ya Google?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Weka akaunti ya kuhifadhi nakala"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ONYESHA KIDIRISHA"),
@@ -564,7 +763,27 @@ class MessageLookup extends MessageLookupByLibrary {
             "MIUNDO NA MAUDHUI YA MAREJELEO"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Aina"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Matunzio"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Ufuo"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Kazi ya Shaba"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Mvuvi"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Soko la Maua"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Matayarisho ya Chamcha"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Soko"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm":
+            MessageLookupByLibrary.simpleMessage("Shamba la Chumvi"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Pikipiki"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Mtengenezaji wa Hariri"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Hekalu la Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Akiba ya Gari"),
         "rallyAccountDataChecking":
@@ -590,16 +809,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Jumla"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Akaunti"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Arifa"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bili"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Zinahitajika mnamo"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Mavazi"),
         "rallyBudgetCategoryCoffeeShops":
@@ -700,7 +919,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("GHAIRI"),
         "shrineCartClearButtonCaption": MessageLookupByLibrary.simpleMessage(
             "ONDOA KILA KITU KWENYE KIKAPU"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("KIKAPU"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Usafirishaji:"),
@@ -762,8 +981,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Suruali ya buluu"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Gwanda la Plaster"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Meza"),
         "shrineProductRainwaterTray":
@@ -801,10 +1020,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Shati nyeupe yenye milia"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Mshipi wa Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Ongeza kwenye kikapu"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Funga kikapu"),
         "shrineTooltipCloseMenu":
@@ -818,7 +1037,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mipangilio"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Muundo wa kuanzisha unaobadilika kulingana na kifaa"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Mwili"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("KITUFE"),

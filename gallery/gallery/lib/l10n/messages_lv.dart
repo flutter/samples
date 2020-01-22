@@ -37,51 +37,72 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Neizdevās kopēt starpliktuvē: ${error}";
 
-  static m7(name, phoneNumber) => "${name} tālruņa numurs ir ${phoneNumber}";
+  static m7(value) => "Nepārtraukts: ${value}";
 
-  static m8(value) => "Jūs atlasījāt: “${value}”";
+  static m8(value) => "Atsevišķas vērtības: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(value) => "Pārbaudītā vērtība: ${value}";
+
+  static m10(value) => "Atlasītā vērtība: ${value}";
+
+  static m11(name, phoneNumber) => "${name} tālruņa numurs ir ${phoneNumber}";
+
+  static m12(value) => "Jūs atlasījāt: “${value}”";
+
+  static m13(accountName, accountNumber, amount) =>
       "Kontā (${accountName}; numurs: ${accountNumber}) ir šāda summa: ${amount}.";
 
-  static m10(amount) => "Šomēnes esat iztērējis ${amount} par maksu bankomātos";
+  static m14(amount) => "Šomēnes esat iztērējis ${amount} par maksu bankomātos";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Labs darbs! Jūsu norēķinu konts ir par ${percent} augstāks nekā iepriekšējā mēnesī.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Uzmanību! Jūs esat izmantojis ${percent} no sava iepirkšanās budžeta šim mēnesim.";
 
-  static m13(amount) => "Šonedēļ esat iztērējis ${amount} restorānos.";
+  static m17(amount) => "Šonedēļ esat iztērējis ${amount} restorānos.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, zero: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas ${count} darījumiem, kuriem vēl nav pievienotas kategorijas.', one: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas 1 darījumam, kuram vēl nav pievienota kategorija.', other: 'Palieliniet nodokļu atmaksas iespējas! Pievienojiet kategorijas ${count} darījumiem, kuriem vēl nav pievienotas kategorijas.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Rēķins (${billName}) par summu ${amount} ir jāapmaksā līdz šādam datumam: ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Budžets ${budgetName} ar iztērētu summu ${amountUsed} no ${amountTotal}, atlikusī summa: ${amountLeft}";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'NAV VIENUMU', one: '1 VIENUMS', other: '${quantity} VIENUMI')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Daudzums: ${quantity}";
+  static m23(quantity) => "Daudzums: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Iepirkumu grozs, nav preču', one: 'Iepirkumu grozs, 1 prece', other: 'Iepirkumu grozs, ${quantity} preces')}";
 
-  static m21(product) => "Noņemt produktu: ${product}";
+  static m25(product) => "Noņemt produktu: ${product}";
 
-  static m22(value) => "Vienums ${value}";
+  static m26(value) => "Vienums ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Skaņu paraugi Github krātuvē"),
+            "Skaņu paraugi GitHub krātuvē"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Atpakaļ uz galeriju"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Izgriezums"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Peldošās darbības pogas pozīcija"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Dokota — centrā"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Dokota — beigās"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Peldoša — centrā"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Peldoša — beigās"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Konts"),
         "bottomNavigationAlarmTab":
@@ -298,6 +319,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ar fonu"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Parādīt brīdinājumu"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Tērzēšana"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Sākums"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profils"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Darbību žetoni ir tādu opciju kopa, kas aktivizē ar primāro saturu saistītu darbību. Darbību žetoniem lietotāja saskarnē jābūt redzamiem dinamiski un atbilstoši kontekstam."),
         "demoActionChipTitle":
@@ -308,6 +335,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Brīdinājums"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Brīdinājums ar nosaukumu"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Apakšējās lietotņu joslas ļauj piekļūt apakšdaļā esošajai navigācijas atvilktnei un ne vairāk kā četrām darbībām, tostarp peldošajai darbības pogai."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Apakšdaļā tiek rādītas navigācijas iespējas un pieejamās darbības"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Apakšējā lietotņu josla"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Apakšējās navigācijas joslās ekrāna apakšdaļā tiek rādīti 3–5 galamērķi. Katrs galamērķis ir attēlots ar ikonu un papildu teksta iezīmi. Pieskaroties apakšējai navigācijas ikonai, lietotājs tiek novirzīts uz augšējā līmeņa navigācijas galamērķi, kas ir saistīts ar attiecīgo ikonu."),
         "demoBottomNavigationPersistentLabels":
@@ -343,6 +376,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plakanas, paceltas, konturētas un citu veidu"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Pogas"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontrolsaraksta izvēlne"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Kompakti elementi, kas apzīmē ievadi, atribūtu vai darbību"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Žetoni"),
@@ -350,6 +385,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Izvēles žetons apzīmē vienu izvēli no kopas. Izvēles žetoni satur saistītu aprakstošo tekstu vai kategorijas."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Izvēles žetons"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Cirkulārs materiāla dizaina norises indikators, kas griežas, lai norādītu, ka lietojumprogramma ir aizņemta."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Cirkulārs norises indikators"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Koda paraugs"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kopēts starpliktuvē."),
@@ -361,10 +402,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Visas iepriekš definētās krāsas"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Krāsas"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontekstizvēlne"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Darbību izklājlapa ir konkrēta stila brīdinājums, kas parāda lietotājam ar konkrēto kontekstu saistītu divu vai vairāku izvēļu kopumu. Darbību izklājlapai var būt virsraksts, papildu ziņa, kā arī darbību saraksts."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Darbību izklājlapa"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stila aktivitātes indikators, kas griežas pulksteņrādītāja kustības virzienā."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stila aktivitātes indikators"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Aktivitātes indikators"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Tikai brīdinājumu pogas"),
         "demoCupertinoAlertButtonsTitle":
@@ -385,6 +436,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS stila pogas"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Pogas"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stila navigācijas josla. Navigācijas josla ir rīkjosla, kas ietver vismaz lapas nosaukumu (rīkjoslas vidū)."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stila navigācijas josla"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigācijas josla"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Logrīks iOS stila satura vadīklas “Vilkt, lai atsvaidzinātu” ievietošanai."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS stila vadīkla “Vilkt, lai atsvaidzinātu”"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Vilkšana, lai atsvaidzinātu"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Izmanto, lai atlasītu kādu no savstarpēji izslēdzošām iespējām. Kad ir atlasīta iespēja segmentētajā pārvaldībā, citas iespējas tajā vairs netiek atlasītas."),
@@ -393,6 +459,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "iOS stila segmentēta pārvaldība"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmentēta pārvaldība"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Izmantojot slīdni, var atlasīt vērtību no nepārtraukta diapazona vai atsevišķu vērtību kopas."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stila slīdnis"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Slīdnis"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Izmantojot slēdzi, var pārslēgt vienu iestatījumu no ieslēgta stāvokļa uz izslēgtu vai otrādi."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS stila slēdzis"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS stila apakšējā navigācijas ciļņu josla Šeit tiek rādītas vairākas cilnes, un viena no tām ir aktīva. Pēc noklusējuma aktīva ir pirmā cilne."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS stila apakšējā ciļņu josla"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Ciļņu josla"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Slīdņi atspoguļo vērtību diapazonu joslā, kurā lietotāji var atlasīt atsevišķu vērtību vai vērtību diapazonu. Slīdņiem var atlasīt tēmu, un tos var pielāgot."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Pielāgoti slīdņi"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Vienkārši, brīdinājuma un pilnekrāna režīma"),
         "demoDialogTitle":
@@ -417,6 +505,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pilnekrāna režīms"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Pilnekrāna režīms"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Režģa saraksti ir piemērotāki homogēnu datu (parasti — attēlu) parādīšanai. Režģa saraksta vienumus dēvē par elementiem."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Ar kājeni"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Ar galveni"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Tikai attēli"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Rindu un kolonnu izkārtojums"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Režģa saraksti"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informācija"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ievades žetons ir kompaktā veidā atveidota komplicēta informācijas daļa, piemēram, vienība (persona, vieta vai lieta) vai sarunas teksts."),
@@ -424,6 +524,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ievades žetons"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Nevarēja attēlot URL:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Lineārs materiāla dizaina norises indikators, zināms arī kā norises josla."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Lineārs norises indikators"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Viena fiksēta augstuma rindiņa, kas parasti ietver tekstu, kā arī ikonu pirms vai pēc teksta."),
         "demoListsSecondary":
@@ -431,6 +536,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ritināmo sarakstu izkārtojumi"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Saraksti"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Atspējots izvēlnes vienums"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Vienums ar kontrolsaraksta izvēlni"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Vienums ar kontekstizvēlni"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Vienums ar izvēlni, kurai ir sadaļas"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Vienums ar vienkāršu izvēlni"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Kontekstizvēlnes pirmais vienums"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Kontekstizvēlnes trešais vienums"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Izvēlne īslaicīgajā saskarnē attēlo pieejamo opciju sarakstu. Tās tiek parādītas, kad lietotājs mijiedarbojas ar pogu vai vadīklu vai veic darbību."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Četri"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Iegūt saiti"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Pirmais izvēlnes vienums"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Trešais izvēlnes vienums"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Otrais izvēlnes vienums"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Viens"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Priekšskatīt"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Noņemt"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Kopīgot"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Izvēlnes pogas un vienkāršas izvēlnes"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Trīs"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Izvēlne"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Divi"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Viena rindiņa"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -442,10 +584,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Konturētas pogas nospiežot paliek necaurspīdīgas un paceļas. Tās bieži izmanto kopā ar paceltām pogām, lai norādītu alternatīvu, sekundāru darbību."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Konturēta poga"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineārs, cirkulārs, nenoteikts"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Norises indikatori"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Paceltas pogas piešķir plakaniem izkārtojumiem apjomu. Tās uzsver funkcijas aizņemtās vai plašās vietās."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Pacelta poga"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Slīdņi atspoguļo vērtību diapazonu joslā. Abos slīdņu joslas galos var būt ikonas, kas atspoguļo vērtību diapazonu. Slīdņi ir lieliski piemēroti dažādu iestatījumu, piemēram, skaļuma vai spilgtuma, pielāgošanai vai attēlu filtru lietošanai."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Diapazona slīdņi"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Izvēlne ar sadaļām"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Izmantojot izvēles rūtiņas, lietotājs var atlasīt vairākas opcijas grupā. Parastas izvēles rūtiņas vērtība ir “true” vai “false”. Triju statusu izvēles rūtiņas vērtība var būt arī “null”."),
@@ -469,6 +621,43 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vienkāršā dialoglodziņā lietotājam tiek piedāvāts izvēlēties starp vairākām opcijām. Vienkāršam dialoglodziņam ir neobligāts virsraksts, kas tiek attēlots virs izvēlēm."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Vienkāršs"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Vienkārša izvēlne"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Nepārtraukts"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Slīdnis ar nepārtrauktu vērtību diapazonu un pielāgotu motīvu"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Nepārtraukts slīdnis ar rediģējamu skaitlisko vērtību"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Slīdņi atspoguļo vērtību diapazonu joslā, kurā lietotāji var atlasīt atsevišķu vērtību. Slīdņi ir lieliski piemēroti dažādu iestatījumu, piemēram, skaļuma vai spilgtuma, pielāgošanai vai attēlu filtru lietošanai."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage(
+            "Slīdnis ar atsevišķām vērtībām"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Slīdnis ar atsevišķām vērtībām un pielāgotu motīvu"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Rediģējama skaitliskā vērtība"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Logrīki vērtības atlasīšanai velkot"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Slīdņi"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Jūs nospiedāt paziņojumu joslas darbības pogu."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("DARBĪBA"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("RĀDĪT PAZIŅOJUMU JOSLU"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Paziņojumu joslās tiek rādīta informācija par procesiem, ko lietotnes ir veikušas vai drīz veiks. Paziņojumu joslas tiek īslaicīgi rādītas ekrāna apakšā. Tās nedrīkst traucēt lietošanu, un nav nepieciešama lietotāja ievade, lai tās pazustu."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Paziņojumu joslās ekrāna apakšā tiek rādīti ziņojumi"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Šī ir paziņojumu josla."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Paziņojumu joslas"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Cilnēs saturs ir sakārtots vairākos ekrānos, datu kopās un citos mijiedarbības veidos."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -491,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Biogrāfija"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Vārds*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ir jāievada vārds."),
         "demoTextFieldNoMoreThan":
@@ -530,6 +719,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Pārslēgšanas pogas var izmantot saistītu opciju grupēšanai. Lai uzsvērtu saistītu pārslēgšanas pogu grupas, grupai ir jābūt kopīgam konteineram."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Pārslēgšanas pogas"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Rīka padomi ietver teksta iezīmes, kas paskaidro pogas vai citas lietotāja saskarnes darbības funkciju. Rīka padomi attēlo informatīvu tekstu, kad lietotāji virs kāda elementa virza kursoru, izceļ elementu vai to nospiež un tur."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Lai parādītu rīka padomu, nospiediet elementu un turiet to vai virziet virs tā kursoru."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Īss ziņojums, kas tiek parādīts, kad lietotājs nospiež elementu un to tur vai virza kursoru virs elementa."),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Rīka padomi"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Divas rindiņas"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -556,7 +752,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google varēs palīdzēt lietotnēm noteikt atrašanās vietu. Tas nozīmē, ka uzņēmumam Google tiks nosūtīti anonīmi atrašanās vietas dati, pat ja neviena lietotne nedarbosies."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vai izmantot Google atrašanās vietas pakalpojumu?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Dublējuma konta iestatīšana"),
         "dialogShow":
@@ -566,7 +762,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorijas"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Pludmale"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronzas lietuve"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Čennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Četinada"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Zvejnieks"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Ziedu tirgus"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Pusdienu gatavošana"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Tirgus"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pudučerri"),
+        "placeSaltFarm":
+            MessageLookupByLibrary.simpleMessage("Sāls ieguves saimniecība"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Motorolleri"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Zīda ražotne"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Thandžāvūra"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thandžāvūras templis"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Ietaupījumi automašīnai"),
         "rallyAccountDataChecking":
@@ -591,15 +806,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Kopā"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Konti"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Brīdinājumi"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rēķini"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Termiņš"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Apģērbs"),
         "rallyBudgetCategoryCoffeeShops":
@@ -704,7 +919,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ATCELT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("NOTĪRĪT GROZU"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("GROZS"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Piegāde:"),
@@ -766,8 +981,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tumši zilas bikses"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Ģipša krāsas tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Četrvietīgs galds"),
         "shrineProductRainwaterTray":
@@ -806,10 +1021,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Balts svītrains krekls"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney josta"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Pievienot grozam"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Aizvērt grozu"),
         "shrineTooltipCloseMenu":
@@ -823,7 +1038,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Iestatījumi"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Adaptīvs sākuma izkārtojums"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Pamatteksts"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("POGA"),

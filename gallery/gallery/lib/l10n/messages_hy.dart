@@ -36,52 +36,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Չհաջողվեց պատճենել սեղմատախտակին՝ ${error}";
 
-  static m7(name, phoneNumber) => "${name}՝ ${phoneNumber}";
+  static m7(value) => "Շարունակական՝ ${value}";
 
-  static m8(value) => "Դուք ընտրել եք՝ «${value}»";
+  static m8(value) => "Դիսկրետ՝ ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(value) => "Նշված է՝ ${value}";
+
+  static m10(value) => "Ընտրված է՝ ${value}";
+
+  static m11(name, phoneNumber) => "${name}՝ ${phoneNumber}";
+
+  static m12(value) => "Դուք ընտրել եք՝ «${value}»";
+
+  static m13(accountName, accountNumber, amount) =>
       "${amount} գումարի ${accountName} հաշիվ (${accountNumber})։";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Այս ամիս դուք բանկոմատների միջնորդավճարների վրա ծախսել եք ${amount}։";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Հրաշալի է։ Անցած ամսվա համեմատ՝ այս ամիս ձեր հաշվին ${percent}-ով ավել գումար կա։";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Ուշադրությո՛ւն։ Դուք ծախսել եք այս ամսվա բյուջեի ${percent}-ը։";
 
-  static m13(amount) => "Դուք այս շաբաթ ռեստորաններում ծախսել եք ${amount}։";
+  static m17(amount) => "Դուք այս շաբաթ ռեստորաններում ծախսել եք ${amount}։";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Ավելացրեք հարկային հնարավոր նվազեցման գումարը։ Նշանակեք կատեգորիաներ 1 չբաշխված գործարքի համար։', other: 'Ավելացրեք հարկային հնարավոր նվազեցման գումարը։ Նշանակեք կատեգորիաներ ${count} չբաշխված գործարքի համար։')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${amount} գումարի ${billName} հաշիվը պետք է վճարվի՝ ${date}։";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Բյուջե՝ ${budgetName}։ Ծախսվել է ${amountUsed}՝ ${amountTotal}-ից։ Մնացել է՝ ${amountLeft}։";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ԱՊՐԱՆՔՆԵՐ ՉԿԱՆ', one: '1 ԱՊՐԱՆՔ', other: '${quantity} ԱՊՐԱՆՔ')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Քանակը՝ ${quantity}";
+  static m23(quantity) => "Քանակը՝ ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Զամբյուղը դատարկ է', one: 'Զամբյուղում 1 ապրանք կա', other: 'Զամբյուղում ${quantity} ապրանք կա')}";
 
-  static m21(product) => "${product}՝ հեռացնել";
+  static m25(product) => "${product}՝ հեռացնել";
 
-  static m22(value) => "${value}";
+  static m26(value) => "${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-ի նմուշներ Github շտեմարանից"),
+            "Flutter-ի նմուշներ GitHub շտեմարանից"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Վերադառնալ ցուցասրահ"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Կտրվածք"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Գործողության լողացող կոճակի դիրքը"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Վահանակի վրա՝ կենտրոնում"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Վահանակի վրա՝ վերջում"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage(
+                "Վահանակի վերևում՝ կենտրոնում"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Վահանակի վերևում՝ վերջում"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Հաշիվ"),
         "bottomNavigationAlarmTab":
@@ -302,6 +324,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ֆոնով"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Ցուցադրել ծանուցումը"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Զրույց"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Գլխավոր էջ"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Պրոֆիլ"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Գործողությունների ինտերակտիվ չիպերը կարգավորումների խումբ են, որոնք ակտիվացնում են հիմնական բովանդակության հետ կապված գործողություններ։ Այս չիպերը պետք է հայտնվեն դինամիկ կերպով և լրացնեն միջերեսը։"),
         "demoActionChipTitle":
@@ -312,6 +340,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ծանուցում"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Ծանուցում վերնագրով"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Հավելվածների ստորին գոտում կարելի է տեղակայել նավարկման դարակը և մինչև չորս գործողություն, այդ թվում գործողության լողացող կոճակը։"),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Էկրանի ներքևի հատվածում ցուցադրում է նավարկման տարրերն ու հասանելի գործողությունները"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Հավելվածների ստորին գոտի"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Էկրանի ներքևի հատվածի նավարկման գոտում կարող է տեղավորվել ծառայության երեքից հինգ բաժին։ Ընդ որում դրանցից յուրաքանչյուրը կունենա առանձին պատկերակ և տեքստ (պարտադիր չէ)։ Եթե օգտատերը սեղմի պատկերակներից որևէ մեկի վրա, ապա կանցնի համապատասխան բաժին։"),
         "demoBottomNavigationPersistentLabels":
@@ -347,6 +381,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Հարթ, բարձրացված, ուրվագծային և այլն"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Կոճակներ"),
+        "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Ստուգաթերթ պարունակող ընտրացանկ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Կոմպակտ տարրեր, որոնք ներկայացնում են մուտքագրում, հատկանիշ կամ գործողություն"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Չիպեր"),
@@ -354,6 +390,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ընտրության ինտերակտիվ չիպերը ներկայացնում են հավաքածուից ընտրված մեկ տարբերակ։ Այս չիպերը պարունակում են առնչվող նկարագրական տեքստ կամ կատեգորիաներ։"),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Ընտրության չիպ"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ընթացքի՝ Material Design-ի ոճով շրջանաձև ցուցիչը ցույց է տալիս, որ հավելվածը մշակում է օգտատիրոջ հարցումը։"),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ընթացքի շրջանաձև ցուցիչ"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Կոդի օրինակ"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Պատճենվեց սեղմատախտակին։"),
@@ -365,10 +406,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Բոլոր նախասահմանված գույները"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Գույներ"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Տեղային ընտրացանկ"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Գործողությունների ցանկը ծանուցման հատուկ տեսակ է, որում օգտատիրոջն առաջարկվում է գործողությունների առնվազն երկու տարբերակ՝ կախված կոնտեքստից։ Ցանկը կարող է ունենալ վերնագիր, լրացուցիչ հաղորդագրություն, ինչպես նաև հասանելի գործողությունների ցանկ։"),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Գործողությունների ցանկ"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Գործողությունների՝ iOS-ի ոճով ցուցիչ, որը պտտվում է ժամացույցի սլաքի ուղղությամբ։"),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Գործողությունների՝ iOS-ի ոճով ցուցիչներ"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Գործողությունների ցուցիչ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Միայն ծանուցումներով կոճակներ"),
@@ -390,6 +441,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-ի ոճով կոճակներ"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Կոճակներ"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-ի ոճով նավարկման գոտի։ Նավարկման գոտին գտնվում է գործիքագոտու մեջտեղում և հնարավորինս փոքր տարբերակով պարունակում է էջի վերնագիրը։"),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ի ոճով նավարկման գոտի"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Նավարկման գոտի"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Վիջեթ, որը կառավարում է iOS-ի ոճով «Քաշել՝ թարմացնելու համար» բովանդակությունը։"),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "iOS-ի ոճով «Քաշել՝ թարմացնելու համար» կառավար"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Քաշել՝ թարմացնելու համար"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Թույլ է տալիս ընտրություն անել մի քանի իրար բացառող տարբերակների միջև։ Երբ սեգմենտավորված կառավարման տարրում մեկ տարբերակ է ընտրված, մյուս տարբերակները չեն ընդծգվում։"),
@@ -399,6 +465,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Սեգմենտավորված կառավարման տարր"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Սահիչի միջոցով նշված միջակայքում կարելի է որոշակի արժեք ընտրել։"),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ի ոճով սահիչ"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Սահիչ"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Փոխանջատիչի միջոցով կարելի է միացնել կամ անջատել առանձին կարգավորումներ։"),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-ի ոճով փոխանջատիչ"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-ի ոճի ստորին նավարկման ներդիրի գոտի։ Ցուցադրում է մի քանի ներդիրներ, որոնցից մեկն ակտիվ է։ Ըստ կանխադրման՝ ակտիվ է համարվում առաջին ներդիրը։"),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-ի ոճով ստորին ներդիրի գոտի"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Ներդիրի գոտի"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Սահիչները թույլ են տալիս ընտրել արժեքներից որևէ մեկը կամ նշել արժեքների միջակայքը։ Սահիչները կարելի է անհատականացնել սեփական թեմայով և կարգավորումներով։"),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Հատուկ սահիչներ"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Պարզ, ծանուցումներով և լիաէկրան"),
         "demoDialogTitle":
@@ -423,6 +511,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Լիաէկրան"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Լիաէկրան ռեժիմ"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ցանցաձև ցանկերը հարմարեցված են միատեսակ տվյալների (սովորաբար պատկերների) ցուցադրման համար։ Ցանցաձև ցանկի տարրերը կոչվում են սալիկներ։"),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Էջատակով"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Էջագլխով"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Միայն պատկերներ"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Տողերի և սյունակների դասավորությունը"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Ցանցաձև ցանկեր"),
         "demoInfoTooltip":
             MessageLookupByLibrary.simpleMessage("Տեղեկություններ"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
@@ -431,6 +531,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Մուտքագրման չիպ"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Չհաջողվեց ցուցադրել URL-ը՝"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ընթացքի՝ Material Design-ի ոճով գծային ցուցիչ, որը նաև անվանում են ընթացագոտի։"),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ընթացքի գծային ցուցիչ"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Ֆիքսված բարձրությամբ մեկ տող, որը սովորաբար պարունակում է տեքստ, ինչպես նաև պատկերակ՝ տեքստի սկզբում կամ վերջում։"),
         "demoListsSecondary":
@@ -438,22 +543,70 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ոլորման ցանկի դասավորություններ"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Ցանկեր"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Ընտրացանկի ոչ ակտիվ տարր"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Ստուգաթերթ պարունակող ընտրացանկով տարր"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage("Տեղային ընտրացանկով տարր"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Բաժիններ պարունակող ընտրացանկով տարր"),
+        "demoMenuAnItemWithASimpleMenu":
+            MessageLookupByLibrary.simpleMessage("Պարզ ընտրացանկով տարր"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Տեղային ընտրացանկի տարր 1"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Տեղային ընտրացանկի տարր 2"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Ընտրացանկը ցուցադրում է ընտրանքների ցանկ ժամանակավոր մակերեսին։ Դրանք ցուցադրվում են, երբ օգտատերերը սեղմում են կոճակին կամ այլ գործողություն են կատարում։"),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("չորս"),
+        "demoMenuGetLink":
+            MessageLookupByLibrary.simpleMessage("Ստանալ հղումը"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Ընտրացանկի տարր 1"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Ընտրացանկի տարր 3"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Ընտրացանկի տարր 2"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("մեկ"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Դիտել"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Ջնջել"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Կիսվել"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Ընտրացանկի կոճակներ և պարզ ընտրացանկեր"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("երեք"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Ընտրացանկ"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("երկու"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Մեկ գիծ"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap here to view available options for this demo."),
+            "Հպեք այստեղ և դիտեք հնարավոր ընտրանքները ցուցադրական տարբերակի համար։"),
         "demoOptionsFeatureTitle":
-            MessageLookupByLibrary.simpleMessage("View options"),
+            MessageLookupByLibrary.simpleMessage("Դիտեք ընտրանքները"),
         "demoOptionsTooltip":
             MessageLookupByLibrary.simpleMessage("Ընտրանքներ"),
         "demoOutlineButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Ուրվագծային կոճակները սեղմելիս դառնում են անթափանց և բարձրանում են։ Դրանք հաճախ օգտագործվում են բարձրացված կոճակների հետ՝ որևէ լրացուցիչ, այլընտրանքային գործողություն ընդգծելու համար։"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Ուրվագծային կոճակ"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("Գծային, շրջանաձև և անորոշ"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ընթացքի ցուցիչներ"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Բարձրացված կոճակները թույլ են տալիս հարթ մակերեսները դարձնել ավելի ծավալային, իսկ հագեցած և լայն էջերի գործառույթները՝ ավելի տեսանելի։"),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Բարձրացված կոճակ"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Սահիչները թույլ են տալիս ընտրել անհրաժեշտ արժեքը տրված միջակայքում։ Պարզության համար, միջակայքի եզրերով կարող եք տեղակայել պատկերակներ։ Սահիչների օգնությամբ հեշտությամբ կարող եք կարգավորել ձայնի մակարդակը, պայծառությունն ու պատկերների զտիչները։"),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Միջակայքի սահիչներ"),
+        "demoSectionedMenuTitle": MessageLookupByLibrary.simpleMessage(
+            "Բաժիններ պարունակող ընտրացանկ"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Նշավանդակների միջոցով օգտատերը կարող է ցանկից ընտրել մի քանի կարգավորումներ։ Նշավանդակը սովորաբար ունենում է true կամ false կարգավիճակը, և որոշ դեպքերում երրորդ արժեքը՝ null։"),
@@ -476,6 +629,41 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Սովորական երկխոսության պատուհանում օգտատիրոջն առաջարկվում է ընտրության մի քանի տարբերակ։ Եթե պատուհանն ունի վերնագիր, այն ցուցադրվում է տարբերակների վերևում։"),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Պարզ"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Պարզ ընտրացանկ"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Շարունակական"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Միջակայքի շարունակական սահիչ՝ անհատականացված թեմայով"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Շարունակական սահիչ՝ թվային արժեքը խմբագրելու հնարավորությամբ"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Սահիչները թույլ են տալիս ընտրել անհրաժեշտ արժեքը տրված միջակայքում։ Սահիչների օգնությամբ հեշտությամբ կարող եք կարգավորել ձայնի մակարդակը, պայծառությունն ու պատկերների զտիչները։"),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Դիսկրետ"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Դիսկրետ սահիչ՝ անհատականացված թեմայով"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Թվային արժեք"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Որոշակի արժեք ընտրելու համար օգտատերը պետք է մատն էկրանի վրայով սահեցնի"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Սահիչներ"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Դուք սեղմեցիք ծանուցումների տողի կոճակին։"),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ԿՈՃԱԿ"),
+        "demoSnackbarsButtonLabel": MessageLookupByLibrary.simpleMessage(
+            "ՑՈՒՑԱԴՐԵԼ ԾԱՆՈՒՑՈՒՄՆԵՐԻ ՏՈՂԸ"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ծանուցումների տողերը օգտատերերին տեղեկացնում են հավելվածում կատարված կամ կատարվելիք գործողությունների մասին։ Դրանք հայտնվում են կարճ ժամանակով էկրանի ներքևի հատվածում։ Ծանուցումների տողերը չեն շեղում օգտատերերին, և դրանք փակելու կարիք չկա։"),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Ծանուցումների տողերի հաղորդագրությունները ցուցադրվում են էկրանի ներքևի հատվածում"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Սա ծանուցումների տող է։"),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Ծանուցումների տողեր"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Ներդիրները թույլ են տալիս դասավորել էկրանների, տվյալակազմերի բովանդակությունը և այլն։"),
         "demoTabsSubtitle":
@@ -498,7 +686,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Կենսագրություն"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Անուն*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired": MessageLookupByLibrary.simpleMessage(
             "Մուտքագրեք անունը (պարտադիր է)։"),
         "demoTextFieldNoMoreThan":
@@ -538,6 +726,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Փոխարկման կոճակների օգնությամբ հնարավոր է խմբավորել նմանատիպ ընտրանքները։ Մեկը մյուսի հետ կապ ունեցող փոխարկման կոճակները պետք է ունենան ընդհանուր զետեղարան։"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Փոխարկման կոճակներ"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Հուշումները տեքստային պիտակների օգնությամբ նկարագրում են կոճակի գործառույթը և միջերեսի մյուս գործողությունները։ Հուշումներում ցուցադրվում են տեքստ պարունակող տեղեկություններ, երբ օգտատերը նշորդն անց է կացնում տարրի վրայով, պահում կամ երկար սեղմում դրա վրա։"),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Երկար սեղմեք կամ նշորդն անցկացրեք՝ հուշումները ցուցադրելու համար։"),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Կարճ հաղորդագրություն, որը ցուցադրվում է երկար սեղմման կամ նշորդն անցկացնելու դեպքում"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Հուշումներ"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Երկու գիծ"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -563,7 +758,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google-ին տեղադրության անանուն տվյալների ուղարկումը թույլ է տալիս հավելվածներին ավելի ճշգրիտ որոշել ձեր գտնվելու վայրը։ Տվյալները կուղարկվեն, նույնիսկ երբ ոչ մի հավելված գործարկված չէ։"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Օգտագործե՞լ Google-ի տեղորոշման ծառայությունը"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Պահուստավորման հաշվի կարգավորում"),
         "dialogShow": MessageLookupByLibrary.simpleMessage(
@@ -574,7 +769,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Կատեգորիաներ"),
         "homeHeaderGallery":
             MessageLookupByLibrary.simpleMessage("Պատկերասրահ"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Ծովափ"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Բրոնզե աշխատանքներ"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Չեննայ"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Չետինադ"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Ձկնորս"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Ծաղիկների շուկա"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Ճաշի պատրաստում"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Շուկա"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Պոնդիչերի"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Աղի հանք"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Մոտոցիկլետներ"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Մետաքսագործ"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Թանջավուր"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Թանջավուրի տաճար"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings": MessageLookupByLibrary.simpleMessage(
             "Խնայողություններ ավտոմեքենայի համար"),
         "rallyAccountDataChecking":
@@ -599,15 +812,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Ընդամենը"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Հաշիվներ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Ծանուցումներ"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Հաշիվներ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Վերջնաժամկետ"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Հագուստ"),
         "rallyBudgetCategoryCoffeeShops":
@@ -709,7 +922,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ՉԵՂԱՐԿԵԼ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ԴԱՏԱՐԿԵԼ ԶԱՄԲՅՈՒՂԸ"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("ԶԱՄԲՅՈՒՂ"),
         "shrineCartShippingCaption":
@@ -771,8 +984,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Մուգ կապույտ տաբատ"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Մարմնագույն տունիկա"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Կլոր սեղան"),
         "shrineProductRainwaterTray":
@@ -811,10 +1024,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Սպիտակ գծավոր վերնաշապիկ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Կաշվե գոտի"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Ավելացնել զամբյուղում"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Փակել զամբյուղը"),
         "shrineTooltipCloseMenu":
@@ -828,7 +1041,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Կարգավորումներ"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Հարմարվողական մոդել"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Հիմնական տեքստ"),
         "starterAppGenericButton":

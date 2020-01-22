@@ -11,7 +11,7 @@ match any new language/SDK features, etc.).
 | experimental              |                    |                |
 | flutter_maps_firestore    |                    |                |
 | isolate_example           | johnpryan          | 11/21/19       |
-| jsonexample               |                    |                |
+| jsonexample               | redbrogdon         | 1/3/20         |
 | material_studies/shrine   |                    |                |
 | place_tracker             |                    |                |
 | platform_design           | johnpryan          | 10/7/19        |

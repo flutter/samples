@@ -22,6 +22,7 @@ class ListDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoListsTitle),
       ),
       body: Scrollbar(

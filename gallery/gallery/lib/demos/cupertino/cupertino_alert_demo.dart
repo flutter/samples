@@ -216,7 +216,10 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(middle: Text(_title(context))),
+      navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
+        middle: Text(_title(context)),
+      ),
       child: Builder(
         builder: (context) {
           return Column(

@@ -241,6 +241,86 @@ class GalleryLocalizations {
             r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
+  String get bannerDemoLeadingText {
+    return Intl.message(r'Leading Icon',
+        locale: _localeName,
+        name: 'bannerDemoLeadingText',
+        desc:
+            r'If user clicks this button the leading icon in the Banner will disappear');
+  }
+
+  String get bannerDemoMultipleText {
+    return Intl.message(r'Multiple actions',
+        locale: _localeName,
+        name: 'bannerDemoMultipleText',
+        desc:
+            r'When the user clicks this button the Banner will toggle multiple actions or a single action');
+  }
+
+  String get bannerDemoResetText {
+    return Intl.message(r'Reset the banner',
+        locale: _localeName,
+        name: 'bannerDemoResetText',
+        desc: r'Show the Banner to the user again.');
+  }
+
+  String get bannerDemoText {
+    return Intl.message(
+        r'Your password was updated on your other device. Please sign in again.',
+        locale: _localeName,
+        name: 'bannerDemoText',
+        desc:
+            r'Password was updated on a different device and the user is required to sign in again');
+  }
+
+  String get bottomAppBarNotch {
+    return Intl.message(r'Notch',
+        locale: _localeName,
+        name: 'bottomAppBarNotch',
+        desc:
+            r'A toggle for whether to have a notch (or cutout) in the bottom app bar demo.');
+  }
+
+  String get bottomAppBarPosition {
+    return Intl.message(r'Floating Action Button Position',
+        locale: _localeName,
+        name: 'bottomAppBarPosition',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar demo.');
+  }
+
+  String get bottomAppBarPositionDockedCenter {
+    return Intl.message(r'Docked - Center',
+        locale: _localeName,
+        name: 'bottomAppBarPositionDockedCenter',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it in the center.');
+  }
+
+  String get bottomAppBarPositionDockedEnd {
+    return Intl.message(r'Docked - End',
+        locale: _localeName,
+        name: 'bottomAppBarPositionDockedEnd',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that docks the button in the bar and aligns it at the end.');
+  }
+
+  String get bottomAppBarPositionFloatingCenter {
+    return Intl.message(r'Floating - Center',
+        locale: _localeName,
+        name: 'bottomAppBarPositionFloatingCenter',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it in the center.');
+  }
+
+  String get bottomAppBarPositionFloatingEnd {
+    return Intl.message(r'Floating - End',
+        locale: _localeName,
+        name: 'bottomAppBarPositionFloatingEnd',
+        desc:
+            r'A setting for the position of the floating action button in the bottom app bar that places the button above the bar and aligns it at the end.');
+  }
+
   String get bottomNavigationAccountTab {
     return Intl.message(r'Account',
         locale: _localeName,
@@ -297,6 +377,116 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'buttonTextCreate',
         desc: r'Tooltip text for a create button.');
+  }
+
+  String get cardsDemoExplore {
+    return Intl.message(r'Explore',
+        locale: _localeName,
+        name: 'cardsDemoExplore',
+        desc: r'Click to see more about the content in the cards demo.');
+  }
+
+  String cardsDemoExploreSemantics(Object destinationName) {
+    return Intl.message(r'Explore $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoExploreSemantics',
+        desc:
+            r'Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoSelectable {
+    return Intl.message(r'Selectable (long press)',
+        locale: _localeName,
+        name: 'cardsDemoSelectable',
+        desc:
+            r'If the user taps and hold this card. The card will toggled between on and off.');
+  }
+
+  String cardsDemoShareSemantics(Object destinationName) {
+    return Intl.message(r'Share $destinationName',
+        locale: _localeName,
+        name: 'cardsDemoShareSemantics',
+        desc:
+            r'Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil',
+        args: <Object>[destinationName]);
+  }
+
+  String get cardsDemoTappable {
+    return Intl.message(r'Tappable',
+        locale: _localeName,
+        name: 'cardsDemoTappable',
+        desc: r'The user can tap this button');
+  }
+
+  String get cardsDemoTravelDestinationCity1 {
+    return Intl.message(r'Thanjavur',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity1',
+        desc: r'Thanjavur the city');
+  }
+
+  String get cardsDemoTravelDestinationCity2 {
+    return Intl.message(r'Chettinad',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationCity2',
+        desc: r'Chettinad the city');
+  }
+
+  String get cardsDemoTravelDestinationDescription1 {
+    return Intl.message(r'Number 10',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription1',
+        desc: r'Number 10');
+  }
+
+  String get cardsDemoTravelDestinationDescription2 {
+    return Intl.message(r'Silk Spinners',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription2',
+        desc: r'Silk Spinners');
+  }
+
+  String get cardsDemoTravelDestinationDescription3 {
+    return Intl.message(r'Temples',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationDescription3',
+        desc: r'Temples');
+  }
+
+  String get cardsDemoTravelDestinationLocation1 {
+    return Intl.message(r'Thanjavur, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation1',
+        desc: r'Thanjavur, Tamil Nadu is a location');
+  }
+
+  String get cardsDemoTravelDestinationLocation2 {
+    return Intl.message(r'Sivaganga, Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationLocation2',
+        desc: r'Sivaganga, Tamil Nadu is a location');
+  }
+
+  String get cardsDemoTravelDestinationTitle1 {
+    return Intl.message(r'Top 10 Cities to Visit in Tamil Nadu',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle1',
+        desc: r'The top 10 cities that you can visit in Tamil Nadu');
+  }
+
+  String get cardsDemoTravelDestinationTitle2 {
+    return Intl.message(r'Artisans of Southern India',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle2',
+        desc: r'Artist that are from Southern India');
+  }
+
+  String get cardsDemoTravelDestinationTitle3 {
+    return Intl.message(r'Brihadisvara Temple',
+        locale: _localeName,
+        name: 'cardsDemoTravelDestinationTitle3',
+        desc: r'Brihadisvara Temple');
   }
 
   String get chipBiking {
@@ -1174,6 +1364,27 @@ class GalleryLocalizations {
         desc: r'Button text to show iOS-style alert.');
   }
 
+  String get cupertinoTabBarChatTab {
+    return Intl.message(r'Chat',
+        locale: _localeName,
+        name: 'cupertinoTabBarChatTab',
+        desc: r'Title for the chat tab in the bottom tab bar demo.');
+  }
+
+  String get cupertinoTabBarHomeTab {
+    return Intl.message(r'Home',
+        locale: _localeName,
+        name: 'cupertinoTabBarHomeTab',
+        desc: r'Title for the home tab in the bottom tab bar demo.');
+  }
+
+  String get cupertinoTabBarProfileTab {
+    return Intl.message(r'Profile',
+        locale: _localeName,
+        name: 'cupertinoTabBarProfileTab',
+        desc: r'Title for the profile tab in the bottom tab bar demo.');
+  }
+
   String get demoActionChipDescription {
     return Intl.message(
         r'Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI.',
@@ -1209,6 +1420,50 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoAlertTitleDialogTitle',
         desc: r'Title for the alert dialog with title component demo.');
+  }
+
+  String get demoBannerDescription {
+    return Intl.message(
+        r'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). A user action is required for it to be dismissed.',
+        locale: _localeName,
+        name: 'demoBannerDescription',
+        desc: r'Description for the material banner component demo.');
+  }
+
+  String get demoBannerSubtitle {
+    return Intl.message(r'Displaying a banner within a list',
+        locale: _localeName,
+        name: 'demoBannerSubtitle',
+        desc: r'Subtitle for the material banner component demo.');
+  }
+
+  String get demoBannerTitle {
+    return Intl.message(r'Banner',
+        locale: _localeName,
+        name: 'demoBannerTitle',
+        desc: r'Title for the material banner component demo.');
+  }
+
+  String get demoBottomAppBarDescription {
+    return Intl.message(
+        r'Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.',
+        locale: _localeName,
+        name: 'demoBottomAppBarDescription',
+        desc: r'Description for the material bottom app bar component demo.');
+  }
+
+  String get demoBottomAppBarSubtitle {
+    return Intl.message(r'Displays navigation and actions at the bottom',
+        locale: _localeName,
+        name: 'demoBottomAppBarSubtitle',
+        desc: r'Subtitle for the material bottom app bar component demo.');
+  }
+
+  String get demoBottomAppBarTitle {
+    return Intl.message(r'Bottom app bar',
+        locale: _localeName,
+        name: 'demoBottomAppBarTitle',
+        desc: r'Title for the material bottom app bar component demo.');
   }
 
   String get demoBottomNavigationDescription {
@@ -1343,6 +1598,35 @@ class GalleryLocalizations {
         desc: r'Title for the material buttons component demo.');
   }
 
+  String get demoCardDescription {
+    return Intl.message(
+        r'A card is a sheet of Material used to represent some related information, for example an album, a geographical location, a meal, contact details, etc.',
+        locale: _localeName,
+        name: 'demoCardDescription',
+        desc: r'Description for the material cards component demo.');
+  }
+
+  String get demoCardSubtitle {
+    return Intl.message(r'Baseline cards with rounded corners',
+        locale: _localeName,
+        name: 'demoCardSubtitle',
+        desc: r'Subtitle for the material cards component demo.');
+  }
+
+  String get demoCardTitle {
+    return Intl.message(r'Cards',
+        locale: _localeName,
+        name: 'demoCardTitle',
+        desc: r'Title for the material cards component demo.');
+  }
+
+  String get demoChecklistMenuTitle {
+    return Intl.message(r'Checklist menu',
+        locale: _localeName,
+        name: 'demoChecklistMenuTitle',
+        desc: r'Title for the checklist menu component demo.');
+  }
+
   String get demoChipSubtitle {
     return Intl.message(
         r'Compact elements that represent an input, attribute, or action',
@@ -1371,6 +1655,21 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoChoiceChipTitle',
         desc: r'Title for the choice chip component demo.');
+  }
+
+  String get demoCircularProgressIndicatorDescription {
+    return Intl.message(
+        r'A Material Design circular progress indicator, which spins to indicate that the application is busy.',
+        locale: _localeName,
+        name: 'demoCircularProgressIndicatorDescription',
+        desc: r'Description for circular progress indicator demo.');
+  }
+
+  String get demoCircularProgressIndicatorTitle {
+    return Intl.message(r'Circular Progress Indicator',
+        locale: _localeName,
+        name: 'demoCircularProgressIndicatorTitle',
+        desc: r'Title for circular progress indicator demo.');
   }
 
   String get demoCodeTooltip {
@@ -1429,6 +1728,13 @@ class GalleryLocalizations {
         desc: r'Title for the colors demo.');
   }
 
+  String get demoContextMenuTitle {
+    return Intl.message(r'Context menu',
+        locale: _localeName,
+        name: 'demoContextMenuTitle',
+        desc: r'Title for the context menu component demo.');
+  }
+
   String get demoCupertinoActionSheetDescription {
     return Intl.message(
         r'An action sheet is a specific style of alert that presents the user with a set of two or more choices related to the current context. An action sheet can have a title, an additional message, and a list of actions.',
@@ -1442,6 +1748,29 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoActionSheetTitle',
         desc: r'Title for the cupertino action sheet component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorDescription {
+    return Intl.message(
+        r'An iOS-style activity indicator that spins clockwise.',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorDescription',
+        desc:
+            r'Description for the cupertino activity indicator component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorSubtitle {
+    return Intl.message(r'iOS-style activity indicators',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorSubtitle',
+        desc: r'Subtitle for the cupertino activity indicator component demo.');
+  }
+
+  String get demoCupertinoActivityIndicatorTitle {
+    return Intl.message(r'Activity Indicator',
+        locale: _localeName,
+        name: 'demoCupertinoActivityIndicatorTitle',
+        desc: r'Title for the cupertino activity indicator component demo.');
   }
 
   String get demoCupertinoAlertButtonsOnlyTitle {
@@ -1516,6 +1845,50 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino buttons component demo.');
   }
 
+  String get demoCupertinoNavigationBarDescription {
+    return Intl.message(
+        r'An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarDescription',
+        desc: r'Description for the cupertino navigation bar component demo.');
+  }
+
+  String get demoCupertinoNavigationBarSubtitle {
+    return Intl.message(r'iOS-style navigation bar',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarSubtitle',
+        desc: r'Subtitle for the cupertino navigation bar component demo.');
+  }
+
+  String get demoCupertinoNavigationBarTitle {
+    return Intl.message(r'Navigation Bar',
+        locale: _localeName,
+        name: 'demoCupertinoNavigationBarTitle',
+        desc: r'Title for the cupertino navigation bar component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshDescription {
+    return Intl.message(
+        r'A widget implementing the iOS-style pull to refresh content control.',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshDescription',
+        desc: r'Description for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshSubtitle {
+    return Intl.message(r'iOS-style pull to refresh control',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshSubtitle',
+        desc: r'Subtitle for the cupertino pull-to-refresh component demo.');
+  }
+
+  String get demoCupertinoPullToRefreshTitle {
+    return Intl.message(r'Pull To Refresh',
+        locale: _localeName,
+        name: 'demoCupertinoPullToRefreshTitle',
+        desc: r'Title for the cupertino pull-to-refresh component demo.');
+  }
+
   String get demoCupertinoSegmentedControlDescription {
     return Intl.message(
         r'Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected.',
@@ -1537,6 +1910,128 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCupertinoSegmentedControlTitle',
         desc: r'Title for the cupertino segmented control component demo.');
+  }
+
+  String demoCupertinoSliderContinuous(Object value) {
+    return Intl.message(r'Continuous: $value',
+        locale: _localeName,
+        name: 'demoCupertinoSliderContinuous',
+        desc:
+            r'A label for a continuous slider that indicates what value it is set to.',
+        args: <Object>[value]);
+  }
+
+  String get demoCupertinoSliderDescription {
+    return Intl.message(
+        r'A slider can be used to select from either a continuous or a discrete set of values.',
+        locale: _localeName,
+        name: 'demoCupertinoSliderDescription',
+        desc: r'Description for the cupertino slider component demo.');
+  }
+
+  String demoCupertinoSliderDiscrete(Object value) {
+    return Intl.message(r'Discrete: $value',
+        locale: _localeName,
+        name: 'demoCupertinoSliderDiscrete',
+        desc:
+            r'A label for a discrete slider that indicates what value it is set to.',
+        args: <Object>[value]);
+  }
+
+  String get demoCupertinoSliderSubtitle {
+    return Intl.message(r'iOS-style slider',
+        locale: _localeName,
+        name: 'demoCupertinoSliderSubtitle',
+        desc: r'Subtitle for the cupertino slider component demo.');
+  }
+
+  String get demoCupertinoSliderTitle {
+    return Intl.message(r'Slider',
+        locale: _localeName,
+        name: 'demoCupertinoSliderTitle',
+        desc: r'Title for the cupertino slider component demo.');
+  }
+
+  String get demoCupertinoSwitchDescription {
+    return Intl.message(
+        r'A switch is used to toggle the on/off state of a single setting.',
+        locale: _localeName,
+        name: 'demoCupertinoSwitchDescription',
+        desc: r'Description for the cupertino switch component demo.');
+  }
+
+  String get demoCupertinoSwitchSubtitle {
+    return Intl.message(r'iOS-style switch',
+        locale: _localeName,
+        name: 'demoCupertinoSwitchSubtitle',
+        desc: r'Subtitle for the cupertino switch component demo.');
+  }
+
+  String get demoCupertinoTabBarDescription {
+    return Intl.message(
+        r'An iOS-style bottom navigation tab bar. Displays multiple tabs with one tab being active, the first tab by default.',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarDescription',
+        desc: r'Description for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTabBarSubtitle {
+    return Intl.message(r'iOS-style bottom tab bar',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarSubtitle',
+        desc: r'Subtitle for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTabBarTitle {
+    return Intl.message(r'Tab Bar',
+        locale: _localeName,
+        name: 'demoCupertinoTabBarTitle',
+        desc: r'Title for the cupertino bottom tab bar demo.');
+  }
+
+  String get demoCupertinoTextFieldDescription {
+    return Intl.message(
+        r'A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard.',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldDescription',
+        desc: r'Description for the cupertino text field demo.');
+  }
+
+  String get demoCupertinoTextFieldPIN {
+    return Intl.message(r'PIN',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldPIN',
+        desc:
+            r'The placeholder for a text field where a user would enter their PIN number.');
+  }
+
+  String get demoCupertinoTextFieldSubtitle {
+    return Intl.message(r'iOS-style text fields',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldSubtitle',
+        desc: r'Subtitle for the cupertino text field demo.');
+  }
+
+  String get demoCupertinoTextFieldTitle {
+    return Intl.message(r'Text Fields',
+        locale: _localeName,
+        name: 'demoCupertinoTextFieldTitle',
+        desc: r'Title for the cupertino text field demo.');
+  }
+
+  String get demoCustomSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized.',
+        locale: _localeName,
+        name: 'demoCustomSlidersDescription',
+        desc: r'Description for the custom sliders demo.');
+  }
+
+  String get demoCustomSlidersTitle {
+    return Intl.message(r'Custom Sliders',
+        locale: _localeName,
+        name: 'demoCustomSlidersTitle',
+        desc: r'Title for the custom sliders component demo.');
   }
 
   String get demoDialogSubtitle {
@@ -1627,6 +2122,51 @@ class GalleryLocalizations {
         desc: r'Tooltip for Full Screen button in a demo.');
   }
 
+  String get demoGridListsDescription {
+    return Intl.message(
+        r'Grid Lists are best suited for presenting homogeneous data, typically images. Each item in a grid list is called a tile.',
+        locale: _localeName,
+        name: 'demoGridListsDescription',
+        desc: r'Description for the grid lists component demo.');
+  }
+
+  String get demoGridListsFooterTitle {
+    return Intl.message(r'With footer',
+        locale: _localeName,
+        name: 'demoGridListsFooterTitle',
+        desc:
+            r'Title for the grid lists component demo with footers on each tile.');
+  }
+
+  String get demoGridListsHeaderTitle {
+    return Intl.message(r'With header',
+        locale: _localeName,
+        name: 'demoGridListsHeaderTitle',
+        desc:
+            r'Title for the grid lists component demo with headers on each tile.');
+  }
+
+  String get demoGridListsImageOnlyTitle {
+    return Intl.message(r'Image only',
+        locale: _localeName,
+        name: 'demoGridListsImageOnlyTitle',
+        desc: r'Title for the grid lists image-only component demo.');
+  }
+
+  String get demoGridListsSubtitle {
+    return Intl.message(r'Row and column layout',
+        locale: _localeName,
+        name: 'demoGridListsSubtitle',
+        desc: r'Subtitle for the grid lists component demo.');
+  }
+
+  String get demoGridListsTitle {
+    return Intl.message(r'Grid Lists',
+        locale: _localeName,
+        name: 'demoGridListsTitle',
+        desc: r'Title for the grid lists component demo.');
+  }
+
   String get demoInfoTooltip {
     return Intl.message(r'Info',
         locale: _localeName,
@@ -1654,6 +2194,21 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoInvalidURL',
         desc: r'Error message when opening the URL for a demo.');
+  }
+
+  String get demoLinearProgressIndicatorDescription {
+    return Intl.message(
+        r'A Material Design linear progress indicator, also known as a progress bar.',
+        locale: _localeName,
+        name: 'demoLinearProgressIndicatorDescription',
+        desc: r'Description for linear progress indicator demo.');
+  }
+
+  String get demoLinearProgressIndicatorTitle {
+    return Intl.message(r'Linear Progress Indicator',
+        locale: _localeName,
+        name: 'demoLinearProgressIndicatorTitle',
+        desc: r'Title for linear progress indicator demo.');
   }
 
   String get demoListsDescription {
@@ -1684,6 +2239,169 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoListsTitle',
         desc: r'Title for lists demo.');
+  }
+
+  String get demoMenuADisabledMenuItem {
+    return Intl.message(r'Disabled menu item',
+        locale: _localeName,
+        name: 'demoMenuADisabledMenuItem',
+        desc:
+            r'Text label for a disabled menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuAnItemWithAChecklistMenu {
+    return Intl.message(r'An item with a checklist menu',
+        locale: _localeName,
+        name: 'demoMenuAnItemWithAChecklistMenu',
+        desc:
+            r'Label next to a button that opens a checklist menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuAnItemWithAContextMenuButton {
+    return Intl.message(r'An item with a context menu',
+        locale: _localeName,
+        name: 'demoMenuAnItemWithAContextMenuButton',
+        desc:
+            r'Label next to a button that opens a menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuAnItemWithASectionedMenu {
+    return Intl.message(r'An item with a sectioned menu',
+        locale: _localeName,
+        name: 'demoMenuAnItemWithASectionedMenu',
+        desc:
+            r'Label next to a button that opens a sectioned menu . A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuAnItemWithASimpleMenu {
+    return Intl.message(r'An item with a simple menu',
+        locale: _localeName,
+        name: 'demoMenuAnItemWithASimpleMenu',
+        desc:
+            r'Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String demoMenuChecked(Object value) {
+    return Intl.message(r'Checked: $value',
+        locale: _localeName,
+        name: 'demoMenuChecked',
+        desc: r'A text to show what value was checked.',
+        args: <Object>[value]);
+  }
+
+  String get demoMenuContextMenuItemOne {
+    return Intl.message(r'Context menu item one',
+        locale: _localeName,
+        name: 'demoMenuContextMenuItemOne',
+        desc:
+            r'Text label for a context menu item. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuContextMenuItemThree {
+    return Intl.message(r'Context menu item three',
+        locale: _localeName,
+        name: 'demoMenuContextMenuItemThree',
+        desc:
+            r'Text label for a context menu item three. A menu displays a list of choices on a temporary surface. Used as an example in a demo.');
+  }
+
+  String get demoMenuDescription {
+    return Intl.message(
+        r'A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.',
+        locale: _localeName,
+        name: 'demoMenuDescription',
+        desc: r'Description for the menu demo.');
+  }
+
+  String get demoMenuFour {
+    return Intl.message(r'Four',
+        locale: _localeName, name: 'demoMenuFour', desc: r'The number four.');
+  }
+
+  String get demoMenuGetLink {
+    return Intl.message(r'Get link',
+        locale: _localeName,
+        name: 'demoMenuGetLink',
+        desc: r'Button to get link for content.');
+  }
+
+  String get demoMenuItemValueOne {
+    return Intl.message(r'Menu item one',
+        locale: _localeName,
+        name: 'demoMenuItemValueOne',
+        desc: r'The first item in a menu.');
+  }
+
+  String get demoMenuItemValueThree {
+    return Intl.message(r'Menu item three',
+        locale: _localeName,
+        name: 'demoMenuItemValueThree',
+        desc: r'The third item in a menu.');
+  }
+
+  String get demoMenuItemValueTwo {
+    return Intl.message(r'Menu item two',
+        locale: _localeName,
+        name: 'demoMenuItemValueTwo',
+        desc: r'The second item in a menu.');
+  }
+
+  String get demoMenuOne {
+    return Intl.message(r'One',
+        locale: _localeName, name: 'demoMenuOne', desc: r'The number one.');
+  }
+
+  String get demoMenuPreview {
+    return Intl.message(r'Preview',
+        locale: _localeName,
+        name: 'demoMenuPreview',
+        desc: r'Button to preview content.');
+  }
+
+  String get demoMenuRemove {
+    return Intl.message(r'Remove',
+        locale: _localeName,
+        name: 'demoMenuRemove',
+        desc: r'Button to remove content.');
+  }
+
+  String demoMenuSelected(Object value) {
+    return Intl.message(r'Selected: $value',
+        locale: _localeName,
+        name: 'demoMenuSelected',
+        desc: r'A text to show what value was selected.',
+        args: <Object>[value]);
+  }
+
+  String get demoMenuShare {
+    return Intl.message(r'Share',
+        locale: _localeName,
+        name: 'demoMenuShare',
+        desc: r'Button to share content.');
+  }
+
+  String get demoMenuSubtitle {
+    return Intl.message(r'Menu buttons and simple menus',
+        locale: _localeName,
+        name: 'demoMenuSubtitle',
+        desc: r'Short description for the menu component demo.');
+  }
+
+  String get demoMenuThree {
+    return Intl.message(r'Three',
+        locale: _localeName, name: 'demoMenuThree', desc: r'The number three.');
+  }
+
+  String get demoMenuTitle {
+    return Intl.message(r'Menu',
+        locale: _localeName,
+        name: 'demoMenuTitle',
+        desc: r'Title for the menu component demo.');
+  }
+
+  String get demoMenuTwo {
+    return Intl.message(r'Two',
+        locale: _localeName, name: 'demoMenuTwo', desc: r'The number two.');
   }
 
   String get demoOneLineListsTitle {
@@ -1731,6 +2449,20 @@ class GalleryLocalizations {
         desc: r'Title for the outline button component demo.');
   }
 
+  String get demoProgressIndicatorSubtitle {
+    return Intl.message(r'Linear, circular, indeterminate',
+        locale: _localeName,
+        name: 'demoProgressIndicatorSubtitle',
+        desc: r'Subtitle for progress indicators demo.');
+  }
+
+  String get demoProgressIndicatorTitle {
+    return Intl.message(r'Progress indicators',
+        locale: _localeName,
+        name: 'demoProgressIndicatorTitle',
+        desc: r'Title for progress indicators demo.');
+  }
+
   String get demoRaisedButtonDescription {
     return Intl.message(
         r'Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.',
@@ -1744,6 +2476,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoRaisedButtonTitle',
         desc: r'Title for the raised button component demo.');
+  }
+
+  String get demoRangeSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar. They can have icons on both ends of the bar that reflect a range of values. They are ideal for adjusting settings such as volume, brightness, or applying image filters.',
+        locale: _localeName,
+        name: 'demoRangeSlidersDescription',
+        desc: r'Description for the range sliders demo.');
+  }
+
+  String get demoRangeSlidersTitle {
+    return Intl.message(r'Range Sliders',
+        locale: _localeName,
+        name: 'demoRangeSlidersTitle',
+        desc: r'Title for the range sliders component demo.');
+  }
+
+  String get demoSectionedMenuTitle {
+    return Intl.message(r'Sectioned menu',
+        locale: _localeName,
+        name: 'demoSectionedMenuTitle',
+        desc: r'Title for the sectioned menu component demo.');
   }
 
   String get demoSelectionControlsCheckboxDescription {
@@ -1822,6 +2576,81 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoSimpleDialogTitle',
         desc: r'Title for the simple dialog component demo.');
+  }
+
+  String get demoSimpleMenuTitle {
+    return Intl.message(r'Simple menu',
+        locale: _localeName,
+        name: 'demoSimpleMenuTitle',
+        desc: r'Title for the simple menu component demo.');
+  }
+
+  String get demoSlidersContinuous {
+    return Intl.message(r'Continuous',
+        locale: _localeName,
+        name: 'demoSlidersContinuous',
+        desc:
+            r'Text to describe that we have a slider with continuous values.');
+  }
+
+  String get demoSlidersContinuousRangeSliderWithCustomTheme {
+    return Intl.message(r'Continuous Range Slider with Custom Theme',
+        locale: _localeName,
+        name: 'demoSlidersContinuousRangeSliderWithCustomTheme',
+        desc:
+            r'Text to describe that we have a range slider with continuous values and a custom theme. ');
+  }
+
+  String get demoSlidersContinuousWithEditableNumericalValue {
+    return Intl.message(r'Continuous with Editable Numerical Value',
+        locale: _localeName,
+        name: 'demoSlidersContinuousWithEditableNumericalValue',
+        desc:
+            r'Text to describe a slider has a continuous value with an editable numerical value.');
+  }
+
+  String get demoSlidersDescription {
+    return Intl.message(
+        r'Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.',
+        locale: _localeName,
+        name: 'demoSlidersDescription',
+        desc: r'Description for the sliders demo.');
+  }
+
+  String get demoSlidersDiscrete {
+    return Intl.message(r'Discrete',
+        locale: _localeName,
+        name: 'demoSlidersDiscrete',
+        desc: r'Text to describe that we have a slider with discrete values.');
+  }
+
+  String get demoSlidersDiscreteSliderWithCustomTheme {
+    return Intl.message(r'Discrete Slider with Custom Theme',
+        locale: _localeName,
+        name: 'demoSlidersDiscreteSliderWithCustomTheme',
+        desc:
+            r'Text to describe that we have a slider with discrete values and a custom theme. ');
+  }
+
+  String get demoSlidersEditableNumericalValue {
+    return Intl.message(r'Editable numerical value',
+        locale: _localeName,
+        name: 'demoSlidersEditableNumericalValue',
+        desc: r'Label for input field that has an editable numerical value.');
+  }
+
+  String get demoSlidersSubtitle {
+    return Intl.message(r'Widgets for selecting a value by swiping',
+        locale: _localeName,
+        name: 'demoSlidersSubtitle',
+        desc: r'Short description for the sliders component demo.');
+  }
+
+  String get demoSlidersTitle {
+    return Intl.message(r'Sliders',
+        locale: _localeName,
+        name: 'demoSlidersTitle',
+        desc: r'Title for the sliders component demo.');
   }
 
   String get demoSnackbarsAction {
@@ -1905,7 +2734,7 @@ class GalleryLocalizations {
   }
 
   String get demoTextFieldEmail {
-    return Intl.message(r'E-mail',
+    return Intl.message(r'Email',
         locale: _localeName,
         name: 'demoTextFieldEmail',
         desc: r'The label for an email address input field');
@@ -2118,6 +2947,36 @@ class GalleryLocalizations {
         desc: r'Title for the toggle buttons component demo.');
   }
 
+  String get demoTooltipDescription {
+    return Intl.message(
+        r'Tooltips provide text labels that help explain the function of a button or other user interface action. Tooltips display informative text when users hover over, focus on, or long press an element.',
+        locale: _localeName,
+        name: 'demoTooltipDescription',
+        desc: r'Description for tooltip demo.');
+  }
+
+  String get demoTooltipInstructions {
+    return Intl.message(r'Long press or hover to display the tooltip.',
+        locale: _localeName,
+        name: 'demoTooltipInstructions',
+        desc:
+            r'Instructions for how to trigger a tooltip in the tooltip demo.');
+  }
+
+  String get demoTooltipSubtitle {
+    return Intl.message(r'Short message displayed on long press or hover',
+        locale: _localeName,
+        name: 'demoTooltipSubtitle',
+        desc: r'Subtitle for tooltip demo.');
+  }
+
+  String get demoTooltipTitle {
+    return Intl.message(r'Tooltips',
+        locale: _localeName,
+        name: 'demoTooltipTitle',
+        desc: r'Title for tooltip demo.');
+  }
+
   String get demoTwoLineListsTitle {
     return Intl.message(r'Two Lines',
         locale: _localeName,
@@ -2248,6 +3107,14 @@ class GalleryLocalizations {
         desc: r'Button text to display a dialog.');
   }
 
+  String get dismiss {
+    return Intl.message(r'DISMISS',
+        locale: _localeName,
+        name: 'dismiss',
+        desc:
+            r'When text is pressed the banner widget will be removed from the screen.');
+  }
+
   String get homeCategoryReference {
     return Intl.message(r'REFERENCE STYLES & MEDIA',
         locale: _localeName,
@@ -2267,6 +3134,104 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'homeHeaderGallery',
         desc: r'Header title on home screen for Gallery section.');
+  }
+
+  String get placeBeach {
+    return Intl.message(r'Beach',
+        locale: _localeName,
+        name: 'placeBeach',
+        desc: r'Title for Beach location.');
+  }
+
+  String get placeBronzeWorks {
+    return Intl.message(r'Bronze Works',
+        locale: _localeName,
+        name: 'placeBronzeWorks',
+        desc: r'Title for Bronze Works location.');
+  }
+
+  String get placeChennai {
+    return Intl.message(r'Chennai',
+        locale: _localeName,
+        name: 'placeChennai',
+        desc: r'Title for Chennai location.');
+  }
+
+  String get placeChettinad {
+    return Intl.message(r'Chettinad',
+        locale: _localeName,
+        name: 'placeChettinad',
+        desc: r'Title for Chettinad location.');
+  }
+
+  String get placeFisherman {
+    return Intl.message(r'Fisherman',
+        locale: _localeName,
+        name: 'placeFisherman',
+        desc: r'Title for an image of a fisherman.');
+  }
+
+  String get placeFlowerMarket {
+    return Intl.message(r'Flower Market',
+        locale: _localeName,
+        name: 'placeFlowerMarket',
+        desc: r'Title for Flower Market location.');
+  }
+
+  String get placeLunchPrep {
+    return Intl.message(r'Lunch Prep',
+        locale: _localeName,
+        name: 'placeLunchPrep',
+        desc: r'Title for an image of preparing lunch.');
+  }
+
+  String get placeMarket {
+    return Intl.message(r'Market',
+        locale: _localeName,
+        name: 'placeMarket',
+        desc: r'Title for Market location.');
+  }
+
+  String get placePondicherry {
+    return Intl.message(r'Pondicherry',
+        locale: _localeName,
+        name: 'placePondicherry',
+        desc: r'Title for Pondicherry location.');
+  }
+
+  String get placeSaltFarm {
+    return Intl.message(r'Salt Farm',
+        locale: _localeName,
+        name: 'placeSaltFarm',
+        desc: r'Title for Salt Farm location.');
+  }
+
+  String get placeScooters {
+    return Intl.message(r'Scooters',
+        locale: _localeName,
+        name: 'placeScooters',
+        desc: r'Title for image of people riding on scooters.');
+  }
+
+  String get placeSilkMaker {
+    return Intl.message(r'Silk Maker',
+        locale: _localeName,
+        name: 'placeSilkMaker',
+        desc: r'Title for an image of a silk maker.');
+  }
+
+  String get placeTanjore {
+    return Intl.message(r'Tanjore',
+        locale: _localeName,
+        name: 'placeTanjore',
+        desc: r'Title for Tanjore location.');
+  }
+
+  String get placeThanjavurTemple {
+    return Intl.message(r'Thanjavur Temple',
+        locale: _localeName,
+        name: 'placeThanjavurTemple',
+        desc: r'Title for Thanjavur Temple location.');
   }
 
   String rallyAccountAmount(
@@ -3377,6 +4342,13 @@ class GalleryLocalizations {
         name: 'shrineTooltipSettings',
         desc:
             r'The tooltip text for a settings button. Also used as a semantic label, used by screen readers, such as TalkBack and VoiceOver.');
+  }
+
+  String get signIn {
+    return Intl.message(r'SIGN IN',
+        locale: _localeName,
+        name: 'signIn',
+        desc: r'Sign in label to sign into website.');
   }
 
   String get starterAppDescription {

@@ -5,9 +5,9 @@ environment:
   sdk: '>=2.5.0 <3.0.0'
 
 dependencies:
-  json_annotation: ^3.0.0
-  built_collection: ^4.2.2
-  built_value: ^6.7.1
+  json_annotation: ^3.0.1
+  built_collection: ^4.3.2
+  built_value: ^7.0.4
 
   flutter:
     sdk: flutter
@@ -15,10 +15,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.7.1
-  built_value_generator: ^6.7.1
-  json_serializable: ^3.2.2
-  pedantic: ^1.8.0
+  build_runner: ^1.7.2
+  built_value_generator: ^7.0.4
+  json_serializable: ^3.2.5
+  pedantic: ^1.8.0+1
 
 flutter:
   uses-material-design: true

@@ -51,8 +51,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
   int _demoViewedCount;
 
   AnimationController _codeBackgroundColorController;
-  FocusNode backButonFocusNode;
-  FocusScopeNode innerFocusScope;
 
   GalleryDemoConfiguration get _currentConfig {
     return widget.demo.configurations[_configIndex];
@@ -86,15 +84,11 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         preferences.setInt(_demoViewedCountKey, _demoViewedCount + 1);
       });
     });
-    backButonFocusNode = FocusNode();
-    innerFocusScope = FocusScopeNode();
   }
 
   @override
   void dispose() {
     _codeBackgroundColorController.dispose();
-    backButonFocusNode.dispose();
-    innerFocusScope.dispose();
     super.dispose();
   }
 
@@ -194,7 +188,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         onPressed: () {
           Navigator.maybePop(context);
         },
-        focusNode: backButonFocusNode,
       ),
       actions: [
         if (_hasOptions)
@@ -484,17 +477,17 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
 
     // Add the splash page functionality for desktop.
     if (isDesktop) {
-      page = SplashPage(
-        isAnimated: false,
-        child: page,
+      page = MediaQuery.removePadding(
+        removeTop: true,
+        context: context,
+        child: SplashPage(
+          isAnimated: false,
+          child: page,
+        ),
       );
     }
 
-    return InheritedDemoFocusNodes(
-      backButtonFocusNode: backButonFocusNode,
-      innerFocusScope: innerFocusScope,
-      child: FeatureDiscoveryController(page),
-    );
+    return FeatureDiscoveryController(page);
   }
 }
 
@@ -784,22 +777,4 @@ class CodeDisplayPage extends StatelessWidget {
       ],
     );
   }
-}
-
-class InheritedDemoFocusNodes extends InheritedWidget {
-  InheritedDemoFocusNodes({
-    @required Widget child,
-    @required this.backButtonFocusNode,
-    @required this.innerFocusScope,
-  })  : assert(child != null),
-        super(child: child);
-
-  final FocusNode backButtonFocusNode;
-  final FocusScopeNode innerFocusScope;
-
-  static InheritedDemoFocusNodes of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType();
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }

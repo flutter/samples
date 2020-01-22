@@ -119,6 +119,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
       body: Center(

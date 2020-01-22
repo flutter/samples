@@ -3,8 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-import '../../l10n/gallery_localizations.dart';
+import 'package:gallery/l10n/gallery_localizations.dart';
 
 enum ChipDemoType {
   action,
@@ -52,6 +51,7 @@ class ChipDemo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(_title(context)),
       ),
       body: buttons,

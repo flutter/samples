@@ -37,51 +37,72 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Kon nie na knipbord kopieer nie: ${error}";
 
-  static m7(name, phoneNumber) => "${name} se foonnommer is ${phoneNumber}";
+  static m7(value) => "Aaneenlopend: ${value}";
 
-  static m8(value) => "Jy het gekies: \"${value}\"";
+  static m8(value) => "Diskreet: ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m9(value) => "Gemerk: ${value}";
+
+  static m10(value) => "Gekies: ${value}";
+
+  static m11(name, phoneNumber) => "${name} se foonnommer is ${phoneNumber}";
+
+  static m12(value) => "Jy het gekies: \"${value}\"";
+
+  static m13(accountName, accountNumber, amount) =>
       "${accountName}-rekening ${accountNumber} met ${amount}.";
 
-  static m10(amount) => "Jy het hierdie maand OTM-fooie van ${amount} betaal";
+  static m14(amount) => "Jy het hierdie maand OTM-fooie van ${amount} betaal";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Mooi so! Jou tjekrekening is ${percent} hoër as verlede maand.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Pasop. Jy het al ${percent} van jou inkopie-begroting vir hierdie maand gebruik.";
 
-  static m13(amount) => "Jy het hierdie week ${amount} by restaurante bestee.";
+  static m17(amount) => "Jy het hierdie week ${amount} by restaurante bestee.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Verhoog jou potensiële belastingaftrekking! Wys kategorieë toe aan 1 ontoegewysde transaksie.', other: 'Verhoog jou potensiële belastingaftrekking! Wys kategorieë toe aan ${count} ontoegewysde transaksies.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName}-rekening van ${amount} is betaalbaar op ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}-begroting met ${amountUsed} gebruik van ${amountTotal}; ${amountLeft} oor";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'GEEN ITEMS NIE', one: '1 ITEM', other: '${quantity} ITEMS')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Hoeveelheid: ${quantity}";
+  static m23(quantity) => "Hoeveelheid: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Inkopiemandjie, geen items nie', one: 'Inkopiemandjie, 1 item', other: 'Inkopiemandjie, ${quantity} items')}";
 
-  static m21(product) => "Verwyder ${product}";
+  static m25(product) => "Verwyder ${product}";
 
-  static m22(value) => "Item ${value}";
+  static m26(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter toets Github-bewaarplek"),
+            "Flutter toets GitHub-bewaarplek"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Terug na galery"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Keep"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Posisie van swewende handelingknoppie"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Gedok – middel"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Gedok – einde"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Swewend – middel"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Swewend – einde"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Rekening"),
         "bottomNavigationAlarmTab":
@@ -309,6 +330,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Met agtergrond"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Wys opletberig"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Klets"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Tuis"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profiel"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Handelingskyfies is \'n stel opsies wat \'n handeling wat met primêre inhoud verband hou, veroorsaak. Handelingskyfies behoort dinamies en kontekstueel in \'n UI te verskyn."),
         "demoActionChipTitle":
@@ -319,6 +344,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Opletberig"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Opletberig met titel"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Onderste programbalke bied toegang tot \'n onderste navigasielaai en tot vier handelinge, insluitend die swewende handelingknoppie."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Wys navigasie en handelinge aan die onderkant"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Onderste programbalk"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Navigasiebalke aan die onderkant van die skerm wys drie tot vyf bestemmings. Elke bestemming word deur \'n ikoon en \'n opsionele teksetiket verteenwoordig. Wanneer \'n gebruiker op \'n onderste navigasie-ikoon tik, word hulle geneem na die topvlak-navigasiebestemming wat met daardie ikoon geassosieer word."),
         "demoBottomNavigationPersistentLabels":
@@ -354,6 +385,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, verhewe, buitelyn, en meer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knoppies"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontrolelyskieslys"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Kompakte elemente wat \'n invoer, kenmerk of handeling verteenwoordig"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Skyfies"),
@@ -361,6 +394,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Keuseskyfies verteenwoordig \'n enkele keuse van \'n stel af. Keuseskyfies bevat beskrywende teks of kategorieë."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Keuseskyfie"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Sirkelvormige materiaalontwerp-vorderingaanwyser wat draai om aan te dui dat die toepassing besig is."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Sirkelvormige vorderingaanwyser"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Kodevoorbeeld"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -373,10 +412,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Al die vooraf gedefinieerde kleure"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Kleure"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Kontekskieslys"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "\'n Handelingelys is \'n spesifieke styl opletberig wat \'n stel van twee of meer keuses wat met die huidige konteks verband hou, aan die gebruiker bied. \'n Handelingelys kan \'n titel, \'n bykomende boodskap en \'n lys handelinge hê."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Handelingelys"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n iOS-stylaktiwiteitaanwyser wat kloksgewys draai."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-stylaktiwiteitaanwysers"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Aktiwiteitaanwyser"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Net opletberigknoppies"),
         "demoCupertinoAlertButtonsTitle":
@@ -397,6 +445,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Knoppies in iOS-styl"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Knoppies"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Navigasiebalk in iOS-styl. Die navigasiebalk is \'n nutsbalk wat bestaan uit minstens \'n bladsytitel in die middel van die nutsbalk."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Navigasiebalk in iOS-styl"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigasiebalk"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Legstuk wat die trek-om-te-herlaai-inhoudkontrole in iOS-styl instel."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Trek-om-te-herlaai-kontrole in iOS-styl"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Trek om te herlaai"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Word gebruik om tussen \'n aantal wedersyds eksklusiewe opsies te kies. As een opsie in die gesegmenteerde kontrole gekies is, sal die ander opsies in die gesegmenteerde kontrole nie meer gekies wees nie."),
@@ -405,6 +468,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Gesegmenteerde kontrole in iOS-styl"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Gesegmenteerde kontrole"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "\'n Glyer kan gebruik word om uit óf \'n aaneenlopende óf \'n diskrete stel waardes te kies."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Glyer in iOS-styl"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Glyer"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "\'n Skakelaar word gebruik om \'n enkele instelling aan of af te skakel."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Skakelaar in iOS-styl"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "\'n Onderste navigasie-oortjiebalk in iOS-styl. Wys veelvuldige oortjies met een aktiewe oortjie; dit is by verstek die eerste oortjie."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Onderste oortjiebalk in iOS-styl"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Oortjiebalk"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glyers weerspieël \'n reeks waardes langs \'n balk, waarop gebruikers \'n enkelwaarde of \'n reeks waardes kan kies. Die glyers kan temas hê en gepasmaak word."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Gepasmaakte glyers"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Eenvoudig, opletberig, en volskerm"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialoë"),
@@ -428,6 +513,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Volskerm"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Volskerm"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Roosterlyste is die geskikste vir die aanbieding van gelyksoortige data, tipies prente. Elke item op \'n roosterlys word \'n teël genoem."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Met voetskrif"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Met opskrif"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Net prent"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Ry- en kolomuitleg"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Roosterlyste"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Inligting"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Invoerskyfies verteenwoordig \'n komplekse stuk inligting, soos \'n entiteit (persoon, plek of ding) of gespreksteks, in \'n kompakte vorm."),
@@ -435,6 +532,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Invoerskyfie"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Kon nie URL wys nie:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Lineêre materiaalontwerp-vorderingaanwyser, ook bekend as \'n vorderingsbalk."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Lineêre vorderingaanwyser"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "\'n Enkele ry met vaste hoogte wat gewoonlik \'n bietjie teks bevat, asook \'n ikoon vooraan of agteraan."),
         "demoListsSecondary":
@@ -442,6 +544,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Rollysuitlegte"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Lyste"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Gedeaktiveerde kieslysitem"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Item met \'n kontrolelyskieslys"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Item met \'n kontekskieslys"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "\'n Item met \'n verdeelde kieslys"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "\'n Item met \'n eenvoudige kieslys"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Kontekskieslysitem een"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Kontekskieslysitem drie"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "\'n Kieslys wys \'n lys keuses op \'n tydelike oppervlakte. Hulle verskyn wanneer \'n gebruiker interaksie met \'n knoppie, handeling of ander kontrole het."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Vier"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Kry skakel"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Kieslysitem een"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Kieslysitem drie"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Kieslysitem twee"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Een"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Voorskou"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Verwyder"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Deel"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kielysknoppies en eenvoudige kieslyste"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Drie"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Kieslys"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Twee"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Een reël"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -453,10 +593,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Buitelynknoppies word ondeursigtig en verhewe wanneer dit gedruk word. Hulle word dikwels met verhewe knoppies saamgebind om \'n alternatiewe, sekondêre handeling aan te dui."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Buitelynknoppie"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lineêr, sirkelvormig, onbepaald"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Vorderingaanwysers"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Verhewe knoppies voeg dimensie by vir uitlegte wat meestal plat is. Hulle beklemtoon funksies in besige of breë ruimtes."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Verhewe knoppie"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glyers weerspieël \'n reeks waardes langs \'n balk. Hulle kan ikone op albei punte van die balk hê wat \'n reeks waardes weerspieël. Hulle is ideaal daarvoor om instellings soos volume of helderheid te verstel, of om prentfilters toe te pas."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Reeksglyers"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Verdeelde kieslys"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Merkblokkies maak dit vir die gebruiker moontlik om veelvuldige opsies uit \'n stel te kies. \'n Normale merkblokkie se waarde is waar of vals, en \'n driestaatmerkblokkie se waarde kan ook nul wees."),
@@ -480,6 +630,40 @@ class MessageLookup extends MessageLookupByLibrary {
             "\'n Eenvoudige dialoog bied die gebruiker \'n keuse tussen verskeie opsies. \'n Eenvoudige dialoog het \'n opsionele titel wat bo die keuses gewys word."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Eenvoudig"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Eenvoudige kieslys"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Aaneenlopend"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Aaneenlopende reeksglyer met gepasmaakte tema"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Aaneenlopend met wysigbare numeriese waarde"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Glyers weerspieël \'n reeks waardes langs \'n balk, waarop gebruikers \'n enkelwaarde kan kies. Hulle is ideaal daarvoor om instellings soos volume of helderheid te verstel, of om prentfilters toe te pas."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Diskreet"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Diskrete glyer met gepasmaakte tema"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Wysigbare numeriese waarde"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Legstukke om \'n waarde te kies deur te swiep"),
+        "demoSlidersTitle": MessageLookupByLibrary.simpleMessage("Glyers"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Jy het die teksbalkhandeling gedruk."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("HANDELING"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("WYS \'N TEKSBALK"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Teksbalke lig gebruikers in oor \'n proses wat \'n program uitgevoer het of sal uitvoer. Hulle verskyn tydelik naby die onderkant van die skerm. Hulle behoort nie die gebruikerervaring te onderbreek nie en hulle vereis nie gebruikerhandeling om te verdwyn nie."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Teksbalke wys boodskappe aan die onderkant van die skerm"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Dit is \'n teksbalk."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Teksbalke"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Oortjies organiseer inhoud oor verskillende skerms, datastelle, en ander interaksies heen."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -501,7 +685,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Lewensverhaal"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Naam*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Naam word vereis."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -540,6 +724,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wisselknoppies kan gebruik word om verwante opsies te groepeer. Om \'n groep verwante wisselknoppies te beklemtoon, moet \'n groep \'n gemeenskaplike houer deel"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Wisselknoppies"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Nutswenke verskaf teksetikette wat help om die funksie van \'n knoppie of ander gebruikerkoppelvlakhandeling te verduidelik. Nutswenke wys insiggewende teks wanneer gebruikers oor \'n element hou, op een fokus, of lank op een druk."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Druk lank of hou om die nutswenk te wys."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kort boodskap wat gewys word wanneer daar lank gedruk of gehou word"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Nutswenke"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Twee reëls"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -566,7 +757,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Laat Google programme help om ligging te bepaal. Dit beteken dat anonieme liggingdata na Google toe gestuur word, selfs wanneer geen programme laat loop word nie."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Gebruik Google se liggingdiens?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Stel rugsteunrekening"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("WYS DIALOOG"),
@@ -575,7 +766,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorieë"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galery"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Strand"),
+        "placeBronzeWorks": MessageLookupByLibrary.simpleMessage("Bronswerke"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Visser"),
+        "placeFlowerMarket": MessageLookupByLibrary.simpleMessage("Blommemark"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Middagetevoorbereiding"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Mark"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Soutplaas"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Bromponies"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Symaker"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur-tempel"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Spaarrekening vir motor"),
         "rallyAccountDataChecking":
@@ -600,15 +807,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Totaal"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Rekeninge"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Waarskuwings"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rekeninge"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Betaalbaar"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Klere"),
         "rallyBudgetCategoryCoffeeShops":
@@ -711,7 +918,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("KANSELLEER"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("MAAK MANDJIE LEEG"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("MANDJIE"),
         "shrineCartShippingCaption":
@@ -775,8 +982,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vlootblou broek"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Gipstuniek"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Kwartettafel"),
         "shrineProductRainwaterTray":
@@ -815,10 +1022,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Wit strepieshemp"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-belt"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Voeg by mandjie"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Maak mandjie toe"),
         "shrineTooltipCloseMenu":
@@ -832,7 +1039,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Instellings"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "\'n Beginneruitleg wat goed reageer"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Liggaam"),
         "starterAppGenericButton":

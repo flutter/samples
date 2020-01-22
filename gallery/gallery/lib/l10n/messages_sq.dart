@@ -37,52 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Kopjimi në kujtesën e fragmenteve dështoi: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "I vazhdueshëm: ${value}";
+
+  static m8(value) => "Jo i vazhdueshëm: ${value}";
+
+  static m9(value) => "Shënuar: ${value}";
+
+  static m10(value) => "Zgjedhur: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Numri i telefonit të ${name} është ${phoneNumber}";
 
-  static m8(value) => "Zgjodhe: \"${value}\"";
+  static m12(value) => "Zgjodhe: \"${value}\"";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "Llogaria ${accountName} ${accountNumber} me ${amount}.";
 
-  static m10(amount) => "Ke shpenzuar ${amount} në tarifa bankomati këtë muaj";
+  static m14(amount) => "Ke shpenzuar ${amount} në tarifa bankomati këtë muaj";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Të lumtë! Llogaria jote rrjedhëse është ${percent} më e lartë se muajin e kaluar.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Kujdes, ke përdorur ${percent} të buxhetit të \"Blerjeve\" për këtë muaj.";
 
-  static m13(amount) => "Ke shpenzuar ${amount} për restorante këtë javë.";
+  static m17(amount) => "Ke shpenzuar ${amount} për restorante këtë javë.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Rrit nivelin e mundshëm të zbritjes nga taksat! Cakto kategoritë për 1 transaksion të pacaktuar.', other: 'Rrit nivelin e mundshëm të zbritjes nga taksat! Cakto kategoritë për ${count} transaksione të pacaktuara.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Fatura ${billName} me afat ${date} për ${amount}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Buxheti ${budgetName} me ${amountUsed} të përdorura nga ${amountTotal}, ${amountLeft} të mbetura";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'ASNJË ARTIKULL', one: '1 ARTIKULL', other: '${quantity} ARTIKUJ')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Sasia: ${quantity}";
+  static m23(quantity) => "Sasia: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Karroca e blerjeve, asnjë artikull', one: 'Karroca e blerjeve, 1 artikull', other: 'Karroca e blerjeve, ${quantity} artikuj')}";
 
-  static m21(product) => "Hiq ${product}";
+  static m25(product) => "Hiq ${product}";
 
-  static m22(value) => "Artikulli ${value}";
+  static m26(value) => "Artikulli ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Depozita Github e kampioneve të Flutter"),
+            "Depozita GitHub e kampioneve të Flutter"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Kthehu te \"Galeria\""),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("E prera"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Pozicioni i butonit pluskues të veprimit"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage(
+                "Lidhur me stacionin - në qendër"),
+        "bottomAppBarPositionDockedEnd": MessageLookupByLibrary.simpleMessage(
+            "Lidhur me stacionin - në fund"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Pluskues - në qendër"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Pluskues - në fund"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Llogaria"),
         "bottomNavigationAlarmTab":
@@ -308,6 +330,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Me sfond"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Shfaq sinjalizimin"),
+        "cupertinoTabBarChatTab":
+            MessageLookupByLibrary.simpleMessage("Biseda"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Skeda bazë"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profili"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Çipet e veprimit janë një grupim opsionesh që aktivizojnë një veprim që lidhet me përmbajtjen kryesore. Çipet e veprimit duhet të shfaqen në mënyrë dinamike dhe kontekstuale në një ndërfaqe përdoruesi."),
         "demoActionChipTitle":
@@ -318,6 +346,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sinjalizim"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Sinjalizo me titullin"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Shiritat e aplikacioneve në fund ofrojnë qasje te një sirtar navigimi në fund dhe deri në katër veprime, duke përfshirë butonin pluskues të veprimit."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Shfaq navigimin dhe veprimet në fund"),
+        "demoBottomAppBarTitle": MessageLookupByLibrary.simpleMessage(
+            "Shiriti i aplikacioneve në fund"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Shiritat e poshtëm të navigimit shfaqin tre deri në pesë destinacione në fund të një ekrani. Secili destinacion paraqitet nga një ikonë dhe një etiketë opsionale me tekst. Kur trokitet mbi një ikonë navigimi poshtë, përdoruesi dërgohet te destinacioni i navigimit të nivelit të lartë i shoqëruar me atë ikonë."),
         "demoBottomNavigationPersistentLabels":
@@ -352,6 +386,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "I rrafshët, i ngritur, me kontur etj."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Butonat"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyja me listë me zgjedhje"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Elemente kompakte që paraqesin një hyrje, atribut ose veprim"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Çipet"),
@@ -359,6 +395,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Çipet e zgjedhjes paraqesin një zgjedhje të vetme nga një grupim. Çipet e zgjedhjes përmbajnë tekst ose kategori të lidhura përshkruese."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Çipi i zgjedhjes"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Një tregues rrethor i progresit i dizajnit të materialit, i cili rrotullohet për të treguar që aplikacioni është i zënë."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Treguesi rrethor i progresit"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Shembull kodi"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -372,10 +414,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Të gjitha ngjyrat e paracaktuara"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Ngjyrat"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyja kontekstuale"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Një fletë veprimesh është një stil specifik sinjalizimi që e përball përdoruesin me një set prej dy ose më shumë zgjedhjesh që lidhen me kontekstin aktual. Një fletë veprimesh mund të ketë një titull, një mesazh shtesë dhe një listë veprimesh."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Fleta e veprimit"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Një tregues aktiviteti në stilin e iOS që rrotullohet në drejtimin orar."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Treguesit e aktivitetit në stilin e iOS"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Treguesi i aktivitetit"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Vetëm butonat e sinjalizimit"),
@@ -397,6 +449,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Butonat në stilin e iOS"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Butonat"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Një shirit navigimi në stilin e iOS. Shiriti i navigimit është një shirit veglash që përfshin minimumi një titull të faqes, në mes të shiritit të veglave."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Shiriti i navigimit në stilin e iOS"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Shiriti i navigimit"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Një miniaplikacion që zbaton një kontroll të përmbajtjes me tërheqjen për të rifreskuar në stilin e iOS."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontrolli me tërheqjen për të rifreskuar në stilin e iOS"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Tërhiq për të rifreskuar"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Përdoret për të zgjedhur nga një numër opsionesh ekskluzive në mënyrë reciproke. Kur zgjidhet një opsion në kontrollin e segmentuar, zgjedhja e opsioneve të tjera në kontrollin e segmentuar ndalon."),
@@ -405,6 +473,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Kontrolli i segmentuar në stilin e iOS"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Kontrolli i segmentuar"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Një rrëshqitës mund të përdoret për të zgjedhur nga një grup i vazhdueshëm ose jo i vazhdueshëm vlerash."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Rrëshqitësi i stilit të iOS"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Rrëshqitësi"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Çelësi përdoret për të ndërruar gjendjen e një cilësimi të vetëm në aktive/joaktive."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Çelësi i stilit të iOS"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Një shiriti i skedës së poshtme të navigimit me stilin e iOS. Shfaq shumë skeda ku një skedë është aktive, skeda e parë si parazgjedhje."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Shiriti i skedës në fund i stilit të iOS"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Shiriti i skedës"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Rrëshqitësit pasqyrojnë një gamë vlerash përgjatë një shiriti, nga të cilat përdoruesit mund të zgjedhin një vlerë të vetme ose një gamë vlerash. Rrëshqitësit mund të personalizohen dhe t\'u ndryshohet tema."),
+        "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Rrëshqitësit e personalizuar"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "I thjeshtë, sinjalizim dhe ekran i plotë"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogët"),
@@ -428,6 +518,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ekrani i plotë"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Ekran i plotë"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Listat në formë rrjete janë më të përshtatshme për paraqitjen e të dhënave homogjene, zakonisht të imazheve. Çdo artikull në një listë në formë rrjete quhet një pllakëz."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Me fundin e faqes"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Me kokën e faqes"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Vetëm imazhe"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Struktura e rreshtit dhe kolonës"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Listat në formë rrjete"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informacione"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Çipet e hyrjes përfaqësojnë një pjesë komplekse informacioni, si p.sh. një entitet (person, vend ose send) ose tekst bisedor, në formë kompakte."),
@@ -435,6 +537,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Çipi i hyrjes"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("URL-ja nuk mund të shfaqej:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Një tregues linear i progresit i dizajnit të materialit, i njohur edhe si një shirit progresi."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Treguesi linear i progresit"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Një rresht i njëfishtë me lartësi fikse që përmban normalisht tekst si edhe një ikonë pararendëse ose vijuese."),
         "demoListsSecondary":
@@ -442,6 +549,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lëvizja e strukturave të listës"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Listat"),
+        "demoMenuADisabledMenuItem": MessageLookupByLibrary.simpleMessage(
+            "Artikulli i çaktivizuar i menysë"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Një artikulli me një meny me listë me zgjedhje"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Një artikulli me një meny kontekstuale"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Një artikull me një meny me seksione"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Një artikull me një meny të thjeshtë"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
+            "Artikulli i parë i menysë kontekstuale"),
+        "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
+            "Artikulli i tretë i menysë kontekstuale"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Një meny shfaq një listë zgjedhjesh në një sipërfaqe të përkohshme. Ato shfaqen kur përdoruesit ndërveprojnë me një buton, veprim ose një kontroll tjetër."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Katër"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Merr lidhjen"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Artikulli i parë i menysë"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Artikulli i tretë i menysë"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Artikulli i dytë i menysë"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Një"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Shiko paraprakisht"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Hiq"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Ndaj"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Butonat e menysë dhe menytë e thjeshta"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tre"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menyja"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Dy"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Një rresht"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -453,10 +599,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Butonat me kontur bëhen gjysmë të tejdukshëm dhe ngrihen kur shtypen. Shpesh ata çiftohen me butonat e ngritur për të treguar një veprim alternativ dytësor."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Buton me kontur"),
+        "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Linear, rrethor, i papërcaktuar"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Treguesit e progresit"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Butonat e ngritur u shtojnë dimension kryesisht strukturave të rrafshëta. Ata theksojnë funksionet në hapësirat e gjera ose me trafik."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Butoni i ngritur"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Rrëshqitësit pasqyrojnë një gamë vlerash përgjatë një shiriti. Ata mund të kenë ikona në të dyja skajet e shiritit, të cilat pasqyrojnë një gamë vlerash. Ata janë idealë për rregullimin e cilësimeve si p.sh. volumi, ndriçimi ose zbatimi i filtrave të imazheve."),
+        "demoRangeSlidersTitle": MessageLookupByLibrary.simpleMessage(
+            "Rrëshqitësit me gamë vlerash"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyja me seksione"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kutitë e kontrollit e lejojnë përdoruesin të zgjedhë shumë opsione nga një grup. Vlera e një kutie normale kontrolli është \"E vërtetë\" ose \"E gabuar\" dhe vlera e një kutie zgjedhjeje me tre gjendje mund të jetë edhe \"Zero\"."),
@@ -480,6 +636,44 @@ class MessageLookup extends MessageLookupByLibrary {
             "Një dialog i thjeshtë i ofron përdoruesit një zgjedhje mes disa opsionesh. Një dialog i thjeshtë ka një titull opsional që afishohet mbi zgjedhjet."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("I thjeshtë"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Menyja e thjeshtë"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("I vazhdueshëm"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Rrëshqitësi i vazhdueshëm me gamë vlerash me temë të personalizuar"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "I vazhdueshëm me vlerë numerike të modifikueshme"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Rrëshqitësit pasqyrojnë një gamë vlerash përgjatë një shiriti, nga të cilat përdoruesit mund të zgjedhin një vlerë të vetme. Ata janë idealë për rregullimin e cilësimeve si p.sh. volumi, ndriçimi ose zbatimi i filtrave të imazheve."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Jo i vazhdueshëm"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Rrëshqitësi jo i vazhdueshëm me temë të personalizuar"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Vlera numerike e modifikueshme"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Miniaplikacione për zgjedhjen e një vlere me rrëshqitje"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Rrëshqitësit"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Shtype veprimin e shiritit të njoftimeve."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("VEPRIMI"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("SHFAQ NJË SHIRIT NJOFTIMESH"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Shiritat e njoftimeve i informojnë përdoruesit për një proces që ka kryer ose do të kryejë një aplikacion. Ata shfaqen përkohësisht, në drejtim të fundit të ekranit. Ata nuk duhet ta ndërpresin eksperiencën e përdoruesit dhe nuk kërkojnë ndërveprimin nga përdoruesi për t\'u zhdukur."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Shiritat e njoftimeve shfaqin mesazhe në fund të ekranit"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Ky është një shiriti njoftimesh."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Shiritat e njoftimeve"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Skedat i organizojnë përmbajtjet në ekrane të ndryshme, grupime të dhënash dhe ndërveprime të tjera."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -501,7 +695,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Historia e jetës"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Emri*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Emri është i nevojshëm."),
         "demoTextFieldNoMoreThan":
@@ -540,6 +734,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Butonat e ndërrimit mund të përdoren për të grupuar opsionet e përafërta. Për të theksuar grupet e butonave të përafërt të ndërrimit, një grup duhet të ndajë një mbajtës të përbashkët"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Butonat e ndërrimit"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Këshillat për veglat ofrojnë etiketa teksti që ndihmojnë për të shpjeguar funksionin e një butoni ose të një veprimi tjetër të ndërfaqes së përdoruesit. Këshillat për veglat shfaqin një tekst informues kur përdoruesit qëndrojnë pezull mbi to, kur i fokusojnë ose kur kryejnë një shtypje të gjatë mbi një element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Kryej një shtypje të gjatë ose qëndrim pezull për të shfaqur këshillën për veglën."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mesazh i shkurtër që shfaqet pas një shtypjeje të gjatë ose një qëndrimi pezull"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Këshillat për veglat"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Dy rreshta"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -565,7 +767,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lejo Google të ndihmojë aplikacionet që të përcaktojnë vendndodhjen. Kjo do të thotë të dërgosh të dhëna te Google edhe kur nuk ka aplikacione në punë."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Të përdoret shërbimi \"Vendndodhjet Google\"?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Cakto llogarinë e rezervimit"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHFAQ DIALOGUN"),
@@ -574,7 +776,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoritë"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Plazh"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Vepra prej bronzi"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Çenai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Çetinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Peshkatar"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Treg lulesh"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Përgatitja e drekës"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Tregu"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondiçeri"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Kripore"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Motoçikleta"),
+        "placeSilkMaker":
+            MessageLookupByLibrary.simpleMessage("Prodhues mëndafshi"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Tempull në Thanjavur"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Kursimet për makinë"),
         "rallyAccountDataChecking":
@@ -600,15 +821,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Totali"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Llogaritë"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Sinjalizime"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Faturat"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Afati"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Veshje"),
         "rallyBudgetCategoryCoffeeShops":
@@ -713,7 +934,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ANULO"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("PASTRO KARROCËN"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("KARROCA"),
         "shrineCartShippingCaption":
@@ -778,8 +999,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantallona blu"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tunikë allçie"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Set me katër tavolina"),
         "shrineProductRainwaterTray":
@@ -818,10 +1039,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Këmishë me vija të bardha"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Rrip Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Shto në karrocë"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Mbyll karrocën"),
         "shrineTooltipCloseMenu":
@@ -835,7 +1056,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cilësimet"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Strukturë reaguese për aplikacionin nisës"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Trupi"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("BUTONI"),

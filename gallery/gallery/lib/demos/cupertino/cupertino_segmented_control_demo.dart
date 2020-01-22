@@ -37,6 +37,7 @@ class _CupertinoSegmentedControlDemoState
 
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
         middle: Text(
           localizations.demoCupertinoSegmentedControlTitle,
         ),

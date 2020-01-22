@@ -37,54 +37,76 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Det gick inte att kopiera till urklipp: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Kontinuerlig: ${value}";
+
+  static m8(value) => "Diskret: ${value}";
+
+  static m9(value) => "Markerades: ${value}";
+
+  static m10(value) => "Valdes: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Telefonnumret till ${name} är ${phoneNumber}";
 
-  static m8(value) => "Du har valt ${value}";
+  static m12(value) => "Du har valt ${value}";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "${accountName}-kontot ${accountNumber} med ${amount}.";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Du har lagt ${amount} på avgifter för uttag den här månaden";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Bra jobbat! Du har ${percent} mer på kontot den här månaden.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Du har använt ${percent} av din budget för inköp den här månaden.";
 
-  static m13(amount) =>
+  static m17(amount) =>
       "Du har lagt ${amount} på restaurangbesök den här veckan.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Öka ditt potentiella skatteavdrag! Tilldela kategorier till 1 ej tilldelad transaktion.', other: 'Öka ditt potentiella skatteavdrag! Tilldela kategorier till ${count} ej tilldelade transaktioner.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "${billName}-fakturan på ${amount} förfaller den ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}-budget med ${amountUsed} använt av ${amountTotal}, ${amountLeft} kvar";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'INGA OBJEKT', one: '1 OBJEKT', other: '${quantity} OBJEKT')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Kvantitet: ${quantity}";
+  static m23(quantity) => "Kvantitet: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Kundvagnen. Den är tom', one: 'Kundvagnen. Den innehåller 1 vara', other: 'Kundvagnen. Den innehåller ${quantity} varor')}";
 
-  static m21(product) => "Ta bort ${product}";
+  static m25(product) => "Ta bort ${product}";
 
-  static m22(value) => "Artikel ${value}";
+  static m26(value) => "Artikel ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Github-lagringsplats för Flutter-exempel"),
+            "GitHub-lagringsplats för Flutter-exempel"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Tillbaka till galleriet"),
+        "bottomAppBarNotch":
+            MessageLookupByLibrary.simpleMessage("Skärmutskärning"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Placering av flytande åtgärdsknapp"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Dockad – mitten"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Dockad – längst ned"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Flytande – mitten"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Flytande – längst ned"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Konto"),
         "bottomNavigationAlarmTab":
@@ -293,6 +315,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Med bakgrund"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Visa avisering"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chatt"),
+        "cupertinoTabBarHomeTab":
+            MessageLookupByLibrary.simpleMessage("Startsida"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profil"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Med åtgärdsbrickor får du en uppsättning alternativ som utlöser en åtgärd för huvudinnehållet. Åtgärdsbrickor ska visas dynamiskt och i rätt sammanhang i användargränssnittet."),
         "demoActionChipTitle":
@@ -302,6 +329,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Varning"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Varning med titel"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett nedre appfält ger användaren åtkomst till en navigeringspanel längst ned på skärmen och upp till fyra åtgärder, inklusive den flytande åtgärdsknappen."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Visar navigering och åtgärder längst ned på skärmen"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Nedre appfält"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "I navigeringsfält på nedre delen av skärmen visas tre till fem destinationer. Varje destination motsvaras av en ikon och en valfri textetikett. När användare trycker på en navigeringsikon på nedre delen av skärmen dirigeras de till det navigeringsmål på toppnivå som är kopplad till ikonen."),
         "demoBottomNavigationPersistentLabels":
@@ -336,6 +369,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Platt, upphöjd, kontur och fler"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knappar"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Meny med checklista"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Kompakta element som representerar en inmatning, åtgärd eller ett attribut"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Brickor"),
@@ -343,6 +378,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Valbrickor representerar ett av valen i en uppsättning. Valbrickor har relaterad beskrivande text eller kategorier."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Valbricka"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "En cirkulär förloppsindikator i Material Design som visar att appen är upptagen genom att snurra."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Cirkulär förloppsindikator"),
         "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Kodexempel"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kopierat till urklipp."),
@@ -354,10 +394,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle":
             MessageLookupByLibrary.simpleMessage("Alla förhandsfärger"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Färger"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Snabbmeny"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Ett åtgärdsblad är ett typ av aviseringar där användaren får två eller fler val som är relaterade till den aktuella kontexten. Ett åtgärdsblad kan ha en titel, ett ytterligare meddelande eller en lista över åtgärder."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Åtgärdsblad"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "En aktivitetsindikator i iOS-stil som snurrar medurs."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Aktivitetsindikatorer i iOS-stil"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Aktivitetsindikator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Endast aviseringsknappar"),
         "demoCupertinoAlertButtonsTitle":
@@ -378,6 +428,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Knappar i iOS-stil"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Knappar"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ett navigeringsfält i iOS-stil. Navigeringsfältet är ett verktygsfält som består av åtminstone en sidrubrik, i mitten av verktygsfältet."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Navigeringsfält i iOS-stil"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigeringsfält"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "En widget som implementerar innehållskontrollen dra för att uppdatera i iOS-stil."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontrollen dra för att uppdatera i iOS-stil"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Dra för att uppdatera"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Används för att välja mellan ett antal ömsesidigt uteslutande alternativ. När ett alternativ i segmentstyrningen har valts är de andra alternativen i segmentstyrningen inte längre valda."),
@@ -385,6 +450,28 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Segmentstyrning i iOS-stil"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmentstyrning"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett skjutreglage kan användas till att välja från en uppsättning kontinuerliga eller diskreta värden."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage i iOS-stil"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett reglage används till att aktivera eller inaktivera en enskild inställning."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Reglage i iOS-stil"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Ett flikfält för navigering i iOS-stil längst ned på skärmen. Flera flikar visa samtidigt, men bara en är aktiverad (den första fliken som standard)."),
+        "demoCupertinoTabBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Nedre flikfält i iOS-stil"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Flikfält"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Skjutreglage är fält med ett värdeintervall som användare väljer ett värde eller ett värdeintervall från. Det går att tillämpa teman på och anpassa skjutreglage."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Anpassade skjutreglage"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Enkel, avisering och helskärm"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogruta"),
@@ -408,6 +495,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Helskärm"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Helskärm"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Rutnätslistor lämpar sig bäst för att presentera data av liknande typ, exempelvis bilder. Varje objekt i en rutnätslista kallas för en ruta."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Med sidfot"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Med sidhuvud"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Endast bild"),
+        "demoGridListsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Layout på rader och kolumner"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Rutnätslistor"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Information"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Inmatningsbrickor representerar ett komplext informationsstycke, till exempel en enhet (person, plats eller sak) eller samtalstext i kompakt format"),
@@ -415,6 +514,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Inmatningsbricka"),
         "demoInvalidURL": MessageLookupByLibrary.simpleMessage(
             "Det gick inte att visa webbadressen:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "En linjär förloppsindikator i Material Design."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Linjär förloppsindikator"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "En enkelrad med fast höjd som vanligtvis innehåller text och en ikon före eller efter texten."),
         "demoListsSecondary":
@@ -422,6 +526,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle":
             MessageLookupByLibrary.simpleMessage("Layouter med rullista"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Listor"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Inaktiverat menyalternativ"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Ett alternativ med en meny med checklista"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Ett alternativ med en snabbmeny"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Ett alternativ med en meny med avsnitt"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Ett alternativ med en enkel meny"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Snabbmeny – alternativ ett"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Snabbmeny – alternativ tre"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "En meny visar en lista över alternativ på en tillfällig yta. De syns när användare interagerar med en knapp, åtgärd eller annan kontroll."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Fyra"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Hämta länk"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menyalternativ ett"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menyalternativ tre"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menyalternativ två"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Ett"),
+        "demoMenuPreview":
+            MessageLookupByLibrary.simpleMessage("Förhandsgranska"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Ta bort"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Dela"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menyknappar och enkla menyer"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Tre"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Meny"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Två"),
         "demoOneLineListsTitle": MessageLookupByLibrary.simpleMessage("En rad"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
             "Tryck här om du vill visa tillgängliga alternativ för demon."),
@@ -433,10 +576,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Konturknappar blir genomskinliga och höjs vid tryck. De visas ofta tillsammans med upphöjda knappar som pekar på en alternativ, sekundär åtgärd."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Konturknapp"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("Linjär, cirkulär, obestämd"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Förloppsindikatorer"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Med upphöjda knappar får mestadels platta layouter definition. De kan också användas för att lyfta fram funktioner i plottriga eller breda utrymmen."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Upphöjd knapp"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Skjutreglage är fält med ett värdeintervall. De kan ha ikoner på båda sidorna av fältet som motsvarar värdeintervallet. De passar perfekt till justering av inställningar som volym, ljusstyrka och bildfilter."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage för intervall"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Meny med avsnitt"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Med kryssrutor kan användaren välja mellan flera alternativ från en uppsättning. Värdet för en normal kryssruta är sant eller falskt. För en kryssruta med tre lägen kan värdet även vara tomt."),
@@ -459,6 +612,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSimpleDialogDescription": MessageLookupByLibrary.simpleMessage(
             "Med en enkel dialogruta får användaren välja mellan flera alternativ. En enkel dialogruta har en valfri titel som visas ovanför alternativen."),
         "demoSimpleDialogTitle": MessageLookupByLibrary.simpleMessage("Enkel"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Enkel meny"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Kontinuerligt"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Skjutreglage med kontinuerligt intervall och anpassat tema"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Kontinuerligt med redigerbart siffervärde"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Skjutreglage är fält med ett värdeintervall som användare väljer ett värde från. De passar perfekt till justering av inställningar som volym, ljusstyrka och bildfilter."),
+        "demoSlidersDiscrete": MessageLookupByLibrary.simpleMessage("Diskret"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Diskret skjutreglage med anpassat tema"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Redigerbart siffervärde"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgetar för att välja ett värde genom att svepa"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Skjutreglage"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Du tryckte på åtgärden för meddelandefält."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ÅTGÄRD"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("VISA ETT MEDDELANDEFÄLT"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Meddelandefälten visar användarna vilken process som utförs eller ska utföras i en app. De visas tillfälligt, långt ned på skärmen. Meddelandefält ska inte störa användarupplevelsen, och användarna behöver inte göra något för att de ska försvinna."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Meddelandefält innehåller meddelanden och visas längst ned på skärmen"),
+        "demoSnackbarsText": MessageLookupByLibrary.simpleMessage(
+            "Det här är ett meddelandefält."),
+        "demoSnackbarsTitle":
+            MessageLookupByLibrary.simpleMessage("Meddelandefält"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Flikar organiserar innehåll på olika skärmar och med olika dataset och andra interaktioner."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -480,7 +669,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Livsberättelse"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Namn*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Du måste ange namn."),
         "demoTextFieldNoMoreThan":
@@ -519,6 +708,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "På/av-knappar kan användas för grupprelaterade alternativ. En grupp bör finnas i samma behållare för att lyfta fram grupper av relaterade på/av-knappar"),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("På/av-knappar"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "I beskrivningar tillhandahålls textetiketter som förklarar funktionen hos en knapp eller en annan åtgärd kopplad till användargränssnittet. I beskrivningar visas informativ text när användare håller muspekaren över, fokuserar på eller trycker länge på ett element."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Tryck länge på eller håll muspekaren över elementet för att visa beskrivningen."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kort meddelande som visas när användaren trycker länge eller håller muspekaren över ett element"),
+        "demoTooltipTitle":
+            MessageLookupByLibrary.simpleMessage("Beskrivningar"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Två rader"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -545,7 +742,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google hjälper appar att avgöra enhetens plats. Detta innebär att anonym platsinformation skickas till Google, även när inga appar körs."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vill du använda Googles platstjänst?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Ange konto för säkerhetskopiering"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("VISA DIALOGRUTA"),
@@ -554,7 +751,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorier"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleri"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Strand"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronsverkstad"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Fiskare"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Blomstermarknad"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Lunchförberedelser"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Marknad"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Puducherry"),
+        "placeSaltFarm":
+            MessageLookupByLibrary.simpleMessage("Saltraffinaderi"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Vespor"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Sidenvävare"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Brihadisvaratemplet"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Sparkonto för bil"),
         "rallyAccountDataChecking":
@@ -578,15 +794,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Totalt"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Konton"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Aviseringar"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Fakturor"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Förfaller"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Kläder"),
         "rallyBudgetCategoryCoffeeShops":
@@ -690,7 +906,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("AVBRYT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("RENSA KUNDVAGNEN"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("KUNDVAGN"),
         "shrineCartShippingCaption":
@@ -753,8 +969,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Marinblå byxor"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Gipsvit tunika"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Bord – Quartet"),
         "shrineProductRainwaterTray":
@@ -793,10 +1009,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kritstrecksrandig skjorta"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Bälte – Whitney"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Lägg i kundvagnen"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Stäng kundvagnen"),
         "shrineTooltipCloseMenu":
@@ -810,7 +1026,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Inställningar"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("En responsiv startlayout"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Brödtext"),
         "starterAppGenericButton":

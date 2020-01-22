@@ -23,6 +23,7 @@ class TabsDemo extends StatelessWidget {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(GalleryLocalizations.of(context).demoTabsTitle),
           bottom: TabBar(
             isScrollable: true,

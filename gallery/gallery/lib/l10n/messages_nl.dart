@@ -37,53 +37,74 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m6(error) => "Kopiëren naar klembord is mislukt: ${error}";
 
-  static m7(name, phoneNumber) =>
+  static m7(value) => "Doorlopend: ${value}";
+
+  static m8(value) => "Afzonderlijk: ${value}";
+
+  static m9(value) => "Aangevinkt: ${value}";
+
+  static m10(value) => "Geselecteerd: ${value}";
+
+  static m11(name, phoneNumber) =>
       "Het telefoonnummer van ${name} is ${phoneNumber}";
 
-  static m8(value) => "Je hebt \'${value}\' geselecteerd";
+  static m12(value) => "Je hebt \'${value}\' geselecteerd";
 
-  static m9(accountName, accountNumber, amount) =>
+  static m13(accountName, accountNumber, amount) =>
       "${accountName}-rekening ${accountNumber} met ${amount}.";
 
-  static m10(amount) =>
+  static m14(amount) =>
       "Je hebt deze maand ${amount} besteed aan geldautomaatkosten";
 
-  static m11(percent) =>
+  static m15(percent) =>
       "Goed bezig! Er staat ${percent} meer op je lopende rekening dan vorige maand.";
 
-  static m12(percent) =>
+  static m16(percent) =>
       "Let op, je hebt ${percent} van je Shopping-budget voor deze maand gebruikt.";
 
-  static m13(amount) => "Je hebt deze week ${amount} besteed aan restaurants.";
+  static m17(amount) => "Je hebt deze week ${amount} besteed aan restaurants.";
 
-  static m14(count) =>
+  static m18(count) =>
       "${Intl.plural(count, one: 'Verhoog je potentiële belastingaftrek: wijs categorieën toe aan één niet-toegewezen transactie.', other: 'Verhoog je potentiële belastingaftrek: wijs categorieën toe aan ${count} niet-toegewezen transacties.')}";
 
-  static m15(billName, date, amount) =>
+  static m19(billName, date, amount) =>
       "Rekening van ${billName} voor ${amount}, te betalen vóór ${date}.";
 
-  static m16(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}-budget met ${amountUsed} van ${amountTotal} verbruikt, nog ${amountLeft} over";
 
-  static m17(quantity) =>
+  static m21(quantity) =>
       "${Intl.plural(quantity, zero: 'GEEN ITEMS', one: '1 ITEM', other: '${quantity} ITEMS')}";
 
-  static m18(price) => "x ${price}";
+  static m22(price) => "x ${price}";
 
-  static m19(quantity) => "Aantal: ${quantity}";
+  static m23(quantity) => "Aantal: ${quantity}";
 
-  static m20(quantity) =>
+  static m24(quantity) =>
       "${Intl.plural(quantity, zero: 'Winkelwagen, geen artikelen', one: 'Winkelwagen, 1 artikel', other: 'Winkelwagen, ${quantity} artikelen')}";
 
-  static m21(product) => "${product} verwijderen";
+  static m25(product) => "${product} verwijderen";
 
-  static m22(value) => "Item ${value}";
+  static m26(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
         "aboutDialogDescription": m0,
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
-            "Flutter-voorbeelden Github-repository"),
+            "Flutter-voorbeelden GitHub-repository"),
+        "backToGallery":
+            MessageLookupByLibrary.simpleMessage("Terug naar galerij"),
+        "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Inkeping"),
+        "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
+            "Positie van zwevende actieknop"),
+        "bottomAppBarPositionDockedCenter":
+            MessageLookupByLibrary.simpleMessage("Gedockt - Midden"),
+        "bottomAppBarPositionDockedEnd":
+            MessageLookupByLibrary.simpleMessage("Gedockt - Uiteinde"),
+        "bottomAppBarPositionFloatingCenter":
+            MessageLookupByLibrary.simpleMessage("Zwevend - Midden"),
+        "bottomAppBarPositionFloatingEnd":
+            MessageLookupByLibrary.simpleMessage("Zwevend - Uiteinde"),
         "bottomNavigationAccountTab":
             MessageLookupByLibrary.simpleMessage("Account"),
         "bottomNavigationAlarmTab":
@@ -313,6 +334,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Met achtergrond"),
         "cupertinoShowAlert":
             MessageLookupByLibrary.simpleMessage("Melding weergeven"),
+        "cupertinoTabBarChatTab": MessageLookupByLibrary.simpleMessage("Chat"),
+        "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Home"),
+        "cupertinoTabBarProfileTab":
+            MessageLookupByLibrary.simpleMessage("Profiel"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Actiechips zijn een reeks opties die een actie activeren voor primaire content. Actiechips zouden dynamisch en contextueel moeten worden weergegeven in een gebruikersinterface."),
         "demoActionChipTitle":
@@ -322,6 +347,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Melding"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Melding met titel"),
+        "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Met de app-balken onderaan heb je toegang tot een navigatiemenu onderaan en maximaal vier acties, waaronder de zwevende actieknop."),
+        "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Geeft navigatie en acties onderaan weer"),
+        "demoBottomAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("App-balk onderaan"),
         "demoBottomNavigationDescription": MessageLookupByLibrary.simpleMessage(
             "Navigatiebalken onderaan geven drie tot vijf bestemmingen weer onderaan een scherm. Elke bestemming wordt weergegeven als een pictogram en een optioneel tekstlabel. Als er op een navigatiepictogram onderaan wordt getikt, gaat de gebruiker naar de bestemming op hoofdniveau die aan dat pictogram is gekoppeld."),
         "demoBottomNavigationPersistentLabels":
@@ -356,6 +387,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, verhoogd, contour en meer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knoppen"),
+        "demoChecklistMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Checklistmenu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
             "Compacte elementen die een invoer, kenmerk of actie kunnen vertegenwoordigen"),
         "demoChipTitle": MessageLookupByLibrary.simpleMessage("Chips"),
@@ -363,6 +396,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Keuzechips laten de gebruiker één optie kiezen uit een reeks. Keuzechips kunnen gerelateerde beschrijvende tekst of categorieën bevatten."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Keuzechip"),
+        "demoCircularProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Een ronde voortgangsindicator volgens material design, die ronddraait om aan te geven dat de app bezig is."),
+        "demoCircularProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Ronde voortgangsindicator"),
         "demoCodeTooltip":
             MessageLookupByLibrary.simpleMessage("Codevoorbeeld"),
         "demoCodeViewerCopiedToClipboardMessage":
@@ -375,10 +413,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Alle vooraf gedefinieerde kleuren"),
         "demoColorsTitle": MessageLookupByLibrary.simpleMessage("Kleuren"),
+        "demoContextMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Contextmenu"),
         "demoCupertinoActionSheetDescription": MessageLookupByLibrary.simpleMessage(
             "Een actieblad is een specifieke stijl voor een melding die de gebruiker een set van twee of meer keuzes biedt, gerelateerd aan de huidige context. Een actieblad kan een titel, een aanvullende boodschap en een lijst met acties bevatten."),
         "demoCupertinoActionSheetTitle":
             MessageLookupByLibrary.simpleMessage("Actieblad"),
+        "demoCupertinoActivityIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Een activiteitsindicator in iOS-stijl die rechtsom ronddraait."),
+        "demoCupertinoActivityIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Activiteitsindicatoren in iOS-stijl"),
+        "demoCupertinoActivityIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Activiteitsindicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alleen meldingknoppen"),
         "demoCupertinoAlertButtonsTitle":
@@ -399,6 +447,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Knoppen in iOS-stijl"),
         "demoCupertinoButtonsTitle":
             MessageLookupByLibrary.simpleMessage("Knoppen"),
+        "demoCupertinoNavigationBarDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Een navigatiebalk in iOS-stijl. De navigatiebalk is een werkbalk die in elk geval bestaat uit een paginatitel (in het midden van de werkbalk)."),
+        "demoCupertinoNavigationBarSubtitle":
+            MessageLookupByLibrary.simpleMessage("Navigatiebalk in iOS-stijl"),
+        "demoCupertinoNavigationBarTitle":
+            MessageLookupByLibrary.simpleMessage("Navigatiebalk"),
+        "demoCupertinoPullToRefreshDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Een widget voor implementatie van de optie voor omlaag trekken om te vernieuwen in iOS-stijl."),
+        "demoCupertinoPullToRefreshSubtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Optie voor omlaag trekken om te vernieuwen in iOS-stijl"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Trek omlaag om te vernieuwen"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Wordt gebruikt om een keuze te maken uit verschillende opties die elkaar wederzijds uitsluiten. Als één optie in de gesegmenteerde bediening is geselecteerd, zijn de andere opties in de gesegmenteerde bediening niet meer geselecteerd."),
@@ -407,6 +470,28 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Gesegmenteerde bediening in iOS-stijl"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Gesegmenteerde bediening"),
+        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
+            "Met een schuifregelaar kun je selecteren uit een doorlopende of afzonderlijke reeks waarden."),
+        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderSubtitle":
+            MessageLookupByLibrary.simpleMessage("Schuifregelaar in iOS-stijl"),
+        "demoCupertinoSliderTitle":
+            MessageLookupByLibrary.simpleMessage("Schuifregelaar"),
+        "demoCupertinoSwitchDescription": MessageLookupByLibrary.simpleMessage(
+            "Met een schakelaar kun je de aan/uit-status van een enkele instelling schakelen."),
+        "demoCupertinoSwitchSubtitle":
+            MessageLookupByLibrary.simpleMessage("Schakelaar in iOS-stijl"),
+        "demoCupertinoTabBarDescription": MessageLookupByLibrary.simpleMessage(
+            "Een navigatietabbladbalk onderaan in iOS-stijl. Geeft meerdere tabbladen weer met één actief tabblad (standaard het eerste tabblad)."),
+        "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Tabbladbalk onderaan in iOS-stijl"),
+        "demoCupertinoTabBarTitle":
+            MessageLookupByLibrary.simpleMessage("Tabbladbalk"),
+        "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Schuifregelaars geven een waardebereik langs een balk weer, waarop gebruikers één waarde of een waardebereik kunnen selecteren. De schuifregelaars kunnen worden voorzien van een thema en worden aangepast."),
+        "demoCustomSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Aangepaste schuifregelaars"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Eenvoudig, melding en volledig scherm"),
         "demoDialogTitle":
@@ -431,6 +516,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Volledig scherm"),
         "demoFullscreenTooltip":
             MessageLookupByLibrary.simpleMessage("Volledig scherm"),
+        "demoGridListsDescription": MessageLookupByLibrary.simpleMessage(
+            "Rasterlijsten zijn geschikt voor het presenteren van homogene gegevens (vaak afbeeldingen). Elk item in een rasterlijst wordt een tegel genoemd."),
+        "demoGridListsFooterTitle":
+            MessageLookupByLibrary.simpleMessage("Met voettekst"),
+        "demoGridListsHeaderTitle":
+            MessageLookupByLibrary.simpleMessage("Met koptekst"),
+        "demoGridListsImageOnlyTitle":
+            MessageLookupByLibrary.simpleMessage("Alleen afbeelding"),
+        "demoGridListsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Rij- en kolomopmaak"),
+        "demoGridListsTitle":
+            MessageLookupByLibrary.simpleMessage("Rasterlijsten"),
         "demoInfoTooltip": MessageLookupByLibrary.simpleMessage("Informatie"),
         "demoInputChipDescription": MessageLookupByLibrary.simpleMessage(
             "Invoerchips bevatten een complex informatiefragment, zoals een entiteit (persoon, plaats of object) of gesprekstekst, in compacte vorm."),
@@ -438,6 +535,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Invoerchip"),
         "demoInvalidURL":
             MessageLookupByLibrary.simpleMessage("Kan URL niet weergeven:"),
+        "demoLinearProgressIndicatorDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Een lineaire voortgangsindicator volgens material design, ook wel een voortgangsbalk genoemd."),
+        "demoLinearProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Lineaire voortgangsindicator"),
         "demoListsDescription": MessageLookupByLibrary.simpleMessage(
             "Eén rij met een vaste hoogte die meestal wat tekst bevat die wordt voorafgegaan of gevolgd door een pictogram."),
         "demoListsSecondary":
@@ -445,6 +548,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoListsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Indelingen voor scrollende lijsten"),
         "demoListsTitle": MessageLookupByLibrary.simpleMessage("Lijsten"),
+        "demoMenuADisabledMenuItem":
+            MessageLookupByLibrary.simpleMessage("Uitgeschakeld menu-item"),
+        "demoMenuAnItemWithAChecklistMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Een item met een checklistmenu"),
+        "demoMenuAnItemWithAContextMenuButton":
+            MessageLookupByLibrary.simpleMessage(
+                "Een item met een contextmenu"),
+        "demoMenuAnItemWithASectionedMenu":
+            MessageLookupByLibrary.simpleMessage(
+                "Een item met een in secties opgesplitst menu"),
+        "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
+            "Een item met een eenvoudig menu"),
+        "demoMenuChecked": m9,
+        "demoMenuContextMenuItemOne":
+            MessageLookupByLibrary.simpleMessage("Contextmenu-item één"),
+        "demoMenuContextMenuItemThree":
+            MessageLookupByLibrary.simpleMessage("Contextmenu-item drie"),
+        "demoMenuDescription": MessageLookupByLibrary.simpleMessage(
+            "Een menu toont een lijst met keuzes in een tijdelijke weergave. Menu\'s worden weergegeven als gebruikers interactie hebben met een knop, actie of andere bedieningsoptie."),
+        "demoMenuFour": MessageLookupByLibrary.simpleMessage("Vier"),
+        "demoMenuGetLink": MessageLookupByLibrary.simpleMessage("Link ophalen"),
+        "demoMenuItemValueOne":
+            MessageLookupByLibrary.simpleMessage("Menu-item één"),
+        "demoMenuItemValueThree":
+            MessageLookupByLibrary.simpleMessage("Menu-item drie"),
+        "demoMenuItemValueTwo":
+            MessageLookupByLibrary.simpleMessage("Menu-item twee"),
+        "demoMenuOne": MessageLookupByLibrary.simpleMessage("Eén"),
+        "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Voorbeeld"),
+        "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Verwijderen"),
+        "demoMenuSelected": m10,
+        "demoMenuShare": MessageLookupByLibrary.simpleMessage("Delen"),
+        "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Menuknoppen en eenvoudige menu\'s"),
+        "demoMenuThree": MessageLookupByLibrary.simpleMessage("Drie"),
+        "demoMenuTitle": MessageLookupByLibrary.simpleMessage("Menu"),
+        "demoMenuTwo": MessageLookupByLibrary.simpleMessage("Twee"),
         "demoOneLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Eén regel"),
         "demoOptionsFeatureDescription": MessageLookupByLibrary.simpleMessage(
@@ -456,10 +597,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Contourknoppen worden ondoorzichtig en verhoogd als je ze indrukt. Ze worden vaak gekoppeld aan verhoogde knoppen om een alternatieve tweede actie aan te geven."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Contourknop"),
+        "demoProgressIndicatorSubtitle":
+            MessageLookupByLibrary.simpleMessage("Lineair, rond, onbepaald"),
+        "demoProgressIndicatorTitle":
+            MessageLookupByLibrary.simpleMessage("Voortgangsindicatoren"),
         "demoRaisedButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Verhoogde knoppen voegen een dimensie toe aan vormgevingen die voornamelijk plat zijn. Ze lichten functies uit als de achtergrond druk is of breed wordt weergegeven."),
         "demoRaisedButtonTitle":
             MessageLookupByLibrary.simpleMessage("Verhoogde knop"),
+        "demoRangeSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Schuifregelaars geven een waardebereik langs een balk weer. Ze kunnen pictogrammen aan beide uiteinden van de balk hebben die overeenkomen met een waardebereik. Ze zijn ideaal om instellingen (zoals volume of helderheid) aan te passen en afbeeldingsfilters toe te passen."),
+        "demoRangeSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Schuifregelaars voor bereik"),
+        "demoSectionedMenuTitle":
+            MessageLookupByLibrary.simpleMessage("In secties opgesplitst menu"),
         "demoSelectionControlsCheckboxDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Met selectievakjes kan de gebruiker meerdere opties selecteren uit een set. De waarde voor een normaal selectievakje is \'true\' of \'false\'. De waarde van een selectievakje met drie statussen kan ook \'null\' zijn."),
@@ -483,6 +634,42 @@ class MessageLookup extends MessageLookupByLibrary {
             "Een eenvoudig dialoogvenster biedt de gebruiker een keuze tussen meerdere opties. Een eenvoudig dialoogvenster bevat een optionele titel die boven de keuzes wordt weergegeven."),
         "demoSimpleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Eenvoudig"),
+        "demoSimpleMenuTitle":
+            MessageLookupByLibrary.simpleMessage("Eenvoudig menu"),
+        "demoSlidersContinuous":
+            MessageLookupByLibrary.simpleMessage("Doorlopend"),
+        "demoSlidersContinuousRangeSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Doorlopende schuifregelaar voor bereik met aangepast thema"),
+        "demoSlidersContinuousWithEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage(
+                "Doorlopend met bewerkbare numerieke waarde"),
+        "demoSlidersDescription": MessageLookupByLibrary.simpleMessage(
+            "Schuifregelaars geven een waardebereik langs een balk weer, waarop gebruikers één waarde kunnen selecteren. Ze zijn ideaal om instellingen (zoals volume of helderheid) aan te passen en afbeeldingsfilters toe te passen."),
+        "demoSlidersDiscrete":
+            MessageLookupByLibrary.simpleMessage("Afzonderlijk"),
+        "demoSlidersDiscreteSliderWithCustomTheme":
+            MessageLookupByLibrary.simpleMessage(
+                "Afzonderlijke schuifregelaar met aangepast thema"),
+        "demoSlidersEditableNumericalValue":
+            MessageLookupByLibrary.simpleMessage("Bewerkbare numerieke waarde"),
+        "demoSlidersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Widgets om een waarde te selecteren door middel van vegen"),
+        "demoSlidersTitle":
+            MessageLookupByLibrary.simpleMessage("Schuifregelaars"),
+        "demoSnackbarsAction": MessageLookupByLibrary.simpleMessage(
+            "Je hebt op de snackbaractie gedrukt."),
+        "demoSnackbarsActionButtonLabel":
+            MessageLookupByLibrary.simpleMessage("ACTIE"),
+        "demoSnackbarsButtonLabel":
+            MessageLookupByLibrary.simpleMessage("EEN SNACKBAR WEERGEVEN"),
+        "demoSnackbarsDescription": MessageLookupByLibrary.simpleMessage(
+            "Snackbars informeren gebruikers over een proces dat een app heeft uitgevoerd of gaat uitvoeren. Ze worden tijdelijk weergegeven, onderaan het scherm. Ze verstoren de gebruikerservaring niet en verdwijnen zonder invoer van de gebruiker."),
+        "demoSnackbarsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Snackbars geven berichten onderaan het scherm weer"),
+        "demoSnackbarsText":
+            MessageLookupByLibrary.simpleMessage("Dit is een snackbar."),
+        "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("Snackbars"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tabbladen delen content in op basis van verschillende schermen, datasets en andere interacties."),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -505,7 +692,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Levensverhaal"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Naam*"),
-        "demoTextFieldNameHasPhoneNumber": m7,
+        "demoTextFieldNameHasPhoneNumber": m11,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Naam is vereist."),
         "demoTextFieldNoMoreThan":
@@ -544,6 +731,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Schakelknoppen kunnen worden gebruikt om gerelateerde opties tot een groep samen te voegen. Een groep moet een gemeenschappelijke container hebben om een groep gerelateerde schakelknoppen te benadrukken."),
         "demoToggleButtonTitle":
             MessageLookupByLibrary.simpleMessage("Schakelknoppen"),
+        "demoTooltipDescription": MessageLookupByLibrary.simpleMessage(
+            "Knopinfo bevat een label dat de functie uitlegt van een knop of andere gebruikersinterface-actie. In knopinfo wordt informatieve tekst weergegeven als gebruikers de muisaanwijzer of focus op een element plaatsen of het lang indrukken."),
+        "demoTooltipInstructions": MessageLookupByLibrary.simpleMessage(
+            "Druk lang op een element of plaats de muisaanwijzer erop om de knopinfo weer te geven."),
+        "demoTooltipSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kort bericht dat wordt weergegeven bij lang indrukken of muisaanwijzer plaatsen"),
+        "demoTooltipTitle": MessageLookupByLibrary.simpleMessage("Knopinfo"),
         "demoTwoLineListsTitle":
             MessageLookupByLibrary.simpleMessage("Twee regels"),
         "demoTypographyDescription": MessageLookupByLibrary.simpleMessage(
@@ -569,7 +763,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Laat Google apps helpen bij het bepalen van de locatie. Dit houdt in dat anonieme locatiegegevens naar Google worden verzonden, zelfs als er geen apps actief zijn."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Locatieservice van Google gebruiken?"),
-        "dialogSelectedOption": m8,
+        "dialogSelectedOption": m12,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Back-upaccount instellen"),
         "dialogShow":
@@ -579,7 +773,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categorieën"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerij"),
-        "rallyAccountAmount": m9,
+        "placeBeach": MessageLookupByLibrary.simpleMessage("Strand"),
+        "placeBronzeWorks":
+            MessageLookupByLibrary.simpleMessage("Bronsgieterij"),
+        "placeChennai": MessageLookupByLibrary.simpleMessage("Chennai"),
+        "placeChettinad": MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "placeFisherman": MessageLookupByLibrary.simpleMessage("Visser"),
+        "placeFlowerMarket":
+            MessageLookupByLibrary.simpleMessage("Bloemenmarkt"),
+        "placeLunchPrep":
+            MessageLookupByLibrary.simpleMessage("Lunchbereiding"),
+        "placeMarket": MessageLookupByLibrary.simpleMessage("Markt"),
+        "placePondicherry": MessageLookupByLibrary.simpleMessage("Pondicherry"),
+        "placeSaltFarm": MessageLookupByLibrary.simpleMessage("Zoutpan"),
+        "placeScooters": MessageLookupByLibrary.simpleMessage("Scooters"),
+        "placeSilkMaker": MessageLookupByLibrary.simpleMessage("Zijdewever"),
+        "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
+        "placeThanjavurTemple":
+            MessageLookupByLibrary.simpleMessage("Thanjavur-tempel"),
+        "rallyAccountAmount": m13,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Spaarrekening auto"),
         "rallyAccountDataChecking":
@@ -603,15 +815,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Totaal"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Accounts"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Meldingen"),
-        "rallyAlertsMessageATMFees": m10,
-        "rallyAlertsMessageCheckingAccount": m11,
-        "rallyAlertsMessageHeadsUpShopping": m12,
-        "rallyAlertsMessageSpentOnRestaurants": m13,
-        "rallyAlertsMessageUnassignedTransactions": m14,
-        "rallyBillAmount": m15,
+        "rallyAlertsMessageATMFees": m14,
+        "rallyAlertsMessageCheckingAccount": m15,
+        "rallyAlertsMessageHeadsUpShopping": m16,
+        "rallyAlertsMessageSpentOnRestaurants": m17,
+        "rallyAlertsMessageUnassignedTransactions": m18,
+        "rallyBillAmount": m19,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Facturen"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Vervaldatum"),
-        "rallyBudgetAmount": m16,
+        "rallyBudgetAmount": m20,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Kleding"),
         "rallyBudgetCategoryCoffeeShops":
@@ -716,7 +928,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ANNULEREN"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("WINKELWAGEN LEEGMAKEN"),
-        "shrineCartItemCount": m17,
+        "shrineCartItemCount": m21,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("WINKELWAGEN"),
         "shrineCartShippingCaption":
@@ -780,8 +992,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Broek (marineblauw)"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tuniek (gebroken wit)"),
-        "shrineProductPrice": m18,
-        "shrineProductQuantity": m19,
+        "shrineProductPrice": m22,
+        "shrineProductQuantity": m23,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet-tafel"),
         "shrineProductRainwaterTray":
@@ -820,10 +1032,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Wit shirt met krijtstreep"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-riem"),
-        "shrineScreenReaderCart": m20,
+        "shrineScreenReaderCart": m24,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Toevoegen aan winkelwagen"),
-        "shrineScreenReaderRemoveProductButton": m21,
+        "shrineScreenReaderRemoveProductButton": m25,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Winkelwagen sluiten"),
         "shrineTooltipCloseMenu":
@@ -837,7 +1049,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Instellingen"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Een responsieve starterlay-out"),
-        "starterAppDrawerItem": m22,
+        "starterAppDrawerItem": m26,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Hoofdtekst"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("KNOP"),
