@@ -354,7 +354,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choice chips represent a single choice from a set. Choice chips contain related descriptive text or categories."),
         "demoChoiceChipTitle":
             MessageLookupByLibrary.simpleMessage("Choice Chip"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Code Sample"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Demo Code"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Copied to clipboard."),
         "demoCodeViewerCopyAll":

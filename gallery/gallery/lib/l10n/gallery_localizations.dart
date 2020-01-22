@@ -97,7 +97,6 @@ class GalleryLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en', 'US'),
     Locale('af'),
     Locale('am'),
     Locale('ar'),
@@ -125,6 +124,7 @@ class GalleryLocalizations {
     Locale('en', 'IN'),
     Locale('en', 'NZ'),
     Locale('en', 'SG'),
+    Locale('en', 'US'),
     Locale('en', 'ZA'),
     Locale('es'),
     Locale('es', '419'),
@@ -238,7 +238,7 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'backToGallery',
         desc:
-            r'Semantic label for back button to exit a study and return to the gallery.');
+            r'Semantic label for back button to exit a study and return to the gallery home page.');
   }
 
   String get bottomNavigationAccountTab {
@@ -1374,10 +1374,10 @@ class GalleryLocalizations {
   }
 
   String get demoCodeTooltip {
-    return Intl.message(r'Code Sample',
+    return Intl.message(r'Demo Code',
         locale: _localeName,
         name: 'demoCodeTooltip',
-        desc: r'Tooltip for code sample button in a demo.');
+        desc: r'Tooltip for demo code button in a demo.');
   }
 
   String get demoCodeViewerCopiedToClipboardMessage {
