@@ -1224,6 +1224,34 @@
   "@demoLinearProgressIndicatorDescription": {
     "description": "Description for linear progress indicator demo."
   },
+  "demoPickersTitle": "Pickers",
+  "@demoPickersTitle": {
+    "description": "Title for pickers demo."
+  },
+  "demoPickersSubtitle": "Date and time selection",
+  "@demoPickersSubtitle": {
+    "description": "Subtitle for pickers demo."
+  },
+  "demoDatePickerTitle": "Date Picker",
+  "@demoDatePickerTitle": {
+    "description": "Title for date picker demo."
+  },
+  "demoDatePickerDescription": "Shows a dialog containing a Material Design date picker.",
+  "@demoDatePickerDescription": {
+    "description": "Description for date picker demo."
+  },
+  "demoTimePickerTitle": "Time Picker",
+  "@demoTimePickerTitle": {
+    "description": "Title for time picker demo."
+  },
+  "demoTimePickerDescription": "Shows a dialog containing a Material Design time picker.",
+  "@demoTimePickerDescription": {
+    "description": "Description for time picker demo."
+  },
+  "demoPickersShowPicker": "SHOW PICKER",
+  "@demoPickersShowPicker": {
+    "description": "Button text to show the date or time picker in the demo."
+  },
   "demoTabsTitle": "Tabs",
   "@demoTabsTitle": {
     "description": "Title for tabs demo."

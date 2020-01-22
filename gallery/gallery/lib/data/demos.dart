@@ -29,6 +29,7 @@ import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/menu_demo.dart';
+import 'package:gallery/demos/material/picker_demo.dart';
 import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
 import 'package:gallery/demos/material/sliders_demo.dart';
@@ -378,6 +379,27 @@ List<GalleryDemo> materialDemos(BuildContext context) {
             type: MenuDemoType.simpleMenu,
           ),
           code: CodeSegments.menuDemoSimple,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoPickersTitle,
+      icon: GalleryIcons.event,
+      subtitle: localizations.demoPickersSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoDatePickerTitle,
+          description: localizations.demoDatePickerDescription,
+          documentationUrl: '$_docsBaseUrl/material/showDatePicker.html',
+          buildRoute: (context) => PickerDemo(type: PickerDemoType.date),
+          code: CodeSegments.pickerDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTimePickerTitle,
+          description: localizations.demoTimePickerDescription,
+          documentationUrl: '$_docsBaseUrl/material/showTimePicker.htmlhtml',
+          buildRoute: (context) => PickerDemo(type: PickerDemoType.time),
+          code: CodeSegments.pickerDemo,
         ),
       ],
     ),

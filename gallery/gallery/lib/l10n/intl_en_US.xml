@@ -1158,6 +1158,34 @@
     description="Description for linear progress indicator demo."
     >A Material Design linear progress indicator, also known as a progress bar.</string>
   <string
+    name="demoPickersTitle"
+    description="Title for pickers demo."
+    >Pickers</string>
+  <string
+    name="demoPickersSubtitle"
+    description="Subtitle for pickers demo."
+    >Date and time selection</string>
+  <string
+    name="demoDatePickerTitle"
+    description="Title for date picker demo."
+    >Date Picker</string>
+  <string
+    name="demoDatePickerDescription"
+    description="Description for date picker demo."
+    >Shows a dialog containing a Material Design date picker.</string>
+  <string
+    name="demoTimePickerTitle"
+    description="Title for time picker demo."
+    >Time Picker</string>
+  <string
+    name="demoTimePickerDescription"
+    description="Description for time picker demo."
+    >Shows a dialog containing a Material Design time picker.</string>
+  <string
+    name="demoPickersShowPicker"
+    description="Button text to show the date or time picker in the demo."
+    >SHOW PICKER</string>
+  <string
     name="demoTabsTitle"
     description="Title for tabs demo."
     >Tabs</string>

@@ -536,6 +536,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Custom Sliders"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Shows a dialog containing a Material Design date picker."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Date Picker"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alert, and fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogs"),
@@ -638,6 +642,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Outline Button"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("SHOW PICKER"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Date and time selection"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Pickers"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Linear, circular, indeterminate"),
         "demoProgressIndicatorTitle":
@@ -764,6 +773,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Where can we reach you?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Your email address"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Shows a dialog containing a Material Design time picker."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Time Picker"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":

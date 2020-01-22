@@ -2034,6 +2034,21 @@ class GalleryLocalizations {
         desc: r'Title for the custom sliders component demo.');
   }
 
+  String get demoDatePickerDescription {
+    return Intl.message(
+        r'Shows a dialog containing a Material Design date picker.',
+        locale: _localeName,
+        name: 'demoDatePickerDescription',
+        desc: r'Description for date picker demo.');
+  }
+
+  String get demoDatePickerTitle {
+    return Intl.message(r'Date Picker',
+        locale: _localeName,
+        name: 'demoDatePickerTitle',
+        desc: r'Title for date picker demo.');
+  }
+
   String get demoDialogSubtitle {
     return Intl.message(r'Simple, alert, and fullscreen',
         locale: _localeName,
@@ -2447,6 +2462,27 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoOutlineButtonTitle',
         desc: r'Title for the outline button component demo.');
+  }
+
+  String get demoPickersShowPicker {
+    return Intl.message(r'SHOW PICKER',
+        locale: _localeName,
+        name: 'demoPickersShowPicker',
+        desc: r'Button text to show the date or time picker in the demo.');
+  }
+
+  String get demoPickersSubtitle {
+    return Intl.message(r'Date and time selection',
+        locale: _localeName,
+        name: 'demoPickersSubtitle',
+        desc: r'Subtitle for pickers demo.');
+  }
+
+  String get demoPickersTitle {
+    return Intl.message(r'Pickers',
+        locale: _localeName,
+        name: 'demoPickersTitle',
+        desc: r'Title for pickers demo.');
   }
 
   String get demoProgressIndicatorSubtitle {
@@ -2930,6 +2966,21 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoTextFieldYourEmailAddress',
         desc: r'The label for an email address input field.');
+  }
+
+  String get demoTimePickerDescription {
+    return Intl.message(
+        r'Shows a dialog containing a Material Design time picker.',
+        locale: _localeName,
+        name: 'demoTimePickerDescription',
+        desc: r'Description for time picker demo.');
+  }
+
+  String get demoTimePickerTitle {
+    return Intl.message(r'Time Picker',
+        locale: _localeName,
+        name: 'demoTimePickerTitle',
+        desc: r'Title for time picker demo.');
   }
 
   String get demoToggleButtonDescription {
