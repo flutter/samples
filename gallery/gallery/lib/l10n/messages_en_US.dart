@@ -491,6 +491,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style navigation bar"),
         "demoCupertinoNavigationBarTitle":
             MessageLookupByLibrary.simpleMessage("Navigation Bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Date"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Date and Time"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "An iOS-style picker widget that can be used to select dates, times, or both date and time."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-style date and time pickers"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Time"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Timer"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Pickers"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "A widget implementing the iOS-style pull to refresh content control."),
