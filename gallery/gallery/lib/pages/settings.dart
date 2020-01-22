@@ -26,6 +26,15 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({
+    Key key,
+    this.controller,
+    this.isSettingsOpenNotifier,
+  }) : super(key: key);
+
+  final AnimationController controller;
+  final ValueNotifier<bool> isSettingsOpenNotifier;
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
