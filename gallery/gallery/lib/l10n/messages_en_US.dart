@@ -439,7 +439,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "A Material Design circular progress indicator, which spins to indicate that the application is busy."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("Circular Progress Indicator"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Code Sample"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Demo Code"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Copied to clipboard."),
         "demoCodeViewerCopyAll":

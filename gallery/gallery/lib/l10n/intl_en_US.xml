@@ -363,8 +363,8 @@
     >Info</string>
   <string
     name="demoCodeTooltip"
-    description="Tooltip for code sample button in a demo."
-    >Code Sample</string>
+    description="Tooltip for demo code button in a demo."
+    >Demo Code</string>
   <string
     name="demoDocumentationTooltip"
     description="Tooltip for API documentation button in a demo."
