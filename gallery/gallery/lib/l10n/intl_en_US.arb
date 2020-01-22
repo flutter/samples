@@ -398,9 +398,9 @@
   "@demoInfoTooltip": {
     "description": "Tooltip for info button in a demo."
   },
-  "demoCodeTooltip": "Code Sample",
+  "demoCodeTooltip": "Demo Code",
   "@demoCodeTooltip": {
-    "description": "Tooltip for code sample button in a demo."
+    "description": "Tooltip for demo code button in a demo."
   },
   "demoDocumentationTooltip": "API Documentation",
   "@demoDocumentationTooltip": {
