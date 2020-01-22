@@ -63,6 +63,13 @@ class _SettingsPageState extends State<SettingsPage> {
             },
           ),
         );
+
+    // When closing settings, also shrink expanded setting.
+    widget.isSettingsOpenNotifier.addListener(() {
+      if (!widget.isSettingsOpenNotifier.value) {
+        expandedSettingId = null;
+      }
+    });
   }
 
   /// Given a [Locale], returns a [DisplayOption] with its native name for a
