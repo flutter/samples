@@ -5,9 +5,12 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
-class SleepForm extends StatefulWidget {
+class SleepForm extends BackLayerItem {
+  SleepForm({int index}) : super(index: index);
+
   @override
   _SleepFormState createState() => _SleepFormState();
 }

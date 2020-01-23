@@ -5,9 +5,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
-class FlyForm extends StatefulWidget {
+class FlyForm extends BackLayerItem {
+  FlyForm({int index}) : super(index: index);
+
   @override
   _FlyFormState createState() => _FlyFormState();
 }
