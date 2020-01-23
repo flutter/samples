@@ -15,6 +15,7 @@ class HighlightFocus extends StatefulWidget {
     this.highlightColor,
     this.borderColor,
     this.hasFocus = true,
+    this.debugLabel,
   });
 
   /// [onPressed] is called when you press space, enter, or numpad-enter
@@ -36,6 +37,8 @@ class HighlightFocus extends StatefulWidget {
   /// [hasFocus] is true when focusing on the widget is allowed.
   /// Set to false if you want the child to skip focus.
   final bool hasFocus;
+
+  final String debugLabel;
 
   @override
   _HighlightFocusState createState() => _HighlightFocusState();
@@ -67,6 +70,7 @@ class _HighlightFocusState extends State<HighlightFocus> {
 
     return Focus(
       canRequestFocus: widget.hasFocus,
+      debugLabel: widget.debugLabel,
       onFocusChange: (newValue) {
         setState(() {
           isFocused = newValue;
