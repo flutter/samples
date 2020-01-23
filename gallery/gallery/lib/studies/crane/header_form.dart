@@ -75,7 +75,7 @@ class _HeaderTextField extends StatelessWidget {
         fillColor: cranePurple700,
         filled: true,
         hintText: field.title,
-        hasFloatingPlaceholder: false,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
         prefixIcon: Icon(
           field.iconData,
           size: 24,
