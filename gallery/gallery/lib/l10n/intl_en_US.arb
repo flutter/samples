@@ -1003,7 +1003,7 @@
   },
   "demoCupertinoPickerTitle": "Pickers",
   "@demoCupertinoPickerTitle": {
-    "description": "Title for the cupertino pickers component demo."
+    "description": "Title for the cupertino date and time pickers component demo."
   },
   "demoCupertinoPickerSubtitle": "iOS-style date and time pickers",
   "@demoCupertinoPickerSubtitle": {

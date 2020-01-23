@@ -1913,7 +1913,7 @@ class GalleryLocalizations {
     return Intl.message('Pickers',
         locale: _localeName,
         name: 'demoCupertinoPickerTitle',
-        desc: r'Title for the cupertino pickers component demo.');
+        desc: r'Title for the cupertino date and time pickers component demo.');
   }
 
   String get demoCupertinoPullToRefreshDescription {

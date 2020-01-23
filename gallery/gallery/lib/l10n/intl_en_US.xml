@@ -951,7 +951,7 @@
     >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
   <string
     name="demoCupertinoPickerTitle"
-    description="Title for the cupertino pickers component demo."
+    description="Title for the cupertino date and time pickers component demo."
     >Pickers</string>
   <string
     name="demoCupertinoPickerSubtitle"
