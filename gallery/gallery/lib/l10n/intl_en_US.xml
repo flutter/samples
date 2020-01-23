@@ -950,6 +950,34 @@
     description="Description for the cupertino navigation bar component demo."
     >An iOS-styled navigation bar. The navigation bar is a toolbar that minimally consists of a page title, in the middle of the toolbar.</string>
   <string
+    name="demoCupertinoPickerTitle"
+    description="Title for the cupertino date and time pickers component demo."
+    >Pickers</string>
+  <string
+    name="demoCupertinoPickerSubtitle"
+    description="Subtitle for the cupertino pickers component demo."
+    >iOS-style date and time pickers</string>
+  <string
+    name="demoCupertinoPickerDescription"
+    description="Description for the cupertino pickers component demo."
+    >An iOS-style picker widget that can be used to select dates, times, or both date and time.</string>
+  <string
+    name="demoCupertinoPickerTimer"
+    description="Label to open a countdown timer picker."
+    >Timer</string>
+  <string
+    name="demoCupertinoPickerDate"
+    description="Label to open a date picker."
+    >Date</string>
+  <string
+    name="demoCupertinoPickerTime"
+    description="Label to open a time picker."
+    >Time</string>
+  <string
+    name="demoCupertinoPickerDateTime"
+    description="Label to open a date and time picker."
+    >Date and Time</string>
+  <string
     name="demoCupertinoPullToRefreshTitle"
     description="Title for the cupertino pull-to-refresh component demo."
     >Pull To Refresh</string>

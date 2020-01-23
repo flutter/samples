@@ -1866,6 +1866,56 @@ class GalleryLocalizations {
         desc: r'Title for the cupertino navigation bar component demo.');
   }
 
+  String get demoCupertinoPickerDate {
+    return Intl.message('Date',
+        locale: _localeName,
+        name: 'demoCupertinoPickerDate',
+        desc: r'Label to open a date picker.');
+  }
+
+  String get demoCupertinoPickerDateTime {
+    return Intl.message('Date and Time',
+        locale: _localeName,
+        name: 'demoCupertinoPickerDateTime',
+        desc: r'Label to open a date and time picker.');
+  }
+
+  String get demoCupertinoPickerDescription {
+    return Intl.message(
+        'An iOS-style picker widget that can be used to select dates, times, or both date and time.',
+        locale: _localeName,
+        name: 'demoCupertinoPickerDescription',
+        desc: r'Description for the cupertino pickers component demo.');
+  }
+
+  String get demoCupertinoPickerSubtitle {
+    return Intl.message('iOS-style date and time pickers',
+        locale: _localeName,
+        name: 'demoCupertinoPickerSubtitle',
+        desc: r'Subtitle for the cupertino pickers component demo.');
+  }
+
+  String get demoCupertinoPickerTime {
+    return Intl.message('Time',
+        locale: _localeName,
+        name: 'demoCupertinoPickerTime',
+        desc: r'Label to open a time picker.');
+  }
+
+  String get demoCupertinoPickerTimer {
+    return Intl.message('Timer',
+        locale: _localeName,
+        name: 'demoCupertinoPickerTimer',
+        desc: r'Label to open a countdown timer picker.');
+  }
+
+  String get demoCupertinoPickerTitle {
+    return Intl.message('Pickers',
+        locale: _localeName,
+        name: 'demoCupertinoPickerTitle',
+        desc: r'Title for the cupertino date and time pickers component demo.');
+  }
+
   String get demoCupertinoPullToRefreshDescription {
     return Intl.message(
         'A widget implementing the iOS-style pull to refresh content control.',

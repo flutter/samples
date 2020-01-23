@@ -1001,6 +1001,34 @@
   "@demoCupertinoNavigationBarDescription": {
     "description": "Description for the cupertino navigation bar component demo."
   },
+  "demoCupertinoPickerTitle": "Pickers",
+  "@demoCupertinoPickerTitle": {
+    "description": "Title for the cupertino date and time pickers component demo."
+  },
+  "demoCupertinoPickerSubtitle": "iOS-style date and time pickers",
+  "@demoCupertinoPickerSubtitle": {
+    "description": "Subtitle for the cupertino pickers component demo."
+  },
+  "demoCupertinoPickerDescription": "An iOS-style picker widget that can be used to select dates, times, or both date and time.",
+  "@demoCupertinoPickerDescription": {
+    "description": "Description for the cupertino pickers component demo."
+  },
+  "demoCupertinoPickerTimer": "Timer",
+  "@demoCupertinoPickerTimer": {
+    "description": "Label to open a countdown timer picker."
+  },
+  "demoCupertinoPickerDate": "Date",
+  "@demoCupertinoPickerDate": {
+    "description": "Label to open a date picker."
+  },
+  "demoCupertinoPickerTime": "Time",
+  "@demoCupertinoPickerTime": {
+    "description": "Label to open a time picker."
+  },
+  "demoCupertinoPickerDateTime": "Date and Time",
+  "@demoCupertinoPickerDateTime": {
+    "description": "Label to open a date and time picker."
+  },
   "demoCupertinoPullToRefreshTitle": "Pull To Refresh",
   "@demoCupertinoPullToRefreshTitle": {
     "description": "Title for the cupertino pull-to-refresh component demo."

@@ -12,6 +12,7 @@ import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_picker_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
@@ -648,6 +649,21 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
               '$_docsBaseUrl/cupertino/CupertinoNavigationBar-class.html',
           buildRoute: (_) => CupertinoNavigationBarDemo(),
           code: CodeSegments.cupertinoNavigationBarDemo,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoPickerTitle,
+      icon: GalleryIcons.event,
+      subtitle: localizations.demoCupertinoPickerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoPickerTitle,
+          description: localizations.demoCupertinoPickerDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoDatePicker-class.html',
+          buildRoute: (_) => CupertinoPickerDemo(),
+          code: CodeSegments.cupertinoPickersDemo,
         ),
       ],
     ),
