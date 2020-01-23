@@ -10,6 +10,11 @@ import 'package:gallery/pages/backdrop.dart';
 
 void main() {
   testWidgets('Home page hides settings semantics when closed', (tester) async {
+    final animationController = AnimationController(
+      duration: Duration(milliseconds: 1),
+      vsync: const TestVSync(),
+    );
+    final isSettingsOpen = ValueNotifier(false);
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: [GalleryLocalizations.delegate],
@@ -20,6 +25,9 @@ void main() {
           child: Backdrop(
             frontLayer: Text('Front'),
             backLayer: Text('Back'),
+            controller: animationController,
+            isSettingsOpenNotifier: isSettingsOpen,
+            openSettingsAnimation: animationController,
           ),
         ),
       ),
@@ -40,5 +48,7 @@ void main() {
     // bottom by utilizing an invisible widget within the Settings Page.
     expect(tester.getSemantics(find.text('Back')).owner, null);
     expect(tester.getSemantics(find.text('Front')).label, 'Front');
+
+    animationController.dispose();
   });
 }

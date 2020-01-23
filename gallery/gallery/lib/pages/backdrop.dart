@@ -169,8 +169,10 @@ class _BackdropState extends State<Backdrop>
     // Animate the settings panel to open or close.
     widget.controller
         .fling(velocity: widget.isSettingsOpenNotifier.value ? -1 : 1);
-    widget.isSettingsOpenNotifier.value = !widget.isSettingsOpenNotifier.value;
-
+    setState(() {
+      widget.isSettingsOpenNotifier.value =
+          !widget.isSettingsOpenNotifier.value;
+    });
     // Animate the settings icon.
     initAnimationLayer();
     isActive.value = true;
