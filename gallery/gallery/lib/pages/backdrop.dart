@@ -28,11 +28,30 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
 
   @override
   Widget build(BuildContext context) {
+    final openSettingsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.0,
+        0.4,
+        curve: Curves.ease,
+      ),
+    );
+    final staggerSettingsItemsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.5,
+        1.0,
+        curve: Curves.easeIn,
+      ),
+    );
+
     return Backdrop(
       controller: backdropController,
       isSettingsOpenNotifier: isSettingsOpenNotifier,
+      openSettingsAnimation: openSettingsAnimation,
       frontLayer: SettingsPage(
-        controller: backdropController,
+        openSettingsAnimation: openSettingsAnimation,
+        staggerSettingsItemsAnimation: staggerSettingsItemsAnimation,
         isSettingsOpenNotifier: isSettingsOpenNotifier,
       ),
       backLayer: HomePage(),
@@ -43,8 +62,7 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
   void initState() {
     super.initState();
     backdropController = AnimationController(
-      duration: Duration(milliseconds: 100),
-      value: 1,
+      duration: Duration(milliseconds: 200),
       vsync: this,
     )..addListener(() {
         setState(() {
@@ -66,6 +84,7 @@ class Backdrop extends StatefulWidget {
   final Widget frontLayer;
   final Widget backLayer;
   final AnimationController controller;
+  final Animation<double> openSettingsAnimation;
   final ValueNotifier<bool> isSettingsOpenNotifier;
 
   Backdrop({
@@ -73,10 +92,13 @@ class Backdrop extends StatefulWidget {
     @required this.frontLayer,
     @required this.backLayer,
     @required this.controller,
+    @required this.openSettingsAnimation,
     @required this.isSettingsOpenNotifier,
   })  : assert(frontLayer != null),
         assert(backLayer != null),
         assert(controller != null),
+        assert(isSettingsOpenNotifier != null),
+        assert(openSettingsAnimation != null),
         super(key: key);
 
   @override
@@ -85,7 +107,6 @@ class Backdrop extends StatefulWidget {
 
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin, FlareController {
-  Animation<double> _animationReversed;
   FlareAnimationLayer _animationLayer;
   FlutterActorArtboard _artboard;
 
@@ -101,8 +122,6 @@ class _BackdropState extends State<Backdrop>
     super.initState();
     frontLayerFocusNode = FocusNode();
     backLayerFocusNode = FocusNode();
-    _animationReversed =
-        Tween<double>(begin: 1.0, end: 0.0).animate(widget.controller);
   }
 
   @override
@@ -127,7 +146,7 @@ class _BackdropState extends State<Backdrop>
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_animationLayer != null) {
       FlareAnimationLayer layer = _animationLayer;
-      layer.time = _animationReversed.value * layer.duration;
+      layer.time = widget.controller.value * layer.duration;
       layer.animation.apply(layer.time, _artboard, 1);
       if (layer.isDone || layer.time == 0) {
         _animationLayer = null;
@@ -147,9 +166,9 @@ class _BackdropState extends State<Backdrop>
   }
 
   void toggleSettings() {
-    // Animate the settings to open or close.
+    // Animate the settings panel to open or close.
     widget.controller
-        .fling(velocity: widget.isSettingsOpenNotifier.value ? 1 : -1);
+        .fling(velocity: widget.isSettingsOpenNotifier.value ? -1 : 1);
     widget.isSettingsOpenNotifier.value = !widget.isSettingsOpenNotifier.value;
 
     // Animate the settings icon.
@@ -162,9 +181,12 @@ class _BackdropState extends State<Backdrop>
     final double top = height - galleryHeaderHeight;
     final double bottom = -galleryHeaderHeight;
     return RelativeRectTween(
-      begin: RelativeRect.fromLTRB(0, top, 0, bottom),
-      end: RelativeRect.fromLTRB(0, 0, 0, 0),
-    ).animate(CurvedAnimation(parent: widget.controller, curve: Curves.linear));
+      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
+      end: RelativeRect.fromLTRB(0, top, 0, bottom),
+    ).animate(CurvedAnimation(
+      parent: widget.openSettingsAnimation,
+      curve: Curves.linear,
+    ));
   }
 
   Widget _galleryHeader() {
@@ -184,8 +206,6 @@ class _BackdropState extends State<Backdrop>
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
-    final Animation<RelativeRect> panelAnimation =
-        _getPanelAnimation(constraints);
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
@@ -215,7 +235,7 @@ class _BackdropState extends State<Backdrop>
                 _galleryHeader(),
                 frontLayer,
                 PositionedTransition(
-                  rect: panelAnimation,
+                  rect: _getPanelAnimation(constraints),
                   child: backLayer,
                 ),
               ],
@@ -241,7 +261,9 @@ class _BackdropState extends State<Backdrop>
                       ? Alignment.topRight
                       : Alignment.topLeft,
                   scale: CurvedAnimation(
-                    parent: _animationReversed,
+                    parent: isDesktop
+                        ? widget.controller
+                        : widget.openSettingsAnimation,
                     curve: Curves.easeIn,
                     reverseCurve: Curves.easeOut,
                   ),
