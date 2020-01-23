@@ -69,7 +69,9 @@ class _SettingsPageState extends State<SettingsPage> {
     // When closing settings, also shrink expanded setting.
     widget.isSettingsOpenNotifier.addListener(() {
       if (!widget.isSettingsOpenNotifier.value) {
-        expandedSettingId = null;
+        setState(() {
+          expandedSettingId = null;
+        });
       }
     });
   }
