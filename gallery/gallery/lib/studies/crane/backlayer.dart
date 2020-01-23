@@ -10,3 +10,39 @@ abstract class BackLayerItem extends StatefulWidget {
   BackLayerItem({Key key, this.index}) : super(key: key);
 }
 
+class BackLayer extends StatefulWidget {
+  final List<BackLayerItem> backLayerItems;
+  final TabController tabController;
+
+  const BackLayer({Key key, this.backLayerItems, this.tabController})
+      : super(key: key);
+
+  @override
+  _BackLayerState createState() => _BackLayerState();
+}
+
+class _BackLayerState extends State<BackLayer> {
+  @override
+  void initState() {
+    super.initState();
+    widget.tabController.addListener(() => setState(() {}));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabIndex = widget.tabController.index;
+    return DefaultFocusTraversal(
+      policy: WidgetOrderFocusTraversalPolicy(),
+      child: IndexedStack(
+        index: tabIndex,
+        children: widget.backLayerItems
+            .map((backLayerItem) => Focus(
+                  canRequestFocus: backLayerItem.index == tabIndex,
+                  debugLabel: 'backLayerItem: $backLayerItem',
+                  child: backLayerItem,
+                ))
+            .toList(),
+      ),
+    );
+  }
+}

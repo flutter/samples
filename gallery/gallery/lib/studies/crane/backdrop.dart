@@ -187,33 +187,6 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   }
 }
 
-class BackLayer extends StatefulWidget {
-  final List<Widget> backLayers;
-  final TabController tabController;
-
-  const BackLayer({Key key, this.backLayers, this.tabController})
-      : super(key: key);
-
-  @override
-  _BackLayerState createState() => _BackLayerState();
-}
-
-class _BackLayerState extends State<BackLayer> {
-  @override
-  void initState() {
-    super.initState();
-    widget.tabController.addListener(() => setState(() {}));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return IndexedStack(
-      index: widget.tabController.index,
-      children: widget.backLayers,
-    );
-  }
-}
-
 class CraneAppBar extends StatefulWidget {
   final Function(int) tabHandler;
   final TabController tabController;
