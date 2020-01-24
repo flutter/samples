@@ -299,10 +299,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
             maxHeight: maxSectionHeight,
             codeWidget: CodeDisplayPage(
               _currentConfig.code,
-              hasCopyButton:
-                  !kIsWeb, // TODO: Add support for copying code in Web.
-              // TODO: It is a known issue that Clipboard does not work on web.
-              // TODO: https://github.com/flutter/flutter/issues/40124
             ),
           ),
         );
@@ -701,10 +697,9 @@ class _DemoSectionCode extends StatelessWidget {
 }
 
 class CodeDisplayPage extends StatelessWidget {
-  const CodeDisplayPage(this.code, {this.hasCopyButton = true});
+  const CodeDisplayPage(this.code);
 
   final CodeDisplayer code;
-  final bool hasCopyButton;
 
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -723,7 +718,7 @@ class CodeDisplayPage extends StatelessWidget {
       );
     }
 
-    void _showSnackBarOnCopyFailure(Exception exception) {
+    void _showSnackBarOnCopyFailure(Object exception) {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -737,32 +732,33 @@ class CodeDisplayPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (hasCopyButton)
-          Padding(
-            padding: isDesktop
-                ? EdgeInsets.only(bottom: 8)
-                : EdgeInsets.symmetric(vertical: 8),
-            child: FlatButton(
-              color: Colors.white.withOpacity(0.15),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(4)),
-              ),
-              onPressed: () async {
-                await Clipboard.setData(ClipboardData(text: _plainTextCode))
-                    .then(_showSnackBarOnCopySuccess)
-                    .catchError(_showSnackBarOnCopyFailure);
-              },
-              child: Text(
-                GalleryLocalizations.of(context).demoCodeViewerCopyAll,
-                style: Theme.of(context).textTheme.button.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
+        Padding(
+          padding: isDesktop
+              ? EdgeInsets.only(bottom: 8)
+              : EdgeInsets.symmetric(vertical: 8),
+          child: FlatButton(
+            color: Colors.white.withOpacity(0.15),
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+            ),
+            onPressed: () async {
+              // The future will not complete on web, thus no
+              // Snackbar will be shown, see https://github.com/flutter/flutter/issues/49349.
+              await Clipboard.setData(ClipboardData(text: _plainTextCode))
+                  .then(_showSnackBarOnCopySuccess)
+                  .catchError(_showSnackBarOnCopyFailure);
+            },
+            child: Text(
+              GalleryLocalizations.of(context).demoCodeViewerCopyAll,
+              style: Theme.of(context).textTheme.button.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
             ),
           ),
+        ),
         Expanded(
           child: SingleChildScrollView(
             child: Container(
