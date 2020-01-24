@@ -1385,6 +1385,157 @@ class GalleryLocalizations {
         desc: r'Title for the profile tab in the bottom tab bar demo.');
   }
 
+  String get dataTableColumnCalcium {
+    return Intl.message('Calcium (%)',
+        locale: _localeName,
+        name: 'dataTableColumnCalcium',
+        desc: r'Column header for daily percentage of calcium.');
+  }
+
+  String get dataTableColumnCalories {
+    return Intl.message('Calories',
+        locale: _localeName,
+        name: 'dataTableColumnCalories',
+        desc: r'Column header for number of calories.');
+  }
+
+  String get dataTableColumnCarbs {
+    return Intl.message('Carbs (g)',
+        locale: _localeName,
+        name: 'dataTableColumnCarbs',
+        desc: r'Column header for number of grams of carbs.');
+  }
+
+  String get dataTableColumnDessert {
+    return Intl.message('Dessert (1 serving)',
+        locale: _localeName,
+        name: 'dataTableColumnDessert',
+        desc: r'Column header for desserts.');
+  }
+
+  String get dataTableColumnFat {
+    return Intl.message('Fat (g)',
+        locale: _localeName,
+        name: 'dataTableColumnFat',
+        desc: r'Column header for number of grams of fat.');
+  }
+
+  String get dataTableColumnIron {
+    return Intl.message('Iron (%)',
+        locale: _localeName,
+        name: 'dataTableColumnIron',
+        desc: r'Column header for daily percentage of iron.');
+  }
+
+  String get dataTableColumnProtein {
+    return Intl.message('Protein (g)',
+        locale: _localeName,
+        name: 'dataTableColumnProtein',
+        desc: r'Column header for number of grams of protein.');
+  }
+
+  String get dataTableColumnSodium {
+    return Intl.message('Sodium (mg)',
+        locale: _localeName,
+        name: 'dataTableColumnSodium',
+        desc: r'Column header for number of milligrams of sodium.');
+  }
+
+  String get dataTableHeader {
+    return Intl.message('Nutrition',
+        locale: _localeName,
+        name: 'dataTableHeader',
+        desc: r'Header for the data table component demo about nutrition.');
+  }
+
+  String get dataTableRowApplePie {
+    return Intl.message('Apple pie',
+        locale: _localeName,
+        name: 'dataTableRowApplePie',
+        desc: r'Column row for Apple pie.');
+  }
+
+  String get dataTableRowCupcake {
+    return Intl.message('Cupcake',
+        locale: _localeName,
+        name: 'dataTableRowCupcake',
+        desc: r'Column row for Cupcake.');
+  }
+
+  String get dataTableRowDonut {
+    return Intl.message('Donut',
+        locale: _localeName,
+        name: 'dataTableRowDonut',
+        desc: r'Column row for Donut.');
+  }
+
+  String get dataTableRowEclair {
+    return Intl.message('Eclair',
+        locale: _localeName,
+        name: 'dataTableRowEclair',
+        desc: r'Column row for Eclair.');
+  }
+
+  String get dataTableRowFrozenYogurt {
+    return Intl.message('Frozen yogurt',
+        locale: _localeName,
+        name: 'dataTableRowFrozenYogurt',
+        desc: r'Column row for frozen yogurt.');
+  }
+
+  String get dataTableRowGingerbread {
+    return Intl.message('Gingerbread',
+        locale: _localeName,
+        name: 'dataTableRowGingerbread',
+        desc: r'Column row for Gingerbread.');
+  }
+
+  String get dataTableRowHoneycomb {
+    return Intl.message('Honeycomb',
+        locale: _localeName,
+        name: 'dataTableRowHoneycomb',
+        desc: r'Column row for Honeycomb.');
+  }
+
+  String get dataTableRowIceCreamSandwich {
+    return Intl.message('Ice cream sandwich',
+        locale: _localeName,
+        name: 'dataTableRowIceCreamSandwich',
+        desc: r'Column row for Ice cream sandwich.');
+  }
+
+  String get dataTableRowJellyBean {
+    return Intl.message('Jelly bean',
+        locale: _localeName,
+        name: 'dataTableRowJellyBean',
+        desc: r'Column row for Jelly bean.');
+  }
+
+  String get dataTableRowLollipop {
+    return Intl.message('Lollipop',
+        locale: _localeName,
+        name: 'dataTableRowLollipop',
+        desc: r'Column row for Lollipop.');
+  }
+
+  String dataTableRowWithHoney(Object value) {
+    return Intl.message('$value with honey',
+        locale: _localeName,
+        name: 'dataTableRowWithHoney',
+        desc:
+            r'A dessert with honey on it. The parameter is some type of dessert.',
+        args: <Object>[value]);
+  }
+
+  String dataTableRowWithSugar(Object value) {
+    return Intl.message('$value with sugar',
+        locale: _localeName,
+        name: 'dataTableRowWithSugar',
+        desc:
+            r'A dessert with sugar on it. The parameter is some type of dessert.',
+        args: <Object>[value]);
+  }
+
   String get demoActionChipDescription {
     return Intl.message(
         'Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI.',
@@ -2081,6 +2232,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'demoCustomSlidersTitle',
         desc: r'Title for the custom sliders component demo.');
+  }
+
+  String get demoDataTableDescription {
+    return Intl.message(
+        'Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.',
+        locale: _localeName,
+        name: 'demoDataTableDescription',
+        desc: r'Description for the material data table component demo.');
+  }
+
+  String get demoDataTableSubtitle {
+    return Intl.message('Rows and columns of information',
+        locale: _localeName,
+        name: 'demoDataTableSubtitle',
+        desc: r'Subtitle for the material data table component demo.');
+  }
+
+  String get demoDataTableTitle {
+    return Intl.message('Data Tables',
+        locale: _localeName,
+        name: 'demoDataTableTitle',
+        desc: r'Title for the material data table component demo.');
   }
 
   String get demoDatePickerDescription {

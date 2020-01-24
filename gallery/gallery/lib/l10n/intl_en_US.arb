@@ -699,6 +699,112 @@
   "@demoInputChipDescription": {
     "description": "Description for the input chip component demo."
   },
+  "demoDataTableTitle": "Data Tables",
+  "@demoDataTableTitle": {
+    "description": "Title for the material data table component demo."
+  },
+  "demoDataTableSubtitle": "Rows and columns of information",
+  "@demoDataTableSubtitle": {
+    "description": "Subtitle for the material data table component demo."
+  },
+  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.",
+  "@demoDataTableDescription": {
+    "description": "Description for the material data table component demo."
+  },
+  "dataTableHeader": "Nutrition",
+  "@dataTableHeader": {
+    "description": "Header for the data table component demo about nutrition."
+  },
+  "dataTableColumnDessert": "Dessert (1 serving)",
+  "@dataTableColumnDessert": {
+    "description": "Column header for desserts."
+  },
+  "dataTableColumnCalories": "Calories",
+  "@dataTableColumnCalories": {
+    "description": "Column header for number of calories."
+  },
+  "dataTableColumnFat": "Fat (g)",
+  "@dataTableColumnFat": {
+    "description": "Column header for number of grams of fat."
+  },
+  "dataTableColumnCarbs": "Carbs (g)",
+  "@dataTableColumnCarbs": {
+    "description": "Column header for number of grams of carbs."
+  },
+  "dataTableColumnProtein": "Protein (g)",
+  "@dataTableColumnProtein": {
+    "description": "Column header for number of grams of protein."
+  },
+  "dataTableColumnSodium": "Sodium (mg)",
+  "@dataTableColumnSodium": {
+    "description": "Column header for number of milligrams of sodium."
+  },
+  "dataTableColumnCalcium": "Calcium (%)",
+  "@dataTableColumnCalcium": {
+    "description": "Column header for daily percentage of calcium."
+  },
+  "dataTableColumnIron": "Iron (%)",
+  "@dataTableColumnIron": {
+    "description": "Column header for daily percentage of iron."
+  },
+  "dataTableRowFrozenYogurt": "Frozen yogurt",
+  "@dataTableRowFrozenYogurt": {
+    "description": "Column row for frozen yogurt."
+  },
+  "dataTableRowIceCreamSandwich": "Ice cream sandwich",
+  "@dataTableRowIceCreamSandwich": {
+    "description": "Column row for Ice cream sandwich."
+  },
+  "dataTableRowEclair": "Eclair",
+  "@dataTableRowEclair": {
+    "description": "Column row for Eclair."
+  },
+  "dataTableRowCupcake": "Cupcake",
+  "@dataTableRowCupcake": {
+    "description": "Column row for Cupcake."
+  },
+  "dataTableRowGingerbread": "Gingerbread",
+  "@dataTableRowGingerbread": {
+    "description": "Column row for Gingerbread."
+  },
+  "dataTableRowJellyBean": "Jelly bean",
+  "@dataTableRowJellyBean": {
+    "description": "Column row for Jelly bean."
+  },
+  "dataTableRowLollipop": "Lollipop",
+  "@dataTableRowLollipop": {
+    "description": "Column row for Lollipop."
+  },
+  "dataTableRowHoneycomb": "Honeycomb",
+  "@dataTableRowHoneycomb": {
+    "description": "Column row for Honeycomb."
+  },
+  "dataTableRowDonut": "Donut",
+  "@dataTableRowDonut": {
+    "description": "Column row for Donut."
+  },
+  "dataTableRowApplePie": "Apple pie",
+  "@dataTableRowApplePie": {
+    "description": "Column row for Apple pie."
+  },
+  "dataTableRowWithSugar": "{value} with sugar",
+  "@dataTableRowWithSugar": {
+    "description": "A dessert with sugar on it. The parameter is some type of dessert.",
+    "placeholders": {
+      "value": {
+        "example": "Apple pie"
+      }
+    }
+  },
+  "dataTableRowWithHoney": "{value} with honey",
+  "@dataTableRowWithHoney": {
+    "description": "A dessert with honey on it. The parameter is some type of dessert.",
+    "placeholders": {
+      "value": {
+        "example": "Apple pie"
+      }
+    }
+  },
   "demoDialogTitle": "Dialogs",
   "@demoDialogTitle": {
     "description": "Title for the material dialog component demo."
