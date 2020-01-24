@@ -185,7 +185,6 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
   @override
   Widget build(BuildContext context) {
     _handleExpansion();
-    final closed = !widget.isExpanded && _controller.isDismissed;
     final theme = Theme.of(context);
 
     final optionsList = <Widget>[];
