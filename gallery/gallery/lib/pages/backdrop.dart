@@ -13,17 +13,93 @@ import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/pages/home.dart';
+import 'package:gallery/pages/settings.dart';
+
+class AnimatedBackdrop extends StatefulWidget {
+  @override
+  _AnimatedBackdropState createState() => _AnimatedBackdropState();
+}
+
+class _AnimatedBackdropState extends State<AnimatedBackdrop>
+    with SingleTickerProviderStateMixin {
+  AnimationController backdropController;
+  ValueNotifier<bool> isSettingsOpenNotifier;
+  Animation<double> openSettingsAnimation;
+  Animation<double> staggerSettingsItemsAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    backdropController = AnimationController(
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    )..addListener(() {
+        setState(() {
+          // The state that has changed here is the animation.
+        });
+      });
+    isSettingsOpenNotifier = ValueNotifier(false);
+    openSettingsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.0,
+        0.4,
+        curve: Curves.ease,
+      ),
+    );
+    staggerSettingsItemsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.5,
+        1.0,
+        curve: Curves.easeIn,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    backdropController.dispose();
+    isSettingsOpenNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Backdrop(
+      controller: backdropController,
+      isSettingsOpenNotifier: isSettingsOpenNotifier,
+      openSettingsAnimation: openSettingsAnimation,
+      frontLayer: SettingsPage(
+        openSettingsAnimation: openSettingsAnimation,
+        staggerSettingsItemsAnimation: staggerSettingsItemsAnimation,
+        isSettingsOpenNotifier: isSettingsOpenNotifier,
+      ),
+      backLayer: HomePage(),
+    );
+  }
+}
 
 class Backdrop extends StatefulWidget {
   final Widget frontLayer;
   final Widget backLayer;
+  final AnimationController controller;
+  final Animation<double> openSettingsAnimation;
+  final ValueNotifier<bool> isSettingsOpenNotifier;
 
   Backdrop({
     Key key,
     @required this.frontLayer,
     @required this.backLayer,
+    @required this.controller,
+    @required this.openSettingsAnimation,
+    @required this.isSettingsOpenNotifier,
   })  : assert(frontLayer != null),
         assert(backLayer != null),
+        assert(controller != null),
+        assert(isSettingsOpenNotifier != null),
+        assert(openSettingsAnimation != null),
         super(key: key);
 
   @override
@@ -32,8 +108,6 @@ class Backdrop extends StatefulWidget {
 
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin, FlareController {
-  AnimationController _controller;
-  Animation<double> _animationReversed;
   FlareAnimationLayer _animationLayer;
   FlutterActorArtboard _artboard;
 
@@ -41,7 +115,6 @@ class _BackdropState extends State<Backdrop>
   double settingsButtonHeightDesktop = 56;
   double settingsButtonHeightMobile = 40;
 
-  bool _isSettingsOpen;
   FocusNode frontLayerFocusNode;
   FocusNode backLayerFocusNode;
 
@@ -50,20 +123,10 @@ class _BackdropState extends State<Backdrop>
     super.initState();
     frontLayerFocusNode = FocusNode();
     backLayerFocusNode = FocusNode();
-
-    _isSettingsOpen = false;
-    _controller = AnimationController(
-        duration: Duration(milliseconds: 100), value: 1, vsync: this)
-      ..addListener(() {
-        this.setState(() {});
-      });
-    _animationReversed =
-        Tween<double>(begin: 1.0, end: 0.0).animate(_controller);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
     frontLayerFocusNode.dispose();
     backLayerFocusNode.dispose();
     super.dispose();
@@ -84,7 +147,7 @@ class _BackdropState extends State<Backdrop>
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_animationLayer != null) {
       FlareAnimationLayer layer = _animationLayer;
-      layer.time = _animationReversed.value * layer.duration;
+      layer.time = widget.controller.value * layer.duration;
       layer.animation.apply(layer.time, _artboard, 1);
       if (layer.isDone || layer.time == 0) {
         _animationLayer = null;
@@ -104,10 +167,16 @@ class _BackdropState extends State<Backdrop>
   }
 
   void toggleSettings() {
-    _controller.fling(velocity: _isSettingsOpen ? 1 : -1);
+    // Animate the settings panel to open or close.
+    widget.controller
+        .fling(velocity: widget.isSettingsOpenNotifier.value ? -1 : 1);
+    setState(() {
+      widget.isSettingsOpenNotifier.value =
+          !widget.isSettingsOpenNotifier.value;
+    });
+    // Animate the settings icon.
     initAnimationLayer();
     isActive.value = true;
-    _isSettingsOpen = !_isSettingsOpen;
   }
 
   Animation<RelativeRect> _getPanelAnimation(BoxConstraints constraints) {
@@ -115,14 +184,17 @@ class _BackdropState extends State<Backdrop>
     final double top = height - galleryHeaderHeight;
     final double bottom = -galleryHeaderHeight;
     return RelativeRectTween(
-      begin: RelativeRect.fromLTRB(0, top, 0, bottom),
-      end: RelativeRect.fromLTRB(0, 0, 0, 0),
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.linear));
+      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
+      end: RelativeRect.fromLTRB(0, top, 0, bottom),
+    ).animate(CurvedAnimation(
+      parent: widget.openSettingsAnimation,
+      curve: Curves.linear,
+    ));
   }
 
   Widget _galleryHeader() {
     return ExcludeSemantics(
-      excluding: _isSettingsOpen,
+      excluding: widget.isSettingsOpenNotifier.value,
       child: Semantics(
         sortKey: OrdinalSortKey(
           GalleryOptions.of(context).textDirection() == TextDirection.ltr
@@ -137,7 +209,6 @@ class _BackdropState extends State<Backdrop>
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
-    final Animation<RelativeRect> animation = _getPanelAnimation(constraints);
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
@@ -145,21 +216,15 @@ class _BackdropState extends State<Backdrop>
       child: DefaultFocusTraversal(
         policy: WidgetOrderFocusTraversalPolicy(),
         child: Focus(
-          skipTraversal: !_isSettingsOpen,
-          child: InheritedBackdrop(
-            toggleSettings: toggleSettings,
-            child: widget.frontLayer,
-            settingsButtonWidth: settingsButtonWidth,
-            desktopSettingsButtonHeight: settingsButtonHeightDesktop,
-            mobileSettingsButtonHeight: settingsButtonHeightMobile,
-          ),
+          skipTraversal: !widget.isSettingsOpenNotifier.value,
+          child: widget.frontLayer,
         ),
       ),
-      excluding: !_isSettingsOpen,
+      excluding: !widget.isSettingsOpenNotifier.value,
     );
     final Widget backLayer = ExcludeSemantics(
       child: widget.backLayer,
-      excluding: _isSettingsOpen,
+      excluding: widget.isSettingsOpenNotifier.value,
     );
 
     return DefaultFocusTraversal(
@@ -173,14 +238,14 @@ class _BackdropState extends State<Backdrop>
                 _galleryHeader(),
                 frontLayer,
                 PositionedTransition(
-                  rect: animation,
+                  rect: _getPanelAnimation(constraints),
                   child: backLayer,
                 ),
               ],
               if (isDesktop) ...[
                 _galleryHeader(),
                 backLayer,
-                if (_isSettingsOpen) ...[
+                if (widget.isSettingsOpenNotifier.value) ...[
                   ExcludeSemantics(
                     child: ModalBarrier(
                       dismissible: true,
@@ -199,7 +264,9 @@ class _BackdropState extends State<Backdrop>
                       ? Alignment.topRight
                       : Alignment.topLeft,
                   scale: CurvedAnimation(
-                    parent: _animationReversed,
+                    parent: isDesktop
+                        ? widget.controller
+                        : widget.openSettingsAnimation,
                     curve: Curves.easeIn,
                     reverseCurve: Curves.easeOut,
                   ),
@@ -226,7 +293,7 @@ class _BackdropState extends State<Backdrop>
                 alignment: AlignmentDirectional.topEnd,
                 child: Semantics(
                   button: true,
-                  label: _isSettingsOpen
+                  label: widget.isSettingsOpenNotifier.value
                       ? GalleryLocalizations.of(context)
                           .settingsButtonCloseLabel
                       : GalleryLocalizations.of(context).settingsButtonLabel,
@@ -239,7 +306,8 @@ class _BackdropState extends State<Backdrop>
                       borderRadius: BorderRadiusDirectional.only(
                         bottomStart: Radius.circular(10),
                       ),
-                      color: _isSettingsOpen & !_controller.isAnimating
+                      color: widget.isSettingsOpenNotifier.value &
+                              !widget.controller.isAnimating
                           ? Colors.transparent
                           : Theme.of(context).colorScheme.secondaryVariant,
                       clipBehavior: Clip.antiAlias,
@@ -252,7 +320,7 @@ class _BackdropState extends State<Backdrop>
                             onFocusChange: (hasFocus) {
                               if (!hasFocus) {
                                 FocusScope.of(context).requestFocus(
-                                    (_isSettingsOpen)
+                                    (widget.isSettingsOpenNotifier.value)
                                         ? frontLayerFocusNode
                                         : backLayerFocusNode);
                               }
@@ -288,30 +356,6 @@ class _BackdropState extends State<Backdrop>
     return LayoutBuilder(
       builder: _buildStack,
     );
-  }
-}
-
-class InheritedBackdrop extends InheritedWidget {
-  final void Function() toggleSettings;
-  final double settingsButtonWidth;
-  final double desktopSettingsButtonHeight;
-  final double mobileSettingsButtonHeight;
-
-  InheritedBackdrop({
-    this.toggleSettings,
-    this.settingsButtonWidth,
-    this.desktopSettingsButtonHeight,
-    this.mobileSettingsButtonHeight,
-    Widget child,
-  }) : super(child: child);
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) {
-    return true;
-  }
-
-  static InheritedBackdrop of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType();
   }
 }
 
