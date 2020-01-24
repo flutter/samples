@@ -32,6 +32,11 @@ YouTube video showing implementation.
 
 #### [Flutter by Example](https://github.com/mjohnsullivan/flutter-by-example) [![GitHub stars](https://img.shields.io/github/stars/mjohnsullivan/flutter-by-example.svg?style=social&label=Star)](https://github.com/mjohnsullivan/flutter-by-example) [![GitHub forks](https://img.shields.io/github/forks/mjohnsullivan/flutter-by-example.svg?style=social&label=Fork)](https://github.com/mjohnsullivan/flutter-by-example/fork)
 
+Covered few design related examples in a single project by [Zubair Ahmed](https://github.com/ZubairKh). 
+Floating Action Button (built in and Customize), Bottom navigation bar having contents (clone of Android Phone App which shows recents, favorites and contacts), Material Dialog builder. Making [Flutter Tutorial Series](https://www.youtube.com/channel/UC-oDTebZ5MyUr6ojdk8GnwQ) on youtube channel from beginers to advance and making videos for the repo code given below
+
+#### [Flutter Design Examples](https://github.com/ZubairKh/flutter_design_learning)
+
 Twenty-odd samples detailing common tasks with Flutter: how to use text fields,
 streams and StreamBuilders, and more.
 
