@@ -35,13 +35,14 @@ class _BackLayerState extends State<BackLayer> {
       policy: WidgetOrderFocusTraversalPolicy(),
       child: IndexedStack(
         index: tabIndex,
-        children: widget.backLayerItems
-            .map((backLayerItem) => Focus(
-                  canRequestFocus: backLayerItem.index == tabIndex,
-                  debugLabel: 'backLayerItem: $backLayerItem',
-                  child: backLayerItem,
-                ))
-            .toList(),
+        children: [
+          for (BackLayerItem backLayerItem in widget.backLayerItems)
+            Focus(
+              canRequestFocus: backLayerItem.index == tabIndex,
+              debugLabel: 'backLayerItem: $backLayerItem',
+              child: backLayerItem,
+            )
+        ],
       ),
     );
   }

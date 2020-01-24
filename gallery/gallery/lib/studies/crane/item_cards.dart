@@ -37,7 +37,7 @@ class _ItemCardsState extends State<ItemCards> {
           (d) => HighlightFocus(
             debugLabel: 'DestinationCard: ${d.destination}',
             highlightColor: Colors.red.withOpacity(0.5),
-            onPressed: () => print('pressed'),
+            onPressed: () {},
             child: RepaintBoundary(
               child: _DestinationCard(destination: d),
             ),
