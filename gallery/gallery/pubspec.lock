@@ -141,8 +141,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "76bfbf9654c3842d735181383f7ab86c312a2483"
-      resolved-ref: "76bfbf9654c3842d735181383f7ab86c312a2483"
+      ref: f08caa3979f138b76795ba5d853a2fd21af3e4c8
+      resolved-ref: f08caa3979f138b76795ba5d853a2fd21af3e4c8
       url: "git://github.com/guidezpl/flutter-localized-countries.git"
     source: git
     version: "1.1.0"

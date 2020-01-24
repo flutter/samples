@@ -24,7 +24,7 @@ dependencies:
   flutter_localized_countries:
     git:
       url: git://github.com/guidezpl/flutter-localized-countries.git
-      ref: 76bfbf9654c3842d735181383f7ab86c312a2483
+      ref: f08caa3979f138b76795ba5d853a2fd21af3e4c8
   shared_preferences: ^0.5.4+8
   collection: ^1.14.0
   flutter_gallery_assets: 0.1.9+2
