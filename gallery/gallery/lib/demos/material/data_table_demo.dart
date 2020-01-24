@@ -486,14 +486,11 @@ class _DessertDataSource extends DataTableSource {
 
   void _sort<T>(Comparable<T> getField(_Dessert d), bool ascending) {
     _desserts.sort((a, b) {
-      if (!ascending) {
-        final _Dessert c = a;
-        a = b;
-        b = c;
-      }
       final Comparable<T> aValue = getField(a);
       final Comparable<T> bValue = getField(b);
-      return Comparable.compare(aValue, bValue);
+      return ascending
+          ? Comparable.compare(aValue, bValue)
+          : Comparable.compare(bValue, aValue);
     });
     notifyListeners();
   }
