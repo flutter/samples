@@ -25,6 +25,7 @@ dependencies:
   shared_preferences: ^0.5.4+8
   collection: ^1.14.0
   flutter_gallery_assets: 0.1.9+2
+  package_info: ^0.4.0+13
 
 dev_dependencies:
   flutter_test:
