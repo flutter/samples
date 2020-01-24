@@ -24,6 +24,7 @@ class SnackbarsDemo extends StatelessWidget {
               child: Text(
                   GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
               onPressed: () {
+                Scaffold.of(context).hideCurrentSnackBar();
                 Scaffold.of(context).showSnackBar(SnackBar(
                   content: Text(
                     GalleryLocalizations.of(context).demoSnackbarsText,
@@ -32,6 +33,7 @@ class SnackbarsDemo extends StatelessWidget {
                     label: GalleryLocalizations.of(context)
                         .demoSnackbarsActionButtonLabel,
                     onPressed: () {
+                      Scaffold.of(context).hideCurrentSnackBar();
                       Scaffold.of(context).showSnackBar(SnackBar(
                         content: Text(
                           GalleryLocalizations.of(context).demoSnackbarsAction,
