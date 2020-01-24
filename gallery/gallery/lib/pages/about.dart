@@ -4,6 +4,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -18,6 +19,11 @@ void showAboutDialog({
       return _AboutDialog();
     },
   );
+}
+
+Future<String> getVersionNumber() async {
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  return packageInfo.version;
 }
 
 class _AboutDialog extends StatelessWidget {
@@ -47,9 +53,10 @@ class _AboutDialog extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-              child: Text(
-                '$name',
+            FutureBuilder(
+              future: getVersionNumber(),
+              builder: (context, snapshot) => Text(
+                snapshot.hasData ? '$name ${snapshot.data}' : '$name',
                 style: textTheme.display1.apply(color: colorScheme.onPrimary),
               ),
             ),
