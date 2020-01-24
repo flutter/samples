@@ -6,7 +6,7 @@ import 'dart:collection';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localized_countries/flutter_localized_countries.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -58,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    LocaleNamesLocalizationsDelegate().getLocaleNativeNames().then(
+    LocaleNamesLocalizationsDelegate().allNativeNames().then(
           (data) => setState(
             () {
               _localeNativeNames = data;

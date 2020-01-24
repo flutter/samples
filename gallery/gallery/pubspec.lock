@@ -137,15 +137,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_localized_countries:
+  flutter_localized_locales:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "76bfbf9654c3842d735181383f7ab86c312a2483"
-      resolved-ref: "76bfbf9654c3842d735181383f7ab86c312a2483"
-      url: "git://github.com/guidezpl/flutter-localized-countries.git"
-    source: git
-    version: "1.1.0"
+      name: flutter_localized_locales
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -190,7 +188,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.1"
+    version: "0.16.0"
   intl_translation:
     dependency: "direct main"
     description:

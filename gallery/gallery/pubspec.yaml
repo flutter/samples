@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   intl:
   intl_translation:
+  flutter_localized_locales:
   duration:
   cupertino_icons: ^0.1.2
   rally_assets: 1.0.0
@@ -21,10 +22,6 @@ dependencies:
   shrine_images: ^1.1.2
   flare_flutter: ^1.6.5
   url_launcher: ^5.1.6
-  flutter_localized_countries:
-    git:
-      url: git://github.com/guidezpl/flutter-localized-countries.git
-      ref: 76bfbf9654c3842d735181383f7ab86c312a2483
   shared_preferences: ^0.5.4+8
   collection: ^1.14.0
   flutter_gallery_assets: 0.1.9+2
