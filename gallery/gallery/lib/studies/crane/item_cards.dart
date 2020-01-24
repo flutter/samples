@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/highlight_focus.dart';
 import 'package:gallery/studies/crane/model/data.dart';
 import 'package:gallery/studies/crane/model/destination.dart';
 
@@ -33,8 +34,13 @@ class _ItemCardsState extends State<ItemCards> {
 
     return destinations
         .map(
-          (d) => RepaintBoundary(
-            child: _DestinationCard(destination: d),
+          (d) => HighlightFocus(
+            debugLabel: 'DestinationCard: ${d.destination}',
+            highlightColor: Colors.red.withOpacity(0.5),
+            onPressed: () {},
+            child: RepaintBoundary(
+              child: _DestinationCard(destination: d),
+            ),
           ),
         )
         .toList();

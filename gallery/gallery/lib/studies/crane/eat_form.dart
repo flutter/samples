@@ -5,9 +5,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
-class EatForm extends StatefulWidget {
+class EatForm extends BackLayerItem {
+  EatForm({int index}) : super(index: index);
+
   @override
   _EatFormState createState() => _EatFormState();
 }

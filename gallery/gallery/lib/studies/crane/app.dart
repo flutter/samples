@@ -41,10 +41,10 @@ class _CraneAppState extends State<CraneApp> {
       home: ApplyTextOptions(
         child: Backdrop(
           frontLayer: Container(),
-          backLayer: [
-            FlyForm(),
-            SleepForm(),
-            EatForm(),
+          backLayerItems: [
+            FlyForm(index: 0),
+            SleepForm(index: 1),
+            EatForm(index: 2),
           ],
           frontTitle: Text('CRANE'),
           backTitle: Text('MENU'),

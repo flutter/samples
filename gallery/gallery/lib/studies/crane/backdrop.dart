@@ -13,6 +13,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/crane/border_tab_indicator.dart';
+import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/colors.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
@@ -32,26 +33,29 @@ class _FrontLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    return PhysicalShape(
-      elevation: 16,
-      color: cranePrimaryWhite,
-      clipper: ShapeBorderClipper(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(frontLayerBorderRadius),
-            topRight: Radius.circular(frontLayerBorderRadius),
+    return DefaultFocusTraversal(
+      policy: ReadingOrderTraversalPolicy(),
+      child: PhysicalShape(
+        elevation: 16,
+        color: cranePrimaryWhite,
+        clipper: ShapeBorderClipper(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(frontLayerBorderRadius),
+              topRight: Radius.circular(frontLayerBorderRadius),
+            ),
           ),
         ),
-      ),
-      child: ListView(
-        padding: isDesktop
-            ? EdgeInsets.symmetric(horizontal: 120, vertical: 22)
-            : EdgeInsets.all(20),
-        children: [
-          Text(title, style: Theme.of(context).textTheme.subtitle),
-          SizedBox(height: 20),
-          ItemCards(index: index),
-        ],
+        child: ListView(
+          padding: isDesktop
+              ? EdgeInsets.symmetric(horizontal: 120, vertical: 22)
+              : EdgeInsets.all(20),
+          children: [
+            Text(title, style: Theme.of(context).textTheme.subtitle),
+            SizedBox(height: 20),
+            ItemCards(index: index),
+          ],
+        ),
       ),
     );
   }
@@ -65,17 +69,17 @@ class _FrontLayer extends StatelessWidget {
 /// front or back layer is showing.
 class Backdrop extends StatefulWidget {
   final Widget frontLayer;
-  final List<Widget> backLayer;
+  final List<BackLayerItem> backLayerItems;
   final Widget frontTitle;
   final Widget backTitle;
 
   const Backdrop({
     @required this.frontLayer,
-    @required this.backLayer,
+    @required this.backLayerItems,
     @required this.frontTitle,
     @required this.backTitle,
   })  : assert(frontLayer != null),
-        assert(backLayer != null),
+        assert(backLayerItems != null),
         assert(frontTitle != null),
         assert(backTitle != null);
 
@@ -125,91 +129,71 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       color: cranePurple800,
       child: Padding(
         padding: EdgeInsets.only(top: 12),
-        child: Scaffold(
-          backgroundColor: cranePurple800,
-          appBar: AppBar(
-            brightness: Brightness.dark,
-            elevation: 0,
-            titleSpacing: 0,
-            flexibleSpace: CraneAppBar(
-              tabController: _tabController,
-              tabHandler: _handleTabs,
-            ),
-          ),
-          body: Stack(
-            children: [
-              BackLayer(
+        child: DefaultFocusTraversal(
+          policy: ReadingOrderTraversalPolicy(),
+          child: Scaffold(
+            backgroundColor: cranePurple800,
+            appBar: AppBar(
+              brightness: Brightness.dark,
+              elevation: 0,
+              titleSpacing: 0,
+              flexibleSpace: CraneAppBar(
                 tabController: _tabController,
-                backLayers: widget.backLayer,
+                tabHandler: _handleTabs,
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: isDesktop
-                      ? 60 + 20 * textScaleFactor / 2
-                      : 175 + 140 * textScaleFactor / 2,
-                ),
-                child: TabBarView(
-                  physics: isDesktop
-                      ? NeverScrollableScrollPhysics()
-                      : null, // use default TabBarView physics
-                  controller: _tabController,
-                  children: [
-                    SlideTransition(
-                      position: _flyLayerOffset,
-                      child: _FrontLayer(
-                        title: GalleryLocalizations.of(context).craneFlySubhead,
-                        index: 0,
-                      ),
+            ),
+            body: FocusScope(
+              child: Stack(
+                children: [
+                  BackLayer(
+                    tabController: _tabController,
+                    backLayerItems: widget.backLayerItems,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: isDesktop
+                          ? 60 + 20 * textScaleFactor / 2
+                          : 175 + 140 * textScaleFactor / 2,
                     ),
-                    SlideTransition(
-                      position: _sleepLayerOffset,
-                      child: _FrontLayer(
-                        title:
-                            GalleryLocalizations.of(context).craneSleepSubhead,
-                        index: 1,
-                      ),
+                    child: TabBarView(
+                      physics: isDesktop
+                          ? NeverScrollableScrollPhysics()
+                          : null, // use default TabBarView physics
+                      controller: _tabController,
+                      children: [
+                        SlideTransition(
+                          position: _flyLayerOffset,
+                          child: _FrontLayer(
+                            title: GalleryLocalizations.of(context)
+                                .craneFlySubhead,
+                            index: 0,
+                          ),
+                        ),
+                        SlideTransition(
+                          position: _sleepLayerOffset,
+                          child: _FrontLayer(
+                            title: GalleryLocalizations.of(context)
+                                .craneSleepSubhead,
+                            index: 1,
+                          ),
+                        ),
+                        SlideTransition(
+                          position: _eatLayerOffset,
+                          child: _FrontLayer(
+                            title: GalleryLocalizations.of(context)
+                                .craneEatSubhead,
+                            index: 2,
+                          ),
+                        ),
+                      ],
                     ),
-                    SlideTransition(
-                      position: _eatLayerOffset,
-                      child: _FrontLayer(
-                        title: GalleryLocalizations.of(context).craneEatSubhead,
-                        index: 2,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class BackLayer extends StatefulWidget {
-  final List<Widget> backLayers;
-  final TabController tabController;
-
-  const BackLayer({Key key, this.backLayers, this.tabController})
-      : super(key: key);
-
-  @override
-  _BackLayerState createState() => _BackLayerState();
-}
-
-class _BackLayerState extends State<BackLayer> {
-  @override
-  void initState() {
-    super.initState();
-    widget.tabController.addListener(() => setState(() {}));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return IndexedStack(
-      index: widget.tabController.index,
-      children: widget.backLayers,
     );
   }
 }
