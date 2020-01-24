@@ -456,7 +456,7 @@ class _AnimatedSettingsPage extends StatelessWidget {
   }
 }
 
-/// Animte the settings list items to stagger in from above.
+/// Animate the settings list items to stagger in from above.
 class _AnimateSettingsListItems extends StatelessWidget {
   const _AnimateSettingsListItems({
     Key key,

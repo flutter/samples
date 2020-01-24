@@ -25,38 +25,8 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
     with SingleTickerProviderStateMixin {
   AnimationController backdropController;
   ValueNotifier<bool> isSettingsOpenNotifier;
-
-  @override
-  Widget build(BuildContext context) {
-    final openSettingsAnimation = CurvedAnimation(
-      parent: backdropController,
-      curve: Interval(
-        0.0,
-        0.4,
-        curve: Curves.ease,
-      ),
-    );
-    final staggerSettingsItemsAnimation = CurvedAnimation(
-      parent: backdropController,
-      curve: Interval(
-        0.5,
-        1.0,
-        curve: Curves.easeIn,
-      ),
-    );
-
-    return Backdrop(
-      controller: backdropController,
-      isSettingsOpenNotifier: isSettingsOpenNotifier,
-      openSettingsAnimation: openSettingsAnimation,
-      frontLayer: SettingsPage(
-        openSettingsAnimation: openSettingsAnimation,
-        staggerSettingsItemsAnimation: staggerSettingsItemsAnimation,
-        isSettingsOpenNotifier: isSettingsOpenNotifier,
-      ),
-      backLayer: HomePage(),
-    );
-  }
+  Animation<double> openSettingsAnimation;
+  Animation<double> staggerSettingsItemsAnimation;
 
   @override
   void initState() {
@@ -70,6 +40,22 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
         });
       });
     isSettingsOpenNotifier = ValueNotifier(false);
+    openSettingsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.0,
+        0.4,
+        curve: Curves.ease,
+      ),
+    );
+    staggerSettingsItemsAnimation = CurvedAnimation(
+      parent: backdropController,
+      curve: Interval(
+        0.5,
+        1.0,
+        curve: Curves.easeIn,
+      ),
+    );
   }
 
   @override
@@ -77,6 +63,21 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
     backdropController.dispose();
     isSettingsOpenNotifier.dispose();
     super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Backdrop(
+      controller: backdropController,
+      isSettingsOpenNotifier: isSettingsOpenNotifier,
+      openSettingsAnimation: openSettingsAnimation,
+      frontLayer: SettingsPage(
+        openSettingsAnimation: openSettingsAnimation,
+        staggerSettingsItemsAnimation: staggerSettingsItemsAnimation,
+        isSettingsOpenNotifier: isSettingsOpenNotifier,
+      ),
+      backLayer: HomePage(),
+    );
   }
 }
 
