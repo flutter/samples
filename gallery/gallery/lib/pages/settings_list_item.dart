@@ -227,25 +227,23 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
-      child: closed
-          ? null
-          : Container(
-              margin: const EdgeInsetsDirectional.only(start: 24, bottom: 40),
-              decoration: BoxDecoration(
-                border: BorderDirectional(
-                  start: BorderSide(
-                    width: 2,
-                    color: theme.colorScheme.background,
-                  ),
-                ),
-              ),
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => optionsList[index],
-                itemCount: optionsList.length,
-              ),
+      child: Container(
+        margin: const EdgeInsetsDirectional.only(start: 24, bottom: 40),
+        decoration: BoxDecoration(
+          border: BorderDirectional(
+            start: BorderSide(
+              width: 2,
+              color: theme.colorScheme.background,
             ),
+          ),
+        ),
+        child: ListView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => optionsList[index],
+          itemCount: optionsList.length,
+        ),
+      ),
     );
   }
 }
