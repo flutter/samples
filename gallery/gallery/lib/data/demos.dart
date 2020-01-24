@@ -258,7 +258,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoDataTableDescription,
           documentationUrl: '$_docsBaseUrl/material/DataTable-class.html',
           buildRoute: (_) => DataTableDemo(),
-          code: CodeSegments.bannerDemo, // TODO
+          code: CodeSegments.dataTableDemo,
         ),
       ],
     ),
