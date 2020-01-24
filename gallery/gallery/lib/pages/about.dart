@@ -59,8 +59,7 @@ class _AboutDialog extends StatelessWidget {
                       snapshot.hasData ? '$name ${snapshot.data}' : '$name',
                       style: textTheme.display1
                           .apply(color: colorScheme.onPrimary),
-                    ) // The widget using the data
-                ),
+                    )),
             SizedBox(height: 24),
             RichText(
               text: TextSpan(
