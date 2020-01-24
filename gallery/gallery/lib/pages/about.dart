@@ -54,12 +54,12 @@ class _AboutDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             FutureBuilder(
-                future: getVersionNumber(),
-                builder: (context, snapshot) => Text(
-                      snapshot.hasData ? '$name ${snapshot.data}' : '$name',
-                      style: textTheme.display1
-                          .apply(color: colorScheme.onPrimary),
-                    )),
+              future: getVersionNumber(),
+              builder: (context, snapshot) => Text(
+                snapshot.hasData ? '$name ${snapshot.data}' : '$name',
+                style: textTheme.display1.apply(color: colorScheme.onPrimary),
+              ),
+            ),
             SizedBox(height: 24),
             RichText(
               text: TextSpan(
