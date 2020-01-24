@@ -31,21 +31,12 @@ class _AboutDialog extends StatelessWidget {
     final legalese = '© 2019 The Flutter team'; // Don't need to localize.
     final samplesRepo =
         GalleryLocalizations.of(context).aboutFlutterSamplesRepo;
-    // TODO: Determine why this doesn't work consistently.
-    // Certain versions of iOS/macOS aren't rendering the raw string correctly.
     final seeSource =
         GalleryLocalizations.of(context).aboutDialogDescription(samplesRepo);
     final samplesRepoIndex = seeSource.indexOf(samplesRepo);
     final samplesRepoIndexEnd = samplesRepoIndex + samplesRepo.length;
-    String seeSourceFirst;
-    String seeSourceSecond;
-    if (samplesRepoIndex > -1 && samplesRepoIndex > -1) {
-      seeSourceFirst = seeSource.substring(0, samplesRepoIndex);
-      seeSourceSecond = seeSource.substring(samplesRepoIndexEnd);
-    } else {
-      seeSourceFirst = 'To see the source code for this app, please visit the ';
-      seeSourceSecond = '.';
-    }
+    final seeSourceFirst = seeSource.substring(0, samplesRepoIndex);
+    final seeSourceSecond = seeSource.substring(samplesRepoIndexEnd);
 
     return AlertDialog(
       backgroundColor: colorScheme.background,
