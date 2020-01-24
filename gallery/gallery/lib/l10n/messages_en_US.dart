@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m4(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'No Available Properties', one: '1 Available Properties', other: '${totalProperties} Available Properties')}";
 
+  static m29(value) => "${value} with honey";
+
+  static m30(value) => "${value} with sugar";
+
   static m5(value) => "Item ${value}";
 
   static m6(error) => "Failed to copy to clipboard: ${error}";
@@ -367,6 +371,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Home"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profile"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Calcium (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Calories"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Carbs (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Dessert (1 serving)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Fat (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("Iron (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Protein (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Sodium (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Nutrition"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Apple pie"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Frozen yogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Honeycomb"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice cream sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m29,
+        "dataTableRowWithSugar": m30,
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI."),
         "demoActionChipTitle":
@@ -548,6 +586,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Custom Sliders"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Rows and columns of information"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Data Tables"),
         "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
             "Shows a dialog containing a Material Design date picker."),
         "demoDatePickerTitle":

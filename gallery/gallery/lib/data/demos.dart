@@ -26,6 +26,7 @@ import 'package:gallery/demos/material/bottom_sheet_demo.dart';
 import 'package:gallery/demos/material/button_demo.dart';
 import 'package:gallery/demos/material/cards_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
+import 'package:gallery/demos/material/data_table_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
 import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
@@ -88,8 +89,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
         GalleryDemoConfiguration(
           title: localizations.demoBannerTitle,
           description: localizations.demoBannerDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/MaterialBanner-class.html',
+          documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
           buildRoute: (_) => BannerDemo(),
           code: CodeSegments.bannerDemo,
         ),
@@ -164,32 +164,28 @@ List<GalleryDemo> materialDemos(BuildContext context) {
         GalleryDemoConfiguration(
           title: localizations.demoFlatButtonTitle,
           description: localizations.demoFlatButtonDescription,
-          documentationUrl:
-              'https://docs.flutter.io/flutter/material/FlatButton-class.html',
+          documentationUrl: '$_docsBaseUrl/material/FlatButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.flat),
           code: CodeSegments.buttonDemoFlat,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoRaisedButtonTitle,
           description: localizations.demoRaisedButtonDescription,
-          documentationUrl:
-              'https://docs.flutter.io/flutter/material/RaisedButton-class.html',
+          documentationUrl: '$_docsBaseUrl/material/RaisedButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.raised),
           code: CodeSegments.buttonDemoRaised,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoOutlineButtonTitle,
           description: localizations.demoOutlineButtonDescription,
-          documentationUrl:
-              'https://docs.flutter.io/flutter/material/OutlineButton-class.html',
+          documentationUrl: '$_docsBaseUrl/material/OutlineButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.outline),
           code: CodeSegments.buttonDemoOutline,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoToggleButtonTitle,
           description: localizations.demoToggleButtonDescription,
-          documentationUrl:
-              'https://docs.flutter.io/flutter/material/ToggleButtons-class.html',
+          documentationUrl: '$_docsBaseUrl/material/ToggleButtons-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.toggle),
           code: CodeSegments.buttonDemoToggle,
         ),
@@ -197,7 +193,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: localizations.demoFloatingButtonTitle,
           description: localizations.demoFloatingButtonDescription,
           documentationUrl:
-              'https://docs.flutter.io/flutter/material/FloatingActionButton-class.html',
+              '$_docsBaseUrl/material/FloatingActionButton-class.html',
           buildRoute: (_) => ButtonDemo(type: ButtonDemoType.floating),
           code: CodeSegments.buttonDemoFloating,
         ),
@@ -211,8 +207,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
         GalleryDemoConfiguration(
           title: GalleryLocalizations.of(context).demoCardTitle,
           description: GalleryLocalizations.of(context).demoCardDescription,
-          documentationUrl:
-              'https://api.flutter.dev/flutter/material/Card-class.html',
+          documentationUrl: '$_docsBaseUrl/material/Card-class.html',
           buildRoute: (context) => CardsDemo(),
           code: CodeSegments.cardsDemo,
         ),
@@ -250,6 +245,20 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           documentationUrl: '$_docsBaseUrl/material/InputChip-class.html',
           buildRoute: (_) => ChipDemo(type: ChipDemoType.input),
           code: CodeSegments.chipDemoInput,
+        ),
+      ],
+    ),
+    GalleryDemo(
+      title: localizations.demoDataTableTitle,
+      icon: GalleryIcons.dataTable,
+      subtitle: localizations.demoDataTableSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoDataTableTitle,
+          description: localizations.demoDataTableDescription,
+          documentationUrl: '$_docsBaseUrl/material/DataTable-class.html',
+          buildRoute: (_) => DataTableDemo(),
+          code: CodeSegments.dataTableDemo,
         ),
       ],
     ),

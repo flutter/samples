@@ -658,6 +658,102 @@
     description="Description for the input chip component demo."
     >Input chips represent a complex piece of information, such as an entity (person, place, or thing) or conversational text, in a compact form.</string>
   <string
+    name="demoDataTableTitle"
+    description="Title for the material data table component demo."
+    >Data Tables</string>
+  <string
+    name="demoDataTableSubtitle"
+    description="Subtitle for the material data table component demo."
+    >Rows and columns of information</string>
+  <string
+    name="demoDataTableDescription"
+    description="Description for the material data table component demo."
+    >Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.</string>
+  <string
+    name="dataTableHeader"
+    description="Header for the data table component demo about nutrition."
+    >Nutrition</string>
+  <string
+    name="dataTableColumnDessert"
+    description="Column header for desserts."
+    >Dessert (1 serving)</string>
+  <string
+    name="dataTableColumnCalories"
+    description="Column header for number of calories."
+    >Calories</string>
+  <string
+    name="dataTableColumnFat"
+    description="Column header for number of grams of fat."
+    >Fat (g)</string>
+  <string
+    name="dataTableColumnCarbs"
+    description="Column header for number of grams of carbs."
+    >Carbs (g)</string>
+  <string
+    name="dataTableColumnProtein"
+    description="Column header for number of grams of protein."
+    >Protein (g)</string>
+  <string
+    name="dataTableColumnSodium"
+    description="Column header for number of milligrams of sodium."
+    >Sodium (mg)</string>
+  <string
+    name="dataTableColumnCalcium"
+    description="Column header for daily percentage of calcium."
+    >Calcium (%)</string>
+  <string
+    name="dataTableColumnIron"
+    description="Column header for daily percentage of iron."
+    >Iron (%)</string>
+  <string
+    name="dataTableRowFrozenYogurt"
+    description="Column row for frozen yogurt."
+    >Frozen yogurt</string>
+  <string
+    name="dataTableRowIceCreamSandwich"
+    description="Column row for Ice cream sandwich."
+    >Ice cream sandwich</string>
+  <string
+    name="dataTableRowEclair"
+    description="Column row for Eclair."
+    >Eclair</string>
+  <string
+    name="dataTableRowCupcake"
+    description="Column row for Cupcake."
+    >Cupcake</string>
+  <string
+    name="dataTableRowGingerbread"
+    description="Column row for Gingerbread."
+    >Gingerbread</string>
+  <string
+    name="dataTableRowJellyBean"
+    description="Column row for Jelly bean."
+    >Jelly bean</string>
+  <string
+    name="dataTableRowLollipop"
+    description="Column row for Lollipop."
+    >Lollipop</string>
+  <string
+    name="dataTableRowHoneycomb"
+    description="Column row for Honeycomb."
+    >Honeycomb</string>
+  <string
+    name="dataTableRowDonut"
+    description="Column row for Donut."
+    >Donut</string>
+  <string
+    name="dataTableRowApplePie"
+    description="Column row for Apple pie."
+    >Apple pie</string>
+  <string
+    name="dataTableRowWithSugar"
+    description="A dessert with sugar on it. The parameter is some type of dessert."
+    >{value} with sugar</string>
+  <string
+    name="dataTableRowWithHoney"
+    description="A dessert with honey on it. The parameter is some type of dessert."
+    >{value} with honey</string>
+  <string
     name="demoDialogTitle"
     description="Title for the material dialog component demo."
     >Dialogs</string>
