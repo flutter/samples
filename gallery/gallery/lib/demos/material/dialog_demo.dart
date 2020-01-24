@@ -49,6 +49,7 @@ class DialogDemo extends StatelessWidget {
     );
     // The value passed to Navigator.pop() or null.
     if (value != null && value is String) {
+      _scaffoldKey.currentState.hideCurrentSnackBar();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content:
             Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),

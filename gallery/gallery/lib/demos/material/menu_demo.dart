@@ -39,6 +39,7 @@ class _MenuDemoState extends State<MenuDemo> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void showInSnackBar(String value) {
+    _scaffoldKey.currentState.hideCurrentSnackBar();
     _scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text(value),
     ));
