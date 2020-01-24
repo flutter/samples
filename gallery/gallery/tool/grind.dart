@@ -86,8 +86,8 @@ Future<void> verifyCodeSegments() async {
   if (codeSegmentsFormatted.trim() != expectedCodeSegmentsOutput.trim()) {
     stderr.writeln(
       'The contents of $codeSegmentsPath are different from that produced by '
-      'codeviewer_cli. Did you forget to run update-code-segments after '
-      'updating a demo?',
+      'codeviewer_cli. Did you forget to run `flutter pub run grinder '
+      'update-code-segments` after updating a demo?',
     );
     exit(1);
   }
