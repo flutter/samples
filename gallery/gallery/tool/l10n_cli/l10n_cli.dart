@@ -51,10 +51,12 @@ Future<void> generateXmlFromArb({
   File outputXml,
   String xmlHeader,
 }) async {
-  final Map<String, dynamic> bundle = jsonDecode(await inputArb.readAsString());
+  final Map<String, dynamic> bundle =
+      jsonDecode(await inputArb.readAsString()) as Map<String, dynamic>;
+
   String translationFor(String key) {
     assert(bundle[key] != null);
-    return _escapeXml(bundle[key]);
+    return _escapeXml(bundle[key] as String);
   }
 
   final xml = StringBuffer(xmlHeader);
@@ -70,9 +72,9 @@ Future<void> generateXmlFromArb({
 
     final resourceId = key.substring(1);
     final name = _escapeXml(resourceId);
-    final Map<String, dynamic> metaInfo = bundle[key];
+    final Map<String, dynamic> metaInfo = bundle[key] as Map<String, dynamic>;
     assert(metaInfo != null && metaInfo['description'] != null);
-    var description = _escapeXml(metaInfo['description']);
+    var description = _escapeXml(metaInfo['description'] as String);
 
     if (metaInfo.containsKey('plural')) {
       // Generate a plurals resource element formatted like this:
@@ -110,8 +112,8 @@ Future<void> generateXmlFromArb({
       // description's 'parameters' value, are replaced with printf positional
       // string arguments, like "%1$s".
       var translation = translationFor(resourceId);
-      assert(metaInfo['parameters'].trim().isNotEmpty);
-      final parameters = metaInfo['parameters']
+      assert((metaInfo['parameters'] as String).trim().isNotEmpty);
+      final parameters = (metaInfo['parameters'] as String)
           .split(',')
           .map<String>((s) => s.trim())
           .toList();
