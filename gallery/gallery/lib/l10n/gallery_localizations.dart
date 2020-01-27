@@ -1917,7 +1917,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoActivityIndicatorTitle {
-    return Intl.message('Activity Indicator',
+    return Intl.message('Activity indicator',
         locale: _localeName,
         name: 'demoCupertinoActivityIndicatorTitle',
         desc: r'Title for the cupertino activity indicator component demo.');
@@ -2011,7 +2011,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoNavigationBarTitle {
-    return Intl.message('Navigation Bar',
+    return Intl.message('Navigation bar',
         locale: _localeName,
         name: 'demoCupertinoNavigationBarTitle',
         desc: r'Title for the cupertino navigation bar component demo.');
@@ -2083,7 +2083,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoPullToRefreshTitle {
-    return Intl.message('Pull To Refresh',
+    return Intl.message('Pull to refresh',
         locale: _localeName,
         name: 'demoCupertinoPullToRefreshTitle',
         desc: r'Title for the cupertino pull-to-refresh component demo.');
@@ -2106,7 +2106,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoSegmentedControlTitle {
-    return Intl.message('Segmented Control',
+    return Intl.message('Segmented control',
         locale: _localeName,
         name: 'demoCupertinoSegmentedControlTitle',
         desc: r'Title for the cupertino segmented control component demo.');
@@ -2183,7 +2183,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoTabBarTitle {
-    return Intl.message('Tab Bar',
+    return Intl.message('Tab bar',
         locale: _localeName,
         name: 'demoCupertinoTabBarTitle',
         desc: r'Title for the cupertino bottom tab bar demo.');
@@ -2213,7 +2213,7 @@ class GalleryLocalizations {
   }
 
   String get demoCupertinoTextFieldTitle {
-    return Intl.message('Text Fields',
+    return Intl.message('Text fields',
         locale: _localeName,
         name: 'demoCupertinoTextFieldTitle',
         desc: r'Title for the cupertino text field demo.');

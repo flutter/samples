@@ -1035,7 +1035,7 @@
   "@demoFullscreenDialogDescription": {
     "description": "Description for the fullscreen dialog component demo."
   },
-  "demoCupertinoActivityIndicatorTitle": "Activity Indicator",
+  "demoCupertinoActivityIndicatorTitle": "Activity indicator",
   "@demoCupertinoActivityIndicatorTitle": {
     "description": "Title for the cupertino activity indicator component demo."
   },
@@ -1095,7 +1095,7 @@
   "@demoCupertinoActionSheetDescription": {
     "description": "Description for the cupertino action sheet component demo."
   },
-  "demoCupertinoNavigationBarTitle": "Navigation Bar",
+  "demoCupertinoNavigationBarTitle": "Navigation bar",
   "@demoCupertinoNavigationBarTitle": {
     "description": "Title for the cupertino navigation bar component demo."
   },
@@ -1135,7 +1135,7 @@
   "@demoCupertinoPickerDateTime": {
     "description": "Label to open a date and time picker."
   },
-  "demoCupertinoPullToRefreshTitle": "Pull To Refresh",
+  "demoCupertinoPullToRefreshTitle": "Pull to refresh",
   "@demoCupertinoPullToRefreshTitle": {
     "description": "Title for the cupertino pull-to-refresh component demo."
   },
@@ -1147,7 +1147,7 @@
   "@demoCupertinoPullToRefreshDescription": {
     "description": "Description for the cupertino pull-to-refresh component demo."
   },
-  "demoCupertinoSegmentedControlTitle": "Segmented Control",
+  "demoCupertinoSegmentedControlTitle": "Segmented control",
   "@demoCupertinoSegmentedControlTitle": {
     "description": "Title for the cupertino segmented control component demo."
   },
@@ -1197,7 +1197,7 @@
   "@demoCupertinoSwitchDescription": {
     "description": "Description for the cupertino switch component demo."
   },
-  "demoCupertinoTabBarTitle": "Tab Bar",
+  "demoCupertinoTabBarTitle": "Tab bar",
   "@demoCupertinoTabBarTitle": {
     "description": "Title for the cupertino bottom tab bar demo."
   },
@@ -1221,7 +1221,7 @@
   "@cupertinoTabBarProfileTab": {
     "description": "Title for the profile tab in the bottom tab bar demo."
   },
-  "demoCupertinoTextFieldTitle": "Text Fields",
+  "demoCupertinoTextFieldTitle": "Text fields",
   "@demoCupertinoTextFieldTitle": {
     "description": "Title for the cupertino text field demo."
   },
