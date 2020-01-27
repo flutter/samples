@@ -59,10 +59,13 @@ do
 done
 
 # Test that the code segment widgets that get displayed in the Flutter Material
-# gallery have been generated using the latest gallery code.
+# gallery have been generated using the latest gallery code. It also tests that
+# the localization scripts have been run, so that they are up to date for the
+# gallery.
 echo "Run code segments check for 'gallery/gallery'."
 pushd gallery/gallery
 "${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-code-segments
+"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-l10n
 popd
 
 echo "-- Success --"
