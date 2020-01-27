@@ -57,7 +57,7 @@ Future<void> verifyL10n() async {
   final l10nPath =
       path.join(Directory.current.path, 'tool', 'l10n_cli', 'main.dart');
 
-  // Run the tool to transform arb to arb, and write the output to stdout.
+  // Run the tool to transform arb to xml, and write the output to stdout.
   final xmlOutput = Dart.run(l10nPath, arguments: ['--dry-run'], quiet: true);
 
   // Read the original xml file.
