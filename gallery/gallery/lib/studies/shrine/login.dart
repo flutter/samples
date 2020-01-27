@@ -60,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
           : Scaffold(
               body: SafeArea(
                 child: ListView(
+                  physics: ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
                   ),
