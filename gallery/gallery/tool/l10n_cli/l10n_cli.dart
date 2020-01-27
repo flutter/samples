@@ -37,18 +37,21 @@ String _escapeXml(String xml) {
 }
 
 /// Processes the XML files.
-Future<void> englishArbsToXmls() async {
+Future<void> englishArbsToXmls({bool isDryRun = false}) async {
+  IOSink output =
+      isDryRun ? stdout : File('$_l10nDir/intl_en_US.xml').openWrite();
   await generateXmlFromArb(
     inputArb: File('$_l10nDir/intl_en_US.arb'),
-    outputXml: File('$_l10nDir/intl_en_US.xml'),
+    outputXml: output,
     xmlHeader: _intlHeader,
   );
+  await output.close();
 }
 
 @visibleForTesting
 Future<void> generateXmlFromArb({
   File inputArb,
-  File outputXml,
+  IOSink outputXml,
   String xmlHeader,
 }) async {
   final Map<String, dynamic> bundle =
@@ -141,6 +144,5 @@ Future<void> generateXmlFromArb({
     }
   }
   xml.writeln('</resources>');
-
-  await outputXml.writeAsString(xml.toString());
+  outputXml.write(xml.toString());
 }
