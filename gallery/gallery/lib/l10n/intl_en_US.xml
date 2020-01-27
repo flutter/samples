@@ -976,7 +976,7 @@
   <string
     name="demoCupertinoActivityIndicatorTitle"
     description="Title for the cupertino activity indicator component demo."
-    >Activity Indicator</string>
+    >Activity indicator</string>
   <string
     name="demoCupertinoActivityIndicatorSubtitle"
     description="Subtitle for the cupertino activity indicator component demo."
@@ -1036,7 +1036,7 @@
   <string
     name="demoCupertinoNavigationBarTitle"
     description="Title for the cupertino navigation bar component demo."
-    >Navigation Bar</string>
+    >Navigation bar</string>
   <string
     name="demoCupertinoNavigationBarSubtitle"
     description="Subtitle for the cupertino navigation bar component demo."
@@ -1076,7 +1076,7 @@
   <string
     name="demoCupertinoPullToRefreshTitle"
     description="Title for the cupertino pull-to-refresh component demo."
-    >Pull To Refresh</string>
+    >Pull to refresh</string>
   <string
     name="demoCupertinoPullToRefreshSubtitle"
     description="Subtitle for the cupertino pull-to-refresh component demo."
@@ -1088,7 +1088,7 @@
   <string
     name="demoCupertinoSegmentedControlTitle"
     description="Title for the cupertino segmented control component demo."
-    >Segmented Control</string>
+    >Segmented control</string>
   <string
     name="demoCupertinoSegmentedControlSubtitle"
     description="Subtitle for the cupertino segmented control component demo."
@@ -1128,7 +1128,7 @@
   <string
     name="demoCupertinoTabBarTitle"
     description="Title for the cupertino bottom tab bar demo."
-    >Tab Bar</string>
+    >Tab bar</string>
   <string
     name="demoCupertinoTabBarSubtitle"
     description="Subtitle for the cupertino bottom tab bar demo."
@@ -1152,7 +1152,7 @@
   <string
     name="demoCupertinoTextFieldTitle"
     description="Title for the cupertino text field demo."
-    >Text Fields</string>
+    >Text fields</string>
   <string
     name="demoCupertinoTextFieldSubtitle"
     description="Subtitle for the cupertino text field demo."

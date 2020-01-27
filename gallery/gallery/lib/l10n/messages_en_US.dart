@@ -501,7 +501,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style activity indicators"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity Indicator"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alert Buttons Only"),
         "demoCupertinoAlertButtonsTitle":
@@ -528,7 +528,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style navigation bar"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation Bar"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Date"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Date and Time"),
@@ -548,14 +548,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style pull to refresh control"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull To Refresh"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Used to select between a number of mutually exclusive options. When one option in the segmented control is selected, the other options in the segmented control cease to be selected."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style segmented control"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented Control"),
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
         "demoCupertinoSliderContinuous": m7,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "A slider can be used to select from either a continuous or a discrete set of values."),
@@ -573,7 +573,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style bottom tab bar"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab Bar"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "A text field lets the user enter text, either with a hardware keyboard or with an onscreen keyboard."),
         "demoCupertinoTextFieldPIN":
@@ -581,7 +581,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style text fields"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text Fields"),
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Sliders reflect a range of values along a bar, from which users may select a single value or range of values. The sliders can be themed and customized."),
         "demoCustomSlidersTitle":
