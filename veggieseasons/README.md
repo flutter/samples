@@ -1,9 +1,12 @@
 # Veggie Seasons
 
-An app that shows which fruits and vegetables are currently in season. It
+An iOS app that shows which fruits and vegetables are currently in season. It
 showcases Flutter's Cupertino package.
 
 [Available now in the App Store!](https://itunes.apple.com/is/app/veggie-seasons/id1450855435)
+
+**NOTE:** While Flutter supports many platforms, this application is designed
+specifically for iOS. It's not intended to be run on Android, web, or desktop.
 
 ## Goals
 
