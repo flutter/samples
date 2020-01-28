@@ -78,6 +78,18 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
     );
   }
 
+  // Closes the bottom sheet if it is open.
+  Future<bool> _onWillPop() async {
+    final status = _expandingController.status;
+    if (status == AnimationStatus.completed ||
+        status == AnimationStatus.forward) {
+      _expandingController.reverse();
+      return false;
+    }
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool isDesktop = isDisplayDesktop(context);
@@ -86,34 +98,37 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
     return ScopedModel<AppStateModel>(
       model: _model,
-      child: MaterialApp(
-        navigatorKey: widget.navigatorKey,
-        title: 'Shrine',
-        debugShowCheckedModeBanner: false,
-        home: LayoutCache(
-          layouts: _layouts,
-          child: PageStatus(
-            menuController: _controller,
-            cartController: _expandingController,
-            child: HomePage(
-              backdrop: backdrop,
-              scrim: Scrim(controller: _expandingController),
-              expandingBottomSheet: ExpandingBottomSheet(
-                hideController: _controller,
-                expandingController: _expandingController,
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: MaterialApp(
+          navigatorKey: widget.navigatorKey,
+          title: 'Shrine',
+          debugShowCheckedModeBanner: false,
+          home: LayoutCache(
+            layouts: _layouts,
+            child: PageStatus(
+              menuController: _controller,
+              cartController: _expandingController,
+              child: HomePage(
+                backdrop: backdrop,
+                scrim: Scrim(controller: _expandingController),
+                expandingBottomSheet: ExpandingBottomSheet(
+                  hideController: _controller,
+                  expandingController: _expandingController,
+                ),
               ),
             ),
           ),
+          initialRoute: '/login',
+          onGenerateRoute: _getRoute,
+          theme: shrineTheme.copyWith(
+            platform: GalleryOptions.of(context).platform,
+          ),
+          // L10n settings.
+          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+          supportedLocales: GalleryLocalizations.supportedLocales,
+          locale: GalleryOptions.of(context).locale,
         ),
-        initialRoute: '/login',
-        onGenerateRoute: _getRoute,
-        theme: shrineTheme.copyWith(
-          platform: GalleryOptions.of(context).platform,
-        ),
-        // L10n settings.
-        localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-        supportedLocales: GalleryLocalizations.supportedLocales,
-        locale: GalleryOptions.of(context).locale,
       ),
     );
   }
