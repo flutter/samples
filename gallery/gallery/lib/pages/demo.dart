@@ -178,15 +178,19 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
     final colorScheme = Theme.of(context).colorScheme;
     final iconColor = colorScheme.onSurface;
     final selectedIconColor = colorScheme.primary;
+    final appBarPadding = isDesktop ? 20.0 : 0.0;
 
     final appBar = AppBar(
       backgroundColor: Colors.transparent,
-      leading: IconButton(
-        icon: const BackButtonIcon(),
-        tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-        onPressed: () {
-          Navigator.maybePop(context);
-        },
+      leading: Padding(
+        padding: EdgeInsetsDirectional.only(start: appBarPadding),
+        child: IconButton(
+          icon: const BackButtonIcon(),
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+          onPressed: () {
+            Navigator.maybePop(context);
+          },
+        ),
       ),
       actions: [
         if (_hasOptions)
@@ -244,6 +248,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
                 _state == _DemoState.fullscreen ? selectedIconColor : iconColor,
             onPressed: () => _handleTap(_DemoState.fullscreen),
           ),
+        SizedBox(width: appBarPadding),
       ],
     );
 
