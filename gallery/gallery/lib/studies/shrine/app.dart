@@ -78,7 +78,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
     );
   }
 
-  // Closes the bottom sheet if it is open (this should only be relevant for Android).
+  // Closes the bottom sheet if it is open.
   Future<bool> _onWillPop() async {
     final status = _expandingController.status;
     if (status == AnimationStatus.completed ||
