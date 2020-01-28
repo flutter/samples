@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:io' show Platform;
-import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -256,12 +255,14 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         appBar.preferredSize.height;
     final maxSectionHeight = isDesktop ? contentHeight : contentHeight - 64;
     final horizontalPadding = isDesktop ? mediaQuery.size.width * 0.12 : 0.0;
+    final maxSectionWidth = 420.0;
 
     Widget section;
     switch (_state) {
       case _DemoState.options:
         section = _DemoSectionOptions(
           maxHeight: maxSectionHeight,
+          maxWidth: maxSectionWidth,
           configurations: widget.demo.configurations,
           configIndex: _configIndex,
           onConfigChanged: (index) {
@@ -277,6 +278,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       case _DemoState.info:
         section = _DemoSectionInfo(
           maxHeight: maxSectionHeight,
+          maxWidth: maxSectionWidth,
           title: _currentConfig.title,
           description: _currentConfig.description,
         );
@@ -314,46 +316,15 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       buildRoute: _currentConfig.buildRoute,
     );
     if (isDesktop) {
-      // If the available width is not very wide, reduce the amount of space
-      // between the demo content and the selected section.
-      const reducedMiddleSpaceWidth = 48.0;
-
-      // Width of the space between the section and the demo content
-      // when the code is NOT displayed.
-      final nonCodePageMiddleSpaceWidth = mediaQuery.size.width > 900
-          ? horizontalPadding
-          : reducedMiddleSpaceWidth;
-
-      // Width of the space between the section and the demo content
-      // when the code is displayed.
-      final codePageMiddleSpaceWidth =
-          min(reducedMiddleSpaceWidth, nonCodePageMiddleSpaceWidth);
-
-      // Width of the space between the section and the demo content
-      final middleSpaceWidth = _state == _DemoState.code
-          ? codePageMiddleSpaceWidth
-          : nonCodePageMiddleSpaceWidth;
-
-      // Width for demo content.
-      // It is calculated in this way because the code demands more space.
-      final demoContentWidth = (mediaQuery.size.width -
-              horizontalPadding * 2 -
-              nonCodePageMiddleSpaceWidth) /
-          2;
-
-      final Widget sectionAndDemo = (_state == _DemoState.fullscreen)
-          ? demoContent
-          : Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(child: section),
-                SizedBox(width: middleSpaceWidth),
-                Container(
-                  width: demoContentWidth,
-                  child: demoContent,
-                ),
-              ],
-            );
+      final isFullScreen = _state == _DemoState.fullscreen;
+      final Widget sectionAndDemo = Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (!isFullScreen) Expanded(child: section),
+          SizedBox(width: !isFullScreen ? 48.0 : 0),
+          Expanded(child: demoContent),
+        ],
+      );
 
       body = SafeArea(
         child: Padding(
@@ -371,20 +342,22 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       );
 
       // Add a tap gesture to collapse the currently opened section.
-      if (_state != _DemoState.normal) {
-        demoContent = Semantics(
-          label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
+      demoContent = Semantics(
+        label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+        child: GestureDetector(
+          onTap: () {
+            if (_state != _DemoState.normal) {
               setStateAndUpdate(() {
                 _state = _DemoState.normal;
               });
-            },
-            child: ExcludeSemantics(child: demoContent),
+            }
+          },
+          child: Semantics(
+            excludeSemantics: _state != _DemoState.normal,
+            child: demoContent,
           ),
-        );
-      }
+        ),
+      );
 
       body = SafeArea(
         bottom: false,
@@ -491,12 +464,14 @@ class _DemoSectionOptions extends StatelessWidget {
   const _DemoSectionOptions({
     Key key,
     this.maxHeight,
+    this.maxWidth,
     this.configurations,
     this.configIndex,
     this.onConfigChanged,
   }) : super(key: key);
 
   final double maxHeight;
+  final double maxWidth;
   final List<GalleryDemoConfiguration> configurations;
   final int configIndex;
   final ValueChanged<int> onConfigChanged;
@@ -506,49 +481,52 @@ class _DemoSectionOptions extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
-      constraints: BoxConstraints(maxHeight: maxHeight),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: 24,
-              top: 12,
-              end: 24,
-            ),
-            child: Text(
-              GalleryLocalizations.of(context).demoOptionsTooltip,
-              style: textTheme.display1.apply(
-                color: colorScheme.onSurface,
-                fontSizeDelta:
-                    isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+    return Align(
+      alignment: AlignmentDirectional.topStart,
+      child: Container(
+        constraints: BoxConstraints(maxHeight: maxHeight, maxWidth: maxWidth),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: 24,
+                top: 12,
+                end: 24,
+              ),
+              child: Text(
+                GalleryLocalizations.of(context).demoOptionsTooltip,
+                style: textTheme.display1.apply(
+                  color: colorScheme.onSurface,
+                  fontSizeDelta:
+                      isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+                ),
               ),
             ),
-          ),
-          Divider(
-            thickness: 1,
-            height: 16,
-            color: colorScheme.onSurface,
-          ),
-          Flexible(
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                for (final configuration in configurations)
-                  _DemoSectionOptionsItem(
-                    title: configuration.title,
-                    isSelected: configuration == configurations[configIndex],
-                    onTap: () {
-                      onConfigChanged(configurations.indexOf(configuration));
-                    },
-                  ),
-              ],
+            Divider(
+              thickness: 1,
+              height: 16,
+              color: colorScheme.onSurface,
             ),
-          ),
-          SizedBox(height: 12),
-        ],
+            Flexible(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  for (final configuration in configurations)
+                    _DemoSectionOptionsItem(
+                      title: configuration.title,
+                      isSelected: configuration == configurations[configIndex],
+                      onTap: () {
+                        onConfigChanged(configurations.indexOf(configuration));
+                      },
+                    ),
+                ],
+              ),
+            ),
+            SizedBox(height: 12),
+          ],
+        ),
       ),
     );
   }
@@ -594,11 +572,13 @@ class _DemoSectionInfo extends StatelessWidget {
   const _DemoSectionInfo({
     Key key,
     this.maxHeight,
+    this.maxWidth,
     this.title,
     this.description,
   }) : super(key: key);
 
   final double maxHeight;
+  final double maxWidth;
   final String title;
   final String description;
 
@@ -607,33 +587,36 @@ class _DemoSectionInfo extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
-      padding: const EdgeInsetsDirectional.only(
-        start: 24,
-        top: 12,
-        end: 24,
-        bottom: 32,
-      ),
-      constraints: BoxConstraints(maxHeight: maxHeight),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              title,
-              style: textTheme.display1.apply(
-                color: colorScheme.onSurface,
-                fontSizeDelta:
-                    isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+    return Align(
+      alignment: AlignmentDirectional.topStart,
+      child: Container(
+        padding: const EdgeInsetsDirectional.only(
+          start: 24,
+          top: 12,
+          end: 24,
+          bottom: 32,
+        ),
+        constraints: BoxConstraints(maxHeight: maxHeight, maxWidth: maxWidth),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title,
+                style: textTheme.display1.apply(
+                  color: colorScheme.onSurface,
+                  fontSizeDelta:
+                      isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+                ),
               ),
-            ),
-            SizedBox(height: 12),
-            Text(
-              description,
-              style: textTheme.body1.apply(color: colorScheme.onSurface),
-            ),
-          ],
+              SizedBox(height: 12),
+              Text(
+                description,
+                style: textTheme.body1.apply(color: colorScheme.onSurface),
+              ),
+            ],
+          ),
         ),
       ),
     );
