@@ -75,7 +75,7 @@ Future<void> generateXmlFromArb({
 
     final resourceId = key.substring(1);
     final name = _escapeXml(resourceId);
-    final Map<String, dynamic> metaInfo = bundle[key] as Map<String, dynamic>;
+    final metaInfo = bundle[key] as Map<String, dynamic>;
     assert(metaInfo != null && metaInfo['description'] != null);
     var description = _escapeXml(metaInfo['description'] as String);
 

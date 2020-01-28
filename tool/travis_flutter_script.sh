@@ -59,7 +59,7 @@ do
 done
 
 # Test that the code segment widgets that get displayed in the Flutter Material
-# gallery have been generated using the latest gallery code. It also tests that
+# gallery have been generated using the latest gallery code. Also test that
 # the localization scripts have been run, so that they are up to date for the
 # gallery.
 pushd gallery/gallery
