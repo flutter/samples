@@ -371,20 +371,23 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       );
 
       // Add a tap gesture to collapse the currently opened section.
-      if (_state != _DemoState.normal) {
-        demoContent = Semantics(
-          label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
+      demoContent = Semantics(
+        label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            if (_state != _DemoState.normal) {
               setStateAndUpdate(() {
                 _state = _DemoState.normal;
               });
-            },
-            child: ExcludeSemantics(child: demoContent),
+            }
+          },
+          child: Semantics(
+            excludeSemantics: _state != _DemoState.normal,
+            child: demoContent,
           ),
-        );
-      }
+        ),
+      );
 
       body = SafeArea(
         bottom: false,
