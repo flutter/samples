@@ -524,11 +524,18 @@ List<GalleryDemo> materialDemos(BuildContext context) {
       subtitle: localizations.demoTabsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: localizations.demoTabsTitle,
+          title: localizations.demoTabsScrollingTitle,
           description: localizations.demoTabsDescription,
-          documentationUrl: '$_docsBaseUrl/material/TabBarView-class.html',
-          buildRoute: (context) => TabsDemo(),
-          code: CodeSegments.tabsDemo,
+          documentationUrl: '$_docsBaseUrl/material/TabBar-class.html',
+          buildRoute: (context) => TabsDemo(type: TabsDemoType.scrollable),
+          code: CodeSegments.tabsScrollableDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTabsNonScrollingTitle,
+          description: localizations.demoTabsDescription,
+          documentationUrl: '$_docsBaseUrl/material/TabBar-class.html',
+          buildRoute: (context) => TabsDemo(type: TabsDemoType.nonScrollable),
+          code: CodeSegments.tabsNonScrollableDemo,
         ),
       ],
     ),

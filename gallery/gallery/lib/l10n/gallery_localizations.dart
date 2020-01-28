@@ -2969,6 +2969,21 @@ class GalleryLocalizations {
         desc: r'Description for tabs demo.');
   }
 
+  String get demoTabsNonScrollingTitle {
+    return Intl.message('Non-scrolling',
+        locale: _localeName,
+        name: 'demoTabsNonScrollingTitle',
+        desc:
+            r'Title for tabs demo with a tab bar that doesn' "'" r't scroll.');
+  }
+
+  String get demoTabsScrollingTitle {
+    return Intl.message('Scrolling',
+        locale: _localeName,
+        name: 'demoTabsScrollingTitle',
+        desc: r'Title for tabs demo with a tab bar that scrolls.');
+  }
+
   String get demoTabsSubtitle {
     return Intl.message('Tabs with independently scrollable views',
         locale: _localeName,

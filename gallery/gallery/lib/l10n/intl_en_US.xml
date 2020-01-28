@@ -1314,6 +1314,14 @@
     description="Title for tabs demo."
     >Tabs</string>
   <string
+    name="demoTabsScrollingTitle"
+    description="Title for tabs demo with a tab bar that scrolls."
+    >Scrolling</string>
+  <string
+    name="demoTabsNonScrollingTitle"
+    description="Title for tabs demo with a tab bar that doesn&apos;t scroll."
+    >Non-scrolling</string>
+  <string
     name="demoTabsSubtitle"
     description="Subtitle for tabs demo."
     >Tabs with independently scrollable views</string>
