@@ -2,11 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -51,11 +49,11 @@ double _paddedThumbnailHeight(BuildContext context) {
 }
 
 class ExpandingBottomSheet extends StatefulWidget {
-  const ExpandingBottomSheet(
-      {Key key,
-      @required this.hideController,
-      @required this.expandingController})
-      : assert(hideController != null),
+  const ExpandingBottomSheet({
+    Key key,
+    @required this.hideController,
+    @required this.expandingController,
+  })  : assert(hideController != null),
         assert(expandingController != null),
         super(key: key);
 
@@ -551,18 +549,6 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
     }
   }
 
-  // Closes the cart if the cart is open, otherwise exits the app (this should
-  // only be relevant for Android).
-  Future<bool> _onWillPop() async {
-    if (!_isOpen) {
-      await SystemNavigator.pop();
-      return true;
-    }
-
-    close();
-    return true;
-  }
-
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
@@ -571,16 +557,13 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
       curve: Curves.easeInOut,
       vsync: this,
       alignment: AlignmentDirectional.topStart,
-      child: WillPopScope(
-        onWillPop: _onWillPop,
-        child: AnimatedBuilder(
-          animation: widget.hideController,
-          builder: (context, child) => AnimatedBuilder(
-            animation: widget.expandingController,
-            builder: (context, child) => ScopedModelDescendant<AppStateModel>(
-              builder: (context, child, model) =>
-                  _buildSlideAnimation(context, _buildCart(context)),
-            ),
+      child: AnimatedBuilder(
+        animation: widget.hideController,
+        builder: (context, child) => AnimatedBuilder(
+          animation: widget.expandingController,
+          builder: (context, child) => ScopedModelDescendant<AppStateModel>(
+            builder: (context, child, model) =>
+                _buildSlideAnimation(context, _buildCart(context)),
           ),
         ),
       ),
