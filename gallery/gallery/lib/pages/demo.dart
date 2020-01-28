@@ -179,7 +179,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
     final colorScheme = Theme.of(context).colorScheme;
     final iconColor = colorScheme.onSurface;
     final selectedIconColor = colorScheme.primary;
-    final appBarPadding = 20.0;
 
     final appBar = AppBar(
       backgroundColor: Colors.transparent,
@@ -191,7 +190,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         },
       ),
       actions: [
-        SizedBox(width: appBarPadding),
         if (_hasOptions)
           IconButton(
             icon: FeatureDiscovery(
@@ -247,7 +245,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
                 _state == _DemoState.fullscreen ? selectedIconColor : iconColor,
             onPressed: () => _handleTap(_DemoState.fullscreen),
           ),
-        SizedBox(width: appBarPadding),
+        SizedBox(width: 20),
       ],
     );
 
