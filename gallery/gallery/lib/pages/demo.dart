@@ -179,7 +179,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
     final colorScheme = Theme.of(context).colorScheme;
     final iconColor = colorScheme.onSurface;
     final selectedIconColor = colorScheme.primary;
-    final appBarPadding = 20.0;
+    final appBarPadding = isDesktop ? 20.0 : 0.0;
 
     final appBar = AppBar(
       backgroundColor: Colors.transparent,
