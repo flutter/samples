@@ -317,6 +317,15 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       buildRoute: _currentConfig.buildRoute,
     );
     if (isDesktop) {
+      final isFullScreen = _state == _DemoState.fullscreen;
+      final Widget sectionAndDemo = Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (!isFullScreen) Expanded(child: section),
+          SizedBox(width: !isFullScreen ? 48.0 : 0),
+          Expanded(child: demoContent),
+        ],
+      );
 
       body = SafeArea(
         child: Padding(
