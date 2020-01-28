@@ -1390,6 +1390,14 @@
   "@demoTabsTitle": {
     "description": "Title for tabs demo."
   },
+  "demoTabsScrollingTitle": "Scrolling",
+  "@demoTabsScrollingTitle": {
+    "description": "Title for tabs demo with a tab bar that scrolls."
+  },
+  "demoTabsNonScrollingTitle": "Non-scrolling",
+  "@demoTabsNonScrollingTitle": {
+    "description": "Title for tabs demo with a tab bar that doesn't scroll."
+  },
   "demoTabsSubtitle": "Tabs with independently scrollable views",
   "@demoTabsSubtitle": {
     "description": "Subtitle for tabs demo."
