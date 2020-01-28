@@ -345,7 +345,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       demoContent = Semantics(
         label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
         child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
           onTap: () {
             if (_state != _DemoState.normal) {
               setStateAndUpdate(() {
