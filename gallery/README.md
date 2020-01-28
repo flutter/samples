@@ -25,7 +25,7 @@ example, to run the macOS app:
 ```
 cd gallery/
 flutter config --enable-macos-desktop
-flutter create --org io.flutter .
+flutter create .
 flutter run -d macos
 ```
 
