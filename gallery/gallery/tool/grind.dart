@@ -149,8 +149,9 @@ Future<String> _startProcess(String executable,
 
 /// Return the flutter root path from the environment variables.
 String _flutterRootPath() {
+  final separator = (Platform.isWindows) ? ';' : ':';
   final flutterBinPath =
-      Platform.environment['PATH'].split(':').lastWhere((setting) {
+      Platform.environment['PATH'].split(separator).lastWhere((setting) {
     return path.canonicalize(setting).endsWith(path.join('flutter', 'bin'));
   });
   return Directory(flutterBinPath).parent.path;
