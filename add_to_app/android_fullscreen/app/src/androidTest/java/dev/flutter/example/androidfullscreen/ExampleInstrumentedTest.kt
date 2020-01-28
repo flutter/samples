@@ -4,25 +4,39 @@
 
 package dev.flutter.example.androidfullscreen
 
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.espresso.flutter.EspressoFlutter.onFlutterWidget
+import androidx.test.espresso.flutter.action.FlutterActions.click
+import androidx.test.espresso.flutter.action.FlutterActions.syntheticClick
+import androidx.test.espresso.flutter.assertion.FlutterAssertions.matches
+import androidx.test.espresso.flutter.matcher.FlutterMatchers.isDescendantOf
+import androidx.test.espresso.flutter.matcher.FlutterMatchers.withText
+import androidx.test.espresso.flutter.matcher.FlutterMatchers.withTooltip
+import androidx.test.espresso.flutter.matcher.FlutterMatchers.withType
+import androidx.test.espresso.flutter.matcher.FlutterMatchers.withValueKey
+import com.google.common.truth.Truth.assertThat
+import org.junit.Assert.fail
 
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.espresso.flutter.EspressoFlutter.WidgetInteraction
+import androidx.test.espresso.flutter.assertion.FlutterAssertions
+import androidx.test.espresso.flutter.matcher.FlutterMatchers
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
+/** Unit tests for {@link EspressoFlutter}. */
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+@RunWith(AndroidJUnit4.class)
+class MainActivityTest {
+    @Before
+    fun setUp() {
+        ActivityScenario.launch(MainActivity.class)
+    }
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("dev.flutter.example.androidfullscreen", appContext.packageName)
+    fun performClick() {
+        onFlutterWidget(withTooltip("Increment")).perform(click())
+        onFlutterWidget(withValueKey("CountText")).check(matches(withText("Button tapped 1 time.")))
     }
 }
