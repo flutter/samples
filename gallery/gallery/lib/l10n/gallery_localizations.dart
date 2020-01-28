@@ -1536,6 +1536,43 @@ class GalleryLocalizations {
         args: <Object>[value]);
   }
 
+  String get demo2dTransformationsDescription {
+    return Intl.message(
+        'Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the home button to return to the starting orientation.',
+        locale: _localeName,
+        name: 'demo2dTransformationsDescription',
+        desc: r'Description for the 2D transformations demo.');
+  }
+
+  String get demo2dTransformationsEditTooltip {
+    return Intl.message('Edit tile',
+        locale: _localeName,
+        name: 'demo2dTransformationsEditTooltip',
+        desc: r'Tooltip to reset the 2D transformations demo.');
+  }
+
+  String get demo2dTransformationsResetTooltip {
+    return Intl.message('Reset transformations',
+        locale: _localeName,
+        name: 'demo2dTransformationsResetTooltip',
+        desc:
+            r'Tooltip to reset the transformations (scale, translation) for the 2D transformations demo.');
+  }
+
+  String get demo2dTransformationsSubtitle {
+    return Intl.message('Pan, zoom, rotate',
+        locale: _localeName,
+        name: 'demo2dTransformationsSubtitle',
+        desc: r'Subtitle for the 2D transformations demo.');
+  }
+
+  String get demo2dTransformationsTitle {
+    return Intl.message('2D transformations',
+        locale: _localeName,
+        name: 'demo2dTransformationsTitle',
+        desc: r'Title for the 2D transformations demo.');
+  }
+
   String get demoActionChipDescription {
     return Intl.message(
         'Action chips are a set of options which trigger an action related to primary content. Action chips should appear dynamically and contextually in a UI.',
