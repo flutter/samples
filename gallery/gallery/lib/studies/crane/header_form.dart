@@ -47,6 +47,7 @@ class HeaderForm extends StatelessWidget {
               return GridView.count(
                 crossAxisCount: crossAxisCount,
                 childAspectRatio: itemWidth / textFieldHeight,
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   for (final field in fields)
                     Padding(
