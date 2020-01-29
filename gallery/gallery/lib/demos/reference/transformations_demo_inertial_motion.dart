@@ -31,10 +31,10 @@ class InertialMotion {
   // The acceleration opposing the initial velocity in x and y components.
   Vector2 get _acceleration {
     // TODO(justinmc): Find actual velocity instead of summing?
-    final double velocityTotal = _initialVelocity.pixelsPerSecond.dx.abs() +
+    final velocityTotal = _initialVelocity.pixelsPerSecond.dx.abs() +
         _initialVelocity.pixelsPerSecond.dy.abs();
-    final double vRatioX = _initialVelocity.pixelsPerSecond.dx / velocityTotal;
-    final double vRatioY = _initialVelocity.pixelsPerSecond.dy / velocityTotal;
+    final vRatioX = _initialVelocity.pixelsPerSecond.dx / velocityTotal;
+    final vRatioY = _initialVelocity.pixelsPerSecond.dy / velocityTotal;
     return Vector2(
       _kFrictionalAcceleration * vRatioX,
       _kFrictionalAcceleration * vRatioY,
@@ -43,13 +43,13 @@ class InertialMotion {
 
   // The position at a given time.
   Offset _getPositionAt(Duration time) {
-    final double xf = _getPosition(
+    final xf = _getPosition(
       r0: _initialPosition.dx,
       v0: _initialVelocity.pixelsPerSecond.dx / 1000,
       t: time.inMilliseconds,
       a: _acceleration.x,
     );
-    final double yf = _getPosition(
+    final yf = _getPosition(
       r0: _initialPosition.dy,
       v0: _initialVelocity.pixelsPerSecond.dy / 1000,
       t: time.inMilliseconds,
@@ -62,7 +62,7 @@ class InertialMotion {
   // in one dimension.
   double _getPosition({double r0, double v0, int t, double a}) {
     // Stop movement when it would otherwise reverse direction.
-    final double stopTime = (v0 / a).abs();
+    final stopTime = (v0 / a).abs();
     if (t > stopTime) {
       t = stopTime.toInt();
     }

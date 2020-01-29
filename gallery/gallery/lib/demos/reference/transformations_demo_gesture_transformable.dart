@@ -150,10 +150,10 @@ class _GestureTransformableState extends State<GestureTransformable>
   // A positive y offset moves the scene down, viewport up.
   Offset _translateFromScene; // Point where a single translation began.
   double _scaleStart; // Scale value at start of scaling gesture.
-  double _rotationStart = 0.0; // Rotation at start of rotation gesture.
+  double _rotationStart = 0; // Rotation at start of rotation gesture.
   Rect _boundaryRect;
   Matrix4 _transform = Matrix4.identity();
-  double _currentRotation = 0.0;
+  double _currentRotation = 0;
   _GestureType gestureType;
 
   // The transformation matrix that gives the initial home position.
@@ -505,13 +505,12 @@ class _GestureTransformableState extends State<GestureTransformable>
         );
         _transform =
             matrixTranslate(_transform, focalPointSceneNext - focalPointScene);
-      } else if (gestureType == _GestureType.rotate &&
-          details.rotation != 0.0) {
+      } else if (gestureType == _GestureType.rotate && details.rotation != 0) {
         final double desiredRotation = _rotationStart + details.rotation;
         _transform = matrixRotate(
             _transform, _currentRotation - desiredRotation, details.focalPoint);
         _currentRotation = desiredRotation;
-      } else if (_translateFromScene != null && details.scale == 1.0) {
+      } else if (_translateFromScene != null && details.scale == 1) {
         // Translate so that the same point in the scene is underneath the
         // focal point before and after the movement.
         final Offset translationChange = focalPointScene - _translateFromScene;

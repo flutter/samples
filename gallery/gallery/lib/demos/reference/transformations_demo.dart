@@ -20,11 +20,11 @@ class TransformationsDemo extends StatefulWidget {
 
 class _TransformationsDemoState extends State<TransformationsDemo> {
   // The radius of a hexagon tile in pixels.
-  static const double _kHexagonRadius = 32.0;
+  static const _kHexagonRadius = 32.0;
   // The margin between hexagons.
-  static const double _kHexagonMargin = 1.0;
+  static const _kHexagonMargin = 1.0;
   // The radius of the entire board in hexagons, not including the center.
-  static const int _kBoardRadius = 12;
+  static const _kBoardRadius = 12;
 
   bool _reset = false;
   Board _board = Board(
@@ -112,7 +112,7 @@ class _TransformationsDemoState extends State<TransformationsDemo> {
               return Container(
                 width: double.infinity,
                 height: 150,
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12),
                 child: EditBoardPoint(
                   boardPoint: _board.selected,
                   onColorSelection: (color) {
@@ -155,7 +155,7 @@ class BoardPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     void drawBoardPoint(BoardPoint boardPoint) {
       final Color color = boardPoint.color.withOpacity(
-        board.selected == boardPoint ? 0.7 : 1.0,
+        board.selected == boardPoint ? 0.7 : 1,
       );
       final Vertices vertices =
           board.getVerticesForBoardPoint(boardPoint, color);

@@ -54,9 +54,9 @@ class _ColorPickerSwatch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60.0,
-      height: 60.0,
-      padding: const EdgeInsets.fromLTRB(2.0, 0.0, 2.0, 0.0),
+      width: 60,
+      height: 60,
+      padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
       child: RawMaterialButton(
         fillColor: color,
         onPressed: () {
