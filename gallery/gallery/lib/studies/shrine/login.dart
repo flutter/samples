@@ -85,18 +85,17 @@ class _ShrineLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          'packages/shrine_images/diamond.png',
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 16),
-        Text(
-          'SHRINE',
-          style: Theme.of(context).textTheme.headline,
-        ),
-      ],
+    return ExcludeSemantics(
+      child: Column(
+        children: [
+          Image.asset('packages/shrine_images/diamond.png'),
+          const SizedBox(height: 16),
+          Text(
+            'SHRINE',
+            style: Theme.of(context).textTheme.headline,
+          ),
+        ],
+      ),
     );
   }
 }
