@@ -220,7 +220,7 @@ class Content extends StatelessWidget {
         opacity: opacity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             _buildTitle(textTheme),
             SizedBox(height: 12.0),
             _buildDescription(textTheme),

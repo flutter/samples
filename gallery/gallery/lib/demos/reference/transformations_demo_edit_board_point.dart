@@ -23,7 +23,7 @@ class EditBoardPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
+      children: [
         Text(
           '${boardPoint.q}, ${boardPoint.r}',
           textAlign: TextAlign.right,

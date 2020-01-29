@@ -1269,17 +1269,17 @@
   "@demo2dTransformationsSubtitle": {
     "description": "Subtitle for the 2D transformations demo."
   },
-  "demo2dTransformationsDescription": "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the home button to return to the starting orientation.",
+  "demo2dTransformationsDescription": "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation.",
   "@demo2dTransformationsDescription": {
     "description": "Description for the 2D transformations demo."
   },
   "demo2dTransformationsResetTooltip": "Reset transformations",
   "@demo2dTransformationsResetTooltip": {
-    "description": "Tooltip to reset the transformations (scale, translation) for the 2D transformations demo."
+    "description": "Tooltip for a button to reset the transformations (scale, translation) for the 2D transformations demo."
   },
   "demo2dTransformationsEditTooltip": "Edit tile",
   "@demo2dTransformationsEditTooltip": {
-    "description": "Tooltip to reset the 2D transformations demo."
+    "description": "Tooltip for a button to edit a tile."
   },
   "buttonText": "BUTTON",
   "@buttonText": {
