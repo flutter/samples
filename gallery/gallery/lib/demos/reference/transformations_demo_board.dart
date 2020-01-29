@@ -241,14 +241,6 @@ class _Range {
   final int max;
 }
 
-final Set<Color> boardPointColors = <Color>{
-  Colors.white,
-  Color(0xFFFF8383),
-  Color(0xFF1CDEC9),
-  Color(0xFF4D1F7C),
-  Color(0xFF272727),
-};
-
 // A location on the board in axial coordinates.
 // Axial coordinates use two integers, q and r, to locate a hexagon on a grid.
 // https://www.redblobgames.com/grids/hexagons/#coordinates-axial

@@ -49,7 +49,7 @@ class _TransformationsDemoState extends State<TransformationsDemo> {
             Text(GalleryLocalizations.of(context).demo2dTransformationsTitle),
       ),
       body: Container(
-        color: Color(0xFF272727),
+        color: backgroundColor,
         child: LayoutBuilder(
           builder: (context, constraints) {
             // Draw the scene as big as is available, but allow the user to

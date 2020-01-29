@@ -12,8 +12,8 @@ class GalleryThemeData {
   static Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
   static ThemeData lightThemeData =
-      themeData(_lightColorScheme, _lightFocusColor);
-  static ThemeData darkThemeData = themeData(_darkColorScheme, _darkFocusColor);
+      themeData(lightColorScheme, _lightFocusColor);
+  static ThemeData darkThemeData = themeData(darkColorScheme, _darkFocusColor);
 
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
     return ThemeData(
@@ -43,7 +43,7 @@ class GalleryThemeData {
     );
   }
 
-  static ColorScheme _lightColorScheme = ColorScheme(
+  static ColorScheme lightColorScheme = ColorScheme(
     primary: const Color(0xFFB93C5D),
     primaryVariant: const Color(0xFF117378),
     secondary: const Color(0xFFEFF3F3),
@@ -59,7 +59,7 @@ class GalleryThemeData {
     brightness: Brightness.light,
   );
 
-  static ColorScheme _darkColorScheme = ColorScheme(
+  static ColorScheme darkColorScheme = ColorScheme(
     primary: const Color(0xFFFF8383),
     primaryVariant: const Color(0xFF1CDEC9),
     secondary: const Color(0xFF4D1F7C),
