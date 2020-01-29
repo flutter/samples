@@ -406,7 +406,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m29,
         "dataTableRowWithSugar": m30,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the home button to return to the starting orientation."),
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
         "demo2dTransformationsEditTooltip":
             MessageLookupByLibrary.simpleMessage("Edit tile"),
         "demo2dTransformationsResetTooltip":
