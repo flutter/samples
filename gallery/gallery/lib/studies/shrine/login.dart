@@ -88,10 +88,7 @@ class _ShrineLogo extends StatelessWidget {
     return ExcludeSemantics(
       child: Column(
         children: [
-          Image.asset(
-            'packages/shrine_images/diamond.png',
-            excludeFromSemantics: true,
-          ),
+          Image.asset('packages/shrine_images/diamond.png'),
           const SizedBox(height: 16),
           Text(
             'SHRINE',

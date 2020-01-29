@@ -77,7 +77,7 @@ Widget _buildProductCard({
   return ScopedModelDescendant<AppStateModel>(
     builder: (context, child, model) {
       return Semantics(
-        onTapHint:
+        hint:
             GalleryLocalizations.of(context).shrineScreenReaderProductAddToCart,
         child: GestureDetector(
           onTap: () {
