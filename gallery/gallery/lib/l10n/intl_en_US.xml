@@ -2190,6 +2190,18 @@
     description="Form field label to select multiple dates."
     >Select Dates</string>
   <string
+    name="craneHours"
+    description="Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated."
+    >{hours, plural, =1{1h} other{{hours}h}}</string>
+  <string
+    name="craneMinutes"
+    description="Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated."
+    >{minutes, plural, =1{1m} other{{minutes}m}}</string>
+  <string
+    name="craneFlightDuration"
+    description="A pattern to define the layout of a flight duration string. For example in English one might say 1h 15m. Translation should only rearrange the inputs. {hoursShortForm} would for example be replaced by 1h, already translated to the given locale. {minutesShortForm} would for example be replaced by 15m, already translated to the given locale."
+    >{hoursShortForm} {minutesShortForm}</string>
+  <string
     name="craneFly"
     description="Title for FLY tab."
     >FLY</string>

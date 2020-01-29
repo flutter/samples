@@ -2352,6 +2352,36 @@
   "@craneFormDates": {
     "description": "Form field label to select multiple dates."
   },
+  "craneHours": "{hours, plural, =1{1h} other{{hours}h}}",
+  "@craneHours": {
+    "description": "Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated.",
+    "placeholders": {
+      "hours": {
+        "example": "1"
+      }
+    }
+  },
+  "craneMinutes": "{minutes, plural, =1{1m} other{{minutes}m}}",
+  "@craneMinutes": {
+    "description": "Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated.",
+    "placeholders": {
+      "minutes": {
+        "example": "15"
+      }
+    }
+  },
+  "craneFlightDuration": "{hoursShortForm} {minutesShortForm}",
+  "@craneFlightDuration": {
+    "description": "A pattern to define the layout of a flight duration string. For example in English one might say 1h 15m. Translation should only rearrange the inputs. {hoursShortForm} would for example be replaced by 1h, already translated to the given locale. {minutesShortForm} would for example be replaced by 15m, already translated to the given locale.",
+    "placeholders": {
+      "hoursShortForm": {
+        "example": "1h"
+      },
+      "minutesShortForm": {
+        "example": "15m"
+      }
+    }
+  },
   "craneFly": "FLY",
   "@craneFly": {
     "description": "Title for FLY tab."

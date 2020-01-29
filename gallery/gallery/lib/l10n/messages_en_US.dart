@@ -31,15 +31,23 @@ class MessageLookup extends MessageLookupByLibrary {
   static m2(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'No Restaurants', one: '1 Restaurant', other: '${totalRestaurants} Restaurants')}";
 
+  static m29(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
   static m3(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Nonstop', one: '1 stop', other: '${numberOfStops} stops')}";
+
+  static m30(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m31(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
 
   static m4(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'No Available Properties', one: '1 Available Properties', other: '${totalProperties} Available Properties')}";
 
-  static m29(value) => "${value} with honey";
+  static m32(value) => "${value} with honey";
 
-  static m30(value) => "${value} with sugar";
+  static m33(value) => "${value} with sugar";
 
   static m5(value) => "Item ${value}";
 
@@ -231,6 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEatRestaurants": m2,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Explore Restaurants by Destination"),
+        "craneFlightDuration": m29,
         "craneFly": MessageLookupByLibrary.simpleMessage("FLY"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("Aspen, United States"),
@@ -295,6 +304,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Choose Origin"),
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Select Time"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Travelers"),
+        "craneHours": m30,
+        "craneMinutes": m31,
         "craneSleep": MessageLookupByLibrary.simpleMessage("SLEEP"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldives"),
         "craneSleep0SemanticLabel":
@@ -403,8 +414,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Jelly bean"),
         "dataTableRowLollipop":
             MessageLookupByLibrary.simpleMessage("Lollipop"),
-        "dataTableRowWithHoney": m29,
-        "dataTableRowWithSugar": m30,
+        "dataTableRowWithHoney": m32,
+        "dataTableRowWithSugar": m33,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
             "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
         "demo2dTransformationsEditTooltip":
