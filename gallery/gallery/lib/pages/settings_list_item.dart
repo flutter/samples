@@ -187,15 +187,15 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     _handleExpansion();
     final theme = Theme.of(context);
 
-    final optionsList = <Widget>[];
+    final optionWidgetsList = <Widget>[];
 
     widget.options.forEach(
-      (optionValue, optionDisplay) => optionsList.add(
+      (optionValue, optionDisplay) => optionWidgetsList.add(
         RadioListTile<T>(
           value: optionValue,
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               Text(
                 optionDisplay.title,
                 style: theme.textTheme.body2.copyWith(
@@ -239,8 +239,8 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         child: ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => optionsList[index],
-          itemCount: optionsList.length,
+          itemBuilder: (context, index) => optionWidgetsList[index],
+          itemCount: optionWidgetsList.length,
         ),
       ),
     );

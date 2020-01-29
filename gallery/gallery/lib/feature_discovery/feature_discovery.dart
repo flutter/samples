@@ -153,7 +153,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
       key: FeatureDiscovery.overlayKey,
       type: MaterialType.transparency,
       child: Stack(
-        children: <Widget>[
+        children: [
           GestureDetector(
             key: FeatureDiscovery.gestureDetectorKey,
             onTap: dismiss,

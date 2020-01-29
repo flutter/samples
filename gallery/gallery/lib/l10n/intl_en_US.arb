@@ -1261,6 +1261,26 @@
   "@demoTypographyDescription": {
     "description": "Description for the typography demo. Material Design should remain capitalized."
   },
+  "demo2dTransformationsTitle": "2D transformations",
+  "@demo2dTransformationsTitle": {
+    "description": "Title for the 2D transformations demo."
+  },
+  "demo2dTransformationsSubtitle": "Pan, zoom, rotate",
+  "@demo2dTransformationsSubtitle": {
+    "description": "Subtitle for the 2D transformations demo."
+  },
+  "demo2dTransformationsDescription": "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation.",
+  "@demo2dTransformationsDescription": {
+    "description": "Description for the 2D transformations demo."
+  },
+  "demo2dTransformationsResetTooltip": "Reset transformations",
+  "@demo2dTransformationsResetTooltip": {
+    "description": "Tooltip for a button to reset the transformations (scale, translation) for the 2D transformations demo."
+  },
+  "demo2dTransformationsEditTooltip": "Edit tile",
+  "@demo2dTransformationsEditTooltip": {
+    "description": "Tooltip for a button to edit a tile."
+  },
   "buttonText": "BUTTON",
   "@buttonText": {
     "description": "Text for a generic button."

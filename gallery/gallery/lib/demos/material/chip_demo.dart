@@ -145,7 +145,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final chips = <Widget>[
+    final chips = [
       FilterChip(
         label: Text(GalleryLocalizations.of(context).chipElevator),
         selected: isSelectedElevator,
