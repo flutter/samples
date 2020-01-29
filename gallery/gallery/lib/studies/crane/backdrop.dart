@@ -33,6 +33,8 @@ class _FrontLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isSmallDesktop =
+        MediaQuery.of(context).size.width < smallDesktopThreshold;
 
     return DefaultFocusTraversal(
       policy: ReadingOrderTraversalPolicy(),
@@ -49,7 +51,10 @@ class _FrontLayer extends StatelessWidget {
         ),
         child: ListView(
           padding: isDesktop
-              ? EdgeInsets.symmetric(horizontal: 120, vertical: 22)
+              ? EdgeInsets.symmetric(
+                  horizontal:
+                      isSmallDesktop ? appPaddingSmall : appPaddingLarge,
+                  vertical: 22)
               : EdgeInsets.all(20),
           children: [
             Text(title, style: Theme.of(context).textTheme.subtitle),
@@ -154,7 +159,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                     margin: EdgeInsets.only(
                       top: isDesktop
                           ? (MediaQuery.of(context).size.width <
-                                      twoColumnThreshold
+                                      smallDesktopThreshold
                                   ? textFieldHeight * 2
                                   : textFieldHeight) +
                               20 * textScaleFactor / 2
@@ -219,10 +224,15 @@ class _CraneAppBarState extends State<CraneAppBar> {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
+    final isSmallDesktop =
+        MediaQuery.of(context).size.width < smallDesktopThreshold;
 
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: isDesktop ? 120 : 24),
+        padding: EdgeInsets.symmetric(
+          horizontal:
+              isDesktop && !isSmallDesktop ? appPaddingLarge : appPaddingSmall,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,

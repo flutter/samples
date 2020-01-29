@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/crane/colors.dart';
 
-const twoColumnThreshold = 1000.0;
+const smallDesktopThreshold = 1000.0;
 const textFieldHeight = 60.0;
+const appPaddingLarge = 120.0;
+const appPaddingSmall = 24.0;
 
 class HeaderFormField {
   final IconData iconData;
@@ -25,12 +27,17 @@ class HeaderForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isSmallDesktop =
+        MediaQuery.of(context).size.width < smallDesktopThreshold;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: isDesktop ? 120 : 24),
+      padding: EdgeInsets.symmetric(
+        horizontal:
+            isDesktop && !isSmallDesktop ? appPaddingLarge : appPaddingSmall,
+      ),
       child: isDesktop
           ? LayoutBuilder(builder: (context, constraints) {
               var crossAxisCount =
-                  MediaQuery.of(context).size.width < twoColumnThreshold
+                  MediaQuery.of(context).size.width < smallDesktopThreshold
                       ? 2
                       : 4;
               if (fields.length < crossAxisCount) {
