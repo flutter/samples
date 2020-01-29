@@ -15,6 +15,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/crane/border_tab_indicator.dart';
 import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
 class _FrontLayer extends StatelessWidget {
@@ -152,7 +153,11 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                   Container(
                     margin: EdgeInsets.only(
                       top: isDesktop
-                          ? 60 + 20 * textScaleFactor / 2
+                          ? (MediaQuery.of(context).size.width <
+                                      twoColumnThreshold
+                                  ? textFieldHeight * 2
+                                  : textFieldHeight) +
+                              20 * textScaleFactor / 2
                           : 175 + 140 * textScaleFactor / 2,
                     ),
                     child: TabBarView(
