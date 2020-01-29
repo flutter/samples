@@ -2,17 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:duration/duration.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery/l10n/gallery_localizations.dart';
 
 // Duration of time (e.g. 16h 12m)
 String formattedDuration(BuildContext context, Duration duration,
     {bool abbreviated}) {
-  return prettyDuration(
-    duration,
-    spacer: '',
-    delimiter: ' ',
-    abbreviated: abbreviated,
-    tersity: DurationTersity.minute,
-  );
+  final hoursShortForm =
+      GalleryLocalizations.of(context).craneHours(duration.inHours.toInt());
+  final minutesShortForm =
+      GalleryLocalizations.of(context).craneMinutes(duration.inMinutes % 60);
+  return GalleryLocalizations.of(context)
+      .craneFlightDuration(hoursShortForm, minutesShortForm);
 }
