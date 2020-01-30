@@ -8,10 +8,15 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
-class Fortnightly extends StatelessWidget {
+class FortnightlyApp extends StatelessWidget {
+  const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
+
+  final GlobalKey<NavigatorState> navigatorKey;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context),
       home: isDisplayDesktop(context)

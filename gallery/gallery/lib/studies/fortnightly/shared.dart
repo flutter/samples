@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:gallery/l10n/gallery_localizations.dart';
 
 class ArticleData {
   ArticleData({this.imageUrl, this.category, this.title, this.snippet});
@@ -14,10 +15,10 @@ class ArticleData {
 }
 
 class HorizontalArticlePreview extends StatelessWidget {
-  HorizontalArticlePreview({this.data, this.time});
+  HorizontalArticlePreview({this.data, this.minutes});
 
   final ArticleData data;
-  final String time;
+  final int minutes;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +43,11 @@ class HorizontalArticlePreview extends StatelessWidget {
             ],
           ),
         ),
-        if (time != null) ...[
-          Text('2M', style: textTheme.body2),
+        if (minutes != null) ...[
+          Text(
+            GalleryLocalizations.of(context).craneMinutes(minutes),
+            style: textTheme.body2,
+          ),
           SizedBox(width: 8)
         ],
         Image.asset(
@@ -124,8 +128,9 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     VerticalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_healthcare.jpg',
-        category: 'WORLD',
-        title: 'The Quiet, Yet Powerful Healthcare Revolution',
+        category:
+            GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineHealthcare,
       ),
       headlineTextStyle: textTheme.headline.copyWith(fontSize: 20),
     ),
@@ -133,49 +138,59 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_war.png',
-        category: 'POLITICS',
-        title: 'Divided American Lives During War',
+        category: GalleryLocalizations.of(context)
+            .fortnightlyMenuPolitics
+            .toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineWar,
       ),
     ),
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_gas.png',
-        category: 'TECH',
-        title: 'The Future of Gasoline',
+        category:
+            GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineGasoline,
       ),
     ),
     sectionDivider,
     Container(
       margin: const EdgeInsets.all(16),
-      child: Text('Latest Updates', style: textTheme.title),
+      child: Text(
+        GalleryLocalizations.of(context).fortnightlyLatestUpdates,
+        style: textTheme.title,
+      ),
     ),
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_army.png',
-        category: 'POLITICS',
-        title: 'Reforming The Green Army From Within',
+        category: GalleryLocalizations.of(context)
+            .fortnightlyMenuPolitics
+            .toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineArmy,
       ),
-      time: '2M',
+      minutes: 2,
     ),
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_stocks.png',
-        category: 'WORLD',
-        title: 'As Stocks Stagnate, Many Look To Currency',
+        category:
+            GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineStocks,
       ),
-      time: '2M',
+      minutes: 5,
     ),
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_fabrics.png',
-        category: 'TECH',
-        title: 'Designes Use Tech To Make Futuristic Fabrics',
+        category:
+            GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineFabrics,
       ),
-      time: '2M',
+      minutes: 4,
     ),
     articleDivider,
   ];
@@ -199,35 +214,35 @@ class HashtagBar extends StatelessWidget {
           SizedBox(width: 16),
           Center(
             child: Text(
-              '#TechDesign',
+              '#${GalleryLocalizations.of(context).fortnightlyTrendingTechDesign}',
               style: textTheme.subtitle,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
-              '#Reform',
+              '#${GalleryLocalizations.of(context).fortnightlyTrendingReform}',
               style: textTheme.subtitle,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
-              '#HealthcareRevolution',
+              '#${GalleryLocalizations.of(context).fortnightlyTrendingHealthcareRevolution}',
               style: textTheme.subtitle,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
-              '#GreenArmy',
+              '#${GalleryLocalizations.of(context).fortnightlyTrendingGreenArmy}',
               style: textTheme.subtitle,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
-              '#Stocks',
+              '#${GalleryLocalizations.of(context).fortnightlyTrendingStocks}',
               style: textTheme.subtitle,
             ),
           ),
@@ -252,6 +267,7 @@ class NavigationMenu extends StatelessWidget {
             children: [
               IconButton(
                 icon: Icon(Icons.close),
+                tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.pop(context),
               ),
               Image.asset('assets/fortnightly/fortnightly_title.png'),
@@ -259,18 +275,18 @@ class NavigationMenu extends StatelessWidget {
           ),
         SizedBox(height: 32),
         MenuItem(
-          'Front Page',
+          GalleryLocalizations.of(context).fortnightlyMenuFrontPage,
           header: true,
         ),
-        MenuItem('World'),
-        MenuItem('US'),
-        MenuItem('Politics'),
-        MenuItem('Business'),
-        MenuItem('Tech'),
-        MenuItem('Science'),
-        MenuItem('Sports'),
-        MenuItem('Travel'),
-        MenuItem('Culture'),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuWorld),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuUS),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuPolitics),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuBusiness),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuTech),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuScience),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuSports),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuTravel),
+        MenuItem(GalleryLocalizations.of(context).fortnightlyMenuCulture),
       ],
     );
   }
@@ -436,8 +452,10 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
     VideoPreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_feminists.jpg',
-        category: 'POLITICS',
-        title: 'Feminists Take On Partisanship',
+        category: GalleryLocalizations.of(context)
+            .fortnightlyMenuPolitics
+            .toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineFeminists,
       ),
       time: '2:31',
     ),
@@ -445,8 +463,9 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
     VideoPreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_bees.jpg',
-        category: 'US',
-        title: 'Farmland Bees In Short Supply',
+        category:
+            GalleryLocalizations.of(context).fortnightlyMenuUS.toUpperCase(),
+        title: GalleryLocalizations.of(context).fortnightlyHeadlineBees,
       ),
       time: '1:37',
     ),

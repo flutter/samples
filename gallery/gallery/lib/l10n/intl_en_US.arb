@@ -123,6 +123,10 @@
   "@shrineDescription": {
     "description": "Study description for Shrine."
   },
+  "fortnightlyDescription": "A news app",
+  "@fortnightlyDescription": {
+    "description": "Study description for Fortnightly."
+  },
   "rallyDescription": "A personal finance app",
   "@rallyDescription": {
     "description": "Study description for Rally."
@@ -2728,5 +2732,101 @@
   "craneEat10SemanticLabel": "Woman holding huge pastrami sandwich",
   "@craneEat10SemanticLabel": {
     "description": "Semantic label for an image."
+  },
+  "fortnightlyMenuFrontPage": "Front Page",
+  "@fortnightlyMenuFrontPage": {
+    "description": "Menu item for the front page of the news app."
+  },
+  "fortnightlyMenuWorld": "World",
+  "@fortnightlyMenuWorld": {
+    "description": "Menu item for the world news section of the news app."
+  },
+  "fortnightlyMenuUS": "US",
+  "@fortnightlyMenuUS": {
+    "description": "Menu item for the United States news section of the news app."
+  },
+  "fortnightlyMenuPolitics": "Politics",
+  "@fortnightlyMenuPolitics": {
+    "description": "Menu item for the political news section of the news app."
+  },
+  "fortnightlyMenuBusiness": "Business",
+  "@fortnightlyMenuBusiness": {
+    "description": "Menu item for the business news section of the news app."
+  },
+  "fortnightlyMenuTech": "Tech",
+  "@fortnightlyMenuTech": {
+    "description": "Menu item for the tech news section of the news app."
+  },
+  "fortnightlyMenuScience": "Science",
+  "@fortnightlyMenuScience": {
+    "description": "Menu item for the science news section of the news app."
+  },
+  "fortnightlyMenuSports": "Sports",
+  "@fortnightlyMenuSports": {
+    "description": "Menu item for the sports news section of the news app."
+  },
+  "fortnightlyMenuTravel": "Travel",
+  "@fortnightlyMenuTravel": {
+    "description": "Menu item for the travel news section of the news app."
+  },
+  "fortnightlyMenuCulture": "Culture",
+  "@fortnightlyMenuCulture": {
+    "description": "Menu item for the culture news section of the news app."
+  },
+  "fortnightlyTrendingTechDesign": "TechDesign",
+  "@fortnightlyTrendingTechDesign": {
+    "description": "Hashtag for the tech design trending topic of the news app."
+  },
+  "fortnightlyTrendingReform": "Reform",
+  "@fortnightlyTrendingReform": {
+    "description": "Hashtag for the reform trending topic of the news app."
+  },
+  "fortnightlyTrendingHealthcareRevolution": "HealthcareRevolution",
+  "@fortnightlyTrendingHealthcareRevolution": {
+    "description": "Hashtag for the healthcare revolution trending topic of the news app."
+  },
+  "fortnightlyTrendingGreenArmy": "GreenArmy",
+  "@fortnightlyTrendingGreenArmy": {
+    "description": "Hashtag for the green army trending topic of the news app."
+  },
+  "fortnightlyTrendingStocks": "Stocks",
+  "@fortnightlyTrendingStocks": {
+    "description": "Hashtag for the stocks trending topic of the news app."
+  },
+  "fortnightlyLatestUpdates": "Latest Updates",
+  "@fortnightlyLatestUpdates": {
+    "description": "Title for news section regarding the latest updates."
+  },
+  "fortnightlyHeadlineHealthcare": "The Quiet, Yet Powerful Healthcare Revolution",
+  "@fortnightlyHeadlineHealthcare": {
+    "description": "Headline for a news article about healthcare."
+  },
+  "fortnightlyHeadlineWar": "Divided American Lives During War",
+  "@fortnightlyHeadlineWar": {
+    "description": "Headline for a news article about war."
+  },
+  "fortnightlyHeadlineGasoline": "The Future of Gasoline",
+  "@fortnightlyHeadlineGasoline": {
+    "description": "Headline for a news article about gasoline."
+  },
+  "fortnightlyHeadlineArmy": "Reforming The Green Army From Within",
+  "@fortnightlyHeadlineArmy": {
+    "description": "Headline for a news article about the green army."
+  },
+  "fortnightlyHeadlineStocks": "As Stocks Stagnate, Many Look To Currency",
+  "@fortnightlyHeadlineStocks": {
+    "description": "Headline for a news article about stocks."
+  },
+  "fortnightlyHeadlineFabrics": "Designers Use Tech To Make Futuristic Fabrics",
+  "@fortnightlyHeadlineFabrics": {
+    "description": "Headline for a news article about fabric."
+  },
+  "fortnightlyHeadlineFeminists": "Feminists Take On Partisanship",
+  "@fortnightlyHeadlineFeminists": {
+    "description": "Headline for a news article about feminists and partisanship."
+  },
+  "fortnightlyHeadlineBees": "Farmland Bees In Short Supply",
+  "@fortnightlyHeadlineBees": {
+    "description": "Headline for a news article about bees."
   }
 }

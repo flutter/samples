@@ -34,6 +34,7 @@ const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 const String shrineTitle = 'Shrine';
 const String rallyTitle = 'Rally';
 const String craneTitle = 'Crane';
+const String fortnightlyTitle = 'Fortnightly';
 const String homeCategoryMaterial = 'MATERIAL';
 const String homeCategoryCupertino = 'CUPERTINO';
 
@@ -43,6 +44,7 @@ class NavigatorKeys {
   static final shrine = GlobalKey<NavigatorState>();
   static final rally = GlobalKey<NavigatorState>();
   static final crane = GlobalKey<NavigatorState>();
+  static final fortnightly = GlobalKey<NavigatorState>();
   static final starter = GlobalKey<NavigatorState>();
 }
 
@@ -52,15 +54,6 @@ class HomePage extends StatelessWidget {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
     final carouselCards = <_CarouselCard>[
-      _CarouselCard(
-        title: 'Fortnightly',
-        subtitle: 'tbd',
-        asset: 'assets/studies/shrine_card.png',
-        assetDark: 'assets/studies/shrine_card_dark.png',
-        textColor: shrineBrown900,
-        study: Fortnightly(),
-        navigatorKey: NavigatorKeys.shrine, // TODO: Do we need this
-      ),
       _CarouselCard(
         title: shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
@@ -87,6 +80,15 @@ class HomePage extends StatelessWidget {
         textColor: cranePurple700,
         study: CraneApp(navigatorKey: NavigatorKeys.crane),
         navigatorKey: NavigatorKeys.crane,
+      ),
+      _CarouselCard(
+        title: fortnightlyTitle,
+        subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
+        asset: 'assets/studies/shrine_card.png', // TODO
+        assetDark: 'assets/studies/shrine_card_dark.png', // TODO
+        textColor: shrineBrown900, // TODO
+        study: FortnightlyApp(navigatorKey: NavigatorKeys.fortnightly),
+        navigatorKey: NavigatorKeys.fortnightly,
       ),
       _CarouselCard(
         title: GalleryLocalizations.of(context).starterAppTitle,
