@@ -19,6 +19,7 @@ import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/studies/crane/app.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:gallery/studies/fortnightly/app.dart';
 import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/shrine/app.dart';
@@ -51,6 +52,15 @@ class HomePage extends StatelessWidget {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
     final carouselCards = <_CarouselCard>[
+      _CarouselCard(
+        title: 'Fortnightly',
+        subtitle: 'tbd',
+        asset: 'assets/studies/shrine_card.png',
+        assetDark: 'assets/studies/shrine_card_dark.png',
+        textColor: shrineBrown900,
+        study: Fortnightly(),
+        navigatorKey: NavigatorKeys.shrine, // TODO: Do we need this
+      ),
       _CarouselCard(
         title: shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
