@@ -33,8 +33,7 @@ class _FrontLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    final isSmallDesktop =
-        MediaQuery.of(context).size.width < smallDesktopThreshold;
+    final isSmallDesktop = isDisplaySmallDesktop(context);
 
     return DefaultFocusTraversal(
       policy: ReadingOrderTraversalPolicy(),
@@ -158,8 +157,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                   Container(
                     margin: EdgeInsets.only(
                       top: isDesktop
-                          ? (MediaQuery.of(context).size.width <
-                                      smallDesktopThreshold
+                          ? (isDisplaySmallDesktop(context)
                                   ? textFieldHeight * 2
                                   : textFieldHeight) +
                               20 * textScaleFactor / 2
@@ -223,9 +221,8 @@ class _CraneAppBarState extends State<CraneAppBar> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isSmallDesktop = isDisplaySmallDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
-    final isSmallDesktop =
-        MediaQuery.of(context).size.width < smallDesktopThreshold;
 
     return SafeArea(
       child: Padding(
