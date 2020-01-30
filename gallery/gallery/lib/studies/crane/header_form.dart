@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/crane/colors.dart';
 
+const textFieldHeight = 60.0;
+const appPaddingLarge = 120.0;
+const appPaddingSmall = 24.0;
+
 class HeaderFormField {
   final IconData iconData;
   final String title;
@@ -22,21 +26,32 @@ class HeaderForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-
+    final isSmallDesktop = isDisplaySmallDesktop(context);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: isDesktop ? 120 : 24),
+      padding: EdgeInsets.symmetric(
+        horizontal:
+            isDesktop && !isSmallDesktop ? appPaddingLarge : appPaddingSmall,
+      ),
       child: isDesktop
-          ? Row(
-              children: [
-                for (final field in fields)
-                  Flexible(
-                    child: Padding(
+          ? LayoutBuilder(builder: (context, constraints) {
+              var crossAxisCount = isSmallDesktop ? 2 : 4;
+              if (fields.length < crossAxisCount) {
+                crossAxisCount = fields.length;
+              }
+              final itemWidth = constraints.maxWidth / crossAxisCount;
+              return GridView.count(
+                crossAxisCount: crossAxisCount,
+                childAspectRatio: itemWidth / textFieldHeight,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  for (final field in fields)
+                    Padding(
                       padding: const EdgeInsetsDirectional.only(end: 16),
                       child: _HeaderTextField(field: field),
-                    ),
-                  )
-              ],
-            )
+                    )
+                ],
+              );
+            })
           : Column(
               mainAxisSize: MainAxisSize.min,
               children: [

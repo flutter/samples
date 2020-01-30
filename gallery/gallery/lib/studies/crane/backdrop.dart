@@ -15,6 +15,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/crane/border_tab_indicator.dart';
 import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
 class _FrontLayer extends StatelessWidget {
@@ -32,6 +33,7 @@ class _FrontLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isSmallDesktop = isDisplaySmallDesktop(context);
 
     return DefaultFocusTraversal(
       policy: ReadingOrderTraversalPolicy(),
@@ -48,7 +50,10 @@ class _FrontLayer extends StatelessWidget {
         ),
         child: ListView(
           padding: isDesktop
-              ? EdgeInsets.symmetric(horizontal: 120, vertical: 22)
+              ? EdgeInsets.symmetric(
+                  horizontal:
+                      isSmallDesktop ? appPaddingSmall : appPaddingLarge,
+                  vertical: 22)
               : EdgeInsets.all(20),
           children: [
             Text(title, style: Theme.of(context).textTheme.subtitle),
@@ -152,7 +157,10 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                   Container(
                     margin: EdgeInsets.only(
                       top: isDesktop
-                          ? 60 + 20 * textScaleFactor / 2
+                          ? (isDisplaySmallDesktop(context)
+                                  ? textFieldHeight * 2
+                                  : textFieldHeight) +
+                              20 * textScaleFactor / 2
                           : 175 + 140 * textScaleFactor / 2,
                     ),
                     child: TabBarView(
@@ -213,11 +221,15 @@ class _CraneAppBarState extends State<CraneAppBar> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isSmallDesktop = isDisplaySmallDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
 
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: isDesktop ? 120 : 24),
+        padding: EdgeInsets.symmetric(
+          horizontal:
+              isDesktop && !isSmallDesktop ? appPaddingLarge : appPaddingSmall,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
