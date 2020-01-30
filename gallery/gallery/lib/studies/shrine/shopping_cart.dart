@@ -15,6 +15,7 @@ import 'package:gallery/studies/shrine/theme.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
 const _startColumnWidth = 60.0;
+const _ordinalSortKeyName = 'shopping_cart';
 
 class ShoppingCartPage extends StatefulWidget {
   @override
@@ -39,7 +40,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
   @override
   Widget build(BuildContext context) {
     final ThemeData localTheme = Theme.of(context);
-
     return Scaffold(
       backgroundColor: shrinePink50,
       body: SafeArea(
@@ -50,38 +50,47 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 children: [
                   ListView(
                     children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: _startColumnWidth,
-                            child: IconButton(
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              onPressed: () =>
-                                  ExpandingBottomSheet.of(context).close(),
-                              tooltip: GalleryLocalizations.of(context)
-                                  .shrineTooltipCloseCart,
+                      Semantics(
+                        sortKey: OrdinalSortKey(0, name: _ordinalSortKeyName),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: _startColumnWidth,
+                              child: IconButton(
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                onPressed: () =>
+                                    ExpandingBottomSheet.of(context).close(),
+                                tooltip: GalleryLocalizations.of(context)
+                                    .shrineTooltipCloseCart,
+                              ),
                             ),
-                          ),
-                          Text(
-                            GalleryLocalizations.of(context)
-                                .shrineCartPageCaption,
-                            style: localTheme.textTheme.subhead
-                                .copyWith(fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(width: 16),
-                          Text(
-                            GalleryLocalizations.of(context)
-                                .shrineCartItemCount(
-                              model.totalCartQuantity,
+                            Text(
+                              GalleryLocalizations.of(context)
+                                  .shrineCartPageCaption,
+                              style: localTheme.textTheme.subhead
+                                  .copyWith(fontWeight: FontWeight.w600),
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 16),
+                            Text(
+                              GalleryLocalizations.of(context)
+                                  .shrineCartItemCount(
+                                model.totalCartQuantity,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 16),
-                      Column(
-                        children: _createShoppingCartRows(model),
+                      Semantics(
+                        sortKey: OrdinalSortKey(1, name: _ordinalSortKeyName),
+                        child: Column(
+                          children: _createShoppingCartRows(model),
+                        ),
                       ),
-                      ShoppingCartSummary(model: model),
+                      Semantics(
+                        sortKey: OrdinalSortKey(2, name: _ordinalSortKeyName),
+                        child: ShoppingCartSummary(model: model),
+                      ),
                       const SizedBox(height: 100),
                     ],
                   ),
@@ -89,24 +98,27 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     bottom: 16,
                     start: 16,
                     end: 16,
-                    child: RaisedButton(
-                      shape: const BeveledRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(7)),
-                      ),
-                      color: shrinePink100,
-                      splashColor: shrineBrown600,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 12),
-                        child: Text(
-                          GalleryLocalizations.of(context)
-                              .shrineCartClearButtonCaption,
-                          style: TextStyle(letterSpacing: largeLetterSpacing),
+                    child: Semantics(
+                      sortKey: OrdinalSortKey(3, name: _ordinalSortKeyName),
+                      child: RaisedButton(
+                        shape: const BeveledRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(7)),
                         ),
+                        color: shrinePink100,
+                        splashColor: shrineBrown600,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 12),
+                          child: Text(
+                            GalleryLocalizations.of(context)
+                                .shrineCartClearButtonCaption,
+                            style: TextStyle(letterSpacing: largeLetterSpacing),
+                          ),
+                        ),
+                        onPressed: () {
+                          model.clearCart();
+                          ExpandingBottomSheet.of(context).close();
+                        },
                       ),
-                      onPressed: () {
-                        model.clearCart();
-                        ExpandingBottomSheet.of(context).close();
-                      },
                     ),
                   ),
                 ],
