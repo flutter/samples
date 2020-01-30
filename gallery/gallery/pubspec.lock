@@ -99,13 +99,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.3"
-  duration:
-    dependency: "direct main"
-    description:
-      name: duration
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.8"
   flare_dart:
     dependency: transitive
     description:

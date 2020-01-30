@@ -57,14 +57,18 @@
   "@cardsDemoExploreSemantics": {
     "description": "Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil",
     "placeholders": {
-      "destinationName": "Tamil"
+      "destinationName": {
+       "example": "Tamil"
+      }
     }
   },
   "cardsDemoShareSemantics": "Share {destinationName}",
   "@cardsDemoShareSemantics": {
     "description": "Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil",
     "placeholders": {
-      "destinationName": "Tamil"
+      "destinationName": {
+        "example": "Tamil"
+      }
     }
   },
   "cardsDemoTravelDestinationTitle1": "Top 10 Cities to Visit in Tamil Nadu",
@@ -307,35 +311,45 @@
   "@rallyAlertsMessageHeadsUpShopping": {
     "description": "Alert message shown when for example, user has used more than 90% of their shopping budget.",
     "placeholders": {
-      "percent": "90%"
+      "percent": {
+        "example": "90%"
+      }
     }
   },
   "rallyAlertsMessageSpentOnRestaurants": "You’ve spent {amount} on Restaurants this week.",
   "@rallyAlertsMessageSpentOnRestaurants": {
     "description": "Alert message shown when for example, user has spent $120 on Restaurants this week.",
     "placeholders": {
-       "amount": "$120"
+       "amount": {
+         "example": "$120"
+       }
     }
   },
   "rallyAlertsMessageATMFees": "You’ve spent {amount} in ATM fees this month",
   "@rallyAlertsMessageATMFees": {
     "description": "Alert message shown when for example, the user has spent $24 in ATM fees this month.",
     "placeholders": {
-       "amount": "24"
+       "amount": {
+         "example": "24"
+       }
     }
   },
   "rallyAlertsMessageCheckingAccount": "Good work! Your checking account is {percent} higher than last month.",
   "@rallyAlertsMessageCheckingAccount": {
     "description": "Alert message shown when for example, the checking account is 1% higher than last month.",
     "placeholders": {
-       "percent": "1%"
+       "percent": {
+         "example": "1%"
+       }
     }
   },
   "rallyAlertsMessageUnassignedTransactions": "{count, plural, =1{Increase your potential tax deduction! Assign categories to 1 unassigned transaction.}other{Increase your potential tax deduction! Assign categories to {count} unassigned transactions.}}",
   "@rallyAlertsMessageUnassignedTransactions": {
     "description": "Alert message shown when you have unassigned transactions.",
     "placeholders": {
-       "count": "2"
+       "count": {
+         "example": "2"
+       }
     }
   },
   "rallySeeAllAccounts": "See all accounts",
@@ -354,28 +368,48 @@
   "@rallyAccountAmount": {
     "description": "Semantics label for row with bank account name (for example checking) and its bank account number (for example 123), with how much money is deposited in it (for example $12).",
     "placeholders": {
-      "accountName": "Home Savings",
-      "accountNumber": "1234",
-      "amount": "$12"
+      "accountName": {
+        "example": "Home Savings"
+      },
+      "accountNumber": {
+        "example": "1234"
+      },
+      "amount": {
+        "example": "$12"
+      }
     }
   },
   "rallyBillAmount": "{billName} bill due {date} for {amount}.",
   "@rallyBillAmount": {
     "description": "Semantics label for row with a bill (example name is rent), when the bill is due (1/12/2019 for example) and for how much money ($12).",
     "placeholders": {
-      "billName": "Rent",
-      "date": "1/24/2019",
-      "amount": "$12"
+      "billName": {
+        "example": "Rent"
+      },
+      "date": {
+        "example": "1/24/2019"
+      },
+      "amount": {
+        "example": "$12"
+      }
     }
   },
   "rallyBudgetAmount": "{budgetName} budget with {amountUsed} used of {amountTotal}, {amountLeft} left",
   "@rallyBudgetAmount": {
     "description": "Semantics label for row with a budget (housing budget for example), with how much is used of the budget (for example $5), the total budget (for example $100) and the amount left in the budget (for example $95).",
     "placeholders": {
-      "budgetName": "Groceries",
-      "amountUsed": "$5",
-      "amountTotal": "$100",
-      "amountLeft": "$95"
+      "budgetName": {
+        "example": "Groceries"
+      },
+      "amountUsed": {
+        "example": "$5"
+      },
+      "amountTotal": {
+        "example": "$100"
+      },
+      "amountLeft": {
+        "example": "$95"
+      }
     }
   },
   "craneDescription": "A personalized travel app",
@@ -2318,6 +2352,36 @@
   "@craneFormDates": {
     "description": "Form field label to select multiple dates."
   },
+  "craneHours": "{hours, plural, =1{1h} other{{hours}h}}",
+  "@craneHours": {
+    "description": "Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated.",
+    "placeholders": {
+      "hours": {
+        "example": "1"
+      }
+    }
+  },
+  "craneMinutes": "{minutes, plural, =1{1m} other{{minutes}m}}",
+  "@craneMinutes": {
+    "description": "Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated.",
+    "placeholders": {
+      "minutes": {
+        "example": "15"
+      }
+    }
+  },
+  "craneFlightDuration": "{hoursShortForm} {minutesShortForm}",
+  "@craneFlightDuration": {
+    "description": "A pattern to define the layout of a flight duration string. For example in English one might say 1h 15m. Translation should only rearrange the inputs. {hoursShortForm} would for example be replaced by 1h, already translated to the given locale. {minutesShortForm} would for example be replaced by 15m, already translated to the given locale.",
+    "placeholders": {
+      "hoursShortForm": {
+        "example": "1h"
+      },
+      "minutesShortForm": {
+        "example": "15m"
+      }
+    }
+  },
   "craneFly": "FLY",
   "@craneFly": {
     "description": "Title for FLY tab."
@@ -2347,7 +2411,7 @@
     "description": "Label indicating if a flight is nonstop or how many layovers it includes.",
     "placeholders": {
       "numberOfStops": {
-        "example": 2
+        "example": "2"
       }
     }
   },

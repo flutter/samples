@@ -14,7 +14,6 @@ dependencies:
   intl:
   intl_translation:
   flutter_localized_locales:
-  duration:
   cupertino_icons: ^0.1.2
   rally_assets: 1.0.0
   meta:
