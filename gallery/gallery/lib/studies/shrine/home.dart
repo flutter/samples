@@ -11,6 +11,8 @@ import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/supplemental/asymmetric_view.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+const _ordinalSortKeyName = 'home';
+
 class ProductPage extends StatelessWidget {
   const ProductPage();
 
@@ -52,14 +54,14 @@ class HomePage extends StatelessWidget {
           Semantics(
             container: true,
             child: backdrop,
-            sortKey: OrdinalSortKey(1),
+            sortKey: OrdinalSortKey(1, name: _ordinalSortKeyName),
           ),
           ExcludeSemantics(child: scrim),
           Align(
             child: Semantics(
               container: true,
               child: expandingBottomSheet,
-              sortKey: OrdinalSortKey(0),
+              sortKey: OrdinalSortKey(0, name: _ordinalSortKeyName),
             ),
             alignment: isDesktop
                 ? AlignmentDirectional.topEnd
