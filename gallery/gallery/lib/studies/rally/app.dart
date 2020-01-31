@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
@@ -61,27 +62,29 @@ class RallyApp extends StatelessWidget {
   TextTheme _buildRallyTextTheme(TextTheme base) {
     return base
         .copyWith(
+          // TODO: Use GoogleFonts.robotoCondensed when available
           body1: base.body1.copyWith(
             fontFamily: 'Roboto Condensed',
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),
-          body2: base.body2.copyWith(
-            fontFamily: 'Eczar',
+          body2: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w400,
             letterSpacing: 1.4,
+            textStyle: base.body2,
           ),
+          // TODO: Use GoogleFonts.robotoCondensed when available
           button: base.button.copyWith(
             fontFamily: 'Roboto Condensed',
             fontWeight: FontWeight.w700,
             letterSpacing: 2.8,
           ),
-          headline: base.body2.copyWith(
-            fontFamily: 'Eczar',
+          headline: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w600,
             letterSpacing: 1.4,
+            textStyle: base.body2,
           ),
         )
         .apply(
