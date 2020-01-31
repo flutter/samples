@@ -899,7 +899,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("REFERENCE STYLES & MEDIA"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),

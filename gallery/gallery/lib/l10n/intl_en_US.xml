@@ -347,8 +347,8 @@
     >A personalized travel app</string>
   <string
     name="homeCategoryReference"
-    description="Category title on home screen for reference styles &amp; media."
-    >REFERENCE STYLES &amp; MEDIA</string>
+    description="Category title on home screen for styles &amp; other demos (for context, the styles demos consist of a color demo and a typography demo)."
+    >STYLES &amp; OTHER</string>
   <string
     name="demoInvalidURL"
     description="Error message when opening the URL for a demo."
