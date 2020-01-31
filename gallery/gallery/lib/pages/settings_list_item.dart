@@ -26,44 +26,47 @@ class SlowMotionSetting extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final options = GalleryOptions.of(context);
 
-    return Container(
-      margin: settingItemHeaderMargin,
-      child: Material(
-        shape: RoundedRectangleBorder(borderRadius: settingItemBorderRadius),
-        color: colorScheme.secondary,
-        clipBehavior: Clip.antiAlias,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      GalleryLocalizations.of(context).settingsSlowMotion,
-                      style: textTheme.subhead.apply(
-                        color: colorScheme.onSurface,
+    return Semantics(
+      container: true,
+      child: Container(
+        margin: settingItemHeaderMargin,
+        child: Material(
+          shape: RoundedRectangleBorder(borderRadius: settingItemBorderRadius),
+          color: colorScheme.secondary,
+          clipBehavior: Clip.antiAlias,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        GalleryLocalizations.of(context).settingsSlowMotion,
+                        style: textTheme.subhead.apply(
+                          color: colorScheme.onSurface,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 8),
-              child: Switch(
-                activeColor: colorScheme.primary,
-                value: options.timeDilation != 1.0,
-                onChanged: (isOn) => GalleryOptions.update(
-                  context,
-                  options.copyWith(timeDilation: isOn ? 5.0 : 1.0),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: 8),
+                child: Switch(
+                  activeColor: colorScheme.primary,
+                  value: options.timeDilation != 1.0,
+                  onChanged: (isOn) => GalleryOptions.update(
+                    context,
+                    options.copyWith(timeDilation: isOn ? 5.0 : 1.0),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
