@@ -209,12 +209,14 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                         .demoTextFieldWhereCanWeReachYou,
                     labelText: GalleryLocalizations.of(context)
                         .demoTextFieldPhoneNumber,
-                    prefixText: '+1',
+                    prefixText: '+1 ',
                   ),
                   keyboardType: TextInputType.phone,
                   onSaved: (value) {
                     person.phoneNumber = value;
                   },
+                  maxLength: 14,
+                  maxLengthEnforced: false,
                   validator: _validatePhoneNumber,
                   // TextInputFormatters are applied in sequence.
                   inputFormatters: <TextInputFormatter>[
@@ -263,7 +265,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                         GalleryLocalizations.of(context).demoTextFieldSalary,
                     suffixText:
                         GalleryLocalizations.of(context).demoTextFieldUSD,
-                    suffixStyle: TextStyle(color: Colors.green),
                   ),
                   maxLines: 1,
                 ),
