@@ -26,8 +26,7 @@ dependencies:
   collection: ^1.14.0
   flutter_gallery_assets: 0.1.9+2
   package_info: ^0.4.0+13
-  google_fonts:
-    path: /Users/plg/development/google-fonts-flutter
+  google_fonts: ^0.3.5
 
 dev_dependencies:
   flutter_test:

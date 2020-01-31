@@ -164,10 +164,10 @@ packages:
   google_fonts:
     dependency: "direct main"
     description:
-      path: "/Users/plg/development/google-fonts-flutter"
-      relative: false
-    source: path
-    version: "0.3.6"
+      name: google_fonts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.5"
   grinder:
     dependency: "direct dev"
     description:
