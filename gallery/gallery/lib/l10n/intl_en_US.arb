@@ -416,9 +416,9 @@
   "@craneDescription": {
     "description": "Study description for Crane."
   },
-  "homeCategoryReference": "REFERENCE STYLES & MEDIA",
+  "homeCategoryReference": "STYLES & OTHER",
   "@homeCategoryReference": {
-    "description": "Category title on home screen for reference styles & media."
+    "description": "Category title on home screen for styles & other demos (for context, the styles demos consist of a color demo and a typography demo)."
   },
   "demoInvalidURL": "Couldn't display URL:",
   "@demoInvalidURL": {
