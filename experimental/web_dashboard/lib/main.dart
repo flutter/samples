@@ -24,10 +24,14 @@ class _DashboardAppState extends State<DashboardApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // Forward the initial route to the app shell.
       onGenerateInitialRoutes: (initialRoute){
         return [
           PageRouteBuilder(
+            // Use the same route settings in the child navigator.
             settings: RouteSettings(name: initialRoute),
+            // Send the route to AppShell so it can select the correct item in
+            // the Drawer / NavigationRail / BottomAppBar
             pageBuilder: (context, animation, secondaryAnimation) {
               return AppShell(initialRoute);
             },
@@ -44,7 +48,9 @@ class _DashboardAppState extends State<DashboardApp> {
 /// body of the Scaffold.
 class AppShell extends StatefulWidget {
   final String routeName;
+
   AppShell(this.routeName);
+
   @override
   _AppShellState createState() => _AppShellState();
 }
