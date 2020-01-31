@@ -83,9 +83,7 @@ class HomePage extends StatelessWidget {
       _CarouselCard(
         title: fortnightlyTitle,
         subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
-        asset: 'assets/studies/shrine_card.png', // TODO
-        assetDark: 'assets/studies/shrine_card_dark.png', // TODO
-        textColor: shrineBrown900, // TODO
+        // TODO: Provide asset for study banner.
         study: FortnightlyApp(navigatorKey: NavigatorKeys.fortnightly),
         navigatorKey: NavigatorKeys.fortnightly,
       ),
@@ -754,6 +752,7 @@ class _CarouselCard extends StatelessWidget {
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         clipBehavior: Clip.antiAlias,
+        color: Colors.grey,
         child: InkWell(
           onTap: () {
             Navigator.of(context).push<void>(
@@ -768,10 +767,11 @@ class _CarouselCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Ink.image(
-                image: AssetImage(asset),
-                fit: BoxFit.cover,
-              ),
+              if (asset != null)
+                Ink.image(
+                  image: AssetImage(asset),
+                  fit: BoxFit.cover,
+                ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                 child: Column(
