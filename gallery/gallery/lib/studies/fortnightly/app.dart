@@ -8,6 +8,8 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
+const String fortnightlyTitle = 'Fortnightly';
+
 class FortnightlyApp extends StatelessWidget {
   const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
 
@@ -40,7 +42,13 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Image.asset('assets/fortnightly/fortnightly_title.png'),
+        title: Semantics(
+          label: fortnightlyTitle,
+          child: Image.asset(
+            'assets/fortnightly/fortnightly_title.png',
+            excludeFromSemantics: true,
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -83,8 +91,12 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     width: menuWidth,
                     alignment: Alignment.centerLeft,
                     margin: EdgeInsets.only(left: 12),
-                    child: Image.asset(
-                      'assets/fortnightly/fortnightly_title.png',
+                    child: Semantics(
+                      label: fortnightlyTitle,
+                      child: Image.asset(
+                        'assets/fortnightly/fortnightly_title.png',
+                        excludeFromSemantics: true,
+                      ),
                     ),
                   ),
                   spacer,

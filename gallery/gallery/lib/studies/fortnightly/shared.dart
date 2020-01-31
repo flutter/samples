@@ -53,6 +53,7 @@ class HorizontalArticlePreview extends StatelessWidget {
         Image.asset(
           data.imageUrl,
           fit: BoxFit.cover,
+          excludeFromSemantics: true,
         ),
       ],
     );
@@ -86,6 +87,7 @@ class VerticalArticlePreview extends StatelessWidget {
             child: Image.asset(
               data.imageUrl,
               fit: BoxFit.fitWidth,
+              excludeFromSemantics: true,
             ),
           ),
           SizedBox(height: 12),
@@ -270,7 +272,10 @@ class NavigationMenu extends StatelessWidget {
                 tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.pop(context),
               ),
-              Image.asset('assets/fortnightly/fortnightly_title.png'),
+              Image.asset(
+                'assets/fortnightly/fortnightly_title.png',
+                excludeFromSemantics: true,
+              ),
             ],
           ),
         SizedBox(height: 32),
@@ -379,6 +384,7 @@ List<Widget> buildStockItems(BuildContext context) {
       child: Image.asset(
         'assets/fortnightly/fortnightly_chart.png',
         fit: BoxFit.contain,
+        excludeFromSemantics: true,
       ),
     ),
     articleDivider,
@@ -430,7 +436,11 @@ class VideoPreview extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          child: Image.asset(data.imageUrl, fit: BoxFit.contain),
+          child: Image.asset(
+            data.imageUrl,
+            fit: BoxFit.contain,
+            excludeFromSemantics: true,
+          ),
         ),
         SizedBox(height: 4),
         Row(

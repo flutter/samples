@@ -34,7 +34,6 @@ const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 const String shrineTitle = 'Shrine';
 const String rallyTitle = 'Rally';
 const String craneTitle = 'Crane';
-const String fortnightlyTitle = 'Fortnightly';
 const String homeCategoryMaterial = 'MATERIAL';
 const String homeCategoryCupertino = 'CUPERTINO';
 
