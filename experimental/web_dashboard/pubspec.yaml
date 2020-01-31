@@ -1,0 +1,14 @@
+name: web_dashboard
+description: A desktop-friendly dashboard app
+version: 1.0.0+1
+environment:
+  sdk: ">=2.3.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
