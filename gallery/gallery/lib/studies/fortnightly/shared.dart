@@ -156,12 +156,9 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       ),
     ),
     sectionDivider,
-    Container(
-      margin: const EdgeInsets.all(16),
-      child: Text(
-        GalleryLocalizations.of(context).fortnightlyLatestUpdates,
-        style: textTheme.title,
-      ),
+    Text(
+      GalleryLocalizations.of(context).fortnightlyLatestUpdates,
+      style: textTheme.title,
     ),
     articleDivider,
     HorizontalArticlePreview(
