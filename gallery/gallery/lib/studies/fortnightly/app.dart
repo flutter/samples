@@ -95,7 +95,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                 children: [
                   Container(
                     width: menuWidth,
-                    alignment: Alignment.centerLeft,
+                    alignment: AlignmentDirectional.centerStart,
                     margin: EdgeInsets.only(left: 12),
                     child: Semantics(
                       label: fortnightlyTitle,
@@ -114,7 +114,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                   Flexible(
                     fit: FlexFit.tight,
                     child: Container(
-                      alignment: Alignment.centerRight,
+                      alignment: AlignmentDirectional.centerEnd,
                       child: IconButton(
                         icon: const Icon(Icons.search),
                         tooltip: GalleryLocalizations.of(context)
