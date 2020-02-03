@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 
@@ -46,7 +47,7 @@ ThemeData _buildShrineTheme() {
 }
 
 TextTheme _buildShrineTextTheme(TextTheme base) {
-  return base
+  return GoogleFonts.rubikTextTheme(base
       .copyWith(
         headline: base.headline.copyWith(
           fontWeight: FontWeight.w500,
@@ -82,10 +83,9 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
         ),
       )
       .apply(
-        fontFamily: 'Rubik',
         displayColor: shrineBrown900,
         bodyColor: shrineBrown900,
-      );
+      ));
 }
 
 const ColorScheme _shrineColorScheme = ColorScheme(
