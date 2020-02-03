@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
@@ -81,13 +82,15 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final menuWidth = 200.0;
     final spacer = SizedBox(width: 20);
+    final headerHeight = 40 * reducedTextScale(context);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             SizedBox(
-              height: 40,
+              height: headerHeight,
               child: Row(
                 children: [
                   Container(

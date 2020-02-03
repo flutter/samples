@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -201,15 +202,16 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
 class HashtagBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget verticalDivider = Container(
+    final verticalDivider = Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       color: Colors.black.withOpacity(0.1),
       width: 1,
     );
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
+    final height = 32 * reducedTextScale(context);
 
     return SizedBox(
-      height: 32,
+      height: height,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
@@ -314,12 +316,14 @@ class MenuItem extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: header ? null : Icon(Icons.arrow_drop_down),
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.subhead.copyWith(
-                  fontWeight: header ? FontWeight.w700 : FontWeight.w600,
-                  fontSize: 16,
-                ),
+          Expanded(
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.subhead.copyWith(
+                    fontWeight: header ? FontWeight.w700 : FontWeight.w600,
+                    fontSize: 16,
+                  ),
+            ),
           ),
         ],
       ),
@@ -349,10 +353,14 @@ class StockItem extends StatelessWidget {
         SizedBox(height: 2),
         Row(
           children: [
-            Text(price,
+            Expanded(
+              child: Text(
+                price,
                 style: textTheme.subtitle.copyWith(
-                    color: textTheme.subtitle.color.withOpacity(0.75))),
-            Spacer(),
+                  color: textTheme.subtitle.color.withOpacity(0.75),
+                ),
+              ),
+            ),
             Text(
               percent > 0 ? '+' : '-',
               style: textTheme.subtitle.copyWith(
@@ -449,8 +457,9 @@ class VideoPreview extends StatelessWidget {
         SizedBox(height: 4),
         Row(
           children: [
-            Text(data.category, style: textTheme.subhead),
-            Spacer(),
+            Expanded(
+              child: Text(data.category, style: textTheme.subhead),
+            ),
             Text(time, style: textTheme.body2)
           ],
         ),
