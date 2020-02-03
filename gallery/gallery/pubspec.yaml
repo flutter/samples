@@ -15,7 +15,7 @@ dependencies:
   intl_translation:
   flutter_localized_locales:
   cupertino_icons: ^0.1.2
-  rally_assets: 1.0.0
+  rally_assets: ^1.0.0
   meta:
   scoped_model:
   shrine_images: ^1.1.2
@@ -23,7 +23,7 @@ dependencies:
   url_launcher: ^5.1.6
   shared_preferences: ^0.5.4+8
   collection: ^1.14.0
-  flutter_gallery_assets: 0.1.9+2
+  flutter_gallery_assets: ^0.1.9+2
   package_info: ^0.4.0+13
   google_fonts: ^0.3.5
 
@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   grinder: ^0.8.0
-  string_scanner: 1.0.5
+  string_scanner: ^1.0.5
 
 flutter:
   assets:
