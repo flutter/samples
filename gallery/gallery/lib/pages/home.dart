@@ -31,11 +31,11 @@ const _carouselItemMargin = 8.0;
 const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 
-const String shrineTitle = 'Shrine';
-const String rallyTitle = 'Rally';
-const String craneTitle = 'Crane';
-const String homeCategoryMaterial = 'MATERIAL';
-const String homeCategoryCupertino = 'CUPERTINO';
+const shrineTitle = 'Shrine';
+const rallyTitle = 'Rally';
+const craneTitle = 'Crane';
+const homeCategoryMaterial = 'MATERIAL';
+const homeCategoryCupertino = 'CUPERTINO';
 
 class ToggleSplashNotification extends Notification {}
 

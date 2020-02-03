@@ -8,7 +8,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
-const String fortnightlyTitle = 'Fortnightly';
+const fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
   const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
@@ -17,13 +17,16 @@ class FortnightlyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final home = isDisplayDesktop(context)
+        ? _FortnightlyHomeDesktop()
+        : _FortnightlyHomeMobile();
     return MaterialApp(
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      theme: buildTheme(context),
-      home: isDisplayDesktop(context)
-          ? _FortnightlyHomeDesktop()
-          : _FortnightlyHomeMobile(),
+      theme: buildTheme(context).copyWith(
+        platform: GalleryOptions.of(context).platform,
+      ),
+      home: ApplyTextOptions(child: home),
       // L10n settings.
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,

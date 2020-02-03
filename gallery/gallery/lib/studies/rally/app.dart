@@ -84,7 +84,7 @@ class RallyApp extends StatelessWidget {
             fontSize: 40,
             fontWeight: FontWeight.w600,
             letterSpacing: 1.4,
-            textStyle: base.body2,
+            textStyle: base.headline,
           ),
         )
         .apply(

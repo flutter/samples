@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ArticleData {
   ArticleData({this.imageUrl, this.category, this.title, this.snippet});
@@ -491,41 +492,42 @@ ThemeData buildTheme(BuildContext context) {
     highlightColor: Colors.transparent,
     textTheme: textTheme.copyWith(
       // preview snippet
-      body1: textTheme.body1.copyWith(
-        fontFamily: 'Merriweather',
+      body1: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
         fontSize: 16,
+        textStyle: textTheme.body1,
       ),
       // time in latest updates
-      body2: textTheme.body2.copyWith(
-        fontFamily: 'Libre Franklin',
+      body2: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
+        textStyle: textTheme.body2,
       ),
       // preview headlines
-      headline: textTheme.headline.copyWith(
-        fontFamily: 'Libre Franklin',
+      headline: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 16,
+        textStyle: textTheme.headline,
       ),
+      // TODO: Use GoogleFonts.robotoCondensed when available
       // (caption 2), preview category, stock ticker
       subhead: textTheme.subhead.copyWith(
         fontFamily: 'Roboto Condensed',
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),
-      subtitle: textTheme.subtitle.copyWith(
-        fontFamily: 'Libre Franklin',
+      subtitle: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
+        textStyle: textTheme.subtitle1,
       ),
       // section titles: Top Highlights, Last Updated...
-      title: textTheme.title.copyWith(
-        fontFamily: 'Merriweather',
+      title: GoogleFonts.merriweather(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
+        textStyle: textTheme.title,
       ),
     ),
   );

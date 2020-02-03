@@ -108,27 +108,6 @@ flutter:
     - family: GalleryIcons
       fonts:
         - asset: fonts/GalleryIcons.ttf
-    - family: Libre Franklin
-      fonts:
-        - asset: fonts/LibreFranklin-Regular.ttf
-          weight: 400
-        - asset: fonts/LibreFranklin-Medium.ttf
-          weight: 500
-        - asset: fonts/LibreFranklin-SemiBold.ttf
-          weight: 600
-        - asset: fonts/LibreFranklin-Bold.ttf
-          weight: 700
-        - asset: fonts/LibreFranklin-ExtraBold.ttf
-          weight: 900
-    - family: Merriweather
-      fonts:
-        - asset: fonts/Merriweather-Light.ttf
-          weight: 300
-        - asset: fonts/Merriweather-Regular.ttf
-          weight: 400
-        - asset: fonts/Merriweather-BoldItalic.ttf
-          weight: 700
-          style: italic
     # TODO: Remove once google_fonts supports condensed fonts
     - family: Roboto Condensed
       fonts:
