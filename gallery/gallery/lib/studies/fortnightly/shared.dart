@@ -535,7 +535,7 @@ ThemeData buildTheme(BuildContext context) {
       subtitle: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: textTheme.subtitle1,
+        textStyle: textTheme.subtitle,
       ),
       // section titles: Top Highlights, Last Updated...
       title: GoogleFonts.merriweather(
