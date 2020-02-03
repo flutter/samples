@@ -3,8 +3,10 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class ArticleData {
   ArticleData({this.imageUrl, this.category, this.title, this.snippet});
@@ -334,7 +336,11 @@ class StockItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
+    final percentFormat = NumberFormat.decimalPercentPattern(
+      locale: GalleryOptions.of(context).locale.toString(),
+      decimalDigits: 2,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -356,7 +362,7 @@ class StockItem extends StatelessWidget {
             ),
             SizedBox(width: 4),
             Text(
-              percent.abs().toStringAsFixed(2) + '%',
+              percentFormat.format(percent.abs() / 100),
               style: textTheme.caption.copyWith(
                 fontSize: 12,
                 color: textTheme.subtitle.color.withOpacity(0.75),
@@ -395,7 +401,7 @@ List<Widget> buildStockItems(BuildContext context) {
     StockItem(
       ticker: 'SP',
       price: '1,967.84',
-      percent: 0.00,
+      percent: -0.23,
     ),
     articleDivider,
     StockItem(
