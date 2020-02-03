@@ -17,6 +17,7 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -289,9 +290,8 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         );
         break;
       case _DemoState.code:
-        final TextStyle codeTheme = TextStyle(
+        final TextStyle codeTheme = GoogleFonts.robotoMono(
           fontSize: 12 * GalleryOptions.of(context).textScaleFactor(context),
-          fontFamily: 'Roboto Mono',
         );
         section = CodeStyle(
           baseStyle: codeTheme.copyWith(color: Color(0xFFFAFBFB)),

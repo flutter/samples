@@ -944,7 +944,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fortnightlyTrendingTechDesign":
             MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("REFERENCE STYLES & MEDIA"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),

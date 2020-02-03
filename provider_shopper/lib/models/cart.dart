@@ -6,25 +6,25 @@ import 'package:flutter/foundation.dart';
 import 'package:provider_shopper/models/catalog.dart';
 
 class CartModel extends ChangeNotifier {
-  /// The current catalog. Used to construct items from numeric ids.
-  final CatalogModel _catalog;
+  /// The private field backing [catalog].
+  CatalogModel _catalog;
 
   /// Internal, private state of the cart. Stores the ids of each item.
-  final List<int> _itemIds;
+  final List<int> _itemIds = [];
 
-  /// Construct a CartModel instance that is backed by a [CatalogModel] and
-  /// an optional previous state of the cart.
-  ///
-  /// If [previous] is not `null`, its items are copied to the newly
-  /// constructed instance.
-  CartModel(this._catalog, CartModel previous)
-      : assert(_catalog != null),
-        _itemIds = previous?._itemIds ?? [];
+  /// The current catalog. Used to construct items from numeric ids.
+  CatalogModel get catalog => _catalog;
 
-  /// An empty cart with no Catalog.
-  CartModel.empty()
-      : _catalog = null,
-        _itemIds = [];
+  set catalog(CatalogModel newCatalog) {
+    assert(newCatalog != null);
+    assert(_itemIds.every((id) => newCatalog.getById(id) != null),
+        'The catalog $newCatalog does not have one of $_itemIds in it.');
+    _catalog = newCatalog;
+    // Notify listeners, in case the new catalog provides information
+    // different from the previous one. For example, availability of an item
+    // might have changed.
+    notifyListeners();
+  }
 
   /// List of items in the cart.
   List<Item> get items => _itemIds.map((id) => _catalog.getById(id)).toList();

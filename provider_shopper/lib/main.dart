@@ -27,9 +27,11 @@ class MyApp extends StatelessWidget {
         // of ChangeNotifierProvider. Moreover, CartModel depends
         // on CatalogModel, so a ProxyProvider is needed.
         ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-          create: (context) => CartModel.empty(),
-          update: (context, catalog, previousCart) =>
-              CartModel(catalog, previousCart),
+          create: (context) => CartModel(),
+          update: (context, catalog, cart) {
+            cart.catalog = catalog;
+            return cart;
+          },
         ),
       ],
       child: MaterialApp(
