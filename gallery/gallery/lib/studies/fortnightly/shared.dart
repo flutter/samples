@@ -52,7 +52,7 @@ class HorizontalArticlePreview extends StatelessWidget {
             GalleryLocalizations.of(context).craneMinutes(minutes),
             style: textTheme.body2,
           ),
-          SizedBox(width: 8)
+          SizedBox(width: 8),
         ],
         Image.asset(
           data.imageUrl,
