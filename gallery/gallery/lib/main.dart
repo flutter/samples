@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -29,6 +30,7 @@ void setOverrideForDesktop() {
 
 void main() {
   setOverrideForDesktop();
+  GoogleFonts.config.allowHttp = false;
   runApp(GalleryApp());
 }
 
