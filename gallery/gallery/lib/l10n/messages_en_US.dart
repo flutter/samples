@@ -898,6 +898,51 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("A news app"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Reforming The Green Army From Within"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Farmland Bees In Short Supply"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Designers Use Tech To Make Futuristic Fabrics"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feminists Take On Partisanship"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("The Future of Gasoline"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "The Quiet, Yet Powerful Healthcare Revolution"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "As Stocks Stagnate, Many Look To Currency"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Divided American Lives During War"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Latest Updates"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Business"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Culture"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Front Page"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politics"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Science"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sports"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Tech"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Travel"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("World"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
             MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":

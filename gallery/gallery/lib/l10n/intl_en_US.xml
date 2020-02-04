@@ -114,6 +114,10 @@
     description="Study description for Shrine."
     >A fashionable retail app</string>
   <string
+    name="fortnightlyDescription"
+    description="Study description for Fortnightly."
+    >A news app</string>
+  <string
     name="rallyDescription"
     description="Study description for Rally."
     >A personal finance app</string>
@@ -2533,4 +2537,100 @@
     name="craneEat10SemanticLabel"
     description="Semantic label for an image."
     >Woman holding huge pastrami sandwich</string>
+  <string
+    name="fortnightlyMenuFrontPage"
+    description="Menu item for the front page of the news app."
+    >Front Page</string>
+  <string
+    name="fortnightlyMenuWorld"
+    description="Menu item for the world news section of the news app."
+    >World</string>
+  <string
+    name="fortnightlyMenuUS"
+    description="Menu item for the United States news section of the news app."
+    >US</string>
+  <string
+    name="fortnightlyMenuPolitics"
+    description="Menu item for the political news section of the news app."
+    >Politics</string>
+  <string
+    name="fortnightlyMenuBusiness"
+    description="Menu item for the business news section of the news app."
+    >Business</string>
+  <string
+    name="fortnightlyMenuTech"
+    description="Menu item for the tech news section of the news app."
+    >Tech</string>
+  <string
+    name="fortnightlyMenuScience"
+    description="Menu item for the science news section of the news app."
+    >Science</string>
+  <string
+    name="fortnightlyMenuSports"
+    description="Menu item for the sports news section of the news app."
+    >Sports</string>
+  <string
+    name="fortnightlyMenuTravel"
+    description="Menu item for the travel news section of the news app."
+    >Travel</string>
+  <string
+    name="fortnightlyMenuCulture"
+    description="Menu item for the culture news section of the news app."
+    >Culture</string>
+  <string
+    name="fortnightlyTrendingTechDesign"
+    description="Hashtag for the tech design trending topic of the news app."
+    >TechDesign</string>
+  <string
+    name="fortnightlyTrendingReform"
+    description="Hashtag for the reform trending topic of the news app."
+    >Reform</string>
+  <string
+    name="fortnightlyTrendingHealthcareRevolution"
+    description="Hashtag for the healthcare revolution trending topic of the news app."
+    >HealthcareRevolution</string>
+  <string
+    name="fortnightlyTrendingGreenArmy"
+    description="Hashtag for the green army trending topic of the news app."
+    >GreenArmy</string>
+  <string
+    name="fortnightlyTrendingStocks"
+    description="Hashtag for the stocks trending topic of the news app."
+    >Stocks</string>
+  <string
+    name="fortnightlyLatestUpdates"
+    description="Title for news section regarding the latest updates."
+    >Latest Updates</string>
+  <string
+    name="fortnightlyHeadlineHealthcare"
+    description="Headline for a news article about healthcare."
+    >The Quiet, Yet Powerful Healthcare Revolution</string>
+  <string
+    name="fortnightlyHeadlineWar"
+    description="Headline for a news article about war."
+    >Divided American Lives During War</string>
+  <string
+    name="fortnightlyHeadlineGasoline"
+    description="Headline for a news article about gasoline."
+    >The Future of Gasoline</string>
+  <string
+    name="fortnightlyHeadlineArmy"
+    description="Headline for a news article about the green army."
+    >Reforming The Green Army From Within</string>
+  <string
+    name="fortnightlyHeadlineStocks"
+    description="Headline for a news article about stocks."
+    >As Stocks Stagnate, Many Look To Currency</string>
+  <string
+    name="fortnightlyHeadlineFabrics"
+    description="Headline for a news article about fabric."
+    >Designers Use Tech To Make Futuristic Fabrics</string>
+  <string
+    name="fortnightlyHeadlineFeminists"
+    description="Headline for a news article about feminists and partisanship."
+    >Feminists Take On Partisanship</string>
+  <string
+    name="fortnightlyHeadlineBees"
+    description="Headline for a news article about bees."
+    >Farmland Bees In Short Supply</string>
 </resources>

@@ -19,6 +19,7 @@ import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/studies/crane/app.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:gallery/studies/fortnightly/app.dart';
 import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/shrine/app.dart';
@@ -30,11 +31,11 @@ const _carouselItemMargin = 8.0;
 const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 
-const String shrineTitle = 'Shrine';
-const String rallyTitle = 'Rally';
-const String craneTitle = 'Crane';
-const String homeCategoryMaterial = 'MATERIAL';
-const String homeCategoryCupertino = 'CUPERTINO';
+const shrineTitle = 'Shrine';
+const rallyTitle = 'Rally';
+const craneTitle = 'Crane';
+const homeCategoryMaterial = 'MATERIAL';
+const homeCategoryCupertino = 'CUPERTINO';
 
 class ToggleSplashNotification extends Notification {}
 
@@ -42,6 +43,7 @@ class NavigatorKeys {
   static final shrine = GlobalKey<NavigatorState>();
   static final rally = GlobalKey<NavigatorState>();
   static final crane = GlobalKey<NavigatorState>();
+  static final fortnightly = GlobalKey<NavigatorState>();
   static final starter = GlobalKey<NavigatorState>();
 }
 
@@ -77,6 +79,13 @@ class HomePage extends StatelessWidget {
         textColor: cranePurple700,
         study: CraneApp(navigatorKey: NavigatorKeys.crane),
         navigatorKey: NavigatorKeys.crane,
+      ),
+      _CarouselCard(
+        title: fortnightlyTitle,
+        subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
+        // TODO: Provide asset for study banner.
+        study: FortnightlyApp(navigatorKey: NavigatorKeys.fortnightly),
+        navigatorKey: NavigatorKeys.fortnightly,
       ),
       _CarouselCard(
         title: GalleryLocalizations.of(context).starterAppTitle,
@@ -743,6 +752,7 @@ class _CarouselCard extends StatelessWidget {
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         clipBehavior: Clip.antiAlias,
+        color: Colors.grey,
         child: InkWell(
           onTap: () {
             Navigator.of(context).push<void>(
@@ -757,10 +767,11 @@ class _CarouselCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Ink.image(
-                image: AssetImage(asset),
-                fit: BoxFit.cover,
-              ),
+              if (asset != null)
+                Ink.image(
+                  image: AssetImage(asset),
+                  fit: BoxFit.cover,
+                ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
                 child: Column(
