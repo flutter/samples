@@ -45,7 +45,7 @@ dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
     --output-class=GalleryLocalizations
 ```
 
-From `samples/gallery/`, run `dart ../l10n_cli/bin/main.dart`, which
+From `samples/gallery/`, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
