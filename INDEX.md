@@ -101,6 +101,12 @@ A collection of animation examples. The app starts with basic concepts like
 `AnimationController` and `Tween`, then progresses to transitions and
 advanced demos.
 
+#### [Material Theme Builder]l(material_theme_builder) _(Material team)_
+
+Build a Material Theme lets you create your own Material theme by customizing values for color, 
+typography, and shape. See how these values appear when applied to Material Components and 
+discover how to implement your custom theme in your own projects.
+
 ## Maps
 
 #### [Place tracker](place_tracker) _(Flutter team)_
