@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
-    final carouselCards = <_CarouselCard>[
+    final carouselCards = <Widget>[
       _CarouselCard(
         title: shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
@@ -120,12 +120,15 @@ class HomePage extends StatelessWidget {
       return Scaffold(
         body: ListView(
           padding: EdgeInsetsDirectional.only(
-            start: _horizontalDesktopPadding,
             top: isDesktop ? firstHeaderDesktopTopPadding : 21,
-            end: _horizontalDesktopPadding,
           ),
           children: [
-            ExcludeSemantics(child: _GalleryHeader()),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
+              child: ExcludeSemantics(child: _GalleryHeader()),
+            ),
 
             /// TODO: When Focus widget becomes better remove dummy Focus
             /// variable.
@@ -143,15 +146,19 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               height: carouselHeight,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: spaceBetween(30, carouselCards),
-              ),
+              child: _DesktopCarousel(children: carouselCards),
             ),
-            _CategoriesHeader(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
+              child: _CategoriesHeader(),
+            ),
             Container(
               height: 585,
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,7 +167,9 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsetsDirectional.only(
+                start: _horizontalDesktopPadding,
                 bottom: 81,
+                end: _horizontalDesktopPadding,
                 top: 109,
               ),
               child: Row(
@@ -198,17 +207,17 @@ class HomePage extends StatelessWidget {
       );
     }
   }
+}
 
-  List<Widget> spaceBetween(double paddingBetween, List<Widget> children) {
-    return [
-      for (int index = 0; index < children.length; index++) ...[
-        Flexible(
-          child: children[index],
-        ),
-        if (index < children.length - 1) SizedBox(width: paddingBetween),
-      ],
-    ];
-  }
+List<Widget> spaceBetween(double paddingBetween, List<Widget> children) {
+  return [
+    for (int index = 0; index < children.length; index++) ...[
+      Flexible(
+        child: children[index],
+      ),
+      if (index < children.length - 1) SizedBox(width: paddingBetween),
+    ],
+  ];
 }
 
 class _GalleryHeader extends StatelessWidget {
@@ -711,6 +720,150 @@ class _CarouselState extends State<_Carousel>
         itemBuilder: (context, index) => builder(index),
       ),
       controller: widget.animationController,
+    );
+  }
+}
+
+class _DesktopCarousel extends StatefulWidget {
+  const _DesktopCarousel({Key key, this.children}) : super(key: key);
+
+  final List<Widget> children;
+
+  @override
+  __DesktopCarouselState createState() => __DesktopCarouselState();
+}
+
+class __DesktopCarouselState extends State<_DesktopCarousel> {
+  static const spaceBetweenCards = 30.0;
+  static const cardsPerPage = 4;
+
+  PageController _controller;
+  int _currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    if (_controller == null) {
+      _controller = PageController(initialPage: _currentPage);
+    }
+  }
+
+  @override
+  dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Widget _builder(int index) {
+    var paddedChildren = widget.children;
+    while (paddedChildren.length % cardsPerPage > 0) {
+      paddedChildren.add(Container());
+    }
+
+    final start = index * cardsPerPage;
+    var carouselCards = paddedChildren.sublist(start, start + cardsPerPage);
+    carouselCards = spaceBetween(spaceBetweenCards, carouselCards);
+    carouselCards.insert(0, SizedBox(width: spaceBetweenCards / 2));
+    carouselCards.add(SizedBox(width: spaceBetweenCards / 2));
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8), // For the shadow.
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: carouselCards,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final pageCount = (widget.children.length / cardsPerPage).ceil();
+    final showPreviousButton = _currentPage > 0;
+    final showNextButton = _currentPage < pageCount - 1;
+    print(_currentPage);
+    return Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: _horizontalDesktopPadding - spaceBetweenCards / 2,
+          ),
+          child: PageView.builder(
+            onPageChanged: (value) {
+              setState(() {
+                _currentPage = value;
+              });
+            },
+            controller: _controller,
+            itemCount: pageCount,
+            itemBuilder: (context, index) => _builder(index),
+          ),
+        ),
+        if (showPreviousButton)
+          _DesktopPageButton(
+            onTap: () {
+              _controller.previousPage(
+                duration: Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        if (showNextButton)
+          _DesktopPageButton(
+            isEnd: true,
+            onTap: () {
+              _controller.nextPage(
+                duration: Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+      ],
+    );
+  }
+}
+
+class _DesktopPageButton extends StatelessWidget {
+  const _DesktopPageButton({
+    Key key,
+    this.isEnd = false,
+    this.onTap,
+  }) : super(key: key);
+
+  final bool isEnd;
+  final GestureTapCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final buttonSize = 58.0;
+    final padding = _horizontalDesktopPadding - buttonSize / 2;
+    return Align(
+      alignment: isEnd
+          ? AlignmentDirectional.centerEnd
+          : AlignmentDirectional.centerStart,
+      child: Container(
+        width: buttonSize,
+        height: buttonSize,
+        margin: EdgeInsetsDirectional.only(
+          start: isEnd ? 0 : padding,
+          end: isEnd ? padding : 0,
+        ),
+        child: Tooltip(
+          message: isEnd
+              ? MaterialLocalizations.of(context).nextPageTooltip
+              : MaterialLocalizations.of(context).previousPageTooltip,
+          child: Material(
+            color: Colors.black.withOpacity(0.5),
+            shape: CircleBorder(),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: onTap,
+              child: Icon(
+                isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
