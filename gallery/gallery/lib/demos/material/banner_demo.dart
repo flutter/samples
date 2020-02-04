@@ -44,12 +44,13 @@ class _BannerDemoState extends State<BannerDemo> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final banner = MaterialBanner(
       content: Text(GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading
           ? CircleAvatar(
-              child: Icon(Icons.access_alarm),
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              child: Icon(Icons.access_alarm, color: colorScheme.onPrimary),
+              backgroundColor: colorScheme.primary,
             )
           : null,
       actions: [
@@ -71,6 +72,7 @@ class _BannerDemoState extends State<BannerDemo> {
             },
           ),
       ],
+      backgroundColor: colorScheme.background,
     );
 
     return Scaffold(
