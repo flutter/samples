@@ -23,64 +23,80 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} タブのプレースホルダ";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "${destinationName}を探索";
+
+  static m3(destinationName) => "${destinationName}を共有";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'レストランなし', one: '1 件のレストラン', other: '${totalRestaurants} 件のレストラン')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: '直行便', one: '乗継: 1 回', other: '乗継: ${numberOfStops} 回')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: '短期賃貸物件なし', one: '1 件の短期賃貸物件', other: '${totalProperties} 件の短期賃貸物件')}";
 
-  static m5(value) => "項目 ${value}";
+  static m10(value) => "${value}（ハチミツ使用）";
 
-  static m6(error) => "クリップボードにコピーできませんでした。${error}";
+  static m11(value) => "${value}（砂糖使用）";
 
-  static m7(value) => "連続: ${value}";
+  static m12(value) => "項目 ${value}";
 
-  static m8(value) => "不連続: ${value}";
+  static m13(error) => "クリップボードにコピーできませんでした。${error}";
 
-  static m9(value) => "オン: ${value}";
+  static m14(value) => "連続: ${value}";
 
-  static m10(value) => "選択: ${value}";
+  static m15(value) => "不連続: ${value}";
 
-  static m11(name, phoneNumber) => "${name} さんの電話番号は ${phoneNumber} です";
+  static m16(value) => "オン: ${value}";
 
-  static m12(value) => "「${value}」を選択しました";
+  static m17(value) => "選択: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} さんの電話番号は ${phoneNumber} です";
+
+  static m19(value) => "「${value}」を選択しました";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountName}、口座番号 ${accountNumber}、残高 ${amount}。";
 
-  static m14(amount) => "今月は ATM 手数料に ${amount} 使いました";
+  static m21(amount) => "今月は ATM 手数料に ${amount} 使いました";
 
-  static m15(percent) => "がんばりました！当座預金口座の残高が先月より ${percent} 増えました。";
+  static m22(percent) => "がんばりました！当座預金口座の残高が先月より ${percent} 増えました。";
 
-  static m16(percent) => "今月のショッピング予算の ${percent} を使いました。";
+  static m23(percent) => "今月のショッピング予算の ${percent} を使いました。";
 
-  static m17(amount) => "今週はレストランに ${amount} 使いました。";
+  static m24(amount) => "今週はレストランに ${amount} 使いました。";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: '税額控除を受けられる可能性を高めましょう。1 件の未割り当ての取引にカテゴリを割り当ててください。', other: '税額控除を受けられる可能性を高めましょう。${count} 件の未割り当ての取引にカテゴリを割り当ててください。')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${billName}、支払い期限 ${date}、金額 ${amount}。";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}、使用済み予算 ${amountUsed}、総予算 ${amountTotal}、予算残高 ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'アイテムなし', one: '1 件のアイテム', other: '${quantity} 件のアイテム')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "数量: ${quantity}";
+  static m30(quantity) => "数量: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'ショッピングカートにアイテムはありません', one: 'ショッピングカートに1件のアイテムがあります', other: 'ショッピングカートに${quantity}件のアイテムがあります')}";
 
-  static m25(product) => "${product}を削除";
+  static m32(product) => "${product}を削除";
 
-  static m26(value) => "項目 ${value}";
+  static m33(value) => "項目 ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -88,6 +104,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutFlutterSamplesRepo":
             MessageLookupByLibrary.simpleMessage("Flutter サンプル GitHub レポジトリ"),
         "backToGallery": MessageLookupByLibrary.simpleMessage("ギャラリーに戻る"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("先頭のアイコン"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("複数のアクション"),
+        "bannerDemoResetText": MessageLookupByLibrary.simpleMessage("バナーをリセット"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "お使いの他のデバイスでパスワードが更新されました。もう一度ログインしてください。"),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("ノッチ"),
         "bottomAppBarPosition":
             MessageLookupByLibrary.simpleMessage("フローティング アクション ボタンの位置"),
@@ -112,6 +135,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("ボタン"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("作成"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("詳細"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("選択可能（長押し）"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("タップ可能"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("タンジャーヴール"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("チェティナード"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("ナンバー 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("絹糸紡績"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("寺院"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("タンジャーヴール、タミルナードゥ州"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("シヴァガンガイ、タミルナードゥ州"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage("タミルナードゥ州のおすすめ都市トップ 10"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("南インドのアーティスト"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("ブリハディーシュヴァラ寺院"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("自転車"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("エレベーター"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("暖炉"),
@@ -174,8 +223,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("マドリッド（スペイン）"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("ペストリーが置かれたカフェ カウンター"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage("目的地でレストランを検索"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("飛行機"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("アスペン（米国）"),
         "craneFly0SemanticLabel":
@@ -219,7 +269,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("ハバナ（キューバ）"),
         "craneFly9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("青いクラシック カーに寄りかかる男性"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage("目的地でフライトを検索"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("日付を選択"),
         "craneFormDates": MessageLookupByLibrary.simpleMessage("日付を選択"),
@@ -229,6 +279,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormOrigin": MessageLookupByLibrary.simpleMessage("出発地を選択"),
         "craneFormTime": MessageLookupByLibrary.simpleMessage("時間を選択"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("訪問者数"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("宿泊"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("マレ（モルディブ）"),
         "craneSleep0SemanticLabel":
@@ -266,7 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("リスボン（ポルトガル）"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("レンガ作りの海の灯台"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage("目的地で物件を検索"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("許可"),
         "cupertinoAlertApplePie":
@@ -297,6 +349,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("ホーム"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("プロフィール"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("カルシウム（%）"),
+        "dataTableColumnCalories": MessageLookupByLibrary.simpleMessage("カロリー"),
+        "dataTableColumnCarbs": MessageLookupByLibrary.simpleMessage("炭水化物（g）"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("デザート（1 人分）"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("脂肪（g）"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("鉄（%）"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("タンパク質（g）"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("ナトリウム（mg）"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("栄養"),
+        "dataTableRowApplePie": MessageLookupByLibrary.simpleMessage("アップルパイ"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("カップケーキ"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("ドーナッツ"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("エクレア"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("フローズン ヨーグルト"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("ジンジャーブレッド"),
+        "dataTableRowHoneycomb": MessageLookupByLibrary.simpleMessage("ハニカム"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("アイスクリーム サンドイッチ"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("ジェリービーン"),
+        "dataTableRowLollipop": MessageLookupByLibrary.simpleMessage("ロリポップ"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "アクション チップは、メイン コンテンツに関連するアクションをトリガーするオプションの集合です。アクション チップは UI にコンテキストに基づいて動的に表示されます。"),
         "demoActionChipTitle":
@@ -306,6 +397,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("アラート"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("タイトル付きアラート"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "バナーでは、重要なメッセージを簡潔に表示し、ユーザーが対応する（またはバナーを閉じる）アクションを提供します。バナーを閉じるには、ユーザーのアクションが必要です。"),
+        "demoBannerSubtitle":
+            MessageLookupByLibrary.simpleMessage("リスト内にバナーを表示します"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("バナー"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "ボトム アプリバーでは、ボトム ナビゲーション ドロワーと、フローティング アクション ボタンなど最大 4 つのアクションにアクセスできます。"),
         "demoBottomAppBarSubtitle":
@@ -326,7 +422,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText":
             MessageLookupByLibrary.simpleMessage("ボトムシートを表示"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("ヘッダー"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "モーダル ボトムシートとは、メニューまたはダイアログの代わりになるもので、これが表示されている場合、ユーザーはアプリの他の部分を操作できません。"),
         "demoBottomSheetModalTitle":
@@ -344,6 +440,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("フラット、浮き出し、アウトラインなど"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ボタン"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "カードは、アルバム、地理的位置、食事、連絡先の詳細など、いくつかの関連する情報を表す場合に使用するマテリアルのシートです。"),
+        "demoCardSubtitle":
+            MessageLookupByLibrary.simpleMessage("角に丸みがある基本カード"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("カード"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("チェックリスト メニュー"),
         "demoChipSubtitle":
@@ -357,11 +458,11 @@ class MessageLookup extends MessageLookupByLibrary {
                 "くるくる回ることでアプリがビジー状態であることを示す、マテリアル デザインの円形進行状況インジケーター。"),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("円形進行状況インジケーター"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("コードサンプル"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("デモコード"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("クリップボードにコピーしました。"),
         "demoCodeViewerCopyAll": MessageLookupByLibrary.simpleMessage("すべてコピー"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "マテリアル デザインのカラーパレットを表す、カラーとカラー スウォッチの定数です。"),
         "demoColorsSubtitle":
@@ -379,7 +480,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのアクティビティ インジケーター"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("アクティビティ インジケーター"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("アラートボタンのみ"),
         "demoCupertinoAlertButtonsTitle":
@@ -405,25 +506,37 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのナビゲーション バー"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("ナビゲーション バー"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("日付"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("日付と時刻"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "日付、時刻、または日付と時刻の両方を選択する場合に使用できる、iOS スタイルの選択ツール ウィジェットです。"),
+        "demoCupertinoPickerSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS スタイルの日付と時刻の選択ツール"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("時刻"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("タイマー"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("選択ツール"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "iOS スタイルの「下にスワイプしてコンテンツを更新」コントロールを実装するウィジェットです。"),
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルの「下にスワイプして更新」コントロール"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("下にスワイプして更新"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "相互に排他的な複数のオプションから選択する場合に使用します。セグメンテッド コントロール内の 1 つのオプションが選択されると、そのセグメンテッド コントロール内の他のオプションは選択されなくなります。"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのセグメンテッド コントロール"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("セグメンテッド コントロール"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "スライダーでは、連続する値の集合または不連続な値の集合から値を選択できます。"),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのスライダー"),
         "demoCupertinoSliderTitle":
@@ -437,11 +550,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのボトムタブバー"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("タブバー"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "テキスト項目では、ハードウェアのキーボードまたは画面上のキーボードのいずれかを使って、ユーザーがテキストを入力できます。"),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS スタイルのテキスト項目"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "スライダーはバー上の値の範囲を表すもので、ユーザーはスライダーから 1 つの値または値の範囲を選択できます。テーマを設定したりカスタマイズしたりできます。"),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("カスタム スライダー"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "データテーブルには、行と列のグリッドのような形式で情報が表示されます。スキャンしやすいように情報が編成されているため、ユーザーはパターンやインサイトを探すことができます。"),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage("情報の行と列"),
+        "demoDataTableTitle": MessageLookupByLibrary.simpleMessage("データテーブル"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "マテリアル デザインの日付選択ツールを含むダイアログが表示されます。"),
+        "demoDatePickerTitle": MessageLookupByLibrary.simpleMessage("日付選択ツール"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("シンプル、アラート、全画面表示"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ダイアログ"),
@@ -500,7 +629,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("セクション分割メニュー付きの項目"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("シンプル メニュー付きの項目"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("コンテキスト メニュー項目 1"),
         "demoMenuContextMenuItemThree":
@@ -518,7 +647,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("1"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("プレビュー"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("削除"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("共有"),
         "demoMenuSubtitle":
             MessageLookupByLibrary.simpleMessage("メニューボタンとシンプル メニュー"),
@@ -535,6 +664,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "アウトライン ボタンは、押すと不透明になり、浮き上がります。通常は、浮き出しボタンと組み合わせて、代替のサブアクションを提示します。"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("アウトライン ボタン"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("選択ツールを表示"),
+        "demoPickersSubtitle": MessageLookupByLibrary.simpleMessage("日付と時刻の選択"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("選択ツール"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("線形、円形、不確定"),
         "demoProgressIndicatorTitle":
@@ -603,6 +736,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("スナックバー"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "タブを使うことで、さまざまな画面、データセットや、その他のインタラクションにまたがるコンテンツを整理できます。"),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle":
             MessageLookupByLibrary.simpleMessage("個別にスクロール可能なビューを含むタブ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("タブ"),
@@ -621,7 +758,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("簡単にご記入ください。これはデモです。"),
         "demoTextFieldLifeStory": MessageLookupByLibrary.simpleMessage("略歴"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("名前*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("名前は必須です。"),
         "demoTextFieldNoMoreThan":
@@ -653,6 +790,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("電話番号を入力してください"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("メールアドレス"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "マテリアル デザインの時刻選択ツールを含むダイアログが表示されます。"),
+        "demoTimePickerTitle": MessageLookupByLibrary.simpleMessage("時刻選択ツール"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "切り替えボタンでは、関連するオプションを 1 つのグループにまとめることができます。関連する切り替えボタンのグループを強調するには、グループが共通コンテナを共有する必要があります"),
         "demoToggleButtonTitle":
@@ -686,12 +826,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google を利用してアプリが位置情報を特定できるようにします。この場合、アプリが起動していなくても匿名の位置情報が Google に送信されます。"),
         "dialogLocationTitle":
             MessageLookupByLibrary.simpleMessage("Google の位置情報サービスを使用しますか？"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("バックアップ アカウントの設定"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ダイアログを表示"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("閉じる"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("リファレンス スタイルとメディア"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("カテゴリ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ギャラリー"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ビーチ"),
@@ -709,7 +850,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("タンジョール"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("タンジャーヴール寺院"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("マイカー貯金"),
         "rallyAccountDataChecking":
@@ -733,15 +874,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("合計"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("口座"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("アラート"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("請求"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("期限"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("衣料品"),
         "rallyBudgetCategoryCoffeeShops":
@@ -825,7 +966,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("キャンセル"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("カートをクリア"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("カート"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("送料:"),
@@ -884,8 +1025,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ズボン（ネイビー）"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("チュニック（パステル）"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("カルテット テーブル"),
         "shrineProductRainwaterTray":
@@ -924,10 +1065,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ホワイト ピンストライプ シャツ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ホイットニー ベルト"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("カートに追加"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("カートを閉じます"),
         "shrineTooltipCloseMenu":
@@ -938,9 +1079,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("アイテムを削除します"),
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("検索"),
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("設定"),
+        "signIn": MessageLookupByLibrary.simpleMessage("ログイン"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("レスポンシブ スターター レイアウト"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("本文"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("ボタン"),
         "starterAppGenericHeadline":

@@ -24,66 +24,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} ટૅબ માટેનું પ્લેસહોલ્ડર";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "${destinationName}ની શોધખોળ કરો";
+
+  static m3(destinationName) => "${destinationName}ને શેર કરો";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'કોઈ રેસ્ટોરન્ટ નથી', one: '1 રેસ્ટોરન્ટ', other: '${totalRestaurants} રેસ્ટોરન્ટ')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'નૉનસ્ટોપ', one: '1 સ્ટૉપ', other: '${numberOfStops} સ્ટૉપ')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'કોઈ પ્રોપર્ટી ઉપલબ્ધ નથી', one: '1 પ્રોપર્ટી ઉપલબ્ધ છે', other: '${totalProperties} પ્રોપર્ટી ઉપલબ્ધ છે')}";
 
-  static m5(value) => "આઇટમ ${value}";
+  static m10(value) => "મધની સાથે ${value}";
 
-  static m6(error) => "ક્લિપબોર્ડ પર કૉપિ કરવામાં નિષ્ફળ રહ્યાં: ${error}";
+  static m11(value) => "ખાંડની સાથે ${value}";
 
-  static m7(value) => "સતત: ${value}";
+  static m12(value) => "આઇટમ ${value}";
 
-  static m8(value) => "અલગ: ${value}";
+  static m13(error) => "ક્લિપબોર્ડ પર કૉપિ કરવામાં નિષ્ફળ રહ્યાં: ${error}";
 
-  static m9(value) => "ચેક કર્યું: ${value}";
+  static m14(value) => "સતત: ${value}";
 
-  static m10(value) => "પસંદ કર્યું: ${value}";
+  static m15(value) => "અલગ: ${value}";
 
-  static m11(name, phoneNumber) => "${name} ફોન નંબર ${phoneNumber} છે";
+  static m16(value) => "ચેક કર્યું: ${value}";
 
-  static m12(value) => "તમે પસંદ કર્યું: \"${value}\"";
+  static m17(value) => "પસંદ કર્યું: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} ફોન નંબર ${phoneNumber} છે";
+
+  static m19(value) => "તમે પસંદ કર્યું: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountName}ના એકાઉન્ટ નંબર ${accountNumber}માં ${amount} જમા કર્યાં.";
 
-  static m14(amount) => "આ વર્ષે તમે ATM ફી માટે ${amount} વાપર્યા છે";
+  static m21(amount) => "આ વર્ષે તમે ATM ફી માટે ${amount} વાપર્યા છે";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "ઘણું સરસ! તમારું ચેકિંગ એકાઉન્ટ પાછલા મહિના કરતાં ${percent} વધારે છે.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "હવે ધ્યાન રાખજો, તમે ખરીદી માટેના આ મહિનાના તમારા બજેટમાંથી ${percent} વાપરી નાખ્યા છે.";
 
-  static m17(amount) => "આ અઠવાડિયે તમે રેસ્ટોરન્ટ પાછળ ${amount} વાપર્યા છે.";
+  static m24(amount) => "આ અઠવાડિયે તમે રેસ્ટોરન્ટ પાછળ ${amount} વાપર્યા છે.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'તમારો સંભવિત કર કપાત વધારો! ન સોંપાયેલ 1 વ્યવહાર માટે કૅટેગરી સોંપો.', other: 'તમારો સંભવિત કર કપાત વધારો! ન સોંપાયેલ ${count} વ્યવહાર માટે કૅટેગરી સોંપો.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${billName}નું ${amount}નું બિલ ચુકવવાની નિયત તારીખ ${date} છે.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}ના ${amountTotal}ના બજેટમાંથી ${amountUsed} વપરાયા, ${amountLeft} બાકી છે";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'કોઈ આઇટમ નથી', one: '1 આઇટમ', other: '${quantity} આઇટમ')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "જથ્થો: ${quantity}";
+  static m30(quantity) => "જથ્થો: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'શોપિંગ કાર્ટ, કોઈ આઇટમ નથી', one: 'શોપિંગ કાર્ટ, 1 આઇટમ', other: 'શોપિંગ કાર્ટ, ${quantity} આઇટમ')}";
 
-  static m25(product) => "${product} કાઢી નાખો";
+  static m32(product) => "${product} કાઢી નાખો";
 
-  static m26(value) => "આઇટમ ${value}";
+  static m33(value) => "આઇટમ ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -92,6 +108,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Flutter samples GitHub repo"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ગૅલેરી પર પાછા જાઓ"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("લીડિંગ આઇકન"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("એકથી વધુ ક્રિયાઓ"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("બૅનરને રીસેટ કરો"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "તમારા અન્ય ડિવાઇસ પર તમારો પાસવર્ડ અપડેટ કર્યો હતો. કૃપા કરીને ફરી સાઇન ઇન કરો."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("નૉચ"),
         "bottomAppBarPosition":
             MessageLookupByLibrary.simpleMessage("ફ્લોટિંગ ઍક્શન બટનની સ્થિતિ"),
@@ -116,6 +140,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("બટન"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("બનાવો"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("શોધખોળ કરો"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "પસંદ કરવા યોગ્ય (થોડીવાર દબાવી રાખો)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("ટૅપ કરવા યોગ્ય"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("તંજાવુર"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("ચેટ્ટીનાડ"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("નંબર 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("સિલ્ક સ્પિનર"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("મંદિરો"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("તંજાવુર, તમિળનાડુ"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("શિવાગંગા, તમિળનાડુ"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "તમિળનાડુના મુલાકાત લેવા માટેના લોકપ્રિય 10 શહેર"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("દક્ષિણ ભારતના કલાકાર"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("બૃહદેશ્વર મંદિર"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("બાઇકિંગ"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("એલિવેટર"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("ફાયરપ્લેસ"),
@@ -186,9 +238,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("મેડ્રિડ, સ્પેઇન"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("પેસ્ટ્રી સાથે કૅફે કાઉન્ટર"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "નિર્ધારિત સ્થાન દ્વારા રેસ્ટોરન્ટની શોધખોળ કરો"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("ઉડાન"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("અસ્પેન, યુનાઇટેડ સ્ટેટ્સ"),
@@ -238,7 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("હવાના, ક્યૂબા"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "પ્રાચીન વાદળી કારને ટેકો આપીને ઉભેલો માણસ"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "નિર્ધારિત સ્થાન દ્વારા ફ્લાઇટની શોધખોળ કરો"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("તારીખ પસંદ કરો"),
@@ -253,6 +306,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("મૂળ સ્ટેશન પસંદ કરો"),
         "craneFormTime": MessageLookupByLibrary.simpleMessage("સમય પસંદ કરો"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("મુસાફરો"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("સ્લીપ"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("માલી, માલદીવ્સ"),
         "craneSleep0SemanticLabel":
@@ -295,7 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("લિસ્બન, પોર્ટુગલ"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "સમુદ્ર કિનારે ઈંટથી બનાવેલી દીવાદાંડી"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "નિર્ધારિત સ્થાન દ્વારા પ્રોપર્ટીની શોધખોળ કરો"),
         "cupertinoAlertAllow":
@@ -330,6 +385,50 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("હોમ"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("પ્રોફાઇલ"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("કૅલ્શિયમ (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("કૅલરી"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("કાર્બોહાઇડ્રેટ (ગ્રા)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("ડેઝર્ટ (નંગ 1)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("ચરબી (ગ્રા)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("આયર્ન (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("પ્રોટિન (ગ્રા)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("સોડિયમ (મિલિગ્રા)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("પોષણ"),
+        "dataTableRowApplePie": MessageLookupByLibrary.simpleMessage("એપલ પાઇ"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("કપકેક"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("ડૉનટ"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("ઇક્લેર"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("ફ્રોઝન યોગર્ટ"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("જિંજરબ્રેડ"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("હનીકોમ્બ"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("આઇસક્રીમ સેન્ડવિચ"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("જેલીબિન"),
+        "dataTableRowLollipop": MessageLookupByLibrary.simpleMessage("લૉલીપૉપ"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ઍક્શન ચિપ એ વિકલ્પોનો સેટ છે જે મુખ્ય કન્ટેન્ટથી સંબંધિત ઍક્શનને ટ્રિગર કરે છે. ઍક્શન ચિપ, UIમાં ડાયનામિક રીતે અને સાંદર્ભિક રીતે દેખાવા જોઈએ."),
         "demoActionChipTitle":
@@ -339,6 +438,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("અલર્ટ"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("શીર્ષકની સાથે અલર્ટ"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "બૅનર મહત્ત્વપૂર્ણ, મુદ્દાસર સંદેશ બતાવે છે અને વપરાશકર્તા આગળ શું કરી શકે છે તે માટેની ક્રિયાઓ આપે છે (અથવા બૅનરને છોડી દેવાનો વિકલ્પ પણ આપે છે). બૅનર રદ કરવા માટે, વપરાશકર્તા ક્રિયા જરૂરી હોય છે."),
+        "demoBannerSubtitle":
+            MessageLookupByLibrary.simpleMessage("સૂચિમાં બૅનર બતાવવું"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("બૅનર"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "ઍપના સૌથી નીચેના બાર, ફ્લોટિંગ એક્શન બટન સહિત સૌથી નીચેના નૅવિગેશન ડ્રોઅર અને વધુમાં વધુ ચાર ક્રિયાઓનો ઍક્સેસ પ્રદાન કરે છે."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -360,7 +464,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText":
             MessageLookupByLibrary.simpleMessage("બોટમ શીટ બતાવો"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("હેડર"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "મોડલ બોટમ શીટ મેનૂ અથવા સંવાદના વિકલ્પરૂપે હોય છે અને વપરાશકર્તાને ઍપના બાકીના ભાગ સાથે ક્રિયાપ્રતિક્રિયા કરતા અટકાવે છે."),
         "demoBottomSheetModalTitle":
@@ -379,6 +483,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "સમતલ, ઉપસી આવેલા, આઉટલાઇન અને બીજા ઘણા બટન"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("બટન"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "કાર્ડ એ એવી કેટલીક સંબંધિત માહિતીને રજૂ કરવા માટે વપરાતી સામગ્રીની શીટ હોય છે, ઉદાહરણ તરીકે, આલ્બમ, ભૌગોલિક સ્થાન, ભોજન, સંપર્કની વિગતો, વગેરે."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "બેઝલાઇન કાર્ડ કે જેના ગોળ ખૂણા હોય છે"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("કાર્ડ"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("ચેકલિસ્ટ મેનૂ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -392,12 +501,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "સામગ્રીની ડિઝાઇનનું એક વર્તુળાકાર પ્રગતિ સૂચક, જે ઍપ્લિકેશન વ્યસ્ત છે તેવું બતાવવા માટે ગોળ ફરે છે."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("વર્તુળાકાર પ્રગતિ સૂચક"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("કોડનો નમૂનો"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("ડેમો કોડ"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("ક્લિપબોર્ડ પર કૉપિ કર્યા."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("બધા કૉપિ કરો"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "સામગ્રીની ડિઝાઇનના વિવિધ રંગનું પ્રતિનિધિત્વ કરતા રંગ અને રંગ સ્વૉચ કૉન્સ્ટન્ટ."),
         "demoColorsSubtitle":
@@ -415,7 +524,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-શૈલીના પ્રવૃત્તિ સૂચકો"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("પ્રવૃત્તિ સૂચક"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ફક્ત અલર્ટ બટન"),
         "demoCupertinoAlertButtonsTitle":
@@ -442,7 +551,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-શૈલીનો નૅવિગેશન બાર"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("નૅવિગેશન બાર"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("તારીખ"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("તારીખ અને સમય"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-શૈલીનું પિકર વિજેટ જેનો ઉપયોગ તારીખ, સમય અથવા તારીખ અને સમય એમ બન્ને પસંદ કરવા માટે કરી શકાય છે."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-શૈલીના તારીખ અને સમય પિકર"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("સમય"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("ટાઇમર"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("પિકર"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "વિજેટ કે જે કન્ટેન્ટ નિયંત્રણને રિફ્રેશ કરવા માટે iOS-શૈલીમાં ખેંચવાની સુવિધાનો અમલ કરે છે."),
@@ -450,7 +572,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "નિયંત્રણ રિફ્રેશ કરવા માટે iOS-શૈલીમાં ખેંચો"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("રિફ્રેશ કરવા માટે ખેંચો"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "આનો ઉપયોગ પરસ્પર ખાસ વિકલ્પોમાંથી પસંદ કરવા માટે થાય છે. જ્યારે વિભાગ મુજબ નિયંત્રણમાંથી એક વિકલ્પ પસંદ કર્યો હોય, ત્યારે વિભાગ મુજબ નિયંત્રણના અન્ય વિકલ્પો પસંદ કરવાની સુવિધા બંધ કરવામાં આવે છે."),
@@ -458,11 +580,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-શૈલીના વિભાગ મુજબ નિયંત્રણ"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("વિભાગ મુજબ નિયંત્રણ"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "સ્લાઇડરનો ઉપયોગ સતત અથવા અલગ મૂલ્યોના સેટમાંથી પસંદ કરવા માટે કરી શકાય છે."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-શૈલીનું સ્લાઇડર"),
         "demoCupertinoSliderTitle":
@@ -476,11 +598,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-શૈલીના તળિયાની ટૅબનું બાર"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("ટૅબ બાર"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "ટેક્સ્ટ ફીલ્ડની મદદથી વપરાશકર્તા ટેક્સ્ટને હાર્ડવેરના કીબોર્ડ અથવા ઑનસ્ક્રીન કીબોર્ડ વડે દાખલ કરી શકે છે."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("પિન"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-શૈલીની ટેક્સ્ટ ફીલ્ડ"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "સ્લાઇડર બારમાં મૂલ્યોની શ્રેણી બતાવે છે, જેમાંથી વપરાશકર્તાઓ એક મૂલ્ય અથવા મૂલ્યોની શ્રેણી પસંદ કરી શકે છે. સ્લાઇડરની થીમ નક્કી કરી શકાય છે અને તેઓને કસ્ટમાઇઝ પણ કરી શકાય છે."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("કસ્ટમ સ્લાઇડર"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "ડેટા ટેબલ પંક્તિઓ અને કૉલમના ગ્રિડ જેવા ફોર્મેટમાં માહિતી બતાવે છે. તે માહિતીને એવી રીતે ગોઠવે છે કે જેનાથી સ્કૅન કરવાનું સરળ બની રહે છે, જેથી વપરાશકર્તાઓ પૅટર્ન અને જાણકારીને શોધી શકે."),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("માહિતીની પંક્તિઓ અને કૉલમ"),
+        "demoDataTableTitle": MessageLookupByLibrary.simpleMessage("ડેટા ટેબલ"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "સામગ્રીની ડિઝાઇનવાળા તારીખ પિકરને સમાવતો સંવાદ બતાવે છે."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("તારીખ પિકર"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("સરળ, અલર્ટ અને પૂર્ણસ્ક્રીન"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("સંવાદો"),
@@ -543,7 +682,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("વિભાગીય મેનૂવાળી આઇટમ"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("સરળ મેનૂવાળી આઇટમ"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("સંદર્ભ મેનૂમાં પહેલી આઇટમ"),
         "demoMenuContextMenuItemThree":
@@ -561,7 +700,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("એક"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("પ્રીવ્યૂ કરો"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("કાઢી નાખો"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("શેર કરો"),
         "demoMenuSubtitle":
             MessageLookupByLibrary.simpleMessage("મેનૂ બટન અને સરળ મેનૂ"),
@@ -579,6 +718,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "આઉટલાઇન બટન દબાવવા પર અપારદર્શી બને છે અને તે ઉપસી આવે છે. વૈકલ્પિક, ગૌણ ક્રિયા બતાવવા માટે અવારનવાર ઉપસેલા બટન સાથે તેઓનું જોડાણ બનાવવામાં આવે છે."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("આઉટલાઇન બટન"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("પિકર બતાવો"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("તારીખ અને સમયની પસંદગી"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("પિકર"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("રેખીય, વર્તુળાકાર, અનિશ્ચિત"),
         "demoProgressIndicatorTitle":
@@ -650,12 +794,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoSnackbarsTitle": MessageLookupByLibrary.simpleMessage("સ્નૅકબાર"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ટૅબ અલગ અલગ સ્ક્રીન, ડેટા સેટ અને અન્ય ક્રિયાપ્રતિક્રિયાઓ પર કન્ટેન્ટને ગોઠવે છે."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "સ્વતંત્ર રીતે સ્ક્રોલ કરવા યોગ્ય વ્યૂ ટૅબ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ટૅબ"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ટેક્સ્ટ ફીલ્ડ વડે વપરાશકર્તાઓ UIમાં ટેક્સ્ટ દાખલ કરી શકે છે. સામાન્ય રીતે તે ફોર્મ અને સંવાદમાં આવતા હોય છે."),
-        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("ઇ-મેઇલ"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("ઇમેઇલ"),
         "demoTextFieldEnterPassword": MessageLookupByLibrary.simpleMessage(
             "કૃપા કરીને પાસવર્ડ દાખલ કરો."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -669,7 +817,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("જીવન વૃત્તાંત"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("નામ*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("નામ જરૂરી છે."),
         "demoTextFieldNoMoreThan":
@@ -706,6 +854,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "અમે ક્યાં તમારો સંપર્ક કરી શકીએ?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("તમારું ઇમેઇલ ઍડ્રેસ"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "સામગ્રીની ડિઝાઇનવાળા સમય પિકરને સમાવતો સંવાદ બતાવે છે."),
+        "demoTimePickerTitle": MessageLookupByLibrary.simpleMessage("સમય પિકર"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "સંબંધિત વિકલ્પોનું ગ્રૂપ બનાવવા માટે ટૉગલ બટનનો ઉપયોગ કરી શકાય છે. સંબંધિત ટૉગલ બટનના ગ્રૂપ પર ભાર આપવા માટે, ગ્રૂપે એક કૉમન કન્ટેનર શેર કરવું જોઈએ"),
         "demoToggleButtonTitle":
@@ -742,12 +893,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Googleને સ્થાન નિર્ધારિત કરવામાં ઍપની સહાય કરવા દો. આનો અર્થ છે જ્યારે કોઈ ઍપ ચાલી ન રહી હોય ત્યારે પણ Googleને અનામ સ્થાન ડેટા મોકલવો."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Googleની સ્થાન સેવાનો ઉપયોગ કરીએ?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("બૅકઅપ એકાઉન્ટ સેટ કરો"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("સંવાદ બતાવો"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("છોડી દો"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("સંદર્ભ શૈલીઓ અને મીડિયા"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("કૅટેગરી"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ગૅલેરી"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("બીચ"),
@@ -767,7 +919,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("તાંજોર"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("તંજાવુર મંદિર"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("કાર બચત"),
         "rallyAccountDataChecking":
@@ -791,15 +943,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("કુલ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("એકાઉન્ટ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("અલર્ટ"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("બિલ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("બાકી"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("વસ્ત્રો"),
         "rallyBudgetCategoryCoffeeShops":
@@ -894,7 +1046,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("રદ કરો"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("કાર્ટ ખાલી કરો"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("કાર્ટ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("શિપિંગ:"),
@@ -954,8 +1106,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -994,10 +1146,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("કાર્ટમાં ઉમેરો"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("કાર્ટ બંધ કરો"),
         "shrineTooltipCloseMenu":
@@ -1008,9 +1160,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("આઇટમ કાઢી નાખો"),
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("શોધો"),
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("સેટિંગ"),
+        "signIn": MessageLookupByLibrary.simpleMessage("સાઇન ઇન કરો"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "પ્રતિભાવ આપતું સ્ટાર્ટર લેઆઉટ"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("મુખ્ય ભાગ"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("બટન"),

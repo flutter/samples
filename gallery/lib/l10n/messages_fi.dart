@@ -24,67 +24,83 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Paikkamerkki ${title}-välilehdelle";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Tutustu: ${destinationName}";
+
+  static m3(destinationName) => "Jaa: ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Ei ravintoloita', one: '1 ravintola', other: '${totalRestaurants} ravintolaa')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Suorat lennot', one: '1 välilasku', other: '${numberOfStops} välilaskua')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Ei majoituspaikkoja saatavilla', one: '1 majoituspaikka saatavilla', other: '${totalProperties} majoituspaikkaa saatavilla')}";
 
-  static m5(value) => "Tuote ${value}";
+  static m10(value) => "${value} hunajalla";
 
-  static m6(error) => "Kopiointi leikepöydälle epäonnistui: ${error}";
+  static m11(value) => "${value} sokerilla";
 
-  static m7(value) => "Jatkuva: ${value}";
+  static m12(value) => "Tuote ${value}";
 
-  static m8(value) => "Diskreetti: ${value}";
+  static m13(error) => "Kopiointi leikepöydälle epäonnistui: ${error}";
 
-  static m9(value) => "Ruutu ${value} valittu";
+  static m14(value) => "Jatkuva: ${value}";
 
-  static m10(value) => "${value} valittu";
+  static m15(value) => "Diskreetti: ${value}";
 
-  static m11(name, phoneNumber) => "Puhelinnumero (${name}) on ${phoneNumber}";
+  static m16(value) => "Ruutu ${value} valittu";
 
-  static m12(value) => "Valitsit: \"${value}\"";
+  static m17(value) => "${value} valittu";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "Puhelinnumero (${name}) on ${phoneNumber}";
+
+  static m19(value) => "Valitsit: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountName}tili ${accountNumber}, jolla on ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Tässä kuussa olet käyttänyt ${amount} pankkiautomaattien maksuihin";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Hienoa – käyttötilisi saldo on ${percent} viime kuuta korkeampi.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Hei, olet käyttänyt tämän kuun ostosbudjetista ${percent}.";
 
-  static m17(amount) => "Tässä kuussa olet käyttänyt ${amount} ravintoloihin.";
+  static m24(amount) => "Tässä kuussa olet käyttänyt ${amount} ravintoloihin.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Lisää mahdollisten verovähennystesi määrää! Anna 1 tuntemattomalle tapahtumalle luokka.', other: 'Lisää mahdollisten verovähennystesi määrää! Anna ${count} tuntemattomalle tapahtumalle luokat.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Lasku ${billName}, ${amount} ${date} mennessä";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Budjetti ${budgetName}, ${amountUsed} käytetty, kokonaismäärä ${amountTotal}, ${amountLeft} jäljellä";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'EI TUOTTEITA', one: '1 TUOTE', other: '${quantity} TUOTETTA')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Määrä: ${quantity}";
+  static m30(quantity) => "Määrä: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Ostoskori, ei tuotteita', one: 'Ostoskori, 1 tuote', other: 'Ostoskori, ${quantity} tuotetta')}";
 
-  static m25(product) => "Poista ${product}";
+  static m32(product) => "Poista ${product}";
 
-  static m26(value) => "Tuote ${value}";
+  static m33(value) => "Tuote ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter-näytteiden GitHub-kirjasto"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Takaisin Galleriaan"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Johtokuvake"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Useita toimintoja"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Nollaa banneri"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Salasanasi päivitettiin toisella laitteellasi. Kirjaudu sisään uudelleen."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Lovi"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Kelluvan toimintopainikkeen sijainti"),
@@ -117,6 +141,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("PAINIKE"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Luo"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Tutustu"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Valittava (pitkä painallus)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Napautettava"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Numero 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Silkintekijät"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Temppelit"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Tamil Nadun 10 parasta kaupunkia"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Etelä-Intian artisaanit"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisvaran temppeli"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Pyöräily"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Hissi"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Takka"),
@@ -192,9 +244,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Espanja"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Kahvilan tiski, jossa leivonnaisia"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Ravintolat määränpään mukaan"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("LENTÄMINEN"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, Yhdysvallat"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -243,7 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havanna, Kuuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Mies nojaamassa siniseen antiikkiautoon"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead":
             MessageLookupByLibrary.simpleMessage("Lennot määränpään mukaan"),
         "craneFormDate":
@@ -261,6 +314,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Valitse aika"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Matkustajat"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("NUKKUMINEN"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Malediivit"),
         "craneSleep0SemanticLabel":
@@ -303,7 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lissabon, Portugali"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Tiilimajakka meressä"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Majoituspaikat määränpään mukaan"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Salli"),
@@ -336,6 +391,51 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Koti"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profiili"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Kalsium (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Kalorit"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Hiilihydraatit (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Jälkiruoka (1 annos)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Rasva (g)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Rauta (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Proteiini (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Natrium (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Ravinto"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Omenapiirakka"),
+        "dataTableRowCupcake":
+            MessageLookupByLibrary.simpleMessage("Kuppikakku"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donitsi"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Jääjogurtti"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Piparkakku"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Hunajamakeinen"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Jäätelökeksi"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean ‑karkki"),
+        "dataTableRowLollipop": MessageLookupByLibrary.simpleMessage("Tikkari"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Toimintoelementit ovat vaihtoehtoja, jotka käynnistävät pääsisältöön liittyvän toiminnon. Toimintoelementtien pitäisi tulla näkyviin käyttöliittymissä dynaamisesti ja sopivassa asiayhteydessä."),
         "demoActionChipTitle":
@@ -346,6 +446,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ilmoitus"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Otsikollinen ilmoitus"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Banneri näyttää tärkeän, ytimekkään viestin ja tarjoaa käyttäjille toimintoja, joita he voivat tehdä (tai ohittaa bannerin). Käyttäjän toimia tarvitaan sen ohittamiseen."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Näytetään banneri luettelon sisällä"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banneri"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Alaosan sovelluspalkkien kautta voidaan käyttää alaosan navigoinnin vetopaneelia ja jopa neljää toimintoa, mukaan lukien kelluvaa toimintopainiketta."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -368,7 +473,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("NÄYTÄ ALAOSA"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Ylätunniste"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Modaalinen alaosa on valikon tai valintaikkunan vaihtoehto, joka estää käyttäjää toimimasta muualla sovelluksessa."),
         "demoBottomSheetModalTitle":
@@ -386,6 +491,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Litteä, korotettu, ääriviivat ja muita"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Painikkeet"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Kortti on tiettyä materiaalia oleva arkki, jolla ilmaistaan asiaan liittyvä tietoa, esimerkiksi albumi, maantieteellinen sijainti, ateria, yhteystiedot jne."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Peruskortit pyöristetyillä kulmilla"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Kortit"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Muistilistavalikko"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -401,13 +511,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Ympyränmuotoinen edistymisen osoitin"),
-        "demoCodeTooltip":
-            MessageLookupByLibrary.simpleMessage("Koodiesimerkki"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Demokoodi"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kopioitu leikepöydälle."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("KOPIOI KAIKKI"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Material designin väripaletin värien ja värijoukkojen arvot."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -426,7 +535,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyyliset toimintaosoittimet"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Toimintaosoitin"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Vain ilmoituspainikkeet"),
         "demoCupertinoAlertButtonsTitle":
@@ -454,7 +563,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen siirtymispalkki"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Siirtymispalkki"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("Päivämäärä"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Päivämäärä ja aika"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS-tyylinen valitsin-widget, jolla voidaan valita päivämääriä, aikoja tai molempia."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-tyyliset päivämäärän ja ajan valitsimet"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Aika"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Ajastin"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Valitsimet"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Widget, joka tekee vetämällä päivittämisen asetuksesta iOS-tyylisen."),
@@ -462,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen vetämällä päivittämisen asetus"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Päivitä vetämällä"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Tällä valitaan yksi toisensa poissulkevista vaihtoehdoista. Kun yksi segmenttihallituista vaihtoehdoista valitaan, valinta poistuu sen muista vaihtoehdoista."),
@@ -470,11 +592,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen segmenttihallinta"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmenttihallinta"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Liukusäätimellä voi valita jatkuvasta tai diskreetistä arvojoukosta."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-tyylinen liukusäädin"),
         "demoCupertinoSliderTitle":
@@ -488,11 +610,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-tyylinen alareunan välilehtipalkki"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Välilehtipalkki"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Tekstikentän avulla käyttäjä voi lisätä tekstiä joko laite- tai näyttönäppäimistöllä."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN-koodi"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-tyyliset tekstikentät"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Liukusäätimet kuvastavat erilaisia arvoja palkissa, josta käyttäjät voivat valita yksittäisen arvon tai useita erilaisia arvoja. Liukusäätimiä voi jakaa teemoihin ja muokata."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Omat liukusäätimet"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Datataulukot näyttävät tietoja ruudukonkaltaisessa muodossa eli riveinä ja sarakkeina. Ne järjestävät tiedot helposti katseltavaan muotoon, jotta käyttäjät voivat etsiä kaavoja ja tulkintoja."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Rivit ja sarakkeet täynnä tietoa"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Datataulukot"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Näyttää Material Design ‑päivämäärävalitsimen sisältävän valintaikkunan."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Päivämäärävalitsin"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Yksinkertainen, ilmoitus ja koko näyttö"),
         "demoDialogTitle":
@@ -562,7 +702,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Elementti, jolla on osioihin jaettu valikko"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Elementti, jolla on yksinkertainen valikko"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Ensimmäinen kontekstivalikon kohta"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -580,7 +720,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Yksi"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Esikatselu"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Poista"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Jaa"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Valikon painikkeet ja yksinkertaiset valikot"),
@@ -599,6 +739,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ääriviivalliset painikkeet muuttuvat läpinäkyviksi ja nousevat painettaessa. They are often paired with raised buttons to indicate an alternative, secondary action."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Ääriviivallinen painike"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("NÄYTÄ VALITSIN"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Päivämäärän ja ajan valinta"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Valitsimet"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lineaariset, ympyränmuotoiset, määrittelemättömät"),
         "demoProgressIndicatorTitle":
@@ -675,6 +820,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pikatiedotteet"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Välilehdille järjestetään sisältöä eri näytöiltä, datajoukoista ja muista tilanteista."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Välilehdet, joiden näkymiä voidaan selata erikseen"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Välilehdet"),
@@ -695,7 +844,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Elämäntarina"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nimi*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Nimi on pakollinen."),
         "demoTextFieldNoMoreThan":
@@ -731,6 +880,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mistä sinut saa kiinni?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Sähköpostiosoite"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Näyttää Material Design ‑aikavalitsimen sisältävän valintaikkunan."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Ajan valitsin"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Päälle/pois-painikkeiden avulla voidaan ryhmitellä vaihtoehtoja yhteen. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
@@ -768,13 +921,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Anna Googlen auttaa sovelluksia sijainnin määrittämisessä. Googlelle lähetetään anonyymejä sijaintitietoja – myös kun sovelluksia ei ole käytössä."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Käytetäänkö Googlen sijaintipalvelua?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Luo varmuuskopiointitili"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("NÄYTÄ VALINTAIKKUNA"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("OHITA"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("VIITETYYLIT JA ‑MEDIA"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Luokat"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleria"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Ranta"),
@@ -793,7 +947,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Thanjavurin temppeli"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Autosäästötili"),
         "rallyAccountDataChecking":
@@ -817,15 +971,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Yhteensä"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Tilit"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Ilmoitukset"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Laskut"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Maksettavaa"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Vaatteet"),
         "rallyBudgetCategoryCoffeeShops":
@@ -928,7 +1082,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("PERUUTA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("TYHJENNÄ OSTOSKORI"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("OSTOSKORI"),
         "shrineCartShippingCaption":
@@ -991,8 +1145,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Laivastonsiniset housut"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Luonnonvalkoinen tunika"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Neliosainen pöytäsarja"),
         "shrineProductRainwaterTray":
@@ -1031,10 +1185,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Valkoinen liituraitapaita"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-vyö"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Lisää ostoskoriin"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Sulje ostoskori"),
         "shrineTooltipCloseMenu":
@@ -1046,9 +1200,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Haku"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Asetukset"),
+        "signIn": MessageLookupByLibrary.simpleMessage("KIRJAUDU SISÄÄN"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Responsiivinen aloitusasettelu"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Leipäteksti"),
         "starterAppGenericButton":
