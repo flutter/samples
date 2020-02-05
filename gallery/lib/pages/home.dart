@@ -30,12 +30,13 @@ const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
 const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
+const _desktopCardsPerPage = 4;
 
-const shrineTitle = 'Shrine';
-const rallyTitle = 'Rally';
-const craneTitle = 'Crane';
-const homeCategoryMaterial = 'MATERIAL';
-const homeCategoryCupertino = 'CUPERTINO';
+const _shrineTitle = 'Shrine';
+const _rallyTitle = 'Rally';
+const _craneTitle = 'Crane';
+const _homeCategoryMaterial = 'MATERIAL';
+const _homeCategoryCupertino = 'CUPERTINO';
 
 class ToggleSplashNotification extends Notification {}
 
@@ -52,9 +53,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
-    final carouselCards = <_CarouselCard>[
+    final carouselCards = <Widget>[
       _CarouselCard(
-        title: shrineTitle,
+        title: _shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
         asset: 'assets/studies/shrine_card.png',
         assetDark: 'assets/studies/shrine_card_dark.png',
@@ -63,7 +64,7 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.shrine,
       ),
       _CarouselCard(
-        title: rallyTitle,
+        title: _rallyTitle,
         subtitle: GalleryLocalizations.of(context).rallyDescription,
         textColor: RallyColors.accountColors[0],
         asset: 'assets/studies/rally_card.png',
@@ -72,7 +73,7 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.rally,
       ),
       _CarouselCard(
-        title: craneTitle,
+        title: _craneTitle,
         subtitle: GalleryLocalizations.of(context).craneDescription,
         asset: 'assets/studies/crane_card.png',
         assetDark: 'assets/studies/crane_card_dark.png',
@@ -101,12 +102,12 @@ class HomePage extends StatelessWidget {
     if (isDesktop) {
       final desktopCategoryItems = <_DesktopCategoryItem>[
         _DesktopCategoryItem(
-          title: homeCategoryMaterial,
+          title: _homeCategoryMaterial,
           imageString: 'assets/icons/material/material.png',
           demos: materialDemos(context),
         ),
         _DesktopCategoryItem(
-          title: homeCategoryCupertino,
+          title: _homeCategoryCupertino,
           imageString: 'assets/icons/cupertino/cupertino.png',
           demos: cupertinoDemos(context),
         ),
@@ -120,12 +121,15 @@ class HomePage extends StatelessWidget {
       return Scaffold(
         body: ListView(
           padding: EdgeInsetsDirectional.only(
-            start: _horizontalDesktopPadding,
             top: isDesktop ? firstHeaderDesktopTopPadding : 21,
-            end: _horizontalDesktopPadding,
           ),
           children: [
-            ExcludeSemantics(child: _GalleryHeader()),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
+              child: ExcludeSemantics(child: _GalleryHeader()),
+            ),
 
             /// TODO: When Focus widget becomes better remove dummy Focus
             /// variable.
@@ -143,15 +147,19 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               height: carouselHeight,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: spaceBetween(30, carouselCards),
-              ),
+              child: _DesktopCarousel(children: carouselCards),
             ),
-            _CategoriesHeader(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
+              child: _CategoriesHeader(),
+            ),
             Container(
               height: 585,
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding,
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,7 +168,9 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsetsDirectional.only(
+                start: _horizontalDesktopPadding,
                 bottom: 81,
+                end: _horizontalDesktopPadding,
                 top: 109,
               ),
               child: Row(
@@ -332,7 +342,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                title: homeCategoryMaterial,
+                title: _homeCategoryMaterial,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(context),
               ),
@@ -341,7 +351,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                title: homeCategoryCupertino,
+                title: _homeCategoryCupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(context),
               ),
@@ -711,6 +721,204 @@ class _CarouselState extends State<_Carousel>
         itemBuilder: (context, index) => builder(index),
       ),
       controller: widget.animationController,
+    );
+  }
+}
+
+/// This creates a horizontally scrolling [ListView] of items.
+///
+/// This class uses a [ListView] with a custom [ScrollPhysics] to enable
+/// snapping behavior. A [PageView] was considered but does not allow for
+/// multiple pages visible without centering the first page.
+class _DesktopCarousel extends StatefulWidget {
+  const _DesktopCarousel({Key key, this.children}) : super(key: key);
+
+  final List<Widget> children;
+
+  @override
+  _DesktopCarouselState createState() => _DesktopCarouselState();
+}
+
+class _DesktopCarouselState extends State<_DesktopCarousel> {
+  static const cardPadding = 15.0;
+  ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+    _controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Widget _builder(int index) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 8,
+        horizontal: cardPadding,
+      ),
+      child: widget.children[index],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var showPreviousButton = false;
+    var showNextButton = true;
+    // Only check this after the _controller has been attached to the ListView.
+    if (_controller.hasClients) {
+      showPreviousButton = _controller.offset > 0;
+      showNextButton =
+          _controller.offset < _controller.position.maxScrollExtent;
+    }
+    final totalWidth = MediaQuery.of(context).size.width -
+        (_horizontalDesktopPadding - cardPadding) * 2;
+    final itemWidth = totalWidth / _desktopCardsPerPage;
+
+    return Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: _horizontalDesktopPadding - cardPadding,
+          ),
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: _SnappingScrollPhysics(),
+            controller: _controller,
+            itemExtent: itemWidth,
+            itemCount: widget.children.length,
+            itemBuilder: (context, index) => _builder(index),
+          ),
+        ),
+        if (showPreviousButton)
+          _DesktopPageButton(
+            onTap: () {
+              _controller.animateTo(
+                _controller.offset - itemWidth,
+                duration: Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        if (showNextButton)
+          _DesktopPageButton(
+            isEnd: true,
+            onTap: () {
+              _controller.animateTo(
+                _controller.offset + itemWidth,
+                duration: Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+      ],
+    );
+  }
+}
+
+/// Scrolling physics that snaps to the new item in the [_DesktopCarousel].
+class _SnappingScrollPhysics extends ScrollPhysics {
+  const _SnappingScrollPhysics({ScrollPhysics parent}) : super(parent: parent);
+
+  @override
+  _SnappingScrollPhysics applyTo(ScrollPhysics ancestor) {
+    return _SnappingScrollPhysics(parent: buildParent(ancestor));
+  }
+
+  double _getTargetPixels(
+    ScrollMetrics position,
+    Tolerance tolerance,
+    double velocity,
+  ) {
+    final itemWidth = position.viewportDimension / _desktopCardsPerPage;
+    double item = position.pixels / itemWidth;
+    if (velocity < -tolerance.velocity) {
+      item -= 0.5;
+    } else if (velocity > tolerance.velocity) {
+      item += 0.5;
+    }
+    return math.min(
+      item.roundToDouble() * itemWidth,
+      position.maxScrollExtent,
+    );
+  }
+
+  @override
+  Simulation createBallisticSimulation(
+    ScrollMetrics position,
+    double velocity,
+  ) {
+    if ((velocity <= 0.0 && position.pixels <= position.minScrollExtent) ||
+        (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
+      return super.createBallisticSimulation(position, velocity);
+    }
+    final Tolerance tolerance = this.tolerance;
+    final double target = _getTargetPixels(position, tolerance, velocity);
+    if (target != position.pixels) {
+      return ScrollSpringSimulation(
+        spring,
+        position.pixels,
+        target,
+        velocity,
+        tolerance: tolerance,
+      );
+    }
+    return null;
+  }
+
+  @override
+  bool get allowImplicitScrolling => false;
+}
+
+class _DesktopPageButton extends StatelessWidget {
+  const _DesktopPageButton({
+    Key key,
+    this.isEnd = false,
+    this.onTap,
+  }) : super(key: key);
+
+  final bool isEnd;
+  final GestureTapCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final buttonSize = 58.0;
+    final padding = _horizontalDesktopPadding - buttonSize / 2;
+    return Align(
+      alignment: isEnd
+          ? AlignmentDirectional.centerEnd
+          : AlignmentDirectional.centerStart,
+      child: Container(
+        width: buttonSize,
+        height: buttonSize,
+        margin: EdgeInsetsDirectional.only(
+          start: isEnd ? 0 : padding,
+          end: isEnd ? padding : 0,
+        ),
+        child: Tooltip(
+          message: isEnd
+              ? MaterialLocalizations.of(context).nextPageTooltip
+              : MaterialLocalizations.of(context).previousPageTooltip,
+          child: Material(
+            color: Colors.black.withOpacity(0.5),
+            shape: CircleBorder(),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: onTap,
+              child: Icon(
+                isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
