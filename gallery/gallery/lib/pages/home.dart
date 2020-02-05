@@ -30,12 +30,13 @@ const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
 const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
+const _desktopCardsPerPage = 4;
 
-const shrineTitle = 'Shrine';
-const rallyTitle = 'Rally';
-const craneTitle = 'Crane';
-const homeCategoryMaterial = 'MATERIAL';
-const homeCategoryCupertino = 'CUPERTINO';
+const _shrineTitle = 'Shrine';
+const _rallyTitle = 'Rally';
+const _craneTitle = 'Crane';
+const _homeCategoryMaterial = 'MATERIAL';
+const _homeCategoryCupertino = 'CUPERTINO';
 
 class ToggleSplashNotification extends Notification {}
 
@@ -54,7 +55,7 @@ class HomePage extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
     final carouselCards = <Widget>[
       _CarouselCard(
-        title: shrineTitle,
+        title: _shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
         asset: 'assets/studies/shrine_card.png',
         assetDark: 'assets/studies/shrine_card_dark.png',
@@ -63,7 +64,7 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.shrine,
       ),
       _CarouselCard(
-        title: rallyTitle,
+        title: _rallyTitle,
         subtitle: GalleryLocalizations.of(context).rallyDescription,
         textColor: RallyColors.accountColors[0],
         asset: 'assets/studies/rally_card.png',
@@ -72,7 +73,7 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.rally,
       ),
       _CarouselCard(
-        title: craneTitle,
+        title: _craneTitle,
         subtitle: GalleryLocalizations.of(context).craneDescription,
         asset: 'assets/studies/crane_card.png',
         assetDark: 'assets/studies/crane_card_dark.png',
@@ -101,12 +102,12 @@ class HomePage extends StatelessWidget {
     if (isDesktop) {
       final desktopCategoryItems = <_DesktopCategoryItem>[
         _DesktopCategoryItem(
-          title: homeCategoryMaterial,
+          title: _homeCategoryMaterial,
           imageString: 'assets/icons/material/material.png',
           demos: materialDemos(context),
         ),
         _DesktopCategoryItem(
-          title: homeCategoryCupertino,
+          title: _homeCategoryCupertino,
           imageString: 'assets/icons/cupertino/cupertino.png',
           demos: cupertinoDemos(context),
         ),
@@ -341,7 +342,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                title: homeCategoryMaterial,
+                title: _homeCategoryMaterial,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(context),
               ),
@@ -350,7 +351,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                title: homeCategoryCupertino,
+                title: _homeCategoryCupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(context),
               ),
@@ -730,22 +731,20 @@ class _DesktopCarousel extends StatefulWidget {
   final List<Widget> children;
 
   @override
-  __DesktopCarouselState createState() => __DesktopCarouselState();
+  _DesktopCarouselState createState() => _DesktopCarouselState();
 }
 
-class __DesktopCarouselState extends State<_DesktopCarousel> {
-  static const spaceBetweenCards = 30.0;
-  static const cardsPerPage = 4;
-
-  PageController _controller;
-  int _currentPage = 0;
+class _DesktopCarouselState extends State<_DesktopCarousel> {
+  static const cardPadding = 15.0;
+  ScrollController _controller;
 
   @override
   void initState() {
     super.initState();
-    if (_controller == null) {
-      _controller = PageController(initialPage: _currentPage);
-    }
+    _controller = ScrollController();
+    _controller.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -755,53 +754,49 @@ class __DesktopCarouselState extends State<_DesktopCarousel> {
   }
 
   Widget _builder(int index) {
-    var paddedChildren = widget.children;
-    while (paddedChildren.length % cardsPerPage > 0) {
-      paddedChildren.add(Container());
-    }
-
-    final start = index * cardsPerPage;
-    var carouselCards = paddedChildren.sublist(start, start + cardsPerPage);
-    carouselCards = spaceBetween(spaceBetweenCards, carouselCards);
-    carouselCards.insert(0, SizedBox(width: spaceBetweenCards / 2));
-    carouselCards.add(SizedBox(width: spaceBetweenCards / 2));
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8), // For the shadow.
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: carouselCards,
+      padding: const EdgeInsets.symmetric(
+        vertical: 8,
+        horizontal: cardPadding,
       ),
+      child: widget.children[index],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final pageCount = (widget.children.length / cardsPerPage).ceil();
-    final showPreviousButton = _currentPage > 0;
-    final showNextButton = _currentPage < pageCount - 1;
-    print(_currentPage);
+    var showPreviousButton = false;
+    var showNextButton = true;
+    // Only check this after the _controller has been attached to the ListView.
+    if (_controller.hasClients) {
+      showPreviousButton = _controller.offset > 0;
+      showNextButton =
+          _controller.offset < _controller.position.maxScrollExtent;
+    }
+    final totalWidth = MediaQuery.of(context).size.width -
+        (_horizontalDesktopPadding - cardPadding) * 2;
+    final itemExtent = totalWidth / _desktopCardsPerPage;
+
     return Stack(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: _horizontalDesktopPadding - spaceBetweenCards / 2,
+            horizontal: _horizontalDesktopPadding - cardPadding,
           ),
-          child: PageView.builder(
-            onPageChanged: (value) {
-              setState(() {
-                _currentPage = value;
-              });
-            },
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: SnappingScrollPhysics(),
             controller: _controller,
-            itemCount: pageCount,
+            itemExtent: itemExtent,
+            itemCount: widget.children.length,
             itemBuilder: (context, index) => _builder(index),
           ),
         ),
         if (showPreviousButton)
           _DesktopPageButton(
             onTap: () {
-              _controller.previousPage(
+              _controller.animateTo(
+                _controller.offset - itemExtent,
                 duration: Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
               );
@@ -811,7 +806,8 @@ class __DesktopCarouselState extends State<_DesktopCarousel> {
           _DesktopPageButton(
             isEnd: true,
             onTap: () {
-              _controller.nextPage(
+              _controller.animateTo(
+                _controller.offset + itemExtent,
                 duration: Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
               );
@@ -820,6 +816,52 @@ class __DesktopCarouselState extends State<_DesktopCarousel> {
       ],
     );
   }
+}
+
+class SnappingScrollPhysics extends ScrollPhysics {
+  double _getTargetPixels(
+    ScrollMetrics position,
+    Tolerance tolerance,
+    double velocity,
+  ) {
+    final itemWidth = position.viewportDimension / _desktopCardsPerPage;
+    double item = position.pixels / itemWidth;
+    if (velocity < -tolerance.velocity) {
+      item -= 0.5;
+    } else if (velocity > tolerance.velocity) {
+      item += 0.5;
+    }
+    return math.min(
+      item.roundToDouble() * itemWidth,
+      position.maxScrollExtent,
+    );
+  }
+
+  @override
+  Simulation createBallisticSimulation(
+    ScrollMetrics position,
+    double velocity,
+  ) {
+    if ((velocity <= 0.0 && position.pixels <= position.minScrollExtent) ||
+        (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
+      return super.createBallisticSimulation(position, velocity);
+    }
+    final Tolerance tolerance = this.tolerance;
+    final double target = _getTargetPixels(position, tolerance, velocity);
+    if (target != position.pixels) {
+      return ScrollSpringSimulation(
+        spring,
+        position.pixels,
+        target,
+        velocity,
+        tolerance: tolerance,
+      );
+    }
+    return null;
+  }
+
+  @override
+  bool get allowImplicitScrolling => false;
 }
 
 class _DesktopPageButton extends StatelessWidget {
