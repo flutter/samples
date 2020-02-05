@@ -56,7 +56,7 @@ Each app should:
   [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
   release of the Flutter SDK.
 * Include the same
-  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/gallery/gallery/analysis_options.yaml)
+  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/gallery/analysis_options.yaml)
   file used throughout the repo. These files include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
