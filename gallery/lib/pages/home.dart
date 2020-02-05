@@ -775,7 +775,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
     }
     final totalWidth = MediaQuery.of(context).size.width -
         (_horizontalDesktopPadding - cardPadding) * 2;
-    final itemExtent = totalWidth / _desktopCardsPerPage;
+    final itemWidth = totalWidth / _desktopCardsPerPage;
 
     return Stack(
       children: [
@@ -785,9 +785,9 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
           ),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            physics: SnappingScrollPhysics(),
+            physics: _SnappingScrollPhysics(),
             controller: _controller,
-            itemExtent: itemExtent,
+            itemExtent: itemWidth,
             itemCount: widget.children.length,
             itemBuilder: (context, index) => _builder(index),
           ),
@@ -796,7 +796,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
           _DesktopPageButton(
             onTap: () {
               _controller.animateTo(
-                _controller.offset - itemExtent,
+                _controller.offset - itemWidth,
                 duration: Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
               );
@@ -807,7 +807,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
             isEnd: true,
             onTap: () {
               _controller.animateTo(
-                _controller.offset + itemExtent,
+                _controller.offset + itemWidth,
                 duration: Duration(milliseconds: 200),
                 curve: Curves.easeInOut,
               );
@@ -818,7 +818,15 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
   }
 }
 
-class SnappingScrollPhysics extends ScrollPhysics {
+/// Scrolling physics that snaps to the new item in the [_DesktopCarousel].
+class _SnappingScrollPhysics extends ScrollPhysics {
+  const _SnappingScrollPhysics({ScrollPhysics parent}) : super(parent: parent);
+
+  @override
+  _SnappingScrollPhysics applyTo(ScrollPhysics ancestor) {
+    return _SnappingScrollPhysics(parent: buildParent(ancestor));
+  }
+
   double _getTargetPixels(
     ScrollMetrics position,
     Tolerance tolerance,
