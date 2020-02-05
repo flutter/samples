@@ -24,68 +24,84 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "កន្លែងដាក់​សម្រាប់ផ្ទាំង ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "រុករក ${destinationName}";
+
+  static m3(destinationName) => "ចែករំលែក ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'មិនមាន​ភោជនីយដ្ឋាន​ទេ', one: 'ភោជនីយដ្ឋាន 1', other: 'ភោជនីយដ្ឋាន ${totalRestaurants}')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'មិន​ឈប់', one: 'ការឈប់ 1 លើក', other: 'ការឈប់ ${numberOfStops} លើក')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'មិនមាន​អចលនទ្រព្យ​ដែលអាចជួល​បានទេ', one: 'មាន​អចលនទ្រព្យ 1 ដែលអាចជួល​បាន', other: 'មាន​អចលនទ្រព្យ​ ${totalProperties} ដែលអាចជួល​បាន')}";
 
-  static m5(value) => "ធាតុទី ${value}";
+  static m10(value) => "${value} មានទឹកឃ្មុំ";
 
-  static m6(error) => "មិនអាច​ចម្លងទៅឃ្លីបបត​បានទេ៖ ${error}";
+  static m11(value) => "${value} មានស្ករ";
 
-  static m7(value) => "មិនជាក់លាក់៖ ${value}";
+  static m12(value) => "ធាតុទី ${value}";
 
-  static m8(value) => "ជាក់លាក់៖ ${value}";
+  static m13(error) => "មិនអាច​ចម្លងទៅឃ្លីបបត​បានទេ៖ ${error}";
 
-  static m9(value) => "បាន​ធីក​៖ ${value}";
+  static m14(value) => "មិនជាក់លាក់៖ ${value}";
 
-  static m10(value) => "បាន​ជ្រើសរើស​៖ ${value}";
+  static m15(value) => "ជាក់លាក់៖ ${value}";
 
-  static m11(name, phoneNumber) => "លេខទូរសព្ទ​របស់ ${name} គឺ ${phoneNumber}";
+  static m16(value) => "បាន​ធីក​៖ ${value}";
 
-  static m12(value) => "អ្នកបាន​ជ្រើសរើស៖ \"${value}\"";
+  static m17(value) => "បាន​ជ្រើសរើស​៖ ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "លេខទូរសព្ទ​របស់ ${name} គឺ ${phoneNumber}";
+
+  static m19(value) => "អ្នកបាន​ជ្រើសរើស៖ \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "គណនី ${accountName} ${accountNumber} ដែលមាន​ទឹកប្រាក់ ${amount}។";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "អ្នកបានចំណាយ​អស់ ${amount} សម្រាប់ថ្លៃសេវា ATM នៅខែនេះ";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "ល្អណាស់! គណនីមូលប្បទានបត្រ​របស់អ្នកគឺ​ខ្ពស់ជាង​ខែមុន ${percent}។";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "សូមប្រុងប្រយ័ត្ន អ្នកបានប្រើអស់ ${percent} នៃថវិកាទិញ​ទំនិញរបស់អ្នក​សម្រាប់ខែនេះ។";
 
-  static m17(amount) =>
+  static m24(amount) =>
       "អ្នកបាន​ចំណាយអស់ ${amount} លើភោជនីយដ្ឋាន​នៅសប្ដាហ៍នេះ។";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'បង្កើន​ការកាត់ពន្ធ​របស់អ្នក​ដែលអាច​មាន! កំណត់​ប្រភេទ​ទៅ​ប្រតិបត្តិការ 1 ដែលមិនបានកំណត់។', other: 'បង្កើន​ការកាត់ពន្ធ​របស់អ្នក​ដែលអាច​មាន! កំណត់​ប្រភេទ​ទៅ​ប្រតិបត្តិការ ${count} ដែលមិនបានកំណត់។')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "វិក្កយបត្រ ${billName} ដែលមានតម្លៃ ${amount} ផុតកំណត់​នៅថ្ងៃទី ${date}។";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "ថវិកា ${budgetName} ដែលចំណាយអស់ ${amountUsed} នៃទឹកប្រាក់សរុប ${amountTotal} ហើយនៅសល់ ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'មិនមាន​ទំនិញ​ទេ', one: 'ទំនិញ 1', other: 'ទំនិញ ${quantity}')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "បរិមាណ៖ ${quantity}";
+  static m30(quantity) => "បរិមាណ៖ ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'រទេះទិញទំនិញ គ្មានទំនិញ', one: 'រទេះទិញទំនិញ ទំនិញ 1', other: 'រទេះទិញទំនិញ ទំនិញ ${quantity}')}";
 
-  static m25(product) => "ដក ${product} ចេញ";
+  static m32(product) => "ដក ${product} ចេញ";
 
-  static m26(value) => "ធាតុទី ${value}";
+  static m33(value) => "ធាតុទី ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -94,6 +110,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "ឃ្លាំង GitHub នៃគំរូ Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ត្រឡប់​ទៅ Gallery"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("រូបតំណាងនៅពីមុខ"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("សកម្មភាព​ច្រើន"),
+        "bannerDemoResetText": MessageLookupByLibrary.simpleMessage(
+            "កំណត់​ផ្ទាំងផ្សាយ​ពាណិជ្ជកម្ម​ឡើងវិញ"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "ពាក្យសម្ងាត់​របស់អ្នក​ត្រូវបានធ្វើ​បច្ចុប្បន្នភាព​នៅលើឧបករណ៍​ផ្សេងទៀតរបស់អ្នក។ សូម​ចូល​ម្ដងទៀត​។"),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("ក្បាលឆក"),
         "bottomAppBarPosition":
             MessageLookupByLibrary.simpleMessage("ទីតាំងប៊ូតុងសកម្មភាពអណ្ដែត"),
@@ -118,6 +142,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("ប៊ូតុង"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("បង្កើត"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("រុករក"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("អាចជ្រើសរើសបាន (ចុចឱ្យយូរ)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("អាចចុចបាន"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("ថាន់ចាវួរ"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("ចិត្តធីណាដ"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("លេខ 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("សត្វរាយ​សំណាញ់​សូត្រ"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("ប្រាសាទ"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("ថាន់ចាវួរ​នៅរដ្ឋតាមីល​ណាឌូ"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage(
+                "ស៊ីវវ៉ាហ្កានហ្កា​នៅរដ្ឋ​តាមីល​ណាឌូ"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "ទីក្រុង​ពេញនិយម​ចំនួន 10 សម្រាប់​ទៅលេងនៅរដ្ឋតាមីល​ណាឌូ"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "សិល្បករ​មកពីឥណ្ឌា​ភាគខាងត្បូង"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("ប្រសាទ​ប្រីហាឌីស្វារ៉ា"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("ការ​ជិះ​កង់"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("ជណ្ដើរ​យន្ត"),
         "chipFireplace":
@@ -190,9 +243,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("ម៉ាឌ្រីដ អេស្ប៉ាញ"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "តុគិតលុយ​នៅ​ហាងកាហ្វេដែល​មានលក់​នំធ្វើពីម្សៅ"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "ស្វែងរក​ភោជនីយ​ដ្ឋាន​តាម​គោលដៅ"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("ជើង​ហោះ​ហើរ"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("អាស្ប៉ិន សហរដ្ឋ​អាមេរិក"),
@@ -243,7 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("ហាវ៉ាណា គុយបា"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "បុរសផ្អែកលើ​រថយន្ត​ស៊េរីចាស់​ពណ៌ខៀវ"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "ស្វែងរក​ជើង​ហោះហើរ​តាម​គោលដៅ"),
         "craneFormDate":
@@ -262,6 +316,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ជ្រើសរើស​ពេលវេលា"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("អ្នក​ធ្វើ​ដំណើរ"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("កន្លែង​គេង"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("ម៉ាល ម៉ាល់ឌីវ"),
         "craneSleep0SemanticLabel":
@@ -304,7 +360,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("លីសបោន ព័រទុយហ្គាល់"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "ប៉មភ្លើង​នាំផ្លូវ​ធ្វើពី​ឥដ្ឋ​នៅសមុទ្រ"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "ស្វែងរក​អចលន​ទ្រព្យ​តាម​គោលដៅ"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("អនុញ្ញាត"),
@@ -339,6 +395,52 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ទំព័រដើម"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("កម្រងព័ត៌មាន"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("កាល់ស្យូម (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("កាឡូរី"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("កាបូអ៊ីដ្រាត (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("បង្អែម (1 ចាន)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("ខ្លាញ់ (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("ដែក (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("ប្រូតេអ៊ីន (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("សូដ្យូម (mg)"),
+        "dataTableHeader":
+            MessageLookupByLibrary.simpleMessage("អាហារូបត្ថម្ភ"),
+        "dataTableRowApplePie": MessageLookupByLibrary.simpleMessage("នំ​ប៉ោម"),
+        "dataTableRowCupcake":
+            MessageLookupByLibrary.simpleMessage("នំខាប់ខេក"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("នំដូណាត់"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("នំអ៊ីក្លែ"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("យ៉ាអួកក"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("នំរសជាតិខ្ញី"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("សំបុកឃ្មុំ"),
+        "dataTableRowIceCreamSandwich": MessageLookupByLibrary.simpleMessage(
+            "នំប៊ីស្គីត​មានការ៉េម​នៅកណ្ដាល"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("ស្ករគ្រាប់រាងគ្រាប់សណ្ដែក"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("ស្ករគ្រាប់​ដោតឈើ"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ឈីប​សកម្មភាព​គឺជា​បណ្ដុំ​ជម្រើស ដែល​ជំរុញ​សកម្មភាព​ពាក់ព័ន្ធ​នឹង​ខ្លឹមសារ​ចម្បង​។ ឈីប​សកម្មភាព​គួរតែ​បង្ហាញ​ជា​បន្តបន្ទាប់ និង​តាម​បរិបទ​នៅក្នុង UI​។"),
         "demoActionChipTitle":
@@ -349,6 +451,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ការជូនដំណឹង"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("ជូនដំណឹង​រួមជាមួយ​ចំណងជើង"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "ផ្ទាំងផ្សាយ​ពាណិជ្ជកម្ម​បង្ហាញ​សារសំខាន់ ច្បាស់លាស់ និងផ្ដល់​សកម្មភាព​ឱ្យ​អ្នកប្រើប្រាស់ឆ្លើយតប (ឬច្រានចោល​ផ្ទាំងផ្សាយពាណិជ្ជកម្ម)។ តម្រូវឱ្យមាន​សកម្មភាព​របស់អ្នក​ប្រើប្រាស់ ដើម្បី​ច្រានចោល​ផ្ទាំងផ្សាយពាណិជ្ជកម្ម។"),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "កំពុងបង្ហាញ​ផ្ទាំងផ្សាយពាណិជ្ជកម្ម​នៅក្នុងបញ្ជី"),
+        "demoBannerTitle":
+            MessageLookupByLibrary.simpleMessage("ផ្ទាំងផ្សាយពាណិជ្ជកម្ម"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "របារកម្មវិធី​ផ្នែកខាងក្រោមផ្ដល់​សិទ្ធិចូលប្រើ​ថត​​រុករក​នៅផ្នែកខាងក្រោម និងសកម្មភាព​រហូតដល់បួន រួមទាំងប៊ូតុងសកម្មភាពអណ្ដែត​ផងដែរ។"),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -371,7 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("បង្ហាញ​សន្លឹកខាងក្រោម"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("ក្បាលទំព័រ"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "សន្លឹកខាងក្រោម​លក្ខណៈម៉ូដលគឺ​ជាជម្រើស​ផ្សេងក្រៅពី​ម៉ឺនុយ ឬប្រអប់ និងទប់ស្កាត់​អ្នកប្រើប្រាស់មិនឱ្យធ្វើ​អន្តរកម្មជាមួយ​កម្មវិធីដែលនៅសល់។"),
         "demoBottomSheetModalTitle":
@@ -390,6 +498,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ប៊ូតុង​រាបស្មើ ប៊ូតុង​ផុសឡើង ប៊ូតុង​មានបន្ទាត់ជុំវិញ និង​ច្រើនទៀត"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ប៊ូតុង"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "កាតគឺជាសន្លឹក​ខ្លឹមសារមួយ​ដែលប្រើ ដើម្បីតំណាងឱ្យ​ព័ត៌មាន​ពាក់ព័ន្ធ​មួយចំនួន ឧទាហរណ៍ អាល់ប៊ុម ទីតាំង​ភូមិសាស្ត្រ អាហារ ព័ត៌មានទំនាក់ទំនង ។ល។"),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "កាតខ្សែបន្ទាត់គោល​ដែលមាន​ជ្រុងរាងមូល"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("កាត"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("ម៉ឺនុយ​បញ្ជី​ត្រួតពិនិត្យ"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -404,12 +517,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "សូចនាករដំណើរការរាងរង្វង់នៃរចនាប័ទ្មសម្ភារ ដែលវិលដើម្បី​បង្ហាញថា​កម្មវិធី​កំពុងជាប់រវល់។"),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("សូចនាករដំណើរការរាងរង្វង់"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("គំរូកូដ"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("កូដ​សាកល្បង"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("បានចម្លង​ទៅ​ឃ្លីបបត។"),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("ចម្លង​ទាំងអស់"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "តម្លៃថេរនៃ​គំរូពណ៌ និងពណ៌​ដែលតំណាងឱ្យ​ក្ដារលាយពណ៌​របស់​រចនាប័ទ្ម​សម្ភារ។"),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -428,7 +541,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "សូចនាករសកម្មភាពរចនាប័ទ្ម iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("សូចនាករសកម្មភាព"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង​ជូនដំណឹង​តែប៉ុណ្ណោះ"),
         "demoCupertinoAlertButtonsTitle":
@@ -455,7 +568,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("របារ​រុករក​រចនាប័ទ្ម iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("របារ​រុករក"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("កាលបរិច្ឆេទ"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("កាលបរិច្ឆេទ និងម៉ោង"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "ធាតុក្រាហ្វិកនៃ​ផ្ទាំងជ្រើសរើស​ដែលមានរចនាប័ទ្ម iOS ដែលអាច​ត្រូវបានប្រើ ដើម្បីជ្រើសរើស​កាលបរិច្ឆេទ ម៉ោង ឬទាំង​កាលបរិច្ឆេទ និងម៉ោង។"),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ផ្ទាំងជ្រើសរើស​ម៉ោង និងកាលបរិច្ឆេទ​ដែលមានរចនាប័ទ្ម iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("ម៉ោង"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("កម្មវិធីកំណត់ម៉ោង"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("ផ្ទាំងជ្រើសរើស"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ធាតុ​ក្រាហ្វិក​ដែល​ប្រើ​ការគ្រប់គ្រងខ្លឹមសារ​តាមរយៈ​ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ​​រចនាប័ទ្ម iOS​។"),
@@ -463,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ការគ្រប់គ្រង​ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ​​រចនាប័ទ្ម iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ប្រើ​ដើម្បី​ជ្រើសរើស​រវាង​ជម្រើស​ដាច់ដោយឡែក​ផ្សេងៗគ្នា​មួយចំនួន។ នៅពេល​ជម្រើស​មួយ​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​ត្រូវបានជ្រើសរើស ជម្រើស​ផ្សេងទៀត​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​មិនត្រូវបានជ្រើសរើស​ទៀតទេ។"),
@@ -471,12 +597,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​តាមរចនាប័ទ្ម iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage(
-                "ការគ្រប់គ្រង​ដែល​បែងចែក​ជាផ្នែក"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "របាររំកិល​អាច​ត្រូវបានប្រើ​ដើម្បី​ជ្រើសរើសពី​សំណុំ​តម្លៃ​ជាក់លាក់ ឬ​មិនជាក់លាក់។"),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
             "របាររំកិល​ដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoSliderTitle":
@@ -490,11 +615,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "របារផ្ទាំង​នៅផ្នែក​ខាងក្រោម​ដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("របារ​ផ្ទាំង"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "កន្លែងបញ្ចូល​អក្សរអនុញ្ញាត​ឱ្យអ្នកប្រើប្រាស់បញ្ចូល​អក្សរ តាមរយៈក្ដារចុច​ហាតវែរ ឬក្ដារចុច​លើអេក្រង់។"),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("កូដ PIN"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "កន្លែងបញ្ចូល​អក្សរដែលមាន​រចនាប័ទ្ម iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "របាររំកិល​បង្ហាញ​ចន្លោះតម្លៃ​នៅលើរបារ ដែលអ្នកប្រើប្រាស់​អាចជ្រើសរើសតម្លៃមួយ ឬចន្លោះតម្លៃ។ អ្នកអាចកំណត់រចនាប័ទ្ម និងប្ដូរ​របាររំកិល​តាមបំណង។"),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("របាររំកិលផ្ទាល់ខ្លួន"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "តារាងទិន្នន័យ​បង្ហាញអំពី​ព័ត៌មានជា​ទម្រង់ដូចក្រឡា​នៃជួរដេក និងជួរឈរ។ តារាង​ទាំងនេះ​រៀបចំព័ត៌មាន​តាមរបៀប​ដែលងាយស្រួល​ស្កេន ដើម្បីឱ្យ​អ្នកប្រើប្រាស់​អាច​រកមើល​លំនាំ និងស្ថិតិបាន។"),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("ជួរដេក និងជួរឈរ​នៃព័ត៌មាន"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("តារាងទិន្នន័យ"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "បង្ហាញ​ប្រអប់ ដែលមាន​ផ្ទាំងជ្រើសរើស​កាលបរិច្ឆេទ​ដែលមានការរចនាគ្រប់ជ្រុងជ្រោយ។"),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("ផ្ទាំង​ជ្រើសរើស​កាលបរិច្ឆេទ"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ធម្មតា ការជូនដំណឹង និងពេញ​អេក្រង់"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ប្រអប់"),
@@ -561,7 +704,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ធាតុ​ដែលមាន​ម៉ឺនុយ​តាមផ្នែក"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("ធាតុ​ដែលមាន​ម៉ឺនុយ​ធម្មតា"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "ធាតុ​ទីមួយ​ក្នុង​ម៉ឺនុយ​បរិបទ"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -579,7 +722,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("មួយ"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("មើលសាកល្បង"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("លុប"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("ចែករំលែក"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "ប៊ូតុង​ម៉ឺនុយ និង​ម៉ឺនុយ​ធម្មតា"),
@@ -596,6 +739,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "ប៊ូតុង​មានបន្ទាត់ជុំវិញ​ប្រែជា​ស្រអាប់ និង​ផុសឡើង​នៅពេលចុច។ ជាញឹកញាប់ ប៊ូតុងទាំងនេះត្រូវបានដាក់ជាគូជាមួយប៊ូតុងផុសឡើង ដើម្បីរំលេចសកម្មភាពបន្ទាប់បន្សំផ្សេង។"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុងមាន​បន្ទាត់ជុំវិញ"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("បង្ហាញ​ផ្ទាំងជ្រើសរើស"),
+        "demoPickersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ការជ្រើសរើស​កាលបរិច្ឆេទ និងម៉ោង"),
+        "demoPickersTitle":
+            MessageLookupByLibrary.simpleMessage("ផ្ទាំងជ្រើសរើស"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "បន្ទាត់ត្រង់ រង្វង់ មិនកំណត់"),
         "demoProgressIndicatorTitle":
@@ -669,6 +818,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("របារសារខ្លីៗ"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ផ្ទាំង​រៀបចំ​ខ្លឹមសារ​នៅលើ​អេក្រង់ សំណុំ​ទិន្នន័យ​ផ្សេងៗគ្នា និងអន្តរកម្ម​ផ្សេងទៀត។"),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ផ្ទាំង​មាន​ទិដ្ឋភាព​ដាច់ពីគ្នា​ដែលអាច​រំកិលបាន"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ផ្ទាំង"),
@@ -689,7 +842,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("រឿងរ៉ាវជីវិត"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("ឈ្មោះ*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("តម្រូវ​ឱ្យ​មាន​ឈ្មោះ។"),
         "demoTextFieldNoMoreThan":
@@ -727,6 +880,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("តើយើងអាច​ទាក់ទងអ្នក​នៅទីណា?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("អាសយដ្ឋាន​អ៊ីមែល​របស់អ្នក"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "បង្ហាញ​ប្រអប់ ដែលមាន​ផ្ទាំងជ្រើសរើសម៉ោង​ដែលមានការរចនាគ្រប់ជ្រុងជ្រោយ។"),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("ផ្ទាំងជ្រើសរើស​ម៉ោង"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "អាចប្រើ​ប៊ូតុងបិទ/បើក ដើម្បី​ដាក់ជម្រើស​ដែលពាក់ព័ន្ធ​ជាក្រុមបាន។ ដើម្បីរំលេចក្រុមប៊ូតុងបិទ/បើកដែលពាក់ព័ន្ធ ក្រុមប៊ូតុងគួរតែប្រើទម្រង់ផ្ទុកទូទៅរួមគ្នា"),
         "demoToggleButtonTitle":
@@ -763,12 +920,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "ឱ្យ Google ជួយ​កម្មវិធី​ក្នុងការកំណត់​ទីតាំង។ មានន័យថា​ផ្ញើទិន្នន័យ​ទីតាំង​អនាមិក​ទៅ Google ទោះបីជា​មិនមាន​កម្មវិធី​កំពុងដំណើរការ​ក៏ដោយ។"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "ប្រើ​សេវាកម្ម​ទីតាំង​របស់ Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("កំណត់​គណនី​បម្រុង​ទុក"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("បង្ហាញ​ប្រអប់"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("ច្រានចោល"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("មេឌៀ និងរចនាប័ទ្ម​យោង"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ប្រភេទ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("សាល​រូបភាព"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ឆ្នេរ"),
@@ -790,7 +948,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("ថាន់ចរ"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("ប្រាសាទ​ថាន់ចាវួរ"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("គណនី​សន្សំទិញរថយន្ត"),
         "rallyAccountDataChecking":
@@ -815,15 +973,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("សរុប"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("គណនី"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("ការជូនដំណឹង"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("វិក្កយបត្រ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ចំនួនត្រូវបង់"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("សម្លៀក​បំពាក់"),
         "rallyBudgetCategoryCoffeeShops":
@@ -921,7 +1079,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("បោះបង់"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("សម្អាត​រទេះ"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("រទេះ"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ការ​ដឹកជញ្ជូន៖"),
@@ -983,8 +1141,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ខោជើងវែង Navy"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("តុ Quartet"),
         "shrineProductRainwaterTray":
@@ -1023,10 +1181,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("អាវឆ្នូតពណ៌ស"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("ខ្សែក្រវ៉ាត់ Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("បញ្ចូលទៅរទេះ"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("បិទ​ទំព័រ​រទេះ"),
         "shrineTooltipCloseMenu":
@@ -1038,9 +1196,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("ស្វែងរក"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("ការកំណត់"),
+        "signIn": MessageLookupByLibrary.simpleMessage("ចូល"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "ស្រទាប់​ចាប់ផ្ដើមដែល​ឆ្លើយតបរហ័ស"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("តួ​អត្ថបទ"),
         "starterAppGenericButton":

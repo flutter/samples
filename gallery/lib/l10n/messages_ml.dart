@@ -24,67 +24,83 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} ടാബിനുള്ള പ്ലെയ്സ്‌ഹോൾഡർ";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "അടുത്തറിയുക {ലക്ഷ്യസ്ഥാനത്തിന്റെ പേര്}";
+
+  static m3(destinationName) => "പങ്കിടുക {ലക്ഷ്യസ്ഥാനത്തിന്റെ പേര്}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'റെസ്‌റ്റോറന്റുകളൊന്നുമില്ല', one: 'ഒരു റെസ്‌റ്റോറന്റ്', other: '${totalRestaurants} റെസ്റ്റോറന്റുകൾ')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'സ്റ്റോപ്പില്ലാത്തവ', one: 'ഒരു സ്റ്റോപ്പ്', other: '${numberOfStops} സ്റ്റോപ്പുകൾ')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'പ്രോപ്പർട്ടികളൊന്നും ലഭ്യമല്ല', one: '1 പ്രോപ്പർട്ടികൾ ലഭ്യമാണ്', other: '${totalProperties} പ്രോപ്പർട്ടികൾ ലഭ്യമാണ്')}";
 
-  static m5(value) => "ഇനം ${value}";
+  static m10(value) => "${value} തേൻ ചേർത്തത്";
 
-  static m6(error) => "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്താനായില്ല: ${error}";
+  static m11(value) => "${value} പഞ്ചസാര ചേർത്തത്";
 
-  static m7(value) => "തുടർച്ചയായത്: ${value}";
+  static m12(value) => "ഇനം ${value}";
 
-  static m8(value) => "ഇടവിട്ടുള്ളത്: ${value}";
+  static m13(error) => "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്താനായില്ല: ${error}";
 
-  static m9(value) => "ചെക്ക് ചെയ്തു: ${value}";
+  static m14(value) => "തുടർച്ചയായത്: ${value}";
 
-  static m10(value) => "തിരഞ്ഞെടുത്തു: ${value}";
+  static m15(value) => "ഇടവിട്ടുള്ളത്: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "ചെക്ക് ചെയ്തു: ${value}";
+
+  static m17(value) => "തിരഞ്ഞെടുത്തു: ${value}";
+
+  static m18(name, phoneNumber) =>
       "${name} എന്ന വ്യക്തിയുടെ ഫോൺ നമ്പർ ${phoneNumber} ആണ്";
 
-  static m12(value) => "നിങ്ങൾ തിരഞ്ഞെടുത്തത്: \"${value}\"";
+  static m19(value) => "നിങ്ങൾ തിരഞ്ഞെടുത്തത്: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "${amount} നിരക്കുള്ള, ${accountNumber} എന്ന അക്കൗണ്ട് നമ്പറോട് കൂടിയ ${accountName} അക്കൗണ്ട്.";
 
-  static m14(amount) => "ഈ മാസം നിങ്ങൾ ${amount} ATM ഫീസ് അടച്ചു";
+  static m21(amount) => "ഈ മാസം നിങ്ങൾ ${amount} ATM ഫീസ് അടച്ചു";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "തകർപ്പൻ പ്രകടനം! നിങ്ങളുടെ ചെക്കിംഗ് അക്കൗണ്ട് കഴിഞ്ഞ മാസത്തേക്കാൾ ${percent} കൂടുതലാണ്.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "ശ്രദ്ധിക്കൂ, നിങ്ങൾ ഈ മാസത്തെ ഷോപ്പിംഗ് ബജറ്റിന്റെ ${percent} ഉപയോഗിച്ചു.";
 
-  static m17(amount) => "ഈ ആഴ്ച റസ്റ്റോറന്റുകളിൽ നിങ്ങൾ ${amount} ചെലവാക്കി.";
+  static m24(amount) => "ഈ ആഴ്ച റസ്റ്റോറന്റുകളിൽ നിങ്ങൾ ${amount} ചെലവാക്കി.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'നികുതിയായി നിങ്ങളിൽ നിന്നും പിടിക്കാൻ സാധ്യതയുള്ള തുക കുറയ്ക്കൂ! വിഭാഗങ്ങൾ നിശ്ചയിച്ചിട്ടില്ലാത്ത ഒരു ഇടപാടിന് വിഭാഗങ്ങൾ നൽകുക.', other: 'നികുതിയായി നിങ്ങളിൽ നിന്നും പിടിക്കാൻ സാധ്യതയുള്ള തുക കുറയ്ക്കൂ! വിഭാഗങ്ങൾ നിശ്ചയിച്ചിട്ടില്ലാത്ത ${count} ഇടപാടുകൾക്ക് വിഭാഗങ്ങൾ നൽകുക.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "അവസാന തീയതി ${date} ആയ ${amount} വരുന്ന ${billName} ബിൽ.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "മൊത്തം ${amountTotal} തുകയിൽ ${amountUsed} നിരക്ക് ഉപയോഗിച്ച ${budgetName} ബജറ്റ്, ${amountLeft} ശേഷിക്കുന്നു";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'ഇനങ്ങളൊന്നുമില്ല', one: 'ഒരിനം', other: '${quantity} ഇനങ്ങൾ')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "അളവ്: ${quantity}";
+  static m30(quantity) => "അളവ്: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'ഷോപ്പിംഗ് കാർട്ട്, ഇനങ്ങളൊന്നുമില്ല', one: 'ഷോപ്പിംഗ് കാർട്ട്, ഒരു ഇനം', other: 'ഷോപ്പിംഗ് കാർട്ട്, ${quantity} ഇനങ്ങൾ')}";
 
-  static m25(product) => "${product} നീക്കുക";
+  static m32(product) => "${product} നീക്കുക";
 
-  static m26(value) => "ഇനം ${value}";
+  static m33(value) => "ഇനം ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "ഫ്ലട്ടർ സാമ്പിൾസ് ഗിറ്റ്ഹബ് റിപ്പോ"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("ഗാലറിയിലേക്ക് മടങ്ങുക"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("മുൻനിര ഐക്കൺ"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("ഒന്നിലധികം നടപടികൾ"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("ബാനർ റീസെറ്റ് ചെയ്യുക"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "നിങ്ങളുടെ പാസ്‌വേഡ് നിങ്ങളുടെ മറ്റ് ഉപകരണത്തിൽ അപ്‌ഡേറ്റ് ചെയ്‌തു. ദയവായി വീണ്ടും സൈൻ ഇൻ ചെയ്യുക."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("നോച്ച്"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "ഫ്ലോട്ടിംഗ് പ്രവർത്തന ബട്ടണിന്റെ സ്ഥാനം"),
@@ -119,6 +143,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "buttonText": MessageLookupByLibrary.simpleMessage("ബട്ടൺ"),
         "buttonTextCreate":
             MessageLookupByLibrary.simpleMessage("സൃഷ്‌ടിക്കുക"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("അടുത്തറിയുക"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "തിരഞ്ഞെടുക്കാവുന്നത് (ദീർഘനേരം അമർത്തുക)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("ടാപ്പ് ചെയ്യാവുന്നത്"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("തഞ്ചാവൂർ"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("ചെട്ടിനാട്"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("നമ്പർ 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("പട്ട് നൂൽക്കുന്നവർ"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("ക്ഷേത്രങ്ങൾ"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("തഞ്ചാവൂർ, തമിഴ്‌നാട്"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("ശിവഗംഗ, തമിഴ്‌നാട്"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "തമിഴ്‌നാട്ടിൽ സന്ദർശിക്കേണ്ട മികച്ച 10 നഗരങ്ങൾ"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "തെക്കൻ ഇന്ത്യയിൽ നിന്നുള്ള കരകൗശല വിദഗ്‌ദ്ധർ"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("ബൃഹദീശ്വര ക്ഷേത്രം"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("ബൈക്കിംഗ്"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("എലിവേറ്റർ"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("നെരിപ്പോട്"),
@@ -191,9 +244,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("മാഡ്രിഡ്, സ്‌പെയിൻ"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "പേസ്‌ട്രികൾ ലഭ്യമാക്കുന്ന കഫേയിലെ കൗണ്ടർ"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "ലക്ഷ്യസ്ഥാനം അനുസരിച്ച് റെസ്റ്റോറന്റുകൾ അടുത്തറിയുക"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("FLY"),
         "craneFly0": MessageLookupByLibrary.simpleMessage(
             "ആസ്പെൻ, യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"),
@@ -245,7 +299,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("ഹവാന, ക്യൂബ"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "നീല നിറത്തിലുള്ള പുരാതന കാറിൽ ചാരിയിരിക്കുന്ന മനുഷ്യൻ"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "ലക്ഷ്യസ്ഥാനം അനുസരിച്ച് ഫ്ലൈറ്റുകൾ അടുത്തറിയുക"),
         "craneFormDate":
@@ -262,6 +316,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("സമയം തിരഞ്ഞെടുക്കുക"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("സഞ്ചാരികൾ"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("ഉറക്കം"),
         "craneSleep0":
             MessageLookupByLibrary.simpleMessage("മാലി, മാലദ്വീപുകൾ"),
@@ -310,7 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ലിസ്ബൺ, പോർച്ചുഗൽ"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "ഇഷ്‌ടിക കൊണ്ട് ഉണ്ടാക്കിയ കടലിലെ ലൈറ്റ്ഹൗസ്"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "ലക്ഷ്യസ്ഥാനം അനുസരിച്ച് പ്രോപ്പർട്ടികൾ അടുത്തറിയുക"),
         "cupertinoAlertAllow":
@@ -347,6 +403,51 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("ഹോം"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("പ്രൊഫൈൽ"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("കാൽസ്യം (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("കലോറികൾ"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("കാർബോഹൈഡ്രേറ്റുകൾ (ഗ്രാം)"),
+        "dataTableColumnDessert": MessageLookupByLibrary.simpleMessage(
+            "ഡിസേർട്ട് (ഒരെണ്ണം നൽകുന്നു)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("കൊഴുപ്പ് (ഗ്രാം)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("അയേൺ (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("പ്രോട്ടീൻ (ഗ്രാം)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("സോഡിയം (മില്ലിഗ്രാം)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("പോഷകാഹാരം"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Apple pie"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Frozen yogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Honeycomb"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice Cream Sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "പ്രാഥമിക ഉള്ളടക്കവുമായി ബന്ധപ്പെട്ട ഒരു ആക്ഷനെ ട്രിഗർ ചെയ്യുന്ന ഒരു സെറ്റ് ഓപ്ഷനുകളാണ് ആക്ഷൻ ചിപ്പുകൾ. ആക്ഷൻ ചിപ്പുകൾ UI-യിൽ ചലനാത്മകമായും സന്ദർഭോചിതമായും ദൃശ്യമാകും."),
         "demoActionChipTitle":
@@ -357,6 +458,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("മുന്നറിയിപ്പ്"),
         "demoAlertTitleDialogTitle": MessageLookupByLibrary.simpleMessage(
             "പേര് ഉപയോഗിച്ച് മുന്നറിയിപ്പ്"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "പ്രധാനപ്പെട്ടതും സംക്ഷിപ്തവുമായ സന്ദേശം ബാനർ പ്രദർശിപ്പിക്കുന്നു ഒപ്പം ഉപയോക്താക്കൾക്ക് ബാനർ അഭിമുഖീകരിക്കാൻ (അല്ലെങ്കിൽ ബാനർ ഡിസ്‌മിസ് ചെയ്യാൻ) നടപടികൾ നൽകുന്നു. അത് ഡിസ്‌മിസ് ചെയ്യാൻ ഉപയോക്തൃ നടപടി ആവശ്യമാണ്."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ലിസ്റ്റിനുള്ളിലെ ബാനർ പ്രദർശിപ്പിക്കുന്നു"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("ബാനർ"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "ചുവടെയുള്ള ഒരു നാവിഗേഷൻ ഡ്രോയറിലേക്കും ഫ്ലോട്ടിംഗ് പ്രവർത്തന ബട്ടൺ ഉൾപ്പെടെ നാല് പ്രവർത്തനങ്ങളിലേക്കും വരെയുള്ള ആക്‌സസ് ചുവടെയുള്ള ആപ്പ് ബാറുകൾ നൽകുന്നു."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -379,7 +485,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ബോട്ടം ഷീറ്റ് കാണിക്കുക"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("തലക്കെട്ട്"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "മോഡൽ ബോട്ടം ഷീറ്റ് മെനുവിനോ ഡയലോഗിനോ ഉള്ള ബദലാണ്, ഇത് ബാക്കി ആപ്പുമായി ഇടപഴകുന്നതിൽ നിന്ന് ഉപയോക്താവിനെ തടയുന്നു."),
         "demoBottomSheetModalTitle":
@@ -398,6 +504,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "ഫ്ലാറ്റ്, റെയ്‌സ്‌ഡ്, ഔട്ട്‌ലൈൻ എന്നിവയും മറ്റും"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("ബട്ടണുകൾ"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "ആൽബം, ഭൂമിശാസ്‌ത്ര ലൊക്കേഷൻ, ഭക്ഷണം, കോൺടാക്റ്റ് വിശദാംശങ്ങൾ മുതലായവ പോലുള്ള അനുബന്ധ വിവരങ്ങളെ പ്രതിനിധീകരിക്കാൻ ഉപയോഗിക്കുന്ന മെറ്റീരിയലിന്റെ ഷീറ്റാണ് ഒരു കാർഡ്."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "വൃത്താകൃതിയിലുള്ള മൂലകളോട് കൂടിയ ബെയ്‌സ്‌ലെെൻ കാർഡുകൾ"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("കാർഡുകൾ"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("ചെക്ക്‌ലിസ്റ്റ് മെനു"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -413,13 +524,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "വൃത്താകൃതിയിലുള്ള പ്രോഗ്രസ് ഇൻഡിക്കേറ്റർ"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("കോഡ് മാതൃക"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("ഡെമോ കോഡ്"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "ക്ലിപ്പ്‌ബോർഡിലേക്ക് പകർത്തി."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("എല്ലാം പകർത്തുക"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "മെറ്റീരിയൽ രൂപകൽപ്പനയുടെ വർണ്ണ പാലെറ്റിനെ പ്രതിനിധീകരിക്കുന്ന വർണ്ണ, വർണ്ണ സ്വാച്ച് കോൺസ്‌റ്റന്റുകൾ."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -438,7 +549,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ശെെലിയിലുള്ള ആക്റ്റിവിറ്റി ഇൻഡിക്കേറ്ററുകൾ"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("ആക്റ്റിവിറ്റി ഇൻഡിക്കേറ്റർ"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "മുന്നറിയിപ്പ് ബട്ടണുകൾ മാത്രം"),
@@ -467,15 +578,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-സ്റ്റൈൽ നാവിഗേഷൻ ബാർ"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("നാവിഗേഷൻ ബാർ"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("തീയതി"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("തീയതിയും സമയവും"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "തീയതി, സമയം, അല്ലെങ്കിൽ അവ രണ്ടും തിരഞ്ഞെടുക്കാൻ ഉപയോഗിക്കാവുന്ന iOS-സ്റ്റെെലിലുള്ള പിക്കർ വിജെറ്റ്."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-സ്റ്റെെലിലുള്ള തീയതി, സമയ പിക്കറുകൾ"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("സമയം"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("ടൈമർ"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("പിക്കറുകൾ"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "നിയന്ത്രണം പുതുക്കിയെടുക്കാനുള്ള OS-സ്റ്റൈലിലുള്ള വലിക്കൽ നടപ്പാക്കുന്ന വിജറ്റ്."),
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "നിയന്ത്രണം പുതുക്കിയെടുക്കാനുള്ള OS-സ്റ്റൈലിലുള്ള വലിക്കൽ"),
-        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
-            "പുതുക്കിയെടുക്കാനുള്ള വലിക്കൽ"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "തനതായ നിരവധി ഓപ്‌ഷനുകൾക്കിടയിൽ നിന്ന് തിരഞ്ഞെടുക്കാൻ ഉപയോഗിക്കുന്നു. വിഭാഗീകരിച്ച നിയന്ത്രണത്തിലെ ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുമ്പോൾ, വിഭാഗീകരിച്ച നിയന്ത്രണത്തിലെ മറ്റ് ഓപ്ഷനുകൾ തിരഞ്ഞെടുക്കപ്പെടുന്നതിൽ നിന്ന് തടയുന്നു."),
@@ -483,11 +607,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-സ്റ്റെെലിലുള്ള വിഭാഗീകരിച്ച നിയന്ത്രണം"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("വിഭാഗീകരിച്ച നിയന്ത്രണം"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "തുടർച്ചയായ അല്ലെങ്കിൽ ഇടവിട്ടുള്ള മൂല്യങ്ങളുടെ ഗണത്തിൽ നിന്ന് മൂല്യങ്ങൾ തിരഞ്ഞെടുക്കാൻ സ്ലൈഡർ ഉപയോഗിക്കാം."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-സ്‌റ്റൈലിലുള്ള സ്ലൈഡർ"),
         "demoCupertinoSliderTitle":
@@ -501,11 +625,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-സ്‌റ്റൈലിലുള്ള ചുവട്ടിലെ ടാബ് ബാർ"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("ടാബ് ബാർ"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "ഒന്നുകിൽ ഹാർഡ്‌വെയർ കീബോർഡ് ഉപയോഗിച്ച് അല്ലെങ്കിൽ ഓൺ സ്ക്രീൻ കീബോർഡ് ഉപയോഗിച്ച് ടെക്‌സ്റ്റ് നൽകാൻ ടെക്‌സ്റ്റ് ഫീൽഡ് ഉപയോക്താവിനെ അനുവദിക്കുന്നു."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("പിൻ"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-സ്റ്റെെലിലുള്ള ടെക്‌സ്‌റ്റ് ഫീൽഡുകൾ"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "സ്ലെെഡറുകൾ ഒരു ബാറിലുടനീളം മൂല്യങ്ങളുടെ ഒരു ശ്രേണിയെ പ്രതിഫലിപ്പിക്കുന്നു. ആ മൂല്യങ്ങളിൽ നിന്ന് ഒന്നോ മൂല്യങ്ങളുടെ ഒരു ശ്രേണിയോ ഉപയോക്താക്കൾക്ക് തിരഞ്ഞെടുക്കാം. സ്ലെെഡറുകൾക്ക് തീം നൽകാനും അവ ഇഷ്ടാനുസൃതമാക്കാനും കഴിയും."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("ഇഷ്‌ടാനുസൃതം സ്ലെെഡറുകൾ"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "വരികളുടെയും കോളങ്ങളുടെയും ഗ്രിഡ് പോലെയുള്ള ഫോർമാറ്റിൽ ഡാറ്റാ പട്ടികകൾ, വിവരങ്ങൾ പ്രദർശിപ്പിക്കുന്നു. വിവരങ്ങൾ സ്‌കാൻ ചെയ്യാൻ എളുപ്പമായ രീതിയിൽ അവ ഓർ‍ഗനൈസ് ചെയ്യുന്നു, അതുവഴി ഉപയോക്താക്കൾക്ക് പാറ്റേണുകളും ഉൾക്കാഴ്ചകളും നോക്കാനും കഴിയുന്നു."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "വിവരങ്ങളുടെ വരികളും കോളങ്ങളും"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("ഡാറ്റാ പട്ടികകൾ"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "മെറ്റീരിയൽ രൂപകൽപ്പനാ തീയതി പിക്കർ അടങ്ങിയ ഡയലോഗ് കാണിക്കുന്നു."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("തീയതി പിക്കർ"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "ലളിതം, മുന്നറിയിപ്പ്, പൂർണ്ണസ്‌ക്രീൻ എന്നിവ"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ഡയലോഗുകൾ"),
@@ -573,7 +715,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "വിഭാഗീകരിച്ച മെനു ഉള്ള ഒരിനം"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("സിമ്പിൾ മെനു ഉള്ള ഒരിനം"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("സന്ദർഭ മെനു ഇനം ഒന്ന്"),
         "demoMenuContextMenuItemThree":
@@ -592,7 +734,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("പ്രിവ്യു"),
         "demoMenuRemove":
             MessageLookupByLibrary.simpleMessage("നീക്കം ചെയ്യുക"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("പങ്കിടുക"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "മെനു ബട്ടണുകളും സിമ്പിൾ മെനുകളും"),
@@ -610,6 +752,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "ഔട്ട്ലൈൻ ബട്ടണുകൾ അതാര്യമാവുകയും അമർത്തുമ്പോൾ ഉയരുകയും ചെയ്യും. ഒരു ഇതര, ദ്വിതീയ പ്രവർത്തനം സൂചിപ്പിക്കുന്നതിന് അവ പലപ്പോഴും റെയ്‌സ്‌ഡ് ബട്ടണുകളുമായി ജോടിയാക്കുന്നു."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("ഔട്ട്‌ലൈൻ ബട്ടൺ"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("പിക്കർ കാണിക്കുക"),
+        "demoPickersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "തീയതിയും സമയവും തിരഞ്ഞെടുക്കൽ"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("പിക്കറുകൾ"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "ലീനിയർ, വൃത്താകൃതിയിലുള്ളത്, അനിശ്ചിതമായത്"),
         "demoProgressIndicatorTitle":
@@ -685,6 +832,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("സ്‌നാക്‌ബാറുകൾ"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "വ്യത്യസ്ത സ്ക്രീനുകൾ, ഡാറ്റാ സെറ്റുകൾ, മറ്റ് ആശയവിനിമയങ്ങൾ എന്നിവയിലുടനീളം ഉള്ളടക്കം ടാബുകൾ ഓർഗനെെസ് ചെയ്യുന്നു."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "സ്വതന്ത്രമായി സ്ക്രോൾ ചെയ്യാവുന്ന കാഴ്ചകളുള്ള ടാബുകൾ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ടാബുകൾ"),
@@ -704,7 +855,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("ജീവിത കഥ"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("പേര്*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("പേര് ആവശ്യമാണ്."),
         "demoTextFieldNoMoreThan":
@@ -741,6 +892,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "നിങ്ങളെ എവിടെയാണ് ഞങ്ങൾക്ക് ബന്ധപ്പെടാനാവുക?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("നിങ്ങളുടെ ഇമെയിൽ വിലാസം"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "മെറ്റീരിയൽ രൂപകൽപ്പനാ സമയ പിക്കർ അടങ്ങിയ ഡയലോഗ് കാണിക്കുന്നു."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("സമയ പിക്കർ"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "സമാനമായ ഓപ്ഷനുകൾ ഗ്രൂപ്പ് ചെയ്യാൻ ടോഗിൾ ബട്ടണുകൾ ഉപയോഗിക്കാം. സമാനമായ ടോഗിൾ ബട്ടണുകളുടെ ഗ്രൂപ്പുകൾക്ക് പ്രാധാന്യം നൽകുന്നതിന്, ഒരു ഗ്രൂപ്പ് ഒരു പൊതു കണ്ടെയിനർ പങ്കിടണം"),
         "demoToggleButtonTitle":
@@ -779,12 +934,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "ലൊക്കേഷൻ നിർണ്ണയിക്കുന്നതിന് ആപ്പുകളെ സഹായിക്കാൻ Google-നെ അനുവദിക്കുക. ആപ്പുകളൊന്നും പ്രവർത്തിക്കാത്തപ്പോൾ പോലും Google-ലേക്ക് അജ്ഞാത ലൊക്കേഷൻ ഡാറ്റ അയയ്‌ക്കുന്നുവെന്നാണ് ഇത് അർത്ഥമാക്കുന്നത്."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Google-ന്റെ ലൊക്കേഷൻ സേവനം ഉപയോഗിക്കണോ?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "ബാക്കപ്പ് അക്കൗണ്ട് സജ്ജീകരിക്കൂ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ഡയലോഗ് കാണിക്കുക"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("ഡിസ്‌മിസ് ചെയ്യുക"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("റഫറൻസ് ശെെലികളും മീഡിയയും"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("വിഭാഗങ്ങൾ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ഗാലറി"),
@@ -808,7 +964,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("തഞ്ചാവൂർ"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("തഞ്ചാവൂർ ക്ഷേത്രം"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("കാർ സേവിംഗ്‍സ്"),
         "rallyAccountDataChecking":
@@ -832,15 +988,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("മൊത്തം"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("അക്കൗണ്ടുകൾ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("മുന്നറിയിപ്പുകൾ"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("ബില്ലുകൾ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("അവസാന തീയതി"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("വസ്ത്രങ്ങൾ"),
         "rallyBudgetCategoryCoffeeShops":
@@ -942,7 +1098,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("റദ്ദാക്കുക"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("കാർട്ട് മായ്‌ക്കുക"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("കാർട്ട്"),
         "shrineCartShippingCaption":
@@ -1005,8 +1161,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("നേവി ട്രൗസേഴ്‌സ്"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("പ്ലാസ്‌റ്റർ ട്യൂണിക്"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("ക്വാർട്ടറ്റ് പട്ടിക"),
         "shrineProductRainwaterTray":
@@ -1045,10 +1201,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("വൈറ്റ് പിൻസ്ട്രൈപ്പ് ഷർട്ട്"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("വിറ്റ്നി ബെൽറ്റ്"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("കാർട്ടിലേക്ക് ചേർക്കുക"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("കാർട്ട് അടയ്ക്കുക"),
         "shrineTooltipCloseMenu":
@@ -1060,9 +1216,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("തിരയുക"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("ക്രമീകരണം"),
+        "signIn": MessageLookupByLibrary.simpleMessage("സൈൻ ഇൻ ചെയ്യുക"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "റെസ്പോൺസിവ് സ്റ്റാർട്ടർ ലേഔട്ട്"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("ബോഡി"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("ബട്ടൺ"),
