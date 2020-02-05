@@ -899,7 +899,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
         "fortnightlyDescription":
-            MessageLookupByLibrary.simpleMessage("A news app"),
+            MessageLookupByLibrary.simpleMessage("A content-focused news app"),
         "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
             "Reforming The Green Army From Within"),
         "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(

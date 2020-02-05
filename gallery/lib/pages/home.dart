@@ -84,7 +84,8 @@ class HomePage extends StatelessWidget {
       _CarouselCard(
         title: fortnightlyTitle,
         subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
-        // TODO: Provide asset for study banner.
+        asset: 'assets/studies/fortnightly_card.png',
+        assetDark: 'assets/studies/fortnightly_card_dark.png',
         study: FortnightlyApp(navigatorKey: NavigatorKeys.fortnightly),
         navigatorKey: NavigatorKeys.fortnightly,
       ),

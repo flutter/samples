@@ -123,7 +123,7 @@
   "@shrineDescription": {
     "description": "Study description for Shrine."
   },
-  "fortnightlyDescription": "A news app",
+  "fortnightlyDescription": "A content-focused news app",
   "@fortnightlyDescription": {
     "description": "Study description for Fortnightly."
   },
