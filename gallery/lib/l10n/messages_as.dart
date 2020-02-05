@@ -23,66 +23,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} টেবৰ বাবে প্লে’চহ’ল্ডাৰ";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "${destinationName} অন্বেষণ কৰক";
+
+  static m3(destinationName) => "${destinationName} শ্বেয়াৰ কৰক";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'কোনো ৰেষ্টুৰেণ্ট নাই', one: '১ খন ৰেষ্টুৰেণ্ট', other: '${totalRestaurants} খন ৰেষ্টুৰেণ্ট')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'কোনো আস্থান নাই', one: '১ টা আস্থান', other: '${numberOfStops} টা আস্থান')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'কোনো উপলব্ধ সম্পত্তি নাই', one: '১ টা উপলব্ধ সম্পত্তি', other: '${totalProperties} টা উপলব্ধ সম্পত্তি')}";
 
-  static m5(value) => "বস্তু ${value}";
+  static m10(value) => "মৌযুক্ত ${value}";
 
-  static m6(error) => "ক্লিপব\'ৰ্ডলৈ প্ৰতিলিপি কৰিব পৰা নগ\'ল: ${error}";
+  static m11(value) => "চেনিযুক্ত ${value}";
 
-  static m7(value) => "অবিৰত: ${value}";
+  static m12(value) => "বস্তু ${value}";
 
-  static m8(value) => "বিৰত: ${value}";
+  static m13(error) => "ক্লিপব\'ৰ্ডলৈ প্ৰতিলিপি কৰিব পৰা নগ\'ল: ${error}";
 
-  static m9(value) => "এইটো পৰীক্ষা কৰা হৈছে: ${value}";
+  static m14(value) => "অবিৰত: ${value}";
 
-  static m10(value) => "এইটো বাছনি কৰা হৈছে: ${value}";
+  static m15(value) => "বিৰত: ${value}";
 
-  static m11(name, phoneNumber) => "${name}ৰ ফ’ন নম্বৰটো হৈছে ${phoneNumber}";
+  static m16(value) => "এইটো পৰীক্ষা কৰা হৈছে: ${value}";
 
-  static m12(value) => "আপুনি এইটো বাছনি কৰিছে: \"${value}\"";
+  static m17(value) => "এইটো বাছনি কৰা হৈছে: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name}ৰ ফ’ন নম্বৰটো হৈছে ${phoneNumber}";
+
+  static m19(value) => "আপুনি এইটো বাছনি কৰিছে: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountName} একাউণ্ট ${accountNumber}ত ${amount} জমা কৰা হৈছে।";
 
-  static m14(amount) => "আপুনি এই মাহত এটিএমৰ মাচুলৰ বাবদ ${amount} খৰচ কৰিছে";
+  static m21(amount) => "আপুনি এই মাহত এটিএমৰ মাচুলৰ বাবদ ${amount} খৰচ কৰিছে";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "ভাল কাম কৰিছে! আপোনাৰ চেকিং একাউণ্ট যোৱা মাহতকৈ ${percent} বেছি।";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "জৰুৰী ঘোষণা, আপুনি এই মাহৰ বাবে আপোনাৰ শ্বপিং বাজেটৰ ${percent} খৰচ কৰিছে।";
 
-  static m17(amount) => "আপুনি এই সপ্তাহত ৰেষ্টুৰেণ্টত ${amount} খৰচ কৰিছে।";
+  static m24(amount) => "আপুনি এই সপ্তাহত ৰেষ্টুৰেণ্টত ${amount} খৰচ কৰিছে।";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'আপোনাৰ সম্ভাব্য কৰ কটাৰ পৰিমাণ বৃদ্ধি কৰক! ১ টা আবণ্টন নকৰা লেনদেনত শিতানসমূহ আবণ্টন কৰক।', other: 'আপোনাৰ সম্ভাব্য কৰ কটাৰ পৰিমাণ বৃদ্ধি কৰক! ${count} টা আবণ্টন নকৰা লেনদেনত শিতানসমূহ আবণ্টন কৰক।')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${billName} বিল ${amount} পৰিশোধ কৰাৰ শেষ তাৰিখ ${date}।";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName}ৰ ${amountTotal}ৰ ভিতৰত ${amountUsed} ব্যৱহাৰ কৰা হৈছে, ${amountLeft} বাকী আছে";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'কোনো বস্তু নাই', one: '১ টা বস্তু', other: '${quantity} টা বস্তু')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "পৰিমাণ: ${quantity}";
+  static m30(quantity) => "পৰিমাণ: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'শ্বপিং কাৰ্ট, কোনো বস্তু নাই', one: 'শ্বপিং কাৰ্ট, ১ টা বস্তু', other: 'শ্বপিং কার্ট, ${quantity} টা বস্তু')}";
 
-  static m25(product) => "${product} আঁতৰাওক";
+  static m32(product) => "${product} আঁতৰাওক";
 
-  static m26(value) => "বস্তু ${value}";
+  static m33(value) => "বস্তু ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -91,6 +107,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutterৰ আর্হিসমূহ GitHub ৰেপ’"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("গেলাৰীলৈ উভতি যাওক"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("শীৰ্ষ স্থানত থকা আইকন"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("একাধিক কাৰ্য"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("বেনাৰখন ৰিছেট কৰক"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "আপোনাৰ পাছৱৰ্ডটো আপোনাৰ আনটো ডিভাইচত আপডে’ট কৰা হৈছে। অনুগ্ৰহ কৰি পুনৰ ছাইন ইন কৰক।"),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("নট্‌চ্চ"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "ওপঙি থকা কাৰ্য বুটামৰ অৱস্থান"),
@@ -115,6 +139,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("বুটাম"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("সৃষ্টি কৰক"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("অন্বেষণ কৰক"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "বাছনি কৰিব পৰা (দীঘলীয়াকৈ টিপক)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("টিপিব পৰা"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("তাঞ্জাভুৰ"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("চেটিনাদ"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("সংখ্যা ১০"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("ৰেচম স্পীনাৰসকল"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("মন্দিৰসমূহ"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("তাঞ্জাভুৰ, তামিলনাডু"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("শিৱগংগা, তামিলনাডু"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "তামিলনাডুত ফুৰিবলগীয়া শীৰ্ষৰ ১০ খন চহৰ"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("দক্ষিণ ভাৰতৰ শিল্পীসকল"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("বৃহদেশ্বৰ মন্দিৰ"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("বাইকিং"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("এলিভে\'টৰ"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("জুহাল আছে"),
@@ -189,9 +240,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("মাদ্ৰিদ, স্পেইন"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("পেষ্ট্ৰিসহ কেফেৰ কাউণ্টাৰ"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "গন্তব্যস্থান অনুসৰি ৰেষ্টুৰেণ্টসমূহ অন্বেষণ কৰক"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("উৰণ"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("এছপেন, মার্কিন যুক্তৰাষ্ট্ৰ"),
@@ -242,7 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("হানাভা, কিউবা"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "এখন পুৰণি নীলা গাড়ীত হালি থকা মানুহ"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "গন্তব্যস্থানৰ অনুসৰি ফ্লাইটবোৰ অন্বেষণ কৰক"),
         "craneFormDate":
@@ -259,6 +311,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("সময় বাছনি কৰক"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("ভ্ৰমণকাৰীসকল"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("টোপনি"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("মালে, মালদ্বীপ"),
         "craneSleep0SemanticLabel":
@@ -302,7 +356,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("লিছবন, পর্তুগাল"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("সাগৰত থকা ইটাৰ আলোকস্তম্ভ"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "গন্তব্যস্থান অনুসৰি সম্পত্তিসমূহ অন্বেষণ কৰক"),
         "cupertinoAlertAllow":
@@ -338,6 +392,49 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("গৃহ"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("প্ৰ’ফাইল"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("কেলচিয়াম (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("কেল\'ৰি"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("শ্বেতসাৰ (গ্ৰাম)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("ডিজার্ট (১ টা পৰিবেশন)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("চর্বী (গ্ৰাম)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("আইৰন (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("প্ৰ\'টিন (গ্ৰাম)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("ছ\'ডিয়াম (মিলিগ্ৰাম)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("পৰিপুষ্টি"),
+        "dataTableRowApplePie": MessageLookupByLibrary.simpleMessage("এপল পাই"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("কাপকে’ক"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("ড’নাট"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("ইক্লেয়াৰ"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("ফ্র’জেন য়\'গাৰ্ট"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("জিঞ্জাৰব্ৰেড"),
+        "dataTableRowHoneycomb": MessageLookupByLibrary.simpleMessage("মৌচাক"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("আইচক্ৰীম ছেণ্ডৱিচ্‌"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("জেলী বিন"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("ল\'লিপ\'প"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "কার্যৰ চিপসমূহ প্ৰাথমিক সমল সম্পর্কীয় কোনো কার্য সূচনা কৰা বিকল্পসমূহৰ এক ছেট। কার্যৰ চিপসমূহ কোনো ইউআইত পৰিৱৰ্তনশীলভাৱে আৰু প্ৰাসংগিতা অনুসৰি প্ৰদর্শন হোৱা উচিত।"),
         "demoActionChipTitle":
@@ -348,6 +445,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("সতৰ্কবাৰ্তা"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("শিৰোনামৰ সৈতে সতর্কবার্তা"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "এখন বেনাৰে কোনো গুৰুত্বপূৰ্ণ, সংক্ষিপ্ত বাৰ্তা দেখুৱায় আৰু ব্যৱহাৰকাৰীসকলৰ বাবে বিষয়টো সম্বোধন কৰাৰ (অথবা বেনাৰখন অগ্ৰাহ্য কৰাৰ) কার্যসমূহ প্ৰদান কৰে। এইটো অগ্ৰাহ্য কৰিবলৈ এটা ব্যৱহাৰকাৰীৰ কাৰ্যৰ আৱশ্যক হয়।"),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "এখন তালিকাৰ ভিতৰত এখন বেনাৰ প্ৰদৰ্শিত কৰা"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("বেনাৰ"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "তলত অৱস্থিত এপ্‌ বাৰে নিম্নাংশত থকা এটা নেভিগে’শ্বন ড্ৰৱাৰ আৰু ওপঙি থকা কাৰ্য বুটামকে ধৰি চাৰিটা কাৰ্যলৈ এক্সেছ প্ৰদান কৰে।"),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -369,7 +471,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText": MessageLookupByLibrary.simpleMessage(
             "একেবাৰে নিম্নাংশৰ শ্বীটখন দেখুৱাওক"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("হেডাৰ"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "এখন একেবাৰে নিম্নাংশৰ ম’ডাল শ্বীট হৈছে এখন মেনু অথবা এটা ডায়ল’গৰ এক বিকল্প আৰু ই ব্যৱহাৰকাৰীজনক এপ্‌টোৰ বাকী অংশ ব্যৱহাৰ কৰাত বাধা দিয়ে।"),
         "demoBottomSheetModalTitle": MessageLookupByLibrary.simpleMessage(
@@ -388,6 +490,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "সমতল, উঠঙা, ৰূপৰেখা আৰু বহুতো"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("বুটামসমূহ"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "এখন কাৰ্ড হৈছে কিছুমান প্ৰাসংগিক তথ্য প্ৰতিনিধিত্ব কৰিবলৈ ব্যৱহাৰ কৰা বস্তুবোৰৰ এখন শ্বীট, যেনে এলবাম, কোনো ভৌগোলিক অৱস্থান, কোনো আহাৰ, যোগাযোগৰ সবিশেষ ইত্যাদি।"),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ঘূৰণীয়া কোণৰ বেছলাইন কাৰ্ডসমূহ"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("কাৰ্ডসমূহ"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("চেকলিষ্ট মেনু"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -402,13 +509,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "এটা ভৌতিক আৰ্হিৰ চক্ৰাকাৰ সূচক যি এপ্লিকেশ্বনটো ব্যস্ত হৈ থকাটো সূচাবলৈ ঘূৰি থাকে।"),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("চক্ৰাকাৰ অগ্ৰগতিৰ সূচক"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("ক\'ডৰ আর্হি"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("ডেম’ ক’ড"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "ক্লিপব’ৰ্ডলৈ প্ৰতিলিপি কৰা হ’ল।"),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("সকলো প্ৰতিলিপি কৰক"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Material Designৰ ৰঙৰ পেলেট প্ৰতিনিধিত্ব কৰা ৰং আৰু ৰঙৰ অপৰিৱর্তিত কণিকাসমূহ।"),
         "demoColorsSubtitle":
@@ -427,7 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-শৈলীৰ কাৰ্যকলাপৰ সূচকসমূহ"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("কাৰ্যকলাপৰ সূচক"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("কেৱল সতর্কবার্তাৰ বুটামসমূহ"),
         "demoCupertinoAlertButtonsTitle":
@@ -454,7 +561,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ নেভিগেশ্বন বাৰ"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("নেভিগেশ্বন বাৰ"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("তাৰিখ"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("তাৰিখ আৰু সময়"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "কোনো iOS-শৈলী বাছনি কৰোঁতা ৱিজেট যিটো তাৰিখ, সময় অথবা তাৰিখ আৰু সময় দুয়োটা বাছনি কৰিবলৈ ব্যৱহাৰ কৰিব পাৰি।"),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS-শৈলীৰ তাৰিখ আৰু সময় বাছনি কৰোঁতা"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("সময়"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("টাইমাৰ"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("বাছনি কৰোঁতাসকল"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "iOS-শৈলীৰ ৰিফ্ৰেশ্ব কৰিবলৈ টনাৰ নিয়ন্ত্ৰণ কার্যকৰী কৰা এটা ৱিজেট।"),
@@ -462,18 +582,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-শৈলীৰ ৰিফ্ৰেশ্ব কৰিবলৈ টনাৰ নিয়ন্ত্ৰণ"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("ৰিফ্ৰেশ্ব কৰিবলৈ টনা"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "এটা ব্যৱহাৰ কৰাৰ সময়ত অন্য এটা ব্যৱহাৰ কৰিব নোৱাৰা বিকল্পসমূহৰ মাজৰ পৰা বাছনি কৰিবলৈ ব্যৱহাৰ কৰা হয়। বিভাজিত নিয়ন্ত্ৰণত এটা বিকল্প বাছনি কৰিলে, বিভাজিত নিয়ন্ত্ৰণত অন্য বিকল্পসমূহ বাছনি কৰিব নোৱাৰা হয়।"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ বিভাজিত নিয়ন্ত্ৰণ"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("বিভাজিত নিয়ন্ত্ৰণ"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "অবিৰত অথবা বিৰত মানসমূহৰ এটা ছেটৰ পৰা বাছনি কৰিবলৈ এটা শ্লাইডাৰ ব্যৱহাৰ কৰিব পৰা যায়।"),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ শ্লাইডাৰ"),
         "demoCupertinoSliderTitle":
@@ -487,11 +607,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ বুটামৰ টেবৰ দণ্ড"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("টেবৰ দণ্ড"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "এখন পাঠৰ ক্ষেত্ৰই ব্যৱহাৰকাৰীক এখন হাৰ্ডৱেৰ কীব\'ৰ্ড অথবা অনস্ক্ৰীন কীব\'ৰ্ডৰ দ্বাৰা পাঠ অন্তর্ভুক্ত কৰিবলৈ দিয়ে।"),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("পিন"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ পাঠৰ ক্ষেত্ৰসমূহ"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "শ্লাইডাৰসমূহে এডাল বাৰত মানৰ এক পৰিসৰ দেখুৱায় য’ৰ পৰা ব্যৱহাৰকাৰীসকলে এটা একক মান অথবা মানৰ এক পৰিসৰ বাছনি কৰিব পাৰে। শ্লাইডাৰসমূহত থীম প্ৰয়োগ কৰিব পাৰি আৰু কাষ্টমাইজ কৰিব পাৰি।"),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("কাষ্টম শ্লাইডাৰসমূহ"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "ডেটাৰ তালিকাসমূহে শাৰী আৰু স্তম্ভবোৰৰ গ্ৰিড দৰে এটা ফর্মেটত তথ্য প্ৰদৰ্শন কৰে। সেইবোৰে সহজে স্কেন কৰিব পৰাকৈ তথ্য সংগঠিত কৰে, যাতে ব্যৱহাৰকাৰীসকলে আৰ্হি আৰু অন্তৰ্নিহিত কথাবোৰ চাব পাৰে।"),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("তথ্যৰ শাৰী আৰু স্তম্ভসমূহ"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("ডেটাৰ তালিকাসমূহ"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "এটা বস্তুৰ ডিজাইনৰ তাৰিখ বাছনি কৰোঁতা থকা কোনো ডায়ল\'গ প্ৰদৰ্শন কৰে।"),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("তাৰিখ বাছনি কৰোঁতা"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "সৰল, সতর্কবার্তা আৰু সম্পূর্ণ স্ক্ৰীন"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("ডায়ল’গসমূহ"),
@@ -558,7 +696,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "এখন বিভক্ত মেনুৰ সৈতে এটা বস্তু"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "এখন সৰল মেনুৰ সৈতে এটা বস্তু"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("প্ৰসংগ মেনুৰ প্ৰথম বস্তু"),
         "demoMenuContextMenuItemThree":
@@ -576,7 +714,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("এক"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("পূৰ্বদৰ্শন"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("আঁতৰাওক"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("শ্বেয়াৰ কৰক"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "মেনুৰ বুটামবোৰ আৰু সৰল মেনুবোৰ"),
@@ -595,6 +733,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "ৰূপৰেখাৰ বুটামসমূহ টিপিলে অস্বচ্ছ আৰু উঠঙা হয়। সেইবোৰক সততে এটা বৈকল্পিক গৌণ কার্য সূচাবলৈ উঠঙা বুটামসমূহৰ সৈতে পেয়াৰ কৰা হয়।"),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("ৰূপৰেখাৰ বুটাম"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("বাছনি কৰোঁতা প্ৰদৰ্শন কৰক"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("তাৰিখ আৰু সময়ৰ বাছনি"),
+        "demoPickersTitle":
+            MessageLookupByLibrary.simpleMessage("বাছনি কৰোঁতাসকল"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("ৰৈখিক, চক্ৰাকাৰ, অনিৰ্ধাৰিত"),
         "demoProgressIndicatorTitle":
@@ -668,6 +812,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("স্নেকবাৰসমূহ"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "টেবসমূহে সমলক বিভিন্ন স্ক্ৰীনসমূহত, ডেটা ছেটসমূহত আৰু অন্য ভাব-বিনিময়সমূহত সংগঠিত কৰে।"),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "স্বতন্ত্ৰভাৱে স্ক্ৰ’ল কৰিবপৰা ভিউসমূহৰ সৈতে টেবসমূহ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("টেবসমূহ"),
@@ -687,7 +835,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("জীৱন কাহিনী"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("নাম*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("নামটো আৱশ্যক।"),
         "demoTextFieldNoMoreThan":
@@ -723,6 +871,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("আপোনাৰ ফ’ন নম্বৰটো কি?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("আপোনাৰ ইমেইল ঠিকনা"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "এটা বস্তুৰ ডিজাইনৰ সময় বাছনি কৰোঁতা থকা কোনো ডায়ল\'গ প্ৰদৰ্শন কৰে।"),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("সময় বাছনি কৰোঁতা"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "প্ৰাসংগিক বিকল্পসমূহ একগোট কৰিবলৈ ট’গল বুটামসমূহ ব্যৱহাৰ কৰিব পৰা যায়। প্ৰাসংগিক ট’গল বুটামসমূহৰ গোটসমূহক প্ৰাধান্য দিবলৈ, এটা গোটে এটা সাধাৰণ কণ্টেনাৰ শ্বেয়াৰ কৰা উচিত"),
         "demoToggleButtonTitle":
@@ -760,12 +912,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Googleক এপ্‌সমূহে অৱস্থান নির্ধাৰণ কৰাত সহায় কৰিবলৈ দিয়ক। এই কার্যই কোনো এপ্ চলি নাথাকিলেও Googleলৈ নামবিহীনভাৱে অৱস্থানৰ ডেটা পঠিওৱা বুজায়।"),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Googleৰ অৱস্থান সেৱা ব্যৱহাৰ কৰিবনে?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("বেকআপ একাউণ্ট ছেট কৰক"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ডায়ল\'গ দেখুৱাওক"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("অগ্ৰাহ্য কৰক"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("প্ৰাসংগিক শৈলী আৰু মিডিয়া"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("শিতানসমূহ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("গেলাৰী"),
@@ -787,7 +940,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("টাঞ্জৰ"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("থাঞ্জাবৰ মন্দিৰ"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("গাড়ীৰ সঞ্চয়"),
         "rallyAccountDataChecking":
@@ -811,16 +964,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("সৰ্বমুঠ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("একাউণ্টসমূহ"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("সতৰ্কবার্তাসমূহ"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("বিলসমূহ"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("সম্পূৰ্ণ কৰাৰ শেষ তাৰিখ"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("পোছাক"),
         "rallyBudgetCategoryCoffeeShops":
@@ -921,7 +1074,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("বাতিল কৰক"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("কাৰ্টত থকা সমল মচক"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("কাৰ্ট"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("শ্বিপিং:"),
@@ -983,8 +1136,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -1023,10 +1176,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("কাৰ্টত যোগ কৰক"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("কাৰ্ট বন্ধ কৰক"),
         "shrineTooltipCloseMenu":
@@ -1039,9 +1192,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("সন্ধান কৰক"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("ছেটিংসমূহ"),
+        "signIn": MessageLookupByLibrary.simpleMessage("ছাইন ইন কৰক"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "এটা প্ৰতিক্ৰিয়াশীল ষ্টাৰ্টাৰ লে’আউট"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("মূল অংশ"),
         "starterAppGenericButton":

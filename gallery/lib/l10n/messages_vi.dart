@@ -24,69 +24,85 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Phần giữ chỗ cho tab ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Khám phá ${destinationName}";
+
+  static m3(destinationName) => "Chia sẻ ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Không có nhà hàng nào', one: '1 nhà hàng', other: '${totalRestaurants} nhà hàng')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Bay thẳng', one: '1 điểm dừng', other: '${numberOfStops} điểm dừng')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Không có khách sạn nào', one: 'Có 1 khách sạn', other: 'Có ${totalProperties} khách sạn')}";
 
-  static m5(value) => "Mặt hàng số ${value}";
+  static m10(value) => "${value} phủ mật ong";
 
-  static m6(error) => "Không sao chép được vào khay nhớ tạm: ${error}";
+  static m11(value) => "${value} phủ đường";
 
-  static m7(value) => "Liên tục: ${value}";
+  static m12(value) => "Mặt hàng số ${value}";
 
-  static m8(value) => "Rời rạc: ${value}";
+  static m13(error) => "Không sao chép được vào khay nhớ tạm: ${error}";
 
-  static m9(value) => "Đã kiểm tra: ${value}";
+  static m14(value) => "Liên tục: ${value}";
 
-  static m10(value) => "Đã chọn: ${value}";
+  static m15(value) => "Rời rạc: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Đã kiểm tra: ${value}";
+
+  static m17(value) => "Đã chọn: ${value}";
+
+  static m18(name, phoneNumber) =>
       "Số điện thoại của ${name} là ${phoneNumber}";
 
-  static m12(value) => "Bạn đã chọn: \"${value}\"";
+  static m19(value) => "Bạn đã chọn: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "Số dư tài khoản ${accountName} ${accountNumber} là ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Bạn đã chi tiêu ${amount} cho phí sử dụng ATM trong tháng này";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Chúc mừng bạn! Số dư trong tài khoản giao dịch của bạn cao hơn ${percent} so với tháng trước.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Xin lưu ý rằng bạn đã dùng hết ${percent} ngân sách Mua sắm của bạn trong tháng này.";
 
-  static m17(amount) =>
+  static m24(amount) =>
       "Bạn đã chi tiêu ${amount} cho Nhà hàng trong tuần này.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Tăng khoản khấu trừ thuế bạn có thể được hưởng! Gán danh mục cho 1 giao dịch chưa chỉ định.', other: 'Tăng khoản khấu trừ thuế bạn có thể được hưởng! Gán danh mục cho ${count} giao dịch chưa chỉ định.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Hóa đơn ${billName} ${amount} đến hạn vào ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Đã dùng hết ${amountUsed}/${amountTotal} ngân sách ${budgetName}, số tiền còn lại là ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'KHÔNG CÓ MẶT HÀNG NÀO', one: '1 MẶT HÀNG', other: '${quantity} MẶT HÀNG')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Số lượng: ${quantity}";
+  static m30(quantity) => "Số lượng: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Giỏ hàng, không có mặt hàng nào', one: 'Giỏ hàng, có 1 mặt hàng', other: 'Giỏ hàng, có ${quantity} mặt hàng')}";
 
-  static m25(product) => "Xóa ${product}";
+  static m32(product) => "Xóa ${product}";
 
-  static m26(value) => "Mặt hàng số ${value}";
+  static m33(value) => "Mặt hàng số ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -95,6 +111,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kho lưu trữ GitHub cho các mẫu Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Quay lại Thư viện"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Biểu tượng hàng đầu"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Nhiều hành động"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Đặt lại biểu ngữ"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Mật khẩu của bạn đã được cập nhật trên thiết bị khác. Vui lòng đăng nhập lại."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Vết cắt"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Vị trí của nút hành động nổi"),
@@ -119,6 +143,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("NÚT"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Tạo"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Khám phá"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Có thể chọn (nhấn và giữ)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Có thể nhấn"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Số 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Xa quay tơ"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Đền"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "10 thành phố hàng đầu phải ghé thăm ở Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Thợ thủ công ở Nam Ấn Độ"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Đền Brihadisvara"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Đạp xe"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Thang máy"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Lò sưởi"),
@@ -186,9 +238,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Madrid, Tây Ban Nha"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Quầy cà phê bày những chiếc bánh ngọt"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Khám phá nhà hàng theo điểm đến"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("CHUYẾN BAY"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, Hoa Kỳ"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -236,7 +289,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havana, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Người đàn ông tựa vào chiếc xe ô tô cổ màu xanh dương"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Khám phá chuyến bay theo điểm đến"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Chọn ngày"),
@@ -252,6 +305,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Chọn thời gian"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Số du khách"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("CHỖ NGỦ"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldives"),
         "craneSleep0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -293,7 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lisbon, Bồ Đào Nha"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Ngọn hải đăng xây bằng gạch trên biển"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Khám phá khách sạn theo điểm đến"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Cho phép"),
@@ -328,6 +383,50 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Trang chủ"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Hồ sơ"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Canxi (%)"),
+        "dataTableColumnCalories": MessageLookupByLibrary.simpleMessage("Calo"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Carb (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Đồ tráng miệng (1 suất)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("Chất béo (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("Sắt (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Chất đạm (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Natri (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Dinh dưỡng"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Bánh táo"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Sữa chua đông lạnh"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Honeycomb"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice Cream Sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Thẻ hành động là một tập hợp các tùy chọn kích hoạt hành động liên quan đến nội dung chính. Thẻ này sẽ hiển thị linh hoạt và theo ngữ cảnh trong giao diện người dùng."),
         "demoActionChipTitle":
@@ -338,6 +437,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cảnh báo"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Cảnh báo có tiêu đề"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Một biểu ngữ hiển thị thông điệp quan trọng, súc tích và đưa ra các hành động để người dùng xử lý (hoặc bỏ qua biểu ngữ). Cần có hành động của người dùng để bỏ qua biểu ngữ."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Hiển thị một biểu ngữ trong danh sách"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Biểu ngữ"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Với thanh ứng dụng ở dưới cùng, bạn có thể truy cập vào ngăn điều hướng ở dưới cùng và tối đa 4 hành động, bao gồm cả nút hành động nổi."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -359,7 +463,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HIỂN THỊ BẢNG DƯỚI CÙNG"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Tiêu đề"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Bảng cách điệu dưới cùng là một dạng thay thế cho trình đơn hoặc hộp thoại để ngăn người dùng tương tác với phần còn lại của ứng dụng."),
         "demoBottomSheetModalTitle":
@@ -378,6 +482,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Nút dẹt, lồi, có đường viền, v.v."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Nút"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Thẻ là một tờ Vật liệu dùng để trình bày một số thông tin có liên quan, ví dụ như album, vị trí địa lý, một bữa ăn, chi tiết liên hệ, v.v."),
+        "demoCardSubtitle":
+            MessageLookupByLibrary.simpleMessage("Thẻ đường cơ sở có góc tròn"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Thẻ"),
         "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
             "Trình đơn danh sách kiểm tra"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -393,13 +502,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Chỉ báo tiến trình vòng tròn"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Tạo dạng mã"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Mã minh họa"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Đã sao chép vào khay nhớ tạm."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("SAO CHÉP TOÀN BỘ"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Color and color swatch constants which represent Material design\'s color palette."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -418,7 +527,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Chỉ báo hoạt động theo kiểu iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Chỉ báo hoạt động"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Chỉ nút cảnh báo"),
         "demoCupertinoAlertButtonsTitle":
@@ -446,7 +555,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Thanh điều hướng theo kiểu iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Thanh điều hướng"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Ngày"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Ngày và giờ"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Có thể dùng bộ chọn kiểu iOS để chọn ngày, giờ hoặc cả ngày và giờ."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Bộ chọn ngày và giờ kiểu iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Giờ"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Hẹn giờ"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Bộ chọn"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Một tiện ích giúp kiểm soát thao tác kéo để làm mới nội dung theo kiểu iOS."),
@@ -454,7 +575,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Tùy chọn kiểm soát kéo để làm mới theo kiểu iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Kéo để làm mới"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Dùng để chọn trong một số các tùy chọn loại trừ tương hỗ. Khi chọn 1 tùy chọn trong chế độ kiểm soát được phân đoạn, bạn sẽ không thể chọn các tùy chọn khác trong chế độ đó."),
@@ -462,12 +583,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Chế độ kiểm soát được phân đoạn theo kiểu iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage(
-                "Chế độ kiểm soát được phân đoạn"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Bạn có thể dùng thanh trượt để chọn trong một tập hợp các giá trị liên tục hoặc rời rạc."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Thanh trượt theo kiểu iOS"),
         "demoCupertinoSliderTitle":
@@ -481,11 +601,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Thanh tab dưới cùng theo kiểu iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Thanh tab"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Trường văn bản để người dùng nhập văn bản bằng bàn phím thực hoặc bàn phím ảo."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("Mã PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("Trường văn bản kiểu iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Thanh trượt biểu thị khoảng giá trị dọc theo một thanh mà người dùng có thể chọn một giá trị hoặc khoảng giá trị từ đó. Bạn có thể tùy chỉnh và tạo giao diện cho thanh trượt."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Thanh trượt tùy chỉnh"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Bảng dữ liệu hiển thị thông tin ở định dạng lưới gồm hàng và cột. Những bảng này sắp xếp thông tin theo cách dễ quét để người dùng có thể tìm mẫu và thông tin chi tiết."),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("Hàng và cột thông tin"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Bảng dữ liệu"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Hiển thị hộp thoại chứa bộ chọn ngày Material Design."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Bộ chọn ngày"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Hộp thoại đơn giản, cảnh báo và toàn màn hình"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Hộp thoại"),
@@ -551,7 +689,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mục có trình đơn theo phần"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("Mục có trình đơn đơn giản"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Mục đầu tiên trong trình đơn ngữ cảnh"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -570,7 +708,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Một"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Xem trước"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Xóa"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Chia sẻ"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Nút trình đơn và trình đơn đơn giản"),
@@ -588,6 +726,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Các nút có đường viền sẽ mờ đi rồi hiện rõ lên khi nhấn. Các nút này thường xuất hiện cùng các nút lồi để biểu thị hành động phụ, thay thế."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Nút có đường viền"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("HIỂN THỊ BỘ CHỌN"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Chọn ngày và giờ"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Bộ chọn"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Tuyến tính, vòng tròn, không xác định"),
         "demoProgressIndicatorTitle":
@@ -662,6 +805,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thanh thông báo nhanh"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Các tab sắp xếp nội dung trên nhiều màn hình, tập dữ liệu và hoạt động tương tác khác."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Các tab có chế độ xem có thể di chuyển độc lập"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tab"),
@@ -681,7 +828,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Tiểu sử"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Tên*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Bạn phải nhập tên."),
         "demoTextFieldNoMoreThan":
@@ -716,6 +863,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Số điện thoại liên hệ của bạn?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Địa chỉ email của bạn"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Hiển thị hộp thoại chứa bộ chọn giờ Material Design."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Bộ chọn giờ"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Bạn có thể dùng các nút chuyển đổi để nhóm những tùy chọn có liên quan lại với nhau. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
@@ -752,13 +903,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cho phép Google giúp ứng dụng xác định vị trí. Điều này có nghĩa là gửi dữ liệu vị trí ẩn danh cho Google, ngay cả khi không chạy ứng dụng nào."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Sử dụng dịch vụ vị trí của Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Thiết lập tài khoản sao lưu"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("HIỂN THỊ HỘP THOẠI"),
-        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
-            "KIỂU DÁNG VÀ NỘI DUNG NGHE NHÌN THAM KHẢO"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("BỎ QUA"),
+        "homeCategoryReference":
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Danh mục"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Thư viện"),
@@ -779,7 +931,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Đền Thanjavur"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings": MessageLookupByLibrary.simpleMessage(
             "Tài khoản tiết kiệm mua ô tô"),
         "rallyAccountDataChecking":
@@ -805,16 +957,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Tổng"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Cảnh báo"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hóa đơn"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Khoản tiền đến hạn trả"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Quần áo"),
         "rallyBudgetCategoryCoffeeShops":
@@ -916,7 +1068,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HỦY"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("XÓA GIỎ HÀNG"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("GIỎ HÀNG"),
         "shrineCartShippingCaption":
@@ -980,8 +1132,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Quần màu xanh tím than"),
         "shrineProductPlasterTunic": MessageLookupByLibrary.simpleMessage(
             "Áo dài qua hông màu thạch cao"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Bàn bốn người"),
         "shrineProductRainwaterTray":
@@ -1020,10 +1172,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Áo sơ mi trắng sọc nhỏ"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Thắt lưng Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Thêm vào giỏ hàng"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Đóng giỏ hàng"),
         "shrineTooltipCloseMenu":
@@ -1035,9 +1187,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Cài đặt"),
+        "signIn": MessageLookupByLibrary.simpleMessage("ĐĂNG NHẬP"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Bố cục thích ứng cho ứng dụng cơ bản"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Nội dung"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("NÚT"),

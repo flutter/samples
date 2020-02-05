@@ -24,68 +24,84 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Espai reservat per a la pestanya ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Explora ${destinationName}";
+
+  static m3(destinationName) => "Comparteix ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Cap restaurant', one: '1 restaurant', other: '${totalRestaurants} restaurants')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Sense escales', one: '1 escala', other: '${numberOfStops} escales')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Cap propietat disponible', one: '1 propietat disponible', other: '${totalProperties} propietats disponibles')}";
 
-  static m5(value) => "Article ${value}";
+  static m10(value) => "${value} amb mel";
 
-  static m6(error) => "No s\'ha pogut copiar al porta-retalls: ${error}";
+  static m11(value) => "${value} amb sucre";
 
-  static m7(value) => "Continu: ${value}";
+  static m12(value) => "Article ${value}";
 
-  static m8(value) => "Discret: ${value}";
+  static m13(error) => "No s\'ha pogut copiar al porta-retalls: ${error}";
 
-  static m9(value) => "Marcat: ${value}";
+  static m14(value) => "Continu: ${value}";
 
-  static m10(value) => "Seleccionat: ${value}";
+  static m15(value) => "Discret: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Marcat: ${value}";
+
+  static m17(value) => "Seleccionat: ${value}";
+
+  static m18(name, phoneNumber) =>
       "El número de telèfon de ${name} és ${phoneNumber}";
 
-  static m12(value) => "Has seleccionat: \"${value}\"";
+  static m19(value) => "Has seleccionat: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "Import al compte ${accountName} amb el número ${accountNumber}: ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Has gastat ${amount} en comissions de caixers automàtics aquest mes";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Ben fet. El teu compte corrent és un ${percent} superior al mes passat.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Atenció! Has fet servir un ${percent} del teu pressupost per a compres d\'aquest mes.";
 
-  static m17(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
+  static m24(amount) => "Has gastat ${amount} en restaurants aquesta setmana.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Augmenta la teva possible deducció fiscal. Assigna categories a 1 transacció sense assignar.', other: 'Augmenta la teva possible deducció fiscal. Assigna categories a ${count} transaccions sense assignar.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Data de venciment de la factura ${billName} (${amount}): ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Has gastat ${amountUsed} de ${amountTotal} del pressupost ${budgetName}; import restant: ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'CAP ARTICLE', one: '1 ARTICLE', other: '${quantity} ARTICLES')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Quantitat: ${quantity}";
+  static m30(quantity) => "Quantitat: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Carretó, cap article', one: 'Carretó, 1 article', other: 'Carretó, ${quantity} articles')}";
 
-  static m25(product) => "Suprimeix ${product}";
+  static m32(product) => "Suprimeix ${product}";
 
-  static m26(value) => "Article ${value}";
+  static m33(value) => "Article ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -94,6 +110,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Repositori GitHub de mostres Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Torna a la galeria"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Icona inicial"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Diverses accions"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Restableix el bàner"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "La contrasenya s\'ha actualitzat al teu altre dispositiu. Torna a iniciar la sessió."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Retall"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Posició del botó d\'acció flotant"),
@@ -118,6 +142,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("BOTÓ"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Crea"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Explora"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Es pot seleccionar (en mantenir premut)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Es pot tocar"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Número 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Filadors de seda"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Temples"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Les 10 ciutats de Tamil Nadu que has de visitar"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "Artesans del sud de l\'Índia"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Temple de Brihadisvara"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Ciclisme"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Ascensor"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Llar de foc"),
@@ -190,9 +243,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Espanya"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Mostrador d\'una cafeteria amb pastes"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Explora restaurants per destinació"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("VOLAR"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("Aspen, Estats Units"),
@@ -242,7 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("L\'Havana, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Home recolzat en un cotxe blau antic"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead":
             MessageLookupByLibrary.simpleMessage("Explora vols per destinació"),
         "craneFormDate":
@@ -259,6 +313,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("Selecciona l\'hora"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Viatgers"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("DORMIR"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Male, Maldives"),
         "craneSleep0SemanticLabel":
@@ -301,7 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("Lisboa, Portugal"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Far de maons al mar"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Explora propietats per destinació"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Permet"),
@@ -336,6 +392,51 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Inici"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Perfil"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Calci (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Calories"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Carbohidrats (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Postres (1 ració)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("Matèria grassa (g)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Ferro (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Proteïnes (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Sodi (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Nutrició"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Pastís de poma"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Dònut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Éclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Iogurt gelat"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Pa de gingebre"),
+        "dataTableRowHoneycomb": MessageLookupByLibrary.simpleMessage("Bresca"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Sandvitx de gelat"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Mongetes de gelea"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Piruleta"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les etiquetes d\'acció són un conjunt d\'opcions que activen una acció relacionada amb el contingut principal. Es mostren de manera dinàmica i contextual a les interfícies d\'usuari."),
         "demoActionChipTitle":
@@ -345,6 +446,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerta"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alerta amb el títol"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Un bàner mostra un missatge breu important i proporciona als usuaris accions per dur a terme (o per ignorar el bàner). Per poder-lo ignorar, l\'usuari ha de fer una acció."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Es mostra un bàner en una llista"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Bàner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Les barres d\'aplicacions de la part inferior permeten accedir a un tauler de navegació de la part inferior i a un màxim de quatre accions, inclosa la del botó d\'acció flotant."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -367,7 +473,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("MOSTRA LA PÀGINA INFERIOR"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Capçalera"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Una pàgina modal inferior és una alternativa al menú o al diàleg i evita que l\'usuari interaccioni amb la resta de l\'aplicació."),
         "demoBottomSheetModalTitle":
@@ -386,6 +492,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Pla, amb relleu, perfilat i més"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Botons"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Una targeta és un full de Material Design que s\'utilitza per representar informació relacionada, com ara un àlbum, una ubicació geogràfica, un àpat, dades de contacte, etc."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Targetes de referència amb les cantonades arrodonides"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Targetes"),
         "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
             "Menú amb llista de comprovació"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -402,13 +513,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indicador de progrés circular"),
         "demoCodeTooltip":
-            MessageLookupByLibrary.simpleMessage("Exemple de codi"),
+            MessageLookupByLibrary.simpleMessage("Codi de demostració"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "S\'ha copiat al porta-retalls."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("COPIA-HO TOT"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Constants de mostres i colors que representen la paleta de colors de Material Design."),
         "demoColorsSubtitle":
@@ -427,7 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indicador d\'activitat d\'estil iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Indicador d\'activitat"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Només botons d\'alerta"),
         "demoCupertinoAlertButtonsTitle":
@@ -455,15 +566,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Barra de navegació d\'estil iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Barra de navegació"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Data"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Data i hora"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Un widget selector d\'estil iOS que es pot utilitzar per seleccionar dates, hores o totes dues coses."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Selectors de data i hora d\'estil iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Hora"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Temporitzador"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Selectors"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Un widget que implementa el control de contingut amb la funció \"Llisca cap avall per actualitzar\" d\'estil iOS."),
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Control \"Llisca cap avall per actualitzar\" d\'estil iOS"),
-        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
-            "Llisca cap avall per actualitzar"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "S\'utilitza per triar una opció d\'entre diverses que són excloents entre si. Quan se selecciona una opció al control segmentat, les altres deixen d\'estar disponibles."),
@@ -471,11 +594,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Control segmentat d\'estil iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Control segmentat"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Pots utilitzar el control lliscant per fer seleccions en conjunts de valors tant discrets com continus."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle": MessageLookupByLibrary.simpleMessage(
             "Control lliscant d\'estil iOS"),
         "demoCupertinoSliderTitle":
@@ -489,11 +612,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Barra de pestanyes d\'estil iOS a la part inferior"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Barra de pestanyes"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Un camp de text permet que l\'usuari introdueixi text, tant des del teclat del maquinari com del teclat en pantalla."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("Camps de text d\'estil iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Els controls lliscants mostren un interval de valors al llarg d\'una barra i els usuaris poden seleccionar-ne un o un interval. Pots personalitzar els controls lliscants i aplicar-hi temes."),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
             "Controls lliscants personalitzats"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Les taules de dades mostren informació en un format de quadrícula estructurat en files i columnes. Organitzen la informació de manera que sigui fàcil d\'analitzar, perquè els usuaris puguin cercar patrons i estadístiques."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Files i columnes d\'informació"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Taules de dades"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Mostra un quadre de diàleg que conté un selector de data de Material Design."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Selector de data"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerta i pantalla completa"),
         "demoDialogTitle":
@@ -561,7 +702,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Un element amb un menú amb seccions"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Un element amb un menú senzill"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Element de menú contextual u"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -581,7 +722,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuPreview":
             MessageLookupByLibrary.simpleMessage("Previsualitza"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Suprimeix"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Comparteix"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Botons de menú i menús senzills"),
@@ -599,6 +740,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els botons perfilats es tornen opacs i s\'eleven en prémer-los. Normalment estan vinculats amb botons amb relleu per indicar una acció secundaria o alternativa."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Botó perfilat"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("MOSTRA EL SELECTOR"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Selecció de data i hora"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Selectors"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lineals, circulars, indeterminats"),
         "demoProgressIndicatorTitle":
@@ -675,6 +821,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Barres de notificacions"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Les pestanyes organitzen el contingut en diferents pantalles, conjunts de dades i altres interaccions."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Pestanyes amb visualitzacions desplaçables de manera independent"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Pestanyes"),
@@ -695,7 +845,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Biografia"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nom*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("El nom és obligatori."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -731,6 +881,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Com ens podem posar en contacte amb tu?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("La teva adreça electrònica"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Mostra un quadre de diàleg que conté un selector d\'hora de Material Design."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Selector d\'hora"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Els botons de commutació poden utilitzar-se per agrupar opcions relacionades. Per destacar grups de botons de commutació relacionats, un grup ha de compartir un contenidor comú."),
         "demoToggleButtonTitle":
@@ -768,13 +922,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permet que Google pugui ajudar les aplicacions a determinar la ubicació, és a dir, que s\'enviïn dades d\'ubicació anònimes a Google fins i tot quan no s\'estigui executant cap aplicació."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vols fer servir els serveis d\'ubicació de Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Defineix el compte de la còpia de seguretat"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("MOSTRA EL QUADRE DE DIÀLEG"),
-        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
-            "ESTILS I MITJANS DE REFERÈNCIA"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("IGNORA"),
+        "homeCategoryReference":
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
@@ -796,7 +951,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Temple de Thanjavur"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Estalvis del cotxe"),
         "rallyAccountDataChecking":
@@ -823,15 +978,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertes"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Factures"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Venciment"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Roba"),
         "rallyBudgetCategoryCoffeeShops":
@@ -940,7 +1095,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCEL·LA"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("BUIDA EL CARRETÓ"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("CARRETÓ"),
         "shrineCartShippingCaption":
@@ -1003,8 +1158,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalons blau marí"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Túnica color guix"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Taula rodona"),
         "shrineProductRainwaterTray":
@@ -1042,10 +1197,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Camisa a ratlles blanca"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Cinturó Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Afegeix al carretó"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Tanca el carretó"),
         "shrineTooltipCloseMenu":
@@ -1057,9 +1212,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Cerca"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Configuració"),
+        "signIn": MessageLookupByLibrary.simpleMessage("INICIA LA SESSIÓ"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Un disseny d\'inici responsiu"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Cos"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("BOTÓ"),
         "starterAppGenericHeadline":

@@ -24,82 +24,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Placeholder for ${title} tab";
 
-  static m27(destinationName) => "Explore ${destinationName}";
+  static m2(destinationName) => "Explore ${destinationName}";
 
-  static m28(destinationName) => "Share ${destinationName}";
+  static m3(destinationName) => "Share ${destinationName}";
 
-  static m2(totalRestaurants) =>
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'No Restaurants', one: '1 Restaurant', other: '${totalRestaurants} Restaurants')}";
 
-  static m29(hoursShortForm, minutesShortForm) =>
+  static m5(hoursShortForm, minutesShortForm) =>
       "${hoursShortForm} ${minutesShortForm}";
 
-  static m3(numberOfStops) =>
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Nonstop', one: '1 stop', other: '${numberOfStops} stops')}";
 
-  static m30(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
 
-  static m31(minutes) =>
+  static m8(minutes) =>
       "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
 
-  static m4(totalProperties) =>
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'No Available Properties', one: '1 Available Properties', other: '${totalProperties} Available Properties')}";
 
-  static m32(value) => "${value} with honey";
+  static m10(value) => "${value} with honey";
 
-  static m33(value) => "${value} with sugar";
+  static m11(value) => "${value} with sugar";
 
-  static m5(value) => "Item ${value}";
+  static m12(value) => "Item ${value}";
 
-  static m6(error) => "Failed to copy to clipboard: ${error}";
+  static m13(error) => "Failed to copy to clipboard: ${error}";
 
-  static m7(value) => "Continuous: ${value}";
+  static m14(value) => "Continuous: ${value}";
 
-  static m8(value) => "Discrete: ${value}";
+  static m15(value) => "Discrete: ${value}";
 
-  static m9(value) => "Checked: ${value}";
+  static m16(value) => "Checked: ${value}";
 
-  static m10(value) => "Selected: ${value}";
+  static m17(value) => "Selected: ${value}";
 
-  static m11(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
+  static m18(name, phoneNumber) => "${name} phone number is ${phoneNumber}";
 
-  static m12(value) => "You selected: \"${value}\"";
+  static m19(value) => "You selected: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "${accountName} account ${accountNumber} with ${amount}.";
 
-  static m14(amount) => "You’ve spent ${amount} in ATM fees this month";
+  static m21(amount) => "You’ve spent ${amount} in ATM fees this month";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Good work! Your checking account is ${percent} higher than last month.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Heads up, you’ve used up ${percent} of your Shopping budget for this month.";
 
-  static m17(amount) => "You’ve spent ${amount} on Restaurants this week.";
+  static m24(amount) => "You’ve spent ${amount} on Restaurants this week.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Increase your potential tax deduction! Assign categories to 1 unassigned transaction.', other: 'Increase your potential tax deduction! Assign categories to ${count} unassigned transactions.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${billName} bill due ${date} for ${amount}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} budget with ${amountUsed} used of ${amountTotal}, ${amountLeft} left";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'NO ITEMS', one: '1 ITEM', other: '${quantity} ITEMS')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Quantity: ${quantity}";
+  static m30(quantity) => "Quantity: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Shopping cart, no items', one: 'Shopping cart, 1 item', other: 'Shopping cart, ${quantity} items')}";
 
-  static m25(product) => "Remove ${product}";
+  static m32(product) => "Remove ${product}";
 
-  static m26(value) => "Item ${value}";
+  static m33(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -141,10 +141,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "buttonText": MessageLookupByLibrary.simpleMessage("BUTTON"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Create"),
         "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Explore"),
-        "cardsDemoExploreSemantics": m27,
+        "cardsDemoExploreSemantics": m2,
         "cardsDemoSelectable":
             MessageLookupByLibrary.simpleMessage("Selectable (long press)"),
-        "cardsDemoShareSemantics": m28,
+        "cardsDemoShareSemantics": m3,
         "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("Tappable"),
         "cardsDemoTravelDestinationCity1":
             MessageLookupByLibrary.simpleMessage("Thanjavur"),
@@ -236,10 +236,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Spain"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Cafe counter with pastries"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Explore Restaurants by Destination"),
-        "craneFlightDuration": m29,
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("FLY"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("Aspen, United States"),
@@ -290,7 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havana, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Man leaning on an antique blue car"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Explore Flights by Destination"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Select Date"),
@@ -304,8 +304,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Choose Origin"),
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Select Time"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Travelers"),
-        "craneHours": m30,
-        "craneMinutes": m31,
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("SLEEP"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldives"),
         "craneSleep0SemanticLabel":
@@ -348,7 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("Lisbon, Portugal"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Brick lighthouse at sea"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Explore Properties by Destination"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Allow"),
@@ -414,8 +414,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Jelly bean"),
         "dataTableRowLollipop":
             MessageLookupByLibrary.simpleMessage("Lollipop"),
-        "dataTableRowWithHoney": m32,
-        "dataTableRowWithSugar": m33,
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
             "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
         "demo2dTransformationsEditTooltip":
@@ -460,7 +460,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText":
             MessageLookupByLibrary.simpleMessage("SHOW BOTTOM SHEET"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("Header"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "A modal bottom sheet is an alternative to a menu or a dialog and prevents the user from interacting with the rest of the app."),
         "demoBottomSheetModalTitle":
@@ -503,7 +503,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Copied to clipboard."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("COPY ALL"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Color and color swatch constants which represent Material Design\'s color palette."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -577,10 +577,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("iOS-style segmented control"),
         "demoCupertinoSegmentedControlTitle":
             MessageLookupByLibrary.simpleMessage("Segmented control"),
-        "demoCupertinoSliderContinuous": m7,
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "A slider can be used to select from either a continuous or a discrete set of values."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style slider"),
         "demoCupertinoSliderTitle":
@@ -683,7 +683,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "An item with a sectioned menu"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("An item with a simple menu"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("Context menu item one"),
         "demoMenuContextMenuItemThree":
@@ -701,7 +701,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("One"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Preview"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Remove"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Share"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Menu buttons and simple menus"),
@@ -819,7 +819,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Life story"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Name*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Name is required."),
         "demoTextFieldNoMoreThan":
@@ -893,7 +893,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Use Google\'s location service?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
@@ -965,7 +965,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Thanjavur Temple"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Car Savings"),
         "rallyAccountDataChecking":
@@ -989,15 +989,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Accounts"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alerts"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bills"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Due"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Clothing"),
         "rallyBudgetCategoryCoffeeShops":
@@ -1092,7 +1092,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("CANCEL"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("CLEAR CART"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("CART"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Shipping:"),
@@ -1152,8 +1152,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy trousers"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunic"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet table"),
         "shrineProductRainwaterTray":
@@ -1192,10 +1192,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White pinstripe shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney belt"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Add to cart"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Close cart"),
         "shrineTooltipCloseMenu":
@@ -1210,7 +1210,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("SIGN IN"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("A responsive starter layout"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Body"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("BUTTON"),

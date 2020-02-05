@@ -24,67 +24,83 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Zástupný symbol karty ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Prozkoumat ${destinationName}";
+
+  static m3(destinationName) => "Sdílet ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Žádné restaurace', one: '1 restaurace', few: '${totalRestaurants} restaurace', many: '${totalRestaurants} restaurace', other: '${totalRestaurants} restaurací')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Bez mezipřistání', one: '1 mezipřistání', few: '${numberOfStops} mezipřistání', many: '${numberOfStops} mezipřistání', other: '${numberOfStops} mezipřistání')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Žádné dostupné služby', one: '1 dostupná služba', few: '${totalProperties} dostupné služby', many: '${totalProperties} dostupné služby', other: '${totalProperties} dostupných služeb')}";
 
-  static m5(value) => "Položka ${value}";
+  static m10(value) => "${value} s medem";
 
-  static m6(error) => "Kopírování do schránky se nezdařilo: ${error}";
+  static m11(value) => "${value} s cukrem";
 
-  static m7(value) => "Spojité: ${value}";
+  static m12(value) => "Položka ${value}";
 
-  static m8(value) => "Diskrétní: ${value}";
+  static m13(error) => "Kopírování do schránky se nezdařilo: ${error}";
 
-  static m9(value) => "Zaškrtnuto: ${value}";
+  static m14(value) => "Spojité: ${value}";
 
-  static m10(value) => "Vybráno: ${value}";
+  static m15(value) => "Diskrétní: ${value}";
 
-  static m11(name, phoneNumber) => "${name} má telefonní číslo ${phoneNumber}";
+  static m16(value) => "Zaškrtnuto: ${value}";
 
-  static m12(value) => "Vybrali jste: „${value}“";
+  static m17(value) => "Vybráno: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} má telefonní číslo ${phoneNumber}";
+
+  static m19(value) => "Vybrali jste: „${value}“";
+
+  static m20(accountName, accountNumber, amount) =>
       "Účet ${accountName} č. ${accountNumber} s částkou ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Tento měsíc jste utratili ${amount} za poplatky za bankomat";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Dobrá práce! Na běžném účtu máte o ${percent} vyšší zůstatek než minulý měsíc.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Pozor, už jste využili ${percent} rozpočtu na nákupy na tento měsíc.";
 
-  static m17(amount) => "Tento týden jste utratili ${amount} za restaurace";
+  static m24(amount) => "Tento týden jste utratili ${amount} za restaurace";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Zvyšte potenciální odečet z daní! Přiřaďte k 1 nezařazené transakci kategorie.', few: 'Zvyšte potenciální odečet z daní! Přiřaďte ke ${count} nezařazeným transakcím kategorie.', many: 'Zvyšte potenciální odečet z daní! Přiřaďte k ${count} nezařazené transakce kategorie.', other: 'Zvyšte potenciální odečet z daní! Přiřaďte k ${count} nezařazeným transakcím kategorie.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Faktura ${billName} ve výši ${amount} je splatná do ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Rozpočet ${budgetName}: využito ${amountUsed} z ${amountTotal}, zbývá ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'ŽÁDNÉ POLOŽKY', one: '1 POLOŽKA', few: '${quantity} POLOŽKY', many: '${quantity} POLOŽKY', other: '${quantity} POLOŽEK')}";
 
-  static m22(price) => "× ${price}";
+  static m29(price) => "× ${price}";
 
-  static m23(quantity) => "Počet: ${quantity}";
+  static m30(quantity) => "Počet: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Nákupní košík, prázdný', one: 'Nákupní košík, 1 položka', few: 'Nákupní košík, ${quantity} položky', many: 'Nákupní košík, ${quantity} položky', other: 'Nákupní košík, ${quantity} položek')}";
 
-  static m25(product) => "Odstranit produkt ${product}";
+  static m32(product) => "Odstranit produkt ${product}";
 
-  static m26(value) => "Položka ${value}";
+  static m33(value) => "Položka ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ukázky pro Flutter v repozitáři GitHub"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Zpět do galerie"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Ikona na začátku"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Více akcí"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Resetovat banner"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Ve druhém zařízení bylo aktualizováno heslo. Přihlaste se znovu."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("S výřezem"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Pozice plovoucího tlačítka akce"),
@@ -117,6 +141,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("TLAČÍTKO"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Vytvořit"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Prozkoumat"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Vybratelné (dlouhé stisknutí)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Klepnutelné"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Taňčávúr"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Číslo 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Předení hedvábí"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Chrámy"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Taňčávúr, Tamilnádu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamilnádu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "10 nejčastěji navštěvovaných měst v Tamilnádu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Řemeslníci z jižní Indie"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Chrám Brihadišvára"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Cyklistika"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Výtah"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Krb"),
@@ -185,9 +237,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Španělsko"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Kavárenský pult s cukrovím"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Objevte restaurace podle destinace"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("LÉTÁNÍ"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, USA"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -235,7 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havana, Kuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Muž opírající se o staré modré auto"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Objevte lety podle destinace"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Vyberte datum"),
@@ -251,6 +304,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Vyberte čas"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Cestovatelé"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("SPÁNEK"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maledivy"),
         "craneSleep0SemanticLabel":
@@ -293,7 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lisabon, Portugalsko"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Cihlový maják u moře"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Objevte ubytování podle destinace"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Povolit"),
@@ -328,6 +383,50 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Domovská karta"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profil"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Vápník (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Kalorie"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Sacharidy (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Dezert (1 porce)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Tuky (g)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Železo (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Bílkoviny (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Sodík (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Výživa"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Jablečný koláč"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Dortík"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Kobliha"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Banánek"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Mražený jogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Perník"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Medová plástev"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Zmrzlinový sendvič"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Želatinová fazolka"),
+        "dataTableRowLollipop": MessageLookupByLibrary.simpleMessage("Lízátko"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Prvky akce jsou sada možností, které spustí akci související s primárním obsahem. Měly by se objevovat dynamicky a kontextově v uživatelském rozhraní."),
         "demoActionChipTitle":
@@ -338,6 +437,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Upozornění"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Upozornění s názvem"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Banner zobrazuje důležité, stručné informace a umožňuje uživatelům provádět akce (nebo banner zavřít). K zavření je zapotřebí akce uživatele."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Zobrazení banneru se seznamem"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Dolní panely aplikací poskytují přístup k dolnímu vysouvacímu panelu navigace a až čtyřem akcím včetně plovoucího tlačítka akce."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -360,7 +464,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ZOBRAZIT SPODNÍ TABULKU"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Záhlaví"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Modální spodní tabulka je alternativou k nabídce nebo dialogovému oknu a zabraňuje uživateli v interakci se zbytkem aplikace."),
         "demoBottomSheetModalTitle":
@@ -379,6 +483,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ploché, zvýšené, obrysové a další"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tlačítka"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Karta je list ve vzhledu Material, který slouží k uvedení souvisejících informací, jako je album, zeměpisná poloha, pokrm, kontaktní údaje apod."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Základní karty se zaoblenými rohy"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Karty"),
         "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
             "Nabídka se zaškrtávacími položkami"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -393,12 +502,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Kruhový ukazatel průběhu Material Design, který otáčením signalizuje, že aplikace je zaneprázdněná."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("Kruhový ukazatel průběhu"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Ukázka kódu"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Ukázkový kód"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Zkopírováno do schránky."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("KOPÍROVAT VŠE"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Konstanty barvy a vzorníku barev, které představují barevnou škálu vzhledu Material Design."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -417,7 +526,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indikátory aktivity ve stylu iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Indikátor aktivity"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Pouze tlačítka s upozorněním"),
@@ -446,14 +555,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Navigační panel ve stylu iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigační panel"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("Datum"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Datum a čas"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Widget výběru ve stylu iOS, pomocí kterého lze vybírat datum, čas, nebo datum i čas."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Výběry data a času ve stylu iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Čas"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Časovač"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Výběry"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Widget ve stylu iOS, jehož obsah aktualizujete potažením dolů."),
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ovládací prvek ve stylu iOS, v němž potažením dolů aktualizujete obsah"),
-        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
-            "Potažením dolů aktualizujete obsah"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Slouží k výběru mezi možnostmi, které se vzájemně vylučují. Výběrem jedné možnosti segmentové kontroly zrušíte výběr ostatních možností."),
@@ -461,11 +583,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Segmentová kontrola ve stylu iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmentová kontrola"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Pomocí posuvníku lze vybírat ze spojité nebo diskrétní množiny hodnot."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Posuvník ve stylu iOS"),
         "demoCupertinoSliderTitle":
@@ -479,11 +601,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Dolní lišta karet ve stylu iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Lišta karet"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Textová pole, do kterých mohou uživatelé zadat text pomocí hardwarové nebo softwarové klávesnice."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("Textová pole ve stylu iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Posuvníky představují rozsah hodnot podél panelu, ze kterých může uživatel zvolit jednu hodnotu nebo rozsah hodnot. Posuvníkům lze přidělit motiv a lze je přizpůsobit."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Vlastní posuvníky"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Tabulky údajů zobrazují informace ve formátu mřížky tvořené řádky a sloupci. Informace jsou v nich uspořádány tak, aby byly snadno dohledatelné a uživatelé mohli hledat určité vzorce nebo statistiky."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Řádky a sloupce s informacemi"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Tabulky údajů"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Zobrazuje dialog s výběrem data ve vzhledu Material Design."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Výběr data"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Jednoduché, s upozorněním a na celou obrazovku"),
         "demoDialogTitle":
@@ -551,7 +691,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Položka s členěnou nabídkou"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Položka s jednoduchou nabídkou"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "1. položka kontextové nabídky"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -569,7 +709,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Jedna"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Náhled"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Odstranit"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Sdílet"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Tlačítka nabídek a jednoduché nabídky"),
@@ -587,6 +727,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Obrysová tlačítka se při stisknutí zdvihnou a zneprůhlední. Obvykle se vyskytují v páru se zvýšenými tlačítky za účelem označení alternativní, sekundární akce."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Obrysové tlačítko"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("ZOBRAZIT VÝBĚR"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Výběr data a času"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Výběry"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("Lineární, kruhový, neurčitý"),
         "demoProgressIndicatorTitle":
@@ -662,6 +807,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dočasná oznámení"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Karty třídí obsah z různých obrazovek, datových sad a dalších interakcí."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Karty se zobrazením, která lze nezávisle na sobě posouvat"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Karty"),
@@ -682,7 +831,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Životní příběh"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Jméno*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Jméno je povinné."),
         "demoTextFieldNoMoreThan":
@@ -716,6 +865,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kde vás můžeme zastihnout?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Vaše e-mailová adresa"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Zobrazuje dialog s výběrem času ve vzhledu Material Design."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Výběr času"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Přepínače lze použít k seskupení souvisejících možností. Chcete-li zvýraznit skupiny souvisejících přepínačů, umístěte skupinu do stejného kontejneru"),
         "demoToggleButtonTitle":
@@ -751,13 +904,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Povolte, aby Google mohl aplikacím pomáhat s určováním polohy. To znamená, že budete do Googlu odesílat anonymní údaje o poloze, i když nebudou spuštěny žádné aplikace."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Chcete používat službu určování polohy Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Nastavit záložní účet"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ZOBRAZIT DIALOGOVÉ OKNO"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("ZAVŘÍT"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("REFERENČNÍ STYLY A MÉDIA"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorie"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerie"),
@@ -780,7 +934,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Taňčávúr"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Chrám v Taňčávúru"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Úspory na auto"),
         "rallyAccountDataChecking":
@@ -805,15 +959,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Celkem"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Účty"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Upozornění"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Faktury"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Splatnost"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Oblečení"),
         "rallyBudgetCategoryCoffeeShops":
@@ -916,7 +1070,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ZRUŠIT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("VYSYPAT KOŠÍK"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("KOŠÍK"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Doprava:"),
@@ -979,8 +1133,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kalhoty barvy námořnické modři"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tělová tunika"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Stůl pro čtyři"),
         "shrineProductRainwaterTray":
@@ -1020,10 +1174,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Košile s úzkým bílým proužkem"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Pásek Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Přidat do košíku"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Zavřít košík"),
         "shrineTooltipCloseMenu":
@@ -1035,9 +1189,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Hledat"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Nastavení"),
+        "signIn": MessageLookupByLibrary.simpleMessage("PŘIHLÁSIT SE"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Responzivní rozvržení úvodní aplikace"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody": MessageLookupByLibrary.simpleMessage("Text"),
         "starterAppGenericButton":
             MessageLookupByLibrary.simpleMessage("TLAČÍTKO"),

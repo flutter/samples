@@ -23,68 +23,84 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Plassholder for ${title}-fanen";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Utforsk ${destinationName}";
+
+  static m3(destinationName) => "Del ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Ingen restauranter', one: '1 restaurant', other: '${totalRestaurants} restauranter')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Direkte', one: '1 stopp', other: '${numberOfStops} stopp')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Ingen tilgjengelige eiendommer', one: '1 tilgjengelig eiendom', other: '${totalProperties} tilgjengelige eiendommer')}";
 
-  static m5(value) => "Vare ${value}";
+  static m10(value) => "${value} med honning";
 
-  static m6(error) => "Kunne ikke kopiere til utklippstavlen: ${error}";
+  static m11(value) => "${value} med sukker";
 
-  static m7(value) => "Kontinuerlig: ${value}";
+  static m12(value) => "Vare ${value}";
 
-  static m8(value) => "Atskilt: ${value}";
+  static m13(error) => "Kunne ikke kopiere til utklippstavlen: ${error}";
 
-  static m9(value) => "Merket av: ${value}";
+  static m14(value) => "Kontinuerlig: ${value}";
 
-  static m10(value) => "Valgt: ${value}";
+  static m15(value) => "Atskilt: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Merket av: ${value}";
+
+  static m17(value) => "Valgt: ${value}";
+
+  static m18(name, phoneNumber) =>
       "Telefonnummeret til ${name} er ${phoneNumber}";
 
-  static m12(value) => "Du valgte «${value}»";
+  static m19(value) => "Du valgte «${value}»";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "${accountName}-kontoen, ${accountNumber}, med ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Du har brukt ${amount} på minibankgebyrer denne måneden";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Godt gjort! Det er ${percent} mer på brukskontoen din nå enn forrige måned.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Obs! Du har brukt ${percent} av handlebudsjettet ditt for denne måneden.";
 
-  static m17(amount) => "Du har brukt ${amount} på restauranter denne uken.";
+  static m24(amount) => "Du har brukt ${amount} på restauranter denne uken.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Øk det potensielle avgiftsfradraget ditt. Tildel kategorier til én transaksjon som ikke er tildelt.', other: 'Øk det potensielle avgiftsfradraget ditt. Tildel kategorier til ${count} transaksjoner som ikke er tildelt.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Regningen ${billName} på ${amount} forfaller ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Budsjettet ${budgetName} med ${amountUsed} brukt av ${amountTotal}, ${amountLeft} gjenstår";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'INGEN VARER', one: '1 VARE', other: '${quantity} VARER')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Antall: ${quantity}";
+  static m30(quantity) => "Antall: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Handlekurv, ingen varer', one: 'Handlekurv, 1 vare', other: 'Handlekurv, ${quantity} varer')}";
 
-  static m25(product) => "Fjern ${product}";
+  static m32(product) => "Fjern ${product}";
 
-  static m26(value) => "Vare ${value}";
+  static m33(value) => "Vare ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter-prøver i GitHub-repositorium"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Tilbake til galleriet"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Ledende ikon"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Flere handlinger"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Tilbakestill banneret"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Passordet ditt er oppdatert på den andre enheten din. Logg på igjen."),
         "bottomAppBarNotch":
             MessageLookupByLibrary.simpleMessage("Skjermutklipp"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
@@ -118,6 +142,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("KNAPP"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Opprett"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Utforsk"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Kan velges (langt trykk)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Kan trykkes"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Nummer 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Silkespinnere"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Templer"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Topp 10 byer du kan besøke i Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Håndverkere sør i India"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisjvara-tempelet"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Sykling"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Heis"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Peis"),
@@ -183,9 +235,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Spania"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Kafédisk med kaker"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Utforsk restauranter etter reisemål"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("FLY"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, USA"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -231,7 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havana, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Mann som lener seg på en blå veteranbil"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Utforsk flyvninger etter reisemål"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Velg dato"),
@@ -247,6 +300,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("Velg klokkeslett"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Reisende"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("SOV"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldivene"),
         "craneSleep0SemanticLabel":
@@ -285,7 +340,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("Lisboa, Portugal"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Fyrtårn av murstein til sjøs"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Utforsk eiendommer etter reisemål"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Tillat"),
@@ -319,6 +374,49 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Hjem"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profil"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Kalsium (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Kalorier"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Karbohydrater (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Dessert (en porsjon)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Fett (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("Jern (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Proteiner (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Natrium (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Ernæring"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Eplekake"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Muffins"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Smultring"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Yoghurtis"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Pepperkake"),
+        "dataTableRowHoneycomb": MessageLookupByLibrary.simpleMessage("Bikake"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Iskremsandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Gelebønner"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Kjærlighet på pinne"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Handlingsbrikker er et sett med alternativer som utløser en handling knyttet til primærinnhold. Handlingsbrikekr skal vises dynamisk og kontekstuelt i et UI."),
         "demoActionChipTitle":
@@ -328,6 +426,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Varsel"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Varsel med tittel"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Et banner viser en viktig, kortfattet melding og gir brukerne handlinger de kan benytte (eller avvise banneret). En brukerhandling kreves for at det skal avvises."),
+        "demoBannerSubtitle":
+            MessageLookupByLibrary.simpleMessage("Viser et banner i en liste"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "De nederste appradene gir tilgang til en uttrekksmeny nederst og opptil fire handlinger, inkludert den svevende handlingsknappen."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -350,7 +453,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("VIS FELT NEDERST"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Topptekst"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Et modalfelt nederst er et alternativ til en meny eller dialogboks og forhindrer at brukeren samhandler med resten av appen."),
         "demoBottomSheetModalTitle":
@@ -369,6 +472,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flatt, hevet, omriss med mer"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Knapper"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Et kort er et ark av materiale som brukes til å representere relatert informasjon, for eksempel et album, en geografisk posisjon, et måltid, kontaktdetaljer osv."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Grunnleggende kort med avrundede hjørner"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Kort"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Sjekklistemeny"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -383,12 +491,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "En rund fremdriftsindikator for «material design», som snurrer for å indikere at appen er opptatt."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("Rund fremdriftsindikator"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Kodeeksempel"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Demokode"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kopiert til utklippstavlen."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("KOPIÉR ALT"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Konstante farger og fargekart som representerer fargepaletten for «material design»."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -407,7 +515,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Aktivitetsindikatorer i iOS-stil"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Aktivitetsindikator"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Bare varselknapper"),
         "demoCupertinoAlertButtonsTitle":
@@ -434,14 +542,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Navigasjonsrad i iOS-stil"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigasjonsrad"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Dato"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Dato og klokkeslett"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "En modulvelger i iOS-stil som kan brukes til å velge datoer, klokkeslett eller både dato og klokkeslett."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Velgere for dato og klokkeslett i iOS-sil"),
+        "demoCupertinoPickerTime":
+            MessageLookupByLibrary.simpleMessage("Klokkeslett"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Nedtelling"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Velgere"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "En modul som implementerer den iOS-lignende funksjonen for å sveipe nedover for å laste inn innhold på nytt."),
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-lignende funksjon for å sveipe nedover for å laste inn på nytt"),
-        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
-            "Sveip nedover for å laste inn på nytt"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Brukes til å velge mellom en rekke alternativer som utelukker hverandre. Når ett alternativ er valgt i segmentert kontroll, oppheves valget av de andre alternativene i segmentert kontroll."),
@@ -449,11 +570,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Segmentert kontroll i iOS-stil"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmentert kontroll"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "En glidebryter kan brukes til å velge fra enten et kontinuerlig eller atskilt sett med verdier."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Glidebryter i iOS-stil"),
         "demoCupertinoSliderTitle":
@@ -467,11 +588,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Nederste fanerad i iOS-stil"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Fanerad"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Brukeren bruker tekstfelt til å skrive inn tekst, enten med et fysisk tastatur eller et tastatur på skjermen."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN-kode"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("Tekstfelt i iOS-stil"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Glidebrytere gjenspeiler en rekke verdier langs en rad, som brukere kan velge én enkelt verdi eller et verdiområde fra. Glidebryterne kan få tema og tilpasses."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Egendefinerte glidebrytere"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Datatabeller viser informasjon i et rutenettlignende format med rader og kolonner. Der organiseres informasjonen på en måte som er enkel å skanne, slik at brukerne kan se etter mønstre og statistikk."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Rader og kolonner med informasjon"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Datatabeller"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Viser en dialogboks med en datovelger for «material design»."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Datovelger"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("Enkel, varsel og fullskjerm"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogbokser"),
@@ -539,7 +678,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Et element med en inndelt meny"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Et element med en enkel meny"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Element én i kontekstuell meny"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -558,7 +697,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuPreview":
             MessageLookupByLibrary.simpleMessage("Se forhåndsvisning"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Fjern"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Del"),
         "demoMenuSubtitle":
             MessageLookupByLibrary.simpleMessage("Menyknapper og enkle menyer"),
@@ -577,6 +716,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Omriss-knapper blir ugjennomskinnelige og hevet når de trykkes. De er ofte koblet til hevede knapper for å indikere en alternativ, sekundær handling."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Omriss-knapp"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("VIS VELGEREN"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Valg av dato og klokkeslett"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Velgere"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("Lineær, rund, ukjent"),
         "demoProgressIndicatorTitle":
@@ -651,6 +795,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Snackbarer"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Faner organiserer innhold på flere skjermer, datasett og andre interaksjoner."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Faner med visninger som kan rulles hver for seg"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Faner"),
@@ -671,7 +819,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Livshistorie"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Navn*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Navn er obligatorisk."),
         "demoTextFieldNoMoreThan":
@@ -706,6 +854,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hvor kan vi nå deg?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("E-postadressen din"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Viser en dialogboks med en klokkeslettvelger for «material design»."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Klokkeslettvelger"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Av/på-knapper kan brukes til å gruppere relaterte alternativer. For å fremheve grupper med relaterte av/på-knapper bør en gruppe dele en felles beholder"),
         "demoToggleButtonTitle":
@@ -742,12 +894,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "La Google hjelpe apper med å fastslå posisjoner. Dette betyr å sende anonyme posisjonsdata til Google, selv når ingen apper kjører."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Vil du bruke Googles posisjonstjeneste?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Velg konto for sikkerhetskopi"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("VIS DIALOGBOKS"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("AVVIS"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("REFERANSESTILER OG MEDIA"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorier"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleri"),
@@ -770,7 +923,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Thanjavur"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Brihadisvara-tempelet"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Sparekonto for bil"),
         "rallyAccountDataChecking":
@@ -794,15 +947,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Sum"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Kontoer"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Varsler"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Regninger"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Skyldig"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Klær"),
         "rallyBudgetCategoryCoffeeShops":
@@ -902,7 +1055,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("AVBRYT"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("TØM HANDLEKURVEN"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("HANDLEKURV"),
         "shrineCartShippingCaption":
@@ -966,8 +1119,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Marineblå bukser"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Gipsfarget bluse"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet-bord"),
         "shrineProductRainwaterTray":
@@ -1006,10 +1159,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hvit nålestripet skjorte"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney-belte"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Legg i handlekurven"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Lukk handlekurven"),
         "shrineTooltipCloseMenu":
@@ -1021,9 +1174,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Søk"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Innstillinger"),
+        "signIn": MessageLookupByLibrary.simpleMessage("LOGG PÅ"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("En responsiv startlayout"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Brødtekst"),
         "starterAppGenericButton":

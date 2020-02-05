@@ -24,69 +24,85 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Marque substitutive pour l\'onglet ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Explorer ${destinationName}";
+
+  static m3(destinationName) => "Partager ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Aucun restaurant', one: '1 restaurant', other: '${totalRestaurants} restaurants')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Direct', one: '1 escale', other: '${numberOfStops} escales')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Aucune propriété n\'est disponible', one: '1 propriété est disponible', other: '${totalProperties} propriétés sont disponibles')}";
 
-  static m5(value) => "Élément ${value}";
+  static m10(value) => "${value} avec du miel";
 
-  static m6(error) => "Échec de la copie dans le presse-papiers : ${error}";
+  static m11(value) => "${value} avec du sucre";
 
-  static m7(value) => "Continues : ${value}";
+  static m12(value) => "Élément ${value}";
 
-  static m8(value) => "Discrètes : ${value}";
+  static m13(error) => "Échec de la copie dans le presse-papiers : ${error}";
 
-  static m9(value) => "Élément coché : ${value}";
+  static m14(value) => "Continues : ${value}";
 
-  static m10(value) => "Élément sélectionné : ${value}";
+  static m15(value) => "Discrètes : ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Élément coché : ${value}";
+
+  static m17(value) => "Élément sélectionné : ${value}";
+
+  static m18(name, phoneNumber) =>
       "Le numéro de téléphone de ${name} est le ${phoneNumber}";
 
-  static m12(value) => "Vous avez sélectionné : \"${value}\"";
+  static m19(value) => "Vous avez sélectionné : \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "Compte ${accountName} ${accountNumber} dont le solde est de ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Vos frais liés à l\'utilisation de guichets automatiques s\'élèvent à ${amount} ce mois-ci";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Bon travail! Le montant dans votre compte chèque est ${percent} plus élevé que le mois dernier.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Avertissement : Vous avez utilisé ${percent} de votre budget de magasinage ce mois-ci.";
 
-  static m17(amount) =>
+  static m24(amount) =>
       "Vos dépenses en restaurants s\'élèvent à ${amount} cette semaine.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Augmentez vos déductions fiscales potentielles! Attribuez des catégories à 1 transaction non attribuée.', other: 'Augmentez vos déductions fiscales potentielles! Attribuez des catégories à ${count} transactions non attribuées.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "La facture de ${billName} de ${amount} est due le ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Dans le budget ${budgetName}, ${amountUsed} a été utilisé sur ${amountTotal} (il reste ${amountLeft})";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'AUCUN ÉLÉMENT', one: '1 ÉLÉMENT', other: '${quantity} ÉLÉMENTS')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Quantité : ${quantity}";
+  static m30(quantity) => "Quantité : ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Panier, aucun élément', one: 'Panier, 1 élément', other: 'Panier, ${quantity} éléments')}";
 
-  static m25(product) => "Supprimer ${product}";
+  static m32(product) => "Supprimer ${product}";
 
-  static m26(value) => "Élément ${value}";
+  static m33(value) => "Élément ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -95,6 +111,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dépôt GitHub avec des exemples Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Retour à la galerie"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Icône précédant le texte"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Plusieurs actions"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Réinitialiser la bannière"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Votre mot de passe a été mis à jour sur votre autre appareil. Veuillez vous reconnecter."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Encoche"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Position du bouton d\'action flottant"),
@@ -119,6 +143,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("BOUTON"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Créer"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Explorer"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Peut être sélectionné (avec un appui prolongé)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Peut être touché"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Numéro 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Fileurs de soie"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Temples"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Palmarès des 10 villes à visiter dans l\'État du Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Artisans du sud de l\'Inde"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Temple de Brihadisvara"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Vélo"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Ascenseur"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Foyer"),
@@ -190,9 +242,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Espagne"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Comptoir d\'un café garni de pâtisseries"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Explorez les restaurants par destination"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("VOLER"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, États-Unis"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -241,7 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("La Havane, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Homme s\'appuyant sur une voiture bleue ancienne"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Explorez les vols par destination"),
         "craneFormDate":
@@ -258,6 +311,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("Sélectionner l\'heure"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Voyageurs"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("SOMMEIL"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldives"),
         "craneSleep0SemanticLabel":
@@ -300,7 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lisbonne, Portugal"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Phare en briques en haute mer"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Explorez les propriétés par destination"),
         "cupertinoAlertAllow":
@@ -337,6 +392,49 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Accueil"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profil"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Calcium (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Calories"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Glucides (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Dessert (une portion)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Gras (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("Fer (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Protéines (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Sodium (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Nutrition"),
+        "dataTableRowApplePie": MessageLookupByLibrary.simpleMessage("Pie"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Froyo"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Rayon de miel"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice Cream Sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly Bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les jetons d\'action sont des ensembles d\'options qui déclenchent une action relative au contenu principal. Les jetons d\'action devraient s\'afficher de manière dynamique, en contexte, dans une IU."),
         "demoActionChipTitle":
@@ -346,6 +444,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerte"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alerte avec titre"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Une bannière comporte un message court mais important, ainsi que des suggestions d\'actions pour les utilisateurs (ou une option permettant de fermer la bannière). L\'utilisateur doit agir pour que la bannière disparaisse."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Affichage d\'une bannière dans une liste"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Bannière"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Les barres d\'applications inférieures procurent l\'accès à un panneau de navigation inférieur et jusqu\'à quatre actions, y compris le bouton d\'action flottant."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -367,7 +470,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText": MessageLookupByLibrary.simpleMessage(
             "AFFICHER LA PAGE DE CONTENU DANS LE BAS DE L\'ÉCRAN"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("Titre"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Une page de contenu flottante qui s\'affiche dans le bas de l\'écran offre une solution de rechange à un menu ou à une boîte de dialogue. Elle empêche l\'utilisateur d\'interagir avec le reste de l\'application."),
         "demoBottomSheetModalTitle": MessageLookupByLibrary.simpleMessage(
@@ -386,6 +489,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Plat, surélevé, contour, etc."),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Boutons"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Une carte est un cadre où sont présentés des renseignements liés à une recherche, comme un album, un lieu, un plat, des coordonnées, etc."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Cartes de base avec coins arrondis"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Cartes"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Menu de liste de contrôle"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -402,13 +510,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indicateur de progression circulaire"),
         "demoCodeTooltip":
-            MessageLookupByLibrary.simpleMessage("Échantillon de code"),
+            MessageLookupByLibrary.simpleMessage("Code de démonstration"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Copié dans le presse-papiers."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("TOUT COPIER"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Constantes de couleur et d\'échantillons de couleur qui représentent la palette de couleurs de Material Design."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -427,7 +535,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indicateur d\'activité de style iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Indicateur d\'activité"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Boutons d\'alerte seulement"),
         "demoCupertinoAlertButtonsTitle":
@@ -455,14 +563,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Barre de navigation de style iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Barre de navigation"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Date"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Date et heure"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Un widget de sélection de style iOS pouvant être utilisé pour sélectionner des dates, des heures ou les deux."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Sélecteurs de date et d\'heure de style iOS"),
+        "demoCupertinoPickerTime":
+            MessageLookupByLibrary.simpleMessage("Heure"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Minuterie"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Sélecteurs"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Un widget permettant d\'intégrer une commande de style iOS pour balayer l\'écran vers le bas afin d\'actualiser l\'écran."),
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Commande de style iOS pour balayer l\'écran vers le bas afin d\'actualiser l\'écran"),
-        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
-            "Balayez vers le bas pour actualiser"),
+        "demoCupertinoPullToRefreshTitle":
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Utilisé pour faire une sélection parmi un nombre d\'options mutuellement exclusives. Lorsqu\'une option dans le contrôle segmenté est sélectionné, les autres options du contrôle segmenté ne le sont plus."),
@@ -470,11 +591,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Contrôle segmenté de style iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Contrôle segmenté"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Vous pouvez utiliser un curseur pour sélectionner un ensemble de valeurs discrètes ou continues."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Curseur de style iOS"),
         "demoCupertinoSliderTitle":
@@ -488,11 +609,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Barre d\'onglets dans le bas, style iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Barre d\'onglets"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Un champ de texte permet à l\'utilisateur d\'y entrer du texte, à l\'aide d\'un clavier matériel ou d\'un clavier à l\'écran."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("NIP"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Champs de texte de style iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Les curseurs présentent une plage de valeurs le long d\'une barre et permettent aux utilisateurs de sélectionner une valeur ou une plage de valeurs. On peut ajouter un thème aux curseurs et les personnaliser."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Curseurs personnalisés"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Les tableaux de données présentent des renseignements sous forme de grilles composées de lignes et de colonnes. Ils permettent d\'organiser l\'information d\'une manière qui permet de la parcourir facilement et de cerner des tendances et des statistiques."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Lignes et colonnes d\'information"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Tableaux de données"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Affiche une boîte de dialogue comportant un outil Material Design de sélection de la date."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Sélecteur de dates"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerte et plein écran"),
         "demoDialogTitle":
@@ -562,7 +701,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Un élément avec un menu à sections"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Un élément avec un menu simple"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Option de menu contextuel un"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -581,7 +720,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Un"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Aperçu"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Supprimer"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Partager"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Boutons de menu menus simples"),
@@ -599,6 +738,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Les boutons contour deviennent opaques et s\'élèvent lorsqu\'on appuie sur ceux-ci. Ils sont souvent utilisés en association avec des boutons surélevés pour indiquer une autre action, secondaire."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Bouton contour"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("AFFICHER LE SÉLECTEUR"),
+        "demoPickersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Sélection de la date et de l\'heure"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Sélecteurs"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Linéaires, circulaires, indéterminés"),
         "demoProgressIndicatorTitle":
@@ -672,6 +816,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Casse-croûte"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Les onglets permettent d\'organiser le contenu sur divers écrans, ensembles de données et d\'autres interactions."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Onglets avec affichage à défilement indépendant"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Onglets"),
@@ -691,7 +839,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Histoire de vie"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Nom*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Veuillez entrer un nom."),
         "demoTextFieldNoMoreThan":
@@ -729,6 +877,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "À quel numéro pouvons-nous vous joindre?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Votre adresse de courriel"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Affiche une boîte de dialogue comportant un outil Material Design de sélection de l\'heure."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Sélecteur de l\'heure"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Les boutons Activer/désactiver peuvent servir à grouper des options connexes. Pour mettre l\'accent sur les groupes de boutons Activer/désactiver connexes, un groupe devrait partager un conteneur commun."),
         "demoToggleButtonTitle":
@@ -766,13 +918,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Permettre à Google d\'aider les applications à déterminer la position. Cela signifie envoyer des données de localisation anonymes à Google, même si aucune application n\'est en cours d\'exécution."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Utiliser le service de localisation Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Définir le compte de sauvegarde"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("AFFICHER LE DIALOGUE"),
-        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
-            "STYLES ET ÉLÉMENTS MULTIMÉDIAS DE RÉFÉRENCE"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("IGNORER"),
+        "homeCategoryReference":
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Catégories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerie"),
@@ -795,7 +948,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Temple de Thanjavur"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings": MessageLookupByLibrary.simpleMessage(
             "Compte d\'épargne pour la voiture"),
         "rallyAccountDataChecking":
@@ -821,15 +974,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Total"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Alertes"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Factures"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("dû"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Vêtements"),
         "rallyBudgetCategoryCoffeeShops":
@@ -934,7 +1087,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ANNULER"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("VIDER LE PANIER"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("PANIER"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Livraison :"),
@@ -996,8 +1149,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pantalons bleu marine"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Tunique couleur plâtre"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Table de quatre"),
         "shrineProductRainwaterTray":
@@ -1037,10 +1190,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Chemise blanche à fines rayures"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Ceinture Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Ajouter au panier"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Fermer le panier"),
         "shrineTooltipCloseMenu":
@@ -1053,9 +1206,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rechercher"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Paramètres"),
+        "signIn": MessageLookupByLibrary.simpleMessage("CONNEXION"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Une mise en page de base réactive"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Corps du texte"),
         "starterAppGenericButton":

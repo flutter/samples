@@ -24,67 +24,83 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} sahifasi uchun pleysholder";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Ochish: ${destinationName}";
+
+  static m3(destinationName) => "Ulashish: ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Restoran topilmadi', one: '1 ta restoran', other: '${totalRestaurants} ta restoran')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Uzluksiz', one: '1 ta almashinuv', other: '${numberOfStops} ta almashinuv')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Mavjud uy-joylar topilmadi', one: '1 ta uy-joy mavjud', other: '${totalProperties} ta uy-joy mavjud')}";
 
-  static m5(value) => "${value}-band";
+  static m10(value) => "${value} asal bilan";
 
-  static m6(error) => "Klipbordga nusxalanmadi: ${error}";
+  static m11(value) => "${value} shakar bilan";
 
-  static m7(value) => "Uzluksiz: ${value}";
+  static m12(value) => "${value}-band";
 
-  static m8(value) => "Diskret: ${value}";
+  static m13(error) => "Klipbordga nusxalanmadi: ${error}";
 
-  static m9(value) => "Belgilangan qiymat: ${value}";
+  static m14(value) => "Uzluksiz: ${value}";
 
-  static m10(value) => "Tanlangan qiymat: ${value}";
+  static m15(value) => "Diskret: ${value}";
 
-  static m11(name, phoneNumber) => "${name} telefoni raqami: ${phoneNumber}";
+  static m16(value) => "Belgilangan qiymat: ${value}";
 
-  static m12(value) => "Siz tanlagan qiymat: \"${value}\"";
+  static m17(value) => "Tanlangan qiymat: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} telefoni raqami: ${phoneNumber}";
+
+  static m19(value) => "Siz tanlagan qiymat: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountNumber} raqamli ${accountName} hisobida ${amount} bor.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Siz bu oy bankomatlar komissiyasi uchun ${amount} sarfladingiz";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Juda yaxshi! Bu oy hisobingizda oldingi oyga nisbatan ${percent} koʻp mablagʻ bor.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Diqqat! Bu oy budjetingizdan ${percent} sarfladingiz.";
 
-  static m17(amount) => "Bu hafta restoranlar uchun ${amount} sarfladingiz.";
+  static m24(amount) => "Bu hafta restoranlar uchun ${amount} sarfladingiz.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Soliq imtiyozlaringizni oshiring! Noaniq 1 ta tranzaksiyani turkumlang.', other: 'Soliq imtiyozlaringizni oshiring! Noaniq ${count} ta tranzaksiyani turkumlang.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${billName} uchun ${date} sanasigacha ${amount} toʻlash kerak.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${budgetName} uchun ajratilgan ${amountTotal} dan ${amountUsed} ishlatildi, qolgan balans: ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'HECH NIMA', one: '1 TA ELEMENT', other: '${quantity} TA ELEMENT')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Soni: ${quantity}";
+  static m30(quantity) => "Soni: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Savatchaga hech nima joylanmagan', one: 'Savatchada 1 ta mahsulot', other: 'Savatchada ${quantity} ta mahsulot')}";
 
-  static m25(product) => "Olib tashlash: ${product}";
+  static m32(product) => "Olib tashlash: ${product}";
 
-  static m26(value) => "${value}-band";
+  static m33(value) => "${value}-band";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "GitHub omboridan Flutter namunalari"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Galereyaga qaytish"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Matn ustidagi belgi"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Bir nechta amal"),
+        "bannerDemoResetText": MessageLookupByLibrary.simpleMessage(
+            "Bannerni yana bir marta chiqarish"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Boshqa qurilmangizda parolingiz yangilandi. Tizimga qaytadan kiring."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Kesim"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Erkin harakatlanuvchi amal tugmasi joylashuvi"),
@@ -118,6 +142,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("TUGMA"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Yaratish"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Ochish"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("Bosib turib tanlang"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("Bosing"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("10 raqami"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Ipak yigiruvchilar"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Ibodatxonalar"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamilnadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamilnadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Tamilnadu hududidagi 10 ta borish tavsiya qilinadigan shahar"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "Janubiy Hindiston sanʼat ustalari"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisvaradagi ibodatxona"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Velosipedda"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Lift"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Kamin"),
@@ -187,9 +239,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Ispaniya"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Pishiriqli kafe peshtaxtasi"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Turli manzillardagi restoranlar"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("UCHISH"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Aspen, AQSH"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -238,7 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Gavana, Kuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Eski koʻk avtomobilga suyanib turgan odam"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead":
             MessageLookupByLibrary.simpleMessage("Turli manzillarga parvozlar"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Sanani tanlang"),
@@ -255,6 +308,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Vaqtni tanlang"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Sayohatchilar"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("UYQU"),
         "craneSleep0":
             MessageLookupByLibrary.simpleMessage("Male, Maldiv orollari"),
@@ -297,7 +352,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lissabon, Portugaliya"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Dengiz boʻyidagi gʻishtdan qurilgan mayoq"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead":
             MessageLookupByLibrary.simpleMessage("Turli manzillardagi joylar"),
         "cupertinoAlertAllow":
@@ -333,6 +388,53 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Boshi"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profil"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Kalsiy (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Kaloriya"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Uglevodlar (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Desert (1 porsiya)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("Yogʻlar ( g)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Temir (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Oqsillar ( g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Natriy (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Ovqatlanish"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Olmali pirog"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Keks"),
+        "dataTableRowDonut":
+            MessageLookupByLibrary.simpleMessage("Yogʻli kulcha"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Ekler"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Muzlatilgan yogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Shirin kulchalar"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Asalari uyasi"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Muzqaymoqli sendvich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Marmeladli draje"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Obakidandon"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Amal chiplari asosiy kontentga oid amallarni faollashtiradigan parametrlar toʻplamini ifodalaydi. Amal chiplari dinamik tarzda chiqib, inteyfeysni boyitadi."),
         "demoActionChipTitle":
@@ -343,6 +445,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bildirishnoma"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Sarlavhali bildirishnoma"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Bannerda qisqa, lekin kerakli axborot boʻladi. Bundan tashqari foydalanuvchi bajarilishi lozim boʻlgan amal joylashadi. Uni foydalanuvchi ekrandan olib tashlay oladi."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Banner roʻyxat ichida chiqmoqda"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Quyi ilovalar panelida navigatsiya paneli va toʻrttagacha amal joylash mumkin, jumladan, erkin harakatlanuvchi amal tugmasini ham."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -365,7 +472,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("QUYI EKRANNI CHIQARISH"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Yuqori sarlavha"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Modal quyi ekrandan menyu yoki muloqot oynasi bilan birgalikda foydalanish mumkin. Bunday ekran ochiqligida ilovaning boshqa elementlaridan foydalanish imkonsiz."),
         "demoBottomSheetModalTitle":
@@ -384,6 +491,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Yassi, qavariq, atrofi chizilgan va turli xil"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Tugmalar"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Bildirgiga qoʻshimcha axborot joylash mumkin, masalan, albom, taom, joylashuv va kontaktlar haqidagi axborotlarni."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Burchaklari oʻralgan pastda joylashgan bildirgilar"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Bildirgilar"),
         "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
             "Nazoratli roʻyxatlar menyusi"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -399,12 +511,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Doirasimon jarayon indikatori"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Kod namunasi"),
+        "demoCodeTooltip":
+            MessageLookupByLibrary.simpleMessage("Demo versiya kodi"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Klipbordga nusxalandi."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("HAMMASINI NUSXALASH"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Material Design ranglar majmuasini taqdim qiluvchi rang va gradiyentlar uchun konstantalar"),
         "demoColorsSubtitle":
@@ -423,7 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi faollik indikatori"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Faollik indikatori"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Faqat bildirishnoma tugmalari"),
@@ -452,7 +565,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi navigatsiya paneli"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigatsiya paneli"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Sana"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Sana va vaqt"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "iOS uslubidagi tanlash oynasi orqali sana va vaqtni sozlash mumkin."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS uslubidagi sana va vaqtni tanlash oynasi"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Vaqt"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Taymer"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Tanlash oynasi"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Sahifani yangilash uchun tepadan pastga tortiladigan iOS uslubidagi boshqaruv."),
@@ -460,7 +585,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Sahifalarni yangilash uchun iOS uslubidagi boshqaruv"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Yangilash uchun torting"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Bir nechta variantdan faqat bittasini belgilashda ishlatiladi. Bir element tanlansa, qolgan tanlov avtomatik yechiladi."),
@@ -468,12 +593,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi boshqaruv elementlari"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage(
-                "Segmentlangan boshqaruv elementlari"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Slayder uzluksiz yoki diskret qiymatlarni tanlashda ishlatiladi."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS uslubidagi slayder"),
         "demoCupertinoSliderTitle":
@@ -487,11 +611,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS uslubidagi varaqlar paneli"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Varaqlar paneli"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Matn maydonchasiga tashqi yoki ekran klaviaturasi yordamida matn kiritish mumkin."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN kod"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS uslubidagi matn maydonchasi"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Slayderlar yordamida berilgan diapazondagi kerakli qiymat yoki qiymatlar diapazonini tanlash mumkin. Slayderlar maxsus dizaynda va moslashtirilgan ham boʻladi."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Maxsus slayderlar"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Jadvaldagi maʼlumotlar ustun va qatorlar boʻyicha ajratilgan. Bu foydalanuvchiga kerakli axborotni tezroq topish va taqdim etilgan variantlarni taqqoslash imkonini beradi."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Jadval koʻrinishidagi maʼlumotlar"),
+        "demoDataTableTitle": MessageLookupByLibrary.simpleMessage(
+            "Maʼlumotlar keltirilgan jadvallar"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Material Design uslubidagi oyna orqali sanani tanlash mumkin."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Sana tanlash oynasi"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Oddiy, bildirishnoma va butun ekran"),
         "demoDialogTitle":
@@ -557,7 +699,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Qismli menyusi bor obyekt"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("Oddiy menyuli obyekt"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Kontekst menyusining birinchi bandi"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -576,7 +718,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Bir"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Razm solish"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Olib tashlash"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Ulashish"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Menyu tugmalari va oddiy menyular"),
@@ -595,6 +737,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Atrofi chizilgan tugmani bosganda shaffof boʻladi va koʻtariladi. Ular odatda qavariq tugmalar bilan biriktiriladi va ikkinchi harakat, yaʼni muqobilini koʻrsatish uchun ishlatiladi."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Atrofi chizilgan tugma"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("TANLASH OYNASINI CHIQARISH"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Sana va vaqtni tanlash"),
+        "demoPickersTitle":
+            MessageLookupByLibrary.simpleMessage("Tanlash oynasi"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Chiziqli, doirasimon va noaniq"),
         "demoProgressIndicatorTitle":
@@ -669,12 +817,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Snekbarlar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Varaqlarda turli ekranlardagi kontent, axborot toʻplamlari va boshqa amallar jamlanadi."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Alohida aylantiriladigan varaqlar"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Varaqlar"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Matn kiritish maydonchalari yordamida foydalanuvchilar grafik interfeysga matn kirita olishadi. Ular odatda shakl va muloqot oynalari shaklida chiqadi."),
-        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Parolni kiriting."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -688,7 +840,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Tarjimayi hol"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Ism*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Ismni kiriting."),
         "demoTextFieldNoMoreThan":
@@ -722,6 +874,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Qaysi raqamga telefon qilib sizni topamiz?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Email manzilingiz"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Material Design uslubidagi oyna orqali vaqtni tanlash mumkin."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Vaqt tanlash oynasi"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Belgilash/olib tashlash tugmasi bilan oʻxshash parametrlarni guruhlash mumkin. Belgilash/olib tashlash tugmasiga aloqador guruhlar bitta umumiy konteynerda boʻlishi lozim."),
         "demoToggleButtonTitle": MessageLookupByLibrary.simpleMessage(
@@ -759,13 +915,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google ilovalarga joylashuvni aniqlashda yordam berishi uchun ruxsat bering. Bu shuni bildiradiki, hech qanday ilova ishlamayotgan boʻlsa ham joylashuv axboroti maxfiy tarzda Googlega yuboriladi."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Googlening joylashuvni aniqlash xizmatidan foydalanilsinmi?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Hisobni tanlash"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("MULOQOT OYNASINI CHIQARISH"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("YOPISH"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("USLUBLAR VA MEDIA NAMUNALAR"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Turkumlar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallereya"),
@@ -787,7 +944,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Thanjavurdagi ibodatxona"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Avtomobil olish uchun"),
         "rallyAccountDataChecking":
@@ -811,15 +968,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Jami"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Hisoblar"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Bildirishnomalar"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hisob-kitob"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Muddati"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Kiyim-kechak"),
         "rallyBudgetCategoryCoffeeShops":
@@ -921,7 +1078,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("BEKOR QILISH"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("SAVATCHANI TOZALASH"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("SAVATCHA"),
         "shrineCartShippingCaption":
@@ -984,8 +1141,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kalta klesh shimlari"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster tunika"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Aylana stol"),
         "shrineProductRainwaterTray":
@@ -1024,10 +1181,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Oq chiziqli koʻylak"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Charm kamar"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Savatga joylash"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Savatchani yopish"),
         "shrineTooltipCloseMenu":
@@ -1039,9 +1196,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Qidiruv"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Sozlamalar"),
+        "signIn": MessageLookupByLibrary.simpleMessage("KIRISH"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Moslashuvchan maket"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Asosiy qism"),
         "starterAppGenericButton":
