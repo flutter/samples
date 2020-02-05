@@ -208,17 +208,17 @@ class HomePage extends StatelessWidget {
       );
     }
   }
-}
 
-List<Widget> spaceBetween(double paddingBetween, List<Widget> children) {
-  return [
-    for (int index = 0; index < children.length; index++) ...[
-      Flexible(
-        child: children[index],
-      ),
-      if (index < children.length - 1) SizedBox(width: paddingBetween),
-    ],
-  ];
+  List<Widget> spaceBetween(double paddingBetween, List<Widget> children) {
+    return [
+      for (int index = 0; index < children.length; index++) ...[
+        Flexible(
+          child: children[index],
+        ),
+        if (index < children.length - 1) SizedBox(width: paddingBetween),
+      ],
+    ];
+  }
 }
 
 class _GalleryHeader extends StatelessWidget {
