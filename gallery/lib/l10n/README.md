@@ -1,6 +1,6 @@
 # Localization
 
-## Generating New Locale Messages
+## Creating New Locale Messages
 
 When adding new strings to be localized, update `intl_en_US.arb`, which
 is used by this project as the template. When creating new entries, they
@@ -24,7 +24,7 @@ to be completed.
 
 ## How to Generate GalleryLocalizations with Grinder
 
-From the `samples/gallery/gallery/` directory:
+From the `samples/gallery/` directory:
 1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
 running `flutter pub get`.
 2. Then run `flutter pub run grinder l10n` to generate `GalleryLocalizations`.
@@ -36,7 +36,7 @@ the script, you have to update `gallery_localizations.dart` and move the `en_US`
 locale to the top of the list.
 
 ## How to Generate GalleryLocalizations with l10n scripts
-To generate GalleryLocalizations, from `samples/gallery/gallery/` run:
+To generate GalleryLocalizations, from `samples/gallery/` run:
 
 ```dart
 dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
@@ -45,7 +45,7 @@ dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
     --output-class=GalleryLocalizations
 ```
 
-From `samples/gallery/gallery/`, run `dart ../l10n_cli/bin/main.dart`, which
+From `samples/gallery/`, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 

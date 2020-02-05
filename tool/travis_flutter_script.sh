@@ -29,7 +29,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
-    "gallery/gallery" \
+    "gallery" \
     "flutter_maps_firestore" \
     "isolate_example" \
     "jsonexample" \
@@ -62,10 +62,10 @@ done
 # gallery have been generated using the latest gallery code. Also test that
 # the localization scripts have been run, so that they are up to date for the
 # gallery.
-pushd gallery/gallery
-echo "Run code segments check for 'gallery/gallery'."
+pushd gallery
+echo "Run code segments check for 'gallery'."
 "${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-code-segments
-echo "Run localization check for 'gallery/gallery'."
+echo "Run localization check for 'gallery'."
 "${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-l10n
 popd
 

@@ -14,7 +14,7 @@ Highlighted code widgets are stored in the
 
 ## How to generate code segments
 
-From the `samples/gallery/gallery/` directory:
+From the `samples/gallery/` directory:
 1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
 running `flutter pub get`.
 2. Then run `flutter pub run grinder update-code-segments` to generate code

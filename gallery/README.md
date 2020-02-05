@@ -53,7 +53,7 @@ platform it runs on. This is determined based on window size as outlined in
 
 To generate localized strings or highlighted code segments, make sure that you
 have [grinder](https://pub.dev/packages/grinder) installed. You can install it
-by getting the packages in `samples/gallery/gallery/`:
+by getting the packages in `samples/gallery/`:
 ```
 flutter pub get
 ```
