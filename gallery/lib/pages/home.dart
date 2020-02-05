@@ -725,6 +725,11 @@ class _CarouselState extends State<_Carousel>
   }
 }
 
+/// This creates a horizontally scrolling [ListView] of items.
+///
+/// This class uses a [ListView] with a custom [ScrollPhysics] to enable
+/// snapping behavior. A [PageView] was considered but does not allow for
+/// multiple pages visible without centering the first page.
 class _DesktopCarousel extends StatefulWidget {
   const _DesktopCarousel({Key key, this.children}) : super(key: key);
 
