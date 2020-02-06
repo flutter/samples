@@ -4,7 +4,6 @@ directories:
 - charts/web
 - dad_jokes/web
 - filipino_cuisine/web
-- gallery/web
 - github_dataviz/web
 - particle_background/web
 - slide_puzzle/web
