@@ -915,6 +915,7 @@ class _DesktopPageButton extends StatelessWidget {
               onTap: onTap,
               child: Icon(
                 isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+                color: Colors.white,
               ),
             ),
           ),
