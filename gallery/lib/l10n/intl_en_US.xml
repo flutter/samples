@@ -162,6 +162,18 @@
     description="Title for an account detail. Below the name of the account owner will be displayed."
     >Account Owner</string>
   <string
+    name="rallyBillDetailTotalAmount"
+    description="Title for column where it displays the total dollar amount that the user has in bills."
+    >Total Amount</string>
+  <string
+    name="rallyBillDetailAmountPaid"
+    description="Title for column where it displays the amount that the user has paid."
+    >Amount Paid</string>
+  <string
+    name="rallyBillDetailAmountDue"
+    description="Title for column where it displays the amount that the user has due."
+    >Amount Due</string>
+  <string
     name="rallyBudgetCategoryCoffeeShops"
     description="Category for budget, to sort expenses / bills in."
     >Coffee Shops</string>
@@ -177,6 +189,18 @@
     name="rallyBudgetCategoryClothing"
     description="Category for budget, to sort expenses / bills in."
     >Clothing</string>
+  <string
+    name="rallyBudgetDetailTotalCap"
+    description="Title for column where it displays the total dollar cap that the user has for its budget."
+    >Total Cap</string>
+  <string
+    name="rallyBudgetDetailAmountUsed"
+    description="Title for column where it displays the dollar amount that the user has used in its budget."
+    >Amount Used</string>
+  <string
+    name="rallyBudgetDetailAmountLeft"
+    description="Title for column where it displays the dollar amount that the user has left in its budget."
+    >Amount Left</string>
   <string
     name="rallySettingsManageAccounts"
     description="Link to go to the page &apos;Manage Accounts."

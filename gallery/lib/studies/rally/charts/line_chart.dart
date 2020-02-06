@@ -8,6 +8,7 @@ import 'package:flutter/semantics.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/text_scale.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
 import 'package:gallery/studies/rally/formatters.dart';
@@ -28,6 +29,9 @@ class RallyLineChart extends StatelessWidget {
         labelStyle: Theme.of(context).textTheme.body1,
         textDirection: GalleryOptions.of(context).textDirection(),
         textScaleFactor: reducedTextScale(context),
+        padding: isDisplayDesktop(context)
+            ? EdgeInsets.symmetric(vertical: 22)
+            : EdgeInsets.zero,
       ),
     );
   }
@@ -41,6 +45,7 @@ class RallyLineChartPainter extends CustomPainter {
     @required this.labelStyle,
     @required this.textDirection,
     @required this.textScaleFactor,
+    @required this.padding,
   });
 
   // The style for the labels.
@@ -51,6 +56,9 @@ class RallyLineChartPainter extends CustomPainter {
 
   // The text scale factor for the text.
   final double textScaleFactor;
+
+  // The padding around the text.
+  final EdgeInsets padding;
 
   // The format for the dates.
   final intl.DateFormat dateFormat;
@@ -253,7 +261,8 @@ class RallyLineChartPainter extends CustomPainter {
       textDirection: textDirection,
     );
     leftLabel.layout();
-    leftLabel.paint(canvas, Offset(rect.left + space / 2, rect.topCenter.dy));
+    leftLabel.paint(canvas,
+        Offset(rect.left + space / 2 + padding.vertical, rect.topCenter.dy));
 
     final centerLabel = TextPainter(
       text: TextSpan(
@@ -281,7 +290,8 @@ class RallyLineChartPainter extends CustomPainter {
     rightLabel.layout();
     rightLabel.paint(
       canvas,
-      Offset(rect.right - centerLabel.width - space / 2, rect.topCenter.dy),
+      Offset(rect.right - centerLabel.width - space / 2 - padding.vertical,
+          rect.topCenter.dy),
     );
   }
 }

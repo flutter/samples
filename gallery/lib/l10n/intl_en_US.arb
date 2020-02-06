@@ -171,6 +171,18 @@
   "@rallyAccountDetailDataAccountOwner": {
     "description": "Title for an account detail. Below the name of the account owner will be displayed."
   },
+  "rallyBillDetailTotalAmount": "Total Amount",
+  "@rallyBillDetailTotalAmount": {
+    "description": "Title for column where it displays the total dollar amount that the user has in bills."
+  },
+  "rallyBillDetailAmountPaid": "Amount Paid",
+  "@rallyBillDetailAmountPaid": {
+    "description": "Title for column where it displays the amount that the user has paid."
+  },
+  "rallyBillDetailAmountDue": "Amount Due",
+  "@rallyBillDetailAmountDue": {
+    "description": "Title for column where it displays the amount that the user has due."
+  },
   "rallyBudgetCategoryCoffeeShops": "Coffee Shops",
   "@rallyBudgetCategoryCoffeeShops": {
     "description": "Category for budget, to sort expenses / bills in."
@@ -186,6 +198,18 @@
   "rallyBudgetCategoryClothing": "Clothing",
   "@rallyBudgetCategoryClothing": {
     "description": "Category for budget, to sort expenses / bills in."
+  },
+  "rallyBudgetDetailTotalCap": "Total Cap",
+  "@rallyBudgetDetailTotalCap": {
+    "description": "Title for column where it displays the total dollar cap that the user has for its budget."
+  },
+  "rallyBudgetDetailAmountUsed": "Amount Used",
+  "@rallyBudgetDetailAmountUsed": {
+    "description": "Title for column where it displays the dollar amount that the user has used in its budget."
+  },
+  "rallyBudgetDetailAmountLeft": "Amount Left",
+  "@rallyBudgetDetailAmountLeft": {
+    "description": "Title for column where it displays the dollar amount that the user has left in its budget."
   },
   "rallySettingsManageAccounts": "Manage Accounts",
   "@rallySettingsManageAccounts": {

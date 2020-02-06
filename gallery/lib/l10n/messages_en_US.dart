@@ -995,6 +995,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Amount Due"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Amount Paid"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Total Amount"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bills"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Due"),
         "rallyBudgetAmount": m27,
@@ -1006,6 +1012,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Groceries"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restaurants"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Amount Left"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Amount Used"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Total Cap"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Left"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budgets"),
         "rallyDescription":

@@ -5,10 +5,10 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/rally/charts/pie_chart.dart';
 import 'package:gallery/studies/rally/data.dart';
 import 'package:gallery/studies/rally/finance.dart';
+import 'package:gallery/studies/rally/tabs/sidebar.dart';
 
 /// A page that shows a summary of bills.
 class BillsView extends StatefulWidget {
@@ -22,17 +22,25 @@ class _BillsViewState extends State<BillsView>
   Widget build(BuildContext context) {
     List<BillData> items = DummyDataService.getBillDataList(context);
     final dueTotal = sumBillDataPrimaryAmount(items);
-    return SingleChildScrollView(
-      child: Container(
-        padding: isDisplayDesktop(context) ? EdgeInsets.only(top: 24) : null,
-        child: FinancialEntityView(
-          heroLabel: GalleryLocalizations.of(context).rallyBillsDue,
-          heroAmount: dueTotal,
-          segments: buildSegmentsFromBillItems(items),
-          wholeAmount: dueTotal,
-          financialEntityCards: buildBillDataListViews(items, context),
-        ),
+    final paidTotal = sumBillDataPaidAmount(items);
+    final detailItems = DummyDataService.getBillDetailList(
+      context,
+      dueTotal: dueTotal,
+      paidTotal: paidTotal,
+    );
+
+    return TabWithSidebar(
+      mainView: FinancialEntityView(
+        heroLabel: GalleryLocalizations.of(context).rallyBillsDue,
+        heroAmount: dueTotal,
+        segments: buildSegmentsFromBillItems(items),
+        wholeAmount: dueTotal,
+        financialEntityCards: buildBillDataListViews(items, context),
       ),
+      sidebarItems: [
+        for (UserDetailData item in detailItems)
+          SidebarItem(title: item.title, value: item.value)
+      ],
     );
   }
 }

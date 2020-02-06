@@ -15,6 +15,12 @@ double sumAccountDataPrimaryAmount(List<AccountData> items) =>
 double sumBillDataPrimaryAmount(List<BillData> items) =>
     sumOf<BillData>(items, (item) => item.primaryAmount);
 
+/// Calculates the sum of the primary amounts of a list of [BillData].
+double sumBillDataPaidAmount(List<BillData> items) => sumOf<BillData>(
+      items.where((item) => item.isPaid).toList(),
+      (item) => item.primaryAmount,
+    );
+
 /// Calculates the sum of the primary amounts of a list of [BudgetData].
 double sumBudgetDataPrimaryAmount(List<BudgetData> items) =>
     sumOf<BudgetData>(items, (item) => item.primaryAmount);
@@ -52,7 +58,12 @@ class AccountData {
 ///
 /// The [primaryAmount] is the amount due in USD.
 class BillData {
-  const BillData({this.name, this.primaryAmount, this.dueDate});
+  const BillData({
+    this.name,
+    this.primaryAmount,
+    this.dueDate,
+    this.isPaid = false,
+  });
 
   /// The display name of this entity.
   final String name;
@@ -62,6 +73,9 @@ class BillData {
 
   /// The due date of this bill.
   final String dueDate;
+
+  /// If this bill has been paid.
+  final bool isPaid;
 }
 
 /// A data model for a budget.
@@ -103,9 +117,9 @@ class DetailedEventData {
   final double amount;
 }
 
-/// A data model for account data.
-class AccountDetailData {
-  AccountDetailData({this.title, this.value});
+/// A data model for data displayed to the user.
+class UserDetailData {
+  UserDetailData({this.title, this.value});
 
   /// The display name of this entity.
   final String title;
@@ -143,34 +157,34 @@ class DummyDataService {
     ];
   }
 
-  static List<AccountDetailData> getAccountDetailList(BuildContext context) {
-    return <AccountDetailData>[
-      AccountDetailData(
+  static List<UserDetailData> getAccountDetailList(BuildContext context) {
+    return <UserDetailData>[
+      UserDetailData(
         title: GalleryLocalizations.of(context)
             .rallyAccountDetailDataAnnualPercentageYield,
         value: percentFormat(context).format(0.001),
       ),
-      AccountDetailData(
+      UserDetailData(
         title:
             GalleryLocalizations.of(context).rallyAccountDetailDataInterestRate,
         value: usdWithSignFormat(context).format(1676.14),
       ),
-      AccountDetailData(
+      UserDetailData(
         title:
             GalleryLocalizations.of(context).rallyAccountDetailDataInterestYtd,
         value: usdWithSignFormat(context).format(81.45),
       ),
-      AccountDetailData(
+      UserDetailData(
         title: GalleryLocalizations.of(context)
             .rallyAccountDetailDataInterestPaidLastYear,
         value: usdWithSignFormat(context).format(987.12),
       ),
-      AccountDetailData(
+      UserDetailData(
         title: GalleryLocalizations.of(context)
             .rallyAccountDetailDataNextStatement,
         value: shortDateFormat(context).format(DateTime.utc(2019, 12, 25)),
       ),
-      AccountDetailData(
+      UserDetailData(
         title:
             GalleryLocalizations.of(context).rallyAccountDetailDataAccountOwner,
         value: 'Philip Cao',
@@ -233,6 +247,7 @@ class DummyDataService {
         primaryAmount: 1200,
         dueDate: dateFormatAbbreviatedMonthDay(context)
             .format(DateTime.utc(2019, 2, 9)),
+        isPaid: true,
       ),
       BillData(
         name: 'TabFine Credit',
@@ -245,6 +260,24 @@ class DummyDataService {
         primaryAmount: 400,
         dueDate: dateFormatAbbreviatedMonthDay(context)
             .format(DateTime.utc(2019, 2, 29)),
+      ),
+    ];
+  }
+
+  static List<UserDetailData> getBillDetailList(BuildContext context,
+      {double dueTotal, double paidTotal}) {
+    return <UserDetailData>[
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBillDetailTotalAmount,
+        value: usdWithSignFormat(context).format(paidTotal + dueTotal),
+      ),
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBillDetailAmountPaid,
+        value: usdWithSignFormat(context).format(paidTotal),
+      ),
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBillDetailAmountDue,
+        value: usdWithSignFormat(context).format(dueTotal),
       ),
     ];
   }
@@ -270,6 +303,24 @@ class DummyDataService {
         name: GalleryLocalizations.of(context).rallyBudgetCategoryClothing,
         primaryAmount: 70,
         amountUsed: 19.45,
+      ),
+    ];
+  }
+
+  static List<UserDetailData> getBudgetDetailList(BuildContext context,
+      {double capTotal, double usedTotal}) {
+    return <UserDetailData>[
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBudgetDetailTotalCap,
+        value: usdWithSignFormat(context).format(capTotal),
+      ),
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBudgetDetailAmountUsed,
+        value: usdWithSignFormat(context).format(usedTotal),
+      ),
+      UserDetailData(
+        title: GalleryLocalizations.of(context).rallyBudgetDetailAmountLeft,
+        value: usdWithSignFormat(context).format(capTotal - usedTotal),
       ),
     ];
   }
