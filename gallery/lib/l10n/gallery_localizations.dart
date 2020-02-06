@@ -3475,7 +3475,7 @@ class GalleryLocalizations {
   }
 
   String get fortnightlyDescription {
-    return Intl.message('A news app',
+    return Intl.message('A content-focused news app',
         locale: _localeName,
         name: 'fortnightlyDescription',
         desc: r'Study description for Fortnightly.');
