@@ -7,7 +7,6 @@ directories:
 - github_dataviz/web
 - particle_background/web
 - slide_puzzle/web
-- spinning_square/web
 - timeflow/web
 - vision_challenge/web
 
