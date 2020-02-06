@@ -23,10 +23,12 @@ class _FrontLayer extends StatelessWidget {
     Key key,
     this.title,
     this.index,
+    this.mobileTopOffset,
   }) : super(key: key);
 
   final String title;
   final int index;
+  final double mobileTopOffset;
 
   static const frontLayerBorderRadius = 16.0;
 
@@ -37,29 +39,33 @@ class _FrontLayer extends StatelessWidget {
 
     return DefaultFocusTraversal(
       policy: ReadingOrderTraversalPolicy(),
-      child: PhysicalShape(
-        elevation: 16,
-        color: cranePrimaryWhite,
-        clipper: ShapeBorderClipper(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(frontLayerBorderRadius),
-              topRight: Radius.circular(frontLayerBorderRadius),
+      child: Padding(
+        padding:
+            isDesktop ? EdgeInsets.zero : EdgeInsets.only(top: mobileTopOffset),
+        child: PhysicalShape(
+          elevation: 16,
+          color: cranePrimaryWhite,
+          clipper: ShapeBorderClipper(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(frontLayerBorderRadius),
+                topRight: Radius.circular(frontLayerBorderRadius),
+              ),
             ),
           ),
-        ),
-        child: ListView(
-          padding: isDesktop
-              ? EdgeInsets.symmetric(
-                  horizontal:
-                      isSmallDesktop ? appPaddingSmall : appPaddingLarge,
-                  vertical: 22)
-              : EdgeInsets.all(20),
-          children: [
-            Text(title, style: Theme.of(context).textTheme.subtitle),
-            SizedBox(height: 20),
-            ItemCards(index: index),
-          ],
+          child: ListView(
+            padding: isDesktop
+                ? EdgeInsets.symmetric(
+                    horizontal:
+                        isSmallDesktop ? appPaddingSmall : appPaddingLarge,
+                    vertical: 22)
+                : EdgeInsets.all(20),
+            children: [
+              Text(title, style: Theme.of(context).textTheme.subtitle),
+              SizedBox(height: 20),
+              ItemCards(index: index),
+            ],
+          ),
         ),
       ),
     );
@@ -94,23 +100,27 @@ class Backdrop extends StatefulWidget {
 
 class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   TabController _tabController;
-  Animation<Offset> _flyLayerOffset;
-  Animation<Offset> _sleepLayerOffset;
-  Animation<Offset> _eatLayerOffset;
+  Animation<Offset> _flyLayerHorizontalOffset;
+  Animation<Offset> _sleepLayerHorizontalOffset;
+  Animation<Offset> _eatLayerHorizontalOffset;
+
+  // How much the 'sleep' front layer is vertically offset relative to other
+  // front layers, in pixels, with the mobile layout.
+  static const _sleepLayerTopOffset = 60.0;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
 
-    // Offsets to create a gap between front layers.
-    _flyLayerOffset = _tabController.animation
+    // Offsets to create a horizontal gap between front layers.
+    _flyLayerHorizontalOffset = _tabController.animation
         .drive(Tween<Offset>(begin: Offset(0, 0), end: Offset(-0.05, 0)));
 
-    _sleepLayerOffset = _tabController.animation
+    _sleepLayerHorizontalOffset = _tabController.animation
         .drive(Tween<Offset>(begin: Offset(0.05, 0), end: Offset(0, 0)));
 
-    _eatLayerOffset = _tabController.animation
+    _eatLayerHorizontalOffset = _tabController.animation
         .drive(Tween<Offset>(begin: Offset(0.10, 0), end: Offset(0.05, 0)));
   }
 
@@ -163,38 +173,51 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                               20 * textScaleFactor / 2
                           : 175 + 140 * textScaleFactor / 2,
                     ),
-                    child: TabBarView(
-                      physics: isDesktop
-                          ? NeverScrollableScrollPhysics()
-                          : null, // use default TabBarView physics
-                      controller: _tabController,
-                      children: [
-                        SlideTransition(
-                          position: _flyLayerOffset,
-                          child: _FrontLayer(
-                            title: GalleryLocalizations.of(context)
-                                .craneFlySubhead,
-                            index: 0,
-                          ),
+                    // To display the middle front layer higher than the others,
+                    // we allow the TabBarView to overflow by an offset
+                    // (doubled because it technically overflows top & bottom).
+                    // The other front layers are top padded by this offset.
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return OverflowBox(
+                        maxHeight:
+                            constraints.maxHeight + _sleepLayerTopOffset * 2,
+                        child: TabBarView(
+                          physics: isDesktop
+                              ? NeverScrollableScrollPhysics()
+                              : null, // use default TabBarView physics
+                          controller: _tabController,
+                          children: [
+                            SlideTransition(
+                              position: _flyLayerHorizontalOffset,
+                              child: _FrontLayer(
+                                title: GalleryLocalizations.of(context)
+                                    .craneFlySubhead,
+                                index: 0,
+                                mobileTopOffset: _sleepLayerTopOffset,
+                              ),
+                            ),
+                            SlideTransition(
+                              position: _sleepLayerHorizontalOffset,
+                              child: _FrontLayer(
+                                title: GalleryLocalizations.of(context)
+                                    .craneSleepSubhead,
+                                index: 1,
+                                mobileTopOffset: 0,
+                              ),
+                            ),
+                            SlideTransition(
+                              position: _eatLayerHorizontalOffset,
+                              child: _FrontLayer(
+                                title: GalleryLocalizations.of(context)
+                                    .craneEatSubhead,
+                                index: 2,
+                                mobileTopOffset: _sleepLayerTopOffset,
+                              ),
+                            ),
+                          ],
                         ),
-                        SlideTransition(
-                          position: _sleepLayerOffset,
-                          child: _FrontLayer(
-                            title: GalleryLocalizations.of(context)
-                                .craneSleepSubhead,
-                            index: 1,
-                          ),
-                        ),
-                        SlideTransition(
-                          position: _eatLayerOffset,
-                          child: _FrontLayer(
-                            title: GalleryLocalizations.of(context)
-                                .craneEatSubhead,
-                            index: 2,
-                          ),
-                        ),
-                      ],
-                    ),
+                      );
+                    }),
                   ),
                 ],
               ),
