@@ -24,67 +24,83 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Чувар места за картицу ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "Истражите: ${destinationName}";
+
+  static m3(destinationName) => "Делите: ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Нема ресторана', one: '1 ресторан', few: '${totalRestaurants} ресторана', other: '${totalRestaurants} ресторана')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Директан', one: '1 заустављање', few: '${numberOfStops} заустављања', other: '${numberOfStops} заустављања')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Нема доступних објеката', one: '1 доступан објекат', few: '${totalProperties} доступна објекта', other: '${totalProperties} доступних објеката')}";
 
-  static m5(value) => "Ставка: ${value}";
+  static m10(value) => "${value} са медом";
 
-  static m6(error) => "Копирање у привремену меморију није успело: ${error}";
+  static m11(value) => "${value} са шећером";
 
-  static m7(value) => "Непрекидно: ${value}";
+  static m12(value) => "Ставка: ${value}";
 
-  static m8(value) => "Дискретно: ${value}";
+  static m13(error) => "Копирање у привремену меморију није успело: ${error}";
 
-  static m9(value) => "Означено: ${value}";
+  static m14(value) => "Непрекидно: ${value}";
 
-  static m10(value) => "Изабрано: ${value}";
+  static m15(value) => "Дискретно: ${value}";
 
-  static m11(name, phoneNumber) => "${name} има број телефона ${phoneNumber}";
+  static m16(value) => "Означено: ${value}";
 
-  static m12(value) => "Изабрали сте: „${value}“";
+  static m17(value) => "Изабрано: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} има број телефона ${phoneNumber}";
+
+  static m19(value) => "Изабрали сте: „${value}“";
+
+  static m20(accountName, accountNumber, amount) =>
       "${accountName} рачун ${accountNumber} са ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Овог месеца сте потрошили ${amount} на накнаде за банкомате";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Одлично! На текућем рачуну имате ${percent} више него прошлог месеца.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Пажња! Искористили сте ${percent} буџета за куповину за овај месец.";
 
-  static m17(amount) => "Ове недеље сте потрошили ${amount} на ресторане.";
+  static m24(amount) => "Ове недеље сте потрошили ${amount} на ресторане.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Повећајте могући одбитак пореза! Доделите категорије 1 недодељеној трансакцији.', few: 'Повећајте могући одбитак пореза! Доделите категорије за ${count} недодељене трансакције.', other: 'Повећајте могући одбитак пореза! Доделите категорије за ${count} недодељених трансакција.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Рачун (${billName}) од ${amount} доспева ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Буџет за ${budgetName}, потрошено је ${amountUsed} од ${amountTotal}, преостало је ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'НЕМА СТАВКИ', one: '1 СТАВКА', few: '${quantity} СТАВКЕ', other: '${quantity} СТАВКИ')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Количина: ${quantity}";
+  static m30(quantity) => "Количина: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Корпа за куповину, нема артикала', one: 'Корпа за куповину, 1 артикал', few: 'Корпа за куповину, ${quantity} артикла', other: 'Корпа за куповину, ${quantity} артикала')}";
 
-  static m25(product) => "Уклони производ ${product}";
+  static m32(product) => "Уклони производ ${product}";
 
-  static m26(value) => "Ставка: ${value}";
+  static m33(value) => "Ставка: ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +109,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "GitHub складиште за Flutter узорке"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Назад у галерију"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Почетна икона"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Више радњи"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Ресетуј банер"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Лозинка је ажурирана на другом уређају. Пријавите се поново."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Урез"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Положај плутајућег дугмета за радњу"),
@@ -118,6 +142,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("ДУГМЕ"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Направите"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Истражите"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Може да се изабере (дуги притисак)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Може да се додирне"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Танџавур"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Четинад"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("10. место"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Произвођачи свиле"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Храмови"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Танџавур, Тамил Наду"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Сиваганга, Тамил Наду"),
+        "cardsDemoTravelDestinationTitle1": MessageLookupByLibrary.simpleMessage(
+            "Најпопуларнијих 10 градова које треба да посетите у Тамил Надуу"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Занатлије јужне Индије"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Храм Брихадисвара"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Вожња бицикла"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Лифт"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Камин"),
@@ -192,9 +243,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Мадрид, Шпанија"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Шанк у кафеу са пецивом"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Истражујте ресторане према одредишту"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("ЛЕТ"),
         "craneFly0": MessageLookupByLibrary.simpleMessage(
             "Аспен, Сједињене Америчке Државе"),
@@ -245,7 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Хавана, Куба"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Човек се наслања на стари плави аутомобил"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Истражујте летове према дестинацији"),
         "craneFormDate":
@@ -263,6 +315,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("Изаберите време"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("Путници"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("НОЋЕЊЕ"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Мале, Малдиви"),
         "craneSleep0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -306,7 +360,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Лисабон, Португалија"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Светионик од цигала на мору"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Истражујте смештајне објекте према одредишту"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Дозволи"),
@@ -341,6 +395,50 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Почетна"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Профил"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Калцијум (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Калорије"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Угљени хидрати (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Дезерт (1 порција)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Масти (g)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Гвожђе (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Протеини (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Натријум (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Исхрана"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Пита од јабука"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Мафин"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Крофна"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Еклер"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Замрзнут јогурт"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Медењак"),
+        "dataTableRowHoneycomb": MessageLookupByLibrary.simpleMessage("Саће"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Сладолед сендвич"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Желе бомбона"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Лизалица"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Чипови радњи су скуп опција које покрећу радњу повезану са примарним садржајем. Чипови радњи треба да се појављују динамички и контекстуално у корисничком интерфејсу."),
         "demoActionChipTitle":
@@ -351,6 +449,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Обавештење"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Обавештење са насловом"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Банер приказује важну, сажету поруку и наводи радње које корисници могу да обаве (или могу да одбаце банер). Неопходно је да корисник обави радњу одбацивања."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Приказује банер у оквиру листе"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Банер"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Доње траке са апликацијама пружају приступ доњој фиоки за навигацију и највише четири радње, укључујући плутајуће дугме за радњу."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -373,7 +476,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ПРИКАЖИ ДОЊУ ТАБЕЛУ"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Заглавље"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Модална доња табела је алтернатива менију или дијалогу и онемогућава интеракцију корисника са остатком апликације."),
         "demoBottomSheetModalTitle":
@@ -392,6 +495,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Равна, издигнута, оивичена и друга"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Дугмад"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Картица је елемент материјалног дизајна који се користи за представљање сродних информација, на пример, албума, географске локације, оброка, података за контакт итд."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Основне картице са заобљеним угловима"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Картице"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Мени са контролним листама"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -406,13 +514,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Кружни индикатор напретка материјалног дизајна који се окреће да би показао да је апликација заузета."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("Кружни индикатор напретка"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Узорак кода"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Демо кôд"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Копирано је у привремену меморију."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("КОПИРАЈ СВЕ"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Боје и шема боја које представљају палету боја материјалног дизајна."),
         "demoColorsSubtitle":
@@ -431,7 +539,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Индикатори активности у iOS стилу"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Индикатор активности"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Само дугмад са обавештењем"),
         "demoCupertinoAlertButtonsTitle":
@@ -459,7 +567,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Трака за навигацију у iOS стилу"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Трака за навигацију"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("Датум"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Датум и време"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Виџет бирача у iOS стилу који може да се користи за бирање датума, времена или и датума и времена."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Бирачи за датум и време у iOS стилу"),
+        "demoCupertinoPickerTime":
+            MessageLookupByLibrary.simpleMessage("Време"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Тајмер"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Бирачи"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Виџет који примењује контролу за повлачење ради освежавања садржаја у iOS стилу."),
@@ -467,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Контрола за повлачење ради освежавања у iOS стилу"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Повуците да бисте освежили"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Користи се за бирање једне од међусобно искључивих опција. Када је изабрана једна опција у сегментираној контроли, опозива се избор осталих опција у тој сегментираној контроли."),
@@ -475,11 +597,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Сегментирана контрола у iOS стилу"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Сегментирана контрола"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Клизач може да се користи да бисте изабрали непрекидан или дискретан скуп вредности."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Клизач у iOS стилу"),
         "demoCupertinoSliderTitle":
@@ -493,11 +615,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Доња трака са картицама у iOS стилу"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Трака са картицама"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Поље за унос текста омогућава кориснику да уноси текст помоћу физичке тастатуре или тастатуре на екрану."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Поља за унос текста у iOS стилу"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Клизачи одражавају опсег вредности на траци, а корисници могу да изаберу једну вредност или опсег вредности. Клизачи могу да имају тему и да се прилагоде."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Прилагођени клизачи"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Табеле са подацима приказују информације у облику мреже са редовима и колонама. У њима су информације организоване тако да могу лако да се прегледају и да би корисници могли да траже шаблоне и увиде."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Редови и колоне са информацијама"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Табеле са подацима"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Приказује дијалог са бирачем датума материјалног дизајна."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Бирач датума"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Једноставан, са обавештењем и преко целог екрана"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Дијалози"),
@@ -564,7 +704,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ставка са менијем са одељцима"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Ставка са једноставним менијем"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Прва ставка контекстуалног менија"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -582,7 +722,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Један"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Преглед"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Уклони"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Дели"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Дугмад менија и једноставни менији"),
@@ -600,6 +740,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Оивичена дугмад постаје непрозирна и подиже се када се притисне. Обично се упарује заједно са издигнутом дугмади да би означила алтернативну, секундарну радњу."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Оивичено дугме"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("ПРИКАЖИ БИРАЧ"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Бирање датума и времена"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Бирачи"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Линеарни, кружни, неодређени"),
         "demoProgressIndicatorTitle":
@@ -676,13 +821,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Траке за обавештења"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Картице организују садржај на различитим екранима, у скуповима података и другим интеракцијама."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Картице са приказима који могу засебно да се померају"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Картице"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Поља за унос текста омогућавају корисницима да унесу текст у кориснички интерфејс. Обично се приказују у облику образаца и дијалога."),
-        "demoTextFieldEmail":
-            MessageLookupByLibrary.simpleMessage("Имејл адреса"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("Имејл"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Унесите лозинку."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -696,7 +844,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("Биографија"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("Име*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Име је обавезно."),
         "demoTextFieldNoMoreThan":
@@ -731,6 +879,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Где можемо да вас контактирамо?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Ваша имејл адреса"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Приказује дијалог са бирачем времена материјалног дизајна."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Бирач времена"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Дугмад за укључивање/искључивање може да се користи за груписање сродних опција. Да бисте нагласили групе сродне дугмади за укључивање/искључивање, група треба да има заједнички контејнер"),
         "demoToggleButtonTitle": MessageLookupByLibrary.simpleMessage(
@@ -766,12 +918,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Дозволите да Google помаже апликацијама у одређивању локације. То значи да се Google-у шаљу анонимни подаци о локацији, чак и када ниједна апликација није покренута."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Желите ли да користите Google услуге локације?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Подесите резервни налог"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ПРИКАЖИ ДИЈАЛОГ"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("ОДБАЦИ"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("РЕФЕРЕНТНИ СТИЛОВИ И МЕДИЈИ"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категорије"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерија"),
@@ -794,7 +947,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Танџавур"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Храм у Танџавуру"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings": MessageLookupByLibrary.simpleMessage(
             "Штедња за куповину аутомобила"),
         "rallyAccountDataChecking":
@@ -820,16 +973,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Укупно"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Налози"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Обавештења"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Обрачуни"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Доспева на наплату"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Одећа"),
         "rallyBudgetCategoryCoffeeShops":
@@ -933,7 +1086,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ОТКАЖИ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ОБРИШИ СВЕ ИЗ КОРПЕ"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("КОРПА"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Испорука:"),
@@ -994,8 +1147,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Тамноплаве панталоне"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Туника боје гипса"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Сто за четири особе"),
         "shrineProductRainwaterTray":
@@ -1034,10 +1187,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Бела кошуља са пругама"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Каиш Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Додај у корпу"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Затворите корпу"),
         "shrineTooltipCloseMenu":
@@ -1050,9 +1203,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Претражите"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Подешавања"),
+        "signIn": MessageLookupByLibrary.simpleMessage("ПРИЈАВИТЕ СЕ"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Изглед апликације за покретање која реагује"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Главни текст"),
         "starterAppGenericButton":

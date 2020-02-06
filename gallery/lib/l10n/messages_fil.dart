@@ -24,69 +24,85 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Placeholder para sa tab na ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "I-explore ang ${destinationName}";
+
+  static m3(destinationName) => "Ibahagi ang ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Walang Restaurant', one: '1 Restaurant', other: '${totalRestaurants} na Restaurant')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Nonstop', one: '1 stop', other: '${numberOfStops} na stop')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Walang Available na Property', one: '1 Available na Property', other: '${totalProperties} na Available na Property')}";
 
-  static m5(value) => "Item ${value}";
+  static m10(value) => "${value} na may honey";
 
-  static m6(error) => "Hindi nakopya sa clipboard: ${error}";
+  static m11(value) => "${value} na may asukal";
 
-  static m7(value) => "Tuloy-tuloy: ${value}";
+  static m12(value) => "Item ${value}";
 
-  static m8(value) => "Discrete: ${value}";
+  static m13(error) => "Hindi nakopya sa clipboard: ${error}";
 
-  static m9(value) => "Nasuri: ${value}";
+  static m14(value) => "Tuloy-tuloy: ${value}";
 
-  static m10(value) => "Napili: ${value}";
+  static m15(value) => "Discrete: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Nasuri: ${value}";
+
+  static m17(value) => "Napili: ${value}";
+
+  static m18(name, phoneNumber) =>
       "Ang numero ng telepono ni/ng ${name} ay ${phoneNumber}";
 
-  static m12(value) => "Pinili mo ang: \"${value}\"";
+  static m19(value) => "Pinili mo ang: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "${accountName} account ${accountNumber} na may ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Gumastos ka ng ${amount} sa mga bayarin sa ATM ngayong buwan";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Magaling! Mas mataas nang ${percent} ang iyong checking account kaysa sa nakaraang buwan.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Babala, nagamit mo na ang ${percent} ng iyong Badyet sa pamimili para sa buwang ito.";
 
-  static m17(amount) =>
+  static m24(amount) =>
       "Gumastos ka ng ${amount} sa Mga Restaurant ngayong linggo.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Lakihan ang puwedeng mabawas sa iyong buwis! Magtalaga ng mga kategorya sa 1 transaksyong hindi nakatalaga.', other: 'Lakihan ang puwedeng mabawas sa iyong buwis! Magtalaga ng mga kategorya sa ${count} na transaksyong hindi nakatalaga.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Bill sa ${billName} na nagkakahalagang ${amount} na dapat bayaran bago ang ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "Badyet sa ${budgetName} na may nagamit nang ${amountUsed} sa ${amountTotal}, ${amountLeft} ang natitira";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'WALANG ITEM', one: '1 ITEM', other: '${quantity} NA ITEM')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Dami: ${quantity}";
+  static m30(quantity) => "Dami: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Shopping cart, walang item', one: 'Shopping cart, 1 item', other: 'Shopping cart, ${quantity} na item')}";
 
-  static m25(product) => "Alisin ang ${product}";
+  static m32(product) => "Alisin ang ${product}";
 
-  static m26(value) => "Item ${value}";
+  static m33(value) => "Item ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -95,6 +111,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mga flutter sample ng GitHub repo"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Bumalik sa Gallery"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Nangungunang Icon"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Maraming pagkilos"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("I-reset ang banner"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Na-update ang iyong password sa iba mo pang device. Mag-sign in ulit."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("Notch"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "Posisyon ng Floating Action Button"),
@@ -119,6 +143,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("BUTTON"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Gumawa"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("I-explore"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Napipili (matagal na pagpindot)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("Nata-tap"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Chettinad"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Ika-10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Mga Silk Spinner"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Mga Templo"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Thanjavur, Tamil Nadu"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Sivaganga, Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "Nangungunang 10 Lungsod na Mabibisita sa Tamil Nadu"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "Mga Artisan ng Southern India"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Brihadisvara Temple"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Pagbibisikleta"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Elevator"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Fireplace"),
@@ -188,9 +240,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Madrid, Spain"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Counter na may mga pastry sa isang cafe"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Mag-explore ng Mga Restaurant ayon sa Destinasyon"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("LUMIPAD"),
         "craneFly0":
             MessageLookupByLibrary.simpleMessage("Aspen, United States"),
@@ -241,7 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Havana, Cuba"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Lalaking nakasandal sa isang antique na asul na sasakyan"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Mag-explore ng Mga Flight ayon sa Destinasyon"),
         "craneFormDate":
@@ -258,6 +311,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Pumili ng Oras"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Mga Bumibiyahe"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("MATULOG"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Malé, Maldives"),
         "craneSleep0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -300,7 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("Lisbon, Portugal"),
         "craneSleep9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Brick na parola sa may dagat"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Mag-explore ng Mga Property ayon sa Destinasyon"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Payagan"),
@@ -335,6 +390,50 @@ class MessageLookup extends MessageLookupByLibrary {
         "cupertinoTabBarHomeTab": MessageLookupByLibrary.simpleMessage("Home"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Profile"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Calcium (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Mga Calorie"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Mga Carb (g)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Panghimagas (1 serving)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Fat (g)"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("Iron (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Protein (g)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Sodium (mg)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Nutrisyon"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Apple pie"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Frozen yogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Honeycomb"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice cream sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga action chip ay isang hanay ng mga opsyon na nagti-trigger ng pagkilos na nauugnay sa pangunahing content. Dapat dynamic at ayon sa konteksto lumabas ang mga action chip sa UI."),
         "demoActionChipTitle":
@@ -344,6 +443,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alerto"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alertong May Pamagat"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Ang isang banner ay nagpapakita ng mahalaga at malinaw na mensahe at nagbibigay ito ng mga pagkilos para sa mga user para tugunan (o i-dismiss ang banner). Kinakailangan ng pagkilos ng user para ma-dismiss ito."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nagpapakita ng banner sa isang listahan"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Banner"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Nagbibigay ang mga bar ng app sa ibaba ng access sa navigation drawer sa ibaba at sa hanggang apat na pagkilos, kasama ang floating action button."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -365,7 +469,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText":
             MessageLookupByLibrary.simpleMessage("IPAKITA ANG BOTTOM SHEET"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("Header"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Ang modal na bottom sheet ay isang alternatibo sa menu o dialog at pinipigilan nito ang user na makipag-ugnayan sa iba pang bahagi ng app."),
         "demoBottomSheetModalTitle":
@@ -384,6 +488,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, nakaangat, outline, at higit pa"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Mga Button"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Ang card ay isang sheet ng Materyal na ginagamit para katawanin ang ilang nauugnay na impormasyon, halimbawa, isang album, isang pangheyograpiyang lokasyon, isang pagkain, mga detalye sa pakikipag-ugnayan, atbp."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mga baseline na card na may mga pakurbang kanto"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Mga Card"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("Checklist na menu"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -399,13 +508,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Pabilog na Indicator ng Pag-usad"),
-        "demoCodeTooltip":
-            MessageLookupByLibrary.simpleMessage("Sample ng Code"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Demo Code"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Kinopya sa clipboard."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("KOPYAHIN LAHAT"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Mga constant na kulay at swatch ng kulay na kumakatawan sa palette ng kulay ng Material Design."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -424,7 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Mga iOS-style na indicator ng aktibidad"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Indicator ng Aktibidad"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Mga Button ng Alerto Lang"),
         "demoCupertinoAlertButtonsTitle":
@@ -451,7 +559,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style na navigation bar"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation Bar"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("Petsa"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Petsa at Oras"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Widget ng picker na may istilong pang-iOS na magagamit para pumili ng mga petsa, mga oras, o petsa at oras."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mga picker ng petsa at oras na may istilong pang-iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Oras"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Timer"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Mga Picker"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Isang widget na nagpapatupad sa iOS-style na kontrol na hilahin para irefresh"),
@@ -459,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style na kontrol na hilahin para i-refresh"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Hilahin Para I-refresh"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Ginagamit para sa pagpiling may ilang opsyong hindi puwedeng mapili nang sabay. Kapag pinili ang isang opsyong nasa naka-segment na control, hindi na mapipili ang iba pang opsyong nasa naka-segment na control."),
@@ -467,11 +588,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style na naka-segment na control"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Naka-segment na Control"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Puwedeng gumamit ng slider para pumili sa tuloy-tuloy o discrete na hanay ng mga value."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style na slider"),
         "demoCupertinoSliderTitle":
@@ -485,11 +606,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-style na tab bar sa ibaba"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab Bar"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "Ang isang field ng text ay nagbibigay-daan sa user na maglagay ng text sa pamamagitan ng hardware na keyboard o gamit ang isang keyboard sa screen."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN"),
+        "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mga field ng text na may istilong pang-iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Nagpapakita ang mga slider ng isang hanay ng mga value sa isang bar, kung saan puwedeng pumili ng isang value o isang hanay ng mga value ang mga user. Puwedeng lagyan ng tema at i-customize ang mga slider."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Mga Custom na Slider"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "Ang mga talahanyan ng data ay nagpapakita ng impormasyon sa format ng mga row at column na parang grid. Isinasaayos ng mga ito ang impormasyon sa paraang madaling suriin para makahanap ng mga pattern at insight ang mga user."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mga row at column ng impormasyon"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Mga Talahanayan ng Data"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Nagpapakita ng dialog na naglalaman ng picker ng petsa ng Material Design."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Picker ng Petsa"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alerto, at fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Mga Dialog"),
@@ -558,7 +697,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Isang item na may nakaseksyong menu"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "Isang item na may simpleng menu"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Unang item sa menu ng konteksto"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -577,7 +716,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Isa"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("I-preview"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Alisin"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Ibahagi"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "Mga button ng menu at simpleng menu"),
@@ -596,6 +735,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Magiging opaque at aangat ang mga outline na button kapag pinindot. Kadalasang isinasama ang mga ito sa mga nakaangat na button para magsaad ng alternatibo at pangalawang pagkilos."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Outline na Button"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("IPAKITA ANG PICKER"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pagpili ng petsa at oras"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("Mga Picker"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Linear, pabilog, hindi tiyak"),
         "demoProgressIndicatorTitle":
@@ -669,12 +813,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mga Snackbar"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Inaayos ng mga tab ang content na nasa magkakaibang screen, data set, at iba pang pakikipag-ugnayan."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Mga tab na may mga hiwalay na naso-scroll na view"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Mga Tab"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga field ng text ay nagbibigay-daan sa mga user na maglagay ng text sa UI. Karaniwang makikita ang mga ito sa mga form at dialog."),
-        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "demoTextFieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Maglagay ng password."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -689,7 +837,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kwento ng buhay"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Pangalan*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Kinakailangan ang pangalan."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -726,6 +874,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Paano kami makikipag-ugnayan sa iyo?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Iyong email address"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Nagpapakita ng dialog na naglalaman ng picker ng oras ng Material Design."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Picker ng Oras"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Magagamit ang mga toggle button para pagpangkatin ang magkakaugnay na opsyon. Para bigyang-diin ang mga pangkat ng magkakaugnay na toggle button, dapat may iisang container ang isang pangkat"),
         "demoToggleButtonTitle":
@@ -763,13 +915,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Payagan ang Google na tulungan ang mga app na tukuyin ang lokasyon. Nangangahulugan ito na magpapadala ng anonymous na data ng lokasyon sa Google, kahit na walang gumaganang app."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Gamitin ang serbisyo ng lokasyon ng Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Itakda ang backup na account"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("IPAKITA ANG DIALOG"),
-        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
-            "MGA BATAYANG ISTILO AT MEDIA"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("I-DISMISS"),
+        "homeCategoryReference":
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Mga Kategorya"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
@@ -792,7 +945,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Tanjore"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Thanjavur Temple"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Mga Ipon sa Kotse"),
         "rallyAccountDataChecking":
@@ -817,15 +970,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Kabuuan"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Mga Account"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Mga Alerto"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Mga Bill"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Nakatakda"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Damit"),
         "rallyBudgetCategoryCoffeeShops":
@@ -927,7 +1080,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("KANSELAHIN"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("I-CLEAR ANG CART"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("CART"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Pagpapadala:"),
@@ -989,8 +1142,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Navy na pantalon"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Plaster na tunic"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Quartet na mesa"),
         "shrineProductRainwaterTray":
@@ -1029,10 +1182,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Puting pinstripe na t-shirt"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Whitney na sinturon"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Idagdag sa cart"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Isara ang cart"),
         "shrineTooltipCloseMenu":
@@ -1044,9 +1197,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Maghanap"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Mga Setting"),
+        "signIn": MessageLookupByLibrary.simpleMessage("MAG-SIGN IN"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "Isang responsive na panimulang layout"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Nilalaman"),
         "starterAppGenericButton":

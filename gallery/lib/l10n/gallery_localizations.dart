@@ -3464,147 +3464,147 @@ class GalleryLocalizations {
     return Intl.message('A news app',
         locale: _localeName,
         name: 'fortnightlyDescription',
-        desc: r'Study description for Fortnightly.');
+        desc: 'Study description for Fortnightly.');
   }
 
   String get fortnightlyHeadlineArmy {
     return Intl.message('Reforming The Green Army From Within',
         locale: _localeName,
         name: 'fortnightlyHeadlineArmy',
-        desc: r'Headline for a news article about the green army.');
+        desc: 'Headline for a news article about the green army.');
   }
 
   String get fortnightlyHeadlineBees {
     return Intl.message('Farmland Bees In Short Supply',
         locale: _localeName,
         name: 'fortnightlyHeadlineBees',
-        desc: r'Headline for a news article about bees.');
+        desc: 'Headline for a news article about bees.');
   }
 
   String get fortnightlyHeadlineFabrics {
     return Intl.message('Designers Use Tech To Make Futuristic Fabrics',
         locale: _localeName,
         name: 'fortnightlyHeadlineFabrics',
-        desc: r'Headline for a news article about fabric.');
+        desc: 'Headline for a news article about fabric.');
   }
 
   String get fortnightlyHeadlineFeminists {
     return Intl.message('Feminists Take On Partisanship',
         locale: _localeName,
         name: 'fortnightlyHeadlineFeminists',
-        desc: r'Headline for a news article about feminists and partisanship.');
+        desc: 'Headline for a news article about feminists and partisanship.');
   }
 
   String get fortnightlyHeadlineGasoline {
     return Intl.message('The Future of Gasoline',
         locale: _localeName,
         name: 'fortnightlyHeadlineGasoline',
-        desc: r'Headline for a news article about gasoline.');
+        desc: 'Headline for a news article about gasoline.');
   }
 
   String get fortnightlyHeadlineHealthcare {
     return Intl.message('The Quiet, Yet Powerful Healthcare Revolution',
         locale: _localeName,
         name: 'fortnightlyHeadlineHealthcare',
-        desc: r'Headline for a news article about healthcare.');
+        desc: 'Headline for a news article about healthcare.');
   }
 
   String get fortnightlyHeadlineStocks {
     return Intl.message('As Stocks Stagnate, Many Look To Currency',
         locale: _localeName,
         name: 'fortnightlyHeadlineStocks',
-        desc: r'Headline for a news article about stocks.');
+        desc: 'Headline for a news article about stocks.');
   }
 
   String get fortnightlyHeadlineWar {
     return Intl.message('Divided American Lives During War',
         locale: _localeName,
         name: 'fortnightlyHeadlineWar',
-        desc: r'Headline for a news article about war.');
+        desc: 'Headline for a news article about war.');
   }
 
   String get fortnightlyLatestUpdates {
     return Intl.message('Latest Updates',
         locale: _localeName,
         name: 'fortnightlyLatestUpdates',
-        desc: r'Title for news section regarding the latest updates.');
+        desc: 'Title for news section regarding the latest updates.');
   }
 
   String get fortnightlyMenuBusiness {
     return Intl.message('Business',
         locale: _localeName,
         name: 'fortnightlyMenuBusiness',
-        desc: r'Menu item for the business news section of the news app.');
+        desc: 'Menu item for the business news section of the news app.');
   }
 
   String get fortnightlyMenuCulture {
     return Intl.message('Culture',
         locale: _localeName,
         name: 'fortnightlyMenuCulture',
-        desc: r'Menu item for the culture news section of the news app.');
+        desc: 'Menu item for the culture news section of the news app.');
   }
 
   String get fortnightlyMenuFrontPage {
     return Intl.message('Front Page',
         locale: _localeName,
         name: 'fortnightlyMenuFrontPage',
-        desc: r'Menu item for the front page of the news app.');
+        desc: 'Menu item for the front page of the news app.');
   }
 
   String get fortnightlyMenuPolitics {
     return Intl.message('Politics',
         locale: _localeName,
         name: 'fortnightlyMenuPolitics',
-        desc: r'Menu item for the political news section of the news app.');
+        desc: 'Menu item for the political news section of the news app.');
   }
 
   String get fortnightlyMenuScience {
     return Intl.message('Science',
         locale: _localeName,
         name: 'fortnightlyMenuScience',
-        desc: r'Menu item for the science news section of the news app.');
+        desc: 'Menu item for the science news section of the news app.');
   }
 
   String get fortnightlyMenuSports {
     return Intl.message('Sports',
         locale: _localeName,
         name: 'fortnightlyMenuSports',
-        desc: r'Menu item for the sports news section of the news app.');
+        desc: 'Menu item for the sports news section of the news app.');
   }
 
   String get fortnightlyMenuTech {
     return Intl.message('Tech',
         locale: _localeName,
         name: 'fortnightlyMenuTech',
-        desc: r'Menu item for the tech news section of the news app.');
+        desc: 'Menu item for the tech news section of the news app.');
   }
 
   String get fortnightlyMenuTravel {
     return Intl.message('Travel',
         locale: _localeName,
         name: 'fortnightlyMenuTravel',
-        desc: r'Menu item for the travel news section of the news app.');
+        desc: 'Menu item for the travel news section of the news app.');
   }
 
   String get fortnightlyMenuUS {
     return Intl.message('US',
         locale: _localeName,
         name: 'fortnightlyMenuUS',
-        desc: r'Menu item for the United States news section of the news app.');
+        desc: 'Menu item for the United States news section of the news app.');
   }
 
   String get fortnightlyMenuWorld {
     return Intl.message('World',
         locale: _localeName,
         name: 'fortnightlyMenuWorld',
-        desc: r'Menu item for the world news section of the news app.');
+        desc: 'Menu item for the world news section of the news app.');
   }
 
   String get fortnightlyTrendingGreenArmy {
     return Intl.message('GreenArmy',
         locale: _localeName,
         name: 'fortnightlyTrendingGreenArmy',
-        desc: r'Hashtag for the green army trending topic of the news app.');
+        desc: 'Hashtag for the green army trending topic of the news app.');
   }
 
   String get fortnightlyTrendingHealthcareRevolution {
@@ -3612,28 +3612,28 @@ class GalleryLocalizations {
         locale: _localeName,
         name: 'fortnightlyTrendingHealthcareRevolution',
         desc:
-            r'Hashtag for the healthcare revolution trending topic of the news app.');
+            'Hashtag for the healthcare revolution trending topic of the news app.');
   }
 
   String get fortnightlyTrendingReform {
     return Intl.message('Reform',
         locale: _localeName,
         name: 'fortnightlyTrendingReform',
-        desc: r'Hashtag for the reform trending topic of the news app.');
+        desc: 'Hashtag for the reform trending topic of the news app.');
   }
 
   String get fortnightlyTrendingStocks {
     return Intl.message('Stocks',
         locale: _localeName,
         name: 'fortnightlyTrendingStocks',
-        desc: r'Hashtag for the stocks trending topic of the news app.');
+        desc: 'Hashtag for the stocks trending topic of the news app.');
   }
 
   String get fortnightlyTrendingTechDesign {
     return Intl.message('TechDesign',
         locale: _localeName,
         name: 'fortnightlyTrendingTechDesign',
-        desc: r'Hashtag for the tech design trending topic of the news app.');
+        desc: 'Hashtag for the tech design trending topic of the news app.');
   }
 
   String get homeCategoryReference {

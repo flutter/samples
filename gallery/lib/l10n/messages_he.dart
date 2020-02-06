@@ -24,66 +24,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Placeholder לכרטיסייה ${title}";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "גילוי וחיפוש ${destinationName}";
+
+  static m3(destinationName) => "שיתוף ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'אין מסעדות', one: 'מסעדה אחת', two: '${totalRestaurants} מסעדות', many: '${totalRestaurants} מסעדות', other: '${totalRestaurants} מסעדות')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'ישירה', one: 'עצירת ביניים אחת', two: '${numberOfStops} עצירות', many: '${numberOfStops} עצירות', other: '${numberOfStops} עצירות')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'אין נכסים זמינים', one: 'נכס אחד זמין', two: '${totalProperties} נכסים זמינים', many: '${totalProperties} נכסים זמינים', other: '${totalProperties} נכסים זמינים')}";
 
-  static m5(value) => "פריט ${value}";
+  static m10(value) => "${value} עם דבש";
 
-  static m6(error) => "ניסיון ההעתקה ללוח נכשל: ${error}";
+  static m11(value) => "${value} עם סוכר";
 
-  static m7(value) => "רציף: ${value}";
+  static m12(value) => "פריט ${value}";
 
-  static m8(value) => "בדיד: ${value}";
+  static m13(error) => "ניסיון ההעתקה ללוח נכשל: ${error}";
 
-  static m9(value) => "הערך שסומן: ${value}";
+  static m14(value) => "רציף: ${value}";
 
-  static m10(value) => "הערך שנבחר: ${value}";
+  static m15(value) => "בדיד: ${value}";
 
-  static m11(name, phoneNumber) => "מספר הטלפון של ${name} הוא ${phoneNumber}";
+  static m16(value) => "הערך שסומן: ${value}";
 
-  static m12(value) => "בחרת: \"${value}\"";
+  static m17(value) => "הערך שנבחר: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "מספר הטלפון של ${name} הוא ${phoneNumber}";
+
+  static m19(value) => "בחרת: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "בחשבון ${accountName} עם המספר ${accountNumber} יש ${amount}.";
 
-  static m14(amount) => "הוצאת ${amount} על עמלות כספומטים החודש";
+  static m21(amount) => "הוצאת ${amount} על עמלות כספומטים החודש";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "כל הכבוד! הסכום בחשבון העו\"ש שלך גבוה ב-${percent} בהשוואה לחודש הקודם.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "לתשומת לבך, ניצלת ${percent} מתקציב הקניות שלך לחודש זה.";
 
-  static m17(amount) => "הוצאת ${amount} על ארוחות במסעדות החודש.";
+  static m24(amount) => "הוצאת ${amount} על ארוחות במסעדות החודש.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'רוצה להגדיל את ההנחה הפוטנציאלית שלך במס? יש להקצות קטגוריות לעסקה אחת שלא הוקצתה.', two: 'רוצה להגדיל את ההנחה הפוטנציאלית שלך במס? יש להקצות קטגוריות ל-${count} עסקאות שלא הוקצו.', many: 'רוצה להגדיל את ההנחה הפוטנציאלית שלך במס? יש להקצות קטגוריות ל-${count} עסקאות שלא הוקצו.', other: 'רוצה להגדיל את ההנחה הפוטנציאלית שלך במס? יש להקצות קטגוריות ל-${count} עסקאות שלא הוקצו.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "יש לשלם את החיוב על ${billName} בסך ${amount} בתאריך ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "בתקציב ${budgetName} הייתה הוצאה של ${amountUsed} מתוך ${amountTotal} ונותר הסכום ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'אין פריטים', one: 'פריט אחד', two: '${quantity} פריטים', many: '${quantity} פריטים', other: '${quantity} פריטים')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "כמות: ${quantity}";
+  static m30(quantity) => "כמות: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'עגלת קניות, אין פריטים', one: 'עגלת קניות, פריט אחד', two: 'עגלת קניות, ${quantity} פריטים', many: 'עגלת קניות, ${quantity} פריטים', other: 'עגלת קניות, ${quantity} פריטים')}";
 
-  static m25(product) => "הסרת ${product}";
+  static m32(product) => "הסרת ${product}";
 
-  static m26(value) => "פריט ${value}";
+  static m33(value) => "פריט ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -91,6 +107,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutFlutterSamplesRepo": MessageLookupByLibrary.simpleMessage(
             "מאגר GitHub לדוגמאות Flutter"),
         "backToGallery": MessageLookupByLibrary.simpleMessage("חזרה לגלריה"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("סמל מוביל"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("פעולות מרובות"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("איפוס של הבאנר"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "הסיסמה שלך עודכנה במכשיר הנוסף שלך. יש להתחבר שוב."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("חריץ"),
         "bottomAppBarPosition":
             MessageLookupByLibrary.simpleMessage("המיקום של לחצן הפעולה הצף"),
@@ -115,6 +139,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("לחצן"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("יצירה"),
+        "cardsDemoExplore":
+            MessageLookupByLibrary.simpleMessage("גילוי וחיפוש"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable":
+            MessageLookupByLibrary.simpleMessage("ניתן לבחירה (בלחיצה ארוכה)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable": MessageLookupByLibrary.simpleMessage("ניתן להקשה"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("טאנג\'וור"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("צ\'טינאד"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("מספר 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("טוויית משי"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("מקדשים"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("טאנג\'וור, טמיל נאדו"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("סיוואגאנג\'ה, טמיל נאדו"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "10 הערים המובילות שצריך לבקר בהן בטמיל נאדו"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "אנשי המלאכה המיומנים של דרום הודו"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("מקדש בריהדשווארה"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("רכיבת אופניים"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("מעלית"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("קמין"),
@@ -182,9 +235,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("מדריד, ספרד"),
         "craneEat9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("מאפים על דלפק בבית קפה"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead":
             MessageLookupByLibrary.simpleMessage("עיון במסעדות לפי יעד"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("טיסות"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("אספן, ארצות הברית"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -232,7 +286,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("הוואנה, קובה"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "אדם שנשען על מכונית כחולה עתיקה"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead":
             MessageLookupByLibrary.simpleMessage("עיון בטיסות לפי יעד"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("בחירת תאריך"),
@@ -245,6 +299,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormOrigin": MessageLookupByLibrary.simpleMessage("בחירת מוצא"),
         "craneFormTime": MessageLookupByLibrary.simpleMessage("בחירת שעה"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("נוסעים"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("שינה"),
         "craneSleep0":
             MessageLookupByLibrary.simpleMessage("מאלה, האיים המלדיביים"),
@@ -287,7 +343,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneSleep9": MessageLookupByLibrary.simpleMessage("ליסבון, פורטוגל"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("מגדלור שבנוי מלבנים בים"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead":
             MessageLookupByLibrary.simpleMessage("עיון בנכסים לפי יעד"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("אישור"),
@@ -321,6 +377,54 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("כרטיסיית הבית"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("פרופיל"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("סידן (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("קלוריות"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("פחמימות (ג\')"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("קינוח (מנה אחת)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("שומנים (ג\')"),
+        "dataTableColumnIron": MessageLookupByLibrary.simpleMessage("ברזל (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("חלבונים (ג\')"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("נתרן (מ\"ג)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("תזונה"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("עוגת תפוחים"),
+        "dataTableRowCupcake":
+            MessageLookupByLibrary.simpleMessage("קאפקייק (עוגונית)"),
+        "dataTableRowDonut":
+            MessageLookupByLibrary.simpleMessage("דונאט (סופגנית חישוק)"),
+        "dataTableRowEclair":
+            MessageLookupByLibrary.simpleMessage("אקלר (פחזנית)"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("פרוזן יוגורט"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("עוגיות ג\'ינג\'ר"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("חלת דבש"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("קסאטה (גלידה)"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("סוכריות ג\'לי"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("סוכרייה על מקל"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "צ\'יפים של פעולה הם קבוצת אפשרויות שמפעילה פעולה כלשהי שקשורה לתוכן עיקרי. צ\'יפים של פעולה צריכים להופיע באופן דינמי ולפי הקשר בממשק המשתמש."),
         "demoActionChipTitle":
@@ -330,6 +434,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("התראה"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("התראה עם כותרת"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "באנר מציג הודעה חשובה ותמציתית, וכולל פעולות שהמשתמשים צריכים להתייחס אליהן (או לסגור את הבאנר). יש צורך בפעולה מצד המשתמש כדי שהבאנר ייסגר."),
+        "demoBannerSubtitle":
+            MessageLookupByLibrary.simpleMessage("הצגת באנר בתוך רשימה"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("באנר"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "סרגלי אפליקציה תחתונים נותנים גישה לחלונית הזזה תחתית לניווט ולארבע פעולות לכל היותר, כולל לחצן הפעולה הצף."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -351,7 +460,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoBottomSheetButtonText":
             MessageLookupByLibrary.simpleMessage("הצגת גיליון תחתון"),
         "demoBottomSheetHeader": MessageLookupByLibrary.simpleMessage("כותרת"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "גיליון תחתון מודלי הוא חלופה לתפריט או לתיבת דו-שיח, והוא מונע מהמשתמש לבצע אינטראקציה עם שאר האפליקציה."),
         "demoBottomSheetModalTitle":
@@ -370,6 +479,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle":
             MessageLookupByLibrary.simpleMessage("שטוח, בולט, קווי מתאר ועוד"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("לחצנים"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "כרטיס הוא גיליון בעיצוב חדשני תלת-ממדי שמשמש לייצוג מידע קשור, לדוגמה: אלבום, מיקום גיאוגרפי, ארוחה, פרטים ליצירת קשר וכו\'."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "כרטיסים בסיסיים עם קצוות מעוגלים"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("כרטיסים"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("תפריט של רשימת משימות"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -384,12 +498,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "אינדיקטור של התקדמות מעגלית בעיצוב חדשני תלת-ממדי, שמסתובב כדי לציין שהאפליקציה עסוקה."),
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage("אינדיקטור של התקדמות מעגלית"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("קוד לדוגמה"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("קוד ההדגמה"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("התוכן הועתק ללוח."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("העתקת הכול"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "קבועים של דוגמיות צבע וצבעים שמייצגים את לוח הצבעים של עיצוב חדשני תלת-ממדי."),
         "demoColorsSubtitle":
@@ -408,7 +522,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "אינדיקטורים של פעילות בסגנון iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("אינדיקטור של פעילות"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("לחצני התראות בלבד"),
         "demoCupertinoAlertButtonsTitle":
@@ -435,25 +549,38 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("סרגל ניווט בסגנון iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("סרגל ניווט"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate":
+            MessageLookupByLibrary.simpleMessage("תאריך"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("תאריך ושעה"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "ווידג\'ט בורר בסגנון iOS שיכול לשמש לבחירת תאריכים, שעות או שני הערכים (תאריך ושעה)."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "בוררים לשעה ולתאריך בסגנון iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("שעה"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("טיימר"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("בוררים"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ווידג\'ט שמיישם את פקד התוכן של משיכה לרענון בסגנון iOS"),
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("פקד משיכה לרענון בסגנון iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("יש למשוך כדי לרענן"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "משמשת לבחירה באפשרות אחת בלבד מתוך מספר אפשרויות. לאחר הבחירה באפשרות אחת בבקרה המחולקת, תתבטל הבחירה בשאר האפשרויות בבקרה המחולקת."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("בקרה מחולקת בסגנון iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("בקרה מחולקת"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ניתן להשתמש במחוון כדי לבחור מתוך קבוצת ערכים רציפים או בדידים."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("מחוון בסגנון iOS"),
         "demoCupertinoSliderTitle":
@@ -467,11 +594,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "שורת כרטיסיות תחתונה בסגנון iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("שורת כרטיסיות"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "שדה טקסט מאפשר למשתמש להזין טקסט באמצעות מקלדת חומרה או מקלדת במסך."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("קוד אימות"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("שדות טקסט בסגנון iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "מחוונים מייצגים טווח ערכים לאורך סרגל, שהמשתמשים יכולים לבחור ערך יחיד או טווח ערכים מתוכו. ניתן לעצב מחוונים ולהתאים אותם אישית."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("מחוונים מותאמים אישית"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "טבלאות נתונים מציגות מידע בפורמט דמוי-רשת, הכולל שורות ועמודות. המידע מאורגן בהן כך שקל לסרוק אותו, ומשתמשים יכולים למצוא דפוסים ולקבל תובנות."),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("שורות ועמודות של מידע"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("טבלאות נתונים"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "מציג דיאלוג שמכיל בורר תאריך בעיצוב חדשני תלת-ממדי."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("בורר תאריך"),
         "demoDialogSubtitle":
             MessageLookupByLibrary.simpleMessage("פשוטה, עם התראה ובמסך מלא"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("תיבות דו-שיח"),
@@ -535,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("פריט עם תפריט שמחולק לקטעים"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("פריט עם תפריט פשוט"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("אפשרות ראשונה בתפריט הקשר"),
         "demoMenuContextMenuItemThree":
@@ -553,7 +698,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("אחת"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("תצוגה מקדימה"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("הסרה"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("שיתוף"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "לחצני תפריטים ותפריטים פשוטים"),
@@ -571,6 +716,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "לחצני קווי מתאר הופכים לאטומים ובולטים כשלוחצים עליהם. בדרך כלל, מבוצעת להם התאמה עם לחצנים בולטים כדי לציין פעולה חלופית משנית."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("לחצן קווי מתאר"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("להצגת הבורר"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("בחירה בתאריך ובשעה"),
+        "demoPickersTitle": MessageLookupByLibrary.simpleMessage("בוררים"),
         "demoProgressIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("ליניארי, מעגלי, ביניים"),
         "demoProgressIndicatorTitle":
@@ -643,6 +793,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("סרגלים אינטראקטיביים"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "כרטיסיות שמארגנות תוכן במספר מסכים נפרדים, קבוצות נתונים שונות ואינטראקציות נוספות."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "כרטיסיות עם תצוגות שניתן לגלול בהן בנפרד"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("כרטיסיות"),
@@ -662,7 +816,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTextFieldLifeStory":
             MessageLookupByLibrary.simpleMessage("סיפור החיים"),
         "demoTextFieldNameField": MessageLookupByLibrary.simpleMessage("שם*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("יש להזין שם."),
         "demoTextFieldNoMoreThan":
@@ -696,6 +850,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("איך נוכל ליצור איתך קשר?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("כתובת האימייל שלך"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "מציג דיאלוג שמכיל בורר שעה בעיצוב חדשני תלת-ממדי."),
+        "demoTimePickerTitle": MessageLookupByLibrary.simpleMessage("בורר שעה"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "אפשר להשתמש בלחצני החלפת מצב לקיבוץ של אפשרויות קשורות. כדי להדגיש קבוצות של לחצני החלפת מצב קשורים, לקבוצה צריך להיות מאגר משותף"),
         "demoToggleButtonTitle":
@@ -732,13 +889,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Google תוכל לעזור לאפליקציות לזהות מיקום: כלומר, נתוני מיקום אנונימיים נשלחים אל Google, גם כאשר לא פועלות אפליקציות."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "האם להשתמש בשירות המיקום של Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("הגדרת חשבון לגיבוי"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("הצגה של תיבת דו-שיח"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("סגירה"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("סימוכין לסגנונות ומדיה"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("קטגוריות"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("גלריה"),
@@ -759,7 +917,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("טנג\'ורה"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("מקדש טנג\'וואר"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("חסכונות למכונית"),
         "rallyAccountDataChecking":
@@ -783,15 +941,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("סה\"כ"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("חשבונות"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("התראות"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("חיובים"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("לתשלום"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("הלבשה"),
         "rallyBudgetCategoryCoffeeShops":
@@ -887,7 +1045,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ביטול"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ניקוי עגלת הקניות"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption":
             MessageLookupByLibrary.simpleMessage("עגלת קניות"),
         "shrineCartShippingCaption":
@@ -948,8 +1106,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("מכנסיים בכחול כהה"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("טוניקה"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("שולחן לארבעה"),
         "shrineProductRainwaterTray":
@@ -988,10 +1146,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("חולצת פסים לבנה"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("חגורת Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("הוספה לעגלת הקניות"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("סגירת העגלה"),
         "shrineTooltipCloseMenu":
@@ -1002,9 +1160,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("הסרת פריט"),
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("חיפוש"),
         "shrineTooltipSettings": MessageLookupByLibrary.simpleMessage("הגדרות"),
+        "signIn": MessageLookupByLibrary.simpleMessage("כניסה"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("פריסה התחלתית רספונסיבית"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("גוף הטקסט"),
         "starterAppGenericButton": MessageLookupByLibrary.simpleMessage("לחצן"),

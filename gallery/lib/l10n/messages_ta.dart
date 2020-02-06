@@ -24,68 +24,84 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "${title} தாவலுக்கான ஒதுக்கிடம்";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) => "${destinationName} பற்றி அறிக";
+
+  static m3(destinationName) => "${destinationName} பற்றிய விவரங்களைப் பகிர்க";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'உணவகங்கள் இல்லை', one: 'ஒரு உணவகம்', other: '${totalRestaurants} உணவகங்கள்')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'நிறுத்தம் எதுவுமில்லை', one: 'ஒரு நிறுத்தம்', other: '${numberOfStops} நிறுத்தங்கள்')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'பிராப்பர்ட்டி எதுவும் இல்லை', one: 'ஒரு பிராப்பர்ட்டி உள்ளது', other: '${totalProperties} பிராப்பர்ட்டிகள் உள்ளன')}";
 
-  static m5(value) => "${value} பொருள்";
+  static m10(value) => "தேனுடன் {மதிப்பு}";
 
-  static m6(error) => "கிளிப்போர்டுக்கு நகலெடுக்க இயலவில்லை: ${error}";
+  static m11(value) => "சர்க்கரை உடன் {மதிப்பு}";
 
-  static m7(value) => "தொடர்ச்சியானது: ${value}";
+  static m12(value) => "${value} பொருள்";
 
-  static m8(value) => "தொடர்ச்சியற்றது: ${value}";
+  static m13(error) => "கிளிப்போர்டுக்கு நகலெடுக்க இயலவில்லை: ${error}";
 
-  static m9(value) => "சரிபார்க்கப்பட்டது: ${value}";
+  static m14(value) => "தொடர்ச்சியானது: ${value}";
 
-  static m10(value) => "தேர்ந்தெடுக்கப்பட்டது: ${value}";
+  static m15(value) => "தொடர்ச்சியற்றது: ${value}";
 
-  static m11(name, phoneNumber) => "${name} உடைய ஃபோன் எண் ${phoneNumber}";
+  static m16(value) => "சரிபார்க்கப்பட்டது: ${value}";
 
-  static m12(value) => "You selected: \"${value}\"";
+  static m17(value) => "தேர்ந்தெடுக்கப்பட்டது: ${value}";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m18(name, phoneNumber) => "${name} உடைய ஃபோன் எண் ${phoneNumber}";
+
+  static m19(value) => "You selected: \"${value}\"";
+
+  static m20(accountName, accountNumber, amount) =>
       "${amount} பேலன்ஸைக் கொண்ட ${accountName} அக்கவுண்ட் எண்: ${accountNumber}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "இந்த மாதம் ATM கட்டணங்களாக ${amount} செலவிட்டுள்ளீர்கள்";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "பாராட்டுகள்! உங்கள் செக்கிங் கணக்கு சென்ற மாதத்தைவிட  ${percent} அதிகரித்துள்ளது.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "கவனத்திற்கு: இந்த மாதத்திற்கான ஷாப்பிங் பட்ஜெட்டில் ${percent} பயன்படுத்திவிட்டீர்கள்.";
 
-  static m17(amount) =>
+  static m24(amount) =>
       "இந்த வாரத்தில் உணவகங்களில் ${amount} செலவழித்துள்ளீர்கள்.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'உங்களுக்குரிய சாத்தியமான வரிக் கழிவை அதிகரித்துக்கொள்ளுங்கள்! ஒரு பொறுப்புமாற்றப்படாத பணப் பரிமாற்றத்திற்கான வகைகளைச் சேருங்கள்.', other: 'உங்களுக்குரிய சாத்தியமான வரிக் கழிவை அதிகரித்துக்கொள்ளுங்கள்! ${count} பொறுப்புமாற்றப்படாத பணப் பரிமாற்றங்களுக்கான வகைகளைச் சேருங்கள்.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "${amount}க்கான ${billName} பில்லின் நிலுவைத் தேதி: ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "${amountTotal}க்கான ${budgetName} பட்ஜெட்டில் பயன்படுத்தப்பட்ட தொகை: ${amountUsed}, மீதமுள்ள தொகை: ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'எதுவும் இல்லை', one: 'ஒரு பொருள்', other: '${quantity} பொருட்கள்')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "எண்ணிக்கை: ${quantity}";
+  static m30(quantity) => "எண்ணிக்கை: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'ஷாப்பிங் கார்ட், எதுவும் இல்லை', one: 'ஷாப்பிங் கார்ட், 1 பொருள்', other: 'ஷாப்பிங் கார்ட், ${quantity} பொருட்கள்')}";
 
-  static m25(product) => "${product} ஐ அகற்றும்";
+  static m32(product) => "${product} ஐ அகற்றும்";
 
-  static m26(value) => "${value} பொருள்";
+  static m33(value) => "${value} பொருள்";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -94,6 +110,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Flutter மாதிரிகள் GitHub தரவு சேமிப்பகம்"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("கேலரிக்குத் திரும்பு"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("முன்னணி ஐகான்"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("பல செயல்கள்"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("பேனரை ரீசெட் செய்க"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "உங்களின் மற்றொரு சாதனத்தில் கடவுச்சொல் சேர்க்கப்பட்டது. மீண்டும் உள்நுழைக."),
         "bottomAppBarNotch": MessageLookupByLibrary.simpleMessage("நாட்ச்"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
             "மிதக்கும் செயல் பட்டனின் நிலை"),
@@ -119,6 +143,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("பட்டன்"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Create"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("கண்டறி"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "தேர்ந்தெடுக்கக்கூடியது (நீண்ட நேரம் அழுத்தவும்)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("தட்டக்கூடிய பட்டன்"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("தஞ்சாவூர்"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("செட்டிநாடு"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("எண் 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("பட்டு நெசவாளர்கள்"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("கோவில்கள்"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("தஞ்சாவூர், தமிழ்நாடு"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("சிவகங்கை, தமிழ்நாடு"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "தமிழ்நாட்டில் செல்ல வேண்டிய 10 சிறந்த நகரங்கள்"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage(
+                "தென்னிந்தியாவின் கைவினைக் கலைஞர்கள்"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("பிரகதீஸ்வரர் கோவில்"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("பைக்கிங்"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("மின்தூக்கி"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("நெருப்பிடம்"),
@@ -191,9 +244,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("மாட்ரிட், ஸ்பெயின்"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "பாஸ்த்திரிக்கள் உள்ள கஃபே கவுண்ட்டர்"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "சேருமிடத்தின் அடிப்படையில் உணவகங்களைக் கண்டறிதல்"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("விமானங்கள்"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("ஆஸ்பென், அமெரிக்கா"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -243,7 +297,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("ஹவானா, கியூபா"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "பழங்கால நீளக் காரில் சாய்ந்தபடி உள்ள ஒருவன்"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "சேருமிடத்தின் அடிப்படையில் விமானங்களைக் கண்டறிதல்"),
         "craneFormDate":
@@ -261,6 +315,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime":
             MessageLookupByLibrary.simpleMessage("நேரத்தைத் தேர்வுசெய்க"),
         "craneFormTravelers": MessageLookupByLibrary.simpleMessage("பயணிகள்"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("உறங்குமிடம்"),
         "craneSleep0":
             MessageLookupByLibrary.simpleMessage("மாலே, மாலத்தீவுகள்"),
@@ -308,7 +364,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("லிஸ்பன், போர்ச்சுகல்"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("கடலில் பிரைட்டான லைட்ஹவுஸ்"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "சேருமிடத்தின் அடிப்படையில் வாடகை விடுதிகளைக் கண்டறிதல்"),
         "cupertinoAlertAllow": MessageLookupByLibrary.simpleMessage("Allow"),
@@ -344,6 +400,52 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("முகப்பு"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("சுயவிவரம்"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("கால்சியம் (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("கலோரிகள்"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("கார்போஹைட்ரேட்கள் (கி)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("டெசர்ட் (ஒருவருக்கானது)"),
+        "dataTableColumnFat":
+            MessageLookupByLibrary.simpleMessage("கொழுப்பு (கி)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("இரும்பு (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("புரதம் (கி)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("சோடியம் (மி.கி.)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("ஊட்டச்சத்து"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Apple pie"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Cupcake"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Donut"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Eclair"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Frozen yogurt"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Gingerbread"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Honeycomb"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Ice cream sandwich"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Jelly bean"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Lollipop"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "செயல்பாட்டு சிப்கள் முதன்மை உள்ளடக்கம் தொடர்பான செயலை மேற்கொள்ளத் தூண்டும் விருப்பங்களின் தொகுப்பாகும். குறிப்பிட்ட UIயில் மாறும் விதத்திலும் சூழலுக்கேற்பவும் செயல்பாட்டு சிப்கள் தோன்ற வேண்டும்."),
         "demoActionChipTitle":
@@ -353,6 +455,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoAlertDialogTitle": MessageLookupByLibrary.simpleMessage("Alert"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Alert With Title"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "ஒரு பேனர் முக்கியமான, சுருக்கமான செய்தியைக் காண்பிக்கும், மேலும் பயனர்கள் எடுத்துக்காட்டுவதற்கான நடவடிக்கைகளை வழங்குகிறது (அல்லது பேனரை நிராகரிக்கிறது). இது நிராகரிக்கப்படுவதற்கு ஒரு பயனரின் நடவடிக்கை தேவைப்படுகிறது."),
+        "demoBannerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "பட்டியலுக்குள் பேனரைக் காட்டுகிறது"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("பேனர்"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "ஆப்ஸின் அடிப்பகுதியிலுள்ள பட்டிகள், அடியிலுள்ள வழிசெலுத்தல் டிராயருக்கும் மிதக்கும் செயல் பட்டன் உள்ளிட்ட நான்கு செயல்களுக்கும் அணுகலை வழங்குகின்றன."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -374,7 +481,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("கீழ்த் திரையைக் காட்டு"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("மேற்தலைப்பு"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "மோடல் கீழ்த் திரை என்பது மெனு அல்லது உரையாடலுக்கு ஒரு மாற்று ஆகும். அது பயனரை ஆப்ஸின் பிற பகுதிகளைப் பயன்படுத்துவதிலிருந்து தடுக்கிறது."),
         "demoBottomSheetModalTitle":
@@ -393,6 +500,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flat, raised, outline, and more"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Buttons"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "கார்டு என்பது தொடர்புடைய தகவல்களைத் தெரியப்படுத்தும் பொருட்டு பயன்படுத்தப்படும் தாள் ஆகும், உதாரணமாக, ஆல்பம், புவிசார் இருப்பிடம், உணவு, தொடர்பு விவரங்கள் போன்றவை."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "வளைந்த ஓரங்களுடன் கூடிய பேஸ்லைன் கார்டுகள்"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("கார்டுகள்"),
         "demoChecklistMenuTitle":
             MessageLookupByLibrary.simpleMessage("சரிபார்ப்புப் பட்டியல் மெனு"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -408,13 +520,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "வட்டமான செயல்நிலை இண்டிக்கேட்டர்"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Code Sample"),
+        "demoCodeTooltip":
+            MessageLookupByLibrary.simpleMessage("டெமோ குறியீடு"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage(
                 "கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("அனைத்தையும் நகலெடு"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "மெட்டீரியல் டிசைனின் வண்ணத் தட்டைக் குறிக்கின்ற வண்ணங்களும், வண்ணக் கலவை மாறிலிகளும்."),
         "demoColorsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -433,7 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS பாணி செயல்பாட்டு இண்டிக்கேட்டர்கள்"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("செயல்பாட்டு இண்டிக்கேட்டர்"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alert Buttons Only"),
         "demoCupertinoAlertButtonsTitle":
@@ -461,7 +574,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS பாணி வழிசெலுத்தல் பட்டி"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("வழிசெலுத்தல் பட்டி"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("தேதி"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("தேதியும் நேரமும்"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "நாட்கள், நேரங்கள், அல்லது இரண்டையும் தேர்ந்தெடுக்கக்கூடிய iOS பாணி தேர்வுக் கருவியைக் கொண்ட விட்ஜெட்."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "iOS பாணியில் தேதியையும் நேரத்தையும் தேர்வுசெய்யும் கருவிகள்"),
+        "demoCupertinoPickerTime":
+            MessageLookupByLibrary.simpleMessage("நேரம்"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("டைமர்"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("தேர்வுக் கருவிகள்"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "iOS பாணியில் இழுப்பதன் மூலம் கட்டுப்பாட்டை ரெஃப்ரெஷ் செய்தலை நடைமுறைப்படுத்தும் விட்ஜெட்."),
@@ -469,7 +595,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS பாணியில் இழுப்பதன் மூலம் கட்டுப்பாட்டை ரெஃப்ரெஷ் செய்தல்"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("ரெஃப்ரெஷ் செய்ய இழுக்கவும்"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "பல பரஸ்பர பிரத்தியேக விருப்பங்களில் இருந்து தேவையானதைத் தேர்வுசெய்யப் பயன்படுகிறது. பகுதிப் பிரிப்பிற்கான கட்டுப்பாட்டில் ஒரு விருப்பத்தைத் தேர்வுசெய்துவிட்டால் அதிலுள்ள மற்ற விருப்பங்களைத் தேர்வுசெய்ய இயலாது."),
@@ -477,12 +603,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ஸ்டைல் பகுதிப் பிரிப்பிற்கான கட்டுப்பாடு"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage(
-                "பகுதிப் பிரிப்பிற்கான கட்டுப்பாடு"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "தொடர்ச்சியான அல்லது தொடர்ச்சியற்ற மதிப்புத் தொகுப்பிலிருந்து தேர்வுசெய்ய ஸ்லைடரைப் பயன்படுத்தலாம்."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-style ஸ்லைடர்"),
         "demoCupertinoSliderTitle":
@@ -496,11 +621,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-style கீழ்த் தாவல் பட்டி"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("தாவல் பட்டி"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "ஒரு உரைப் புலமானது வன்பொருள் கீபோர்ட் மூலமாகவோ ஸ்கிரீன் கீபோர்ட் மூலமாகவோ உரையை உள்ளிட பயனரை அனுமதிக்கும்."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("பின்"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("iOS பாணி உரைப் புலங்கள்"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ஸ்லைடர்கள் ஒரு பட்டியிலுள்ள மதிப்புகளின் வரம்பைக் காட்டுகின்றன, அதிலிருந்து பயனர்கள் ஒரு மதிப்பையோ மதிப்புகளின் வரம்பையோ தேர்ந்தெடுக்கலாம். ஸ்லைடர்களைக் குறிப்பிட்ட தீமிற்கு ஏற்ப மாற்றவும் பிரத்தியேகமாக்கிக் கொள்ளவும் முடியும்."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("பிரத்தியேக ஸ்லைடர்கள்"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "வரிசைகளையும் நெடுவரிசைகளையும் கொண்ட கட்டம் போன்ற வடிவமைப்பில் தகவல்களைத் தரவு அட்டவணைகள் காட்டும். அவை எளிதில் ஸ்கேன் செய்யும் வகையில் தகவல்களை ஒருங்கிணைக்கும், இதனால் பயனர்களால் வடிவங்களையும் புள்ளிவிவரங்களையும் பார்க்க முடியும்."),
+        "demoDataTableSubtitle": MessageLookupByLibrary.simpleMessage(
+            "தகவல்களைக் கொண்ட வரிசைகள் மற்றும் நெடுவரிசைகள்"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("தரவு அட்டவணைகள்"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "மெட்டீரியல் வடிவ தேதி தேர்ந்தெடுப்பானைக் கொண்ட உரையாடலைக் காட்டும்."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("தேதி தேர்ந்தெடுப்பான்"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Simple, alert, and fullscreen"),
         "demoDialogTitle": MessageLookupByLibrary.simpleMessage("Dialogs"),
@@ -569,7 +712,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "பிரிக்கப்பட்ட மெனுவுடன் உள்ள விருப்பம்"),
         "demoMenuAnItemWithASimpleMenu": MessageLookupByLibrary.simpleMessage(
             "எளிய மெனுவுடன் உள்ள விருப்பம்"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne":
             MessageLookupByLibrary.simpleMessage("சூழல் மெனு விருப்பம் ஒன்று"),
         "demoMenuContextMenuItemThree":
@@ -589,7 +732,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuPreview":
             MessageLookupByLibrary.simpleMessage("மாதிரிக்காட்சி"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("அகற்று"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("பகிர்"),
         "demoMenuSubtitle": MessageLookupByLibrary.simpleMessage(
             "மெனு பட்டன்கள் மற்றும் எளிய மெனுக்கள்"),
@@ -607,6 +750,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Outline Button"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("தேர்ந்தெடுப்பானைக் காண்பி"),
+        "demoPickersSubtitle": MessageLookupByLibrary.simpleMessage(
+            "தேதி மற்றும் நேரத் தேர்ந்தெடுப்பான்"),
+        "demoPickersTitle":
+            MessageLookupByLibrary.simpleMessage("தேர்வுக் கருவிகள்"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "நீள்வடிவ, வட்டமான, வரையறுக்க இயலாத வடிவங்களைக் கொண்டவை"),
         "demoProgressIndicatorTitle":
@@ -681,13 +830,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ஸ்நாக்பார்கள்"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "தாவல்கள் என்பவை வெவ்வேறு திரைகள், தரவுத் தொகுப்புகள் மற்றும் பிற தொடர்புகளுக்கான உள்ளடக்கத்தை ஒழுங்கமைக்கின்றன."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "சார்பின்றி நகர்த்திப் பார்க்கும் வசதியுடைய தாவல்கள்"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("தாவல்கள்"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "உரைப் புலங்கள் பயனர்களை UIயில் உரையை உள்ளிட அனுமதிக்கும். அவை வழக்கமாகப் படிவங்களாகவும் உரையாடல்களாகவும் தோன்றும்."),
         "demoTextFieldEmail":
-            MessageLookupByLibrary.simpleMessage("மின்னஞ்சல் முகவரி"),
+            MessageLookupByLibrary.simpleMessage("மின்னஞ்சல்"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("கடவுச்சொல்லை உள்ளிடவும்."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -702,7 +855,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("வாழ்க்கைக் கதை"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("பெயர்*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("பெயரை உள்ளிடுவது அவசியம்."),
         "demoTextFieldNoMoreThan": MessageLookupByLibrary.simpleMessage(
@@ -737,6 +890,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "உங்களை எப்படித் தொடர்புகொள்வது?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("உங்கள் மின்னஞ்சல் முகவரி"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "மெட்டீரியல் வடிவ நேரத் தேர்ந்தெடுப்பானைக் கொண்ட உரையாடலைக் காட்டும்."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("நேரம் தேர்ந்தெடுப்பான்"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container"),
         "demoToggleButtonTitle":
@@ -773,12 +930,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Use Google\'s location service?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup":
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("நிராகரி"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("மேற்கோள் ஸ்டைல்கள் & மீடியா"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("வகைகள்"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("கேலரி"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("கடற்கரை"),
@@ -800,7 +958,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("தஞ்சாவூர்"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("தஞ்சாவூர் கோயில்"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("கார் சேமிப்புகள்"),
         "rallyAccountDataChecking":
@@ -825,15 +983,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("மொத்தம்"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("கணக்குகள்"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("விழிப்பூட்டல்கள்"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("பில்கள்"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("நிலுவை"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("ஆடை"),
         "rallyBudgetCategoryCoffeeShops":
@@ -939,7 +1097,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ரத்துசெய்"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("கார்ட்டை காலி செய்"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("கார்ட்"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("ஷிப்பிங் விலை:"),
@@ -1003,8 +1161,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("நேவி டிரவுசர்கள்"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("பிளாஸ்டர் டியூனிக்"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("குவார்டெட் டேபிள்"),
         "shrineProductRainwaterTray":
@@ -1043,10 +1201,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("வெள்ளை பின்ஸ்டிரைப் ஷர்ட்"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("விட்னி பெல்ட்"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("கார்ட்டில் சேர்"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("கார்ட்டை மூடுவதற்கான பட்டன்"),
         "shrineTooltipCloseMenu":
@@ -1059,9 +1217,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("தேடலுக்கான பட்டன்"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("அமைப்புகளுக்கான பட்டன்"),
+        "signIn": MessageLookupByLibrary.simpleMessage("உள்நுழை"),
         "starterAppDescription": MessageLookupByLibrary.simpleMessage(
             "திரைக்கு ஏற்ப மாறும் ஸ்டார்ட்டர் தளவமைப்பு"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("உரைப் பகுதி"),
         "starterAppGenericButton":

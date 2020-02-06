@@ -24,68 +24,85 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m1(title) => "Заповнювач для вкладки \"${title}\"";
 
-  static m2(totalRestaurants) =>
+  static m2(destinationName) =>
+      "Ознайомтеся з таким місцем: ${destinationName}";
+
+  static m3(destinationName) => "Поділіться таким місцем: ${destinationName}";
+
+  static m4(totalRestaurants) =>
       "${Intl.plural(totalRestaurants, zero: 'Немає ресторанів', one: '1 ресторан', few: '${totalRestaurants} ресторани', many: '${totalRestaurants} ресторанів', other: '${totalRestaurants} ресторану')}";
 
-  static m3(numberOfStops) =>
+  static m5(hoursShortForm, minutesShortForm) =>
+      "${hoursShortForm} ${minutesShortForm}";
+
+  static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Прямий рейс', one: '1 зупинка', few: '${numberOfStops} зупинки', many: '${numberOfStops} зупинок', other: '${numberOfStops} зупинки')}";
 
-  static m4(totalProperties) =>
+  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+
+  static m8(minutes) =>
+      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+
+  static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Немає доступних готелів або помешкань', one: '1 доступний готель або помешкання', few: '${totalProperties} доступні готелі або помешкання', many: '${totalProperties} доступних готелів або помешкань', other: '${totalProperties} доступного готелю або помешкання')}";
 
-  static m5(value) => "Позиція ${value}";
+  static m10(value) => "${value} з медом";
 
-  static m6(error) => "Не вдалося скопіювати в буфер обміну: ${error}";
+  static m11(value) => "${value} з цукром";
 
-  static m7(value) => "Безперервний: ${value}";
+  static m12(value) => "Позиція ${value}";
 
-  static m8(value) => "Дискретний: ${value}";
+  static m13(error) => "Не вдалося скопіювати в буфер обміну: ${error}";
 
-  static m9(value) => "Вибрано: ${value}";
+  static m14(value) => "Безперервний: ${value}";
 
-  static m10(value) => "Вибрано: ${value}";
+  static m15(value) => "Дискретний: ${value}";
 
-  static m11(name, phoneNumber) =>
+  static m16(value) => "Вибрано: ${value}";
+
+  static m17(value) => "Вибрано: ${value}";
+
+  static m18(name, phoneNumber) =>
       "Номер телефону користувача ${name}: ${phoneNumber}";
 
-  static m12(value) => "Вибрано: \"${value}\"";
+  static m19(value) => "Вибрано: \"${value}\"";
 
-  static m13(accountName, accountNumber, amount) =>
+  static m20(accountName, accountNumber, amount) =>
       "Рахунок \"${accountName}\" (${accountNumber}), на якому зберігається ${amount}.";
 
-  static m14(amount) =>
+  static m21(amount) =>
       "Цього місяця ви витратили ${amount} на комісії банкоматів";
 
-  static m15(percent) =>
+  static m22(percent) =>
       "Чудова робота! На вашому розрахунковому рахунку на ${percent} більше коштів, ніж минулого місяця.";
 
-  static m16(percent) =>
+  static m23(percent) =>
       "Увага! Ви витратили ${percent} місячного бюджету на покупки.";
 
-  static m17(amount) => "Цього тижня ви витратили в ресторанах ${amount}.";
+  static m24(amount) => "Цього тижня ви витратили в ресторанах ${amount}.";
 
-  static m18(count) =>
+  static m25(count) =>
       "${Intl.plural(count, one: 'Збільште можливу податкову пільгу! Призначте категорії 1 трансакції.', few: 'Збільште можливу податкову пільгу! Призначте категорії ${count} трансакціям.', many: 'Збільште можливу податкову пільгу! Призначте категорії ${count} трансакціям.', other: 'Збільште можливу податкову пільгу! Призначте категорії ${count} трансакції.')}";
 
-  static m19(billName, date, amount) =>
+  static m26(billName, date, amount) =>
       "Рахунок \"${billName}\" на суму ${amount} потрібно сплатити до ${date}.";
 
-  static m20(budgetName, amountUsed, amountTotal, amountLeft) =>
+  static m27(budgetName, amountUsed, amountTotal, amountLeft) =>
       "З бюджету \"${budgetName}\" (${amountTotal}) використано ${amountUsed}, залишок – ${amountLeft}";
 
-  static m21(quantity) =>
+  static m28(quantity) =>
       "${Intl.plural(quantity, zero: 'НЕМАЄ ТОВАРІВ', one: '1 ТОВАР', few: '${quantity} ТОВАРИ', many: '${quantity} ТОВАРІВ', other: '${quantity} ТОВАРУ')}";
 
-  static m22(price) => "x ${price}";
+  static m29(price) => "x ${price}";
 
-  static m23(quantity) => "Кількість: ${quantity}";
+  static m30(quantity) => "Кількість: ${quantity}";
 
-  static m24(quantity) =>
+  static m31(quantity) =>
       "${Intl.plural(quantity, zero: 'Кошик без товарів', one: 'Кошик з 1 товаром', few: 'Кошик із ${quantity} товарами', many: 'Кошик з ${quantity} товарами', other: 'Кошик з ${quantity} товару')}";
 
-  static m25(product) => "Вилучити товар \"${product}\"";
+  static m32(product) => "Вилучити товар \"${product}\"";
 
-  static m26(value) => "Позиція ${value}";
+  static m33(value) => "Позиція ${value}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -94,6 +111,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Сховище зразків GitHub у Flutter"),
         "backToGallery":
             MessageLookupByLibrary.simpleMessage("Назад до Галереї"),
+        "bannerDemoLeadingText":
+            MessageLookupByLibrary.simpleMessage("Значок на початку"),
+        "bannerDemoMultipleText":
+            MessageLookupByLibrary.simpleMessage("Кілька дій"),
+        "bannerDemoResetText":
+            MessageLookupByLibrary.simpleMessage("Скинути банер"),
+        "bannerDemoText": MessageLookupByLibrary.simpleMessage(
+            "Пароль було оновлено на іншому пристрої. Увійдіть знову."),
         "bottomAppBarNotch":
             MessageLookupByLibrary.simpleMessage("Виріз екрана"),
         "bottomAppBarPosition": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +144,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationContentPlaceholder": m1,
         "buttonText": MessageLookupByLibrary.simpleMessage("КНОПКА"),
         "buttonTextCreate": MessageLookupByLibrary.simpleMessage("Створити"),
+        "cardsDemoExplore": MessageLookupByLibrary.simpleMessage("Огляд"),
+        "cardsDemoExploreSemantics": m2,
+        "cardsDemoSelectable": MessageLookupByLibrary.simpleMessage(
+            "Можна вибрати (утримуванням)"),
+        "cardsDemoShareSemantics": m3,
+        "cardsDemoTappable":
+            MessageLookupByLibrary.simpleMessage("Можна натискати"),
+        "cardsDemoTravelDestinationCity1":
+            MessageLookupByLibrary.simpleMessage("Тханджавур"),
+        "cardsDemoTravelDestinationCity2":
+            MessageLookupByLibrary.simpleMessage("Четтінад"),
+        "cardsDemoTravelDestinationDescription1":
+            MessageLookupByLibrary.simpleMessage("Номер 10"),
+        "cardsDemoTravelDestinationDescription2":
+            MessageLookupByLibrary.simpleMessage("Виробники шовку"),
+        "cardsDemoTravelDestinationDescription3":
+            MessageLookupByLibrary.simpleMessage("Храми"),
+        "cardsDemoTravelDestinationLocation1":
+            MessageLookupByLibrary.simpleMessage("Тханджавур (Тамілнад)"),
+        "cardsDemoTravelDestinationLocation2":
+            MessageLookupByLibrary.simpleMessage("Шиваганга (Тамілнад)"),
+        "cardsDemoTravelDestinationTitle1":
+            MessageLookupByLibrary.simpleMessage(
+                "10 найпопулярніших міст штату Тамілнад"),
+        "cardsDemoTravelDestinationTitle2":
+            MessageLookupByLibrary.simpleMessage("Ремісники Південної Індії"),
+        "cardsDemoTravelDestinationTitle3":
+            MessageLookupByLibrary.simpleMessage("Храм Брахідеешварар"),
         "chipBiking": MessageLookupByLibrary.simpleMessage("Велоспорт"),
         "chipElevator": MessageLookupByLibrary.simpleMessage("Ліфт"),
         "chipFireplace": MessageLookupByLibrary.simpleMessage("Камін"),
@@ -188,9 +241,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneEat9": MessageLookupByLibrary.simpleMessage("Мадрид, Іспанія"),
         "craneEat9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Прилавок кафе з кондитерськими виробами"),
-        "craneEatRestaurants": m2,
+        "craneEatRestaurants": m4,
         "craneEatSubhead": MessageLookupByLibrary.simpleMessage(
             "Огляд ресторанів за пунктом призначення"),
+        "craneFlightDuration": m5,
         "craneFly": MessageLookupByLibrary.simpleMessage("ПОЛЬОТИ"),
         "craneFly0": MessageLookupByLibrary.simpleMessage("Аспен, США"),
         "craneFly0SemanticLabel": MessageLookupByLibrary.simpleMessage(
@@ -236,7 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFly9": MessageLookupByLibrary.simpleMessage("Гавана, Куба"),
         "craneFly9SemanticLabel": MessageLookupByLibrary.simpleMessage(
             "Чоловік, який спирається на раритетний синій автомобіль"),
-        "craneFlyStops": m3,
+        "craneFlyStops": m6,
         "craneFlySubhead": MessageLookupByLibrary.simpleMessage(
             "Огляд авіарейсів за пунктом призначення"),
         "craneFormDate": MessageLookupByLibrary.simpleMessage("Виберіть дату"),
@@ -251,6 +305,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "craneFormTime": MessageLookupByLibrary.simpleMessage("Виберіть час"),
         "craneFormTravelers":
             MessageLookupByLibrary.simpleMessage("Мандрівники"),
+        "craneHours": m7,
+        "craneMinutes": m8,
         "craneSleep": MessageLookupByLibrary.simpleMessage("СОН"),
         "craneSleep0": MessageLookupByLibrary.simpleMessage("Мале, Мальдіви"),
         "craneSleep0SemanticLabel":
@@ -291,7 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Лісабон, Португалія"),
         "craneSleep9SemanticLabel":
             MessageLookupByLibrary.simpleMessage("Цегляний маяк біля моря"),
-        "craneSleepProperties": m4,
+        "craneSleepProperties": m9,
         "craneSleepSubhead": MessageLookupByLibrary.simpleMessage(
             "Огляд готелів чи житла за пунктом призначення"),
         "cupertinoAlertAllow":
@@ -328,6 +384,51 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Головна"),
         "cupertinoTabBarProfileTab":
             MessageLookupByLibrary.simpleMessage("Профіль"),
+        "dataTableColumnCalcium":
+            MessageLookupByLibrary.simpleMessage("Кальцій (%)"),
+        "dataTableColumnCalories":
+            MessageLookupByLibrary.simpleMessage("Калорії"),
+        "dataTableColumnCarbs":
+            MessageLookupByLibrary.simpleMessage("Вуглеводи (г)"),
+        "dataTableColumnDessert":
+            MessageLookupByLibrary.simpleMessage("Десерт (1 порція)"),
+        "dataTableColumnFat": MessageLookupByLibrary.simpleMessage("Жири (г)"),
+        "dataTableColumnIron":
+            MessageLookupByLibrary.simpleMessage("Залізо (%)"),
+        "dataTableColumnProtein":
+            MessageLookupByLibrary.simpleMessage("Білки (г)"),
+        "dataTableColumnSodium":
+            MessageLookupByLibrary.simpleMessage("Натрій (мг)"),
+        "dataTableHeader": MessageLookupByLibrary.simpleMessage("Харчування"),
+        "dataTableRowApplePie":
+            MessageLookupByLibrary.simpleMessage("Яблучний пиріг"),
+        "dataTableRowCupcake": MessageLookupByLibrary.simpleMessage("Кекс"),
+        "dataTableRowDonut": MessageLookupByLibrary.simpleMessage("Пончик"),
+        "dataTableRowEclair": MessageLookupByLibrary.simpleMessage("Еклер"),
+        "dataTableRowFrozenYogurt":
+            MessageLookupByLibrary.simpleMessage("Заморожений йогурт"),
+        "dataTableRowGingerbread":
+            MessageLookupByLibrary.simpleMessage("Імбирний пряник"),
+        "dataTableRowHoneycomb":
+            MessageLookupByLibrary.simpleMessage("Стільники"),
+        "dataTableRowIceCreamSandwich":
+            MessageLookupByLibrary.simpleMessage("Морозиво в брикеті"),
+        "dataTableRowJellyBean":
+            MessageLookupByLibrary.simpleMessage("Мармеладне драже"),
+        "dataTableRowLollipop":
+            MessageLookupByLibrary.simpleMessage("Льодяник"),
+        "dataTableRowWithHoney": m10,
+        "dataTableRowWithSugar": m11,
+        "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
+            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+        "demo2dTransformationsEditTooltip":
+            MessageLookupByLibrary.simpleMessage("Edit tile"),
+        "demo2dTransformationsResetTooltip":
+            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+        "demo2dTransformationsSubtitle":
+            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+        "demo2dTransformationsTitle":
+            MessageLookupByLibrary.simpleMessage("2D transformations"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Інтерактивні елементи дій – це набір параметрів, які активують дії, пов\'язані з основним контентом. Вони мають з\'являтися динамічно й доповнювати інтерфейс."),
         "demoActionChipTitle":
@@ -338,6 +439,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Сповіщення"),
         "demoAlertTitleDialogTitle":
             MessageLookupByLibrary.simpleMessage("Сповіщення з назвою"),
+        "demoBannerDescription": MessageLookupByLibrary.simpleMessage(
+            "Банер показує важливе коротке повідомлення та пропонує користувачу виконати певні дії (або закрити банер). Щоб закрити банер, користувач має виконати дію."),
+        "demoBannerSubtitle":
+            MessageLookupByLibrary.simpleMessage("Показ банера в списку"),
+        "demoBannerTitle": MessageLookupByLibrary.simpleMessage("Банер"),
         "demoBottomAppBarDescription": MessageLookupByLibrary.simpleMessage(
             "Нижня панель додатків надає доступ до нижньої панелі навігації та до щонайбільше чотирьох командних кнопок, зокрема плаваючої."),
         "demoBottomAppBarSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -360,7 +466,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "ПОКАЗАТИ СТОРІНКУ, ЩО РОЗГОРТАЄТЬСЯ ЗНИЗУ"),
         "demoBottomSheetHeader":
             MessageLookupByLibrary.simpleMessage("Заголовок"),
-        "demoBottomSheetItem": m5,
+        "demoBottomSheetItem": m12,
         "demoBottomSheetModalDescription": MessageLookupByLibrary.simpleMessage(
             "Модальна сторінка, що розгортається знизу, замінює меню або діалогове вікно й не дає користувачеві взаємодіяти з іншими частинами додатка."),
         "demoBottomSheetModalTitle": MessageLookupByLibrary.simpleMessage(
@@ -379,6 +485,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoButtonSubtitle": MessageLookupByLibrary.simpleMessage(
             "Пласкі, опуклі, з контуром тощо"),
         "demoButtonTitle": MessageLookupByLibrary.simpleMessage("Кнопки"),
+        "demoCardDescription": MessageLookupByLibrary.simpleMessage(
+            "Картка – це аркуш із матеріальним дизайном, який використовується для представлення деякої пов\'язаної інформації (наприклад, альбому, географічного розташування, інформації про їжу, контактних даних тощо)."),
+        "demoCardSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Базові картки із закругленими кутами"),
+        "demoCardTitle": MessageLookupByLibrary.simpleMessage("Картки"),
         "demoChecklistMenuTitle": MessageLookupByLibrary.simpleMessage(
             "Меню у вигляді контрольного списку"),
         "demoChipSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -395,12 +506,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCircularProgressIndicatorTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Індикатор циклічного перебігу"),
-        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Приклад коду"),
+        "demoCodeTooltip": MessageLookupByLibrary.simpleMessage("Демокод"),
         "demoCodeViewerCopiedToClipboardMessage":
             MessageLookupByLibrary.simpleMessage("Скопійовано в буфер обміну."),
         "demoCodeViewerCopyAll":
             MessageLookupByLibrary.simpleMessage("КОПІЮВАТИ ВСЕ"),
-        "demoCodeViewerFailedToCopyToClipboardMessage": m6,
+        "demoCodeViewerFailedToCopyToClipboardMessage": m13,
         "demoColorsDescription": MessageLookupByLibrary.simpleMessage(
             "Колір і зразок кольору, які представляють палітру кольорів матеріального дизайну."),
         "demoColorsSubtitle":
@@ -419,7 +530,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Індикатори активності в стилі iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Індикатор активності"),
+            MessageLookupByLibrary.simpleMessage("Activity indicator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Лише кнопки сповіщень"),
         "demoCupertinoAlertButtonsTitle":
@@ -447,7 +558,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Панель навігації в стилі iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Панель навігації"),
+            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+        "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Дата"),
+        "demoCupertinoPickerDateTime":
+            MessageLookupByLibrary.simpleMessage("Дата й час"),
+        "demoCupertinoPickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Віджет засобу вибору в стилі iOS, який можна використовувати для вибору дат, часу або дати й часу одночасно."),
+        "demoCupertinoPickerSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Засоби вибору дати й часу в стилі iOS"),
+        "demoCupertinoPickerTime": MessageLookupByLibrary.simpleMessage("Час"),
+        "demoCupertinoPickerTimer":
+            MessageLookupByLibrary.simpleMessage("Таймер"),
+        "demoCupertinoPickerTitle":
+            MessageLookupByLibrary.simpleMessage("Засоби вибору"),
         "demoCupertinoPullToRefreshDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Віджет, що реалізує елемент керування в стилі iOS, який дає змогу потягнути, щоб оновити контент."),
@@ -455,7 +578,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Елемент керування в стилі iOS \"Потягнути, щоб оновити\""),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Потягніть, щоб оновити"),
+            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Використовується для вибору одного із взаємовиключних варіантів. Якщо вибрано один варіант у сегментованому контролі, вибір іншого варіанта буде скасовано."),
@@ -463,11 +586,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Сегментований контроль у стилі iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Сегментований контроль"),
-        "demoCupertinoSliderContinuous": m7,
+            MessageLookupByLibrary.simpleMessage("Segmented control"),
+        "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Повзунок можна використовувати для вибору з безперервного або дискретного набору значень."),
-        "demoCupertinoSliderDiscrete": m8,
+        "demoCupertinoSliderDiscrete": m15,
         "demoCupertinoSliderSubtitle":
             MessageLookupByLibrary.simpleMessage("Повзунок у стилі iOS"),
         "demoCupertinoSliderTitle":
@@ -481,11 +604,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Нижня панель вкладок у стилі iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Панель вкладок"),
+            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
+            "У текстові поля можна вводити текст з апаратної або екранної клавіатури."),
+        "demoCupertinoTextFieldPIN":
+            MessageLookupByLibrary.simpleMessage("PIN-код"),
+        "demoCupertinoTextFieldSubtitle":
+            MessageLookupByLibrary.simpleMessage("Текстові поля в стилі iOS"),
+        "demoCupertinoTextFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Text fields"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "За допомогою повзунків можна вибирати різні значення з діапазону. Їх тема та вигляд можуть бути різними."),
         "demoCustomSlidersTitle":
             MessageLookupByLibrary.simpleMessage("Власні повзунки"),
+        "demoDataTableDescription": MessageLookupByLibrary.simpleMessage(
+            "У таблицях даних інформацію представлено в рядках і стовпцях – у форматі сітки. Інформація в них упорядковується так, щоб її було легко проглядати, а користувачі могли шукати шаблони та статистику."),
+        "demoDataTableSubtitle":
+            MessageLookupByLibrary.simpleMessage("Рядки та стовпці інформації"),
+        "demoDataTableTitle":
+            MessageLookupByLibrary.simpleMessage("Таблиці даних"),
+        "demoDatePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Показує вікно з інструментом вибору дати з матеріальним дизайном."),
+        "demoDatePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Засіб вибору дати"),
         "demoDialogSubtitle": MessageLookupByLibrary.simpleMessage(
             "Просте, зі сповіщенням і на весь екран"),
         "demoDialogTitle":
@@ -554,7 +695,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Елемент, що відкриває меню з розділами"),
         "demoMenuAnItemWithASimpleMenu":
             MessageLookupByLibrary.simpleMessage("Елемент із простим меню"),
-        "demoMenuChecked": m9,
+        "demoMenuChecked": m16,
         "demoMenuContextMenuItemOne": MessageLookupByLibrary.simpleMessage(
             "Перший пункт контекстного меню"),
         "demoMenuContextMenuItemThree": MessageLookupByLibrary.simpleMessage(
@@ -573,7 +714,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoMenuOne": MessageLookupByLibrary.simpleMessage("Один"),
         "demoMenuPreview": MessageLookupByLibrary.simpleMessage("Переглянути"),
         "demoMenuRemove": MessageLookupByLibrary.simpleMessage("Вилучити"),
-        "demoMenuSelected": m10,
+        "demoMenuSelected": m17,
         "demoMenuShare": MessageLookupByLibrary.simpleMessage("Поділитися"),
         "demoMenuSubtitle":
             MessageLookupByLibrary.simpleMessage("Кнопки меню та прості меню"),
@@ -591,6 +732,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Кнопки з контуром стають прозорими й піднімаються, якщо їх натиснути. Зазвичай їх використовують з опуклими кнопками для позначення альтернативних і другорядних дій."),
         "demoOutlineButtonTitle":
             MessageLookupByLibrary.simpleMessage("Кнопка з контуром"),
+        "demoPickersShowPicker":
+            MessageLookupByLibrary.simpleMessage("ПОКАЗАТИ ЗАСІБ ВИБОРУ"),
+        "demoPickersSubtitle":
+            MessageLookupByLibrary.simpleMessage("Вибір дати й часу"),
+        "demoPickersTitle":
+            MessageLookupByLibrary.simpleMessage("Засоби вибору"),
         "demoProgressIndicatorSubtitle": MessageLookupByLibrary.simpleMessage(
             "Лінійний, циклічний, невизначений"),
         "demoProgressIndicatorTitle":
@@ -666,13 +813,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Панель підказок"),
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "На вкладках наведено контент із різних екранів, набори даних та іншу інформацію про взаємодії."),
+        "demoTabsNonScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+        "demoTabsScrollingTitle":
+            MessageLookupByLibrary.simpleMessage("Scrolling"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Вкладки з окремим прокручуванням"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Вкладки"),
         "demoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Користувачі можуть вводити текст у текстові поля. Зазвичай вони з\'являються у формах і вікнах."),
         "demoTextFieldEmail":
-            MessageLookupByLibrary.simpleMessage("Електронна пошта"),
+            MessageLookupByLibrary.simpleMessage("Електронна адреса"),
         "demoTextFieldEnterPassword":
             MessageLookupByLibrary.simpleMessage("Введіть пароль."),
         "demoTextFieldEnterUSPhoneNumber": MessageLookupByLibrary.simpleMessage(
@@ -687,7 +838,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Біографія"),
         "demoTextFieldNameField":
             MessageLookupByLibrary.simpleMessage("Назва*"),
-        "demoTextFieldNameHasPhoneNumber": m11,
+        "demoTextFieldNameHasPhoneNumber": m18,
         "demoTextFieldNameRequired":
             MessageLookupByLibrary.simpleMessage("Укажіть своє ім\'я."),
         "demoTextFieldNoMoreThan":
@@ -724,6 +875,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Як з вами можна зв\'язатися?"),
         "demoTextFieldYourEmailAddress":
             MessageLookupByLibrary.simpleMessage("Ваша електронна адреса"),
+        "demoTimePickerDescription": MessageLookupByLibrary.simpleMessage(
+            "Показує вікно з інструментом вибору часу з матеріальним дизайном."),
+        "demoTimePickerTitle":
+            MessageLookupByLibrary.simpleMessage("Засіб вибору часу"),
         "demoToggleButtonDescription": MessageLookupByLibrary.simpleMessage(
             "Перемикач можна використовувати для групування пов\'язаних параметрів. Щоб виділити групу пов\'язаних перемикачів, вона повинна мати спільний контейнер"),
         "demoToggleButtonTitle":
@@ -762,13 +917,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Дозвольте Google допомагати додаткам визначати місцезнаходження. Це означає, що в Google надсилатимуться анонімні геодані, навіть коли на пристрої взагалі не запущено додатків."),
         "dialogLocationTitle": MessageLookupByLibrary.simpleMessage(
             "Використовувати Служби локації Google?"),
-        "dialogSelectedOption": m12,
+        "dialogSelectedOption": m19,
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage(
             "Налаштуйте резервний обліковий запис"),
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ПОКАЗАТИ ДІАЛОГОВЕ ВІКНО"),
+        "dismiss": MessageLookupByLibrary.simpleMessage("ЗАКРИТИ"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("ДОВІДКОВІ СТИЛІ Й МЕДІА"),
+            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категорії"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерея"),
@@ -791,7 +947,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "placeTanjore": MessageLookupByLibrary.simpleMessage("Тханджавур"),
         "placeThanjavurTemple":
             MessageLookupByLibrary.simpleMessage("Тханджавурський храм"),
-        "rallyAccountAmount": m13,
+        "rallyAccountAmount": m20,
         "rallyAccountDataCarSavings":
             MessageLookupByLibrary.simpleMessage("Заощадження на автомобіль"),
         "rallyAccountDataChecking":
@@ -817,16 +973,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAccountTotal": MessageLookupByLibrary.simpleMessage("Усього"),
         "rallyAccounts": MessageLookupByLibrary.simpleMessage("Рахунки"),
         "rallyAlerts": MessageLookupByLibrary.simpleMessage("Сповіщення"),
-        "rallyAlertsMessageATMFees": m14,
-        "rallyAlertsMessageCheckingAccount": m15,
-        "rallyAlertsMessageHeadsUpShopping": m16,
-        "rallyAlertsMessageSpentOnRestaurants": m17,
-        "rallyAlertsMessageUnassignedTransactions": m18,
-        "rallyBillAmount": m19,
+        "rallyAlertsMessageATMFees": m21,
+        "rallyAlertsMessageCheckingAccount": m22,
+        "rallyAlertsMessageHeadsUpShopping": m23,
+        "rallyAlertsMessageSpentOnRestaurants": m24,
+        "rallyAlertsMessageUnassignedTransactions": m25,
+        "rallyBillAmount": m26,
         "rallyBills": MessageLookupByLibrary.simpleMessage("Платежі"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Потрібно сплатити:"),
-        "rallyBudgetAmount": m20,
+        "rallyBudgetAmount": m27,
         "rallyBudgetCategoryClothing":
             MessageLookupByLibrary.simpleMessage("Одяг"),
         "rallyBudgetCategoryCoffeeShops":
@@ -928,7 +1084,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("СКАСУВАТИ"),
         "shrineCartClearButtonCaption":
             MessageLookupByLibrary.simpleMessage("ВИДАЛИТИ ВСЕ З КОШИКА"),
-        "shrineCartItemCount": m21,
+        "shrineCartItemCount": m28,
         "shrineCartPageCaption": MessageLookupByLibrary.simpleMessage("КОШИК"),
         "shrineCartShippingCaption":
             MessageLookupByLibrary.simpleMessage("Доставка:"),
@@ -991,8 +1147,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Штани темно-синього кольору"),
         "shrineProductPlasterTunic":
             MessageLookupByLibrary.simpleMessage("Туніка бежевого кольору"),
-        "shrineProductPrice": m22,
-        "shrineProductQuantity": m23,
+        "shrineProductPrice": m29,
+        "shrineProductQuantity": m30,
         "shrineProductQuartetTable":
             MessageLookupByLibrary.simpleMessage("Стіл для чотирьох осіб"),
         "shrineProductRainwaterTray":
@@ -1031,10 +1187,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Біла сорочка в тонку смужку"),
         "shrineProductWhitneyBelt":
             MessageLookupByLibrary.simpleMessage("Ремінь Whitney"),
-        "shrineScreenReaderCart": m24,
+        "shrineScreenReaderCart": m31,
         "shrineScreenReaderProductAddToCart":
             MessageLookupByLibrary.simpleMessage("Додати в кошик"),
-        "shrineScreenReaderRemoveProductButton": m25,
+        "shrineScreenReaderRemoveProductButton": m32,
         "shrineTooltipCloseCart":
             MessageLookupByLibrary.simpleMessage("Закрити кошик"),
         "shrineTooltipCloseMenu":
@@ -1046,9 +1202,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "shrineTooltipSearch": MessageLookupByLibrary.simpleMessage("Шукати"),
         "shrineTooltipSettings":
             MessageLookupByLibrary.simpleMessage("Налаштування"),
+        "signIn": MessageLookupByLibrary.simpleMessage("УВІЙТИ"),
         "starterAppDescription":
             MessageLookupByLibrary.simpleMessage("Адаптивний макет запуску"),
-        "starterAppDrawerItem": m26,
+        "starterAppDrawerItem": m33,
         "starterAppGenericBody":
             MessageLookupByLibrary.simpleMessage("Основний текст"),
         "starterAppGenericButton":
