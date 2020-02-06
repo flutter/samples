@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/rally/charts/line_chart.dart';
 import 'package:gallery/studies/rally/charts/pie_chart.dart';
@@ -170,7 +171,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
               height: 1,
               indent: 16,
               endIndent: 16,
-              color: Color(0xAA282828),
+              color: RallyColors.dividerColor,
             ),
           ],
         ),
@@ -309,13 +310,7 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<_DetailedEventCard> cards = items.map((detailedEventData) {
-      return _DetailedEventCard(
-        title: detailedEventData.title,
-        date: detailedEventData.date,
-        amount: detailedEventData.amount,
-      );
-    }).toList();
+    final isDesktop = isDisplayDesktop(context);
 
     return ApplyTextOptions(
       child: Scaffold(
@@ -335,7 +330,20 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
               child: RallyLineChart(events: items),
             ),
             Expanded(
-              child: ListView(shrinkWrap: true, children: cards),
+              child: Padding(
+                padding: isDesktop ? EdgeInsets.all(40) : EdgeInsets.zero,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    for (DetailedEventData detailedEventData in items)
+                      _DetailedEventCard(
+                        title: detailedEventData.title,
+                        date: detailedEventData.date,
+                        amount: detailedEventData.amount,
+                      ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -357,7 +365,7 @@ class _DetailedEventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final isDesktop = isDisplayDesktop(context);
     return FlatButton(
       onPressed: () {},
       padding: EdgeInsets.symmetric(horizontal: 16),
@@ -366,41 +374,92 @@ class _DetailedEventCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(vertical: 16),
             width: double.infinity,
-            child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: textTheme.body1.copyWith(fontSize: 16),
-                    ),
-                    Text(
-                      shortDateFormat(context).format(date),
-                      semanticsLabel: longDateFormat(context).format(date),
-                      style:
-                          textTheme.body1.copyWith(color: RallyColors.gray60),
-                    ),
-                  ],
-                ),
-                Text(
-                  usdWithSignFormat(context).format(amount),
-                  style: textTheme.body2
-                      .copyWith(fontSize: 20, color: RallyColors.gray),
-                ),
-              ],
-            ),
+            child: isDesktop
+                ? Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: _EventTitle(title: title),
+                      ),
+                      _EventDate(date: date),
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: _EventAmount(amount: amount),
+                        ),
+                      ),
+                    ],
+                  )
+                : Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _EventTitle(title: title),
+                          _EventDate(date: date),
+                        ],
+                      ),
+                      _EventAmount(amount: amount),
+                    ],
+                  ),
           ),
           SizedBox(
             height: 1,
             child: Container(
-              color: const Color(0xAA282828),
+              color: RallyColors.dividerColor,
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _EventAmount extends StatelessWidget {
+  const _EventAmount({Key key, @required this.amount}) : super(key: key);
+
+  final double amount;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Text(
+      usdWithSignFormat(context).format(amount),
+      style: textTheme.body2.copyWith(fontSize: 20, color: RallyColors.gray),
+    );
+  }
+}
+
+class _EventDate extends StatelessWidget {
+  const _EventDate({Key key, @required this.date}) : super(key: key);
+
+  final DateTime date;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Text(
+      shortDateFormat(context).format(date),
+      semanticsLabel: longDateFormat(context).format(date),
+      style: textTheme.body1.copyWith(color: RallyColors.gray60),
+    );
+  }
+}
+
+class _EventTitle extends StatelessWidget {
+  const _EventTitle({Key key, @required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Text(
+      title,
+      style: textTheme.body1.copyWith(fontSize: 16),
     );
   }
 }
