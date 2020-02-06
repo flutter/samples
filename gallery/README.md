@@ -1,14 +1,16 @@
 # Flutter Gallery
 
 Flutter Gallery is a resource to help developers evaluate and use Flutter.
-It is a collection of material design widgets, behaviors, and vignettes
+It is a collection of Material Design & Cupertino widgets, behaviors, and vignettes
 implemented with Flutter. We often get asked how one can see Flutter in action,
 and this gallery demonstrates what Flutter provides and how it behaves in the
 wild.
 
+![Flutter Gallery](https://user-images.githubusercontent.com/6655696/73928238-0d7fcc80-48d3-11ea-8a7e-ea7dc5d6e713.png)
+
 ## Supported Platforms
 
-The Flutter Gallery application has been built to support multiple platforms.
+Flutter Gallery has been built to support multiple platforms.
 This includes:
 
 - Android
@@ -31,7 +33,7 @@ flutter run -d macos
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
 platform it runs on. This is determined based on window size as outlined in
-[adaptive.dart](gallery/lib/layout/adaptive.dart).
+[adaptive.dart](lib/layout/adaptive.dart).
 
 ## To include a new splash animation
 
@@ -45,7 +47,7 @@ platform it runs on. This is determined based on window size as outlined in
    current largest number in the repository.
 
 3. Update the map `_effectDurations` in
-   [splash.dart](gallery/lib/pages/splash.dart) to include the number of the
+   [splash.dart](lib/pages/splash.dart) to include the number of the
    new `.gif` as well as its estimated duration. The duration is used to
    determine how long to display the splash animation at launch.
 
@@ -58,14 +60,14 @@ by getting the packages in `samples/gallery/`:
 flutter pub get
 ```
 
-To generate localized strings (see separate [README](gallery/lib/l10n/README.md)
+To generate localized strings (see separate [README](lib/l10n/README.md)
 for more details):
 
 ```
 flutter pub run grinder l10n
 ```
 
-To generate code segments (see separate [README](gallery/tool/codeviewer_cli/README.md) for
+To generate code segments (see separate [README](tool/codeviewer_cli/README.md) for
 more details):
 ```
 flutter pub run grinder update-code-segments
