@@ -1,7 +1,7 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
 
-version: 2.2.0+020200
+version: 2.3.0+020300
 
 environment:
   sdk: ">=2.3.0 <3.0.0"
