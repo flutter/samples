@@ -26,8 +26,8 @@ class AdaptiveScaffoldDestination {
 }
 
 /// A widget that adapts to the current display size, displaying a [Drawer],
-/// [NavigationRail], or [BottomAppBar]. Navigation destinations are defined in
-/// the [destinations] parameter
+/// [NavigationRail], or [BottomNavigationBar]. Navigation destinations are
+/// defined in the [destinations] parameter.
 class AdaptiveScaffold extends StatefulWidget {
   final Widget title;
   final Widget body;
@@ -94,9 +94,11 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     // Show a navigation rail
     if (_isMediumScreen(context)) {
       return Scaffold(
-        appBar: AppBar(title: widget.title,),
+        appBar: AppBar(
+          title: widget.title,
+        ),
         body: Row(
-          children: <Widget>[
+          children: [
             NavigationRail(
               leading: widget.floatingActionButton,
               destinations: [

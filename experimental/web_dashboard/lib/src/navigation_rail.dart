@@ -244,9 +244,9 @@ class _NavigationRailState extends State<NavigationRail>
                       color: widget.currentIndex == i
                           ? Theme.of(context).colorScheme.primary
                           : Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withOpacity(0.64)),
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.64)),
                   child: widget.destinations[i].title,
                 ),
                 onTap: () {
@@ -299,15 +299,14 @@ class _RailItem extends StatelessWidget {
     this.icon,
     this.title,
     this.onTap,
-  }) : assert(labelKind != null) {
-    _positionAnimation = CurvedAnimation(
-      parent: ReverseAnimation(animation),
-      curve: Curves.easeInOut,
-      reverseCurve: Curves.easeInOut.flipped,
-    );
-  }
+  })  : assert(labelKind != null),
+        _positionAnimation = CurvedAnimation(
+          parent: ReverseAnimation(animation),
+          curve: Curves.easeInOut,
+          reverseCurve: Curves.easeInOut.flipped,
+        );
 
-  Animation<double> _positionAnimation;
+  final Animation<double> _positionAnimation;
 
   final Animation<double> animation;
   final NavigationRailLabelType labelKind;
@@ -386,7 +385,7 @@ class _RailItem extends StatelessWidget {
             onTap: onTap,
             onHover: (_) {},
             splashColor:
-            Theme.of(context).colorScheme.primary.withOpacity(0.12),
+                Theme.of(context).colorScheme.primary.withOpacity(0.12),
             hoverColor: Theme.of(context).colorScheme.primary.withOpacity(0.04),
             child: content,
           ),

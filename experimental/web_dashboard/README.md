@@ -1,6 +1,6 @@
 # web_dashboard
 
-A desktop-friendly dashboard app
+(In progress) A dashboard app for the web, built with Flutter.
 
 ## Running
 

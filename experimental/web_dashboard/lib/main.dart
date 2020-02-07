@@ -7,7 +7,7 @@ import 'package:flutter/scheduler.dart';
 
 import 'src/adaptive_scaffold.dart';
 
-/// The [Key] for the inner [Navigator]
+/// The [Key] for the inner [Navigator].
 GlobalKey _navigatorKey = GlobalKey();
 
 void main() {
@@ -25,13 +25,13 @@ class _DashboardAppState extends State<DashboardApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Forward the initial route to the app shell.
-      onGenerateInitialRoutes: (initialRoute){
+      onGenerateInitialRoutes: (initialRoute) {
         return [
           PageRouteBuilder(
             // Use the same route settings in the child navigator.
             settings: RouteSettings(name: initialRoute),
             // Send the route to AppShell so it can select the correct item in
-            // the Drawer / NavigationRail / BottomAppBar
+            // the Drawer / NavigationRail / BottomAppBar.
             pageBuilder: (context, animation, secondaryAnimation) {
               return AppShell(initialRoute);
             },
@@ -59,8 +59,8 @@ class _AppShellState extends State<AppShell> {
   int _currentIndex = 0;
 
   void initState() {
-   super.initState();
-   _currentIndex = _indexForRoute(widget.routeName);
+    super.initState();
+    _currentIndex = _indexForRoute(widget.routeName);
   }
 
   @override
@@ -75,13 +75,13 @@ class _AppShellState extends State<AppShell> {
           var pageWidget = _pageForRoute(routeName);
 
           // Change the _currentIndex to highlight the correct menu item /
-          // BottomNavigationBarItem
+          // BottomNavigationBarItem.
           //
           // Use a post-frame callback to avoid calling setState() during the
           // initial build phase. Right now this is being called in the wrong
           // order. (Refreshing the browser with the initial route set to
           // '/settings' invokes onGenerateRoute with '/' instead of
-          // '/settings'.
+          // '/settings'.)
           SchedulerBinding.instance.addPostFrameCallback((dur) {
             setState(() {
               _currentIndex = _indexForRoute(routeName);
@@ -114,7 +114,7 @@ class _AppShellState extends State<AppShell> {
         },
       ),
       currentIndex: _currentIndex,
-      destinations: [
+      destinations: const [
         AdaptiveScaffoldDestination(title: 'Dashboard', icon: Icons.dashboard),
         AdaptiveScaffoldDestination(title: 'Metrics', icon: Icons.show_chart),
         AdaptiveScaffoldDestination(title: 'Settings', icon: Icons.settings),
