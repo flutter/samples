@@ -15,28 +15,28 @@ function getFlutterPath() {
     done
 }
 
-localSdkPath=$(getFlutterPath)
+readonly LOCAL_SDK_PATH=$(getFlutterPath)
 
-if [ -z "$localSdkPath" ]
+if [ -z "${LOCAL_SDK_PATH}" ]
 then
-    echo "Failed to find the Flutter SDK!."
+    echo "Failed to find the Flutter SDK!"
     exit 1
 fi
 
-echo "Flutter SDK found at ${localSdkPath}"
+echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
 
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
-"${localSdkPath}/bin/flutter" packages get
-"${localSdkPath}/bin/flutter" build aar
+"${LOCAL_SDK_PATH}/bin/flutter" packages get
+"${LOCAL_SDK_PATH}/bin/flutter" build aar
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
-"${localSdkPath}/bin/flutter" packages get
+"${LOCAL_SDK_PATH}/bin/flutter" packages get
 popd
 
-declare -a ANDROID_PROJECT_NAMES=(
+declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/android_fullscreen" \
     "add_to_app/android_using_plugin" \
     "add_to_app/android_using_prebuilt_module" \
@@ -44,7 +44,7 @@ declare -a ANDROID_PROJECT_NAMES=(
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's $FLUTTER_VERSION channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
     pushd "${PROJECT_NAME}"
 
     ./gradlew --stacktrace assembleDebug
