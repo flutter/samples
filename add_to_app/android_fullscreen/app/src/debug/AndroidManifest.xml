@@ -4,7 +4,6 @@
 
     <!-- Include Cleartext traffic for the espresso package -->
 
-    <application
-        android:usesCleartextTraffic="true" />
+    <application android:usesCleartextTraffic="true" />
 
 </manifest>
