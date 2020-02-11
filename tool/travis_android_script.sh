@@ -53,4 +53,12 @@ do
     popd
 done
 
+# At this time, espresso tests only exist for android_fullscreen. These will
+# eventually be rolled out to each Android project and included in the loop
+# above.
+echo "== Espresso testing 'android_fullscreen' on Flutter's ${FLUTTER_VERSION} channel =="
+pushd "add_to_app/android_fullscreen"
+./gradlew app:connectedAndroidTest -Ptarget=../flutter_module/test_driver/example.dart
+popd
+
 echo "-- Success --"
