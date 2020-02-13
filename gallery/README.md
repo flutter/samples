@@ -78,22 +78,22 @@ flutter pub run grinder update-code-segments
 1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine 
    which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
    
-1. Create a tag on the `master` branch in the form of `gallery-v2.3`.
+2. Create a tag on the `master` branch in the form of `gallery-v2.3`.
 
-1. Publish the web release (using the peanut package).
-  * `flutter pub global activate peanut`
-  * `flutter pub global run peanut:peanut`
-  * `git push upstream gh-pages:gh-pages` (You may have to force push)
+3. Publish the web release (using the peanut package).
+    * `flutter pub global activate peanut`
+    * `flutter pub global run peanut:peanut`
+    * `git push upstream gh-pages:gh-pages` (You may have to force push)
    
-1. Publish the android release (using the correct signing certificates)
-  * Create the app bundle with `flutter build appbundle`
-  * Upload to the play store console
-  * Publish the play store release
-  * Create the APK with `flutter build apk` (this is for the Github release)
+4. Publish the android release (using the correct signing certificates)
+    * Create the app bundle with `flutter build appbundle`
+    * Upload to the play store console
+    * Publish the play store release
+    * Create the APK with `flutter build apk` (this is for the Github release)
 
-1. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.3`
-  * Upload the Android APK from above
-  * Create and upload the macOS build by running `flutter build macos` and zipping the 
-    app inside `build/macos/Build/Products/Release`.
-  * Optional: Create and upload the linux/windows builds
-  * Publish the release
+5. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.3`
+    * Upload the Android APK from above
+    * Create and upload the macOS build by running `flutter build macos` and zipping the 
+      app inside `build/macos/Build/Products/Release`.
+    * Optional: Create and upload the linux/windows builds
+    * Publish the release
