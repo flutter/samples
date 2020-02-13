@@ -72,3 +72,28 @@ more details):
 ```
 flutter pub run grinder update-code-segments
 ```
+
+## Creating a new release (for Flutter org members)
+
+1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine 
+   which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
+   
+1. Create a tag on the `master` branch in the form of `gallery-v2.3`.
+
+1. Publish the web release (using the peanut package).
+  1. `flutter pub global activate peanut`
+  1. `flutter pub global run peanut:peanut`
+  1. `git push upstream gh-pages:gh-pages` (You may have to force push)
+   
+1. Publish the android release (using the correct signing certificates)
+  1. Create the app bundle with `flutter build appbundle`
+  1. Upload to the play store console
+  1. Publish the play store release
+  1. Create the APK with `flutter build apk` (this is for the Github release)
+
+1. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.3`
+  1. Upload the Android APK from above
+  1. Create and upload the macOS build by running `flutter build macos` and zipping the 
+     app inside `build/macos/Build/Products/Release`.
+  1. Optional: Create and upload the linux/windows builds
+  1. Publish the release
