@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Tiesioginis', one: '1 sustojimas', few: '${numberOfStops} sustojimai', many: '${numberOfStops} sustojimo', other: '${numberOfStops} sustojimų')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 h', few: '${hours} h', many: '${hours} h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', few: '${minutes} min', many: '${minutes} min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Nėra pasiekiamų nuosavybių', one: '1 pasiekiama nuosavybė', few: '${totalProperties} pasiekiamos nuosavybės', many: '${totalProperties} pasiekiamos nuosavybės', other: '${totalProperties} pasiekiamų nuosavybių')}";
@@ -437,15 +438,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Palieskite, kad redaguotumėte išklotinės elementus, ir naudokite gestus, kad galėtumėte judėti. Vilkite, kad pastumtumėte, suimkite, kad pakeistumėte mastelį, pasukite dviem pirštais. Paspauskite nustatymo iš naujo mygtuką, kad grįžtumėte į pradinę orientaciją."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage(
+                "Redaguoti išklotinės elementą"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage(
+                "Nustatyti transformacijas iš naujo"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Stumdymas, mastelio keitimas, pasukimas"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D transformacijos"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Veiksmo fragmentai – tai parinkčių rinkiniai, suaktyvinantys su pradiniu turiniu susijusį veiksmą. Veiksmo fragmentai NS turėtų būti rodomi dinamiškai ir pagal kontekstą."),
         "demoActionChipTitle":
@@ -547,7 +550,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "„iOS“ stiliaus veiklos indikatoriai"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Veiklos indikatorius"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Tik įspėjimo mygtukai"),
         "demoCupertinoAlertButtonsTitle":
@@ -575,7 +578,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "„iOS“ stiliaus naršymo juosta"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Naršymo juosta"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Data"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Data ir laikas"),
@@ -595,8 +598,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "„iOS“ stiliaus atnaujinimo patraukus valdiklis"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Patraukite, kad atnaujintumėte"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Naudojama renkantis iš įvairių bendrai išskiriamų parinkčių. Pasirinkus vieną segmentuoto valdiklio parinktį, kitos jo parinktys nebepasirenkamos."),
@@ -604,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "„iOS“ stiliaus segmentuotas valdiklis"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentuotas valdiklis"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Šliaužikliu galima pasirinkti tęstinių arba konkrečių verčių rinkinius."),
@@ -622,7 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "„iOS“ stiliaus apatinė skirtukų juosta"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Skirtukų juosta"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Teksto lauke naudotojas gali įvesti tekstą aparatinės įrangos arba ekrano klaviatūra."),
         "demoCupertinoTextFieldPIN":
@@ -630,7 +633,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "„iOS“ stiliaus teksto laukai"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Teksto laukai"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Šliaužikliai atspindi juostos verčių diapazoną, iš kurio naudotojai gali pasirinkti vieną vertę arba verčių diapazoną. Galima nustatyti šliaužiklių temas arba juos tinkinti."),
         "demoCustomSlidersTitle":
@@ -833,9 +836,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Naudojant skirtukus tvarkomas turinys skirtinguose ekranuose, duomenų rinkiniuose ir naudojant kitas sąveikas."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Neslenkama"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Slenkama"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Skirtukai su atskirai slenkamais rodiniais"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Skirtukai"),
@@ -940,8 +943,58 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("RODYTI DIALOGO LANGĄ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ATSISAKYTI"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Į turinį orientuota naujienų programa"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Žaliosios armijos reformavimas iš vidaus"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Bičių ūkiams trūksta išteklių"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Dizaineriai kuria futuristinius audinius pasitelkę technologijas"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("Feministai lieka šališki"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Benzino ateitis"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Tylus, bet galingas sveikatos priežiūros perversmas"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Įvykus akcijų stagnacijai dauguma griebiasi valiutos"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Padalytų amerikiečių gyvenimas per karą"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Karščiausios naujienos"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Verslas"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultūra"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Pradinis puslapis"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Mokslas"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Sportas"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Technologijos"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Kelionės"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("JAV"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Pasaulis"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Žalioji armija"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage(
+                "Sveikatos priežiūros perversmas"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reforma"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Akcijos"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Technologijų dizainas"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STILIAI IR KITA"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorijos"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
@@ -998,6 +1051,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Mokėtina suma"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Sumokėta suma"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Visa suma"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Sąskaitos"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Terminas"),
         "rallyBudgetAmount": m27,
@@ -1009,6 +1068,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pirkiniai"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restoranai"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Likusi suma"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Išnaudota suma"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Didžiausia bendra suma"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Likutis"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Biudžetai"),
         "rallyDescription":

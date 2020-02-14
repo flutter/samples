@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'నాన్‌స్టాప్', one: '1 స్టాప్', other: '${numberOfStops} స్టాప్‌లు')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1గం', other: '${hours}గం')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1నిమి', other: '${minutes}నిమి')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ప్రాపర్టీలు ఏవీ అందుబాటులో లేవు', one: '1 ప్రాపర్టీలు అందుబాటులో ఉన్నాయి', other: '${totalProperties} ప్రాపర్టీలు అందుబాటులో ఉన్నాయి')}";
@@ -435,15 +435,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "టైల్‌లను ఎడిట్ చేయడానికి ట్యాప్ చేయండి, సీన్ చుట్టూ తిరగడానికి సంజ్ఞలను ఉపయోగించండి. ప్యాన్ చేయడానికి లాగి, జూమ్ చేయడానికి వేళ్లతో స్క్రీన్‌ను నియంత్రించి, రెండు వేళ్లతో తిప్పండి. ప్రారంభ ఓరియంటేషన్‌కు తిరిగివెళ్లడానికి రీసెట్ బటన్‌ను నొక్కండి."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("టైల్‌లను ఎడిట్ చేయి"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("పరివర్తనాలను రీసెట్ చేయి"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "ప్యాన్ చేయండి, జూమ్ చేయండి, తిప్పండి"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D పరివర్తనాలు"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "యాక్షన్ చిప్‌లు అనేవి ప్రాథమిక కంటెంట్‌కు సంబంధించిన చర్యను ట్రిగ్గర్ చేసే ఎంపికల సెట్. UIలో యాక్షన్ చిప్‌లు డైనమిక్‌గా, సందర్భానుసారంగా కనిపించాలి."),
         "demoActionChipTitle":
@@ -542,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-శైలి కార్యకలాప సూచీలు"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("కార్యకలాప సూచీ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("అలర్ట్ బటన్‌లు మాత్రమే"),
         "demoCupertinoAlertButtonsTitle":
@@ -569,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-శైలి నావిగేషన్ బార్"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("నావిగేషన్ పట్టీ"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("తేదీ"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("తేదీ మరియు సమయం"),
@@ -589,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-శైలిలో \'రిఫ్రెష్ చేయడానికి లాగే నియంత్రణ\'"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("రిఫ్రెష్ చేయడానికి లాగండి"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "పరస్పర సంబంధం లేని అనేక ఎంపికల మధ్య ఎంచుకోవడానికి దీనిని ఉపయోగిస్తారు. \'విభజించబడిన నియంత్రణ\'లో ఉండే ఒక ఎంపికను ఎంచుకుంటే, \'విభజించబడిన నియంత్రణ\'లో ఉండే ఇతర ఎంపికలు ఎంచుకునేందుకు ఇక అందుబాటులో ఉండవు."),
@@ -597,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-శైలి \'విభజించబడిన నియంత్రణ\'"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("విభజించబడిన నియంత్రణ"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "స్లయిడర్‌ను విలువల అవిచ్ఛిన్న లేదా విలక్షణ సెట్ నుండి ఏదొక దానిని ఎంచుకోవడానికి ఉపయోగించవచ్చు."),
@@ -615,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-శైలి బటన్ ట్యాబ్ బార్"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ట్యాబ్ బార్"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "యూజర్ హార్డ్‌వేర్ కీబోర్డ్‌తో లేదా ఆన్‌స్క్రీన్ కీబోర్డ్‌తో వచనాన్ని ఎంటర్ చేయగలిగే వచన ఫీల్డ్."),
         "demoCupertinoTextFieldPIN":
@@ -623,7 +623,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-శైలి వచన ఫీల్డ్‌లు"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("వచన ఫీల్డ్‌లు"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "బార్ అంతటా విలువల శ్రేణిని స్లయిడర్‌లు సూచిస్తాయి. యూజర్‌లు వాటి నుండి ఒక విలువను లేదా విలువల శ్రేణిని ఎంచుకోగలరు. స్లయిడర్‌ల థీమ్‌ను మార్చవచ్చు, అనుకూలీకరించవచ్చు."),
         "demoCustomSlidersTitle":
@@ -823,9 +823,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "విభిన్న స్క్రీన్‌లు, డేటా సెట్‌లు మరియు ఇతర పరస్పర చర్యలలో ట్యాబ్‌లు అనేవి కంటెంట్‌ను నిర్వహిస్తాయి."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("స్క్రోల్ చేయడం లేదు"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("స్క్రోల్ చేస్తోంది"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "స్వతంత్రంగా స్క్రోల్ చేయదగిన వీక్షణలతో ట్యాబ్‌లు"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ట్యాబ్‌లు"),
@@ -931,8 +931,56 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("బ్యాకప్ ఖాతాను సెట్ చేయి"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("డైలాగ్ చూపించు"),
         "dismiss": MessageLookupByLibrary.simpleMessage("తీసివేయి"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("కంటెంట్-ప్రధాన వార్తల యాప్"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "\'ద గ్రీన్ ఆర్మీ\' అంతర్గత పునరుద్ధరణ"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "పరాగసంపర్కంలో పాల్గొనే తేనెటీగల కొరత"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "రేపటి తరం ఫ్యాబ్రిక్‌లు - టెక్నాలజీతో ఈ తరం డిజైనర్ల ఆవిష్కరణలు"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("వివక్షపై ఫెమినిస్ట్‌ల వైఖరి"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("గ్యాసోలీన్ భవిష్యత్తు"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "ఆరోగ్య రంగంలో ప్రశంసకు నోచుకోని నిశ్శబ్ద విప్లవం"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "నిలిచిపోయిన స్టాక్స్, కరెన్సీపైకి మరలిన పలువురి దృష్టి"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "యుద్ధ సమయంలో ఆప్తులకు దూరమైన అమెరికా వాసుల వ్యథ"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("తాజా అప్‌డేట్‌లు"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("వ్యాపారం"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("సంస్కృతి"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("మొదటి పేజీ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("రాజకీయాలు"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("విజ్ఞాన శాస్త్రం"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("క్రీడలు"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("సాంకేతికం"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("ప్రయాణం"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ప్రపంచం"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("హరిత దళం"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("ఆరోగ్య పరిరక్షణలో చైతన్యం"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("కొత్త పథం"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("స్టాక్‌లు"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("టెక్ డిజైన్"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("శైలులు, ఇతరవి"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("వర్గాలు"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("గ్యాలరీ"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("బీచ్"),
@@ -984,6 +1032,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("బకాయి మొత్తం"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("చెల్లించిన మొత్తం"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("మొత్తం సొమ్ము"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("బిల్లులు"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("బకాయి వున్న బిల్లు"),
@@ -996,6 +1050,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("కిరాణా సరుకులు"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("రెస్టారెంట్‌లు"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("మిగిలిన మొత్తం"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ఉపయోగించిన మొత్తం"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("మొత్తం పెట్టుబడి సామర్థ్యం"),
         "rallyBudgetLeft":
             MessageLookupByLibrary.simpleMessage("మిగిలిన మొత్తం"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("బడ్జెట్‌లు"),

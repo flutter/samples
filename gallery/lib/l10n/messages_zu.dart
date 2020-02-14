@@ -445,15 +445,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Thepha ukuze uhlele amathayela, futhi usebenzise ukuthinta ukuze uzulazule esigcawini. Hudula ukuze unyakazise, nciza ukuze usondeze, phendukisa ngeminwe emibili. Cindezela inkinobho yokusetha kabusha ukuze ubuyele ekuqaleni komumo wesikrini."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Hlela uthayela"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Setha kabusha ukuguqula"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nyakaza, sondeza, phendukisa"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D ukuguqula"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ama-chip ayisethi yezinketho acupha isenzo esiphathelene nokuqukethwe okuyinhloko. Ama-chip kufanele abonakale ngokubanzi nangokuqukethwe ku-UI."),
         "demoActionChipTitle":
@@ -555,7 +555,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "isikhombisi somsebenzi wesitayela se-iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Isikhombi somsebenzi"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Izinkinobho zesexwayiso kuphela"),
@@ -584,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Ibha yokuzulazula yesitayela se-iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Ibha yokuzula"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Idethi"),
         "demoCupertinoPickerDateTime":
@@ -606,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Ulawulo lwesitayela se-iOS lokudonsa ukuze uvuselele"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Donsa ukuze uvuselele"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kusetshenziselwe ukukhetha phakathi kwenombolo yezinketho ezikhethekile ngokufanayo. Uma inketho eyodwa ekulawulweni okwenziwe isegmenti ikhethwa, ezinye izinketho ekulawulweni okwenziwe isegmenti ziyayeka ukukhethwa."),
@@ -614,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ulawulo olwenziwe isegmenti lwesitayela se-iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Ulawulo olufakwe kusegmenti"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Isilayida singasetshenziswa ukuze kukhethwe isethi yamanani aqhubekayo noma okuzikhethela."),
@@ -632,7 +632,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Ibha yethebhu engaphansi yesitayela se-iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Ibha yethebhu"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Inkambu yombhalo ivumela umsebenzisi afake umbhalo, kungaba khekhibhodi yekhompuyutha noma ngekhibhodi esesikrinini."),
         "demoCupertinoTextFieldPIN":
@@ -640,7 +640,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "Izinkambu zombhalo wesitayela se-iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Izinkambu zombhalo"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Izilayidi zibonisa ibanga lamavelu kwibha, kusuka lapho abasebenzisi bangakhetha khona ivelu elilodwa noma ibanga lamavelu. Izilayidi zingaba netimu futhi zenziwe ngokwezifiso."),
         "demoCustomSlidersTitle":
@@ -839,9 +839,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Amathebhu ahlela okuqukethwe kuzikrini ezihlukile zokuqukethwe, amasethi edatha, nokunye ukuhlanganyela."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Ukungaskroli"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Iyapheqa"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Amathebhu anokubuka okuzimele okuskrolekayo"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Amathebhu"),
@@ -944,8 +944,55 @@ class MessageLookup extends MessageLookupByLibrary {
             "Setha i-akhawunti yokwenza isipele"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("BONISA IBHOKISI"),
         "dismiss": MessageLookupByLibrary.simpleMessage("CASHISA"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Uhlelo lokusebenza lwezindaba olugxiliswe kokuqukethwe"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Ukulungiswa Kwempi Eluhlaza Kusukela Ngaphakathi"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Izinyosi Zendawo Yefamu Zinokunikezwa Okumfushane"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Abadizayinayo Basebenzisa Ubuchwepheshe Ukuze Benze Izindwangu Ezizayo"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Ama-Ferminist Athatha i-Partisanship"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Ikusasa Lephethiloli"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Ukuphenduka Okuthulile, Kodwa Okunamandla Kokunakekelwa Kwezempilo"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Njengoba Izitoko Zihamba Kancane, Iningi Labantu Libheka Uhlobo Lwemali"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Owasemelika Ohlukanisiwe Ophila Ngesikhathi Sempi"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Izibuyekezo Zakamuva"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Ibhizinisi"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("Isiko"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Ikhasi langaphambili"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Ipolotiki"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Isayensi"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Ezemidlalo"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Ubuchwepheshe"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Ukuvakasha"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("I-US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Umhlaba"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("I-GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("I-HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Okulungisiwe"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Izitoko"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("I-TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("IZITAYELA NOKUNYE"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Izigaba"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Igalari"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Ebhishi"),
@@ -1001,6 +1048,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Inani elifunekayo"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Inani elikhokhiwe"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Inani lesamba"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Amabhili"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Ifuneka"),
         "rallyBudgetAmount": m27,
@@ -1012,6 +1065,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Amagrosa"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Amarestshurenti"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Inani elisele"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Inani elisetshenzisiwe"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("I-cap yesamba"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Kwesobunxele"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Amabhajethi"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

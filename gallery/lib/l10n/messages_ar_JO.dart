@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'بدون توقف', one: 'محطة واحدة', two: 'محطتان (${numberOfStops})', few: '${numberOfStops}‏ محطات', many: '${numberOfStops}‏ محطة', other: '${numberOfStops}‏ محطة')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, zero: '${hours} س', one: '1 س', two: '${hours} س', few: '${hours} س', many: '${hours} س', other: '${hours} س')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, zero: '${minutes} د', one: '1 د', two: '${minutes} د', few: '${minutes} د', many: '${minutes} د', other: '${minutes} د')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ليس هناك مواقع متاحة.', one: 'هناك موقع واحد متاح.', two: 'هناك موقعان (${totalProperties}) متاحان.', few: 'هناك ${totalProperties} مواقع متاحة.', many: 'هناك ${totalProperties} موقعًا متاحًا.', other: 'هناك ${totalProperties} موقع متاح.')}";
@@ -424,15 +425,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "انقر لتعديل المربّعات واستخدام الإيماءات للتنقل خلال المشهد. اسحب لتنفيذ العرض الشامل وحرّك إصبعيك للتكبير/التصغير ويمكنك التدوير بإصبعين. اضغط على زر إعادة الضبط للرجوع إلى الاتجاه الأصلي."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("تعديل المربّع"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("إعادة ضبط التحويلات"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "عرض شامل، تكبير/تصغير، تدوير"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("التحويلات الثنائية الأبعاد"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "شرائح الإجراءات هي مجموعة من الخيارات التي تشغّل إجراءً ذا صلة بالمحتوى الأساسي. ينبغي أن يكون ظهور شرائح الإجراءات في واجهة المستخدم ديناميكيًا ومناسبًا للسياق."),
         "demoActionChipTitle":
@@ -530,7 +531,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("مؤشرات نشاط بنمط iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("مؤشر النشاط"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("أزرار التنبيه فقط"),
         "demoCupertinoAlertButtonsTitle":
@@ -557,7 +558,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("شريط تنقل بنمط iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("شريط التنقل"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("التاريخ"),
         "demoCupertinoPickerDateTime":
@@ -579,14 +580,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "عنصر تحكم السحب لإعادة التحميل بنمط iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("سحب لإعادة التحميل"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "يُستخدَم للاختيار بين عدد من الخيارات يستبعد أحدها الآخر. عند تحديد خيار في عنصر تحكّم الشريحة، يتم إلغاء اختيار العنصر الآخر في عنصر تحكّم الشريحة."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("عنصر تحكّم شريحة بنمط iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("عنصر تحكّم شريحة"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "يمكن استخدام شريط تمرير للاختيار من مجموعة قيم متصلة أو مجموعة قيم منفصلة."),
@@ -604,7 +605,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "شريط علامات التبويب السفلي بنمط iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("شريط علامات التبويب"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "يسمح حقل النص للمستخدم بإدخال نص إما باستخدام لوحة مفاتيح حقيقية أو لوحة مفاتيح تظهر على الشاشة."),
         "demoCupertinoTextFieldPIN":
@@ -612,7 +613,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("حقول نصل بنمط iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("حقول النص"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "تعكس شرائط التمرير نطاقًا من القيم بطول شريط، ويمكن للمستخدمين اختيار قيمة واحدة أو نطاق من القيم من ذلك الشريط. يمكن تخصيص شرائط التمرير وتغيير تصميماتها."),
         "demoCustomSlidersTitle":
@@ -809,9 +810,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "تساعد علامات التبويب على تنظيم المحتوى في الشاشات المختلفة ومجموعات البيانات والتفاعلات الأخرى."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("عدم التمرير"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("التمرير"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "علامات تبويب تحتوي على عروض يمكن التنقّل خلالها بشكل مستقل"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("علامات التبويب"),
@@ -911,8 +912,53 @@ class MessageLookup extends MessageLookupByLibrary {
             "تحديد حساب النسخة الاحتياطية"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("عرض مربع الحوار"),
         "dismiss": MessageLookupByLibrary.simpleMessage("رفض"),
-        "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "تطبيق أخبار يركّز على المحتوى"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "إصلاح الجيش الأخضر من الداخل"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("نقص نحل الأراضي الزراعية"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "مصمِّمون يستخدمون التكنولوجيا لصنع ملابس تستلهم المستقبل"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "مدافعون عن حقوق المرأة يجابهون التحزب"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("مستقبل البنزين"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "ثورة الرعاية الصحية الهادئة والفعالة في الوقت نفسه"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "مع ركود الأسهم، يتجه الكثيرون إلى العملة"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "الأمريكيون المنقسمون أثناء الحرب"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("آخر المستجدّات"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("أعمال"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("ثقافة"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("الصفحة الأمامية"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("سياسة"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("علوم"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("رياضة"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("تكنولوجيا"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("سفر"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("العالم"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("الجيش_الأخضر"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("ثورة_الرعاية_الصحية"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("إصلاح"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("الأسهم"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("تصميم_تكنولوجي"),
+        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
+            "الأنماط وغيرها من العروض التوضيحية"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("معرض الصور"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("شاطئ"),
@@ -964,6 +1010,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("المبلغ المستحق"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("المبلغ المدفوع"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("المبلغ الإجمالي"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("الفواتير"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("الفواتير المستحقة"),
@@ -976,6 +1028,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("متاجر البقالة"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("المطاعم"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("المبلغ المتبقي"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("المبلغ المستخدم"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("الحد الأقصى الإجمالي"),
         "rallyBudgetLeft":
             MessageLookupByLibrary.simpleMessage("الميزانية المتبقية"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("الميزانيات"),

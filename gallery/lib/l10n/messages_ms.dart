@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Penerbangan terus', one: '1 persinggahan', other: '${numberOfStops} persinggahan')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1j', other: '${hours}j')}";
 
   static m8(minutes) =>
       "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
@@ -424,15 +424,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Ketik untuk mengedit jubin dan gunakan gerak isyarat untuk bergerak di sekitar latar. Seret untuk menyorot, cubit untuk mengezum, putar menggunakan dua jari. Tekan butang tetapkan semula untuk kembali ke orientasi permulaan."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Edit jubin"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Tetapkan semula transformasi"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Sorot, zum, putar"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Transformasi 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Cip tindakan ialah satu set pilihan yang mencetuskan tindakan yang berkaitan dengan kandungan utama. Cip tindakan seharusnya dipaparkan secara dinamik dan kontekstual dalam UI."),
         "demoActionChipTitle":
@@ -532,7 +533,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("Penunjuk aktiviti gaya iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Penunjuk aktiviti"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Butang Makluman Sahaja"),
         "demoCupertinoAlertButtonsTitle":
@@ -559,7 +560,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Bar navigasi gaya iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Bar navigasi"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Tarikh"),
         "demoCupertinoPickerDateTime":
@@ -580,7 +581,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kawalan tarik untuk muat semula gaya iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Tarik untuk memuat semula"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Digunakan untuk memilih antara beberapa pilihan eksklusif bersama. Apabila satu pilihan dalam kawalan yang disegmenkan dipilih, pilihan lain dalam kawalan disegmenkan itu dihentikan sebagai pilihan."),
@@ -588,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kawalan disegmenkan gaya iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Kawalan disegmenkan"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Peluncur boleh digunakan untuk memilih daripada set nilai berterusan atau diskret."),
@@ -606,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Bar tab bawah gaya iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Bar tab"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Medan teks membolehkan pengguna memasukkan teks menggunakan papan kekunci perkakasan atau papan kekunci pada skrin."),
         "demoCupertinoTextFieldPIN":
@@ -614,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Medan teks gaya iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Medan teks"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Peluncur menggambarkan satu julat nilai di sepanjang bar dan pengguna boleh memilih satu atau beberapa nilai itu. Peluncur boleh bertema atau disesuaikan."),
         "demoCustomSlidersTitle":
@@ -810,9 +811,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Tab menyusun kandungan untuk semua skrin, set data dan interaksi lain yang berbeza-beza."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Bukan menatal"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Menatal"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Tab dengan paparan boleh ditatal secara bebas"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tab"),
@@ -912,8 +913,54 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tetapkan akaun sandaran"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("TUNJUKKAN DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("KETEPIKAN"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Apl berita berfokuskan kandungan"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Reforming The Green Army From Within"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Farmland Bees In Short Supply"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Designers Use Tech To Make Futuristic Fabrics"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feminists Take On Partisanship"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("The Future of Gasoline"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "The Quiet, Yet Powerful Healthcare Revolution"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "As Stocks Stagnate, Many Look To Currency"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Divided American Lives During War"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Kemas Kini Terkini"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Perniagaan"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Budaya"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Halaman Depan"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politik"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Sains"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sukan"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknologi"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Pelancongan"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("AS"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Dunia"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("GAYA & LAIN-LAIN"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategori"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeri"),
@@ -967,6 +1014,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Jumlah Perlu Dibayar"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Jumlah Dibayar"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Jumlah Keseluruhan"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bil"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Tarikh Akhir"),
         "rallyBudgetAmount": m27,
@@ -978,6 +1031,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Barangan runcit"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restoran"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Jumlah Baki"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Jumlah Digunakan"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Jumlah Had"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Kiri"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Belanjawan"),
         "rallyDescription":

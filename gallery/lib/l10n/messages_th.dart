@@ -36,10 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'บินตรง', one: '1 จุดพัก', other: '${numberOfStops} จุดพัก')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 ชม.', other: '${hours} ชม.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 นาที', other: '${minutes} นาที')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ไม่มีตัวเลือกที่พัก', one: 'มีตัวเลือกที่พัก 1 แห่ง', other: 'มีตัวเลือกที่พัก ${totalProperties} แห่ง')}";
@@ -414,15 +415,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "แตะเพื่อแก้ไขชิ้นส่วนแล้วใช้ท่าทางสัมผัสเพื่อเคลื่อนไหวไปรอบๆ ฉาก ใช้ 2 นิ้วลากเพื่อเลื่อน บีบเพื่อซูม หมุน กดปุ่มรีเซ็ตเพื่อกลับไปที่การวางแนวเริ่มต้น"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("แก้ไขชิ้นส่วน"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("รีเซ็ตการเปลี่ยนรูปแบบ"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("เลื่อน ซูม หมุน"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("การเปลี่ยนรูปแบบ 2 มิติ"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ชิปการทำงานคือชุดตัวเลือกที่จะเรียกใช้การทำงานที่เกี่ยวกับเนื้อหาหลัก ชิปการทำงานควรจะแสดงแบบไดนามิกและตามบริบทใน UI"),
         "demoActionChipTitle":
@@ -523,7 +524,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "สัญญาณบอกสถานะกิจกรรมแบบ iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("สัญญาณบอกสถานะกิจกรรม"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ปุ่มการแจ้งเตือนเท่านั้น"),
         "demoCupertinoAlertButtonsTitle":
@@ -550,7 +551,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("แถบนำทางแบบ iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("แถบนำทาง"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("วันที่"),
         "demoCupertinoPickerDateTime":
@@ -571,7 +572,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ตัวควบคุมแบบ iOS สำหรับดึงเพื่อรีเฟรช"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ดึงเพื่อรีเฟรช"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ใช้เพื่อเลือกระหว่างตัวเลือกที่เฉพาะตัวเหมือนกัน การเลือกตัวเลือกหนึ่งในส่วนควบคุมที่แบ่งกลุ่มจะเป็นการยกเลิกการเลือกตัวเลือกอื่นๆ ในส่วนควบคุมที่แบ่งกลุ่มนั้น"),
@@ -579,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ส่วนควบคุมที่แบ่งกลุ่มแบบ iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("ตัวควบคุมที่แบ่งกลุ่ม"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "แถบเลื่อนอาจใช้ในการเลือกชุดค่าที่ต่อเนื่องหรือไม่ต่อเนื่อง"),
@@ -597,7 +598,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("แถบแท็บด้านล่างแบบ iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("แถบแท็บ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ช่องข้อความที่ให้ผู้ใช้ป้อนข้อความด้วยแป้นพิมพ์ที่เป็นฮาร์ดแวร์หรือแป้นพิมพ์บนหน้าจอ"),
         "demoCupertinoTextFieldPIN":
@@ -605,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("ช่องข้อความแบบ iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("ช่องข้อความ"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "แถบเลื่อนแสดงช่วงของค่าในแถบซึ่งให้ผู้ใช้เลือกค่าเดียวหรือช่วงค่าก็ได้ รวมถึงอาจมีธีมและการปรับแต่ง"),
         "demoCustomSlidersTitle":
@@ -803,9 +804,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "แท็บช่วยจัดระเบียบเนื้อหาในหน้าจอต่างๆ ชุดข้อมูล และการโต้ตอบอื่นๆ"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("แบบไม่เลื่อน"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("แบบเลื่อน"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "แท็บซึ่งมีมุมมองที่เลื่อนได้แบบอิสระ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("แท็บ"),
@@ -906,8 +907,57 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ตั้งค่าบัญชีสำรอง"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("แสดงกล่องโต้ตอบ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ปิด"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("แอปข่าวที่มุ่งเน้นเนื้อหา"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "การปฏิรูป Green Army จากภายใน"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("ขาดแคลนผึ้งเลี้ยง"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "นักออกแบบใช้เทคโนโลยีในการสร้างผ้าแห่งอนาคต"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "เกิดการแบ่งพวกในหมู่นักสิทธิสตรี"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("อนาคตของน้ำมันเชื้อเพลิง"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "การปฏิวัติสาธารณสุขที่เงียบแต่ทรงพลัง"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "คนจำนวนมากหวังพึ่งการแลกเปลี่ยนสกุลเงินขณะที่หุ้นซบเซา"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "ชีวิตที่มีการแบ่งแยกของชาวอเมริกันในช่วงสงคราม"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("ข้อมูลอัปเดตล่าสุด"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ธุรกิจ"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("วัฒนธรรม"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("หน้าแรก"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("การเมือง"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("วิทยาศาสตร์"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("กีฬา"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("เทคโนโลยี"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("ท่องเที่ยว"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("สหรัฐอเมริกา"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("ต่างประเทศ"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("การปฏิวัติสาธารณสุข"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("การปฏิรูป"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("หุ้น"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("การออกแบบและเทคโนโลยี"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("รูปแบบและอื่นๆ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("หมวดหมู่"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("แกลเลอรี"),
@@ -964,6 +1014,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("จำนวนที่ครบกำหนดชำระ"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("จำนวนที่ชำระ"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("จำนวนรวม"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("ใบเรียกเก็บเงิน"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ครบกำหนด"),
         "rallyBudgetAmount": m27,
@@ -975,6 +1031,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ของชำ"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ร้านอาหาร"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("จำนวนที่เหลือ"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("จำนวนที่ใช้"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("จำนวนรวมสูงสุดที่กำหนด"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("ที่เหลือ"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("งบประมาณ"),
         "rallyDescription":

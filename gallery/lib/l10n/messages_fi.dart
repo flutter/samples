@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Suorat lennot', one: '1 välilasku', other: '${numberOfStops} välilaskua')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Ei majoituspaikkoja saatavilla', one: '1 majoituspaikka saatavilla', other: '${totalProperties} majoituspaikkaa saatavilla')}";
@@ -427,15 +427,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Napauta muokataksesi osia ja liiku kuvassa eleiden avulla. Panoroi vetämällä, zoomaa nipistämällä ja kierrä kahdella sormella. Palaa alkuperäiseen näkymään painamalla nollauspainiketta."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Muokkaa osaa"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("Nollaa muunnokset"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Panorointi, zoomaus, kierto"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-muunnokset"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Toimintoelementit ovat vaihtoehtoja, jotka käynnistävät pääsisältöön liittyvän toiminnon. Toimintoelementtien pitäisi tulla näkyviin käyttöliittymissä dynaamisesti ja sopivassa asiayhteydessä."),
         "demoActionChipTitle":
@@ -535,7 +535,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyyliset toimintaosoittimet"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Toimintaosoitin"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Vain ilmoituspainikkeet"),
         "demoCupertinoAlertButtonsTitle":
@@ -563,7 +563,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen siirtymispalkki"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Siirtymispalkki"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Päivämäärä"),
         "demoCupertinoPickerDateTime":
@@ -584,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen vetämällä päivittämisen asetus"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Vetämällä päivittäminen"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Tällä valitaan yksi toisensa poissulkevista vaihtoehdoista. Kun yksi segmenttihallituista vaihtoehdoista valitaan, valinta poistuu sen muista vaihtoehdoista."),
@@ -592,7 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tyylinen segmenttihallinta"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmenttihallinta"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Liukusäätimellä voi valita jatkuvasta tai diskreetistä arvojoukosta."),
@@ -610,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-tyylinen alareunan välilehtipalkki"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Välilehtirivi"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Tekstikentän avulla käyttäjä voi lisätä tekstiä joko laite- tai näyttönäppäimistöllä."),
         "demoCupertinoTextFieldPIN":
@@ -618,7 +618,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-tyyliset tekstikentät"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Tekstikentät"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Liukusäätimet kuvastavat erilaisia arvoja palkissa, josta käyttäjät voivat valita yksittäisen arvon tai useita erilaisia arvoja. Liukusäätimiä voi jakaa teemoihin ja muokata."),
         "demoCustomSlidersTitle":
@@ -821,9 +821,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Välilehdille järjestetään sisältöä eri näytöiltä, datajoukoista ja muista tilanteista."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Ei vieritettävä"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Vieritettävä"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Välilehdet, joiden näkymiä voidaan selata erikseen"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Välilehdet"),
@@ -927,8 +927,57 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("NÄYTÄ VALINTAIKKUNA"),
         "dismiss": MessageLookupByLibrary.simpleMessage("OHITA"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Sisältökeskeinen uutissovellus"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Vihreä armeija uudistuu sisältä päin"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Maaseudun mehiläiskato"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Tulevaisuuden kankaita kehitetään teknologian avulla"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministit kyseenalaistavat puolueellisuuden"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Bensiinin tulevaisuus"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Terveydenhuollon hiljainen mutta vaikuttava vallankumous"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Osakkeiden kasvun hidastuessa katseet kääntyvät valuuttaan"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Sodan erottamat amerikkalaiselämät"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Viimeisimmät päivitykset"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Liiketoiminta"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kulttuuri"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Etusivu"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politiikka"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Tiede"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Urheilu"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tekniikka"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Matkailu"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("Yhdysvallat"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Ulkomaat"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("TYYLIT JA MUUT"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Luokat"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleria"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Ranta"),
@@ -977,6 +1026,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Erääntyvä summa"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Maksettu summa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Kokonaissumma"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Laskut"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Maksettavaa"),
         "rallyBudgetAmount": m27,
@@ -988,6 +1043,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ruokaostokset"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Ravintolat"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Jäljellä oleva summa"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Käytetty summa"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Kokonaisrajoitus"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Vasen"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budjetit"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

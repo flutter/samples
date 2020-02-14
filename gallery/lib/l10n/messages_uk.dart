@@ -38,10 +38,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Прямий рейс', one: '1 зупинка', few: '${numberOfStops} зупинки', many: '${numberOfStops} зупинок', other: '${numberOfStops} зупинки')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 год', few: '${hours} год', many: '${hours} год', other: '${hours} год')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 хв', few: '${minutes} хв', many: '${minutes} хв', other: '${minutes} хв')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Немає доступних готелів або помешкань', one: '1 доступний готель або помешкання', few: '${totalProperties} доступні готелі або помешкання', many: '${totalProperties} доступних готелів або помешкань', other: '${totalProperties} доступного готелю або помешкання')}";
@@ -420,15 +421,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Натисніть, щоб змінити мозаїки, і використовуйте жести, щоб рухати кадр. Потягніть, щоб панорамувати, стисніть пальці, щоб змінити масштаб, обертайте двома пальцями. Щоб повернути початкову орієнтацію, натисніть кнопку \"Скинути\"."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Змінити мозаїку"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Скинути трансформації"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Панорамування, масштаб, обертання"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Двовимірні трансформації"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Інтерактивні елементи дій – це набір параметрів, які активують дії, пов\'язані з основним контентом. Вони мають з\'являтися динамічно й доповнювати інтерфейс."),
         "demoActionChipTitle":
@@ -530,7 +531,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Індикатори активності в стилі iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Індикатор активності"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Лише кнопки сповіщень"),
         "demoCupertinoAlertButtonsTitle":
@@ -558,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Панель навігації в стилі iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Панель навігації"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Дата"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Дата й час"),
@@ -578,7 +579,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Елемент керування в стилі iOS \"Потягнути, щоб оновити\""),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Потягніть, щоб оновити"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Використовується для вибору одного із взаємовиключних варіантів. Якщо вибрано один варіант у сегментованому контролі, вибір іншого варіанта буде скасовано."),
@@ -586,7 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Сегментований контроль у стилі iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Сегментований контроль"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Повзунок можна використовувати для вибору з безперервного або дискретного набору значень."),
@@ -604,7 +605,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Нижня панель вкладок у стилі iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Панель вкладок"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "У текстові поля можна вводити текст з апаратної або екранної клавіатури."),
         "demoCupertinoTextFieldPIN":
@@ -612,7 +613,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Текстові поля в стилі iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Текстові поля"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "За допомогою повзунків можна вибирати різні значення з діапазону. Їх тема та вигляд можуть бути різними."),
         "demoCustomSlidersTitle":
@@ -814,9 +815,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "На вкладках наведено контент із різних екранів, набори даних та іншу інформацію про взаємодії."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Не можна прокручувати"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Можна прокручувати"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Вкладки з окремим прокручуванням"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Вкладки"),
@@ -923,8 +924,53 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ПОКАЗАТИ ДІАЛОГОВЕ ВІКНО"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ЗАКРИТИ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Додаток новин з акцентом на контент"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Внутрішні реформи зеленої армії"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Нестача бджіл у сільському господарстві"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Завдяки технологіям з\'являється тканини майбутнього"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("Партійність феміністок"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Майбутнє бензину"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Тиха але потужна революція в області охорони здоров\'я"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Застій акцій зміщує фокус на валюту"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Розділене життя американців під час війни"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Останні новини"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Бізнес"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Культура"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Перша сторінка"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Політика"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Наука"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Спорт"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Техніка"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Подорожі"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("США"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Світ"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("СТИЛІ ТА ІНШЕ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категорії"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерея"),
@@ -979,6 +1025,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Сума до оплати"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Сплачена сума"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Загальна сума"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Платежі"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Потрібно сплатити:"),
@@ -991,6 +1043,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Гастрономи"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Ресторани"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Залишок"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Використана сума"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Загальне обмеження"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Залишок"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Бюджети"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

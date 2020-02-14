@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Direktni let', one: '1 postanek', two: '${numberOfStops} postanka', few: '${numberOfStops} postanki', other: '${numberOfStops} postankov')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 h', two: '${hours} h', few: '${hours} h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', two: '${minutes} min', few: '${minutes} min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Ni razpoložljivih kapacitet', one: 'Ena razpoložljiva kapaciteta', two: '${totalProperties} razpoložljivi kapaciteti', few: '${totalProperties} razpoložljive kapacitete', other: '${totalProperties} razpoložljivih kapacitet')}";
@@ -429,15 +430,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Dotaknite se, če želite urejati ploščice in uporabljati kretnje za pomikanje po prizoru. Vlecite, če se želite premikati, povlecite s prsti skupaj oz. narazen, če želite pomanjšati oziroma povečati, in sukajte z dvema prstoma. Pritisnite gumb za ponastavitev, če se želite vrniti v začetni položaj."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Urejanje ploščice"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Ponastavitev preoblikovanj"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Premikanje, povečava/pomanjšava, sukanje"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-preoblikovanja"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Elementi za dejanja so niz možnosti, ki sprožijo dejanje, povezano z glavno vsebino. Elementi za dejanja se morajo v uporabniškem vmesniku pojavljati dinamično in kontekstualno."),
         "demoActionChipTitle":
@@ -538,7 +539,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indikatorji dejavnosti v slogu iOSa"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Indikator dejavnosti"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Samo opozorilni gumbi"),
         "demoCupertinoAlertButtonsTitle":
@@ -566,7 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Vrstica za krmarjenje v slogu iOSa"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Vrstica za krmarjenje"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Datum"),
         "demoCupertinoPickerDateTime":
@@ -586,8 +587,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Kontrolnik za vlečenje navzdol za osvežitev v slogu iOSa"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Vlečenje navzdol za osvežitev"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Uporablja se za izbiro med več možnostmi, ki se medsebojno izključujejo. Če je izbrana ena možnost segmentiranega upravljanja, druge možnosti segmentiranega upravljanja niso več izbrane."),
@@ -595,7 +596,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Segmentirano upravljanje v slogu iOSa"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentirano upravljanje"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Drsnik je mogoče uporabiti za izbiro neprekinjenih ali diskretnih nizov vrednosti."),
@@ -613,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Spodnja vrstica z zavihki v slogu iOSa"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Vrstica z zavihki"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Besedilno polje uporabniku omogoča vnos besedila – ali s strojno tipkovnico ali z zaslonsko tipkovnico."),
         "demoCupertinoTextFieldPIN":
@@ -621,7 +622,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "Besedilna polja v slogu iOSa"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Besedilna polja"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Drsniki odražajo niz vrednosti vzdolž vrstice, izmed katerih lahko uporabniki izberejo posamezno vrednost ali obseg vrednosti. Drsnikom je mogoče določiti temo in jih prilagoditi."),
         "demoCustomSlidersTitle":
@@ -824,9 +825,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Na zavihkih je vsebina organizirana na več zaslonih, po naborih podatkov in glede na druge uporabe."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Ne omogoča pomikanja"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Omogoča pomikanje"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Zavihki s pogledi, ki omogočajo neodvisno pomikanje"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Zavihki"),
@@ -928,8 +929,56 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("PRIKAŽI POGOVORNO OKNO"),
         "dismiss": MessageLookupByLibrary.simpleMessage("OPUSTI"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Aplikacija za novice s poudarkom na vsebini"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Reformiranje zelene vojske od znotraj"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Primanjkljaj čebel na deželi"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Oblikovalci si s tehnologijo pomagajo do tkanin prihodnosti"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("Feministke nad strankarstvo"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Prihodnost bencina"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Tiha, vendar krepka revolucija v zdravstvu"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Ob stagnaciji delnic se številni ozirajo k valutam"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Ločena ameriška življenja med vojno"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Zadnje novice"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Posel"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultura"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Prva stran"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Znanost"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Šport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tehnologija"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Potovanja"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("Združene države"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Svet"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Zelena vojska"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("Revolucija v zdravstvu"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reforme"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Delnice"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Tehnološko oblikovanje"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("SLOGI IN DRUGO"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorije"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
@@ -982,6 +1031,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Neplačan znesek"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Plačani znesek"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Skupni znesek"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Položnice"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Rok"),
         "rallyBudgetAmount": m27,
@@ -993,6 +1048,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Živila"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restavracije"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Preostali znesek"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Porabljeni znesek"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Skupna omejitev"),
         "rallyBudgetLeft":
             MessageLookupByLibrary.simpleMessage("preostalih sredstev"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Proračuni"),

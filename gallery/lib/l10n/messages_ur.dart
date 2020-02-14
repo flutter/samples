@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'نان اسٹاپ', one: '1 اسٹاپ', other: '${numberOfStops} اسٹاپس')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1گھنٹہ', other: '${hours} گھنٹے')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1منٹ', other: '${minutes}منٹ')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'کوئی دستیاب پراپرٹیز نہیں', one: '1 دستیاب پراپرٹیز', other: '${totalProperties} دستیاب پراپرٹیز ہیں')}";
@@ -422,15 +423,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ٹائلز میں ترمیم کرنے کے ليے تھپتھپائیں اور منظر کے ارد گرد گھومنے کے ليے اشاروں کا استعمال کریں۔ پین کرنے کے ليے گھسیٹیں، زوم کرنے کے ليے پِنچ کریں، دو انگلیوں سے گھمائیں۔ شروعاتی سمت بندی پر واپس جانے کے لیے ری سیٹ بٹن دبائیں۔"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ٹائل میں ترمیم کریں"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("ٹرانسفارمیشنز ری سیٹ کریں"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("پین کریں، زوم کریں، گھمائیں"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D ٹرانسفارمیشنز"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ایکشن چپس اختیارات کا ایک سیٹ ہے جو بنیادی مواد سے متعلقہ کارروائی کو متحرک کرتا ہے۔ ایکشن چپس کو متحرک اور سیاق و سباق کے لحاظ سے کسی UI میں ظاہر ہونی چاہیے۔"),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("ایکشن چپ"),
@@ -526,7 +527,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS طرز کے سرگرمی انڈیکیٹرز"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("سرگرمی انڈیکیٹر"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("صرف الرٹ بٹنز"),
         "demoCupertinoAlertButtonsTitle":
@@ -552,7 +553,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS طرز کا نیویگیشن بار"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("نیویگیشن بار"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("تاریخ"),
         "demoCupertinoPickerDateTime":
@@ -573,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS طرز والا کنٹرول کو ریفریش کرنے کے لیے کھینچیں"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ریفریش کرنے کے لیے کھینچیں"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "باہمی خصوصی اختیارات کی ایک بڑی تعداد کے مابین منتخب کرنے کے لئے استعمال کیا جاتا ہے۔ جب سیگمینٹ کردہ کنٹرول کا کوئی آپشن منتخب کیا جاتا ہے، تو سیگمینٹ کردہ کنٹرول کے دیگر اختیارات کو منتخب کرنا بند کردیا جاتا ہے۔"),
@@ -581,7 +582,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS طرز کا سیگمنٹ کردہ کنٹرول"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("سیگمینٹ کردہ کنٹرول"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ایک سلائیڈر مسلسل یا علیحدہ اقدار کے سیٹ سے منتخب کرنے کے ليے استعمال کیا جا سکتا ہے۔"),
@@ -599,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS طرز کے نیچے والی ٹیب بار"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ٹیب بار"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ٹیکسٹ کا فیلڈ صارف کو ہارڈویئر کی بورڈ کے ساتھ یا اسکرین کی بورڈ کے ساتھ ٹیکسٹ داخل کرنے دیتا ہے۔"),
         "demoCupertinoTextFieldPIN":
@@ -607,7 +608,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS کی طرز پر ٹیکسٹ کے فیلڈز"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("متن کی فیلڈز"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "سلائیڈرز بار کے ساتھ اقدار کے رینج کی عکاسی کرتے ہیں، جہاں سے صارفین ایک ہی قدر یا اقدار کے رینج کو منتخب کر سکتے ہیں۔ ان سلائیڈرز کو تھیم شدہ اور حسب ضرورت بنایا جا سکتا ہے۔"),
         "demoCustomSlidersTitle":
@@ -801,9 +802,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ٹیبز مختلف اسکرینز، ڈیٹا سیٹس اور دیگر تعاملات پر مواد منظم کرتا ہے۔"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("غیر اسکرولنگ"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("اسکرولنگ"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "آزادانہ طور پر قابل اسکرول ملاحظات کے ٹیبس"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ٹیبز"),
@@ -906,8 +907,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ڈائیلاگ باکس دکھائیں"),
         "dismiss": MessageLookupByLibrary.simpleMessage("مسترد کریں"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("ایک مواد فوکسڈ خبروں کی ایپ"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("گرین آرمی کی درون اصلاح"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "فارم لینڈ مکھیوں کی سپلائی میں کمی"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "مستقبل کے کپڑے تیار کرنے کے لیے ڈیزائنرز ٹیکنالوجی کا استعمال کرتے ہے"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("حقوق نسواں کی بے جا حمایت"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("پٹرول کا مستقبل"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "صحت کی دیکھ ریکھ میں پرسکون لیکن طاقتور انقلاب"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "اسٹاکس کے ساکن ہونے پر، بہت سے لوگوں کا رحجان کرنسی کی طرف"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "جنگ کے دوران منقسم امریکیوں کی زندگیاں"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("تازہ ترین اپ ڈیٹس"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("کاروبار"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("ثقافت"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("فرنٹ صفحہ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("سیاست"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("سائنس"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("کھیل"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("ٹیکنالوجی"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("سفر"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("دنیا"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("اصلاح"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("اسٹاکس"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("طرزیں اور دیگر"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("زمرے"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("گیلری"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ساحل"),
@@ -958,6 +1003,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("واجب الادا رقم"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("ادا کردہ رقم"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("کل تعداد"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("بلز"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("آخری تاریخ"),
         "rallyBudgetAmount": m27,
@@ -969,6 +1020,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("گروسریز"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ریستوراں"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("بچی ہوئی رقم"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("صرف کردہ رقم"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("کُل کیپ"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("بائیں"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("بجٹس"),
         "rallyDescription":

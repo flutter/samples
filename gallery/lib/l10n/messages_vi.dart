@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Bay thẳng', one: '1 điểm dừng', other: '${numberOfStops} điểm dừng')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 giờ', other: '${hours} giờ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 phút', other: '${minutes} phút')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Không có khách sạn nào', one: 'Có 1 khách sạn', other: 'Có ${totalProperties} khách sạn')}";
@@ -418,15 +419,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Nhấn để chỉnh sửa thẻ thông tin rồi dùng cử chỉ để di chuyển xung quanh cảnh. Kéo để di chuyển, chụm để thu phóng, xoay bằng 2 ngón tay. Nhấn nút đặt lại để trở về hướng bắt đầu."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Chỉnh sửa thẻ thông tin"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Đặt lại phép biến đổi"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Dịch chuyển, thu phóng, xoay"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Phép biến đổi 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Thẻ hành động là một tập hợp các tùy chọn kích hoạt hành động liên quan đến nội dung chính. Thẻ này sẽ hiển thị linh hoạt và theo ngữ cảnh trong giao diện người dùng."),
         "demoActionChipTitle":
@@ -527,7 +528,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Chỉ báo hoạt động theo kiểu iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Chỉ báo hoạt động"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Chỉ nút cảnh báo"),
         "demoCupertinoAlertButtonsTitle":
@@ -555,7 +556,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Thanh điều hướng theo kiểu iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Thanh điều hướng"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Ngày"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Ngày và giờ"),
@@ -575,7 +576,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Tùy chọn kiểm soát kéo để làm mới theo kiểu iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Kéo để làm mới"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Dùng để chọn trong một số các tùy chọn loại trừ tương hỗ. Khi chọn 1 tùy chọn trong chế độ kiểm soát được phân đoạn, bạn sẽ không thể chọn các tùy chọn khác trong chế độ đó."),
@@ -583,7 +584,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Chế độ kiểm soát được phân đoạn theo kiểu iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "Chế độ kiểm soát được phân đoạn"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Bạn có thể dùng thanh trượt để chọn trong một tập hợp các giá trị liên tục hoặc rời rạc."),
@@ -601,7 +603,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Thanh tab dưới cùng theo kiểu iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Thanh thẻ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Trường văn bản để người dùng nhập văn bản bằng bàn phím thực hoặc bàn phím ảo."),
         "demoCupertinoTextFieldPIN":
@@ -609,7 +611,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Trường văn bản kiểu iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Trường văn bản"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Thanh trượt biểu thị khoảng giá trị dọc theo một thanh mà người dùng có thể chọn một giá trị hoặc khoảng giá trị từ đó. Bạn có thể tùy chỉnh và tạo giao diện cho thanh trượt."),
         "demoCustomSlidersTitle":
@@ -806,9 +808,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Các tab sắp xếp nội dung trên nhiều màn hình, tập dữ liệu và hoạt động tương tác khác."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
-        "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Không cuộn"),
+        "demoTabsScrollingTitle": MessageLookupByLibrary.simpleMessage("Cuộn"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Các tab có chế độ xem có thể di chuyển độc lập"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tab"),
@@ -909,8 +910,57 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("HIỂN THỊ HỘP THOẠI"),
         "dismiss": MessageLookupByLibrary.simpleMessage("BỎ QUA"),
-        "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Ứng dụng tin tức dành cho những nội dung đặc sắc"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Cải cách Green Army từ bên trong"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Thiếu hụt nguồn cung ong nuôi"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Nhiều nhà thiết kế dùng công nghệ để tạo ra loại vải thế hệ mới"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Chủ nghĩa nữ quyền thách thức các đảng chính trị"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Tương lai của xăng dầu"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Cuộc cải cách y tế âm thầm mà bền bỉ"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Khi cổ phiếu chứng khoán đình trệ, nhiều người chuyển sang dự trữ tiền tệ"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Những người Mỹ phải chia ly trong thời chiến"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Thông tin cập nhật mới nhất"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Kinh doanh"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Văn hóa"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Trang đầu"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Chính trị"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Khoa học"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Thể thao"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Công nghệ"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Du lịch"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("Hoa Kỳ"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Thế giới"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
+        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
+            "BẢN MINH HỌA KIỂU VÀ CÁC BẢN MINH HỌA KHÁC"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Danh mục"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Thư viện"),
@@ -963,6 +1013,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Số tiền phải thanh toán"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Số tiền đã thanh toán"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Tổng số tiền"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hóa đơn"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Khoản tiền đến hạn trả"),
@@ -975,6 +1031,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cửa hàng tạp hóa"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Nhà hàng"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Số tiền còn lại"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Số tiền đã dùng"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Tổng số tiền"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Còn lại"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Ngân sách"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'بی‌وقفه', one: '۱ توقف', other: '${numberOfStops} توقف')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '۱ ساعت', other: '${hours} ساعت')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '۱ دقیقه', other: '${minutes} دقیقه')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ملکی در دسترس نیست', one: '۱ ملک در دسترس است', other: '${totalProperties} ملک در دسترس است')}";
@@ -416,15 +417,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "برای ویرایش کاشی‌ها ضربه بزنید و از اشاره‌ها برای حرکت کردن در صحنه استفاده کنید. برای حرکت دادن بکشید، برای بزرگ‌نمایی انگشتان را نزدیک یا دور کنید، و با دو انگشت بچرخانید. برای برگشتن به جهت ابتدایی، دکمه بازنشانی را فشار دهید."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ویرایش کاشی"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("بازنشانی تبدیل"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "حرکت دادن، بزرگ‌نمایی کردن، چرخاندن"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("تبدیل دوبعدی"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "تراشه‌های کنش مجموعه‌ای از گزینه‌ها هستند که کنشی مرتبط با محتوای اصلی را راه‌اندازی می‌کنند. تراشه‌های کنش باید به‌صورت پویا و مرتبط با محتوا در رابط کاربری نشان داده شوند."),
         "demoActionChipTitle":
@@ -521,7 +522,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("نشانگر فعالیت سبک iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("نشانگر فعالیت"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("فقط دکمه‌های هشدار"),
         "demoCupertinoAlertButtonsTitle":
@@ -548,7 +549,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("نوار پیمایش سبک iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("نوار پیمایش"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("تاریخ"),
         "demoCupertinoPickerDateTime":
@@ -569,7 +570,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "کنترل «کشیدن برای بازخوانی» به سبک iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("کشیدن برای بازخوانی"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "برای انتخاب بین تعدادی از گزینه‌های انحصاری دوطرفه استفاده شد. وقتی یک گزینه در کنترل تقسیم‌بندی‌شده انتخاب می‌شود، گزینه‌های دیگر در کنترل تقسیم‌بندی‌شده لغو انتخاب می‌شود."),
@@ -577,7 +578,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "کنترل تقسیم‌بندی‌شده سبک iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("کنترل تقسیم‌بندی‌شده"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "از لغزنده می‌توان برای انتخاب مجموعه‌ای از مقادیر پیوسته یا گسسته استفاده کرد."),
@@ -595,7 +596,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("نوار برگه پایین سبک iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("نوار برگه"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "فیلد نوشتاری به کاربر اجازه می‌دهد نوشتار را (با صفحه‌کلید سخت‌افزار یا با صفحه‌کلید روی صفحه) وارد کند."),
         "demoCupertinoTextFieldPIN":
@@ -603,7 +604,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("فیلدهای نوشتاری سبک iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("فیلدهای نوشتاری"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "لغزنده‌ها گستره‌ای از مقادیر را در امتداد نواری نشان می‌دهند که کاربران می‌توانند یک مقدار یا گستره‌ای از مقادیر را از آن انتخاب کنند. لغزنده‌ها می‌توانند طرح زمینه داشته باشند یا سفارشی شوند."),
         "demoCustomSlidersTitle":
@@ -796,9 +797,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "برگه‌ها محتوا در صفحه‌نمایش‌ها، مجموعه‌های داده و تراکنش‌های دیگر سازماندهی می‌کنند."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("غیرپیمایشی"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("پیمایش"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "برگه‌هایی با نماهای قابل‌پیمایش مستقل"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("برگه‌ها"),
@@ -897,8 +898,52 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تنظیم حساب پشتیبان"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("نمایش کادر گفتگو"),
         "dismiss": MessageLookupByLibrary.simpleMessage("رد کردن"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("برنامه خبری محتوامحور"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("اصلاح ارتش سبز از درون"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "زنبورهای پرورشی با کمبود مواد غذایی روبرو هستند"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "طراحان برای تولید پارچه‌های نسل آینده از فناوری بهره می‌برند"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "فمینیست‌ها طرفداری سیاسی را به مبارزه طلبیدند"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("آینده بنزین"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "انقلاب بی‌صدا، اما قدرتمند خدمات درمانی"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "با راکد شدن سهام، اکثر نگاه‌ها متوجه ارز است"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "زندگی آمریکایی‌های جداافتاده درطول جنگ"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("جدیدترین به‌روزرسانی‌ها"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("تجاری"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("فرهنگی"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("صفحه اول"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("سیاسی"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("علمی"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("ورزشی"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("فناوری"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("سفر"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("آمریکا"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("جهان"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("سبک و موارد دیگر"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("دسته‌ها"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("گالری"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ساحل"),
@@ -947,6 +992,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("مبلغ قابل‌پرداخت"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("مبلغ پرداخت‌شده"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("مبلغ کل"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("صورت‌حساب‌ها"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("سررسید"),
         "rallyBudgetAmount": m27,
@@ -958,6 +1009,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("خواربار"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("رستوران‌ها"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("مبلغ باقی‌مانده"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("مبلغ استفاده‌شده"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("کل سقف بودجه"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("چپ"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("بودجه"),
         "rallyDescription":

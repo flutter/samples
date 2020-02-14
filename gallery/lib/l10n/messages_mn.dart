@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Шууд', one: '1 зогсолт', other: '${numberOfStops} зогсолт')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 цаг', other: '${hours}h')}";
 
   static m8(minutes) =>
       "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
@@ -428,15 +428,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Хавтанг засахын тулд товшиж, үзэгдлийг нааш цааш нь зөөхийн тулд зангаа ашиглана уу. Чиглүүлэхийн тулд чирч, томруулахын тулд чимхэж, хоёр хуруугаараа эргүүлнэ үү. Эхэлж буй чиглэл рүү буцахын тулд шинэчлэх товчлуурыг дарна уу."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Хавтан засах"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Хэлбэр өөрчлөлтийг шинэчлэх"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Чиглүүлэх, томруулах, эргүүлэх"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D хэлбэр өөрчлөлт"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Үйлдлийн чип нь үндсэн контенттой хамааралтай үйлдлийг өдөөдөг сонголтын багц юм. Үйлдлийн чип нь UI-д динамикаар болон хам сэдэвтэй уялдсан байдлаар гарч ирэх ёстой."),
         "demoActionChipTitle":
@@ -536,7 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS загварын үйл ажиллагааны заалт"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Үйл ажиллагааны заалт"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Зөвхөн сэрэмжлүүлгийн товчлуур"),
@@ -565,7 +565,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS загварын навигацийн самбар"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Навигацийн самбар"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Огноо"),
         "demoCupertinoPickerDateTime":
@@ -586,7 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS загварын татаж сэргээдэг хяналт"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Сэргээхийн тулд татах"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Хэд хэдэн харилцан адилгүй сонголтоос сонгоход ашигладаг. Хэсэгчилсэн хяналтын нэг сонголтыг сонгосон үед үүний бусад сонголтыг сонгохоо болино."),
@@ -594,7 +594,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS загварын хэсэгчилсэн хяналт"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Хэсэгчилсэн хяналт"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Утгын тасралтгүй эсвэл салангид олонлогийн аль нэгээс сонгохын тулд слайдерыг ашиглах боломжтой."),
@@ -612,7 +612,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS загварын доод табын самбар"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Табын самбар"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Текстийн талбар нь хэрэглэгчид техник хангамжийн гар эсвэл дэлгэц дээрх гарын тусламжтай текст оруулах боломж олгодог."),
         "demoCupertinoTextFieldPIN":
@@ -620,7 +620,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS загварын текстийн талбар"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Текстийн талбар"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Слайдер нь самбар дагуух утгын мужийг илэрхийлдэг бөгөөд хэрэглэгчид тэндээс дан утга эсвэл утгын мужийг сонгож болно. Слайдерыг загвартай болгох, өөрчлөх боломжтой."),
         "demoCustomSlidersTitle":
@@ -815,9 +815,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Табууд нь өөр дэлгэцүүд, өгөгдлийн багц болон бусад харилцан үйлдэл хооронд контентыг цэгцэлдэг."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Гүйлгэх боломжгүй"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Гүйлгэх"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Чөлөөтэй гүйлгэх харагдацтай табууд"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Табууд"),
@@ -920,8 +920,53 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ХАРИЛЦАХ ЦОНХЫГ ХАРУУЛАХ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ҮЛ ХЭРЭГСЭХ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Контентод төвлөрсөн мэдээний апп"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Ногоон армийг дотроос нь шинэчлэх нь"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Богино хангамжийн фермийн зөгийнүүд"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Загвар зохион бүтээгчид футурист даавуу хийхдээ технологи ашиглаж байна"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("Феминистүүд хүчээ авч байна"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Бензиний ирээдүй"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Чимээгүй боловч хүчирхэг эрүүл мэндийн хувьсгал"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Хувьцааны ханш зогсонги байдалд орсноор олон хүн мөнгөн гүйлгээ рүү хийж байна"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Дайны үед хуваагдсан Америкийн амьдрал"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Хамгийн сүүлийн шинэчлэлт"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Бизнес"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("Соёл"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Нүүр хуудас"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Улс төр"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Шинжлэх ухаан"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Спорт"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Технологи"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Аялал"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("АНУ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Дэлхий"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Шинэчлэл"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Хувьцаа"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ЗАГВАР БОЛОН БУСАД"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Ангилал"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерей"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Далайн эрэг"),
@@ -973,6 +1018,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Төлөх дүн"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Төлсөн дүн"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Нийт дүн"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Тооцоо"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Эцсийн хугацаа"),
         "rallyBudgetAmount": m27,
@@ -984,6 +1035,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Хүнсний бүтээгдэхүүн"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Ресторан"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Ашиглаагүй дүн"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Ашигласан дүн"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Нийт капитализац"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Үлдсэн"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Төсөв"),
         "rallyDescription":

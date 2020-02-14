@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'ישירה', one: 'עצירת ביניים אחת', two: '${numberOfStops} עצירות', many: '${numberOfStops} עצירות', other: '${numberOfStops} עצירות')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: 'שעה', two: '${hours} ש‘', many: '${hours} ש‘', other: '${hours} ש‘')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: 'דקה', two: '${minutes} ד‘', many: '${minutes} ד‘', other: '${minutes} ד‘')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'אין נכסים זמינים', one: 'נכס אחד זמין', two: '${totalProperties} נכסים זמינים', many: '${totalProperties} נכסים זמינים', other: '${totalProperties} נכסים זמינים')}";
@@ -416,15 +417,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "יש להקיש כדי לערוך אריחים, ויש להשתמש בתנועות כדי לנוע בסביבה. יש לגרור כדי להזיז, לעשות תנועת צביטה כדי לשנות את מרחק התצוגה, לסובב עם שתי אצבעות. יש ללחוץ על לחצן האיפוס כדי לחזור לכיוון ההתחלתי."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("עריכת אריח"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("איפוס הטרנספורמציות"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "הזזה, שינוי מרחק התצוגה, סיבוב"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("טרנספורמציות דו-ממדיות"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "צ\'יפים של פעולה הם קבוצת אפשרויות שמפעילה פעולה כלשהי שקשורה לתוכן עיקרי. צ\'יפים של פעולה צריכים להופיע באופן דינמי ולפי הקשר בממשק המשתמש."),
         "demoActionChipTitle":
@@ -522,7 +523,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "אינדיקטורים של פעילות בסגנון iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("אינדיקטור של פעילות"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("לחצני התראות בלבד"),
         "demoCupertinoAlertButtonsTitle":
@@ -549,7 +550,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("סרגל ניווט בסגנון iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("סרגל ניווט"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("תאריך"),
         "demoCupertinoPickerDateTime":
@@ -569,14 +570,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("פקד משיכה לרענון בסגנון iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("משיכה לרענון"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "משמשת לבחירה באפשרות אחת בלבד מתוך מספר אפשרויות. לאחר הבחירה באפשרות אחת בבקרה המחולקת, תתבטל הבחירה בשאר האפשרויות בבקרה המחולקת."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("בקרה מחולקת בסגנון iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("בקרה מחולקת"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ניתן להשתמש במחוון כדי לבחור מתוך קבוצת ערכים רציפים או בדידים."),
@@ -594,7 +595,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "שורת כרטיסיות תחתונה בסגנון iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("שורת כרטיסיות"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "שדה טקסט מאפשר למשתמש להזין טקסט באמצעות מקלדת חומרה או מקלדת במסך."),
         "demoCupertinoTextFieldPIN":
@@ -602,7 +603,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("שדות טקסט בסגנון iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("שדות טקסט"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "מחוונים מייצגים טווח ערכים לאורך סרגל, שהמשתמשים יכולים לבחור ערך יחיד או טווח ערכים מתוכו. ניתן לעצב מחוונים ולהתאים אותם אישית."),
         "demoCustomSlidersTitle":
@@ -794,9 +795,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "כרטיסיות שמארגנות תוכן במספר מסכים נפרדים, קבוצות נתונים שונות ואינטראקציות נוספות."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
-        "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("ללא גלילה"),
+        "demoTabsScrollingTitle": MessageLookupByLibrary.simpleMessage("גלילה"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "כרטיסיות עם תצוגות שניתן לגלול בהן בנפרד"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("כרטיסיות"),
@@ -895,8 +895,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("הצגה של תיבת דו-שיח"),
         "dismiss": MessageLookupByLibrary.simpleMessage("סגירה"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "אפליקציית חדשות עם מיקוד בתוכן"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "הרפורמה ב\"צבא הירוק\" מתחילה מבפנים"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("דבורים חסרות בחוות"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "מעצבים יוצרים בדים עתידניים באמצעות טכנולוגיה"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("פמיניזם ותמיכה במפלגות"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("עתיד הדלק"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "המהפכה השקטה והחזקה בשירותי הבריאות"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "אין שינוי בערכי המניות, ורבים מעדיפים לבדוק השקעות במטבע"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "החיים החצויים של אמריקאים במהלך המלחמה"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("העדכונים האחרונים"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("עסקים"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("תרבות"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("עמוד ראשי"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("פוליטיקה"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("מדע"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("ספורט"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("טכנולוגיה"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("נסיעות"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ארה\"ב"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("עולם"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("סגנונות ואחרים"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("קטגוריות"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("גלריה"),
@@ -947,6 +991,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("הסכום לתשלום"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("הסכום ששולם"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("הסכום הכולל"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("חיובים"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("לתשלום"),
         "rallyBudgetAmount": m27,
@@ -958,6 +1008,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("מצרכים"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("מסעדות"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("הסכום שנותר"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("הסכום שנוצל"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("מכסה כוללת"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("סכום שנותר"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("תקציבים"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

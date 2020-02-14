@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Otselend', one: '1 ümberistumine', other: '${numberOfStops} ümberistumist')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Saadaolevaid rendipindu ei ole', one: '1 saadaolev rendipind', other: '${totalProperties} saadaolevat rendipinda')}";
@@ -426,15 +426,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Puudutage paanide muutmiseks ja kasutage stseenis liikumiseks liigutusi. Lohistage paanimiseks, liigutage sõrmi suumimiseks kokku-lahku, pöörake kahe sõrmega. Algsesse suunda naasmiseks vajutage lähtestusnuppu."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Paani muutmine"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Teisendamiste lähtestamine"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Paanimine, suumimine, pööramine"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-teisendamised"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Toimingukiibid on valikukomplekt, mis käivitab primaarse sisuga seotud toimingu. Toimingukiibid peaksid kasutajaliideses ilmuma dünaamiliselt ja kontekstiliselt."),
         "demoActionChipTitle":
@@ -532,7 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-i stiilis tegevuste näidikud"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Tegevuste näidik"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Ainult hoiatusnupud"),
         "demoCupertinoAlertButtonsTitle":
@@ -560,7 +560,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-i stiilis navigeerimisriba"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigeerimisriba"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Kuupäev"),
         "demoCupertinoPickerDateTime":
@@ -580,8 +580,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Värskendamiseks allatõmbamise iOS-i stiilis juhtelement"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Värskendamiseks allatõmbamine"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Kasutatakse mitme üksteist välistava valiku vahel valimiseks. Kui segmenditud juhtimises on üks valik tehtud, siis teisi valikuid segmenditud juhtimises teha ei saa."),
@@ -589,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-i stiilis segmenditud juhtimine"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmenditud juhtimine"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Liugurit saab kasutada nii pidevate kui ka diskreetsete väärtuste valimiseks."),
@@ -607,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-i stiilis alumine vahekaardiriba"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Vaheleheriba"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Tekstiväli võimaldab kasutajal füüsilise või ekraanil kuvatava klaviatuuriga teksti sisestada."),
         "demoCupertinoTextFieldPIN":
@@ -615,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-stiilis tekstiväljad"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Tekstiväljad"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Liugurid kajastavad väärtuste vahemikku ribal, millest kasutajad saavad valida ühe väärtuse või väärtuste vahemiku. Liuguritele saab teemasid määrata ja neid kohandada."),
         "demoCustomSlidersTitle":
@@ -809,9 +809,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Vahekaartidega saab korrastada eri kuvadel, andkekogumites ja muudes interaktiivsetes asukohtades olevat sisu."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Mittekeritav"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Keritav"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Eraldi keritavate kuvadega vahekaardid"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Vahekaardid"),
@@ -912,8 +912,54 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Varundamiskonto määramine"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("KUVA DIALOOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("LOOBU"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Sisule keskenduv uudisterakendus"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Rohelise armee reformimine seestpoolt"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Mesilasi on põllumaadel vähe"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Disainerid loovad tehnoloogia abil futuristlikke kangaid"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministid astuvad partisanluse vastu"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Bensiini tulevik"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Vaikne, kuid võimas tervishoiurevolutsioon"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Aktsiate stagneerumise tõttu investeerivad paljud valuutasse"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Ameeriklaste elud, mis sõja tõttu rikuti"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Viimased värskendused"),
+        "fortnightlyMenuBusiness": MessageLookupByLibrary.simpleMessage("Äri"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultuur"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Esileht"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Poliitika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Teadus"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tehnoloogia"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Reisimine"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("USA"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Maailm"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STIILID JA MUU"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategooriad"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerii"),
@@ -965,6 +1011,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Tasumisele kuuluv summa"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Makstud summa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Kogusumma"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Arved"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Maksta"),
         "rallyBudgetAmount": m27,
@@ -976,6 +1028,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Toiduained"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restoranid"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Järelejäänud summa"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Kasutatud summa"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Kogulimiit"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Järel"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Eelarved"),
         "rallyDescription":

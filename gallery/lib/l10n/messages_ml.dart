@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'സ്റ്റോപ്പില്ലാത്തവ', one: 'ഒരു സ്റ്റോപ്പ്', other: '${numberOfStops} സ്റ്റോപ്പുകൾ')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: 'ഒരു മണിക്കൂർ', other: '${hours}മണിക്കൂർ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: 'ഒരു മിനിറ്റ്', other: '${minutes}മിനിറ്റ്')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'പ്രോപ്പർട്ടികളൊന്നും ലഭ്യമല്ല', one: '1 പ്രോപ്പർട്ടികൾ ലഭ്യമാണ്', other: '${totalProperties} പ്രോപ്പർട്ടികൾ ലഭ്യമാണ്')}";
@@ -439,15 +440,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ടൈലുകൾ എഡിറ്റ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക, ഒപ്പം സീനിന് ചുറ്റും നീക്കുന്നതിന് വിരൽചലനങ്ങൾ ഉപയോഗിക്കുക. പാൻ ചെയ്യാൻ വലിച്ചിടുക, സൂം ചെയ്യാൻ പിഞ്ച് ചെയ്യുക, രണ്ട് വിരലുകൾ ഉപയോഗിച്ച് റൊട്ടേറ്റ് ചെയ്യുക. ആരംഭ ഓറിയന്റേഷനിലേക്ക് മടങ്ങാൻ റീസെറ്റ് ബട്ടൺ അമർത്തുക."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ടൈൽ എഡിറ്റ് ചെയ്യുക"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage(
+                "പരിവർത്തനങ്ങൾ റീസെറ്റ് ചെയ്യുക"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "പാൻ ചെയ്യുക, സൂം ചെയ്യുക, റൊട്ടേറ്റ് ചെയ്യുക"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D പരിവർത്തനം"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "പ്രാഥമിക ഉള്ളടക്കവുമായി ബന്ധപ്പെട്ട ഒരു ആക്ഷനെ ട്രിഗർ ചെയ്യുന്ന ഒരു സെറ്റ് ഓപ്ഷനുകളാണ് ആക്ഷൻ ചിപ്പുകൾ. ആക്ഷൻ ചിപ്പുകൾ UI-യിൽ ചലനാത്മകമായും സന്ദർഭോചിതമായും ദൃശ്യമാകും."),
         "demoActionChipTitle":
@@ -549,7 +551,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ശെെലിയിലുള്ള ആക്റ്റിവിറ്റി ഇൻഡിക്കേറ്ററുകൾ"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("ആക്റ്റിവിറ്റി ഇൻഡിക്കേറ്റർ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "മുന്നറിയിപ്പ് ബട്ടണുകൾ മാത്രം"),
@@ -578,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-സ്റ്റൈൽ നാവിഗേഷൻ ബാർ"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("നാവിഗേഷൻ ബാർ"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("തീയതി"),
         "demoCupertinoPickerDateTime":
@@ -599,7 +601,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "നിയന്ത്രണം പുതുക്കിയെടുക്കാനുള്ള OS-സ്റ്റൈലിലുള്ള വലിക്കൽ"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("പുതുക്കിയെടുക്കാൻ വലിക്കുക"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "തനതായ നിരവധി ഓപ്‌ഷനുകൾക്കിടയിൽ നിന്ന് തിരഞ്ഞെടുക്കാൻ ഉപയോഗിക്കുന്നു. വിഭാഗീകരിച്ച നിയന്ത്രണത്തിലെ ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുമ്പോൾ, വിഭാഗീകരിച്ച നിയന്ത്രണത്തിലെ മറ്റ് ഓപ്ഷനുകൾ തിരഞ്ഞെടുക്കപ്പെടുന്നതിൽ നിന്ന് തടയുന്നു."),
@@ -607,7 +609,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-സ്റ്റെെലിലുള്ള വിഭാഗീകരിച്ച നിയന്ത്രണം"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("വിഭാഗീകരിച്ച നിയന്ത്രണം"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "തുടർച്ചയായ അല്ലെങ്കിൽ ഇടവിട്ടുള്ള മൂല്യങ്ങളുടെ ഗണത്തിൽ നിന്ന് മൂല്യങ്ങൾ തിരഞ്ഞെടുക്കാൻ സ്ലൈഡർ ഉപയോഗിക്കാം."),
@@ -625,7 +627,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-സ്‌റ്റൈലിലുള്ള ചുവട്ടിലെ ടാബ് ബാർ"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ടാബ് ബാർ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ഒന്നുകിൽ ഹാർഡ്‌വെയർ കീബോർഡ് ഉപയോഗിച്ച് അല്ലെങ്കിൽ ഓൺ സ്ക്രീൻ കീബോർഡ് ഉപയോഗിച്ച് ടെക്‌സ്റ്റ് നൽകാൻ ടെക്‌സ്റ്റ് ഫീൽഡ് ഉപയോക്താവിനെ അനുവദിക്കുന്നു."),
         "demoCupertinoTextFieldPIN":
@@ -633,7 +635,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-സ്റ്റെെലിലുള്ള ടെക്‌സ്‌റ്റ് ഫീൽഡുകൾ"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("ടെക്‌സ്റ്റ് ഫീൽഡുകൾ"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "സ്ലെെഡറുകൾ ഒരു ബാറിലുടനീളം മൂല്യങ്ങളുടെ ഒരു ശ്രേണിയെ പ്രതിഫലിപ്പിക്കുന്നു. ആ മൂല്യങ്ങളിൽ നിന്ന് ഒന്നോ മൂല്യങ്ങളുടെ ഒരു ശ്രേണിയോ ഉപയോക്താക്കൾക്ക് തിരഞ്ഞെടുക്കാം. സ്ലെെഡറുകൾക്ക് തീം നൽകാനും അവ ഇഷ്ടാനുസൃതമാക്കാനും കഴിയും."),
         "demoCustomSlidersTitle":
@@ -833,9 +835,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "വ്യത്യസ്ത സ്ക്രീനുകൾ, ഡാറ്റാ സെറ്റുകൾ, മറ്റ് ആശയവിനിമയങ്ങൾ എന്നിവയിലുടനീളം ഉള്ളടക്കം ടാബുകൾ ഓർഗനെെസ് ചെയ്യുന്നു."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("സ്ക്രോൾ ചെയ്യാനാവാത്തത്"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("സ്‍ക്രോൾ ചെയ്യാവുന്നത്"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "സ്വതന്ത്രമായി സ്ക്രോൾ ചെയ്യാവുന്ന കാഴ്ചകളുള്ള ടാബുകൾ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ടാബുകൾ"),
@@ -939,8 +941,55 @@ class MessageLookup extends MessageLookupByLibrary {
             "ബാക്കപ്പ് അക്കൗണ്ട് സജ്ജീകരിക്കൂ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ഡയലോഗ് കാണിക്കുക"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ഡിസ്‌മിസ് ചെയ്യുക"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "ഉള്ളടക്കം കേന്ദ്രീകരിച്ചുള്ള വാർത്താ ആപ്പ്"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "ഗ്രീൻ ആർമിയെ അകത്തുനിന്നും പരിഷ്ക്കരിക്കൽ"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "ഫാംലാൻഡ് തേനീച്ചകൾ കിട്ടാനില്ല"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "അത്യാധുനിക ഫാബ്രിക്കുകൾ നിർമ്മിക്കാൻ സാങ്കേതികവിദ്യകൾ ഉപയോഗിച്ച് ഡിസെെനർമാർ"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "കക്ഷിപക്ഷപാതത്തെക്കുറിച്ച് ഫെമിനിസ്റ്റുകളുടെ അഭിപ്രായം"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("പെട്രോളിന്റെ ഭാവി"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "ശാന്തവും എന്നാൽ ശക്തവുമായ ആരോഗ്യ പരിപാലന വിപ്ലവം"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "ഓഹരികളുടെ സ്‌തംഭനം, എല്ലാവരുടെയും കണ്ണ് കറൻസിയിൽ"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "യുദ്ധകാലത്ത് വിഭജിക്കപ്പെട്ട അമേരിക്കൻ ജീവിതങ്ങൾ"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("ഏറ്റവും പുതിയ അപ്‌ഡേറ്റുകൾ"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ബിസിനസ്"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("സംസ്‌കാരം"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("മുൻ പേജ്"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("രാഷ്‌ട്രീയം"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("ശാസ്‌ത്രം"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("സ്പോർട്‌സ്"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("സാങ്കേതികവിദ്യ"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("യാത്ര"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("യുഎസ്"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ലോകം"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("ഓഹരികൾ"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("സ്‌റ്റൈലുകളും മറ്റുള്ളവയും"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("വിഭാഗങ്ങൾ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ഗാലറി"),
@@ -994,6 +1043,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("അടയ്‌ക്കേണ്ട തുക"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("അടച്ച തുക"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("മൊത്തം തുക"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("ബില്ലുകൾ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("അവസാന തീയതി"),
         "rallyBudgetAmount": m27,
@@ -1005,6 +1060,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("പലചരക്ക് സാധനങ്ങൾ"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("റെസ്റ്റോറന്റുകൾ"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("ശേഷിക്കുന്ന തുക"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ഉപയോഗിച്ച തുക"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("മൊത്തം തുകയുടെ പരിധി"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("ഇടത്"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ബജറ്റുകൾ"),
         "rallyDescription":

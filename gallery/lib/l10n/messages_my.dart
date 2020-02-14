@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'မရပ်မနား', one: 'ခရီးစဉ်အတွင်း ၁ နေရာ ရပ်နားမှု', other: 'ခရီးစဉ်အတွင်း ${numberOfStops} နေရာ ရပ်နားမှု')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '၁နာရီ', other: '${hours}နာရီ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '၁မိနစ်', other: '${minutes}မိနစ်')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'မည်သည့်အိမ်မျှ မရနိုင်ပါ', one: 'ရနိုင်သောအိမ် ၁ လုံး', other: 'ရနိုင်သောအိမ် ${totalProperties} လုံး')}";
@@ -438,15 +439,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "လေးထောင့်ကွက်များကို တည်းဖြတ်ရန်တို့ပြီး မြင်ကွင်းတစ်လျှောက် ရွှေ့ရန် လက်ဟန်များကို အသုံးပြုပါ။ ရွှေ့ရန် ဖိဆွဲပါ၊ ချဲ့ရန် လက်နှစ်ချောင်းဖြင့် ထိ၍ခွာလိုက်ပါ၊ လက်နှစ်ချောင်းဖြင့် လှည့်ပါ။ မူရင်းအနေအထားသို့ ပြန်သွားရန် ပြင်ဆင်သတ်မှတ်ခြင်းခလုတ်ကို နှိပ်ပါ။"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage(
+                "လေးထောင့်ကွက်ကို တည်းဖြတ်ရန်"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "အသွင်ပြောင်းခြင်းများကို ပြင်ဆင်သတ်မှတ်ရန်"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("ရွှေ့၊ ချဲ့၊ လှည့်"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D အသွင်ပြောင်းခြင်းများ"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "လုပ်ဆောင်ချက်ချစ်ပ်များသည် ရွေးချယ်မှုစနစ်အုပ်စုတစ်ခုဖြစ်ပြီး ပင်မအကြောင်းအရာနှင့် သက်ဆိုင်သော လုပ်ဆောင်ချက်ကို ဆောင်ရွက်ပေးသည်။ လုပ်ဆောင်ချက်ချစ်ပ်များသည် UI တွင် အကြောင်းအရာ အပေါ်မူတည်၍ ပေါ်လာသင့်ပါသည်။"),
         "demoActionChipTitle":
@@ -548,7 +551,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS ပုံစံ လုပ်ဆောင်ချက် အညွှန်း"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("လုပ်ဆောင်ချက် အညွှန်း"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("သတိပေးချက် ခလုတ်များသာ"),
         "demoCupertinoAlertButtonsTitle":
@@ -575,7 +578,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS ပုံစံ လမ်းညွှန်ဘား"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("လမ်းညွှန်ဘား"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("ရက်စွဲ"),
         "demoCupertinoPickerDateTime":
@@ -597,7 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS ပုံစံ ဆွဲချ၍ ပြန်လည်စတင်ခြင်း ထိန်းချုပ်မှု"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ပြန်လည်စတင်ရန် ဆွဲချပါ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "နှစ်ဦးနှစ်ဖက် သီးသန့်သတ်မှတ်ချက်များအကြား ရွေးချယ်ရန် အသုံးပြုထားသည်။ အပိုင်းလိုက် ထိန်းချုပ်မှုအတွင်းရှိ သတ်မှတ်ချက်တစ်ခုကို ရွေးချယ်သည့်အခါ ထိုအတွင်းရှိ အခြားသတ်မှတ်ချက်များအတွက် ရွေးချယ်မှု ရပ်ဆိုင်းသွားပါသည်။"),
@@ -605,7 +608,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS ပုံစံ အပိုင်းလိုက် ထိန်းချုပ်မှု"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("အပိုင်းလိုက် ထိန်းချုပ်မှု"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ဆက်တိုက် သို့မဟုတ် သီးခြားတန်ဖိုး အုပ်စုတစ်ခုတစ်ခုခုမှနေ၍ ရွေးချယ်ရန် ရွှေ့တုံးကို အသုံးပြုနိုင်သည်။"),
@@ -623,7 +626,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS ပုံစံ အောက်ခြေတဘ်ဘား"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("တဘ်ဘား"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "စာသားအကွက်တွင် အသုံးပြုသူက ဟာ့ဒ်ဝဲလက်ကွက် သို့မဟုတ် ဖန်သားပြင် လက်ကွက် တစ်ခုခုဖြင့် စာသားထည့်နိုင်သည်။"),
         "demoCupertinoTextFieldPIN":
@@ -631,7 +634,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS ပုံစံ စာသားအကွက်များ"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("စာသားအကွက်များ"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ရွှေ့တုံးများသည် ဘားတန်းတစ်ခုပေါ်တွင် တန်ဖိုးများစွာကို ကိုယ်စားပြုပေးပြီး အသုံးပြုသူသည် ၎င်းတို့အနက်မှ တန်ဖိုးတစ်ခု သို့မဟုတ် တန်ဖိုးအပိုင်းအခြားတစ်ခုကို ရွေးချယ်နိုင်ပါသည်။ ရွှေ့တုံးများကို အပြင်အဆင်ထည့်သွင်းပြီး စိတ်ကြိုက်ပြင်ဆင်နိုင်သည်။"),
         "demoCustomSlidersTitle":
@@ -834,9 +837,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "တဘ်များက ဖန်သားပြင်၊ ဒေတာအတွဲနှင့် အခြားပြန်လှန်တုံ့ပြန်မှု အမျိုးမျိုးရှိ အကြောင်းအရာများကို စုစည်းပေးသည်။"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("လှိမ့်၍မရသော"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("လှိမ့်ခြင်း"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "သီးခြားလှိမ့်နိုင်သော မြင်ကွင်းများဖြင့် တဘ်များ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("တဘ်များ"),
@@ -941,8 +944,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ဒိုင်ယာလော့ဂ်ကို ပြရန်"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ပယ်ရန်"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "အကြောင်းအရာ အထူးဖော်ပြထားသည့် သတင်းအက်ပ်"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "အတွင်း၌ပင် အစိမ်းရောင် စစ်တပ်ကို ပြုပြင်ပြောင်းလဲခြင်း"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "ယာတောပြားများ‌ လျော့နည်းလာခြင်း"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "ခေတ်လွန်ပိတ်စများပြုလုပ်ရန် ဒီဇိုင်နာများသည် နည်းပညာကို အသုံးပြုသည်"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "အမျိုးသမီးဝါဒီများသည် ပူးပေါင်းဆောင်ရွက်ကြခြင်း"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("ဓာတ်ဆီ၏ အနာဂတ်"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "တိတ်ဆိပ်သော်လည်း အားပြင်းသော ကျန်းမာရေးစောင့်ရှောက်မှု ပြောင်းလဲခြင်း"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "စတော့ရှယ်ယာများ ရပ်တန့်နေသည့်အတွက် လူအများသည် ငွေကြေးဘက်သို့ ပြောင်းနေကြသည်"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "စစ်ကာလအတွင်း ကွဲကွာသွားသော အမေရိကန်ပြည်သူပြည်သားများ"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("နောက်ဆုံးအပ်ဒိတ်များ"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("လုပ်ငန်း"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("ယဉ်ကျေးမှု"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("ရှေ့စာမျက်နှာ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("နိုင်ငံရေး"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("သိပွံ"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("အားကစား"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("နည်းပညာ"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("ခရီးသွားခြင်း"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ယူအက်စ်"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ကမ္ဘာ"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("အစိမ်းရောင်စစ်တပ်"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage(
+                "ကျန်းမာရေးစောင့်ရှောက်မှု ပြောင်းလဲခြင်း"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("ပြုပြင်ပြောင်းလဲမှု"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("စတော့ရှယ်ယာများ"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("နည်းပညာဒီဇိုင်း"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ပုံစံများနှင့် အခြား"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("အမျိုးအစားများ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ပြခန်း"),
@@ -994,6 +1044,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("ပေးရမည့် ပမာဏ"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("ငွေပေးချေသည့် ပမာဏ"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("စုစုပေါင်းပမာဏ"),
         "rallyBills":
             MessageLookupByLibrary.simpleMessage("ငွေတောင်းခံလွှာများ"),
         "rallyBillsDue":
@@ -1007,6 +1063,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("စားသောက်ကုန်များ"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("စားသောက်ဆိုင်များ"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("ကျန်ရှိသည့် ပမာဏ"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("အသုံးပြုထားသည့် ပမာဏ"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("စုစုပေါင်း ကန့်သတ်ပမာဏ"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("လက်ကျန်"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ငွေစာရင်းများ"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(
