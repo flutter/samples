@@ -80,15 +80,16 @@ flutter pub run grinder update-code-segments
    
 2. Create a tag on the `master` branch in the form of `gallery-v2.3`.
 
-3. Publish the web release (using the peanut package).
+3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut)).
     * `flutter pub global activate peanut`
     * `flutter pub global run peanut:peanut`
-    * `git push upstream gh-pages:gh-pages` (You may have to force push)
+    * `git push upstream gh-pages:gh-pages`
+        * `git update-ref refs/heads/gh-pages upstream/gh-pages` if you need to align with upstream.
    
-4. Publish the android release (using the correct signing certificates)
+4. Publish the Android release (using the correct signing certificates)
     * Create the app bundle with `flutter build appbundle`
-    * Upload to the play store console
-    * Publish the play store release
+    * Upload to the Play store console
+    * Publish the Play store release
     * Create the APK with `flutter build apk` (this is for the Github release)
 
 5. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.3`
