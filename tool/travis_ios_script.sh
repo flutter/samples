@@ -31,7 +31,7 @@ echo "Pre-caching ios artifacts, such as the Flutter.framework"
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
 "${LOCAL_SDK_PATH}/bin/flutter" packages get
-"${LOCAL_SDK_PATH}/bin/flutter" build ios-framework --output=../ios_using_prebuilt_module/Flutter
+"${LOCAL_SDK_PATH}/bin/flutter" build ios-framework --output="$(pwd)/../ios_using_prebuilt_module/Flutter"
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
