@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import '../api/api.dart';
 
 class HomePage extends StatefulWidget {
-  final ItemService itemService;
+  final DashboardApi api;
 
   HomePage({
-    this.itemService,
+    this.api,
   });
 
   @override
@@ -18,16 +18,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Item> items = [];
+  DashboardApi get api => widget.api;
+
+  void initState() {
+    super.initState();
+    _loadItems();
+  }
+
+  Future _loadItems() async {
+    var items = await api.items.list();
+
+    setState(() {
+      this.items = items;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('loading...'),
+        child: Text('${items.length} items'),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          widget.itemService.insert(Item('Coffees Drank'));
+          api.items.insert(Item('Coffees Drank')).then((_) => _loadItems());
         },
       ),
     );

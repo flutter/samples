@@ -20,11 +20,11 @@ class _DashboardAppState extends State<DashboardApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<ItemService>(create: (_) => MockItemService()),
+        Provider<DashboardApi>(create: (_) => MockDashboardApi()),
       ],
       child: MaterialApp(
-        home: Consumer<ItemService>(builder: (context, service, child) {
-          return HomePage(itemService: service);
+        home: Consumer<DashboardApi>(builder: (context, api, child) {
+          return HomePage(api: api);
         }),
       ),
     );
