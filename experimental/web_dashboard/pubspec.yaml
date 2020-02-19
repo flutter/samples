@@ -8,8 +8,10 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
   provider: ^4.0.0
+  uuid: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test: any
 flutter:
   uses-material-design: true

@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-import '../widgets/adaptive_scaffold.dart';
+import '../widgets/third_party/adaptive_scaffold.dart';
 
 /// The [Key] for the inner [Navigator].
 GlobalKey _navigatorKey = GlobalKey();
