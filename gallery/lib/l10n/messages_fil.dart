@@ -425,15 +425,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "I-tap para i-edit ang mga tile, at gumamit ng mga galaw para magpalipat-lipat ng lugar. I-drag para i-pan, i-pinch para i-zoom, i-rotate gamit ang dalawang daliri. Pindutin ang button na i-reset para bumalik sa panimulang oryentasyon."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("I-edit ang tile"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("I-reset ang mga pagbabago"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("I-pan, i-zoom, i-rotate"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Mga 2D na pagbabago"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga action chip ay isang hanay ng mga opsyon na nagti-trigger ng pagkilos na nauugnay sa pangunahing content. Dapat dynamic at ayon sa konteksto lumabas ang mga action chip sa UI."),
         "demoActionChipTitle":
@@ -532,7 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Mga iOS-style na indicator ng aktibidad"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Indicator ng aktibidad"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Mga Button ng Alerto Lang"),
         "demoCupertinoAlertButtonsTitle":
@@ -580,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style na kontrol na hilahin para i-refresh"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Hilahin para i-refresh"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Ginagamit para sa pagpiling may ilang opsyong hindi puwedeng mapili nang sabay. Kapag pinili ang isang opsyong nasa naka-segment na control, hindi na mapipili ang iba pang opsyong nasa naka-segment na control."),
@@ -588,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-style na naka-segment na control"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Naka-segment na kontrol"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Puwedeng gumamit ng slider para pumili sa tuloy-tuloy o discrete na hanay ng mga value."),
@@ -614,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "Mga field ng text na may istilong pang-iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Mga field ng text"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Nagpapakita ang mga slider ng isang hanay ng mga value sa isang bar, kung saan puwedeng pumili ng isang value o isang hanay ng mga value ang mga user. Puwedeng lagyan ng tema at i-customize ang mga slider."),
         "demoCustomSlidersTitle":
@@ -814,9 +814,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Inaayos ng mga tab ang content na nasa magkakaibang screen, data set, at iba pang pakikipag-ugnayan."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Hindi naso-scroll"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Naso-scroll"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Mga tab na may mga hiwalay na naso-scroll na view"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Mga Tab"),
@@ -921,8 +921,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("IPAKITA ANG DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("I-DISMISS"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Isang app ng balita na nakatuon sa content"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Pagreporma sa Green Army Mula sa Loob"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Kaunti na Lang ang Mga Pambukid na Bubuyog"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Gumagamit ng Teknolohiya ang Mga Designer para Gumawa ng Mga Napakamodernong Tela"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Kinakaharap ng Mga Peminista ang Pagkiling"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Ang Hinaharap ng Gasolina"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Ang Tahimik Pero Makapangyarihang Rebolusyon sa Pangangalaga sa Kalusugan"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Habang Hindi Umuunlad ang Mga Stock, Marami ang Umaasa sa Currency"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Watak-watak na Buhay ng Mga Amerikano sa Panahon ng Digmaan"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Mga Pinakabagong Update"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Negosyo"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultura"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Front Page"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Pulitika"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Agham"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sports"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknolohiya"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Paglalakbay"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Mundo"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage(
+                "Rebolusyon sa Pangangalaga sa Kalusugan"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reporma"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Mga Stock"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Disenyo ng Teknolohiya"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("MGA ISTILO AT IBA PA"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Mga Kategorya"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
@@ -976,6 +1023,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Halagang Kailangang Bayaran"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Halagang Ibinayad"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Kabuuang Halaga"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Mga Bill"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Nakatakda"),
         "rallyBudgetAmount": m27,
@@ -987,6 +1040,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mga Grocery"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Mga Restaurant"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Halagang Natitira"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Halagang Nagamit"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Kabuuang Cap"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Natitira"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Mga Badyet"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

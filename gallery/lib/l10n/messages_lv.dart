@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Tiešais lidojums', one: '1 pārsēšanās', other: '${numberOfStops} pārsēšanās')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, zero: '${hours} h', one: '1 h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, zero: '${minutes} min', one: '1 min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Nav pieejamu īpašumu', one: '1 pieejams īpašums', other: '${totalProperties} pieejami īpašumi')}";
@@ -416,15 +417,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Pieskarieties, lai rediģētu elementus, un izmantojiet žestus, lai pārvietotos. Velciet, lai izmantotu pārvietošanu; savelciet pirkstus, lai izmantotu tālummaiņu; veiciet pagriešanu ar diviem pirkstiem. Nospiediet atiestatīšanas pogu, lai atgrieztos pie sākotnējā virziena."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Rediģēt elementu"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Atiestatīt pārveidošanu"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Pārvietošana, tālummaiņa, pagriešana"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D pārveidošana"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Darbību žetoni ir tādu opciju kopa, kas aktivizē ar primāro saturu saistītu darbību. Darbību žetoniem lietotāja saskarnē jābūt redzamiem dinamiski un atbilstoši kontekstam."),
         "demoActionChipTitle":
@@ -526,7 +527,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS stila aktivitātes indikators"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Aktivitātes indikators"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Tikai brīdinājumu pogas"),
         "demoCupertinoAlertButtonsTitle":
@@ -553,7 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS stila navigācijas josla"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigācijas josla"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Datums"),
         "demoCupertinoPickerDateTime":
@@ -575,7 +576,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS stila vadīkla “Vilkt, lai atsvaidzinātu”"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Vilkšana, lai atsvaidzinātu"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Izmanto, lai atlasītu kādu no savstarpēji izslēdzošām iespējām. Kad ir atlasīta iespēja segmentētajā pārvaldībā, citas iespējas tajā vairs netiek atlasītas."),
@@ -583,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS stila segmentēta pārvaldība"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentēta pārvaldība"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Izmantojot slīdni, var atlasīt vērtību no nepārtraukta diapazona vai atsevišķu vērtību kopas."),
@@ -601,7 +602,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS stila apakšējā ciļņu josla"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Ciļņu josla"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Teksta lauks, kurā lietotājs var ievadīt tekstu, izmantojot aparatūras tastatūru vai ekrāna tastatūru."),
         "demoCupertinoTextFieldPIN":
@@ -609,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS stila teksta lauki"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Teksta lauki"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Slīdņi atspoguļo vērtību diapazonu joslā, kurā lietotāji var atlasīt atsevišķu vērtību vai vērtību diapazonu. Slīdņiem var atlasīt tēmu, un tos var pielāgot."),
         "demoCustomSlidersTitle":
@@ -809,9 +810,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Cilnēs saturs ir sakārtots vairākos ekrānos, datu kopās un citos mijiedarbības veidos."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Bez ritināšanas"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Ritināšana"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Cilnes ar neatkarīgi ritināmiem skatiem"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Cilnes"),
@@ -915,8 +916,56 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("PARĀDĪT DIALOGLODZIŅU"),
         "dismiss": MessageLookupByLibrary.simpleMessage("NERĀDĪT"),
-        "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Uz saturu orientēta ziņu lietotne"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Zaļās armijas reforma no iekšpuses"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Saimniecībās trūkst bišu"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Dizaineri izmanto tehnoloģijas, lai radītu futūristiskus audumus"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministes kļūst par partizānēm"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Benzīna nākotne"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Kluss, bet iespaidīgs apvērsums veselības aprūpes jomā"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Akciju vērtības stagnācijas dēļ daudzi vēlas izmantot valūtu"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Kara dēļ sadalītās amerikāņu dzīves"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Pēdējie jaunumi"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Uzņēmējdarbība"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultūra"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Sākumlapa"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Zinātne"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sports"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tehnoloģijas"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Ceļošana"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ASV ziņas"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Pasaules ziņas"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reforma"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Akcijas"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
+        "homeCategoryReference": MessageLookupByLibrary.simpleMessage(
+            "STILU UN CITAS DEMONSTRĀCIJAS"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorijas"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerija"),
@@ -970,6 +1019,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Maksājamā summa"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Samaksātā summa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Kopsumma"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rēķini"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Termiņš"),
         "rallyBudgetAmount": m27,
@@ -981,6 +1036,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pārtikas veikali"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restorāni"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Atlikusī summa"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Izmantotā summa"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Kopējais budžets"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Atlikums"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budžeti"),
         "rallyDescription":

@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "${Intl.plural(totalRestaurants, zero: 'レストランなし', one: '1 件のレストラン', other: '${totalRestaurants} 件のレストラン')}";
 
   static m5(hoursShortForm, minutesShortForm) =>
-      "${hoursShortForm} ${minutesShortForm}";
+      "${hoursShortForm}${minutesShortForm}";
 
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: '直行便', one: '乗継: 1 回', other: '乗継: ${numberOfStops} 回')}";
@@ -379,15 +379,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "タイルを編集するにはタップし、シーンを移動するにはジェスチャーを使用します。パン、ピンチ操作、ズーム、回転するには、2 本の指でドラッグします。最初の向きに戻すには、リセットボタンを押します。"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("タイルを編集"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("変換をリセット"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("パン、ズーム、回転"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D 変換"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "アクション チップは、メイン コンテンツに関連するアクションをトリガーするオプションの集合です。アクション チップは UI にコンテキストに基づいて動的に表示されます。"),
         "demoActionChipTitle":
@@ -480,7 +480,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのアクティビティ インジケーター"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("アクティビティ インジケーター"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("アラートボタンのみ"),
         "demoCupertinoAlertButtonsTitle":
@@ -506,7 +506,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのナビゲーション バー"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("ナビゲーション バー"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("日付"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("日付と時刻"),
@@ -525,14 +525,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルの「下にスワイプして更新」コントロール"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("下方向にスワイプして更新"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "相互に排他的な複数のオプションから選択する場合に使用します。セグメンテッド コントロール内の 1 つのオプションが選択されると、そのセグメンテッド コントロール内の他のオプションは選択されなくなります。"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのセグメンテッド コントロール"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("セグメンテッド コントロール"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "スライダーでは、連続する値の集合または不連続な値の集合から値を選択できます。"),
@@ -550,7 +550,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのボトムタブバー"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("タブバー"),
         "demoCupertinoTextFieldDescription":
             MessageLookupByLibrary.simpleMessage(
                 "テキスト項目では、ハードウェアのキーボードまたは画面上のキーボードのいずれかを使って、ユーザーがテキストを入力できます。"),
@@ -559,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS スタイルのテキスト項目"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("テキスト欄"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "スライダーはバー上の値の範囲を表すもので、ユーザーはスライダーから 1 つの値または値の範囲を選択できます。テーマを設定したりカスタマイズしたりできます。"),
         "demoCustomSlidersTitle":
@@ -737,9 +737,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "タブを使うことで、さまざまな画面、データセットや、その他のインタラクションにまたがるコンテンツを整理できます。"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("スクロール不可"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("スクロール可"),
         "demoTabsSubtitle":
             MessageLookupByLibrary.simpleMessage("個別にスクロール可能なビューを含むタブ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("タブ"),
@@ -831,8 +831,46 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("バックアップ アカウントの設定"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ダイアログを表示"),
         "dismiss": MessageLookupByLibrary.simpleMessage("閉じる"),
-        "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("コンテンツ中心のニュースアプリ"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("Green Army の内部改革"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("農場のハチが不足"),
+        "fortnightlyHeadlineFabrics":
+            MessageLookupByLibrary.simpleMessage("デザイナーがテクノロジーを活用して未来の生地を作り出す"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("フェミニストが党派に分断"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("ガソリンの未来"),
+        "fortnightlyHeadlineHealthcare":
+            MessageLookupByLibrary.simpleMessage("静かに力強く進む医療改革"),
+        "fortnightlyHeadlineStocks":
+            MessageLookupByLibrary.simpleMessage("株価低迷の中で通貨に注目が集まる"),
+        "fortnightlyHeadlineWar":
+            MessageLookupByLibrary.simpleMessage("戦時中に分断された米国民の生活"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("最新情報"),
+        "fortnightlyMenuBusiness": MessageLookupByLibrary.simpleMessage("ビジネス"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("カルチャー"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("トップページ"),
+        "fortnightlyMenuPolitics": MessageLookupByLibrary.simpleMessage("政治"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("科学"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("スポーツ"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("テクノロジー"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("旅行"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("世界"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform": MessageLookupByLibrary.simpleMessage("改革"),
+        "fortnightlyTrendingStocks": MessageLookupByLibrary.simpleMessage("株価"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
+        "homeCategoryReference": MessageLookupByLibrary.simpleMessage("スタイルなど"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("カテゴリ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ギャラリー"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ビーチ"),
@@ -880,6 +918,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("未払い額"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("支払い額"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("合計金額"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("請求"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("期限"),
         "rallyBudgetAmount": m27,
@@ -891,6 +935,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("食料品"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("レストラン"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("残額"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("使用量"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("合計金額"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("残"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("予算"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage("資産管理アプリ"),

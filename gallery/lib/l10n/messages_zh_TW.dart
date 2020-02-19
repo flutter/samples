@@ -36,10 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: '直達航班', one: '1 次轉機', other: '${numberOfStops} 次轉機')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 小時', other: '${hours} 小時')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 分鐘', other: '${minutes} 分鐘')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: '沒有空房', one: '1 間空房', other: '${totalProperties} 間空房')}";
@@ -368,15 +369,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "輕觸即可編輯圖塊，使用手勢則可在螢幕上四處移動。拖曳可平移、雙指撥動可縮放，使用兩指可旋轉。按下重設按鈕即可返回起始方向。"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("編輯圖塊"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("重設變換"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("平移、縮放、旋轉"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D 變形"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "「動作方塊」是一組選項，可觸發與主要內容相關的動作。系統會根據 UI 中的內容動態顯示這種方塊。"),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("動作方塊"),
@@ -464,7 +465,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的活動指標"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("活動指標"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("僅限快訊按鈕"),
         "demoCupertinoAlertButtonsTitle":
@@ -488,7 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的導覽列"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("導覽列"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("日期"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("日期和時間"),
@@ -504,14 +505,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的下拉重新整理畫面控制項"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("下拉即可重新整理"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "當有多個互斥項目時，用於選取其中一個項目。如果選取區隔控制元件中的其中一個選項，就無法選取區隔控制元件中的其他選項。"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的區隔控制元件"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("分區控制項"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription":
             MessageLookupByLibrary.simpleMessage("你可以使用滑桿選擇一組連續值或離散值中的數字。"),
@@ -528,7 +529,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的底部分頁標籤列"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("分頁標籤列"),
         "demoCupertinoTextFieldDescription":
             MessageLookupByLibrary.simpleMessage("可讓使用者透過硬體鍵盤或螢幕鍵盤輸入文字的文字欄位。"),
         "demoCupertinoTextFieldPIN":
@@ -536,7 +537,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 樣式的文字欄位"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("文字欄位"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "滑桿是表示特定值範圍的長條，使用者可從中選取單一值或特定範圍的值。你可以為滑桿設定主題並加以自訂。"),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage("自訂滑桿"),
@@ -699,9 +700,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription":
             MessageLookupByLibrary.simpleMessage("使用分頁整理不同畫面、資料集和其他互動項目的內容。"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
-        "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("不可捲動"),
+        "demoTabsScrollingTitle": MessageLookupByLibrary.simpleMessage("捲動"),
         "demoTabsSubtitle":
             MessageLookupByLibrary.simpleMessage("含有個別捲動式檢視畫面的分頁"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("分頁"),
@@ -790,8 +790,47 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage("設定備份帳戶"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("顯示對話方塊"),
         "dismiss": MessageLookupByLibrary.simpleMessage("關閉"),
-        "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("專門提供優質內容的新聞應用程式"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("綠軍改革從內做起"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("農場蜜蜂供不應求"),
+        "fortnightlyHeadlineFabrics":
+            MessageLookupByLibrary.simpleMessage("設計師使用科技開發未來布料"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("女權主義者正面迎戰政黨立場"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("汽油的未來發展"),
+        "fortnightlyHeadlineHealthcare":
+            MessageLookupByLibrary.simpleMessage("寧靜有力的健保改革"),
+        "fortnightlyHeadlineStocks":
+            MessageLookupByLibrary.simpleMessage("股市成長停滯，眾多投資人目光轉向貨幣"),
+        "fortnightlyHeadlineWar":
+            MessageLookupByLibrary.simpleMessage("因戰爭而破碎的美國人生"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("最新消息"),
+        "fortnightlyMenuBusiness": MessageLookupByLibrary.simpleMessage("商業"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("文化"),
+        "fortnightlyMenuFrontPage": MessageLookupByLibrary.simpleMessage("頭版"),
+        "fortnightlyMenuPolitics": MessageLookupByLibrary.simpleMessage("政治"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("科學"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("運動"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("科技"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("旅遊"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("美國"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("全球"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
+        "homeCategoryReference": MessageLookupByLibrary.simpleMessage("樣式與其他"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("類別"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("圖庫"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("海灘"),
@@ -836,6 +875,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("應付金額"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("已付金額"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("總金額"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("帳單"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("期限"),
         "rallyBudgetAmount": m27,
@@ -847,6 +892,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("雜貨"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("餐廳"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("剩餘的金額"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("已使用的金額"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("總金額上限"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("剩餘預算"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("預算"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage("個人財經應用程式"),

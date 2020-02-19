@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'មិន​ឈប់', one: 'ការឈប់ 1 លើក', other: 'ការឈប់ ${numberOfStops} លើក')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 ម៉', other: '${hours} ម៉')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 ន', other: '${minutes} ន')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'មិនមាន​អចលនទ្រព្យ​ដែលអាចជួល​បានទេ', one: 'មាន​អចលនទ្រព្យ 1 ដែលអាចជួល​បាន', other: 'មាន​អចលនទ្រព្យ​ ${totalProperties} ដែលអាចជួល​បាន')}";
@@ -432,15 +433,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ចុច​ដើម្បី​កែប្រអប់ និង​ប្រើចលនា ដើម្បី​ផ្លាស់ទី​ជុំវិញ​ទិដ្ឋភាព។ ចុចអូស ច្បិចដើម្បី​ពង្រីកបង្រួម បង្វិល​ដោយប្រើ​ម្រាមដៃពីរ។ ចុច​ប៊ូតុង​កំណត់​ឡើងវិញ ដើម្បី​ត្រឡប់ទៅ​ទិស​ចាប់ផ្ដើមវិញ។"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("កែ​ប្រអប់"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("កំណត់​ការបំប្លែង​ឡើងវិញ"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("អូស ពង្រីក​បង្រួម បង្វិល"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("ការបំប្លែង​ទម្រង់ 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ឈីប​សកម្មភាព​គឺជា​បណ្ដុំ​ជម្រើស ដែល​ជំរុញ​សកម្មភាព​ពាក់ព័ន្ធ​នឹង​ខ្លឹមសារ​ចម្បង​។ ឈីប​សកម្មភាព​គួរតែ​បង្ហាញ​ជា​បន្តបន្ទាប់ និង​តាម​បរិបទ​នៅក្នុង UI​។"),
         "demoActionChipTitle":
@@ -541,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "សូចនាករសកម្មភាពរចនាប័ទ្ម iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("សូចនាករ​សកម្មភាព"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ប៊ូតុង​ជូនដំណឹង​តែប៉ុណ្ណោះ"),
         "demoCupertinoAlertButtonsTitle":
@@ -568,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("របារ​រុករក​រចនាប័ទ្ម iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("របាររុករក"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("កាលបរិច្ឆេទ"),
         "demoCupertinoPickerDateTime":
@@ -589,7 +590,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ការគ្រប់គ្រង​ការទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ​​រចនាប័ទ្ម iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ទាញ​ដើម្បី​ផ្ទុក​ឡើងវិញ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ប្រើ​ដើម្បី​ជ្រើសរើស​រវាង​ជម្រើស​ដាច់ដោយឡែក​ផ្សេងៗគ្នា​មួយចំនួន។ នៅពេល​ជម្រើស​មួយ​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​ត្រូវបានជ្រើសរើស ជម្រើស​ផ្សេងទៀត​នៅក្នុង​ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​មិនត្រូវបានជ្រើសរើស​ទៀតទេ។"),
@@ -597,7 +598,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ការគ្រប់គ្រង​ដែលបែងចែក​ជាផ្នែក​តាមរចនាប័ទ្ម iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "ការគ្រប់គ្រង​ដែល​បែងចែក​ជាផ្នែក"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "របាររំកិល​អាច​ត្រូវបានប្រើ​ដើម្បី​ជ្រើសរើសពី​សំណុំ​តម្លៃ​ជាក់លាក់ ឬ​មិនជាក់លាក់។"),
@@ -615,7 +617,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "របារផ្ទាំង​នៅផ្នែក​ខាងក្រោម​ដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("របារ​ផ្ទាំង"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "កន្លែងបញ្ចូល​អក្សរអនុញ្ញាត​ឱ្យអ្នកប្រើប្រាស់បញ្ចូល​អក្សរ តាមរយៈក្ដារចុច​ហាតវែរ ឬក្ដារចុច​លើអេក្រង់។"),
         "demoCupertinoTextFieldPIN":
@@ -623,7 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "កន្លែងបញ្ចូល​អក្សរដែលមាន​រចនាប័ទ្ម iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("កន្លែងបញ្ចូលអក្សរ"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "របាររំកិល​បង្ហាញ​ចន្លោះតម្លៃ​នៅលើរបារ ដែលអ្នកប្រើប្រាស់​អាចជ្រើសរើសតម្លៃមួយ ឬចន្លោះតម្លៃ។ អ្នកអាចកំណត់រចនាប័ទ្ម និងប្ដូរ​របាររំកិល​តាមបំណង។"),
         "demoCustomSlidersTitle":
@@ -819,9 +821,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ផ្ទាំង​រៀបចំ​ខ្លឹមសារ​នៅលើ​អេក្រង់ សំណុំ​ទិន្នន័យ​ផ្សេងៗគ្នា និងអន្តរកម្ម​ផ្សេងទៀត។"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("មិនអាច​រំកិលបាន"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("អាច​រំកិលបាន"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ផ្ទាំង​មាន​ទិដ្ឋភាព​ដាច់ពីគ្នា​ដែលអាច​រំកិលបាន"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ផ្ទាំង"),
@@ -925,8 +927,57 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("កំណត់​គណនី​បម្រុង​ទុក"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("បង្ហាញ​ប្រអប់"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ច្រានចោល"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "កម្មវិធី​ព័ត៌មាន​ដែលផ្ដោតលើ​ខ្លឹមសារ"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "ការធ្វើ​កំណែទម្រង់​ផ្ទៃក្នុង Green Army"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "ឃ្មុំ​កសិដ្ឋាន​កំពុង​ខ្វះខាត​លម្អងផ្កា"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "អ្នករចនា​ប្រើ​បច្ចេកវិទ្យា ដើម្បី​បង្កើត​ក្រណាត់​ដែលមានលក្ខណៈ​ទំនើបបំផុត"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "អ្នកគាំទ្រ​សមភាពយេនឌ័រ​ប្រយុទ្ធប្រឆាំងនឹងការប្រកាន់​បក្ខពួក"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("អនាគត​នៃ​ប្រេងសាំង"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "បដិវត្តន៍​នៃ​ការថែទាំ​សុខភាព​ក្នុងសភាព​ស្ងប់ស្ងាត់ ប៉ុន្តែ​មានសន្ទុះ​ខ្លាំងក្លា"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "ដោយសារតែ​ភាគហ៊ុន​នៅទ្រឹងដដែល មនុស្សជាច្រើន​ផ្ដោតលើ​រូបិយបណ្ណ​វិញ"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "ជីវិត​ប្រជាជន​អាមេរិក​ដែលមាន​ការបែងចែកវណ្ណៈ​ក្នុងអំឡុង​សង្គ្រាម"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("ព័ត៌មាន​ថ្មី​បំផុត"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("អាជីវកម្ម"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("វប្បធម៌"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("ទំព័រ​មុខ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("នយោបាយ"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("វិទ្យាសាស្ត្រ"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("កីឡា"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("បច្ចេកវិទ្យា"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("ការធ្វើ​ដំណើរ"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("សហរដ្ឋ​អាមេរិក"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ពិភពលោក"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage(
+                "បដិវត្តន៍​នៃ​ការថែទាំ​សុខភាព"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("កំណែទម្រង់"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("ភាគហ៊ុន"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("បច្ចេកវិទ្យា​នៃការរចនា"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("រចនាប័ទ្ម និងផ្សេងៗ"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ប្រភេទ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("សាល​រូបភាព"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ឆ្នេរ"),
@@ -979,6 +1030,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("ចំនួន​ទឹកប្រាក់​ដែលត្រូវបង់"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("ចំនួន​ទឹកប្រាក់​ដែលបានបង់"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("ចំនួន​ទឹកប្រាក់​សរុប"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("វិក្កយបត្រ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ចំនួនត្រូវបង់"),
         "rallyBudgetAmount": m27,
@@ -990,6 +1047,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("គ្រឿងទេស"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ភោជនីយដ្ឋាន"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("ចំនួន​ទឹកប្រាក់​ដែលនៅសល់"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ចំនួន​ទឹកប្រាក់​ដែលបានប្រើ"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("ការប្រើ​ដើមទុន​សរុប"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("នៅសល់"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ថវិកា"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

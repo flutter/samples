@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Direktflyg', one: '1 mellanlandning', other: '${numberOfStops} mellanlandningar')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 t', other: '${hours} t')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 m', other: '${minutes} m')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Inga tillgängliga boenden', one: '1 tillgängligt boende', other: '${totalProperties} tillgängliga boenden')}";
@@ -409,15 +409,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Tryck för att redigera ramar och använd rörelser för att navigera i bilden. Dra för att panorera, rotera och nypa för att zooma in med två fingrar. Återgå till startriktningen genom att trycka på återställningsknappen."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Redigera ram"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Återställ transformationerna"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Panorera, zooma, rotera"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-transformationer"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Med åtgärdsbrickor får du en uppsättning alternativ som utlöser en åtgärd för huvudinnehållet. Åtgärdsbrickor ska visas dynamiskt och i rätt sammanhang i användargränssnittet."),
         "demoActionChipTitle":
@@ -515,7 +516,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Aktivitetsindikatorer i iOS-stil"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Aktivitetsindikator"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Endast aviseringsknappar"),
         "demoCupertinoAlertButtonsTitle":
@@ -542,7 +543,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Navigeringsfält i iOS-stil"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigeringsfält"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Datum"),
         "demoCupertinoPickerDateTime":
@@ -563,14 +564,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kontrollen dra för att uppdatera i iOS-stil"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Dra för att uppdatera"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Används för att välja mellan ett antal ömsesidigt uteslutande alternativ. När ett alternativ i segmentstyrningen har valts är de andra alternativen i segmentstyrningen inte längre valda."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("Segmentstyrning i iOS-stil"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentstyrning"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Ett skjutreglage kan användas till att välja från en uppsättning kontinuerliga eller diskreta värden."),
@@ -588,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Nedre flikfält i iOS-stil"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Flikfält"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "En användare kan skriva text i textfältet, antingen med ett fysiskt tangentbord eller med ett tangentbord på skärmen."),
         "demoCupertinoTextFieldPIN":
@@ -596,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Textfält i iOS-stil"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Textfält"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Skjutreglage är fält med ett värdeintervall som användare väljer ett värde eller ett värdeintervall från. Det går att tillämpa teman på och anpassa skjutreglage."),
         "demoCustomSlidersTitle":
@@ -795,9 +796,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Flikar organiserar innehåll på olika skärmar och med olika dataset och andra interaktioner."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Inte skrollbar"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Skrollbar"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flikar med vyer som går att skrolla igenom separat"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Flikar"),
@@ -899,8 +900,53 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ange konto för säkerhetskopiering"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("VISA DIALOGRUTA"),
         "dismiss": MessageLookupByLibrary.simpleMessage("STÄNG"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("En app med nyheter i fokus"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("Green Army ombildas inifrån"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Bina försvinner från jordbruksmarker"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Formgivare skapar futuristiska tyger med hjälp av teknik"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feminister tar upp kampen mot partipolitiken"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Bensinens framtid"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "En sjukvårdsrevolution i det tysta"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "När aktiemarknaden stagnerar vänder sig många till valutor i stället"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Amerikaners skilda livsöden i krigstid"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("De senaste uppdateringarna"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Ekonomi"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultur"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Startsida"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politik"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Vetenskap"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Teknik"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Resor"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("USA"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Världen"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("FORMAT OCH ANNAT"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorier"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galleri"),
@@ -953,6 +999,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Belopp som ska betalas"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Betalat belopp"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Totalt belopp"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Fakturor"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Förfaller"),
         "rallyBudgetAmount": m27,
@@ -964,6 +1016,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Livsmedel"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restauranger"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Kvarstående belopp"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Förbrukat belopp"),
+        "rallyBudgetDetailTotalCap": MessageLookupByLibrary.simpleMessage(
+            "Totalt belopp för budgettaket"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Kvar"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budgetar"),
         "rallyDescription":

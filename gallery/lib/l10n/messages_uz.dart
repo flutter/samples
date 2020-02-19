@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Uzluksiz', one: '1 ta almashinuv', other: '${numberOfStops} ta almashinuv')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 soat', other: '${hours} soat')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 daqiqa', other: '${minutes} daqiqa')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Mavjud uy-joylar topilmadi', one: '1 ta uy-joy mavjud', other: '${totalProperties} ta uy-joy mavjud')}";
@@ -426,15 +427,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Katakchalarni tahrirlash uchun bosing va sahnalarga surish uchun ishoralardan foydalaning. Panoramalash uchun suring, miqyosni oʻzgartirish uchun chimding, ikkita barmoq yordamida buring. Dastlabki joylashuviga qaytarish uchun tiklash tugmasini bosing."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Katakchani tahrirlash"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Transformatsiyalarni tiklash"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Panorama, masshtab, burish"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D transformatsiya"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Amal chiplari asosiy kontentga oid amallarni faollashtiradigan parametrlar toʻplamini ifodalaydi. Amal chiplari dinamik tarzda chiqib, inteyfeysni boyitadi."),
         "demoActionChipTitle":
@@ -536,7 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi faollik indikatori"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Faollik indikatori"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Faqat bildirishnoma tugmalari"),
@@ -565,7 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi navigatsiya paneli"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigatsiya paneli"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Sana"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Sana va vaqt"),
@@ -585,7 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Sahifalarni yangilash uchun iOS uslubidagi boshqaruv"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Yangilash uchun torting"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Bir nechta variantdan faqat bittasini belgilashda ishlatiladi. Bir element tanlansa, qolgan tanlov avtomatik yechiladi."),
@@ -593,7 +595,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS uslubidagi boshqaruv elementlari"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "Segmentlangan boshqaruv elementlari"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Slayder uzluksiz yoki diskret qiymatlarni tanlashda ishlatiladi."),
@@ -611,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS uslubidagi varaqlar paneli"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Varaqlar paneli"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Matn maydonchasiga tashqi yoki ekran klaviaturasi yordamida matn kiritish mumkin."),
         "demoCupertinoTextFieldPIN":
@@ -619,7 +622,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS uslubidagi matn maydonchasi"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Matn maydonchalari"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Slayderlar yordamida berilgan diapazondagi kerakli qiymat yoki qiymatlar diapazonini tanlash mumkin. Slayderlar maxsus dizaynda va moslashtirilgan ham boʻladi."),
         "demoCustomSlidersTitle":
@@ -818,9 +821,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Varaqlarda turli ekranlardagi kontent, axborot toʻplamlari va boshqa amallar jamlanadi."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Aylantirilmasin"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Aylantirish"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Alohida aylantiriladigan varaqlar"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Varaqlar"),
@@ -921,8 +924,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("MULOQOT OYNASINI CHIQARISH"),
         "dismiss": MessageLookupByLibrary.simpleMessage("YOPISH"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Eng muhim yangiliklar haqidagi ilova"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Yashil armiyalardagi ichki islohatlar"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Fermalardagi arilar taʼminoti yetishmayapti"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Dizaynerlar futuristik liboslar yaratishda foydalanadigan texnologiyalar"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministlar partizanlikka oʻtmoqda"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Benzin kelajagi"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Urushlarsiz, sogʻliqni saqlashdagi yutuqlar"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Aksiya stagnatsiyalari, valyutalar narxi"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Urush vaqtidagi amerika boʻlinmalari"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Soʻngi xabarlar"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Biznes"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Madaniyat"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Bosh sahifa"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Siyosat"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Ilm-fan"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Texnologiya"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Sayohat"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("AQSH"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Dunyo"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Yashil beretlar"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("Salomatlik inqiloblari"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Islohatlar"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Aksiyalar"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TexDizayn"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("USLUBLAR VA BOSHQA"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Turkumlar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallereya"),
@@ -974,6 +1024,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Qarz miqdori"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Toʻlangan summa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Jami miqdori"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Hisob-kitob"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Muddati"),
         "rallyBudgetAmount": m27,
@@ -985,6 +1041,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Baqqollik mollari"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restoranlar"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Qolgan summa"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Ishlatilgan summa"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Budjet miqdori"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Qoldiq"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budjetlar"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

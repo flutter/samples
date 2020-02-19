@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Aktarmasız', one: '1 aktarma', other: '${numberOfStops} aktarma')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 sa.', other: '${hours} sa.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 dk.', other: '${minutes} dk.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Müsait Mülk Yok', one: 'Kullanılabilir 1 Özellik', other: 'Kullanılabilir ${totalProperties} Özellik')}";
@@ -411,15 +412,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Blokları düzenlemek için dokunun ve sahnede farklı yerlere taşımak için hareketleri kullanın. Kaydırmak için sürükleyin, yakınlaştırmak için sıkıştırın, iki parmağınızla döndürün. Başlangıç yönüne geri döndürmek için sıfırlama düğmesine basın."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Bloğu düzenle"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Dönüşümleri sıfırla"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Kaydırma, yakınlaştırma, döndürme"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D dönüşümler"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "İşlem çipleri, asıl içerikle ilgili bir işlemi tetikleyen bir dizi seçenektir. İşlem çipleri, kullanıcı arayüzünde dinamik ve içeriğe dayalı olarak görünmelidir."),
         "demoActionChipTitle":
@@ -518,7 +519,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS stili işlem göstergeleri"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Etkinlik göstergesi"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Yalnızca Uyarı Düğmeleri"),
         "demoCupertinoAlertButtonsTitle":
@@ -545,7 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS stili gezinme çubuğu"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Gezinme çubuğu"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Tarih"),
         "demoCupertinoPickerDateTime":
@@ -566,7 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS stili yenilemek için aşağı çekme denetimi"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Yenilemek için aşağı çekin"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Birbirini dışlayan bir dizi seçenek arasında seçim yapmak için kullanıldı. Segmentlere ayrılmış kontrolde bir seçenek belirlendiğinde, segmentlere ayrılmış denetimdeki diğer seçenek belirlenemez."),
@@ -574,7 +575,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-tarzı bölümlere ayrılmış kontrol"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Bölümlere ayrılmış kontrol"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Kaydırma çubukları sürekli veya aralıklı değerler içinden seçim yapmak için kullanılır."),
@@ -592,7 +593,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS tarzında alt sekme çubuğu"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Sekme çubuğu"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Metin alanı, kullanıcının donanım klavyesi veya ekran klavyesi ile metin girmesini sağlar."),
         "demoCupertinoTextFieldPIN":
@@ -600,7 +601,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS stili metin alanı"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Metin-alanları"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Kullanıcılar, kaydırma çubuklarını kullanarak belirtilen değer aralığı içinde bir değer veya değer aralığını seçebilir. Kaydırma çubukları temalı veya özelleştirilmiş olabilir."),
         "demoCustomSlidersTitle":
@@ -801,9 +802,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Sekmeler farklı ekranlarda, veri kümelerinde ve diğer etkileşimlerde bulunan içeriği düzenler."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Kaydırma olmadan"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Kaydırarak"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Bağımsız olarak kaydırılabilen görünümlü sekmeler"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Sekmeler"),
@@ -904,8 +905,54 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("İLETİŞİM KUTUSUNU GÖSTER"),
         "dismiss": MessageLookupByLibrary.simpleMessage("KAPAT"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "İçeriğe odaklanmış haberler uygulaması"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Green Army\'yi İçeriden Değiştirme"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Çiftlik Arılarında Azalma"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Tasarımcılar Modern Fabrikalar İnşa Etmek için Teknolojiden Yararlanıyorlar"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Partizanlıkta Feministler Öne Çıkıyor"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Benzinin Geleceği"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Sessiz, Ancak Güçlü Bir Sağlık Reformu"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Hisse Senetleri Piyasası Durgunlaştıkça Çoğu Yatırımcı Dövize Yöneliyor"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Amerikalıların Savaş Sırasında Bölünmüş Yaşamları"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Son Güncellemeler"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("İş Dünyası"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kültür"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Ön Sayfa"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Siyaset"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Bilim"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Spor"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknoloji"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Seyahat"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ABD"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Dünya"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Hisse senetleri"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STİLLER VE DİĞERLERİ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoriler"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeri"),
@@ -957,6 +1004,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Ödenmesi Gereken Tutar"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Ödenen Tutar"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Toplam Tutar"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Faturalar"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Ödenecek tutar:"),
@@ -969,6 +1022,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Market Alışverişi"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restoranlar"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Kalan Miktar"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Kullanılan Miktar"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Toplam Değer"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Sol"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Bütçeler"),
         "rallyDescription":

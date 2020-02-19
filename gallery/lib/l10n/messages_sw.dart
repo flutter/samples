@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Moja kwa moja', one: 'Kituo 1', other: 'Vituo ${numberOfStops}')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: 'Saa 1', other: 'Saa ${hours}')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: 'Dak 1', other: 'Dak ${minutes}')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Hakuna Mali Inayopatikana', one: 'Mali 1 Inayopatikana', other: 'Mali ${totalProperties} Zinazopatikana')}";
@@ -420,15 +421,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Gusa ili ubadilishe vigae na utumie ishara kusogea hapa na pale kwenye tukio. Buruta ili ugeuze upande, bana ili ukuze, zungusha ukitumia vidole viwili. Bonyeza kitufe cha kuweka upya ili urejeshe kwenye mkao wa kuanza."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Badilisha kigae"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Weka upya ubadilishaji"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Geuza upande, kuza, zungusha"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Ubadilishaji wa 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Chipu za kutenda ni seti ya chaguo zinazosababisha kitendo kinachohusiana na maudhui ya msingi. Chipu za kutenda zinafaa kuonekana kwa urahisi na kwa utaratibu katika kiolesura."),
         "demoActionChipTitle":
@@ -529,7 +530,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Viashirio vya shughuli vya muundo wa iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Kiashirio cha shughuli"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Vitufe vya Arifa Pekee"),
         "demoCupertinoAlertButtonsTitle":
@@ -557,7 +558,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Sehemu ya viungo muhimu ya muundo wa iOs"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Sehemu ya viungo muhimu"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Tarehe"),
         "demoCupertinoPickerDateTime":
@@ -579,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kidhibiti cha \"vuta ili uonyeshe upya\" cha muundo wa iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Vuta ili uonyeshe upya"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Hutumika kuchagua kati ya chaguo kadhaa za kipekee. Chaguo moja katika udhibiti wa vikundi ikichaguliwa, chaguo zingine katika udhibiti wa vikundi hazitachaguliwa."),
@@ -587,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Udhibiti wa vikundi vya muundo wa iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Udhibiti wa vikundi"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Kitelezi kinaweza kutumiwa ili kuchagua kati ya seti za thamani endelevu au zenye kikomo."),
@@ -605,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Upau wa kichupo wa upande wa chini wa muundo wa iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Upao wa kichupo"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Sehemu ya maandishi humruhusu mtumiaji kuweka maandishi, kwa kutumia kibodi ya maunzi au kutumia kibodi iliyo kwenye skrini."),
         "demoCupertinoTextFieldPIN":
@@ -613,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "Sehemu za maandishi za muundo wa iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Sehemu za maandishi"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Vitelezi huonyesha thamani mbalimbali kwenye upau, ambapo watumiaji wanaweza kuchagua thamani moja au thamani mbalimbali. Unaweza kuwekea vitelezi mapendeleo na dhamira."),
         "demoCustomSlidersTitle":
@@ -812,9 +813,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Vichupo hupanga maudhui kwenye skrini tofauti, seti za data na shughuli zingine."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Isiyosogeza"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Inayosogeza"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Vichupo vyenye mionekano huru inayoweza kusogezwa"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Vichupo"),
@@ -916,8 +917,55 @@ class MessageLookup extends MessageLookupByLibrary {
             "Weka akaunti ya kuhifadhi nakala"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ONYESHA KIDIRISHA"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ONDOA"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Programu ya habari inayoangazia maudhui"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Mageuzi ya Jeshi la Kijani Kukota Ndani"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Upungufu wa Nyuki wa Shambani"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Wanamitindo Wanatumia Teknolojia Kutengeneza Vitambaa vya Kisasa"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Watetezi wa Nadharia ya Haki na Usawa wa Wanawake Wanavyopambana na Ubaguzi"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Mustakabali wa Mafuta"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Mapinduzi Kimya, Ila Yenye Nguvu ya Huduma za Afya"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Hisa Zinapodoroa, Wengi Huwekeza Kwenye Sarafu"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Maisha ya Utengano ya Marekani Wakati wa Vita"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Taarifa za Hivi Karibuni"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Biashara"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Utamaduni"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Ukurasa wa Mbele"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Siasa"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Sayansi"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Spoti"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknolojia"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Usafiri"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("Marekani"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Dunia"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Jeshi la Kijani"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("Mapinduzi ya Huduma za Afya"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Mageuzi"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Hisa"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Usanifu wa Teknolojia"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("MIUNDO NA MENGINE"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Aina"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Matunzio"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Ufuo"),
@@ -972,6 +1020,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Kiasi Kinachofaa Kulipwa"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Kiasi Ulicholipa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Jumla ya Pesa"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bili"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Zinahitajika mnamo"),
@@ -984,6 +1038,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Maduka ya vyakula"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Mikahawa"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Kiasi Kilichosalia"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Kiasi Ulichotumia"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Jumla ya Kiasi cha Bajeti"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Kushoto"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Bajeti"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

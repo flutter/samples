@@ -36,10 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Nonstop', one: '1 Zwischenstopp', other: '${numberOfStops} Zwischenstopps')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 Std.', other: '${hours} Std.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 Min.', other: '${minutes} Min.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Keine Unterkünfte verfügbar', one: '1 verfügbare Unterkunft', other: '${totalProperties} verfügbare Unterkünfte')}";
@@ -417,15 +418,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Tippe, um Kacheln zu bearbeiten, und nutze Touch-Gesten, um dich in der Szene zu bewegen: zum Schwenken ziehen, zum Zoomen auseinander- und zusammenziehen, und zum Drehen eine entsprechende Bewegung mit zwei Fingern machen. Drück auf die Taste zum Zurücksetzen, um zur anfänglichen Ausrichtung zurückzukehren."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Kachel bearbeiten"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Transformationen zurücksetzen"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Schwenken, zoomen, drehen"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-Transformationen"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Aktions-Chips sind eine Gruppe von Optionen, die eine Aktion im Zusammenhang mit wichtigen Inhalten auslösen. Aktions-Chips sollten in der Benutzeroberfläche dynamisch und kontextorientiert erscheinen."),
         "demoActionChipTitle":
@@ -528,7 +530,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Aktivitätsanzeigen im Stil von iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Aktivitätsanzeige"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Nur Schaltflächen für Benachrichtigungen"),
@@ -557,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Navigationsleiste im Stil von iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigationsleiste"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Datum"),
         "demoCupertinoPickerDateTime":
@@ -577,8 +579,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ein Widget, das das Inhaltssteuerelement \"Zum Aktualisieren nach unten ziehen\" im Stil von iOS implementiert."),
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Steuerelement \"Zum Aktualisieren nach unten ziehen\" im Stil von iOS"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Zum Aktualisieren nach unten wischen"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Wird verwendet, um aus einer Reihe von Optionen zu wählen, die sich gegenseitig ausschliessen. Wenn eine Option in der segmentierten Steuerung ausgewählt ist, wird dadurch die Auswahl für die anderen Optionen aufgehoben."),
@@ -586,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Segmentierte Steuerung im Stil von iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentierte Steuerung"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Ein Schieberegler kann dazu verwendet werden, Werte stufenlos oder aus einer festgelegten Gruppe auszuwählen."),
@@ -604,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Untere Tab-Leiste im Stil von iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Tableiste"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "In einem Textfeld kann der Nutzer entweder mithilfe einer Hardware- oder einer Bildschirmtastatur etwas eingeben."),
         "demoCupertinoTextFieldPIN":
@@ -612,7 +614,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Textfelder im Stil von iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Textfelder"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Mit Schiebereglern auf einer Leiste wird ein Wertebereich dargestellt, aus dem Nutzer einen einzelnen Wert oder einen Wertebereich auswählen können. Die Schieberegler können individuell gestaltet und angepasst werden."),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
@@ -811,9 +813,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Mit Tabs lassen sich Inhalte über Bildschirme, Datensätze und andere Interaktionen hinweg organisieren."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Tableiste ohne Scrollen"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Tableiste zum Scrollen"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Tabs mit unabhängig scrollbaren Ansichten"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Tabs"),
@@ -918,8 +920,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("DIALOGFELD ANZEIGEN"),
         "dismiss": MessageLookupByLibrary.simpleMessage("AUSBLENDEN"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Eine News-App mit hoher inhaltlicher Qualität"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Die Grüne Armee und ihre Reformierung von innen"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Bienen auf dem Land in Gefahr"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Designer nutzen Technologie zur Entwicklung futuristischer Stoffe"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministinnen bekämpfen Vetternwirtschaft"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Die Zukunft des Benzins"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Die stille, aber wirkungsvolle Revolution im Gesundheitswesen"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Wenn Aktienkurse stagnieren, richtet sich der Blick auf die Währung"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Amerikanische Trennungsschicksale während des Krieges"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Aktuelles"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Wirtschaft"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultur"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Titelseite"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politik"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Wissenschaft"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Technologie"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Reisen"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("USA"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Welt"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Grüne_Armee"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage(
+                "Revolution_im_Gesundheitswesen"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reformierung"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Aktien"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Technologiedesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STILE & ANDERE"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorien"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galerie"),
@@ -975,6 +1024,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Fälliger Betrag"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Gezahlter Betrag"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Gesamtbetrag"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rechnungen"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Fällig:"),
         "rallyBudgetAmount": m27,
@@ -986,6 +1041,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lebensmittel"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restaurants"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Verbleibender Betrag"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Verbrauchter Betrag"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Limit Gesamtbudget"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("verbleibend"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budgets"),
         "rallyDescription":

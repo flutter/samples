@@ -36,10 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: '직항', one: '경유 1회', other: '경유 ${numberOfStops}회')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1시간', other: '${hours}시간')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1분', other: '${minutes}분')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: '이용 가능한 숙박업체 없음', one: '이용 가능한 숙박업체 1개', other: '이용 가능한 숙박업체 ${totalProperties}개')}";
@@ -374,15 +374,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "탭하여 타일을 수정하고 동작으로 화면에서 이동하세요. 드래그하여 화면 간에 이동하고 손가락을 모으거나 펼쳐 확대/축소하거나 두 손가락을 사용하여 회전하세요. 재설정 버튼을 누르면 시작한 방향으로 돌아갑니다."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("타일 수정"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("변환 재설정"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("이동, 확대/축소, 회전"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D 변환"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "작업 칩은 주 콘텐츠와 관련된 작업을 실행하는 옵션 세트입니다. 작업 칩은 동적이고 맥락에 맞는 방식으로 UI에 표시되어야 합니다."),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("작업 칩"),
@@ -472,7 +472,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일 활동 표시기"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("활동 표시기"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("알림 버튼만"),
         "demoCupertinoAlertButtonsTitle":
@@ -496,7 +496,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일 탐색 메뉴"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("탐색 메뉴"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("날짜"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("날짜 및 시간"),
@@ -514,14 +514,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일의 당겨서 새로고침하는 컨트롤"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("당겨서 새로고침"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "여러 개의 상호 배타적인 옵션 중에 선택할 때 사용됩니다. 세그먼트 컨트롤에서 하나의 옵션을 선택하면 세그먼트 컨트롤에 포함된 다른 옵션은 선택이 해제됩니다."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일 세그먼트 컨트롤"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("세그먼트 컨트롤"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "슬라이더는 연속적이거나 분리된 값의 세트 중에 선택하는 데 사용됩니다."),
@@ -538,8 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "iOS 스타일의 하단 탐색 탭바입니다. 여러 개의 탭이 표시되고 그중 하나가 활성화됩니다. 기본적으로 첫 번째 탭이 활성화됩니다."),
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일 하단 탭바"),
-        "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+        "demoCupertinoTabBarTitle": MessageLookupByLibrary.simpleMessage("탭바"),
         "demoCupertinoTextFieldDescription":
             MessageLookupByLibrary.simpleMessage(
                 "사용자가 하드웨어 키보드 또는 터치 키보드를 사용해 텍스트를 입력할 수 있는 텍스트 입력란입니다."),
@@ -548,7 +547,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS 스타일 텍스트 입력란"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("입력란"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "슬라이더는 막대를 따라 분포된 값 범위를 나타내어 사용자가 특정 값이나 값 범위를 선택할 수 있게 합니다. 슬라이더에 테마와 맞춤설정을 적용할 수 있습니다."),
         "demoCustomSlidersTitle":
@@ -723,9 +722,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "탭을 사용하면 다양한 화면, 데이터 세트 및 기타 상호작용에서 콘텐츠를 정리할 수 있습니다."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
-        "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("스크롤 불가능"),
+        "demoTabsScrollingTitle": MessageLookupByLibrary.simpleMessage("스크롤"),
         "demoTabsSubtitle":
             MessageLookupByLibrary.simpleMessage("개별적으로 스크롤 가능한 뷰가 있는 탭"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("탭"),
@@ -815,8 +813,47 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogSetBackup": MessageLookupByLibrary.simpleMessage("백업 계정 설정"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("대화상자 표시"),
         "dismiss": MessageLookupByLibrary.simpleMessage("닫기"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("콘텐츠를 주력으로 하는 뉴스 앱"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("내부에서부터 진행되는 녹색군의 개혁"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("사라져가는 농지의 꿀벌"),
+        "fortnightlyHeadlineFabrics":
+            MessageLookupByLibrary.simpleMessage("기술로 미래지향적인 원단을 만드는 디자이너들"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("페미니스트, 당을 결성하다"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("휘발유의 미래"),
+        "fortnightlyHeadlineHealthcare":
+            MessageLookupByLibrary.simpleMessage("단계적으로, 혁신적으로 진행되는 건강보험 개혁"),
+        "fortnightlyHeadlineStocks":
+            MessageLookupByLibrary.simpleMessage("주식 침체에 따른 외환 투자"),
+        "fortnightlyHeadlineWar":
+            MessageLookupByLibrary.simpleMessage("전쟁 중 이별을 겪은 미국인"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("최신 소식"),
+        "fortnightlyMenuBusiness": MessageLookupByLibrary.simpleMessage("비즈니스"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("문화"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("메인 페이지"),
+        "fortnightlyMenuPolitics": MessageLookupByLibrary.simpleMessage("정치"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("과학"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("스포츠"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("기술"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("여행"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("미국"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("세계"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("녹색군"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("건강보험_개혁"),
+        "fortnightlyTrendingReform": MessageLookupByLibrary.simpleMessage("개혁"),
+        "fortnightlyTrendingStocks": MessageLookupByLibrary.simpleMessage("주식"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("기술_디자인"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("스타일 및 기타"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("카테고리"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("갤러리"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("해변"),
@@ -863,6 +900,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("미결제 금액"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("결제 금액"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("총액"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("청구서"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("마감일:"),
         "rallyBudgetAmount": m27,
@@ -874,6 +917,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("식료품"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("음식점"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("남은 금액"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("사용 금액"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("총한도"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("남음"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("예산"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage("개인 자산관리 앱"),

@@ -36,10 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'ያለማቋረጥ', one: '1 ማቆሚያ', other: '${numberOfStops} ማቆሚያዎች')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 ሰ', other: '${hours} ሰ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 ደ', other: '${minutes}ደ')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ምንም የሚገኙ ንብረቶች የሉም', one: '1 የሚገኙ ንብረቶች', other: '${totalProperties} የሚገኙ ንብረቶች')}";
@@ -386,15 +386,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ስድሮችን አርትዕ ለማድረግ መታ ያድርጉ እና በትዕይንቱ አካባቢ ለማንቀሳቀስ የእጅ ውዝዋዜዎችን ይጠቀሙ። ለማንፏቀቅ ይጎትቱ፣ ለማጉላት ይቆንጥጡ፣ በሁለት ጣቶች ያሽከርክሩ። ወደ ማስጀመሪያው አቀማመጥ ለመመለስ የዳግም አቀናብር አዝራሩን ይጫኑ።"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ስድርን አርትዕ ያድርጉ"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("ቅየራዎችን ዳግም ያቀናብሩ"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("ማንፏቀቅ፣ ማጉላት፣ ማሽከርከር"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2ል ቅየራዎች"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "የእርምጃ ቺፖች ከዋና ይዘት ጋር በተገናኘት አንድ እርምጃን የሚቀሰቅሱ የአማራጮች ስብስብ ናቸው። የእርምጃ ቺፖች በአንድ ዩአይ ላይ በተለዋዋጭ እና አውዳዊ በሆነ መልኩ መታየት አለባቸው።"),
         "demoActionChipTitle": MessageLookupByLibrary.simpleMessage("የእርምጃ ቺፕ"),
@@ -487,7 +487,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ቅጥ እንቅስቃሴ ጠቋሚዎች"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("የእንቅስቃሴ ጠቋሚ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("የማንቂያ አዝራሮች ብቻ"),
         "demoCupertinoAlertButtonsTitle":
@@ -513,7 +513,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ቅጥ የአሰሳ ምናሌ"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("የአሰሳ አሞሌ"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("ቀን"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("ቀን እና ሰዓት"),
@@ -532,14 +532,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage("መቆጣጠሪያን ለማደስ የiOS-ቅጥ መጎተት"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ለማደስ ይጎትቱ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "በአንድ ላይ በልዩ ሁኔታ ከሚታዩ አማራጮች ቁጥር መካከል ለመምረጥ ጥቅም ላይ ይውላል። በተከፋፈለው መቆጣጠሪያ ውስጥ አንድ አማራጭ ሲመረጥ፣ በተከፋፈለው መቆጣጠሪያ ውስጥ ያሉት ሌሎች አማራጮች መመረጥ ያቆማሉ።"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("በiOS-ቅጥ የተከፋፈለ መቆጣጠሪያ"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("የተከፋፈለ መቆጣጠሪያ"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ተንሸራታች ተጠቅመው ወይም ቀጣይነት ካለው ወይም ከውሱን የእሴቶች ስብስብ አንዱን መምረጥ ይቻላል።"),
@@ -557,14 +557,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("የiOS-ቅጥ የታች ትር አሞሌ"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("የትር አሞሌ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "የጽሑፍ መስክ ተጠቃሚው በሃርድዌር ቁልፍ ሰሌዳ ወይም በማያ ገጽ ላይ ቁልፍ ሰሌዳ ጽሑፍ እንዲያስገቡ ያስችላቸዋል።"),
         "demoCupertinoTextFieldPIN": MessageLookupByLibrary.simpleMessage("ፒን"),
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("የiOS-ቅጥ የጽሑፍ መስኮች"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("የጽሑፍ መስኮች"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ተጠቃሚዎች አንድን ነጠላ እሴት ወይም የእሴቶች ክልል ሊመርጡ የሚችሉበት አሞሌ ላይ ያሉትን የእሴቶች ክልል ተንሸራታቾች ያንጸባርቃሉ። ተንሸራታቾቹ ገጽታ ሊኖራቸው እና ብጁ ሊደረጉ ይችላሉ።"),
         "demoCustomSlidersTitle":
@@ -748,9 +748,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ትሮች በተለያዩ ማያ ገጾች፣ የውሂብ ስብስቦች እና ሌሎች መስተጋብሮች ዙሪያ ይዘትን ያደራጃል"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
-        "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("ሽብለላ ያልሆነ"),
+        "demoTabsScrollingTitle": MessageLookupByLibrary.simpleMessage("ሽብለላ"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ትሮች ራሳቸውን ከቻሉ ተሸብላይ ዕይታዎች ጋር"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ትሮች"),
@@ -846,8 +845,49 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("የምትኬ መለያ አቀናብር"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ንግግርን አሳይ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("አሰናብት"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("ይዘት ላይ ያተኮረ የዜና መተግበሪያ"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("አረንጓዴውን ሠራዊት ከውስጥ መለወጥ"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("የእርሻ መሬት ንቦች እጥረት አለ"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "የወደፊት ጨርቆችን ለማምረት ነዳፊዎች ቴክኖሎጂን ይጠቀማሉ"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "የሴት መብት ተሟጋቾች ወገንተኝነት ላይ ያላቸው አቋም"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("የናፍጣ የወደፊት ዕጣ ፈንታ"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "ጸጥተኛው፣ ግን ኃይለኛው የጤና እንክብካቤ አብዮት"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "አክሲዮኖች ባሉበት ሲቆሙ ብዙዎች ምንዛሬን ያያሉ"),
+        "fortnightlyHeadlineWar":
+            MessageLookupByLibrary.simpleMessage("በጦርነት ጊዜ የተከፋፈሉ የአሜሪካ ሕይወቶች"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("የቅርብ ጊዜ ዝማኔዎች"),
+        "fortnightlyMenuBusiness": MessageLookupByLibrary.simpleMessage("ንግድ"),
+        "fortnightlyMenuCulture": MessageLookupByLibrary.simpleMessage("ባህል"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("የፊት ገጽ"),
+        "fortnightlyMenuPolitics": MessageLookupByLibrary.simpleMessage("ፖለቲካ"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("ሳይንስ"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("ስፖርት"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("ቴክኖሎጂ"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("ጉዞ"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("አሜሪካ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ዓለም"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("አረንጓዴ ሰራዊት"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("የጤና እንክብካቤ አብዮት"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("ለውጥ"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("አክሲዮኖች"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("የቴክ ንድፍ"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ቅጦች እና ሌላ"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ምድቦች"),
         "homeHeaderGallery":
             MessageLookupByLibrary.simpleMessage("የሥነ ጥበብ ማዕከል"),
@@ -896,6 +936,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("መከፈል ያለበት መጠን"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("የተከፈለው መጠን"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("ጠቅላላ መጠን"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("ሒሳብ መጠየቂያዎች"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("የሚደርሰው"),
         "rallyBudgetAmount": m27,
@@ -907,6 +953,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ሸቀጣሸቀጦች"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ምግብ ቤቶች"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("የቀረ መጠን"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ጥቅም ላይ የዋለው መጠን"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("ጠቅላላ ካፒታል"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("ግራ"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ባጀቶች"),
         "rallyDescription":

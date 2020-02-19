@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Közvetlen járat', one: '1 megálló', other: '${numberOfStops} megálló')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 ó', other: '${hours} ó')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 p', other: '${minutes} p')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Nincs rendelkezésre álló ingatlan', one: '1 rendelkezésre álló ingatlan van', other: '${totalProperties} rendelkezésre álló ingatlan van')}";
@@ -435,15 +435,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "A mozaikok szerkesztéséhez koppintson, a jelenetben való mozgáshoz pedig használjon kézmozdulatokat. Húzza ujját a pásztázáshoz, húzza össze ujjait a nagyításhoz/kicsinyítéshez, és használja két ujját a forgatáshoz. Nyomja meg a visszaállítás gombot a kezdő tájoláshoz való visszatéréshez."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Mozaik szerkesztése"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Átalakítások visszaállítása"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Pásztázás, nagyítás/kicsinyítés, forgatás"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-s átalakítások"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "A műveletszelvények olyan beállításcsoportokat jelentenek, amelyek aktiválnak valamilyen műveletet az elsődleges tartalommal kapcsolatban. A műveletszelvényeknek dinamikusan, a kontextusnak megfelelően kell megjelenniük a kezelőfelületen."),
         "demoActionChipTitle":
@@ -542,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-stílusú tevékenységjelzők"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Tevékenységjelző"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Csak értesítőgombok"),
         "demoCupertinoAlertButtonsTitle":
@@ -569,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-stílusú navigációs sáv"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigációs sáv"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Dátum"),
         "demoCupertinoPickerDateTime":
@@ -590,7 +590,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-stílusú vezérlő a lehúzással való frissítéshez"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Húzza le a frissítéshez"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Több, egymást kölcsönösen kizáró lehetőség közüli választásra szolgál. Amikor a felhasználó kiválasztja valamelyik lehetőséget a szegmentált vezérlésben, a többi lehetőség nem lesz választható."),
@@ -598,7 +598,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-stílusú szegmentált vezérlés"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Szegmentált vezérlés"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "A csúszkával folyamatos vagy diszkrét értékkészletből lehet választani."),
@@ -616,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-stílusú fülsáv"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Fülsáv"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "A szövegmezőbe a felhasználók beírhatnak szöveget hardveres vagy képernyő-billentyűzettel."),
         "demoCupertinoTextFieldPIN":
@@ -624,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-stílusú szövegmezők"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Szövegmezők"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "A csúszkák értéktartományt jelenítenek meg egy sáv mentén, és a felhasználók ebből a tartományból választhatják ki a kívánt értéket vagy értéktartományt. A csúszkák személyre szabhatók, és témájuk módosítható."),
         "demoCustomSlidersTitle":
@@ -823,9 +823,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "A lapok rendszerezik a tartalmakat különböző képernyőkön, adathalmazokban és egyéb interakciók során."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Nem görgethető"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Görgethető"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Lapok egymástól függetlenül görgethető nézettel"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Lapok"),
@@ -929,8 +929,54 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow": MessageLookupByLibrary.simpleMessage(
             "PÁRBESZÉDPANEL MEGJELENÍTÉSE"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ELVETÉS"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Tartalomközpontú hírszolgáltató alkalmazás"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("A Zöld sereg belső reformja"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Kevés a méh a gazdaságokban"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "A tervezők a technológiát hívják segítségül futurisztikus anyagok megalkotásához"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "A feministák pártot választanak"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("A benzin jövője"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "A csendes, mégis erőteljes egészségügyi forradalom"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "A tőzsde stagnálásával minden szempár a valutára szegeződik"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Háború során szétválasztott amerikai életek"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Legújabb frissítések"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Üzlet"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultúra"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Címlap"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Tudomány"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Technológia"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Utazás"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("USA"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Világ"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STÍLUSOK ÉS EGYÉB"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategóriák"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galéria"),
@@ -980,6 +1026,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Fizetendő összeg"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Kifizetett összeg"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Teljes összeg"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Számlák"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Esedékes"),
         "rallyBudgetAmount": m27,
@@ -991,6 +1043,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bevásárlás"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Éttermek"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Fennmaradó összeg"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Felhasznált összeg"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Össztőke"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("maradt"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Költségkeretek"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(
