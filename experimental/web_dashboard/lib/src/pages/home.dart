@@ -1,13 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/services/app_service.dart';
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
-class HomePage extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+import '../services/services.dart';
+
+class HomePage extends StatefulWidget {
   final ItemService itemService;
 
   HomePage({
     this.itemService,
   });
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +27,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          itemService.add('Coffees Drank');
+          widget.itemService.add('Coffees Drank');
         },
       ),
     );

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/home.dart';
-import 'services/app_service.dart';
+import 'services/services.dart';
 import 'services/mock.dart';
 
 /// An app that shows a responsive dashboard.

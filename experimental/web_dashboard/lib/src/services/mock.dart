@@ -1,8 +1,12 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 import 'package:uuid/uuid.dart' as uuid;
 
-import 'package:web_dashboard/src/data.dart';
+import '../../src/data.dart';
 
-import 'app_service.dart';
+import 'services.dart';
 
 class MockItemService implements ItemService {
   Map<String, Item> _storage = {};
