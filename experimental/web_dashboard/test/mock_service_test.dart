@@ -65,9 +65,9 @@ void main() {
 
       test('update', () async {
         var entry = await api.entries.insert(item.id, Entry(1, dateTime));
-        var updated = await api.entries.update(item.id, entry.id, Entry(2, dateTime));
+        var updated =
+            await api.entries.update(item.id, entry.id, Entry(2, dateTime));
         expect(updated.value, 2);
-
       });
     });
   });
