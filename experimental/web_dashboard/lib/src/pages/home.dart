@@ -4,8 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../data.dart';
-import '../services/services.dart';
+import '../api/api.dart';
 
 class HomePage extends StatefulWidget {
   final ItemService itemService;

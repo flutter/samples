@@ -4,9 +4,7 @@
 
 import 'package:uuid/uuid.dart' as uuid;
 
-import '../../src/data.dart';
-
-import 'services.dart';
+import 'api.dart';
 
 class MockDashboardApi implements DashboardApi {
   @override

@@ -1,8 +1,7 @@
 import 'package:test/test.dart';
 
-import 'package:web_dashboard/src/data.dart';
-import 'package:web_dashboard/src/services/mock.dart';
-import 'package:web_dashboard/src/services/services.dart';
+import 'package:web_dashboard/src/api/api.dart';
+import 'package:web_dashboard/src/api/mock.dart';
 
 void main() {
   group('mock dashboard API', () {

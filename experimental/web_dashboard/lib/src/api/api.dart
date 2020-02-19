@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../data.dart';
-
 abstract class DashboardApi {
   ItemService get items;
   EntryService get entries;
@@ -22,4 +20,21 @@ abstract class EntryService {
   Future<Entry> insert(String itemId, Entry entry);
   Future<List<Entry>> list(String itemId);
   Future<Entry> update(String itemId, String id, Entry entry);
+}
+
+/// A number tracked at a point in time
+class Entry {
+  final int value;
+  final DateTime time;
+  String id;
+
+  Entry(this.value, this.time);
+}
+
+/// Something being tracked.
+class Item {
+  final String name;
+  String id;
+
+  Item(this.name);
 }
