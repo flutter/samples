@@ -1,32 +1,73 @@
 import 'package:test/test.dart';
+
 import 'package:web_dashboard/src/data.dart';
 import 'package:web_dashboard/src/services/mock.dart';
+import 'package:web_dashboard/src/services/services.dart';
 
 void main() {
-  group('mock', () {
-    group('item service', () {
-      test('add', () async {
-        var service = MockItemService();
-        var item = await service.add('Coffees Drank');
+  group('mock dashboard API', () {
+    DashboardApi api;
+
+    setUp(() {
+      api = MockDashboardApi();
+    });
+
+    group('items', () {
+      test('insert', () async {
+        var item = await api.items.insert(Item('Coffees Drank'));
         expect(item.name, 'Coffees Drank');
       });
 
-      test('remove', () async {
-        var service = MockItemService();
-        await service.add('Coffees Drank');
-        var item2 = await service.add('Miles Ran');
-        var removed = await service.remove(item2.id);
+      test('delete', () async {
+        await api.items.insert(Item('Coffees Drank'));
+        var item2 = await api.items.insert(Item('Miles Ran'));
+        var removed = await api.items.delete(item2.id);
+
         expect(removed.name, 'Miles Ran');
-        var items = await service.getAll();
+
+        var items = await api.items.list();
         expect(items, hasLength(1));
       });
 
       test('update', () async {
-        var service = MockItemService();
-        var item = await service.add('Coffees Drank');
-        await service.update(item.id, Item('Bagels Consumed'));
-        var latest = await service.get(item.id);
+        var item = await api.items.insert(Item('Coffees Drank'));
+        await api.items.update(Item('Bagels Consumed'), item.id);
+
+        var latest = await api.items.get(item.id);
         expect(latest.name, equals('Bagels Consumed'));
+      });
+    });
+
+    group('entry service', () {
+      Item item;
+      DateTime dateTime = DateTime(2020, 1, 1, 30, 45);
+
+      setUp(() async {
+        item = await api.items.insert(Item('Lines of code committed'));
+      });
+
+      test('insert', () async {
+        var entry = await api.entries.insert(item.id, Entry(1, dateTime));
+
+        expect(entry.value, 1);
+        expect(entry.time, dateTime);
+      });
+
+      test('delete', () async {
+        await api.entries.insert(item.id, Entry(1, dateTime));
+        var entry2 = await api.entries.insert(item.id, Entry(2, dateTime));
+
+        await api.entries.delete(item.id, entry2.id);
+
+        var entries = await api.entries.list(item.id);
+        expect(entries, hasLength(1));
+      });
+
+      test('update', () async {
+        var entry = await api.entries.insert(item.id, Entry(1, dateTime));
+        var updated = await api.entries.update(item.id, entry.id, Entry(2, dateTime));
+        expect(updated.value, 2);
+
       });
     });
   });

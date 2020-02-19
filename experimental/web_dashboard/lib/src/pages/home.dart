@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../data.dart';
 import '../services/services.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          widget.itemService.add('Coffees Drank');
+          widget.itemService.insert(Item('Coffees Drank'));
         },
       ),
     );

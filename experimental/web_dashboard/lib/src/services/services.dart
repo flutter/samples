@@ -4,17 +4,22 @@
 
 import '../data.dart';
 
+abstract class DashboardApi {
+  ItemService get items;
+  EntryService get entries;
+}
+
 abstract class ItemService {
-  Future<Item> add(String name);
-  Future<List<Item>> getAll();
+  Future<Item> delete(String id);
   Future<Item> get(String id);
-  Future<Item> remove(String id);
-  Future<Item> update(String id, Item item);
+  Future<Item> insert(Item item);
+  Future<List<Item>> list();
+  Future<Item> update(Item item, String id);
 }
 
 abstract class EntryService {
-  Future<Entry> add(int value, DateTime time);
-  Future<Entry> remove(String key);
-  Future<Entry> update(String key, Entry entry);
-  Future<List<Entry>> get(Item item);
+  Future<Entry> delete(String itemId, String id);
+  Future<Entry> insert(String itemId, Entry entry);
+  Future<List<Entry>> list(String itemId);
+  Future<Entry> update(String itemId, String id, Entry entry);
 }

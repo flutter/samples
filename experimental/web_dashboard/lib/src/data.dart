@@ -6,6 +6,7 @@
 class Entry {
   final int value;
   final DateTime time;
+  String id;
 
   Entry(this.value, this.time);
 }
