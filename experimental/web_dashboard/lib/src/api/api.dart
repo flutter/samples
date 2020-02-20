@@ -13,6 +13,21 @@ abstract class ItemService {
   Future<Item> insert(Item item);
   Future<List<Item>> list();
   Future<Item> update(Item item, String id);
+  Stream<List<Item>> subscribe();
+}
+
+/// Something being tracked.
+class Item {
+  final String name;
+  String id;
+
+  Item(this.name);
+}
+
+/// A subscription to a collection of [Item].
+abstract class ItemsSubscription {
+  List<Item> get items;
+  Stream get onChanged;
 }
 
 abstract class EntryService {
@@ -29,12 +44,4 @@ class Entry {
   String id;
 
   Entry(this.value, this.time);
-}
-
-/// Something being tracked.
-class Item {
-  final String name;
-  String id;
-
-  Item(this.name);
 }

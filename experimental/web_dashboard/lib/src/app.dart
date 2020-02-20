@@ -23,9 +23,7 @@ class _DashboardAppState extends State<DashboardApp> {
         Provider<DashboardApi>(create: (_) => MockDashboardApi()),
       ],
       child: MaterialApp(
-        home: Consumer<DashboardApi>(builder: (context, api, child) {
-          return HomePage(api: api);
-        }),
+        home:  HomePage(),
       ),
     );
   }

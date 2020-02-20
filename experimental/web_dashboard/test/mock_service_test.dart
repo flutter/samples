@@ -35,6 +35,15 @@ void main() {
         var latest = await api.items.get(item.id);
         expect(latest.name, equals('Bagels Consumed'));
       });
+      test('subscribe', () async {
+        var itemsSubscription = api.items.subscribe();
+
+        itemsSubscription.listen(expectAsync1((x) {
+          expect(x, hasLength(1));
+          expect(x.first.name, equals('Coffees Drank'));
+        }, count: 1));
+        await api.items.insert(Item('Coffees Drank'));
+      });
     });
 
     group('entry service', () {

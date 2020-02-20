@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:uuid/uuid.dart' as uuid;
 
 import 'api.dart';
@@ -16,9 +18,11 @@ class MockDashboardApi implements DashboardApi {
 
 class MockItemService implements ItemService {
   Map<String, Item> _storage = {};
+  StreamController<List<Item>> _streamController = StreamController<List<Item>>.broadcast();
 
   @override
   Future<Item> delete(String id) async {
+    _broadcast();
     return _storage.remove(id);
   }
 
@@ -32,6 +36,7 @@ class MockItemService implements ItemService {
     var id = uuid.Uuid().v4();
     var newItem = Item(item.name)..id = id;
     _storage[id] = newItem;
+    _broadcast();
     return newItem;
   }
 
@@ -44,6 +49,14 @@ class MockItemService implements ItemService {
   Future<Item> update(Item item, String id) async {
     _storage[id] = item;
     return item..id = id;
+  }
+
+  Stream<List<Item>> subscribe() {
+    return _streamController.stream;
+  }
+
+  void _broadcast() {
+    _streamController.add(_storage.values.toList());
   }
 }
 
