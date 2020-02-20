@@ -35,6 +35,7 @@ abstract class EntryService {
   Future<Entry> insert(String itemId, Entry entry);
   Future<List<Entry>> list(String itemId);
   Future<Entry> update(String itemId, String id, Entry entry);
+  Stream<List<Entry>> subscribe(String itemId);
 }
 
 /// A number tracked at a point in time

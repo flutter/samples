@@ -18,7 +18,8 @@ class MockDashboardApi implements DashboardApi {
 
 class MockItemService implements ItemService {
   Map<String, Item> _storage = {};
-  StreamController<List<Item>> _streamController = StreamController<List<Item>>.broadcast();
+  StreamController<List<Item>> _streamController =
+      StreamController<List<Item>>.broadcast();
 
   @override
   Future<Item> delete(String id) async {
@@ -62,9 +63,12 @@ class MockItemService implements ItemService {
 
 class MockEntryService implements EntryService {
   Map<String, Entry> _storage = {};
+  StreamController<List<Entry>> _streamController =
+      StreamController<List<Entry>>.broadcast();
 
   @override
   Future<Entry> delete(String itemId, String id) async {
+    _broadcast();
     return _storage.remove('$itemId-$id');
   }
 
@@ -73,6 +77,7 @@ class MockEntryService implements EntryService {
     var id = uuid.Uuid().v4();
     var newEntry = Entry(entry.value, entry.time)..id = id;
     _storage['$itemId-$id'] = newEntry;
+    _broadcast();
     return newEntry;
   }
 
@@ -88,5 +93,14 @@ class MockEntryService implements EntryService {
   Future<Entry> update(String itemId, String id, Entry entry) async {
     _storage['$itemId-$id'] = entry;
     return entry..id = id;
+  }
+
+  @override
+  Stream<List<Entry>> subscribe(String itemId) {
+    return _streamController.stream;
+  }
+
+  void _broadcast() {
+    _streamController.add(_storage.values.toList());
   }
 }
