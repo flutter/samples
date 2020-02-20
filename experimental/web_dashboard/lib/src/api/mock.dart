@@ -10,13 +10,13 @@ import 'api.dart';
 
 class MockDashboardApi implements DashboardApi {
   @override
-  final EntryService entries = MockEntryService();
+  final EntryApi entries = MockEntryApi();
 
   @override
-  final ItemService items = MockItemService();
+  final ItemApi items = MockItemApi();
 }
 
-class MockItemService implements ItemService {
+class MockItemApi implements ItemApi {
   Map<String, Item> _storage = {};
   StreamController<List<Item>> _streamController =
       StreamController<List<Item>>.broadcast();
@@ -61,7 +61,7 @@ class MockItemService implements ItemService {
   }
 }
 
-class MockEntryService implements EntryService {
+class MockEntryApi implements EntryApi {
   Map<String, Entry> _storage = {};
   StreamController<List<Entry>> _streamController =
       StreamController<List<Entry>>.broadcast();

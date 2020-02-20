@@ -3,11 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 abstract class DashboardApi {
-  ItemService get items;
-  EntryService get entries;
+  ItemApi get items;
+  EntryApi get entries;
 }
 
-abstract class ItemService {
+abstract class ItemApi {
   Future<Item> delete(String id);
   Future<Item> get(String id);
   Future<Item> insert(Item item);
@@ -24,13 +24,7 @@ class Item {
   Item(this.name);
 }
 
-/// A subscription to a collection of [Item].
-abstract class ItemsSubscription {
-  List<Item> get items;
-  Stream get onChanged;
-}
-
-abstract class EntryService {
+abstract class EntryApi {
   Future<Entry> delete(String itemId, String id);
   Future<Entry> insert(String itemId, Entry entry);
   Future<List<Entry>> list(String itemId);
