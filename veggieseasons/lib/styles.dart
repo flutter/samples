@@ -49,7 +49,7 @@ abstract class Styles {
   );
 
   static const cardCategoryText = TextStyle(
-    color: Color.fromRGBO(255, 255, 255, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -57,7 +57,7 @@ abstract class Styles {
   );
 
   static const cardDescriptionText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -65,7 +65,7 @@ abstract class Styles {
   );
 
   static const detailsTitleText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 30,
     fontStyle: FontStyle.normal,
@@ -73,7 +73,7 @@ abstract class Styles {
   );
 
   static const detailsPreferredCategoryText = TextStyle(
-    color: Color.fromRGBO(0, 80, 0, 0.7),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -81,7 +81,7 @@ abstract class Styles {
   );
 
   static const detailsCategoryText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.7),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -89,7 +89,7 @@ abstract class Styles {
   );
 
   static const detailsDescriptionText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -97,7 +97,7 @@ abstract class Styles {
   );
 
   static const detailsBoldDescriptionText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -113,7 +113,7 @@ abstract class Styles {
   );
 
   static const detailsServingLabelText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -121,7 +121,7 @@ abstract class Styles {
   );
 
   static const detailsServingValueText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -129,7 +129,7 @@ abstract class Styles {
   );
 
   static const detailsServingNoteText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.italic,
@@ -137,7 +137,7 @@ abstract class Styles {
   );
 
   static const triviaFinishedTitleText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 32,
     fontStyle: FontStyle.normal,
@@ -145,7 +145,7 @@ abstract class Styles {
   );
 
   static const triviaFinishedText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
@@ -153,7 +153,7 @@ abstract class Styles {
   );
 
   static const triviaFinishedBigText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 48,
     fontStyle: FontStyle.normal,
@@ -173,7 +173,7 @@ abstract class Styles {
   static const closeButtonPressed = Color(0xff808080);
 
   static const TextStyle searchText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 1),
+    color: Color(0xFF303030),
     fontFamily: 'NotoSans',
     fontSize: 14,
     fontStyle: FontStyle.normal,
