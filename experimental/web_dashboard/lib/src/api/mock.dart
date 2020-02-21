@@ -23,7 +23,7 @@ class MockItemApi implements ItemApi {
 
   @override
   Future<Item> delete(String id) async {
-    _broadcast();
+    _emit();
     return _storage.remove(id);
   }
 
@@ -37,7 +37,7 @@ class MockItemApi implements ItemApi {
     var id = uuid.Uuid().v4();
     var newItem = Item(item.name)..id = id;
     _storage[id] = newItem;
-    _broadcast();
+    _emit();
     return newItem;
   }
 
@@ -52,11 +52,11 @@ class MockItemApi implements ItemApi {
     return item..id = id;
   }
 
-  Stream<List<Item>> subscribe() {
+  Stream<List<Item>> allItemsStream() {
     return _streamController.stream;
   }
 
-  void _broadcast() {
+  void _emit() {
     _streamController.add(_storage.values.toList());
   }
 }
@@ -68,7 +68,7 @@ class MockEntryApi implements EntryApi {
 
   @override
   Future<Entry> delete(String itemId, String id) async {
-    _broadcast();
+    _emit();
     return _storage.remove('$itemId-$id');
   }
 
@@ -77,7 +77,7 @@ class MockEntryApi implements EntryApi {
     var id = uuid.Uuid().v4();
     var newEntry = Entry(entry.value, entry.time)..id = id;
     _storage['$itemId-$id'] = newEntry;
-    _broadcast();
+    _emit();
     return newEntry;
   }
 
@@ -96,11 +96,11 @@ class MockEntryApi implements EntryApi {
   }
 
   @override
-  Stream<List<Entry>> subscribe(String itemId) {
+  Stream<List<Entry>> allEntriesStream(String itemId) {
     return _streamController.stream;
   }
 
-  void _broadcast() {
+  void _emit() {
     _streamController.add(_storage.values.toList());
   }
 }

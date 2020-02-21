@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: StreamProvider<List<Item>>(
         initialData: [],
-        create: (context) => api.items.subscribe(),
+        create: (context) => api.items.allItemsStream(),
         child: Consumer<List<Item>>(
           builder: (context, items, child) {
             return ListView.builder(

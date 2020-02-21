@@ -48,9 +48,11 @@ class _RoutingDemoAppState extends State<RoutingDemoApp> {
 /// BottomNavigationBar, or NavigationRail, as well as the correct page in the
 /// body of the Scaffold.
 class AppShell extends StatefulWidget {
-  final String routeName;
+  /// The name of the initial route. Required to set the selected index in the
+  /// sidebar.
+  final String initialRouteName;
 
-  AppShell(this.routeName);
+  AppShell(this.initialRouteName);
 
   @override
   _AppShellState createState() => _AppShellState();
@@ -61,7 +63,7 @@ class _AppShellState extends State<AppShell> {
 
   void initState() {
     super.initState();
-    _currentIndex = _indexForRoute(widget.routeName);
+    _currentIndex = _indexForRoute(widget.initialRouteName);
   }
 
   @override
@@ -70,7 +72,7 @@ class _AppShellState extends State<AppShell> {
       title: Text('Dashboard App'),
       body: Navigator(
         key: _navigatorKey,
-        initialRoute: widget.routeName,
+        initialRoute: widget.initialRouteName,
         onGenerateRoute: (settings) {
           var routeName = settings.name;
           var pageWidget = _pageForRoute(routeName);

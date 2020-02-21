@@ -1,3 +1,7 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 import 'package:test/test.dart';
 
 import 'package:web_dashboard/src/api/api.dart';
@@ -36,7 +40,7 @@ void main() {
         expect(latest.name, equals('Bagels Consumed'));
       });
       test('subscribe', () async {
-        var stream = api.items.subscribe();
+        var stream = api.items.allItemsStream();
 
         stream.listen(expectAsync1((x) {
           expect(x, hasLength(1));
@@ -79,7 +83,7 @@ void main() {
       });
 
       test('subscribe', () async {
-        var stream = api.entries.subscribe(item.id);
+        var stream = api.entries.allEntriesStream(item.id);
 
         stream.listen(expectAsync1((x) {
           expect(x, hasLength(1));

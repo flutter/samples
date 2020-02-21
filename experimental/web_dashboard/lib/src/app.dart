@@ -10,12 +10,7 @@ import 'api/api.dart';
 import 'api/mock.dart';
 
 /// An app that shows a responsive dashboard.
-class DashboardApp extends StatefulWidget {
-  @override
-  _DashboardAppState createState() => _DashboardAppState();
-}
-
-class _DashboardAppState extends State<DashboardApp> {
+class DashboardApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -23,7 +18,7 @@ class _DashboardAppState extends State<DashboardApp> {
         Provider<DashboardApi>(create: (_) => MockDashboardApi()),
       ],
       child: MaterialApp(
-        home:  HomePage(),
+        home: HomePage(),
       ),
     );
   }
