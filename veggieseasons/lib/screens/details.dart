@@ -284,7 +284,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             child: ListView(
               children: [
                 _buildHeader(context, appState),
-                SizedBox(height:20),
+                SizedBox(height: 20),
                 CupertinoSegmentedControl<int>(
                   children: {
                     0: Text('Facts & Info'),
