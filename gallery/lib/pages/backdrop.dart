@@ -213,8 +213,8 @@ class _BackdropState extends State<Backdrop>
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
     final Widget frontLayer = ExcludeSemantics(
-      child: DefaultFocusTraversal(
-        policy: WidgetOrderFocusTraversalPolicy(),
+      child: FocusTraversalGroup(
+        policy: WidgetOrderTraversalPolicy(),
         child: Focus(
           skipTraversal: !widget.isSettingsOpenNotifier.value,
           child: widget.frontLayer,
@@ -227,7 +227,7 @@ class _BackdropState extends State<Backdrop>
       excluding: widget.isSettingsOpenNotifier.value,
     );
 
-    return DefaultFocusTraversal(
+    return FocusTraversalGroup(
       child: InheritedBackdropFocusNodes(
         frontLayerFocusNode: frontLayerFocusNode,
         backLayerFocusNode: backLayerFocusNode,

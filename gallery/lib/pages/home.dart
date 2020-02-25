@@ -410,8 +410,8 @@ class _DesktopCategoryItem extends StatelessWidget {
       color: colorScheme.surface,
       child: Semantics(
         container: true,
-        child: DefaultFocusTraversal(
-          policy: WidgetOrderFocusTraversalPolicy(),
+        child: FocusTraversalGroup(
+          policy: WidgetOrderTraversalPolicy(),
           child: Column(
             children: [
               _DesktopCategoryHeader(
@@ -1053,7 +1053,7 @@ class _StudyWrapperState extends State<_StudyWrapper> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return ApplyTextOptions(
-      child: DefaultFocusTraversal(
+      child: FocusTraversalGroup(
         policy: StudyWrapperFocusTraversalPolicy(
           backButtonFocusNode: backButtonFocusNode,
           studyNavigatorKey: widget.navigatorKey,
@@ -1118,7 +1118,7 @@ class InheritedFocusNodes extends InheritedWidget {
   bool updateShouldNotify(InheritedFocusNodes old) => true;
 }
 
-class StudyWrapperFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
+class StudyWrapperFocusTraversalPolicy extends WidgetOrderTraversalPolicy {
   StudyWrapperFocusTraversalPolicy({
     @required this.backButtonFocusNode,
     @required this.studyNavigatorKey,

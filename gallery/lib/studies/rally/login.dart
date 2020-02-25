@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     final backButtonFocusNode =
         InheritedFocusNodes.of(context).backButtonFocusNode;
 
-    return DefaultFocusTraversal(
+    return FocusTraversalGroup(
       policy: EdgeChildrenFocusTraversalPolicy(
         firstFocusNodeOutsideScope: backButtonFocusNode,
         lastFocusNodeOutsideScope: backButtonFocusNode,

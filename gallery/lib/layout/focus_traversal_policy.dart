@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 ///
 /// This can be used to for example make sure that you can request focus outside
 /// of the MaterialApp you are currently in.
-class EdgeChildrenFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
+class EdgeChildrenFocusTraversalPolicy extends WidgetOrderTraversalPolicy {
   EdgeChildrenFocusTraversalPolicy({
     @required this.firstFocusNodeOutsideScope,
     @required this.lastFocusNodeOutsideScope,

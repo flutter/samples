@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage>
     final backButtonFocusNode =
         InheritedFocusNodes.of(context).backButtonFocusNode;
 
-    return DefaultFocusTraversal(
+    return FocusTraversalGroup(
       policy: EdgeChildrenFocusTraversalPolicy(
         firstFocusNodeOutsideScope: backButtonFocusNode,
         lastFocusNodeOutsideScope: backButtonFocusNode,
