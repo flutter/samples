@@ -142,7 +142,7 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final labelTextStyle = textTheme.body1.copyWith(
+    final labelTextStyle = textTheme.bodyText2.copyWith(
       fontSize: 14,
       letterSpacing: 0.5,
     );
@@ -150,8 +150,8 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
     return LayoutBuilder(builder: (context, constraints) {
       // When the widget is larger, we increase the font size.
       TextStyle headlineStyle = constraints.maxHeight >= pieChartMaxSize
-          ? textTheme.headline.copyWith(fontSize: 70)
-          : textTheme.headline;
+          ? textTheme.headline5.copyWith(fontSize: 70)
+          : textTheme.headline5;
 
       // With a large text scale factor, we set a max font size.
       if (GalleryOptions.of(context).textScaleFactor(context) > 1.0) {

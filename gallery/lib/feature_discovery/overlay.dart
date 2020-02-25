@@ -235,7 +235,7 @@ class Content extends StatelessWidget {
       title,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: theme.title.copyWith(color: Colors.white),
+      style: theme.headline6.copyWith(color: Colors.white),
     );
   }
 
@@ -244,7 +244,7 @@ class Content extends StatelessWidget {
       description,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
-      style: theme.subhead.copyWith(color: Colors.white70),
+      style: theme.subtitle1.copyWith(color: Colors.white70),
     );
   }
 }

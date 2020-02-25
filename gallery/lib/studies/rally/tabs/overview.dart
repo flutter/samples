@@ -253,7 +253,7 @@ class _FinancialView extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: Text(
                     usdWithSignFormat(context).format(total),
-                    style: theme.textTheme.body2.copyWith(
+                    style: theme.textTheme.bodyText1.copyWith(
                       fontSize: 44 / reducedTextScale(context),
                       fontWeight: FontWeight.w600,
                     ),

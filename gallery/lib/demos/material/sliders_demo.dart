@@ -442,7 +442,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   valueIndicatorColor: Colors.deepPurpleAccent,
                   thumbShape: _CustomThumbShape(),
                   valueIndicatorShape: _CustomValueIndicatorShape(),
-                  valueIndicatorTextStyle: theme.accentTextTheme.body2
+                  valueIndicatorTextStyle: theme.accentTextTheme.bodyText1
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
                 child: Slider(

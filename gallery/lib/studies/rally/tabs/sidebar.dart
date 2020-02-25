@@ -66,7 +66,7 @@ class SidebarItem extends StatelessWidget {
         SizedBox(height: 8),
         Text(
           title,
-          style: textTheme.body1.copyWith(
+          style: textTheme.bodyText2.copyWith(
             fontSize: 16,
             color: RallyColors.gray60,
           ),
@@ -74,7 +74,7 @@ class SidebarItem extends StatelessWidget {
         SizedBox(height: 8),
         Text(
           value,
-          style: textTheme.body2.copyWith(fontSize: 20),
+          style: textTheme.bodyText1.copyWith(fontSize: 20),
         ),
         SizedBox(height: 8),
         Container(

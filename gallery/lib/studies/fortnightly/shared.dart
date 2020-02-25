@@ -37,12 +37,12 @@ class HorizontalArticlePreview extends StatelessWidget {
             children: [
               Text(
                 data.category,
-                style: textTheme.subhead,
+                style: textTheme.subtitle1,
               ),
               SizedBox(height: 12),
               Text(
                 data.title,
-                style: textTheme.headline.copyWith(fontSize: 16),
+                style: textTheme.headline5.copyWith(fontSize: 16),
               ),
             ],
           ),
@@ -50,7 +50,7 @@ class HorizontalArticlePreview extends StatelessWidget {
         if (minutes != null) ...[
           Text(
             GalleryLocalizations.of(context).craneMinutes(minutes),
-            style: textTheme.body2,
+            style: textTheme.bodyText1,
           ),
           SizedBox(width: 8),
         ],
@@ -97,18 +97,18 @@ class VerticalArticlePreview extends StatelessWidget {
           SizedBox(height: 12),
           Text(
             data.category,
-            style: textTheme.subhead,
+            style: textTheme.subtitle1,
           ),
           SizedBox(height: 12),
           Text(
             data.title,
-            style: headlineTextStyle ?? textTheme.headline,
+            style: headlineTextStyle ?? textTheme.headline5,
           ),
           if (showSnippet) ...[
             SizedBox(height: 4),
             Text(
               data.snippet,
-              style: textTheme.body1,
+              style: textTheme.bodyText2,
             ),
           ],
         ],
@@ -138,7 +138,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineHealthcare,
       ),
-      headlineTextStyle: textTheme.headline.copyWith(fontSize: 20),
+      headlineTextStyle: textTheme.headline5.copyWith(fontSize: 20),
     ),
     articleDivider,
     HorizontalArticlePreview(
@@ -162,7 +162,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     sectionDivider,
     Text(
       GalleryLocalizations.of(context).fortnightlyLatestUpdates,
-      style: textTheme.title,
+      style: textTheme.headline6,
     ),
     articleDivider,
     HorizontalArticlePreview(
@@ -219,35 +219,35 @@ class HashtagBar extends StatelessWidget {
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingTechDesign}',
-              style: textTheme.subtitle,
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingReform}',
-              style: textTheme.subtitle,
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingHealthcareRevolution}',
-              style: textTheme.subtitle,
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingGreenArmy}',
-              style: textTheme.subtitle,
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingStocks}',
-              style: textTheme.subtitle,
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
@@ -319,7 +319,7 @@ class MenuItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: Theme.of(context).textTheme.subhead.copyWith(
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
                     fontWeight: header ? FontWeight.w700 : FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -349,21 +349,21 @@ class StockItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(ticker, style: textTheme.subhead),
+        Text(ticker, style: textTheme.subtitle1),
         SizedBox(height: 2),
         Row(
           children: [
             Expanded(
               child: Text(
                 price,
-                style: textTheme.subtitle.copyWith(
-                  color: textTheme.subtitle.color.withOpacity(0.75),
+                style: textTheme.subtitle2.copyWith(
+                  color: textTheme.subtitle2.color.withOpacity(0.75),
                 ),
               ),
             ),
             Text(
               percent > 0 ? '+' : '-',
-              style: textTheme.subtitle.copyWith(
+              style: textTheme.subtitle2.copyWith(
                 fontSize: 12,
                 color: percent > 0 ? Color(0xff20CF63) : Color(0xff661FFF),
               ),
@@ -373,7 +373,7 @@ class StockItem extends StatelessWidget {
               percentFormat.format(percent.abs() / 100),
               style: textTheme.caption.copyWith(
                 fontSize: 12,
-                color: textTheme.subtitle.color.withOpacity(0.75),
+                color: textTheme.subtitle2.color.withOpacity(0.75),
               ),
             ),
           ],
@@ -458,13 +458,13 @@ class VideoPreview extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Text(data.category, style: textTheme.subhead),
+              child: Text(data.category, style: textTheme.subtitle1),
             ),
-            Text(time, style: textTheme.body2)
+            Text(time, style: textTheme.bodyText1)
           ],
         ),
         SizedBox(height: 4),
-        Text(data.title, style: textTheme.headline.copyWith(fontSize: 16)),
+        Text(data.title, style: textTheme.headline5.copyWith(fontSize: 16)),
       ],
     );
   }
@@ -507,42 +507,42 @@ ThemeData buildTheme(BuildContext context) {
     highlightColor: Colors.transparent,
     textTheme: textTheme.copyWith(
       // preview snippet
-      body1: GoogleFonts.merriweather(
+      bodyText2: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
         fontSize: 16,
-        textStyle: textTheme.body1,
+        textStyle: textTheme.bodyText2,
       ),
       // time in latest updates
-      body2: GoogleFonts.libreFranklin(
+      bodyText1: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
-        textStyle: textTheme.body2,
+        textStyle: textTheme.bodyText1,
       ),
       // preview headlines
-      headline: GoogleFonts.libreFranklin(
+      headline5: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        textStyle: textTheme.headline,
+        textStyle: textTheme.headline5,
       ),
       // TODO: Use GoogleFonts.robotoCondensed when available
       // (caption 2), preview category, stock ticker
-      subhead: textTheme.subhead.copyWith(
+      subtitle1: textTheme.subtitle1.copyWith(
         fontFamily: 'Roboto Condensed',
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),
-      subtitle: GoogleFonts.libreFranklin(
+      subtitle2: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: textTheme.subtitle,
+        textStyle: textTheme.subtitle2,
       ),
       // section titles: Top Highlights, Last Updated...
-      title: GoogleFonts.merriweather(
+      headline6: GoogleFonts.merriweather(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
-        textStyle: textTheme.title,
+        textStyle: textTheme.headline6,
       ),
     ),
   );

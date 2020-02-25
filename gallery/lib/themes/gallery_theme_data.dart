@@ -39,7 +39,7 @@ class GalleryThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme.subhead.apply(color: _darkFillColor),
+        contentTextStyle: _textTheme.subtitle1.apply(color: _darkFillColor),
       ),
     );
   }
@@ -82,15 +82,15 @@ class GalleryThemeData {
   static const _bold = FontWeight.w700;
 
   static TextTheme _textTheme = TextTheme(
-    display1: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
+    headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
     caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-    headline: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-    subhead: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
+    headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
+    subtitle1: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
     overline: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-    body2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-    subtitle: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-    body1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-    title: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
+    bodyText1: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
+    subtitle2: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
+    bodyText2: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
+    headline6: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
     button: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
   );
 }

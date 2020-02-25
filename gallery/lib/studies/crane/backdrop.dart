@@ -37,7 +37,7 @@ class _FrontLayer extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
     final isSmallDesktop = isDisplaySmallDesktop(context);
 
-    return DefaultFocusTraversal(
+    return FocusTraversalGroup(
       policy: ReadingOrderTraversalPolicy(),
       child: Padding(
         padding:
@@ -61,7 +61,7 @@ class _FrontLayer extends StatelessWidget {
                     vertical: 22)
                 : EdgeInsets.all(20),
             children: [
-              Text(title, style: Theme.of(context).textTheme.subtitle),
+              Text(title, style: Theme.of(context).textTheme.subtitle2),
               SizedBox(height: 20),
               ItemCards(index: index),
             ],
@@ -144,7 +144,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       color: cranePurple800,
       child: Padding(
         padding: EdgeInsets.only(top: 12),
-        child: DefaultFocusTraversal(
+        child: FocusTraversalGroup(
           policy: ReadingOrderTraversalPolicy(),
           child: Scaffold(
             backgroundColor: cranePurple800,

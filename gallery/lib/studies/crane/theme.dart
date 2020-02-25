@@ -45,45 +45,45 @@ ThemeData _buildCraneTheme() {
 TextTheme _buildCraneTextTheme(TextTheme base) {
   return GoogleFonts.ralewayTextTheme(
     base.copyWith(
-      display4: base.display4.copyWith(
+      headline1: base.headline1.copyWith(
         fontWeight: FontWeight.w300,
         fontSize: 96,
       ),
-      display3: base.display3.copyWith(
+      headline2: base.headline2.copyWith(
         fontWeight: FontWeight.w400,
         fontSize: 60,
       ),
-      display2: base.display2.copyWith(
+      headline3: base.headline3.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 48,
       ),
-      display1: base.display1.copyWith(
+      headline4: base.headline4.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 34,
       ),
-      headline: base.headline.copyWith(
+      headline5: base.headline5.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 24,
       ),
-      title: base.title.copyWith(
+      headline6: base.headline6.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 20,
       ),
-      subhead: base.subhead.copyWith(
+      subtitle1: base.subtitle1.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 16,
         letterSpacing: 0.5,
       ),
-      subtitle: base.subtitle.copyWith(
+      subtitle2: base.subtitle2.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 12,
         color: craneGrey,
       ),
-      body2: base.body2.copyWith(
+      bodyText1: base.bodyText1.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 16,
       ),
-      body1: base.body1.copyWith(
+      bodyText2: base.bodyText2.copyWith(
         fontWeight: FontWeight.w400,
         fontSize: 14,
       ),

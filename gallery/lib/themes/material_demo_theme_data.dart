@@ -31,11 +31,8 @@ class MaterialDemoThemeData {
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
     ),
-    typography: Typography(
+    typography: Typography.material2018(
       platform: defaultTargetPlatform,
-      englishLike: Typography.englishLike2018,
-      dense: Typography.dense2018,
-      tall: Typography.tall2018,
     ),
   );
 

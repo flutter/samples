@@ -60,7 +60,7 @@ class DialogDemo extends StatelessWidget {
   void _showAlertDialog(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final TextStyle dialogTextStyle =
-        theme.textTheme.subhead.copyWith(color: theme.textTheme.caption.color);
+        theme.textTheme.subtitle1.copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
       child: AlertDialog(
@@ -79,7 +79,7 @@ class DialogDemo extends StatelessWidget {
   void _showAlertDialogWithTitle(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final TextStyle dialogTextStyle =
-        theme.textTheme.subhead.copyWith(color: theme.textTheme.caption.color);
+        theme.textTheme.subtitle1.copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
       child: AlertDialog(
@@ -261,7 +261,7 @@ class _FullScreenDialogDemo extends StatelessWidget {
               FlatButton(
                 child: Text(
                   GalleryLocalizations.of(context).dialogFullscreenSave,
-                  style: theme.textTheme.body1.copyWith(
+                  style: theme.textTheme.bodyText2.copyWith(
                     color: theme.colorScheme.onPrimary,
                   ),
                 ),

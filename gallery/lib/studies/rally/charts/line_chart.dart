@@ -26,7 +26,7 @@ class RallyLineChart extends StatelessWidget {
         dateFormat: dateFormatMonthYear(context),
         numberFormat: usdWithSignFormat(context),
         events: events,
-        labelStyle: Theme.of(context).textTheme.body1,
+        labelStyle: Theme.of(context).textTheme.bodyText2,
         textDirection: GalleryOptions.of(context).textDirection(),
         textScaleFactor: reducedTextScale(context),
         padding: isDisplayDesktop(context)

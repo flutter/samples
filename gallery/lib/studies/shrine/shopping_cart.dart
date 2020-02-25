@@ -67,7 +67,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             Text(
                               GalleryLocalizations.of(context)
                                   .shrineCartPageCaption,
-                              style: localTheme.textTheme.subhead
+                              style: localTheme.textTheme.subtitle1
                                   .copyWith(fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(width: 16),
@@ -139,10 +139,10 @@ class ShoppingCartSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle smallAmountStyle =
-        Theme.of(context).textTheme.body1.copyWith(color: shrineBrown600);
+        Theme.of(context).textTheme.bodyText2.copyWith(color: shrineBrown600);
     final TextStyle largeAmountStyle = Theme.of(context)
         .textTheme
-        .display1
+        .headline4
         .copyWith(letterSpacing: mediumLetterSpacing);
     final NumberFormat formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
@@ -320,7 +320,7 @@ class ShoppingCartRow extends StatelessWidget {
                               ),
                               Text(
                                 product.name(context),
-                                style: localTheme.textTheme.subhead
+                                style: localTheme.textTheme.subtitle1
                                     .copyWith(fontWeight: FontWeight.w600),
                               ),
                             ],

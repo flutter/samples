@@ -50,7 +50,7 @@ class _StarterAppState extends State<StarterApp> {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: DefaultFocusTraversal(
+      home: FocusTraversalGroup(
         policy: EdgeChildrenFocusTraversalPolicy(
           firstFocusNodeOutsideScope: backButtonFocusNode,
           lastFocusNodeOutsideScope: backButtonFocusNode,

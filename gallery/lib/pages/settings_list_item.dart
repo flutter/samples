@@ -46,7 +46,7 @@ class SlowMotionSetting extends StatelessWidget {
                     children: [
                       Text(
                         GalleryLocalizations.of(context).settingsSlowMotion,
-                        style: textTheme.subhead.apply(
+                        style: textTheme.subtitle1.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),
@@ -201,14 +201,14 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
             children: [
               Text(
                 optionDisplay.title,
-                style: theme.textTheme.body2.copyWith(
+                style: theme.textTheme.bodyText1.copyWith(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               if (optionDisplay.subtitle != null)
                 Text(
                   optionDisplay.subtitle,
-                  style: theme.textTheme.body2.copyWith(
+                  style: theme.textTheme.bodyText1.copyWith(
                     fontSize: 12,
                     color: Theme.of(context)
                         .colorScheme
@@ -296,7 +296,7 @@ class _CategoryHeader extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: textTheme.subhead.apply(
+                        style: textTheme.subtitle1.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),

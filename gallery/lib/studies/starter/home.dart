@@ -35,19 +35,19 @@ class HomePage extends StatelessWidget {
           children: [
             Text(
               GalleryLocalizations.of(context).starterAppGenericHeadline,
-              style: textTheme.display2.copyWith(
+              style: textTheme.headline3.copyWith(
                 color: colorScheme.onSecondary,
               ),
             ),
             SizedBox(height: 10),
             Text(
               GalleryLocalizations.of(context).starterAppGenericSubtitle,
-              style: textTheme.subhead,
+              style: textTheme.subtitle1,
             ),
             SizedBox(height: 48),
             Text(
               GalleryLocalizations.of(context).starterAppGenericBody,
-              style: textTheme.body2,
+              style: textTheme.bodyText1,
             ),
           ],
         ),
@@ -132,7 +132,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
                 margin: EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
                 child: Text(
                   GalleryLocalizations.of(context).starterAppGenericTitle,
-                  style: themeData.textTheme.title.copyWith(
+                  style: themeData.textTheme.headline6.copyWith(
                     color: themeData.colorScheme.onPrimary,
                   ),
                 ),
@@ -185,11 +185,11 @@ class _ListDrawerState extends State<ListDrawer> {
             ListTile(
               title: Text(
                 GalleryLocalizations.of(context).starterAppTitle,
-                style: textTheme.title,
+                style: textTheme.headline6,
               ),
               subtitle: Text(
                 GalleryLocalizations.of(context).starterAppGenericSubtitle,
-                style: textTheme.body1,
+                style: textTheme.bodyText2,
               ),
             ),
             Divider(),

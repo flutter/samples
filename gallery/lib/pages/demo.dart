@@ -502,7 +502,7 @@ class _DemoSectionOptions extends StatelessWidget {
               ),
               child: Text(
                 GalleryLocalizations.of(context).demoOptionsTooltip,
-                style: textTheme.display1.apply(
+                style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
                   fontSizeDelta:
                       isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -562,7 +562,7 @@ class _DemoSectionOptionsItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.body1.apply(
+            style: Theme.of(context).textTheme.bodyText2.apply(
                   color:
                       isSelected ? colorScheme.primary : colorScheme.onSurface,
                 ),
@@ -609,7 +609,7 @@ class _DemoSectionInfo extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: textTheme.display1.apply(
+                style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
                   fontSizeDelta:
                       isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -618,7 +618,7 @@ class _DemoSectionInfo extends StatelessWidget {
               SizedBox(height: 12),
               Text(
                 description,
-                style: textTheme.body1.apply(color: colorScheme.onSurface),
+                style: textTheme.bodyText2.apply(color: colorScheme.onSurface),
               ),
             ],
           ),

@@ -257,7 +257,7 @@ class Header extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.display1.apply(
+        style: Theme.of(context).textTheme.headline4.apply(
               color: color,
               fontSizeDelta:
                   isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -479,7 +479,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
                 header: true,
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.headline.apply(
+                  style: Theme.of(context).textTheme.headline5.apply(
                         color: colorScheme.onSurface,
                       ),
                   maxLines: 4,

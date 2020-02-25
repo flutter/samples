@@ -63,16 +63,16 @@ class RallyApp extends StatelessWidget {
     return base
         .copyWith(
           // TODO: Use GoogleFonts.robotoCondensed when available
-          body1: base.body1.copyWith(
+          bodyText2: base.bodyText2.copyWith(
             fontFamily: 'Roboto Condensed',
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),
-          body2: GoogleFonts.eczar(
+          bodyText1: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w400,
             letterSpacing: 1.4,
-            textStyle: base.body2,
+            textStyle: base.bodyText1,
           ),
           // TODO: Use GoogleFonts.robotoCondensed when available
           button: base.button.copyWith(
@@ -80,11 +80,11 @@ class RallyApp extends StatelessWidget {
             fontWeight: FontWeight.w700,
             letterSpacing: 2.8,
           ),
-          headline: GoogleFonts.eczar(
+          headline5: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w600,
             letterSpacing: 1.4,
-            textStyle: base.body2,
+            textStyle: base.bodyText1,
           ),
         )
         .apply(

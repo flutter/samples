@@ -49,53 +49,53 @@ class TypographyDemo extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final styleItems = [
       _TextStyleItem(
-        name: 'Display 4',
-        style: textTheme.display4,
+        name: 'Headline 1',
+        style: textTheme.headline1,
         text: 'Light 96sp',
       ),
       _TextStyleItem(
-        name: 'Display 3',
-        style: textTheme.display3,
+        name: 'Headline 2',
+        style: textTheme.headline2,
         text: 'Light 60sp',
       ),
       _TextStyleItem(
-        name: 'Display 2',
-        style: textTheme.display2,
+        name: 'Headline 3',
+        style: textTheme.headline3,
         text: 'Regular 48sp',
       ),
       _TextStyleItem(
-        name: 'Display 1',
-        style: textTheme.display1,
+        name: 'Headline 4',
+        style: textTheme.headline4,
         text: 'Regular 34sp',
       ),
       _TextStyleItem(
-        name: 'Headline',
-        style: textTheme.headline,
+        name: 'Headline 5',
+        style: textTheme.headline5,
         text: 'Regular 24sp',
       ),
       _TextStyleItem(
-        name: 'Title',
-        style: textTheme.title,
+        name: 'Headline 6',
+        style: textTheme.headline6,
         text: 'Medium 20sp',
       ),
       _TextStyleItem(
-        name: 'Subhead',
-        style: textTheme.subhead,
+        name: 'Subtitle 1',
+        style: textTheme.subtitle1,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
-        name: 'Subtitle',
-        style: textTheme.subtitle,
+        name: 'Subtitle 2',
+        style: textTheme.subtitle2,
         text: 'Medium 14sp',
       ),
       _TextStyleItem(
-        name: 'Body 1',
-        style: textTheme.body1,
+        name: 'Body Text 2',
+        style: textTheme.bodyText2,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
-        name: 'Body 2',
-        style: textTheme.body2,
+        name: 'Body Text 1',
+        style: textTheme.bodyText1,
         text: 'Regular 14sp',
       ),
       _TextStyleItem(

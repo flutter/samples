@@ -7,7 +7,7 @@
 // height of the 'Gallery' header
 const double galleryHeaderHeight = 64;
 
-// The font size delta for display1 font.
+// The font size delta for headline4 font.
 const double desktopDisplay1FontDelta = 16;
 
 // The width of the settingsDesktop.

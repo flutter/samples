@@ -187,7 +187,7 @@ class _CategoryHeader extends StatelessWidget {
                         padding: const EdgeInsetsDirectional.only(start: 8),
                         child: Text(
                           title,
-                          style: Theme.of(context).textTheme.headline.apply(
+                          style: Theme.of(context).textTheme.headline5.apply(
                                 color: colorScheme.onSurface,
                               ),
                         ),
@@ -280,7 +280,7 @@ class CategoryDemoItem extends StatelessWidget {
                     children: [
                       Text(
                         demo.title,
-                        style: textTheme.subhead
+                        style: textTheme.subtitle1
                             .apply(color: colorScheme.onSurface),
                       ),
                       Text(

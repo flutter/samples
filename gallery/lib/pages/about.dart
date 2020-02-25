@@ -31,7 +31,8 @@ class _AboutDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final bodyTextStyle = textTheme.body2.apply(color: colorScheme.onPrimary);
+    final bodyTextStyle =
+        textTheme.bodyText1.apply(color: colorScheme.onPrimary);
 
     final name = 'Flutter Gallery'; // Don't need to localize.
     final legalese = '© 2019 The Flutter team'; // Don't need to localize.
@@ -57,7 +58,7 @@ class _AboutDialog extends StatelessWidget {
               future: getVersionNumber(),
               builder: (context, snapshot) => Text(
                 snapshot.hasData ? '$name ${snapshot.data}' : '$name',
-                style: textTheme.display1.apply(color: colorScheme.onPrimary),
+                style: textTheme.headline4.apply(color: colorScheme.onPrimary),
               ),
             ),
             SizedBox(height: 24),
@@ -109,8 +110,9 @@ class _AboutDialog extends StatelessWidget {
             Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (context) => Theme(
                 data: Theme.of(context).copyWith(
-                  textTheme:
-                      Typography(platform: Theme.of(context).platform).black,
+                  textTheme: Typography.material2018(
+                    platform: Theme.of(context).platform,
+                  ).black,
                   scaffoldBackgroundColor: Colors.white,
                 ),
                 child: LicensePage(
