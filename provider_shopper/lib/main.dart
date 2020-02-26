@@ -9,6 +9,7 @@ import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
+import 'package:provider_shopper/screens/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,11 +36,13 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Provider Demo',
         theme: appTheme,
         initialRoute: '/',
         routes: {
-          '/': (context) => MyCatalog(),
+          '/': (context) => MyLogin(),
+          '/catalog': (context) => MyCatalog(),
           '/cart': (context) => MyCart(),
         },
       ),
