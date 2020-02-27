@@ -122,7 +122,7 @@ class AnimationSamples extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.headline6;
+    final headerStyle = Theme.of(context).textTheme.title;
     return Scaffold(
       appBar: AppBar(
         title: Text('Animation Samples'),
