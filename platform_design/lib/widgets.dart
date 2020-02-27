@@ -325,6 +325,7 @@ void showChoices(BuildContext context, List<String> choices) {
           return SizedBox(
             height: 250,
             child: CupertinoPicker(
+              backgroundColor: Colors.white,
               useMagnifier: true,
               magnification: 1.1,
               itemExtent: 40,
