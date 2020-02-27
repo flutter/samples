@@ -11,6 +11,8 @@ import 'src/basics/04_tweens.dart';
 import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
+import 'src/basics/08_animated_positioned.dart';
+import 'src/basics/09_animated_switcher.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
@@ -57,6 +59,14 @@ final basicDemos = [
       name: 'Tween Sequences',
       route: TweenSequenceDemo.routeName,
       builder: (context) => TweenSequenceDemo()),
+  Demo(
+      name: 'Animated Positioned',
+      route: AnimatedPositionedDemo.routeName,
+      builder: (context) => AnimatedPositionedDemo()),
+  Demo(
+      name: 'Animated Switcher',
+      route: AnimatedSwitcherDemo.routeName,
+      builder: (context) => AnimatedSwitcherDemo())
 ];
 
 final miscDemos = [
@@ -112,7 +122,7 @@ class AnimationSamples extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.title;
+    final headerStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
       appBar: AppBar(
         title: Text('Animation Samples'),
