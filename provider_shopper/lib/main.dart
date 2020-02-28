@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'Provider Demo',
         theme: appTheme,
         initialRoute: '/',

@@ -1,28 +1,32 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
 class MyLogin extends StatelessWidget {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(70.0),
+          padding: EdgeInsets.all(80.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
+            children: [
               Text(
                 'Welcome',
                 style: Theme.of(context).textTheme.display4,
               ),
               TextFormField(
-                controller: _usernameController,
+                decoration: InputDecoration(
+                  hintText: 'Username',
+                ),
               ),
               TextFormField(
-                controller: _passwordController,
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                ),
                 obscureText: true,
               ),
               SizedBox(
@@ -32,13 +36,7 @@ class MyLogin extends StatelessWidget {
                 color: Colors.yellow,
                 child: Text('ENTER'),
                 onPressed: () {
-                  //To clear the entered data from both TextFormFields
-                  _usernameController.text = '';
-                  _passwordController.text = '';
-                  
-                  //To dismiss keyboard from screen
-                  FocusScope.of(context).requestFocus(FocusNode());
-                  Navigator.pushNamed(context, '/catalog');
+                  Navigator.pushReplacementNamed(context, '/catalog');
                 },
               )
             ],
