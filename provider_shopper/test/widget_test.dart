@@ -12,7 +12,7 @@ void main() {
     await tester.pumpWidget(MyApp());
 
     // Navigating through login page.
-    await tester.tap(find.widgetWithText(RaisedButton, 'ENTER'));
+    await tester.tap(find.text('ENTER'));
     await tester.pumpAndSettle();
 
     // Check that shopping cart is empty at start.
