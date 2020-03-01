@@ -23,6 +23,9 @@ Building blocks and patterns
 6. **CustomTweenDemo** Demonstrates how to extend `Tween`.
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
+8. **EasingDemo** Demonstrates how to use `Ease-in` animation with a block
+9. **ParentingDemo** Demonstrate how to use `Parenting` animation with two blocks
+10. **Transformation** Demonstrate `Transformation` animation using a block and a circle
 
 ### Misc
 
