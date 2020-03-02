@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Non-stop', one: '1 stop', other: '${numberOfStops} stops')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 h', other: '${hours}h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 m', other: '${minutes}m')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'No available properties', one: '1 available property', other: '${totalProperties} available properties')}";
@@ -899,8 +899,53 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOGUE"),
         "dismiss": MessageLookupByLibrary.simpleMessage("DISMISS"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("A content-focused news app"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Reforming The Green Army from Within"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Farmland Bees in Short Supply"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Designers use Tech to make Futuristic Fabrics"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feminists take on Partisanship"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("The Future of Petrol"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "The Quiet, yet Powerful Healthcare Revolution"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "As Stocks Stagnate, many Look to Currency"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Divided American Lives During War"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Latest updates"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Business"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Culture"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Front page"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politics"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Science"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Tech"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Travel"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("US"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("World"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STYLES AND OTHER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Gallery"),
@@ -951,6 +996,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Amount due"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Amount paid"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Total amount"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Bills"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Due"),
         "rallyBudgetAmount": m27,
@@ -962,6 +1013,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Groceries"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restaurants"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Amount left"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Amount used"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Total cap"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Left"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Budgets"),
         "rallyDescription":

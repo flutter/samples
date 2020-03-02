@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Sense escales', one: '1 escala', other: '${numberOfStops} escales')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Cap propietat disponible', one: '1 propietat disponible', other: '${totalProperties} propietats disponibles')}";
@@ -428,15 +428,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Toca per editar mosaics i fes servir gestos per moure\'t per l\'escena. Arrossega per obtenir una panoràmica, pinça per fer zoom i gira amb dos dits. Prem el botó de restabliment per tornar a l\'orientació inicial."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Edita el mosaic"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Restableix les transformacions"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Panoràmica, zoom i rotació"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Transformacions 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Les etiquetes d\'acció són un conjunt d\'opcions que activen una acció relacionada amb el contingut principal. Es mostren de manera dinàmica i contextual a les interfícies d\'usuari."),
         "demoActionChipTitle":
@@ -538,7 +539,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Indicador d\'activitat d\'estil iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Indicador d\'activitat"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Només botons d\'alerta"),
         "demoCupertinoAlertButtonsTitle":
@@ -566,7 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Barra de navegació d\'estil iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Barra de navegació"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Data"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Data i hora"),
@@ -585,8 +586,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Control \"Llisca cap avall per actualitzar\" d\'estil iOS"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Llisca cap avall per actualitzar"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "S\'utilitza per triar una opció d\'entre diverses que són excloents entre si. Quan se selecciona una opció al control segmentat, les altres deixen d\'estar disponibles."),
@@ -594,7 +595,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Control segmentat d\'estil iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Control segmentat"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Pots utilitzar el control lliscant per fer seleccions en conjunts de valors tant discrets com continus."),
@@ -612,7 +613,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Barra de pestanyes d\'estil iOS a la part inferior"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Barra de pestanyes"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Un camp de text permet que l\'usuari introdueixi text, tant des del teclat del maquinari com del teclat en pantalla."),
         "demoCupertinoTextFieldPIN":
@@ -620,7 +621,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Camps de text d\'estil iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Camps de text"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Els controls lliscants mostren un interval de valors al llarg d\'una barra i els usuaris poden seleccionar-ne un o un interval. Pots personalitzar els controls lliscants i aplicar-hi temes."),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
@@ -822,9 +823,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Les pestanyes organitzen el contingut en diferents pantalles, conjunts de dades i altres interaccions."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("No desplaçable"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Desplaçable"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Pestanyes amb visualitzacions desplaçables de manera independent"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Pestanyes"),
@@ -928,8 +929,57 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("MOSTRA EL QUADRE DE DIÀLEG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("IGNORA"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Una aplicació de notícies centrada en el contingut"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "La reforma de l\'Exèrcit Verd des de dins"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Escassetat d’abelles de camp"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Uns dissenyadors creen teixits futuristes utilitzant tecnologia"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("El feminisme pren partit"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("El futur de la gasolina"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "La revolució sanitària: silenciosa, però poderosa"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Les accions s\'estanquen i les mirades se centren en la moneda"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Vides separades als EUA durant la guerra"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Últimes novetats"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Negocis"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Cultura"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Portada"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Política"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Ciència"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Esports"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tecnologia"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Viatges"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("EUA"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Internacional"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("ExèrcitVerd"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("RevolucióSanitària"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reforma"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Accions"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("DissenyTecnològic"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ESTILS I ALTRES"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Categories"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
@@ -984,6 +1034,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Import pendent"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Import pagat"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Import total"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Factures"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Venciment"),
         "rallyBudgetAmount": m27,
@@ -995,6 +1051,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Queviures"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restaurants"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Import restant"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Import utilitzat"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Límit total"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Restant"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Pressupostos"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

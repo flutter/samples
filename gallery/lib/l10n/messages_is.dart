@@ -36,10 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Engar millilendingar', one: 'Ein millilending', other: '${numberOfStops} millilendingar')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 klst.', other: '${hours} klst.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 mín.', other: '${minutes} mín.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Engar tiltækar eignir', one: '1 tiltæk eign', other: '${totalProperties} tiltækar eignir')}";
@@ -429,15 +430,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Ýttu til að breyta flísum og notaðu bendingar til að færa þig til í umhverfinu. Dragðu til að skima, færðu fingur saman til að nota aðdrátt og snúðu með tveimur fingrum. Ýttu á endurstillingarhnappinn til að fara aftur í upphaflega stefnu."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Breyta flís"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Endurstilla umbreytingar"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Hliðrun, aðdráttur, snúningur"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Umbreytingar í tvívídd"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Aðgerðarkubbar eru hópur valkosta sem ræsa aðgerð sem tengist upprunaefni. Birting aðgerðarkubba ætti að vera kvik og í samhengi í notandaviðmóti."),
         "demoActionChipTitle":
@@ -536,7 +537,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("Virknivísar með iOS-stíl"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Virknivísir"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Aðeins viðvörunarhnappar"),
         "demoCupertinoAlertButtonsTitle":
@@ -563,7 +564,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Yfirlitsstika með iOS-stíl"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Yfirlitsstika"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Dagsetning"),
         "demoCupertinoPickerDateTime":
@@ -582,14 +583,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Stýring með iOS-stíl fyrir valkostinn að draga til að endurnýja"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Dragðu til að endurnýja"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Notað til að velja á milli valkosta sem útiloka hvern annan. Þegar einn valkostur í hlutavali er valinn er ekki lengur hægt að velja hina valkostina."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("Hlutaval með iOS-stíl"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Hlutaval"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Hægt er að nota sleða til að velja úr samfelldum gildum eða samsettum gildum."),
@@ -607,7 +608,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Neðri flipastika með OS-stíl"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Flipastika"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Textareitir gera notendum kleift að slá inn texta, annaðhvort með tengdu lyklaborði eða skjályklaborði."),
         "demoCupertinoTextFieldPIN":
@@ -615,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Textareitir með iOS-stíl"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Textareitir"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Sleðar endurspegla gildissvið á stiku þar sem notendur geta valið eitt gildi eða gildissvið. Hægt er að breyta og sérstilla sleðana."),
         "demoCustomSlidersTitle":
@@ -808,9 +809,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Flipar raða efni á mismunandi skjái, mismunandi gagnasöfn og önnur samskipti."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Flettir ekki"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Flettir"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Flipar með sjálfstæðu yfirliti sem hægt er að fletta um"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Flipar"),
@@ -910,8 +911,56 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Velja afritunarreikning"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SÝNA GLUGGA"),
         "dismiss": MessageLookupByLibrary.simpleMessage("HUNSA"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("Efnismiðað fréttaforrit"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Endurhæfing grænu byltingarinnar innan frá"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Býflugur vantar í býflugnarækt"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Hönnuðir nýta sér tæknina til framleiðslu á nýmóðins efni"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Femínistar á móti flokkshollustu"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Framtíð eldsneytis"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Hljóð en öflug endurskoðun heilbrigðiskerfisins"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Margir líta til gjaldmiðla nú þegar hlutabréfamarkaðurinn hreyfist lítið"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Aðskildi bandaríkjamenn meðan stríðið stóð"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Nýjustu uppfærslur"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Viðskipti"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Menning"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Forsíða"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Pólitík"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Vísindi"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Íþróttir"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Tækni"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Ferðalög"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("Bandaríkin"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Heimurinn"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STÍLAR OG ANNAÐ"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("Flokkar"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Myndasafn"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("Strönd"),
@@ -962,6 +1011,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Upphæð á gjalddaga"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Greidd upphæð"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Heildarupphæð"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Reikningar"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Til greiðslu"),
         "rallyBudgetAmount": m27,
@@ -973,6 +1028,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Matvörur"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Veitingastaðir"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Upphæð eftir"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Notuð upphæð"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Hámark"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Eftir"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Kostnaðarmörk"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

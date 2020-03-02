@@ -36,10 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'কোনো আস্থান নাই', one: '১ টা আস্থান', other: '${numberOfStops} টা আস্থান')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '১ ঘ', other: '${hours} ঘ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '১ মি', other: '${minutes} মি')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'কোনো উপলব্ধ সম্পত্তি নাই', one: '১ টা উপলব্ধ সম্পত্তি', other: '${totalProperties} টা উপলব্ধ সম্পত্তি')}";
@@ -426,15 +426,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "টাইলসমূহ সম্পাদনা কৰিবলৈ টিপক আৰু দৃশ্যটো সকলোফালে চাবলৈ নিৰ্দেশসমূহ ব্যৱহাৰ কৰক। পেন কৰিবলৈ টানি আনি এৰক, জুম কৰিবলৈ পিঞ্চ কৰক, দুটা আঙুলিৰে ৰ’টেট কৰক। আৰম্ভণিৰ দিশটোলৈ উভতি যাবলৈ ৰিছেট বুটামটো টিপক।"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("টাইল সম্পাদনা কৰক"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("ৰূপান্তৰণসমূহ ৰিছেট কৰক"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("পেন, জুম, ৰ’টেট"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D ৰূপান্তৰণসমূহ"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "কার্যৰ চিপসমূহ প্ৰাথমিক সমল সম্পর্কীয় কোনো কার্য সূচনা কৰা বিকল্পসমূহৰ এক ছেট। কার্যৰ চিপসমূহ কোনো ইউআইত পৰিৱৰ্তনশীলভাৱে আৰু প্ৰাসংগিতা অনুসৰি প্ৰদর্শন হোৱা উচিত।"),
         "demoActionChipTitle":
@@ -534,7 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-শৈলীৰ কাৰ্যকলাপৰ সূচকসমূহ"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("কাৰ্যকলাপৰ সূচক"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("কেৱল সতর্কবার্তাৰ বুটামসমূহ"),
         "demoCupertinoAlertButtonsTitle":
@@ -561,7 +561,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ নেভিগেশ্বন বাৰ"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("নেভিগেশ্বন বাৰ"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("তাৰিখ"),
         "demoCupertinoPickerDateTime":
@@ -582,14 +582,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-শৈলীৰ ৰিফ্ৰেশ্ব কৰিবলৈ টনাৰ নিয়ন্ত্ৰণ"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ৰিফ্ৰেশ্ব কৰিবলৈ টনা"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "এটা ব্যৱহাৰ কৰাৰ সময়ত অন্য এটা ব্যৱহাৰ কৰিব নোৱাৰা বিকল্পসমূহৰ মাজৰ পৰা বাছনি কৰিবলৈ ব্যৱহাৰ কৰা হয়। বিভাজিত নিয়ন্ত্ৰণত এটা বিকল্প বাছনি কৰিলে, বিভাজিত নিয়ন্ত্ৰণত অন্য বিকল্পসমূহ বাছনি কৰিব নোৱাৰা হয়।"),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ বিভাজিত নিয়ন্ত্ৰণ"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("বিভাজিত নিয়ন্ত্ৰণ"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "অবিৰত অথবা বিৰত মানসমূহৰ এটা ছেটৰ পৰা বাছনি কৰিবলৈ এটা শ্লাইডাৰ ব্যৱহাৰ কৰিব পৰা যায়।"),
@@ -607,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ বুটামৰ টেবৰ দণ্ড"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("টেব বাৰ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "এখন পাঠৰ ক্ষেত্ৰই ব্যৱহাৰকাৰীক এখন হাৰ্ডৱেৰ কীব\'ৰ্ড অথবা অনস্ক্ৰীন কীব\'ৰ্ডৰ দ্বাৰা পাঠ অন্তর্ভুক্ত কৰিবলৈ দিয়ে।"),
         "demoCupertinoTextFieldPIN":
@@ -615,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-শৈলীৰ পাঠৰ ক্ষেত্ৰসমূহ"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("পাঠৰ ক্ষেত্ৰসমূহ"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "শ্লাইডাৰসমূহে এডাল বাৰত মানৰ এক পৰিসৰ দেখুৱায় য’ৰ পৰা ব্যৱহাৰকাৰীসকলে এটা একক মান অথবা মানৰ এক পৰিসৰ বাছনি কৰিব পাৰে। শ্লাইডাৰসমূহত থীম প্ৰয়োগ কৰিব পাৰি আৰু কাষ্টমাইজ কৰিব পাৰি।"),
         "demoCustomSlidersTitle":
@@ -813,9 +813,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "টেবসমূহে সমলক বিভিন্ন স্ক্ৰীনসমূহত, ডেটা ছেটসমূহত আৰু অন্য ভাব-বিনিময়সমূহত সংগঠিত কৰে।"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("স্ক্ৰ’ল নোহোৱা"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("স্ক্ৰ’ল হোৱা"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "স্বতন্ত্ৰভাৱে স্ক্ৰ’ল কৰিবপৰা ভিউসমূহৰ সৈতে টেবসমূহ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("টেবসমূহ"),
@@ -917,8 +917,55 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("বেকআপ একাউণ্ট ছেট কৰক"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ডায়ল\'গ দেখুৱাওক"),
         "dismiss": MessageLookupByLibrary.simpleMessage("অগ্ৰাহ্য কৰক"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "সমলত বিশেষ গুৰুত্ব আৰোপ কৰা এটা সংবাদ এপ্‌"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("গ্ৰীন আৰ্মিৰ আত্মসংস্কাৰ"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "পৰাগ-সংযোগত সহায়ক মৌ-মাখি দুষ্প্ৰাপ্য হ’বলৈ ধৰিছে"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "অত্যাধুনিক বস্ত্ৰ তৈয়াৰ কৰিবলৈ ডিজাইনাৰসকলে কৰিছে প্ৰযুক্তিবিদ্যাৰ ব্যৱহাৰ"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "পক্ষপাত সম্পৰ্কে নাৰীবাদীসকলৰ দৃষ্টিভংগী"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("পেট্ৰলৰ ভৱিষ্যত"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "নিঃশব্দ অথচ শক্তিশালী স্বাস্থ্যসেৱা বিপ্লৱটো"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "স্থবিৰ ষ্টক মাৰ্কেট, মুদ্ৰাই এতিয়া বহুতৰ ভৰসা"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "যুদ্ধৰ সময়ত বিধ্বস্ত হোৱা আমেৰিকাৰ জনজীৱন"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("শেহতীয়া আপডে’টসমূহ"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ব্যৱসায়"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("সংস্কৃতি"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("প্ৰথম পৃষ্ঠা"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("ৰাজনীতি"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("বিজ্ঞান"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("খেল"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("প্রযুক্তিবিদ্যা"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("ভ্ৰমণ"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("আমেৰিকা যুক্তৰাষ্ট্ৰ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("বিশ্ব"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("শৈলী আৰু অন্য"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("শিতানসমূহ"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("গেলাৰী"),
@@ -970,6 +1017,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("বকেয়া পৰিমাণ"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("পৰিশোধ কৰা পৰিমাণ"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("মুঠ পৰিমাণ"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("বিলসমূহ"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("সম্পূৰ্ণ কৰাৰ শেষ তাৰিখ"),
@@ -982,6 +1035,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("গেলামাল"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ৰেষ্টুৰেণ্টসমূহ"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("বাকী থকা পৰিমাণ"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ব্যৱহৃত পৰিমাণ"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("মুঠ খৰচৰ উচ্চসীমা"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("বাওঁ"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("বাজেটসমূহ"),
         "rallyDescription":

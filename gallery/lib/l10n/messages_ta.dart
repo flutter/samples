@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'நிறுத்தம் எதுவுமில்லை', one: 'ஒரு நிறுத்தம்', other: '${numberOfStops} நிறுத்தங்கள்')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1ம.நே.', other: '${hours}ம.நே.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1நி.', other: '${minutes}நி.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'பிராப்பர்ட்டி எதுவும் இல்லை', one: 'ஒரு பிராப்பர்ட்டி உள்ளது', other: '${totalProperties} பிராப்பர்ட்டிகள் உள்ளன')}";
@@ -437,15 +438,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "கட்டங்களை மாற்ற தட்டவும், காட்சியில் எங்கு வேண்டுமானாலும் செல்ல சைகைகளைப் பயன்படுத்தவும். நகர்த்த இழுக்கவும், அளவை மாற்ற பின்ச் செய்யவும், சுழற்ற இரு விரல்களைப் பயன்படுத்தவும். தொடக்க திசையமைப்பிற்குத் திரும்ப ரீசெட் பட்டனை அழுத்தவும்."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("கட்டத்தை மாற்றும்"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage(
+                "உருமாற்றங்களை ரீசெட் செய்யும்"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "நகர்த்துதல், அளவை மாற்றுதல், சுழற்றுதல்"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D உருமாற்றங்கள்"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "செயல்பாட்டு சிப்கள் முதன்மை உள்ளடக்கம் தொடர்பான செயலை மேற்கொள்ளத் தூண்டும் விருப்பங்களின் தொகுப்பாகும். குறிப்பிட்ட UIயில் மாறும் விதத்திலும் சூழலுக்கேற்பவும் செயல்பாட்டு சிப்கள் தோன்ற வேண்டும்."),
         "demoActionChipTitle":
@@ -546,7 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS பாணி செயல்பாட்டு இண்டிக்கேட்டர்கள்"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("செயல்பாட்டு இண்டிக்கேட்டர்"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alert Buttons Only"),
         "demoCupertinoAlertButtonsTitle":
@@ -574,7 +576,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS பாணி வழிசெலுத்தல் பட்டி"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("வழிசெலுத்தல் பட்டி"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("தேதி"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("தேதியும் நேரமும்"),
@@ -595,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS பாணியில் இழுப்பதன் மூலம் கட்டுப்பாட்டை ரெஃப்ரெஷ் செய்தல்"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ரெஃப்ரெஷ் செய்ய இழுக்கவும்"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "பல பரஸ்பர பிரத்தியேக விருப்பங்களில் இருந்து தேவையானதைத் தேர்வுசெய்யப் பயன்படுகிறது. பகுதிப் பிரிப்பிற்கான கட்டுப்பாட்டில் ஒரு விருப்பத்தைத் தேர்வுசெய்துவிட்டால் அதிலுள்ள மற்ற விருப்பங்களைத் தேர்வுசெய்ய இயலாது."),
@@ -603,7 +605,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ஸ்டைல் பகுதிப் பிரிப்பிற்கான கட்டுப்பாடு"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "பகுதிப் பிரிப்பிற்கான கட்டுப்பாடு"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "தொடர்ச்சியான அல்லது தொடர்ச்சியற்ற மதிப்புத் தொகுப்பிலிருந்து தேர்வுசெய்ய ஸ்லைடரைப் பயன்படுத்தலாம்."),
@@ -621,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-style கீழ்த் தாவல் பட்டி"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("தாவல் பட்டி"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ஒரு உரைப் புலமானது வன்பொருள் கீபோர்ட் மூலமாகவோ ஸ்கிரீன் கீபோர்ட் மூலமாகவோ உரையை உள்ளிட பயனரை அனுமதிக்கும்."),
         "demoCupertinoTextFieldPIN":
@@ -629,7 +632,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS பாணி உரைப் புலங்கள்"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("உரைப் புலங்கள்"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ஸ்லைடர்கள் ஒரு பட்டியிலுள்ள மதிப்புகளின் வரம்பைக் காட்டுகின்றன, அதிலிருந்து பயனர்கள் ஒரு மதிப்பையோ மதிப்புகளின் வரம்பையோ தேர்ந்தெடுக்கலாம். ஸ்லைடர்களைக் குறிப்பிட்ட தீமிற்கு ஏற்ப மாற்றவும் பிரத்தியேகமாக்கிக் கொள்ளவும் முடியும்."),
         "demoCustomSlidersTitle":
@@ -831,9 +834,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "தாவல்கள் என்பவை வெவ்வேறு திரைகள், தரவுத் தொகுப்புகள் மற்றும் பிற தொடர்புகளுக்கான உள்ளடக்கத்தை ஒழுங்கமைக்கின்றன."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("நகராதது"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("நகரக்கூடியது"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "சார்பின்றி நகர்த்திப் பார்க்கும் வசதியுடைய தாவல்கள்"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("தாவல்கள்"),
@@ -935,8 +938,55 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Set backup account"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHOW DIALOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("நிராகரி"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "உள்ளடக்கத்தை மையப்படுத்திய ஓர் செய்திகள் ஆப்ஸ்"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "பசுமை ராணுவம் உள்ளிருந்தே சீரமைக்கப்படுகிறது"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "வயல்வெளித் தேனீக்களுக்குத் தட்டுப்பாடு"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "தொழில்நுட்பத்தினால் அதிநவீன துணி வகைகளை உருவாக்கும் வடிவமைப்பாளர்கள்"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "ஒருதலைப்பட்சம் குறித்த பெண்ணியவாதிகளின் நிலைப்பாடு"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("பெட்ரோலின் எதிர்காலம்"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "சத்தமின்றி சரித்திரம் படைக்கும் சுகாதாரப் புரட்சி"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "பங்குகள் தேக்கத்தினால் நாணயத்தை எதிர்நோக்கியுள்ள மக்கள்"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "போரின் போது பிளவுபட்ட அமெரிக்கக் குடும்பங்கள்"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("சமீபத்திய செய்திகள்"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("வணிகம்"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("கலாச்சாரம்"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("முதல் பக்கம்"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("அரசியல்"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("அறிவியல்"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("விளையாட்டு"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("தொழில்நுட்பம்"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("பயணம்"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("அமெரிக்கா"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("உலகம்"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("பங்குகள்"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ஸ்டைல்களும் மற்றவையும்"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("வகைகள்"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("கேலரி"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("கடற்கரை"),
@@ -989,6 +1039,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("நிலுவைத் தொகை"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("செலுத்திய தொகை"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("மொத்தத் தொகை"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("பில்கள்"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("நிலுவை"),
         "rallyBudgetAmount": m27,
@@ -1000,6 +1056,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("மளிகைப்பொருட்கள்"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("உணவகங்கள்"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("மீதமுள்ள தொகை"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("பயன்படுத்திய தொகை"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("மொத்த முதல்"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("மீதம்"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("பட்ஜெட்கள்"),
         "rallyDescription":

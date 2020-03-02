@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Pa ndalesa', one: '1 ndalesë', other: '${numberOfStops} ndalesa')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 orë', other: '${hours} orë')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min.', other: '${minutes} min.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Nuk ka prona të disponueshme', one: '1 pronë e disponueshme', other: '${totalProperties} prona të disponueshme')}";
@@ -429,15 +430,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Trokit për të modifikuar pllakëzat dhe përdor gjestet për të lëvizur në skenë. Zvarrit për ta zgjeruar, afro gishtat për ta zmadhuar, rrotulloje me dy gishta. Shtyp butonin \"Rivendos\" për t\'u kthyer tek orientimi fillestar."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Modifiko pllakëzën"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("Rivendos transformimet"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Zgjero, zmadho, rrotullo"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Transformimet 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Çipet e veprimit janë një grupim opsionesh që aktivizojnë një veprim që lidhet me përmbajtjen kryesore. Çipet e veprimit duhet të shfaqen në mënyrë dinamike dhe kontekstuale në një ndërfaqe përdoruesi."),
         "demoActionChipTitle":
@@ -539,7 +540,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Treguesit e aktivitetit në stilin e iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Treguesi i aktivitetit"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Vetëm butonat e sinjalizimit"),
@@ -568,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Shiriti i navigimit në stilin e iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Shiriti i navigimit"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Data"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Data dhe ora"),
@@ -588,7 +589,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kontrolli me tërheqjen për të rifreskuar në stilin e iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Tërhiq për të rifreskuar"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Përdoret për të zgjedhur nga një numër opsionesh ekskluzive në mënyrë reciproke. Kur zgjidhet një opsion në kontrollin e segmentuar, zgjedhja e opsioneve të tjera në kontrollin e segmentuar ndalon."),
@@ -596,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Kontrolli i segmentuar në stilin e iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Kontrolli i segmentuar"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Një rrëshqitës mund të përdoret për të zgjedhur nga një grup i vazhdueshëm ose jo i vazhdueshëm vlerash."),
@@ -614,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Shiriti i skedës në fund i stilit të iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Shiriti i skedës"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Një fushë teksti lejon që përdoruesi të futë tekstin me një tastierë fizike ose me një tastierë në ekran."),
         "demoCupertinoTextFieldPIN":
@@ -622,7 +623,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "Fushat e tekstit në stilin e iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Fushat me tekst"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Rrëshqitësit pasqyrojnë një gamë vlerash përgjatë një shiriti, nga të cilat përdoruesit mund të zgjedhin një vlerë të vetme ose një gamë vlerash. Rrëshqitësit mund të personalizohen dhe t\'u ndryshohet tema."),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
@@ -824,9 +825,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Skedat i organizojnë përmbajtjet në ekrane të ndryshme, grupime të dhënash dhe ndërveprime të tjera."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Pa lëvizje"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Me lëvizje"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Skedat me pamje që mund të lëvizen në mënyrë të pavarur"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Skedat"),
@@ -927,8 +928,56 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cakto llogarinë e rezervimit"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("SHFAQ DIALOGUN"),
         "dismiss": MessageLookupByLibrary.simpleMessage("HIQ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Një aplikacion lajmesh i fokusuar te përmbajtja"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Reformimi i ushtrisë së gjelbër nga brenda saj"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Bletët braktisin tokat bujqësore"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Stilistët përdorin teknologjinë për të krijuar pëlhura futuriste"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministët kundër kampeve partiake"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("E ardhmja e benzinës"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Revolucioni i qetë, por i fuqishëm në kujdesin shëndetësor"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Me ngadalësimin e aksioneve, shumë u drejtohen valutave"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Jetët amerikane të ndara gjatë luftës"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Përditësimet më të fundit"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Biznes"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kulturë"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Faqja kryesore"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politikë"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Shkencë"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknologji"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Udhëtim"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("Shtetet e Bashkuara"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Bota"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reformë"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Aksione"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STILET DHE TË TJERA"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoritë"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
@@ -983,6 +1032,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Shuma për t\'u paguar"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Shuma e paguar"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Shuma totale"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Faturat"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Afati"),
         "rallyBudgetAmount": m27,
@@ -994,6 +1049,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ushqimore"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restorantet"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Shuma e mbetur"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Shuma e përdorur"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Kufiri total"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Të mbetura"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Buxhetet"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

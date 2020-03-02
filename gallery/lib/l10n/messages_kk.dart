@@ -36,10 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Тікелей рейс', one: '1 ауысып міну', other: '${numberOfStops} аялдама')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 сағ', other: '${hours} сағ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 мин', other: '${minutes} мин')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Қолжетімді қонақүйлер жоқ', one: '1 қолжетімді қонақүй', other: '${totalProperties} қолжетімді қонақүй')}";
@@ -415,15 +416,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Бөлшектерді өзгерту үшін түртіңіз және көріністі қимыл арқылы жылжытыңыз. Панорамалау үшін сүйреңіз, масштабтау үшін екі саусақты жақындатыңыз, екі саусақпен бұрыңыз. Бастапқы бағытқа оралу үшін қайтару түймесін басыңыз."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Бөлшекті өзгерту"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage(
+                "Түрлендірулерді бастапқы күйге қайтару"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Панорама, масштабтау, бұру"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D түрлендірулер"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Әрекет чиптері — негізгі мазмұнға қатысты әрекетті іске қосатын параметрлер жиынтығы. Олар пайдаланушы интерфейсінде динамикалық және мәнмәтіндік күйде көрсетілуі керек."),
         "demoActionChipTitle":
@@ -522,7 +524,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS стильді әрекет индикаторлары"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Әрекет индикаторы"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Тек ескерту түймелері"),
         "demoCupertinoAlertButtonsTitle":
@@ -550,7 +552,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS стиліндегі навигация жолағы"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Навигация жолағы"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Күн"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Күн және уақыт"),
@@ -571,7 +573,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS стиліндегі жаңарту үшін төмен сырғытуды басқару"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Жаңарту үшін төмен сырғыту"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Бірнеше өзара жалғыз опциялар арасында таңдауға пайдаланылады. Сегменттелген басқаруда бір опция талдалса, ондағы басқа опциялар таңдалмайды."),
@@ -579,7 +581,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS стильді сегменттелген басқару"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Cегменттелген басқару"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Жүгірткі үздіксіз немесе дискретті мәндер жиынтығын таңдауға пайдаланылады."),
@@ -597,7 +599,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS стильді төменгі қойынды жолағы"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Қойындылар жолағы"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Мәтін өрістері пайдаланушыға пернетақта немесе экрандағы пернетақта арқылы мәтін енгізуге мүмкіндік береді."),
         "demoCupertinoTextFieldPIN":
@@ -605,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS стиліндегі мәтін өрістері"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Мәтін өрістері"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Жүгірткілер жолақта мәндер аралығын көрсетеді, пайдаланушылар олардың ішінен бір мәнді не мәндер аралығын таңдай алады. Жүгірткілерге атау қоюға және бейімдеуге болады."),
         "demoCustomSlidersTitle":
@@ -807,9 +809,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Қойындылар түрлі экрандардағы, деректер жинағындағы және тағы басқа өзара қатынастардағы мазмұнды реттейді."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Айналдырылмайды"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Айналдыру"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Жеке айналмалы көріністері бар қойындылар"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Қойындылар"),
@@ -911,8 +913,52 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ДИАЛОГТІК ТЕРЕЗЕНІ КӨРСЕТУ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ЖАБУ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Мазмұнға бағытталған жаңалықтар қолданбасы"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Жасыл армияның ішкі реформалары"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Ауылшаруашылығында ара тапшы"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Футуристік маталар шығару үшін дизайнерлер жаңа технология пайдаланады"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Феминистер партизандық соғысқа шығады"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Бензиннің болашағы"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Денсаулық сақтау саласындағы үлкен реформа"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Акция курсының тоқырауы салдарынан инвесторлар ақшаға бет бұруда"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Соғыс кезіндегі америкалықтардың екіге айырылған өмірі"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Соңғы жаңа нұсқалар"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Бизнес"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Мәдениет"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Басты бет"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Саясат"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Ғылым"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Спорт"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("Техника"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Саяхат"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("АҚШ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Әлем"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Акциялар"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("СТИЛЬДЕР ЖӘНЕ ТАҒЫ БАСҚА"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Санаттар"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерея"),
@@ -965,6 +1011,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Қарыз сома"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Төленген сома"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Жалпы сома"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Шоттар"),
         "rallyBillsDue":
             MessageLookupByLibrary.simpleMessage("Төленетін сома:"),
@@ -977,6 +1029,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Азық-түлік"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Мейрамханалар"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Қалған сома"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Жұмсалған сома"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Жалпы бюджет"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Қалды"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Бюджеттер"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

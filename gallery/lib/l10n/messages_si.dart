@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'අඛණ්ඩ', one: 'නැවතුම් 1', other: 'නැවතුම් ${numberOfStops}ක්')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: 'පැ1', other: 'පැ${hours}')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: 'මි1', other: 'මි${minutes}')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ලබා ගත හැකි කුලී නිවාස නැත', one: 'ලබා ගත හැකි කුලී නිවාස 1', other: 'ලබා ගත හැකි කුලී නිවාස ${totalProperties}')}";
@@ -431,15 +431,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ටයිල් සංස්කරණය කිරීමට තට්ටු කරන්න, එමෙන්ම දර්ශනය වටා ගෙන යාමට ඉංගිත භාවිත කරන්න. පෑන් කිරීමට අදින්න, විශාලනය කිරීමට කොනහන්න, ඇඟිලි දෙකින් කරකවන්න ආරම්භක දිශානතිය වෙත ආපසු යාමට යළිි සැකසීමේ බොත්තම ඔබන්න."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ටයිල් සංස්කරණය කරන්න"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("පරිණාමනය කිරීම් යළි සකසන්න"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "පෑන් කරන්න, විශාලනය කරන්න, කරකවන්න"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D පරිණාමනය කිරීම්"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ක්‍රියා චිප යනු ප්‍රාථමික අන්තර්ගතයට අදාළ ක්‍රියාවක් ක්‍රියාරම්භ කරන විකල්ප සමූහයකි. ක්‍රියා චිප ගතිකව සහ සංදර්භානුගතය UI එකක දිස් විය යුතුය."),
         "demoActionChipTitle":
@@ -539,7 +539,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-විලාස ක්‍රියාකාරකම් දර්ශක"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("ක්‍රියාකාරකම් දර්ශකය"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ඇඟවීම් බොත්තම් පමණයි"),
         "demoCupertinoAlertButtonsTitle":
@@ -566,7 +566,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-විලාස සංචලන තීරුව"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("සංචලන තීරුව"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("දිනය"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("දිනය සහ වේලාව"),
@@ -587,14 +587,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-විලාසයේ නැවුම් කිරීමට ඇදීමේ පාලනය"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("නැවුම් කිරීමට අදින්න"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "අන්‍යෝන්‍ය වශයෙන් බහිෂ්කාර විකල්ප ගණනාවක් අතර තෝරා ගැනීමට භාවිත කරයි. කොටස් කළ පාලනයේ එක් විකල්පයක් තෝරා ගත් විට, කොටස් කළ පාලනයේ අනෙක් විකල්ප තෝරා ගැනීම නතර වේ."),
         "demoCupertinoSegmentedControlSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-විලාස කොටස් කළ පාලනය"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("කොටස් කළ පාලනය"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ස්ලයිඩරයක් එක්කෝ අඛණ්ඩ හෝ වෙන් වූ අගයන් කට්ටලයක් හෝ වෙතින් තේරීමට භාවිත කළ හැකිය."),
@@ -612,7 +612,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-විලාස බොත්තම් ටැබ තීරුව"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ටැබ තීරුව"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "පෙළ ක්ෂේත්‍රයක් පරිශීලකට දෘඩාංග යතුරුපුවරුවකින් හෝ තිරය මත යතුරුපුවරුවකින් හෝ පෙළ ඇතුළත් කිරීමට ඉඩ දෙයි."),
         "demoCupertinoTextFieldPIN":
@@ -620,7 +620,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-විලාස පෙළ ක්ෂේත්‍ර"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("පෙළ ක්ෂේත්‍ර"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ස්ලයිඩර් තීරුවක් ඔස්සේ අගයන් පරාසයක් පිළිබිඹු කරන අතර එමඟින් පරිශීලකයන්ට තනි අගයක් හෝ අගයන් පරාසයක් තෝරා ගත හැකිය. ස්ලයිඩර් තේමා ගත කර අභිරුචිකරණය කළ හැකිය."),
         "demoCustomSlidersTitle":
@@ -816,9 +816,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ටැබ විවිධ තිර, දත්ත කට්ටල සහ වෙනත් අන්තර්ක්‍රියා හරහා අන්තර්ගතය සංවිධානය කරයි."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("අනුචලනය නොකරමින්"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("අනුචලනය කරමින්"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ස්වාධීනව අනුචලනය කළ හැකි දසුන් සහිත ටැබ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ටැබ"),
@@ -921,8 +921,55 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("උපස්ථ ගිණුම සකසන්න"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("සංවාදය පෙන්වන්න"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ඉවත ලන්න"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "අන්තර්ගතයට යොමු වූ පුවත් යෙදුමකි"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "ඇතුළතින් කොළ හමුදාව ප්‍රතිසංස්කරණය කරමින්"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "ගොවිපළ ඉඩම් මී මැස්සන් හිඟයි"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "සැලසුම්කරුවන් අනාගතයට ගැළපෙන රෙදිපිළි සෑදීමට තාක්ෂණය භාවිත කරයි"),
+        "fortnightlyHeadlineFeminists":
+            MessageLookupByLibrary.simpleMessage("කාන්තාවාදීන් පැත්ත ගනී"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("ගැසොලින්වල අනාගතය"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "නිහඬ එහෙත් ප්‍රබල සෞඛ්‍ය ආරක්ෂණ විප්ලවය"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "කොටස් එක තැන තිබෙන නිසා, බොහෝ අය ව්‍යවහාර මුදල් දෙස බලයි"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "යුද්ධය අතරතුර ඇමෙරිකානු ජීවිත වෙන් කරන ලදී"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("නවතම යාවත්කාලීන"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ව්‍යාපාරය"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("සංස්කෘතිය"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("මුල් පිටුව"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("දේශපාලනය"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("විද්‍යාව"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("ක්‍රීඩා"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("තාක්ෂණ"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("සංචාර"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("එක්සත් ජනපදය"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ලෝකය"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("ප්‍රතිසංස්කරණය"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("කොටස්"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("විලාස සහ වෙනත්"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("ප්‍රවර්ග"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ගැලරිය"),
@@ -974,6 +1021,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("ගෙවිය යුතු මුදල"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("ගෙවූ මුදල"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("මුළු මුදල"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("බිල්පත්"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("නියමිත"),
         "rallyBudgetAmount": m27,
@@ -985,6 +1038,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("සිල්ලර භාණ්ඩ"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("අවන්හල්"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("ඉතිරි මුදල"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("භාවිත කළ මුදල"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("මුළු ප්‍රාග්ධනය"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("වම"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("අයවැය"),
         "rallyDescription":

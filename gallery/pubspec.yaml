@@ -1,7 +1,7 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
 
-version: 2.2.0+020200
+version: 2.3.0+020300
 
 environment:
   sdk: ">=2.3.0 <3.0.0"
@@ -14,7 +14,7 @@ dependencies:
   intl:
   intl_translation:
   flutter_localized_locales:
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^0.1.3
   rally_assets: ^1.0.0
   meta:
   scoped_model:

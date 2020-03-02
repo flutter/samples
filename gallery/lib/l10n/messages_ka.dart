@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'პირდაპირი', one: '1 გადაჯდომა', other: '${numberOfStops} გადაჯდომა')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 სთ', other: '${hours} სთ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 წთ', other: '${minutes} წთ')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ხელმისაწვდომი საკუთრება არ არის', one: '1 ხელმისაწვდომი საკუთრება', other: '${totalProperties} ხელმისაწვდომი საკუთრება')}";
@@ -428,15 +429,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "შეეხეთ ბლოკების დასარედაქტირებლად და გამოიყენეთ ჟესტები სცენის ფარგლებში გადასაადგილებლად. პანირებისთვის ჩაავლეთ, მასშტაბირებისთვის თითებით მოუჭირეთ, შეატრიალეთ ორი თითით. საწყის ორიენტაციაზე დასაბრუნებლად დააჭირეთ გადაყენების ღილაკს."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ბლოკის რედაქტირება"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("გარდაქმნების გადაყენება"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "პანირება, მასშტაბირება, შეტრიალება"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D გარდაქმნები"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "მოქმედების ჩიპები ოფციების ნაკრებია, რომელიც უშვებს ქმედებასთან დაკავშირებულ პირველად შემცველობას. მოქმედების ჩიპები დინამიურად და კონტექსტუალურად უნდა გამოჩნდეს UI-ს სახით."),
         "demoActionChipTitle":
@@ -537,7 +538,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-სტილის აქტივობის ინდიკატორი"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("აქტივობის ინდიკატორი"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "მხოლოდ გამაფრთხილებელი ღილაკები"),
@@ -565,7 +566,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-სტილის ნავიგაციის ზოლი"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("ნავიგაციის ზოლი"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("თარიღი"),
         "demoCupertinoPickerDateTime":
@@ -586,7 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "მართვა iOS-სტილის ჩამოწევით განახლებით"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ჩამოწევით განახლება"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "გამოიყენება რამდენიმე ურთიერთგამომრიცხავ ვარიანტს შორის არჩევისთვის. როდესაც სეგმენტირებულ მართვაში ერთ ვარიანტს ირჩევთ, სხვა ვარიანტების არჩევა უქმდება."),
@@ -594,7 +595,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-სტილის სეგმენტირებული მართვა"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("სეგმენტირებული მართვა"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "სლაიდერის გამოყენება შესაძლებელია მნიშვნელობათა უწყვეტი ან დისკრეტული სიმრავლიდან ასარჩევად."),
@@ -612,7 +613,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-სტილის ქვედა ჩანართების ზოლი"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ჩანართების ზოლი"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ტექსტური ველი მომხმარებელს საშუალებას აძლევს, შეიყვანოს ტექსტი, როგორც აპარატურული კლავიატურით, ისე ეკრანული კლავიატურით."),
         "demoCupertinoTextFieldPIN":
@@ -620,7 +621,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-სტილის ტექსტური ველები"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("ტექსტური ველები"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "სლაიდერები ზოლის გასწვრივ ასახავს მნიშვნელობათა დიაპაზონს, რომელთაგანაც მომხმარებლებს შეუძლიათ აირჩიონ ერთი მნიშვნელობა ან მნიშვნელობათა დიაპაზონი. სლაიდერს შეიძლება ჰქონდეს თემა და იყოს მორგებული."),
         "demoCustomSlidersTitle":
@@ -821,9 +822,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ჩანართების მეშვეობით ხდება კონტენტის ორგანიზება სხვადასხვა ეკრანის, მონაცემთა ნაკრების და სხვა ინტერაქციების ფარგლებში."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("არაგადაადგილებადი"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("გადაადგილებადი"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ჩანართები ცალ-ცალკე გადაადგილებადი ხედებით"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ჩანართები"),
@@ -925,8 +926,56 @@ class MessageLookup extends MessageLookupByLibrary {
             "სარეზერვო ანგარიშის დაყენება"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("დიალოგის ჩვენება"),
         "dismiss": MessageLookupByLibrary.simpleMessage("დახურვა"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "ახალი ამბების კონტენტზე ორიენტირებული აპი"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "მწვანე არმიის რეფორმა შიგნიდან"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "ფერმებში ფუტკრების დეფიციტია"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "დიზაინერები იყენებენ ტექნოლოგიებს ფუტურისტული ქსოვილების დასამზადებლად"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "ფემინისტები პარტიზანობას იწყებენ"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("ბენზინის მომავალი"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "წყნარი, მაგრამ მნიშვნელოვანი რევოლუცია ჯანდაცვაში"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "აქციების სტაგნაციის პერიოდში ბევრი ვალუტას უბრუნდება"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "ამერიკელების გახლეჩილი ცხოვრება ომის პერიოდში"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("ბოლო განახლებები"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ბიზნესი"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("კულტურა"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("პირველი გვერდი"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("პოლიტიკა"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("მეცნიერება"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("სპორტი"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("ტექნოლოგია"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("მოგზაურობა"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("შეერთებული შტატები"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("მსოფლიო"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("სტილები და სხვა"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("კატეგორიები"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("გალერეა"),
@@ -980,6 +1029,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("გადასახდელი თანხა"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("გადახდილი თანხა"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("ჯამური თანხა"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("გადასახადები"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("გადასახდელია"),
         "rallyBudgetAmount": m27,
@@ -991,6 +1046,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("სურსათი"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("რესტორნები"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("დარჩენილი თანხა"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("დახარჯული თანხა"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("ჯამური კაპიტალიზაცია"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("დარჩენილია"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ბიუჯეტები"),
         "rallyDescription":

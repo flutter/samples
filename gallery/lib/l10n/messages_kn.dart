@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'ತಡೆರಹಿತ', one: '1 ನಿಲುಗಡೆ', other: '${numberOfStops} ನಿಲುಗಡೆಗಳು')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1ಗಂ', other: '${hours}ಗಂ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1ನಿ', other: '${minutes}ನಿ')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'ಲಭ್ಯವಿರುವ ಸ್ವತ್ತುಗಳಿಲ್ಲ', one: '1 ಲಭ್ಯವಿರುವ ಸ್ವತ್ತುಗಳಿದೆ', other: '${totalProperties} ಲಭ್ಯವಿರುವ ಸ್ವತ್ತುಗಳಿವೆ')}";
@@ -435,15 +435,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "ಟೈಲ್‌ಗಳನ್ನು ಎಡಿಟ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು Tದೃಶ್ಯದ ಸುತ್ತಲೂ ಚಲಿಸಲು ಸ್ಪರ್ಶ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಬಳಸಿ. ವಸ್ತುವನ್ನು ಪ್ಯಾನ್ ಮಾಡಲು ಎಳೆಯಿರಿ, ಝೂಮ್ ಮಾಡಲು ಪಿಂಚ್ ಮಾಡಿ ಮತ್ತು ತಿರುಗಿಸಲು ಎರಡು ಬೆರಳುಗಳಿಂದ ಸರಿಸಿ. ಆರಂಭಿಕ ಓರಿಯಂಟೇಶನ್‌ಗೆ ಹಿಂತಿರುಗಲು ಮರುಹೊಂದಿಸಿ ಬಟನ್ ಅನ್ನು ಒತ್ತಿರಿ."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("ಟೈಲಕ್ ಅನ್ನು ಎಡಿಟ್ ಮಾಡಿ"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("ಪರಿವರ್ತನೆಗಳನ್ನು ಮರುಹೊಂದಿಸಿ"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("ಪ್ಯಾನ್‌, ಝೂಮ್, ತಿರುಗಿಸಿ"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D ಪರಿವರ್ತನೆಗಳು"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "ಆ್ಯಕ್ಷನ್ ಚಿಪ್‌ಗಳು ಎನ್ನುವುದು ಪ್ರಾಥಮಿಕ ವಿಷಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕ್ರಿಯೆಯನ್ನು ಟ್ರಿಗರ್ ಮಾಡುವ ಆಯ್ಕೆಗಳ ಒಂದು ಗುಂಪಾಗಿದೆ. ಆ್ಯಕ್ಷನ್ ಚಿಪ್‌ಗಳು UI ನಲ್ಲಿ ಕ್ರಿಯಾತ್ಮಕವಾಗಿ ಮತ್ತು ಸಂದರ್ಭೋಚಿತವಾಗಿ ಗೋಚರಿಸಬೇಕು."),
         "demoActionChipTitle":
@@ -542,7 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ಸ್ಟೈಲ್ ಚಟುವಟಿಕೆ ಸೂಚಕಗಳು"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("ಚಟುವಟಿಕೆ ಸೂಚಕ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("ಅಲರ್ಟ್ ಬಟನ್‌ಗಳು ಮಾತ್ರ"),
         "demoCupertinoAlertButtonsTitle":
@@ -569,7 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ಶೈಲಿ ನ್ಯಾವಿಗೇಶನ್‌ ಬಾರ್‌"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("ದಿನಾಂಕ"),
         "demoCupertinoPickerDateTime":
@@ -590,7 +590,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ನಿಯಂತ್ರಣವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಲು, iOS-ಶೈಲಿ ಎಳೆಯಿರಿ"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("ರಿಫ್ರೆಶ್ ಮಾಡಲು ಎಳೆಯಿರಿ"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "ಹಲವು ಪರಸ್ಪರ ವಿಶೇಷ ಆಯ್ಕೆಗಳನ್ನು ಆರಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ. ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣದಲ್ಲಿ ಒಂದು ಆಯ್ಕೆಯನ್ನು ಆರಿಸಿದಾಗ, ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣದಲ್ಲಿನ ಇತರ ಆಯ್ಕೆಗಳು ಆರಿಸುವಿಕೆಯು ಕೊನೆಗೊಳ್ಳುತ್ತದೆ."),
@@ -598,7 +598,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ಶೈಲಿಯ ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣ"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("ವಿಭಾಗೀಕರಣದ ನಿಯಂತ್ರಣ"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "ನಿರಂತರ ಅಥವಾ ಪ್ರತ್ಯೇಕ ಮೌಲ್ಯಗಳ ಗುಂಪಿನಿಂದ ಆಯ್ಕೆಮಾಡಲು ಸ್ಲೈಡರ್ ಅನ್ನು ಬಳಸಬಹುದು."),
@@ -616,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-ಸ್ಟೈಲ್ ಬಾಟಮ್ ಟ್ಯಾಬ್ ಬಾರ್"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("ಟ್ಯಾಬ್ ಪಟ್ಟಿ"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "ಪಠ್ಯದ ಸ್ಥಳದಲ್ಲಿ, ಬಳಕೆದಾರರು ಹಾರ್ಡ್‌ವೇರ್ ಕೀಬೋರ್ಡ್ ಅಥವಾ ಆನ್‌ಸ್ಕ್ರೀನ್ ಕೀಬೋರ್ಡ್ ಬಳಸಿ ಪಠ್ಯವನ್ನು ನಮೂದಿಸಬಹುದು."),
         "demoCupertinoTextFieldPIN":
@@ -624,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ಶೈಲಿ ಪಠ್ಯ ಫೀಲ್ಡ್‌ಗಳು"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("ಪಠ್ಯ ಫೀಲ್ಡ್‌ಗಳು"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "ಸ್ಲೈಡರ್‌ಗಳು ಒಂದು ನಿರ್ದಿಷ್ಟ ಶ್ರೇಣಿಯನ್ನು ಪ್ರತಿಬಿಂಬಿಸುವ ಬಾರ್ ಆಗಿದೆ. ಇದರಿಂದ ಬಳಕೆದಾರರು ಒಂದು ಮೌಲ್ಯವನ್ನು ಅಥವಾ ಮೌಲ್ಯಗಳ ಶ್ರೇಣಿಯನ್ನು ಆಯ್ಕೆಮಾಡಬಹುದು. ಸ್ಲೈಡರ್‌ಗಳನ್ನು ಥೀಮ್ ಮಾಡಬಹುದು ಮತ್ತು ಕಸ್ಟಮೈಸ್ ಮಾಡಬಹುದು."),
         "demoCustomSlidersTitle":
@@ -819,9 +819,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "ಬೇರೆ ಸ್ಕ್ರೀನ್‌ಗಳು, ಡೇಟಾ ಸೆಟ್‌ಗಳು ಮತ್ತು ಇತರ ಸಂವಹನಗಳಾದ್ಯಂತ ವಿಷಯವನ್ನು ಟ್ಯಾಬ್‌ಗಳು ಆಯೋಜಿಸುತ್ತವೆ."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("ಸ್ಕ್ರೋಲಿಂಗ್ ಆಗದ"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("ಸ್ಕ್ರಾಲ್ ಮಾಡಲಾಗುತ್ತದೆ"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "ಪ್ರತ್ಯೇಕವಾಗಿ ಸ್ಕ್ರಾಲ್ ಮಾಡಬಹುದಾದ ವೀಕ್ಷಣೆಗಳ ಜೊತೆಗಿನ ಟ್ಯಾಪ್‌ಗಳು"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("ಟ್ಯಾಬ್‌ಗಳು"),
@@ -925,8 +925,53 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ಬ್ಯಾಕಪ್ ಖಾತೆಯನ್ನು ಹೊಂದಿಸಿ"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ಡೈಲಾಗ್ ತೋರಿಸಿ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ವಜಾಗೊಳಿಸಿ"),
+        "fortnightlyDescription":
+            MessageLookupByLibrary.simpleMessage("ವಿಷಯ ಕೇಂದ್ರಿತ ಸುದ್ದಿ ಆ್ಯಪ್"),
+        "fortnightlyHeadlineArmy":
+            MessageLookupByLibrary.simpleMessage("ಹಸಿರು ಸೈನ್ಯದ ಆಂತರಿಕ ಸುಧಾರಣೆ"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("ಜೇನುಕೃಷಿಗೆ ಜೇನುನೊಣಗಳ ಕೊರತೆ"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "ಫ್ಯೂಚರಿಸ್ಟಿಕ್ ಬಟ್ಟೆ ರಚನೆಗೆ ತಂತ್ರಜ್ಞಾನ ಬಳಸುವ ಸ್ಟೈಲಿಸ್ಟ್‌ಗಳು"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "ಪೂರ್ವಾಗ್ರಹವನ್ನು ವಿರೋಧಿಸುವ ಗಂಭೀರ ಸ್ತ್ರೀವಾದಿಗಳು"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("ಗ್ಯಾಸೋಲಿನ್‌ನ ಭವಿಷ್ಯ"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "ಶಾಂತಿಯುತ ಮತ್ತು ಶಕ್ತಿಯುತ ಆರೋಗ್ಯ ಕ್ರಾಂತಿ"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "ಷೇರುಗಳು ಬೆಲೆ ಕುಸಿತ, ಕರೆನ್ಸಿಗಳತ್ತ ಮುಖ ಮಾಡಿದ ಜನಸಾಮಾನ್ಯ"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "ಯುದ್ಧದ ಸಮಯದಲ್ಲಿ ಅಮೆರಿಕಾದ ಜೀವನ ಛಿದ್ರ"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("ಇತ್ತೀಚಿನ ಅಪ್‌ಡೇಟ್‌ಗಳು"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("ವ್ಯಾಪಾರ"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("ಸಂಸ್ಕೃತಿ"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("ಮುಂದಿನ ಪುಟ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("ರಾಜಕೀಯ"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("ವಿಜ್ಞಾನ"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("ಕ್ರೀಡೆ"),
+        "fortnightlyMenuTech": MessageLookupByLibrary.simpleMessage("ಟೆಕ್"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("ಪ್ರಯಾಣ"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ಯುಎಸ್"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("ಜಗತ್ತು"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("ಸ್ಟಾಕ್‌ಗಳು"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ಶೈಲಿಗಳು ಮತ್ತು ಇತರೆ"),
         "homeHeaderCategories": MessageLookupByLibrary.simpleMessage("ವರ್ಗಗಳು"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("ಗ್ಯಾಲರಿ"),
         "placeBeach": MessageLookupByLibrary.simpleMessage("ಸಮುದ್ರತೀರ (ಬೀಚ್)"),
@@ -977,6 +1022,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("ಬಾಕಿ ಮೊತ್ತ"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("ಪಾವತಿಸಲಾದ ಮೊತ್ತ"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("ಒಟ್ಟು ಮೊತ್ತ"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("ಬಿಲ್‌ಗಳು"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("ಅಂತಿಮ ದಿನಾಂಕ"),
         "rallyBudgetAmount": m27,
@@ -988,6 +1039,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ದಿನಸಿ"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("ಉಳಿದ ಮೊತ್ತ"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("ಬಳಸಿದ ಮೊತ್ತ"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("ಒಟ್ಟು ಮಿತಿ"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("ಉಳಿದಿದೆ"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("ಬಜೆಟ್‌ಗಳು"),
         "rallyDescription":

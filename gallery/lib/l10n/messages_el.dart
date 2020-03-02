@@ -37,10 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Απευθείας', one: '1 στάση', other: '${numberOfStops} στάσεις')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 ώ.', other: '${hours}ώ.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 λ.', other: '${minutes}λ.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Καμία διαθέσιμη ιδιοκτησία', one: '1 διαθέσιμη ιδιοκτησία', other: '${totalProperties} διαθέσιμες ιδιότητες')}";
@@ -435,15 +435,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Πατήστε για να επεξεργαστείτε πλακίδια και χρησιμοποιήστε κινήσεις για να μετακινηθείτε σε μια σκηνή. Σύρετε για μετακίνηση, πλησιάστε τα δάχτυλά σας για εστίαση, περιστρέψτε με δύο δάχτυλα. Πατήστε το κουμπί επαναφοράς για να επιστρέψετε στον αρχικό προσανατολισμό."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Επεξεργασία πλακιδίου"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Επαναφορά μετασχηματισμών"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Μετακίνηση, εστίαση, περιστροφή"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Μετασχηματισμοί 2D"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Τα τσιπ δράσης είναι ένα σύνολο επιλογών που ενεργοποιούν μια δράση που σχετίζεται με το αρχικό περιεχόμενο. Τα τσιπ δράσης θα πρέπει να εμφανίζονται δυναμικά και με βάση τα συμφραζόμενα στη διεπαφή χρήστη."),
         "demoActionChipTitle":
@@ -544,7 +544,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Ενδείξεις δραστηριότητας σε στιλ iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Ένδειξη δραστηριότητας"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Μόνο κουμπιά ειδοποίησης"),
         "demoCupertinoAlertButtonsTitle":
@@ -571,7 +571,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Γραμμή πλοήγησης τύπου iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Γραμμή πλοήγησης"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Ημερομηνία"),
         "demoCupertinoPickerDateTime":
@@ -590,8 +590,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ένα γραφικό στοιχείο που χρησιμοποιεί το στοιχείο ελέγχου περιεχομένου τύπου iOS για ανανέωση με σύρσιμο προς τα κάτω."),
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Στοιχείο ελέγχου τύπου iOS για ανανέωση με σύρσιμο προς τα κάτω"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Σύρετε προς τα κάτω για ανανέωση"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Χρησιμοποιείται για τον ορισμό μιας επιλογής μέσα από έναν αριθμό επιλογών που αποκλείουν η μία την άλλη. Όταν ορίζεται μία επιλογή στον τμηματοποιημένο έλεγχο, καταργείται ο ορισμός των άλλων επιλογών στον τμηματοποιημένο έλεγχο."),
@@ -599,7 +599,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Τμηματοποιημένος έλεγχος σε στιλ iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Τμηματοποιημένος έλεγχος"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Ένα ρυθμιστικό που μπορεί να χρησιμοποιηθεί για την επιλογή ανάμεσα σε ένα συνεχές ή διακριτό σύνολο τιμών."),
@@ -617,7 +617,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Κάτω γραμμή καρτελών σε στιλ iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Γραμμή καρτελών"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Ένα πεδίο κειμένου που επιτρέπει στον χρήστη να εισάγει κείμενο, είτε με ένα πληκτρολόγιο υλικού είτε με ένα πληκτρολόγιο οθόνης."),
         "demoCupertinoTextFieldPIN":
@@ -625,7 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Πεδία κειμένου τύπου iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Πεδία κειμένου"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Τα ρυθμιστικά αντικατοπτρίζουν ένα εύρος τιμών κατά μήκος μιας γραμμής, μέσω της οποίας οι χρήστες μπορούν να επιλέξουν μία τιμή ή ένα εύρος τιμών. Μπορείτε να προσαρμόσετε ή να προσθέσετε θέμα στα ρυθμιστικά."),
         "demoCustomSlidersTitle":
@@ -827,9 +827,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Οι καρτέλες οργανώνουν το περιεχόμενο σε διαφορετικές οθόνες, σύνολα δεδομένων και άλλες αλληλεπιδράσεις."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Χωρίς κύλιση"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Κύλιση"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Καρτέλες με προβολές ανεξάρτητης κύλισης"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Καρτέλες"),
@@ -935,8 +935,56 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ΕΜΦΑΝΙΣΗ ΠΑΡΑΘΥΡΟΥ ΔΙΑΛΟΓΟΥ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ΠΑΡΑΒΛΕΨΗ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Μια εφαρμογή ειδήσεων με έμφαση στο περιεχόμενο"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Η εκ των έσω μεταρρύθμιση του Πράσινου στρατού"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Περιορισμένα αποθέματα μελισσιών"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Οι σχεδιαστές χρησιμοποιούν την τεχνολογία για να δημιουργήσουν φουτουριστικά υφάσματα"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Η στράτευση των φεμινιστριών"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Το μέλλον της βενζίνης"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Η αθόρυβη, αλλά ισχυρή επανάσταση στην υγειονομική περίθαλψη"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Μετοχές σε τέλμα, στροφή στο συνάλλαγμα"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Ο διχασμός στη ζωή των Αμερικανών κατά τη διάρκεια του πολέμου"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Τελευταίες ενημερώσεις"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Επιχειρήσεις"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Πολιτισμός"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Εξώφυλλο"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Πολιτική"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Επιστήμη"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Αθλητικά"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Τεχνολογία"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Ταξίδια"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ΗΠΑ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Κόσμος"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ΣΤΙΛ ΚΑΙ ΑΛΛΑ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Κατηγορίες"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Συλλογή"),
@@ -990,6 +1038,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Οφειλόμενο ποσό"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Ποσό που καταβλήθηκε"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Συνολικό ποσό"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Λογαριασμοί"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Προθεσμία"),
         "rallyBudgetAmount": m27,
@@ -1001,6 +1055,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Είδη παντοπωλείου"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Εστιατόρια"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Ποσό που απομένει"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Ποσό που χρησιμοποιείται"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Συνολικό κεφάλαιο"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Αριστερά"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Προϋπολογισμοί"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

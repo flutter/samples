@@ -2,7 +2,6 @@
 
 directories:
 - charts/web
-- dad_jokes/web
 - filipino_cuisine/web
 - github_dataviz/web
 - particle_background/web

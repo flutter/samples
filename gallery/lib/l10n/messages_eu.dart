@@ -32,15 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "${Intl.plural(totalRestaurants, zero: 'Ez dauka jatetxerik', one: '1 jatetxe', other: '${totalRestaurants} jatetxe')}";
 
   static m5(hoursShortForm, minutesShortForm) =>
-      "${hoursShortForm} ${minutesShortForm}";
+      "${hoursShortForm} eta ${minutesShortForm}";
 
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Geldialdirik gabekoa', one: '1 geldialdi', other: '${numberOfStops} geldialdi')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 h', other: '${hours} h')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 min', other: '${minutes} min')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Ez dauka jabetzarik erabilgarri', one: '1 jabetza erabilgarri', other: '${totalProperties} jabetza erabilgarri')}";
@@ -429,15 +429,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Sakatu hau lauzak editatzeko eta erabili keinuak eszenaren barruan mugitzeko. Arrastatu mugitzeko, atximurkatu zooma aplikatzeko eta erabili bi hatz biratzeko. Hasierako orientaziora itzultzeko, sakatu berrezartzeko botoia."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Editatu lauza"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Berrezarri bihurketak"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Mugitu, aplikatu zooma eta biratu"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D bihurketak"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Ekintza-pilulak eduki nagusiarekin erlazionatutako ekintza bat abiarazten duten aukeren multzoa dira. Dinamikoki eta testuinguru egokian agertu behar dute."),
         "demoActionChipTitle":
@@ -537,7 +537,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS estiloko jardueren adierazleak"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Jardueren adierazlea"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Alerta-botoiak bakarrik"),
         "demoCupertinoAlertButtonsTitle":
@@ -565,7 +565,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS estiloko nabigazio-barra"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Nabigazio-barra"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Data"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Data eta ordua"),
@@ -585,7 +585,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle": MessageLookupByLibrary.simpleMessage(
             "Edukia kontrolatzeko iOS estiloko \"Tiratu freskatzeko\" motako aukera"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Tiratu freskatzeko"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Bata bestearen baztergarri diren zenbait aukeraren artean hautatzeko erabiltzen da. Segmentatutako kontroleko aukera bat hautatzen denean, segmentatutako kontroleko gainerako aukerak desautatu egiten dira."),
@@ -593,7 +593,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS estiloarekin segmentatutako kontrola"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Segmentatutako kontrola"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Balio sorta jarraitu edo zehatz batetik hautatzeko balio du graduatzaileak."),
@@ -611,7 +611,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS estiloko beheko fitxa-barra"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Fitxa-barra"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Teklatu fisikoarekin edo pantailakoarekin testua idazteko eremua."),
         "demoCupertinoTextFieldPIN":
@@ -619,7 +619,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS estiloko testu-eremuak"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Testu-eremuak"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Graduatzaileek balioen barruti bat islatzen dute barra batean, eta erabiltzaileek barruti horretako balio bakarra edo azpi-barruti bat hauta dezakete bertan. Graduatzaileei gaiak ezar dakizkieke eta pertsonalizatu egin daitezke."),
         "demoCustomSlidersTitle": MessageLookupByLibrary.simpleMessage(
@@ -822,9 +822,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Fitxei esker, edukia antolatuta dago pantailetan, datu multzoetan eta bestelako elkarrekintza sortetan."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Korritzen ez dena"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Korritzen dena"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Independenteki gora eta behera mugi daitezkeen fitxak"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Fitxak"),
@@ -926,8 +926,57 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ezarri babeskopiak egiteko kontua"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("ERAKUTSI LEIHOA"),
         "dismiss": MessageLookupByLibrary.simpleMessage("BAZTERTU"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Edukian oinarritutako albiste-aplikazioa"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Armada Berdea barrualdetik eraldatzea"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Soroetako erleak desagertzen ari dira"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Diseinatzaileek teknologia erabiltzen dute ehun futuristak sortzeko"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministak alderdi baten alde jarri dira"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Gasolinaren etorkizuna"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Osasun-zerbitzuen iraultza isil eta boteretsua"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Akzioak igotzen ez direnez, dibisak dituzte askok ikusmiran"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Estatubatuarren bizitza zatituak gerran zehar"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Informazio eguneratuena"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Negozioak"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultura"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Orri nagusia"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politika"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Zientzia"),
+        "fortnightlyMenuSports":
+            MessageLookupByLibrary.simpleMessage("Kirolak"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Teknologia"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Bidaiak"),
+        "fortnightlyMenuUS":
+            MessageLookupByLibrary.simpleMessage("Ameriketako Estatu Batuak"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Mundua"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("ArmadaBerdea"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("OsasunZerbitzuenIraultza"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Eraldaketa"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Akzioak"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("DiseinuTeknologikoa"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ESTILOAK ETA BESTE"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategoriak"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galeria"),
@@ -981,6 +1030,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Zor duzuna"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Ordaindutakoa"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Zenbatekoa, guztira"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Fakturak"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Epemuga:"),
         "rallyBudgetAmount": m27,
@@ -992,6 +1047,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Jan-edanak"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Jatetxeak"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Gelditzen dena"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Erabilitakoa"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Muga, guztira"),
         "rallyBudgetLeft":
             MessageLookupByLibrary.simpleMessage("Geratzen dena"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Aurrekontuak"),

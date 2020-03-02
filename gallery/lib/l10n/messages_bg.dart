@@ -32,15 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "${Intl.plural(totalRestaurants, zero: 'Няма ресторанти', one: '1 ресторант', other: '${totalRestaurants} ресторанта')}";
 
   static m5(hoursShortForm, minutesShortForm) =>
-      "${hoursShortForm} ${minutesShortForm}";
+      "${hoursShortForm} и ${minutesShortForm}";
 
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Директен', one: '1 прекачване', other: '${numberOfStops} прекачвания')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 ч', other: '${hours} ч')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 мин', other: '${minutes} мин')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Няма свободни имоти', one: '1 свободен имот', other: '${totalProperties} свободни имота')}";
@@ -418,15 +418,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Докоснете, за да редактирате фрагменти, и използвайте жестове, за да се придвижвате в сцената. Плъзнете за панорамно придвижване, съберете пръсти за промяна на мащаба, завъртете с два пръста. Натиснете бутона за нулиране, за да се върнете към първоначалната ориентация."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Редактиране на фрагмент"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Нулиране на трансформациите"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Панорамно придвижване, промяна на мащаба, завъртане"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("Двуизмерни трансформации"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Чиповете за действие представляват набор от опции, които задействат действие, свързано с основното съдържание. Те трябва да се показват в потребителския интерфейс динамично и спрямо контекста."),
         "demoActionChipTitle":
@@ -527,7 +527,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Индикатори за активността в стил iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Индикатор за активността"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Само бутоните за сигнали"),
         "demoCupertinoAlertButtonsTitle":
@@ -555,7 +555,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Лента за навигация в стил iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Лента за навигация"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Дата"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Дата и час"),
@@ -575,7 +575,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Контрола „Дръпнете за опресняване“ в стил iOS"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Дръпнете за опресняване"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Служи за избор между няколко взаимоизключващи се опции. При избиране на някоя от опциите в сегментирания превключвател останалите се деактивират."),
@@ -583,7 +583,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Сегментиран превключвател в стил iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Сегментиран превключвател"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Плъзгачът може да използва за избиране на непрекъснат или разграфен набор от стойности."),
@@ -601,7 +601,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Лента с раздели в долната част в стил iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Лента с раздели"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Текстовите полета позволяват на потребителите да въвеждат текст посредством външна или екранна клавиатура."),
         "demoCupertinoTextFieldPIN":
@@ -609,7 +609,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Текстови полета в стил iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Текстови полета"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Плъзгачите отразяват диапазон от стойности по протежението на дадена лента, от които потребителите могат да изберат една стойност или цял диапазон. Плъзгачите могат да бъдат персонализирани или с определена тема."),
         "demoCustomSlidersTitle":
@@ -811,9 +811,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Разделите служат за организиране на съдържанието на различни екрани, набори от данни и други взаимодействия."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Без опция за превъртане"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("С опция за превъртане"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Раздели със самостоятелно превъртащи се изгледи"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Раздели"),
@@ -916,8 +916,54 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow": MessageLookupByLibrary.simpleMessage(
             "ПОКАЗВАНЕ НА ДИАЛОГОВИЯ ПРОЗОРЕЦ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ОТХВЪРЛЯНЕ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Приложение за новини с фокус върху съдържанието"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Вътрешната реформа в зелената армия"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Недостиг на пчели"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Дизайнери използват технологии за създаването на футуристични тъкани"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Феминисти се борят с фанатизма"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Бъдещето на бензина"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Тихата, но мощна революция в здравеопазването"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Когато акциите са в застой, много хора купуват валута"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Разделените американски съдби по време на войната"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Най-актуална информация"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Бизнес"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Култура"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Първа страница"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Политика"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Наука"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Спорт"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Технологии"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Туризъм"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("САЩ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Свят"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("СТИЛОВЕ И ДР."),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категории"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерия"),
@@ -972,6 +1018,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Дължима сума"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Платена сума"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Обща сума"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Сметки"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Дължими"),
         "rallyBudgetAmount": m27,
@@ -983,6 +1035,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Хранителни стоки"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Ресторанти"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Неизползвана сума"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Използвана сума"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Ограничение за общата сума"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Остават"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Бюджети"),
         "rallyDescription":

@@ -52,9 +52,13 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
             textColor: Colors.white,
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {
-                controller.reverse();
+                controller.reverse().whenComplete(() {
+                  setState(() {});
+                });
               } else {
-                controller.forward();
+                controller.forward().whenComplete(() {
+                  setState(() {});
+                });
               }
             },
           ),

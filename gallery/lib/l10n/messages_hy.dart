@@ -36,10 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Առանց կանգառի', one: '1 կանգառ', other: '${numberOfStops} կանգառ')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) => "${Intl.plural(hours, one: '1 ժ', other: '${hours} ժ')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 ր', other: '${minutes} ր')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Հասանելի հյուրանոցներ չկան', one: '1 հասանելի հյուրանոց', other: '${totalProperties} հասանելի հյուրանոց')}";
@@ -423,15 +423,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Հպեք՝ սալիկները փոփոխելու համար։ Համայնապատկերումը կառավարեք ժեստերի միջոցով։ Մասշտաբը կարգավորելու համար կարող եք մոտեցնել կամ հեռացնել մատները։ Երկու մատների օգնությամբ կարող եք նաև պտտել օբյեկտը։ Սկզբնական պարամետրերին վերադառնալու համար սեղմեք վերակայման կոճակը։"),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Փոփոխել սալիկը"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Վերակայել փոխակերպումները"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Համայնապատկերում, մասշտաբավորում, պտտում"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D փոխակերպումներ"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Գործողությունների ինտերակտիվ չիպերը կարգավորումների խումբ են, որոնք ակտիվացնում են հիմնական բովանդակության հետ կապված գործողություններ։ Այս չիպերը պետք է հայտնվեն դինամիկ կերպով և լրացնեն միջերեսը։"),
         "demoActionChipTitle":
@@ -531,7 +531,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Գործողությունների՝ iOS-ի ոճով ցուցիչներ"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Գործողությունների ցուցիչ"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage(
                 "Միայն ծանուցումներով կոճակներ"),
@@ -559,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ի ոճով նավարկման գոտի"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Նավարկման գոտի"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Ամսաթիվ"),
         "demoCupertinoPickerDateTime":
@@ -580,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ի ոճով «Քաշել՝ թարմացնելու համար» կառավար"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Քաշել՝ թարմացնելու համար"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Թույլ է տալիս ընտրություն անել մի քանի իրար բացառող տարբերակների միջև։ Երբ սեգմենտավորված կառավարման տարրում մեկ տարբերակ է ընտրված, մյուս տարբերակները չեն ընդծգվում։"),
@@ -588,7 +588,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "iOS-ի ոճով սեգմենտավորված կառավարման տարր"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "Կառավարման սեգմենտավորված տարր"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Սահիչի միջոցով նշված միջակայքում կարելի է որոշակի արժեք ընտրել։"),
@@ -606,7 +607,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "iOS-ի ոճով ստորին ներդիրի գոտի"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Ներդիրների գոտի"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Տեքստային դաշտը օգտատիրոջը թույլ է տալիս մուտքագրել տեքստ սովորական կամ էկրանային ստեղնաշարի օգնությամբ։"),
         "demoCupertinoTextFieldPIN":
@@ -614,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-ի ոճով տեքստային դաշտեր"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Տեքստային դաշտեր"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Սահիչները թույլ են տալիս ընտրել արժեքներից որևէ մեկը կամ նշել արժեքների միջակայքը։ Սահիչները կարելի է անհատականացնել սեփական թեմայով և կարգավորումներով։"),
         "demoCustomSlidersTitle":
@@ -814,9 +815,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Ներդիրները թույլ են տալիս դասավորել էկրանների, տվյալակազմերի բովանդակությունը և այլն։"),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Առանց ոլորման"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Ոլորում"),
         "demoTabsSubtitle":
             MessageLookupByLibrary.simpleMessage("Առանձին ոլորվող ներդիրներ"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Ներդիրներ"),
@@ -919,8 +920,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow": MessageLookupByLibrary.simpleMessage(
             "ՑՈՒՑԱԴՐԵԼ ԵՐԿԽՈՍՈՒԹՅԱՆ ՊԱՏՈՒՀԱՆԸ"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ՓԱԿԵԼ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Նորությունների հավելված, որում կարևորը բովանդակությունն է"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Կանաչ բանակի ներքին բարեփոխումներ"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Գյուղատնտեսության մեջ մեղուների պակաս է գրանցվել"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Դիզայներներն օգտագործում են նոր տեխնոլոգիաները՝ ֆուտուրիստական գործվածքներ ստեղծելու համար"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Ֆեմինիստները պարտիզանական պատերազմի են պատրաստվում"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Բենզինի ապագան"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Առողջապահության համակարգի հանգիստ, բայց լուրջ հետևանքներով հեղափոխություն"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Բաժնետոմսերի փոխարժեքի ստագնացիայի պատճառով շատերը նախընտրությունը տալիս են արժույթին"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Պատերազմի հետևանքով բաժանված ամերիկացիների կյանքը"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Վերջին թարմացումները"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Բիզնես"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Մշակույթ"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Առաջին էջ"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Քաղաքականություն"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Գիտություն"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Սպորտ"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Տեխնոլոգիաներ"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Ճանապարհորդություն"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("ԱՄՆ"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Աշխարհ"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("ՈՃԵՐ ԵՎ ԱՅԼՆ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Կատեգորիաներ"),
         "homeHeaderGallery":
@@ -974,6 +1022,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Վճարման ենթակա գումարը"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Վճարված գումարը"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Ընդհանուր գումարը"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Հաշիվներ"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Վերջնաժամկետ"),
         "rallyBudgetAmount": m27,
@@ -985,6 +1039,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Մթերք"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Ռեստորաններ"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Մնացած գումարը"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Օգտագործված գումարը"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Ընդհանուր սահմանաչափ"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Մնացել է"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Բյուջեներ"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Без пересадок', one: '1 пересадка', few: '${numberOfStops} пересадки', many: '${numberOfStops} пересадок', other: '${numberOfStops} пересадки')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 ч.', few: '${hours} ч.', many: '${hours} ч.', other: '${hours} ч.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 мин.', few: '${minutes} мин.', many: '${minutes} мин.', other: '${minutes} мин.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Нет доступных вариантов жилья', one: 'Доступен 1 вариант жилья', few: 'Доступно ${totalProperties} варианта жилья', many: 'Доступно ${totalProperties} вариантов жилья', other: 'Доступно ${totalProperties} варианта жилья')}";
@@ -414,15 +415,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Нажмите, чтобы изменить элементы. Для панорамирования используйте перетаскивание. Чтобы настроить масштаб, сведите или разведите пальцы. Вы также можете поворачивать объект двумя пальцами. Чтобы вернуться к исходным параметрам, нажмите кнопку сброса."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Изменить элемент"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
-        "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Сбросить трансформации"),
+        "demo2dTransformationsSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Панорамирование, масштабирование и поворот"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-трансформации"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Чипы действий представляют собой набор динамических параметров, которые запускают действия, связанные с основным контентом. Как правило, чипы действий отображаются в интерфейсе в зависимости от контекста."),
         "demoActionChipTitle":
@@ -525,7 +526,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Индикаторы выполнения в стиле iOS"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Индикатор выполнения"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Только кнопки из оповещения"),
         "demoCupertinoAlertButtonsTitle":
@@ -553,7 +554,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Панель навигации в стиле iOS"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Панель навигации"),
         "demoCupertinoPickerDate": MessageLookupByLibrary.simpleMessage("Дата"),
         "demoCupertinoPickerDateTime":
             MessageLookupByLibrary.simpleMessage("Дата и время"),
@@ -573,8 +574,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoPullToRefreshSubtitle":
             MessageLookupByLibrary.simpleMessage(
                 "Элемент управления в стиле iOS для обновления страницы"),
-        "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+        "demoCupertinoPullToRefreshTitle": MessageLookupByLibrary.simpleMessage(
+            "Обновление страницы с помощью движения сверху вниз"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Позволяет переключаться между несколькими взаимоисключающими вариантами (сегментами). Выделен только тот вариант, который был выбран."),
@@ -582,7 +583,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Сегментированный элемент управления в стиле iOS"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage(
+                "Сегментированный элемент управления"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "Ползунок можно использовать для выбора определенного значения в указанном диапазоне."),
@@ -600,7 +602,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Нижняя панель вкладок в стиле iOS"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Панель вкладок"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "Поле, в которое можно ввести текст с помощью аппаратной или экранной клавиатуры."),
         "demoCupertinoTextFieldPIN":
@@ -608,7 +610,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Текстовые поля в стиле iOS"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Текстовые поля"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Ползунки позволяют выбрать одно из значений или указать диапазон значений. К ползункам также можно применить тему и собственные настройки."),
         "demoCustomSlidersTitle":
@@ -810,9 +812,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Вкладки позволяют упорядочить контент на экранах, в наборах данных и т. д."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Без прокрутки"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Прокрутка"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Вкладки, прокручиваемые по отдельности"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Вкладки"),
@@ -916,8 +918,55 @@ class MessageLookup extends MessageLookupByLibrary {
         "dialogShow":
             MessageLookupByLibrary.simpleMessage("ПОКАЗАТЬ ДИАЛОГОВОЕ ОКНО"),
         "dismiss": MessageLookupByLibrary.simpleMessage("ЗАКРЫТЬ"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "Новостное приложение, в котором главное – контент"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Зеленая армия: реформирование изнутри"),
+        "fortnightlyHeadlineBees": MessageLookupByLibrary.simpleMessage(
+            "Дефицит пчел в сельском хозяйстве"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Дизайнеры используют новые технологии для производства футуристичных тканей"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Феминистки выходят на путь партизанской войны"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Будущее бензина"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Тихая революция с большими последствиями в сфере здравоохранения"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Из-за стагнации курса акций инвесторы присматриваются к валюте"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Жизни американцев, разделенные войной"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Последние новости"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Бизнес"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Культура"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Главная страница"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Политика"),
+        "fortnightlyMenuScience": MessageLookupByLibrary.simpleMessage("Наука"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Спорт"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Технологии"),
+        "fortnightlyMenuTravel":
+            MessageLookupByLibrary.simpleMessage("Путешествия"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("США"),
+        "fortnightlyMenuWorld":
+            MessageLookupByLibrary.simpleMessage("Весь мир"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("GreenArmy"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("HealthcareRevolution"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Reform"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Stocks"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("TechDesign"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("СТИЛИ И ДРУГОЕ"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Категории"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Галерея"),
@@ -973,6 +1022,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("К оплате"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Оплачено"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Общая сумма"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Счета"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Срок"),
         "rallyBudgetAmount": m27,
@@ -984,6 +1039,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Продукты"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Рестораны"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Осталось"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Израсходовано"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Верхний предел"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Остаток"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Бюджеты"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(

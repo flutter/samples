@@ -37,10 +37,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static m6(numberOfStops) =>
       "${Intl.plural(numberOfStops, zero: 'Stopvry', one: '1 stop', other: '${numberOfStops} stoppe')}";
 
-  static m7(hours) => "${Intl.plural(hours, one: '1h', other: '${hours}h')}";
+  static m7(hours) =>
+      "${Intl.plural(hours, one: '1 u.', other: '${hours} u.')}";
 
   static m8(minutes) =>
-      "${Intl.plural(minutes, one: '1m', other: '${minutes}m')}";
+      "${Intl.plural(minutes, one: '1 m.', other: '${minutes} m.')}";
 
   static m9(totalProperties) =>
       "${Intl.plural(totalProperties, zero: 'Geen beskikbare eiendomme nie', one: '1 beskikbare eiendom', other: '${totalProperties} beskikbare eiendomme')}";
@@ -425,15 +426,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "dataTableRowWithHoney": m10,
         "dataTableRowWithSugar": m11,
         "demo2dTransformationsDescription": MessageLookupByLibrary.simpleMessage(
-            "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation."),
+            "Tik om teëls te wysig en gebruik gebare om op die toneel rond te beweeg. Sleep om te beeldrol, knyp om te zoem, gebruik twee vingers om te draai. Druk die terugstellingknoppie om na die aanvanklike oriëntasie terug te keer."),
         "demo2dTransformationsEditTooltip":
-            MessageLookupByLibrary.simpleMessage("Edit tile"),
+            MessageLookupByLibrary.simpleMessage("Wysig teël"),
         "demo2dTransformationsResetTooltip":
-            MessageLookupByLibrary.simpleMessage("Reset transformations"),
+            MessageLookupByLibrary.simpleMessage("Stel transformasies terug"),
         "demo2dTransformationsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Pan, zoom, rotate"),
+            MessageLookupByLibrary.simpleMessage("Beeldrol, zoem en draai"),
         "demo2dTransformationsTitle":
-            MessageLookupByLibrary.simpleMessage("2D transformations"),
+            MessageLookupByLibrary.simpleMessage("2D-transformasies"),
         "demoActionChipDescription": MessageLookupByLibrary.simpleMessage(
             "Handelingskyfies is \'n stel opsies wat \'n handeling wat met primêre inhoud verband hou, veroorsaak. Handelingskyfies behoort dinamies en kontekstueel in \'n UI te verskyn."),
         "demoActionChipTitle":
@@ -534,7 +535,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoActivityIndicatorSubtitle":
             MessageLookupByLibrary.simpleMessage("iOS-stylaktiwiteitaanwysers"),
         "demoCupertinoActivityIndicatorTitle":
-            MessageLookupByLibrary.simpleMessage("Activity indicator"),
+            MessageLookupByLibrary.simpleMessage("Aktiwiteitverklikker"),
         "demoCupertinoAlertButtonsOnlyTitle":
             MessageLookupByLibrary.simpleMessage("Net opletberigknoppies"),
         "demoCupertinoAlertButtonsTitle":
@@ -561,7 +562,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoNavigationBarSubtitle":
             MessageLookupByLibrary.simpleMessage("Navigasiebalk in iOS-styl"),
         "demoCupertinoNavigationBarTitle":
-            MessageLookupByLibrary.simpleMessage("Navigation bar"),
+            MessageLookupByLibrary.simpleMessage("Navigasiebalk"),
         "demoCupertinoPickerDate":
             MessageLookupByLibrary.simpleMessage("Datum"),
         "demoCupertinoPickerDateTime":
@@ -582,7 +583,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Trek-om-te-herlaai-kontrole in iOS-styl"),
         "demoCupertinoPullToRefreshTitle":
-            MessageLookupByLibrary.simpleMessage("Pull to refresh"),
+            MessageLookupByLibrary.simpleMessage("Trek om te herlaai"),
         "demoCupertinoSegmentedControlDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Word gebruik om tussen \'n aantal wedersyds eksklusiewe opsies te kies. As een opsie in die gesegmenteerde kontrole gekies is, sal die ander opsies in die gesegmenteerde kontrole nie meer gekies wees nie."),
@@ -590,7 +591,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Gesegmenteerde kontrole in iOS-styl"),
         "demoCupertinoSegmentedControlTitle":
-            MessageLookupByLibrary.simpleMessage("Segmented control"),
+            MessageLookupByLibrary.simpleMessage("Gesegmenteerde kontrole"),
         "demoCupertinoSliderContinuous": m14,
         "demoCupertinoSliderDescription": MessageLookupByLibrary.simpleMessage(
             "\'n Glyer kan gebruik word om uit óf \'n aaneenlopende óf \'n diskrete stel waardes te kies."),
@@ -608,7 +609,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTabBarSubtitle": MessageLookupByLibrary.simpleMessage(
             "Onderste oortjiebalk in iOS-styl"),
         "demoCupertinoTabBarTitle":
-            MessageLookupByLibrary.simpleMessage("Tab bar"),
+            MessageLookupByLibrary.simpleMessage("Oortjiebalk"),
         "demoCupertinoTextFieldDescription": MessageLookupByLibrary.simpleMessage(
             "\'n Teksveld stel die gebruiker in staat om teks in te voer, hetsy met \'n hardewaresleutelbord of \'n sleutelbord op die skerm."),
         "demoCupertinoTextFieldPIN":
@@ -616,7 +617,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoCupertinoTextFieldSubtitle":
             MessageLookupByLibrary.simpleMessage("Teksvelde in iOS-styl"),
         "demoCupertinoTextFieldTitle":
-            MessageLookupByLibrary.simpleMessage("Text fields"),
+            MessageLookupByLibrary.simpleMessage("Teksvelde"),
         "demoCustomSlidersDescription": MessageLookupByLibrary.simpleMessage(
             "Glyers weerspieël \'n reeks waardes langs \'n balk, waarop gebruikers \'n enkelwaarde of \'n reeks waardes kan kies. Die glyers kan temas hê en gepasmaak word."),
         "demoCustomSlidersTitle":
@@ -813,9 +814,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "demoTabsDescription": MessageLookupByLibrary.simpleMessage(
             "Oortjies organiseer inhoud oor verskillende skerms, datastelle, en ander interaksies heen."),
         "demoTabsNonScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Non-scrolling"),
+            MessageLookupByLibrary.simpleMessage("Nie-rollees"),
         "demoTabsScrollingTitle":
-            MessageLookupByLibrary.simpleMessage("Scrolling"),
+            MessageLookupByLibrary.simpleMessage("Rollees"),
         "demoTabsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Oortjies met aansigte waardeur jy onafhanklik kan rollees"),
         "demoTabsTitle": MessageLookupByLibrary.simpleMessage("Oortjies"),
@@ -916,8 +917,54 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stel rugsteunrekening"),
         "dialogShow": MessageLookupByLibrary.simpleMessage("WYS DIALOOG"),
         "dismiss": MessageLookupByLibrary.simpleMessage("MAAK TOE"),
+        "fortnightlyDescription": MessageLookupByLibrary.simpleMessage(
+            "\'n Inhoudgefokusde nuusprogram"),
+        "fortnightlyHeadlineArmy": MessageLookupByLibrary.simpleMessage(
+            "Hervorm die groenweermag van binne af"),
+        "fortnightlyHeadlineBees":
+            MessageLookupByLibrary.simpleMessage("Terkort aan landboubye"),
+        "fortnightlyHeadlineFabrics": MessageLookupByLibrary.simpleMessage(
+            "Ontwerpers gebruik tegnologie om futuristiese materiale te maak"),
+        "fortnightlyHeadlineFeminists": MessageLookupByLibrary.simpleMessage(
+            "Feministe takel partydigheid"),
+        "fortnightlyHeadlineGasoline":
+            MessageLookupByLibrary.simpleMessage("Die toekoms van petrol"),
+        "fortnightlyHeadlineHealthcare": MessageLookupByLibrary.simpleMessage(
+            "Die stil dog kragtige gesondheidsorgrevolusie"),
+        "fortnightlyHeadlineStocks": MessageLookupByLibrary.simpleMessage(
+            "Terwyl aandele stagneer, bekyk baie mense valuta"),
+        "fortnightlyHeadlineWar": MessageLookupByLibrary.simpleMessage(
+            "Verdeelde Amerikaanse lewens tydens oorlog"),
+        "fortnightlyLatestUpdates":
+            MessageLookupByLibrary.simpleMessage("Jongste opdaterings"),
+        "fortnightlyMenuBusiness":
+            MessageLookupByLibrary.simpleMessage("Besigheid"),
+        "fortnightlyMenuCulture":
+            MessageLookupByLibrary.simpleMessage("Kultuur"),
+        "fortnightlyMenuFrontPage":
+            MessageLookupByLibrary.simpleMessage("Voorblad"),
+        "fortnightlyMenuPolitics":
+            MessageLookupByLibrary.simpleMessage("Politiek"),
+        "fortnightlyMenuScience":
+            MessageLookupByLibrary.simpleMessage("Wetenskap"),
+        "fortnightlyMenuSports": MessageLookupByLibrary.simpleMessage("Sport"),
+        "fortnightlyMenuTech":
+            MessageLookupByLibrary.simpleMessage("Tegnologie"),
+        "fortnightlyMenuTravel": MessageLookupByLibrary.simpleMessage("Reis"),
+        "fortnightlyMenuUS": MessageLookupByLibrary.simpleMessage("VSA"),
+        "fortnightlyMenuWorld": MessageLookupByLibrary.simpleMessage("Wêreld"),
+        "fortnightlyTrendingGreenArmy":
+            MessageLookupByLibrary.simpleMessage("Groenweermag"),
+        "fortnightlyTrendingHealthcareRevolution":
+            MessageLookupByLibrary.simpleMessage("Gesondheidsorgrevolusie"),
+        "fortnightlyTrendingReform":
+            MessageLookupByLibrary.simpleMessage("Hervorming"),
+        "fortnightlyTrendingStocks":
+            MessageLookupByLibrary.simpleMessage("Aandele"),
+        "fortnightlyTrendingTechDesign":
+            MessageLookupByLibrary.simpleMessage("Tegnologieontwerp"),
         "homeCategoryReference":
-            MessageLookupByLibrary.simpleMessage("STYLES & OTHER"),
+            MessageLookupByLibrary.simpleMessage("STYLE EN ANDER"),
         "homeHeaderCategories":
             MessageLookupByLibrary.simpleMessage("Kategorieë"),
         "homeHeaderGallery": MessageLookupByLibrary.simpleMessage("Galery"),
@@ -968,6 +1015,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rallyAlertsMessageSpentOnRestaurants": m24,
         "rallyAlertsMessageUnassignedTransactions": m25,
         "rallyBillAmount": m26,
+        "rallyBillDetailAmountDue":
+            MessageLookupByLibrary.simpleMessage("Bedrag verskuldig"),
+        "rallyBillDetailAmountPaid":
+            MessageLookupByLibrary.simpleMessage("Bedrag betaal"),
+        "rallyBillDetailTotalAmount":
+            MessageLookupByLibrary.simpleMessage("Totale bedrag"),
         "rallyBills": MessageLookupByLibrary.simpleMessage("Rekeninge"),
         "rallyBillsDue": MessageLookupByLibrary.simpleMessage("Betaalbaar"),
         "rallyBudgetAmount": m27,
@@ -979,6 +1032,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kruideniersware"),
         "rallyBudgetCategoryRestaurants":
             MessageLookupByLibrary.simpleMessage("Restaurante"),
+        "rallyBudgetDetailAmountLeft":
+            MessageLookupByLibrary.simpleMessage("Bedrag oor"),
+        "rallyBudgetDetailAmountUsed":
+            MessageLookupByLibrary.simpleMessage("Bedrag gebruik"),
+        "rallyBudgetDetailTotalCap":
+            MessageLookupByLibrary.simpleMessage("Totaallimiet"),
         "rallyBudgetLeft": MessageLookupByLibrary.simpleMessage("Oor"),
         "rallyBudgets": MessageLookupByLibrary.simpleMessage("Begrotings"),
         "rallyDescription": MessageLookupByLibrary.simpleMessage(
