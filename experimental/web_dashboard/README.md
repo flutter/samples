@@ -2,7 +2,8 @@
 
 (In progress) A dashboard app for the web, built with Flutter.
 
-This app is web-first, and isn't guaranteed to run on iOS, Android or desktop platforms.
+This app is web-first, and isn't guaranteed to run on iOS, Android or desktop
+platforms.
 
 ## Running
 
