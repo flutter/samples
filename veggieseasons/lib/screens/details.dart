@@ -245,7 +245,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     final veggie = model.getVeggie(widget.id);
 
     return SizedBox(
-      height: 400,
+      height: 150,
       child: Stack(
         children: [
           Positioned(
