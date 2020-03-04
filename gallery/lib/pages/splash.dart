@@ -85,21 +85,10 @@ class _SplashPageState extends State<SplashPage>
         duration: Duration(
           milliseconds: splashPageAnimationDurationInMilliseconds,
         ),
-        value: 1,
         vsync: this)
       ..addListener(() {
         this.setState(() {});
       });
-    if (widget.isAnimated) {
-      _launchTimer = Timer(
-        Duration(seconds: _effectDurations[_effect]),
-        () {
-          _controller.fling(velocity: -1);
-        },
-      );
-    } else {
-      _controller.value = 0;
-    }
   }
 
   @override
