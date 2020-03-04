@@ -34,11 +34,9 @@ class SplashPageAnimation extends InheritedWidget {
 class SplashPage extends StatefulWidget {
   const SplashPage({
     Key key,
-    this.isAnimated = true,
     @required this.child,
   }) : super(key: key);
 
-  final bool isAnimated;
   final Widget child;
 
   @override
