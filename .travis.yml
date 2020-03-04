@@ -20,6 +20,8 @@ jobs:
       language: android
       android:
         components:
+          - tools
+          - platform-tools
           - build-tools-28.0.3
           - android-28
           - sys-img-armeabi-v7a-android-28
