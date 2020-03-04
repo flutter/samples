@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,32 +13,39 @@ class AnimatedListDemo extends StatefulWidget {
 
 class _AnimatedListDemoState extends State<AnimatedListDemo> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
+  List<UserModel> initialListData = listData;
 
   void addUser() {
-    int index = listData.length;
-    listData.add(listData[Random().nextInt(5)]);
-    _listKey.currentState
-        .insertItem(index, duration: Duration(milliseconds: 500));
+    setState(() {
+      int index = initialListData.length;
+      _listKey.currentState
+          .insertItem(index, duration: Duration(milliseconds: 300));
+      initialListData.add(
+        UserModel(firstName: "New", lastName: "Person"),
+      );
+    });
   }
 
   void deleteUser(int index) {
-    var user = listData.removeAt(index);
-    _listKey.currentState.removeItem(
-      index,
-      (context, animation) {
-        return FadeTransition(
-          opacity:
-              CurvedAnimation(parent: animation, curve: Interval(0.5, 1.0)),
-          child: SizeTransition(
-            sizeFactor:
-                CurvedAnimation(parent: animation, curve: Interval(0.0, 1.0)),
-            axisAlignment: 0.0,
-            child: _buildItem(user),
-          ),
-        );
-      },
-      duration: Duration(milliseconds: 600),
-    );
+    setState(() {
+      var user = initialListData.removeAt(index);
+      _listKey.currentState.removeItem(
+        index,
+        (context, animation) {
+          return FadeTransition(
+            opacity:
+                CurvedAnimation(parent: animation, curve: Interval(0.5, 1.0)),
+            child: SizeTransition(
+              sizeFactor:
+                  CurvedAnimation(parent: animation, curve: Interval(0.0, 1.0)),
+              axisAlignment: 0.0,
+              child: _buildItem(user),
+            ),
+          );
+        },
+        duration: Duration(milliseconds: 600),
+      );
+    });
   }
 
   Widget _buildItem(UserModel user, [int index]) {
@@ -49,9 +54,9 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       title: Text(user.firstName),
       subtitle: Text(user.lastName),
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(user.profileImageUrl),
+        child: Icon(Icons.person),
       ),
-      onLongPress: index != null ? () => deleteUser(index) : null,
+      onLongPress: () => deleteUser(index),
     );
   }
 
@@ -59,12 +64,12 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animated List Demo"),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.add),
-          onPressed: addUser,
-        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: addUser,
+          ),
+        ],
       ),
       body: SafeArea(
         child: AnimatedList(
@@ -83,55 +88,31 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
 }
 
 class UserModel {
-  UserModel({this.firstName, this.lastName, this.profileImageUrl});
+  const UserModel({this.firstName, this.lastName});
 
-  String firstName;
-  String lastName;
-  String profileImageUrl;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserModel &&
-          runtimeType == other.runtimeType &&
-          firstName == other.firstName &&
-          lastName == other.lastName &&
-          profileImageUrl == other.profileImageUrl;
-
-  @override
-  int get hashCode =>
-      firstName.hashCode ^ lastName.hashCode ^ profileImageUrl.hashCode;
+  final String firstName;
+  final String lastName;
 }
 
 List<UserModel> listData = [
   UserModel(
     firstName: "Govind",
     lastName: "Dixit",
-    profileImageUrl:
-        "https://ca.slack-edge.com/TADUGCD9D-UC5F6HJ6T-gfbe5883d03f-1024",
   ),
   UserModel(
     firstName: "Greta",
     lastName: "Stoll",
-    profileImageUrl:
-        "https://ca.slack-edge.com/TADUGCD9D-UC5F6HJ6T-gfbe5883d03f-1024",
   ),
   UserModel(
     firstName: "Monty",
     lastName: "Carlo",
-    profileImageUrl:
-        "https://ca.slack-edge.com/TADUGCD9D-UC5F6HJ6T-gfbe5883d03f-1024",
   ),
   UserModel(
     firstName: "Petey",
     lastName: "Cruiser",
-    profileImageUrl:
-        "https://ca.slack-edge.com/TADUGCD9D-UC5F6HJ6T-gfbe5883d03f-1024",
   ),
   UserModel(
     firstName: "Barry",
     lastName: "Cade",
-    profileImageUrl:
-        "https://ca.slack-edge.com/TADUGCD9D-UC5F6HJ6T-gfbe5883d03f-1024",
   ),
 ];

@@ -23,7 +23,7 @@ Building blocks and patterns
 6. **CustomTweenDemo** Demonstrates how to extend `Tween`.
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
-8. **AnimatedList** Demonstrate how to use `AnimatedList`
+8. **AnimatedList** Demonstrates how to use `AnimatedList`
 
 ### Misc
 
