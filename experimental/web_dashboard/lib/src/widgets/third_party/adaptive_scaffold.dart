@@ -105,7 +105,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                 ...widget.destinations.map(
                   (d) => NavigationRailDestination(
                     icon: Icon(d.icon),
-                    title: Text(d.title),
+                    label: Text(d.title),
                   ),
                 ),
               ],
