@@ -168,8 +168,8 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                     margin: EdgeInsets.only(
                       top: isDesktop
                           ? (isDisplaySmallDesktop(context)
-                                  ? textFieldHeight * 2
-                                  : textFieldHeight) +
+                                  ? textFieldHeight * 3
+                                  : textFieldHeight * 2) +
                               20 * textScaleFactor / 2
                           : 175 + 140 * textScaleFactor / 2,
                     ),
