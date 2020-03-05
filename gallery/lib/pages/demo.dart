@@ -455,7 +455,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         removeTop: true,
         context: context,
         child: SplashPage(
-          isAnimated: false,
           child: page,
         ),
       );

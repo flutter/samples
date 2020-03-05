@@ -46,7 +46,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Timer _launchTimer;
   int _effect;
   final _random = Random();
 
@@ -92,8 +91,6 @@ class _SplashPageState extends State<SplashPage>
   @override
   void dispose() {
     _controller.dispose();
-    _launchTimer?.cancel();
-    _launchTimer = null;
     super.dispose();
   }
 
