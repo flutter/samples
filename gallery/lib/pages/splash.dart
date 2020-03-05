@@ -34,11 +34,9 @@ class SplashPageAnimation extends InheritedWidget {
 class SplashPage extends StatefulWidget {
   const SplashPage({
     Key key,
-    this.isAnimated = true,
     @required this.child,
   }) : super(key: key);
 
-  final bool isAnimated;
   final Widget child;
 
   @override
@@ -48,7 +46,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Timer _launchTimer;
   int _effect;
   final _random = Random();
 
@@ -85,28 +82,15 @@ class _SplashPageState extends State<SplashPage>
         duration: Duration(
           milliseconds: splashPageAnimationDurationInMilliseconds,
         ),
-        value: 1,
         vsync: this)
       ..addListener(() {
         this.setState(() {});
       });
-    if (widget.isAnimated) {
-      _launchTimer = Timer(
-        Duration(seconds: _effectDurations[_effect]),
-        () {
-          _controller.fling(velocity: -1);
-        },
-      );
-    } else {
-      _controller.value = 0;
-    }
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    _launchTimer?.cancel();
-    _launchTimer = null;
     super.dispose();
   }
 
