@@ -58,8 +58,9 @@ done
 # above.
 echo "== Espresso testing 'android_fullscreen' on Flutter's ${FLUTTER_VERSION} channel =="
 pushd "add_to_app/android_fullscreen"
+adb logcat > logcat.log &
 ./gradlew app:connectedAndroidTest --stacktrace --info -Ptarget=../flutter_module/test_driver/example.dart || \
-cat app/build/reports/androidTests/connected/index.html
+cat logcat.log
 popd
 
 echo "-- Success --"
