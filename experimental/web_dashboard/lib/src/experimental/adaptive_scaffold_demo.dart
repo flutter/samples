@@ -1,7 +1,10 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
-import 'package:web_dashboard/src/widgets/third_party/navigation_rail_theme.dart';
 
 void main() {
   runApp(DashboardWithoutRoutes());
