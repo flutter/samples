@@ -134,6 +134,7 @@ samples:
     tags: ['intermediate', 'sample', 'animation']
     platforms: ['ios', 'android', 'web']
     type: sample
+    web: /web/animations
 
   - name: Flutter Maps Firestore
     author: Flutter
@@ -310,6 +311,7 @@ samples:
     tags: ['intermediate', 'sample', 'provider']
     platforms: ['ios', 'android', 'web']
     type: sample
+    web: /web/provider_shopper
 
 ###################
 #### Web Demos ####
