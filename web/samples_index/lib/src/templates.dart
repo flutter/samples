@@ -53,7 +53,7 @@ String _descriptionHeader = '''
 
 String _navbar = '''
 <div class="navbar">
-  <a class="leading" href="/">
+  <a class="leading" href="./">
     <img src="images/logos/logo_lockup_flutter_horizontal_wht.png" />
     <span class="title">Samples</span> 
   </a>
