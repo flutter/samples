@@ -330,6 +330,7 @@ samples:
     author: github.com/markgrancapal
     screenshots:
       - url: /images/filipino_cuisine1.png
+        alt: Filipino Cuisine screenshot
     source: https://github.com/markgrancapal/filipino_cuisine
     description: >
       Entry to the Flutter Create challenge by google
@@ -345,6 +346,7 @@ samples:
     author: Larva Labs
     screenshots:
       - url: /images/github_dataviz1.png
+        alt: GitHub Dataviz screenshot
     source: https://github.com/flutter/samples/tree/master/web/github_dataviz
     description: >
       A visualization for Flutter repository data
@@ -360,6 +362,7 @@ samples:
     author: Felix Blaschke
     screenshots:
       - url: /images/particle_background1.png
+        alt: Particle Background screenshot
     source: https://github.com/flutter/samples/tree/master/web/particle_background
     description: >
       Flutter app demonstrating package:simple_animations in action.
@@ -375,6 +378,7 @@ samples:
     author: Kevin Moore
     screenshots:
       - url: /images/slide_puzzle1.png
+        alt: Slide Puzzle screenshot
     source: https://github.com/kevmoo/slide_puzzle
     description: >
       A slide (15) puzzle implemented in Dart and Flutter.
@@ -390,6 +394,7 @@ samples:
     author: Fabian Stein
     screenshots:
       - url: /images/timeflow1.png
+        alt: Timeflow screenshot
     source: github.com/Fabian-Stein/timeflow
     description: >
       A gentle animation that provides a calming experience to stressed developers.
@@ -405,6 +410,9 @@ samples:
     author: Yukkei Choi
     screenshots:
       - url: /images/vision_challenge1.png
+        alt: Vision Challenge screenshot
+      - url: /images/vision_challenge2.png
+        alt: Vision Challenge screenshot
     source: https://github.com/flutter/samples/tree/master/web/vision_challenge
     description: >
       A fun game to test your color perception abilities.
