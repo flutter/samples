@@ -42,7 +42,7 @@ String _descriptionHeader = '''
 <head>
   <meta charset="utf-8">
   <title>Flutter samples</title>
-  <link href="../styles.css" rel="stylesheet" media="screen">
+  <link href="styles.css" rel="stylesheet" media="screen">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">

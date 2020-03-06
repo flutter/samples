@@ -2,15 +2,15 @@ samples:
   - name: Gallery
     author: Flutter
     screenshots:
-      - url: /images/gallery1.png
+      - url: images/gallery1.png
         alt: Gallery app screenshot
-      - url: /images/gallery2.png
+      - url: images/gallery2.png
         alt: Rally app screenshot
-      - url: /images/gallery3.png
+      - url: images/gallery3.png
         alt: Fortnightly app screenshot
-      - url: /images/gallery4.png
+      - url: images/gallery4.png
         alt: Crane app screenshot
-      - url: /images/gallery5.png
+      - url: images/gallery5.png
         alt: Shrine app screnshot
     source: https://github.com/flutter/gallery
     web: https://flutter.github.io/gallery
@@ -88,9 +88,9 @@ samples:
   - name: Add to App
     author: Flutter
     screenshots:
-      - url: /images/add_to_app1.png
+      - url: images/add_to_app1.png
         alt: Add_to_app screenshot
-      - url: /images/add_to_app2.png
+      - url: images/add_to_app2.png
         alt: Add_to_app screenshot
     source: https://github.com/flutter/samples/tree/master/add_to_app
     description: >
@@ -110,11 +110,11 @@ samples:
   - name: Animations
     author: Flutter
     screenshots:
-      - url: /images/animations1.png
+      - url: images/animations1.png
         alt: Animations sample screenshot
-      - url: /images/animations2.png
+      - url: images/animations2.png
         alt: Animations sample screenshot
-      - url: /images/animations3.png
+      - url: images/animations3.png
         alt: Animations sample screenshot
     source: https://github.com/flutter/samples/tree/master/animations
     description: >
@@ -134,14 +134,14 @@ samples:
     tags: ['intermediate', 'sample', 'animation']
     platforms: ['ios', 'android', 'web']
     type: sample
-    web: /web/animations
+    web: web/animations
 
   - name: Flutter Maps Firestore
     author: Flutter
     screenshots:
-      - url: /images/flutter_maps_firestore1.png
+      - url: images/flutter_maps_firestore1.png
         alt: Flutter maps firestore screenshot
-      - url: /images/flutter_maps_firestore2.png
+      - url: images/flutter_maps_firestore2.png
         alt: Flutter maps firestore screenshot
     source: https://github.com/flutter/samples/tree/master/flutter_maps_firestore
     description: >
@@ -162,11 +162,11 @@ samples:
   - name: Isolate Example
     author: Flutter
     screenshots:
-      - url: /images/isolate1.png
+      - url: images/isolate1.png
         alt: Isolate example screenshot
-      - url: /images/isolate2.png
+      - url: images/isolate2.png
         alt: Isolate example screenshot
-      - url: /images/isolate3.png
+      - url: images/isolate3.png
         alt: Isolate example screenshot
     source: https://github.com/flutter/samples/tree/master/isolate_example
     description: >
@@ -186,11 +186,11 @@ samples:
   - name: jsonexample
     author: Flutter
     screenshots:
-      - url: /images/jsonexample1.png
+      - url: images/jsonexample1.png
         alt: JSON example screenshot
-      - url: /images/jsonexample2.png
+      - url: images/jsonexample2.png
         alt: JSON example screenshot
-      - url: /images/jsonexample3.png
+      - url: images/jsonexample3.png
         alt: JSON example screenshot
     source: https://github.com/flutter/samples/tree/master/jsonexample
     description: >
@@ -214,13 +214,13 @@ samples:
   - name: Place Tracker
     author: Flutter
     screenshots:
-      - url: /images/place_tracker1.png
+      - url: images/place_tracker1.png
         alt: Place Tracker screenshot
-      - url: /images/place_tracker2.png
+      - url: images/place_tracker2.png
         alt: Place Tracker screenshot
-      - url: /images/place_tracker3.png
+      - url: images/place_tracker3.png
         alt: Place Tracker screenshot
-      - url: /images/place_tracker4.png
+      - url: images/place_tracker4.png
         alt: Place Tracker screenshot
     source: https://github.com/flutter/samples/tree/master/place_tracker
     description: >
@@ -240,19 +240,19 @@ samples:
   - name: Platform Design
     author: Flutter
     screenshots:
-      - url: /images/platform_design1.png
+      - url: images/platform_design1.png
         alt: Platform Design screenshot
-      - url: /images/platform_design2.png
+      - url: images/platform_design2.png
         alt: Platform Design screenshot
-      - url: /images/platform_design3.png
+      - url: images/platform_design3.png
         alt: Platform Design screenshot
-      - url: /images/platform_design4.png
+      - url: images/platform_design4.png
         alt: Platform Design screenshot
-      - url: /images/platform_design5.png
+      - url: images/platform_design5.png
         alt: Platform Design screenshot
-      - url: /images/platform_design6.png
+      - url: images/platform_design6.png
         alt: Platform Design screenshot
-      - url: /images/platform_design7.png
+      - url: images/platform_design7.png
         alt: Platform Design screenshot
     source: https://github.com/flutter/samples/tree/master/platform_design
     description: >
@@ -271,9 +271,9 @@ samples:
   - name: Platform View Swift
     author: Flutter
     screenshots:
-      - url: /images/platform_view_swift1.png
+      - url: images/platform_view_swift1.png
         alt: Platform View Swift screenshot
-      - url: /images/platform_view_swift2.png
+      - url: images/platform_view_swift2.png
         alt: Platform View Swift screenshot
     source: https://github.com/flutter/samples/tree/master/platform_design
     description: >
@@ -292,11 +292,11 @@ samples:
   - name: Provider Shopper
     author: Flutter
     screenshots:
-      - url: /images/provider_shopper1.png
+      - url: images/provider_shopper1.png
         alt: Provider Shopper screenshot
-      - url: /images/provider_shopper2.png
+      - url: images/provider_shopper2.png
         alt: Provider Shopper screenshot
-      - url: /images/provider_shopper3.png
+      - url: images/provider_shopper3.png
         alt: Provider Shopper screenshot
     source: https://github.com/flutter/samples/tree/master/provider_shopper
     description: >
@@ -311,7 +311,7 @@ samples:
     tags: ['intermediate', 'sample', 'provider']
     platforms: ['ios', 'android', 'web']
     type: sample
-    web: /web/provider_shopper
+    web: web/provider_shopper
 
 ###################
 #### Web Demos ####
@@ -320,7 +320,7 @@ samples:
   - name: Charts
     author: Flutter
     screenshots:
-      - url: /images/charts1.png
+      - url: images/charts1.png
     source: https://github.com/google/charts
     description: >
       A general-purpose charting library.
@@ -329,13 +329,13 @@ samples:
     packages: []
     platforms: ['ios', 'android', 'web']
     tags: ['demo', 'charts']
-    web: /web/charts
+    web: web/charts
     type: demo
 
   - name: Filipino Cuisine
     author: github.com/markgrancapal
     screenshots:
-      - url: /images/filipino_cuisine1.png
+      - url: images/filipino_cuisine1.png
         alt: Filipino Cuisine screenshot
     source: https://github.com/markgrancapal/filipino_cuisine
     description: >
@@ -345,13 +345,13 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'flutter create']
-    web: /web/filipino_cuisine
+    web: web/filipino_cuisine
     type: demo
 
   - name: GitHub Dataviz
     author: Larva Labs
     screenshots:
-      - url: /images/github_dataviz1.png
+      - url: images/github_dataviz1.png
         alt: GitHub Dataviz screenshot
     source: https://github.com/flutter/samples/tree/master/web/github_dataviz
     description: >
@@ -361,13 +361,13 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'data', 'visualization']
-    web: /web/github_dataviz
+    web: web/github_dataviz
     type: demo
 
   - name: Particle Background
     author: Felix Blaschke
     screenshots:
-      - url: /images/particle_background1.png
+      - url: images/particle_background1.png
         alt: Particle Background screenshot
     source: https://github.com/flutter/samples/tree/master/web/particle_background
     description: >
@@ -377,13 +377,13 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'animation']
-    web: /web/particle_background
+    web: web/particle_background
     type: demo
 
   - name: Slide Puzzle
     author: Kevin Moore
     screenshots:
-      - url: /images/slide_puzzle1.png
+      - url: images/slide_puzzle1.png
         alt: Slide Puzzle screenshot
     source: https://github.com/kevmoo/slide_puzzle
     description: >
@@ -393,13 +393,13 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'game']
-    web: /web/slide_puzzle
+    web: web/slide_puzzle
     type: demo
 
   - name: Timeflow
     author: Fabian Stein
     screenshots:
-      - url: /images/timeflow1.png
+      - url: images/timeflow1.png
         alt: Timeflow screenshot
     source: github.com/Fabian-Stein/timeflow
     description: >
@@ -409,15 +409,15 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'animation']
-    web: /web/timeflow
+    web: web/timeflow
     type: demo
 
   - name: Vision Challenge
     author: Yukkei Choi
     screenshots:
-      - url: /images/vision_challenge1.png
+      - url: images/vision_challenge1.png
         alt: Vision Challenge screenshot
-      - url: /images/vision_challenge2.png
+      - url: images/vision_challenge2.png
         alt: Vision Challenge screenshot
     source: https://github.com/flutter/samples/tree/master/web/vision_challenge
     description: >
@@ -427,5 +427,5 @@ samples:
     packages: []
     platforms: ['web']
     tags: ['demo', 'game']
-    web: /web/vision_challenge
+    web: web/vision_challenge
     type: demo
