@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'data.dart';
 import 'util.dart' as util;
 
-String _e(String s) =>
+String _escapeAttribute(String s) =>
     HtmlEscape(HtmlEscapeMode.attribute).convert(s);
-String _ea(String s) => HtmlEscape(HtmlEscapeMode.element).convert(s);
+String _escapeElement(String s) => HtmlEscape(HtmlEscapeMode.element).convert(s);
 
 String description(Sample sample) => '''
 <!DOCTYPE html>
@@ -128,15 +128,15 @@ String _indexBody(List<Sample> samples) => '''
 ''';
 
 String _backgroundImage(String url) =>
-    _ea('background-image: url(\'$url\');');
+    _escapeAttribute('background-image: url(\'$url\');');
 String _indexCards(List<Sample> samples) => samples.map(_indexCard).join();
 String _indexCard(Sample sample) => '''
-<div class="mdc-card demo-card mdc-elevation--z2" search-attrs="${_ea(sample.searchAttributes)}">
+<div class="mdc-card demo-card mdc-elevation--z2" search-attrs="${_escapeAttribute(sample.searchAttributes)}">
   <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0" href="${sample.filename}.html">
     <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="${_backgroundImage(sample.screenshots.first.url)}"></div>
-    <div class="demo-card__label type-label">${_e(sample.type)}</div>
+    <div class="demo-card__label type-label">${_escapeElement(sample.type)}</div>
     <div class="demo-card__primary">
-      <h2 class="demo-card__title mdc-typography mdc-typography--headline6">${_e(sample.name)}</h2>
+      <h2 class="demo-card__title mdc-typography mdc-typography--headline6">${_escapeElement(sample.name)}</h2>
     </div>
     <div class="demo-card__secondary mdc-typography mdc-typography--body2">${sample.shortDescription}</div>
   </div>
