@@ -12,7 +12,9 @@ import 'dart:io';
 
 import 'package:path/path.dart' as p;
 
-void main(List<String> args) {
+import 'common.dart';
+
+main(List<String> args) async {
   final buildDir = args[0];
   final fileMap =
       (jsonDecode(args[1]) as Map<String, dynamic>).cast<String, String>();
@@ -40,12 +42,12 @@ void main(List<String> args) {
 
   // Build the sample index and copy the files into this directory
   print('building the sample index...');
-  Process.runSync('pub', ['get'], workingDirectory: 'samples_index');
-  Process.runSync('pub', ['run', 'grinder', 'build-release'],
-      workingDirectory: 'samples_index');
+  await run('samples_index', 'pub', ['get']);
+  await run('samples_index', 'pub', ['run', 'grinder', 'build-release']);
 
   // Copy the contents of the samples_index/public directory to the build
   // directory
+  logWrapped(ansiMagenta, '  Copying samples_index/public to build directory');
   var contents = Directory(p.join('samples_index', 'public')).listSync();
   for (var entity in contents) {
     var newPath = p.join(buildDir, p.basename(entity.path));

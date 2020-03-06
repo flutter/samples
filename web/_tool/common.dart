@@ -1,0 +1,35 @@
+
+import 'dart:io';
+
+const ansiGreen = 32;
+const ansiRed = 31;
+const ansiMagenta = 35;
+
+Future<bool> run(
+    String workingDir, String commandName, List<String> args) async {
+  var commandDescription = '`${([commandName]..addAll(args)).join(' ')}`';
+
+  logWrapped(ansiMagenta, '  Running $commandDescription');
+
+  var proc = await Process.start(
+    commandName,
+    args,
+    workingDirectory: Directory.current.path + '/' + workingDir,
+    mode: ProcessStartMode.inheritStdio,
+  );
+
+  var exitCode = await proc.exitCode;
+
+  if (exitCode != 0) {
+    logWrapped(
+        ansiRed, '  Failed! ($exitCode) – $workingDir – $commandDescription');
+    return false;
+  } else {
+    logWrapped(ansiGreen, '  Success! – $workingDir – $commandDescription');
+    return true;
+  }
+}
+
+void logWrapped(int code, String message) {
+  print('\x1B[${code}m$message\x1B[0m');
+}
