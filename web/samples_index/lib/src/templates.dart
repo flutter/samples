@@ -112,7 +112,7 @@ String _indexBody(List<Sample> samples) => '''
             <div class="mdc-chip" role="row">
               <div class="mdc-chip__ripple"></div>
               <span role="gridcell">
-                <span role="button" tabindex="-1" class="mdc-chip__text">Web</span>
+                <span role="button" tabindex="-1" class="mdc-chip__text">Web Demos</span>
               </span>
             </div>
           </div>
@@ -181,11 +181,11 @@ String _descriptionPage(Sample sample) => '''
 
 String _descriptionButtons(Sample sample) {
   var buf = StringBuffer();
-  if (sample.type == 'app' && sample?.web?.isNotEmpty == true) {
+  if (sample?.web?.isNotEmpty == true) {
     buf.write('''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.web}';"><span class="mdc-button__ripple"></span> Launch App</button>''');
   }
 
-  if (sample.type == 'app' || sample.type == 'sample') {
+  if (sample.type == 'app' || sample.type == 'sample' || sample.type == 'demo') {
     buf.write('''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.source}';">
 <div class="mdc-button__ripple"></div>
 <i class="material-icons mdc-button__icon" aria-hidden="true">code</i>

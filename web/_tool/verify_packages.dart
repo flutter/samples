@@ -55,7 +55,7 @@ Iterable<String> _listPackageDirs(Directory dir) sync* {
     yield dir.path;
   } else {
     for (var subDir in dir
-        .listSync(followLinks: false)
+        .listSync(followLinks: true)
         .whereType<Directory>()
         .where((d) => !Uri.file(d.path).pathSegments.last.startsWith('.'))) {
       yield* _listPackageDirs(subDir);
