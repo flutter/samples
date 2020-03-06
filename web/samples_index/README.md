@@ -17,16 +17,15 @@ This will generate the index into `./web`
 ## Serving the index locally
 
 If you want to serve the index locally, you can use
-[build_runner](https://pub.dev/packages/build_runner):
+[webdev](https://pub.dev/packages/webdev):
 
 ```bash
-$ pub run build_runner serve
+$ webdev serve
 ```
 
 ## Publishing the index
 
-You can build the complete index into a publishable directory using
-[build_runner](https://pub.dev/packages/build_runner):
+You can build the complete index into a publishable directory using Grinder:
 
 ```bash
 $ grind build-release
@@ -34,16 +33,10 @@ $ grind build-release
 
 This outputs the completely built index to `./public`.
 
-## Deploying to Firebase
-
-After running `grind build-release`, set up .firebaserc and firebase.json, then
-run:
-
-```bash
-firebase deploy
-```
-
 ## Generating cookbook content
+
+The cookbook articles are generated using a WebDriver script that scrapes the
+flutter.dev website. To run:
 
 1. Install [ChromeDriver](https://chromedriver.chromium.org/downloads)
 2. run `chromedriver --port=4444 --url-base=wd/hub --verbose`

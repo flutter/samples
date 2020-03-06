@@ -3,7 +3,7 @@ Web samples
 ## See the samples in action
 
 Compiled versions of the samples are hosted at
-[flutter.github.io/samples][samples].
+[flutter.github.io/samples/#?platform=web][samples].
 
 ## Building samples code
 
@@ -35,6 +35,10 @@ $ git push origin gh-pages:gh-pages
 ```
 
 Note: `flutter packages get` must be run in each sample before running `peanut`.
+
+## Building the sample index
+
+See sample_index/README.md for details
 
 [web]: https://flutter.dev/web
 [samples]: https://flutter.github.io/samples/

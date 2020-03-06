@@ -13,7 +13,7 @@ samples:
       - url: /images/gallery5.png
         alt: Shrine app screnshot
     source: https://github.com/flutter/samples/tree/master/gallery
-    web: https://flutter.github.io/samples
+    web: https://flutter.github.io/gallery
     description: >
       A collection of material design widgets, behaviors, and vignettes
       implemented with Flutter.
@@ -83,7 +83,7 @@ samples:
       - scoped_model
     tags: ['intermediate', 'sample', 'gallery', 'material', 'design', 'vignettes']
     platforms: ['web', 'ios', 'android']
-    type: sample
+    type: demo
 
   - name: Add to App
     author: Flutter
@@ -311,3 +311,107 @@ samples:
     platforms: ['ios', 'android', 'web']
     type: sample
 
+  - name: Charts
+    author: Flutter
+    screenshots:
+      - url: /images/charts1.png
+    source: https://github.com/google/charts
+    description: >
+      A general-purpose charting library.
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['ios', 'android', 'web']
+    tags: ['demo', 'charts']
+    web: /web/charts
+    type: demo
+
+  - name: Filipino Cuisine
+    author: github.com/markgrancapal
+    screenshots:
+      - url: /images/filipino_cuisine1.png
+    source: https://github.com/markgrancapal/filipino_cuisine
+    description: >
+      Entry to the Flutter Create challenge by google
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'flutter create']
+    web: /web/filipino_cuisine
+    type: demo
+
+  - name: GitHub Dataviz
+    author: Larva Labs
+    screenshots:
+      - url: /images/github_dataviz1.png
+    source: https://github.com/flutter/samples/tree/master/web/github_dataviz
+    description: >
+      A visualization for Flutter repository data
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'data', 'visualization']
+    web: /web/github_dataviz
+    type: demo
+
+  - name: Particle Background
+    author: Felix Blaschke
+    screenshots:
+      - url: /images/particle_background1.png
+    source: https://github.com/flutter/samples/tree/master/web/particle_background
+    description: >
+      Flutter app demonstrating package:simple_animations in action.
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: /web/particle_background
+    type: demo
+
+  - name: Slide Puzzle
+    author: Kevin Moore
+    screenshots:
+      - url: /images/slide_puzzle1.png
+    source: https://github.com/kevmoo/slide_puzzle
+    description: >
+      A slide (15) puzzle implemented in Dart and Flutter.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'game']
+    web: /web/slide_puzzle
+    type: demo
+
+  - name: Timeflow
+    author: Fabian Stein
+    screenshots:
+      - url: /images/timeflow1.png
+    source: github.com/Fabian-Stein/timeflow
+    description: >
+      A gentle animation that provides a calming experience to stressed developers.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: /web/timeflow
+    type: demo
+
+  - name: Vision Challenge
+    author: Yukkei Choi
+    screenshots:
+      - url: /images/vision_challenge1.png
+    source: https://github.com/flutter/samples/tree/master/web/vision_challenge
+    description: >
+      A fun game to test your color perception abilities.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'game']
+    web: /web/vision_challenge
+    type: demo
