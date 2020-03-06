@@ -59,7 +59,7 @@ class CookbookScraper {
 
 String screenshotPath(String url) {
   var filename = parseFileName(url);
-  return '/images/cookbook/$filename.png';
+  return 'images/cookbook/$filename.png';
 }
 
 /// Parses a filename from a cookbook link. E.g.

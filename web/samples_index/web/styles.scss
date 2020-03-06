@@ -156,6 +156,7 @@ a {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding: 8px;
   @media screen and (min-width: $mobile-width) {
     max-width: $container-width;
   }
@@ -166,6 +167,10 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+  }
 
   .buttons {
     button {
@@ -337,14 +342,4 @@ a {
       }
     }
   }
-}
-
-.horizontal-divider {
-  width: 100%;
-  height: 1px;
-
-  background-color: rgba(0,0,0,.20);
-
-  margin-top: 24px;
-  margin-bottom: 24px;
 }

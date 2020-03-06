@@ -54,6 +54,10 @@ Future generate() async {
 
 @Task('Scrape the cookbook for images and descriptions')
 Future scrapeCookbook() async {
+  var driver = await Process.start(
+      'chromedriver', ['--port=4444', '--url-base=wd/hub', '--verbose']);
+  driver.stdout.pipe(stdout);
+  driver.stderr.pipe(stderr);
   var scraper = CookbookScraper();
   await scraper.init();
   var links = await scraper.fetchCookbookLinks();
@@ -68,6 +72,10 @@ Future scrapeCookbook() async {
   var encoder = JsonEncoder.withIndent('\t');
   await file.writeAsString(encoder.convert(Index(allSamples)));
   await scraper.dispose();
+  var killed = driver.kill();
+  if (!killed) {
+    print('failed to kill chromedriver process');
+  }
 }
 
 @Task('remove generated HTML files')

@@ -167,7 +167,6 @@ String _descriptionPage(Sample sample) => '''
           </div>
         </div>
       </div>
-      <div class="horizontal-divider"></div>
       <div class="screenshots">
         ${util.indent(_descriptionScreenshots(sample), 4)}
       </div>
@@ -202,7 +201,7 @@ String _descriptionButtons(Sample sample) {
 String _tags(Sample sample) {
   var buf = StringBuffer();
   for (var tag in sample.tags) {
-    buf.write('<a href="/#?search=tag%3A$tag">$tag</a>\n');
+    buf.write('<a href="./#?search=tag%3A$tag">$tag</a>\n');
   }
   return buf.toString();
 }
