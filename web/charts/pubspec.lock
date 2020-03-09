@@ -7,14 +7,14 @@ packages:
       name: charts_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.1"
+    version: "0.9.0"
   charts_flutter:
     dependency: "direct main"
     description:
       name: charts_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.1"
+    version: "0.9.0"
   collection:
     dependency: transitive
     description:
@@ -75,4 +75,4 @@ packages:
     source: hosted
     version: "2.0.8"
 sdks:
-  dart: ">=2.2.2 <3.0.0"
+  dart: ">=2.3.0 <3.0.0"
