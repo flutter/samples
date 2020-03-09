@@ -6,15 +6,20 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-double generateHeight() => Random().nextDouble() * 200;
+Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 
-double generateWidth() => Random().nextDouble() * 200;
-
-Widget generateContainer() => Container(
-      key: GlobalKey(),
-      height: generateHeight(),
-      width: generateWidth(),
-      color: Colors.purple,
+Widget generateContainer(int keyCount) => Container(
+      key: ValueKey<int>(keyCount),
+      height: Random().nextDouble() * 200,
+      width: Random().nextDouble() * 200,
+      decoration: BoxDecoration(
+        color: generateColor(),
+        borderRadius: BorderRadius.circular(Random().nextDouble() * 100),
+        border: Border.all(
+          color: generateColor(),
+          width: Random().nextDouble() * 5,
+        ),
+      ),
     );
 
 class AnimatedSwitcherDemo extends StatefulWidget {
@@ -25,42 +30,38 @@ class AnimatedSwitcherDemo extends StatefulWidget {
 
 class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   Widget container;
+  int keyCount;
 
   void initState() {
-    container = generateContainer();
     super.initState();
-  }
-
-  void changeWidget() {
-    setState(() {
-      container = generateContainer();
-    });
+    keyCount = 0;
+    container = generateContainer(keyCount);
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            //AnimatedSwitcher Widget is used to switch between different widgets with a
-            //given transition. You can change the transitions by using transitionBuilder property.
-            AnimatedSwitcher(
-              duration: Duration(seconds: 1),
-              child: container,
-              transitionBuilder: (child, animation) => ScaleTransition(
-                child: child,
-                scale: animation,
-              ),
+      appBar: AppBar(
+        actions: <Widget>[
+          MaterialButton(
+            onPressed: () => setState(
+              () => container = generateContainer(++keyCount),
             ),
-            RaisedButton(
-              onPressed: () => changeWidget(),
-              child: Text(
-                "Change Widget",
-              ),
-            )
-          ],
+            child: Text(
+              "Change Widget",
+              style: TextStyle(
+                  color: Theme.of(context).buttonTheme.colorScheme.onPrimary),
+            ),
+          ),
+        ],
+      ),
+      body: Center(
+        child: AnimatedSwitcher(
+          duration: Duration(seconds: 1),
+          child: container,
+          transitionBuilder: (child, animation) => ScaleTransition(
+            child: child,
+            scale: animation,
+          ),
         ),
       ),
     );

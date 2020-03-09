@@ -60,11 +60,11 @@ final basicDemos = [
       route: TweenSequenceDemo.routeName,
       builder: (context) => TweenSequenceDemo()),
   Demo(
-      name: 'Animated Positioned',
+      name: 'AnimatedPositioned',
       route: AnimatedPositionedDemo.routeName,
       builder: (context) => AnimatedPositionedDemo()),
   Demo(
-      name: 'Animated Switcher',
+      name: 'AnimatedSwitcher',
       route: AnimatedSwitcherDemo.routeName,
       builder: (context) => AnimatedSwitcherDemo())
 ];

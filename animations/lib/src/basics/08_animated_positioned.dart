@@ -16,9 +16,11 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   double topPosition;
   double rightPosition;
 
-  double generateTopPosition(double top) => Random().nextDouble() * top;
+  double generateTopPosition(double top) =>
+      Random().nextInt(top.toInt()).toDouble();
 
-  double generateRightPosition(double right) => Random().nextDouble() * right;
+  double generateRightPosition(double right) =>
+      Random().nextInt(right.toInt()).toDouble();
 
   void initState() {
     super.initState();
@@ -30,36 +32,40 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
     setState(() {
       topPosition = generateTopPosition(top);
       rightPosition = generateRightPosition(right);
-      print(topPosition);
-      print(rightPosition);
     });
   }
 
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // AnimatedPositioned animates position of the given child over the given duration of time.
+    // AnimatedPositioned animates position of the given child over the given
+    // duration of time.
+    // AnimatedPositioned animates changes to a widget's position within a Stack
     return Scaffold(
       appBar: AppBar(),
       body: Container(
         height: size.height,
         width: size.width,
-        padding: EdgeInsets.all(8),
         child: Stack(
           children: <Widget>[
             AnimatedPositioned(
               top: topPosition,
               right: rightPosition,
               duration: Duration(seconds: 1),
-              child: RaisedButton(
-                color: Colors.purple,
-                child: Text(
-                  'Change Position',
-                  style: TextStyle(
-                    color: Colors.white,
+              child: Container(
+                width: 150,
+                height: 50,
+                child: RaisedButton(
+                  padding: EdgeInsets.all(0),
+                  color: Theme.of(context).primaryColor,
+                  child: Text(
+                    'Change Position',
+                    style: TextStyle(
+                        color:
+                            Theme.of(context).buttonTheme.colorScheme.onError),
                   ),
+                  onPressed: () =>
+                      changePosition(size.height - 50, size.width - 150),
                 ),
-                onPressed: () =>
-                    changePosition(size.height / 2, size.width / 2),
               ),
             ),
           ],
