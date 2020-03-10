@@ -14,61 +14,66 @@ class AnimatedPositionedDemo extends StatefulWidget {
 
 class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   double topPosition;
-  double rightPosition;
+  double leftPosition;
 
-  double generateTopPosition(double top) =>
-      Random().nextInt(top.toInt()).toDouble();
+  double generateTopPosition(double top) => Random().nextDouble() * top;
 
-  double generateRightPosition(double right) =>
-      Random().nextInt(right.toInt()).toDouble();
+  double generateRightPosition(double right) => Random().nextDouble() * right;
 
   void initState() {
     super.initState();
     topPosition = generateTopPosition(30);
-    rightPosition = generateRightPosition(30);
+    leftPosition = generateRightPosition(30);
   }
 
   void changePosition(double top, double right) {
     setState(() {
       topPosition = generateTopPosition(top);
-      rightPosition = generateRightPosition(right);
+      leftPosition = generateRightPosition(right);
     });
   }
 
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final appBar = AppBar();
+    final topPadding = MediaQuery.of(context).padding.top;
     // AnimatedPositioned animates position of the given child over the given
     // duration of time.
     // AnimatedPositioned animates changes to a widget's position within a Stack
-    return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-        height: size.height,
-        width: size.width,
-        child: Stack(
-          children: <Widget>[
-            AnimatedPositioned(
-              top: topPosition,
-              right: rightPosition,
-              duration: Duration(seconds: 1),
-              child: Container(
-                width: 150,
-                height: 50,
-                child: RaisedButton(
-                  padding: EdgeInsets.all(0),
-                  color: Theme.of(context).primaryColor,
-                  child: Text(
-                    'Change Position',
-                    style: TextStyle(
+    return SafeArea(
+      child: Scaffold(
+        appBar: appBar,
+        body: Container(
+          height: size.height,
+          width: size.width,
+          child: Stack(
+            children: <Widget>[
+              AnimatedPositioned(
+                top: topPosition,
+                left: leftPosition,
+                duration: Duration(seconds: 1),
+                child: InkWell(
+                  onTap: () => changePosition(
+                      size.height -
+                          (appBar.preferredSize.height + topPadding + 50),
+                      size.width - 150),
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 150,
+                    height: 50,
+                    child: Text(
+                      "Click Me",
+                      style: TextStyle(
                         color:
-                            Theme.of(context).buttonTheme.colorScheme.onError),
+                            Theme.of(context).buttonTheme.colorScheme.onPrimary,
+                      ),
+                    ),
+                    color: Theme.of(context).primaryColor,
                   ),
-                  onPressed: () =>
-                      changePosition(size.height - 50, size.width - 150),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
