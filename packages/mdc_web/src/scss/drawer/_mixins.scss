@@ -1,0 +1,466 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/animation/functions";
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/typography/variables";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/theme/variables";
+@import "package:mdc_web/src/scss/list/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "./variables";
+
+//
+// Public
+//
+
+@mixin mdc-drawer-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  // postcss-bem-linter: define drawer
+  .mdc-drawer {
+    @include mdc-drawer-title-ink-color($mdc-drawer-title-ink-color, $query: $query);
+    @include mdc-drawer-subtitle-ink-color($mdc-drawer-subtitle-ink-color, $query: $query);
+    @include mdc-drawer-border-color($mdc-drawer-divider-color, $query: $query);
+    @include mdc-drawer-surface-fill-color($mdc-drawer-surface-fill-color, $query: $query);
+    @include mdc-drawer-item-icon-ink-color($mdc-drawer-item-inactive-ink-color, $query: $query);
+    @include mdc-drawer-item-text-ink-color($mdc-drawer-item-inactive-ink-color, $query: $query);
+    @include mdc-drawer-item-activated-icon-ink-color($mdc-drawer-item-activated-ink-color, $query: $query);
+    @include mdc-drawer-item-activated-text-ink-color($mdc-drawer-item-activated-ink-color, $query: $query);
+    @include mdc-drawer-shape-radius(large, $query: $query);
+    @include mdc-drawer-item-shape-radius(4px, $query: $query);
+    @include mdc-drawer-z-index($mdc-drawer-z-index, $query: $query);
+    @include mdc-drawer-width($mdc-drawer-width, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      height: 100%;
+      /* @noflip */
+      border-right-width: 1px;
+      /* @noflip */
+      border-right-style: solid;
+      overflow: hidden;
+
+      @include mdc-rtl {
+        /* @noflip */
+        border-right-width: 0;
+        /* @noflip */
+        border-left-width: 1px;
+        /* @noflip */
+        border-right-style: none;
+        /* @noflip */
+        border-left-style: solid;
+      }
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition-property: transform;
+      transition-timing-function: $mdc-animation-standard-curve-timing-function;
+    }
+
+    @include mdc-drawer-list-item_($query);
+  }
+
+  .mdc-drawer--animate {
+    @include mdc-feature-targets($feat-structure) {
+      transform: translateX(-100%);
+
+      @include mdc-rtl {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  .mdc-drawer--opening {
+    @include mdc-feature-targets($feat-structure) {
+      transform: translateX(0);
+
+      // Required to level the specificity with animate class.
+      @include mdc-rtl {
+        transform: translateX(0);
+      }
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition-duration: $mdc-drawer-animation-enter;
+    }
+  }
+
+  .mdc-drawer--closing {
+    @include mdc-feature-targets($feat-structure) {
+      transform: translateX(-100%);
+
+      @include mdc-rtl {
+        transform: translateX(100%);
+      }
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition-duration: $mdc-drawer-animation-exit;
+    }
+  }
+
+  .mdc-drawer__header {
+    @include mdc-feature-targets($feat-structure) {
+      flex-shrink: 0;
+      box-sizing: border-box;
+      min-height: 64px; // same as $mdc-top-app-bar-row-height
+      padding: 0 $mdc-drawer-surface-padding 4px;
+    }
+  }
+
+  .mdc-drawer__title {
+    @include mdc-typography(headline6, $query: $query);
+    @include mdc-typography-baseline-top(36px, $query: $query);
+    @include mdc-typography-baseline-bottom(20px, $query: $query);
+  }
+
+  .mdc-drawer__subtitle {
+    @include mdc-typography(body2, $query: $query);
+    @include mdc-typography-baseline-top(20px, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      margin-bottom: 0;
+    }
+  }
+
+  .mdc-drawer__content {
+    @include mdc-feature-targets($feat-structure) {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-drawer-dismissible-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-drawer--dismissible {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-position(left, 0);
+
+      display: none;
+      position: absolute;
+
+      &.mdc-drawer--open {
+        display: flex;
+      }
+    }
+  }
+
+  .mdc-drawer-app-content {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-box(margin, left, 0);
+
+      position: relative;
+    }
+  }
+}
+
+@mixin mdc-drawer-modal-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  .mdc-drawer--modal {
+    @include mdc-drawer-scrim-fill-color($mdc-drawer-modal-scrim-color, $query: $query);
+    @include mdc-elevation($mdc-drawer-modal-elevation, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-position(left, 0);
+
+      display: none;
+      position: fixed;
+    }
+
+    &.mdc-drawer--open {
+      @include mdc-feature-targets($feat-structure) {
+        display: flex;
+      }
+    }
+  }
+
+  .mdc-drawer-scrim {
+    @include mdc-feature-targets($feat-structure) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: $mdc-drawer-z-index - 1;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition-property: opacity;
+      transition-timing-function: $mdc-animation-standard-curve-timing-function;
+    }
+
+    .mdc-drawer--open + & {
+      @include mdc-feature-targets($feat-structure) {
+        display: block;
+      }
+    }
+
+    .mdc-drawer--animate + & {
+      @include mdc-feature-targets($feat-structure) {
+        opacity: 0;
+      }
+    }
+
+    .mdc-drawer--opening + & {
+      @include mdc-feature-targets($feat-animation) {
+        transition-duration: $mdc-drawer-animation-enter;
+      }
+
+      @include mdc-feature-targets($feat-structure) {
+        opacity: 1;
+      }
+    }
+
+    .mdc-drawer--closing + & {
+      @include mdc-feature-targets($feat-animation) {
+        transition-duration: $mdc-drawer-animation-exit;
+      }
+
+      @include mdc-feature-targets($feat-structure) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@mixin mdc-drawer-activated-overlay-color($color, $query: mdc-feature-all()) {
+  :not(.mdc-list--non-interactive) > .mdc-list-item {
+    @include mdc-states-activated($color, $query: $query);
+  }
+}
+
+@mixin mdc-drawer-border-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-divider-opacity);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(border-color, $value);
+  }
+}
+
+@mixin mdc-drawer-item-shape-radius($radius, $rtl-reflexive: true, $query: mdc-feature-all()) {
+  @include mdc-list-item-shape-radius($radius, $rtl-reflexive, $query: $query);
+}
+
+@mixin mdc-drawer-shape-radius($radius, $query: mdc-feature-all()) {
+  @if length($radius) > 2 {
+    @error "Invalid radius: '#{$radius}' component doesn't allow customizing all corners";
+  } @else if length($radius) == 2 {
+    $radius: 0 nth($radius, 1) nth($radius, 2) 0;
+  } @else {
+    $radius: 0 $radius $radius 0;
+  }
+
+  @include mdc-shape-radius($radius, $rtl-reflexive: true, $query: $query);
+}
+
+@mixin mdc-drawer-divider-color($color, $query: mdc-feature-all()) {
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-divider-opacity);
+
+  @include mdc-list-divider-color($value, $query: $query);
+}
+
+@mixin mdc-drawer-title-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-title-ink-opacity);
+
+  .mdc-drawer__title {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $value);
+    }
+  }
+}
+
+@mixin mdc-drawer-subtitle-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-subtitle-ink-opacity);
+
+  @include mdc-list-group-subheader-ink-color($value, $query: $query);
+
+  .mdc-drawer__subtitle {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $value);
+    }
+  }
+}
+
+@mixin mdc-drawer-fill-color-accessible($color, $query: mdc-feature-all()) {
+  $accessibleColor: mdc-theme-accessible-ink-color($color);
+
+  @include mdc-drawer-title-ink-color($accessibleColor, $query: $query);
+  @include mdc-drawer-subtitle-ink-color($accessibleColor, $query: $query);
+  @include mdc-drawer-item-text-ink-color($accessibleColor, $query: $query);
+  @include mdc-drawer-item-icon-ink-color($accessibleColor, $query: $query);
+  @include mdc-drawer-surface-fill-color($color, $query: $query);
+}
+
+@mixin mdc-drawer-item-icon-ink-color($color, $query: mdc-feature-all()) {
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-item-inactive-icon-ink-opacity);
+
+  @include mdc-list-item-graphic-ink-color($value, $query: $query);
+}
+
+@mixin mdc-drawer-item-activated-icon-ink-color($color, $query: mdc-feature-all()) {
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-item-active-icon-ink-opacity);
+
+  .mdc-list-item--activated {
+    @include mdc-list-item-graphic-ink-color($value, $query: $query);
+  }
+}
+
+@mixin mdc-drawer-item-activated-text-ink-color($color, $query: mdc-feature-all()) {
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-item-active-text-ink-opacity);
+
+  .mdc-list-item--activated {
+    @include mdc-list-item-primary-text-ink-color($value, $query: $query);
+  }
+}
+
+@mixin mdc-drawer-item-text-ink-color($color, $query: mdc-feature-all()) {
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-item-inactive-text-ink-opacity);
+
+  .mdc-list-item {
+    @include mdc-list-item-primary-text-ink-color($value, $query: $query);
+  }
+}
+
+@mixin mdc-drawer-surface-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $value: mdc-theme-prop-value($color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(background-color, $value);
+  }
+}
+
+@mixin mdc-drawer-scrim-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $value: rgba(mdc-theme-prop-value($color), $mdc-drawer-modal-scrim-opacity);
+
+  + .mdc-drawer-scrim {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $value);
+    }
+  }
+}
+
+@mixin mdc-drawer-z-index($value, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    z-index: $value;
+  }
+}
+
+@mixin mdc-drawer-width($width, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    width: $width;
+  }
+
+  &.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-box(margin, left, $width);
+    }
+  }
+}
+
+//
+// Private
+//
+@mixin mdc-drawer-list-item_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // postcss-bem-linter: ignore
+  .mdc-list-item {
+    @include mdc-typography(subtitle2, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      height: calc(48px - 2 * #{$mdc-drawer-list-item-spacing});
+      // To accomodate margin conflict.
+      margin: ($mdc-drawer-list-item-spacing * 2) 8px;
+      padding: 0 $mdc-drawer-surface-padding / 2;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  .mdc-list-item:nth-child(1) {
+    @include mdc-feature-targets($feat-structure) {
+      margin-top: 2px;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  .mdc-list-item:nth-last-child(1) {
+    @include mdc-feature-targets($feat-structure) {
+      margin-bottom: 0;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  .mdc-list-group__subheader {
+    @include mdc-typography(body2, $query: $query);
+    @include mdc-typography-baseline-top(24px, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      margin: 0;
+      padding: 0 $mdc-drawer-surface-padding;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  .mdc-list-divider {
+    @include mdc-feature-targets($feat-structure) {
+      margin: 3px 0 4px 0;
+    }
+  }
+
+  // Prevents list item children from being included in the click target.
+  // postcss-bem-linter: ignore
+  .mdc-list-item__text,
+  .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      pointer-events: none;
+    }
+  }
+}
+

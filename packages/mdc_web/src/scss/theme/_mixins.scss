@@ -1,0 +1,143 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "./variables";
+@import "./functions";
+
+@mixin mdc-theme-core-styles($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  :root {
+    @include mdc-feature-targets($feat-color) {
+      @each $style in map-keys($mdc-theme-property-values) {
+        --mdc-theme-#{$style}: #{map-get($mdc-theme-property-values, $style)};
+      }
+    }
+  }
+
+  @each $style in map-keys($mdc-theme-property-values) {
+    @if $style != "background" and $style != "surface" {
+      .mdc-theme--#{$style} {
+        @include mdc-feature-targets($feat-color) {
+          @include mdc-theme-prop(color, $style, true);
+        }
+      }
+    } @else {
+      .mdc-theme--#{$style} {
+        @include mdc-feature-targets($feat-color) {
+          @include mdc-theme-prop(background-color, $style);
+        }
+      }
+    }
+  }
+
+  // CSS rules for using primary and secondary (plus light/dark variants) as background colors.
+  @each $style in ("primary", "secondary") {
+    .mdc-theme--#{$style}-bg {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(background-color, $style, true);
+      }
+    }
+  }
+}
+
+// Applies the correct theme color style to the specified property.
+// $property is typically color or background-color, but can be any CSS property that accepts color values.
+// $style should be one of the map keys in $mdc-theme-property-values (_variables.scss), or a color value.
+// $edgeOptOut controls whether to feature-detect around Edge to avoid emitting CSS variables for it,
+// intended for use in cases where interactions with pseudo-element styles cause problems due to Edge bugs.
+@mixin mdc-theme-prop($property, $style, $important: false, $edgeOptOut: false) {
+  @if mdc-theme-is-var-with-fallback_($style) {
+    @if $important {
+      #{$property}: mdc-theme-get-var-fallback_($style) !important;
+      /* @alternate */
+      #{$property}: mdc-theme-var_($style) !important;
+    } @else {
+      #{$property}: mdc-theme-get-var-fallback_($style);
+      /* @alternate */
+      #{$property}: mdc-theme-var_($style);
+    }
+  } @else if mdc-theme-is-valid-theme-prop-value_($style) {
+    @if $important {
+      #{$property}: $style !important;
+    } @else {
+      #{$property}: $style;
+    }
+  } @else {
+    @if not map-has-key($mdc-theme-property-values, $style) {
+      @error "Invalid style: '#{$style}'. Choose one of: #{map-keys($mdc-theme-property-values)}";
+    }
+
+    $value: map-get($mdc-theme-property-values, $style);
+
+    @if $important {
+      #{$property}: $value !important;
+
+      @if $edgeOptOut {
+        // stylelint-disable max-nesting-depth
+        @at-root {
+          // IE 11 doesn't understand this syntax and ignores the entire block.
+          // Edge understands this syntax and skips the entire block to avoid a nasty :before/:after pseudo-element bug.
+          // All other browsers apply the styles within the block.
+          @supports not (-ms-ime-align: auto) {
+            // stylelint-disable scss/selector-no-redundant-nesting-selector
+            & {
+              /* @alternate */
+              #{$property}: var(--mdc-theme-#{$style}, $value) !important;
+            }
+            // stylelint-enable scss/selector-no-redundant-nesting-selector
+          }
+        }
+        // stylelint-enable max-nesting-depth
+      } @else {
+        /* @alternate */
+        #{$property}: var(--mdc-theme-#{$style}, $value) !important;
+      }
+    } @else {
+      #{$property}: $value;
+
+      @if $edgeOptOut {
+        // stylelint-disable max-nesting-depth
+        @at-root {
+          // IE 11 doesn't understand this syntax and ignores the entire block.
+          // Edge understands this syntax and skips the entire block to avoid a nasty :before/:after pseudo-element bug.
+          // All other browsers apply the styles within the block.
+          @supports not (-ms-ime-align: auto) {
+            // stylelint-disable scss/selector-no-redundant-nesting-selector
+            & {
+              /* @alternate */
+              #{$property}: var(--mdc-theme-#{$style}, $value);
+            }
+            // stylelint-enable scss/selector-no-redundant-nesting-selector
+          }
+        }
+        // stylelint-enable max-nesting-depth
+      } @else {
+        /* @alternate */
+        #{$property}: var(--mdc-theme-#{$style}, $value);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,562 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/functions";
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/checkbox/functions";
+@import "package:mdc_web/src/scss/checkbox/variables";
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/functions";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "./variables";
+
+@mixin mdc-chip-core-styles($query: mdc-feature-all()) {
+  @include mdc-chip-without-ripple($query: $query);
+  @include mdc-chip-ripple($query: $query);
+}
+
+@mixin mdc-chip-without-ripple($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-chip-leading-icon-color($mdc-chip-icon-color, $query: $query);
+  @include mdc-chip-trailing-icon-color($mdc-chip-icon-color, $query: $query);
+  @include mdc-chip-leading-icon-size($mdc-chip-leading-icon-size, $query: $query);
+  @include mdc-chip-trailing-icon-size($mdc-chip-trailing-icon-size, $query: $query);
+  @include mdc-chip-trailing-icon-margin($query: $query);
+
+  .mdc-chip {
+    @include mdc-chip-shape-radius(50%, $query: $query);
+    @include mdc-chip-fill-color($mdc-chip-fill-color-default, $query: $query);
+    @include mdc-chip-ink-color-without-ripple_($mdc-chip-ink-color-default, $query: $query);
+    @include mdc-typography(body2, $query: $query);
+    @include mdc-chip-height($mdc-chip-height-default, $query: $query);
+    @include mdc-chip-leading-icon-margin($query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: inline-flex;
+      position: relative;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0 $mdc-chip-horizontal-padding;
+      border-width: 0;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      overflow: hidden;
+
+      &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+    }
+
+    &:hover {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(color, on-surface);
+      }
+    }
+  }
+
+  .mdc-chip--exit {
+    @include mdc-feature-targets($feat-color) {
+      transition: $mdc-chip-exit-transition;
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      opacity: 0;
+    }
+  }
+
+  .mdc-chip__text {
+    @include mdc-feature-targets($feat-structure) {
+      white-space: nowrap;
+    }
+  }
+
+  .mdc-chip__icon {
+    @include mdc-feature-targets($feat-structure) {
+      border-radius: 50%;
+      outline: none;
+      vertical-align: middle;
+    }
+  }
+
+  .mdc-chip__checkmark {
+    @include mdc-feature-targets($feat-structure) {
+      height: $mdc-chip-leading-icon-size;
+    }
+  }
+
+  .mdc-chip__checkmark-path {
+    @include mdc-feature-targets($feat-animation) {
+      transition:
+        mdc-checkbox-transition-exit(
+          stroke-dashoffset,
+          $mdc-chip-checkmark-animation-delay,
+          $mdc-chip-checkmark-animation-duration
+        );
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      stroke-width: 2px;
+      stroke-dashoffset: $mdc-checkbox-mark-path-length_;
+      stroke-dasharray: $mdc-checkbox-mark-path-length_;
+    }
+  }
+
+  .mdc-chip--selected .mdc-chip__checkmark-path {
+    @include mdc-feature-targets($feat-structure) {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  // Change color of selected choice chips
+
+  .mdc-chip-set--choice {
+    .mdc-chip {
+      @include mdc-chip-selected-ink-color-without-ripple_(primary, $query: $query);
+    }
+
+    .mdc-chip--selected {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(background-color, surface);
+      }
+    }
+  }
+
+  // Add leading checkmark to filter chips with no leading icon
+
+  .mdc-chip__checkmark-svg {
+    @include mdc-feature-targets($feat-structure) {
+      width: 0;
+      height: $mdc-chip-leading-icon-size;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition: width $mdc-chip-width-animation-duration $mdc-animation-standard-curve-timing-function;
+    }
+  }
+
+  .mdc-chip--selected .mdc-chip__checkmark-svg {
+    @include mdc-feature-targets($feat-structure) {
+      width: $mdc-chip-leading-icon-size;
+    }
+  }
+
+  // Add leading checkmark to filter chips with a leading icon
+
+  .mdc-chip-set--filter {
+    .mdc-chip__icon--leading {
+      @include mdc-feature-targets($feat-animation) {
+        transition: opacity $mdc-chip-opacity-animation-duration linear;
+        transition-delay: $mdc-chip-leading-icon-delay;
+      }
+
+      @include mdc-feature-targets($feat-structure) {
+        opacity: 1;
+      }
+
+      + .mdc-chip__checkmark {
+        @include mdc-feature-targets($feat-animation) {
+          transition: opacity $mdc-chip-opacity-animation-duration linear;
+
+          // Delay the checkmark transition.
+          transition-delay: $mdc-chip-checkmark-with-leading-icon-delay;
+        }
+
+        @include mdc-feature-targets($feat-structure) {
+          opacity: 0;
+        }
+
+        .mdc-chip__checkmark-svg {
+          // stylelint-disable max-nesting-depth
+
+          @include mdc-feature-targets($feat-animation) {
+            transition: width 0ms;
+          }
+
+          // stylelint-enable max-nesting-depth
+        }
+      }
+    }
+
+    .mdc-chip--selected .mdc-chip__icon--leading {
+      @include mdc-feature-targets($feat-structure) {
+        opacity: 0;
+      }
+
+      + .mdc-chip__checkmark {
+        @include mdc-feature-targets($feat-structure) {
+          // This ensures that the checkmark has zero width while the leading icon is still animating.
+          width: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+    .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading {
+      @include mdc-feature-targets($feat-structure) {
+        width: 0;
+      }
+
+      @include mdc-feature-targets($feat-structure) {
+        // This ensures that the leading icon doesn't fade in while the checkmark is fading out.
+        opacity: 0;
+      }
+
+      + .mdc-chip__checkmark {
+        @include mdc-feature-targets($feat-structure) {
+          width: $mdc-chip-leading-icon-size;
+        }
+      }
+    }
+  }
+}
+
+@mixin mdc-chip-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  .mdc-chip {
+    @include mdc-ripple-surface($query: $query);
+    @include mdc-ripple-radius-bounded($query: $query);
+    @include mdc-chip-ink-color-ripple_($mdc-chip-ink-color-default, $query: $query);
+  }
+
+  .mdc-chip-set--choice {
+    .mdc-chip {
+      @include mdc-chip-selected-ink-color-ripple_(primary, $query: $query);
+    }
+  }
+}
+
+@mixin mdc-chip-set-core-styles($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-animation) {
+    @keyframes mdc-chip-entry {
+      from {
+        transform: scale(.8);
+        opacity: .4;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  .mdc-chip-set {
+    @include mdc-chip-set-spacing(8px, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+  }
+
+  .mdc-chip-set--input .mdc-chip {
+    @include mdc-feature-targets($feat-animation) {
+      animation: mdc-chip-entry 100ms $mdc-animation-deceleration-curve-timing-function;
+    }
+  }
+}
+
+@mixin mdc-chip-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  @include mdc-shape-radius(
+    mdc-shape-resolve-percentage-radius($mdc-chip-height-default, $radius),
+    $rtl-reflexive,
+    $query: $query);
+}
+
+@mixin mdc-chip-fill-color-accessible($color, $query: mdc-feature-all()) {
+  $fill-tone: mdc-theme-tone($color);
+
+  @include mdc-chip-fill-color($color, $query: $query);
+
+  @if ($fill-tone == "dark") {
+    @include mdc-chip-ink-color(text-primary-on-dark, $query: $query);
+    @include mdc-chip-selected-ink-color(text-primary-on-dark, $query: $query);
+    @include mdc-chip-leading-icon-color(text-primary-on-dark, $query: $query);
+    @include mdc-chip-trailing-icon-color(text-primary-on-dark, $query: $query);
+  } @else {
+    @include mdc-chip-ink-color(text-primary-on-light, $query: $query);
+    @include mdc-chip-selected-ink-color(text-primary-on-light, $query: $query);
+    @include mdc-chip-leading-icon-color(text-primary-on-light, $query: $query);
+    @include mdc-chip-trailing-icon-color(text-primary-on-light, $query: $query);
+  }
+}
+
+@mixin mdc-chip-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(background-color, $color);
+  }
+}
+
+@mixin mdc-chip-ink-color($color, $query: mdc-feature-all()) {
+  @include mdc-chip-ink-color-ripple_($color, $query: $query);
+  @include mdc-chip-ink-color-without-ripple_($color, $query: $query);
+}
+
+@mixin mdc-chip-ink-color-without-ripple_($color, $query) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(color, $color);
+  }
+
+  &:hover {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-chip-ink-color-ripple_($color, $query) {
+  @include mdc-states($color, $query: $query);
+}
+
+@mixin mdc-chip-selected-ink-color($color, $query: mdc-feature-all()) {
+  @include mdc-chip-selected-ink-color-ripple_($color, $query: $query);
+  @include mdc-chip-selected-ink-color-without-ripple_($color, $query: $query);
+}
+
+@mixin mdc-chip-selected-ink-color-without-ripple_($color, $query) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &.mdc-chip--selected {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+
+    @include mdc-chip-leading-icon-color($color, $query: $query);
+
+    &:hover {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(color, $color);
+      }
+    }
+  }
+
+  .mdc-chip__checkmark-path {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(stroke, $color);
+    }
+  }
+}
+
+@mixin mdc-chip-selected-ink-color-ripple_($color, $query) {
+  &.mdc-chip {
+    @include mdc-states-selected($color, $query: $query);
+  }
+}
+
+@mixin mdc-chip-outline(
+  $width: 1px,
+  $style: solid,
+  $color: mdc-theme-prop-value(on-surface),
+  $query: mdc-feature-all()) {
+  @include mdc-chip-outline-width($width, $query: $query);
+  @include mdc-chip-outline-style($style, $query: $query);
+  @include mdc-chip-outline-color($color, $query: $query);
+}
+
+@mixin mdc-chip-outline-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(border-color, $color);
+  }
+}
+
+@mixin mdc-chip-outline-style($style, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    border-style: $style;
+  }
+}
+
+@mixin mdc-chip-outline-width($width, $horizontal-padding: $mdc-chip-horizontal-padding, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // Note: Adjust padding to maintain consistent width with non-outlined chips
+  $horizontal-padding-value: max($horizontal-padding - $width, 0);
+
+  @include mdc-feature-targets($feat-structure) {
+    padding-right: $horizontal-padding-value;
+    padding-left: $horizontal-padding-value;
+    border-width: $width;
+  }
+}
+
+@mixin mdc-chip-horizontal-padding($padding, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    padding-right: $padding;
+    padding-left: $padding;
+  }
+}
+
+@mixin mdc-chip-height($height, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    height: $height;
+  }
+}
+
+@mixin mdc-chip-set-spacing($gap-size, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    padding: $gap-size / 2;
+  }
+
+  .mdc-chip {
+    @include mdc-feature-targets($feat-structure) {
+      margin: $gap-size / 2;
+    }
+  }
+}
+
+@mixin mdc-chip-leading-icon-color($color, $opacity: $mdc-chip-icon-opacity, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-chip__icon--leading {
+    @include mdc-feature-targets($feat-color) {
+      color: rgba(mdc-theme-prop-value($color), $opacity);
+    }
+  }
+}
+
+@mixin mdc-chip-trailing-icon-color(
+  $color,
+  $opacity: $mdc-chip-icon-opacity,
+  $hover-opacity: $mdc-chip-trailing-icon-hover-opacity,
+  $focus-opacity: $mdc-chip-trailing-icon-focus-opacity,
+  $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-chip__icon--trailing {
+    @include mdc-feature-targets($feat-color) {
+      color: rgba(mdc-theme-prop-value($color), $opacity);
+    }
+
+    &:hover {
+      @include mdc-feature-targets($feat-color) {
+        color: rgba(mdc-theme-prop-value($color), $hover-opacity);
+      }
+    }
+
+    &:focus {
+      @include mdc-feature-targets($feat-color) {
+        color: rgba(mdc-theme-prop-value($color), $focus-opacity);
+      }
+    }
+  }
+}
+
+// For customizing icon size, we need to increase specifity to ensure
+// overrides apply. Styles defined in the .material-icons CSS class are
+// loaded separately, so the order of CSS definitions is not guaranteed.
+
+@mixin mdc-chip-leading-icon-size($size, $query: mdc-feature-all()) {
+  .mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden) {
+    @include mdc-chip-icon-size_($size, $query: $query);
+  }
+}
+
+@mixin mdc-chip-trailing-icon-size($size, $query: mdc-feature-all()) {
+  .mdc-chip__icon.mdc-chip__icon--trailing {
+    @include mdc-chip-icon-size_($size, $query: $query);
+  }
+}
+
+@mixin mdc-chip-icon-size_($size, $query) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    width: $size;
+    height: $size;
+    font-size: $size;
+  }
+}
+
+@mixin mdc-chip-leading-icon-margin(
+  $left-margin: $mdc-chip-leading-icon-margin-left,
+  $right-margin: $mdc-chip-leading-icon-margin-right,
+  $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  &.mdc-chip--selected .mdc-chip__checkmark,
+  .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden) {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(margin, $left-margin, $right-margin);
+    }
+  }
+}
+
+@mixin mdc-chip-trailing-icon-margin(
+  $left-margin: $mdc-chip-trailing-icon-margin-left,
+  $right-margin: $mdc-chip-trailing-icon-margin-right,
+  $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-chip__icon--trailing {
+    @include mdc-feature-targets($feat-structure) {
+      margin-right: $right-margin;
+      margin-left: $left-margin;
+    }
+  }
+}
+
+@mixin mdc-chip-elevation-transition($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  @include mdc-feature-targets($feat-animation) {
+    transition: mdc-elevation-transition-value();
+  }
+
+  &.mdc-chip--exit {
+    @include mdc-feature-targets($feat-animation) {
+      transition:
+        mdc-elevation-transition-value(),
+        $mdc-chip-exit-transition;
+    }
+  }
+}
+

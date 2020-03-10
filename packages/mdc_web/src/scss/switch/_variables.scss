@@ -1,0 +1,54 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/theme/variables";
+
+$mdc-switch-track-width: 32px !default;
+$mdc-switch-track-height: 14px !default;
+$mdc-switch-thumb-diameter: 20px !default;
+$mdc-switch-tap-target-size: 48px !default;
+
+// Amount the edge of the thumb should be offset from the edge of the track.
+$mdc-switch-thumb-offset: 4px !default;
+
+// Position for the tap target that contains the thumb to align the thumb correctly offset from the track.
+$mdc-switch-tap-target-initial-position:
+  -$mdc-switch-tap-target-size / 2 + $mdc-switch-thumb-diameter / 2 -
+  $mdc-switch-thumb-offset !default;
+
+// Value to cover the whole switch area (including the ripple) with the native control.
+$mdc-switch-native-control-width:
+  $mdc-switch-track-width +
+  ($mdc-switch-tap-target-size - $mdc-switch-thumb-diameter) +
+  $mdc-switch-thumb-offset * 2 !default;
+
+$mdc-switch-thumb-active-margin:
+  $mdc-switch-track-width - $mdc-switch-thumb-diameter + $mdc-switch-thumb-offset * 2 !default;
+
+$mdc-switch-toggled-off-thumb-color: mdc-theme-prop-value(surface) !default;
+$mdc-switch-toggled-off-track-color: mdc-theme-prop-value(on-surface) !default;
+$mdc-switch-toggled-off-ripple-color: #9e9e9e !default;
+$mdc-switch-disabled-thumb-color: mdc-theme-prop-value(surface) !default;
+$mdc-switch-disabled-track-color: mdc-theme-prop-value(on-surface) !default;
+
+$mdc-switch-baseline-theme-color: secondary !default;
+

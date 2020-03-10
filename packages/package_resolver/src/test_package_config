@@ -1,0 +1,3 @@
+# This needs to be in src/ so the tests can access it using a package: URI.
+foo:file:///foo/bar/
+bar:http://dartlang.org/bar/

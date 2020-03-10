@@ -1,0 +1,110 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/theme/variables"; // for mdc-theme-accessible-ink-color
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "./variables";
+
+//
+// Public
+//
+
+@mixin mdc-top-app-bar-ink-color($color) {
+  @include mdc-theme-prop(color, $color);
+}
+
+@mixin mdc-top-app-bar-fill-color($color) {
+  @include mdc-theme-prop(background-color, $color);
+}
+
+@mixin mdc-top-app-bar-fill-color-accessible($color) {
+  @include mdc-top-app-bar-fill-color($color);
+  @include mdc-top-app-bar-ink-color(mdc-theme-accessible-ink-color($color));
+}
+
+@mixin mdc-top-app-bar-icon-ink-color($color) {
+  .mdc-top-app-bar__action-item,
+  .mdc-top-app-bar__navigation-icon {
+    @include mdc-theme-prop(color, $color);
+    @include mdc-states($color);
+  }
+}
+
+@mixin mdc-top-app-bar-short-shape-radius($radius, $rtl-reflexive: true) {
+  @if length($radius) > 1 {
+    @error "Invalid radius: '#{$radius}' component doesn't allow customizing all corners";
+  }
+
+  $radius: 0 0 $radius 0;
+
+  $selector: if(&, "&.mdc-top-app-bar--short-collapsed", ".mdc-top-app-bar--short-collapsed");
+
+  #{$selector} {
+    @include mdc-shape-radius(
+      mdc-shape-resolve-percentage-radius($mdc-top-app-bar-dense-row-height, $radius),
+      $rtl-reflexive
+    );
+  }
+}
+
+//
+// Private
+//
+
+@mixin mdc-top-app-bar-mobile-breakpoint_($mobile-breakpoint: $mdc-top-app-bar-mobile-breakpoint) {
+  @media (max-width: $mobile-breakpoint) {
+    .mdc-top-app-bar__row {
+      height: $mdc-top-app-bar-mobile-row-height;
+    }
+
+    .mdc-top-app-bar__section {
+      padding: $mdc-top-app-bar-mobile-section-padding;
+    }
+
+    .mdc-top-app-bar--short {
+      transition: width 200ms $mdc-animation-standard-curve-timing-function;
+    }
+
+    .mdc-top-app-bar--short-collapsed {
+      transition: width 250ms $mdc-animation-standard-curve-timing-function;
+
+      .mdc-top-app-bar__section--align-end {
+        @include mdc-rtl-reflexive-box(padding, right, $mdc-top-app-bar-short-collapsed-right-icon-padding);
+      }
+    }
+
+    .mdc-top-app-bar--prominent {
+      .mdc-top-app-bar__title {
+        padding-bottom: $mdc-top-app-bar-prominent-mobile-title-bottom-padding;
+      }
+    }
+
+    .mdc-top-app-bar--fixed-adjust {
+      padding-top: $mdc-top-app-bar-mobile-row-height;
+    }
+  }
+}
+

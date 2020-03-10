@@ -1,0 +1,80 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/base/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/variables";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "./mixins";
+@import "./variables";
+
+// Floating Label is intended for use by multiple components, but its styles should only be emitted once when bundled
+@include mdc-base-emit-once("mdc-floating-label") {
+  // postcss-bem-linter: define floating-label
+  .mdc-floating-label {
+    @include mdc-typography(subtitle1);
+
+    position: absolute;
+    /* @noflip */
+    left: 0;
+    /* @noflip */
+    transform-origin: left top;
+    transition:
+      transform $mdc-floating-label-transition-duration $mdc-animation-standard-curve-timing-function,
+      color $mdc-floating-label-transition-duration $mdc-animation-standard-curve-timing-function;
+    /* @alternate */
+    line-height: 1.15rem;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: text;
+    overflow: hidden;
+    // Force the label into its own layer to prevent visible layer promotion adjustments
+    // when the ripple is activated behind it.
+    will-change: transform;
+
+    @include mdc-rtl {
+      /* @noflip */
+      right: 0;
+      /* @noflip */
+      left: auto;
+      /* @noflip */
+      transform-origin: right top;
+      /* @noflip */
+      text-align: right;
+    }
+  }
+
+  .mdc-floating-label--float-above {
+    cursor: auto;
+  }
+
+  @at-root {
+    @include mdc-floating-label-float-position($mdc-floating-label-position-y);
+    @include mdc-floating-label-shake-animation(standard);
+  }
+
+  @include mdc-floating-label-shake-keyframes(standard, $mdc-floating-label-position-y);
+}
+

@@ -1,0 +1,143 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "./variables";
+
+@mixin mdc-icon-button-core-styles($query: mdc-feature-all()) {
+  @include mdc-icon-button-without-ripple($query);
+  @include mdc-icon-button-ripple($query);
+}
+
+@mixin mdc-icon-button-without-ripple($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // postcss-bem-linter: define icon-button
+  .mdc-icon-button {
+    @include mdc-icon-button-base_($query: $query);
+  }
+
+  .mdc-icon-button__icon {
+    @include mdc-feature-targets($feat-structure) {
+      display: inline-block;
+    }
+
+    // stylelint-disable-next-line plugin/selector-bem-pattern
+    &.mdc-icon-button__icon--on {
+      @include mdc-feature-targets($feat-structure) {
+        display: none;
+      }
+    }
+  }
+
+  .mdc-icon-button--on {
+    .mdc-icon-button__icon {
+      @include mdc-feature-targets($feat-structure) {
+        display: none;
+      }
+
+      // stylelint-disable-next-line plugin/selector-bem-pattern
+      &.mdc-icon-button__icon--on {
+        @include mdc-feature-targets($feat-structure) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-icon-button-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  .mdc-icon-button {
+    @include mdc-ripple-surface($query: $query);
+    @include mdc-ripple-radius-unbounded($query: $query);
+    @include mdc-states($query: $query);
+  }
+}
+
+@mixin mdc-icon-button-size($width, $height: $width, $padding: max($width, $height)/2, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    width: $width + $padding * 2;
+    height: $height + $padding * 2;
+    padding: $padding;
+    font-size: max($width, $height);
+  }
+
+  // stylelint-disable-next-line selector-max-type
+  svg,
+  img {
+    @include mdc-feature-targets($feat-structure) {
+      width: $width;
+      height: $height;
+    }
+  }
+}
+
+@mixin mdc-icon-button-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(color, $color);
+  }
+
+  @include mdc-states($color, $query: $query);
+}
+
+@mixin mdc-icon-button-base_($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-icon-button-size($mdc-icon-button-size, $query: $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    fill: currentColor;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &:disabled {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, text-disabled-on-light);
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+

@@ -1,0 +1,194 @@
+//
+// Copyright 2019 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "./variables";
+
+// ==Terminology==
+// Feature:
+//   A simple string (e.g. `color`) representing a cross-cutting feature in
+//   Material.
+// Feature query:
+//   A structure that represents a query for a feature or combination of features. This may be
+//   either a feature or a map containing `op` and `queries` fields. A single feature represents a
+//   simple query for just that feature. A map represents a complex query made up of an operator,
+//   `op`, applied to a list of sub-queries, `queries`.
+//   (e.g. `color`, `(op: any, queries: (color, typography))`).
+// Feature target:
+//   A map that contains the feature being targeted as well as the current feature query. This is
+//   the structure that is intended to be passed to the `@mdc-feature-targets` mixin.
+//   (e.g. `(target: color, query: (op: any, queries: (color, typography))`).
+
+//
+// Public
+//
+
+// Creates a feature target from the given feature query and targeted feature.
+@function mdc-feature-create-target($feature-query, $targeted-feature) {
+  $feature-target: (query: $feature-query, target: $targeted-feature);
+  $valid: mdc-feature-verify-target_($feature-target);
+
+  @return $feature-target;
+}
+
+// Parses a list of feature targets to produce a map containing the feature query and list of
+// available features.
+@function mdc-feature-parse-targets($feature-targets) {
+  $valid: mdc-feature-verify-target_($feature-targets...);
+  $available-features: ();
+
+  @each $target in $feature-targets {
+    $available-features: append($available-features, map-get($target, target));
+  }
+
+  @return (
+    available: $available-features,
+    query: map-get(nth($feature-targets, 1), query)
+  );
+}
+
+// Creates a feature query that is satisfied iff all of its sub-queries are satisfied.
+@function mdc-feature-all($feature-queries...) {
+  $valid: mdc-feature-verify-query_($feature-queries...);
+
+  @return (
+    op: all,
+    queries: $feature-queries
+  );
+}
+
+// Creates a feature query that is satisfied iff any of its sub-queries are satisfied.
+@function mdc-feature-any($feature-queries...) {
+  $valid: mdc-feature-verify-query_($feature-queries...);
+
+  @return (
+    op: any,
+    queries: $feature-queries
+  );
+}
+
+// Creates a feature query that is satisfied iff its sub-query is not satisfied.
+@function mdc-feature-without($feature-query) {
+  $valid: mdc-feature-verify-query_($feature-query);
+
+  @return (
+    op: without,
+    // NOTE: we need to use `append`, just putting parens around a single value doesn't make it a list in Sass.
+    queries: append((), $feature-query)
+  );
+}
+
+//
+// Package-internal
+//
+
+// Verifies that the given feature targets are valid, throws an error otherwise.
+@function mdc-feature-verify-target_($feature-targets...) {
+  @each $target in $feature-targets {
+    @if type-of($target) != map {
+      @error "Invalid feature target: '#{$target}'. Must be a map.";
+    }
+
+    $targeted-feature: map-get($target, target);
+    $feature-query: map-get($target, query);
+    $valid: mdc-feature-verify-feature_($targeted-feature) and mdc-feature-verify-query_($feature-query);
+  }
+
+  @return true;
+}
+
+// Checks whether the given feature query is satisfied by the given list of available features.
+@function mdc-feature-is-query-satisfied_($feature-query, $available-features) {
+  $valid: mdc-feature-verify-query_($feature-query);
+  $valid: mdc-feature-verify-feature_($available-features...);
+
+  @if type-of($feature-query) == map {
+    $op: map-get($feature-query, op);
+    $sub-queries: map-get($feature-query, queries);
+
+    @if $op == without {
+      @return not mdc-feature-is-query-satisfied_(nth($sub-queries, 1), $available-features);
+    }
+
+    @if $op == any {
+      @each $sub-query in $sub-queries {
+        @if mdc-feature-is-query-satisfied_($sub-query, $available-features) {
+          @return true;
+        }
+      }
+
+      @return false;
+    }
+
+    @if $op == all {
+      @each $sub-query in $sub-queries {
+        @if not mdc-feature-is-query-satisfied_($sub-query, $available-features) {
+          @return false;
+        }
+      }
+
+      @return true;
+    }
+  }
+
+  @return mdc-feature-list-contains_($available-features, $feature-query);
+}
+
+//
+// Private
+//
+
+// Verifies that the given feature(s) are valid, throws an error otherwise.
+@function mdc-feature-verify-feature_($features...) {
+  @each $feature in $features {
+    @if not mdc-feature-list-contains_($mdc-feature-all-features, $feature) {
+      @error "Invalid feature: '#{$feature}'. Valid features are: #{$mdc-feature-all-features}.";
+    }
+  }
+
+  @return true;
+}
+
+// Verifies that the given feature queries are valid, throws an error otherwise.
+@function mdc-feature-verify-query_($feature-queries...) {
+  @each $query in $feature-queries {
+    @if type-of($query) == map {
+      $op: map-get($query, op);
+      $sub-queries: map-get($query, queries);
+      $valid: mdc-feature-verify-query_($sub-queries...);
+
+      @if not mdc-feature-list-contains_($mdc-feature-all-query-operators, $op) {
+        @error "Invalid feature query operator: '#{$op}'. " +
+          "Valid operators are: #{$mdc-feature-all-query-operators}";
+      }
+    } @else {
+      $valid: mdc-feature-verify-feature_($query);
+    }
+  }
+
+  @return true;
+}
+
+// Checks whether the given list contains the given item.
+@function mdc-feature-list-contains_($list, $item) {
+  @return index($list, $item) != null;
+}
+

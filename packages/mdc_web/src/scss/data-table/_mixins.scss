@@ -1,0 +1,307 @@
+//
+// Copyright 2019 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/functions";
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/checkbox/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/theme/variables"; // for mdc-theme-prop-value.
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "./variables";
+
+@mixin mdc-data-table-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-typography: mdc-feature-create-target($query, typography);
+
+  // postcss-bem-linter: define data-table
+
+  .mdc-data-table__content {
+    @include mdc-typography(body2, $query: $query);
+  }
+
+  .mdc-data-table {
+    @include mdc-data-table-fill-color($mdc-data-table-fill-color, $query: $query);
+    @include mdc-data-table-shape-radius($mdc-data-table-shape-radius, $query: $query);
+    @include mdc-data-table-stroke-size($mdc-data-table-stroke-size, $query: $query);
+    @include mdc-data-table-stroke-color($mdc-data-table-stroke-color, $query: $query);
+
+    @at-root {
+      @include mdc-data-table-row-fill-color($mdc-data-table-row-fill-color, $query: $query);
+      @include mdc-data-table-header-row-fill-color($mdc-data-table-header-row-fill-color, $query: $query);
+      @include mdc-data-table-selected-row-fill-color($mdc-data-table-selected-row-fill-color, $query: $query);
+      @include mdc-data-table-divider-color($mdc-data-table-divider-color, $query: $query);
+      @include mdc-data-table-divider-size($mdc-data-table-divider-size, $query: $query);
+      @include mdc-data-table-row-hover-fill-color($mdc-data-table-row-hover-fill-color, $query: $query);
+      @include mdc-data-table-header-row-text-color($mdc-data-table-header-row-text-color, $query: $query);
+      @include mdc-data-table-row-text-color($mdc-data-table-row-text-color, $query: $query);
+      @include mdc-data-table-header-row-height($mdc-data-table-header-row-height, $query: $query);
+      @include mdc-data-table-row-height($mdc-data-table-row-height, $query: $query);
+      @include mdc-data-table-cell-padding(
+        $leading-padding: $mdc-data-table-cell-leading-padding,
+        $trailing-padding: $mdc-data-table-cell-trailing-padding,
+        $query: $query
+      );
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      display: inline-flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow-x: auto;
+    }
+  }
+
+  .mdc-data-table__table {
+    @include mdc-feature-targets($feat-structure) {
+      width: 100%;
+      border: 0;
+      white-space: nowrap;
+      border-collapse: collapse;
+    }
+  }
+
+  .mdc-data-table__cell {
+    @include mdc-typography(body2, $query: $query);
+  }
+
+  .mdc-data-table__cell--numeric {
+    @include mdc-feature-targets($feat-structure) {
+      text-align: right;
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl {
+        /* @noflip */
+        text-align: left;
+      }
+    }
+  }
+
+  .mdc-data-table__header-cell {
+    @include mdc-typography(subtitle2, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      text-align: left;
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl {
+        /* @noflip */
+        text-align: right;
+      }
+    }
+  }
+
+  .mdc-data-table__header-cell--numeric {
+    @include mdc-feature-targets($feat-structure) {
+      text-align: right;
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl {
+        /* @noflip */
+        text-align: left;
+      }
+    }
+  }
+}
+
+@mixin mdc-data-table-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop("background-color", $color);
+  }
+}
+
+@mixin mdc-data-table-header-row-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__header-row {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("background-color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-row-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__row {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("background-color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-selected-row-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__row--selected {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("background-color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-checked-icon-color($color, $query: mdc-feature-all()) {
+  .mdc-data-table__header-row-checkbox,
+  .mdc-data-table__row-checkbox {
+    @include mdc-checkbox-focus-indicator-color($color, $query: $query);
+    @include mdc-checkbox-container-colors($marked-stroke-color: $color, $marked-fill-color: $color, $query: $query);
+  }
+}
+
+@mixin mdc-data-table-divider-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__row {
+    @include mdc-feature-targets($feat-color) {
+      border-top-color: $color;
+    }
+  }
+}
+
+@mixin mdc-data-table-divider-size($size, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-data-table__row {
+    @include mdc-feature-targets($feat-structure) {
+      border-top-width: $size;
+      border-top-style: solid;
+    }
+  }
+}
+
+@mixin mdc-data-table-row-hover-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__row:not(.mdc-data-table__row--selected):hover {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("background-color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-header-row-text-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__header-cell {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-row-text-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-data-table__cell {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop("color", $color);
+    }
+  }
+}
+
+@mixin mdc-data-table-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+}
+
+@mixin mdc-data-table-stroke-size($size, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    border-width: $size;
+    border-style: solid;
+  }
+}
+
+@mixin mdc-data-table-stroke-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    border-color: $color;
+  }
+}
+
+@mixin mdc-data-table-header-row-height($height, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-data-table__header-row {
+    @include mdc-feature-targets($feat-structure) {
+      height: $height;
+    }
+  }
+}
+
+@mixin mdc-data-table-row-height($height, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-data-table__row {
+    @include mdc-feature-targets($feat-structure) {
+      height: $height;
+    }
+  }
+}
+
+@mixin mdc-data-table-cell-padding(
+  $leading-padding: $mdc-data-table-cell-leading-padding,
+  $trailing-padding: $mdc-data-table-cell-trailing-padding,
+  $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-data-table__cell,
+  .mdc-data-table__header-cell {
+    @include mdc-feature-targets($feat-structure) {
+      padding-right: $trailing-padding;
+      padding-left: $leading-padding;
+    }
+  }
+
+  .mdc-data-table__header-cell--checkbox,
+  .mdc-data-table__cell--checkbox {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(padding, $leading-padding, 0);
+    }
+  }
+}
+
+@mixin mdc-data-table-column-widths($width-list, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @for $i from 1 through length($width-list) {
+    .mdc-data-table__row > :nth-child(#{$i}) {
+      @include mdc-feature-targets($feat-structure) {
+        width: nth($width-list, $i);
+      }
+    }
+  }
+}
+
+@mixin mdc-data-table-theme-baseline($query: mdc-feature-all()) {
+  @include mdc-data-table-checked-icon-color($mdc-data-table-checked-icon-color, $query: $query);
+}
+

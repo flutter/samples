@@ -1,0 +1,324 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "./functions";
+@import "./variables";
+
+//
+// Public
+//
+
+@mixin mdc-switch-core-styles($query: mdc-feature-all()) {
+  @include mdc-switch-without-ripple($query);
+  @include mdc-switch-ripple($query);
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// switch styles. It is recommended that most users use `mdc-switch-core-styles` instead.
+@mixin mdc-switch-without-ripple($query: mdc-feature-all()) {
+  // postcss-bem-linter: define switch
+
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-switch {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-switch-base_;
+    }
+
+    @include mdc-switch-toggled-on-track-color($mdc-switch-baseline-theme-color, $query);
+    @include mdc-switch-toggled-on-thumb-color($mdc-switch-baseline-theme-color, $query);
+    @include mdc-switch-toggled-off-track-color($mdc-switch-toggled-off-track-color, $query);
+    @include mdc-switch-toggled-off-thumb-color($mdc-switch-toggled-off-thumb-color, $query);
+  }
+
+  .mdc-switch__native-control {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-switch__native-control_;
+    }
+  }
+
+  .mdc-switch__track {
+    @include mdc-switch__track_($query);
+  }
+
+  .mdc-switch__thumb-underlay {
+    @include mdc-switch__thumb-underlay_($query);
+  }
+
+  .mdc-switch__thumb {
+    @include mdc-switch__thumb_($query);
+  }
+
+  .mdc-switch--checked {
+    @include mdc-feature-targets($feat-structure) {
+      .mdc-switch__track {
+        @include mdc-switch__track-checked_;
+      }
+
+      .mdc-switch__thumb-underlay {
+        @include mdc-switch__thumb-underlay-checked_;
+      }
+
+      .mdc-switch__native-control {
+        @include mdc-switch__native-control-checked_;
+      }
+    }
+  }
+
+  .mdc-switch--disabled {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-switch--disabled-base_;
+
+      .mdc-switch__thumb {
+        @include mdc-switch__thumb-disabled_;
+      }
+
+      .mdc-switch__native-control {
+        @include mdc-switch__native-control-disabled_;
+      }
+    }
+  }
+
+  // postcss-bem-linter: end
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// switch styles. It is recommended that most users use `mdc-switch-core-styles` instead.
+@mixin mdc-switch-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  .mdc-switch {
+    @include mdc-switch-toggled-off-ripple-color($mdc-switch-toggled-off-ripple-color, $query);
+  }
+
+  .mdc-switch__thumb-underlay {
+    @include mdc-ripple-surface($query);
+    @include mdc-ripple-radius-unbounded(100%, $query);
+    @include mdc-states($mdc-switch-baseline-theme-color, false, $query);
+  }
+}
+
+@mixin mdc-switch-toggled-on-color($color, $query: mdc-feature-all()) {
+  @include mdc-switch-toggled-on-track-color($color, $query);
+  @include mdc-switch-toggled-on-thumb-color($color, $query);
+  @include mdc-switch-toggled-on-ripple-color($color, $query);
+}
+
+@mixin mdc-switch-toggled-off-color($color, $query: mdc-feature-all()) {
+  @include mdc-switch-toggled-off-track-color($color, $query);
+  @include mdc-switch-toggled-off-thumb-color($color, $query);
+  @include mdc-switch-toggled-off-ripple-color($color, $query);
+}
+
+@mixin mdc-switch-toggled-on-track-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &.mdc-switch--checked .mdc-switch__track {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-switch-toggled-on-thumb-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &.mdc-switch--checked .mdc-switch__thumb {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-switch-toggled-on-ripple-color($color, $query: mdc-feature-all()) {
+  &.mdc-switch--checked .mdc-switch__thumb-underlay {
+    @include mdc-states($color, false, $query);
+  }
+}
+
+@mixin mdc-switch-toggled-off-track-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(.mdc-switch--checked) .mdc-switch__track {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-switch-toggled-off-thumb-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(.mdc-switch--checked) .mdc-switch__thumb {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-switch-toggled-off-ripple-color($color, $query: mdc-feature-all()) {
+  &:not(.mdc-switch--checked) .mdc-switch__thumb-underlay {
+    @include mdc-states($color, false, $query);
+  }
+}
+
+//
+// Private
+//
+
+// Structure
+@mixin mdc-switch-base_ {
+  display: inline-block;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+
+@mixin mdc-switch__track_($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    box-sizing: border-box;
+    width: $mdc-switch-track-width;
+    height: $mdc-switch-track-height;
+    border: 1px solid;
+    border-radius: $mdc-switch-track-height / 2;
+    opacity: .38;
+  }
+
+  @include mdc-feature-targets($feat-animation) {
+    transition:
+      mdc-switch-transition(opacity),
+      mdc-switch-transition(background-color),
+      mdc-switch-transition(border-color);
+  }
+}
+
+@mixin mdc-switch__thumb-underlay_($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    @include mdc-rtl-reflexive-position(left, $mdc-switch-tap-target-initial-position);
+
+    display: flex;
+    position: absolute;
+    // Ensures the knob is centered on the track.
+    top: -(($mdc-switch-tap-target-size - $mdc-switch-track-height) / 2);
+    align-items: center;
+    justify-content: center;
+    width: $mdc-switch-tap-target-size;
+    height: $mdc-switch-tap-target-size;
+    transform: translateX(0);
+  }
+
+  @include mdc-feature-targets($feat-animation) {
+    transition:
+      mdc-switch-transition(transform),
+      mdc-switch-transition(background-color),
+      mdc-switch-transition(border-color);
+  }
+}
+
+@mixin mdc-switch__native-control_ {
+  @include mdc-rtl-reflexive-position(left, 0);
+
+  position: absolute;
+  top: 0;
+  width: $mdc-switch-native-control-width;
+  height: $mdc-switch-tap-target-size;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@mixin mdc-switch__thumb_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-elevation($z-value: 2, $query: $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    box-sizing: border-box;
+    width: $mdc-switch-thumb-diameter;
+    height: $mdc-switch-thumb-diameter;
+    border: $mdc-switch-thumb-diameter / 2 solid;
+    border-radius: 50%;
+    // Allow events to go through to the native control, necessary for IE and Edge.
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// Checked state
+
+@mixin mdc-switch__track-checked_ {
+  opacity: .54;
+}
+
+@mixin mdc-switch__thumb-underlay-checked_ {
+  transform: translateX($mdc-switch-thumb-active-margin);
+
+  @include mdc-rtl {
+    transform: translateX(-($mdc-switch-thumb-active-margin));
+  }
+}
+
+@mixin mdc-switch__native-control-checked_ {
+  // Translate the native control the opposite direction so that the tap target stays the same.
+  transform: translateX(-($mdc-switch-thumb-active-margin));
+
+  @include mdc-rtl {
+    transform: translateX($mdc-switch-thumb-active-margin);
+  }
+}
+
+// Disabled state
+
+@mixin mdc-switch--disabled-base_ {
+  opacity: .38;
+  pointer-events: none;
+}
+
+@mixin mdc-switch__thumb-disabled_ {
+  border-width: 1px;  // In high contrast mode, only show outline of knob.
+}
+
+@mixin mdc-switch__native-control-disabled_ {
+  cursor: default;
+  pointer-events: none;
+}
+

@@ -1,0 +1,67 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/theme/variables";
+
+$mdc-select-arrow-padding: 52px !default;
+$mdc-select-label-padding: 16px !default;
+$mdc-select-height: 56px !default;
+$mdc-select-icon-padding: 48px !default;
+
+$mdc-select-ink-color: rgba(mdc-theme-prop-value(on-surface), .87) !default;
+$mdc-select-dropdown-color: mdc-theme-prop-value(on-surface) !default;
+$mdc-select-icon-color: rgba(mdc-theme-prop-value(on-surface), .54) !default;
+$mdc-select-label-color: rgba(mdc-theme-prop-value(on-surface), .6) !default;
+$mdc-select-focused-label-color: rgba(mdc-theme-prop-value(primary), .87) !default;
+$mdc-select-bottom-line-idle-color: rgba(mdc-theme-prop-value(on-surface), .42) !default;
+$mdc-select-bottom-line-hover-color: rgba(mdc-theme-prop-value(on-surface), .87) !default;
+$mdc-select-helper-text-color: rgba(mdc-theme-prop-value(on-surface), .6) !default;
+
+$mdc-select-fill-color: mix(mdc-theme-prop-value(on-surface), mdc-theme-prop-value(surface), 4%) !default;
+
+$mdc-select-dropdown-opacity: .54 !default;
+
+// Disabled Styles
+$mdc-select-disabled-label-color: rgba(mdc-theme-prop-value(on-surface), .37) !default;
+$mdc-select-disabled-icon-color: rgba(mdc-theme-prop-value(on-surface), .37) !default;
+$mdc-select-disabled-ink-color: rgba(mdc-theme-prop-value(on-surface), .37) !default;
+$mdc-select-disabled-fill-color: mix(mdc-theme-prop-value(on-surface), mdc-theme-prop-value(surface), 2%) !default;
+$mdc-select-disabled-dropdown-opacity: .37 !default;
+
+$mdc-select-outlined-idle-border: rgba(mdc-theme-prop-value(on-surface), .38) !default;
+$mdc-select-outlined-hover-border: rgba(mdc-theme-prop-value(on-surface), .87) !default;
+
+// should be .06 after mdc-select opacity is applied
+$mdc-select-outlined-disabled-border: rgba(mdc-theme-prop-value(on-surface), .16) !default;
+
+$mdc-select-label-position-y: 70% !default;
+$mdc-select-outline-label-offset: 16px !default;
+$mdc-select-outlined-label-position-y: 130% !default;
+$mdc-select-outlined-dense-label-position-y: 110% !default;
+$mdc-select-outlined-with-leading-icon-label-position-x: 32px !default;
+
+$mdc-select-dropdown-transition-duration: 150ms !default;
+
+// Error colors
+$mdc-select-error-color: error !default;
+

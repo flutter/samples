@@ -1,0 +1,422 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/floating-label/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "package:mdc_web/src/scss/line-ripple/mixins";
+@import "package:mdc_web/src/scss/notched-outline/mixins";
+@import "package:mdc_web/src/scss/notched-outline/variables";
+@import "./icon/mixins";
+@import "./variables";
+
+// Public
+
+@mixin mdc-select-ink-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-ink-color_($color);
+  }
+}
+
+@mixin mdc-select-container-fill-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-container-fill-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-label-color($color) {
+  &:not(.mdc-select--disabled) {
+    &.mdc-select--focused .mdc-floating-label {
+      @include mdc-floating-label-ink-color(mdc-theme-prop-value($color));
+    }
+  }
+}
+
+@mixin mdc-select-hover-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) .mdc-select__native-control:hover {
+    @include mdc-select-native-control-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-select-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-focused-line-ripple-color_($color);
+  }
+}
+
+@mixin mdc-select-label-color($color) {
+  &:not(.mdc-select--disabled) .mdc-floating-label {
+    @include mdc-floating-label-ink-color($color);
+  }
+}
+
+@mixin mdc-select-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-hover-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-hover-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-focused-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-shape-radius($radius, $rtl-reflexive: false) {
+  @if length($radius) > 2 {
+    @error "Invalid radius: '#{$radius}' component doesn't allow customizing all corners";
+  }
+
+  $masked-radius: mdc-shape-mask-radius($radius, 1 1 0 0);
+
+  &,
+  &__native-control {
+    @include mdc-shape-radius(mdc-shape-resolve-percentage-radius($mdc-select-height, $masked-radius), $rtl-reflexive);
+  }
+}
+
+@mixin mdc-select-outline-shape-radius($radius, $rtl-reflexive: false) {
+  $resolved-radius: nth(mdc-shape-resolve-percentage-radius($mdc-select-height, mdc-shape-prop-value($radius)), 1);
+
+  @if (length(mdc-shape-prop-value($radius)) > 1) {
+    // stylelint-disable-next-line max-line-length
+    @warn "mdc-select-outline-shape-radius only supports a single radius; see https://github.com/material-components/material-components-web/issues/4140";
+  }
+
+  .mdc-notched-outline {
+    @include mdc-notched-outline-shape-radius($resolved-radius, $rtl-reflexive);
+  }
+
+  .mdc-select__native-control {
+    @include mdc-shape-radius($resolved-radius, $rtl-reflexive);
+  }
+
+  @if ($resolved-radius > $mdc-notched-outline-leading-width) {
+    .mdc-select__native-control {
+      @include mdc-rtl-reflexive-property(
+        padding,
+        $resolved-radius + $mdc-notched-outline-padding,
+        $mdc-select-arrow-padding
+      );
+    }
+
+    + .mdc-select-helper-text {
+      @include mdc-rtl-reflexive-property(
+        margin,
+        $resolved-radius + $mdc-notched-outline-padding,
+        $mdc-select-outline-label-offset
+      );
+    }
+  }
+}
+
+// Private
+@mixin mdc-select-focused-line-ripple_ {
+  &.mdc-select--focused .mdc-line-ripple {
+    @content;
+  }
+}
+
+@mixin mdc-select-focused-outline_ {
+  &.mdc-select--focused .mdc-notched-outline {
+    @include mdc-notched-outline-stroke-width(2px);
+    @content;
+  }
+}
+
+@mixin mdc-select-focused-outline-idle_ {
+  &.mdc-select--focused {
+    @content;
+  }
+}
+
+@mixin mdc-select-ink-color_($color) {
+  .mdc-select__native-control,
+  .mdc-select__selected-text {
+    @include mdc-theme-prop(color, $color);
+  }
+}
+
+@mixin mdc-select-container-fill-color_($color) {
+  @include mdc-theme-prop(background-color, $color);
+}
+
+@mixin mdc-select-bottom-line-color_($color) {
+  .mdc-select__native-control,
+  .mdc-select__selected-text {
+    @include mdc-select-native-control-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-select-native-control-bottom-line-color_($color) {
+  @include mdc-theme-prop(border-bottom-color, $color);
+}
+
+@mixin mdc-select-focused-line-ripple-color_($color) {
+  @include mdc-select-focused-line-ripple_ {
+    @include mdc-line-ripple-color($color);
+  }
+}
+
+@mixin mdc-select-dd-arrow-svg-bg_($fill-hex-number, $opacity) {
+  // Lookup color and remove leading #.
+  $fill-hex-number: mdc-theme-prop-value($fill-hex-number);
+  $fill-hex-number: str-slice(unquote("#{$fill-hex-number}"), 2);
+
+  background:
+    url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23#{$fill-hex-number}%22%20fill-rule%3D%22evenodd%22%20opacity%3D%22#{$opacity}%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E")
+    no-repeat
+    center;
+}
+
+@mixin mdc-select-outline-color_($color) {
+  @include mdc-notched-outline-color($color);
+}
+
+@mixin mdc-select-hover-outline-color_($color) {
+  // stylelint-disable-next-line selector-combinator-space-after
+  &:not(.mdc-select--focused) .mdc-select__native-control:hover ~,
+  &:not(.mdc-select--focused) .mdc-select__selected-text:hover ~ {
+    .mdc-notched-outline {
+      @include mdc-notched-outline-color($color);
+    }
+  }
+}
+
+@mixin mdc-select-focused-outline-color_($color) {
+  @include mdc-select-focused-outline_ {
+    @include mdc-notched-outline-color($color);
+  }
+}
+
+@mixin mdc-select-floating-label_ {
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-select-outline-label-offset);
+
+    top: 21px;
+    pointer-events: none;
+  }
+
+  &.mdc-select--with-leading-icon {
+    .mdc-floating-label {
+      @include mdc-rtl-reflexive-position(left, $mdc-select-icon-padding);
+    }
+  }
+
+  &.mdc-select--outlined {
+    .mdc-floating-label {
+      @include mdc-rtl-reflexive-position(left, $mdc-notched-outline-padding);
+
+      top: 17px;
+    }
+
+    &.mdc-select--with-leading-icon {
+      .mdc-floating-label {
+        @include mdc-rtl-reflexive-position(left, $mdc-select-icon-padding - $mdc-notched-outline-leading-width);
+
+        &--float-above {
+          @include mdc-rtl-reflexive-position(left, $mdc-select-icon-padding - $mdc-notched-outline-leading-width);
+        }
+      }
+    }
+  }
+}
+
+@mixin mdc-select-with-leading-icon_ {
+  @include mdc-select-icon-horizontal-position_(16px, $mdc-select-icon-padding);
+
+  &.mdc-select--outlined {
+    @include mdc-notched-outline-floating-label-float-position(
+      $mdc-select-outlined-label-position-y,
+      $mdc-select-outlined-with-leading-icon-label-position-x
+    );
+    @include mdc-floating-label-shake-animation(select-outlined-leading-icon);
+
+    @include mdc-rtl {
+      @include mdc-floating-label-shake-animation(select-outlined-leading-icon-rtl);
+    }
+  }
+
+  &.mdc-select__menu .mdc-list-item__text {
+    @include mdc-rtl-reflexive-property(padding, 32px /* left-value */, 32px /* right-value */);
+  }
+}
+
+@mixin mdc-select-text-and-control_ {
+  .mdc-select__selected-text {
+    min-width: 200px;
+    padding-top: 22px;
+  }
+
+  .mdc-select__native-control,
+  .mdc-select__selected-text {
+    @include mdc-rtl-reflexive-property(padding, $mdc-select-label-padding, $mdc-select-arrow-padding);
+    @include mdc-typography(subtitle1);
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &::-ms-value {
+      background-color: transparent;
+      color: inherit;
+    }
+
+    // counteracts the extra text padding that Firefox adds by default
+    @-moz-document url-prefix("") {
+      text-indent: -2px;
+    }
+
+    box-sizing: border-box;
+    width: 100%;
+    height: $mdc-select-height;
+    padding-top: 20px;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    background-color: transparent;
+    color: inherit; // Override default user agent stylesheet
+    white-space: nowrap;
+    cursor: pointer;
+    appearance: none;
+  }
+}
+
+@mixin mdc-select-disabled_ {
+  @include mdc-select-container-fill-color_($mdc-select-disabled-fill-color);
+
+  .mdc-floating-label {
+    @include mdc-floating-label-ink-color($mdc-select-disabled-label-color);
+  }
+
+  .mdc-select__dropdown-icon {
+    @include mdc-select-dd-arrow-svg-bg_($mdc-select-dropdown-color, $mdc-select-disabled-dropdown-opacity);
+  }
+
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mdc-select__icon {
+    @include mdc-theme-prop(color, $mdc-select-disabled-icon-color);
+  }
+
+  .mdc-select__native-control,
+  .mdc-select__selected-text {
+    @include mdc-theme-prop(color, $mdc-select-disabled-ink-color);
+
+    border-bottom-style: dotted;
+  }
+
+  .mdc-select__selected-text {
+    pointer-events: none;
+  }
+
+  &.mdc-select--outlined {
+    @include mdc-select-container-fill-color_(transparent);
+
+    .mdc-select__native-control,
+    .mdc-select__selected-text {
+      border-bottom-style: none;
+    }
+
+    @include mdc-select-outline-color_($mdc-select-outlined-disabled-border);
+  }
+
+  cursor: default;
+  pointer-events: none;
+}
+
+@mixin mdc-select-outlined_ {
+  @include mdc-select-container-fill-color(transparent);
+  @include mdc-select-outline-color($mdc-select-outlined-idle-border);
+  @include mdc-select-hover-outline-color($mdc-select-outlined-hover-border);
+  @include mdc-select-focused-outline-color(primary);
+  @include mdc-floating-label-shake-animation(text-field-outlined);
+  @include mdc-select-outline-shape-radius(small);
+  @include mdc-states-base-color(transparent);
+  @include mdc-select-container-fill-color(transparent);
+  @include mdc-notched-outline-floating-label-float-position($mdc-select-outlined-label-position-y, 0);
+
+  border: none;
+  overflow: visible;
+
+  .mdc-select__native-control,
+  .mdc-select__selected-text {
+    @include mdc-rtl-reflexive-property(padding, $mdc-select-label-padding, $mdc-select-arrow-padding);
+
+    display: flex;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  .mdc-select__selected-text {
+    padding-top: 14px;
+  }
+
+  .mdc-select__icon {
+    z-index: 2;
+  }
+
+  .mdc-floating-label {
+    line-height: 1.15rem;
+    pointer-events: auto;
+  }
+}
+
+@mixin mdc-select-helper-text_ {
+  .mdc-select-helper-text {
+    // stylelint-disable plugin/selector-bem-pattern
+    .mdc-select + & {
+      margin-right: 12px;
+      margin-left: 12px;
+    }
+
+    .mdc-select--outlined + & {
+      margin-right: 16px;
+      margin-left: 16px;
+    }
+    // stylelint-enable plugin/selector-bem-pattern
+  }
+
+  .mdc-select--focused + .mdc-select-helper-text:not(.mdc-select-helper-text--validation-msg) {
+    opacity: 1;
+  }
+}
+

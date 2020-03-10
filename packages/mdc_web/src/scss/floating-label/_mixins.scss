@@ -1,0 +1,81 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "./variables";
+
+@mixin mdc-floating-label-ink-color($color) {
+  @include mdc-theme-prop(color, $color);
+}
+
+// Used for textarea in case of scrolling
+@mixin mdc-floating-label-fill-color($color) {
+  @include mdc-theme-prop(background-color, $color);
+}
+
+@mixin mdc-floating-label-shake-keyframes($modifier, $positionY, $positionX: 0%, $scale: .75) {
+  @keyframes mdc-floating-label-shake-float-above-#{$modifier} {
+    0% {
+      transform: translateX(calc(0 - #{$positionX})) translateY(-#{$positionY}) scale(#{$scale});
+    }
+
+    33% {
+      animation-timing-function: cubic-bezier(.5, 0, .701732, .495819);
+      transform: translateX(calc(4% - #{$positionX})) translateY(-#{$positionY}) scale(#{$scale});
+    }
+
+    66% {
+      animation-timing-function: cubic-bezier(.302435, .381352, .55, .956352);
+      transform: translateX(calc(-4% - #{$positionX})) translateY(-#{$positionY}) scale(#{$scale});
+    }
+
+    100% {
+      transform: translateX(calc(0 - #{$positionX})) translateY(-#{$positionY}) scale(#{$scale});
+    }
+  }
+}
+
+@mixin mdc-floating-label-float-position($positionY, $positionX: 0%, $scale: .75) {
+  .mdc-floating-label--float-above {
+    @if $positionX > 0 or $positionX < 0 {
+      transform: translateY(-1 * $positionY) translateX(-1 * $positionX) scale($scale);
+
+      @include mdc-rtl {
+        transform: translateY(-1 * $positionY) translateX($positionX) scale($scale);
+      }
+    } @else {
+      transform: translateY(-1 * $positionY) scale($scale);
+    }
+  }
+}
+
+@mixin mdc-floating-label-shake-animation($modifier) {
+  .mdc-floating-label--shake {
+    animation: mdc-floating-label-shake-float-above-#{$modifier} 250ms 1;
+  }
+}
+
+@mixin mdc-floating-label-max-width($max-width) {
+  max-width: $max-width;
+}
+

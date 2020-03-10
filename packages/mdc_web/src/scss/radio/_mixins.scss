@@ -1,0 +1,303 @@
+//
+// Copyright 2016 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/functions";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/ripple/variables";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/theme/variables";
+@import "./functions";
+@import "./variables";
+
+@mixin mdc-radio-core-styles($query: mdc-feature-all()) {
+  @include mdc-radio-without-ripple($query);
+  @include mdc-radio-ripple($query);
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// radio styles. It is recommended that most users use `mdc-radio-core-styles` instead.
+@mixin mdc-radio-without-ripple($query: mdc-feature-all()) {
+  // postcss-bem-linter: define radio
+
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-radio {
+    @include mdc-radio-unchecked-stroke-color($mdc-radio-unchecked-color, $query);
+    @include mdc-radio-checked-stroke-color($mdc-radio-baseline-theme-color, $query);
+    @include mdc-radio-ink-color($mdc-radio-baseline-theme-color, $query);
+    @include mdc-radio-focus-indicator-color($mdc-radio-baseline-theme-color, $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: inline-block;
+      position: relative;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      width: $mdc-radio-touch-area;
+      height: $mdc-radio-touch-area;
+      padding: ($mdc-radio-touch-area - $mdc-radio-ui-size) / 2;
+      cursor: pointer;
+      /* @alternate */
+      will-change: opacity, transform, border-color, color;
+    }
+
+    // Container for radio circles and ripple.
+    &__background {
+      @include mdc-feature-targets($feat-structure) {
+        display: inline-block;
+        position: absolute;
+        left: ($mdc-radio-touch-area - $mdc-radio-ui-size) / 2;
+        box-sizing: border-box;
+        width: $mdc-radio-ui-pct;
+        height: $mdc-radio-ui-pct;
+      }
+
+      &::before {
+        @include mdc-feature-targets($feat-structure) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform: scale(0, 0);
+          border-radius: 50%;
+          opacity: 0;
+          pointer-events: none;
+          content: "";
+        }
+
+        @include mdc-feature-targets($feat-animation) {
+          transition: mdc-radio-exit(opacity), mdc-radio-exit(transform);
+        }
+      }
+    }
+
+    &__outer-circle {
+      @include mdc-feature-targets($feat-structure) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 50%;
+      }
+
+      @include mdc-feature-targets($feat-animation) {
+        transition: mdc-radio-exit(border-color);
+      }
+    }
+
+    &__inner-circle {
+      @include mdc-feature-targets($feat-structure) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        transform: scale(0, 0);
+        border-width: 10px;
+        border-style: solid;
+        border-radius: 50%;
+      }
+
+      @include mdc-feature-targets($feat-animation) {
+        transition:
+          mdc-radio-exit(transform),
+          mdc-radio-exit(border-color);
+      }
+    }
+
+    &__native-control {
+      @include mdc-feature-targets($feat-structure) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        cursor: inherit;
+        z-index: 1;
+      }
+    }
+  }
+
+  .mdc-radio__native-control:checked,
+  .mdc-radio__native-control:disabled {
+    + .mdc-radio__background {
+      @include mdc-feature-targets($feat-animation) {
+        transition:
+          mdc-radio-enter(opacity),
+          mdc-radio-enter(transform);
+      }
+
+      .mdc-radio__outer-circle {
+        @include mdc-feature-targets($feat-animation) {
+          transition: mdc-radio-enter(border-color);
+        }
+      }
+
+      .mdc-radio__inner-circle {
+        @include mdc-feature-targets($feat-animation) {
+          transition:
+            mdc-radio-enter(transform),
+            mdc-radio-enter(border-color);
+        }
+      }
+    }
+  }
+
+  .mdc-radio--disabled {
+    @include mdc-feature-targets($feat-structure) {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  .mdc-radio__native-control:checked {
+    + .mdc-radio__background {
+      .mdc-radio__inner-circle {
+        @include mdc-feature-targets($feat-structure) {
+          transform: scale(.5);
+        }
+
+        @include mdc-feature-targets($feat-animation) {
+          transition:
+            mdc-radio-enter(transform),
+            mdc-radio-enter(border-color);
+        }
+      }
+    }
+  }
+
+  .mdc-radio__native-control:disabled,
+  [aria-disabled="true"] .mdc-radio__native-control {
+    + .mdc-radio__background {
+      @include mdc-feature-targets($feat-structure) {
+        cursor: default;
+      }
+
+      .mdc-radio__outer-circle {
+        @include mdc-feature-targets($feat-color) {
+          border-color: $mdc-radio-circle-color;
+        }
+      }
+
+      .mdc-radio__inner-circle {
+        @include mdc-feature-targets($feat-color) {
+          border-color: $mdc-radio-circle-color;
+        }
+      }
+    }
+  }
+
+  .mdc-radio__native-control:focus {
+    + .mdc-radio__background::before {
+      @include mdc-feature-targets($feat-structure) {
+        transform: scale(2, 2);
+        opacity: map-get($mdc-ripple-dark-ink-opacities, focus);
+      }
+
+      @include mdc-feature-targets($feat-animation) {
+        transition:
+          mdc-radio-enter(opacity),
+          mdc-radio-enter(transform);
+      }
+    }
+  }
+
+  // postcss-bem-linter: end
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// radio styles. It is recommended that most users use `mdc-radio-core-styles` instead.
+@mixin mdc-radio-ripple($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-ripple-common($query);
+
+  .mdc-radio {
+    @include mdc-ripple-surface($query);
+    @include mdc-ripple-radius-unbounded($query: $query);
+    @include mdc-states($mdc-radio-baseline-theme-color, $query: $query);
+
+    &.mdc-ripple-upgraded--background-focused {
+      .mdc-radio__background::before {
+        @include mdc-feature-targets($feat-structure) {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin mdc-radio-unchecked-stroke-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  // stylelint-disable-next-line selector-max-specificity
+  .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-radio-checked-stroke-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  // stylelint-disable-next-line selector-max-specificity
+  .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-radio-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  // stylelint-disable-next-line selector-max-specificity
+  .mdc-radio__native-control:enabled + .mdc-radio__background .mdc-radio__inner-circle {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-radio-focus-indicator-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-radio__background::before {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color, $edgeOptOut: true);
+    }
+  }
+}
+

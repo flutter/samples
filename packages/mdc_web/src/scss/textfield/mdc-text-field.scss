@@ -1,0 +1,308 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/floating-label/mdc-floating-label";
+@import "package:mdc_web/src/scss/line-ripple/mdc-line-ripple";
+@import "package:mdc_web/src/scss/notched-outline/mdc-notched-outline";
+@import "package:mdc_web/src/scss/ripple/common";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/variables";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/typography/variables";
+@import "./functions";
+@import "./helper-text/mdc-text-field-helper-text";
+@import "./character-counter/mdc-text-field-character-counter";
+@import "./icon/mdc-text-field-icon";
+@import "./mixins";
+@import "./variables";
+
+// postcss-bem-linter: define text-field
+
+.mdc-text-field {
+  @include mdc-ripple-surface;
+  // Text Field intentionally omits press ripple, so each state needs to be specified individually.
+  @include mdc-states-base-color($mdc-text-field-ink-color);
+  @include mdc-states-hover-opacity(mdc-states-opacity($mdc-text-field-ink-color, hover));
+  @include mdc-states-focus-opacity(mdc-states-opacity($mdc-text-field-ink-color, focus));
+  @include mdc-ripple-radius-bounded;
+
+  // Shape
+  @include mdc-text-field-shape-radius(small);
+
+  // Colors
+  @include mdc-text-field-label-color($mdc-text-field-label);
+  @include mdc-text-field-ink-color($mdc-text-field-ink-color);
+  @include mdc-text-field-caret-color(primary);
+  @include mdc-text-field-bottom-line-color($mdc-text-field-bottom-line-idle);
+  @include mdc-text-field-hover-bottom-line-color($mdc-text-field-bottom-line-hover);
+  @include mdc-text-field-line-ripple-color_(primary);
+  @include mdc-text-field-fullwidth-bottom-line-color($mdc-text-field-fullwidth-bottom-line-color);
+  @include mdc-text-field-helper-text-color($mdc-text-field-helper-text-color);
+  @include mdc-text-field-character-counter-color($mdc-text-field-helper-text-color);
+  @include mdc-text-field-icon-color($mdc-text-field-icon-color);
+  @include mdc-text-field-fill-color($mdc-text-field-background);
+
+  // Floating Label
+  @include mdc-text-field-floating-label_;
+
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+  height: $mdc-text-field-height;
+  overflow: hidden;
+  /* @alternate */
+  will-change: opacity, transform, color;
+}
+
+.mdc-text-field__input {
+  @include mdc-typography(subtitle1);
+
+  align-self: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 20px 16px 6px;
+  transition: mdc-text-field-transition(opacity);
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  background: none;
+  appearance: none;
+
+  &::placeholder {
+    transition: mdc-text-field-transition(opacity, $duration: 67ms);
+    opacity: 0;
+    color: $mdc-text-field-placeholder-ink-color;
+  }
+
+  // Override the placeholder styles in IE with important rule to improve specificity.
+  // stylelint-disable-next-line selector-no-vendor-prefix
+  &:-ms-input-placeholder {
+    color: $mdc-text-field-placeholder-ink-color !important;
+  }
+
+  // Always show placeholder for text fields that has no label and show only on focused state when label is present.
+  .mdc-text-field--fullwidth &::placeholder,
+  .mdc-text-field--no-label &::placeholder,
+  .mdc-text-field--focused &::placeholder {
+    transition-delay: 40ms;
+    transition-duration: 110ms;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Remove red outline on firefox
+  &:invalid {
+    box-shadow: none;
+  }
+
+  // Keep Chrome autofill behind the notched outline
+  &:-webkit-autofill {
+    z-index: auto !important;
+  }
+
+  // Vertically center aligns the text input placeholder and value for only filled variant.
+  .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) & {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+// stylelint-disable-next-line plugin/selector-bem-pattern
+// Move label when text-field gets auto-filled in Chrome.
+.mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
+  transform: translateY(-50%) scale(.75);
+  cursor: auto;
+}
+
+.mdc-text-field--outlined {
+  @include mdc-text-field-outlined_;
+}
+
+.mdc-text-field--outlined.mdc-text-field--focused {
+  @include mdc-text-field-outlined-focused_;
+}
+
+.mdc-text-field--outlined.mdc-text-field--disabled {
+  @include mdc-text-field-outlined-disabled_;
+}
+
+.mdc-text-field--outlined.mdc-text-field--dense {
+  @include mdc-text-field-outlined-dense_;
+}
+
+.mdc-text-field--with-leading-icon {
+  @include mdc-text-field-with-leading-icon_;
+}
+
+.mdc-text-field--with-leading-icon.mdc-text-field--outlined {
+  @include mdc-text-field-outlined-with-leading-icon_;
+}
+
+.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense {
+  @include mdc-text-field-outlined-dense-with-leading-icon_;
+}
+
+.mdc-text-field--with-trailing-icon {
+  @include mdc-text-field-with-trailing-icon_;
+}
+
+.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon {
+  @include mdc-text-field-with-both-icons_;
+}
+
+// stylelint-disable plugin/selector-bem-pattern
+.mdc-text-field--with-leading-icon.mdc-text-field--dense .mdc-text-field__icon,
+.mdc-text-field--with-trailing-icon.mdc-text-field--dense .mdc-text-field__icon {
+  bottom: 16px;
+  transform: scale(.8);
+}
+// stylelint-enable plugin/selector-bem-pattern
+
+.mdc-text-field--with-leading-icon.mdc-text-field--dense {
+  @include mdc-text-field-dense-with-leading-icon_;
+}
+
+.mdc-text-field--with-trailing-icon.mdc-text-field--dense {
+  @include mdc-text-field-dense-with-trailing-icon_;
+}
+
+.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon.mdc-text-field--dense {
+  @include mdc-text-field-dense-with-both-icons_;
+}
+
+.mdc-text-field--dense {
+  @include mdc-text-field-dense_;
+}
+
+@include mdc-required-text-field-label-asterisk_ {
+  margin-left: 1px;
+  content: "*";
+}
+
+.mdc-text-field--textarea {
+  @include mdc-text-field-textarea_;
+}
+
+.mdc-text-field--fullwidth {
+  @include mdc-text-field-fullwidth_;
+}
+
+.mdc-text-field--fullwidth.mdc-text-field--invalid {
+  @include mdc-text-field-fullwidth-invalid_;
+}
+
+// postcss-bem-linter: define text-field-helper-text
+// stylelint-disable plugin/selector-bem-pattern
+.mdc-text-field-helper-line {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  .mdc-text-field--dense + & {
+    margin-bottom: 4px;
+  }
+
+  .mdc-text-field + & {
+    padding-right: $mdc-text-field-helper-line-padding;
+    padding-left: $mdc-text-field-helper-line-padding;
+  }
+}
+// stylelint-enable plugin/selector-bem-pattern
+// postcss-bem-linter: end
+
+// mdc-form-field tweaks to align text field label correctly
+// stylelint-disable selector-max-type
+.mdc-form-field > .mdc-text-field + label {
+  align-self: flex-start;
+}
+// stylelint-enable selector-max-type
+
+.mdc-text-field--focused {
+  @include mdc-text-field-focused_;
+}
+
+.mdc-text-field--textarea.mdc-text-field--focused {
+  @include mdc-text-field-textarea-stroke-color(primary);
+}
+
+.mdc-text-field--invalid {
+  @include mdc-text-field-invalid_;
+}
+
+.mdc-text-field--textarea.mdc-text-field--invalid {
+  @include mdc-text-field-textarea-invalid_;
+}
+
+.mdc-text-field--outlined.mdc-text-field--invalid {
+  @include mdc-text-field-outlined-invalid_;
+}
+
+.mdc-text-field--disabled {
+  @include mdc-text-field-disabled_;
+}
+
+.mdc-text-field--textarea.mdc-text-field--disabled {
+  @include mdc-text-field-textarea-disabled_;
+}
+
+@include mdc-floating-label-shake-keyframes(
+  text-field-dense,
+  $mdc-text-field-dense-label-position-y,
+  0%,
+  $mdc-text-field-dense-label-scale
+);
+@include mdc-floating-label-shake-keyframes(text-field-outlined, $mdc-text-field-outlined-label-position-y);
+@include mdc-floating-label-shake-keyframes(
+  text-field-outlined-dense,
+  $mdc-text-field-outlined-dense-label-position-y,
+  0%,
+  $mdc-text-field-dense-label-scale
+);
+@include mdc-floating-label-shake-keyframes(
+  text-field-outlined-leading-icon,
+  $mdc-text-field-outlined-label-position-y,
+  $mdc-text-field-outlined-with-leading-icon-label-position-x
+);
+@include mdc-floating-label-shake-keyframes(
+  text-field-outlined-leading-icon-dense,
+  $mdc-text-field-outlined-dense-label-position-y,
+  $mdc-text-field-outlined-dense-with-leading-icon-label-position-x,
+  $mdc-text-field-dense-label-scale
+);
+@include mdc-floating-label-shake-keyframes(
+  text-field-outlined-leading-icon-rtl,
+  $mdc-text-field-outlined-label-position-y,
+  -$mdc-text-field-outlined-with-leading-icon-label-position-x
+);
+@include mdc-floating-label-shake-keyframes(
+  text-field-outlined-leading-icon-dense-rtl,
+  $mdc-text-field-outlined-dense-label-position-y,
+  -$mdc-text-field-outlined-dense-with-leading-icon-label-position-x,
+  $mdc-text-field-dense-label-scale
+);
+@include mdc-floating-label-shake-keyframes(textarea, $mdc-text-field-textarea-label-position-y, 0%);
+
