@@ -41,7 +41,7 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
+        actions: [
           MaterialButton(
             onPressed: () => setState(
               () => container = generateContainer(++keyCount),
@@ -55,6 +55,9 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
         ],
       ),
       body: Center(
+        // AnimatedSwitcher Widget is used to switch between different widgets
+        // with a given transition. You can change the transitions by using
+        // transitionBuilder property.
         child: AnimatedSwitcher(
           duration: Duration(seconds: 1),
           child: container,

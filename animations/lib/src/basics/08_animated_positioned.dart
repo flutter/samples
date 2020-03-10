@@ -37,8 +37,6 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
     final size = MediaQuery.of(context).size;
     final appBar = AppBar();
     final topPadding = MediaQuery.of(context).padding.top;
-    // AnimatedPositioned animates position of the given child over the given
-    // duration of time.
     // AnimatedPositioned animates changes to a widget's position within a Stack
     return SafeArea(
       child: Scaffold(
