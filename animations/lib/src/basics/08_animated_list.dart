@@ -13,22 +13,22 @@ class AnimatedListDemo extends StatefulWidget {
 
 class _AnimatedListDemoState extends State<AnimatedListDemo> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
-  List<UserModel> initialListData = listData;
+  final listData = initialListData;
 
   void addUser() {
     setState(() {
-      int index = initialListData.length;
-      _listKey.currentState
-          .insertItem(index, duration: Duration(milliseconds: 300));
-      initialListData.add(
+      int index = listData.length;
+      listData.add(
         UserModel(firstName: "New", lastName: "Person"),
       );
+      _listKey.currentState
+          .insertItem(index, duration: Duration(milliseconds: 300));
     });
   }
 
   void deleteUser(int index) {
     setState(() {
-      var user = initialListData.removeAt(index);
+      var user = listData.removeAt(index);
       _listKey.currentState.removeItem(
         index,
         (context, animation) {
@@ -74,7 +74,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       body: SafeArea(
         child: AnimatedList(
           key: _listKey,
-          initialItemCount: listData.length,
+          initialItemCount: initialListData.length,
           itemBuilder: (context, index, animation) {
             return FadeTransition(
               opacity: animation,
@@ -94,7 +94,7 @@ class UserModel {
   final String lastName;
 }
 
-List<UserModel> listData = [
+List<UserModel> initialListData = [
   UserModel(
     firstName: "Govind",
     lastName: "Dixit",
