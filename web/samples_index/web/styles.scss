@@ -1,0 +1,346 @@
+// Material Design Web theme colors. Must be imported before importing
+// material-components-web.scss.
+$mdc-theme-primary: #0175C2;
+$mdc-theme-secondary: #FFC108;
+//$mdc-theme-background: $playground-background-color;
+//$mdc-theme-surface: $playground-background-color;
+//$mdc-theme-error: $dark-red;
+
+@import 'package:mdc_web/material-components-web';
+
+$dark: #202124;
+$background-color: #F8F9FA;
+$grey: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+$font-size-small: 0.875rem;
+$card-width: 300px;
+$mobile-width: 960px;
+$container-width: 960px;
+$text-color: $dark;
+$footer-height: 96px;
+$font: Roboto, sans-serif;
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: $background-color;
+  margin: 0;
+}
+
+.content {
+  min-height: 100%;
+  >.container {
+    padding-bottom: $footer-height;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  font-family: $font;
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+* {
+  font-family: $font;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+[hidden] {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $dark;
+  color: white;
+  padding: 16px 125px 16px 125px;
+  margin-bottom: 48px;
+
+
+  @media screen and (max-width: $mobile-width) {
+    padding: 8px 16px 8px 16px;
+    margin-bottom: 16px;
+  }
+
+  .leading {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .leading, .nav-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > * {
+      margin: 0 8px 0 8px;
+    }
+  }
+
+  .nav-items {
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  span.title {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0;
+    color: #5DE0FD;
+  }
+
+  img {
+    height: 36px;
+  }
+
+  a {
+    color: white;
+
+    &:active {
+      color: white;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $dark;
+  color: white;
+  //padding: 36px 125px 36px 125px;
+  height: $footer-height;
+  margin-top: -$footer-height;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+  @media screen and (min-width: $mobile-width) {
+    max-width: $container-width;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+
+  .buttons {
+    button {
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.screenshots {
+  display: flex;
+  flex-direction: row;
+  height: 360px;
+  overflow-x: scroll;
+
+  @media screen and (max-width: $mobile-width) {
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    img {
+      flex: 0 0 auto;
+    }
+  }
+
+  img {
+    border-radius: 8px;
+    margin: 0 8px 0 8px;
+    max-width:100%;
+    max-height:100%;
+  }
+}
+
+.index-header {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  max-width: 640px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.mdc-chip-set {
+  justify-content: center;
+}
+
+.mdc-card__media {
+  background-position: top;
+}
+
+.mdc-chip__text, .mdc-text-field__icon {
+  outline: 0;
+}
+
+#search-bar {
+  flex: 1;
+  @include mdc-text-field-fill-color($background-color);
+  @include mdc-states-hover-opacity(0.0);
+  @include mdc-states-focus-opacity(0.0);
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $card-width);
+  grid-gap: 8px;
+  @media screen and (max-width: $mobile-width) {
+    display: block;
+  }
+}
+
+.demo-card {
+  width: $card-width;
+  margin: 12px;
+  @media screen and (max-width: $mobile-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: $card-width;
+  }
+}
+
+.demo-card__title {
+  font-family: $font;
+  margin: 0;
+}
+
+.demo-card__primary {
+  padding: 1rem;
+}
+
+.demo-card__primary-action {
+  height: 100%;
+}
+
+.demo-card__secondary {
+  font-family: $font;
+  padding: 0 1rem 8px;
+  color: $grey;
+}
+
+.demo-card__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.type-label {
+  font-family: $font;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  color: $dark;
+  background-color: rgba(255, 255, 255, .95);
+  border-radius: 8px;
+  padding: 7px;
+  margin: 4px;
+}
+
+.type-label-bordered {
+  border: 1px solid $dark;
+}
+
+.description-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h1 {
+    margin-right: 8px;
+  }
+}
+
+.tags-container {
+  max-width: 400px;
+  .tags-label {
+    color: $dark;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    text-transform: uppercase;
+    font-weight: bold;
+    >span{
+      margin-left: 4px;
+    }
+  }
+
+  .tags {
+    color: $grey;
+    a {
+      margin-left: 8px;
+      margin-right: 8px;
+      text-decoration: underline;
+
+      color: $dark;
+
+      &:active {
+        color: $dark;
+      }
+
+      &:hover {
+        color: lighten($dark, 25%);
+      }
+    }
+  }
+}

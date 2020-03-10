@@ -29,8 +29,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
-    "gallery" \
     "flutter_maps_firestore" \
+    "gallery" \
     "isolate_example" \
     "jsonexample" \
     "place_tracker" \

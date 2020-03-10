@@ -7,9 +7,9 @@ run correctly. In other words, consider everything in this directory to be an
 experiment.
 
 We're maintaining these samples here so that folks can see some of Flutter's
-upcoming features as they evolve, and get a sense for how they'll eventually
-be used. If you'd like to run them, make sure to switch the the master channel
-first:
+upcoming features as they evolve and get a sense for how they'll eventually
+be used. If you'd like to run the apps, make sure to switch the the master
+channel first:
 
 ```bash
 flutter channel master
@@ -22,13 +22,6 @@ channel:
 ```bash
 flutter channel stable
 ```
-
-## Index
-
-### [Add-to-App](add_to_app)
-
-This project shows how to add a Flutter module to existing Android and iOS
-applications.
 
 ## Want more info about the repo in general?
 

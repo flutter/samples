@@ -11,8 +11,9 @@ import 'src/basics/04_tweens.dart';
 import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
-import 'src/basics/08_animated_positioned.dart';
-import 'src/basics/09_animated_switcher.dart';
+import 'src/basics/09_animated_positioned.dart';
+import 'src/basics/10_animated_switcher.dart';
+import 'src/basics/08_animated_list.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
@@ -60,13 +61,17 @@ final basicDemos = [
       route: TweenSequenceDemo.routeName,
       builder: (context) => TweenSequenceDemo()),
   Demo(
+      name: 'AnimatedList',
+      route: AnimatedListDemo.routeName,
+      builder: (context) => AnimatedListDemo()),
+  Demo(
       name: 'AnimatedPositioned',
       route: AnimatedPositionedDemo.routeName,
       builder: (context) => AnimatedPositionedDemo()),
   Demo(
       name: 'AnimatedSwitcher',
       route: AnimatedSwitcherDemo.routeName,
-      builder: (context) => AnimatedSwitcherDemo())
+      builder: (context) => AnimatedSwitcherDemo()),
 ];
 
 final miscDemos = [

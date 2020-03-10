@@ -11,6 +11,10 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
+    // Navigating through login page.
+    await tester.tap(find.text('ENTER'));
+    await tester.pumpAndSettle();
+
     // Check that shopping cart is empty at start.
     await tester.tap(find.byIcon(Icons.shopping_cart));
     await tester.pumpAndSettle();
