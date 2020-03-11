@@ -53,6 +53,15 @@ do
     popd
 done
 
+# If the credentials don't exist, this script isn't being run from within the
+# flutter/samples repo. Rather than throw an error, allow the test to pass
+# successfully.
+if [ ! -f "svc-keyfile.json" ]
+then
+    echo "Keyfile for Firebase Test Lab not found. Skipping integration tests."
+    exit 0
+fi
+
 # At this time, espresso tests only exist for android_fullscreen. These will
 # eventually be rolled out to each Android project and included in the loop
 # above.
