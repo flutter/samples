@@ -3,7 +3,6 @@ git:
 
 jobs:
   include:
-
   - name: iOS tests, stable channel
     os: osx
     osx_image: xcode11.2
@@ -83,7 +82,8 @@ jobs:
 
 env:
   global:
-    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  # Disabling this makes it easier to install our own copy of gcloud
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 cache:
   cocoapods: true
@@ -99,9 +99,12 @@ branches:
   - master
 
 before_install:
+# Decrypt credentials for Firebase Test Lab service account
 - openssl aes-256-cbc -K $encrypted_ccb0f43ba178_key -iv $encrypted_ccb0f43ba178_iv
   -in svc-keyfile.json.enc -out svc-keyfile.json -d
+# Install our own copy of gcloud. This is necessary because the default copy is
+# so old it doesn't offer a firebase component.
 - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk"; curl https://sdk.cloud.google.com | bash > /dev/null; fi
 - source $HOME/google-cloud-sdk/path.bash.inc
-- gcloud components update kubectl
+- gcloud components update firebase
 - gcloud version
