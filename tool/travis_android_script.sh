@@ -58,9 +58,14 @@ done
 # above.
 echo "== Espresso testing 'android_fullscreen' on Flutter's ${FLUTTER_VERSION} channel =="
 pushd "add_to_app/android_fullscreen"
-adb logcat > logcat.log &
-./gradlew app:connectedAndroidTest --stacktrace --info -Ptarget=../flutter_module/test_driver/example.dart || \
-cat logcat.log
+./gradlew app:assembleAndroidTest
+./gradlew app:assembleDebug -Ptarget=../flutter_module/test_driver/example.dart
+gcloud auth activate-service-account --key-file=../../svc-keyfile.json
+gcloud --quiet config set project test-lab-project-ccbec
+gcloud firebase test android run --type instrumentation \
+  --app app/build/outputs/apk/debug/app-debug.apk \
+  --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk\
+  --timeout 5m
 popd
 
 echo "-- Success --"
