@@ -105,7 +105,8 @@ before_install:
 # script is the only one that uses this value, and will account for a lack of
 # credentials.
 - openssl aes-256-cbc -K $encrypted_ccb0f43ba178_key -iv $encrypted_ccb0f43ba178_iv
-  -in svc-keyfile.json.enc -out svc-keyfile.json -d || true
+  -in svc-keyfile.json.enc -out svc-keyfile.json -d || rm svc-keyfile.json || true
+- ls -la
 # Install our own copy of gcloud. This is necessary because the default copy is
 # so old it doesn't offer a firebase component.
 - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk";
