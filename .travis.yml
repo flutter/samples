@@ -1,7 +1,9 @@
 git:
   depth: 3
+
 jobs:
   include:
+
   - name: iOS tests, stable channel
     os: osx
     osx_image: xcode11.2
@@ -12,29 +14,22 @@ jobs:
     - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_ios_script.sh"
     env: FLUTTER_VERSION=stable
+
   - name: Android tests, stable channel
     os: linux
     dist: trusty
     language: android
     android:
       components:
-      - tools
-      - platform-tools
       - build-tools-28.0.3
-      - android-24
       - android-28
-      - sys-img-armeabi-v7a-android-24
     before_script:
     - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
     - "./flutter/bin/flutter doctor"
     - chmod +x tool/travis_*_script.sh
-    - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
-      -c 100M
-    - emulator -avd test -no-window &
-    - android-wait-for-emulator
-    - adb shell input keyevent 82 &
     script: "./tool/travis_android_script.sh"
     env: FLUTTER_VERSION=stable
+
   - name: Flutter tests, stable channel
     os: linux
     dist: trusty
@@ -45,6 +40,7 @@ jobs:
     - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_flutter_script.sh"
     env: FLUTTER_VERSION=stable
+
   - name: iOS tests, beta channel
     os: osx
     osx_image: xcode11.2
@@ -55,6 +51,7 @@ jobs:
     - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_ios_script.sh"
     env: FLUTTER_VERSION=beta
+
   - name: Android tests, beta channel
     os: linux
     dist: trusty
@@ -63,17 +60,13 @@ jobs:
       components:
       - build-tools-28.0.3
       - android-28
-      - sys-img-armeabi-v7a-android-28
     before_script:
     - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
     - "./flutter/bin/flutter doctor"
     - chmod +x tool/travis_*_script.sh
-    - echo no | android create avd --force -n test -t android-28 --abi armeabi-v7a
-    - emulator -avd test -no-skin -no-audio -no-window &
-    - android-wait-for-emulator
-    - adb shell input keyevent 82 &
     script: "./tool/travis_android_script.sh"
     env: FLUTTER_VERSION=beta
+
   - name: Flutter tests, beta channel
     os: linux
     dist: trusty
@@ -84,17 +77,22 @@ jobs:
     - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_flutter_script.sh"
     env: FLUTTER_VERSION=beta
+
   allow_failures:
   - env: FLUTTER_VERSION=beta
+
 cache:
   cocoapods: true
   directories:
   - "$HOME/shared/.pub-cache"
+
 notifications:
   email: brogdon+github@gmail.com
+
 branches:
   only:
   - master
+
 before_install:
 - openssl aes-256-cbc -K $encrypted_ccb0f43ba178_key -iv $encrypted_ccb0f43ba178_iv
   -in svc-keyfile.json.enc -out svc-keyfile.json -d
