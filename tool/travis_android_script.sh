@@ -42,16 +42,16 @@ declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/android_using_prebuilt_module" \
 )
 
-# for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
-# do
-#     echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
-#     pushd "${PROJECT_NAME}"
+for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
+do
+    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
+    pushd "${PROJECT_NAME}"
 
-#     ./gradlew --stacktrace assembleDebug
-#     ./gradlew --stacktrace assembleRelease
+    ./gradlew --stacktrace assembleDebug
+    ./gradlew --stacktrace assembleRelease
 
-#     popd
-# done
+    popd
+done
 
 # At this time, espresso tests only exist for android_fullscreen. These will
 # eventually be rolled out to each Android project and included in the loop
