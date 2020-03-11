@@ -160,8 +160,8 @@ class PreferenceCard extends StatelessWidget {
 }
 
 class LogOutButton extends StatelessWidget {
-  static const _logoutMessage =
-      Text("You can't actually log out! This is just a demo of how alerts work.");
+  static const _logoutMessage = Text(
+      "You can't actually log out! This is just a demo of how alerts work.");
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On
