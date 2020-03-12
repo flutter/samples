@@ -1,6 +1,8 @@
 # Configuration for https://pub.dartlang.org/packages/peanut
 
 directories:
+- animations/web
+- provider_shopper/web
 - charts/web
 - filipino_cuisine/web
 - github_dataviz/web

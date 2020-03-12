@@ -280,10 +280,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildHeader(context, appState),
           Expanded(
             child: ListView(
               children: [
+                _buildHeader(context, appState),
+                SizedBox(height: 20),
                 CupertinoSegmentedControl<int>(
                   children: {
                     0: Text('Facts & Info'),

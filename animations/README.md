@@ -12,7 +12,7 @@ Sample apps that showcasing Flutter's animation features
 
 Building blocks and patterns
 
-1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer` 
+1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer`
 2. **PageRouteBuilderDemo** Demonstrates how to use `Tween` and `Animation` to
 *build a custom page route transition.
 3. **AnimationControllerDemo** Demonstrates how to use an `AnimationController`.
@@ -23,6 +23,7 @@ Building blocks and patterns
 6. **CustomTweenDemo** Demonstrates how to extend `Tween`.
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
+8. **AnimatedList** Demonstrates how to use `AnimatedList`
 
 ### Misc
 
