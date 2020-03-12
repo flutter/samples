@@ -4,7 +4,6 @@
 
 package dev.flutter.example.androidfullscreen
 
-import android.app.Application
 import androidx.multidex.MultiDexApplication
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
