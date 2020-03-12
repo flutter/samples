@@ -38,6 +38,7 @@ it using a `PageRouteBuilder`.
 spring simulation.
 - **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
+- **HeroAnimationDemo** Demonstrates how to use hero animation during page transition.
 
 ## Other Resources
 

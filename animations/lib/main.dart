@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:animations/src/misc/hero_animation.dart';
 import 'package:flutter/material.dart';
 
 import 'src/basics/01_animated_container.dart';
@@ -84,6 +85,10 @@ final miscDemos = [
       name: 'Spring Physics',
       route: PhysicsCardDragDemo.routeName,
       builder: (context) => PhysicsCardDragDemo()),
+  Demo(
+      name: 'Hero Animation',
+      route: PhysicsCardDragDemo.routeName,
+      builder: (context) => HeroAnimation()),
 ];
 
 final basicDemoRoutes =
