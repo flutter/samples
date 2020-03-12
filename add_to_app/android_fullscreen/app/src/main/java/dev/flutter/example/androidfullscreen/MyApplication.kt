@@ -5,6 +5,7 @@
 package dev.flutter.example.androidfullscreen
 
 import android.app.Application
+import androidx.multidex.MultiDexApplication
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
@@ -12,7 +13,7 @@ import io.flutter.plugin.common.MethodChannel
 
 const val ENGINE_ID = "1"
 
-class MyApplication : Application() {
+class MyApplication : MultiDexApplication() {
     var count = 0
 
     private lateinit var channel: MethodChannel
