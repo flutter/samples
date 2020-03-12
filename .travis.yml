@@ -7,10 +7,6 @@ jobs:
     os: osx
     osx_image: xcode11.2
     language: objective-c
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_ios_script.sh"
     env: FLUTTER_VERSION=stable
 
@@ -22,10 +18,6 @@ jobs:
       components:
       - build-tools-28.0.3
       - android-28
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_android_script.sh"
     env: FLUTTER_VERSION=stable
 
@@ -33,10 +25,6 @@ jobs:
     os: linux
     dist: trusty
     language: ruby
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_flutter_script.sh"
     env: FLUTTER_VERSION=stable
 
@@ -44,10 +32,6 @@ jobs:
     os: osx
     osx_image: xcode11.2
     language: objective-c
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_ios_script.sh"
     env: FLUTTER_VERSION=beta
 
@@ -59,10 +43,6 @@ jobs:
       components:
       - build-tools-28.0.3
       - android-28
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_android_script.sh"
     env: FLUTTER_VERSION=beta
 
@@ -70,10 +50,6 @@ jobs:
     os: linux
     dist: trusty
     language: ruby
-    before_script:
-    - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-    - "./flutter/bin/flutter doctor"
-    - chmod +x tool/travis_*_script.sh
     script: "./tool/travis_flutter_script.sh"
     env: FLUTTER_VERSION=beta
 
@@ -84,6 +60,11 @@ env:
   global:
   # Disabling this makes it easier to install our own copy of gcloud
   - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
+before_script:
+- git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
+- "./flutter/bin/flutter doctor"
+- chmod +x tool/travis_*_script.sh
 
 cache:
   cocoapods: true
