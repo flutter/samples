@@ -24,6 +24,7 @@ Building blocks and patterns
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
 8. **AnimatedList** Demonstrates how to use `AnimatedList`
+9. **AnimatedSwitcher** Demonstrates how to use `AnimatedSwitcher`
 
 ### Misc
 
