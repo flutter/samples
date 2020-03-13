@@ -53,4 +53,28 @@ do
     popd
 done
 
+# If the credentials don't exist, this script isn't being run from within the
+# flutter/samples repo. Rather than throw an error, allow the test to pass
+# successfully.
+if [ ! -f "svc-keyfile.json" ]
+then
+    echo "Keyfile for Firebase Test Lab not found. Skipping integration tests."
+    exit 0
+fi
+
+# At this time, espresso tests only exist for android_fullscreen. These will
+# eventually be rolled out to each Android project and included in the loop
+# above.
+echo "== Espresso testing 'android_fullscreen' on Flutter's ${FLUTTER_VERSION} channel =="
+pushd "add_to_app/android_fullscreen"
+./gradlew app:assembleAndroidTest
+./gradlew app:assembleDebug -Ptarget=../flutter_module/test_driver/example.dart
+gcloud auth activate-service-account --key-file=../../svc-keyfile.json
+gcloud --quiet config set project test-lab-project-ccbec
+gcloud firebase test android run --type instrumentation \
+  --app app/build/outputs/apk/debug/app-debug.apk \
+  --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk\
+  --timeout 5m
+popd
+
 echo "-- Success --"
