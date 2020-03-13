@@ -30,7 +30,6 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
     "flutter_maps_firestore" \
-    "gallery" \
     "isolate_example" \
     "jsonexample" \
     "place_tracker" \
@@ -57,16 +56,5 @@ do
 
     popd
 done
-
-# Test that the code segment widgets that get displayed in the Flutter Material
-# gallery have been generated using the latest gallery code. Also test that
-# the localization scripts have been run, so that they are up to date for the
-# gallery.
-pushd gallery
-echo "Run code segments check for 'gallery'."
-"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-code-segments
-echo "Run localization check for 'gallery'."
-"${LOCAL_SDK_PATH}/bin/flutter" pub run grinder verify-l10n
-popd
 
 echo "-- Success --"
