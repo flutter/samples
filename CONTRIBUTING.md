@@ -28,6 +28,17 @@ Fixes and necessary improvements to the existing samples, mostly.
 
 ## Before you contribute
 
+### File an issue first!
+
+If you see a bug or have an idea for a feature that you feel would improve one
+of the samples already in the repo, **please
+[file an issue](https://github.com/flutter/samples/issues/new) before you begin
+coding or send a PR**. This will help prevent duplicate work by letting us know
+what you're up to. It will help avoid a situation in which you spend a lot of
+time coding something that's not quite right for the repo or its goals.
+
+### Sign the license agreement.
+
 Before we can use your code, you must sign the
 [Google Individual Contributor License Agreement](https://cla.developers.google.com/about/google-individual)
 (CLA), which you can do online. The CLA is necessary mainly because you own the
