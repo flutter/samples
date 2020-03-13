@@ -1,3 +1,7 @@
-The Flutter Gallery has moved to [https://github.com/flutter/gallery].
+The Flutter Gallery has moved to its own repo! You can find the source at:
 
-The new URL for the Gallery running on web is [https://flutter.github.io/gallery].
+https://github.com/flutter/gallery
+
+To see a compiled Gallery running in your browser, use this link: 
+
+https://flutter.github.io/gallery
