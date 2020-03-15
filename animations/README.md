@@ -23,7 +23,7 @@ Building blocks and patterns
 6. **CustomTweenDemo** Demonstrates how to extend `Tween`.
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
-8. **AnimatedList** Demonstrates how to use `AnimatedList`
+8. **FadeTransitionDemo** Demonstrates how to use `FadeTransition`. 
 
 ### Misc
 
@@ -39,6 +39,7 @@ it using a `PageRouteBuilder`.
 spring simulation.
 - **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
+- **AnimatedList** Demonstrates how to use `AnimatedList`
 
 ## Other Resources
 
