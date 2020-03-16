@@ -96,7 +96,6 @@ class _NewsTabState extends State<NewsTab> {
         title: Text(NewsTab.title),
       ),
       body: Container(
-        color: Colors.grey[100],
         child: ListView.builder(
           itemBuilder: _listBuilder,
         ),
@@ -108,7 +107,6 @@ class _NewsTabState extends State<NewsTab> {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: Container(
-        color: Colors.grey[100],
         child: ListView.builder(
           itemBuilder: _listBuilder,
         ),

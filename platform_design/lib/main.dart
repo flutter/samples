@@ -20,6 +20,7 @@ class MyAdaptingApp extends StatelessWidget {
         // Use the green theme for Material widgets.
         primarySwatch: Colors.green,
       ),
+      darkTheme: ThemeData.dark(),
       builder: (context, child) {
         return CupertinoTheme(
           // Instead of letting Cupertino widgets auto-adapt to the Material
