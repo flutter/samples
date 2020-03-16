@@ -33,7 +33,7 @@ String _indexHeader = '''
   <meta charset="utf-8">
   <title>Flutter samples</title>
   <link href="styles.css" rel="stylesheet" media="screen">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Google+Sans+Display|Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="packages/mdc_web/material-components-web.min.js"></script>
@@ -46,7 +46,7 @@ String _descriptionHeader = '''
   <meta charset="utf-8">
   <title>Flutter samples</title>
   <link href="styles.css" rel="stylesheet" media="screen">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Google+Sans+Display|Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="packages/mdc_web/material-components-web.min.js"></script>
@@ -57,7 +57,7 @@ String _descriptionHeader = '''
 String _navbar = '''
 <div class="navbar">
   <a class="leading" href="./">
-    <img src="images/logos/logo_lockup_flutter_horizontal_wht.png" />
+    <img src="images/logos/logo_lockup_flutter_horizontal_wht_96.png" />
     <span class="title">Samples</span> 
   </a>
   <div class="nav-items">
@@ -134,7 +134,7 @@ String _backgroundImage(String url) =>
     _escapeAttribute('background-image: url(\'$url\');');
 String _indexCards(List<Sample> samples) => samples.map(_indexCard).join();
 String _indexCard(Sample sample) => '''
-<div class="mdc-card demo-card mdc-elevation--z2" search-attrs="${_escapeAttribute(sample.searchAttributes)}">
+<div class="mdc-card demo-card mdc-elevation--z0" search-attrs="${_escapeAttribute(sample.searchAttributes)}">
   <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0" href="${sample.filename}.html">
     <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="${_backgroundImage(sample.screenshots.first.url)}"></div>
     <div class="demo-card__label type-label">${_escapeElement(sample.type)}</div>
