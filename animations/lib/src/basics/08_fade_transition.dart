@@ -4,6 +4,10 @@
 
 import 'package:flutter/material.dart';
 
+/* 
+Refer to the AnimatedWidget docs here - https://api.flutter.dev/flutter/widgets/AnimatedWidget-class.html
+for examples of other common animated widgets. 
+*/
 class FadeTransitionDemo extends StatefulWidget {
   static const String routeName = '/basics/fade_transition';
 
@@ -19,6 +23,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
 
   @override
   void initState() {
+    super.initState();
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 500),
@@ -30,14 +35,6 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
       begin: 1.0,
       end: 0.0,
     ).animate(_curve);
-
-    _animation.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.reverse();
-      } else if (status == AnimationStatus.dismissed) _controller.forward();
-    });
-
-    super.initState();
   }
 
   @override
@@ -65,18 +62,13 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: RaisedButton(
+        child: Text('animate'),
         onPressed: () => setState(() {
-          _controller.forward();
+          _controller
+              .animateTo(1.0)
+              .then<TickerFuture>((value) => _controller.animateBack(0.0));
         }),
-        icon: Icon(
-          Icons.play_arrow,
-          color: Colors.white,
-        ),
-        label: Text(
-          "Animate",
-          style: TextStyle(color: Colors.white),
-        ),
       ),
     );
   }
