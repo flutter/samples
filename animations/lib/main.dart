@@ -11,6 +11,7 @@ import 'src/basics/04_tweens.dart';
 import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
+import 'src/misc/hero_animation.dart';
 import 'src/misc/animated_list.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
@@ -89,6 +90,10 @@ final miscDemos = [
       name: 'AnimatedList',
       route: AnimatedListDemo.routeName,
       builder: (context) => AnimatedListDemo()),
+  Demo(
+      name: 'Hero Animation',
+      route: HeroAnimationDemo.routeName,
+      builder: (context) => HeroAnimationDemo()),
 ];
 
 final basicDemoRoutes =
