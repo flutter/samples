@@ -42,7 +42,7 @@ class _Page2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text('Page 2!', style: Theme.of(context).textTheme.display1),
+        child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
       ),
     );
   }
