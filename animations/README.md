@@ -40,6 +40,7 @@ spring simulation.
 - **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
 - **AnimatedList** Demonstrates how to use `AnimatedList`
+- **HeroAnimationDemo** Demonstrates how to use `Hero` animation.
 
 ## Other Resources
 
