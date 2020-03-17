@@ -88,7 +88,10 @@ class _SettingsTabState extends State<SettingsTab> {
       appBar: AppBar(
         title: Text(SettingsTab.title),
       ),
-      body: _buildList(),
+      body: Container(
+          color: Theme.of(context).backgroundColor,
+          child: _buildList()
+      ),
     );
   }
 

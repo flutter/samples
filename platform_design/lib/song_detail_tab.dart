@@ -14,7 +14,7 @@ class SongDetailTab extends StatelessWidget {
   final String song;
   final Color color;
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return SafeArea(
       bottom: false,
       left: false,
@@ -47,25 +47,28 @@ class SongDetailTab extends StatelessWidget {
             color: Colors.grey,
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, top: 16, bottom: 8),
-                    child: Text(
-                      'You might also like:',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+            child: Container(
+              color: Theme.of(context).backgroundColor,
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  if (index == 0) {
+                    return Padding(
+                      padding:
+                          const EdgeInsets.only(left: 15, top: 16, bottom: 8),
+                      child: Text(
+                        'You might also like:',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                  );
-                }
-                // Just a bunch of boxes that simulates loading song choices.
-                return SongPlaceholderTile();
-              },
+                    );
+                  }
+                  // Just a bunch of boxes that simulates loading song choices.
+                  return SongPlaceholderTile();
+                },
+              ),
             ),
           ),
         ],
@@ -80,7 +83,7 @@ class SongDetailTab extends StatelessWidget {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(song)),
-      body: _buildBody(),
+      body: _buildBody(context),
     );
   }
 
@@ -90,7 +93,7 @@ class SongDetailTab extends StatelessWidget {
         middle: Text(song),
         previousPageTitle: 'Songs',
       ),
-      child: _buildBody(),
+      child: _buildBody(context),
     );
   }
 

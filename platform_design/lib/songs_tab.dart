@@ -125,9 +125,12 @@ class _SongsTabState extends State<SongsTab> {
       body: RefreshIndicator(
         key: _androidRefreshKey,
         onRefresh: _refreshData,
-        child: ListView.builder(
-          padding: EdgeInsets.symmetric(vertical: 12),
-          itemBuilder: _listBuilder,
+        child: Container(
+          color: Theme.of(context).backgroundColor,
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(vertical: 12),
+            itemBuilder: _listBuilder,
+          ),
         ),
       ),
     );
