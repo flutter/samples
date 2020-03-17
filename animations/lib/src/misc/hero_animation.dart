@@ -14,7 +14,7 @@ class HeroAnimationDemo extends StatelessWidget {
       body: GestureDetector(
         child: Hero(
           tag: 'hero-page-child',
-          child: _heroContainer(
+          child: _createHeroContainer(
             size: 50.0,
             color: Colors.grey[300],
           ),
@@ -35,7 +35,7 @@ class HeroPage extends StatelessWidget {
       body: Center(
         child: Hero(
           tag: 'hero-page-child',
-          child: _heroContainer(
+          child: _createHeroContainer(
             size: 100.0,
             color: Colors.white,
           ),
@@ -45,7 +45,7 @@ class HeroPage extends StatelessWidget {
   }
 }
 
-StatelessWidget _heroContainer({double size, Color color}) {
+StatelessWidget _createHeroContainer({double size, Color color}) {
   return Container(
     height: size,
     width: size,
