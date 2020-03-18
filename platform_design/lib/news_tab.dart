@@ -106,10 +106,8 @@ class _NewsTabState extends State<NewsTab> {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
-      child: Container(
-        child: ListView.builder(
-          itemBuilder: _listBuilder,
-        ),
+      child: ListView.builder(
+        itemBuilder: _listBuilder,
       ),
     );
   }
