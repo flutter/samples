@@ -1,3 +1,6 @@
+# This app is designed to show how to use Flutter's cupertino package to build UI for iOS. It's not intended to run on Android, desktop, or web.
+android
+
 # Miscellaneous
 *.class
 *.log
