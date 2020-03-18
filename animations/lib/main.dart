@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'src/basics/01_animated_container.dart';
 import 'src/basics/02_page_route_builder.dart';
 import 'src/basics/03_animation_controller.dart';
@@ -12,6 +11,8 @@ import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
 import 'src/basics/08_fade_transition.dart';
+import 'src/basics/09_animated_positioned.dart';
+import 'src/basics/10_animated_switcher.dart';
 import 'src/misc/hero_animation.dart';
 import 'src/misc/animated_list.dart';
 import 'src/misc/card_swipe.dart';
@@ -64,6 +65,14 @@ final basicDemos = [
       name: 'Fade Transition',
       route: FadeTransitionDemo.routeName,
       builder: (context) => FadeTransitionDemo()),
+  Demo(
+      name: 'AnimatedPositioned',
+      route: AnimatedPositionedDemo.routeName,
+      builder: (context) => AnimatedPositionedDemo()),
+  Demo(
+      name: 'AnimatedSwitcher',
+      route: AnimatedSwitcherDemo.routeName,
+      builder: (context) => AnimatedSwitcherDemo())
 ];
 
 final miscDemos = [
