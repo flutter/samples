@@ -41,6 +41,7 @@ spring simulation.
 detection to drive an animation.
 - **AnimatedList** Demonstrates how to use `AnimatedList`
 - **HeroAnimationDemo** Demonstrates how to use `Hero` animation.
+- **CurvedAnimationDemo** Demonstrates how to use different curves in `CurvedAnimation`
 
 ## Other Resources
 
