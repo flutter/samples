@@ -86,15 +86,14 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
           ),
           SizedBox(height: 25.0),
           RaisedButton(
-            onPressed: () {
-              curvedAnimation.curve =
-                  forwardCurves[random.nextInt(forwardCurves.length)];
-              curvedAnimation.reverseCurve =
-                  reverseCurves[random.nextInt(reverseCurves.length)];
-              animController.forward();
-            },
-            child: Text('Animate'),
-          ),
+              onPressed: () {
+                curvedAnimation.curve =
+                    forwardCurves[random.nextInt(forwardCurves.length)];
+                curvedAnimation.reverseCurve =
+                    reverseCurves[random.nextInt(reverseCurves.length)];
+                animController.forward();
+              },
+              child: Text('Animate'))
         ],
       ),
     );
