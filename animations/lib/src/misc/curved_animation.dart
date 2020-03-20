@@ -93,7 +93,10 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
                     reverseCurves[random.nextInt(reverseCurves.length)];
                 animController.forward();
               },
-              child: Text('Animate'))
+              child: Text(
+                'Animate'
+            ),
+          ),
         ],
       ),
     );
