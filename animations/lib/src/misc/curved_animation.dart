@@ -11,31 +11,36 @@ class CurvedAnimationDemo extends StatefulWidget {
   _CurvedAnimationDemoState createState() => _CurvedAnimationDemoState();
 }
 
+class MyCurve {
+  Curve curve;
+  String curveName;
+  MyCurve({this.curve, this.curveName});
+}
+
 class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     with SingleTickerProviderStateMixin {
   static const String routeName = '/misc/curved_animation';
   AnimationController animController;
   Animation<double> animation;
   static const _duration = Duration(seconds: 4);
-  List<Curve> forwardCurves = [
-    Curves.bounceIn,
-    Curves.easeInCubic,
-    Curves.easeInExpo,
-    Curves.elasticIn,
-    Curves.easeInSine,
-    Curves.easeInQuart,
-    Curves.easeInCirc
+  TextStyle style = TextStyle(fontSize: 18.0);
+  List<MyCurve> forwardCurves = [
+    MyCurve(curve: Curves.bounceIn, curveName: 'Bounce In'),
+    MyCurve(curve: Curves.easeInCubic, curveName: 'Ease In Cubic'),
+    MyCurve(curve: Curves.easeInExpo, curveName: 'Ease In Expo'),
+    MyCurve(curve: Curves.elasticIn, curveName: 'Elastic In'),
+    MyCurve(curve: Curves.easeInQuart, curveName: 'Ease In Quart'),
+    MyCurve(curve: Curves.easeInCirc, curveName: 'Ease In Circ'),
   ];
-  List<Curve> reverseCurves = [
-    Curves.bounceOut,
-    Curves.easeOut,
-    Curves.easeOutExpo,
-    Curves.elasticOut,
-    Curves.easeOutSine,
-    Curves.easeOutQuart,
-    Curves.easeOutCirc
+  List<MyCurve> reverseCurves = [
+    MyCurve(curve: Curves.bounceOut, curveName: 'Bounce Out'),
+    MyCurve(curve: Curves.easeOutCubic, curveName: 'Ease Out Cubic'),
+    MyCurve(curve: Curves.easeOutExpo, curveName: 'Ease Out Expo'),
+    MyCurve(curve: Curves.elasticOut, curveName: 'Elastic Out'),
+    MyCurve(curve: Curves.easeOutQuart, curveName: 'Ease Out Quart'),
+    MyCurve(curve: Curves.easeOutCirc, curveName: 'Ease Out Circ')
   ];
-  var random = math.Random();
+  MyCurve selectedForwardCurve, selectedReverseCurve;
   CurvedAnimation curvedAnimation;
   @override
   void initState() {
@@ -44,10 +49,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
       duration: _duration,
       vsync: this,
     );
+    selectedForwardCurve = forwardCurves[0];
+    selectedReverseCurve = reverseCurves[0];
     curvedAnimation = CurvedAnimation(
       parent: animController,
-      curve: forwardCurves[0],
-      reverseCurve: reverseCurves[0],
+      curve: selectedForwardCurve.curve,
+      reverseCurve: selectedReverseCurve.curve,
     );
     animation = Tween<double>(
       begin: 0,
@@ -69,7 +76,43 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
       appBar: AppBar(title: Text('Curved Animation')),
       body: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height / 5),
+          SizedBox(height: 20.0),
+          Text(
+            'Select Curve for forward rotation',
+            style: style,
+          ),
+          DropdownButton<MyCurve>(
+            items: forwardCurves.map((dropDownItem) {
+              return DropdownMenuItem<MyCurve>(
+                  value: dropDownItem, child: Text(dropDownItem.curveName));
+            }).toList(),
+            onChanged: (newCurve) {
+              setState(() {
+                selectedForwardCurve = newCurve;
+                curvedAnimation.curve = selectedForwardCurve.curve;
+              });
+            },
+            value: selectedForwardCurve,
+          ),
+          SizedBox(height: 15.0),
+          Text(
+            'Select Curve for reverse rotation',
+            style: style,
+          ),
+          DropdownButton<MyCurve>(
+            items: reverseCurves.map((dropDownItem) {
+              return DropdownMenuItem<MyCurve>(
+                  value: dropDownItem, child: Text(dropDownItem.curveName));
+            }).toList(),
+            onChanged: (newCurve) {
+              setState(() {
+                selectedReverseCurve = newCurve;
+                curvedAnimation.reverseCurve = selectedReverseCurve.curve;
+              });
+            },
+            value: selectedReverseCurve,
+          ),
+          SizedBox(height: 35.0),
           Transform.rotate(
             angle: animation.value,
             child: Center(
@@ -87,10 +130,6 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
           SizedBox(height: 25.0),
           RaisedButton(
               onPressed: () {
-                curvedAnimation.curve =
-                    forwardCurves[random.nextInt(forwardCurves.length)];
-                curvedAnimation.reverseCurve =
-                    reverseCurves[random.nextInt(reverseCurves.length)];
                 animController.forward();
               },
               child: Text('Animate'))
