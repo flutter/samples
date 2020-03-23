@@ -5,10 +5,10 @@
 A collection of open source samples that illustrate best practices for
 [Flutter](https://flutter.io).
 
-## Index
+## Visual samples index
 
-For a curated list of samples in this repo and elsewhere, see the
-[index](INDEX.md).
+The easiest way to browse through the samples in this repo (as well as a few others!)
+is the [visual samples index](https://flutter.github.io/samples).
 
 ## Interested in contributing?
 
