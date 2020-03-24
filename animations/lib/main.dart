@@ -13,12 +13,12 @@ import 'src/basics/07_tween_sequence.dart';
 import 'src/basics/08_fade_transition.dart';
 import 'src/basics/09_animated_positioned.dart';
 import 'src/basics/10_animated_switcher.dart';
-import 'src/misc/hero_animation.dart';
 import 'src/misc/animated_list.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
+import 'src/misc/hero_animation.dart';
 import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
 
