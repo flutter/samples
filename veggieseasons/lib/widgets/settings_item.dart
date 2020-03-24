@@ -87,7 +87,7 @@ class SettingsItemState extends State<SettingsItem> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      color: pressed ? Styles.settingsItemPressed : Styles.transparentColor,
+      color: Styles.settingsItemColor(context),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () async {
@@ -132,20 +132,40 @@ class SettingsItemState extends State<SettingsItem> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(height: 8.5),
-                            Text(widget.label),
+                            Text(
+                              widget.label,
+                              style: TextStyle(
+                                color: CupertinoTheme.of(context)
+                                    .textTheme
+                                    .textStyle
+                                    .color,
+                              ),
+                            ),
                             SizedBox(height: 4),
                             Text(
                               widget.subtitle,
                               style: TextStyle(
                                 fontSize: 12,
                                 letterSpacing: -0.2,
+                                color: CupertinoTheme.of(context)
+                                    .textTheme
+                                    .textStyle
+                                    .color,
                               ),
                             ),
                           ],
                         )
                       : Padding(
                           padding: EdgeInsets.only(top: 1.5),
-                          child: Text(widget.label),
+                          child: Text(
+                            widget.label,
+                            style: TextStyle(
+                              color: CupertinoTheme.of(context)
+                                  .textTheme
+                                  .textStyle
+                                  .color,
+                            ),
+                          ),
                         ),
                 ),
               ),

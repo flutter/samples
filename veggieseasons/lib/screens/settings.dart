@@ -23,7 +23,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
         middle: Text('Preferred Categories'),
         previousPageTitle: 'Settings',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.scaffoldBackground(context),
       child: FutureBuilder<Set<VeggieCategory>>(
         future: currentPrefs,
         builder: (context, snapshot) {
@@ -85,7 +85,7 @@ class CalorieSettingsScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         previousPageTitle: 'Settings',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.scaffoldBackground(context),
       child: ListView(
         children: [
           FutureBuilder<int>(
@@ -138,7 +138,10 @@ class SettingsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return Row(
             children: [
-              Text(snapshot.data?.toString() ?? ''),
+              Text(
+                snapshot.data?.toString() ?? '',
+                style: CupertinoTheme.of(context).textTheme.textStyle,
+              ),
               SizedBox(width: 8),
               SettingsNavigationIndicator(),
             ],
@@ -182,7 +185,7 @@ class SettingsScreen extends StatelessWidget {
 
     return CupertinoPageScaffold(
       child: Container(
-        color: Styles.scaffoldBackground,
+        color: Styles.scaffoldBackground(context),
         child: CustomScrollView(
           slivers: <Widget>[
             CupertinoSliverNavigationBar(

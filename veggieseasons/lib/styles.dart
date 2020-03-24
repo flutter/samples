@@ -8,13 +8,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
-  static const headlineText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.8),
-    fontFamily: 'NotoSans',
-    fontSize: 32,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle headlineText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 32,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,
+      );
 
   static const minorText = TextStyle(
     color: Color.fromRGBO(128, 128, 128, 1),
@@ -24,21 +24,21 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const headlineName = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 24,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle headlineName(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 24,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,
+      );
 
-  static const headlineDescription = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.8),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle headlineDescription(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
   static const cardTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
@@ -64,37 +64,38 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const detailsTitleText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 30,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle detailsTitleText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 30,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,
+      );
 
-  static const detailsPreferredCategoryText = TextStyle(
-    color: Color.fromRGBO(0, 80, 0, 0.7),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle detailsPreferredCategoryText(BuildContext context) =>
+      TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,
+      );
 
-  static const detailsCategoryText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.7),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle detailsCategoryText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
-  static const detailsDescriptionText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle detailsDescriptionText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
   static const detailsBoldDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
@@ -112,59 +113,63 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
   );
 
-  static const detailsServingLabelText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.bold,
-  );
+  static TextStyle detailsServingLabelText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,
+      );
 
-  static const detailsServingValueText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle detailsServingValueText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
-  static const detailsServingNoteText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.italic,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle detailsServingNoteText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.normal,
+      );
 
-  static const triviaFinishedTitleText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 32,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle triviaFinishedTitleText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 32,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
-  static const triviaFinishedText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 16,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle triviaFinishedText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
-  static const triviaFinishedBigText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
-    fontSize: 48,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle triviaFinishedBigText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 48,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
   static const appBackground = Color(0xffd0d0d0);
 
-  static const scaffoldBackground = Color(0xfff0f0f0);
+  static Color scaffoldBackground(BuildContext context) =>
+      CupertinoTheme.brightnessOf(context) == Brightness.light
+          ? CupertinoColors.lightBackgroundGray
+          : CupertinoTheme.of(context).scaffoldBackgroundColor;
 
-  static const searchBackground = Color(0xffe0e0e0);
+  static Color searchBackground(BuildContext context) =>
+      CupertinoTheme.of(context).barBackgroundColor;
 
   static const frostedBackground = Color(0xccf8f8f8);
 
@@ -172,13 +177,13 @@ abstract class Styles {
 
   static const closeButtonPressed = Color(0xff808080);
 
-  static const TextStyle searchText = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 1),
-    fontFamily: 'NotoSans',
-    fontSize: 14,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal,
-  );
+  static TextStyle searchText(BuildContext context) => TextStyle(
+        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        fontFamily: 'NotoSans',
+        fontSize: 14,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.normal,
+      );
 
   static const Color searchCursorColor = Color.fromRGBO(0, 122, 255, 1);
 
@@ -240,7 +245,15 @@ abstract class Styles {
 
   static const Color settingsItemPressed = Color(0xffd9d9d9);
 
-  static const Color settingsLineation = Color(0xffbcbbc1);
+  static Color settingsItemColor(BuildContext context) =>
+      CupertinoTheme.brightnessOf(context) == Brightness.light
+          ? CupertinoColors.tertiarySystemBackground
+          : CupertinoColors.darkBackgroundGray;
+
+  static Color settingsLineation(BuildContext context) =>
+      CupertinoTheme.brightnessOf(context) == Brightness.light
+          ? Color(0xffbcbbc1)
+          : Color(0xFF4C4B4B);
 
   static const Color settingsBackground = Color(0xffefeff4);
 

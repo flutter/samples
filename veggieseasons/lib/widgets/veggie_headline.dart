@@ -89,13 +89,16 @@ class VeggieHeadline extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(veggie.name, style: Styles.headlineName),
+                    Text(
+                      veggie.name,
+                      style: Styles.headlineName(context),
+                    ),
                     ..._buildSeasonDots(veggie.seasons),
                   ],
                 ),
                 Text(
                   veggie.shortDescription,
-                  style: Styles.headlineDescription,
+                  style: Styles.headlineDescription(context),
                 ),
               ],
             ),

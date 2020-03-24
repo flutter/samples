@@ -74,14 +74,12 @@ class SettingsGroup extends StatelessWidget {
   final List<SettingsItem> items;
   final Widget header;
   final Widget footer;
-
   @override
   Widget build(BuildContext context) {
     final dividedItems = <Widget>[items[0]];
-
     for (int i = 1; i < items.length; i++) {
       dividedItems.add(Container(
-        color: Styles.settingsLineation,
+        color: Styles.settingsLineation(context),
         height: 0.3,
       ));
       dividedItems.add(items[i]);
@@ -99,12 +97,12 @@ class SettingsGroup extends StatelessWidget {
             decoration: BoxDecoration(
               color: CupertinoColors.white,
               border: Border(
-                top: const BorderSide(
-                  color: Styles.settingsLineation,
+                top: BorderSide(
+                  color: Styles.settingsLineation(context),
                   width: 0,
                 ),
-                bottom: const BorderSide(
-                  color: Styles.settingsLineation,
+                bottom: BorderSide(
+                  color: Styles.settingsLineation(context),
                   width: 0,
                 ),
               ),

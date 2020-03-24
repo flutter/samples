@@ -32,7 +32,7 @@ class ServingInfoChart extends StatelessWidget {
         return Text(
           '$percent% DV',
           textAlign: TextAlign.end,
-          style: Styles.detailsServingValueText,
+          style: Styles.detailsServingValueText(context),
         );
       },
     );
@@ -70,14 +70,14 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           'Serving size:',
-                          style: Styles.detailsServingLabelText,
+                          style: Styles.detailsServingLabelText(context),
                         ),
                       ),
                       TableCell(
                         child: Text(
                           veggie.servingSize,
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText,
+                          style: Styles.detailsServingValueText(context),
                         ),
                       ),
                     ],
@@ -87,14 +87,14 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           'Calories:',
-                          style: Styles.detailsServingLabelText,
+                          style: Styles.detailsServingLabelText(context),
                         ),
                       ),
                       TableCell(
                         child: Text(
                           '${veggie.caloriesPerServing} kCal',
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText,
+                          style: Styles.detailsServingValueText(context),
                         ),
                       ),
                     ],
@@ -104,7 +104,7 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           'Vitamin A:',
-                          style: Styles.detailsServingLabelText,
+                          style: Styles.detailsServingLabelText(context),
                         ),
                       ),
                       TableCell(
@@ -120,7 +120,7 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           'Vitamin C:',
-                          style: Styles.detailsServingLabelText,
+                          style: Styles.detailsServingLabelText(context),
                         ),
                       ),
                       TableCell(
@@ -141,7 +141,7 @@ class ServingInfoChart extends StatelessWidget {
                     return Text(
                       'Percent daily values based on a diet of ' +
                           '${snapshot?.data ?? '2,000'} calories.',
-                      style: Styles.detailsServingNoteText,
+                      style: Styles.detailsServingNoteText(context),
                     );
                   },
                 ),
@@ -179,8 +179,8 @@ class InfoView extends StatelessWidget {
                     veggie.categoryName.toUpperCase(),
                     style: (snapshot.hasData &&
                             snapshot.data.contains(veggie.category))
-                        ? Styles.detailsPreferredCategoryText
-                        : Styles.detailsCategoryText,
+                        ? Styles.detailsPreferredCategoryText(context)
+                        : Styles.detailsCategoryText(context),
                   );
                 },
               ),
@@ -201,12 +201,12 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             veggie.name,
-            style: Styles.detailsTitleText,
+            style: Styles.detailsTitleText(context),
           ),
           SizedBox(height: 8),
           Text(
             veggie.shortDescription,
-            style: Styles.detailsDescriptionText,
+            style: Styles.detailsDescriptionText(context),
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24),
@@ -220,7 +220,10 @@ class InfoView extends StatelessWidget {
                 },
               ),
               SizedBox(width: 8),
-              Text('Save to Garden'),
+              Text(
+                'Save to Garden',
+                style: CupertinoTheme.of(context).textTheme.textStyle,
+              ),
             ],
           ),
         ],

@@ -19,7 +19,7 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Styles.searchBackground,
+        color: Styles.searchBackground(context),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -40,7 +40,7 @@ class SearchBar extends StatelessWidget {
                 controller: controller,
                 focusNode: focusNode,
                 decoration: null,
-                style: Styles.searchText,
+                style: Styles.searchText(context),
                 cursorColor: Styles.searchCursorColor,
               ),
             ),
