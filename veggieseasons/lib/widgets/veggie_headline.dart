@@ -67,6 +67,8 @@ class VeggieHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+
     return GestureDetector(
       onTap: () => Navigator.of(context).push<void>(CupertinoPageRoute(
         builder: (context) => DetailsScreen(veggie.id),
@@ -91,14 +93,14 @@ class VeggieHeadline extends StatelessWidget {
                   children: [
                     Text(
                       veggie.name,
-                      style: Styles.headlineName(context),
+                      style: Styles.headlineName(themeData),
                     ),
                     ..._buildSeasonDots(veggie.seasons),
                   ],
                 ),
                 Text(
                   veggie.shortDescription,
-                  style: Styles.headlineDescription(context),
+                  style: Styles.headlineDescription(themeData),
                 ),
               ],
             ),

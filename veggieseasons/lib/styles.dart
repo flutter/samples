@@ -8,8 +8,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
-  static TextStyle headlineText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle headlineText(CupertinoThemeData themeData) => TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 32,
         fontStyle: FontStyle.normal,
@@ -24,16 +24,17 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle headlineName(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle headlineName(CupertinoThemeData themeData) => TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 24,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle headlineDescription(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle headlineDescription(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
@@ -64,33 +65,35 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static TextStyle detailsTitleText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsTitleText(CupertinoThemeData themeData) => TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 30,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle detailsPreferredCategoryText(BuildContext context) =>
+  static TextStyle detailsPreferredCategoryText(CupertinoThemeData themeData) =>
       TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle detailsCategoryText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsCategoryText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle detailsDescriptionText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsDescriptionText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
@@ -113,48 +116,54 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle detailsServingLabelText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsServingLabelText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.bold,
       );
 
-  static TextStyle detailsServingValueText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsServingValueText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle detailsServingNoteText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle detailsServingNoteText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.italic,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle triviaFinishedTitleText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle triviaFinishedTitleText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 32,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle triviaFinishedText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle triviaFinishedText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 16,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
       );
 
-  static TextStyle triviaFinishedBigText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle triviaFinishedBigText(CupertinoThemeData themeData) =>
+      TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 48,
         fontStyle: FontStyle.normal,
@@ -163,13 +172,13 @@ abstract class Styles {
 
   static const appBackground = Color(0xffd0d0d0);
 
-  static Color scaffoldBackground(BuildContext context) =>
-      CupertinoTheme.brightnessOf(context) == Brightness.light
+  static Color scaffoldBackground(Brightness brightness) =>
+      brightness == Brightness.light
           ? CupertinoColors.lightBackgroundGray
-          : CupertinoTheme.of(context).scaffoldBackgroundColor;
+          : null;
 
-  static Color searchBackground(BuildContext context) =>
-      CupertinoTheme.of(context).barBackgroundColor;
+  static Color searchBackground(CupertinoThemeData themeData) =>
+      themeData.barBackgroundColor;
 
   static const frostedBackground = Color(0xccf8f8f8);
 
@@ -177,12 +186,22 @@ abstract class Styles {
 
   static const closeButtonPressed = Color(0xff808080);
 
-  static TextStyle searchText(BuildContext context) => TextStyle(
-        color: CupertinoTheme.of(context).textTheme.textStyle.color,
+  static TextStyle searchText(CupertinoThemeData themeData) => TextStyle(
+        color: themeData.textTheme.textStyle.color,
         fontFamily: 'NotoSans',
         fontSize: 14,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
+      );
+
+  static TextStyle settingsItemText(CupertinoThemeData themeData) =>
+      themeData.textTheme.textStyle;
+
+  static TextStyle settingsItemSubtitleText(CupertinoThemeData themeData) =>
+      TextStyle(
+        fontSize: 12,
+        letterSpacing: -0.2,
+        color: themeData.textTheme.textStyle.color,
       );
 
   static const Color searchCursorColor = Color.fromRGBO(0, 122, 255, 1);
@@ -245,15 +264,13 @@ abstract class Styles {
 
   static const Color settingsItemPressed = Color(0xffd9d9d9);
 
-  static Color settingsItemColor(BuildContext context) =>
-      CupertinoTheme.brightnessOf(context) == Brightness.light
+  static Color settingsItemColor(Brightness brightness) =>
+      brightness == Brightness.light
           ? CupertinoColors.tertiarySystemBackground
           : CupertinoColors.darkBackgroundGray;
 
-  static Color settingsLineation(BuildContext context) =>
-      CupertinoTheme.brightnessOf(context) == Brightness.light
-          ? Color(0xffbcbbc1)
-          : Color(0xFF4C4B4B);
+  static Color settingsLineation(Brightness brightness) =>
+      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xFF4C4B4B);
 
   static const Color settingsBackground = Color(0xffefeff4);
 

@@ -36,7 +36,7 @@ class ListScreen extends StatelessWidget {
             ScopedModel.of<AppState>(context, rebuildOnChange: true);
         final prefs =
             ScopedModel.of<Preferences>(context, rebuildOnChange: true);
-
+        final CupertinoThemeData themeData = CupertinoTheme.of(context);
         return SafeArea(
           bottom: false,
           child: ListView.builder(
@@ -50,7 +50,7 @@ class ListScreen extends StatelessWidget {
                     children: [
                       Text(dateString.toUpperCase(), style: Styles.minorText),
                       Text('In season today',
-                          style: Styles.headlineText(context)),
+                          style: Styles.headlineText(themeData)),
                     ],
                   ),
                 );
@@ -63,7 +63,7 @@ class ListScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
                   child: Text('Not in season',
-                      style: Styles.headlineText(context)),
+                      style: Styles.headlineText(themeData)),
                 );
               } else {
                 int relativeIndex =

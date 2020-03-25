@@ -76,10 +76,11 @@ class SettingsGroup extends StatelessWidget {
   final Widget footer;
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = CupertinoTheme.brightnessOf(context);
     final dividedItems = <Widget>[items[0]];
     for (int i = 1; i < items.length; i++) {
       dividedItems.add(Container(
-        color: Styles.settingsLineation(context),
+        color: Styles.settingsLineation(brightness),
         height: 0.3,
       ));
       dividedItems.add(items[i]);
@@ -98,11 +99,11 @@ class SettingsGroup extends StatelessWidget {
               color: CupertinoColors.white,
               border: Border(
                 top: BorderSide(
-                  color: Styles.settingsLineation(context),
+                  color: Styles.settingsLineation(brightness),
                   width: 0,
                 ),
                 bottom: BorderSide(
-                  color: Styles.settingsLineation(context),
+                  color: Styles.settingsLineation(brightness),
                   width: 0,
                 ),
               ),
