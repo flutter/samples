@@ -23,7 +23,9 @@ Building blocks and patterns
 6. **CustomTweenDemo** Demonstrates how to extend `Tween`.
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
-8. **FadeTransitionDemo** Demonstrates how to use `FadeTransition`. 
+8. **FadeTransitionDemo** Demonstrates how to use `FadeTransition`.
+9. **AnimatedPositionedDemo** Demonstrates how to use `AnimatedPositioned`.
+10. **AnimatedSwitcherDemo** Demonstrates how to use `AnimatedSwitcher`. 
 
 ### Misc
 
