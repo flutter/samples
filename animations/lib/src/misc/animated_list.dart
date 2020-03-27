@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AnimatedListDemo extends StatefulWidget {
-  static String routeName = '/basics/08_animated_list';
+  static String routeName = '/misc/animated_list';
 
   _AnimatedListDemoState createState() => _AnimatedListDemoState();
 }
