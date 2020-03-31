@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:uuid/uuid.dart' as uuid;
 
@@ -14,6 +15,23 @@ class MockDashboardApi implements DashboardApi {
 
   @override
   final ItemApi items = MockItemApi();
+  MockDashboardApi();
+
+  /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
+  Future fillWithMockData() async {
+    var item1 = await items.insert(Item('Coffees Consumed'));
+    var item2 = await items.insert(Item('Miles Ran'));
+    var item3 = await items.insert(Item('Git commits'));
+    var monthAgo = DateTime.now().subtract(Duration(days: 30));
+
+    for (var item in [item1, item2, item3]) {
+      for (var i = 0; i < 30; i++) {
+        var date = monthAgo.add(Duration(days: i));
+        var value = Random().nextInt(6) + 1;
+        entries.insert(item.id, Entry(value, date));
+      }
+    }
+  }
 }
 
 class MockItemApi implements ItemApi {

@@ -5,8 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'api/api.dart';
 import 'api/mock.dart';
+import 'models/app_state.dart';
 import 'pages/home.dart';
 import 'widgets/third_party/adaptive_scaffold.dart';
 
@@ -18,12 +18,20 @@ class DashboardApp extends StatefulWidget {
 
 class _DashboardAppState extends State<DashboardApp> {
   int _pageIndex = 0;
+  AppState _appState;
+
+  void initState() {
+    super.initState();
+
+    var api = MockDashboardApi()..fillWithMockData();
+    _appState = AppState(api);
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<DashboardApi>(create: (_) => MockDashboardApi()),
+        Provider<AppState>(create: (_) => _appState),
       ],
       child: MaterialApp(
         home: AdaptiveScaffold(

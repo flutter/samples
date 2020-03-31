@@ -4,46 +4,48 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../api/api.dart';
-import 'item_details.dart';
+import 'package:web_dashboard/src/models/app_state.dart';
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
-    var api = Provider.of<DashboardApi>(context);
-
-    return Scaffold(
-      body: StreamProvider<List<Item>>(
-        initialData: [],
-        create: (context) => api.items.allItemsStream(),
-        child: Consumer<List<Item>>(
-          builder: (context, items, child) {
-            return ListView.builder(
-              itemBuilder: (context, idx) {
-                return ListTile(
-                  title: Text(items[idx].name),
-                  onTap: () {
-                    _showDetails(items[idx], context);
-                  },
-                );
-              },
-              itemCount: items.length,
-            );
-          },
+    var appState = Provider.of<AppState>(context);
+    return GridView(
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        childAspectRatio: 2,
+        maxCrossAxisExtent: 500,
+      ),
+      children: [
+        Card(
+          child: Center(
+            child: Text("A"),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          api.items.insert(Item('Coffees Drank'));
-        },
-      ),
+        Card(
+          child: Center(
+            child: Text("B"),
+          ),
+        ),
+        Card(
+          child: Center(
+            child: Text("C"),
+          ),
+        ),
+        Card(
+          child: Center(
+            child: Text("D"),
+          ),
+        ),
+        Card(
+          child: Center(
+            child: Text("E"),
+          ),
+        ),
+        Card(
+          child: Center(
+            child: Text("F"),
+          ),
+        ),
+      ],
     );
-  }
-
-  void _showDetails(Item item, BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return ItemDetailsPage(item);
-    }));
   }
 }
