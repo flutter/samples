@@ -27,7 +27,8 @@ class FavoritesScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Text(
                       'You haven\'t added any favorite veggies to your garden yet.',
-                      style: Styles.headlineDescription,
+                      style: Styles.headlineDescription(
+                          CupertinoTheme.of(context)),
                     ),
                   )
                 : ListView(

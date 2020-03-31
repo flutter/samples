@@ -36,44 +36,43 @@ class ListScreen extends StatelessWidget {
             ScopedModel.of<AppState>(context, rebuildOnChange: true);
         final prefs =
             ScopedModel.of<Preferences>(context, rebuildOnChange: true);
-
-        return DecoratedBox(
-          decoration: BoxDecoration(color: Color(0xffffffff)),
-          child: SafeArea(
-            bottom: false,
-            child: ListView.builder(
-              itemCount: appState.allVeggies.length + 2,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(dateString.toUpperCase(), style: Styles.minorText),
-                        Text('In season today', style: Styles.headlineText),
-                      ],
-                    ),
-                  );
-                } else if (index <= appState.availableVeggies.length) {
-                  return _generateVeggieRow(
-                    appState.availableVeggies[index - 1],
-                    prefs,
-                  );
-                } else if (index <= appState.availableVeggies.length + 1) {
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                    child: Text('Not in season', style: Styles.headlineText),
-                  );
-                } else {
-                  int relativeIndex =
-                      index - (appState.availableVeggies.length + 2);
-                  return _generateVeggieRow(
-                      appState.unavailableVeggies[relativeIndex], prefs,
-                      inSeason: false);
-                }
-              },
-            ),
+        final CupertinoThemeData themeData = CupertinoTheme.of(context);
+        return SafeArea(
+          bottom: false,
+          child: ListView.builder(
+            itemCount: appState.allVeggies.length + 2,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(dateString.toUpperCase(), style: Styles.minorText),
+                      Text('In season today',
+                          style: Styles.headlineText(themeData)),
+                    ],
+                  ),
+                );
+              } else if (index <= appState.availableVeggies.length) {
+                return _generateVeggieRow(
+                  appState.availableVeggies[index - 1],
+                  prefs,
+                );
+              } else if (index <= appState.availableVeggies.length + 1) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                  child: Text('Not in season',
+                      style: Styles.headlineText(themeData)),
+                );
+              } else {
+                int relativeIndex =
+                    index - (appState.availableVeggies.length + 2);
+                return _generateVeggieRow(
+                    appState.unavailableVeggies[relativeIndex], prefs,
+                    inSeason: false);
+              }
+            },
           ),
         );
       },

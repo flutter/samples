@@ -17,9 +17,11 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Styles.searchBackground,
+        color: Styles.searchBackground(themeData),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -40,7 +42,7 @@ class SearchBar extends StatelessWidget {
                 controller: controller,
                 focusNode: focusNode,
                 decoration: null,
-                style: Styles.searchText,
+                style: Styles.searchText(themeData),
                 cursorColor: Styles.searchCursorColor,
               ),
             ),

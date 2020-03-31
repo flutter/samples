@@ -106,18 +106,20 @@ class _TriviaViewState extends State<TriviaView> {
   // Widget shown when the game is over. It includes the score and a button to
   // restart everything.
   Widget _buildFinishedView() {
+    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+
     return Padding(
       padding: const EdgeInsets.all(32),
       child: Column(
         children: [
           Text(
             'All done!',
-            style: Styles.triviaFinishedTitleText,
+            style: Styles.triviaFinishedTitleText(themeData),
           ),
           SizedBox(height: 16),
           Text(
             'You answered',
-            style: Styles.triviaFinishedText,
+            style: Styles.triviaFinishedText(themeData),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -126,24 +128,24 @@ class _TriviaViewState extends State<TriviaView> {
             children: [
               Text(
                 '$score',
-                style: Styles.triviaFinishedBigText,
+                style: Styles.triviaFinishedBigText(themeData),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   ' of ',
-                  style: Styles.triviaFinishedText,
+                  style: Styles.triviaFinishedText(themeData),
                 ),
               ),
               Text(
                 '${veggie.trivia.length}',
-                style: Styles.triviaFinishedBigText,
+                style: Styles.triviaFinishedBigText(themeData),
               ),
             ],
           ),
           Text(
             'questions correctly!',
-            style: Styles.triviaFinishedText,
+            style: Styles.triviaFinishedText(themeData),
           ),
           SizedBox(height: 16),
           CupertinoButton(
@@ -162,7 +164,10 @@ class _TriviaViewState extends State<TriviaView> {
       child: Column(
         children: [
           SizedBox(height: 16),
-          Text(currentTrivia.question),
+          Text(
+            currentTrivia.question,
+            style: CupertinoTheme.of(context).textTheme.textStyle,
+          ),
           SizedBox(height: 32),
           for (int i = 0; i < currentTrivia.answers.length; i++)
             Padding(
@@ -188,9 +193,12 @@ class _TriviaViewState extends State<TriviaView> {
       padding: const EdgeInsets.all(32),
       child: Column(
         children: [
-          Text(status == PlayerStatus.wasCorrect
-              ? 'That\'s right!'
-              : 'Sorry, that wasn\'t the right answer.'),
+          Text(
+            status == PlayerStatus.wasCorrect
+                ? 'That\'s right!'
+                : 'Sorry, that wasn\'t the right answer.',
+            style: CupertinoTheme.of(context).textTheme.textStyle,
+          ),
           SizedBox(height: 16),
           CupertinoButton(
             child: Text('Next Question'),
