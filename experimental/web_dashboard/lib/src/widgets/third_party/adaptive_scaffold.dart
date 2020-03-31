@@ -4,8 +4,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'navigation_rail.dart';
-
 bool _isLargeScreen(BuildContext context) {
   return MediaQuery.of(context).size.width > 960.0;
 }
@@ -109,8 +107,8 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                   ),
                 ),
               ],
-              currentIndex: widget.currentIndex,
-              onDestinationSelected: widget.onNavigationIndexChange,
+              selectedIndex: widget.currentIndex,
+              onDestinationSelected: widget.onNavigationIndexChange ?? (_) {},
             ),
             VerticalDivider(
               width: 1,
