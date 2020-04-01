@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/models/app_state.dart';
+import 'package:web_dashboard/src/widgets/item_chart.dart';
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
     return StreamBuilder<List<Item>>(
-      initialData: appState.api.items.latest ?? [],
+      initialData: appState.api.items.latest,
       stream: appState.api.items.allItemsStream(),
       builder: (context, snapshot) {
-        if (snapshot.data.isEmpty) {
+        if (snapshot.data == null) {
           return Center(
             child: CircularProgressIndicator(),
           );
@@ -40,9 +41,7 @@ class Dashboard extends StatelessWidget {
         ),
         children: items.map((item) {
           return Card(
-            child: Center(
-              child: Text("${item.name}"),
-            ),
+            child: ItemChart(item: item,),
           );
         }).toList(),
       ),

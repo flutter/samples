@@ -20,8 +20,8 @@ class MockDashboardApi implements DashboardApi {
   /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
   Future fillWithMockData() async {
     await new Future.delayed(Duration(seconds: 1));
-    var item1 = await items.insert(Item('Coffees Consumed'));
-    var item2 = await items.insert(Item('Miles Ran'));
+    var item1 = await items.insert(Item('Coffees drank'));
+    var item2 = await items.insert(Item('Miles ran'));
     var item3 = await items.insert(Item('Git commits'));
     var monthAgo = DateTime.now().subtract(Duration(days: 30));
 
