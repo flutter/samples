@@ -16,7 +16,7 @@ class MyLogin extends StatelessWidget {
             children: [
               Text(
                 'Welcome',
-                style: Theme.of(context).textTheme.display4,
+                style: Theme.of(context).textTheme.headline1,
               ),
               TextFormField(
                 decoration: InputDecoration(
@@ -33,7 +33,7 @@ class MyLogin extends StatelessWidget {
                 height: 24,
               ),
               RaisedButton(
-                color: Colors.yellow,
+                color: Theme.of(context).primaryColor,
                 child: Text('ENTER'),
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/catalog');
