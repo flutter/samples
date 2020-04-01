@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(ModalDialogSample());
-}
-
-class ModalDialogSample extends StatelessWidget {
+class GridExperiment extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(

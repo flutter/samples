@@ -41,7 +41,9 @@ class Dashboard extends StatelessWidget {
         ),
         children: items.map((item) {
           return Card(
-            child: ItemChart(item: item,),
+            child: ItemChart(
+              item: item,
+            ),
           );
         }).toList(),
       ),

@@ -1,11 +1,15 @@
 name: web_dashboard
-description: A desktop-friendly dashboard app
+description: A dashboard app sample
 version: 1.0.0+1
 environment:
   sdk: ">=2.3.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^0.4.3
+  cloud_firestore: ^0.13.0
+  firebase_auth: ^0.15.0
+  google_sign_in: ^4.0.0
   cupertino_icons: ^0.1.2
   provider: ^4.0.0
   uuid: ^2.0.0
