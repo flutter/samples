@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Provider Demo',
         theme: appTheme,
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
           '/': (context) => MyLogin(),
