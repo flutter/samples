@@ -12,27 +12,27 @@ import 'package:provider_shopper/screens/catalog.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  List<SingleChildCloneableWidget> _providers = [
-    Provider(create: (context) => CatalogModel()),
-    ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-      create: (context) => CartModel(),
-      update: (context, catalog, cart) {
-        cart.catalog = catalog;
-        return cart;
-      },
-    ),
-  ];
+  Widget catalogScreen() => MultiProvider(
+        providers: [
+          Provider(create: (context) => CatalogModel()),
+          ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+            create: (context) => CartModel(),
+            update: (context, catalog, cart) {
+              cart.catalog = catalog;
+              return cart;
+            },
+          ),
+        ],
+        child: MaterialApp(
+          home: MyCatalog(),
+        ),
+      );
   final catalogListItems = CatalogModel.itemNames;
 
   group('Catalog page widgets layout', () {
     testWidgets('Testing the layout and presentation of widgets',
         (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCatalog(),
-        ),
-      ));
+      await tester.pumpWidget(catalogScreen());
 
       // Verifying the layout
       expect(find.byType(CustomScrollView), findsOneWidget);
@@ -49,12 +49,7 @@ void main() {
 
   group('Testing the scrolling behaviour of the page', () {
     testWidgets('Testing only the the scroll functionality', (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCatalog(),
-        ),
-      ));
+      await tester.pumpWidget(catalogScreen());
       // Perform Scroll Up
       await tester.drag(
           find.byType(CustomScrollView), const Offset(0.0, -360.0));
@@ -76,12 +71,7 @@ void main() {
   group('Catalog page items rendering test on screen without scroll', () {
     testWidgets('Testing the behaviour of the list items in Catalog page',
         (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCatalog(),
-        ),
-      ));
+      await tester.pumpWidget(catalogScreen());
 
       // Testing for the first N(9) items which appear on the screen at first
       // according to the base viewport
@@ -97,12 +87,7 @@ void main() {
   group('Catalog page items rendering test on screen after scroll', () {
     testWidgets('Testing layout of remaining items after a scrollup',
         (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCatalog(),
-        ),
-      ));
+      await tester.pumpWidget(catalogScreen());
 
       // Performing the scroll
       await tester.drag(
@@ -122,12 +107,7 @@ void main() {
   group('Testing the ADD buttons and check after clicking', () {
     testWidgets('Testing the ADD buttons and check icon after clicking one',
         (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCatalog(),
-        ),
-      ));
+      await tester.pumpWidget(catalogScreen());
 
       // Should find 9 buttons(since 9 items) at the current/base viewport height.
       expect(find.text('ADD'), findsNWidgets(9));

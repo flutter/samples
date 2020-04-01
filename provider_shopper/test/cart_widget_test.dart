@@ -11,24 +11,24 @@ import 'package:provider_shopper/screens/cart.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  List<SingleChildCloneableWidget> _providers = [
-    Provider(create: (context) => CatalogModel()),
-    ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-      create: (context) => CartModel(),
-      update: (context, catalog, cart) {
-        cart.catalog = catalog;
-        return cart;
-      },
-    ),
-  ];
-  group('Cart Screen basic widget testing', () {
-    testWidgets('Testing the layout of the widgets', (tester) async {
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
+  Widget cartScreen() => MultiProvider(
+        providers: [
+          Provider(create: (context) => CatalogModel()),
+          ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+            create: (context) => CartModel(),
+            update: (context, catalog, cart) {
+              cart.catalog = catalog;
+              return cart;
+            },
+          ),
+        ],
         child: MaterialApp(
           home: MyCart(),
         ),
-      ));
+      );
+  group('Cart Screen basic widget testing', () {
+    testWidgets('Testing the layout of the widgets', (tester) async {
+      await tester.pumpWidget(cartScreen());
 
       // Testing the layout of the screen widgets
       expect(find.text('Cart'), findsOneWidget);
@@ -49,12 +49,7 @@ void main() {
     testWidgets('Testing the button tap and snackbar', (tester) async {
       final snackbarMessage = 'Buying not supported yet.';
 
-      await tester.pumpWidget(MultiProvider(
-        providers: _providers,
-        child: MaterialApp(
-          home: MyCart(),
-        ),
-      ));
+      await tester.pumpWidget(cartScreen());
 
       expect(
           find.ancestor(
