@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'api/api.dart';
 import 'api/mock.dart';
 import 'models/app_state.dart';
 import 'pages/home.dart';
@@ -34,20 +35,37 @@ class _DashboardAppState extends State<DashboardApp> {
         Provider<AppState>(create: (_) => _appState),
       ],
       child: MaterialApp(
-        home: AdaptiveScaffold(
-          currentIndex: _pageIndex,
-          destinations: [
-            AdaptiveScaffoldDestination(title: 'Home', icon: Icons.home),
-            AdaptiveScaffoldDestination(title: 'Entries', icon: Icons.list),
-            AdaptiveScaffoldDestination(
-                title: 'Settings', icon: Icons.settings),
-          ],
-          body: _pageAtIndex(_pageIndex),
-          onNavigationIndexChange: (newIndex) {
-            setState(() {
-              _pageIndex = newIndex;
-            });
-          },
+        // Use a builder so that showDialog can use the right BuildContext
+        home: Builder(
+          builder: (context) => AdaptiveScaffold(
+            currentIndex: _pageIndex,
+            destinations: [
+              AdaptiveScaffoldDestination(title: 'Home', icon: Icons.home),
+              AdaptiveScaffoldDestination(title: 'Entries', icon: Icons.list),
+              AdaptiveScaffoldDestination(
+                  title: 'Settings', icon: Icons.settings),
+            ],
+            body: _pageAtIndex(_pageIndex),
+            onNavigationIndexChange: (newIndex) {
+              setState(() {
+                _pageIndex = newIndex;
+              });
+            },
+            floatingActionButton: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () {
+                _appState.api.items.insert(Item('Foo'));
+                showDialog(
+                    context: context,
+                    child: SimpleDialog(
+                      children: [
+                        Text('Add an item to track'),
+                        Text('Do it.'),
+                      ],
+                    ));
+              },
+            ),
+          ),
         ),
       ),
     );

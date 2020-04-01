@@ -4,48 +4,48 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/models/app_state.dart';
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
-    return GridView(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        childAspectRatio: 2,
-        maxCrossAxisExtent: 500,
+    return StreamBuilder<List<Item>>(
+      initialData: appState.api.items.latest ?? [],
+      stream: appState.api.items.allItemsStream(),
+      builder: (context, snapshot) {
+        if (snapshot.data.isEmpty) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        return Dashboard(snapshot.data);
+      },
+    );
+  }
+}
+
+class Dashboard extends StatelessWidget {
+  final List<Item> items;
+
+  Dashboard(this.items);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      child: GridView(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          childAspectRatio: 2,
+          maxCrossAxisExtent: 500,
+        ),
+        children: items.map((item) {
+          return Card(
+            child: Center(
+              child: Text("${item.name}"),
+            ),
+          );
+        }).toList(),
       ),
-      children: [
-        Card(
-          child: Center(
-            child: Text("A"),
-          ),
-        ),
-        Card(
-          child: Center(
-            child: Text("B"),
-          ),
-        ),
-        Card(
-          child: Center(
-            child: Text("C"),
-          ),
-        ),
-        Card(
-          child: Center(
-            child: Text("D"),
-          ),
-        ),
-        Card(
-          child: Center(
-            child: Text("E"),
-          ),
-        ),
-        Card(
-          child: Center(
-            child: Text("F"),
-          ),
-        ),
-      ],
     );
   }
 }

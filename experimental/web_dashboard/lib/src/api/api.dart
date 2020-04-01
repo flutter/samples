@@ -16,6 +16,7 @@ abstract class ItemApi {
   Future<List<Item>> list();
   Future<Item> update(Item item, String id);
   Stream<List<Item>> allItemsStream();
+  List<Item> get latest;
 }
 
 /// Something being tracked.

@@ -19,6 +19,7 @@ class MockDashboardApi implements DashboardApi {
 
   /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
   Future fillWithMockData() async {
+    await new Future.delayed(Duration(seconds: 1));
     var item1 = await items.insert(Item('Coffees Consumed'));
     var item2 = await items.insert(Item('Miles Ran'));
     var item3 = await items.insert(Item('Git commits'));
@@ -38,6 +39,8 @@ class MockItemApi implements ItemApi {
   Map<String, Item> _storage = {};
   StreamController<List<Item>> _streamController =
       StreamController<List<Item>>.broadcast();
+
+  Stream<List<Item>> _stream;
 
   @override
   Future<Item> delete(String id) async {
@@ -71,8 +74,13 @@ class MockItemApi implements ItemApi {
   }
 
   Stream<List<Item>> allItemsStream() {
-    return _streamController.stream;
+    if (_stream == null) {
+      _stream = _streamController.stream;
+    }
+    return _stream;
   }
+
+  List<Item> get latest => _storage.values.toList();
 
   void _emit() {
     _streamController.add(_storage.values.toList());
