@@ -2,17 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'api.dart';
 
 class FirebaseDashboardApi implements DashboardApi {
   @override
-  final EntryApi entries = FirebaseEntryApi();
+  final EntryApi entries;
 
   @override
-  final ItemApi items = FirebaseItemApi();
+  final ItemApi items;
+
+  FirebaseDashboardApi(Firestore firestore)
+      : entries = FirebaseEntryApi(firestore),
+        items = FirebaseItemApi(firestore);
 }
 
 class FirebaseEntryApi implements EntryApi {
+  final Firestore firestore;
+
+  FirebaseEntryApi(this.firestore);
+
   @override
   Stream<List<Entry>> allEntriesStream(String itemId) {
     // TODO: implement allEntriesStream
@@ -45,6 +55,10 @@ class FirebaseEntryApi implements EntryApi {
 }
 
 class FirebaseItemApi implements ItemApi {
+  final Firestore firestore;
+
+  FirebaseItemApi(this.firestore);
+
   @override
   Stream<List<Item>> allItemsStream() {
     // TODO: implement allItemsStream

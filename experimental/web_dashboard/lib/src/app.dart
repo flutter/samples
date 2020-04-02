@@ -2,9 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:web_dashboard/src/auth/mock_auth_service.dart';
+import 'package:web_dashboard/src/api/firebase.dart';
+import 'package:web_dashboard/src/auth/firebase_auth_service.dart';
 
 import 'api/mock.dart';
 import 'models/app_state.dart';
@@ -23,8 +25,11 @@ class _DashboardAppState extends State<DashboardApp> {
   void initState() {
     super.initState();
 
-    var api = MockDashboardApi()..fillWithMockData();
-    var auth = MockAuthService();
+//    var api = MockDashboardApi()..fillWithMockData();
+//    var auth = MockAuthService();
+    var api = FirebaseDashboardApi(Firestore.instance);
+    var auth = FirebaseAuthService();
+
     _appState = AppState(api, auth);
   }
 
