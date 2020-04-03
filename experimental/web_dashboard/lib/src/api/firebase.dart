@@ -59,46 +59,71 @@ class FirebaseEntryApi implements EntryApi {
 class FirebaseItemApi implements ItemApi {
   final Firestore firestore;
   final String userId;
+  List<Item> _latestSnapshot = [];
 
   FirebaseItemApi(this.firestore, this.userId);
 
   @override
   Stream<List<Item>> allItemsStream() {
-    // TODO: implement allItemsStream
-    throw UnimplementedError();
+    var snapshots = firestore.collection('users/$userId/items').snapshots();
+    var result = snapshots.map((querySnapshot) {
+      return querySnapshot.documents.map((snapshot) {
+        return Item.fromJson(snapshot.data)..id = snapshot.documentID;
+      }).toList();
+    });
+
+    // Update allItems whenever the list of items changes.
+    result.forEach((items) {
+      _latestSnapshot = items;
+    });
+
+    return result;
   }
 
   @override
   Future<Item> delete(String id) async {
-    // TODO: implement delete
-    throw UnimplementedError();
+    var document = firestore.document('users/$userId/items/$id');
+    var item = await get(document.documentID);
+
+    await document.delete();
+
+    return item;
   }
 
   @override
   Future<Item> get(String id) async {
-    // TODO: implement get
-    throw UnimplementedError();
+    var document = firestore.document('users/$userId/items/$id');
+    var snapshot = await document.get();
+    return Item.fromJson(snapshot.data)..id = snapshot.documentID;
   }
 
   @override
   Future<Item> insert(Item item) async {
-    // TODO: implement insert
-    throw UnimplementedError();
+    var document =
+        await firestore.collection('users/$userId/items').add(item.toJson());
+    return await get(document.documentID);
   }
 
   @override
-  // TODO: implement latest
-  List<Item> get latest => [];
+  List<Item> get latest => _latestSnapshot;
 
   @override
   Future<List<Item>> list() async {
-    // TODO: implement list
-    throw UnimplementedError();
+    var snapshot = firestore.collection('users/$userId/items');
+    var querySnapshot = await snapshot.getDocuments();
+    var items = querySnapshot.documents
+        .map((doc) => Item.fromJson(doc.data)..id = doc.documentID);
+
+    // Update allItems whenever the list of items changes.
+    _latestSnapshot = items;
+
+    return items;
   }
 
   @override
   Future<Item> update(Item item, String id) async {
-    // TODO: implement update
-    throw UnimplementedError();
+    var document = firestore.document('users/$userId/items/$id');
+    await document.setData(item.toJson());
+    return item;
   }
 }
