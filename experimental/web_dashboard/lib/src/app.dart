@@ -2,26 +2,27 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/api/firebase.dart';
 import 'package:web_dashboard/src/auth/firebase_auth_service.dart';
+import 'package:web_dashboard/src/auth/mock_auth_service.dart';
 
+import 'api/mock.dart';
 import 'auth/auth_service.dart';
 import 'models/app_state.dart';
 import 'pages/home.dart';
 import 'pages/sign_in.dart';
 
-/// Returns a new [Auth] for this app. This allows switching between
-/// [FirebaseAuthService] and [MockAuthService].
-Auth _createAuth() => FirebaseAuthService();
+/// Returns a new [Auth] for this app. Can be set to a [FirebaseAuthService] or
+/// [MockAuthService].
+Auth _createAuth() => MockAuthService();
 
-/// Returns a new [DashboardApi] for this app. This allows switching between
-/// [FirebaseDashboardApi] and [MockDashboardApi].
+/// Returns a new [DashboardApi] for this app. Can be set to a
+/// [FirebaseDashboardApi] or [MockDashboardApi].
 DashboardApi _createDashboardApi(User user) =>
-    FirebaseDashboardApi(Firestore.instance, user.uid);
+    MockDashboardApi()..fillWithMockData();
 
 /// An app that shows a responsive dashboard.
 class DashboardApp extends StatefulWidget {
@@ -35,8 +36,7 @@ class _DashboardAppState extends State<DashboardApp> {
   void initState() {
     super.initState();
 
-    var auth = _createAuth();
-    _appState = AppState(auth);
+    _appState = AppState(_createAuth());
   }
 
   @override
@@ -56,27 +56,33 @@ class _DashboardAppState extends State<DashboardApp> {
     );
   }
 
+  /// Sets the DashboardApi on AppState and navigates to the home page
+  ///
+  /// The DashboardApi requires a user id in order to make API requests, so it
+  /// isn't created until the user has logged in
   void _handleSignedIn(User user, BuildContext context) {
-    // Set up an API client after the user has logged in and there
-    // is a user ID to use for API calls.
     Provider.of<AppState>(context, listen: false).api =
         _createDashboardApi(user);
-    Navigator.of(context).pushReplacement(_showHomePageRoute());
+
+    _showHomePage(context);
   }
 
-  Route _showHomePageRoute() {
-    return PageRouteBuilder<FadeTransition>(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return HomePage();
-      },
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var curveTween = CurveTween(curve: Curves.ease);
+  /// Navigates to the home page using a fade transition
+  void _showHomePage(BuildContext context) {
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder<FadeTransition>(
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return HomePage();
+        },
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var curveTween = CurveTween(curve: Curves.ease);
 
-        return FadeTransition(
-          opacity: animation.drive(curveTween),
-          child: child,
-        );
-      },
+          return FadeTransition(
+            opacity: animation.drive(curveTween),
+            child: child,
+          );
+        },
+      ),
     );
   }
 }
