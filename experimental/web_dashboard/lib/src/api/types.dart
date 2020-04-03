@@ -6,6 +6,8 @@ part 'types.g.dart';
 @JsonSerializable(nullable: false)
 class Item {
   final String name;
+
+  @JsonKey(ignore: true)
   String id;
 
   Item(this.name);
@@ -20,6 +22,8 @@ class Item {
 class Entry {
   final int value;
   final DateTime time;
+
+  @JsonKey(ignore: true)
   String id;
 
   Entry(this.value, this.time);
