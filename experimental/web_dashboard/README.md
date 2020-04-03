@@ -75,7 +75,27 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 ```
 
-### Step 5: Run the app
+### Step 5: Create Cloud Firestore
+
+Create a new Cloud Firestore database and add the following rules to allow users to read/write their own data:
+
+```
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Make sure the uid of the requesting user matches name of the user
+    // document. The wildcard expression {userId} makes the userId variable
+    // available in rules.
+    match /users/{userId}/{document=**} {
+      allow read, update, delete: if request.auth.uid == userId;
+      allow create: if request.auth.uid != null;
+    }
+  }
+}
+```
+
+### Step 6: Run the app
 
 Run the app on port 5000:
 
@@ -87,7 +107,7 @@ If you see CORS issues, go to the [Services section][cloud-console-apis] in the
 Google Cloud console, go to Credentials, and verify that `localhost:5000` is
 whitelisted.
 
-### (optional) Step 6: Set up iOS and Android
+### (optional) Step 7: Set up iOS and Android
 If you would like to run the app on iOS or Android, make sure you've installed
 the appropriate configuration files described at
 [firebase.google.com/docs/flutter/setup][flutter-setup] from step 1, and follow
