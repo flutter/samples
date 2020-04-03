@@ -19,7 +19,7 @@ Skia / CanvasKit mode:
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true
 ```
 
-## Add firebase
+## Add Firebase
 
 ### Step 1: Create Firebase project and install packages
 
