@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/api/api.dart';
+import 'package:web_dashboard/src/api/types.dart';
 
 class ItemChart extends StatelessWidget {
   final Item item;

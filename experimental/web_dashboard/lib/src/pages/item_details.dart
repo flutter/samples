@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:web_dashboard/src/api/api.dart';
+import 'package:web_dashboard/src/api/types.dart';
 
 class ItemDetailsPage extends StatelessWidget {
   final Item item;

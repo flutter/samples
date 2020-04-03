@@ -8,6 +8,7 @@ import 'dart:math';
 import 'package:uuid/uuid.dart' as uuid;
 
 import 'api.dart';
+import 'types.dart';
 
 class MockDashboardApi implements DashboardApi {
   @override

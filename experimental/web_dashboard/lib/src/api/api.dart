@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'types.dart';
+
 /// Manipulates app data,
 abstract class DashboardApi {
   ItemApi get items;
@@ -19,13 +21,6 @@ abstract class ItemApi {
   List<Item> get latest;
 }
 
-/// Something being tracked.
-class Item {
-  final String name;
-  String id;
-
-  Item(this.name);
-}
 
 /// Manipulates [Entry] data.
 abstract class EntryApi {
@@ -36,11 +31,3 @@ abstract class EntryApi {
   Stream<List<Entry>> allEntriesStream(String itemId);
 }
 
-/// A number tracked at a point in time.
-class Entry {
-  final int value;
-  final DateTime time;
-  String id;
-
-  Entry(this.value, this.time);
-}
