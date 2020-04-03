@@ -8,7 +8,13 @@ class FirebaseAuthService implements Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<User> signIn() async {
-    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAccount googleUser;
+    if (await _googleSignIn.isSignedIn()) {
+      googleUser = await _googleSignIn.signInSilently();
+    } else {
+      googleUser = await _googleSignIn.signIn();
+    }
+
     var googleAuth = await googleUser.authentication;
 
     var credential = GoogleAuthProvider.getCredential(
