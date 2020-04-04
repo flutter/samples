@@ -11,9 +11,7 @@ import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
 import 'package:provider_shopper/screens/login.dart';
 
-void main() {
-  runApp(MyApp());
-}
+main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
