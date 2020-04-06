@@ -18,15 +18,14 @@ class FirebaseAuthService implements Auth {
     var googleAuth = await googleUser.authentication;
 
     var credential = GoogleAuthProvider.getCredential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
+        accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-    var user = (await _auth.signInWithCredential(credential)).user;
-    return _FirebaseUser(user.uid);
+    var authResult = await _auth.signInWithCredential(credential);
+
+    return _FirebaseUser(authResult.user.uid);
   }
 
-  Future signOut() async {
+  Future<void> signOut() async {
     await _auth.signOut();
   }
 }

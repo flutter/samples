@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'types.dart';
+part of 'api.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -19,11 +19,11 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
 Entry _$EntryFromJson(Map<String, dynamic> json) {
   return Entry(
     json['value'] as int,
-    DateTime.parse(json['time'] as String),
+    json['time'] == null ? null : DateTime.parse(json['time'] as String),
   );
 }
 
 Map<String, dynamic> _$EntryToJson(Entry instance) => <String, dynamic>{
       'value': instance.value,
-      'time': instance.time.toIso8601String(),
+      'time': instance.time?.toIso8601String(),
     };
