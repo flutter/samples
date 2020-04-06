@@ -19,6 +19,12 @@ Skia / CanvasKit mode:
 flutter run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true
 ```
 
+## Running JSON code generator
+
+```
+flutter pub run build_runner build
+```
+
 ## Add Firebase
 
 ### Step 1: Create Firebase project and install packages
@@ -77,7 +83,8 @@ firebase.initializeApp(firebaseConfig);
 
 ### Step 5: Create Cloud Firestore
 
-Create a new Cloud Firestore database and add the following rules to allow users to read/write their own data:
+Create a new Cloud Firestore database and add the following rules to allow users
+to read/write their own data:
 
 ```
 rules_version = '2';
