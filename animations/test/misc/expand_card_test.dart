@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget createExpandCardScreen() => MaterialApp(
-  home: ExpandCardDemo(),
-);
+      home: ExpandCardDemo(),
+    );
 
 void main() {
   testWidgets('size of ExpandCard changes on tap', (tester) async {
@@ -32,7 +32,7 @@ void main() {
     await tester.pumpWidget(createExpandCardScreen());
 
     AnimatedCrossFade animatedCrossFade =
-    tester.widget(find.byType(AnimatedCrossFade));
+        tester.widget(find.byType(AnimatedCrossFade));
 
     Image firstImage = animatedCrossFade.firstChild as Image;
     Image secondImage = animatedCrossFade.secondChild as Image;
@@ -50,7 +50,7 @@ void main() {
     await tester.pumpWidget(createExpandCardScreen());
 
     AnimatedCrossFade animatedCrossFade =
-    tester.widget(find.byType(AnimatedCrossFade));
+        tester.widget(find.byType(AnimatedCrossFade));
     // initially the first child is shown
     expect(animatedCrossFade.crossFadeState.index, 0);
 
