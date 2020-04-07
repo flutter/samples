@@ -12,7 +12,7 @@ Sample apps that showcasing Flutter's animation features
 
 Building blocks and patterns
 
-1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer`
+1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer`.
 2. **PageRouteBuilderDemo** Demonstrates how to use `Tween` and `Animation` to
 *build a custom page route transition.
 3. **AnimationControllerDemo** Demonstrates how to use an `AnimationController`.
@@ -41,9 +41,9 @@ it using a `PageRouteBuilder`.
 spring simulation.
 - **CardSwipeDemo** A swipeable card that demonstrates how to use gesture
 detection to drive an animation.
-- **AnimatedList** Demonstrates how to use `AnimatedList`
+- **AnimatedList** Demonstrates how to use `AnimatedList`.
 - **HeroAnimationDemo** Demonstrates how to use `Hero` animation.
-- **CurvedAnimationDemo** Demonstrates how to use different curves in `CurvedAnimation`
+- **CurvedAnimationDemo** Demonstrates how to use different curves in `CurvedAnimation`.
 
 ## Other Resources
 
