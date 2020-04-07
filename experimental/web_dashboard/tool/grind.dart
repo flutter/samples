@@ -10,16 +10,39 @@ import 'package:grinder/grinder.dart';
 main(args) => grind(args);
 
 @Task()
+void runSkia() {
+  run('flutter',
+      arguments:
+          'run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_mock.dart'
+              .split(' '));
+}
+
+@Task()
+void runChrome() {
+  run('flutter', arguments: 'run -d chrome'.split(' '));
+}
+
+@Task()
+void runWeb() {
+  run('flutter', arguments: 'run -d web'.split(' '));
+}
+
+@Task()
 test() => new TestRunner().testAsync();
 
 @DefaultTask()
-@Depends(test)
+@Depends(test, copyright)
 build() {
   Pub.build();
 }
 
 @Task()
 clean() => defaultClean();
+
+@Task()
+generate() {
+  Pub.run('build_runner', arguments: ['build']);
+}
 
 const _copyright =
     '''// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
