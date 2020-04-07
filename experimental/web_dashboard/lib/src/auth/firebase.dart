@@ -1,7 +1,7 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide FirebaseUser;
 
-import 'auth_service.dart';
+import 'auth.dart';
 
 class FirebaseAuthService implements Auth {
   final GoogleSignIn _googleSignIn = GoogleSignIn();

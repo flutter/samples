@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/models/app_state.dart';
+import 'package:web_dashboard/src/app.dart';
 
 class EditItemForm extends StatelessWidget {
   final Item item;

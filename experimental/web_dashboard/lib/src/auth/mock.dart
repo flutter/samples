@@ -1,4 +1,4 @@
-import 'auth_service.dart';
+import 'auth.dart';
 
 class MockAuthService implements Auth {
   @override

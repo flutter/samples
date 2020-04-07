@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/auth/auth_service.dart';
+import 'package:web_dashboard/src/auth/auth.dart';
 
 class SignInPage extends StatefulWidget {
   final Auth auth;

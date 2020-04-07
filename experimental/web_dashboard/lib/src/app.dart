@@ -5,27 +5,32 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/api/firebase.dart';
-import 'package:web_dashboard/src/auth/firebase_auth_service.dart';
-import 'package:web_dashboard/src/auth/mock_auth_service.dart';
 
-import 'api/mock.dart';
-import 'auth/auth_service.dart';
-import 'models/app_state.dart';
+import 'auth/auth.dart';
 import 'pages/home.dart';
 import 'pages/sign_in.dart';
 
-/// Returns a new [Auth] for this app. Can be set to a [FirebaseAuthService] or
-/// [MockAuthService].
-Auth _createAuth() => MockAuthService();
+/// The global state the app.
+class AppState {
+  final Auth auth;
+  DashboardApi api;
 
-/// Returns a new [DashboardApi] for this app. Can be set to a
-/// [FirebaseDashboardApi] or [MockDashboardApi].
-DashboardApi _createDashboardApi(User user) =>
-    MockDashboardApi()..fillWithMockData();
+  AppState(this.auth);
+}
 
-/// An app that shows a responsive dashboard.
+/// Creates a [DashboardApi] when the user is logged in.
+typedef DashboardApi ApiBuilder(User user);
+
+/// An app that displays a personalized dashboard.
 class DashboardApp extends StatefulWidget {
+  final Auth auth;
+  final ApiBuilder apiBuilder;
+
+  DashboardApp({
+    @required this.auth,
+    @required this.apiBuilder,
+  });
+
   @override
   _DashboardAppState createState() => _DashboardAppState();
 }
@@ -35,8 +40,7 @@ class _DashboardAppState extends State<DashboardApp> {
 
   void initState() {
     super.initState();
-
-    _appState = AppState(_createAuth());
+    _appState = AppState(widget.auth);
   }
 
   @override
@@ -46,43 +50,40 @@ class _DashboardAppState extends State<DashboardApp> {
         Provider<AppState>(create: (_) => _appState),
       ],
       child: MaterialApp(
-        home: Builder(
-          builder: (context) => SignInPage(
-            auth: Provider.of<AppState>(context).auth,
-            onSuccess: (User user) => _handleSignedIn(user, context),
-          ),
+        home: SignInPage(
+          auth: _appState.auth,
+          onSuccess: (user) => _handleSignIn(user, context),
         ),
       ),
     );
   }
 
-  /// Sets the DashboardApi on AppState and navigates to the home page
-  ///
-  /// The DashboardApi requires a user id in order to make API requests, so it
-  /// isn't created until the user has logged in
-  void _handleSignedIn(User user, BuildContext context) {
-    Provider.of<AppState>(context, listen: false).api =
-        _createDashboardApi(user);
+  /// Sets the DashboardApi on AppState and navigates to the home page.
+  void _handleSignIn(User user, BuildContext context) {
+    var appState = Provider.of<AppState>(context, listen: false);
+    appState.api = widget.apiBuilder(user);
 
-    _showHomePage(context);
+    _showPage(HomePage(), context);
   }
 
-  /// Navigates to the home page using a fade transition
-  void _showHomePage(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      PageRouteBuilder<FadeTransition>(
-        pageBuilder: (context, animation, secondaryAnimation) {
-          return HomePage();
-        },
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          var curveTween = CurveTween(curve: Curves.ease);
+  /// Navigates to the home page using a fade transition.
+  void _showPage(Widget page, BuildContext context) {
+    var route = _fadeRoute(page);
+    Navigator.of(context).pushReplacement(route);
+  }
 
-          return FadeTransition(
-            opacity: animation.drive(curveTween),
-            child: child,
-          );
-        },
-      ),
+  /// Creates a [Route] that shows [newPage] using a fade transition.
+  Route _fadeRoute(Widget newPage) {
+    return PageRouteBuilder<FadeTransition>(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return newPage;
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation.drive(CurveTween(curve: Curves.ease)),
+          child: child,
+        );
+      },
     );
   }
 }
