@@ -1,3 +1,6 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 import 'dart:convert';
 import 'dart:io';
 import 'package:path/path.dart' as path;
@@ -21,8 +24,7 @@ clean() => defaultClean();
 const _copyright =
     '''// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-''';
+// BSD-style license that can be found in the LICENSE file.''';
 
 @Task()
 copyright() async {
@@ -42,7 +44,7 @@ copyright() async {
 fixCopyright() async {
   await for (var file in _filesWithoutCopyright()) {
     var contents = await file.readAsString();
-    file.writeAsString(_copyright + '\n' + contents);
+    file.writeAsString(_copyright + '\n\n' + contents);
   }
 }
 
@@ -59,7 +61,7 @@ Stream<File> _filesWithoutCopyright() async* {
         .take(3)
         .fold('', (previous, element) {
       if (previous == '') return element;
-      return previous + '\n' + element + '\n';
+      return previous + '\n' + element;
     });
 
     if (firstThreeLines != _copyright) {
