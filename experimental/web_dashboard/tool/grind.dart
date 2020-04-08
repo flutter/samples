@@ -13,22 +13,36 @@ main(args) => grind(args);
 void runSkia() {
   run('flutter',
       arguments:
-          'run -d chrome --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_mock.dart'
+          'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main.dart '
               .split(' '));
 }
 
 @Task()
-void runChrome() {
-  run('flutter', arguments: 'run -d chrome'.split(' '));
-}
-
-@Task()
 void runWeb() {
-  run('flutter', arguments: 'run -d web'.split(' '));
+  run('flutter',
+      arguments:
+      'run -d web --web-port=5000 lib/main.dart '
+          .split(' '));
 }
 
 @Task()
-test() => new TestRunner().testAsync();
+void runMock() {
+  run('flutter',
+      arguments:
+      'run -d web --web-port=5000 lib/main_mock.dart '
+          .split(' '));
+}
+
+@Task()
+void runMockSkia() {
+  run('flutter',
+      arguments:
+      'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_mock.dart'
+          .split(' '));
+}
+
+@Task()
+test() { TestRunner().testAsync();}
 
 @DefaultTask()
 @Depends(test, copyright)
