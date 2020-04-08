@@ -41,7 +41,7 @@ class DataTransferPage extends StatelessWidget {
           Container(
             child: Text(
               'Number Generator Progress',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
             padding: EdgeInsets.all(8),
           ),
