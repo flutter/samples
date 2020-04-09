@@ -28,7 +28,8 @@ typedef DashboardApi ApiBuilder(User user);
 
 /// An app that displays a personalized dashboard.
 class DashboardApp extends StatefulWidget {
-  static ApiBuilder _mockApiBuilder = (user) => MockDashboardApi();
+  static ApiBuilder _mockApiBuilder =
+      (user) => MockDashboardApi()..fillWithMockData();
   static ApiBuilder _apiBuilder =
       (user) => FirebaseDashboardApi(Firestore.instance, user.uid);
 

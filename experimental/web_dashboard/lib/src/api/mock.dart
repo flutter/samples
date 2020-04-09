@@ -44,8 +44,9 @@ class MockItemApi implements ItemApi {
 
   @override
   Future<Item> delete(String id) async {
+    var removed = _storage.remove(id);
     _emit();
-    return _storage.remove(id);
+    return removed;
   }
 
   @override
