@@ -25,16 +25,7 @@ class ItemChart extends StatelessWidget {
             showDialog(
               context: context,
               child: Builder(
-                builder: (context) => SimpleDialog(
-                  children: [
-                    EditItemForm(
-                      item: item,
-                      onDone: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                ),
+                builder: (context) => EditItemDialog(item: item),
               ),
             );
           },

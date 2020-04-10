@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
+import 'package:web_dashboard/src/widgets/edit_item.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
 
 import 'dashboard.dart';
@@ -20,8 +21,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var appState = Provider.of<AppState>(context);
-
     return AdaptiveScaffold(
       currentIndex: _pageIndex,
       destinations: [
@@ -35,18 +34,16 @@ class _HomePageState extends State<HomePage> {
           _pageIndex = newIndex;
         });
       },
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: _pageIndex == 2 ? null : FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          appState.api.items.insert(Item('Foo'));
-          showDialog(
-            context: context,
-            child: SimpleDialog(
-              children: [
-                Text('Added an item to track'),
-              ],
-            ),
-          );
+          switch (_pageIndex) {
+            case 0:
+              showDialog(context: context, child: NewItemDialog());
+              break;
+            default:
+              print('Unsupported action');
+          }
         },
       ),
     );

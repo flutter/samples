@@ -36,7 +36,7 @@ abstract class EntryApi {
 /// Something that's being tracked, e.g. Hours Slept, Cups of water, etc.
 @JsonSerializable()
 class Item {
-  final String name;
+  String name;
 
   @JsonKey(ignore: true)
   String id;
