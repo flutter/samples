@@ -131,4 +131,9 @@ class MockEntryApi implements EntryApi {
   void _emit() {
     _streamController.add(_storage.values.toList());
   }
+
+  @override
+  Future<Entry> get(String itemId, String id) async {
+    return _storage['$itemId-$id'];
+  }
 }

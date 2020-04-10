@@ -26,32 +26,62 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Stream<List<Entry>> allEntriesStream(String itemId) {
-    // TODO: implement allEntriesStream
-    throw UnimplementedError();
+    var snapshots =
+        firestore.collection('users/$userId/items/$itemId/entries').snapshots();
+    var result = snapshots.map((querySnapshot) {
+      return querySnapshot.documents.map((snapshot) {
+        print('snapshot data = ${snapshot.data}');
+        return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
+      }).toList();
+    });
+
+    return result;
   }
 
   @override
   Future<Entry> delete(String itemId, String id) async {
-    // TODO: implement delete
-    throw UnimplementedError();
+    var document =
+        firestore.document('users/$userId/items/$itemId/entries/$id');
+    var item = await get(itemId, document.documentID);
+
+    await document.delete();
+
+    return item;
   }
 
   @override
   Future<Entry> insert(String itemId, Entry entry) async {
-    // TODO: implement insert
-    throw UnimplementedError();
+    var document = await firestore
+        .collection('users/$userId/items/$itemId/entries')
+        .add(entry.toJson());
+    return await get(itemId, document.documentID);
   }
 
   @override
   Future<List<Entry>> list(String itemId) async {
-    // TODO: implement list
-    throw UnimplementedError();
+    var snapshot = firestore.collection('users/$userId/items/$itemId/entries');
+    var querySnapshot = await snapshot.getDocuments();
+    var entries = querySnapshot.documents
+        .map((doc) => Entry.fromJson(doc.data)..id = doc.documentID).toList();
+
+    return entries;
   }
 
   @override
   Future<Entry> update(String itemId, String id, Entry entry) async {
-    // TODO: implement update
-    throw UnimplementedError();
+    var document =
+        firestore.document('users/$userId/items/$itemId/entries/$id');
+    await document.setData(entry.toJson());
+    // TODO: fetch with get()?
+    return entry;
+  }
+
+  @override
+  Future<Entry> get(String itemId, String id) async {
+    var document =
+        firestore.document('users/$userId/items/$itemId/entries/$id');
+    var snapshot = await document.get();
+    return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
   }
 }
 
@@ -111,7 +141,7 @@ class FirebaseItemApi implements ItemApi {
     var snapshot = firestore.collection('users/$userId/items');
     var querySnapshot = await snapshot.getDocuments();
     var items = querySnapshot.documents
-        .map((doc) => Item.fromJson(doc.data)..id = doc.documentID);
+        .map((doc) => Item.fromJson(doc.data)..id = doc.documentID).toList();
 
     // Update allItems whenever the list of items changes.
     _latestSnapshot = items;
@@ -123,6 +153,7 @@ class FirebaseItemApi implements ItemApi {
   Future<Item> update(Item item, String id) async {
     var document = firestore.document('users/$userId/items/$id');
     await document.setData(item.toJson());
+    // TODO: re-fetch with get()?
     return item;
   }
 }

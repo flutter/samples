@@ -14,6 +14,7 @@ dependencies:
   json_annotation: ^3.0.0
   provider: ^4.0.0
   uuid: ^2.0.0
+  charts_flutter: ^0.9.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

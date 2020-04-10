@@ -33,6 +33,7 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var api = Provider.of<AppState>(context).api;
     return Scrollbar(
       child: GridView(
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -43,6 +44,7 @@ class Dashboard extends StatelessWidget {
           return Card(
             child: ItemChart(
               item: item,
+              api: api,
             ),
           );
         }).toList(),

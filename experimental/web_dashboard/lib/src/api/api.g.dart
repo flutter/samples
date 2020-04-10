@@ -23,11 +23,11 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
 Entry _$EntryFromJson(Map<String, dynamic> json) {
   return Entry(
     json['value'] as int,
-    json['time'] == null ? null : DateTime.parse(json['time'] as String),
+    Entry._timeStampToDateTime(json['time'] as Timestamp),
   );
 }
 
 Map<String, dynamic> _$EntryToJson(Entry instance) => <String, dynamic>{
       'value': instance.value,
-      'time': instance.time?.toIso8601String(),
+      'time': Entry._dateTimeToTimestamp(instance.time),
     };
