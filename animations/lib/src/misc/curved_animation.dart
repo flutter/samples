@@ -1,4 +1,4 @@
-// Copyright 2019 The Flutter team. All rights reserved.
+// Copyright 2020 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -84,7 +84,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
           SizedBox(height: 20.0),
           Text(
             'Select Curve for forward motion',
-            style: Theme.of(context).textTheme.headline,
+            style: Theme.of(context).textTheme.headline6,
           ),
           DropdownButton<CurveChoice>(
             items: curves.map((curve) {
@@ -102,7 +102,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
           SizedBox(height: 15.0),
           Text(
             'Select Curve for reverse motion',
-            style: Theme.of(context).textTheme.headline,
+            style: Theme.of(context).textTheme.headline6,
           ),
           DropdownButton<CurveChoice>(
             items: curves.map((curve) {
