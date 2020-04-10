@@ -59,6 +59,15 @@ class Item {
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$ItemToJson(this);
+
+  @override
+  operator ==(Object other) => other is Item && other.id == id;
+  @override
+  int get hashCode => id.hashCode;
+  @override
+  String toString() {
+    return '<Item id=$id>';
+  }
 }
 
 /// A number tracked at a point in time.
@@ -85,5 +94,15 @@ class Entry {
   static Timestamp _dateTimeToTimestamp(DateTime dateTime) {
     return Timestamp.fromMillisecondsSinceEpoch(
         dateTime.millisecondsSinceEpoch);
+  }
+  @override
+  operator ==(Object other) => other is Entry && other.id == id;
+
+  @override
+  int get hashCode => id.hashCode;
+
+  @override
+  String toString() {
+    return '<Entry id=$id>';
   }
 }

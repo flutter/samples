@@ -3,13 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/app.dart';
+import 'package:web_dashboard/src/widgets/edit_entry.dart';
 import 'package:web_dashboard/src/widgets/edit_item.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
 
 import 'dashboard.dart';
+import 'entries.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -41,6 +40,9 @@ class _HomePageState extends State<HomePage> {
             case 0:
               showDialog(context: context, child: NewItemDialog());
               break;
+            case 1:
+              showDialog(context: context, child: NewEntryDialog());
+              break;
             default:
               print('Unsupported action');
           }
@@ -52,9 +54,9 @@ class _HomePageState extends State<HomePage> {
   static Widget _pageAtIndex(int index) {
     switch (index) {
       case 1:
-        return Center(child: Text('page 2'));
+        return EntriesPage();
       case 2:
-        return Center(child: Text('page 3'));
+        return Center(child: Text('Settings page'));
       case 0:
       default:
         return DashboardPage();

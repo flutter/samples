@@ -48,7 +48,6 @@ class _ItemChartState extends State<ItemChart> {
       });
     });
     widget.api.entries.list(widget.item.id).then((entries) => setState(() {
-      print('fetched entries $_entries for item ${widget.item.name}');
       _entries = entries;
         }));
   }

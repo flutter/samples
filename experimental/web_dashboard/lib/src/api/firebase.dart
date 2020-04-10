@@ -30,7 +30,6 @@ class FirebaseEntryApi implements EntryApi {
         firestore.collection('users/$userId/items/$itemId/entries').snapshots();
     var result = snapshots.map((querySnapshot) {
       return querySnapshot.documents.map((snapshot) {
-        print('snapshot data = ${snapshot.data}');
         return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
       }).toList();
     });
