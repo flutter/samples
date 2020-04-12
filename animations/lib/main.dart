@@ -17,11 +17,11 @@ import 'src/misc/hero_animation.dart';
 import 'src/misc/animated_list.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
+import 'src/misc/curved_animation.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
 import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
-import 'src/misc/curved_animation.dart';
 
 void main() => runApp(AnimationSamples());
 
