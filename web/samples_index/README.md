@@ -9,7 +9,7 @@ We use [grinder](https://pub.dev/packages/grinder) to run the build tasks:
 ```bash
 $ pub get
 $ pub global activate grinder
-$ grind build
+$ grind generate
 ```
 
 This will generate the index into `./web`
