@@ -3,7 +3,7 @@ import 'package:web_dashboard/src/auth/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
   final Auth auth;
-  final Widget onSuccess;
+  final ValueChanged<User> onSuccess;
 
   SignInPage({
     @required this.auth,
@@ -15,31 +15,9 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  User _user;
-
   @override
   void initState() {
     super.initState();
-  }
-
-  Future _signIn() async {
-    _user = await widget.auth.signIn();
-  }
-
-  Route _createRoute() {
-    return PageRouteBuilder<FadeTransition>(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return widget.onSuccess;
-      },
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var curveTween = CurveTween(curve: Curves.ease);
-
-        return FadeTransition(
-          opacity: animation.drive(curveTween),
-          child: child,
-        );
-      },
-    );
   }
 
   @override
@@ -49,9 +27,9 @@ class _SignInPageState extends State<SignInPage> {
         child: RaisedButton(
           child: Text('Sign In'),
           onPressed: () async {
-            await _signIn();
-            if (_user != null) {
-              Navigator.of(context).pushReplacement(_createRoute());
+            var user = await widget.auth.signIn();
+            if (user != null) {
+              widget.onSuccess(user);
             } else {
               throw('Unable to sign in');
             }

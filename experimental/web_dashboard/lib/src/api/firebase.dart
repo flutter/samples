@@ -13,15 +13,16 @@ class FirebaseDashboardApi implements DashboardApi {
   @override
   final ItemApi items;
 
-  FirebaseDashboardApi(Firestore firestore)
-      : entries = FirebaseEntryApi(firestore),
-        items = FirebaseItemApi(firestore);
+  FirebaseDashboardApi(Firestore firestore, String userId)
+      : entries = FirebaseEntryApi(firestore, userId),
+        items = FirebaseItemApi(firestore, userId);
 }
 
 class FirebaseEntryApi implements EntryApi {
   final Firestore firestore;
+  final String userId;
 
-  FirebaseEntryApi(this.firestore);
+  FirebaseEntryApi(this.firestore, this.userId);
 
   @override
   Stream<List<Entry>> allEntriesStream(String itemId) {
@@ -56,8 +57,9 @@ class FirebaseEntryApi implements EntryApi {
 
 class FirebaseItemApi implements ItemApi {
   final Firestore firestore;
+  final String userId;
 
-  FirebaseItemApi(this.firestore);
+  FirebaseItemApi(this.firestore, this.userId);
 
   @override
   Stream<List<Item>> allItemsStream() {
@@ -85,7 +87,7 @@ class FirebaseItemApi implements ItemApi {
 
   @override
   // TODO: implement latest
-  List<Item> get latest => throw UnimplementedError();
+  List<Item> get latest => [];
 
   @override
   Future<List<Item>> list() async {

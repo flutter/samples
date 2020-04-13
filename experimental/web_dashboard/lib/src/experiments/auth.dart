@@ -8,11 +8,15 @@ final Auth auth = FirebaseAuthService();
 class AuthDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        '/': (context) => SignInPage(auth: auth),
-        '/home': (context) => HomePage(),
-      },
-      initialRoute: '/',
+      home: Builder(
+        builder:(context) => SignInPage(
+          auth: auth,
+          onSuccess: (User user) {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => HomePage()));
+          },
+        ),
+      ),
     );
   }
 }

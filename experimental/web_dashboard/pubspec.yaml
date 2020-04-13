@@ -9,7 +9,7 @@ dependencies:
   firebase_core: ^0.4.3
   cloud_firestore: ^0.13.0
   firebase_auth: ^0.15.0
-  google_sign_in: ^4.0.0
+  google_sign_in: ^4.4 0
   cupertino_icons: ^0.1.2
   provider: ^4.0.0
   uuid: ^2.0.0
