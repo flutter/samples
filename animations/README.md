@@ -14,7 +14,7 @@ Building blocks and patterns
 
 1. **AnimatedContainerDemo** Demonstrates how to use `AnimatedContainer`
 2. **PageRouteBuilderDemo** Demonstrates how to use `Tween` and `Animation` to
-*build a custom page route transition.
+build a custom page route transition.
 3. **AnimationControllerDemo** Demonstrates how to use an `AnimationController`.
 4. **TweenDemo** Demonstrates how to use a `Tween` with an
 `AnimationController`.
@@ -24,6 +24,10 @@ Building blocks and patterns
 7. **TweenSequenceDemo** Demonstrates how to use `TweenSequence` to build a
 button that changes between different colors.
 8. **FadeTransitionDemo** Demonstrates how to use `FadeTransition`. 
+9. **AnimatedPositionedDemo** Demonstrates how to use `AnimatedPositioned` to
+change a widget's position.
+10. **AnimatedSwitcherDemo** Demonstrates how to use `AnimatedSwitcher` with
+`transitionBuilder` property.
 
 ### Misc
 
