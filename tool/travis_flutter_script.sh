@@ -51,7 +51,7 @@ do
     # Reformat the web plugin registrant, if necessary.
     if [ -f "lib/generated_plugin_registrant.dart" ]
     then
-        "${LOCAL_SDK_PATH}/bin/flutter" format -i "lib/generated_plugin_registrant.dart"
+        "${LOCAL_SDK_PATH}/bin/flutter" format "lib/generated_plugin_registrant.dart"
     fi
 
     # Run the formatter on all the dart files to make sure everything's linted.
