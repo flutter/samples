@@ -92,16 +92,12 @@ Future createThumbnails() async {
 // Creates a thumbnail image where each png file
 Future _createThumbnails(Directory directory) async {
   var files = await directory.list().toList();
-
-  var filesCreated = <File>{};
   var filesToWrite = <Future>{};
 
   for (var entity in files) {
     var extension = path.extension(entity.path);
     var filename = path.basenameWithoutExtension(entity.path);
-    if (extension != '.png' ||
-        entity is! File ||
-        filename.endsWith('_thumb')) {
+    if (extension != '.png' || entity is! File || filename.endsWith('_thumb')) {
       continue;
     }
 
@@ -109,16 +105,9 @@ Future _createThumbnails(Directory directory) async {
     var pathPrefix = path.dirname(file.path);
     var thumbnailFile = File(path.join(pathPrefix, filename + '_thumb.png'));
 
-    if (filesCreated.contains(thumbnailFile)) {
-      print('skipping $thumbnailFile, already created.');
-      continue;
-    }
-
     var img = image.decodeImage(await file.readAsBytes());
     var resized = image.copyResize(img, width: 640);
     filesToWrite.add(thumbnailFile.writeAsBytes(image.encodePng(resized)));
-
-    filesCreated.add(thumbnailFile);
   }
 
   await Future.wait(filesToWrite);
