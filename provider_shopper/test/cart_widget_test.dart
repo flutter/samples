@@ -31,36 +31,30 @@ Widget createCartScreen() => MultiProvider(
 
 void main() {
   group('CartScreen widget tests', () {
-    testWidgets('Testing when the cart is empty', (tester) async {
+    testWidgets('Tapping BUY button displays snackbar.', (tester) async {
       await tester.pumpWidget(createCartScreen());
 
-      // Testing the layout of the screen widgets
-      expect(find.text('Cart'), findsOneWidget);
-      expect(find.text('\$0'), findsOneWidget);
-      expect(
-          find.ancestor(
-              of: find.text('BUY'), matching: find.byType(FlatButton)),
-          findsOneWidget);
-      // verify no snacknar initially
+      // Verify no snackbar initially exists.
       expect(find.byType(SnackBar), findsNothing);
       await tester.tap(find.text('BUY'));
-      // schedule animation
+      // Schedule animation.
       await tester.pump();
-      // verifying the snackbar upon clicking the button
+      // Verifying the snackbar upon clicking the button.
       expect(find.byType(SnackBar), findsOneWidget);
     });
 
     testWidgets('Testing when the cart contains items', (tester) async {
       await tester.pumpWidget(createCartScreen());
 
-      // Adding five items in the cart and testing
+      // Adding five items in the cart and testing.
       for (int i = 0; i < 5; i++) {
         var item = catalogModel.getByPosition(i);
         cartModel.add(item);
         await tester.pumpAndSettle();
         expect(find.text(item.name), findsOneWidget);
       }
-      // Testing total price of the five items
+      
+      // Testing total price of the five items.
       expect(find.text('\$${42 * 5}'), findsOneWidget);
       expect(find.byIcon(Icons.done), findsNWidgets(5));
     });

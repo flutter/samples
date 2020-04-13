@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 /// For simplicity, the catalog is expected to be immutable (no products are
 /// expected to be added, removed or changed during the execution of the app).
 class CatalogModel {
-  static const itemNames = [
+  static List<String> itemNames = [
     'Code Smell',
     'Control Flow',
     'Interpreter',
@@ -29,6 +29,12 @@ class CatalogModel {
     'Bit Shift',
     'Currying',
   ];
+
+  CatalogModel();
+
+  CatalogModel.modifyModel(int lrange){
+    itemNames.removeRange(lrange, itemNames.length);
+  }
 
   /// Get item by [id].
   ///

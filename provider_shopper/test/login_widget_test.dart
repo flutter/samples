@@ -4,30 +4,41 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_shopper/models/cart.dart';
+import 'package:provider_shopper/models/catalog.dart';
+import 'package:provider_shopper/screens/catalog.dart';
 import 'package:provider_shopper/screens/login.dart';
 
 void main() {
   testWidgets('Login page Widget test', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: MyLogin()));
+    await tester.pumpWidget(MultiProvider(
+      providers: [
+        Provider(create: (context) => CatalogModel()),
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+          create: (context) => CartModel(),
+          update: (context, catalog, cart) {
+            cart.catalog = catalog;
+            return cart;
+          },
+        ),
+      ],
+      child: MaterialApp(
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyLogin(),
+          '/catalog': (context) => MyCatalog(),
+        },
+      ),
+    ));
 
-    // Testing the layout and positioning of the screen widgets
-    WidgetPredicate parentWidetPredicate = (widget) =>
-        widget is Container && widget.padding == EdgeInsets.all(80.0);
-    expect(find.byWidgetPredicate(parentWidetPredicate), findsOneWidget);
-    expect(find.text('Welcome'), findsOneWidget);
-    expect(find.byType(TextFormField), findsNWidgets(2));
-
-    final usernameFinder = find.widgetWithText(TextFormField, 'Username');
-    final passwordFinder = find.widgetWithText(TextFormField, 'Password');
-    expect(usernameFinder, findsOneWidget);
-    expect(passwordFinder, findsOneWidget);
-
-    // Testing data input from user
-    await tester.enterText(usernameFinder, '@username');
-    await tester.enterText(passwordFinder, 'password');
-
-    // Verifying the presence and layout of ENTER button
+    // Verifying the behaviour of ENTER button.
     final enterBtnFinder = find.widgetWithText(RaisedButton, 'ENTER');
     expect(enterBtnFinder, findsOneWidget);
+
+    await tester.tap(find.text('ENTER'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Catalog'), findsOneWidget);
   });
 }
