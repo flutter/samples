@@ -33,33 +33,40 @@ class _HomePageState extends State<HomePage> {
           _pageIndex = newIndex;
         });
       },
-      floatingActionButton: _pageIndex == 2 ? null : FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          switch (_pageIndex) {
-            case 0:
-              showDialog(context: context, child: NewItemDialog());
-              break;
-            case 1:
-              showDialog(context: context, child: NewEntryDialog());
-              break;
-            default:
-              print('Unsupported action');
-          }
-        },
-      ),
+      floatingActionButton:
+          _hasFloatingActionButton ? _floatingActionButton : null,
     );
   }
 
-  static Widget _pageAtIndex(int index) {
-    switch (index) {
-      case 1:
-        return EntriesPage();
-      case 2:
-        return Center(child: Text('Settings page'));
-      case 0:
-      default:
-        return DashboardPage();
+  bool get _hasFloatingActionButton {
+    if (_pageIndex == 2) return false;
+    return true;
+  }
+
+  Widget get _floatingActionButton {
+    return FloatingActionButton(
+      child: Icon(Icons.add),
+      onPressed: _handleFabPressed,
+    );
+  }
+
+  void _handleFabPressed() {
+    if (_pageIndex == 0) {
+      showDialog(context: context, child: NewItemDialog());
+      return;
     }
+
+    if (_pageIndex == 1) {
+      showDialog(context: context, child: NewEntryDialog());
+      return;
+    }
+
+    print('Unsupported action');
+  }
+
+  static Widget _pageAtIndex(int index) {
+    if (index == 0) return DashboardPage();
+    if (index == 1) return EntriesPage();
+    return Center(child: Text('Settings page'));
   }
 }
