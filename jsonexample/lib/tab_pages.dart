@@ -40,7 +40,8 @@ class BasicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
-    final boldStyle = localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
+    final boldStyle =
+        localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
 
     final dynamic dynamicListOfInts = json.decode(JsonStrings.listOfInts);
     final strongListOfInts = List<int>.from(dynamicListOfInts);

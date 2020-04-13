@@ -13,7 +13,8 @@ class SimpleObjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
-    final boldStyle = localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
+    final boldStyle =
+        localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
 
     if (simpleObject == null) return Text('NULL', style: localTheme.bodyText2);
 
@@ -156,7 +157,8 @@ class ComplexObjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
-    final boldStyle = localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
+    final boldStyle =
+        localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
