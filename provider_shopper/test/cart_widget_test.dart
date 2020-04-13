@@ -53,7 +53,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text(item.name), findsOneWidget);
       }
-      
+
       // Testing total price of the five items.
       expect(find.text('\$${42 * 5}'), findsOneWidget);
       expect(find.byIcon(Icons.done), findsNWidgets(5));

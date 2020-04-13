@@ -32,7 +32,7 @@ class CatalogModel {
 
   CatalogModel();
 
-  CatalogModel.modifyModel(int lrange){
+  CatalogModel.modifyModel(int lrange) {
     itemNames.removeRange(lrange, itemNames.length);
   }
 
