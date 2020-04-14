@@ -35,7 +35,7 @@ class _SignInPageState extends State<SignInPage> {
             if (user != null) {
               widget.onSuccess(user);
             } else {
-              throw('Unable to sign in');
+              throw ('Unable to sign in');
             }
           },
         ),

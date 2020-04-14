@@ -20,29 +20,27 @@ void runSkia() {
 @Task()
 void runWeb() {
   run('flutter',
-      arguments:
-      'run -d web --web-port=5000 lib/main.dart '
-          .split(' '));
+      arguments: 'run -d web --web-port=5000 lib/main.dart '.split(' '));
 }
 
 @Task()
 void runMock() {
   run('flutter',
-      arguments:
-      'run -d web --web-port=5000 lib/main_mock.dart '
-          .split(' '));
+      arguments: 'run -d web --web-port=5000 lib/main_mock.dart '.split(' '));
 }
 
 @Task()
 void runMockSkia() {
   run('flutter',
       arguments:
-      'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_mock.dart'
-          .split(' '));
+          'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_mock.dart'
+              .split(' '));
 }
 
 @Task()
-test() { TestRunner().testAsync();}
+test() {
+  TestRunner().testAsync();
+}
 
 @DefaultTask()
 @Depends(test, copyright)

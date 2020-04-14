@@ -95,6 +95,7 @@ class Entry {
     return Timestamp.fromMillisecondsSinceEpoch(
         dateTime.millisecondsSinceEpoch);
   }
+
   @override
   operator ==(Object other) => other is Entry && other.id == id;
 

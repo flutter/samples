@@ -42,13 +42,13 @@ class _ItemChartState extends State<ItemChart> {
   void _subscribeToEntries() {
     _subscription =
         widget.api.entries.allEntriesStream(widget.item.id).listen((entries) {
-          print('streamed entries $_entries for item ${widget.item.name}');
+      print('streamed entries $_entries for item ${widget.item.name}');
       setState(() {
         _entries = entries;
       });
     });
     widget.api.entries.list(widget.item.id).then((entries) => setState(() {
-      _entries = entries;
+          _entries = entries;
         }));
   }
 

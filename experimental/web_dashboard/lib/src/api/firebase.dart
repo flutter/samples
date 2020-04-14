@@ -61,7 +61,8 @@ class FirebaseEntryApi implements EntryApi {
     var snapshot = firestore.collection('users/$userId/items/$itemId/entries');
     var querySnapshot = await snapshot.getDocuments();
     var entries = querySnapshot.documents
-        .map((doc) => Entry.fromJson(doc.data)..id = doc.documentID).toList();
+        .map((doc) => Entry.fromJson(doc.data)..id = doc.documentID)
+        .toList();
 
     return entries;
   }
@@ -140,7 +141,8 @@ class FirebaseItemApi implements ItemApi {
     var snapshot = firestore.collection('users/$userId/items');
     var querySnapshot = await snapshot.getDocuments();
     var items = querySnapshot.documents
-        .map((doc) => Item.fromJson(doc.data)..id = doc.documentID).toList();
+        .map((doc) => Item.fromJson(doc.data)..id = doc.documentID)
+        .toList();
 
     // Update allItems whenever the list of items changes.
     _latestSnapshot = items;

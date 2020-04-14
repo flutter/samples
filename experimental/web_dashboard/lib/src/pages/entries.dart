@@ -44,7 +44,6 @@ class _EntriesListState extends State<EntriesList> {
           _selectItem(items.first, widget.api);
         }
       });
-
     });
   }
 
