@@ -73,9 +73,9 @@ class Item {
 /// A number tracked at a point in time.
 @JsonSerializable()
 class Entry {
-  final int value;
+  int value;
   @JsonKey(fromJson: _timeStampToDateTime, toJson: _dateTimeToTimestamp)
-  final DateTime time;
+  DateTime time;
 
   @JsonKey(ignore: true)
   String id;
