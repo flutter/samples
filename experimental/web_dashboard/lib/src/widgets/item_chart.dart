@@ -92,7 +92,7 @@ class _ItemChartState extends State<ItemChart> {
     var today = DateTime.now();
     var daysAgoDur = Duration(days: daysAgo);
     var firstDay = today.subtract(daysAgoDur);
-    var result = List<EntryTotal>(daysAgo);
+    var result = List<EntryTotal>(daysAgo + 1); // e.g. 1 day ago shows today and yesterday
 
     bool isSameDay(DateTime d1, DateTime d2) {
       return d1.year == d2.year && d1.month == d2.month && d1.day == d2.day;
@@ -102,7 +102,7 @@ class _ItemChartState extends State<ItemChart> {
       return _entries.where((e) => isSameDay(e.time, day)).toList();
     }
 
-    for (var i = 0; i < daysAgo; i++) {
+    for (var i = 0; i <= daysAgo; i++) {
       var day = firstDay.add(Duration(days: i));
       var entries = entriesForDay(day);
       if (entries.isEmpty) {
