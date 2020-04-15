@@ -32,7 +32,7 @@ class EditItemDialog extends StatelessWidget {
 
     return SimpleDialog(
       title: Text('Edit Item'),
-      children: <Widget>[
+      children: [
         EditItemForm(
           item: item,
           onDone: (bool shouldUpdate) {
