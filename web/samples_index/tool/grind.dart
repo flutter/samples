@@ -89,7 +89,7 @@ Future createThumbnails() async {
   await _createThumbnails(Directory('web/images/cookbook'));
 }
 
-// Creates a thumbnail image where each png file
+// Creates a thumbnail image for each png file
 Future _createThumbnails(Directory directory) async {
   var files = await directory.list().toList();
   var filesToWrite = <Future>{};
