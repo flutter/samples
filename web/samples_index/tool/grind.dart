@@ -10,6 +10,7 @@ import 'package:path/path.dart' as path;
 import 'package:samples_index/samples_index.dart';
 import 'package:samples_index/src/templates.dart' as templates;
 import 'package:samples_index/cookbook.dart';
+import 'package:image/image.dart' as image;
 
 void main(args) => grind(args);
 
@@ -22,7 +23,7 @@ void analyze() {
 }
 
 @Task('deploy')
-@Depends(analyze, testCli, generate, buildRelease)
+@Depends(analyze, testCli, generate, createThumbnails, buildRelease)
 void deploy() {
   print('All tasks completed. To deploy to Firebase, run:');
   print('');
@@ -80,6 +81,36 @@ Future scrapeCookbook() async {
   if (!killed) {
     print('failed to kill chromedriver process');
   }
+}
+
+@Task('creates thumbnail images in web/images')
+Future createThumbnails() async {
+  await _createThumbnails(Directory('web/images'));
+  await _createThumbnails(Directory('web/images/cookbook'));
+}
+
+// Creates a thumbnail image for each png file
+Future _createThumbnails(Directory directory) async {
+  var files = await directory.list().toList();
+  var filesToWrite = <Future>{};
+
+  for (var entity in files) {
+    var extension = path.extension(entity.path);
+    var filename = path.basenameWithoutExtension(entity.path);
+    if (extension != '.png' || entity is! File || filename.endsWith('_thumb')) {
+      continue;
+    }
+
+    var file = entity as File;
+    var pathPrefix = path.dirname(file.path);
+    var thumbnailFile = File(path.join(pathPrefix, filename + '_thumb.png'));
+
+    var img = image.decodeImage(await file.readAsBytes());
+    var resized = image.copyResize(img, width: 640);
+    filesToWrite.add(thumbnailFile.writeAsBytes(image.encodePng(resized)));
+  }
+
+  await Future.wait(filesToWrite);
 }
 
 @Task('remove generated HTML files')
