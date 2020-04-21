@@ -4,22 +4,20 @@ import 'package:web_dashboard/src/api/api.dart';
 import 'package:intl/intl.dart' as intl;
 
 import '../app.dart';
+import 'items_dropdown.dart';
 
-class NewEntryDialog extends StatelessWidget {
-  final Item item;
+class NewEntryDialog extends StatefulWidget {
+  @override
+  _NewEntryDialogState createState() => _NewEntryDialogState();
+}
 
-  NewEntryDialog({
-    this.item,
-  });
-
+class _NewEntryDialogState extends State<NewEntryDialog> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
       title: Text('New Entry'),
       children: [
-        NewEntryForm(
-          item: item,
-        ),
+        NewEntryForm(),
       ],
     );
   }
@@ -42,7 +40,6 @@ class EditEntryDialog extends StatelessWidget {
       title: Text('Edit Entry'),
       children: [
         EditEntryForm(
-          item: item,
           entry: entry,
           onDone: (bool shouldUpdate) {
             if (shouldUpdate) {
@@ -57,44 +54,52 @@ class EditEntryDialog extends StatelessWidget {
 }
 
 class NewEntryForm extends StatefulWidget {
-  final Item item;
-
-  NewEntryForm({
-    @required this.item,
-  });
-
   @override
   _NewEntryFormState createState() => _NewEntryFormState();
 }
 
 class _NewEntryFormState extends State<NewEntryForm> {
+  Item _selectedItem;
   Entry _entry = Entry(0, DateTime.now());
 
   @override
   Widget build(BuildContext context) {
     var api = Provider.of<AppState>(context).api;
 
-    return EditEntryForm(
-      item: widget.item,
-      entry: _entry,
-      onDone: (bool shouldInsert) {
-        if (shouldInsert) {
-          api.entries.insert(widget.item.id, _entry);
-        }
-        Navigator.of(context).pop();
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ItemsDropdown(
+            api: api.items,
+            onSelected: (item) {
+              setState(() {
+                _selectedItem = item;
+              });
+            },
+          ),
+        ),
+        EditEntryForm(
+          entry: _entry,
+          onDone: (bool shouldInsert) {
+            if (shouldInsert) {
+              api.entries.insert(_selectedItem.id, _entry);
+            }
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
 }
 
 class EditEntryForm extends StatefulWidget {
   final Entry entry;
-  final Item item;
   final ValueChanged<bool> onDone;
 
   EditEntryForm({
     @required this.entry,
-    @required this.item,
     @required this.onDone,
   });
 

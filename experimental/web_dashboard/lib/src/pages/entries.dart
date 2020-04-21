@@ -5,117 +5,86 @@ import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:web_dashboard/src/widgets/edit_entry.dart';
+import 'package:web_dashboard/src/widgets/items_dropdown.dart';
 
 import '../app.dart';
 
-class EntriesPage extends StatelessWidget {
-  ValueChanged<Item> onItemChanged;
+class EntriesPage extends StatefulWidget {
+  @override
+  _EntriesPageState createState() => _EntriesPageState();
+}
 
-  EntriesPage({
-    this.onItemChanged,
-  });
-
+class _EntriesPageState extends State<EntriesPage> {
+  Item _selectedItem;
   @override
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
-    return EntriesList(api: appState.api, onItemChanged: onItemChanged);
+    return Column(
+      children: [
+        ItemsDropdown(
+            api: appState.api.items,
+            onSelected: (item) => setState(() => _selectedItem = item)),
+        Expanded(
+          child: _selectedItem == null
+              ? CircularProgressIndicator()
+              : EntriesList(
+            item: _selectedItem,
+            api: appState.api.entries,
+          ),
+        ),
+      ],
+    );
   }
 }
-
 class EntriesList extends StatefulWidget {
-  final DashboardApi api;
-  final ValueChanged<Item> onItemChanged;
+  final Item item;
+  final EntryApi api;
 
   EntriesList({
-    this.api,
-    this.onItemChanged,
-  });
+    @required this.item,
+    @required this.api,
+  }) : super(key: ValueKey(item.id));
 
   @override
   _EntriesListState createState() => _EntriesListState();
 }
 
 class _EntriesListState extends State<EntriesList> {
-  List<Item> _items;
-  StreamSubscription _itemSubscription;
-  Item _selectedItem;
+  StreamSubscription _subscription;
   List<Entry> _entries = [];
-  StreamSubscription _entriesSubscription;
 
   void initState() {
     super.initState();
-    _fetchItems();
-    _itemSubscription = widget.api.items.allItemsStream().listen((items) {
-      setState(() {
-        _items = items;
-      });
-    });
-  }
-
-  Future _fetchItems() async {
-    var items = await widget.api.items.list();
-
-    setState(() {
-      _items = items;
-    });
-
-    _selectItem(items.first, widget.api);
+    _fetchEntries();
   }
 
   void dispose() {
-    _itemSubscription?.cancel();
-    _entriesSubscription?.cancel();
+    _subscription.cancel();
     super.dispose();
   }
 
-  List<DropdownMenuItem<Item>> _menuItems() {
-    if (_items == null) {
-      return [];
+  void didUpdateWidget(EntriesList oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.item == widget.item) {
+      return;
     }
-    var result = _items.map((i) {
-      return DropdownMenuItem<Item>(child: Text(i.name), value: i);
-    }).toList();
 
-    return result;
+    _fetchEntries();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DropdownButton(
-          value: _selectedItem,
-          items: _menuItems(),
-          onChanged: (item) {
-            _selectItem(item, widget.api);
-          },
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: _entries.length,
-            itemBuilder: (context, index) {
-              return EntryTile(item: _selectedItem, entry: _entries[index]);
-            },
-          ),
-        ),
-      ],
-    );
-  }
+  Future _fetchEntries() async {
+    if (widget.item == null) {
+      return;
+    }
 
-  void _selectItem(Item item, DashboardApi api) {
-    widget.onItemChanged(item);
-
-    setState(() {
-      _selectedItem = item;
-    });
-
-    api.entries.list(item.id).then((entries) {
+    widget.api.list(widget.item.id).then((entries) {
       _setEntries(entries);
     });
 
-    _entriesSubscription?.cancel();
-    _entriesSubscription =
-        api.entries.allEntriesStream(item.id).listen((entries) {
+    _subscription?.cancel();
+    _subscription =
+        widget.api.allEntriesStream(widget.item.id).listen((entries) {
       _setEntries(entries);
     });
   }
@@ -124,6 +93,19 @@ class _EntriesListState extends State<EntriesList> {
     setState(() {
       _entries = entries..sort((a, b) => b.time.compareTo(a.time));
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return EntryTile(
+          item: widget.item,
+          entry: _entries[index],
+        );
+      },
+      itemCount: _entries.length,
+    );
   }
 }
 
@@ -156,28 +138,32 @@ class EntryTile extends StatelessWidget {
             child: Text('Delete'),
             onPressed: () async {
               var shouldDelete = await showDialog<bool>(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: Text('Delete entry?'),
-                        actions: [
-                          FlatButton(
-                            child: Text('Cancel'),
-                            onPressed: () => Navigator.of(context).pop(false),
-                          ),
-                          FlatButton(
-                            child: Text('Delete'),
-                            onPressed: () => Navigator.of(context).pop(true),
-                          ),
-                        ],
-                      ));
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text('Delete entry?'),
+                  actions: [
+                    FlatButton(
+                      child: Text('Cancel'),
+                      onPressed: () => Navigator.of(context).pop(false),
+                    ),
+                    FlatButton(
+                      child: Text('Delete'),
+                      onPressed: () => Navigator.of(context).pop(true),
+                    ),
+                  ],
+                ),
+              );
               if (shouldDelete) {
-                Provider.of<AppState>(context, listen: false)
+                await Provider.of<AppState>(context, listen: false)
                     .api
                     .entries
-                    .delete(item.id, entry.id)
-                    .then((value) => Scaffold.of(context).showSnackBar(SnackBar(
-                          content: Text('Entry deleted'),
-                        )));
+                    .delete(item.id, entry.id);
+
+                Scaffold.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Entry deleted'),
+                  ),
+                );
               }
             },
           ),

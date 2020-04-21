@@ -15,6 +15,7 @@ class MockDashboardApi implements DashboardApi {
 
   @override
   final ItemApi items = MockItemApi();
+
   MockDashboardApi();
 
   /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
@@ -96,7 +97,7 @@ class MockEntryApi implements EntryApi {
 
   @override
   Future<Entry> delete(String itemId, String id) async {
-    _emit();
+    _emit(itemId);
     return _storage.remove('$itemId-$id');
   }
 
@@ -105,7 +106,7 @@ class MockEntryApi implements EntryApi {
     var id = uuid.Uuid().v4();
     var newEntry = Entry(entry.value, entry.time)..id = id;
     _storage['$itemId-$id'] = newEntry;
-    _emit();
+    _emit(itemId);
     return newEntry;
   }
 
@@ -125,11 +126,18 @@ class MockEntryApi implements EntryApi {
 
   @override
   Stream<List<Entry>> allEntriesStream(String itemId) {
+    // TODO: limit events to those matching itemId
+    // This stream includes events for other items, not just the one
+    // specified by [itemId]. To do this properly, _emit() must include the
+    // itemId in all events, so that this stream can filter based off of that.
     return _streamController.stream;
   }
 
-  void _emit() {
-    _streamController.add(_storage.values.toList());
+  void _emit(String itemId) {
+    _streamController.add(_storage.keys
+        .where((k) => k.startsWith(itemId))
+        .map((k) => _storage[k])
+        .toList());
   }
 
   @override

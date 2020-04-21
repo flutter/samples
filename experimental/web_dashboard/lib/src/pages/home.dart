@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/widgets/edit_entry.dart';
 import 'package:web_dashboard/src/widgets/edit_item.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
@@ -18,10 +17,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _pageIndex = 0;
-
-  /// The item selected on the entries page
-  /// TODO: use app state to store the selected item?
-  Item _selectedItem;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         });
       },
       floatingActionButton:
-          _hasFloatingActionButton ? _floatingActionButton : null,
+          _hasFloatingActionButton ? _floatingActionButton(context) : null,
     );
   }
 
@@ -48,10 +43,10 @@ class _HomePageState extends State<HomePage> {
     return true;
   }
 
-  Widget get _floatingActionButton {
+  Widget _floatingActionButton(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
-      onPressed: _handleFabPressed,
+      onPressed: () => _handleFabPressed(),
     );
   }
 
@@ -62,20 +57,20 @@ class _HomePageState extends State<HomePage> {
     }
 
     if (_pageIndex == 1) {
-      showDialog(context: context, child: NewEntryDialog(item: _selectedItem));
+      showDialog(context: context, child: NewEntryDialog());
       return;
     }
-
-    print('Unsupported action');
   }
 
   Widget _pageAtIndex(int index) {
-    if (index == 0) return DashboardPage();
-    if (index == 1) {
-      return EntriesPage(onItemChanged: (item) {
-        _selectedItem = item;
-      });
+    if (index == 0) {
+      return DashboardPage();
     }
+
+    if (index == 1) {
+      return EntriesPage();
+    }
+
     return Center(child: Text('Settings page'));
   }
 }
