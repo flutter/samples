@@ -26,7 +26,7 @@ class _EntriesPageState extends State<EntriesPage> {
             onSelected: (category) => setState(() => _selected = category)),
         Expanded(
           child: _selected == null
-              ? CircularProgressIndicator()
+              ? Center(child: CircularProgressIndicator())
               : EntriesList(
             category: _selected,
             api: appState.api.entries,
