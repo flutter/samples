@@ -154,7 +154,7 @@ class EntryTile extends StatelessWidget {
                 ),
               );
               if (shouldDelete) {
-                await Provider.of<AppState>(context, listen: false)
+                Provider.of<AppState>(context, listen: false)
                     .api
                     .entries
                     .delete(category.id, entry.id);
