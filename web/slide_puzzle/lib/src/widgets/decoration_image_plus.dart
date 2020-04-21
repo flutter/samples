@@ -1,8 +1,9 @@
 // ignore_for_file: omit_local_variable_types, annotate_overrides
 
+import 'dart:developer' as developer;
 import 'dart:ui' as ui show Image;
 
-import 'package:flutter/material.dart';
+import '../flutter.dart';
 
 // A model on top of DecorationImage that supports slicing up the source image
 // efficiently to draw it as tiles in the puzzle game
@@ -143,14 +144,22 @@ class DecorationImagePlus implements DecorationImage {
     if (colorFilter != null) properties.add('$colorFilter');
     if (fit != null &&
         !(fit == BoxFit.fill && centerSlice != null) &&
-        !(fit == BoxFit.scaleDown && centerSlice == null))
+        !(fit == BoxFit.scaleDown && centerSlice == null)) {
       properties.add('$fit');
+    }
     properties.add('$alignment');
     if (centerSlice != null) properties.add('centerSlice: $centerSlice');
     if (repeat != ImageRepeat.noRepeat) properties.add('$repeat');
     if (matchTextDirection) properties.add('match text direction');
     return '$runtimeType(${properties.join(", ")})';
   }
+
+  @override
+  ImageErrorListener get onError => (error, stackTrace) {
+        developer.log('Failed to load image.\n'
+            '$error\n'
+            '$stackTrace', name: 'slide_puzzle.decoration_image_plus');
+      };
 }
 
 /// The painter for a [DecorationImagePlus].
@@ -166,16 +175,13 @@ class DecorationImagePlus implements DecorationImage {
 /// longer needed.
 class DecorationImagePainterPlus implements DecorationImagePainter {
   DecorationImagePainterPlus._(this._details, this._onChanged)
-      : assert(_details != null) {
-    _imageStreamListener = ImageStreamListener(_imageListener);
-  }
+      : assert(_details != null);
 
   final DecorationImagePlus _details;
   final VoidCallback _onChanged;
 
   ImageStream _imageStream;
   ImageInfo _image;
-  ImageStreamListener _imageStreamListener;
 
   /// Draw the image onto the given canvas.
   ///
@@ -217,8 +223,10 @@ class DecorationImagePainterPlus implements DecorationImagePainter {
 
     final ImageStream newImageStream = _details.image.resolve(configuration);
     if (newImageStream.key != _imageStream?.key) {
-      _imageStream?.removeListener(_imageStreamListener);
-      _imageStream = newImageStream..addListener(_imageStreamListener);
+      final listener = ImageStreamListener(_imageListener);
+      _imageStream?.removeListener(listener);
+      _imageStream = newImageStream;
+      _imageStream.addListener(listener);
     }
     if (_image == null) return;
 
@@ -257,7 +265,7 @@ class DecorationImagePainterPlus implements DecorationImagePainter {
   /// After this method has been called, the object is no longer usable.
   @mustCallSuper
   void dispose() {
-    _imageStream?.removeListener(_imageStreamListener);
+    _imageStream?.removeListener(ImageStreamListener(_imageListener));
   }
 
   @override

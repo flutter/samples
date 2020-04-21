@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'src/core/puzzle_animator.dart';
+import 'src/flutter.dart';
 import 'src/puzzle_home_state.dart';
 
 void main() => runApp(PuzzleApp());
@@ -21,7 +21,7 @@ class PuzzleApp extends StatelessWidget {
 class _PuzzleHome extends StatefulWidget {
   final int _rows, _columns;
 
-  const _PuzzleHome(this._rows, this._columns, {Key key}) : super(key: key);
+  const _PuzzleHome(this._rows, this._columns);
 
   @override
   PuzzleHomeState createState() =>
