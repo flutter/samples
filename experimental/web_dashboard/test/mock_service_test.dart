@@ -17,45 +17,45 @@ void main() {
 
     group('items', () {
       test('insert', () async {
-        var item = await api.items.insert(Item('Coffees Drank'));
+        var item = await api.categories.insert(Category('Coffees Drank'));
         expect(item.name, 'Coffees Drank');
       });
 
       test('delete', () async {
-        await api.items.insert(Item('Coffees Drank'));
-        var item2 = await api.items.insert(Item('Miles Ran'));
-        var removed = await api.items.delete(item2.id);
+        await api.categories.insert(Category('Coffees Drank'));
+        var item2 = await api.categories.insert(Category('Miles Ran'));
+        var removed = await api.categories.delete(item2.id);
 
         expect(removed.name, 'Miles Ran');
 
-        var items = await api.items.list();
+        var items = await api.categories.list();
         expect(items, hasLength(1));
       });
 
       test('update', () async {
-        var item = await api.items.insert(Item('Coffees Drank'));
-        await api.items.update(Item('Bagels Consumed'), item.id);
+        var item = await api.categories.insert(Category('Coffees Drank'));
+        await api.categories.update(Category('Bagels Consumed'), item.id);
 
-        var latest = await api.items.get(item.id);
+        var latest = await api.categories.get(item.id);
         expect(latest.name, equals('Bagels Consumed'));
       });
       test('subscribe', () async {
-        var stream = api.items.allItemsStream();
+        var stream = api.categories.stream();
 
         stream.listen(expectAsync1((x) {
           expect(x, hasLength(1));
           expect(x.first.name, equals('Coffees Drank'));
         }, count: 1));
-        await api.items.insert(Item('Coffees Drank'));
+        await api.categories.insert(Category('Coffees Drank'));
       });
     });
 
     group('entry service', () {
-      Item item;
+      Category item;
       DateTime dateTime = DateTime(2020, 1, 1, 30, 45);
 
       setUp(() async {
-        item = await api.items.insert(Item('Lines of code committed'));
+        item = await api.categories.insert(Category('Lines of code committed'));
       });
 
       test('insert', () async {
@@ -83,7 +83,7 @@ void main() {
       });
 
       test('subscribe', () async {
-        var stream = api.entries.allEntriesStream(item.id);
+        var stream = api.entries.stream(item.id);
 
         stream.listen(expectAsync1((x) {
           expect(x, hasLength(1));

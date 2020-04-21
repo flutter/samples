@@ -10,22 +10,22 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart' as intl;
 import 'package:web_dashboard/src/api/api.dart';
 
-import 'edit_item.dart';
+import 'edit_category.dart';
 
-class ItemChart extends StatefulWidget {
-  final Item item;
+class CategoryChart extends StatefulWidget {
+  final Category category;
   final DashboardApi api;
 
-  ItemChart({
-    @required this.item,
+  CategoryChart({
+    @required this.category,
     @required this.api,
   });
 
   @override
-  _ItemChartState createState() => _ItemChartState();
+  _CategoryChartState createState() => _CategoryChartState();
 }
 
-class _ItemChartState extends State<ItemChart> {
+class _CategoryChartState extends State<CategoryChart> {
   StreamSubscription _subscription;
   List<Entry> _entries = [];
 
@@ -41,13 +41,12 @@ class _ItemChartState extends State<ItemChart> {
 
   void _subscribeToEntries() {
     _subscription =
-        widget.api.entries.allEntriesStream(widget.item.id).listen((entries) {
-      print('streamed entries $_entries for item ${widget.item.name}');
+        widget.api.entries.stream(widget.category.id).listen((entries) {
       setState(() {
         _entries = entries;
       });
     });
-    widget.api.entries.list(widget.item.id).then((entries) => setState(() {
+    widget.api.entries.list(widget.category.id).then((entries) => setState(() {
           _entries = entries;
         }));
   }
@@ -61,14 +60,14 @@ class _ItemChartState extends State<ItemChart> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("${widget.item.name}"),
+              Text("${widget.category.name}"),
               IconButton(
                 icon: Icon(Icons.settings),
                 onPressed: () {
                   showDialog(
                     context: context,
                     child: Builder(
-                      builder: (context) => EditItemDialog(item: widget.item),
+                      builder: (context) => EditCategoryDialog(category: widget.category),
                     ),
                   );
                 },

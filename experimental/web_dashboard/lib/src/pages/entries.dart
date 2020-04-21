@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:web_dashboard/src/widgets/edit_entry.dart';
-import 'package:web_dashboard/src/widgets/items_dropdown.dart';
+import 'package:web_dashboard/src/widgets/categories_dropdown.dart';
 
 import '../app.dart';
 
@@ -15,20 +15,20 @@ class EntriesPage extends StatefulWidget {
 }
 
 class _EntriesPageState extends State<EntriesPage> {
-  Item _selectedItem;
+  Category _selected;
   @override
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
     return Column(
       children: [
-        ItemsDropdown(
-            api: appState.api.items,
-            onSelected: (item) => setState(() => _selectedItem = item)),
+        CategoryDropdown(
+            api: appState.api.categories,
+            onSelected: (category) => setState(() => _selected = category)),
         Expanded(
-          child: _selectedItem == null
+          child: _selected == null
               ? CircularProgressIndicator()
               : EntriesList(
-            item: _selectedItem,
+            category: _selected,
             api: appState.api.entries,
           ),
         ),
@@ -37,13 +37,13 @@ class _EntriesPageState extends State<EntriesPage> {
   }
 }
 class EntriesList extends StatefulWidget {
-  final Item item;
+  final Category category;
   final EntryApi api;
 
   EntriesList({
-    @required this.item,
+    @required this.category,
     @required this.api,
-  }) : super(key: ValueKey(item.id));
+  }) : super(key: ValueKey(category.id));
 
   @override
   _EntriesListState createState() => _EntriesListState();
@@ -66,7 +66,7 @@ class _EntriesListState extends State<EntriesList> {
   void didUpdateWidget(EntriesList oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.item == widget.item) {
+    if (oldWidget.category == widget.category) {
       return;
     }
 
@@ -74,17 +74,17 @@ class _EntriesListState extends State<EntriesList> {
   }
 
   Future _fetchEntries() async {
-    if (widget.item == null) {
+    if (widget.category == null) {
       return;
     }
 
-    widget.api.list(widget.item.id).then((entries) {
+    widget.api.list(widget.category.id).then((entries) {
       _setEntries(entries);
     });
 
     _subscription?.cancel();
     _subscription =
-        widget.api.allEntriesStream(widget.item.id).listen((entries) {
+        widget.api.stream(widget.category.id).listen((entries) {
       _setEntries(entries);
     });
   }
@@ -100,7 +100,7 @@ class _EntriesListState extends State<EntriesList> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return EntryTile(
-          item: widget.item,
+          category: widget.category,
           entry: _entries[index],
         );
       },
@@ -110,11 +110,11 @@ class _EntriesListState extends State<EntriesList> {
 }
 
 class EntryTile extends StatelessWidget {
-  final Item item;
+  final Category category;
   final Entry entry;
 
   EntryTile({
-    this.item,
+    this.category,
     this.entry,
   });
 
@@ -131,7 +131,7 @@ class EntryTile extends StatelessWidget {
             onPressed: () {
               showDialog(
                   context: context,
-                  child: EditEntryDialog(item: item, entry: entry));
+                  child: EditEntryDialog(category: category, entry: entry));
             },
           ),
           FlatButton(
@@ -157,7 +157,7 @@ class EntryTile extends StatelessWidget {
                 await Provider.of<AppState>(context, listen: false)
                     .api
                     .entries
-                    .delete(item.id, entry.id);
+                    .delete(category.id, entry.id);
 
                 Scaffold.of(context).showSnackBar(
                   SnackBar(

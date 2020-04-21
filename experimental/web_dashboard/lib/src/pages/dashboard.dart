@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
-import 'package:web_dashboard/src/widgets/item_chart.dart';
+import 'package:web_dashboard/src/widgets/category_chart.dart';
 
 class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
-    return StreamBuilder<List<Item>>(
-      initialData: appState.api.items.latest,
-      stream: appState.api.items.allItemsStream(),
+    return StreamBuilder<List<Category>>(
+      initialData: appState.api.categories.latest,
+      stream: appState.api.categories.stream(),
       builder: (context, snapshot) {
         if (snapshot.data == null) {
           return Center(
@@ -27,9 +27,9 @@ class DashboardPage extends StatelessWidget {
 }
 
 class Dashboard extends StatelessWidget {
-  final List<Item> items;
+  final List<Category> categories;
 
-  Dashboard(this.items);
+  Dashboard(this.categories);
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,10 @@ class Dashboard extends StatelessWidget {
           childAspectRatio: 2,
           maxCrossAxisExtent: 500,
         ),
-        children: items.map((item) {
+        children: categories.map((category) {
           return Card(
-            child: ItemChart(
-              item: item,
+            child: CategoryChart(
+              category: category,
               api: api,
             ),
           );

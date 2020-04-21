@@ -4,7 +4,7 @@ import 'package:web_dashboard/src/api/api.dart';
 import 'package:intl/intl.dart' as intl;
 
 import '../app.dart';
-import 'items_dropdown.dart';
+import 'categories_dropdown.dart';
 
 class NewEntryDialog extends StatefulWidget {
   @override
@@ -24,11 +24,11 @@ class _NewEntryDialogState extends State<NewEntryDialog> {
 }
 
 class EditEntryDialog extends StatelessWidget {
-  final Item item;
+  final Category category;
   final Entry entry;
 
   EditEntryDialog({
-    this.item,
+    this.category,
     this.entry,
   });
 
@@ -43,7 +43,7 @@ class EditEntryDialog extends StatelessWidget {
           entry: entry,
           onDone: (bool shouldUpdate) {
             if (shouldUpdate) {
-              api.entries.update(item.id, entry.id, entry);
+              api.entries.update(category.id, entry.id, entry);
             }
             Navigator.of(context).pop();
           },
@@ -59,7 +59,7 @@ class NewEntryForm extends StatefulWidget {
 }
 
 class _NewEntryFormState extends State<NewEntryForm> {
-  Item _selectedItem;
+  Category _selected;
   Entry _entry = Entry(0, DateTime.now());
 
   @override
@@ -71,11 +71,11 @@ class _NewEntryFormState extends State<NewEntryForm> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ItemsDropdown(
-            api: api.items,
-            onSelected: (item) {
+          child: CategoryDropdown(
+            api: api.categories,
+            onSelected: (category) {
               setState(() {
-                _selectedItem = item;
+                _selected = category;
               });
             },
           ),
@@ -84,7 +84,7 @@ class _NewEntryFormState extends State<NewEntryForm> {
           entry: _entry,
           onDone: (bool shouldInsert) {
             if (shouldInsert) {
-              api.entries.insert(_selectedItem.id, _entry);
+              api.entries.insert(_selected.id, _entry);
             }
             Navigator.of(context).pop();
           },

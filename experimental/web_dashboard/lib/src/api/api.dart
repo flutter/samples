@@ -9,64 +9,63 @@ part 'api.g.dart';
 
 /// Manipulates app data,
 abstract class DashboardApi {
-  ItemApi get items;
-
+  CategoryApi get categories;
   EntryApi get entries;
 }
 
-/// Manipulates [Item] data.
-abstract class ItemApi {
-  Future<Item> delete(String id);
+/// Manipulates [Category] data.
+abstract class CategoryApi {
+  Future<Category> delete(String id);
 
-  Future<Item> get(String id);
+  Future<Category> get(String id);
 
-  Future<Item> insert(Item item);
+  Future<Category> insert(Category category);
 
-  Future<List<Item>> list();
+  Future<List<Category>> list();
 
-  Future<Item> update(Item item, String id);
+  Future<Category> update(Category category, String id);
 
-  Stream<List<Item>> allItemsStream();
+  Stream<List<Category>> stream();
 
-  List<Item> get latest;
+  List<Category> get latest;
 }
 
 /// Manipulates [Entry] data.
 abstract class EntryApi {
-  Future<Entry> delete(String itemId, String id);
+  Future<Entry> delete(String categoryId, String id);
 
-  Future<Entry> get(String itemId, String id);
+  Future<Entry> get(String categoryId, String id);
 
-  Future<Entry> insert(String itemId, Entry entry);
+  Future<Entry> insert(String categoryId, Entry entry);
 
-  Future<List<Entry>> list(String itemId);
+  Future<List<Entry>> list(String categoryId);
 
-  Future<Entry> update(String itemId, String id, Entry entry);
+  Future<Entry> update(String categoryId, String id, Entry entry);
 
-  Stream<List<Entry>> allEntriesStream(String itemId);
+  Stream<List<Entry>> stream(String categoryId);
 }
 
 /// Something that's being tracked, e.g. Hours Slept, Cups of water, etc.
 @JsonSerializable()
-class Item {
+class Category {
   String name;
 
   @JsonKey(ignore: true)
   String id;
 
-  Item(this.name);
+  Category(this.name);
 
-  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ItemToJson(this);
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
 
   @override
-  operator ==(Object other) => other is Item && other.id == id;
+  operator ==(Object other) => other is Category && other.id == id;
   @override
   int get hashCode => id.hashCode;
   @override
   String toString() {
-    return '<Item id=$id>';
+    return '<Category id=$id>';
   }
 }
 

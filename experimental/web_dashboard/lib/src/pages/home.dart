@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:web_dashboard/src/widgets/edit_entry.dart';
-import 'package:web_dashboard/src/widgets/edit_item.dart';
+import 'package:web_dashboard/src/widgets/edit_category.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
 
 import 'dashboard.dart';
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
 
   void _handleFabPressed() {
     if (_pageIndex == 0) {
-      showDialog(context: context, child: NewItemDialog());
+      showDialog(context: context, child: NewCategoryDialog());
       return;
     }
 

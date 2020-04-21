@@ -7,23 +7,23 @@ import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
 
-class NewItemDialog extends StatelessWidget {
+class NewCategoryDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text('New Item'),
+      title: Text('New Category'),
       children: <Widget>[
-        NewItemForm(),
+        NewCategoryForm(),
       ],
     );
   }
 }
 
-class EditItemDialog extends StatelessWidget {
-  final Item item;
+class EditCategoryDialog extends StatelessWidget {
+  final Category category;
 
-  EditItemDialog({
-    @required this.item,
+  EditCategoryDialog({
+    @required this.category,
   });
 
   @override
@@ -31,13 +31,13 @@ class EditItemDialog extends StatelessWidget {
     var api = Provider.of<AppState>(context).api;
 
     return SimpleDialog(
-      title: Text('Edit Item'),
+      title: Text('Edit Category'),
       children: [
-        EditItemForm(
-          item: item,
+        EditCategoryForm(
+          category: category,
           onDone: (bool shouldUpdate) {
             if (shouldUpdate) {
-              api.items.update(item, item.id);
+              api.categories.update(category, category.id);
             }
             Navigator.of(context).pop();
           },
@@ -47,22 +47,22 @@ class EditItemDialog extends StatelessWidget {
   }
 }
 
-class NewItemForm extends StatefulWidget {
+class NewCategoryForm extends StatefulWidget {
   @override
-  _NewItemFormState createState() => _NewItemFormState();
+  _NewCategoryFormState createState() => _NewCategoryFormState();
 }
 
-class _NewItemFormState extends State<NewItemForm> {
-  Item _item = Item('');
+class _NewCategoryFormState extends State<NewCategoryForm> {
+  Category _category = Category('');
 
   @override
   Widget build(BuildContext context) {
     var api = Provider.of<AppState>(context).api;
-    return EditItemForm(
-      item: _item,
+    return EditCategoryForm(
+      category: _category,
       onDone: (bool shouldInsert) {
         if (shouldInsert) {
-          api.items.insert(_item);
+          api.categories.insert(_category);
         }
         Navigator.of(context).pop();
       },
@@ -70,20 +70,20 @@ class _NewItemFormState extends State<NewItemForm> {
   }
 }
 
-class EditItemForm extends StatefulWidget {
-  final Item item;
+class EditCategoryForm extends StatefulWidget {
+  final Category category;
   final ValueChanged<bool> onDone;
 
-  EditItemForm({
-    @required this.item,
+  EditCategoryForm({
+    @required this.category,
     @required this.onDone,
   });
 
   @override
-  _EditItemFormState createState() => _EditItemFormState();
+  _EditCategoryFormState createState() => _EditCategoryFormState();
 }
 
-class _EditItemFormState extends State<EditItemForm> {
+class _EditCategoryFormState extends State<EditCategoryForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -96,12 +96,12 @@ class _EditItemFormState extends State<EditItemForm> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              initialValue: widget.item.name,
+              initialValue: widget.category.name,
               decoration: InputDecoration(
                 labelText: 'Name',
               ),
               onChanged: (newValue) {
-                widget.item.name = newValue;
+                widget.category.name = newValue;
               },
               validator: (value) {
                 if (value.isEmpty) {
