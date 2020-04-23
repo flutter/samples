@@ -16,6 +16,7 @@ import 'src/basics/10_animated_switcher.dart';
 import 'src/misc/animated_list.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
+import 'src/misc/curved_animation.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
 import 'src/misc/hero_animation.dart';
@@ -108,6 +109,10 @@ final miscDemos = [
       name: 'Hero Animation',
       route: HeroAnimationDemo.routeName,
       builder: (context) => HeroAnimationDemo()),
+  Demo(
+      name: 'Curved Animation',
+      route: CurvedAnimationDemo.routeName,
+      builder: (context) => CurvedAnimationDemo()),
 ];
 
 final basicDemoRoutes =
