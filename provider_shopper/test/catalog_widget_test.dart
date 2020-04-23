@@ -12,7 +12,7 @@ import 'package:provider_shopper/screens/catalog.dart';
 
 Widget createCatalogScreen() => MultiProvider(
       providers: [
-        Provider(create: (context) => CatalogModel.modifyModel(3)),
+        Provider(create: (context) => CatalogModel()),
         ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {
@@ -27,14 +27,15 @@ Widget createCatalogScreen() => MultiProvider(
     );
 
 void main() {
-  final catalogListItems = CatalogModel.itemNames;
+  final catalogListItems = CatalogModel.itemNames.sublist(0, 3);
 
   group('CatalogScreen Widget Tests', () {
-    testWidgets('Testing the layout and presentation of widgets',
+    testWidgets('Testing item row counts and text',
         (tester) async {
       await tester.pumpWidget(createCatalogScreen());
 
-      // Testing for the items on the screen after modifying the model for a fixed number of items.
+      // Testing for the items on the screen after modifying
+      // the model for a fixed number of items.
       for (String item in catalogListItems) {
         expect(find.text(item), findsWidgets);
       }

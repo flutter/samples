@@ -30,12 +30,6 @@ class CatalogModel {
     'Currying',
   ];
 
-  CatalogModel();
-
-  CatalogModel.modifyModel(int lrange) {
-    itemNames.removeRange(lrange, itemNames.length);
-  }
-
   /// Get item by [id].
   ///
   /// In this sample, the catalog is infinite, looping over [itemNames].

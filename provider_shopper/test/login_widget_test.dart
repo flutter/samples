@@ -33,9 +33,6 @@ void main() {
     ));
 
     // Verifying the behaviour of ENTER button.
-    final enterBtnFinder = find.widgetWithText(RaisedButton, 'ENTER');
-    expect(enterBtnFinder, findsOneWidget);
-
     await tester.tap(find.text('ENTER'));
     await tester.pumpAndSettle();
 
