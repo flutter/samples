@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget createExpandCardScreen() => MaterialApp(
-  home: ExpandCardDemo(),
-);
+      home: ExpandCardDemo(),
+    );
 
 void main() {
   group('ExpandCard Tests', () {
