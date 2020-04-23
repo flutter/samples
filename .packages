@@ -1,4 +1,3 @@
-samples_index:packages/samples_index/
 _fe_analyzer_shared:packages/_fe_analyzer_shared/
 analysis_server_lib:packages/analysis_server_lib/
 analyzer:packages/analyzer/
@@ -62,6 +61,7 @@ pub_semver:packages/pub_semver/
 pubspec_parse:packages/pubspec_parse/
 quiver:packages/quiver/
 resource:packages/resource/
+samples_index:packages/samples_index/
 sass:packages/sass/
 sass_builder:packages/sass_builder/
 scratch_space:packages/scratch_space/

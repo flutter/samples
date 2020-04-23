@@ -936,36 +936,38 @@ table AvailableDeclaration {
 
   isFinal:bool (id: 11);
 
+  isStatic:bool (id: 12);
+
   /// The kind of the declaration.
-  kind:AvailableDeclarationKind (id: 12);
+  kind:AvailableDeclarationKind (id: 13);
 
-  locationOffset:uint (id: 13);
+  locationOffset:uint (id: 14);
 
-  locationStartColumn:uint (id: 14);
+  locationStartColumn:uint (id: 15);
 
-  locationStartLine:uint (id: 15);
+  locationStartLine:uint (id: 16);
 
   /// The first part of the declaration name, usually the only one, for example
   /// the name of a class like `MyClass`, or a function like `myFunction`.
-  name:string (id: 16);
+  name:string (id: 17);
 
-  parameterNames:[string] (id: 17);
+  parameterNames:[string] (id: 18);
 
-  parameters:string (id: 18);
+  parameters:string (id: 19);
 
-  parameterTypes:[string] (id: 19);
+  parameterTypes:[string] (id: 20);
 
   /// The partial list of relevance tags.  Not every declaration has one (for
   /// example, function do not currently), and not every declaration has to
   /// store one (for classes it can be computed when we know the library that
   /// includes this file).
-  relevanceTags:[string] (id: 20);
+  relevanceTags:[string] (id: 21);
 
-  requiredParameterCount:uint (id: 21);
+  requiredParameterCount:uint (id: 22);
 
-  returnType:string (id: 22);
+  returnType:string (id: 23);
 
-  typeParameters:string (id: 23);
+  typeParameters:string (id: 24);
 }
 
 /// Information about an available, even if not yet imported file.
@@ -1008,6 +1010,35 @@ table AvailableFileExportCombinator {
 
   /// List of names which are shown.  Empty if this is a `hide` combinator.
   shows:[string] (id: 0);
+}
+
+/// Information about linked libraries, a group of libraries that form
+/// a library cycle.
+table CiderLinkedLibraryCycle {
+  bundle:LinkedNodeBundle (id: 1);
+
+  /// The hash signature for this linked cycle. It depends of API signatures
+  /// of all files in the cycle, and on the signatures of the transitive
+  /// closure of the cycle dependencies.
+  signature:[uint] (id: 0);
+}
+
+/// Errors for a single unit.
+table CiderUnitErrors {
+  errors:[AnalysisDriverUnitError] (id: 1);
+
+  /// The hash signature of this data.
+  signature:[uint] (id: 0);
+}
+
+/// Information about a compilation unit, contains the content hash
+/// and unlinked summary.
+table CiderUnlinkedUnit {
+  /// The hash signature of the contents of the file.
+  contentDigest:[uint] (id: 0);
+
+  /// Unlinked summary of the compilation unit.
+  unlinkedUnit:UnlinkedUnit2 (id: 1);
 }
 
 table DiagnosticMessage {
@@ -1073,6 +1104,9 @@ table LinkedNode {
 
   variantField_3:[LinkedNode] (id: 3);
 
+  /// The minor component of the actual language version (not just override).
+  variantField_16:uint (id: 16);
+
   variantField_10:LinkedNode (id: 10);
 
   variantField_26:LinkedNodeFormalParameterKind (id: 26);
@@ -1090,8 +1124,6 @@ table LinkedNode {
   variantField_1:string (id: 1);
 
   variantField_36:uint (id: 36);
-
-  variantField_16:uint (id: 16);
 
   variantField_30:string (id: 30);
 
