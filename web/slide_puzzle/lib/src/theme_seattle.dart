@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
-import 'app_state.dart';
+import 'core/puzzle_proxy.dart';
+import 'flutter.dart';
 import 'shared_theme.dart';
 import 'widgets/decoration_image_plus.dart';
 
@@ -8,7 +7,7 @@ class ThemeSeattle extends SharedTheme {
   @override
   String get name => 'Seattle';
 
-  ThemeSeattle(AppState proxy) : super(proxy);
+  const ThemeSeattle();
 
   @override
   Color get puzzleThemeBackground => const Color.fromARGB(153, 90, 135, 170);
@@ -20,18 +19,19 @@ class ThemeSeattle extends SharedTheme {
   Color get puzzleAccentColor => const Color(0xff000579f);
 
   @override
-  RoundedRectangleBorder get puzzleBorder => const RoundedRectangleBorder(
+  RoundedRectangleBorder puzzleBorder(bool small) =>
+      const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(1),
         ),
       );
 
   @override
-  EdgeInsetsGeometry get tilePadding =>
+  EdgeInsetsGeometry tilePadding(PuzzleProxy puzzle) =>
       puzzle.solved ? const EdgeInsets.all(1) : const EdgeInsets.all(4);
 
   @override
-  Widget tileButton(int i) {
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
     if (i == puzzle.tileCount && !puzzle.solved) {
       assert(puzzle.solved);
     }
@@ -58,14 +58,14 @@ class ThemeSeattle extends SharedTheme {
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: correctPosition ? Colors.white : Colors.black,
-                  fontSize: 42,
+                  fontSize: small ? 25 : 42,
                 ),
               ),
             ),
       image: decorationImage,
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.all(small ? 20 : 32),
     );
 
-    return createButton(i, content);
+    return createButton(puzzle, small, i, content);
   }
 }

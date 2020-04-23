@@ -123,8 +123,7 @@ abstract class Puzzle {
         value += delta * delta;
       }
     }
-    value *= incorrectTiles;
-    return value;
+    return value * incorrectTiles;
   }
 
   Puzzle clickRandom({bool vertical}) {
@@ -137,8 +136,8 @@ abstract class Puzzle {
 
   List<int> clickableValues({bool vertical}) {
     final open = openPosition();
-    final doRow = (vertical == null || vertical == false);
-    final doColumn = (vertical == null || vertical);
+    final doRow = vertical == null || vertical == false;
+    final doColumn = vertical == null || vertical;
 
     final values =
         Uint8List((doRow ? (width - 1) : 0) + (doColumn ? (height - 1) : 0));
