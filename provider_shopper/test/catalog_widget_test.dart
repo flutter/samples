@@ -30,8 +30,7 @@ void main() {
   final catalogListItems = CatalogModel.itemNames.sublist(0, 3);
 
   group('CatalogScreen Widget Tests', () {
-    testWidgets('Testing item row counts and text',
-        (tester) async {
+    testWidgets('Testing item row counts and text', (tester) async {
       await tester.pumpWidget(createCatalogScreen());
 
       // Testing for the items on the screen after modifying
