@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Widget createExpandCardScreen() => MaterialApp(
-      home: ExpandCardDemo(),
-    );
+  home: ExpandCardDemo(),
+);
 
 void main() {
   group('ExpandCard Tests', () {
@@ -23,9 +23,10 @@ void main() {
       await tester.pumpAndSettle();
 
       // The size of ExpandCard must change once tapped.
+      // The initialSize should be less than current ExpandCard size.
       expect(
         initialSize,
-        isNot(equals(tester.getSize(find.byType(ExpandCard)))),
+        lessThan(tester.getSize(find.byType(ExpandCard))),
       );
     });
 
