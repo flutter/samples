@@ -401,7 +401,7 @@ samples:
     screenshots:
       - url: images/timeflow1.png
         alt: Timeflow screenshot
-    source: github.com/Fabian-Stein/timeflow
+    source: https://github.com/Fabian-Stein/timeflow
     description: >
       A gentle animation that provides a calming experience to stressed developers.
     difficulty: advanced
