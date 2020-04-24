@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/widgets/edit_entry.dart';
-import 'package:web_dashboard/src/widgets/edit_category.dart';
+import 'package:web_dashboard/src/widgets/dialogs.dart';
 import 'package:web_dashboard/src/widgets/third_party/adaptive_scaffold.dart';
 
 import 'dashboard.dart';

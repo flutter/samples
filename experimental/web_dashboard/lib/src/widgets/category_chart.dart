@@ -10,7 +10,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart' as intl;
 import 'package:web_dashboard/src/api/api.dart';
 
-import 'edit_category.dart';
+import 'dialogs.dart';
 
 class CategoryChart extends StatefulWidget {
   final Category category;

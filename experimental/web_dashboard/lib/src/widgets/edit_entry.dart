@@ -6,53 +6,6 @@ import 'package:intl/intl.dart' as intl;
 import '../app.dart';
 import 'categories_dropdown.dart';
 
-class NewEntryDialog extends StatefulWidget {
-  @override
-  _NewEntryDialogState createState() => _NewEntryDialogState();
-}
-
-class _NewEntryDialogState extends State<NewEntryDialog> {
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: Text('New Entry'),
-      children: [
-        NewEntryForm(),
-      ],
-    );
-  }
-}
-
-class EditEntryDialog extends StatelessWidget {
-  final Category category;
-  final Entry entry;
-
-  EditEntryDialog({
-    this.category,
-    this.entry,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    var api = Provider.of<AppState>(context).api;
-
-    return SimpleDialog(
-      title: Text('Edit Entry'),
-      children: [
-        EditEntryForm(
-          entry: entry,
-          onDone: (bool shouldUpdate) {
-            if (shouldUpdate) {
-              api.entries.update(category.id, entry.id, entry);
-            }
-            Navigator.of(context).pop();
-          },
-        )
-      ],
-    );
-  }
-}
-
 class NewEntryForm extends StatefulWidget {
   @override
   _NewEntryFormState createState() => _NewEntryFormState();

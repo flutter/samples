@@ -7,46 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
 
-class NewCategoryDialog extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: Text('New Category'),
-      children: <Widget>[
-        NewCategoryForm(),
-      ],
-    );
-  }
-}
-
-class EditCategoryDialog extends StatelessWidget {
-  final Category category;
-
-  EditCategoryDialog({
-    @required this.category,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    var api = Provider.of<AppState>(context).api;
-
-    return SimpleDialog(
-      title: Text('Edit Category'),
-      children: [
-        EditCategoryForm(
-          category: category,
-          onDone: (bool shouldUpdate) {
-            if (shouldUpdate) {
-              api.categories.update(category, category.id);
-            }
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
-    );
-  }
-}
-
 class NewCategoryForm extends StatefulWidget {
   @override
   _NewCategoryFormState createState() => _NewCategoryFormState();
