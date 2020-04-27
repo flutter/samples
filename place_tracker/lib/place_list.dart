@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'place.dart';
 import 'place_details.dart';
@@ -16,24 +17,25 @@ class PlaceListState extends State<PlaceList> {
 
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
-    AppState.updateWith(context, selectedCategory: newCategory);
+    Provider.of<AppState>(context, listen: false).changeSelectedCategory(newCategory);
   }
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final newPlaces = List<Place>.from(AppState.of(context).places);
+    final newPlaces = List<Place>.from(Provider.of<AppState>(context, listen: false).places);
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
-    AppState.updateWith(context, places: newPlaces);
+    Provider.of<AppState>(context, listen: false).changePlaces(newPlaces);
   }
 
   @override
   Widget build(BuildContext context) {
+    AppState state = Provider.of<AppState>(context);
     return Column(
       children: <Widget>[
         _ListCategoryButtonBar(
-          selectedCategory: AppState.of(context).selectedCategory,
+          selectedCategory: state.selectedCategory,
           onCategoryChanged: (value) => _onCategoryChanged(value),
         ),
         Expanded(
@@ -41,10 +43,10 @@ class PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: AppState.of(context)
+            children: state
                 .places
                 .where((place) =>
-                    place.category == AppState.of(context).selectedCategory)
+                    place.category == state.selectedCategory)
                 .map((place) => _PlaceListTile(
                       place: place,
                       onPlaceChanged: (value) => _onPlaceChanged(value),
