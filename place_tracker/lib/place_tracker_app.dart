@@ -29,6 +29,7 @@ class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
 
 class _PlaceTrackerHomePage extends StatelessWidget {
   const _PlaceTrackerHomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     AppState state = Provider.of<AppState>(context);
@@ -50,16 +51,14 @@ class _PlaceTrackerHomePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
             child: IconButton(
               icon: Icon(
-                state.viewType ==
-                        PlaceTrackerViewType.map
+                state.viewType == PlaceTrackerViewType.map
                     ? Icons.list
                     : Icons.map,
                 size: 32.0,
               ),
               onPressed: () {
                 state.changeViewType(
-                  state.viewType ==
-                          PlaceTrackerViewType.map
+                  state.viewType == PlaceTrackerViewType.map
                       ? PlaceTrackerViewType.list
                       : PlaceTrackerViewType.map,
                 );
@@ -69,10 +68,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
         ],
       ),
       body: IndexedStack(
-        index:
-            state.viewType == PlaceTrackerViewType.map
-                ? 0
-                : 1,
+        index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
         children: <Widget>[
           PlaceMap(center: const LatLng(45.521563, -122.677433)),
           PlaceList()
@@ -99,12 +95,12 @@ class AppState with ChangeNotifier {
     notifyListeners();
   }
 
-  void changeSelectedCategory(PlaceCategory newCategory){
+  void changeSelectedCategory(PlaceCategory newCategory) {
     this.selectedCategory = newCategory;
     notifyListeners();
   }
 
-  void changePlaces(List<Place> newPlaces){
+  void changePlaces(List<Place> newPlaces) {
     this.places = newPlaces;
     notifyListeners();
   }

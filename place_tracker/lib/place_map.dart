@@ -63,7 +63,8 @@ class PlaceMapState extends State<PlaceMap> {
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
     setState(() {
-      for (Place place in Provider.of<AppState>(context, listen: false).places) {
+      for (Place place
+          in Provider.of<AppState>(context, listen: false).places) {
         _markers.add(_createPlaceMarker(place));
       }
     });
@@ -87,7 +88,8 @@ class PlaceMapState extends State<PlaceMap> {
         onTap: () => _pushPlaceDetailsScreen(place),
       ),
       icon: _getPlaceMarkerIcon(place.category),
-      visible: place.category == Provider.of<AppState>(context, listen: false).selectedCategory,
+      visible: place.category ==
+          Provider.of<AppState>(context, listen: false).selectedCategory,
     );
     _markedPlaces[marker] = place;
     return marker;
@@ -109,7 +111,8 @@ class PlaceMapState extends State<PlaceMap> {
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final newPlaces = List<Place>.from(Provider.of<AppState>(context, listen: false).places);
+    final newPlaces =
+        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
@@ -120,7 +123,8 @@ class PlaceMapState extends State<PlaceMap> {
     // in the main build method due to a modified AppState.
     _configuration = MapConfiguration(
       places: newPlaces,
-      selectedCategory: Provider.of<AppState>(context, listen: false).selectedCategory,
+      selectedCategory:
+          Provider.of<AppState>(context, listen: false).selectedCategory,
     );
 
     Provider.of<AppState>(context, listen: false).changePlaces(newPlaces);
@@ -155,7 +159,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
-    Provider.of<AppState>(context, listen: false).changeSelectedCategory(category);
+    Provider.of<AppState>(context, listen: false)
+        .changeSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
   }
 
@@ -229,12 +234,14 @@ class PlaceMapState extends State<PlaceMap> {
         id: Uuid().v1() as String,
         latLng: _pendingMarker.position,
         name: _pendingMarker.infoWindow.title,
-        category: Provider.of<AppState>(context, listen: false).selectedCategory,
+        category:
+            Provider.of<AppState>(context, listen: false).selectedCategory,
       );
 
       setState(() {
         final updatedMarker = _pendingMarker.copyWith(
-          iconParam: _getPlaceMarkerIcon(Provider.of<AppState>(context, listen: false).selectedCategory),
+          iconParam: _getPlaceMarkerIcon(
+              Provider.of<AppState>(context, listen: false).selectedCategory),
           infoWindowParam: InfoWindow(
             title: 'New Place',
             snippet: null,
@@ -268,15 +275,17 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in appState.
-      final List<Place> newPlaces = List.from(Provider.of<AppState>(context, listen: false).places)
-        ..add(newPlace);
+      final List<Place> newPlaces =
+          List.from(Provider.of<AppState>(context, listen: false).places)
+            ..add(newPlace);
 
       // Manually update our map configuration here since our map is already
       // updated with the new marker. Otherwise, the map would be reconfigured
       // in the main build method due to a modified AppState.
       _configuration = MapConfiguration(
         places: newPlaces,
-        selectedCategory: Provider.of<AppState>(context, listen: false).selectedCategory,
+        selectedCategory:
+            Provider.of<AppState>(context, listen: false).selectedCategory,
       );
 
       Provider.of<AppState>(context, listen: false).changePlaces(newPlaces);
@@ -302,7 +311,8 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _maybeUpdateMapConfiguration() async {
-    _configuration ??= MapConfiguration.of(Provider.of<AppState>(context, listen: false));
+    _configuration ??=
+        MapConfiguration.of(Provider.of<AppState>(context, listen: false));
     final MapConfiguration newConfiguration =
         MapConfiguration.of(Provider.of<AppState>(context, listen: false));
 

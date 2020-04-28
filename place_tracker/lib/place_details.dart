@@ -11,7 +11,8 @@ class PlaceDetails extends StatefulWidget {
     @required this.place,
     @required this.onChanged,
     Key key,
-  })  : assert(place != null),
+  })
+      : assert(place != null),
         assert(onChanged != null),
         super(key: key);
 
@@ -121,7 +122,8 @@ class _NameTextField extends StatelessWidget {
     @required this.controller,
     @required this.onChanged,
     Key key,
-  })  : assert(controller != null),
+  })
+      : assert(controller != null),
         assert(onChanged != null),
         super(key: key);
 
@@ -153,7 +155,8 @@ class _DescriptionTextField extends StatelessWidget {
     @required this.controller,
     @required this.onChanged,
     Key key,
-  })  : assert(controller != null),
+  })
+      : assert(controller != null),
         assert(onChanged != null),
         super(key: key);
 
@@ -186,7 +189,8 @@ class _StarBar extends StatelessWidget {
     @required this.rating,
     @required this.onChanged,
     Key key,
-  })  : assert(rating != null && rating >= 0 && rating <= maxStars),
+  })
+      : assert(rating != null && rating >= 0 && rating <= maxStars),
         assert(onChanged != null),
         super(key: key);
 
@@ -219,7 +223,8 @@ class _Map extends StatelessWidget {
     @required this.onMapCreated,
     @required this.markers,
     Key key,
-  })  : assert(center != null),
+  })
+      : assert(center != null),
         assert(onMapCreated != null),
         super(key: key);
 
