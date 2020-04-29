@@ -23,7 +23,7 @@ void analyze() {
 }
 
 @Task('deploy')
-@Depends(analyze, testCli, generate, createThumbnails, buildRelease)
+@Depends(analyze, testCli, generate, buildRelease)
 void deploy() {
   print('All tasks completed. To deploy to Firebase, run:');
   print('');
@@ -32,9 +32,10 @@ void deploy() {
 }
 
 @Task('Run build_runner to public/ directory')
+@Depends(createThumbnails)
 Future buildRelease() async {
   var app = PubApp.local('build_runner');
-  await app.runAsync('build --release --output web:public'.split(' ').toList());
+  await app.runAsync('build --release --output web:public --delete-conflicting-outputs'.split(' ').toList());
 }
 
 @DefaultTask('Build the project.')
