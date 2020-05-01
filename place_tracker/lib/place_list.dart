@@ -17,15 +17,14 @@ class PlaceListState extends State<PlaceList> {
 
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
-    Provider.of<AppState>(context, listen: false).changeSelectedCategory(
-        newCategory);
+    Provider.of<AppState>(context, listen: false)
+        .changeSelectedCategory(newCategory);
   }
 
   void _onPlaceChanged(Place value) {
     // Replace the place with the modified version.
-    final newPlaces = List<Place>.from(Provider
-        .of<AppState>(context, listen: false)
-        .places);
+    final newPlaces =
+        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
@@ -46,15 +45,12 @@ class PlaceListState extends State<PlaceList> {
             padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
             controller: _scrollController,
             shrinkWrap: true,
-            children: state
-                .places
-                .where((place) =>
-            place.category == state.selectedCategory)
-                .map((place) =>
-                _PlaceListTile(
-                  place: place,
-                  onPlaceChanged: (value) => _onPlaceChanged(value),
-                ))
+            children: state.places
+                .where((place) => place.category == state.selectedCategory)
+                .map((place) => _PlaceListTile(
+                      place: place,
+                      onPlaceChanged: (value) => _onPlaceChanged(value),
+                    ))
                 .toList(),
           ),
         ),
@@ -68,8 +64,7 @@ class _PlaceListTile extends StatelessWidget {
     Key key,
     @required this.place,
     @required this.onPlaceChanged,
-  })
-      : assert(place != null),
+  })  : assert(place != null),
         assert(onPlaceChanged != null),
         super(key: key);
 
@@ -79,16 +74,15 @@ class _PlaceListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>
-          Navigator.push<void>(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return PlaceDetails(
-                place: place,
-                onChanged: (value) => onPlaceChanged(value),
-              );
-            }),
-          ),
+      onTap: () => Navigator.push<void>(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PlaceDetails(
+            place: place,
+            onChanged: (value) => onPlaceChanged(value),
+          );
+        }),
+      ),
       child: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
@@ -116,10 +110,7 @@ class _PlaceListTile extends StatelessWidget {
             ),
             Text(
               place.description != null ? place.description : '',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .subhead,
+              style: Theme.of(context).textTheme.subhead,
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
@@ -140,8 +131,7 @@ class _ListCategoryButtonBar extends StatelessWidget {
     Key key,
     @required this.selectedCategory,
     @required this.onCategoryChanged,
-  })
-      : assert(selectedCategory != null),
+  })  : assert(selectedCategory != null),
         assert(onCategoryChanged != null),
         super(key: key);
 
@@ -179,8 +169,7 @@ class _CategoryButton extends StatelessWidget {
     @required this.category,
     @required this.selected,
     @required this.onCategoryChanged,
-  })
-      : assert(category != null),
+  })  : assert(category != null),
         assert(selected != null),
         super(key: key);
 
