@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart' as intl;
 import 'package:web_dashboard/src/api/api.dart';
+import 'package:web_dashboard/src/utils/chart_utils.dart' as utils;
 
 import 'dialogs.dart';
 
@@ -67,7 +68,8 @@ class _CategoryChartState extends State<CategoryChart> {
                   showDialog(
                     context: context,
                     child: Builder(
-                      builder: (context) => EditCategoryDialog(category: widget.category),
+                      builder: (context) =>
+                          EditCategoryDialog(category: widget.category),
                     ),
                   );
                 },
@@ -78,7 +80,7 @@ class _CategoryChartState extends State<CategoryChart> {
         Expanded(
           child: Center(
             child: charts.BarChart(
-              _data(),
+              [_seriesData()],
               animate: false,
             ),
           ),
@@ -87,65 +89,22 @@ class _CategoryChartState extends State<CategoryChart> {
     );
   }
 
-  List<EntryTotal> _entryTotals(List<Entry> entries, int daysAgo) {
-    var today = DateTime.now();
-    var daysAgoDur = Duration(days: daysAgo);
-    var firstDay = today.subtract(daysAgoDur);
-    var result = List<EntryTotal>(daysAgo + 1); // e.g. 1 day ago shows today and yesterday
+  charts.Series<utils.EntryTotal, String> _seriesData() {
+    return charts.Series<utils.EntryTotal, String>(
+      id: 'Entries',
+      colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+      domainFn: (utils.EntryTotal entryTotal, _) {
+        if (entryTotal == null) return null;
 
-    bool isSameDay(DateTime d1, DateTime d2) {
-      return d1.year == d2.year && d1.month == d2.month && d1.day == d2.day;
-    }
+        var format = intl.DateFormat.Md();
+        return format.format(entryTotal.day);
+      },
+      measureFn: (utils.EntryTotal total, _) {
+        if (total == null) return null;
 
-    List<Entry> entriesForDay(DateTime day) {
-      return _entries.where((e) => isSameDay(e.time, day)).toList();
-    }
-
-    for (var i = 0; i <= daysAgo; i++) {
-      var day = firstDay.add(Duration(days: i));
-      var entries = entriesForDay(day);
-      if (entries.isEmpty) {
-        result[i] = EntryTotal(day, 0);
-        continue;
-      }
-      for (var entry in entries) {
-        if (result[i] == null) {
-          result[i] = EntryTotal(entry.time, entry.value);
-        } else {
-          result[i].value += entry.value;
-        }
-      }
-    }
-
-    return result;
+        return total.value;
+      },
+      data: utils.entryTotalsByDay(_entries, 10),
+    );
   }
-
-  List<charts.Series<EntryTotal, String>> _data() {
-    return [
-      charts.Series<EntryTotal, String>(
-        id: 'Entries',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (EntryTotal entryTotal, _) {
-          if (entryTotal == null) return null;
-
-          var format = intl.DateFormat.Md();
-          return format.format(entryTotal.day);
-        },
-        measureFn: (EntryTotal total, _) {
-          if (total == null) return null;
-
-          return total.value;
-        },
-        data: _entryTotals(_entries, 10),
-      )
-    ];
-  }
-}
-
-class EntryTotal {
-  // The number of days since the beginning of the data set.
-  final DateTime day;
-  int value;
-
-  EntryTotal(this.day, this.value);
 }
