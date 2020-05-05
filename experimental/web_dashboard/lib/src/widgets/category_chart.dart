@@ -13,7 +13,7 @@ import 'package:web_dashboard/src/utils/chart_utils.dart' as utils;
 
 import 'dialogs.dart';
 
-class CategoryChart extends StatefulWidget {
+class CategoryChart extends StatelessWidget {
   final Category category;
   final DashboardApi api;
 
@@ -22,55 +22,21 @@ class CategoryChart extends StatefulWidget {
     @required this.api,
   });
 
-  @override
-  _CategoryChartState createState() => _CategoryChartState();
-}
-
-class _CategoryChartState extends State<CategoryChart> {
-  StreamSubscription _subscription;
-  List<Entry> _entries = [];
-
-  void initState() {
-    super.initState();
-    _subscribeToEntries();
-  }
-
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
-
-  void _subscribeToEntries() {
-    _subscription =
-        widget.api.entries.stream(widget.category.id).listen((entries) {
-      setState(() {
-        _entries = entries;
-      });
-    });
-    widget.api.entries.list(widget.category.id).then((entries) => setState(() {
-          _entries = entries;
-        }));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
+      children: [
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("${widget.category.name}"),
+              Text(category.name),
               IconButton(
                 icon: Icon(Icons.settings),
                 onPressed: () {
                   showDialog(
                     context: context,
-                    child: Builder(
-                      builder: (context) =>
-                          EditCategoryDialog(category: widget.category),
-                    ),
+                    child: EditCategoryDialog(category: category),
                   );
                 },
               ),
@@ -78,14 +44,46 @@ class _CategoryChartState extends State<CategoryChart> {
           ),
         ),
         Expanded(
-          child: Center(
-            child: charts.BarChart(
-              [_seriesData()],
-              animate: false,
-            ),
+          // Load the initial snapshot using a FutureBuilder, and subscribe to
+          // additional updates with a StreamBuilder.
+          child: FutureBuilder(
+            future: api.entries.list(category.id),
+            builder: (context, futureSnapshot) {
+              if (!futureSnapshot.hasData) {
+                return _buildLoadingIndicator();
+              }
+              return StreamBuilder<List<Entry>>(
+                initialData: futureSnapshot.data,
+                stream: api.entries.stream(category.id),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return _buildLoadingIndicator();
+                  }
+                  return _BarChart(entries: snapshot.data);
+                },
+              );
+            },
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildLoadingIndicator() {
+    return Center(child: CircularProgressIndicator());
+  }
+}
+
+class _BarChart extends StatelessWidget {
+  final List<Entry> entries;
+
+  _BarChart({this.entries});
+
+  @override
+  Widget build(BuildContext context) {
+    return charts.BarChart(
+      [_seriesData()],
+      animate: false,
     );
   }
 
@@ -104,7 +102,7 @@ class _CategoryChartState extends State<CategoryChart> {
 
         return total.value;
       },
-      data: utils.entryTotalsByDay(_entries, 10),
+      data: utils.entryTotalsByDay(entries, 10),
     );
   }
 }
