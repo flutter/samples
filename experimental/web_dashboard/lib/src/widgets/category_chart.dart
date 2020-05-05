@@ -94,13 +94,13 @@ class _BarChart extends StatelessWidget {
     return charts.Series<utils.EntryTotal, String>(
       id: 'Entries',
       colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-      domainFn: (utils.EntryTotal entryTotal, _) {
+      domainFn: (entryTotal, _) {
         if (entryTotal == null) return null;
 
         var format = intl.DateFormat.Md();
         return format.format(entryTotal.day);
       },
-      measureFn: (utils.EntryTotal total, _) {
+      measureFn: (total, _) {
         if (total == null) return null;
 
         return total.value;

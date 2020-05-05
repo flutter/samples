@@ -39,7 +39,7 @@ class _NewEntryFormState extends State<NewEntryForm> {
         ),
         EditEntryForm(
           entry: _entry,
-          onDone: (bool shouldInsert) {
+          onDone: (shouldInsert) {
             if (shouldInsert) {
               api.entries.insert(_selected.id, _entry);
             }

@@ -38,7 +38,7 @@ class EditCategoryDialog extends StatelessWidget {
       children: [
         EditCategoryForm(
           category: category,
-          onDone: (bool shouldUpdate) {
+          onDone: (shouldUpdate) {
             if (shouldUpdate) {
               api.categories.update(category, category.id);
             }
@@ -85,7 +85,7 @@ class EditEntryDialog extends StatelessWidget {
       children: [
         EditEntryForm(
           entry: entry,
-          onDone: (bool shouldUpdate) {
+          onDone: (shouldUpdate) {
             if (shouldUpdate) {
               api.entries.update(category.id, entry.id, entry);
             }

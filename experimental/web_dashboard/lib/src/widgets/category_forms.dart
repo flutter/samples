@@ -20,7 +20,7 @@ class _NewCategoryFormState extends State<NewCategoryForm> {
     var api = Provider.of<AppState>(context).api;
     return EditCategoryForm(
       category: _category,
-      onDone: (bool shouldInsert) {
+      onDone: (shouldInsert) {
         if (shouldInsert) {
           api.categories.insert(_category);
         }

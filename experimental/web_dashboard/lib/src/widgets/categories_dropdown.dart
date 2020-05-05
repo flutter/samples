@@ -60,12 +60,12 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
+    return DropdownButton<Category>(
       value: _selected,
       items: _categories
           .map((i) => DropdownMenuItem<Category>(child: Text(i.name), value: i))
           .toList(),
-      onChanged: (Category category) {
+      onChanged: (category) {
         setState(() {
           _selected = category;
         });
