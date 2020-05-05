@@ -50,14 +50,16 @@ class Dashboard extends StatelessWidget {
           childAspectRatio: 2,
           maxCrossAxisExtent: 500,
         ),
-        children: categories.map((category) {
-          return Card(
-            child: CategoryChart(
-              category: category,
-              api: api,
+        children: [
+          ...categories.map(
+            (category) => Card(
+              child: CategoryChart(
+                category: category,
+                api: api,
+              ),
             ),
-          );
-        }).toList(),
+          )
+        ],
       ),
     );
   }
