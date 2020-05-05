@@ -26,8 +26,9 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Stream<List<Entry>> subscribe(String categoryId) {
-    var snapshots =
-        firestore.collection('users/$userId/categories/$categoryId/entries').snapshots();
+    var snapshots = firestore
+        .collection('users/$userId/categories/$categoryId/entries')
+        .snapshots();
     var result = snapshots.map((querySnapshot) {
       return querySnapshot.documents.map((snapshot) {
         return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
@@ -58,7 +59,8 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Future<List<Entry>> list(String categoryId) async {
-    var snapshot = firestore.collection('users/$userId/categories/$categoryId/entries');
+    var snapshot =
+        firestore.collection('users/$userId/categories/$categoryId/entries');
     var querySnapshot = await snapshot.getDocuments();
     var entries = querySnapshot.documents
         .map((doc) => Entry.fromJson(doc.data)..id = doc.documentID)
@@ -88,12 +90,14 @@ class FirebaseEntryApi implements EntryApi {
 class FirebaseCategoryApi implements CategoryApi {
   final Firestore firestore;
   final String userId;
+  final CollectionReference _categoriesRef;
 
-  FirebaseCategoryApi(this.firestore, this.userId);
+  FirebaseCategoryApi(this.firestore, this.userId)
+      : _categoriesRef = firestore.collection('users/$userId/categories');
 
   @override
   Stream<List<Category>> subscribe() {
-    var snapshots = firestore.collection('users/$userId/categories').snapshots();
+    var snapshots = _categoriesRef.snapshots();
     var result = snapshots.map((querySnapshot) {
       return querySnapshot.documents.map((snapshot) {
         return Category.fromJson(snapshot.data)..id = snapshot.documentID;
@@ -105,7 +109,7 @@ class FirebaseCategoryApi implements CategoryApi {
 
   @override
   Future<Category> delete(String id) async {
-    var document = firestore.document('users/$userId/categories/$id');
+    var document = _categoriesRef.document('$id');
     var categories = await get(document.documentID);
 
     await document.delete();
@@ -115,22 +119,20 @@ class FirebaseCategoryApi implements CategoryApi {
 
   @override
   Future<Category> get(String id) async {
-    var document = firestore.document('users/$userId/categories/$id');
+    var document = _categoriesRef.document('$id');
     var snapshot = await document.get();
     return Category.fromJson(snapshot.data)..id = snapshot.documentID;
   }
 
   @override
   Future<Category> insert(Category category) async {
-    var document =
-        await firestore.collection('users/$userId/categories').add(category.toJson());
+    var document = await _categoriesRef.add(category.toJson());
     return await get(document.documentID);
   }
 
   @override
   Future<List<Category>> list() async {
-    var snapshot = firestore.collection('users/$userId/categories');
-    var querySnapshot = await snapshot.getDocuments();
+    var querySnapshot = await _categoriesRef.getDocuments();
     var categories = querySnapshot.documents
         .map((doc) => Category.fromJson(doc.data)..id = doc.documentID)
         .toList();
@@ -140,7 +142,7 @@ class FirebaseCategoryApi implements CategoryApi {
 
   @override
   Future<Category> update(Category category, String id) async {
-    var document = firestore.document('users/$userId/categories/$id');
+    var document = _categoriesRef.document('$id');
     await document.setData(category.toJson());
     // TODO: re-fetch with get()?
     return category;
