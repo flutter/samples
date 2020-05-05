@@ -33,6 +33,13 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
     _subscription = widget.api.subscribe().listen((categories) {
       setState(() {
         _categories = categories;
+
+        // Update the selected value if it doesn't exist in the new list.
+        if (categories.isNotEmpty && !categories.contains(_selected)) {
+          _selected = _categories.first;
+        } else if (categories.isEmpty) {
+          _selected = null;
+        }
       });
     });
   }
