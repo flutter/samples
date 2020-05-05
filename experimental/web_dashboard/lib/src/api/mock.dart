@@ -41,8 +41,6 @@ class MockCategoryApi implements CategoryApi {
   StreamController<List<Category>> _streamController =
       StreamController<List<Category>>.broadcast();
 
-  Stream<List<Category>> _stream;
-
   @override
   Future<Category> delete(String id) async {
     var removed = _storage.remove(id);
@@ -76,12 +74,7 @@ class MockCategoryApi implements CategoryApi {
     return category..id = id;
   }
 
-  Stream<List<Category>> subscribe() {
-    if (_stream == null) {
-      _stream = _streamController.stream;
-    }
-    return _stream;
-  }
+  Stream<List<Category>> subscribe() => _streamController.stream;
 
   void _emit() {
     _streamController.add(_storage.values.toList());
