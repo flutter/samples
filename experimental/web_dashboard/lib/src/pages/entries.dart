@@ -88,7 +88,7 @@ class _EntriesListState extends State<EntriesList> {
 
     _subscription?.cancel();
     _subscription =
-        widget.api.stream(widget.category.id).listen((entries) {
+        widget.api.subscribe(widget.category.id).listen((entries) {
       _setEntries(entries);
     });
   }

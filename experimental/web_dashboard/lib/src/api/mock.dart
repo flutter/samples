@@ -76,14 +76,12 @@ class MockCategoryApi implements CategoryApi {
     return category..id = id;
   }
 
-  Stream<List<Category>> stream() {
+  Stream<List<Category>> subscribe() {
     if (_stream == null) {
       _stream = _streamController.stream;
     }
     return _stream;
   }
-
-  List<Category> get latest => _storage.values.toList();
 
   void _emit() {
     _streamController.add(_storage.values.toList());
@@ -121,11 +119,12 @@ class MockEntryApi implements EntryApi {
   @override
   Future<Entry> update(String categoryId, String id, Entry entry) async {
     _storage['$categoryId-$id'] = entry;
+    _emit(categoryId);
     return entry..id = id;
   }
 
   @override
-  Stream<List<Entry>> stream(String categoryId) {
+  Stream<List<Entry>> subscribe(String categoryId) {
     // TODO: limit events to those matching categoryId
     // This stream includes events for other categories, not just the one
     // specified by [categoryId]. To do this properly, _emit() must include the

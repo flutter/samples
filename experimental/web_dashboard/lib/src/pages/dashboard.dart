@@ -11,16 +11,26 @@ import 'package:web_dashboard/src/widgets/category_chart.dart';
 class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
-    return StreamBuilder<List<Category>>(
-      initialData: appState.api.categories.latest,
-      stream: appState.api.categories.stream(),
-      builder: (context, snapshot) {
-        if (snapshot.data == null) {
+    return FutureBuilder(
+      future: appState.api.categories.list(),
+      builder: (context, futureSnapshot) {
+        if (!futureSnapshot.hasData) {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
-        return Dashboard(snapshot.data);
+        return StreamBuilder<List<Category>>(
+          initialData: futureSnapshot.data,
+          stream: appState.api.categories.subscribe(),
+          builder: (context, snapshot) {
+            if (snapshot.data == null) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return Dashboard(snapshot.data);
+          },
+        );
       },
     );
   }

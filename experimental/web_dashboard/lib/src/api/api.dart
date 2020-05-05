@@ -25,9 +25,7 @@ abstract class CategoryApi {
 
   Future<Category> update(Category category, String id);
 
-  Stream<List<Category>> stream();
-
-  List<Category> get latest;
+  Stream<List<Category>> subscribe();
 }
 
 /// Manipulates [Entry] data.
@@ -42,7 +40,7 @@ abstract class EntryApi {
 
   Future<Entry> update(String categoryId, String id, Entry entry);
 
-  Stream<List<Entry>> stream(String categoryId);
+  Stream<List<Entry>> subscribe(String categoryId);
 }
 
 /// Something that's being tracked, e.g. Hours Slept, Cups of water, etc.
@@ -73,7 +71,7 @@ class Category {
 @JsonSerializable()
 class Entry {
   int value;
-  @JsonKey(fromJson: _timeStampToDateTime, toJson: _dateTimeToTimestamp)
+  @JsonKey(fromJson: _timestampToDateTime, toJson: _dateTimeToTimestamp)
   DateTime time;
 
   @JsonKey(ignore: true)
@@ -85,7 +83,7 @@ class Entry {
 
   Map<String, dynamic> toJson() => _$EntryToJson(this);
 
-  static DateTime _timeStampToDateTime(Timestamp timestamp) {
+  static DateTime _timestampToDateTime(Timestamp timestamp) {
     return DateTime.fromMillisecondsSinceEpoch(
         timestamp.millisecondsSinceEpoch);
   }

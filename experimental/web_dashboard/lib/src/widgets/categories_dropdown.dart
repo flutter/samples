@@ -30,7 +30,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
   void initState() {
     super.initState();
     _fetch();
-    _subscription = widget.api.stream().listen((categories) {
+    _subscription = widget.api.subscribe().listen((categories) {
       setState(() {
         _categories = categories;
       });

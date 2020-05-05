@@ -23,7 +23,7 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
 Entry _$EntryFromJson(Map<String, dynamic> json) {
   return Entry(
     json['value'] as int,
-    Entry._timeStampToDateTime(json['time'] as Timestamp),
+    Entry._timestampToDateTime(json['time'] as Timestamp),
   );
 }
 

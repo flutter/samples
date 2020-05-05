@@ -25,7 +25,7 @@ class FirebaseEntryApi implements EntryApi {
   FirebaseEntryApi(this.firestore, this.userId);
 
   @override
-  Stream<List<Entry>> stream(String categoryId) {
+  Stream<List<Entry>> subscribe(String categoryId) {
     var snapshots =
         firestore.collection('users/$userId/categories/$categoryId/entries').snapshots();
     var result = snapshots.map((querySnapshot) {
@@ -88,22 +88,16 @@ class FirebaseEntryApi implements EntryApi {
 class FirebaseCategoryApi implements CategoryApi {
   final Firestore firestore;
   final String userId;
-  List<Category> _latestSnapshot = [];
 
   FirebaseCategoryApi(this.firestore, this.userId);
 
   @override
-  Stream<List<Category>> stream() {
+  Stream<List<Category>> subscribe() {
     var snapshots = firestore.collection('users/$userId/categories').snapshots();
     var result = snapshots.map((querySnapshot) {
       return querySnapshot.documents.map((snapshot) {
         return Category.fromJson(snapshot.data)..id = snapshot.documentID;
       }).toList();
-    });
-
-    // Update the latest snapshot whenever the list of categories changes.
-    result.forEach((categories) {
-      _latestSnapshot = categories;
     });
 
     return result;
@@ -134,18 +128,12 @@ class FirebaseCategoryApi implements CategoryApi {
   }
 
   @override
-  List<Category> get latest => _latestSnapshot;
-
-  @override
   Future<List<Category>> list() async {
     var snapshot = firestore.collection('users/$userId/categories');
     var querySnapshot = await snapshot.getDocuments();
     var categories = querySnapshot.documents
         .map((doc) => Category.fromJson(doc.data)..id = doc.documentID)
         .toList();
-
-    // Update allItems whenever the list of categories changes.
-    _latestSnapshot = categories;
 
     return categories;
   }

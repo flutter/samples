@@ -55,7 +55,7 @@ class CategoryChart extends StatelessWidget {
               }
               return StreamBuilder<List<Entry>>(
                 initialData: futureSnapshot.data,
-                stream: api.entries.stream(category.id),
+                stream: api.entries.subscribe(category.id),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return _buildLoadingIndicator();
