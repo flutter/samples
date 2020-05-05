@@ -83,8 +83,8 @@ class MockCategoryApi implements CategoryApi {
 
 class MockEntryApi implements EntryApi {
   Map<String, Entry> _storage = {};
-  StreamController<List<Entry>> _streamController =
-      StreamController<List<Entry>>.broadcast();
+  StreamController<_EntriesEvent> _streamController =
+      StreamController.broadcast();
 
   @override
   Future<Entry> delete(String categoryId, String id) async {
@@ -118,22 +118,29 @@ class MockEntryApi implements EntryApi {
 
   @override
   Stream<List<Entry>> subscribe(String categoryId) {
-    // TODO: limit events to those matching categoryId
-    // This stream includes events for other categories, not just the one
-    // specified by [categoryId]. To do this properly, _emit() must include the
-    // category id in all events, so that this stream can filter based off of that.
-    return _streamController.stream;
+    return _streamController.stream
+        .where((event) => event.categoryId == categoryId)
+        .map((event) => event.entries);
   }
 
   void _emit(String categoryId) {
-    _streamController.add(_storage.keys
+    var entries = _storage.keys
         .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
-        .toList());
+        .toList();
+
+    _streamController.add(_EntriesEvent(categoryId, entries));
   }
 
   @override
   Future<Entry> get(String categoryId, String id) async {
     return _storage['$categoryId-$id'];
   }
+}
+
+class _EntriesEvent {
+  final String categoryId;
+  final List<Entry> entries;
+
+  _EntriesEvent(this.categoryId, this.entries);
 }
