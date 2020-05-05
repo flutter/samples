@@ -13,10 +13,12 @@ void main() {
       var entries = [
         Entry(10, DateTime(2020, 3, 1)),
         Entry(10, DateTime(2020, 3, 1)),
+        Entry(10, DateTime(2020, 3, 2)),
       ];
       var totals = entryTotalsByDay(entries, 2, today: DateTime(2020, 3, 2));
       expect(totals, hasLength(3));
       expect(totals[1].value, 20);
+      expect(totals[2].value, 10);
     });
     test('days', () async {
       expect(DateTime.utc(2020,1,3).difference(DateTime.utc(2020,1, 2)).inDays, 1);

@@ -54,7 +54,7 @@ Iterable<List<Entry>> _entriesInRangeImpl(
       }
     }
 
-    yield entries;
+    yield es;
     d = d.add(Duration(days: 1));
   }
 }
