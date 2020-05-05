@@ -7,7 +7,7 @@ import 'package:path/path.dart' as path;
 
 import 'package:grinder/grinder.dart';
 
-main(args) => grind(args);
+void main(List<String> args) => grind(args);
 
 @Task()
 void runSkia() {
@@ -38,21 +38,21 @@ void runMockSkia() {
 }
 
 @Task()
-test() {
+void test() {
   TestRunner().testAsync();
 }
 
 @DefaultTask()
 @Depends(test, copyright)
-build() {
+void build() {
   Pub.build();
 }
 
 @Task()
-clean() => defaultClean();
+void clean() => defaultClean();
 
 @Task()
-generate() {
+void generate() {
   Pub.run('build_runner', arguments: ['build']);
 }
 
@@ -62,7 +62,7 @@ const _copyright =
 // BSD-style license that can be found in the LICENSE file.''';
 
 @Task()
-copyright() async {
+Future copyright() async {
   var files = <File>[];
   await for (var file in _filesWithoutCopyright()) {
     files.add(file);
@@ -70,16 +70,18 @@ copyright() async {
 
   if (files.isNotEmpty) {
     log('Found Dart files without a copyright header:');
-    for (var file in files) log(file.toString());
+    for (var file in files) {
+      log(file.toString());
+    }
     fail('run "grind fix-copyright" to add copyright headers');
   }
 }
 
 @Task()
-fixCopyright() async {
+Future fixCopyright() async {
   await for (var file in _filesWithoutCopyright()) {
     var contents = await file.readAsString();
-    file.writeAsString(_copyright + '\n\n' + contents);
+    await file.writeAsString(_copyright + '\n\n' + contents);
   }
 }
 
@@ -94,7 +96,7 @@ Stream<File> _filesWithoutCopyright() async* {
         .transform(utf8.decoder)
         .transform(LineSplitter())
         .take(3)
-        .fold('', (previous, element) {
+        .fold<String>('', (previous, element) {
       if (previous == '') return element;
       return previous + '\n' + element;
     });

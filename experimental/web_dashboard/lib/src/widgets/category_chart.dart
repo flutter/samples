@@ -35,9 +35,11 @@ class CategoryChart extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.settings),
                 onPressed: () {
-                  showDialog(
+                  showDialog<EditCategoryDialog>(
                     context: context,
-                    child: EditCategoryDialog(category: category),
+                    builder: (context) {
+                      return EditCategoryDialog(category: category);
+                    },
                   );
                 },
               ),
@@ -47,7 +49,7 @@ class CategoryChart extends StatelessWidget {
         Expanded(
           // Load the initial snapshot using a FutureBuilder, and subscribe to
           // additional updates with a StreamBuilder.
-          child: FutureBuilder(
+          child: FutureBuilder<List<Entry>>(
             future: api.entries.list(category.id),
             builder: (context, futureSnapshot) {
               if (!futureSnapshot.hasData) {

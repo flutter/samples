@@ -87,7 +87,7 @@ class _DashboardAppState extends State<DashboardApp> {
   }
 
   /// Creates a [Route] that shows [newPage] using a fade transition.
-  Route _fadeRoute(Widget newPage) {
+  Route<FadeTransition> _fadeRoute(Widget newPage) {
     return PageRouteBuilder<FadeTransition>(
       pageBuilder: (context, animation, secondaryAnimation) {
         return newPage;

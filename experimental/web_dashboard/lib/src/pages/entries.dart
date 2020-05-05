@@ -20,6 +20,7 @@ class EntriesPage extends StatefulWidget {
 
 class _EntriesPageState extends State<EntriesPage> {
   Category _selected;
+
   @override
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
@@ -32,14 +33,15 @@ class _EntriesPageState extends State<EntriesPage> {
           child: _selected == null
               ? Center(child: CircularProgressIndicator())
               : EntriesList(
-            category: _selected,
-            api: appState.api.entries,
-          ),
+                  category: _selected,
+                  api: appState.api.entries,
+                ),
         ),
       ],
     );
   }
 }
+
 class EntriesList extends StatefulWidget {
   final Category category;
   final EntryApi api;
@@ -82,13 +84,12 @@ class _EntriesListState extends State<EntriesList> {
       return;
     }
 
-    widget.api.list(widget.category.id).then((entries) {
+    await widget.api.list(widget.category.id).then((entries) {
       _setEntries(entries);
     });
 
-    _subscription?.cancel();
-    _subscription =
-        widget.api.subscribe(widget.category.id).listen((entries) {
+    await _subscription?.cancel();
+    _subscription = widget.api.subscribe(widget.category.id).listen((entries) {
       _setEntries(entries);
     });
   }
@@ -133,9 +134,12 @@ class EntryTile extends StatelessWidget {
           FlatButton(
             child: Text('Edit'),
             onPressed: () {
-              showDialog(
-                  context: context,
-                  child: EditEntryDialog(category: category, entry: entry));
+              showDialog<void>(
+                context: context,
+                builder: (context) {
+                  return EditEntryDialog(category: category, entry: entry);
+                },
+              );
             },
           ),
           FlatButton(
@@ -158,7 +162,7 @@ class EntryTile extends StatelessWidget {
                 ),
               );
               if (shouldDelete) {
-                Provider.of<AppState>(context, listen: false)
+                await Provider.of<AppState>(context, listen: false)
                     .api
                     .entries
                     .delete(category.id, entry.id);

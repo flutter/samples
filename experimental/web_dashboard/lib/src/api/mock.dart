@@ -19,8 +19,8 @@ class MockDashboardApi implements DashboardApi {
   MockDashboardApi();
 
   /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
-  Future fillWithMockData() async {
-    await new Future.delayed(Duration(seconds: 1));
+  Future<void> fillWithMockData() async {
+    await Future<void>.delayed(Duration(seconds: 1));
     var category1 = await categories.insert(Category('Coffee (oz)'));
     var category2 = await categories.insert(Category('Running (miles)'));
     var category3 = await categories.insert(Category('Git Commits'));
@@ -30,7 +30,7 @@ class MockDashboardApi implements DashboardApi {
       for (var i = 0; i < 30; i++) {
         var date = monthAgo.add(Duration(days: i));
         var value = Random().nextInt(6) + 1;
-        entries.insert(category.id, Entry(value, date));
+        await entries.insert(category.id, Entry(value, date));
       }
     }
   }

@@ -90,7 +90,7 @@ void main() {
           expect(x.first.value, equals(1));
         }, count: 1));
 
-        api.entries.insert(category.id, Entry(1, dateTime));
+        await api.entries.insert(category.id, Entry(1, dateTime));
       });
     });
   });

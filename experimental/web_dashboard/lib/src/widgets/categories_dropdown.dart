@@ -65,7 +65,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
       items: _categories
           .map((i) => DropdownMenuItem<Category>(child: Text(i.name), value: i))
           .toList(),
-      onChanged: (category) {
+      onChanged: (Category category) {
         setState(() {
           _selected = category;
         });

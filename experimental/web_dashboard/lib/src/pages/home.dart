@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return true;
   }
 
-  Widget _floatingActionButton(BuildContext context) {
+  FloatingActionButton _floatingActionButton(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () => _handleFabPressed(),
@@ -51,12 +51,18 @@ class _HomePageState extends State<HomePage> {
 
   void _handleFabPressed() {
     if (_pageIndex == 0) {
-      showDialog(context: context, child: NewCategoryDialog());
+      showDialog<NewCategoryDialog>(
+        context: context,
+        builder: (context) => NewCategoryDialog(),
+      );
       return;
     }
 
     if (_pageIndex == 1) {
-      showDialog(context: context, child: NewEntryDialog());
+      showDialog<NewEntryDialog>(
+        context: context,
+        builder: (context) => NewEntryDialog(),
+      );
       return;
     }
   }

@@ -11,7 +11,7 @@ import 'package:web_dashboard/src/widgets/category_chart.dart';
 class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = Provider.of<AppState>(context);
-    return FutureBuilder(
+    return FutureBuilder<List<Category>>(
       future: appState.api.categories.list(),
       builder: (context, futureSnapshot) {
         if (!futureSnapshot.hasData) {

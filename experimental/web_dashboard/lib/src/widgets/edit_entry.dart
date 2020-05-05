@@ -92,7 +92,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
                 try {
                   widget.entry.value = int.parse(newValue);
                 } on FormatException {
-                  print('Entry cannot contain $newValue, Expected a number');
+                  print('Entry cannot contain "$newValue". Expected a number');
                 }
               },
             ),
