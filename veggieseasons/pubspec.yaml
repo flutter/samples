@@ -11,10 +11,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.3
-  font_awesome_flutter: ^8.5.0
+  font_awesome_flutter: ^8.8.1
   intl: ^0.16.1
   scoped_model: ^1.0.1
-  shared_preferences: ^0.5.6+1
+  shared_preferences: ^0.5.7
 
 dev_dependencies:
   flutter_test:
