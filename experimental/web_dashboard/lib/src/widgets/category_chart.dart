@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -12,6 +10,9 @@ import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/utils/chart_utils.dart' as utils;
 
 import 'dialogs.dart';
+
+// The number of days to show in the chart
+const _daysBefore = 10;
 
 class CategoryChart extends StatelessWidget {
   final Category category;
@@ -102,7 +103,7 @@ class _BarChart extends StatelessWidget {
 
         return total.value;
       },
-      data: utils.entryTotalsByDay(entries, 10),
+      data: utils.entryTotalsByDay(entries, _daysBefore),
     );
   }
 }
