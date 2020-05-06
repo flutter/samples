@@ -19,7 +19,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
+  pedantic: ^1.8.0+1
   flutter_launcher_icons: ^0.7.5
 
 flutter:
