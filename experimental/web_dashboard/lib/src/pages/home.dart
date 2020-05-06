@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         });
       },
       floatingActionButton:
-          _hasFloatingActionButton ? _floatingActionButton(context) : null,
+          _hasFloatingActionButton ? _buildFab(context) : null,
     );
   }
 
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return true;
   }
 
-  FloatingActionButton _floatingActionButton(BuildContext context) {
+  FloatingActionButton _buildFab(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () => _handleFabPressed(),
