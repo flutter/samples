@@ -56,61 +56,42 @@ class EntriesList extends StatefulWidget {
 }
 
 class _EntriesListState extends State<EntriesList> {
-  StreamSubscription _subscription;
-  List<Entry> _entries = [];
-
-  void initState() {
-    super.initState();
-    _fetchEntries();
-  }
-
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
-
-  void didUpdateWidget(EntriesList oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (oldWidget.category == widget.category) {
-      return;
-    }
-
-    _fetchEntries();
-  }
-
-  Future _fetchEntries() async {
-    if (widget.category == null) {
-      return;
-    }
-
-    await widget.api.list(widget.category.id).then((entries) {
-      _setEntries(entries);
-    });
-
-    await _subscription?.cancel();
-    _subscription = widget.api.subscribe(widget.category.id).listen((entries) {
-      _setEntries(entries);
-    });
-  }
-
-  void _setEntries(List<Entry> entries) {
-    setState(() {
-      _entries = entries..sort((a, b) => b.time.compareTo(a.time));
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return EntryTile(
-          category: widget.category,
-          entry: _entries[index],
+    if (widget.category == null) {
+      return _buildLoadingIndicator();
+    }
+
+    return FutureBuilder<List<Entry>>(
+      future: widget.api.list(widget.category.id),
+      builder: (context, futureSnapshot) {
+        if (!futureSnapshot.hasData) {
+          return _buildLoadingIndicator();
+        }
+        return StreamBuilder<List<Entry>>(
+          initialData: futureSnapshot.data,
+          stream: widget.api.subscribe(widget.category.id),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return _buildLoadingIndicator();
+            }
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return EntryTile(
+                  category: widget.category,
+                  entry: snapshot.data[index],
+                );
+              },
+              itemCount: snapshot.data.length,
+            );
+          },
         );
       },
-      itemCount: _entries.length,
     );
+  }
+
+  Widget _buildLoadingIndicator() {
+    return Center(child: CircularProgressIndicator());
   }
 }
 
