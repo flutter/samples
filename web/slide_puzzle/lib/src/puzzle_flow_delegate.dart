@@ -1,5 +1,9 @@
-import 'core/puzzle_animator.dart';
-import 'package:flutter/material.dart';
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+import 'core/puzzle_proxy.dart';
+import 'flutter.dart';
 
 class PuzzleFlowDelegate extends FlowDelegate {
   final Size _tileSize;
