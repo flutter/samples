@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
             Consumer<Counter>(
               builder: (context, counter, child) => Text(
                 '${counter.value}',
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.headline4,
               ),
             ),
           ],
