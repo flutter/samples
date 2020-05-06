@@ -108,7 +108,7 @@ class _PlaceListTile extends StatelessWidget {
             ),
             Text(
               place.description != null ? place.description : '',
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
