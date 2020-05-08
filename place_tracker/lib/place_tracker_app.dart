@@ -3,7 +3,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
-
 import 'place_list.dart';
 import 'place_map.dart';
 import 'stub_data.dart';
