@@ -236,7 +236,8 @@ class PlaceMapState extends State<PlaceMap> {
         category: AppState.of(context).selectedCategory,
       );
 
-      var placeMarker = await _getPlaceMarkerIcon(context, AppState.of(context).selectedCategory);
+      var placeMarker = await _getPlaceMarkerIcon(
+          context, AppState.of(context).selectedCategory);
 
       setState(() {
         final updatedMarker = _pendingMarker.copyWith(
