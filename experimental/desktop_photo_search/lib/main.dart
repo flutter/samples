@@ -6,7 +6,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:file_chooser/file_chooser.dart' as file_choser;
+import 'package:file_chooser/file_chooser.dart' as file_chooser;
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:meta/meta.dart';
@@ -92,9 +92,14 @@ class UnsplashHomePage extends StatelessWidget {
                     ? PhotoDetails(
                         photo: photoSearchModel.selectedPhoto,
                         onPhotoSave: (photo) async {
-                          final result = await file_choser.showSavePanel(
+                          final result = await file_chooser.showSavePanel(
                             suggestedFileName: '${photo.id}.jpg',
-                            allowedFileTypes: ['jpg'],
+                            allowedFileTypes: const [
+                              file_chooser.FileTypeFilterGroup(
+                                label: 'JPGs',
+                                fileExtensions: ['jpg'],
+                              )
+                            ],
                           );
                           if (!result.canceled) {
                             final bytes =

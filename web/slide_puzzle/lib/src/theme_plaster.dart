@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
-import 'app_state.dart';
+import 'core/puzzle_proxy.dart';
+import 'flutter.dart';
 import 'shared_theme.dart';
 
 const _yellowIsh = Color.fromARGB(255, 248, 244, 233);
@@ -11,7 +14,7 @@ class ThemePlaster extends SharedTheme {
   @override
   String get name => 'Plaster';
 
-  ThemePlaster(AppState baseTheme) : super(baseTheme);
+  const ThemePlaster();
 
   @override
   Color get puzzleThemeBackground => _chocolate;
@@ -23,18 +26,18 @@ class ThemePlaster extends SharedTheme {
   Color get puzzleAccentColor => _orangeIsh;
 
   @override
-  RoundedRectangleBorder get puzzleBorder => const RoundedRectangleBorder(
-        side: BorderSide(
+  RoundedRectangleBorder puzzleBorder(bool small) => RoundedRectangleBorder(
+        side: const BorderSide(
           color: Color.fromARGB(255, 103, 103, 105),
           width: 8,
         ),
         borderRadius: BorderRadius.all(
-          Radius.circular(18),
+          Radius.circular(small ? 10 : 18),
         ),
       );
 
   @override
-  Widget tileButton(int i) {
+  Widget tileButton(int i, PuzzleProxy puzzle, bool small) {
     final correctColumn = i % puzzle.width;
     final correctRow = i ~/ puzzle.width;
 
@@ -42,10 +45,10 @@ class ThemePlaster extends SharedTheme {
 
     if (i == puzzle.tileCount) {
       assert(puzzle.solved);
-      return const Center(
+      return Center(
         child: Icon(
           Icons.thumb_up,
-          size: 72,
+          size: small ? 50 : 72,
           color: _orangeIsh,
         ),
       );
@@ -56,11 +59,13 @@ class ThemePlaster extends SharedTheme {
       style: TextStyle(
         color: primary ? _yellowIsh : _chocolate,
         fontFamily: 'Plaster',
-        fontSize: 77,
+        fontSize: small ? 40 : 77,
       ),
     );
 
     return createButton(
+      puzzle,
+      small,
       i,
       content,
       color: primary ? _orangeIsh : _yellowIsh,

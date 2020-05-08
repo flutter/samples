@@ -136,7 +136,7 @@ String _indexCards(List<Sample> samples) => samples.map(_indexCard).join();
 String _indexCard(Sample sample) => '''
 <div class="mdc-card demo-card mdc-elevation--z0" search-attrs="${_escapeAttribute(sample.searchAttributes)}">
   <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0" href="${sample.filename}.html">
-    <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="${_backgroundImage(sample.screenshots.first.url)}"></div>
+    <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="${_backgroundImage(sample.thumbnail)}"></div>
     <div class="demo-card__label type-label">${_escapeElement(sample.type)}</div>
     <div class="demo-card__primary">
       <h2 class="demo-card__title mdc-typography mdc-typography--headline6">${_escapeElement(sample.name)}</h2>

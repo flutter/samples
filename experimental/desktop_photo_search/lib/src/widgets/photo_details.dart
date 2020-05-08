@@ -33,7 +33,7 @@ class _PhotoDetailsState extends State<PhotoDetails>
   Widget _buildPhotoAttribution(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: Theme.of(context).textTheme.body1,
+        style: Theme.of(context).textTheme.bodyText2,
         children: [
           const TextSpan(text: 'Photo by '),
           TextSpan(

@@ -4,4 +4,4 @@ https://github.com/flutter/gallery
 
 To see a compiled Gallery running in your browser, use this link: 
 
-https://flutter.github.io/gallery
+https://gallery.flutter.dev

@@ -7,6 +7,7 @@ library data;
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:samples_index/src/util.dart' as util;
+import 'package:path/path.dart' as path;
 
 part 'data.g.dart';
 
@@ -102,6 +103,13 @@ class Sample {
   factory Sample.fromJson(Map json) => _$SampleFromJson(json);
 
   Map<String, dynamic> toJson() => _$SampleToJson(this);
+
+  String get thumbnail {
+    var screenshotUrl = screenshots.first.url;
+    var prefix = path.dirname(screenshotUrl);
+    var filename = path.basenameWithoutExtension(screenshotUrl);
+    return path.join(prefix, filename + '_thumb.png');
+  }
 
   String get searchAttributes {
     var buf = StringBuffer();
