@@ -22,13 +22,16 @@ class PlaceMap extends StatefulWidget {
 }
 
 class PlaceMapState extends State<PlaceMap> {
-  static BitmapDescriptor _getPlaceMarkerIcon(PlaceCategory category) {
+  static Future<BitmapDescriptor> _getPlaceMarkerIcon(
+      BuildContext context, PlaceCategory category) async {
     switch (category) {
       case PlaceCategory.favorite:
-        return BitmapDescriptor.fromAsset('assets/heart.png');
+        return BitmapDescriptor.fromAssetImage(
+            createLocalImageConfiguration(context), 'assets/heart.png');
         break;
       case PlaceCategory.visited:
-        return BitmapDescriptor.fromAsset('assets/visited.png');
+        return BitmapDescriptor.fromAssetImage(
+            createLocalImageConfiguration(context), 'assets/visited.png');
         break;
       case PlaceCategory.wantToGo:
       default:
@@ -61,10 +64,12 @@ class PlaceMapState extends State<PlaceMap> {
 
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
+    var markers = <Marker>{};
+    for (var place in AppState.of(context).places) {
+      markers.add(await _createPlaceMarker(context, place));
+    }
     setState(() {
-      for (var place in AppState.of(context).places) {
-        _markers.add(_createPlaceMarker(place));
-      }
+      _markers.addAll(markers);
     });
 
     // Zoom to fit the initially selected category.
@@ -76,7 +81,7 @@ class PlaceMapState extends State<PlaceMap> {
     );
   }
 
-  Marker _createPlaceMarker(Place place) {
+  Future<Marker> _createPlaceMarker(BuildContext context, Place place) async {
     final marker = Marker(
       markerId: MarkerId(place.latLng.toString()),
       position: place.latLng,
@@ -85,7 +90,7 @@ class PlaceMapState extends State<PlaceMap> {
         snippet: '${place.starRating} Star Rating',
         onTap: () => _pushPlaceDetailsScreen(place),
       ),
-      icon: _getPlaceMarkerIcon(place.category),
+      icon: await _getPlaceMarkerIcon(context, place.category),
       visible: place.category == AppState.of(context).selectedCategory,
     );
     _markedPlaces[marker] = place;
@@ -231,9 +236,11 @@ class PlaceMapState extends State<PlaceMap> {
         category: AppState.of(context).selectedCategory,
       );
 
+      var placeMarker = await _getPlaceMarkerIcon(context, AppState.of(context).selectedCategory);
+
       setState(() {
         final updatedMarker = _pendingMarker.copyWith(
-          iconParam: _getPlaceMarkerIcon(AppState.of(context).selectedCategory),
+          iconParam: placeMarker,
           infoWindowParam: InfoWindow(
             title: 'New Place',
             snippet: null,
@@ -302,8 +309,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   Future<void> _maybeUpdateMapConfiguration() async {
     _configuration ??= MapConfiguration.of(AppState.of(context));
-    final newConfiguration =
-        MapConfiguration.of(AppState.of(context));
+    final newConfiguration = MapConfiguration.of(AppState.of(context));
 
     // Since we manually update [_configuration] when place or selectedCategory
     // changes come from the [place_map], we should only enter this if statement
