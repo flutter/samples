@@ -17,7 +17,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
     final currentPrefs = model.preferredCategories;
-    Brightness brightness = CupertinoTheme.brightnessOf(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('Preferred Categories'),
@@ -80,7 +80,7 @@ class CalorieSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
-    Brightness brightness = CupertinoTheme.brightnessOf(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         previousPageTitle: 'Settings',
@@ -93,7 +93,7 @@ class CalorieSettingsScreen extends StatelessWidget {
             builder: (context, snapshot) {
               final steps = <SettingsItem>[];
 
-              for (int cals = max; cals < min; cals += step) {
+              for (var cals = max; cals < min; cals += step) {
                 steps.add(
                   SettingsItem(
                     label: cals.toString(),

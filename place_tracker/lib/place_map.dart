@@ -47,7 +47,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   LatLng _lastMapPosition;
 
-  Map<Marker, Place> _markedPlaces = Map<Marker, Place>();
+  final Map<Marker, Place> _markedPlaces = <Marker, Place>{};
 
   final Set<Marker> _markers = {};
 
@@ -62,7 +62,7 @@ class PlaceMapState extends State<PlaceMap> {
     // Draw initial place markers on creation so that we have something
     // interesting to look at.
     setState(() {
-      for (Place place in AppState.of(context).places) {
+      for (var place in AppState.of(context).places) {
         _markers.add(_createPlaceMarker(place));
       }
     });
@@ -126,7 +126,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _updateExistingPlaceMarker({@required Place place}) {
-    Marker marker = _markedPlaces.keys
+    var marker = _markedPlaces.keys
         .singleWhere((value) => _markedPlaces[value].id == place.id);
 
     setState(() {
@@ -160,7 +160,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
     setState(() {
-      for (Marker marker in List.of(_markedPlaces.keys)) {
+      for (var marker in List.of(_markedPlaces.keys)) {
         final place = _markedPlaces[marker];
         final updatedMarker = marker.copyWith(
           visibleParam: place.category == category,
@@ -181,15 +181,15 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _zoomToFitPlaces(List<Place> places) async {
-    GoogleMapController controller = await mapController.future;
+    var controller = await mapController.future;
 
     // Default min/max values to latitude and longitude of center.
-    double minLat = widget.center.latitude;
-    double maxLat = widget.center.latitude;
-    double minLong = widget.center.longitude;
-    double maxLong = widget.center.longitude;
+    var minLat = widget.center.latitude;
+    var maxLat = widget.center.latitude;
+    var minLong = widget.center.longitude;
+    var maxLong = widget.center.longitude;
 
-    for (Place place in places) {
+    for (var place in places) {
       minLat = min(minLat, place.latitude);
       maxLat = max(maxLat, place.latitude);
       minLong = min(minLong, place.longitude);
@@ -224,8 +224,8 @@ class PlaceMapState extends State<PlaceMap> {
   Future<void> _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
       // Create a new Place and map it to the marker we just added.
-      final Place newPlace = Place(
-        id: Uuid().v1() as String,
+      final newPlace = Place(
+        id: Uuid().v1(),
         latLng: _pendingMarker.position,
         name: _pendingMarker.infoWindow.title,
         category: AppState.of(context).selectedCategory,
@@ -267,7 +267,7 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in appState.
-      final List<Place> newPlaces = List.from(AppState.of(context).places)
+      final newPlaces = List<Place>.from(AppState.of(context).places)
         ..add(newPlace);
 
       // Manually update our map configuration here since our map is already
@@ -292,7 +292,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   void _onToggleMapTypePressed() {
-    final MapType nextType =
+    final nextType =
         MapType.values[(_currentMapType.index + 1) % MapType.values.length];
 
     setState(() {
@@ -302,7 +302,7 @@ class PlaceMapState extends State<PlaceMap> {
 
   Future<void> _maybeUpdateMapConfiguration() async {
     _configuration ??= MapConfiguration.of(AppState.of(context));
-    final MapConfiguration newConfiguration =
+    final newConfiguration =
         MapConfiguration.of(AppState.of(context));
 
     // Since we manually update [_configuration] when place or selectedCategory

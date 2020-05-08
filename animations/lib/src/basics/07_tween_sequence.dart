@@ -27,6 +27,7 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     Colors.purple,
   ];
 
+  @override
   void initState() {
     super.initState();
 
@@ -49,6 +50,7 @@ class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     animation = TweenSequence<Color>(sequenceItems).animate(controller);
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();

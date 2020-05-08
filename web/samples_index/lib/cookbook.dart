@@ -40,7 +40,7 @@ class CookbookScraper {
     var description = page.querySelectorAll('main>.container>p').first.text;
 
     var urlSegments = Uri.parse(url).pathSegments;
-    var category = urlSegments[urlSegments.length-2];
+    var category = urlSegments[urlSegments.length - 2];
 
     return Sample(
       name: name,

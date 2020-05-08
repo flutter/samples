@@ -46,7 +46,7 @@ void main() {
       final simpleObject = ConvertedSimpleObject.fromJson(typicalObjectJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
@@ -70,7 +70,7 @@ void main() {
       final simpleObject = ConvertedSimpleObject.fromJson(emptyListJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, <String>[]);
@@ -83,7 +83,7 @@ void main() {
           ConvertedSimpleObject.fromJson(unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
@@ -97,7 +97,7 @@ void main() {
       final simpleObject = SerializableSimpleObject.fromJson(typicalObjectJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
@@ -121,7 +121,7 @@ void main() {
       final simpleObject = SerializableSimpleObject.fromJson(emptyListJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, <String>[]);
@@ -134,7 +134,7 @@ void main() {
           SerializableSimpleObject.fromJson(unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
@@ -149,7 +149,7 @@ void main() {
           BuiltSimpleObject.serializer, typicalObjectJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
@@ -175,7 +175,7 @@ void main() {
           BuiltSimpleObject.serializer, emptyListJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, <String>[]);
@@ -188,7 +188,7 @@ void main() {
           BuiltSimpleObject.serializer, unexpectedPropertiesJson);
 
       expect(simpleObject, isNotNull);
-      expect(simpleObject.aString, "Blah, blah, blah.");
+      expect(simpleObject.aString, 'Blah, blah, blah.');
       expect(simpleObject.anInt, 1);
       expect(simpleObject.aDouble, 1.0);
       expect(simpleObject.aListOfStrings, ['one', 'two', 'three']);
