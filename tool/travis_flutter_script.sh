@@ -48,6 +48,12 @@ do
     # Run the analyzer to find any static analysis issues.
     "${LOCAL_SDK_PATH}/bin/flutter" analyze
 
+    # Reformat the web plugin registrant, if necessary.
+    if [ -f "lib/generated_plugin_registrant.dart" ]
+    then
+        "${LOCAL_SDK_PATH}/bin/flutter" format "lib/generated_plugin_registrant.dart"
+    fi
+
     # Run the formatter on all the dart files to make sure everything's linted.
     "${LOCAL_SDK_PATH}/bin/flutter" format -n --set-exit-if-changed .
 

@@ -254,7 +254,7 @@ class _DataTreeNodeState extends State<DataTreeNode>
                 ),
                 const SizedBox(width: 16),
                 DefaultTextStyle(
-                  style: Theme.of(context).textTheme.body1.copyWith(
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: textColor,
                       ),
                   child: widget.title,
