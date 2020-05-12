@@ -24,16 +24,17 @@ class AppModel<T> extends StatefulWidget {
   final T initialState;
   final Widget child;
 
+  @override
   _AppModelState<T> createState() => _AppModelState<T>();
 
   static T of<T>(BuildContext context) {
-    final _AppModelScope<T> scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_AppModelScope<T>>();
     return scope.appModelState.currentState;
   }
 
   static void update<T>(BuildContext context, T newState) {
-    final _AppModelScope<T> scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_AppModelScope<T>>();
     scope.appModelState.updateState(newState);
   }

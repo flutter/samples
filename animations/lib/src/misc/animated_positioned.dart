@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 class AnimatedPositionedDemo extends StatefulWidget {
   static String routeName = '/basics/09_animated_positioned';
 
+  @override
   _AnimatedPositionedDemoState createState() => _AnimatedPositionedDemoState();
 }
 
@@ -20,6 +21,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
 
   double generateLeftPosition(double left) => Random().nextDouble() * left;
 
+  @override
   void initState() {
     super.initState();
     topPosition = generateTopPosition(30);
@@ -33,6 +35,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final appBar = AppBar();
@@ -60,7 +63,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
                     width: 150,
                     height: 50,
                     child: Text(
-                      "Click Me",
+                      'Click Me',
                       style: TextStyle(
                         color:
                             Theme.of(context).buttonTheme.colorScheme.onPrimary,

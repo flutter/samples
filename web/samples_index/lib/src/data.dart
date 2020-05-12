@@ -147,7 +147,7 @@ class Sample {
     var nameWithoutChars = name.replaceAll(RegExp(r'[^A-Za-z0-9\-\_\ ]'), '');
     var nameWithUnderscores = nameWithoutChars.replaceAll(' ', '_');
     var snake = util.snakeCase(nameWithUnderscores);
-    var s =  snake.replaceAll('__', '_');
+    var s = snake.replaceAll('__', '_');
     return s;
   }
 

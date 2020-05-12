@@ -35,7 +35,7 @@ void main() {
 
       // Testing for the items on the screen after modifying
       // the model for a fixed number of items.
-      for (String item in catalogListItems) {
+      for (var item in catalogListItems) {
         expect(find.text(item), findsWidgets);
       }
     });

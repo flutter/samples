@@ -18,7 +18,7 @@ dev_dependencies:
   build_runner: ^1.7.2
   built_value_generator: ^7.0.4
   json_serializable: ^3.2.5
-  pedantic: ^1.8.0+1
+  pedantic: ^1.9.0
 
 flutter:
   uses-material-design: true

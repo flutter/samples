@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class AnimatedBuilderDemo extends StatefulWidget {
   static const String routeName = '/basics/animated_builder';
 
+  @override
   _AnimatedBuilderDemoState createState() => _AnimatedBuilderDemoState();
 }
 
@@ -18,6 +19,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   AnimationController controller;
   Animation<Color> animation;
 
+  @override
   void initState() {
     super.initState();
 
@@ -26,11 +28,13 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
         ColorTween(begin: beginColor, end: endColor).animate(controller);
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),

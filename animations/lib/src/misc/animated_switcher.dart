@@ -25,6 +25,7 @@ Widget generateContainer(int keyCount) => Container(
 class AnimatedSwitcherDemo extends StatefulWidget {
   static String routeName = '/basics/10_animated_switcher';
 
+  @override
   _AnimatedSwitcherDemoState createState() => _AnimatedSwitcherDemoState();
 }
 
@@ -32,12 +33,14 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   Widget container;
   int keyCount;
 
+  @override
   void initState() {
     super.initState();
     keyCount = 0;
     container = generateContainer(keyCount);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +50,7 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
               () => container = generateContainer(++keyCount),
             ),
             child: Text(
-              "Change Widget",
+              'Change Widget',
               style: TextStyle(
                   color: Theme.of(context).buttonTheme.colorScheme.onPrimary),
             ),

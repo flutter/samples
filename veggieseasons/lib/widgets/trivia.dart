@@ -106,7 +106,7 @@ class _TriviaViewState extends State<TriviaView> {
   // Widget shown when the game is over. It includes the score and a button to
   // restart everything.
   Widget _buildFinishedView() {
-    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+    final themeData = CupertinoTheme.of(context);
 
     return Padding(
       padding: const EdgeInsets.all(32),

@@ -8,15 +8,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.12.5+1
+  cloud_firestore: ^0.13.5
   google_maps_flutter: ^0.5.17
   google_maps_webservice: ^0.0.14
-  location: ^2.3.5
+  location: ^3.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.8.0
+  pedantic: ^1.9.0
 
 flutter:
   uses-material-design: true

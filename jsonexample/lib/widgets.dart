@@ -100,7 +100,7 @@ class SimpleObjectViewList extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgets = <Widget>[];
 
-    for (int i = 0; i < simpleObjects.length; i++) {
+    for (var i = 0; i < simpleObjects.length; i++) {
       widgets.addAll([
         Text(
           'SimpleObject $i:',
@@ -274,7 +274,7 @@ class ComplexObjectViewList extends StatelessWidget {
   Widget build(BuildContext context) {
     final widgets = <Widget>[];
 
-    for (int i = 0; i < complexObjects.length; i++) {
+    for (var i = 0; i < complexObjects.length; i++) {
       widgets.addAll([
         Text(
           'Complex Object $i:',

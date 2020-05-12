@@ -46,9 +46,9 @@ class VeggieHeadline extends StatelessWidget {
   const VeggieHeadline(this.veggie);
 
   List<Widget> _buildSeasonDots(List<Season> seasons) {
-    List<Widget> widgets = <Widget>[];
+    var widgets = <Widget>[];
 
-    for (Season season in seasons) {
+    for (var season in seasons) {
       widgets.add(SizedBox(width: 4));
       widgets.add(
         Container(
@@ -67,7 +67,7 @@ class VeggieHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+    final themeData = CupertinoTheme.of(context);
 
     return GestureDetector(
       onTap: () => Navigator.of(context).push<void>(CupertinoPageRoute(
