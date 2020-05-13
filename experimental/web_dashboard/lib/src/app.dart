@@ -77,13 +77,17 @@ class _DashboardAppState extends State<DashboardApp> {
   void _handleSignIn(User user, BuildContext context, AppState appState) {
     appState.api = widget.apiBuilder(user);
 
-    _showPage(HomePage(), context);
+    _showPage(HomePage(onLogout: _handleLogout), context);
   }
 
   /// Navigates to the home page using a fade transition.
   void _showPage(Widget page, BuildContext context) {
     var route = _fadeRoute(page);
     Navigator.of(context).pushReplacement(route);
+  }
+
+  void _handleLogout() {
+
   }
 
   /// Creates a [Route] that shows [newPage] using a fade transition.
