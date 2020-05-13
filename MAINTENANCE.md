@@ -10,6 +10,7 @@ match any new language/SDK features, etc.).
 | chrome-os-best-practices  |                    |                |
 | experimental              |                    |                |
 | flutter_maps_firestore    |                    |                |
+| infinite_list.            | filiph             | 5/13/20        |
 | isolate_example           | johnpryan          | 11/21/19       |
 | jsonexample               | redbrogdon         | 1/3/20         |
 | material_studies/shrine   |                    |                |

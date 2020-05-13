@@ -101,6 +101,12 @@ A collection of animation examples. The app starts with basic concepts like
 `AnimationController` and `Tween`, then progresses to transitions and
 advanced demos.
 
+#### [Infinite list](infinite_list) _(Flutter team)_
+
+A sample implementation of the infinite list, a common UI pattern in which
+an arbitrarily large, paginated catalog is presented as a seamless
+"infinite" `ListView`.
+
 ## Maps
 
 #### [Place tracker](place_tracker) _(Flutter team)_
