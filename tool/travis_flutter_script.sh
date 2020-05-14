@@ -32,6 +32,7 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore" \
     "isolate_example" \
     "jsonexample" \
+    "material_theme_builder" \
     "place_tracker" \
     "platform_design"
     "platform_view_swift" \
