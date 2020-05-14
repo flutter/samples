@@ -1219,6 +1219,8 @@ table LinkedNodeTypeFormalParameter {
 
 /// Information about a type substitution.
 table LinkedNodeTypeSubstitution {
+  isLegacy:bool (id: 2);
+
   typeArguments:[LinkedNodeType] (id: 1);
 
   typeParameters:[uint] (id: 0);

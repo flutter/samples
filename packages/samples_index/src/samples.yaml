@@ -13,7 +13,7 @@ samples:
       - url: images/gallery5.png
         alt: Shrine app screnshot
     source: https://github.com/flutter/gallery
-    web: https://flutter.github.io/gallery
+    web: https://gallery.flutter.dev
     description: >
       A collection of material design widgets, behaviors, and vignettes
       implemented with Flutter.

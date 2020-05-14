@@ -234,13 +234,7 @@ make_authenticated_requests.html
 mock_dependencies_using_mockito.html
 navigate_to_a_new_screen_and_back.html
 navigate_with_named_routes.html
-packages/$sdk/_internal/ddc_sdk.sum
 packages/$sdk/_internal/strong.sum
-packages/$sdk/dev_compiler/amd/dart_sdk.js
-packages/$sdk/dev_compiler/amd/require.js
-packages/$sdk/dev_compiler/common/dart_sdk.js
-packages/$sdk/dev_compiler/common/run.js
-packages/$sdk/dev_compiler/es6/dart_sdk.js
 packages/$sdk/dev_compiler/kernel/amd/dart_sdk.js
 packages/$sdk/dev_compiler/kernel/amd/require.js
 packages/$sdk/dev_compiler/kernel/common/dart_sdk.js
