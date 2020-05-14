@@ -1,3 +1,7 @@
+// Copyright 2019 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -88,7 +92,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text('Build a Material Theme'),
+        title: Text('Material Theme Builder'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -431,20 +435,9 @@ class _HomeState extends State<Home> {
             // TEXT FIELD
             Header('TEXT FIELD'),
 
-            // This was in the original design but applying theming doesn't work
-            // since the border is already overridden.
-//            SizedBox(height: 16),
-//            TextField(
-//              decoration: InputDecoration(
-//                border: OutlineInputBorder(),
-//                labelText: 'Label',
-//                helperText: 'Helper text',
-//              ),
-//            ),
             SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-//                filled: true,
                 labelText: 'Label',
                 helperText: 'Helper text',
               ),
