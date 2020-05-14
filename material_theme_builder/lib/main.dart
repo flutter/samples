@@ -24,47 +24,20 @@ class MyApp extends StatelessWidget {
     );
 
     final TextTheme textTheme = TextTheme(
-      display4: GoogleFonts.roboto(
-        fontSize: 96,
-      ),
-      display3: GoogleFonts.roboto(
-        fontSize: 60,
-      ),
-      display2: GoogleFonts.roboto(
-        fontSize: 48,
-      ),
-      display1: GoogleFonts.roboto(
-        fontSize: 34,
-      ),
-      headline: GoogleFonts.roboto(
-        fontSize: 24,
-      ),
-      title: GoogleFonts.roboto(
-        fontSize: 20,
-      ),
-      subhead: GoogleFonts.roboto(
-        fontSize: 16,
-      ),
-      subtitle: GoogleFonts.roboto(
-        fontSize: 14,
-      ),
-      body1: GoogleFonts.roboto(
-        fontSize: 16,
-      ),
-      body2: GoogleFonts.roboto(
-        fontSize: 14,
-      ),
-      button: GoogleFonts.roboto(
-        fontSize: 14,
-      ),
-      caption: GoogleFonts.roboto(
-        fontSize: 12,
-      ),
-      overline: GoogleFonts.roboto(
-        fontSize: 10,
-      ),
+      headline1: GoogleFonts.roboto(fontSize: 96),
+      headline2: GoogleFonts.roboto(fontSize: 60),
+      headline3: GoogleFonts.roboto(fontSize: 48),
+      headline4: GoogleFonts.roboto(fontSize: 34),
+      headline5: GoogleFonts.roboto(fontSize: 24),
+      headline6: GoogleFonts.roboto(fontSize: 20),
+      subtitle1: GoogleFonts.roboto(fontSize: 16),
+      subtitle2: GoogleFonts.roboto(fontSize: 14),
+      bodyText2: GoogleFonts.roboto(fontSize: 16),
+      bodyText1: GoogleFonts.roboto(fontSize: 14),
+      button: GoogleFonts.roboto(fontSize: 14),
+      caption: GoogleFonts.roboto(fontSize: 12),
+      overline: GoogleFonts.roboto(fontSize: 10),
     ); // TextTheme
-
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -75,8 +48,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: colorScheme.background,
         buttonTheme: ButtonThemeData(
           textTheme: ButtonTextTheme.primary,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
             foregroundColor: colorScheme.onSecondary),
@@ -84,8 +56,7 @@ class MyApp extends StatelessWidget {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(4)),
         ),
         cardTheme: CardTheme(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         dividerColor: Color(0xFF000000),
         textTheme: textTheme,
@@ -423,38 +394,37 @@ class _HomeState extends State<Home> {
             Header('CARD'),
             Card(
               clipBehavior: Clip.antiAlias,
-              child: Column(
-                  children: [
-                    AspectRatio(
-                        aspectRatio: 5 / 2,
-                        child: Image.asset(
-                          'assets/placeholder.png',
-                          fit: BoxFit.fitWidth,
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          SizedBox(height: 24),
-                          Text(
-                            'OVERLINE',
-                            style: Theme.of(context).textTheme.overline,
-                          ),
-                          SizedBox(height: 16),
-                          Text(
-                            'Headline 6',
-                            style: Theme.of(context).textTheme.title,
-                          ),
-                          SizedBox(height: 16),
-                          Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh felis, pellentesque eu ex id, condimentum elementum ex.',
-                            style: Theme.of(context).textTheme.body2,
-                          ),
-                        ],
+              child: Column(children: [
+                AspectRatio(
+                    aspectRatio: 5 / 2,
+                    child: Image.asset(
+                      'assets/placeholder.png',
+                      fit: BoxFit.fitWidth,
+                    )),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 24),
+                      Text(
+                        'OVERLINE',
+                        style: Theme.of(context).textTheme.overline,
                       ),
-                    ),
-                  ]),
+                      SizedBox(height: 16),
+                      Text(
+                        'Headline 6',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh felis, pellentesque eu ex id, condimentum elementum ex.',
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
             ),
             SizedBox(height: 32),
 

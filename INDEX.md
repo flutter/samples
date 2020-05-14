@@ -103,9 +103,10 @@ advanced demos.
 
 #### [Material Theme Builder]l(material_theme_builder) _(Material team)_
 
-Build a Material Theme lets you create your own Material theme by customizing values for color, 
-typography, and shape. See how these values appear when applied to Material Components and 
-discover how to implement your custom theme in your own projects.
+Build a Material Theme lets you create your own Material theme by customizing
+values for color, typography, and shape. See how these values are applied to
+Material components and discover how to implement your custom theme in your
+own projects.
 
 ## Maps
 

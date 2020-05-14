@@ -1,12 +1,40 @@
 # Build a Material Theme
 
-Build a Material Theme lets you create your own Material theme by customizing values for color, typography, and shape. See how these values appear when applied to Material Components and discover how to implement your custom theme in your own projects.
+Build a Material Theme lets you create your own Material theme by customizing values for color, typography, and shape. See how these values are applied to Material components and discover how to implement your custom theme in your own projects.
 
-## Getting Started
+This project is a starting point for building a Material Theme with Flutter. Learn how to customize Material in this talk [Material Theming with Flutter](https://youtu.be/stoJpMeS5aY).
 
-This project is a starting point for building a Material Theme on Flutter. Learn how to customize Material in this talk [Material Theming with Flutter](https://youtu.be/stoJpMeS5aY).
+## Goals
+* Show how to apply themed typography, colors, and shapes to MaterialApps.
+* Allow creation of your own theme to see how it's applied to MaterialApps.
+* Demonstrate the `google_fonts` package.
 
-A few resources to get you started:
+## The important bits
+
+### `main.dart`
+
+Defines a `ColorScheme` that maps colors to semantic names. These are automatically applied to Material components and can be called manually in custom code.
+
+Defines a `TextTheme` that maps `TextStyles` (fonts, weights, pointsizes) to semantic names of a typography scale. These are automatically applied to Material components and can be called manually in custom code.
+
+Defines a `ThemeData` and passes it to the `MaterialApp`. This data type encapsulates all the values automatically assigned to all Material components and some other widgets in `MaterialApp`s. What we're using is just a subset of the dozens of fields available.
+
+Inside the `ThemeData` constructor, notice instances of `RoundedRectangleBorder` that are used to define corner shapes for components.
+
+The `Home` widget creates the `Scaffold` whose body is a `ListView` full of widgets. These are the UI you see in the app. 
+
+The `Header` widget is a helper for returning `overline` styled text.
+
+## Questions/issues
+
+If you have a general question about any of the techniques you see in
+the sample, the best places to go are:
+
+* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
+* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+To learn more about Material Theming, see:
 
 - [Material Theming](https://material.io/design/material-theming/): Material Theming refers to the customization of your Material Design app to better reflect your product’s brand
 - [Color palette generator](https://material.io/design/color/the-color-system.html#tools-for-picking-colors): Pick any color to generate a palette that’s usable and beautiful
@@ -18,3 +46,6 @@ A few resources to get you started:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+If you run into an issue with the sample itself, please file an issue
+in the [main Flutter repo](https://github.com/flutter/flutter/issues).

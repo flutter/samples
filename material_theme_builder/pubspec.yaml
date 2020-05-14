@@ -1,5 +1,5 @@
 name: material_theme_builder
-description: A new Flutter project.
+description: Build a Material Theme lets you create your own Material theme by customizing values for color, typography, and shape. See how these values are applied to Material components and discover how to implement your custom theme in your own projects.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
