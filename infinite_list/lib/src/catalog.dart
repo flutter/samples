@@ -74,7 +74,7 @@ class Catalog extends ChangeNotifier {
   }
 
   /// This method initiates fetching of the [ItemPage] at [startingIndex].
-  void _fetchPage(int startingIndex) async {
+  Future<void> _fetchPage(int startingIndex) async {
     if (_pagesBeingFetched.contains(startingIndex)) {
       // Page is already being fetched. Ignore the redundant call.
       return;
