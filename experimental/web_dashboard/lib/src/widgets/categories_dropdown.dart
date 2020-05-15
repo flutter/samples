@@ -24,61 +24,53 @@ class CategoryDropdown extends StatefulWidget {
 
 class _CategoryDropdownState extends State<CategoryDropdown> {
   Category _selected;
-  List<Category> _categories = [];
-  StreamSubscription _subscription;
-
-  void initState() {
-    super.initState();
-    _fetch();
-    _subscription = widget.api.subscribe().listen((categories) {
-      setState(() {
-        _categories = categories;
-
-        // Update the selected value if it doesn't exist in the new list.
-        if (categories.isNotEmpty && !categories.contains(_selected)) {
-          _selected = _categories.first;
-        } else if (categories.isEmpty) {
-          _selected = null;
-        }
-      });
-    });
-  }
-
-  void dispose() {
-    _subscription.cancel();
-    super.dispose();
-  }
-
-  Future _fetch() async {
-    var categories = await widget.api.list();
-
-    if (categories.isEmpty) {
-      return;
-    }
-
-    setState(() {
-      _categories = categories;
-    });
-
-    // Select the first category.
-    _selected = categories.first;
-    widget.onSelected(categories.first);
-  }
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<Category>(
-      value: _selected,
-      items: _categories
-          .map((i) => DropdownMenuItem<Category>(child: Text(i.name), value: i))
-          .toList(),
-      onChanged: (category) {
-        setState(() {
-          _selected = category;
-        });
+    return FutureBuilder<List<Category>>(
+      future: widget.api.list(),
+      builder: (context, futureSnapshot) {
+        // Show an empty dropdown while the data is loading
+        if (!futureSnapshot.hasData) {
+          return DropdownButton<Category>(items: [], onChanged: null);
+        }
 
-        widget.onSelected(category);
+        // Select the first item in the dropdown if this is the first snapshot.
+        if (_selected == null && futureSnapshot.data.isNotEmpty) {
+          _selected = futureSnapshot.data.first;
+        }
+
+        return StreamBuilder<List<Category>>(
+          initialData: futureSnapshot.hasData ? futureSnapshot.data : [],
+          stream: widget.api.subscribe(),
+          builder: (context, snapshot) {
+            var data = snapshot.hasData ? snapshot.data : <Category>[];
+
+            // Select the first element if the new list doesn't contain the
+            // selected value,
+            if (!snapshot.data.contains(_selected) &&
+                snapshot.data.isNotEmpty) {
+              _selected = snapshot.data.first;
+            }
+            return DropdownButton<Category>(
+              value: _selected,
+              items: data.map(_buildDropdownItem).toList(),
+              onChanged: (category) {
+                setState(() {
+                  _selected = category;
+                });
+
+                widget.onSelected(category);
+              },
+            );
+          },
+        );
       },
     );
+  }
+
+  DropdownMenuItem<Category> _buildDropdownItem(Category category) {
+    return DropdownMenuItem<Category>(
+        child: Text(category.name), value: category);
   }
 }
