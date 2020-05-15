@@ -16,7 +16,7 @@ void main() {
       await tester.pumpWidget(createExpandCardScreen());
 
       // Get the initial size of ExpandCard.
-      Size initialSize = tester.getSize(find.byType(ExpandCard));
+      var initialSize = tester.getSize(find.byType(ExpandCard));
 
       // Tap on the ExpandCard.
       await tester.tap(find.byType(ExpandCard));
@@ -33,7 +33,7 @@ void main() {
     testWidgets('ExpandCard changes image on tap', (tester) async {
       await tester.pumpWidget(createExpandCardScreen());
 
-      Image initialImage = tester.widget(find.byType(Image).last);
+      var initialImage = tester.widget(find.byType(Image).last);
 
       // Tap on ExpandCard.
       await tester.tap(find.byType(ExpandCard));

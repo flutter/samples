@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 class AnimatedListDemo extends StatefulWidget {
   static String routeName = '/misc/animated_list';
 
+  @override
   _AnimatedListDemoState createState() => _AnimatedListDemoState();
 }
 
@@ -17,9 +18,9 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
 
   void addUser() {
     setState(() {
-      int index = listData.length;
+      var index = listData.length;
       listData.add(
-        UserModel(firstName: "New", lastName: "Person"),
+        UserModel(firstName: 'New', lastName: 'Person'),
       );
       _listKey.currentState
           .insertItem(index, duration: Duration(milliseconds: 300));
@@ -96,23 +97,23 @@ class UserModel {
 
 List<UserModel> initialListData = [
   UserModel(
-    firstName: "Govind",
-    lastName: "Dixit",
+    firstName: 'Govind',
+    lastName: 'Dixit',
   ),
   UserModel(
-    firstName: "Greta",
-    lastName: "Stoll",
+    firstName: 'Greta',
+    lastName: 'Stoll',
   ),
   UserModel(
-    firstName: "Monty",
-    lastName: "Carlo",
+    firstName: 'Monty',
+    lastName: 'Carlo',
   ),
   UserModel(
-    firstName: "Petey",
-    lastName: "Cruiser",
+    firstName: 'Petey',
+    lastName: 'Cruiser',
   ),
   UserModel(
-    firstName: "Barry",
-    lastName: "Cade",
+    firstName: 'Barry',
+    lastName: 'Cade',
   ),
 ];

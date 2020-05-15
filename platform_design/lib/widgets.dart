@@ -283,7 +283,7 @@ void showChoices(BuildContext context, List<String> choices) {
       showDialog<void>(
         context: context,
         builder: (context) {
-          int selectedRadio = 1;
+          var selectedRadio = 1;
           return AlertDialog(
             contentPadding: EdgeInsets.only(top: 12),
             content: StatefulBuilder(

@@ -63,7 +63,7 @@ packages:
       name: espresso
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+4"
+    version: "0.0.1+5"
   file:
     dependency: transitive
     description:
@@ -167,7 +167,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.5"
+    version: "4.1.0"
   pub_semver:
     dependency: transitive
     description:
@@ -279,5 +279,5 @@ packages:
     source: hosted
     version: "3.6.1"
 sdks:
-  dart: ">=2.6.0 <3.0.0"
-  flutter: ">=1.12.1 <2.0.0"
+  dart: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"

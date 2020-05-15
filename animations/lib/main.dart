@@ -128,6 +128,7 @@ final allRoutes = <String, WidgetBuilder>{
 };
 
 class AnimationSamples extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Animation Samples',
@@ -141,6 +142,7 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     final headerStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
@@ -164,6 +166,7 @@ class DemoTile extends StatelessWidget {
 
   DemoTile(this.demo);
 
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(demo.name),

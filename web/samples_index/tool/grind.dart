@@ -62,8 +62,8 @@ Future generate() async {
 Future scrapeCookbook() async {
   var driver = await Process.start(
       'chromedriver', ['--port=4444', '--url-base=wd/hub', '--verbose']);
-  driver.stdout.pipe(stdout);
-  driver.stderr.pipe(stderr);
+  await driver.stdout.pipe(stdout);
+  await driver.stderr.pipe(stderr);
   var scraper = CookbookScraper();
   await scraper.init();
   var links = await scraper.fetchCookbookLinks();

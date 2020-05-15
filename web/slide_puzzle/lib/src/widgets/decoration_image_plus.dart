@@ -160,9 +160,11 @@ class DecorationImagePlus implements DecorationImage {
 
   @override
   ImageErrorListener get onError => (error, stackTrace) {
-        developer.log('Failed to load image.\n'
+        developer.log(
+            'Failed to load image.\n'
             '$error\n'
-            '$stackTrace', name: 'slide_puzzle.decoration_image_plus');
+            '$stackTrace',
+            name: 'slide_puzzle.decoration_image_plus');
       };
 }
 

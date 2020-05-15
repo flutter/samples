@@ -85,8 +85,8 @@ class SettingsItemState extends State<SettingsItem> {
 
   @override
   Widget build(BuildContext context) {
-    CupertinoThemeData themeData = CupertinoTheme.of(context);
-    Brightness brightness = CupertinoTheme.brightnessOf(context);
+    var themeData = CupertinoTheme.of(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       color: Styles.settingsItemColor(brightness),

@@ -7,7 +7,7 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/data/local_veggie_provider.dart';
 
 class AppState extends Model {
-  List<Veggie> _veggies;
+  final List<Veggie> _veggies;
 
   AppState() : _veggies = LocalVeggieProvider.veggies;
 
@@ -16,12 +16,12 @@ class AppState extends Model {
   Veggie getVeggie(int id) => _veggies.singleWhere((v) => v.id == id);
 
   List<Veggie> get availableVeggies {
-    Season currentSeason = _getSeasonForDate(DateTime.now());
+    var currentSeason = _getSeasonForDate(DateTime.now());
     return _veggies.where((v) => v.seasons.contains(currentSeason)).toList();
   }
 
   List<Veggie> get unavailableVeggies {
-    Season currentSeason = _getSeasonForDate(DateTime.now());
+    var currentSeason = _getSeasonForDate(DateTime.now());
     return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
   }
 
@@ -33,7 +33,7 @@ class AppState extends Model {
       .toList();
 
   void setFavorite(int id, bool isFavorite) {
-    Veggie veggie = getVeggie(id);
+    var veggie = getVeggie(id);
     veggie.isFavorite = isFavorite;
     notifyListeners();
   }

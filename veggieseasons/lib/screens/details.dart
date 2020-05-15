@@ -28,7 +28,7 @@ class ServingInfoChart extends StatelessWidget {
       builder: (context, snapshot) {
         final target = snapshot?.data ?? 2000;
         final percent = standardPercentage * 2000 ~/ target;
-        final CupertinoThemeData themeData = CupertinoTheme.of(context);
+        final themeData = CupertinoTheme.of(context);
 
         return Text(
           '$percent% DV',
@@ -41,7 +41,7 @@ class ServingInfoChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+    final themeData = CupertinoTheme.of(context);
     return Column(
       children: [
         SizedBox(height: 16),
@@ -141,8 +141,8 @@ class ServingInfoChart extends StatelessWidget {
                   future: prefs.desiredCalories,
                   builder: (context, snapshot) {
                     return Text(
-                      'Percent daily values based on a diet of ' +
-                          '${snapshot?.data ?? '2,000'} calories.',
+                      'Percent daily values based on a diet of '
+                      '${snapshot?.data ?? '2,000'} calories.',
                       style: Styles.detailsServingNoteText(themeData),
                     );
                   },
@@ -161,11 +161,12 @@ class InfoView extends StatelessWidget {
 
   const InfoView(this.id);
 
+  @override
   Widget build(BuildContext context) {
     final appState = ScopedModel.of<AppState>(context, rebuildOnChange: true);
     final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
     final veggie = appState.getVeggie(id);
-    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+    final themeData = CupertinoTheme.of(context);
 
     return Padding(
       padding: const EdgeInsets.all(24),
