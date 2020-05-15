@@ -41,10 +41,10 @@ flutter pub run grinder generate
 ### Step 1: Create Firebase project and install packages
 
 Follow the steps at [firebase.google.com/docs/flutter/setup][flutter-setup].
-This app uses these Firebase packages:
+
+This app uses these Firebase packages (already included in pubspec.yaml):
 
 ```yaml
-# Add these packages to your pubspec.yaml under "dependencies"
   firebase_core: ^0.4.3
   cloud_firestore: ^0.13.0
   firebase_auth: ^0.15.0
@@ -58,7 +58,7 @@ on "Web SDK Configuration" and copy down your Web client ID.
 
 ### Step 3: Add firebase scripts to `index.html`
 
-Add these scripts to the `<head>` tag:
+Replace `<YOUR WEB CLIENT ID>` with the client ID from Step 2:
 
 ```html
   <!-- Firebase Setup -->
@@ -69,13 +69,10 @@ Add these scripts to the `<head>` tag:
   <meta name="google-signin-client_id" content="<YOUR WEB CLIENT ID>">
 ```
 
-Replace `<YOUR WEB CLIENT ID>` with the client ID from Step 2.
-
 ### Step 4: Create a web app
 
 In the Firebase console, under "Project overview", click "Add app", select Web,
-and paste the code snippet into a new file, `web/firebase_init.js` referenced in
-step 3:
+and paste the code snippet into a new file, `web/firebase_init.js`.
 
 ```javascript
 // web/firebase_init.js
@@ -88,14 +85,15 @@ var firebaseConfig = {
     messagingSenderId: "",
     appId: ""
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 ```
 
 ### Step 5: Create Cloud Firestore
 
-Create a new Cloud Firestore database and add the following rules to allow users
-to read/write their own data:
+Create a new Cloud Firestore database and add the following rules to disallow
+users from reading/writing other users' data:
 
 ```
 rules_version = '2';
