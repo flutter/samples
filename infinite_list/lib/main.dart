@@ -19,9 +19,6 @@ class MyApp extends StatelessWidget {
       create: (context) => Catalog(),
       child: MaterialApp(
         title: 'Infinite List Sample',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         home: MyHomePage(),
       ),
     );

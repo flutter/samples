@@ -14,7 +14,7 @@ const catalogLength = 200;
 ///
 /// It will fetch a page of items from [startingIndex].
 Future<ItemPage> fetchPage(int startingIndex) async {
-  // We're emulating a delay inherent with making a network call.
+  // We're emulating the delay inherent to making a network call.
   await Future<void>.delayed(const Duration(milliseconds: 500));
 
   // If the [startingIndex] is beyond the bounds of the catalog, an

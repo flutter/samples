@@ -7,7 +7,7 @@ to social media clients.
 
 ![An animated gif of the app in action](https://user-images.githubusercontent.com/919717/81858860-3a1e3280-9519-11ea-8e9c-9d22ac1bf0ed.gif)
 
-This particular sample is using the [Provider][] package but any other state management approach
+This particular sample uses the [Provider][] package but any other state management approach
 would do.
 
 [Provider]: https://pub.dev/packages/provider
