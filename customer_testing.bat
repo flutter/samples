@@ -6,6 +6,10 @@ cd "flutter_maps_firestore"
 flutter test || exit 1
 cd ..
 
+cd "infinite_list"
+flutter test || exit 1
+cd ..
+
 cd "isolate_example"
 flutter test || exit 1
 cd ..
