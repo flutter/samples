@@ -71,16 +71,16 @@ class HState extends State<Home> {
                   scale: .9)),
           Text(fi['fn'],
               style:
-                  t.display3.copyWith(fontFamily: 'ark', color: Colors.black)),
+                  t.headline2.copyWith(fontFamily: 'ark', color: Colors.black)),
           Container(
             child: Text(fi['cn'],
-                style: t.subhead.apply(color: Colors.red, fontFamily: 'opb')),
+                style: t.subtitle1.apply(color: Colors.red, fontFamily: 'opb')),
             margin: EdgeInsets.only(top: 10, bottom: 30),
           ),
           Container(
               child: Text(fi['dc'],
                   textAlign: TextAlign.center,
-                  style: t.subhead.copyWith(fontFamily: 'opr')),
+                  style: t.subtitle1.copyWith(fontFamily: 'opr')),
               margin: EdgeInsets.only(left: 10, right: 10)),
           Expanded(
               flex: 2,
@@ -101,7 +101,7 @@ class HState extends State<Home> {
                               children: <Widget>[
                                 Text(fi['ig'][i]['n'],
                                     style:
-                                        t.subtitle.copyWith(fontFamily: 'opb')),
+                                        t.subtitle2.copyWith(fontFamily: 'opb')),
                                 Text(fi['ig'][i]['c'],
                                     style:
                                         t.caption.copyWith(fontFamily: 'opr'))

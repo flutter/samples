@@ -1,29 +1,13 @@
-import 'core/puzzle_animator.dart';
-import 'package:flutter/material.dart';
-import 'shared_theme.dart';
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+import 'package:flutter/foundation.dart';
+
+import 'core/puzzle_proxy.dart';
 
 abstract class AppState {
-  TabController get tabController;
-
-  Animation<Offset> get shuffleOffsetAnimation;
-
   PuzzleProxy get puzzle;
 
-  bool get autoPlay;
-
-  void setAutoPlay(bool newValue);
-
-  AnimationNotifier get animationNotifier;
-
-  Iterable<SharedTheme> get themeData;
-
-  SharedTheme get currentTheme;
-
-  set currentTheme(SharedTheme theme);
-}
-
-abstract class AnimationNotifier implements Listenable {
-  void animate();
-
-  void dispose();
+  Listenable get animationNotifier;
 }

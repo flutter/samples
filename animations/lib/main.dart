@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+
 import 'src/basics/01_animated_container.dart';
 import 'src/basics/02_page_route_builder.dart';
 import 'src/basics/03_animation_controller.dart';
@@ -11,11 +12,12 @@ import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
 import 'src/basics/08_fade_transition.dart';
-import 'src/basics/09_animated_positioned.dart';
-import 'src/basics/10_animated_switcher.dart';
 import 'src/misc/animated_list.dart';
+import 'src/misc/animated_positioned.dart';
+import 'src/misc/animated_switcher.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
+import 'src/misc/curved_animation.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
 import 'src/misc/hero_animation.dart';
@@ -65,14 +67,6 @@ final basicDemos = [
       name: 'Fade Transition',
       route: FadeTransitionDemo.routeName,
       builder: (context) => FadeTransitionDemo()),
-  Demo(
-      name: 'AnimatedPositioned',
-      route: AnimatedPositionedDemo.routeName,
-      builder: (context) => AnimatedPositionedDemo()),
-  Demo(
-      name: 'AnimatedSwitcher',
-      route: AnimatedSwitcherDemo.routeName,
-      builder: (context) => AnimatedSwitcherDemo())
 ];
 
 final miscDemos = [
@@ -105,9 +99,21 @@ final miscDemos = [
       route: AnimatedListDemo.routeName,
       builder: (context) => AnimatedListDemo()),
   Demo(
+      name: 'AnimatedPositioned',
+      route: AnimatedPositionedDemo.routeName,
+      builder: (context) => AnimatedPositionedDemo()),
+  Demo(
+      name: 'AnimatedSwitcher',
+      route: AnimatedSwitcherDemo.routeName,
+      builder: (context) => AnimatedSwitcherDemo()),
+  Demo(
       name: 'Hero Animation',
       route: HeroAnimationDemo.routeName,
       builder: (context) => HeroAnimationDemo()),
+  Demo(
+      name: 'Curved Animation',
+      route: CurvedAnimationDemo.routeName,
+      builder: (context) => CurvedAnimationDemo()),
 ];
 
 final basicDemoRoutes =
@@ -122,6 +128,7 @@ final allRoutes = <String, WidgetBuilder>{
 };
 
 class AnimationSamples extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Animation Samples',
@@ -135,8 +142,9 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.title;
+    final headerStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
       appBar: AppBar(
         title: Text('Animation Samples'),
@@ -158,6 +166,7 @@ class DemoTile extends StatelessWidget {
 
   DemoTile(this.demo);
 
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(demo.name),

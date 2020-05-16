@@ -12,7 +12,7 @@ class PlaceList extends StatefulWidget {
 }
 
 class PlaceListState extends State<PlaceList> {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
@@ -107,8 +107,8 @@ class _PlaceListTile extends StatelessWidget {
               }).toList(),
             ),
             Text(
-              place.description != null ? place.description : '',
-              style: Theme.of(context).textTheme.subhead,
+              place.description ?? '',
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),

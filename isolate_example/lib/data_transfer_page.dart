@@ -41,7 +41,7 @@ class DataTransferPage extends StatelessWidget {
           Container(
             child: Text(
               'Number Generator Progress',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
             padding: EdgeInsets.all(8),
           ),
@@ -159,11 +159,11 @@ class DataTransferIsolateController extends ChangeNotifier {
     _timer.reset();
     _timer.start();
 
-    List<int> randNums = [];
-    for (int i = 0; i < 100; i++) {
+    var randNums = <int>[];
+    for (var i = 0; i < 100; i++) {
       randNums.clear();
 
-      for (int j = 0; j < 1000000; j++) {
+      for (var j = 0; j < 1000000; j++) {
         randNums.add(random.nextInt(100));
       }
 
@@ -183,6 +183,7 @@ class DataTransferIsolateController extends ChangeNotifier {
     });
   }
 
+  @override
   void dispose() {
     super.dispose();
     _isolate?.kill(priority: Isolate.immediate);
@@ -226,7 +227,7 @@ class RunningList extends StatelessWidget {
 Future<void> _secondIsolateEntryPoint(SendPort sendPort) async {
   var receivePort = ReceivePort();
   sendPort.send(receivePort.sendPort);
-  int length = 1;
+  var length = 1;
 
   receivePort.listen(
     (dynamic message) async {
@@ -253,7 +254,7 @@ Future<void> _secondIsolateEntryPoint(SendPort sendPort) async {
 
 Iterable<int> createNums() sync* {
   var random = Random();
-  for (int i = 0; i < 100000000; i++) {
+  for (var i = 0; i < 100000000; i++) {
     yield random.nextInt(100);
   }
 }
@@ -263,10 +264,10 @@ Future<void> generateAndSum(
   Iterable<int> iter,
   int length,
 ) async {
-  int sum = 0;
-  int count = 1;
+  var sum = 0;
+  var count = 1;
 
-  for (int x in iter) {
+  for (var x in iter) {
     sum += x;
     if (count % 1000000 == 0) {
       callerSP.send((count ~/ 1000000) * length);

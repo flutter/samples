@@ -41,7 +41,7 @@ class InfiniteProcessPage extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Text(
               'Summation Results',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           Expanded(
@@ -107,7 +107,7 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   Capability capability;
 
   int _currentMultiplier = 1;
-  List<int> _currentResults = [];
+  final List<int> _currentResults = [];
   bool _created = false;
   bool _paused = false;
 
@@ -174,6 +174,7 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
     notifyListeners();
   }
 
+  @override
   void dispose() {
     newIsolate?.kill(priority: Isolate.immediate);
     newIsolate = null;
@@ -186,7 +187,7 @@ class RunningList extends StatelessWidget {
   Widget build(context) {
     final controller = Provider.of<InfiniteProcessIsolateController>(context);
 
-    List<int> sums = controller.currentResults;
+    var sums = controller.currentResults;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -219,9 +220,9 @@ class RunningList extends StatelessWidget {
 }
 
 Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
-  int multiplyValue = 1;
+  var multiplyValue = 1;
 
-  ReceivePort newIceRP = ReceivePort();
+  var newIceRP = ReceivePort();
   callerSP.send(newIceRP.sendPort);
 
   newIceRP.listen((dynamic message) {
@@ -232,9 +233,9 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 
   // This runs until the isolate is terminated.
   while (true) {
-    int sum = 0;
+    var sum = 0;
 
-    for (int i = 0; i < 10000; i++) {
+    for (var i = 0; i < 10000; i++) {
       sum += await doSomeWork();
     }
 
@@ -243,12 +244,12 @@ Future<void> _secondIsolateEntryPoint(SendPort callerSP) async {
 }
 
 Future<int> doSomeWork() {
-  Random rng = Random();
+  var rng = Random();
 
   return Future(() {
-    int sum = 0;
+    var sum = 0;
 
-    for (int i = 0; i < 1000; i++) {
+    for (var i = 0; i < 1000; i++) {
       sum += rng.nextInt(100);
     }
 

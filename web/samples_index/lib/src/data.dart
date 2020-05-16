@@ -7,6 +7,7 @@ library data;
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:samples_index/src/util.dart' as util;
+import 'package:path/path.dart' as path;
 
 part 'data.g.dart';
 
@@ -103,6 +104,13 @@ class Sample {
 
   Map<String, dynamic> toJson() => _$SampleToJson(this);
 
+  String get thumbnail {
+    var screenshotUrl = screenshots.first.url;
+    var prefix = path.dirname(screenshotUrl);
+    var filename = path.basenameWithoutExtension(screenshotUrl);
+    return path.join(prefix, filename + '_thumb.png');
+  }
+
   String get searchAttributes {
     var buf = StringBuffer();
     buf.write(name.toLowerCase());
@@ -139,7 +147,7 @@ class Sample {
     var nameWithoutChars = name.replaceAll(RegExp(r'[^A-Za-z0-9\-\_\ ]'), '');
     var nameWithUnderscores = nameWithoutChars.replaceAll(' ', '_');
     var snake = util.snakeCase(nameWithUnderscores);
-    var s =  snake.replaceAll('__', '_');
+    var s = snake.replaceAll('__', '_');
     return s;
   }
 

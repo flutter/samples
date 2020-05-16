@@ -59,16 +59,16 @@ class _DataTreeInkWellState extends State<DataTreeInkWell>
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final Animation<Color> backgroundColor = controller
+    final backgroundColor = controller
         .drive(CurveTween(curve: Curves.fastOutSlowIn))
         .drive(ColorTween(
           begin: colorScheme.primary.withOpacity(0.0),
           end: colorScheme.primary.withOpacity(0.08),
         ));
 
-    final Animation<Color> iconColor = controller
+    final iconColor = controller
         .drive(CurveTween(curve: Curves.fastOutSlowIn))
         .drive(ColorTween(
           begin: colorScheme.onBackground.withOpacity(0.54),
@@ -235,10 +235,10 @@ class _DataTreeNodeState extends State<DataTreeNode>
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color textColor = colorScheme.onBackground.withOpacity(0.87);
+    final colorScheme = Theme.of(context).colorScheme;
+    final textColor = colorScheme.onBackground.withOpacity(0.87);
 
-    final bool closed = !_isExpanded && _controller.isDismissed;
+    final closed = !_isExpanded && _controller.isDismissed;
 
     return widget.children.isEmpty
         // Leaf node.
@@ -254,7 +254,7 @@ class _DataTreeNodeState extends State<DataTreeNode>
                 ),
                 const SizedBox(width: 16),
                 DefaultTextStyle(
-                  style: Theme.of(context).textTheme.body1.copyWith(
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: textColor,
                       ),
                   child: widget.title,

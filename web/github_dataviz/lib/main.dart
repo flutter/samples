@@ -191,15 +191,18 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     int numWeeksTotal = contributionList[0].contributions.length;
 
-    String starsByWeekStr = (await http.get("assets/github_data/stars.tsv")).body;
+    String starsByWeekStr =
+        (await http.get("assets/github_data/stars.tsv")).body;
     List<StatForWeek> starsByWeekLoaded =
         summarizeWeeksFromTSV(starsByWeekStr, numWeeksTotal);
 
-    String forksByWeekStr = (await http.get("assets/github_data/forks.tsv")).body;
+    String forksByWeekStr =
+        (await http.get("assets/github_data/forks.tsv")).body;
     List<StatForWeek> forksByWeekLoaded =
         summarizeWeeksFromTSV(forksByWeekStr, numWeeksTotal);
 
-    String commitsByWeekStr = (await http.get("assets/github_data/commits.tsv")).body;
+    String commitsByWeekStr =
+        (await http.get("assets/github_data/commits.tsv")).body;
     List<StatForWeek> commitsByWeekLoaded =
         summarizeWeeksFromTSV(commitsByWeekStr, numWeeksTotal);
 

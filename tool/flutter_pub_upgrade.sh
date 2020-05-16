@@ -10,5 +10,6 @@ do
         cd `dirname $file`
         echo "Updating `pwd`"
         flutter pub upgrade
+        flutter pub outdated
     )
 done

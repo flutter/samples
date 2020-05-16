@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class PageRouteBuilderDemo extends StatelessWidget {
   static const String routeName = '/basics/page_route_builder';
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -38,11 +39,12 @@ Route _createRoute() {
 }
 
 class _Page2 extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text('Page 2!', style: Theme.of(context).textTheme.display1),
+        child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
       ),
     );
   }

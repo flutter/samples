@@ -17,11 +17,12 @@ dependencies:
   html: ^0.14.0
 dev_dependencies:
   grinder: ^0.8.3
-  pedantic: ^1.8.0
+  pedantic: ^1.9.0
   test: ^1.6.0
   json_serializable: ^3.2.0
   build: ^1.2.0
   build_runner: ^1.7.0
   build_web_compilers: ^2.7.0
   tuneup: ^0.3.6
+  image: ^2.1.0
 

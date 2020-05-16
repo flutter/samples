@@ -19,6 +19,7 @@ class ExpandCardDemo extends StatelessWidget {
 }
 
 class ExpandCard extends StatefulWidget {
+  @override
   _ExpandCardState createState() => _ExpandCardState();
 }
 

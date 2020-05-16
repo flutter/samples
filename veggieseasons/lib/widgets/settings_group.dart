@@ -76,9 +76,9 @@ class SettingsGroup extends StatelessWidget {
   final Widget footer;
   @override
   Widget build(BuildContext context) {
-    Brightness brightness = CupertinoTheme.brightnessOf(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     final dividedItems = <Widget>[items[0]];
-    for (int i = 1; i < items.length; i++) {
+    for (var i = 1; i < items.length; i++) {
       dividedItems.add(Container(
         color: Styles.settingsLineation(brightness),
         height: 0.3,
