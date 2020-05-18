@@ -37,7 +37,8 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
         // Select the first item in the dropdown if this is the first snapshot.
         if (_selected == null && futureSnapshot.data.isNotEmpty) {
-          _selected = futureSnapshot.data.first;
+
+            _setSelected(futureSnapshot.data.first);
         }
 
         return StreamBuilder<List<Category>>(
@@ -50,23 +51,36 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
             // selected value,
             if (!snapshot.data.contains(_selected) &&
                 snapshot.data.isNotEmpty) {
-              _selected = snapshot.data.first;
+                _setSelected(snapshot.data.first);
             }
             return DropdownButton<Category>(
               value: _selected,
               items: data.map(_buildDropdownItem).toList(),
               onChanged: (category) {
                 setState(() {
-                  _selected = category;
+                  _setSelected(category);
                 });
-
-                widget.onSelected(category);
               },
             );
           },
         );
       },
     );
+  }
+
+  void _setSelected(Category category) {
+    if (_selected == category) {
+      return;
+    }
+    _selected = category;
+
+    // Avoid invoking this callback during a build() because 1. calling setState
+    // during a build is an error, and 2. any widgets listening could be calling
+    // setState(). This can happen if the data is immediately returned by the
+    // FutureBuilder or StreamBuilder.
+    Future(() {
+      widget.onSelected(_selected);
+    });
   }
 
   DropdownMenuItem<Category> _buildDropdownItem(Category category) {
