@@ -1,4 +1,5 @@
 import '../api/api.dart';
+import 'day_helpers.dart';
 
 /// The total value of one or more [Entry]s on a given day.
 class EntryTotal {
@@ -42,14 +43,14 @@ List<List<Entry>> _entriesInRange(
 
 Iterable<List<Entry>> _entriesInRangeImpl(
     DateTime start, DateTime end, List<Entry> entries) sync* {
-  start = _date(start);
-  end = _date(end);
+  start = start.atMidnight;
+  end = end.atMidnight;
   var d = start;
 
   while (d.compareTo(end) <= 0) {
     var es = <Entry>[];
     for (var entry in entries) {
-      if (_isSameDay(d, _date(entry.time))) {
+      if (d.isSameDay(entry.time.atMidnight)) {
         es.add(entry);
       }
     }
@@ -57,14 +58,4 @@ Iterable<List<Entry>> _entriesInRangeImpl(
     yield es;
     d = d.add(Duration(days: 1));
   }
-}
-
-/// The UTC date of a datetime, excluding the minutes, seconds, etc.
-DateTime _date(DateTime time) {
-  return DateTime.utc(time.year, time.month, time.day);
-}
-
-/// Checks that the two [DateTime]s share the same date.
-bool _isSameDay(DateTime d1, DateTime d2) {
-  return d1.year == d2.year && d1.month == d2.month && d1.day == d2.day;
 }

@@ -2,7 +2,7 @@ name: web_dashboard
 description: A dashboard app sample
 version: 1.0.0+1
 environment:
-  sdk: ">=2.3.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
