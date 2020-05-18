@@ -21,13 +21,16 @@ class FirebaseDashboardApi implements DashboardApi {
 class FirebaseEntryApi implements EntryApi {
   final Firestore firestore;
   final String userId;
+  final CollectionReference _categoriesRef;
 
-  FirebaseEntryApi(this.firestore, this.userId);
+  FirebaseEntryApi(this.firestore, this.userId)
+      : _categoriesRef = firestore.collection('users/$userId/categories');
 
   @override
   Stream<List<Entry>> subscribe(String categoryId) {
-    var snapshots = firestore
-        .collection('users/$userId/categories/$categoryId/entries')
+    var snapshots = _categoriesRef
+        .document('$categoryId')
+        .collection('entries')
         .snapshots();
     var result = snapshots.map((querySnapshot) {
       return querySnapshot.documents.map((snapshot) {
@@ -40,8 +43,7 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Future<Entry> delete(String categoryId, String id) async {
-    var document =
-        firestore.document('users/$userId/categories/$categoryId/entries/$id');
+    var document = _categoriesRef.document('$categoryId/entries/$id');
     var category = await get(categoryId, document.documentID);
 
     await document.delete();
@@ -51,17 +53,18 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Future<Entry> insert(String categoryId, Entry entry) async {
-    var document = await firestore
-        .collection('users/$userId/categories/$categoryId/entries')
+    var document = await _categoriesRef
+        .document('$categoryId')
+        .collection('entries')
         .add(entry.toJson());
     return await get(categoryId, document.documentID);
   }
 
   @override
   Future<List<Entry>> list(String categoryId) async {
-    var snapshot =
-        firestore.collection('users/$userId/categories/$categoryId/entries');
-    var querySnapshot = await snapshot.getDocuments();
+    var entriesRef =
+        _categoriesRef.document('$categoryId').collection('entries');
+    var querySnapshot = await entriesRef.getDocuments();
     var entries = querySnapshot.documents
         .map((doc) => Entry.fromJson(doc.data)..id = doc.documentID)
         .toList();
@@ -71,17 +74,15 @@ class FirebaseEntryApi implements EntryApi {
 
   @override
   Future<Entry> update(String categoryId, String id, Entry entry) async {
-    var document =
-        firestore.document('users/$userId/categories/$categoryId/entries/$id');
+    var document = _categoriesRef.document('$categoryId/entries/$id');
     await document.setData(entry.toJson());
-    // TODO: fetch with get()?
-    return entry;
+    var snapshot = await document.get();
+    return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
   }
 
   @override
   Future<Entry> get(String categoryId, String id) async {
-    var document =
-        firestore.document('users/$userId/categories/$categoryId/entries/$id');
+    var document = _categoriesRef.document('$categoryId/entries/$id');
     var snapshot = await document.get();
     return Entry.fromJson(snapshot.data)..id = snapshot.documentID;
   }
@@ -144,7 +145,7 @@ class FirebaseCategoryApi implements CategoryApi {
   Future<Category> update(Category category, String id) async {
     var document = _categoriesRef.document('$id');
     await document.setData(category.toJson());
-    // TODO: re-fetch with get()?
-    return category;
+    var snapshot = await document.get();
+    return Category.fromJson(snapshot.data)..id = snapshot.documentID;
   }
 }
