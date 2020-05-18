@@ -44,11 +44,11 @@ class FirebaseEntryApi implements EntryApi {
   @override
   Future<Entry> delete(String categoryId, String id) async {
     var document = _categoriesRef.document('$categoryId/entries/$id');
-    var category = await get(categoryId, document.documentID);
+    var entry = await get(categoryId, document.documentID);
 
     await document.delete();
 
-    return category;
+    return entry;
   }
 
   @override
