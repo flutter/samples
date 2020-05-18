@@ -119,9 +119,9 @@ Run the app on port 5000:
 flutter run -d chrome --web-port=5000
 ```
 
-If you see CORS issues, go to the [Services section][cloud-console-apis] in the
-Google Cloud console, go to Credentials, and verify that `localhost:5000` is
-whitelisted.
+If you see CORS errors in your browser's console, go to the [Services
+section][cloud-console-apis] in the Google Cloud console, go to Credentials, and
+verify that `localhost:5000` is whitelisted.
 
 ### (optional) Step 7: Set up iOS and Android
 If you would like to run the app on iOS or Android, make sure you've installed
