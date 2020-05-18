@@ -38,41 +38,30 @@ flutter pub run grinder generate
 
 ## Add Firebase
 
-### Step 1: Create Firebase project and install packages
+### Step 1: Create a new Firebase project
 
-Follow the steps at [firebase.google.com/docs/flutter/setup][flutter-setup].
-
-This app uses these Firebase packages (already included in pubspec.yaml):
-
-```yaml
-  firebase_core: ^0.4.3
-  cloud_firestore: ^0.13.0
-  firebase_auth: ^0.15.0
-  google_sign_in: ^4.0.0
-```
+Go to [console.firebase.google.com](https://console.firebase.google.com/) and
+create a new Firebase project.
 
 ### Step 2: Enable Google Sign In for your project
 
 In the Firebase console, go to "Authentication" and enable Google sign in. Click
 on "Web SDK Configuration" and copy down your Web client ID.
 
-### Step 3: Add firebase scripts to `index.html`
+### Step 3: Add Client ID to `index.html`
 
-Replace `<YOUR WEB CLIENT ID>` with the client ID from Step 2:
+Uncomment this line in `index.html` and replace `<YOUR WEB CLIENT ID>` with the
+client ID from Step 2:
 
 ```html
-  <!-- Firebase Setup -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
-  <script src="firebase_init.js"></script>
-  <meta name="google-signin-client_id" content="<YOUR WEB CLIENT ID>">
+  <!-- Uncomment and add Firebase client ID here: -->
+  <!-- <meta name="google-signin-client_id" content="<YOUR WEB CLIENT ID>"> -->
 ```
 
 ### Step 4: Create a web app
 
 In the Firebase console, under "Project overview", click "Add app", select Web,
-and paste the code snippet into a new file, `web/firebase_init.js`.
+and replace the contents of `web/firebase_init.js`.
 
 ```javascript
 // web/firebase_init.js
@@ -90,7 +79,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 ```
 
-### Step 5: Create Cloud Firestore
+### Step 4: Create Cloud Firestore
 
 Create a new Cloud Firestore database and add the following rules to disallow
 users from reading/writing other users' data:
@@ -111,7 +100,7 @@ service cloud.firestore {
 }
 ```
 
-### Step 6: Run the app
+### Step 5: Run the app
 
 Run the app on port 5000:
 
