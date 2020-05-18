@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/auth/auth.dart';
+
+import '../auth/auth.dart';
 
 class SignInPage extends StatefulWidget {
   final Auth auth;

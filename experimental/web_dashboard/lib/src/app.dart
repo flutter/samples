@@ -5,13 +5,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/api/mock.dart';
-import 'package:web_dashboard/src/auth/firebase.dart';
-import 'package:web_dashboard/src/auth/mock.dart';
 
+import 'api/api.dart';
 import 'api/firebase.dart';
+import 'api/mock.dart';
 import 'auth/auth.dart';
+import 'auth/firebase.dart';
+import 'auth/mock.dart';
 import 'pages/home.dart';
 import 'pages/sign_in.dart';
 

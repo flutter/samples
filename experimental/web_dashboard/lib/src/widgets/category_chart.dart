@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:intl/intl.dart' as intl;
-import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/utils/chart_utils.dart' as utils;
 
+import '../api/api.dart';
+import '../utils/chart_utils.dart' as utils;
 import 'dialogs.dart';
 
 // The number of days to show in the chart

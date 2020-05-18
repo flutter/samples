@@ -1,4 +1,4 @@
-import 'package:web_dashboard/src/api/api.dart';
+import '../api/api.dart';
 
 /// The total value of one or more [Entry]s on a given day.
 class EntryTotal {

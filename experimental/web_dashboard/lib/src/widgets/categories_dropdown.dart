@@ -5,7 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/api/api.dart';
+import '../api/api.dart';
 
 /// Subscribes to the latest list of categories and allows the user to select
 /// one.

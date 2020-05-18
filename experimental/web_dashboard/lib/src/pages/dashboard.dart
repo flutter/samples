@@ -4,9 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:web_dashboard/src/api/api.dart';
-import 'package:web_dashboard/src/app.dart';
-import 'package:web_dashboard/src/widgets/category_chart.dart';
+
+import '../api/api.dart';
+import '../app.dart';
+import '../widgets/category_chart.dart';
 
 class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
