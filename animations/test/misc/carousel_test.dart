@@ -15,15 +15,15 @@ void main() {
     await tester.pumpWidget(createCarouselDemoScreen());
 
     // Get the images available on the screen during initial state.
-    List<Widget> imagesList = tester.widgetList(find.byType(Image)).toList();
-    expect(imagesList.length, 2);
+    List<Widget> imageList = tester.widgetList(find.byType(Image)).toList();
+    expect(imageList.length, 2);
 
     // Swipe the Carousel.
     await tester.fling(find.byType(CarouselDemo), Offset(-400, 0), 800);
     await tester.pumpAndSettle();
 
     // Get the images available on the screen after swipe.
-    imagesList = tester.widgetList(find.byType(Image)).toList();
-    expect(imagesList.length, 3);
+    imageList = tester.widgetList(find.byType(Image)).toList();
+    expect(imageList.length, 3);
   });
 }
