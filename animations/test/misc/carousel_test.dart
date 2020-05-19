@@ -15,7 +15,7 @@ void main() {
     await tester.pumpWidget(createCarouselDemoScreen());
 
     // Get the images available on the screen during initial state.
-    List<Widget> imageList = tester.widgetList(find.byType(Image)).toList();
+    var imageList = tester.widgetList(find.byType(Image)).toList();
     expect(imageList.length, 2);
 
     // Swipe the Carousel.
