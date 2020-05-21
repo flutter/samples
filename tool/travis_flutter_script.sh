@@ -30,8 +30,10 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module_using_plugin" \
     "animations" \
     "flutter_maps_firestore" \
+    "infinite_list" \
     "isolate_example" \
     "jsonexample" \
+    "material_theme_builder" \
     "place_tracker" \
     "platform_design"
     "platform_view_swift" \
