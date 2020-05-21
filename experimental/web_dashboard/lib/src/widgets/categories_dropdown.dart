@@ -30,7 +30,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
     return FutureBuilder<List<Category>>(
       future: widget.api.list(),
       builder: (context, futureSnapshot) {
-        // Show an empty dropdown while the data is loading
+        // Show an empty dropdown while the data is loading.
         if (!futureSnapshot.hasData) {
           return DropdownButton<Category>(items: [], onChanged: null);
         }
