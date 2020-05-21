@@ -101,6 +101,13 @@ A collection of animation examples. The app starts with basic concepts like
 `AnimationController` and `Tween`, then progresses to transitions and
 advanced demos.
 
+#### [Material Theme Builder](material_theme_builder) _(Material team)_
+
+Build a Material Theme lets you create your own Material theme by customizing
+values for color, typography, and shape. See how these values are applied to
+Material components and discover how to implement your custom theme in your
+own projects.
+
 #### [Infinite list](infinite_list) _(Flutter team)_
 
 A sample implementation of the infinite list, a common UI pattern in which
