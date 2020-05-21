@@ -42,6 +42,7 @@ To learn more about Material Theming, see:
 - [Official Google Fonts package for Flutter](https://pub.dev/packages/google_fonts): The `google_fonts` package for Flutter allows you to easily use [Google Fonts](https://fonts.google.com/) in your Flutter app
 - [Material Components widgets](https://flutter.dev/docs/development/ui/widgets/material): Visual, behavioral, and motion-rich Flutter widgets implementing the Material Design guidelines
 - [ThemeData class](https://api.flutter.dev/flutter/material/ThemeData-class.html): Holds the color and typography values for a Material Theme
+- [Type Scale Generator](https://material.io/design/typography/the-type-system.html#type-scale)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
