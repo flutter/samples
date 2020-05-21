@@ -24,41 +24,64 @@ class CategoryDropdown extends StatefulWidget {
 
 class _CategoryDropdownState extends State<CategoryDropdown> {
   Category _selected;
+  Future<List<Category>> _future;
+  Stream<List<Category>> _stream;
+
+  void initState() {
+    super.initState();
+
+    // This widget needs to wait for the list of Categories, select the first
+    // Category, and emit an `onSelected` event.
+    //
+    // This could be done inside the FutureBuilder's `builder` callback,
+    // but calling setState() during the build is an error. (Calling the
+    // onSelected callback will also cause the parent widget to call
+    // setState()).
+    //
+    // Instead, we'll create a new Future that sets the selected Category and
+    // calls `onSelected` if necessary. Then, we'll pass *that* future to
+    // FutureBuilder. Now the selected category is set and events are emitted
+    // *before* the build is triggered by the FutureBuilder.
+    _future = widget.api.list().then((categories) {
+      if (categories.isEmpty) {
+        return categories;
+      }
+
+      _setSelected(categories.first);
+      return categories;
+    });
+
+    // Same here, we'll create a new stream that handles any potential
+    // setState() operations before we trigger our StreamBuilder.
+    _stream = widget.api.subscribe().map((categories) {
+      if (!categories.contains(_selected) && categories.isNotEmpty) {
+        _setSelected(categories.first);
+      }
+
+      return categories;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Category>>(
-      future: widget.api.list(),
+      future: _future,
       builder: (context, futureSnapshot) {
         // Show an empty dropdown while the data is loading.
         if (!futureSnapshot.hasData) {
           return DropdownButton<Category>(items: [], onChanged: null);
         }
 
-        // Select the first item in the dropdown if this is the first snapshot.
-        if (_selected == null && futureSnapshot.data.isNotEmpty) {
-          _setSelected(futureSnapshot.data.first);
-        }
-
         return StreamBuilder<List<Category>>(
           initialData: futureSnapshot.hasData ? futureSnapshot.data : [],
-          stream: widget.api.subscribe(),
+          stream: _stream,
           builder: (context, snapshot) {
             var data = snapshot.hasData ? snapshot.data : <Category>[];
-
-            // Select the first element if the new list doesn't contain the
-            // selected value,
-            if (!snapshot.data.contains(_selected) &&
-                snapshot.data.isNotEmpty) {
-              _setSelected(snapshot.data.first);
-            }
             return DropdownButton<Category>(
               value: _selected,
               items: data.map(_buildDropdownItem).toList(),
               onChanged: (category) {
-                setState(() {
-                  _setSelected(category);
-                });
+                _setSelected(category);
               },
             );
           },
@@ -71,15 +94,11 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
     if (_selected == category) {
       return;
     }
-    _selected = category;
-
-    // Avoid invoking this callback during a build() because 1. calling setState
-    // during a build is an error, and 2. any widgets listening could be calling
-    // setState(). This can happen if the data is immediately returned by the
-    // FutureBuilder or StreamBuilder.
-    Future(() {
-      widget.onSelected(_selected);
+    setState(() {
+      _selected = category;
     });
+
+    widget.onSelected(_selected);
   }
 
   DropdownMenuItem<Category> _buildDropdownItem(Category category) {
