@@ -33,7 +33,6 @@ declare -ar PROJECT_NAMES=(
     "infinite_list" \
     "isolate_example" \
     "jsonexample" \
-    "material_theme_builder" \
     "place_tracker" \
     "platform_design"
     "platform_view_swift" \
