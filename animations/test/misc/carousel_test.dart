@@ -11,19 +11,21 @@ Widget createCarouselDemoScreen() => MaterialApp(
     );
 
 void main() {
-  testWidgets('CarouselDemo swipe test', (tester) async {
-    await tester.pumpWidget(createCarouselDemoScreen());
+  group('CarouselDemo tests', () {
+    testWidgets('Swipe left moves carousel', (tester) async {
+      await tester.pumpWidget(createCarouselDemoScreen());
 
-    // Get the images available on the screen during initial state.
-    var imageList = tester.widgetList(find.byType(Image)).toList();
-    expect(imageList.length, 2);
+      // Get the images available on the screen during initial state.
+      var imageList = tester.widgetList(find.byType(Image)).toList();
+      expect(imageList.length, 2);
 
-    // Swipe the Carousel.
-    await tester.fling(find.byType(CarouselDemo), Offset(-400, 0), 800);
-    await tester.pumpAndSettle();
+      // Swipe the Carousel.
+      await tester.fling(find.byType(CarouselDemo), Offset(-400, 0), 800);
+      await tester.pumpAndSettle();
 
-    // Get the images available on the screen after swipe.
-    imageList = tester.widgetList(find.byType(Image)).toList();
-    expect(imageList.length, 3);
+      // Get the images available on the screen after swipe.
+      imageList = tester.widgetList(find.byType(Image)).toList();
+      expect(imageList.length, 3);
+    });
   });
 }
