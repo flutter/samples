@@ -21,7 +21,9 @@ void main() {
       expect(totals[2].value, 10);
     });
     test('days', () async {
-      expect(DateTime.utc(2020,1,3).difference(DateTime.utc(2020,1, 2)).inDays, 1);
+      expect(
+          DateTime.utc(2020, 1, 3).difference(DateTime.utc(2020, 1, 2)).inDays,
+          1);
     });
   });
 }

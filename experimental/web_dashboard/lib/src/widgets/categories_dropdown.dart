@@ -37,8 +37,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
         // Select the first item in the dropdown if this is the first snapshot.
         if (_selected == null && futureSnapshot.data.isNotEmpty) {
-
-            _setSelected(futureSnapshot.data.first);
+          _setSelected(futureSnapshot.data.first);
         }
 
         return StreamBuilder<List<Category>>(
@@ -51,7 +50,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
             // selected value,
             if (!snapshot.data.contains(_selected) &&
                 snapshot.data.isNotEmpty) {
-                _setSelected(snapshot.data.first);
+              _setSelected(snapshot.data.first);
             }
             return DropdownButton<Category>(
               value: _selected,

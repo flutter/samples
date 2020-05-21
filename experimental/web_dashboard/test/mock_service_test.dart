@@ -55,7 +55,8 @@ void main() {
       DateTime dateTime = DateTime(2020, 1, 1, 30, 45);
 
       setUp(() async {
-        category = await api.categories.insert(Category('Lines of code committed'));
+        category =
+            await api.categories.insert(Category('Lines of code committed'));
       });
 
       test('insert', () async {
