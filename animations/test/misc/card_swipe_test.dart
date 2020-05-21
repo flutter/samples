@@ -16,7 +16,7 @@ void main() {
     testWidgets('One card swiped out', (tester) async {
       await tester.pumpWidget(createCardSwipeScreen());
 
-      // Get the total number of cards availabe.
+      // Get the total number of cards available.
       var totalCards = tester.widgetList(find.byType(SwipeableCard)).length;
 
       // Swipe out one card.
