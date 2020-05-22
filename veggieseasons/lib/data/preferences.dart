@@ -20,7 +20,7 @@ class Preferences extends Model {
 
   int _desiredCalories = 2000;
 
-  Set<VeggieCategory> _preferredCategories = Set<VeggieCategory>();
+  final Set<VeggieCategory> _preferredCategories = <VeggieCategory>{};
 
   Future<int> get desiredCalories async {
     await _loading;

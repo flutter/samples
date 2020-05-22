@@ -17,7 +17,7 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CupertinoThemeData themeData = CupertinoTheme.of(context);
+    final themeData = CupertinoTheme.of(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(

@@ -107,8 +107,8 @@ class _SplitState extends State<Split> {
 
     // Determine what fraction to give each child, including enough space to
     // display the divider.
-    double firstSize = axisSize * firstFraction;
-    double secondSize = axisSize * secondFraction;
+    var firstSize = axisSize * firstFraction;
+    var secondSize = axisSize * secondFraction;
 
     // Clamp the sizes to be sure there is enough space for the dividers.
     firstSize = firstSize.clamp(halfDivider, axisSize - halfDivider) as double;

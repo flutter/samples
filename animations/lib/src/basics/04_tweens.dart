@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class TweenDemo extends StatefulWidget {
   static const String routeName = '/basics/tweens';
 
+  @override
   _TweenDemoState createState() => _TweenDemoState();
 }
 
@@ -17,6 +18,7 @@ class _TweenDemoState extends State<TweenDemo>
   AnimationController controller;
   Animation<double> animation;
 
+  @override
   void initState() {
     super.initState();
 
@@ -28,11 +30,13 @@ class _TweenDemoState extends State<TweenDemo>
     animation = Tween(begin: 0.0, end: accountBalance).animate(controller);
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
