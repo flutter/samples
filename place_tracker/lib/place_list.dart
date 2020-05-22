@@ -33,7 +33,7 @@ class PlaceListState extends State<PlaceList> {
 
   @override
   Widget build(BuildContext context) {
-    AppState state = Provider.of<AppState>(context);
+    var state = Provider.of<AppState>(context);
     return Column(
       children: <Widget>[
         _ListCategoryButtonBar(

@@ -92,7 +92,8 @@ class PlaceMapState extends State<PlaceMap> {
         onTap: () => _pushPlaceDetailsScreen(place),
       ),
       icon: await _getPlaceMarkerIcon(context, place.category),
-      visible: place.category == Provider.of<AppState>(context, listen: false).selectedCategory,
+      visible: place.category ==
+          Provider.of<AppState>(context, listen: false).selectedCategory,
     );
     _markedPlaces[marker] = place;
     return marker;
@@ -241,8 +242,8 @@ class PlaceMapState extends State<PlaceMap> {
             Provider.of<AppState>(context, listen: false).selectedCategory,
       );
 
-      var placeMarker = await _getPlaceMarkerIcon(
-          context, Provider.of<AppState>(context, listen: false).selectedCategory);
+      var placeMarker = await _getPlaceMarkerIcon(context,
+          Provider.of<AppState>(context, listen: false).selectedCategory);
 
       setState(() {
         final updatedMarker = _pendingMarker.copyWith(
@@ -280,8 +281,9 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in appState.
-      final newPlaces = List<Place>.from(Provider.of<AppState>(context, listen: false).places)
-        ..add(newPlace);
+      final newPlaces =
+          List<Place>.from(Provider.of<AppState>(context, listen: false).places)
+            ..add(newPlace);
 
       // Manually update our map configuration here since our map is already
       // updated with the new marker. Otherwise, the map would be reconfigured
@@ -315,8 +317,10 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _maybeUpdateMapConfiguration() async {
-    _configuration ??= MapConfiguration.of(Provider.of<AppState>(context, listen: false));
-    final newConfiguration = MapConfiguration.of(Provider.of<AppState>(context, listen: false));
+    _configuration ??=
+        MapConfiguration.of(Provider.of<AppState>(context, listen: false));
+    final newConfiguration =
+        MapConfiguration.of(Provider.of<AppState>(context, listen: false));
 
     // Since we manually update [_configuration] when place or selectedCategory
     // changes come from the [place_map], we should only enter this if statement

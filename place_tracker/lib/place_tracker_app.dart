@@ -31,7 +31,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppState state = Provider.of<AppState>(context);
+    var state = Provider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -95,12 +95,12 @@ class AppState with ChangeNotifier {
   }
 
   void changeSelectedCategory(PlaceCategory newCategory) {
-    this.selectedCategory = newCategory;
+    selectedCategory = newCategory;
     notifyListeners();
   }
 
   void changePlaces(List<Place> newPlaces) {
-    this.places = newPlaces;
+    places = newPlaces;
     notifyListeners();
   }
 
