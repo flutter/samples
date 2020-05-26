@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 abstract class Auth {
+  Future<bool> isSignedIn();
   Future<User> signIn();
   Future signOut();
 }

@@ -5,6 +5,8 @@
 import 'auth.dart';
 
 class MockAuthService implements Auth {
+  Future<bool> isSignedIn() async => false;
+
   @override
   Future<User> signIn() async {
     return MockUser();

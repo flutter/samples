@@ -20,24 +20,45 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  Future<void> _checkSignInFuture;
+
   @override
   void initState() {
     super.initState();
+    _checkSignInFuture = _checkIfSignedIn();
+  }
+
+// Check if the user is signed in. If the user is already signed in (for
+// example, if they signed in and refreshed the page), invoke the `onSuccess`
+// callback right away.
+  Future<void> _checkIfSignedIn() async {
+    var alreadySignedIn = await widget.auth.isSignedIn();
+    if (alreadySignedIn) {
+      var user = await widget.auth.signIn();
+      widget.onSuccess(user);
+    }
+  }
+
+  Future<void> _signIn() async {
+    var user = await widget.auth.signIn();
+    widget.onSuccess(user);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: RaisedButton(
-          child: Text('Sign In'),
-          onPressed: () async {
-            var user = await widget.auth.signIn();
-            if (user != null) {
-              widget.onSuccess(user);
-            } else {
-              throw ('Unable to sign in');
+        child: FutureBuilder<void>(
+          future: _checkSignInFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState != ConnectionState.done) {
+              return CircularProgressIndicator();
             }
+
+            return RaisedButton(
+              child: Text('Sign In'),
+              onPressed: () => _signIn(),
+            );
           },
         ),
       ),
