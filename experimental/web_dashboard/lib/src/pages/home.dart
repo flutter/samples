@@ -10,10 +10,10 @@ import 'dashboard.dart';
 import 'entries.dart';
 
 class HomePage extends StatefulWidget {
-  final VoidCallback onLogout;
+  final VoidCallback onSignOut;
 
   HomePage({
-    @required this.onLogout,
+    @required this.onSignOut,
   });
 
   @override
@@ -32,8 +32,8 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(8.0),
           child: FlatButton(
             textColor: Colors.white,
-            onPressed: () => _handleLogout(),
-            child: Text('Logout'),
+            onPressed: () => _handleSignOut(),
+            child: Text('Sign Out'),
           ),
         )
       ],
@@ -84,11 +84,11 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> _handleLogout() async {
-    var shouldLogout = await showDialog<bool>(
+  Future<void> _handleSignOut() async {
+    var shouldSignOut = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Are you sure you want to log out?'),
+        title: Text('Are you sure you want to sign out?'),
         actions: [
           FlatButton(
             child: Text('No'),
@@ -106,11 +106,11 @@ class _HomePageState extends State<HomePage> {
       ),
     );
 
-    if (!shouldLogout) {
+    if (!shouldSignOut) {
       return;
     }
 
-    widget.onLogout();
+    widget.onSignOut();
   }
 
   static Widget _pageAtIndex(int index) {
