@@ -34,7 +34,10 @@ class FirebaseAuthService implements Auth {
   }
 
   Future<void> signOut() async {
-    await _auth.signOut();
+    await Future.wait([
+      _auth.signOut(),
+      _googleSignIn.signOut(),
+    ]);
   }
 }
 
