@@ -32,7 +32,7 @@ class _SignInPageState extends State<SignInPage> {
 // example, if they signed in and refreshed the page), invoke the `onSuccess`
 // callback right away.
   Future<bool> _checkIfSignedIn() async {
-    var alreadySignedIn = await widget.auth.isSignedIn();
+    var alreadySignedIn = await widget.auth.isSignedIn;
     if (alreadySignedIn) {
       var user = await widget.auth.signIn();
       widget.onSuccess(user);

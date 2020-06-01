@@ -11,13 +11,11 @@ class FirebaseAuthService implements Auth {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<bool> isSignedIn() {
-    return _googleSignIn.isSignedIn();
-  }
+  Future<bool> get isSignedIn => _googleSignIn.isSignedIn();
 
   Future<User> signIn() async {
     GoogleSignInAccount googleUser;
-    if (await isSignedIn()) {
+    if (await isSignedIn) {
       googleUser = await _googleSignIn.signInSilently();
     } else {
       googleUser = await _googleSignIn.signIn();
