@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 /// and [decrement] which are used to increment and decrement value
 /// of count respectively.
 class Counter {
-
   /// Creates a [MethodChannel] with the specified name to invoke platform method.
   /// In order to communicate across platforms, the name of MethodChannel
   /// should be same on native and dart side.
