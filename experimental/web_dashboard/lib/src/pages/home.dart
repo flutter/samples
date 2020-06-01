@@ -10,6 +10,12 @@ import 'dashboard.dart';
 import 'entries.dart';
 
 class HomePage extends StatefulWidget {
+  final VoidCallback onSignOut;
+
+  HomePage({
+    @required this.onSignOut,
+  });
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -20,6 +26,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
+      title: Text('Dashboard App'),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FlatButton(
+            textColor: Colors.white,
+            onPressed: () => _handleSignOut(),
+            child: Text('Sign Out'),
+          ),
+        )
+      ],
       currentIndex: _pageIndex,
       destinations: [
         AdaptiveScaffoldDestination(title: 'Home', icon: Icons.home),
@@ -67,7 +84,36 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget _pageAtIndex(int index) {
+  Future<void> _handleSignOut() async {
+    var shouldSignOut = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Are you sure you want to sign out?'),
+        actions: [
+          FlatButton(
+            child: Text('No'),
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
+          ),
+          FlatButton(
+            child: Text('Yes'),
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+          ),
+        ],
+      ),
+    );
+
+    if (!shouldSignOut) {
+      return;
+    }
+
+    widget.onSignOut();
+  }
+
+  static Widget _pageAtIndex(int index) {
     if (index == 0) {
       return DashboardPage();
     }

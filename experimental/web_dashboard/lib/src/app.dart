@@ -23,7 +23,9 @@ class AppState {
   AppState(this.auth);
 }
 
-/// Creates a [DashboardApi] when the user is logged in.
+/// Creates a [DashboardApi] for the given user. This allows users of this
+/// widget to specify whether [MockDashboardApi] or [ApiBuilder] should be
+/// created when the user logs in.
 typedef DashboardApi ApiBuilder(User user);
 
 /// An app that displays a personalized dashboard.
@@ -63,41 +65,62 @@ class _DashboardAppState extends State<DashboardApp> {
     return Provider.value(
       value: _appState,
       child: MaterialApp(
-        home: Builder(
-          builder: (context) => SignInPage(
-            auth: _appState.auth,
-            onSuccess: (user) => _handleSignIn(user, context, _appState),
-          ),
+        home: SignInSwitcher(
+          appState: _appState,
+          apiBuilder: widget.apiBuilder,
         ),
       ),
     );
   }
+}
 
-  /// Sets the DashboardApi on AppState and navigates to the home page.
-  void _handleSignIn(User user, BuildContext context, AppState appState) {
-    appState.api = widget.apiBuilder(user);
+/// Switches between showing the [SignInPage] or [HomePage], depending on
+/// whether or not the user is signed in.
+class SignInSwitcher extends StatefulWidget {
+  final AppState appState;
+  final ApiBuilder apiBuilder;
 
-    _showPage(HomePage(), context);
-  }
+  SignInSwitcher({
+    this.appState,
+    this.apiBuilder,
+  });
 
-  /// Navigates to the home page using a fade transition.
-  void _showPage(Widget page, BuildContext context) {
-    var route = _fadeRoute(page);
-    Navigator.of(context).pushReplacement(route);
-  }
+  @override
+  _SignInSwitcherState createState() => _SignInSwitcherState();
+}
 
-  /// Creates a [Route] that shows [newPage] using a fade transition.
-  Route<FadeTransition> _fadeRoute(Widget newPage) {
-    return PageRouteBuilder<FadeTransition>(
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return newPage;
-      },
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return FadeTransition(
-          opacity: animation.drive(CurveTween(curve: Curves.ease)),
-          child: child,
-        );
-      },
+class _SignInSwitcherState extends State<SignInSwitcher> {
+  bool _isSignedIn = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSwitcher(
+      switchInCurve: Curves.easeOut,
+      switchOutCurve: Curves.easeOut,
+      duration: Duration(milliseconds: 200),
+      child: _isSignedIn
+          ? HomePage(
+              onSignOut: _handleSignOut,
+            )
+          : SignInPage(
+              auth: widget.appState.auth,
+              onSuccess: _handleSignIn,
+            ),
     );
+  }
+
+  void _handleSignIn(User user) {
+    widget.appState.api = widget.apiBuilder(user);
+
+    setState(() {
+      _isSignedIn = true;
+    });
+  }
+
+  Future _handleSignOut() async {
+    await widget.appState.auth.signOut();
+    setState(() {
+      _isSignedIn = false;
+    });
   }
 }

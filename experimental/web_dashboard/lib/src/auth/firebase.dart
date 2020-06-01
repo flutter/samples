@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide FirebaseUser;
 
@@ -11,9 +12,20 @@ class FirebaseAuthService implements Auth {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<bool> get isSignedIn => _googleSignIn.isSignedIn();
+
   Future<User> signIn() async {
+    try {
+      return await _signIn();
+    } on PlatformException catch (e) {
+      print('Unable to sign in: $e');
+      throw SignInException();
+    }
+  }
+
+  Future<User> _signIn() async {
     GoogleSignInAccount googleUser;
-    if (await _googleSignIn.isSignedIn()) {
+    if (await isSignedIn) {
       googleUser = await _googleSignIn.signInSilently();
     } else {
       googleUser = await _googleSignIn.signIn();
@@ -30,7 +42,10 @@ class FirebaseAuthService implements Auth {
   }
 
   Future<void> signOut() async {
-    await _auth.signOut();
+    await Future.wait([
+      _auth.signOut(),
+      _googleSignIn.signOut(),
+    ]);
   }
 }
 
@@ -39,3 +54,4 @@ class _FirebaseUser implements User {
 
   _FirebaseUser(this.uid);
 }
+

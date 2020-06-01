@@ -28,6 +28,7 @@ class AdaptiveScaffoldDestination {
 /// defined in the [destinations] parameter.
 class AdaptiveScaffold extends StatefulWidget {
   final Widget title;
+  final List<Widget> actions;
   final Widget body;
   final int currentIndex;
   final List<AdaptiveScaffoldDestination> destinations;
@@ -37,6 +38,7 @@ class AdaptiveScaffold extends StatefulWidget {
   AdaptiveScaffold({
     this.title,
     this.body,
+    this.actions = const [],
     @required this.currentIndex,
     @required this.destinations,
     this.onNavigationIndexChange,
@@ -80,7 +82,9 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
           ),
           Expanded(
             child: Scaffold(
-              appBar: AppBar(),
+              appBar: AppBar(
+                actions: widget.actions,
+              ),
               body: widget.body,
               floatingActionButton: widget.floatingActionButton,
             ),
@@ -94,6 +98,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
       return Scaffold(
         appBar: AppBar(
           title: widget.title,
+          actions: widget.actions,
         ),
         body: Row(
           children: [
@@ -126,7 +131,10 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     // Show a bottom app bar
     return Scaffold(
       body: widget.body,
-      appBar: AppBar(title: widget.title),
+      appBar: AppBar(
+        title: widget.title,
+        actions: widget.actions,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           ...widget.destinations.map(

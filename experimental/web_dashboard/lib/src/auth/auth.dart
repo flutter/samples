@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 abstract class Auth {
+  Future<bool> get isSignedIn;
   Future<User> signIn();
   Future signOut();
 }
@@ -10,3 +11,5 @@ abstract class Auth {
 abstract class User {
   String get uid;
 }
+
+class SignInException implements Exception {}
