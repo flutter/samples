@@ -65,10 +65,11 @@ class _DashboardAppState extends State<DashboardApp> {
     return Provider.value(
       value: _appState,
       child: MaterialApp(
-          home: SignInSwitcher(
-        appState: _appState,
-        apiBuilder: widget.apiBuilder,
-      )),
+        home: SignInSwitcher(
+          appState: _appState,
+          apiBuilder: widget.apiBuilder,
+        ),
+      ),
     );
   }
 }
