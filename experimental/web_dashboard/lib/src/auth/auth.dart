@@ -11,3 +11,5 @@ abstract class Auth {
 abstract class User {
   String get uid;
 }
+
+class SignInException implements Exception {}

@@ -55,4 +55,3 @@ class _FirebaseUser implements User {
   _FirebaseUser(this.uid);
 }
 
-class SignInException implements Exception {}

@@ -3,11 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:web_dashboard/src/auth/firebase.dart';
 
 import '../auth/auth.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends StatelessWidget {
   final Auth auth;
   final ValueChanged<User> onSuccess;
 
@@ -17,10 +16,29 @@ class SignInPage extends StatefulWidget {
   });
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: SignInButton(auth: auth, onSuccess: onSuccess),
+      ),
+    );
+  }
 }
 
-class _SignInPageState extends State<SignInPage> {
+class SignInButton extends StatefulWidget {
+  final Auth auth;
+  final ValueChanged<User> onSuccess;
+
+  SignInButton({
+    @required this.auth,
+    @required this.onSuccess,
+  });
+
+  @override
+  _SignInButtonState createState() => _SignInButtonState();
+}
+
+class _SignInButtonState extends State<SignInButton> {
   Future<bool> _checkSignInFuture;
 
   @override
@@ -52,31 +70,27 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: FutureBuilder<bool>(
-          future: _checkSignInFuture,
-          builder: (context, snapshot) {
-            // If signed in, or the future is incomplete, show a circular
-            // progress indicator.
-            var alreadySignedIn = snapshot.data;
-            if (snapshot.connectionState != ConnectionState.done ||
-                alreadySignedIn == true) {
-              return CircularProgressIndicator();
-            }
+    return FutureBuilder<bool>(
+      future: _checkSignInFuture,
+      builder: (context, snapshot) {
+        // If signed in, or the future is incomplete, show a circular
+        // progress indicator.
+        var alreadySignedIn = snapshot.data;
+        if (snapshot.connectionState != ConnectionState.done ||
+            alreadySignedIn == true) {
+          return CircularProgressIndicator();
+        }
 
-            // If sign in failed, show toast and the login button
-            if (snapshot.hasError) {
-              _showError();
-            }
+        // If sign in failed, show toast and the login button
+        if (snapshot.hasError) {
+          _showError();
+        }
 
-            return RaisedButton(
-              child: Text('Sign In with Google'),
-              onPressed: () => _signIn(),
-            );
-          },
-        ),
-      ),
+        return RaisedButton(
+          child: Text('Sign In with Google'),
+          onPressed: () => _signIn(),
+        );
+      },
     );
   }
 
