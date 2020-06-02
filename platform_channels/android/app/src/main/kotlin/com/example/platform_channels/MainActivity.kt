@@ -15,23 +15,16 @@ class MainActivity : FlutterActivity() {
         // responsible to send the results of the call.
         MethodChannel(flutterEngine.dartExecutor, "methodChannelDemo")
                 .setMethodCallHandler { call, result ->
-                    var count: Int
+                    val count: Int? = call.argument<Int>("count")
 
-                    if (call.argument<Int>("count") != null) {
-                        count = call.argument<Int>("count")!!
-
+                    if (count == null) {
+                        result.error("INVALID ARGUMENT", "Value of count cannot be null", null)
+                    } else {
                         when (call.method) {
-                            "increment" -> {
-                                count++
-                            }
-                            "decrement" -> {
-                                count--
-                            }
+                            "increment" -> result.success(count + 1)
+                            "decrement" -> result.success(count - 1)
                             else -> result.notImplemented()
                         }
-                        result.success(count)
-                    } else {
-                        result.error("INVALID ARGUMENT", "Value of count cannot be null", null)
                     }
                 }
     }

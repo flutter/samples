@@ -15,28 +15,15 @@ class Counter {
 
   /// This method is responsible to increment and return the value of count.
   static Future<int> increment({int counterValue}) async {
-    try {
-      // Invokes a platform method with given name and argument. The first
-      // argument to MethodChannel.invokeMethod represents the name of the
-      // platform method. The second argument represents the arguments passed
-      // to platform method.
-      final result = await methodChannel
-          .invokeMethod<int>('increment', {'count': counterValue});
-      return result;
-    } on Exception catch (_) {
-      return null;
-    }
+    final result = await methodChannel
+        .invokeMethod<int>('increment', {'count': counterValue});
+    return result;
   }
 
   /// This method is responsible to decrement and return the value of count.
   static Future<int> decrement({int counterValue}) async {
-    try {
-      // Invokes a platform method with given name and argument.
-      final result = await methodChannel
-          .invokeMethod<int>('decrement', {'count': counterValue});
-      return result;
-    } on Exception catch (_) {
-      return null;
-    }
+    final result = await methodChannel
+        .invokeMethod<int>('decrement', {'count': counterValue});
+    return result;
   }
 }
