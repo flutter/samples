@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// This widget is responsible for displaying the [ListTile] on HomePage.
+/// This widget is responsible for displaying the [ListTile] on [HomePage].
 class DemoTile extends StatelessWidget {
   final DemoInfo demoInfo;
 

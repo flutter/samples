@@ -34,12 +34,14 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 // Whenever users presses the FloatingActionButton, it invokes
                 // Counter.increment method to increment the value of count.
                 onPressed: () {
-                  Counter.increment(counterValue: count)
-                      .then((value) => setState(() => count = value))
-                      .catchError((dynamic error) => showErrorMessage(
-                            context,
-                            error.message as String,
-                          ));
+                  Counter.increment(counterValue: count).then((value) {
+                    setState(() => count = value);
+                  }).catchError((dynamic error) {
+                    showErrorMessage(
+                      context,
+                      error.message as String,
+                    );
+                  });
                 },
               ),
               SizedBox(
@@ -52,12 +54,14 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 // Whenever users presses the FloatingActionButton, it invokes
                 // Counter.decrement method to decrement the value of count.
                 onPressed: () {
-                  Counter.decrement(counterValue: count)
-                      .then((value) => setState(() => count = value))
-                      .catchError((dynamic error) => showErrorMessage(
-                            context,
-                            error.message as String,
-                          ));
+                  Counter.decrement(counterValue: count).then((value) {
+                    setState(() => count = value);
+                  }).catchError((dynamic error) {
+                    showErrorMessage(
+                      context,
+                      error.message as String,
+                    );
+                  });
                 },
               ),
             ],
