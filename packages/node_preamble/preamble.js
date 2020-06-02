@@ -33,7 +33,22 @@ if (typeof __filename !== "undefined") {
 
 // if we're running in a browser, Dart supports most of this out of box
 // make sure we only run these in Node.js environment
-if (!dartNodePreambleSelf.window) {
+
+var dartNodeIsActuallyNode = !dartNodePreambleSelf.window
+
+try {
+  // Check if we're in a Web Worker instead.
+  if ("undefined" !== typeof WorkerGlobalScope && dartNodePreambleSelf instanceof WorkerGlobalScope) {
+    dartNodeIsActuallyNode = false;
+  }
+
+  // Check if we're in Electron.
+  if (dartNodeIsActuallyNode && dartNodePreambleSelf.process && dartNodePreambleSelf.versions && process.versions.hasOwnProperty('electron')) {
+    dartNodeIsActuallyNode = false;
+  }
+} catch(e) {}
+
+if (dartNodeIsActuallyNode) {
   // This line is to:
   // 1) Prevent Webpack from bundling.
   // 2) In Webpack on Node.js, make sure we're using the native Node.js require, which is available via __non_webpack_require__

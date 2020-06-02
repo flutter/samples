@@ -429,3 +429,19 @@ samples:
     tags: ['demo', 'game']
     web: web/vision_challenge
     type: demo
+    
+  - name: Dice
+    author: Jaime Blasco
+    screenshots:
+      - url: images/dice.png
+        alt: Dice screenshot
+    source: https://github.com/jamesblasco/zflutter/blob/master/zflutter/example/lib/examples/dice/dice.dart
+    description: >
+      A demo of 3d animation using dice
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: https://z.flutter.gallery/#/dice
+    type: demo

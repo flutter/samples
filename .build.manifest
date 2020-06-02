@@ -19,6 +19,7 @@ create_a_horizontal_list.html
 create_and_style_a_text_field.html
 create_lists_with_different_types_of_items.html
 description.dart.js
+dice.html
 display_a_snackbar.html
 display_images_from_the_internet.html
 export_fonts_from_a_package.html
@@ -149,6 +150,8 @@ images/cookbook/validation.png
 images/cookbook/validation_thumb.png
 images/cookbook/web-sockets.png
 images/cookbook/web-sockets_thumb.png
+images/dice.png
+images/dice_thumb.png
 images/filipino_cuisine1.png
 images/filipino_cuisine1_thumb.png
 images/flutter_maps_firestore1.png
