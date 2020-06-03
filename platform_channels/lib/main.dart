@@ -45,10 +45,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Platform Channel Sample'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: demoList.map((demoInfo) => DemoTile(demoInfo)).toList(),
-        ),
+      body: ListView(
+        children: demoList.map((demoInfo) => DemoTile(demoInfo)).toList(),
       ),
     );
   }
