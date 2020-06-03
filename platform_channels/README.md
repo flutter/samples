@@ -2,10 +2,12 @@
 
 A sample app which demonstrates how to use `MethodChannel`, `EventChannel`, `BasicMessageChannel` and `MessageCodec` in Flutter.
 
+This sample is currently being built. Not all platforms and functionality are in place.
+
 ## Goals
 
 * Demonstrate how to use `MethodChannel` to invoke platform methods.
-* Demonstrate how to use `EventChannel` to listen continous value changes across the platforms.
+* Demonstrate how to use `EventChannel` to listen continuous value changes from the platform.
 * Demonstrate how to use `BasicMessageChanngel` and `MessageCodec` to send messages of different types across the platform.
 
 ## Questions/issues
