@@ -9,12 +9,8 @@ import 'package:platform_channels/src/method_channel_demo.dart';
 
 void main() {
   group('MethodChannelDemo tests', () {
-    final methodChannel = MethodChannel('methodChannelDemo');
-
-    testWidgets('MethodChannelDemo count test', (tester) async {
-      await tester.pumpWidget(MaterialApp(
-        home: MethodChannelDemo(),
-      ));
+    setUpAll(() {
+      final methodChannel = MethodChannel('methodChannelDemo');
 
       // Register a mock MethodCallHandler.
       methodChannel.setMockMethodCallHandler((call) async {
@@ -27,6 +23,12 @@ void main() {
 
         return MissingPluginException();
       });
+    });
+
+    testWidgets('MethodChannelDemo count test', (tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: MethodChannelDemo(),
+      ));
 
       // Initially the value of count should be 0.
       expect(find.text('Value of count is 0'), findsOneWidget);
