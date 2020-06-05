@@ -36,6 +36,7 @@ class AdaptiveScaffold extends StatefulWidget {
   final FloatingActionButton floatingActionButton;
 
   const AdaptiveScaffold({
+    Key key,
     this.title,
     this.body,
     this.actions = const [],
@@ -43,7 +44,7 @@ class AdaptiveScaffold extends StatefulWidget {
     @required this.destinations,
     this.onNavigationIndexChange,
     this.floatingActionButton,
-  });
+  }) : super(key: key);
 
   @override
   _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
