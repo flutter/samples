@@ -11,10 +11,10 @@ import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:meta/meta.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
-import 'src/widgets/data_tree.dart';
 import 'src/widgets/photo_details.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/split.dart';
@@ -86,7 +86,14 @@ class UnsplashHomePage extends StatelessWidget {
           ? Split(
               axis: Axis.horizontal,
               initialFirstFraction: 0.4,
-              firstChild: DataTree(photoSearchModel.entries),
+              firstChild: Scrollbar(
+                child: SingleChildScrollView(
+                  child: TreeView(
+                    nodes: photoSearchModel.entries,
+                    indent: 0,
+                  ),
+                ),
+              ),
               secondChild: Center(
                 child: photoSearchModel.selectedPhoto != null
                     ? PhotoDetails(

@@ -4,45 +4,48 @@
 
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 
 import '../unsplash/photo.dart';
 import '../unsplash/unsplash.dart';
-import '../widgets/data_tree.dart' show Entry;
 import 'search.dart';
 
-class _PhotoEntry extends Entry {
-  _PhotoEntry(this._photo, this._model) : super('Photo by ${_photo.user.name}');
-
-  final Photo _photo;
-  final PhotoSearchModel _model;
-
-  @override
-  bool get isSelected => false;
-
-  @override
-  set isSelected(bool selected) {
-    _model._setSelectedPhoto(_photo);
-  }
-}
-
-class _SearchEntry extends Entry {
-  _SearchEntry(String query, List<Photo> photos, PhotoSearchModel model)
-      : super(
-          query,
-          List<Entry>.unmodifiable(
-            photos.map<Entry>((photo) => _PhotoEntry(photo, model)),
+TreeNode _searchEntry(
+    String query, List<Photo> photos, PhotoSearchModel model) {
+  return TreeNode(
+    content: Expanded(
+      child: Text(query),
+    ),
+    children: photos
+        .map<TreeNode>(
+          (photo) => TreeNode(
+            content: Expanded(
+              child: InkWell(
+                onTap: () {
+                  model._setSelectedPhoto(photo);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    'Photo by ${photo.user.name}',
+                  ),
+                ),
+              ),
+            ),
           ),
-        );
+        )
+        .toList(),
+  );
 }
 
 class PhotoSearchModel extends ChangeNotifier {
   PhotoSearchModel(this._client);
   final Unsplash _client;
 
-  List<Entry> get entries => List.unmodifiable(_entries);
-  final List<Entry> _entries = <Entry>[];
+  List<TreeNode> get entries => List.unmodifiable(_entries);
+  final List<TreeNode> _entries = <TreeNode>[];
 
   Photo get selectedPhoto => _selectedPhoto;
   void _setSelectedPhoto(Photo photo) {
@@ -63,7 +66,7 @@ class PhotoSearchModel extends ChangeNotifier {
         ..results.addAll(result.results);
     });
 
-    _entries.add(_SearchEntry(query, search.results.toList(), this));
+    _entries.add(_searchEntry(query, search.results.toList(), this));
     notifyListeners();
   }
 
