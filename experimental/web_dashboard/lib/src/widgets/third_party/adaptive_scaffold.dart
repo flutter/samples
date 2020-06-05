@@ -26,7 +26,7 @@ class AdaptiveScaffoldDestination {
 /// A widget that adapts to the current display size, displaying a [Drawer],
 /// [NavigationRail], or [BottomNavigationBar]. Navigation destinations are
 /// defined in the [destinations] parameter.
-class AdaptiveScaffold extends StatefulWidget {
+class AdaptiveScaffold extends StatelessWidget {
   final Widget title;
   final List<Widget> actions;
   final Widget body;
@@ -47,11 +47,6 @@ class AdaptiveScaffold extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
-}
-
-class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
-  @override
   Widget build(BuildContext context) {
     // Show a Drawer
     if (_isLargeScreen(context)) {
@@ -62,15 +57,14 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               children: [
                 DrawerHeader(
                   child: Center(
-                    child: widget.title,
+                    child: title,
                   ),
                 ),
-                for (var d in widget.destinations)
+                for (var d in destinations)
                   ListTile(
                     leading: Icon(d.icon),
                     title: Text(d.title),
-                    selected:
-                        widget.destinations.indexOf(d) == widget.currentIndex,
+                    selected: destinations.indexOf(d) == currentIndex,
                     onTap: () => _destinationTapped(d),
                   ),
               ],
@@ -84,10 +78,10 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
           Expanded(
             child: Scaffold(
               appBar: AppBar(
-                actions: widget.actions,
+                actions: actions,
               ),
-              body: widget.body,
-              floatingActionButton: widget.floatingActionButton,
+              body: body,
+              floatingActionButton: floatingActionButton,
             ),
           ),
         ],
@@ -98,23 +92,23 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
     if (_isMediumScreen(context)) {
       return Scaffold(
         appBar: AppBar(
-          title: widget.title,
-          actions: widget.actions,
+          title: title,
+          actions: actions,
         ),
         body: Row(
           children: [
             NavigationRail(
-              leading: widget.floatingActionButton,
+              leading: floatingActionButton,
               destinations: [
-                ...widget.destinations.map(
+                ...destinations.map(
                   (d) => NavigationRailDestination(
                     icon: Icon(d.icon),
                     label: Text(d.title),
                   ),
                 ),
               ],
-              selectedIndex: widget.currentIndex,
-              onDestinationSelected: widget.onNavigationIndexChange ?? (_) {},
+              selectedIndex: currentIndex,
+              onDestinationSelected: onNavigationIndexChange ?? (_) {},
             ),
             VerticalDivider(
               width: 1,
@@ -122,7 +116,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               color: Colors.grey[300],
             ),
             Expanded(
-              child: widget.body,
+              child: body,
             ),
           ],
         ),
@@ -131,31 +125,31 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
 
     // Show a bottom app bar
     return Scaffold(
-      body: widget.body,
+      body: body,
       appBar: AppBar(
-        title: widget.title,
-        actions: widget.actions,
+        title: title,
+        actions: actions,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          ...widget.destinations.map(
+          ...destinations.map(
             (d) => BottomNavigationBarItem(
               icon: Icon(d.icon),
               title: Text(d.title),
             ),
           ),
         ],
-        currentIndex: widget.currentIndex,
-        onTap: widget.onNavigationIndexChange,
+        currentIndex: currentIndex,
+        onTap: onNavigationIndexChange,
       ),
-      floatingActionButton: widget.floatingActionButton,
+      floatingActionButton: floatingActionButton,
     );
   }
 
   void _destinationTapped(AdaptiveScaffoldDestination destination) {
-    var idx = widget.destinations.indexOf(destination);
-    if (idx != widget.currentIndex) {
-      widget.onNavigationIndexChange(idx);
+    var idx = destinations.indexOf(destination);
+    if (idx != currentIndex) {
+      onNavigationIndexChange(idx);
     }
   }
 }
