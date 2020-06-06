@@ -18,7 +18,7 @@ class PlaceListState extends State<PlaceList> {
   void _onCategoryChanged(PlaceCategory newCategory) {
     _scrollController.jumpTo(0.0);
     Provider.of<AppState>(context, listen: false)
-        .changeSelectedCategory(newCategory);
+        .setSelectedCategory(newCategory);
   }
 
   void _onPlaceChanged(Place value) {
@@ -28,7 +28,7 @@ class PlaceListState extends State<PlaceList> {
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
-    Provider.of<AppState>(context, listen: false).changePlaces(newPlaces);
+    Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
   }
 
   @override

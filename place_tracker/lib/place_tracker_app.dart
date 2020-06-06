@@ -12,12 +12,7 @@ enum PlaceTrackerViewType {
   list,
 }
 
-class PlaceTrackerApp extends StatefulWidget {
-  @override
-  _PlaceTrackerAppState createState() => _PlaceTrackerAppState();
-}
-
-class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
+class PlaceTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +51,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
                 size: 32.0,
               ),
               onPressed: () {
-                state.changeViewType(
+                state.setViewType(
                   state.viewType == PlaceTrackerViewType.map
                       ? PlaceTrackerViewType.list
                       : PlaceTrackerViewType.map,
@@ -77,7 +72,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
   }
 }
 
-class AppState with ChangeNotifier {
+class AppState extends ChangeNotifier {
   AppState({
     this.places = StubData.places,
     this.selectedCategory = PlaceCategory.favorite,
@@ -89,17 +84,17 @@ class AppState with ChangeNotifier {
   PlaceCategory selectedCategory;
   PlaceTrackerViewType viewType;
 
-  void changeViewType(PlaceTrackerViewType viewType) {
+  void setViewType(PlaceTrackerViewType viewType) {
     this.viewType = viewType;
     notifyListeners();
   }
 
-  void changeSelectedCategory(PlaceCategory newCategory) {
+  void setSelectedCategory(PlaceCategory newCategory) {
     selectedCategory = newCategory;
     notifyListeners();
   }
 
-  void changePlaces(List<Place> newPlaces) {
+  void setPlaces(List<Place> newPlaces) {
     places = newPlaces;
     notifyListeners();
   }
