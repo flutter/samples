@@ -4,14 +4,14 @@
 
 import 'dart:io';
 
+import 'package:file_chooser/file_chooser.dart' as file_chooser;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:file_chooser/file_chooser.dart' as file_chooser;
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:meta/meta.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
