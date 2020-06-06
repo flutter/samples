@@ -11,7 +11,7 @@ class Accelerometer {
   static final _eventChannel = const EventChannel('accelerometer');
 
   /// Method responsible to provide a stream of [AccelerometerReadings] to listen
-  /// value changes from AccelerometerSensor.
+  /// value changes from Accelerometer sensor.
   static Stream<AccelerometerReadings> getReadings() {
     return _eventChannel.receiveBroadcastStream().map(
           (dynamic event) => AccelerometerReadings(
