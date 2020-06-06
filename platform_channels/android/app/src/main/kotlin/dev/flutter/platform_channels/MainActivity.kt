@@ -1,10 +1,19 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 package dev.flutter.platform_channels
 
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         // Creates a MethodChannel as soon as the FlutterEngine is attached to
         // the Activity, and registers a MethodCallHandler. The Method.setMethodCallHandler
@@ -27,5 +36,14 @@ class MainActivity : FlutterActivity() {
                         }
                     }
                 }
+
+        val sensorManger: SensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        // Use instance of Sensor Service to get the ACCELEROMETER sensor.
+        val accelerometerSensor: Sensor = sensorManger.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        // Creates a EventChannel, and sets a StreamHandler. The AccelerometerStreamHandler
+        // implements a StreamHandler and SensorEventListener to listen the value changes from
+        // the sensor and send it to dart side.
+        EventChannel(flutterEngine.dartExecutor, "accelerometer")
+                .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
     }
 }
