@@ -89,7 +89,9 @@ class UnsplashHomePage extends StatelessWidget {
               firstChild: Scrollbar(
                 child: SingleChildScrollView(
                   child: TreeView(
-                    nodes: photoSearchModel.entries,
+                    nodes: photoSearchModel.entries
+                        .map(_buildSearchEntry)
+                        .toList(),
                     indent: 0,
                   ),
                 ),
@@ -129,6 +131,33 @@ class UnsplashHomePage extends StatelessWidget {
         tooltip: 'Search for a photo',
         child: Icon(Icons.search),
       ),
+    );
+  }
+
+  TreeNode _buildSearchEntry(SearchEntry searchEntry) {
+    return TreeNode(
+      content: Expanded(
+        child: Text(searchEntry.query),
+      ),
+      children: searchEntry.photos
+          .map<TreeNode>(
+            (photo) => TreeNode(
+              content: Expanded(
+                child: InkWell(
+                  onTap: () {
+                    searchEntry.model.selectedPhoto = photo;
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      'Photo by ${photo.user.name}',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

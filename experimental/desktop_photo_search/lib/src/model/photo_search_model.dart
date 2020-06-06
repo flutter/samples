@@ -4,51 +4,29 @@
 
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 
 import '../unsplash/photo.dart';
 import '../unsplash/unsplash.dart';
 import 'search.dart';
 
-TreeNode _searchEntry(
-    String query, List<Photo> photos, PhotoSearchModel model) {
-  return TreeNode(
-    content: Expanded(
-      child: Text(query),
-    ),
-    children: photos
-        .map<TreeNode>(
-          (photo) => TreeNode(
-            content: Expanded(
-              child: InkWell(
-                onTap: () {
-                  model._setSelectedPhoto(photo);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    'Photo by ${photo.user.name}',
-                  ),
-                ),
-              ),
-            ),
-          ),
-        )
-        .toList(),
-  );
+class SearchEntry {
+  const SearchEntry(this.query, this.photos, this.model);
+  final String query;
+  final List<Photo> photos;
+  final PhotoSearchModel model;
 }
 
 class PhotoSearchModel extends ChangeNotifier {
   PhotoSearchModel(this._client);
   final Unsplash _client;
 
-  List<TreeNode> get entries => List.unmodifiable(_entries);
-  final List<TreeNode> _entries = <TreeNode>[];
+  List<SearchEntry> get entries => List.unmodifiable(_entries);
+  final List<SearchEntry> _entries = [];
 
   Photo get selectedPhoto => _selectedPhoto;
-  void _setSelectedPhoto(Photo photo) {
+  set selectedPhoto(Photo photo) {
     _selectedPhoto = photo;
     notifyListeners();
   }
@@ -66,7 +44,7 @@ class PhotoSearchModel extends ChangeNotifier {
         ..results.addAll(result.results);
     });
 
-    _entries.add(_searchEntry(query, search.results.toList(), this));
+    _entries.add(SearchEntry(query, search.results.toList(), this));
     notifyListeners();
   }
 
