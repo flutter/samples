@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:platform_channels/src/event_channel_demo.dart';
 import 'package:platform_channels/src/method_channel_demo.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class PlatformChannelSample extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/methodChannelDemo': (context) => MethodChannelDemo(),
+        '/eventChannelDemo': (context) => EventChannelDemo(),
       },
       title: 'Platform Channel Sample',
       home: HomePage(),
@@ -33,9 +35,10 @@ class DemoInfo {
 
 List<DemoInfo> demoList = [
   DemoInfo(
-    'MethodChannelDemo',
+    'MethodChannel Demo',
     '/methodChannelDemo',
   ),
+  DemoInfo('EventChannel Demo', '/eventChannelDemo')
 ];
 
 class HomePage extends StatelessWidget {
