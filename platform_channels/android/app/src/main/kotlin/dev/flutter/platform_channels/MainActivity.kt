@@ -13,7 +13,6 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         // Creates a MethodChannel as soon as the FlutterEngine is attached to
         // the Activity, and registers a MethodCallHandler. The Method.setMethodCallHandler

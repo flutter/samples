@@ -34,5 +34,4 @@ class AccelerometerStreamHandler(sManager: SensorManager, s: Sensor) : EventChan
             eventSink.success(axisValues)
         }
     }
-
 }
