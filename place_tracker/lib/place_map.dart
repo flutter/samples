@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -163,8 +164,7 @@ class PlaceMapState extends State<PlaceMap> {
   }
 
   Future<void> _switchSelectedCategory(PlaceCategory category) async {
-    Provider.of<AppState>(context, listen: false)
-        .setSelectedCategory(category);
+    Provider.of<AppState>(context, listen: false).setSelectedCategory(category);
     await _showPlacesForSelectedCategory(category);
   }
 
@@ -291,9 +291,7 @@ class PlaceMapState extends State<PlaceMap> {
       _configuration = MapConfiguration(
         places: newPlaces,
         selectedCategory:
-        Provider
-            .of<AppState>(context, listen: false)
-            .selectedCategory,
+            Provider.of<AppState>(context, listen: false).selectedCategory,
       );
 
       Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
