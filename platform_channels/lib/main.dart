@@ -38,7 +38,10 @@ List<DemoInfo> demoList = [
     'MethodChannel Demo',
     '/methodChannelDemo',
   ),
-  DemoInfo('EventChannel Demo', '/eventChannelDemo')
+  DemoInfo(
+    'EventChannel Demo',
+    '/eventChannelDemo',
+  )
 ];
 
 class HomePage extends StatelessWidget {
