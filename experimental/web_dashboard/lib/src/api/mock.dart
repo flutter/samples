@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:uuid/uuid.dart' as uuid;
 
@@ -13,48 +14,67 @@ class MockDashboardApi implements DashboardApi {
   final EntryApi entries = MockEntryApi();
 
   @override
-  final ItemApi items = MockItemApi();
+  final CategoryApi categories = MockCategoryApi();
+
+  MockDashboardApi();
+
+  /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
+  Future<void> fillWithMockData() async {
+    await Future<void>.delayed(Duration(seconds: 1));
+    var category1 = await categories.insert(Category('Coffee (oz)'));
+    var category2 = await categories.insert(Category('Running (miles)'));
+    var category3 = await categories.insert(Category('Git Commits'));
+    var monthAgo = DateTime.now().subtract(Duration(days: 30));
+
+    for (var category in [category1, category2, category3]) {
+      for (var i = 0; i < 30; i++) {
+        var date = monthAgo.add(Duration(days: i));
+        var value = Random().nextInt(6) + 1;
+        await entries.insert(category.id, Entry(value, date));
+      }
+    }
+  }
 }
 
-class MockItemApi implements ItemApi {
-  Map<String, Item> _storage = {};
-  StreamController<List<Item>> _streamController =
-      StreamController<List<Item>>.broadcast();
+class MockCategoryApi implements CategoryApi {
+  Map<String, Category> _storage = {};
+  StreamController<List<Category>> _streamController =
+      StreamController<List<Category>>.broadcast();
 
   @override
-  Future<Item> delete(String id) async {
+  Future<Category> delete(String id) async {
+    var removed = _storage.remove(id);
     _emit();
-    return _storage.remove(id);
+    return removed;
   }
 
   @override
-  Future<Item> get(String id) async {
+  Future<Category> get(String id) async {
     return _storage[id];
   }
 
   @override
-  Future<Item> insert(Item item) async {
+  Future<Category> insert(Category category) async {
     var id = uuid.Uuid().v4();
-    var newItem = Item(item.name)..id = id;
-    _storage[id] = newItem;
+    var newCategory = Category(category.name)..id = id;
+    _storage[id] = newCategory;
     _emit();
-    return newItem;
+    return newCategory;
   }
 
   @override
-  Future<List<Item>> list() async {
+  Future<List<Category>> list() async {
     return _storage.values.toList();
   }
 
   @override
-  Future<Item> update(Item item, String id) async {
-    _storage[id] = item;
-    return item..id = id;
+  Future<Category> update(Category category, String id) async {
+    _storage[id] = category;
+    _emit();
+    return category..id = id;
   }
 
-  Stream<List<Item>> allItemsStream() {
-    return _streamController.stream;
-  }
+  Stream<List<Category>> subscribe() => _streamController.stream;
 
   void _emit() {
     _streamController.add(_storage.values.toList());
@@ -63,44 +83,64 @@ class MockItemApi implements ItemApi {
 
 class MockEntryApi implements EntryApi {
   Map<String, Entry> _storage = {};
-  StreamController<List<Entry>> _streamController =
-      StreamController<List<Entry>>.broadcast();
+  StreamController<_EntriesEvent> _streamController =
+      StreamController.broadcast();
 
   @override
-  Future<Entry> delete(String itemId, String id) async {
-    _emit();
-    return _storage.remove('$itemId-$id');
+  Future<Entry> delete(String categoryId, String id) async {
+    _emit(categoryId);
+    return _storage.remove('$categoryId-$id');
   }
 
   @override
-  Future<Entry> insert(String itemId, Entry entry) async {
+  Future<Entry> insert(String categoryId, Entry entry) async {
     var id = uuid.Uuid().v4();
     var newEntry = Entry(entry.value, entry.time)..id = id;
-    _storage['$itemId-$id'] = newEntry;
-    _emit();
+    _storage['$categoryId-$id'] = newEntry;
+    _emit(categoryId);
     return newEntry;
   }
 
   @override
-  Future<List<Entry>> list(String itemId) async {
+  Future<List<Entry>> list(String categoryId) async {
     return _storage.keys
-        .where((k) => k.startsWith(itemId))
+        .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
         .toList();
   }
 
   @override
-  Future<Entry> update(String itemId, String id, Entry entry) async {
-    _storage['$itemId-$id'] = entry;
+  Future<Entry> update(String categoryId, String id, Entry entry) async {
+    _storage['$categoryId-$id'] = entry;
+    _emit(categoryId);
     return entry..id = id;
   }
 
   @override
-  Stream<List<Entry>> allEntriesStream(String itemId) {
-    return _streamController.stream;
+  Stream<List<Entry>> subscribe(String categoryId) {
+    return _streamController.stream
+        .where((event) => event.categoryId == categoryId)
+        .map((event) => event.entries);
   }
 
-  void _emit() {
-    _streamController.add(_storage.values.toList());
+  void _emit(String categoryId) {
+    var entries = _storage.keys
+        .where((k) => k.startsWith(categoryId))
+        .map((k) => _storage[k])
+        .toList();
+
+    _streamController.add(_EntriesEvent(categoryId, entries));
   }
+
+  @override
+  Future<Entry> get(String categoryId, String id) async {
+    return _storage['$categoryId-$id'];
+  }
+}
+
+class _EntriesEvent {
+  final String categoryId;
+  final List<Entry> entries;
+
+  _EntriesEvent(this.categoryId, this.entries);
 }

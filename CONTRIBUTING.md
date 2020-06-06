@@ -67,13 +67,13 @@ Each app should:
   [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
   release of the Flutter SDK.
 * Include the same
-  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/gallery/analysis_options.yaml)
+  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/animations/analysis_options.yaml)
   file used throughout the repo. These files include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
 * Be formatted with `flutter format`.
 * Include at least one working test in its `test` folder.
-* Be wired into the list of projects in [the CI script](travis_script.sh), which
+* Be wired into the list of projects in [the CI script](tool/travis_flutter_script.sh), which
   runs the analyzer, the formatter, and `flutter test`.
 * Avoid adding an onerous amount of blobs (typically images or other assets) to
   the repo.
