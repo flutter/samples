@@ -25,9 +25,7 @@ void analyze() {
 @Task('deploy')
 @Depends(analyze, testCli, generate, buildRelease)
 void deploy() {
-  print('All tasks completed. To deploy to Firebase, run:');
-  print('');
-  print('   firebase deploy');
+  print('All tasks completed. ');
   print('');
 }
 

@@ -34,6 +34,7 @@ declare -ar PROJECT_NAMES=(
     "isolate_example" \
     "jsonexample" \
     "place_tracker" \
+    "platform_channels" \
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \

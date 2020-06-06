@@ -145,10 +145,10 @@ thread and into an isolate.
 
 ## Demos
 
-#### [Shrine](gallery/lib/studies/shrine) _(Flutter team)_
+#### [Shrine](https://github.com/flutter/gallery/tree/master/lib/studies/shrine) _(Flutter team)_
 The Shrine demo app from the Flutter team. It's designed to showcase how apps
 can put their own spin on the Material Design components and how to use
 ScopedModel to maintain app state across screens.
 
-#### [Flutter Gallery](gallery) _(Flutter team)_
+#### [Flutter Gallery](https://github.com/flutter/gallery) _(Flutter team)_
 The official Flutter Gallery. There's tons of stuff in here. Just tons.

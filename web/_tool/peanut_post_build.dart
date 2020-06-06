@@ -43,7 +43,7 @@ main(List<String> args) async {
   // Build the sample index and copy the files into this directory
   print('building the sample index...');
   await run('samples_index', 'pub', ['get']);
-  await run('samples_index', 'pub', ['run', 'grinder', 'build-release']);
+  await run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
 
   // Copy the contents of the samples_index/public directory to the build
   // directory
