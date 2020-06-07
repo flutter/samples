@@ -7,4 +7,4 @@ version:
   revision: c0091b289e9966b6da99647b2f18dcb93de1f207
   channel: master
 
-project_type: app
+project_type: module
