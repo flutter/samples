@@ -8,6 +8,7 @@ class Book {
   String title;
   String subtitle;
   String author;
+  String description;
   String publishDate;
   int pageCount;
   // ignore: unused_element
@@ -16,6 +17,7 @@ class Book {
     pigeonMap['title'] = title;
     pigeonMap['subtitle'] = subtitle;
     pigeonMap['author'] = author;
+    pigeonMap['description'] = description;
     pigeonMap['publishDate'] = publishDate;
     pigeonMap['pageCount'] = pageCount;
     return pigeonMap;
@@ -26,6 +28,7 @@ class Book {
     result.title = pigeonMap['title'];
     result.subtitle = pigeonMap['subtitle'];
     result.author = pigeonMap['author'];
+    result.description = pigeonMap['description'];
     result.publishDate = pigeonMap['publishDate'];
     result.pageCount = pigeonMap['pageCount'];
     return result;
@@ -48,9 +51,9 @@ abstract class FlutterBookApi {
 }
 
 class HostBookApi {
-  Future<Book> getEditedBook() async {
+  Future<void> cancel() async {
     const BasicMessageChannel<dynamic> channel =
-        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.getEditedBook', StandardMessageCodec());
+        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.cancel', StandardMessageCodec());
     
     final Map<dynamic, dynamic> replyMap = await channel.send(null);
     if (replyMap == null) {
@@ -65,7 +68,29 @@ class HostBookApi {
           message: error['message'],
           details: error['details']);
     } else {
-      return Book._fromMap(replyMap['result']);
+      // noop
+    }
+    
+  }
+  Future<void> finishedEditingBook(Book arg) async {
+    final Map<dynamic, dynamic> requestMap = arg._toMap();
+    const BasicMessageChannel<dynamic> channel =
+        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.finishedEditingBook', StandardMessageCodec());
+    
+    final Map<dynamic, dynamic> replyMap = await channel.send(requestMap);
+    if (replyMap == null) {
+      throw PlatformException(
+        code: 'channel-error',
+        message: 'Unable to establish connection on channel.',
+        details: null);
+    } else if (replyMap['error'] != null) {
+      final Map<dynamic, dynamic> error = replyMap['error'];
+      throw PlatformException(
+          code: error['code'],
+          message: error['message'],
+          details: error['details']);
+    } else {
+      // noop
     }
     
   }

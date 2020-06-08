@@ -26,6 +26,10 @@ public class Api {
     public String getAuthor() { return author; }
     public void setAuthor(String setterArg) { this.author = setterArg; }
 
+    private String description;
+    public String getDescription() { return description; }
+    public void setDescription(String setterArg) { this.description = setterArg; }
+
     private String publishDate;
     public String getPublishDate() { return publishDate; }
     public void setPublishDate(String setterArg) { this.publishDate = setterArg; }
@@ -39,6 +43,7 @@ public class Api {
       toMapResult.put("title", title);
       toMapResult.put("subtitle", subtitle);
       toMapResult.put("author", author);
+      toMapResult.put("description", description);
       toMapResult.put("publishDate", publishDate);
       toMapResult.put("pageCount", pageCount);
       return toMapResult;
@@ -48,6 +53,7 @@ public class Api {
       fromMapResult.title = (String)map.get("title");
       fromMapResult.subtitle = (String)map.get("subtitle");
       fromMapResult.author = (String)map.get("author");
+      fromMapResult.description = (String)map.get("description");
       fromMapResult.publishDate = (String)map.get("publishDate");
       fromMapResult.pageCount = (map.get("pageCount") instanceof Integer) ? (Integer)map.get("pageCount") : (Long)map.get("pageCount");
       return fromMapResult;
@@ -77,20 +83,43 @@ public class Api {
 
   /** Generated interface from Pigeon that represents a handler of messages from Flutter.*/
   public interface HostBookApi {
-    Book getEditedBook();
+    void cancel();
+    void finishedEditingBook(Book arg);
 
     /** Sets up an instance of `HostBookApi` to handle messages through the `binaryMessenger` */
     public static void setup(BinaryMessenger binaryMessenger, HostBookApi api) {
       {
         BasicMessageChannel<Object> channel =
-            new BasicMessageChannel<Object>(binaryMessenger, "dev.flutter.pigeon.HostBookApi.getEditedBook", new StandardMessageCodec());
+            new BasicMessageChannel<Object>(binaryMessenger, "dev.flutter.pigeon.HostBookApi.cancel", new StandardMessageCodec());
         if (api != null) {
           channel.setMessageHandler(new BasicMessageChannel.MessageHandler<Object>() {
             public void onMessage(Object message, BasicMessageChannel.Reply<Object> reply) {
               HashMap<String, HashMap> wrapped = new HashMap<String, HashMap>();
               try {
-                Book output = api.getEditedBook();
-                wrapped.put("result", output.toMap());
+                api.cancel();
+                wrapped.put("result", null);
+              }
+              catch (Exception exception) {
+                wrapped.put("error", wrapError(exception));
+              }
+              reply.reply(wrapped);
+            }
+          });
+        } else {
+          channel.setMessageHandler(null);
+        }
+      }
+      {
+        BasicMessageChannel<Object> channel =
+            new BasicMessageChannel<Object>(binaryMessenger, "dev.flutter.pigeon.HostBookApi.finishedEditingBook", new StandardMessageCodec());
+        if (api != null) {
+          channel.setMessageHandler(new BasicMessageChannel.MessageHandler<Object>() {
+            public void onMessage(Object message, BasicMessageChannel.Reply<Object> reply) {
+              Book input = Book.fromMap((HashMap)message);
+              HashMap<String, HashMap> wrapped = new HashMap<String, HashMap>();
+              try {
+                api.finishedEditingBook(input);
+                wrapped.put("result", null);
               }
               catch (Exception exception) {
                 wrapped.put("error", wrapError(exception));

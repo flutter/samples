@@ -4,6 +4,7 @@ class Book {
   String title;
   String subtitle;
   String author;
+  String description;
   String publishDate;
   int pageCount;
   // Thumbnail thumbnail;
@@ -20,5 +21,6 @@ abstract class FlutterBookApi {
 
 @HostApi()
 abstract class HostBookApi {
-  Book getEditedBook();
+  void cancel();
+  void finishedEditingBook(Book book);
 }

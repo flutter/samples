@@ -1,8 +1,6 @@
 name: flutter_module_books
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 version: 1.0.0+1
 
 environment:
@@ -19,3 +17,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # This section identifies your Flutter project as a module meant for
+  # embedding in a native host app.  These identifiers should _not_ ordinarily
+  # be changed after generation - they are used to ensure that the tooling can
+  # maintain consistency when adding or modifying assets and plugins.
+  # They also do not have any bearing on your native host application's
+  # identifiers, which may be completely independent or the same as these.
+  module:
+    androidX: true
+    androidPackage: dev.flutter.example.flutter_module_books
+    iosBundleIdentifier: dev.flutter.example.flutterModuleBooks

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Books add-to-app</string>
+    <string name="app_name">Books</string>
+    <string name="edit">Edit</string>
 </resources>
