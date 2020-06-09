@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         for (jsonBook in jsonBooks.map { it.asJsonObject }) {
             try {
                 // Here we're using GSON to populate a Pigeon data class directly. The Pigeon data
-                // class can not used not just as part of your IPC API's signature but also as a
+                // class can be used not just as part of your IPC API's signature but also as a
                 // normal data class in your existing application.
                 //
                 // We could either push the Pigeon data class usage higher into the existing GSON
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 // showing the details of the book.
                 startActivityForResult(
                     // We're using our own 'FlutterActivity' subclass which wraps Pigeon API usages
-                    // into a "standard" Android activity interface with intent extras as input and
+                    // into an idiomatic Android activity interface with intent extras as input and
                     // with activity 'setResult' as output.
                     //
                     // This lets activity-level feature developers abstract their Flutter usage
@@ -150,9 +150,8 @@ class MainActivity : AppCompatActivity() {
 
             // If the book was edited, the Flutter activity returns activity result in the
             // result intent in an extra. The extra is the book in serialized form.
-            //
-            // Update our book model list.
             val returnedBook = FlutterBookActivity.getBookFromResultIntent(data)
+            // Update our book model list.
             books[requestCode] = returnedBook
 
             // Refresh the UI here on the Kotlin side.

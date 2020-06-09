@@ -64,13 +64,13 @@ class FlutterBookActivity: FlutterActivity() {
 
         // The book to give to Flutter is passed in from the MainActivity via this activity's
         // source intent getter. The intent contains the book serialized as on extra.
-        val book = Api.Book.fromMap(intent.getSerializableExtra(EXTRA_BOOK) as HashMap<*, *>)
+        val bookToShow = Api.Book.fromMap(intent.getSerializableExtra(EXTRA_BOOK) as HashMap<*, *>)
 
         // Register the HostBookApiHandler callback class to get results from Flutter.
         Api.HostBookApi.setup(flutterEngine.dartExecutor, HostBookApiHandler())
 
         // Send in the book instance to Flutter.
-        Api.FlutterBookApi(flutterEngine.dartExecutor).displayBookDetails(book) {
+        Api.FlutterBookApi(flutterEngine.dartExecutor).displayBookDetails(bookToShow) {
             // We don't care about the callback
         }
     }
@@ -85,9 +85,12 @@ class FlutterBookActivity: FlutterActivity() {
         }
 
         override fun finishedEditingBook(book: Api.Book?) {
+            if (book == null) {
+                throw IllegalArgumentException("finishedEditingBook cannot be called with a null argument")
+            }
             // Flutter returned an edited book instance. Return it to the MainActivity via the
             // standard Android Activity set result mechanism.
-            setResult(Activity.RESULT_OK, Intent().putExtra(EXTRA_BOOK, book!!.toMap()))
+            setResult(Activity.RESULT_OK, Intent().putExtra(EXTRA_BOOK, book.toMap()))
             finish()
         }
     }
