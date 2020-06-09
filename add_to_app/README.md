@@ -160,7 +160,7 @@ page.
   be the middleware foundation for the additional Flutter screen.
     * On Android, the Kotlin app already uses GSON and OkHttp for networking and
       references the Google Books API as a data source. These same libraries
-      underpin the data fetched and shown in the Flutter screen.
+      also underpin the data fetched and shown in the Flutter screen.
     * iOS TODO.
 * The platform application interfaces with the Flutter book details page using
   idiomatic platform API conventions rather than Flutter conventions.
@@ -168,10 +168,28 @@ page.
       intent and returns the edited book by setting the result intent on the
       activity. No Flutter concepts are leaked into the consumer activity.
     * iOS TODO.
-*
+* The [pigeon](https://pub.dev/packages/pigeon) plugin is used to generate
+  interop APIs and data classes. The same `Book` model class is used within the
+  Kotlin/Swift program, the Dart program and in the interop between Kotlin/Swift
+  and Dart. No manual platform channel plumbing needed for interop.
+    * The `api.dart/java/mm` files generated from the
+      `flutter_module_books/pigeon/schema.dart` file are checked into source
+      control. Therefore `pigeon` is only a dev dependency with no runtime
+      requirements.
+    * If the `schema.dart` is modified, the generated classes can be updated with
 
-If you are new to Flutter's add-to-app APIs, these projects are a great place
-to begin learning how to use them.
+        ```shell
+        flutter pub run pigeon \
+            --input pigeon/schema.dart \
+            --java_out ../android_books/app/src/main/java/dev/flutter/example/books/Api.java \
+            --java_package "dev.flutter.example.books"
+        ```
+
+      in the `flutter_module_books` directory.
+
+Once you've understood the basics of add-to-app with `android_fullscreen` and
+`ios_fullscreen`, this is a good sample to demonstrate how to integrate Flutter
+in a slightly more realistic setting with existing business logic.
 
 ## Questions/issues
 

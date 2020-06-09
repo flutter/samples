@@ -46,8 +46,7 @@ class BookDetail extends StatefulWidget {
 class _BookDetailState extends State<BookDetail> {
   Book book;
 
-  // This `HostBookApi` class instance lets us make outgoing calls to the platform.
-  HostBookApi hostApi = HostBookApi();
+  HostBookApi hostApi;
 
   FocusNode textFocusNode = FocusNode();
   TextEditingController titleTextController = TextEditingController();
@@ -57,6 +56,9 @@ class _BookDetailState extends State<BookDetail> {
   @override
   void initState() {
     super.initState();
+
+    // This `HostBookApi` class instance lets us make outgoing calls to the platform.
+    hostApi = HostBookApi();
 
     // Registering this `FlutterBookApiHandler` class lets us receive incoming
     // calls from the platform.
