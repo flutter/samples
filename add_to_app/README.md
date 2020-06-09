@@ -161,14 +161,14 @@ page.
     * On Android, the Kotlin app already uses GSON and OkHttp for networking and
       references the Google Books API as a data source. These same libraries
       underpin the data fetched and shown in the Flutter screen.
-* The Flutter book detail page uses
-
-* The Flutter module is built along with the app when the app is built.
-* The Flutter engine is warmed up at app launch.
-* The Flutter view is presented with a full-screen Activity or
-  UIViewController.
-* The Flutter view is a navigational leaf node; it does not launch any new,
-  native Activities or UIViewControllers in response to user actions.
+    * iOS TODO.
+* The platform application interfaces with the Flutter book details page using
+  idiomatic platform API conventions rather than Flutter conventions.
+    * On Android, the Flutter activity receives the book to show via activity
+      intent and returns the edited book by setting the result intent on the
+      activity. No Flutter concepts are leaked into the consumer activity.
+    * iOS TODO.
+*
 
 If you are new to Flutter's add-to-app APIs, these projects are a great place
 to begin learning how to use them.

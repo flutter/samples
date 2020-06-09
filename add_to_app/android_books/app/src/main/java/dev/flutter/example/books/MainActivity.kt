@@ -11,9 +11,6 @@ import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.dart.DartExecutor
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
@@ -21,28 +18,20 @@ import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 import java.lang.Exception
-import java.util.HashMap
+import java.lang.RuntimeException
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        const val ENGINE_ID = "book_engine"
         const val BOOKS_QUERY = "https://www.googleapis.com/books/v1/volumes?q=greenwood+tulsa&maxResults=15"
     }
 
     private lateinit var books: MutableList<Api.Book>
-    private lateinit var flutterEngine: FlutterEngine
     private lateinit var list: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         list = findViewById<LinearLayout>(R.id.list)
-
-        // We're reusing the same FlutterEngine instance for this sample.
-        flutterEngine = FlutterEngine(this).apply{
-            dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
-        }
-        FlutterEngineCache.getInstance().put(ENGINE_ID, flutterEngine)
 
         // OkHttp is arbitrarily chosen here to represent an existing middleware constraint that
         // already exists in your existing application's infrastructure.
@@ -76,9 +65,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    /// Take a top level Google Books query's response JSON and create a list of Book Pigeon data
-    /// classes that will be used both as a model here on the Kotlin side and also in the IPCs
-    /// to Dart.
+    // Take a top level Google Books query's response JSON and create a list of Book Pigeon data
+    // classes that will be used both as a model here on the Kotlin side and also in the IPCs
+    // to Dart.
     private fun parseGoogleBooksJsonToBooks(jsonBody: String): MutableList<Api.Book> {
         // Here we're arbitrarily using GSON to represent another existing middleware constraint
         // that already exists in your existing application's infrastructure.
@@ -112,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         return books
     }
 
-    /// Given a populated books list, create a Material Design card in a scroll view for each book.
+    // Given a populated books list, create a Material Design card in a scroll view for each book.
     private fun populateBookCards() {
         for ((index, book) in books.withIndex()) {
             val card = layoutInflater.inflate(R.layout.book_card, null)
@@ -127,23 +116,13 @@ class MainActivity : AppCompatActivity() {
                     //
                     // This lets activity-level feature developers abstract their Flutter usage
                     // and present a standard Android API to their upstream application developers.
+                    //
+                    // No Flutter specific concepts are leaked outside the Flutter activity itself
+                    // into the consuming class.
                     FlutterBookActivity
-                        .withCachedEngine(ENGINE_ID)
-                        .build(this)
-                        .putExtra(
-                            // The Pigeon data class is useful not only between Kotlin/Java and Dart
-                            // but also within Kotlin/Java where activities must communicate with
-                            // each other via serializable data. The Pigeon data class is a
-                            // serializable class by definition.
-                            FlutterBookActivity.EXTRA_BOOK,
-                            // Re-read from the 'books' list rather than just capturing the iterated
-                            // 'book' instance since we change it when Dart update it in onActivityResult.
-                            //
-                            // TODO(gaaclarke): the Pigeon generated data class should just implement
-                            // Serializable so we won't need 'toMap()' here
-                            // https://github.com/flutter/flutter/issues/58909
-                            books[index].toMap()
-                        ),
+                        // Re-read from the 'books' list rather than just capturing the iterated
+                        // 'book' instance since we change it when Dart update it in onActivityResult.
+                        .withBook(this, books[index]),
                     // The index lets us know which book we're returning the result for when we
                     // return from the Flutter activity.
                     index)
@@ -152,27 +131,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /// Given a Material Design card and a book, update the card content to reflect the book model.
+    // Given a Material Design card and a book, update the card content to reflect the book model.
     private fun updateCardWithBook(card: View, book: Api.Book) {
         card.findViewById<TextView>(R.id.title).text = book.title
         card.findViewById<TextView>(R.id.subtitle).text = book.subtitle
         card.findViewById<TextView>(R.id.author).text = resources.getString(R.string.author_prefix, book.author)
     }
 
-    /// Callback when the Flutter activity started with 'startActivityForResult' above returns.
+    // Callback when the Flutter activity started with 'startActivityForResult' above returns.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // The Flutter activity may cancel the edit. If so, don't update anything.
         if (resultCode == Activity.RESULT_OK) {
+            if (data == null) {
+                throw RuntimeException("The FlutterBookActivity returning RESULT_OK should always have a return data intent")
+            }
+
             // If the book was edited, the Flutter activity returns activity result in the
             // result intent in an extra. The extra is the book in serialized form.
-            val book = Api.Book.fromMap(data!!.getSerializableExtra(FlutterBookActivity.EXTRA_BOOK) as HashMap<*, *>)
+            //
             // Update our book model list.
-            books[requestCode] = book
+            val returnedBook = FlutterBookActivity.getBookFromResultIntent(data)
+            books[requestCode] = returnedBook
 
             // Refresh the UI here on the Kotlin side.
-            updateCardWithBook(list.getChildAt(requestCode), book)
+            updateCardWithBook(list.getChildAt(requestCode), returnedBook)
         }
     }
 }
