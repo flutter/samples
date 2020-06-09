@@ -10,11 +10,13 @@ standalone Flutter module.
   - Whether to build the Flutter module from source each time the app builds or
     rely on a separately pre-built module.
   - Whether plugins are needed by the Flutter module used in the app.
+* Show Flutter being integrated ergonomically with applications with existing
+  middleware and business logic data classes.
 
 ## Installing Cocoapods
 
 The iOS samples in this repo require the latest version of Cocoapods. To install
-it, run the following command on a MacOS machine:
+it, run the following command on a macOS machine:
 
 ```bash
 sudo gem install cocoapods
@@ -26,20 +28,26 @@ See https://guides.cocoapods.org/using/getting-started.html for more details.
 
 ### Flutter modules
 
-There are two Flutter modules included in the codebase:
+There are 3 Flutter modules included in the codebase:
 
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
 * `flutter_module_using_plugin` does everything `flutter_module` does and adds
   another button that will open the Flutter documentation in a browser using the
   [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
+* `flutter_module_books` simulates an integration scenario with existing
+  platform business logic and middleware. It uses the [`pigeon`](https://pub.dev/packages/pigeon)
+  plugin to facilitate integration ergonomics by generating the platform channel
+  interop inside wrapper API and data classes that are shared between the
+  platform and Flutter.
+
 
 Before using them, you need to resolve the Flutter modules' dependencies. Do so
 by running this command from within the `flutter_module` and
 `flutter_module_using_plugin` directories:
 
 ```bash
-flutter packages get
+flutter pub get
 ```
 
 ### Android and iOS applications
@@ -138,6 +146,32 @@ For more information on how to modify an existing iOS app to reference prebuilt
 Flutter frameworks, see this article in the Flutter GitHub wiki:
 
 https://flutter.dev/docs/development/add-to-app/ios/project-setup
+
+### `android_books` and `ios_books (TODO)`
+
+These apps integrate the `flutter_books` module using the simpler build-together
+project setup. They simulate a mock scenario where an existing books catalog
+list app already exists. Flutter is used to implement an additional book details
+page.
+
+* Similar to `android_fullscreen` and `ios_fullscreen`.
+* An existing books catalog app is already implemented in Kotlin and Swift.
+* The platform-side app has existing middleware constraints that should also
+  be the middleware foundation for the additional Flutter screen.
+    * On Android, the Kotlin app already uses GSON and OkHttp for networking and
+      references the Google Books API as a data source. These same libraries
+      underpin the data fetched and shown in the Flutter screen.
+* The Flutter book detail page uses
+
+* The Flutter module is built along with the app when the app is built.
+* The Flutter engine is warmed up at app launch.
+* The Flutter view is presented with a full-screen Activity or
+  UIViewController.
+* The Flutter view is a navigational leaf node; it does not launch any new,
+  native Activities or UIViewControllers in response to user actions.
+
+If you are new to Flutter's add-to-app APIs, these projects are a great place
+to begin learning how to use them.
 
 ## Questions/issues
 

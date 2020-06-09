@@ -14,7 +14,11 @@ import com.google.gson.JsonParser
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
-import okhttp3.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
 import java.lang.Exception
 import java.util.HashMap
@@ -22,11 +26,12 @@ import java.util.HashMap
 class MainActivity : AppCompatActivity() {
     companion object {
         const val ENGINE_ID = "book_engine"
+        const val BOOKS_QUERY = "https://www.googleapis.com/books/v1/volumes?q=greenwood+tulsa&maxResults=15"
     }
 
-    lateinit var books: MutableList<Api.Book>
-    lateinit var flutterEngine: FlutterEngine
-    lateinit var list: LinearLayout
+    private lateinit var books: MutableList<Api.Book>
+    private lateinit var flutterEngine: FlutterEngine
+    private lateinit var list: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val bookRequest = Request.Builder()
             // We're arbitrarily getting data from Google Books. This represents existing data
             // sources your existing application is already interfacing with.
-            .url("https://www.googleapis.com/books/v1/volumes?q=greenwood+tulsa&maxResults=15")
+            .url(BOOKS_QUERY)
             .build()
 
         httpClient.newCall(bookRequest).enqueue(object : Callback {
@@ -56,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 response.use {
                     if (!response.isSuccessful) throw IOException("Unexpected code $response")
-                    books = parseJsonToBooks(response.body!!.string())
+                    books = parseGoogleBooksJsonToBooks(response.body!!.string())
 
                     val spinner = findViewById<ProgressBar>(R.id.spinner)
 
@@ -74,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     /// Take a top level Google Books query's response JSON and create a list of Book Pigeon data
     /// classes that will be used both as a model here on the Kotlin side and also in the IPCs
     /// to Dart.
-    private fun parseJsonToBooks(jsonBody: String): MutableList<Api.Book> {
+    private fun parseGoogleBooksJsonToBooks(jsonBody: String): MutableList<Api.Book> {
         // Here we're arbitrarily using GSON to represent another existing middleware constraint
         // that already exists in your existing application's infrastructure.
         val jsonBooks = JsonParser.parseString(jsonBody).asJsonObject.getAsJsonArray("items")
@@ -151,7 +156,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateCardWithBook(card: View, book: Api.Book) {
         card.findViewById<TextView>(R.id.title).text = book.title
         card.findViewById<TextView>(R.id.subtitle).text = book.subtitle
-        card.findViewById<TextView>(R.id.author).text = book.author
+        card.findViewById<TextView>(R.id.author).text = resources.getString(R.string.author_prefix, book.author)
     }
 
     /// Callback when the Flutter activity started with 'startActivityForResult' above returns.
