@@ -7,6 +7,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: const Color(0xff6200ee),
+      ),
       home: BookDetail(),
     );
   }
@@ -38,6 +41,8 @@ class _BookDetailState extends State<BookDetail> {
 
   FocusNode textFocusNode = FocusNode();
   TextEditingController titleTextController = TextEditingController();
+  TextEditingController subtitleTextController = TextEditingController();
+  TextEditingController authorTextController = TextEditingController();
 
   @override
   void initState() {
@@ -55,11 +60,26 @@ class _BookDetailState extends State<BookDetail> {
           this.book = book;
           titleTextController.text = book.title;
           titleTextController.addListener(() {
-            book.title = titleTextController.text;
+            this.book?.title = titleTextController.text;
+          });
+          subtitleTextController.text = book.subtitle ?? '';
+          subtitleTextController.addListener(() {
+            this.book?.subtitle = subtitleTextController.text;
+          });
+          authorTextController.text = book.author;
+          authorTextController.addListener(() {
+            this.book?.author = authorTextController.text;
           });
         });
      }
    ));
+  }
+
+  void clear() {
+    book = null;
+    // Keep focus if going to the home screen but unfocus if leaving
+    // the activity.
+    textFocusNode.unfocus();
   }
 
   @override
@@ -72,9 +92,7 @@ class _BookDetailState extends State<BookDetail> {
           // Pressing clear cancels the edit and leaves the activity without
           // modification.
           onPressed: () {
-            // Keep focus if going to the home screen but unfocus if leaving
-            // the activity.
-            textFocusNode.unfocus();
+            clear();
             hostApi.cancel();
           },
         ),
@@ -83,9 +101,7 @@ class _BookDetailState extends State<BookDetail> {
             icon: Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
             onPressed: () {
-              // Keep focus if going to the home screen but unfocus if leaving
-              // the activity.
-              textFocusNode.unfocus();
+              clear();
               hostApi.finishedEditingBook(book);
             },
           ),
@@ -95,20 +111,69 @@ class _BookDetailState extends State<BookDetail> {
         // Draw a spinner until the platform gives us the book to show details
         // for.
         ? Center(child: CircularProgressIndicator())
-        : ListView(
-            padding: EdgeInsets.all(16),
-            children: [
-              TextField(
-                controller: titleTextController,
-                focusNode: textFocusNode,
-                decoration: InputDecoration(
-                  filled: true,
-                  hintText: "Title",
-                  labelText: "Title",
+        : Focus(
+            focusNode: textFocusNode,
+            child: ListView(
+              padding: EdgeInsets.all(24),
+              children: [
+                TextField(
+                  controller: titleTextController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    hintText: "Title",
+                    labelText: "Title",
+                  ),
                 ),
-              )
-            ],
-          ),
+                SizedBox(height: 24),
+                TextField(
+                  controller: subtitleTextController,
+                  maxLines: 2,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    hintText: "Subtitle",
+                    labelText: "Subtitle",
+                  ),
+                ),
+                SizedBox(height: 24),
+                TextField(
+                  controller: authorTextController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    hintText: "Author",
+                    labelText: "Author",
+                  ),
+                ),
+                SizedBox(height: 32),
+                Divider(),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('${book.pageCount} pages  ~  published ${book.publishDate}'),
+                  ),
+                ),
+                Divider(),
+                SizedBox(height: 32),
+                Center(
+                  child: Text(
+                    'BOOK DESCRIPTION',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 12),
+                Text(
+                  book.description,
+                  style: TextStyle(color: Colors.grey.shade600, height: 1.24),
+                ),
+              ],
+            ),
+        ),
     );
   }
 }
