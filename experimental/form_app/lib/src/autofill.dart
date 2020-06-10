@@ -45,7 +45,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: 'foo@example.com',
                         labelText: 'Email',
                       ),
-                      autofillHints: <String>[AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                     ),
                     TextField(
                       decoration: InputDecoration(
