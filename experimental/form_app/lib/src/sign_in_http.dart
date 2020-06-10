@@ -34,7 +34,6 @@ class SignInHttpDemo extends StatefulWidget {
 }
 
 class _SignInHttpDemoState extends State<SignInHttpDemo> {
-  final _formKey = GlobalKey<FormState>();
   FormData formData = FormData();
 
   @override
@@ -44,7 +43,6 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
         title: Text('Sign in Form'),
       ),
       body: Form(
-        key: _formKey,
         child: Scrollbar(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(16),
