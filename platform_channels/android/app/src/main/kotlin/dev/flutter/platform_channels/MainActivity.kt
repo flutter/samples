@@ -37,12 +37,8 @@ class MainActivity : FlutterActivity() {
                 }
 
         val sensorManger: SensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        // Use instance of Sensor Service to get the ACCELEROMETER sensor.
         val accelerometerSensor: Sensor = sensorManger.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        // Creates a EventChannel, and sets a StreamHandler. The AccelerometerStreamHandler
-        // implements a StreamHandler and SensorEventListener to listen the value changes from
-        // the sensor and send it to dart side.
-        EventChannel(flutterEngine.dartExecutor, "accelerometer")
+        EventChannel(flutterEngine.dartExecutor, "eventChannelDemo")
                 .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
     }
 }

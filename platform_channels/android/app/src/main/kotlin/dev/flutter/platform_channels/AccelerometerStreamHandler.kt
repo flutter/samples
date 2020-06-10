@@ -16,10 +16,10 @@ class AccelerometerStreamHandler(sManager: SensorManager, s: Sensor) : EventChan
     private lateinit var eventSink: EventChannel.EventSink
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
-        if (events != null)
+        if (events != null) {
             eventSink = events
-
-        sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_UI)
+            sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_UI)
+        }
     }
 
     override fun onCancel(arguments: Any?) {

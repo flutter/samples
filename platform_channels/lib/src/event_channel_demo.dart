@@ -5,13 +5,14 @@
 import 'package:flutter/material.dart';
 import 'package:platform_channels/src/accelerometer_event_channel.dart';
 
-/// The widget demonstrates how to use [EventChannel] to listen continuous values
+/// Demonstrates how to use [EventChannel] to listen continuous values
 /// of Accelerometer Sensor from platform.
 ///
 /// The widget uses a [StreamBuilder] to rebuild it's descendant whenever it
-/// listens a new value from the Accelerometer.getReadings() stream. It also
-/// has three [Text] widgets to display the value of [AccelerometerReadings.x],
-/// [AccelerometerReadings.y], and [AccelerometerReadings.z] respectively.
+/// listens a new value from the [Accelerometer.readings] stream. If there's
+/// a change in the [AccelerometerReadings.x] and [AccelerometerReadings.y],
+/// the height and width of [AnimatedContainer] are changed respectively. If
+/// there's a change in [AccelerometerReadings.z], the borderRadius is changed.
 class EventChannelDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,37 +21,36 @@ class EventChannelDemo extends StatelessWidget {
       appBar: AppBar(
         title: Text('EventChannel Demo'),
       ),
-      body: StreamBuilder<AccelerometerReadings>(
-        stream: Accelerometer.getReadings(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'x axis: ' + snapshot.data.x.toStringAsFixed(3),
-                    style: textStyle,
+      body: Center(
+        child: StreamBuilder<AccelerometerReadings>(
+          stream: Accelerometer.readings,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Text(snapshot.error.toString());
+            } else if (snapshot.hasData) {
+              final width = 150 + snapshot.data.y * 10;
+              final height = 150 + snapshot.data.x * 10;
+              final borderRadius = snapshot.data.z;
+
+              return AnimatedContainer(
+                duration: Duration(milliseconds: 200),
+                width: width < 0 ? 150 : width,
+                height: height < 0 ? 150 : height,
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(
+                    borderRadius < 0 ? 0 : borderRadius * 2,
                   ),
-                  Text(
-                    'y axis: ' + snapshot.data.y.toStringAsFixed(3),
-                    style: textStyle,
-                  ),
-                  Text(
-                    'z axis: ' + snapshot.data.z.toStringAsFixed(3),
-                    style: textStyle,
-                  ),
-                ],
-              ),
-            );
-          }
-          return Center(
-            child: Text(
+                ),
+              );
+            }
+
+            return Text(
               'No Data Available',
               style: textStyle,
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

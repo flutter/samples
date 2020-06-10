@@ -11,7 +11,7 @@ void main() {
   group('EventChannel Demo tests', () {
     final sensorValues = [1.3556, 2.3, -0.12];
     setUpAll(() {
-      // By default EventChannel uses StandardMethodCode to communicate with
+      // By default EventChannel uses StandardMethodCodec to communicate with
       // platform.
       const standardMethod = StandardMethodCodec();
 
