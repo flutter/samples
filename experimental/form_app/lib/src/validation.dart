@@ -24,8 +24,8 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
               textColor: Colors.white,
               child: Text('Submit'),
               onPressed: () {
-                // When the form is submitted, validate it by getting the FormState from the the GlobalKey.
-                // Then validate the form, by calling validate() on FormState.
+                // Validate the form by getting the FormState from the GlobalKey
+                // and calling validate() on it.
                 var valid = _formKey.currentState.validate();
                 if (!valid) {
                   return;
