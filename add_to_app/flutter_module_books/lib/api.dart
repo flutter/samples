@@ -72,10 +72,10 @@ class HostBookApi {
     }
     
   }
-  Future<void> finishedEditingBook(Book arg) async {
+  Future<void> finishEditingBook(Book arg) async {
     final Map<dynamic, dynamic> requestMap = arg._toMap();
     const BasicMessageChannel<dynamic> channel =
-        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.finishedEditingBook', StandardMessageCodec());
+        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.finishEditingBook', StandardMessageCodec());
     
     final Map<dynamic, dynamic> replyMap = await channel.send(requestMap);
     if (replyMap == null) {

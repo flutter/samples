@@ -1,3 +1,7 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 package dev.flutter.example.books
 
 import android.app.Activity
@@ -10,7 +14,7 @@ import java.util.HashMap
 
 /**
  * This {@link FlutterActivity} class repackages Kotlin-Dart interop using the Pigeon IPC mechanism.
- * It repackages Flutter/Dart side functionalities in standard Android API style passing
+ * It repackages Flutter/Dart-side functionalities in standard Android API style, passing
  * arguments in and out of the activity using 'startActivityForResult' intents and
  * 'onActivityResult' intents.
  */
@@ -79,12 +83,12 @@ class FlutterBookActivity: FlutterActivity() {
     // APIs are invoked on the Dart side.
     inner class HostBookApiHandler: Api.HostBookApi {
         override fun cancel() {
-            // Flutter calls cancel. Finish the activity with a cancel result.
+            // Flutter called cancel. Finish the activity with a cancel result.
             setResult(Activity.RESULT_CANCELED)
             finish()
         }
 
-        override fun finishedEditingBook(book: Api.Book?) {
+        override fun finishEditingBook(book: Api.Book?) {
             if (book == null) {
                 throw IllegalArgumentException("finishedEditingBook cannot be called with a null argument")
             }

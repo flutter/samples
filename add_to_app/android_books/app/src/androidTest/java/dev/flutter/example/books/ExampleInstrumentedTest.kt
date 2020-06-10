@@ -14,11 +14,14 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class MainActivityTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("dev.flutter.example.books", appContext.packageName)
     }
+
+    // The app should be hermetic (with offline books JSON) before adding
+    // more tests.
 }

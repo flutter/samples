@@ -1,3 +1,7 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 package dev.flutter.example.books
 
 import android.app.Activity
@@ -33,12 +37,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         list = findViewById<LinearLayout>(R.id.list)
 
-        // OkHttp is arbitrarily chosen here to represent an existing middleware constraint that
-        // already exists in your existing application's infrastructure.
+        // OkHttp is arbitrarily chosen here to represent an existing middleware constraint that's
+        // already present in an existing application's infrastructure.
         val httpClient = OkHttpClient()
         val bookRequest = Request.Builder()
-            // We're arbitrarily getting data from Google Books. This represents existing data
-            // sources your existing application is already interfacing with.
+            // Retrieve data from Google Books API (arbitrarily chosen). This represents existing
+            // data sources that an existing application is already interfacing with.
             .url(BOOKS_QUERY)
             .build()
 
@@ -117,11 +121,11 @@ class MainActivity : AppCompatActivity() {
                     // This lets activity-level feature developers abstract their Flutter usage
                     // and present a standard Android API to their upstream application developers.
                     //
-                    // No Flutter specific concepts are leaked outside the Flutter activity itself
+                    // No Flutter-specific concepts are leaked outside the Flutter activity itself
                     // into the consuming class.
                     FlutterBookActivity
                         // Re-read from the 'books' list rather than just capturing the iterated
-                        // 'book' instance since we change it when Dart update it in onActivityResult.
+                        // 'book' instance since we change it when Dart updates it in onActivityResult.
                         .withBook(this, books[index]),
                     // The index lets us know which book we're returning the result for when we
                     // return from the Flutter activity.
@@ -148,8 +152,9 @@ class MainActivity : AppCompatActivity() {
                 throw RuntimeException("The FlutterBookActivity returning RESULT_OK should always have a return data intent")
             }
 
-            // If the book was edited, the Flutter activity returns activity result in the
-            // result intent in an extra. The extra is the book in serialized form.
+            // If the book was edited in Flutter, the Flutter activity finishes and returns an
+            // activity result in an intent (the 'data' argument). The intent has an extra which is
+            // the edited book in serialized form.
             val returnedBook = FlutterBookActivity.getBookFromResultIntent(data)
             // Update our book model list.
             books[requestCode] = returnedBook

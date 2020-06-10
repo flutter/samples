@@ -1,3 +1,7 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 package dev.flutter.example.books
 
 import android.app.Application
@@ -14,8 +18,8 @@ class BookApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // We're reusing the same FlutterEngine instance for this sample. Create the FlutterEngine
-        // on application start.
+        // This application reuses a single FlutterEngine instance throughout.
+        // Create the FlutterEngine on application start.
         flutterEngine = FlutterEngine(this).apply{
             dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
         }

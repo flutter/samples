@@ -28,7 +28,7 @@ See https://guides.cocoapods.org/using/getting-started.html for more details.
 
 ### Flutter modules
 
-There are 3 Flutter modules included in the codebase:
+There are three Flutter modules included in the codebase:
 
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
@@ -150,7 +150,7 @@ https://flutter.dev/docs/development/add-to-app/ios/project-setup
 ### `android_books` and `ios_books (TODO)`
 
 These apps integrate the `flutter_books` module using the simpler build-together
-project setup. They simulate a mock scenario where an existing books catalog
+project setup. They simulate a mock scenario where an existing book catalog
 list app already exists. Flutter is used to implement an additional book details
 page.
 

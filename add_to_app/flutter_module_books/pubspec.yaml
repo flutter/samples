@@ -1,5 +1,7 @@
 name: flutter_module_books
-description: A new Flutter project.
+description: A Flutter module using the Pigeon package to demonstrate
+  integrating Flutter in a realistic scenario where the existing platform app
+  already has business logic and middleware constraints.
 
 version: 1.0.0+1
 
@@ -12,6 +14,7 @@ dependencies:
 
 dev_dependencies:
   pigeon: ^0.1.0
+  mockito: ^4.1.1
   flutter_test:
     sdk: flutter
 
