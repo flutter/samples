@@ -29,15 +29,15 @@ class FlutterBookApiHandler extends FlutterBookApi {
   @override
   void displayBookDetails(Book book) {
     assert(
-        book != null,
-        'Non-null book expected from FlutterBookApi.displayBookDetails call.',
+      book != null,
+      'Non-null book expected from FlutterBookApi.displayBookDetails call.',
     );
     callback(book);
   }
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({ this.hostApi, this.flutterApi });
+  const BookDetail({this.hostApi, this.flutterApi});
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
@@ -71,30 +71,29 @@ class _BookDetailState extends State<BookDetail> {
     // TODO(gaaclarke): make the setup method an instance method so it's
     // injectable https://github.com/flutter/flutter/issues/59119.
     FlutterBookApi.setup(FlutterBookApiHandler(
-      // The `FlutterBookApi` just has one method. Just give a closure for that
-      // method to the handler class.
-      (Book book) {
-        setState(() {
-          // This book model is what we're going to return to Kotlin eventually.
-          // Keep it bound to the UI.
-          this.book = book;
-          titleTextController.text = book.title;
-          titleTextController.addListener(() {
-            this.book?.title = titleTextController.text;
-          });
-          // Subtitle could be null.
-          // TODO(gaaclarke): https://github.com/flutter/flutter/issues/59118.
-          subtitleTextController.text = book.subtitle ?? '';
-          subtitleTextController.addListener(() {
-            this.book?.subtitle = subtitleTextController.text;
-          });
-          authorTextController.text = book.author;
-          authorTextController.addListener(() {
-            this.book?.author = authorTextController.text;
-          });
+        // The `FlutterBookApi` just has one method. Just give a closure for that
+        // method to the handler class.
+        (Book book) {
+      setState(() {
+        // This book model is what we're going to return to Kotlin eventually.
+        // Keep it bound to the UI.
+        this.book = book;
+        titleTextController.text = book.title;
+        titleTextController.addListener(() {
+          this.book?.title = titleTextController.text;
         });
-     }
-   ));
+        // Subtitle could be null.
+        // TODO(gaaclarke): https://github.com/flutter/flutter/issues/59118.
+        subtitleTextController.text = book.subtitle ?? '';
+        subtitleTextController.addListener(() {
+          this.book?.subtitle = subtitleTextController.text;
+        });
+        authorTextController.text = book.author;
+        authorTextController.addListener(() {
+          this.book?.author = authorTextController.text;
+        });
+      });
+    }));
   }
 
   void clear() {
@@ -130,74 +129,73 @@ class _BookDetailState extends State<BookDetail> {
         ],
       ),
       body: book == null
-        // Draw a spinner until the platform gives us the book to show details
-        // for.
-        ? Center(child: CircularProgressIndicator())
-        : Focus(
-            focusNode: textFocusNode,
-            child: ListView(
-              padding: EdgeInsets.all(24),
-              children: [
-                TextField(
-                  controller: titleTextController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    filled: true,
-                    hintText: "Title",
-                    labelText: "Title",
+          // Draw a spinner until the platform gives us the book to show details
+          // for.
+          ? Center(child: CircularProgressIndicator())
+          : Focus(
+              focusNode: textFocusNode,
+              child: ListView(
+                padding: EdgeInsets.all(24),
+                children: [
+                  TextField(
+                    controller: titleTextController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      filled: true,
+                      hintText: "Title",
+                      labelText: "Title",
+                    ),
                   ),
-                ),
-                SizedBox(height: 24),
-                TextField(
-                  controller: subtitleTextController,
-                  maxLines: 2,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    filled: true,
-                    hintText: "Subtitle",
-                    labelText: "Subtitle",
+                  SizedBox(height: 24),
+                  TextField(
+                    controller: subtitleTextController,
+                    maxLines: 2,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      filled: true,
+                      hintText: "Subtitle",
+                      labelText: "Subtitle",
+                    ),
                   ),
-                ),
-                SizedBox(height: 24),
-                TextField(
-                  controller: authorTextController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    filled: true,
-                    hintText: "Author",
-                    labelText: "Author",
+                  SizedBox(height: 24),
+                  TextField(
+                    controller: authorTextController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      filled: true,
+                      hintText: "Author",
+                      labelText: "Author",
+                    ),
                   ),
-                ),
-                SizedBox(height: 32),
-                Divider(),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  SizedBox(height: 32),
+                  Divider(),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          '${book.pageCount} pages  ~  published ${book.publishDate}'),
+                    ),
+                  ),
+                  Divider(),
+                  SizedBox(height: 32),
+                  Center(
                     child: Text(
-                      '${book.pageCount} pages  ~  published ${book.publishDate}'
+                      'BOOK DESCRIPTION',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                ),
-                Divider(),
-                SizedBox(height: 32),
-                Center(
-                  child: Text(
-                    'BOOK DESCRIPTION',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                    ),
+                  SizedBox(height: 12),
+                  Text(
+                    book.description,
+                    style: TextStyle(color: Colors.grey.shade600, height: 1.24),
                   ),
-                ),
-                SizedBox(height: 12),
-                Text(
-                  book.description,
-                  style: TextStyle(color: Colors.grey.shade600, height: 1.24),
-                ),
-              ],
+                ],
+              ),
             ),
-        ),
     );
   }
 }

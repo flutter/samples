@@ -22,6 +22,7 @@ class Book {
     pigeonMap['pageCount'] = pageCount;
     return pigeonMap;
   }
+
   // ignore: unused_element
   static Book _fromMap(Map<dynamic, dynamic> pigeonMap) {
     final Book result = Book();
@@ -39,10 +40,12 @@ abstract class FlutterBookApi {
   void displayBookDetails(Book arg);
   static void setup(FlutterBookApi api) {
     {
-      const BasicMessageChannel<dynamic> channel =
-          BasicMessageChannel<dynamic>('dev.flutter.pigeon.FlutterBookApi.displayBookDetails', StandardMessageCodec());
+      const BasicMessageChannel<dynamic> channel = BasicMessageChannel<dynamic>(
+          'dev.flutter.pigeon.FlutterBookApi.displayBookDetails',
+          StandardMessageCodec());
       channel.setMessageHandler((dynamic message) async {
-        final Map<dynamic, dynamic> mapMessage = message as Map<dynamic, dynamic>;
+        final Map<dynamic, dynamic> mapMessage =
+            message as Map<dynamic, dynamic>;
         final Book input = Book._fromMap(mapMessage);
         api.displayBookDetails(input);
       });
@@ -52,15 +55,15 @@ abstract class FlutterBookApi {
 
 class HostBookApi {
   Future<void> cancel() async {
-    const BasicMessageChannel<dynamic> channel =
-        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.cancel', StandardMessageCodec());
-    
+    const BasicMessageChannel<dynamic> channel = BasicMessageChannel<dynamic>(
+        'dev.flutter.pigeon.HostBookApi.cancel', StandardMessageCodec());
+
     final Map<dynamic, dynamic> replyMap = await channel.send(null);
     if (replyMap == null) {
       throw PlatformException(
-        code: 'channel-error',
-        message: 'Unable to establish connection on channel.',
-        details: null);
+          code: 'channel-error',
+          message: 'Unable to establish connection on channel.',
+          details: null);
     } else if (replyMap['error'] != null) {
       final Map<dynamic, dynamic> error = replyMap['error'];
       throw PlatformException(
@@ -70,19 +73,20 @@ class HostBookApi {
     } else {
       // noop
     }
-    
   }
+
   Future<void> finishEditingBook(Book arg) async {
     final Map<dynamic, dynamic> requestMap = arg._toMap();
-    const BasicMessageChannel<dynamic> channel =
-        BasicMessageChannel<dynamic>('dev.flutter.pigeon.HostBookApi.finishEditingBook', StandardMessageCodec());
-    
+    const BasicMessageChannel<dynamic> channel = BasicMessageChannel<dynamic>(
+        'dev.flutter.pigeon.HostBookApi.finishEditingBook',
+        StandardMessageCodec());
+
     final Map<dynamic, dynamic> replyMap = await channel.send(requestMap);
     if (replyMap == null) {
       throw PlatformException(
-        code: 'channel-error',
-        message: 'Unable to establish connection on channel.',
-        details: null);
+          code: 'channel-error',
+          message: 'Unable to establish connection on channel.',
+          details: null);
     } else if (replyMap['error'] != null) {
       final Map<dynamic, dynamic> error = replyMap['error'];
       throw PlatformException(
@@ -92,7 +96,5 @@ class HostBookApi {
     } else {
       // noop
     }
-    
   }
 }
-
