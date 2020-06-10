@@ -21,7 +21,7 @@ void main() {
       // after decoding the message with codec used by the EventChannel.
       void emitValues(ByteData event) {
         ServicesBinding.instance.defaultBinaryMessenger.handlePlatformMessage(
-          'accelerometer',
+          'eventChannelDemo',
           event,
           (reply) {},
         );
@@ -30,7 +30,7 @@ void main() {
       // Register a mock for EventChannel. EventChannel under the hood uses
       // MethodChannel to listen and cancel the created stream.
       ServicesBinding.instance.defaultBinaryMessenger
-          .setMockMessageHandler('accelerometer', (message) async {
+          .setMockMessageHandler('eventChannelDemo', (message) async {
         // Decode the message into MethodCallHandler.
         final methodCall = standardMethod.decodeMethodCall(message);
 
@@ -55,18 +55,19 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      // Check the values of axis. The value is rounded to 3 decimal places.
+      final animatedContainerRect =
+          tester.getRect(find.byType(AnimatedContainer));
+
+      // The height of the AnimatedContainer is 150 + AccelerometerReadings.x * 10.
       expect(
-        find.text('x axis: ' + sensorValues[0].toStringAsFixed(3)),
-        findsOneWidget,
+        animatedContainerRect.height.round(),
+        (150 + sensorValues.first * 10.0).round(),
       );
+
+      // The width of the AnimatedContainer is 150 + AccelerometerReadings.y * 10.
       expect(
-        find.text('y axis: ' + sensorValues[1].toStringAsFixed(3)),
-        findsOneWidget,
-      );
-      expect(
-        find.text('z axis: ' + sensorValues[2].toStringAsFixed(3)),
-        findsOneWidget,
+        animatedContainerRect.width.round(),
+        (150 + sensorValues[1] * 10).round(),
       );
     });
   });
