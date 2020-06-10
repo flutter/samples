@@ -5,8 +5,8 @@
 import 'package:flutter/services.dart';
 
 /// This class includes the implementation for [EventChannel] to listen to value
-/// changes from the Accelerometer sensor from native side. It has a [getReadings]
-/// method to get a stream of [AccelerometerReadings].
+/// changes from the Accelerometer sensor from native side. It has a [readings]
+/// getter to provide a stream of [AccelerometerReadings].
 class Accelerometer {
   static final _eventChannel = const EventChannel('eventChannelDemo');
 
