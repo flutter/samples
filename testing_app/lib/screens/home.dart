@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ItemTile extends StatelessWidget {
-  final itemNo;
+  final int itemNo;
 
   const ItemTile(
     this.itemNo,
