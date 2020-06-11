@@ -35,9 +35,9 @@ class HState extends State<Home> {
 
   getData() async {
     http.Response r =
-        await http.get('https://filipino-cuisine-app.firebaseio.com/data.json');
+        await http.get('/data.json');
     fd = json.decode(r.body);
-    setState(() => fi = fd[0]);
+    setState(() => fi = fd['0']);
   }
 
   Widget build(ct) {
