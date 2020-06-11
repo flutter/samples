@@ -72,13 +72,14 @@ class ItemTile extends StatelessWidget {
             !isFavorite
                 ? favoritesList.add(itemNo)
                 : favoritesList.remove(itemNo);
+            isFavorite = favoritesList.items.contains(itemNo);
             // Show the message of performed task to the user.
             Scaffold.of(context).showSnackBar(
               SnackBar(
                 content: Text(isFavorite
                     ? 'Added to favorites.'
                     : 'Removed from favorites.'),
-                duration: Duration(milliseconds: 1),
+                duration: Duration(seconds: 1),
               ),
             );
           },
