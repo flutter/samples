@@ -45,6 +45,10 @@ cd "shrine"
 flutter test
 cd ..
 
+cd "testing_app"
+flutter test
+cd ..
+
 cd "veggieseasons"
 flutter test
 cd ..

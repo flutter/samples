@@ -42,6 +42,10 @@ cd "shrine"
 flutter test || exit 1
 cd ..
 
+cd "testing_app"
+flutter test || exit 1
+cd ..
+
 cd "veggieseasons"
 flutter test || exit 1
 cd ..
