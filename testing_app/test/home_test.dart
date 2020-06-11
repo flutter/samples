@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/home.dart';
 
-Widget createCatalogScreen() => ChangeNotifierProvider<Favorites>(
+Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) => Favorites(),
       child: MaterialApp(
         home: HomePage(),
@@ -17,14 +17,14 @@ Widget createCatalogScreen() => ChangeNotifierProvider<Favorites>(
 void main() {
   group('Home Page Widget Tests', () {
     testWidgets('Testing if ListView shows up', (tester) async {
-      await tester.pumpWidget(createCatalogScreen());
+      await tester.pumpWidget(createHomeScreen());
 
-      // Veify if ListView shows up.
+      // Verify if ListView shows up.
       expect(find.byType(ListView), findsOneWidget);
     });
 
     testWidgets('Testing Scrolling', (tester) async {
-      await tester.pumpWidget(createCatalogScreen());
+      await tester.pumpWidget(createHomeScreen());
 
       // Check if "Item 0" is present on the screen.
       expect(find.text('Item 0'), findsOneWidget);
@@ -38,7 +38,7 @@ void main() {
     });
 
     testWidgets('Testing IconButtons', (tester) async {
-      await tester.pumpWidget(createCatalogScreen());
+      await tester.pumpWidget(createHomeScreen());
 
       // Check if any solid favorite icon is present.
       expect(find.byIcon(Icons.favorite), findsNothing);
