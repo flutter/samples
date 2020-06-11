@@ -79,6 +79,7 @@ branches:
   only:
   - master
   - beta
+  - testing_sample
 
 before_install:
 # Decrypt credentials for Firebase Test Lab service account. This key will only
