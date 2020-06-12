@@ -14,7 +14,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
-  DateTime date;
+  DateTime date = DateTime.now();
   double maxValue = 0;
   bool brushedTeeth = false;
   bool enableFeature = false;
@@ -60,13 +60,12 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             labelText: 'Description',
                           ),
                           onChanged: (value) {
-                            setState(() {
-                              description = value;
-                            });
+                            description = value;
                           },
                           maxLines: 5,
                         ),
                         _FormDatePicker(
+                          date: date,
                           onChanged: (value) {
                             setState(() {
                               date = value;
@@ -158,9 +157,11 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
 }
 
 class _FormDatePicker extends StatefulWidget {
+  final DateTime date;
   final ValueChanged onChanged;
 
   _FormDatePicker({
+    this.date,
     this.onChanged,
   });
 
@@ -169,8 +170,6 @@ class _FormDatePicker extends StatefulWidget {
 }
 
 class _FormDatePickerState extends State<_FormDatePicker> {
-  DateTime date = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -186,7 +185,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
               style: Theme.of(context).textTheme.bodyText1,
             ),
             Text(
-              intl.DateFormat.yMd().format(date),
+              intl.DateFormat.yMd().format(widget.date),
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ],
@@ -196,7 +195,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           onPressed: () async {
             var newDate = await showDatePicker(
               context: context,
-              initialDate: date,
+              initialDate: widget.date,
               firstDate: DateTime(1900),
               lastDate: DateTime(2100),
             );
@@ -206,11 +205,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
               return;
             }
 
-            setState(() {
-              this.date = newDate;
-            });
-
-            widget.onChanged(date);
+            widget.onChanged(newDate);
           },
         )
       ],
