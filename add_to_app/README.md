@@ -37,7 +37,7 @@ There are three Flutter modules included in the codebase:
   [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
 * `flutter_module_books` simulates an integration scenario with existing
   platform business logic and middleware. It uses the [`pigeon`](https://pub.dev/packages/pigeon)
-  plugin to facilitate integration ergonomics by generating the platform channel
+  plugin to make integration easier by generating the platform channel
   interop inside wrapper API and data classes that are shared between the
   platform and Flutter.
 

@@ -5,7 +5,7 @@ business logic and middleware already exists. This sample demonstrates how to
 do an add-to-app Flutter integration into existing conventions.
 
 This application also utilizes the [Pigeon](https://pub.dev/packages/pigeon)
-plugin to avoid manual platform channel wiring. The Pigeon autogenerates the
+plugin to avoid manual platform channel wiring. Pigeon autogenerates the
 platform channel code in Dart/Java/Objective-C to allow interop using higher
 order functions and data classes instead of string-encoded methods and
 serialized primitives.
