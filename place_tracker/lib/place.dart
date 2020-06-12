@@ -29,6 +29,7 @@ class Place {
   final int starRating;
 
   double get latitude => latLng.latitude;
+
   double get longitude => latLng.longitude;
 
   Place copyWith({

@@ -18,6 +18,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
+  provider: ^4.0.5+1
 
 flutter:
   assets:
