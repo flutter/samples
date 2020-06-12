@@ -47,7 +47,9 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             labelText: 'Title',
                           ),
                           onChanged: (value) {
-                            title = value;
+                            setState(() {
+                              title = value;
+                            });
                           },
                         ),
                         TextFormField(
@@ -58,13 +60,17 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             labelText: 'Description',
                           ),
                           onChanged: (value) {
-                            description = value;
+                            setState(() {
+                              description = value;
+                            });
                           },
                           maxLines: 5,
                         ),
                         _FormDatePicker(
                           onChanged: (value) {
-                            date = value;
+                            setState(() {
+                              date = value;
+                            });
                           },
                         ),
                         Column(
