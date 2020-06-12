@@ -11,7 +11,7 @@ import 'src/http/mock_client.dart';
 import 'src/sign_in_http.dart';
 import 'src/validation.dart';
 
-// Set up a mock HTTP client
+// Set up a mock HTTP client.
 final http.Client httpClient = MockClient();
 
 void main() {
