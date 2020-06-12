@@ -12,8 +12,8 @@ class FormWidgetsDemo extends StatefulWidget {
 
 class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   final _formKey = GlobalKey<FormState>();
-  String title = "";
-  String description = "";
+  String title = '';
+  String description = '';
   DateTime date;
   double maxValue = 0;
   bool brushedTeeth = false;
@@ -127,7 +127,8 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                                 setState(() {
                                   enableFeature = enabled;
                                 });
-                              },                      ),
+                              },
+                            ),
                           ],
                         ),
                       ].expand(
