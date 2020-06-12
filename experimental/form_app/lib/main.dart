@@ -3,13 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:form_app/src/validation.dart';
 import 'package:http/http.dart' as http;
 
 import 'src/autofill.dart';
 import 'src/form_widgets.dart';
 import 'src/http/mock_client.dart';
 import 'src/sign_in_http.dart';
+import 'src/validation.dart';
 
 // Set up a mock HTTP client
 final http.Client httpClient = MockClient();
