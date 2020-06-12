@@ -123,14 +123,13 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Checkbox(
                               value: agreedToTerms,
                               onChanged: (value) {
-                                // When the value of the checkbox changes, we
-                                // need to update the FormFieldState so that the
-                                // form is re-validated.
+                                // When the value of the checkbox changes,
+                                // update the FormFieldState so the form is
+                                // re-validated.
                                 formFieldState.didChange(value);
                                 setState(() {
                                   agreedToTerms = value;
