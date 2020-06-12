@@ -9,10 +9,9 @@ import 'package:platform_channels/src/accelerometer_event_channel.dart';
 /// of Accelerometer Sensor from platform.
 ///
 /// The widget uses a [StreamBuilder] to rebuild it's descendant whenever it
-/// listens a new value from the [Accelerometer.readings] stream. If there's
-/// a change in the [AccelerometerReadings.x] and [AccelerometerReadings.y],
-/// the height and width of [AnimatedContainer] are changed respectively. If
-/// there's a change in [AccelerometerReadings.z], the borderRadius is changed.
+/// listens a new value from the [Accelerometer.readings] stream. It has three
+/// [Text] widgets to display the value of [AccelerometerReadings.x],
+/// [AccelerometerReadings.y], and [AccelerometerReadings.z] respectively.
 class EventChannelDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,20 +27,22 @@ class EventChannelDemo extends StatelessWidget {
             if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else if (snapshot.hasData) {
-              final width = 150 + snapshot.data.y * 10;
-              final height = 150 + snapshot.data.x * 10;
-              final borderRadius = snapshot.data.z;
-
-              return AnimatedContainer(
-                duration: Duration(milliseconds: 200),
-                width: width < 0 ? 150 : width,
-                height: height < 0 ? 150 : height,
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(
-                    borderRadius < 0 ? 0 : borderRadius * 2,
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'x axis: ' + snapshot.data.x.toStringAsFixed(3),
+                    style: textStyle,
                   ),
-                ),
+                  Text(
+                    'y axis: ' + snapshot.data.y.toStringAsFixed(3),
+                    style: textStyle,
+                  ),
+                  Text(
+                    'z axis: ' + snapshot.data.z.toStringAsFixed(3),
+                    style: textStyle,
+                  )
+                ],
               );
             }
 

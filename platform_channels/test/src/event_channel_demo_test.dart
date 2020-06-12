@@ -55,19 +55,18 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      final animatedContainerRect =
-          tester.getRect(find.byType(AnimatedContainer));
-
-      // The height of the AnimatedContainer is 150 + AccelerometerReadings.x * 10.
+      // Check the values of axis. The value is rounded to 3 decimal places.
       expect(
-        animatedContainerRect.height.round(),
-        (150 + sensorValues.first * 10.0).round(),
+        find.text('x axis: ' + sensorValues[0].toStringAsFixed(3)),
+        findsOneWidget,
       );
-
-      // The width of the AnimatedContainer is 150 + AccelerometerReadings.y * 10.
       expect(
-        animatedContainerRect.width.round(),
-        (150 + sensorValues[1] * 10).round(),
+        find.text('y axis: ' + sensorValues[1].toStringAsFixed(3)),
+        findsOneWidget,
+      );
+      expect(
+        find.text('z axis: ' + sensorValues[2].toStringAsFixed(3)),
+        findsOneWidget,
       );
     });
   });
