@@ -25,7 +25,7 @@ class Home extends StatefulWidget {
 }
 
 class HState extends State<Home> {
-  List fd;
+  Map fd;
   Map fi;
 
   void initState() {
@@ -35,9 +35,9 @@ class HState extends State<Home> {
 
   getData() async {
     http.Response r =
-        await http.get('https://filipino-cuisine-app.firebaseio.com/data.json');
+        await http.get('/data.json');
     fd = json.decode(r.body);
-    setState(() => fi = fd[0]);
+    setState(() => fi = fd['0']);
   }
 
   Widget build(ct) {
@@ -54,17 +54,18 @@ class HState extends State<Home> {
           Expanded(
               flex: 5,
               child: Swiper(
-                  onIndexChanged: (n) => setState(() => fi = fd[n]),
-                  itemCount: fd.length,
+                  onIndexChanged: (n) => setState(() => fi = fd['$n']),
+                  itemCount:
+                      fd.keys.where((key) => int.tryParse(key) != null).length,
                   itemBuilder: (cx, i) {
                     return Container(
                         margin: EdgeInsets.only(top: 40, bottom: 24),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Hero(
-                              tag: fd[i]['fn'],
-                              child:
-                                  Image.asset(fd[i]['pf'], fit: BoxFit.cover)),
+                              tag: fd['$i']['fn'],
+                              child: Image.asset(fd['$i']['pf'],
+                                  fit: BoxFit.cover)),
                         ));
                   },
                   viewportFraction: .85,
@@ -100,8 +101,8 @@ class HState extends State<Home> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(fi['ig'][i]['n'],
-                                    style:
-                                        t.subtitle2.copyWith(fontFamily: 'opb')),
+                                    style: t.subtitle2
+                                        .copyWith(fontFamily: 'opb')),
                                 Text(fi['ig'][i]['c'],
                                     style:
                                         t.caption.copyWith(fontFamily: 'opr'))
