@@ -14,7 +14,6 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.StandardMessageCodec
 import java.io.InputStream
-import java.lang.Error
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -45,8 +44,8 @@ class MainActivity : FlutterActivity() {
         EventChannel(flutterEngine.dartExecutor, "eventChannelDemo")
                 .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
 
-        // Register a MessageHandler for BasicMessageChannel to receive a message from dart side and send
-        // an image data in reply.
+        // Registers a MessageHandler for BasicMessageChannel to receive a message from dart side and send
+        // the image data in reply.
         BasicMessageChannel(flutterEngine.dartExecutor, "platformImageDemo", StandardMessageCodec())
                 .setMessageHandler { message, reply ->
                     if (message == "getImage") {
