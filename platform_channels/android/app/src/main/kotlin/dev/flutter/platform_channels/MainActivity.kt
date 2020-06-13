@@ -9,8 +9,12 @@ import android.hardware.Sensor
 import android.hardware.SensorManager
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.BasicMessageChannel
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.StandardMessageCodec
+import java.io.InputStream
+import java.lang.Error
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -40,5 +44,15 @@ class MainActivity : FlutterActivity() {
         val accelerometerSensor: Sensor = sensorManger.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         EventChannel(flutterEngine.dartExecutor, "eventChannelDemo")
                 .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
+
+        // Register a MessageHandler for BasicMessageChannel to receive a message from dart side and send
+        // an image data in reply.
+        BasicMessageChannel(flutterEngine.dartExecutor, "platformImageDemo", StandardMessageCodec())
+                .setMessageHandler { message, reply ->
+                    if (message == "getImage") {
+                        val inputStream: InputStream = assets.open("eat_new_orleans.jpg")
+                        reply.reply(inputStream.readBytes());
+                    }
+                }
     }
 }
