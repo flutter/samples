@@ -14,6 +14,7 @@ Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
         home: HomePage(),
       ),
     );
+
 void main() {
   group('Home Page Widget Tests', () {
     testWidgets('Testing if ListView shows up', (tester) async {

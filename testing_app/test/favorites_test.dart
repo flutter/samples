@@ -10,6 +10,7 @@ import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/favorites.dart';
 
 Favorites favoritesList;
+
 Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) {
         favoritesList = Favorites();
@@ -19,6 +20,7 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
         home: FavoritesPage(),
       ),
     );
+
 void addRandomItems() {
   for (var i = 0; i < 10; i += 2) {
     favoritesList.add(Random().nextInt(50));
