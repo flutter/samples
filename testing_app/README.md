@@ -1,16 +1,36 @@
 # testing_app
 
-A new Flutter project.
+A Sample app that shows different types of testing in Flutter.
 
-## Getting Started
+This particular sample uses the [Provider][] package but any other state management approach
+would do.
 
-This project is a starting point for a Flutter application.
+[provider]: https://pub.dev/packages/provider
 
-A few resources to get you started if this is your first Flutter project:
+This sample is currently being built. Not all testing types are covered yet.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Goals for this sample
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Show how to perform:
+
+- [X] Widget Testing,
+- [ ] Flutter Driver(Integration) Testing,
+- [ ] Performance Testing, and
+- [ ] State Management Testing using the [Provider][] package.
+
+### How to run tests
+TODO: Create a mini gudie on how to run each testing style.
+- Widget Tests:
+  - To run on physical device or emulator:
+    - Navigate to the project's root folder using command line.
+    - Run `flutter run test/<file_path>`
+
+## Questions/issues
+
+If you have a general question about Testing in Flutter, the best places to go are:
+
+- [Flutter documentation](https://flutter.dev/)
+- [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+If you run into an issue with the sample itself, please
+[file an issue](https://github.com/flutter/samples/issues).
