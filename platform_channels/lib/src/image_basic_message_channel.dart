@@ -1,11 +1,15 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:typed_data';
+
 import 'package:flutter/services.dart';
 
-/// This class includes the implementation for [BasicMessageChannel] to get
-/// a platform image. The [BasicMessageChannel] is using [StandardMessageCodec]
-/// since it supports [Uint8List] which can be easily used to get the image data
-/// from platform and display an image using [Image.memory].
-class PlatformImage {
+/// This class manages a [BasicMessageChannel] that can return an image loaded
+/// from a native asset. The [BasicMessageChannel] uses [StandardMessageCodec]
+/// since it supports [Uint8List], which is used to transport the image data.
+class PlatformImageFetcher {
   static final _basicMessageChannel = const BasicMessageChannel<dynamic>(
       'platformImageDemo', StandardMessageCodec());
 

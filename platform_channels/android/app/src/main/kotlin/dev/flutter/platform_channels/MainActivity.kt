@@ -44,8 +44,8 @@ class MainActivity : FlutterActivity() {
         EventChannel(flutterEngine.dartExecutor, "eventChannelDemo")
                 .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
 
-        // Registers a MessageHandler for BasicMessageChannel to receive a message from dart side and send
-        // the image data in reply.
+        // Registers a MessageHandler for BasicMessageChannel to receive a message from Dart and send
+        // image data in reply.
         BasicMessageChannel(flutterEngine.dartExecutor, "platformImageDemo", StandardMessageCodec())
                 .setMessageHandler { message, reply ->
                     if (message == "getImage") {

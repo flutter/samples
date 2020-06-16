@@ -1,4 +1,9 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:platform_channels/src/image_basic_message_channel.dart';
@@ -13,11 +18,10 @@ class PlatformImageDemo extends StatefulWidget {
 }
 
 class _PlatformImageDemoState extends State<PlatformImageDemo> {
-  Uint8List imageData;
+  Future<Uint8List> imageData;
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text('Platform Image Demo'),
@@ -28,15 +32,30 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: size.height / 2,
-                  width: size.width,
-                  child: imageData == null
-                      ? Placeholder()
-                      : Image.memory(
-                          imageData,
-                          fit: BoxFit.fill,
-                        ),
+                Flexible(
+                  child: FractionallySizedBox(
+                    widthFactor: 1,
+                    heightFactor: 0.6,
+                    child: FutureBuilder<Uint8List>(
+                      future: imageData,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.none) {
+                          return Placeholder();
+                        } else if (snapshot.hasError) {
+                          return Center(
+                            child: Text(snapshot.error.toString()),
+                          );
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.done) {
+                          return Image.memory(
+                            snapshot.data,
+                            fit: BoxFit.fill,
+                          );
+                        }
+                        return CircularProgressIndicator();
+                      },
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 16,
@@ -44,17 +63,10 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                 RaisedButton(
                   onPressed: imageData != null
                       ? null
-                      : () async {
-                          try {
-                            final result = await PlatformImage.getImage();
-                            setState(() => imageData = result);
-                          } catch (error) {
-                            Scaffold.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(error.message.toString()),
-                              ),
-                            );
-                          }
+                      : () {
+                          setState(() {
+                            imageData = PlatformImageFetcher.getImage();
+                          });
                         },
                   child: Text('Get Image'),
                 )
