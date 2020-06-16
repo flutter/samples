@@ -13,13 +13,13 @@ This sample is currently being built. Not all testing types are covered yet.
 
 Show how to perform:
 
-- Widget Testing,
-- Flutter Driver(Integration) Testing,
-- Performance Testing, and
-- State Management Testing using the [Provider][] package.
+- [X] Widget Testing,
+- [ ] Flutter Driver(Integration) Testing,
+- [ ] Performance Testing, and
+- [ ] State Management Testing using the [Provider][] package.
 
 ### How to run tests
-
+TODO: Create a mini gudie on how to run each testing style.
 - Widget Tests:
   - To run on physical device or emulator:
     - Navigate to the project's root folder using command line.
