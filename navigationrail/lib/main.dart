@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: MyStatefulWidget(),
     );
@@ -32,6 +33,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Row(
         children: <Widget>[
           NavigationRail(
+            backgroundColor: Colors.red,
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
               setState(() {
