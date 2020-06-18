@@ -64,7 +64,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           // This is the main content.
           Expanded(
             child: Center(
-              child: Text('Flutter Sample for NavigationRail'),
+              child: Text("$_selectedIndex",style: TextStyle(
+                fontSize: 150.0,
+              ),),
             ),
           )
         ],
