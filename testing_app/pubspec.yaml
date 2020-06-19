@@ -14,8 +14,8 @@ dependencies:
   provider: ^4.1.3
 
 dev_dependencies:
-  # flutter_test:
-  #   sdk: flutter
+  flutter_test:
+    sdk: flutter
   flutter_driver:
     sdk: flutter
   test: any

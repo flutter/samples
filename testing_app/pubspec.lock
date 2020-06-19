@@ -110,7 +110,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_test:
-    dependency: transitive
+    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -328,7 +328,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.6"
+    version: "0.7.7"
   shelf_packages_handler:
     dependency: transitive
     description:
