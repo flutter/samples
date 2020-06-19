@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:platform_channels/src/event_channel_demo.dart';
 import 'package:platform_channels/src/method_channel_demo.dart';
+import 'package:platform_channels/src/platform_image_demo.dart';
 
 void main() {
   runApp(PlatformChannelSample());
@@ -17,6 +18,7 @@ class PlatformChannelSample extends StatelessWidget {
       routes: {
         '/methodChannelDemo': (context) => MethodChannelDemo(),
         '/eventChannelDemo': (context) => EventChannelDemo(),
+        '/platformImageDemo': (context) => PlatformImageDemo(),
       },
       title: 'Platform Channel Sample',
       home: HomePage(),
@@ -41,6 +43,10 @@ List<DemoInfo> demoList = [
   DemoInfo(
     'EventChannel Demo',
     '/eventChannelDemo',
+  ),
+  DemoInfo(
+    'Platform Image Demo',
+    '/platformImageDemo',
   )
 ];
 
