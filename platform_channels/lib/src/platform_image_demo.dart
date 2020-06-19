@@ -26,54 +26,50 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
       appBar: AppBar(
         title: Text('Platform Image Demo'),
       ),
-      body: Builder(
-        builder: (context) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(
-                  child: FractionallySizedBox(
-                    widthFactor: 1,
-                    heightFactor: 0.6,
-                    child: FutureBuilder<Uint8List>(
-                      future: imageData,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.none) {
-                          return Placeholder();
-                        } else if (snapshot.hasError) {
-                          return Center(
-                            child: Text(snapshot.error.toString()),
-                          );
-                        } else if (snapshot.connectionState ==
-                            ConnectionState.done) {
-                          return Image.memory(
-                            snapshot.data,
-                            fit: BoxFit.fill,
-                          );
-                        }
-                        return CircularProgressIndicator();
-                      },
-                    ),
-                  ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: FractionallySizedBox(
+                widthFactor: 1,
+                heightFactor: 0.6,
+                child: FutureBuilder<Uint8List>(
+                  future: imageData,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.none) {
+                      return Placeholder();
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text(snapshot.error.toString()),
+                      );
+                    } else if (snapshot.connectionState ==
+                        ConnectionState.done) {
+                      return Image.memory(
+                        snapshot.data,
+                        fit: BoxFit.fill,
+                      );
+                    }
+                    return CircularProgressIndicator();
+                  },
                 ),
-                SizedBox(
-                  height: 16,
-                ),
-                RaisedButton(
-                  onPressed: imageData != null
-                      ? null
-                      : () {
-                          setState(() {
-                            imageData = PlatformImageFetcher.getImage();
-                          });
-                        },
-                  child: Text('Get Image'),
-                )
-              ],
+              ),
             ),
-          );
-        },
+            SizedBox(
+              height: 16,
+            ),
+            RaisedButton(
+              onPressed: imageData != null
+                  ? null
+                  : () {
+                      setState(() {
+                        imageData = PlatformImageFetcher.getImage();
+                      });
+                    },
+              child: Text('Get Image'),
+            )
+          ],
+        ),
       ),
     );
   }
