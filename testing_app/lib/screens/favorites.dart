@@ -45,8 +45,10 @@ class FavoriteItemTile extends StatelessWidget {
         ),
         title: Text(
           'Item $itemNo',
+          key: Key('favorites_text_$itemNo'),
         ),
         trailing: IconButton(
+          key: Key('remove_icon_$itemNo'),
           icon: Icon(Icons.close),
           onPressed: () {
             // Remove the item from favorites.
