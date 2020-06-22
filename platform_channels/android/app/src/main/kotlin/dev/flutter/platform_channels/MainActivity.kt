@@ -9,11 +9,9 @@ import android.hardware.Sensor
 import android.hardware.SensorManager
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.plugin.common.BasicMessageChannel
-import io.flutter.plugin.common.EventChannel
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.StandardMessageCodec
+import io.flutter.plugin.common.*
 import java.io.InputStream
+import java.nio.ByteBuffer
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -50,8 +48,31 @@ class MainActivity : FlutterActivity() {
                 .setMessageHandler { message, reply ->
                     if (message == "getImage") {
                         val inputStream: InputStream = assets.open("eat_new_orleans.jpg")
-                        reply.reply(inputStream.readBytes());
+                        reply.reply(inputStream.readBytes())
                     }
+                }
+
+        // Registers a MessageHandler for BasicMessageChannel using StringCodec to receive a message
+        // from Dart and send a reply.
+        BasicMessageChannel(flutterEngine.dartExecutor, "stringCodecDemo", StringCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    reply.reply("$message from Android")
+                }
+
+        // Registers a MessageHandler for BasicMessageChannel using JSONMessageCodec to receive a message
+        // from Dart and send a reply.
+        BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    reply.reply("${message.toString()} from Android")
+                }
+
+        // Registers a MessageHandler for BasicMessageChannel using BinaryCodec to receive a message
+        // from Dart and send a reply.
+        BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    val decodedMessage = String(message!!.array())
+                    val byteArray: ByteArray = ("$decodedMessage from Android").toByteArray()
+                    reply.reply(ByteBuffer.allocateDirect(byteArray.size).put(byteArray))
                 }
     }
 }
