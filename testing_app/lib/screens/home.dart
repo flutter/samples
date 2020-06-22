@@ -61,8 +61,10 @@ class ItemTile extends StatelessWidget {
         ),
         title: Text(
           'Item $itemNo',
+          key: Key('text_$itemNo'),
         ),
         trailing: IconButton(
+          key: Key('icon_$itemNo'),
           // Show a solid favorite icon if the item is a favorite,
           // else show a favorite icon with border.
           icon: isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
