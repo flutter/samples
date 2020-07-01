@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:platform_channels/src/platform_message_channel.dart';
+import 'package:platform_channels/src/pet_list_message_channel.dart';
 
 class AddPetDetails extends StatefulWidget {
   @override
@@ -9,7 +8,6 @@ class AddPetDetails extends StatefulWidget {
 
 class _AddPetDetailsState extends State<AddPetDetails> {
   final breedTextController = TextEditingController();
-
   String petType = 'Dog';
 
   @override
@@ -21,7 +19,7 @@ class _AddPetDetailsState extends State<AddPetDetails> {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              PetListPlatformChannel.addPetDetails(<String, String>{
+              PetListMessageChannel.addPetDetails(<String, String>{
                 'petType': petType,
                 'breed': breedTextController.value.text
               });

@@ -6,12 +6,20 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-class PetListPlatformChannel {
+class PetListMessageChannel {
   static final _jsonMessageCodecChannel =
       BasicMessageChannel<dynamic>('jsonMessageCodecDemo', JSONMessageCodec());
 
+  static final _binaryCodecChannel =
+      BasicMessageChannel('binaryCodecDemo', BinaryCodec());
+
   static void addPetDetails(Map petDetails) {
     _jsonMessageCodecChannel.send(petDetails);
+  }
+
+  static void removePet(int index) {
+    final uInt8List = utf8.encoder.convert(index.toString());
+    _binaryCodecChannel.send(uInt8List.buffer.asByteData());
   }
 }
 

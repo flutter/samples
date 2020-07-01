@@ -4,15 +4,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:platform_channels/src/platform_message_channel.dart';
+import 'package:platform_channels/src/pet_list_message_channel.dart';
 
-class BasicMessageChannelDemo extends StatefulWidget {
+class PetListScreen extends StatefulWidget {
   @override
-  _BasicMessageChannelDemoState createState() =>
-      _BasicMessageChannelDemoState();
+  _PetListScreenState createState() => _PetListScreenState();
 }
 
-class _BasicMessageChannelDemoState extends State<BasicMessageChannelDemo> {
+class _PetListScreenState extends State<PetListScreen> {
   PetModel petModel;
 
   @override
@@ -41,15 +40,21 @@ class _BasicMessageChannelDemoState extends State<BasicMessageChannelDemo> {
       ),
       body: petModel == null
           ? Center(
-              child: Text('Enter Pet Details'),
+              child: Text('Enter Pet Details')
             )
           : ListView.builder(
               padding: EdgeInsets.all(8),
               itemCount: petModel.petList.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(petModel.petList[index].breed),
-                  subtitle: Text(petModel.petList[index].petType),
+                  title: Text('Pet Breed: ${petModel.petList[index].breed}'),
+                  subtitle: Text(
+                    'Pet Type: ${petModel.petList[index].petType}',
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () => PetListMessageChannel.removePet(index),
+                  ),
                 );
               },
             ),

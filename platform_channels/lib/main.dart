@@ -21,7 +21,7 @@ class PlatformChannelSample extends StatelessWidget {
         '/methodChannelDemo': (context) => MethodChannelDemo(),
         '/eventChannelDemo': (context) => EventChannelDemo(),
         '/platformImageDemo': (context) => PlatformImageDemo(),
-        '/basicMessageChannelDemo': (context) => BasicMessageChannelDemo(),
+        '/basicMessageChannelDemo': (context) => PetListScreen(),
         '/addPetDetails': (context) => AddPetDetails(),
       },
       title: 'Platform Channel Sample',

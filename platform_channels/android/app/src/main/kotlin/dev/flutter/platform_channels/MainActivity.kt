@@ -56,15 +56,20 @@ class MainActivity : FlutterActivity() {
                 }
 
         val petList = mutableListOf<Map<String, String>>()
-        val jsonMessageCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor,
-                "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
+        val gson = Gson()
 
-        val stringCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor,
-                "stringCodecDemo", StringCodec.INSTANCE)
+        val stringCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor, "stringCodecDemo", StringCodec.INSTANCE)
 
-        jsonMessageCodecChannel.setMessageHandler { message, reply ->
-            petList.add(Gson().fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
-            stringCodecChannel.send(JSONObject(mapOf("petList" to petList)).toString())
-        }
+        BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    petList.add(gson.fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
+                    stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                }
+
+        BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    petList.removeAt(String(message!!.array()).toInt())
+                    stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                }
     }
 }
