@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:platform_channels/src/basic_message_channel_demo.dart';
+import 'package:platform_channels/src/pet_list.dart';
 
 Widget createDemoScreen() => MaterialApp(
       home: BasicMessageChannelDemo(),

@@ -7,9 +7,12 @@ package dev.flutter.platform_channels
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.*
+import org.json.JSONObject
 import java.io.InputStream
 import java.nio.ByteBuffer
 
@@ -52,27 +55,16 @@ class MainActivity : FlutterActivity() {
                     }
                 }
 
-        // Registers a MessageHandler for BasicMessageChannel using StringCodec to receive a message
-        // from Dart and send a reply.
-        BasicMessageChannel(flutterEngine.dartExecutor, "stringCodecDemo", StringCodec.INSTANCE)
-                .setMessageHandler { message, reply ->
-                    reply.reply("$message from Android")
-                }
+        val petList = mutableListOf<Map<String, String>>()
+        val jsonMessageCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor,
+                "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
 
-        // Registers a MessageHandler for BasicMessageChannel using JSONMessageCodec to receive a message
-        // from Dart and send a reply.
-        BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
-                .setMessageHandler { message, reply ->
-                    reply.reply("${message.toString()} from Android")
-                }
+        val stringCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor,
+                "stringCodecDemo", StringCodec.INSTANCE)
 
-        // Registers a MessageHandler for BasicMessageChannel using BinaryCodec to receive a message
-        // from Dart and send a reply.
-        BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
-                .setMessageHandler { message, reply ->
-                    val decodedMessage = String(message!!.array())
-                    val byteArray: ByteArray = ("$decodedMessage from Android").toByteArray()
-                    reply.reply(ByteBuffer.allocateDirect(byteArray.size).put(byteArray))
-                }
+        jsonMessageCodecChannel.setMessageHandler { message, reply ->
+            petList.add(Gson().fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
+            stringCodecChannel.send(JSONObject(mapOf("petList" to petList)).toString())
+        }
     }
 }

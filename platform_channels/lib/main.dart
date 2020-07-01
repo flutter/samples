@@ -3,7 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:platform_channels/src/basic_message_channel_demo.dart';
+import 'package:platform_channels/src/add_pet_details.dart';
+import 'package:platform_channels/src/pet_list.dart';
 import 'package:platform_channels/src/event_channel_demo.dart';
 import 'package:platform_channels/src/method_channel_demo.dart';
 import 'package:platform_channels/src/platform_image_demo.dart';
@@ -21,6 +22,7 @@ class PlatformChannelSample extends StatelessWidget {
         '/eventChannelDemo': (context) => EventChannelDemo(),
         '/platformImageDemo': (context) => PlatformImageDemo(),
         '/basicMessageChannelDemo': (context) => BasicMessageChannelDemo(),
+        '/addPetDetails': (context) => AddPetDetails(),
       },
       title: 'Platform Channel Sample',
       home: HomePage(),
