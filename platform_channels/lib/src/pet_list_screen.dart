@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:platform_channels/src/pet_list_message_channel.dart';
 
+/// Demonstrates how to use [BasicMessageChannel] to send & receive the platform
+/// Message.
 class PetListScreen extends StatefulWidget {
   @override
   _PetListScreenState createState() => _PetListScreenState();
@@ -17,6 +19,8 @@ class _PetListScreenState extends State<PetListScreen> {
   @override
   void initState() {
     super.initState();
+    // Receives a string of json object from the platform and converts it
+    // to PetModel.
     BasicMessageChannel('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       setState(() {

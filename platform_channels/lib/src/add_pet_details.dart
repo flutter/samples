@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:platform_channels/src/pet_list_message_channel.dart';
 
+/// Demonstrates how to use [BasicMessageChannel] to send a message to platform.
+///
+/// The widget uses [TextField] and [RadioListTile] to take the [PetDetails.breed] and
+/// [PetDetails.petType] from the user respectively.
 class AddPetDetails extends StatefulWidget {
   @override
   _AddPetDetailsState createState() => _AddPetDetailsState();

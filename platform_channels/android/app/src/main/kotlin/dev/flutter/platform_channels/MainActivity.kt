@@ -58,14 +58,20 @@ class MainActivity : FlutterActivity() {
         val petList = mutableListOf<Map<String, String>>()
         val gson = Gson()
 
+        // A BasicMessageChannel for sending petList to Dart.
         val stringCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor, "stringCodecDemo", StringCodec.INSTANCE)
 
+        // Registers a MessageHandler for BasicMessageChannel to receive pet details to be
+        // added in petList and send the it back to Dart using stringCodecChannel.
         BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
                 .setMessageHandler { message, reply ->
                     petList.add(gson.fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
                     stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
                 }
 
+        // Registers a MessageHandler for BasicMessageChannel to receive the index of pet
+        // details to be removed from the petList and send the petList back to Dart using
+        // stringCodecChannel.
         BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
                 .setMessageHandler { message, reply ->
                     petList.removeAt(String(message!!.array()).toInt())
