@@ -12,9 +12,7 @@ import com.google.gson.reflect.TypeToken
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.*
-import org.json.JSONObject
 import java.io.InputStream
-import java.nio.ByteBuffer
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
