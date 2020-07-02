@@ -43,9 +43,7 @@ class _PetListScreenState extends State<PetListScreen> {
         },
       ),
       body: petModel == null
-          ? Center(
-              child: Text('Enter Pet Details')
-            )
+          ? Center(child: Text('Enter Pet Details'))
           : ListView.builder(
               padding: EdgeInsets.all(8),
               itemCount: petModel.petList.length,
