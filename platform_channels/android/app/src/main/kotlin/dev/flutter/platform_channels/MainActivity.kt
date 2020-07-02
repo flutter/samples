@@ -63,7 +63,7 @@ class MainActivity : FlutterActivity() {
         // added in petList and send the it back to Dart using stringCodecChannel.
         BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
                 .setMessageHandler { message, reply ->
-                    petList.add(gson.fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
+                    petList.add(0, gson.fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
                     stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
                 }
 
