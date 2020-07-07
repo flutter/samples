@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   file_chooser
   menubar
+  url_launcher_linux
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)
