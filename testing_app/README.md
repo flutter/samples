@@ -30,7 +30,10 @@ TODO: Create a mini gudie on how to run each testing style.
     - Run `flutter drive --target=test_driver/<file_path>`
 - State Management Tests:  
   - Navigate to the project's root folder using command line.
-  - Run `flutter test test/<file_path>`
+  - For Unit Testing the provider
+    - Run `flutter test test/<file_path>`
+  - For Testing State using Flutter Driver
+    - Run `flutter drive --target=test_driver/<file_path>`
     
 ## Questions/issues
 
