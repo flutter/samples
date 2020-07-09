@@ -61,7 +61,7 @@ void main() {
       expect(petDetails.breed, 'Pug');
     });
 
-    testWidgets('PetList test', (tester) async {
+    testWidgets('BuildPetList test', (tester) async {
       await tester.pumpWidget(MaterialApp(
         home: Scaffold(
           body: BuildPetList(petListModel.petList),
