@@ -23,10 +23,12 @@ class _AddPetDetailsState extends State<AddPetDetails> {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              PetListMessageChannel.addPetDetails(<String, String>{
-                'petType': petType,
-                'breed': breedTextController.value.text
-              });
+              PetListMessageChannel.addPetDetails(
+                PetDetails(
+                  petType: petType,
+                  breed: breedTextController.text,
+                ),
+              );
 
               Navigator.pop(context);
             },
@@ -37,6 +39,9 @@ class _AddPetDetailsState extends State<AddPetDetails> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            SizedBox(
+              height: 8,
+            ),
             TextField(
               controller: breedTextController,
               decoration: InputDecoration(

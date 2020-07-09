@@ -14,7 +14,7 @@ class PetListScreen extends StatefulWidget {
 }
 
 class _PetListScreenState extends State<PetListScreen> {
-  PetModel petModel;
+  PetListModel petListModel;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _PetListScreenState extends State<PetListScreen> {
     BasicMessageChannel('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       setState(() {
-        petModel = PetModel.fromJson(message);
+        petListModel = PetListModel.fromJson(message);
       });
       return;
     });
@@ -42,24 +42,50 @@ class _PetListScreenState extends State<PetListScreen> {
           Navigator.pushNamed(context, '/addPetDetails');
         },
       ),
-      body: petModel == null
+      body: petListModel?.petList?.isEmpty ?? true
           ? Center(child: Text('Enter Pet Details'))
-          : ListView.builder(
-              padding: EdgeInsets.all(8),
-              itemCount: petModel.petList.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Pet Breed: ${petModel.petList[index].breed}'),
-                  subtitle: Text(
-                    'Pet Type: ${petModel.petList[index].petType}',
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () => PetListMessageChannel.removePet(index),
-                  ),
-                );
-              },
-            ),
+          : PetList(petListModel.petList),
     );
+  }
+}
+
+/// Shows list of [PetDetails].
+class PetList extends StatelessWidget {
+  final List<PetDetails> petList;
+
+  const PetList(this.petList);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: EdgeInsets.all(8),
+      itemCount: petList.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('Pet breed: ${petList[index].breed}'),
+          subtitle: Text(
+            'Pet type: ${petList[index].petType}',
+          ),
+          trailing: IconButton(
+            icon: Icon(Icons.delete),
+            onPressed: () async {
+              try {
+                await PetListMessageChannel.removePet(index);
+                showSnackBar('Removed successfully!', context);
+              } catch (error) {
+                showSnackBar(error.message.toString(), context);
+              }
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  void showSnackBar(String message, BuildContext context) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      backgroundColor: Theme.of(context).primaryColor,
+      content: Text(message),
+    ));
   }
 }

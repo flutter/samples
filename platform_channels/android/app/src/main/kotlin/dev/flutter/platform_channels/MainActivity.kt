@@ -13,6 +13,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.*
 import java.io.InputStream
+import java.nio.ByteBuffer
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -69,11 +70,19 @@ class MainActivity : FlutterActivity() {
 
         // Registers a MessageHandler for BasicMessageChannel to receive the index of pet
         // details to be removed from the petList and send the petList back to Dart using
-        // stringCodecChannel.
+        // stringCodecChannel. If the index is not in the range of petList, we send null
+        // back to Dart.
         BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
                 .setMessageHandler { message, reply ->
-                    petList.removeAt(String(message!!.array()).toInt())
-                    stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                    val index = String(message!!.array()).toInt()
+                    if (index >= 0 && index < petList.size) {
+                        petList.removeAt(index)
+                        val replyMessage = "Removed Successfully"
+                        reply.reply(ByteBuffer.allocateDirect(replyMessage.toByteArray().size).put(replyMessage.toByteArray()))
+                        stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                    } else {
+                        reply.reply(null)
+                    }
                 }
     }
 }

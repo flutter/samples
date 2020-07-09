@@ -19,32 +19,40 @@ class PetListMessageChannel {
   ///
   /// Demonstrates how to use [BasicMessageChannel] and [JSONMessageCodec] to
   /// send more structured data to platform like a [Map] in this case.
-  static void addPetDetails(Map petDetails) {
-    _jsonMessageCodecChannel.send(petDetails);
+  static void addPetDetails(PetDetails petDetails) {
+    _jsonMessageCodecChannel.send(petDetails.toJson());
   }
 
   /// Method to remove a pet from the list.
   ///
   /// Demonstrates how to use [BasicMessageChannel] and [BinaryCodec] to
-  /// send [ByteData] to platform.
-  static void removePet(int index) {
+  /// send [ByteData] to platform. If the reply received is null, then
+  /// we will throw a [PlatformException].
+  static Future<void> removePet(int index) async {
     final uInt8List = utf8.encoder.convert(index.toString());
-    _binaryCodecChannel.send(uInt8List.buffer.asByteData());
+    final reply = await _binaryCodecChannel.send(uInt8List.buffer.asByteData());
+    if (reply == null) {
+      throw PlatformException(
+        code: 'INVALID INDEX',
+        message: 'Failed to delete pet details',
+        details: null,
+      );
+    }
   }
 }
 
 /// A model class that provides [petList] which is received from platform.
-class PetModel {
-  PetModel({
+class PetListModel {
+  PetListModel({
     this.petList,
   });
 
   final List<PetDetails> petList;
 
   /// Method that maps the incoming string of json object to List of [PetDetails].
-  factory PetModel.fromJson(String jsonString) {
+  factory PetListModel.fromJson(String jsonString) {
     final jsonData = json.decode(jsonString) as Map<String, dynamic>;
-    return PetModel(
+    return PetListModel(
       petList: List.from((jsonData['petList'] as List).map<PetDetails>(
         (dynamic petDetailsMap) => PetDetails.fromMap(
           petDetailsMap as Map<String, dynamic>,
@@ -68,4 +76,9 @@ class PetDetails {
         petType: map['petType'] as String,
         breed: map['breed'] as String,
       );
+
+  Map<String, String> toJson() => <String, String>{
+        'petType': petType,
+        'breed': breed,
+      };
 }
