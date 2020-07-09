@@ -44,16 +44,16 @@ class _PetListScreenState extends State<PetListScreen> {
       ),
       body: petListModel?.petList?.isEmpty ?? true
           ? Center(child: Text('Enter Pet Details'))
-          : PetList(petListModel.petList),
+          : BuildPetList(petListModel.petList),
     );
   }
 }
 
 /// Shows list of [PetDetails].
-class PetList extends StatelessWidget {
+class BuildPetList extends StatelessWidget {
   final List<PetDetails> petList;
 
-  const PetList(this.petList);
+  BuildPetList(this.petList);
 
   @override
   Widget build(BuildContext context) {
