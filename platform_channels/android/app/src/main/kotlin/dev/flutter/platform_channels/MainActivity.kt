@@ -7,13 +7,13 @@ package dev.flutter.platform_channels
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.plugin.common.BasicMessageChannel
-import io.flutter.plugin.common.EventChannel
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.StandardMessageCodec
+import io.flutter.plugin.common.*
 import java.io.InputStream
+import java.nio.ByteBuffer
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -50,7 +50,38 @@ class MainActivity : FlutterActivity() {
                 .setMessageHandler { message, reply ->
                     if (message == "getImage") {
                         val inputStream: InputStream = assets.open("eat_new_orleans.jpg")
-                        reply.reply(inputStream.readBytes());
+                        reply.reply(inputStream.readBytes())
+                    }
+                }
+
+        val petList = mutableListOf<Map<String, String>>()
+        val gson = Gson()
+
+        // A BasicMessageChannel for sending petList to Dart.
+        val stringCodecChannel = BasicMessageChannel(flutterEngine.dartExecutor, "stringCodecDemo", StringCodec.INSTANCE)
+
+        // Registers a MessageHandler for BasicMessageChannel to receive pet details to be
+        // added in petList and send the it back to Dart using stringCodecChannel.
+        BasicMessageChannel(flutterEngine.dartExecutor, "jsonMessageCodecDemo", JSONMessageCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    petList.add(0, gson.fromJson(message.toString(), object : TypeToken<Map<String, String>>() {}.type))
+                    stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                }
+
+        // Registers a MessageHandler for BasicMessageChannel to receive the index of pet
+        // details to be removed from the petList and send the petList back to Dart using
+        // stringCodecChannel. If the index is not in the range of petList, we send null
+        // back to Dart.
+        BasicMessageChannel(flutterEngine.dartExecutor, "binaryCodecDemo", BinaryCodec.INSTANCE)
+                .setMessageHandler { message, reply ->
+                    val index = String(message!!.array()).toInt()
+                    if (index >= 0 && index < petList.size) {
+                        petList.removeAt(index)
+                        val replyMessage = "Removed Successfully"
+                        reply.reply(ByteBuffer.allocateDirect(replyMessage.toByteArray().size).put(replyMessage.toByteArray()))
+                        stringCodecChannel.send(gson.toJson(mapOf("petList" to petList)))
+                    } else {
+                        reply.reply(null)
                     }
                 }
     }
