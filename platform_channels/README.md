@@ -20,14 +20,14 @@ counter.
 ### [Event Channel demo](./lib/src/event_channel_demo.dart)
 
 Demonstrates how to implement an `EventChannel` to listen to value changes from
-the Accelerometer sensor from native side
+the Accelerometer sensor from native side.
 
 ### [Platform Image demo](./lib/src/platform_image_demo.dart)
 
 Demonstrates how to implement a `BasicMessageChannel` using
 `StandardMessageCodec` to load an image from native asset.
 
-### Basic Message Channel demo(./lib/src/pet_list_screen.dart)
+### [Basic Message Channel demo](./lib/src/pet_list_screen.dart)
 
 Demonstrates how to implement `BasicMessageChannel` using `JSONMessageCodec`,
 `BinaryCodec` and `StringCodec` to send and receive data about pets.
