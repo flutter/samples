@@ -10,6 +10,28 @@ This sample is currently being built. Not all platforms and functionality are in
 * Demonstrate how to use `EventChannel` to listen continuous value changes from the platform.
 * Demonstrate how to use `BasicMessageChanngel` and `MessageCodec` to send messages of different types across the platform.
 
+## The important bits
+
+### [Method Channel demo](./lib/src/method_channel_demo.dart)
+
+Demonstrates how to implement a `MethodChannel` to increment and decrement a
+counter.
+
+### [Event Channel demo](./lib/src/event_channel_demo.dart)
+
+Demonstrates how to implement an `EventChannel` to listen to value changes from
+the Accelerometer sensor from native side.
+
+### [Platform Image demo](./lib/src/platform_image_demo.dart)
+
+Demonstrates how to implement a `BasicMessageChannel` using
+`StandardMessageCodec` to load an image from native asset.
+
+### [Basic Message Channel demo](./lib/src/pet_list_screen.dart)
+
+Demonstrates how to implement `BasicMessageChannel` using `JSONMessageCodec`,
+`BinaryCodec` and `StringCodec` to send and receive data about pets.
+
 ## Questions/issues
 
 If you have a general question about Platform Channels in Flutter, the
