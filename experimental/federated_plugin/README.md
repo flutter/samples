@@ -1,12 +1,12 @@
 # federated_plugin
 
-A Flutter plugin sample that shows how to implement federated plugin to fetch device location on different platforms.
+A Flutter plugin sample that shows how to implement a federated plugin to fetch the device location on different platforms.
 
 This sample is currently being built. Not all platforms and functionality are in place.
 
 ## Goals for this sample
 
-* Shows how to develop a federated plugin which supports Android, iOS, Web & Desktop.
+* Show how to develop a federated plugin which supports Android, iOS, web & desktop.
 * Demonstrate how to use Platform Channels to communicate with different platforms including Web and Desktop.
 
 ## Questions/issues
