@@ -60,7 +60,7 @@ void main() {
       // Then, save the summary to disk.
       await scrollingSummary.writeSummaryToFile('scrolling', pretty: true);
 
-      // Optionally, write the entire timeline to disk in a json format.
+      // Write the entire timeline to disk in a json format.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await scrollingSummary.writeTimelineToFile('scrolling', pretty: true);
@@ -113,7 +113,7 @@ void main() {
       await operationsSummary.writeSummaryToFile('favorites_operations',
           pretty: true);
 
-      // Optionally, write the entire timeline to disk in a json format.
+      // Write the entire timeline to disk in a json format.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await operationsSummary.writeTimelineToFile('favorites_operations',
