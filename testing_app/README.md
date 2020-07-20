@@ -7,41 +7,43 @@ would do.
 
 [provider]: https://pub.dev/packages/provider
 
-This sample is currently being built. Not all testing types are covered yet.
-
 ## Goals for this sample
 
 Show how to perform:
 
-- [X] Widget Testing,
-- [X] Flutter Driver(Integration) Testing,
-- [X] Performance Testing, and
-- [X] State Management Testing using the [Provider][] package.
+- Widget Testing,
+- Flutter Driver(Integration) Testing,
+- Performance Testing, and
+- State Management Testing using the [Provider][] package.
 
-### How to run tests
-TODO: Create a mini guide on how to run each testing style.
+## How to run tests
+- Navigate to the project's root folder using command line and follow the instructions below.
+
+### To run tests using only the Flutter SDK:
+The Flutter SDK can run some of the testing types on its own viz. unit testing and widget testing without the need of a physical device/emulator.
+- To run all the test files in the `test/` directory in one go, run `flutter test`.
+- To run a particular test file, run `flutter test test/<file_path>`
+
+### To run tests on a physical device/emulator:
 - Widget Tests:
-  - To run on physical device or emulator:
-    - Navigate to the project's root folder using command line.
-    - Run `flutter run test/<file_path>`
+  - Run `flutter run test/<file_path>`
 - Flutter Driver Tests:
-  - To run on physical device or emulator:
-    - Navigate to the project's root folder using command line.
-    - Run `flutter drive --target=test_driver/<file_path>`
+  - Run `flutter drive --target=test_driver/<file_path>`
+  - eg. `flutter drive --target=test_driver/app.dart` to run the test in `test_driver/app_test.dart`
 - Performance Tests:
-  - To run on physical device or emulator:
-    - Navigate to the project's root folder using command line.
-    - Run `flutter drive --target=test_driver/<file_path> --profile` (Using a physical device and running performance tests in profile mode is recommended).
+  - Run `flutter drive --target=test_driver/<file_path> --profile` (Using a physical device and running performance tests in profile mode is recommended).
 - State Management Tests:  
-  - Navigate to the project's root folder using command line.
-  - For Unit Testing the provider
-    - Run `flutter test test/<file_path>`
   - For Testing State using Flutter Driver
     - Run `flutter drive --target=test_driver/<file_path>`
+
+### CI/CD
+- Refer [.travis.yml](../.travis.yml) and the [tool](../tool) directory to see how to test Flutter projects using Travis-CI.
+
+Note that we aren't performing Flutter Driver tests using the Travis tool in this repo. That is because it's recommended to use physical devices to run Driver tests. You can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://codemagic.io/) or any platform of your choice to do that.
     
 ## Questions/issues
 
-If you have a general question about Testing in Flutter, the best places to go are:
+If you have a general question about testing in Flutter, the best places to go are:
 
 - [Flutter documentation](https://flutter.dev/)
 - [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
