@@ -17,7 +17,7 @@ Show how to perform:
 - State Management Testing using the [Provider][] package.
 
 ## How to run tests
-- Navigate to the project's root folder using command line and follow the steps below.
+- Navigate to the project's root folder using command line and follow the instructions below.
 
 ### To run tests using only the Flutter SDK:
 The Flutter SDK can run some of the testing types on its own viz. unit testing and widget testing without the need of a physical device/emulator.
