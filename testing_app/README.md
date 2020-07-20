@@ -21,7 +21,7 @@ Show how to perform:
 
 ### To run tests using only the Flutter SDK:
 The Flutter SDK can run some of the testing types on its own viz. unit testing and widget testing without the need of a physical device/emulator.
-- Run `flutter test` to run all the test files in the `test/` directory in one go.
+- To run all the test files in the `test/` directory in one go, run `flutter test`.
 - To run a particular test file, run `flutter test test/<file_path>`
 
 ### To run tests on a physical device/emulator:
