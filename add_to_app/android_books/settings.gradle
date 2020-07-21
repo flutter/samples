@@ -1,0 +1,10 @@
+include ':app'
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+  settingsDir,
+  '../flutter_module_books/.android/include_flutter.groovy'
+))
+rootProject.name = "Android Books"
+
+include ':flutter_module_books'
+project(':flutter_module_books').projectDir = new File('../flutter_module_books')

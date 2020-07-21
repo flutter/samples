@@ -1,0 +1,33 @@
+name: flutter_module_books
+description: A Flutter module using the Pigeon package to demonstrate
+  integrating Flutter in a realistic scenario where the existing platform app
+  already has business logic and middleware constraints.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  pigeon: ^0.1.0
+  mockito: ^4.1.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # This section identifies your Flutter project as a module meant for
+  # embedding in a native host app.  These identifiers should _not_ ordinarily
+  # be changed after generation - they are used to ensure that the tooling can
+  # maintain consistency when adding or modifying assets and plugins.
+  # They also do not have any bearing on your native host application's
+  # identifiers, which may be completely independent or the same as these.
+  module:
+    androidX: true
+    androidPackage: dev.flutter.example.flutter_module_books
+    iosBundleIdentifier: dev.flutter.example.flutterModuleBooks

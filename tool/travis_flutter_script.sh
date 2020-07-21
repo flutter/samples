@@ -28,6 +28,7 @@ echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
 declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module" \
     "add_to_app/flutter_module_using_plugin" \
+    "add_to_app/flutter_module_books" \
     "animations" \
     "flutter_maps_firestore" \
     "infinite_list" \
