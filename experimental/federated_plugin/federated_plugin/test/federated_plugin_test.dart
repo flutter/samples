@@ -7,21 +7,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:federated_plugin/federated_plugin.dart';
 
 void main() {
-  const channel = MethodChannel('federated_plugin');
-
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    channel.setMockMethodCallHandler((methodCall) async {
-      return '42';
+  group('Federated Plugin Test', () {
+    final location = Location(latitude: 131.0, longitude: 221.0);
+    MethodChannel('location').setMockMethodCallHandler((call) async {
+      if (call.method == 'getLocation') {
+        return [location.longitude, location.latitude];
+      }
     });
-  });
 
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
-  });
-
-  test('getPlatformVersion', () async {
-    expect(await FederatedPlugin.platformVersion, '42');
+    test('getLocation method test', () async {
+      final result = await getLocation();
+      expect(result.longitude, location.longitude);
+      expect(result.latitude, location.latitude);
+    });
   });
 }
