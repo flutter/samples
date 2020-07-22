@@ -12,6 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  federated_plugin_platform_interface:
+    path: ../federated_plugin_platform_interface
 
 dev_dependencies:
   flutter_test:

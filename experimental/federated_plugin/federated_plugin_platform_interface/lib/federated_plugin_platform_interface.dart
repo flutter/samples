@@ -1,3 +1,4 @@
+import 'package:federated_plugin_platform_interface/location_model.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'location_method_channel.dart';
@@ -17,7 +18,7 @@ abstract class FederatedPluginInterface extends PlatformInterface {
     _federatedPluginInterface = instance;
   }
 
-  Future<String> getLocation() async {
+  Future<Location> getLocation() async {
     throw UnimplementedError('getLocation() has not been implemented.');
   }
 }
