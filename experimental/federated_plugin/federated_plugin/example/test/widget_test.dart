@@ -2,23 +2,35 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:federated_plugin/federated_plugin.dart';
+import 'package:federated_plugin_example/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:federated_plugin_example/main.dart';
-
 void main() {
-  testWidgets('Verify Platform version', (tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  group('federated plugin demo tests', () {
+    final location = Location(latitude: 131.0, longitude: 221.0);
+    setUpAll(() {
+      MethodChannel('location').setMockMethodCallHandler((call) async {
+        if (call.method == 'getLocation') {
+          return [location.longitude, location.latitude];
+        }
+      });
+    });
 
-    // Verify that platform version is retrieved.
-    expect(
-      find.byWidgetPredicate(
-        (widget) => widget is Text &&
-                           widget.data.startsWith('Running on:'),
-      ),
-      findsOneWidget,
-    );
+    testWidgets('get location from platform', (tester) async {
+      await tester.pumpWidget(MyApp());
+
+      // Tap button to get location from platform.
+      await tester.tap(find.byType(RaisedButton));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('Latitude: ${location.latitude}\n'
+            'Longitude: ${location.longitude}'),
+        findsOneWidget,
+      );
+    });
   });
 }
