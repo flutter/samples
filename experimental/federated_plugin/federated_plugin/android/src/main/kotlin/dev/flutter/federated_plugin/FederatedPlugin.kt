@@ -42,7 +42,7 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
             // Check for the runtime permission if SDK version is greater than 23. If permission
             // are granted, send the location data back to Dart. If permission are not granted,
             // request for the runtime permissions.
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP) {
                 if (checkPermissions()) {
                     fetchLocation()
                 } else {
