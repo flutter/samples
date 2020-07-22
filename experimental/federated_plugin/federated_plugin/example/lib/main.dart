@@ -9,6 +9,7 @@ void main() {
   runApp(MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Demonstrates how to use getLocation method from federated_plugin to access
+/// location data.
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();

@@ -24,10 +24,6 @@ import io.flutter.plugin.common.PluginRegistry
 
 
 class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginRegistry.RequestPermissionsResultListener {
-    /// The MethodChannel that will the communication between Flutter and native Android
-    ///
-    /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-    /// when the Flutter Engine is detached from the Activity
     private lateinit var channel: MethodChannel
     private lateinit var context: Context
     private lateinit var activity: Activity
@@ -43,6 +39,9 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         this.result = result
         if (call.method == "getLocation") {
+            // Check for the runtime permission if SDK version is greater than 23. If permission
+            // are granted, send the location data back to Dart. If permission are not granted,
+            // request for the runtime permissions.
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                 if (checkPermissions()) {
                     fetchLocation()
@@ -60,6 +59,7 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
         }
     }
 
+    // Method to send the last known location of the device to Dart.
     private fun fetchLocation() {
         getFusedLocationProviderClient(context).lastLocation
                 .addOnSuccessListener { location ->
@@ -73,10 +73,12 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
                 }
     }
 
+    // Method to send an error to the Dart while fetching the last known location.
     private fun sendError(errorCode: String, message: String) {
         result.error(errorCode, message, null)
     }
 
+    // Method to check permissions to access the location data.
     private fun checkPermissions(): Boolean {
         val fineLocationPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
         val coarseLocationPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -107,6 +109,9 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
         TODO("Not yet implemented")
     }
 
+    // Callback for the result after requesting for runtime permissions. If permissions
+    // are granted, send the location data, or send an error back to Dart if permissions
+    // are not granted.
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>?, grantResults: IntArray): Boolean {
         if (requestCode == REQUEST_CODE && grantResults.isNotEmpty()) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {

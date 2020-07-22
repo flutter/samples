@@ -6,6 +6,8 @@ import 'package:federated_plugin_platform_interface/federated_plugin_platform_in
 import 'package:federated_plugin_platform_interface/location_model.dart';
 import 'package:flutter/services.dart';
 
+/// Implements [FederatedPluginInterface] using [MethodChannel] to fetch
+/// location from platform.
 class LocationMethodChannel extends FederatedPluginInterface {
   static const MethodChannel _methodChannel = MethodChannel('location');
 
@@ -13,7 +15,10 @@ class LocationMethodChannel extends FederatedPluginInterface {
   Future<Location> getLocation() async {
     final result =
         await _methodChannel.invokeMethod<List<dynamic>>('getLocation');
+
     return Location(
-        longitude: result.first as double, latitude: result.last as double);
+      longitude: result.first as double,
+      latitude: result.last as double,
+    );
   }
 }
