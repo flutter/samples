@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// Demonstrates how to use getLocation method from federated_plugin to access
+/// Demonstrates how to use the getLocation method from federated_plugin to access
 /// location data.
 class HomePage extends StatefulWidget {
   @override

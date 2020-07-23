@@ -39,43 +39,34 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         this.result = result
         if (call.method == "getLocation") {
-            // Check for the runtime permission if SDK version is greater than 23. If permission
-            // are granted, send the location data back to Dart. If permission are not granted,
+            // Check for the runtime permission if SDK version is greater than 23. If permissions
+            // are granted, send the location data back to Dart. If permissions are not granted,
             // request for the runtime permissions.
-            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP) {
-                if (checkPermissions()) {
-                    fetchLocation()
-                } else {
-                    requestPermissions(activity, arrayOf(
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                    ), REQUEST_CODE)
-                }
+            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP && !checkPermissions()) {
+                requestPermissions(activity, arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                ), REQUEST_CODE)
             } else {
-                fetchLocation()
+                provideLocation()
             }
         } else {
             result.notImplemented()
         }
     }
 
-    // Method to send the last known location of the device to Dart.
-    private fun fetchLocation() {
+    // Method to fetch and send the last known location of the device to Dart.
+    private fun provideLocation() {
         getFusedLocationProviderClient(context).lastLocation
                 .addOnSuccessListener { location ->
                     if (location != null) {
                         result.success(listOf(location.longitude, location.latitude))
                     } else {
-                        sendError("NOT_DETERMINED", "Not able to determine location")
+                        result.error("NOT_DETERMINED", "Not able to determine location", null)
                     }
                 }.addOnFailureListener { exception ->
-                    sendError("Error", exception.message!!)
+                    result.error("Error", exception.message, null)
                 }
-    }
-
-    // Method to send an error to the Dart while fetching the last known location.
-    private fun sendError(errorCode: String, message: String) {
-        result.error(errorCode, message, null)
     }
 
     // Method to check permissions to access the location data.
@@ -92,9 +83,7 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
         channel.setMethodCallHandler(null)
     }
 
-    override fun onDetachedFromActivity() {
-        TODO("Not yet implemented")
-    }
+    override fun onDetachedFromActivity() {}
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         activity = binding.activity
@@ -105,9 +94,7 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
         binding.addRequestPermissionsResultListener(this)
     }
 
-    override fun onDetachedFromActivityForConfigChanges() {
-        TODO("Not yet implemented")
-    }
+    override fun onDetachedFromActivityForConfigChanges() {}
 
     // Callback for the result after requesting for runtime permissions. If permissions
     // are granted, send the location data, or send an error back to Dart if permissions
@@ -115,9 +102,9 @@ class FederatedPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, PluginR
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>?, grantResults: IntArray): Boolean {
         if (requestCode == REQUEST_CODE && grantResults.isNotEmpty()) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                fetchLocation()
+                provideLocation()
             } else {
-                sendError("PERMISSION_DENIED", "Permission denied from User")
+                result.error("PERMISSION_DENIED", "Permission denied from User", null)
             }
         }
         return false
