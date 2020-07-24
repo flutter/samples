@@ -4,9 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:platform_channels/src/add_pet_details.dart';
+import 'package:platform_channels/src/pet_list_screen.dart';
 import 'package:platform_channels/src/event_channel_demo.dart';
 import 'package:platform_channels/src/method_channel_demo.dart';
-import 'package:platform_channels/src/pet_list_screen.dart';
 import 'package:platform_channels/src/platform_image_demo.dart';
 
 void main() {
