@@ -24,13 +24,13 @@ void runWeb() {
 }
 
 @Task()
-void runMock() {
+void runFirebase() {
   run('flutter',
       arguments: 'run -d web --web-port=5000 lib/main_firebase.dart '.split(' '));
 }
 
 @Task()
-void runMockSkia() {
+void runFirebaseSkia() {
   run('flutter',
       arguments:
           'run -d web --web-port=5000 --release --dart-define=FLUTTER_WEB_USE_SKIA=true lib/main_firebase.dart'
