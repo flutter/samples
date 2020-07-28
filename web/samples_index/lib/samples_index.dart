@@ -3,8 +3,7 @@
 // found in the LICENSE file
 
 import 'dart:convert';
-
-import 'package:resource/resource.dart';
+import 'dart:io';
 
 import 'src/data.dart';
 import 'package:checked_yaml/checked_yaml.dart';
@@ -12,8 +11,8 @@ import 'package:checked_yaml/checked_yaml.dart';
 export 'src/data.dart';
 
 Future<List<Sample>> getSamples() async {
-  var yamlFile = Resource('package:samples_index/src/samples.yaml');
-  var cookbookFile = Resource('package:samples_index/src/cookbook.json');
+  var yamlFile = File('lib/src/samples.yaml');
+  var cookbookFile = File('lib/src/cookbook.json');
   var contents = await yamlFile.readAsString();
   var cookbookContents = await cookbookFile.readAsString();
   var index = checkedYamlDecode(contents, (m) => Index.fromJson(m),
