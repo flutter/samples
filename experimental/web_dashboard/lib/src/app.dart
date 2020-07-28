@@ -39,7 +39,7 @@ class DashboardApp extends StatefulWidget {
   final ApiBuilder apiBuilder;
 
   /// Runs the app using Firebase
-  DashboardApp()
+  DashboardApp.firebase()
       : auth = FirebaseAuthService(),
         apiBuilder = _apiBuilder;
 
