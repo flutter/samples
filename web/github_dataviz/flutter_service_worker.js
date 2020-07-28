@@ -5,9 +5,9 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "51839f812a32cce7ac40ca488295da30",
 "/": "51839f812a32cce7ac40ca488295da30",
-"main.dart.js": "29b3e1963aac9c8ce7dfb5dfe7edc287",
+"main.dart.js": "61ac4fb74852a8a178645be74308b431",
 "assets/AssetManifest.json": "7ac1367789abe6eed8ffe5db603b0604",
-"assets/NOTICES": "bd3ce89fe7d5ad0e1cb691fa0e9d57e0",
+"assets/NOTICES": "4dfc737719d7f5135f94c0f94aec1d0a",
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
 "assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
 "assets/github_data/contributors.json": "4f7b5d7640ca5ab67ee419df55a4833f",
@@ -24,7 +24,7 @@ const CORE = [
   "/",
 "main.dart.js",
 "index.html",
-"assets/LICENSE",
+"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 
@@ -106,7 +106,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
     key = '/';
   }
-  // If the URL is not the the RESOURCE list, skip the cache.
+  // If the URL is not the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
   }
@@ -129,11 +129,11 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
+  if (event.data === 'skipWaiting') {
     return self.skipWaiting();
   }
 
-  if (event.message = 'downloadOffline') {
+  if (event.message === 'downloadOffline') {
     downloadOffline();
   }
 });
@@ -153,8 +153,8 @@ async function downloadOffline() {
   }
   for (var resourceKey in Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
+      resources.push(resourceKey);
     }
   }
-  return Cache.addAll(resources);
+  return contentCache.addAll(resources);
 }

@@ -5,11 +5,11 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "9c473ce14d9afeb3525b5e9ea752c013",
 "/": "9c473ce14d9afeb3525b5e9ea752c013",
-"main.dart.js": "6de0cc27b62724faeb293a6e79064d92",
+"main.dart.js": "39a86262b74354840fee45f73841b142",
 "assets/asset/seattle.jpg": "b3497f8c3eac62f0f696e9423be862a0",
 "assets/asset/fonts/plaster/Plaster-Regular.ttf": "3bdb6c45e898b254e76cd6c164850f94",
 "assets/AssetManifest.json": "ecb4d39e576209dc5ae70fad278c3df6",
-"assets/NOTICES": "9053f47b719336e01c65c0ddf1f5ea69",
+"assets/NOTICES": "f1abdbcdb0ef0350c4f6abe8bf1d80e1",
 "assets/FontManifest.json": "a397d647e4c43d7aa824b52dd59799bd",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16"
 };
@@ -20,7 +20,7 @@ const CORE = [
   "/",
 "main.dart.js",
 "index.html",
-"assets/LICENSE",
+"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 
@@ -102,7 +102,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
     key = '/';
   }
-  // If the URL is not the the RESOURCE list, skip the cache.
+  // If the URL is not the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
   }
@@ -125,11 +125,11 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
+  if (event.data === 'skipWaiting') {
     return self.skipWaiting();
   }
 
-  if (event.message = 'downloadOffline') {
+  if (event.message === 'downloadOffline') {
     downloadOffline();
   }
 });
@@ -149,8 +149,8 @@ async function downloadOffline() {
   }
   for (var resourceKey in Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
+      resources.push(resourceKey);
     }
   }
-  return Cache.addAll(resources);
+  return contentCache.addAll(resources);
 }
