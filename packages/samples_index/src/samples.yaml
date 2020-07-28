@@ -1,0 +1,493 @@
+samples:
+  - name: Gallery
+    author: Flutter
+    screenshots:
+      - url: images/gallery1.png
+        alt: Gallery app screenshot
+      - url: images/gallery2.png
+        alt: Rally app screenshot
+      - url: images/gallery3.png
+        alt: Fortnightly app screenshot
+      - url: images/gallery4.png
+        alt: Crane app screenshot
+      - url: images/gallery5.png
+        alt: Shrine app screnshot
+    source: https://github.com/flutter/gallery
+    web: https://gallery.flutter.dev
+    description: >
+      A collection of material design widgets, behaviors, and vignettes
+      implemented with Flutter.
+    difficulty: intermediate
+    widgets:
+      - AlertDialog
+      - AppBar
+      - BottomAppBar
+      - BottomNavigationBar
+      - BottomSheet
+      - Card
+      - Checkbox
+      - ChoiceChip
+      - CircularProgressIndicator
+      - Container
+      - CupertinoActivityIndicator
+      - CupertinoAlertDialog
+      - CupertinoButton
+      - CupertinoButton
+      - CupertinoDatePicker
+      - CupertinoDialogAction
+      - CupertinoNavigationBar
+      - CupertinoPageScaffold
+      - CupertinoSegmentedControl
+      - CupertinoSlider
+      - CupertinoSlidingSegmentedControl
+      - CupertinoSliverRefreshControl
+      - CupertinoSwitch
+      - CupertinoTabView
+      - CupertinoTextField
+      - CupertinoTheme
+      - DayPicker
+      - FilterChip
+      - FlatButton
+      - FloatingActionButton
+      - GridTile
+      - GridView
+      - Icon
+      - InputChip
+      - LayoutBuilder
+      - LinearProgressIndicator
+      - ListTile
+      - ListView
+      - MaterialBanner
+      - MonthPicker
+      - PaginatedDataTable
+      - PopupMenuButton
+      - PopupMenuItem
+      - Radio
+      - RaisedButton
+      - RangeSlider
+      - Scaffold
+      - SimpleDialog
+      - Slider
+      - SnackBar
+      - Switch
+      - TabBar
+      - TabBarView
+      - TextField
+      - TextFormField
+      - Tooltip
+      - YearPicker
+    packages:
+      - flutter/material
+      - flutter/cupertino
+      - google_fonts
+      - scoped_model
+    tags: ['intermediate', 'sample', 'gallery', 'material', 'design', 'vignettes']
+    platforms: ['web', 'ios', 'android']
+    type: demo
+
+  - name: Add to App
+    author: Flutter
+    screenshots:
+      - url: images/add_to_app1.png
+        alt: Add_to_app screenshot
+      - url: images/add_to_app2.png
+        alt: Add_to_app screenshot
+    source: https://github.com/flutter/samples/tree/master/add_to_app
+    description: >
+      Android and iOS projects that each import a standalone Flutter module.
+    difficulty: advanced
+    widgets:
+      - WidgetsFlutterBinding
+      - MethodChannel
+    packages:
+      - flutter/material
+      - flutter/services
+      - provider
+    tags: ['advanced', 'sample', 'add-to-app', 'android', 'ios', 'native', 'embedding']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: Animations
+    author: Flutter
+    screenshots:
+      - url: images/animations1.png
+        alt: Animations sample screenshot
+      - url: images/animations2.png
+        alt: Animations sample screenshot
+      - url: images/animations3.png
+        alt: Animations sample screenshot
+    source: https://github.com/flutter/samples/tree/master/animations
+    description: >
+      Sample apps that showcasing Flutter's animation features.
+    difficulty: advanced
+    widgets:
+      - AnimatedContainer
+      - PageRouteBuilder
+      - AnimationController
+      - SingleTickerProviderStateMixin
+      - Tween
+      - AnimatedBuilder
+      - TweenSequence
+      - TweenSequenceItem
+    packages:
+      - flutter/material
+    tags: ['intermediate', 'sample', 'animation']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/animations
+
+  - name: Flutter Maps Firestore
+    author: Flutter
+    screenshots:
+      - url: images/flutter_maps_firestore1.png
+        alt: Flutter maps firestore screenshot
+      - url: images/flutter_maps_firestore2.png
+        alt: Flutter maps firestore screenshot
+    source: https://github.com/flutter/samples/tree/master/flutter_maps_firestore
+    description: >
+      A Flutter sample app that shows the end product of the Cloud Next '19 talk
+      Build Mobile Apps With Flutter and Google Maps.
+    difficulty: advanced
+    widgets:
+      - GoogleMap
+    packages:
+      - flutter/material
+      - cloud_firestore
+      - google_maps_flutter
+      - google_maps_webservice
+    tags: ['intermediate', 'sample', 'firebase', 'maps']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: Isolate Example
+    author: Flutter
+    screenshots:
+      - url: images/isolate1.png
+        alt: Isolate example screenshot
+      - url: images/isolate2.png
+        alt: Isolate example screenshot
+      - url: images/isolate3.png
+        alt: Isolate example screenshot
+    source: https://github.com/flutter/samples/tree/master/isolate_example
+    description: >
+      A sample application that demonstrate best practices when using
+      isolates.
+    difficulty: intermediate
+    widgets:
+      - FutureBuilder
+      - AnimationController
+    packages:
+      - dart:isolate
+      - dart:math
+    tags: ['intermediate', 'sample', 'isolates', 'concurrency']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: jsonexample
+    author: Flutter
+    screenshots:
+      - url: images/jsonexample1.png
+        alt: JSON example screenshot
+      - url: images/jsonexample2.png
+        alt: JSON example screenshot
+      - url: images/jsonexample3.png
+        alt: JSON example screenshot
+    source: https://github.com/flutter/samples/tree/master/jsonexample
+    description: >
+      A Flutter sample app that deserializes a set of JSON strings using three
+      different libraries: dart:convert, json_serializable, and built_value.
+    difficulty: beginner
+    widgets:
+      - Table
+      - TableRow
+    packages:
+      - json_serializable
+      - built_value
+      - built_collection
+      - json_annotation
+      - build_runner
+      - built_value_generator
+    tags: ['beginner', 'sample']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: Place Tracker
+    author: Flutter
+    screenshots:
+      - url: images/place_tracker1.png
+        alt: Place Tracker screenshot
+      - url: images/place_tracker2.png
+        alt: Place Tracker screenshot
+      - url: images/place_tracker3.png
+        alt: Place Tracker screenshot
+      - url: images/place_tracker4.png
+        alt: Place Tracker screenshot
+    source: https://github.com/flutter/samples/tree/master/place_tracker
+    description: >
+      A sample place tracking app that uses the google_maps_flutter plugin. Keep
+      track of your favorite places, places you've visited, and places you want
+      to go. View details about these places, show them on a map, and get
+      directions to them.
+    difficulty: intermediate
+    widgets:
+      - GoogleMap
+    packages:
+      - google_maps_flutter
+    tags: ['intermediate', 'sample', 'json', 'serialization']
+    platforms: ['android']
+    type: sample
+
+  - name: Platform Design
+    author: Flutter
+    screenshots:
+      - url: images/platform_design1.png
+        alt: Platform Design screenshot
+      - url: images/platform_design2.png
+        alt: Platform Design screenshot
+      - url: images/platform_design3.png
+        alt: Platform Design screenshot
+      - url: images/platform_design4.png
+        alt: Platform Design screenshot
+      - url: images/platform_design5.png
+        alt: Platform Design screenshot
+      - url: images/platform_design6.png
+        alt: Platform Design screenshot
+      - url: images/platform_design7.png
+        alt: Platform Design screenshot
+    source: https://github.com/flutter/samples/tree/master/platform_design
+    description: >
+      A Flutter app that maximizes application code reuse while adhering to
+      different design patterns on Android and iOS
+    difficulty: advanced
+    widgets:
+      - TargetPlatform
+    packages:
+      - flutter/material
+      - flutter/cupertino
+    tags: ['advanced', 'sample', 'ios']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: Platform View Swift
+    author: Flutter
+    screenshots:
+      - url: images/platform_view_swift1.png
+        alt: Platform View Swift screenshot
+      - url: images/platform_view_swift2.png
+        alt: Platform View Swift screenshot
+    source: https://github.com/flutter/samples/tree/master/platform_design
+    description: >
+      A Flutter sample app that combines a native iOS UIViewController with a
+      full-screen Flutter view.
+    difficulty: intermediate
+    widgets:
+      - MethodChannel
+    packages:
+      - flutter/material
+      - flutter/services
+    tags: ['advanced', 'sample', 'ios']
+    platforms: ['ios']
+    type: sample
+
+  - name: Provider Shopper
+    author: Flutter
+    screenshots:
+      - url: images/provider_shopper1.png
+        alt: Provider Shopper screenshot
+      - url: images/provider_shopper2.png
+        alt: Provider Shopper screenshot
+      - url: images/provider_shopper3.png
+        alt: Provider Shopper screenshot
+    source: https://github.com/flutter/samples/tree/master/provider_shopper
+    description: >
+      A Flutter sample app that shows a state management approach using the Provider package.
+    difficulty: intermediate
+    widgets:
+      - Provider
+      - MultiProvider
+      - ChangeNotifier
+    packages:
+      - provider
+    tags: ['intermediate', 'sample', 'provider']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/provider_shopper
+
+  - name: Web Dashboard
+    author: Flutter
+    screenshots:
+      - url: images/web_dashboard1.png
+        alt: Web Dashboard screenshot
+      - url: images/web_dashboard2.png
+        alt: Web Dashbaord screenshot
+      - url: images/web_dashboard3.png
+        alt: Web Dashboard screenshot
+    source: https://github.com/flutter/samples/tree/master/experimental/web_dashboard
+    description: >
+      A dashboard app that displays daily entries. Demonstrates AdaptiveScaffold and NavigationRail. Showcases how to
+      use Firebase, but uses a mock backend by default.
+    difficulty: advanced
+    widgets:
+      - AdaptiveScaffold
+      - NavigationRail
+      - FutureBuilder
+      - StreamBuilder
+    packages:
+      - firebase
+    tags: ['intermediate', 'sample', 'firebase']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/web_dashboard
+
+  - name: Form App
+    author: Flutter
+    screenshots:
+      - url: images/form_app1.png
+        alt: Form App screenshot
+      - url: images/form_app2.png
+        alt: Form App screenshot
+      - url: images/form_app3.png
+        alt: Form App screenshot
+    source: https://github.com/flutter/samples/tree/master/experimental/form_app
+    description: >
+      A Flutter sample app that shows how to use Forms.
+    difficulty: intermediate
+    widgets:
+      - Form
+    packages: []
+    tags: ['intermediate', 'sample', 'forms']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/form_app
+###################
+#### Web Demos ####
+###################
+
+  - name: Charts
+    author: Flutter
+    screenshots:
+      - url: images/charts1.png
+    source: https://github.com/google/charts
+    description: >
+      A general-purpose charting library.
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['ios', 'android', 'web']
+    tags: ['demo', 'charts']
+    web: web/charts
+    type: demo
+
+  - name: Filipino Cuisine
+    author: github.com/markgrancapal
+    screenshots:
+      - url: images/filipino_cuisine1.png
+        alt: Filipino Cuisine screenshot
+    source: https://github.com/markgrancapal/filipino_cuisine
+    description: >
+      Flutter Create challenge entry
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'flutter create']
+    web: web/filipino_cuisine
+    type: demo
+
+  - name: GitHub Dataviz
+    author: Larva Labs
+    screenshots:
+      - url: images/github_dataviz1.png
+        alt: GitHub Dataviz screenshot
+    source: https://github.com/flutter/samples/tree/master/web/github_dataviz
+    description: >
+      A visualization for Flutter repository data
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'data', 'visualization']
+    web: web/github_dataviz
+    type: demo
+
+  - name: Particle Background
+    author: Felix Blaschke
+    screenshots:
+      - url: images/particle_background1.png
+        alt: Particle Background screenshot
+    source: https://github.com/flutter/samples/tree/master/web/particle_background
+    description: >
+      Flutter app demonstrating package:simple_animations in action.
+    difficulty: intermediate
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: web/particle_background
+    type: demo
+
+  - name: Slide Puzzle
+    author: Kevin Moore
+    screenshots:
+      - url: images/slide_puzzle1.png
+        alt: Slide Puzzle screenshot
+    source: https://github.com/kevmoo/slide_puzzle
+    description: >
+      A slide (15) puzzle implemented in Dart and Flutter.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'game']
+    web: web/slide_puzzle
+    type: demo
+
+  - name: Timeflow
+    author: Fabian Stein
+    screenshots:
+      - url: images/timeflow1.png
+        alt: Timeflow screenshot
+    source: https://github.com/Fabian-Stein/timeflow
+    description: >
+      A gentle animation that provides a calming experience to stressed developers.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: web/timeflow
+    type: demo
+
+  - name: Vision Challenge
+    author: Yukkei Choi
+    screenshots:
+      - url: images/vision_challenge1.png
+        alt: Vision Challenge screenshot
+      - url: images/vision_challenge2.png
+        alt: Vision Challenge screenshot
+    source: https://github.com/flutter/samples/tree/master/web/vision_challenge
+    description: >
+      A fun game to test your color perception abilities.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'game']
+    web: web/vision_challenge
+    type: demo
+    
+  - name: Dice
+    author: Jaime Blasco
+    screenshots:
+      - url: images/dice.png
+        alt: Dice screenshot
+    source: https://github.com/jamesblasco/zflutter/blob/master/zflutter/example/lib/examples/dice/dice.dart
+    description: >
+      A demo of 3d animation using dice
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    tags: ['demo', 'animation']
+    web: https://z.flutter.gallery/#/dice
+    type: demo

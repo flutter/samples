@@ -1,0 +1,339 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "./variables";
+
+//
+// Public
+//
+
+@mixin mdc-card-core-styles($query: mdc-feature-all()) {
+  @include mdc-card-without-ripple($query);
+  @include mdc-card-ripple($query);
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// card styles. It is recommended that most users use `mdc-card-core-styles` instead.
+@mixin mdc-card-without-ripple($query: mdc-feature-all()) {
+  // postcss-bem-linter: define card
+
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-card {
+    @include mdc-card-shape-radius(medium, $query: $query);
+    @include mdc-card-fill-color(surface, $query);
+    @include mdc-elevation(1, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-card-container-layout_;
+    }
+  }
+
+  .mdc-card--outlined {
+    @include mdc-elevation(0, $query: $query);
+    @include mdc-card-outline($mdc-card-outline-color, $query: $query);
+  }
+
+  //
+  // Media
+  //
+
+  .mdc-card__media {
+    @include mdc-feature-targets($feat-structure) {
+      position: relative; // Child element `__media-content` has `position: absolute`
+      box-sizing: border-box;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    &::before {
+      @include mdc-feature-targets($feat-structure) {
+        display: block;
+        content: "";
+      }
+    }
+  }
+
+  .mdc-card__media:first-child {
+    @include mdc-feature-targets($feat-structure) {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+
+  .mdc-card__media:last-child {
+    @include mdc-feature-targets($feat-structure) {
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+  }
+
+  .mdc-card__media--square {
+    @include mdc-card-media-aspect-ratio(1, 1, $query);
+  }
+
+  .mdc-card__media--16-9 {
+    @include mdc-card-media-aspect-ratio(16, 9, $query);
+  }
+
+  .mdc-card__media-content {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  //
+  // Primary action
+  //
+
+  .mdc-card__primary-action {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-card-container-layout_;
+
+      position: relative; // Needed to prevent the ripple wash from overflowing the container in IE and Edge
+      outline: none;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+    }
+  }
+
+  .mdc-card__primary-action:first-child {
+    @include mdc-feature-targets($feat-structure) {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+
+  .mdc-card__primary-action:last-child {
+    @include mdc-feature-targets($feat-structure) {
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+  }
+
+  //
+  // Action row
+  //
+
+  .mdc-card__actions {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-card-actions-layout_;
+
+      min-height: 52px;
+      padding: 8px;
+    }
+  }
+
+  .mdc-card__actions--full-bleed {
+    @include mdc-feature-targets($feat-structure) {
+      padding: 0;
+    }
+  }
+
+  .mdc-card__action-buttons,
+  .mdc-card__action-icons {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-card-actions-layout_;
+    }
+  }
+
+  .mdc-card__action-icons {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $mdc-card-action-icon-color);
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+  }
+
+  .mdc-card__action-buttons + .mdc-card__action-icons {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-box(margin, left, 16px);
+    }
+  }
+
+  //
+  // Action items
+  //
+
+  .mdc-card__action {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-card-actions-layout_(inline-flex);
+
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &:focus {
+      @include mdc-feature-targets($feat-structure) {
+        outline: none;
+      }
+    }
+  }
+
+  //
+  // Action buttons
+  //
+
+  .mdc-card__action--button {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-box(margin, right, 8px);
+
+      padding: 0 8px;
+    }
+
+    &:last-child {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-rtl-reflexive-box(margin, right, 0);
+      }
+    }
+  }
+
+  .mdc-card__actions--full-bleed .mdc-card__action--button {
+    @include mdc-feature-targets($feat-structure) {
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      max-height: none;
+      margin: 0;
+      padding: 8px 16px;
+      /* @noflip */
+      text-align: left;
+    }
+
+    @include mdc-rtl {
+      @include mdc-feature-targets($feat-structure) {
+        /* @noflip */
+        text-align: right;
+      }
+    }
+  }
+
+  //
+  // Action icons
+  //
+
+  .mdc-card__action--icon {
+    @include mdc-feature-targets($feat-structure) {
+      // Icon buttons are taller than buttons, so we need to adjust their margins to prevent the action row from
+      // expanding.
+      margin: -6px 0;
+
+      // Same padding as mdc-icon-button.
+      padding: 12px;
+    }
+  }
+
+  .mdc-card__action--icon:not(:disabled) {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $mdc-card-action-icon-color);
+    }
+  }
+
+  // postcss-bem-linter: end
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// card styles. It is recommended that most users use `mdc-card-core-styles` instead.
+@mixin mdc-card-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  .mdc-card__primary-action {
+    @include mdc-ripple-surface($query);
+    @include mdc-ripple-radius-bounded($query: $query);
+    @include mdc-states($query: $query);
+  }
+}
+
+@mixin mdc-card-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(background-color, $color);
+  }
+}
+
+@mixin mdc-card-outline($color, $thickness: $mdc-card-outline-width, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    border-width: $thickness;
+    border-style: solid;
+  }
+
+  @include mdc-feature-targets($feat-color) {
+    border-color: mdc-theme-prop-value($color);
+  }
+}
+
+@mixin mdc-card-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+}
+
+@mixin mdc-card-media-aspect-ratio($x, $y, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  &::before {
+    @include mdc-feature-targets($feat-structure) {
+      // This clever trick brought to you by: http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+      margin-top: percentage($y / $x);
+    }
+  }
+}
+
+//
+// Private
+//
+
+@mixin mdc-card-container-layout_ {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@mixin mdc-card-actions-layout_($display: flex) {
+  display: $display;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+

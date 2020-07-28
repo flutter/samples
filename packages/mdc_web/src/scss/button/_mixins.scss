@@ -1,0 +1,376 @@
+//
+// Copyright 2016 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/functions";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "./variables";
+
+@mixin mdc-button-core-styles($query: mdc-feature-all()) {
+  @include mdc-button-without-ripple($query);
+  @include mdc-button-ripple($query);
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// button styles. It is recommended that most users use `mdc-button-core-styles` instead.
+@mixin mdc-button-without-ripple($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // postcss-bem-linter: define button
+  .mdc-button {
+    @include mdc-button-base_($query);
+    @include mdc-button-shape-radius(small, $query: $query);
+    @include mdc-button-container-fill-color(transparent, $query);
+
+    // The icon CSS class overrides styles defined in the .material-icons CSS
+    // class, which is loaded separately so the order of CSS definitions is not
+    // guaranteed. Therefore, increase specifity by nesting this class to ensure
+    // overrides apply.
+    .mdc-button__icon {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-button__icon_;
+      }
+    }
+
+    @include mdc-button-ink-color(primary, $query);
+  }
+
+  .mdc-button__label + .mdc-button__icon {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-button__icon-trailing_;
+    }
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  svg.mdc-button__icon {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-button__icon-svg_;
+    }
+  }
+
+  .mdc-button--raised,
+  .mdc-button--unelevated,
+  .mdc-button--outlined {
+    .mdc-button__icon {
+      @include mdc-feature-targets($feat-structure) {
+        // Icons inside contained buttons have different styles due to increased button padding
+        @include mdc-button__icon-contained_;
+      }
+    }
+
+    .mdc-button__label + .mdc-button__icon {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-button__icon-contained-trailing_;
+      }
+    }
+  }
+
+  .mdc-button--raised,
+  .mdc-button--unelevated {
+    @include mdc-button--filled_($query);
+    @include mdc-button-container-fill-color(primary, $query);
+    @include mdc-button-ink-color(on-primary, $query);
+  }
+
+  .mdc-button--raised {
+    @include mdc-button--raised_($query);
+  }
+
+  .mdc-button--outlined {
+    @include mdc-button--outlined_($query);
+    @include mdc-button-outline-width($mdc-button-outlined-border-width, $query: $query);
+    @include mdc-button-outline-color(primary, $query);
+  }
+
+  .mdc-button--dense {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-button--dense_;
+    }
+  }
+  // postcss-bem-linter: end
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// button styles. It is recommended that most users use `mdc-button-core-styles` instead.
+@mixin mdc-button-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  .mdc-button {
+    @include mdc-ripple-surface($query);
+    @include mdc-ripple-radius-bounded($query: $query);
+    @include mdc-states(primary, false, $query);
+  }
+
+  .mdc-button--raised,
+  .mdc-button--unelevated {
+    @include mdc-states(on-primary, false, $query);
+  }
+}
+
+@mixin mdc-button-filled-accessible($container-fill-color, $query: mdc-feature-all()) {
+  $fill-tone: mdc-theme-tone($container-fill-color);
+
+  @include mdc-button-container-fill-color($container-fill-color, $query);
+
+  @if ($fill-tone == "dark") {
+    @include mdc-button-ink-color(text-primary-on-dark, $query);
+    @include mdc-states(text-primary-on-dark, $query: $query);
+  } @else {
+    @include mdc-button-ink-color(text-primary-on-light, $query);
+    @include mdc-states(text-primary-on-light, $query: $query);
+  }
+}
+
+@mixin mdc-button-container-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  // :not(:disabled) is used to support link styled as button
+  // as link does not support :enabled style
+  &:not(:disabled) {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color, $edgeOptOut: true);
+    }
+  }
+}
+
+@mixin mdc-button-outline-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(:disabled) {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-button-icon-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(:disabled) .mdc-button__icon {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-button-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(:disabled) {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-button-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  @include mdc-shape-radius(
+    mdc-shape-resolve-percentage-radius($mdc-button-height, $radius),
+    $rtl-reflexive,
+    $query: $query
+  );
+
+  &.mdc-button--dense {
+    @include mdc-shape-radius(
+      mdc-shape-resolve-percentage-radius($mdc-dense-button-height, $radius),
+      $rtl-reflexive,
+      $query: $query
+    );
+  }
+}
+
+@mixin mdc-button-horizontal-padding($padding, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    // $padding should be a single value; enforce it by specifying all 4 sides in the output
+    padding: 0 $padding 0 $padding;
+  }
+}
+
+@mixin mdc-button-outline-width(
+  $outline-width,
+  $padding: $mdc-button-contained-horizontal-padding,
+  $query: mdc-feature-all()
+) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  // Note: Adjust padding to maintain consistent width with non-outlined buttons
+  $padding-value: max($padding - $outline-width, 0);
+
+  @include mdc-button-horizontal-padding($padding-value, $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    border-width: $outline-width;
+  }
+}
+
+@mixin mdc-button-base_($query) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-typography(button, $query);
+  @include mdc-button-horizontal-padding($mdc-button-horizontal-padding, $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 64px;
+    height: $mdc-button-height;
+    border: none;
+    outline: none;
+    /* @alternate */
+    line-height: inherit;
+    user-select: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  &::-moz-focus-inner {
+    @include mdc-feature-targets($feat-structure) {
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  &:active {
+    @include mdc-feature-targets($feat-structure) {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    @include mdc-feature-targets($feat-structure) {
+      cursor: pointer;
+    }
+  }
+
+  &:disabled {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, transparent);
+
+      color: $mdc-button-disabled-ink-color;
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+@mixin mdc-button__icon_ {
+  @include mdc-rtl-reflexive-box(margin, right, 8px);
+
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  vertical-align: top;
+}
+
+@mixin mdc-button__icon-trailing_ {
+  @include mdc-rtl-reflexive-box(margin, left, 8px);
+}
+
+@mixin mdc-button__icon-svg_ {
+  fill: currentColor;
+}
+
+@mixin mdc-button__icon-contained_ {
+  @include mdc-rtl-reflexive-property(margin, -4px, 8px);
+}
+
+@mixin mdc-button__icon-contained-trailing_ {
+  @include mdc-rtl-reflexive-property(margin, 8px, -4px);
+}
+
+@mixin mdc-button--outlined_($query) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    border-style: solid;
+  }
+
+  &:disabled {
+    @include mdc-feature-targets($feat-color) {
+      border-color: $mdc-button-disabled-ink-color;
+    }
+  }
+}
+
+@mixin mdc-button--filled_($query) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-button-horizontal-padding($mdc-button-contained-horizontal-padding, $query);
+
+  &:disabled {
+    @include mdc-feature-targets($feat-color) {
+      background-color: rgba(mdc-theme-prop-value(on-surface), .12);
+      color: $mdc-button-disabled-ink-color;
+    }
+  }
+}
+
+@mixin mdc-button--raised_($query) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-elevation(2, $query: $query);
+
+  &:hover,
+  &:focus {
+    @include mdc-elevation(4, $query: $query);
+  }
+
+  &:active {
+    @include mdc-elevation(8, $query: $query);
+  }
+
+  &:disabled {
+    @include mdc-elevation(0, $query: $query);
+  }
+
+  @include mdc-feature-targets($feat-animation) {
+    transition: mdc-elevation-transition-value();
+  }
+}
+
+@mixin mdc-button--dense_() {
+  height: $mdc-dense-button-height;
+  font-size: .8125rem; // 13sp
+}
+

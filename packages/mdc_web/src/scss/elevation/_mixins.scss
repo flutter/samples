@@ -1,0 +1,98 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/theme/variables";
+@import "./variables";
+
+@mixin mdc-elevation-core-styles($query: mdc-feature-all()) {
+  $feat-animation: mdc-feature-create-target($query, animation);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @for $z-value from 0 through 24 {
+    .mdc-elevation--z#{$z-value} {
+      @include mdc-elevation($z-value, $query: $query);
+    }
+  }
+
+  .mdc-elevation-transition {
+    @include mdc-feature-targets($feat-animation) {
+      transition: mdc-elevation-transition-value();
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      will-change: $mdc-elevation-property;
+    }
+  }
+}
+
+// Applies the correct CSS rules to an element to give it the elevation specified by $z-value.
+// The $z-value must be between 0 and 24.
+// If $color has an alpha channel, it will be ignored and overridden. To increase the opacity of the shadow, use
+// $opacity-boost.
+@mixin mdc-elevation($z-value, $color: $mdc-elevation-baseline-color, $opacity-boost: 0, $query: mdc-feature-all()) {
+  @if type-of($z-value) != number or not unitless($z-value) {
+    @error "$z-value must be a unitless number, but received '#{$z-value}'";
+  }
+
+  @if $z-value < 0 or $z-value > 24 {
+    @error "$z-value must be between 0 and 24, but received '#{$z-value}'";
+  }
+
+  $feat-color: mdc-feature-create-target($query, color);
+
+  $color: mdc-theme-prop-value($color);
+
+  $umbra-z-value: map-get($mdc-elevation-umbra-map, $z-value);
+  $penumbra-z-value: map-get($mdc-elevation-penumbra-map, $z-value);
+  $ambient-z-value: map-get($mdc-elevation-ambient-map, $z-value);
+
+  $umbra-color: rgba($color, $mdc-elevation-umbra-opacity + $opacity-boost);
+  $penumbra-color: rgba($color, $mdc-elevation-penumbra-opacity + $opacity-boost);
+  $ambient-color: rgba($color, $mdc-elevation-ambient-opacity + $opacity-boost);
+
+  @include mdc-feature-targets($feat-color) {
+    box-shadow:
+      #{"#{$umbra-z-value} #{$umbra-color}"},
+      #{"#{$penumbra-z-value} #{$penumbra-color}"},
+      #{$ambient-z-value} $ambient-color;
+  }
+}
+
+// Returns a string that can be used as the value for a `transition` property for elevation.
+// Calling this function directly is useful in situations where a component needs to transition
+// more than one property.
+//
+// ```scss
+// .foo {
+//   transition: mdc-elevation-transition-value(), opacity 100ms ease;
+//   will-change: $mdc-elevation-property, opacity;
+// }
+// ```
+@function mdc-elevation-transition-value(
+  $duration: $mdc-elevation-transition-duration,
+  $easing: $mdc-elevation-transition-timing-function
+) {
+  @return #{$mdc-elevation-property} #{$duration} #{$easing};
+}
+

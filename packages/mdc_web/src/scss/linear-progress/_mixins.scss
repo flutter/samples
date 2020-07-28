@@ -1,0 +1,59 @@
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/theme/variables"; // for mdc-theme-prop-value
+
+@mixin mdc-linear-progress-bar-color($color) {
+  .mdc-linear-progress__bar-inner {
+    @include mdc-theme-prop(background-color, $color);
+  }
+}
+
+@mixin mdc-linear-progress-buffer-color($color) {
+  // We need to escape the '#' character as "%23" for SVG because '#' is a reserved character in URIs.
+  $color-value-for-css: mdc-theme-prop-value($color);
+  $color-value-for-svg: mdc-linear-progress-str-replace_(unquote("#{$color-value-for-css}"), "#", "%23");
+
+  .mdc-linear-progress__buffering-dots {
+    // SVG is optimized for data URI (https://codepen.io/tigt/post/optimizing-svgs-in-data-uris)
+    // stylelint-disable-next-line function-url-quotes
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='#{$color-value-for-svg}'/%3E%3C/svg%3E");
+  }
+
+  .mdc-linear-progress__buffer {
+    background-color: $color-value-for-css;
+  }
+}
+
+// Based on https://css-tricks.com/snippets/sass/str-replace-function/
+@function mdc-linear-progress-str-replace_($string, $search, $replace) {
+  $index: str-index($string, $search);
+
+  @if $index {
+    $head: str-slice($string, 1, $index - 1);
+    $tail: mdc-linear-progress-str-replace_(str-slice($string, $index + str-length($search)), $search, $replace);
+
+    @return $head + $replace + $tail;
+  }
+
+  @return $string;
+}
+

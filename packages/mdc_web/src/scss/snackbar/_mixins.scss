@@ -1,0 +1,289 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/animation/functions";
+@import "package:mdc_web/src/scss/button/mixins";
+@import "package:mdc_web/src/scss/icon-button/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/elevation/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "./variables";
+
+@mixin mdc-snackbar-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  // postcss-bem-linter: define snackbar
+  .mdc-snackbar {
+    @include mdc-snackbar-z-index($mdc-snackbar-z-index, $query: $query);
+    @include mdc-snackbar-viewport-margin($mdc-snackbar-viewport-margin-narrow, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: none;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+
+      // Ignore mouse events on the root layout element.
+      pointer-events: none;
+
+      // For some reason, iOS Safari displays a tap highlight on the entire snackbar element.
+      // Mobile Safari only supports `rgba` values for this property; named values like
+      // `transparent` are ignored. From Apple's docs:
+      // > This property obeys the alpha value, if specified.
+      // > If you don’t specify an alpha value, Safari on iOS applies a default alpha value to the color.
+      // > To disable tap highlighting, set the alpha value to 0 (invisible).
+      // > If you set the alpha value to 1.0 (opaque), the element is not visible when tapped.
+      // See https://github.com/ben-eb/postcss-colormin/issues/1
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  @at-root {
+    @include mdc-snackbar-fill-color($mdc-snackbar-fill-color, $query: $query);
+    @include mdc-snackbar-label-ink-color($mdc-snackbar-label-ink-color, $query: $query);
+    @include mdc-snackbar-min-width($mdc-snackbar-min-width, $query: $query);
+    @include mdc-snackbar-max-width($mdc-snackbar-max-width, $query: $query);
+    @include mdc-snackbar-elevation($mdc-snackbar-elevation, $query: $query);
+    @include mdc-snackbar-shape-radius($mdc-snackbar-shape-radius, $query: $query);
+  }
+
+  .mdc-snackbar--opening,
+  .mdc-snackbar--open,
+  .mdc-snackbar--closing {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+    }
+  }
+
+  .mdc-snackbar--leading {
+    @include mdc-snackbar-position-leading($query: $query);
+  }
+
+  .mdc-snackbar--stacked {
+    @include mdc-snackbar-layout-stacked($query: $query);
+  }
+
+  .mdc-snackbar__surface {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      transform: scale(.8);
+      opacity: 0;
+    }
+
+    .mdc-snackbar--open & {
+      @include mdc-feature-targets($feat-structure) {
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: auto; // Allow mouse events on surface element while snackbar is open
+      }
+
+      @include mdc-feature-targets($feat-animation) {
+        transition:
+          mdc-animation-enter(opacity, $mdc-snackbar-enter-duration),
+          mdc-animation-enter(transform, $mdc-snackbar-enter-duration);
+      }
+    }
+
+    .mdc-snackbar--closing & {
+      @include mdc-feature-targets($feat-structure) {
+        transform: scale(1);
+      }
+
+      @include mdc-feature-targets($feat-animation) {
+        transition: mdc-animation-exit-permanent(opacity, $mdc-snackbar-exit-duration);
+      }
+    }
+  }
+
+  .mdc-snackbar__label {
+    @include mdc-typography($mdc-snackbar-label-type-scale, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      flex-grow: 1;
+      box-sizing: border-box;
+      margin: 0;
+
+      // 14px top/bottom padding needed to make the height 48px.
+      padding: 14px 16px;
+    }
+  }
+
+  // Used to prevent visual jank when announcing label text to screen readers.
+  // See the `announce()` function in util.js for details.
+  .mdc-snackbar__label::before {
+    @include mdc-feature-targets($feat-structure) {
+      display: inline;
+      content: attr(data-mdc-snackbar-label-text);
+    }
+  }
+
+  .mdc-snackbar__actions {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(margin, 0, $mdc-snackbar-padding);
+
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      box-sizing: border-box;
+    }
+  }
+
+  .mdc-snackbar__action {
+    @include mdc-button-ink-color($mdc-snackbar-action-ink-color, $query: $query);
+    @include mdc-states($mdc-snackbar-action-ink-color, $query: $query);
+  }
+
+  .mdc-snackbar__dismiss {
+    @include mdc-icon-button-ink-color($mdc-snackbar-dismiss-ink-color, $query: $query);
+  }
+
+  // Two selectors are needed to increase specificity above `.material-icons`.
+  // stylelint-disable-next-line selector-class-pattern
+  .mdc-snackbar__dismiss.mdc-snackbar__dismiss {
+    @include mdc-icon-button-size($mdc-snackbar-dismiss-icon-size, $query: $query);
+  }
+
+  .mdc-snackbar__action + .mdc-snackbar__dismiss {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(margin, $mdc-snackbar-padding, 0);
+    }
+  }
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-snackbar-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-snackbar__surface {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+    }
+  }
+}
+
+@mixin mdc-snackbar-label-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-snackbar__label {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-snackbar-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  .mdc-snackbar__surface {
+    @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+  }
+}
+
+@mixin mdc-snackbar-min-width(
+  $min-width,
+  $mobile-breakpoint: $mdc-snackbar-mobile-breakpoint,
+  $query: mdc-feature-all()
+) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-snackbar__surface {
+    @include mdc-feature-targets($feat-structure) {
+      min-width: $min-width;
+
+      // The first media query ensures that snackbars are always 100% width on mobile devices, as required by the spec.
+      // The second media query prevents snackbars from being wider than the viewport for large min-width values.
+      @media (max-width: $mobile-breakpoint), (max-width: $min-width) {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+@mixin mdc-snackbar-max-width($max-width, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-snackbar__surface {
+    @include mdc-feature-targets($feat-structure) {
+      max-width: $max-width;
+    }
+  }
+}
+
+@mixin mdc-snackbar-elevation($z-index, $query: mdc-feature-all()) {
+  .mdc-snackbar__surface {
+    @include mdc-elevation($z-index, $query: $query);
+  }
+}
+
+@mixin mdc-snackbar-viewport-margin($margin, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    margin: $margin;
+  }
+}
+
+@mixin mdc-snackbar-z-index($z-index, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    z-index: $z-index;
+  }
+}
+
+@mixin mdc-snackbar-position-leading($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    justify-content: flex-start;
+  }
+}
+
+@mixin mdc-snackbar-layout-stacked($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-snackbar__surface {
+    @include mdc-feature-targets($feat-structure) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .mdc-snackbar__actions {
+    @include mdc-feature-targets($feat-structure) {
+      align-self: flex-end;
+      margin-bottom: $mdc-snackbar-padding;
+    }
+  }
+}
+

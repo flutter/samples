@@ -1,0 +1,615 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/floating-label/mixins";
+@import "package:mdc_web/src/scss/line-ripple/mixins";
+@import "package:mdc_web/src/scss/notched-outline/mixins";
+@import "package:mdc_web/src/scss/notched-outline/variables";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "helper-text/mixins";
+@import "character-counter/mixins";
+@import "icon/mixins";
+@import "icon/variables";
+@import "./variables";
+@import "./functions";
+
+@mixin mdc-text-field-shape-radius($radius, $rtl-reflexive: false) {
+  @if length($radius) > 2 {
+    @error "Invalid radius: '#{$radius}' component doesn't allow customizing all corners";
+  }
+
+  $masked-radius: mdc-shape-mask-radius($radius, 1 1 0 0);
+
+  @include mdc-shape-radius(
+    mdc-shape-resolve-percentage-radius($mdc-text-field-height, $masked-radius),
+    $rtl-reflexive
+  );
+}
+
+@mixin mdc-text-field-textarea-shape-radius($radius, $rtl-reflexive: false) {
+  @include mdc-notched-outline-shape-radius($radius, $rtl-reflexive);
+}
+
+@mixin mdc-text-field-ink-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-ink-color_($color);
+  }
+}
+
+@mixin mdc-text-field-fill-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-fill-color_($color);
+  }
+}
+
+@mixin mdc-text-field-textarea-stroke-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-textarea-stroke-color_($color);
+  }
+}
+
+@mixin mdc-text-field-textarea-fill-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-textarea-fill-color_($color);
+  }
+}
+
+@mixin mdc-text-field-fullwidth-bottom-line-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-fullwidth-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-text-field-bottom-line-color($color) {
+  &:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) {
+    @include mdc-text-field-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-text-field-hover-bottom-line-color($color) {
+  &:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) {
+    @include mdc-text-field-hover-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-text-field-line-ripple-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-line-ripple-color_($color);
+  }
+}
+
+@mixin mdc-text-field-label-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-label-ink-color_($color);
+  }
+}
+
+@mixin mdc-text-field-outline-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-notched-outline-color($color);
+  }
+}
+
+@mixin mdc-text-field-hover-outline-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-hover-outline-color_($color);
+  }
+}
+
+@mixin mdc-text-field-focused-outline-color($color) {
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-text-field-focused-outline-color_($color);
+  }
+}
+
+@mixin mdc-text-field-caret-color($color) {
+  .mdc-text-field__input {
+    @include mdc-theme-prop(caret-color, $color);
+  }
+}
+
+// Private mixins
+
+// Baseline
+
+@mixin mdc-text-field-disabled_ {
+  @include mdc-text-field-bottom-line-color_($mdc-text-field-disabled-border);
+  @include mdc-text-field-ink-color_($mdc-text-field-disabled-ink-color);
+  @include mdc-text-field-label-ink-color_($mdc-text-field-disabled-label-color);
+  @include mdc-text-field-helper-text-color_($mdc-text-field-disabled-helper-text-color);
+  @include mdc-text-field-character-counter-color_($mdc-text-field-disabled-helper-text-color);
+  @include mdc-text-field-icon-color_($mdc-text-field-disabled-icon);
+  @include mdc-text-field-fullwidth-bottom-line-color_($mdc-text-field-fullwidth-bottom-line-color);
+  @include mdc-text-field-fill-color_($mdc-text-field-disabled-background);
+
+  border-bottom: none;
+  pointer-events: none;
+
+  .mdc-floating-label {
+    cursor: default;
+  }
+}
+
+@mixin mdc-text-field-invalid_ {
+  @include mdc-text-field-bottom-line-color($mdc-text-field-error);
+  @include mdc-text-field-hover-bottom-line-color($mdc-text-field-error);
+  @include mdc-text-field-line-ripple-color($mdc-text-field-error);
+  @include mdc-text-field-label-color($mdc-text-field-error);
+  @include mdc-text-field-helper-text-validation-color($mdc-text-field-error);
+  @include mdc-text-field-caret-color($mdc-text-field-error);
+
+  &:not(.mdc-text-field--disabled) {
+    @include mdc-required-text-field-label-asterisk_ {
+      @include mdc-theme-prop(color, $mdc-text-field-error);
+    }
+  }
+
+  &.mdc-text-field--with-trailing-icon {
+    &:not(.mdc-text-field--with-leading-icon) {
+      @include mdc-text-field-icon-color($mdc-text-field-error);
+    }
+
+    &.mdc-text-field--with-leading-icon {
+      @include mdc-text-field-icon-color($mdc-text-field-error, /* styleSecondIcon */ true);
+    }
+  }
+
+  + .mdc-text-field-helper-line .mdc-text-field-helper-text--validation-msg {
+    opacity: 1;
+  }
+}
+
+@mixin mdc-text-field-focused_ {
+  @include mdc-text-field-label-color($mdc-text-field-focused-label-color);
+
+  @include mdc-required-text-field-label-asterisk_ {
+    @include mdc-theme-prop(color, $mdc-text-field-focused-label-color);
+  }
+
+  + .mdc-text-field-helper-line .mdc-text-field-helper-text:not(.mdc-text-field-helper-text--validation-msg) {
+    opacity: 1;
+  }
+}
+
+@mixin mdc-text-field-dense_ {
+  @include mdc-floating-label-float-position(
+    $mdc-text-field-dense-label-position-y,
+    0%,
+    $mdc-text-field-dense-label-scale
+  );
+  @include mdc-floating-label-shake-animation(text-field-dense);
+
+  .mdc-text-field__input {
+    padding: 12px 12px 0;
+  }
+
+  .mdc-floating-label {
+    font-size: .813rem;
+
+    &--float-above {
+      font-size: .813rem;
+    }
+  }
+}
+
+@mixin mdc-required-text-field-label-asterisk_() {
+  .mdc-text-field__input:required ~ {
+    .mdc-floating-label::after,
+    .mdc-notched-outline .mdc-floating-label::after {
+      @content;
+    }
+  }
+}
+
+@mixin mdc-text-field-outline-shape-radius($radius, $rtl-reflexive: false) {
+  $resolved-radius: nth(mdc-shape-resolve-percentage-radius($mdc-text-field-height, mdc-shape-prop-value($radius)), 1);
+
+  @if (length(mdc-shape-prop-value($radius)) > 1) {
+    // stylelint-disable-next-line max-line-length
+    @warn "mdc-text-field-outline-shape-radius only supports a single radius; see https://github.com/material-components/material-components-web/issues/4140";
+  }
+
+  .mdc-notched-outline {
+    @include mdc-notched-outline-shape-radius($resolved-radius, $rtl-reflexive);
+  }
+
+  @if ($resolved-radius > $mdc-notched-outline-leading-width) {
+    .mdc-text-field__input {
+      @include mdc-rtl-reflexive-property(padding, $resolved-radius + $mdc-notched-outline-padding, 0);
+    }
+
+    + .mdc-text-field-helper-line {
+      @include mdc-rtl-reflexive-property(padding, $resolved-radius + $mdc-notched-outline-padding, $resolved-radius);
+    }
+  }
+}
+
+@mixin mdc-text-field-floating-label_ {
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-text-field-label-offset);
+
+    top: 18px;
+    pointer-events: none;
+  }
+
+  &--textarea {
+    .mdc-floating-label {
+      @include mdc-rtl-reflexive-position(left, $mdc-notched-outline-padding);
+    }
+  }
+
+  &--outlined {
+    .mdc-floating-label {
+      @include mdc-rtl-reflexive-position(left, $mdc-notched-outline-padding);
+
+      top: 17px;
+    }
+
+    &--with-leading-icon {
+      .mdc-floating-label {
+        @include mdc-rtl-reflexive-position(left, ($mdc-text-field-icon-padding - $mdc-notched-outline-leading-width));
+
+        &--float-above {
+          @include mdc-rtl-reflexive-position(
+            left,
+            ($mdc-text-field-icon-padding - $mdc-notched-outline-leading-width) + $mdc-notched-outline-padding
+          );
+        }
+      }
+    }
+  }
+}
+
+// Outlined
+
+@mixin mdc-text-field-outlined-disabled_ {
+  @include mdc-notched-outline-color($mdc-text-field-outlined-disabled-border);
+  @include mdc-text-field-fill-color_(transparent);
+
+  .mdc-text-field__input {
+    border-bottom: none;
+  }
+}
+
+@mixin mdc-text-field-outlined-invalid_ {
+  @include mdc-text-field-outline-color($mdc-text-field-error);
+  @include mdc-text-field-hover-outline-color($mdc-text-field-error);
+  @include mdc-text-field-focused-outline-color($mdc-text-field-error);
+}
+
+@mixin mdc-text-field-outlined-focused_ {
+  @include mdc-notched-outline-stroke-width(2px);
+}
+
+@mixin mdc-text-field-outlined-dense_ {
+  @include mdc-notched-outline-floating-label-float-position(
+    $mdc-text-field-outlined-dense-label-position-y,
+    0%,
+    $mdc-text-field-dense-label-scale
+  );
+  @include mdc-floating-label-shake-animation(text-field-outlined-dense);
+
+  height: 48px;
+
+  .mdc-text-field__input {
+    padding: 12px 12px 7px;
+  }
+
+  .mdc-floating-label {
+    top: 14px;
+  }
+
+  .mdc-text-field__icon {
+    top: 12px;
+  }
+}
+
+@mixin mdc-text-field-outlined_ {
+  @include mdc-text-field-outline-color($mdc-text-field-outlined-idle-border);
+  @include mdc-text-field-hover-outline-color($mdc-text-field-outlined-hover-border);
+  @include mdc-text-field-focused-outline-color(primary);
+  @include mdc-floating-label-shake-animation(text-field-outlined);
+  @include mdc-text-field-outline-shape-radius(small);
+  @include mdc-notched-outline-floating-label-float-position($mdc-text-field-outlined-label-position-y);
+  @include mdc-states-base-color(transparent);
+  @include mdc-text-field-fill-color(transparent);
+
+  border: none;
+  overflow: visible;
+
+  .mdc-text-field__input {
+    display: flex;
+    padding: 12px 16px 14px;
+    border: none !important; // FF adds unwanted border in HC mode on windows.
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  .mdc-text-field__icon {
+    z-index: 2;
+  }
+}
+
+@mixin mdc-text-field-hover-outline-color_($color) {
+  &:not(.mdc-text-field--focused) {
+    // stylelint-disable-next-line selector-combinator-space-after
+    .mdc-text-field__input:hover ~,
+    .mdc-text-field__icon:hover ~ {
+      .mdc-notched-outline {
+        @include mdc-notched-outline-color($color);
+      }
+    }
+  }
+}
+
+@mixin mdc-text-field-focused-outline-color_($color) {
+  &.mdc-text-field--focused {
+    @include mdc-notched-outline-color($color);
+  }
+}
+
+// Icons
+
+@mixin mdc-text-field-with-leading-icon_ {
+  @include mdc-text-field-icon-horizontal-position_(
+    left,
+    $mdc-text-field-icon-position,
+    $mdc-text-field-icon-padding,
+    $mdc-text-field-input-padding
+  );
+
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-text-field-icon-padding);
+  }
+}
+
+@mixin mdc-text-field-dense-with-leading-icon_ {
+  @include mdc-text-field-icon-horizontal-position_(
+    left,
+    $mdc-text-field-dense-icon-position,
+    $mdc-text-field-dense-icon-padding,
+    $mdc-text-field-input-padding
+  );
+
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-text-field-dense-icon-padding);
+  }
+}
+
+@mixin mdc-text-field-outlined-with-leading-icon_ {
+  @include mdc-text-field-icon-horizontal-position_(
+    left,
+    $mdc-text-field-icon-position,
+    $mdc-text-field-icon-padding,
+    $mdc-text-field-input-padding
+  );
+  @include mdc-notched-outline-floating-label-float-position($mdc-text-field-outlined-label-position-y, 32px);
+  @include mdc-floating-label-shake-animation(text-field-outlined-leading-icon);
+
+  @include mdc-rtl {
+    @include mdc-floating-label-shake-animation(text-field-outlined-leading-icon-rtl);
+  }
+
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-text-field-icon-padding - $mdc-notched-outline-leading-width);
+  }
+}
+
+@mixin mdc-text-field-outlined-dense-with-leading-icon_ {
+  @include mdc-notched-outline-floating-label-float-position(
+    $mdc-text-field-outlined-dense-label-position-y,
+    $mdc-text-field-outlined-dense-with-leading-icon-label-position-x,
+    $mdc-text-field-dense-label-scale
+  );
+  @include mdc-floating-label-shake-animation(text-field-outlined-leading-icon-dense);
+
+  @include mdc-rtl {
+    @include mdc-floating-label-shake-animation(text-field-outlined-leading-icon-dense-rtl);
+  }
+
+  .mdc-floating-label {
+    @include mdc-rtl-reflexive-position(left, $mdc-text-field-dense-icon-padding - $mdc-notched-outline-leading-width);
+  }
+}
+
+@mixin mdc-text-field-with-trailing-icon_ {
+  @include mdc-text-field-icon-horizontal-position_(
+    right,
+    $mdc-text-field-trailing-icon-position,
+    $mdc-text-field-icon-padding,
+    $mdc-text-field-input-padding
+  );
+
+  // Outlined uses 16px for text alignment when using a trailing icon.
+  &.mdc-text-field--outlined {
+    @include mdc-text-field-icon-horizontal-position_(
+      right,
+      $mdc-text-field-icon-position,
+      $mdc-text-field-icon-padding,
+      $mdc-text-field-input-padding
+    );
+  }
+}
+
+@mixin mdc-text-field-dense-with-trailing-icon_ {
+  @include mdc-text-field-icon-horizontal-position_(
+    right,
+    $mdc-text-field-dense-icon-position,
+    $mdc-text-field-dense-icon-padding,
+    $mdc-text-field-input-padding
+  );
+}
+
+@mixin mdc-text-field-with-both-icons_ {
+  @include mdc-text-field-icon-horizontal-position-two-icons_(
+    $mdc-text-field-icon-position,
+    $mdc-text-field-icon-padding,
+    $mdc-text-field-trailing-icon-position,
+    $mdc-text-field-icon-padding
+  );
+}
+
+@mixin mdc-text-field-dense-with-both-icons_ {
+  @include mdc-text-field-icon-horizontal-position-two-icons_(
+    $mdc-text-field-dense-icon-position,
+    $mdc-text-field-dense-icon-padding,
+    $mdc-text-field-dense-icon-position,
+    $mdc-text-field-dense-icon-padding
+  );
+}
+
+// Full Width
+@mixin mdc-text-field-fullwidth_ {
+  width: 100%;
+
+  &:not(.mdc-text-field--textarea) {
+    @include mdc-states-base-color(transparent);
+    @include mdc-text-field-fill-color(transparent);
+
+    display: block;
+
+    .mdc-text-field__input {
+      padding: 0;
+    }
+  }
+
+  &.mdc-text-field--textarea .mdc-text-field__input {
+    resize: vertical;
+  }
+}
+
+@mixin mdc-text-field-fullwidth-invalid_ {
+  @include mdc-text-field-fullwidth-bottom-line-color($mdc-text-field-error);
+}
+
+// Textarea
+@mixin mdc-text-field-textarea-disabled_ {
+  @include mdc-text-field-outlined-disabled_;
+  /* @alternate */
+  @include mdc-text-field-textarea-fill-color_($mdc-textarea-disabled-background);
+}
+
+@mixin mdc-text-field-textarea-invalid_ {
+  @include mdc-text-field-outline-color($mdc-text-field-error);
+  @include mdc-text-field-hover-outline-color($mdc-text-field-error);
+  @include mdc-text-field-focused-outline-color($mdc-text-field-error);
+}
+
+@mixin mdc-text-field-textarea_ {
+  // Note: The refactor to add the filled textarea style will result in a lot of the specificity issues that the
+  // textarea has being resolved by using the same --outlined variant class as the text field.
+  @include mdc-text-field-outline-color($mdc-text-field-outlined-idle-border);
+  @include mdc-text-field-hover-outline-color($mdc-text-field-outlined-hover-border);
+  @include mdc-text-field-focused-outline-color(primary);
+  @include mdc-floating-label-shake-animation(text-field-outlined);
+  @include mdc-text-field-outline-shape-radius(small);
+  @include mdc-states-base-color(transparent);
+  @include mdc-text-field-fill-color(transparent);
+  @include mdc-notched-outline-floating-label-float-position($mdc-text-field-outlined-label-position-y, 0%);
+  @include mdc-text-field-character-counter-position(16px, 13px);
+
+  $padding-inset: 16px;
+
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  transition: none;
+  overflow: visible;
+
+  .mdc-text-field__input {
+    align-self: auto;
+    box-sizing: border-box;
+    height: auto;
+    margin: $padding-inset/2 1px 1px 0;
+    padding: 0 $padding-inset $padding-inset;
+    border: none;
+  }
+
+  .mdc-text-field-character-counter + .mdc-text-field__input {
+    margin-bottom: 28px; // Leaves space for character counter if it exists.
+    padding-bottom: 0;
+  }
+
+  .mdc-floating-label {
+    top: 17px;
+    bottom: auto;
+    width: auto;
+    pointer-events: none;
+  }
+
+  &.mdc-text-field--focused {
+    @include mdc-text-field-outlined-focused_;
+  }
+}
+
+// Customization
+
+@mixin mdc-text-field-ink-color_($color) {
+  .mdc-text-field__input {
+    @include mdc-theme-prop(color, $color);
+  }
+}
+
+@mixin mdc-text-field-fill-color_($color) {
+  @include mdc-theme-prop(background-color, $color);
+}
+
+@mixin mdc-text-field-textarea-stroke-color_($color) {
+  @include mdc-notched-outline-color($color);
+}
+
+@mixin mdc-text-field-textarea-fill-color_($color) {
+  @include mdc-theme-prop(background-color, $color);
+}
+
+@mixin mdc-text-field-fullwidth-bottom-line-color_($color) {
+  &:not(.mdc-text-field--textarea) {
+    @include mdc-theme-prop(border-bottom-color, $color);
+  }
+}
+
+@mixin mdc-text-field-bottom-line-color_($color) {
+  .mdc-text-field__input {
+    @include mdc-theme-prop(border-bottom-color, $color);
+  }
+}
+
+@mixin mdc-text-field-hover-bottom-line-color_($color) {
+  .mdc-text-field__input:hover {
+    @include mdc-theme-prop(border-bottom-color, $color);
+  }
+}
+
+@mixin mdc-text-field-line-ripple-color_($color) {
+  .mdc-line-ripple {
+    @include mdc-line-ripple-color($color);
+  }
+}
+
+@mixin mdc-text-field-label-ink-color_($color) {
+  .mdc-floating-label {
+    @include mdc-floating-label-ink-color($color);
+  }
+}
+

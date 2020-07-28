@@ -1,0 +1,151 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "./functions";
+
+$mdc-typography-font-family: unquote("Roboto, sans-serif") !default;
+
+$mdc-typography-base: (
+  font-family: $mdc-typography-font-family,
+  -moz-osx-font-smoothing: grayscale,
+  -webkit-font-smoothing: antialiased,
+) !default;
+
+$mdc-typography-font-weight-values: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900
+) !default;
+
+$mdc-typography-styles: mdc-typography-set-styles_(
+  $mdc-typography-base,
+  (
+    headline1: (
+      font-size: 6rem, // 96sp
+      line-height: 6rem,
+      font-weight: map-get($mdc-typography-font-weight-values, light),
+      letter-spacing: mdc-typography-get-letter-spacing_(-1.5, 6),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    headline2: (
+      font-size: 3.75rem, // 60sp
+      line-height: 3.75rem,
+      font-weight: map-get($mdc-typography-font-weight-values, light),
+      letter-spacing: mdc-typography-get-letter-spacing_(-.5, 3.75),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    headline3: (
+      font-size: 3rem, // 48px
+      line-height: 3.125rem, // 50px
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: normal,
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    headline4: (
+      font-size: 2.125rem, // 34sp
+      line-height: 2.5rem, // 40sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: mdc-typography-get-letter-spacing_(.25, 2.125),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    headline5: (
+      font-size: 1.5rem, // 24sp
+      line-height: 2rem, // 32sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: normal,
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    headline6: (
+      font-size: 1.25rem, // 20sp
+      line-height: 2rem, // 32sp
+      font-weight: map-get($mdc-typography-font-weight-values, medium),
+      letter-spacing: mdc-typography-get-letter-spacing_(.25, 1.25),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    subtitle1: (
+      font-size: 1rem, // 16sp
+      line-height: 1.75rem, // 28sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: mdc-typography-get-letter-spacing_(.15, 1),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    subtitle2: (
+      font-size: .875rem, // 14sp
+      line-height: 1.375rem, // 22sp
+      font-weight: map-get($mdc-typography-font-weight-values, medium),
+      letter-spacing: mdc-typography-get-letter-spacing_(.1, .875),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    body1: (
+      font-size: 1rem, // 16sp
+      line-height: 1.5rem, // 24sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: mdc-typography-get-letter-spacing_(.5, 1),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    body2: (
+      font-size: .875rem, // 14sp
+      line-height: 1.25rem, // 20sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: mdc-typography-get-letter-spacing_(.25, .875),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    caption: (
+      font-size: .75rem, // 12sp
+      line-height: 1.25rem, // 20sp
+      font-weight: map-get($mdc-typography-font-weight-values, regular),
+      letter-spacing: mdc-typography-get-letter-spacing_(.4, .75),
+      text-decoration: inherit,
+      text-transform: inherit
+    ),
+    button: (
+      font-size: .875rem, // 14sp
+      line-height: 2.25rem, // 36sp
+      font-weight: map-get($mdc-typography-font-weight-values, medium),
+      letter-spacing: mdc-typography-get-letter-spacing_(1.25, .875),
+      text-decoration: none,
+      text-transform: uppercase
+    ),
+    overline: (
+      font-size: .75rem, // 12sp
+      line-height: 2rem, // 32sp
+      font-weight: map-get($mdc-typography-font-weight-values, medium),
+      letter-spacing: mdc-typography-get-letter-spacing_(2, .75),
+      text-decoration: none,
+      text-transform: uppercase
+    ),
+  )
+) !default;
+

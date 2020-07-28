@@ -1,0 +1,171 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "./functions";
+
+//
+// Main theme colors for your brand.
+//
+// If you're a user customizing your color scheme in SASS, these are probably the only variables you need to change.
+//
+
+$mdc-theme-primary: #6200ee !default; // baseline purple, 500 tone
+$mdc-theme-on-primary: if(mdc-theme-contrast-tone($mdc-theme-primary) == "dark", #000, #fff) !default;
+
+// The $mdc-theme-accent variable is DEPRECATED - it exists purely for backward compatibility.
+// The $mdc-theme-secondary* variables should be used for all new projects.
+$mdc-theme-accent: #018786 !default; // baseline teal, 600 tone
+$mdc-theme-secondary: $mdc-theme-accent !default;
+$mdc-theme-on-secondary: if(mdc-theme-contrast-tone($mdc-theme-secondary) == "dark", #000, #fff) !default;
+$mdc-theme-background: #fff !default; // White
+
+$mdc-theme-surface: #fff !default;
+$mdc-theme-on-surface: if(mdc-theme-contrast-tone($mdc-theme-surface) == "dark", #000, #fff) !default;
+
+$mdc-theme-error: #b00020 !default;
+$mdc-theme-on-error: if(mdc-theme-contrast-tone($mdc-theme-error) == "dark", #000, #fff) !default;
+
+//
+// Text colors according to light vs dark and text type.
+//
+
+$mdc-theme-text-colors: (
+  dark: (
+    primary: rgba(black, .87),
+    secondary: rgba(black, .54),
+    hint: rgba(black, .38),
+    disabled: rgba(black, .38),
+    icon: rgba(black, .38)
+  ),
+  light: (
+    primary: white,
+    secondary: rgba(white, .7),
+    hint: rgba(white, .5),
+    disabled: rgba(white, .5),
+    icon: rgba(white, .5)
+  )
+) !default;
+
+$mdc-theme-text-emphasis: (
+  high: .87,
+  medium: .6,
+  disabled: .38,
+) !default;
+
+@function mdc-theme-ink-color-for-fill_($text-style, $fill-color) {
+  $contrast-tone: mdc-theme-contrast-tone($fill-color);
+
+  @return map-get(map-get($mdc-theme-text-colors, $contrast-tone), $text-style);
+}
+
+//
+// Primary text colors for each of the theme colors.
+//
+
+$mdc-theme-property-values: (
+  // Primary
+  primary: $mdc-theme-primary,
+  // Secondary
+  secondary: $mdc-theme-secondary,
+  // Background
+  background: $mdc-theme-background,
+  // Surface
+  surface: $mdc-theme-surface,
+  // Error
+  error: $mdc-theme-error,
+  on-primary: $mdc-theme-on-primary,
+  on-secondary: $mdc-theme-on-secondary,
+  on-surface: $mdc-theme-on-surface,
+  on-error: $mdc-theme-on-error,
+  // Text-primary on "background" background
+  text-primary-on-background: mdc-theme-ink-color-for-fill_(primary, $mdc-theme-background),
+  text-secondary-on-background: mdc-theme-ink-color-for-fill_(secondary, $mdc-theme-background),
+  text-hint-on-background: mdc-theme-ink-color-for-fill_(hint, $mdc-theme-background),
+  text-disabled-on-background: mdc-theme-ink-color-for-fill_(disabled, $mdc-theme-background),
+  text-icon-on-background: mdc-theme-ink-color-for-fill_(icon, $mdc-theme-background),
+  // Text-primary on "light" background
+  text-primary-on-light: mdc-theme-ink-color-for-fill_(primary, light),
+  text-secondary-on-light: mdc-theme-ink-color-for-fill_(secondary, light),
+  text-hint-on-light: mdc-theme-ink-color-for-fill_(hint, light),
+  text-disabled-on-light: mdc-theme-ink-color-for-fill_(disabled, light),
+  text-icon-on-light: mdc-theme-ink-color-for-fill_(icon, light),
+  // Text-primary on "dark" background
+  text-primary-on-dark: mdc-theme-ink-color-for-fill_(primary, dark),
+  text-secondary-on-dark: mdc-theme-ink-color-for-fill_(secondary, dark),
+  text-hint-on-dark: mdc-theme-ink-color-for-fill_(hint, dark),
+  text-disabled-on-dark: mdc-theme-ink-color-for-fill_(disabled, dark),
+  text-icon-on-dark: mdc-theme-ink-color-for-fill_(icon, dark)
+) !default;
+
+// If `$style` is a color (a literal color value, `currentColor`, or a CSS custom property), it is returned verbatim.
+// Otherwise, `$style` is treated as a theme property name, and the corresponding value from
+// `$mdc-theme-property-values` is returned. If this also fails, an error is thrown.
+//
+// This is mainly useful in situations where `mdc-theme-prop` cannot be used directly (e.g., `box-shadow`).
+//
+// Examples:
+//
+// 1. mdc-theme-prop-value(primary) => "#6200ee"
+// 2. mdc-theme-prop-value(blue)    => "blue"
+//
+// NOTE: This function must be defined in _variables.scss instead of _functions.scss to avoid circular imports.
+@function mdc-theme-prop-value($style) {
+  @if mdc-theme-is-var-with-fallback_($style) {
+    @return mdc-theme-get-var-fallback_($style);
+  }
+
+  @if mdc-theme-is-valid-theme-prop-value_($style) {
+    @return $style;
+  }
+
+  @if not map-has-key($mdc-theme-property-values, $style) {
+    @error "Invalid theme property: '#{$style}'. Choose one of: #{map-keys($mdc-theme-property-values)}";
+  }
+
+  @return map-get($mdc-theme-property-values, $style);
+}
+
+// NOTE: This function must be defined in _variables.scss instead of _functions.scss to avoid circular imports.
+@function mdc-theme-accessible-ink-color($fill-color, $text-style: primary) {
+  $fill-color-value: mdc-theme-prop-value($fill-color);
+  $color-map-for-tone: map-get($mdc-theme-text-colors, mdc-theme-contrast-tone($fill-color-value));
+
+  @if not map-has-key($color-map-for-tone, $text-style) {
+    @error "Invalid $text-style: '#{$text-style}'. Choose one of: #{map-keys($color-map-for-tone)}";
+  }
+
+  @return map-get($color-map-for-tone, $text-style);
+}
+
+// NOTE: This function is depended upon by mdc-theme-prop-value (above) and thus must be defined in this file.
+@function mdc-theme-is-valid-theme-prop-value_($style) {
+  @return type-of($style) == "color" or
+    $style == "currentColor" or
+    str_slice($style, 1, 4) == "var(" or
+    $style == "inherit" or
+    $style == "transparent";
+}
+
+@function mdc-theme-text-emphasis($emphasis) {
+  @return map-get($mdc-theme-text-emphasis, $emphasis);
+}
+

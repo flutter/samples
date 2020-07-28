@@ -1,0 +1,208 @@
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "./variables";
+
+@mixin mdc-image-list-core-styles($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // postcss-bem-linter: define image-list
+  .mdc-image-list {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      flex-wrap: wrap;
+      // Margin and padding are set to override default user agent styles for lists, and also to center the Image List
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  .mdc-image-list__item,
+  .mdc-image-list__image-aspect-container {
+    @include mdc-feature-targets($feat-structure) {
+      // Supports absolute positioning of protected supporting content for item, and image for image-aspect-container
+      position: relative;
+      box-sizing: border-box;
+    }
+  }
+
+  .mdc-image-list__item {
+    @include mdc-feature-targets($feat-structure) {
+      list-style-type: none;
+    }
+  }
+
+  .mdc-image-list__image {
+    @include mdc-feature-targets($feat-structure) {
+      width: 100%;
+    }
+  }
+
+  // Descendant selector allows image-aspect-container to be optional in DOM structure
+  .mdc-image-list__image-aspect-container .mdc-image-list__image {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      // Background styles to support div instead of img
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  @include mdc-image-list-aspect(1, $query: $query);
+  @include mdc-image-list-shape-radius(0, $query: $query);
+
+  .mdc-image-list__supporting {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, text-primary-on-background);
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 8px 0;
+      line-height: $mdc-image-list-icon-size;
+    }
+  }
+
+  .mdc-image-list__label {
+    @include mdc-typography(subtitle1, $query: $query);
+    @include mdc-typography-overflow-ellipsis($query: $query);
+  }
+
+  // Modifier for labels/icons with text protection, overlaying images.
+
+  .mdc-image-list--with-text-protection .mdc-image-list__supporting {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: $mdc-image-list-text-protection-height;
+      padding: 0 $mdc-image-list-text-protection-horizontal-padding;
+    }
+
+    @include mdc-feature-targets($feat-color) {
+      background: $mdc-image-list-text-protection-background-color;
+      color: #fff;
+    }
+  }
+
+  // Masonry Image List, using CSS columns (i.e. renders down then across)
+
+  .mdc-image-list--masonry {
+    @include mdc-feature-targets($feat-structure) {
+      display: block; // Override flex
+    }
+
+    .mdc-image-list__item {
+      @include mdc-feature-targets($feat-structure) {
+        break-inside: avoid-column;
+      }
+    }
+
+    .mdc-image-list__image {
+      @include mdc-feature-targets($feat-structure) {
+        display: block;
+        height: auto;
+      }
+    }
+  }
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-image-list-aspect($width-height-ratio, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-image-list__image-aspect-container {
+    @include mdc-feature-targets($feat-structure) {
+      padding-bottom: calc(100% / #{$width-height-ratio});
+    }
+  }
+}
+
+@mixin mdc-image-list-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  .mdc-image-list__image {
+    @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+  }
+
+  $selector: if(&, "&.mdc-image-list--with-text-protection", ".mdc-image-list--with-text-protection");
+
+  #{$selector} .mdc-image-list__supporting {
+    $masked-radius: mdc-shape-mask-radius($radius, 0 0 1 1);
+
+    @include mdc-shape-radius($masked-radius, $rtl-reflexive, $query: $query);
+  }
+}
+
+// Standard Image List
+
+@mixin mdc-image-list-standard-columns(
+  $column-count,
+  $gutter-size: $mdc-image-list-standard-gutter-size,
+  $query: mdc-feature-all()
+) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // This uses margin rather than padding to facilitate properly positioning the supporting content element when
+  // --with-text-protection is used.
+  .mdc-image-list__item {
+    @include mdc-feature-targets($feat-structure) {
+      // Subtract extra fraction from each item's width to ensure correct wrapping in IE/Edge which round differently
+      width: calc(100% / #{$column-count} - #{$gutter-size + 1 / $column-count});
+      margin: $gutter-size / 2;
+    }
+  }
+}
+
+// Masonry Image List
+
+@mixin mdc-image-list-masonry-columns(
+  $column-count,
+  $gutter-size: $mdc-image-list-masonry-gutter-size,
+  $query: mdc-feature-all()
+) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    column-count: $column-count;
+    column-gap: $gutter-size;
+  }
+
+  .mdc-image-list__item {
+    @include mdc-feature-targets($feat-structure) {
+      margin-bottom: $gutter-size;
+    }
+  }
+}
+

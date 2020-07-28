@@ -1,0 +1,166 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "./keyframes";
+@import "./mixins";
+@import "./variables";
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/line-ripple/mdc-line-ripple";
+@import "package:mdc_web/src/scss/notched-outline/mdc-notched-outline";
+@import "package:mdc_web/src/scss/floating-label/mdc-floating-label";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/ripple/common";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "./icon/mdc-select-icon";
+@import "./helper-text/mdc-select-helper-text";
+@import "./helper-text/mixins";
+
+// postcss-bem-linter: define select
+.mdc-select {
+  @include mdc-select-container-fill-color($mdc-select-fill-color);
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  // Select intentionally omits press ripple, so each state needs to be specified individually.
+  @include mdc-states-base-color($mdc-select-ink-color);
+  @include mdc-states-hover-opacity(mdc-states-opacity($mdc-select-ink-color, hover));
+  @include mdc-states-focus-opacity(mdc-states-opacity($mdc-select-ink-color, focus));
+  @include mdc-select-ink-color($mdc-select-ink-color);
+  @include mdc-select-label-color($mdc-select-label-color);
+  @include mdc-select-bottom-line-color($mdc-select-bottom-line-idle-color);
+  @include mdc-select-helper-text-color($mdc-select-helper-text-color);
+  @include mdc-select-shape-radius(small);
+
+  // Focused state colors
+  @include mdc-select-focused-bottom-line-color(primary);
+  @include mdc-select-focused-label-color($mdc-select-focused-label-color);
+
+  // Hover state colors
+  @include mdc-select-hover-bottom-line-color($mdc-select-bottom-line-hover-color);
+  @include mdc-floating-label-float-position($mdc-select-label-position-y);
+  @include mdc-select-floating-label_;
+
+  display: inline-flex;
+  position: relative;
+  box-sizing: border-box;
+  height: $mdc-select-height;
+  overflow: hidden;
+  /* @alternate */
+  will-change: opacity, transform, color;
+
+  &__dropdown-icon {
+    @include mdc-select-dd-arrow-svg-bg_($mdc-select-dropdown-color, $mdc-select-dropdown-opacity);
+    @include mdc-rtl-reflexive(left, auto, right, 8px);
+
+    position: absolute;
+    bottom: 16px;
+    width: 24px;
+    height: 24px;
+    transition: transform $mdc-select-dropdown-transition-duration $mdc-animation-standard-curve-timing-function;
+    pointer-events: none;
+
+    .mdc-select--focused & {
+      @include mdc-select-dd-arrow-svg-bg_(mdc-theme-prop-value(primary), 1);
+    }
+
+    .mdc-select--activated & {
+      transform: rotate(180deg) translateY(-5px);
+      transition: transform $mdc-select-dropdown-transition-duration $mdc-animation-standard-curve-timing-function;
+    }
+  }
+
+  &__native-control {
+    padding-top: 20px;
+  }
+
+  @include mdc-select-focused-line-ripple_ {
+    &::after {
+      transform: scale(1, 2);
+      opacity: 1;
+    }
+  }
+}
+
+@include mdc-select-helper-text_;
+@include mdc-select-text-and-control_();
+
+.mdc-select--outlined {
+  @include mdc-select-outlined_;
+}
+
+.mdc-select--invalid {
+  @include mdc-select-label-color($mdc-select-error-color);
+  @include mdc-select-bottom-line-color($mdc-select-error-color);
+  @include mdc-select-focused-bottom-line-color($mdc-select-error-color);
+  @include mdc-select-focused-label-color($mdc-select-error-color);
+  @include mdc-select-helper-text-validation-color($mdc-select-error-color);
+
+  // Hover state colors
+  @include mdc-select-hover-bottom-line-color($mdc-select-error-color);
+
+  &.mdc-select--outlined {
+    @include mdc-select-outline-color($mdc-select-error-color);
+    @include mdc-select-hover-outline-color($mdc-select-error-color);
+    @include mdc-select-focused-outline-color($mdc-select-error-color);
+  }
+
+  .mdc-select__dropdown-icon {
+    @include mdc-select-dd-arrow-svg-bg_($mdc-select-error-color, 1);
+  }
+
+  // stylelint-disable-next-line plugin/selector-bem-pattern
+  + .mdc-select-helper-text--validation-msg {
+    opacity: 1;
+  }
+}
+
+.mdc-select--required {
+  // stylelint-disable-next-line plugin/selector-bem-pattern
+  .mdc-floating-label::after {
+    content: "*";
+  }
+}
+
+.mdc-select--disabled {
+  @include mdc-select-disabled_;
+}
+
+.mdc-select--with-leading-icon {
+  @include mdc-select-with-leading-icon_;
+}
+
+.mdc-select__menu .mdc-list .mdc-list-item--selected {
+  @include mdc-theme-prop(color, on-surface);
+  @include mdc-states(on-surface);
+}
+
+@include mdc-floating-label-shake-keyframes(
+  select-outlined-leading-icon,
+  $mdc-select-outlined-label-position-y,
+  $mdc-select-outlined-with-leading-icon-label-position-x
+);
+@include mdc-floating-label-shake-keyframes(
+  select-outlined-leading-icon-rtl,
+  $mdc-select-outlined-label-position-y,
+  -$mdc-select-outlined-with-leading-icon-label-position-x
+);
+

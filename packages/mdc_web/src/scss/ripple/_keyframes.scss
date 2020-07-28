@@ -1,0 +1,66 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+// MDC Ripple keyframes are split into their own file so that _mixins.scss can rely on them.
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "./variables";
+
+@mixin mdc-ripple-keyframes_ {
+  @keyframes mdc-ripple-fg-radius-in {
+    from {
+      animation-timing-function: $mdc-animation-standard-curve-timing-function;
+      // NOTE: For these keyframes, we do not need custom property fallbacks because they are only
+      // used in conjunction with `.mdc-ripple-upgraded`. Since MDCRippleFoundation checks to ensure
+      // that custom properties are supported within the browser before adding this class, we can
+      // safely use them without a fallback.
+      transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
+    }
+
+    to {
+      transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
+    }
+  }
+
+  @keyframes mdc-ripple-fg-opacity-in {
+    from {
+      animation-timing-function: linear;
+      opacity: 0;
+    }
+
+    to {
+      opacity: var(--mdc-ripple-fg-opacity, 0);
+    }
+  }
+
+  @keyframes mdc-ripple-fg-opacity-out {
+    from {
+      animation-timing-function: linear;
+      opacity: var(--mdc-ripple-fg-opacity, 0);
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}
+

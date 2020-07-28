@@ -1,0 +1,142 @@
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "package:mdc_web/src/scss/animation/functions";
+@import "./keyframes";
+@import "./mixins";
+@import "./variables";
+
+.mdc-linear-progress {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  transform: translateZ(0);
+  transition: mdc-animation-exit-temporary(opacity, 250ms);
+  overflow: hidden;
+
+  &__bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: none;
+    transform-origin: top left;
+    transition: mdc-animation-exit-temporary(transform, 250ms);
+  }
+
+  &__bar-inner {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: none;
+  }
+
+  &__buffering-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: buffering 250ms infinite linear;
+    background-repeat: repeat-x;
+    background-size: 10px 4px;
+  }
+
+  &__buffer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: top left;
+    transition: mdc-animation-exit-temporary(transform, 250ms);
+  }
+
+  &__primary-bar {
+    transform: scaleX(0);
+  }
+
+  &__secondary-bar {
+    visibility: hidden;
+  }
+
+  &--indeterminate {
+    .mdc-linear-progress__bar {
+      transition: none;
+    }
+
+    .mdc-linear-progress__primary-bar {
+      left: -145.166611%;
+      animation: primary-indeterminate-translate 2s infinite linear;
+
+      > .mdc-linear-progress__bar-inner {
+        animation: primary-indeterminate-scale 2s infinite linear;
+      }
+    }
+
+    .mdc-linear-progress__secondary-bar {
+      left: -54.888891%;
+      animation: secondary-indeterminate-translate 2s infinite linear;
+      visibility: visible;
+
+      > .mdc-linear-progress__bar-inner {
+        animation: secondary-indeterminate-scale 2s infinite linear;
+      }
+    }
+  }
+
+  &--reversed {
+    .mdc-linear-progress__bar,
+    .mdc-linear-progress__buffer {
+      right: 0;
+      transform-origin: center right;
+    }
+
+    .mdc-linear-progress__primary-bar {
+      animation-name: primary-indeterminate-translate-reverse;
+    }
+
+    .mdc-linear-progress__secondary-bar {
+      animation-name: secondary-indeterminate-translate-reverse;
+    }
+
+    .mdc-linear-progress__buffering-dots {
+      animation: buffering-reverse 250ms infinite linear;
+    }
+  }
+
+  &--closed {
+    opacity: 0;
+  }
+}
+
+@at-root {
+  @include mdc-linear-progress-bar-color(primary);
+  @include mdc-linear-progress-buffer-color($mdc-linear-progress-baseline-buffer-color);
+}
+
+.mdc-linear-progress--indeterminate.mdc-linear-progress--reversed {
+  .mdc-linear-progress__primary-bar {
+    right: -145.166611%;
+    left: auto;
+  }
+
+  .mdc-linear-progress__secondary-bar {
+    right: -54.888891%;
+    left: auto;
+  }
+}
+

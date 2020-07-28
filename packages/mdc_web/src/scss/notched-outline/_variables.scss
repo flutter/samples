@@ -1,0 +1,33 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+$mdc-notched-outline-transition-duration: 150ms !default;
+// Keep this in sync with constants.numbers.MIN_LEADING_STROKE_EDGE_POSITION
+$mdc-notched-outline-min-leading-stroke-edge-position: 12px !default;
+// The gap between the stroke end and floating label
+// Keep this in sync with constants.numbers.NOTCH_GUTTER_SIZE
+$mdc-notched-outline-notch-gutter-size: 4px !default;
+$mdc-notched-outline-leading-width: 12px !default;
+$mdc-notched-outline-padding: 4px !default;
+// This variable keeps the before/after JS label centered in the notch when the font-size is changed.
+$mdc-notched-outline-label-adjust: 14% !default;
+

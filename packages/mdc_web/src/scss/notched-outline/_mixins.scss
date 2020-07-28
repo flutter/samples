@@ -1,0 +1,92 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/shape/functions";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "./variables";
+
+@mixin mdc-notched-outline-color($color) {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    @include mdc-theme-prop(border-color, $color);
+  }
+}
+
+@mixin mdc-notched-outline-stroke-width($width) {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-width: $width;
+  }
+}
+
+@mixin mdc-notched-outline-shape-radius($radius, $rtl-reflexive: false) {
+  $radius: mdc-shape-prop-value($radius);
+
+  @if (length($radius) > 1) {
+    // stylelint-disable-next-line max-line-length
+    @warn "mdc-notched-outline-shape-radius only supports a single radius; see https://github.com/material-components/material-components-web/issues/4140";
+  }
+
+  $radius: nth($radius, 1);
+
+  .mdc-notched-outline__leading {
+    @include mdc-shape-radius(mdc-shape-mask-radius($radius, 1 0 0 1), $rtl-reflexive: true);
+
+    @if ($radius > $mdc-notched-outline-leading-width) {
+      width: $radius;
+    }
+  }
+
+  @if ($radius > $mdc-notched-outline-leading-width) {
+    .mdc-notched-outline__notch {
+      max-width: calc(100% - #{$radius} * 2);
+    }
+  }
+
+  .mdc-notched-outline__trailing {
+    @include mdc-shape-radius(mdc-shape-mask-radius($radius, 0 1 1 0), $rtl-reflexive: true);
+  }
+}
+
+@mixin mdc-notched-outline-floating-label-float-position($positionY, $positionX: 0%, $scale: .75) {
+  @include mdc-floating-label-float-position($positionY + $mdc-notched-outline-label-adjust, $positionX, 1);
+
+  .mdc-floating-label--float-above {
+    font-size: ($scale * 1rem);
+  }
+
+  // Two selectors to ensure we select the appropriate class when applied from this component or a parent component.
+  &.mdc-notched-outline--upgraded,
+  .mdc-notched-outline--upgraded {
+    @include mdc-floating-label-float-position($positionY, $positionX, $scale);
+
+    // stylelint-disable-next-line no-descending-specificity
+    .mdc-floating-label--float-above {
+      font-size: 1rem;
+    }
+  }
+}
+

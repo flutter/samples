@@ -1,0 +1,477 @@
+//
+// Copyright 2017 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/theme/functions";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/theme/variables"; // for mdc-theme-prop-value
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "./variables";
+@import "./keyframes";
+
+//
+// Public
+//
+@mixin mdc-slider-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  // postcss-bem-linter: define slider
+
+  @include mdc-feature-targets($feat-animation) {
+    @include mdc-slider-emphasize-keyframes_;
+  }
+
+  .mdc-slider {
+    @include mdc-slider-color-accessible(secondary, $query: $query);
+
+    &--disabled {
+      $disabled-color: #9a9a9a;
+
+      @include mdc-slider-highlight-color_($disabled-color, $query: $query);
+      @include mdc-slider-rail-color_($disabled-color, $query: $query);
+      @include mdc-slider-rail-tick-mark-color_($disabled-color, $query: $query);
+      @include mdc-slider-thumb-color_($disabled-color, $query: $query);
+      @include mdc-slider-thumb-stroke-cutout_(white, $query: $query);
+
+      @include mdc-feature-targets($feat-structure) {
+        cursor: auto;
+      }
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      position: relative;
+      width: 100%;
+      height: 48px;
+      cursor: pointer;
+      touch-action: pan-x;
+      -webkit-tap-highlight-color: rgba(black, 0);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    @include mdc-slider-track_($query: $query);
+    @include mdc-slider-track-marker_($query: $query);
+    @include mdc-slider-thumb_($query: $query);
+    @include mdc-slider-focus-ring_($query: $query);
+    @include mdc-slider-pin_($query: $query);
+  }
+
+  .mdc-slider--active {
+    .mdc-slider__thumb {
+      @include mdc-feature-targets($feat-structure) {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  }
+
+  .mdc-slider--focus {
+    .mdc-slider__thumb {
+      @include mdc-feature-targets($feat-animation) {
+        animation: mdc-slider-emphasize 266.67ms linear;
+      }
+    }
+
+    .mdc-slider__focus-ring {
+      @include mdc-feature-targets($feat-structure) {
+        transform: scale3d(1.55, 1.55, 1.55);
+        opacity: .25;
+      }
+    }
+  }
+
+  .mdc-slider--in-transit {
+    .mdc-slider__thumb {
+      @include mdc-feature-targets($feat-animation) {
+        transition-delay: 140ms;
+      }
+    }
+  }
+
+  // NOTE(traviskaufman): There are multiple cases where we want the slider to
+  // transition seamlessly even though we're jumping to a spot. The selectors
+  // below highlight these cases. The selectors are supplemented by a comment
+  // denoting their semantic meaning within the slider.
+
+  // When a user clicks somewhere on the track that is not directly the slider
+  // thumb container, we transition to the place where the user clicked.
+  .mdc-slider--in-transit,
+  // When a user is using the arrow keys to modify the value of the slider rather
+  // than dragging with a pointer, we transition from one value to another.
+  .mdc-slider:focus:not(.mdc-slider--active) {
+    .mdc-slider__thumb-container,
+    .mdc-slider__track {
+      @include mdc-feature-targets($feat-animation) {
+        transition: transform 80ms ease;
+      }
+    }
+  }
+
+  .mdc-slider--discrete {
+    // stylelint-disable plugin/selector-bem-pattern
+    &.mdc-slider--active {
+      .mdc-slider__thumb {
+        @include mdc-feature-targets($feat-structure) {
+          transform: scale(calc(12 / 21));
+        }
+      }
+
+      .mdc-slider__pin {
+        @include mdc-feature-targets($feat-structure) {
+          transform: rotate(-45deg) scale(1) translate(19px, -20px);
+        }
+      }
+    }
+
+    &.mdc-slider--focus {
+      .mdc-slider__thumb {
+        @include mdc-feature-targets($feat-animation) {
+          animation: none;
+        }
+      }
+    }
+
+    &.mdc-slider--display-markers {
+      .mdc-slider__track-marker-container {
+        @include mdc-feature-targets($feat-structure) {
+          visibility: visible;
+        }
+      }
+    }
+    // stylelint-enable plugin/selector-bem-pattern
+  }
+
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-slider-highlight-color($color, $query: mdc-feature-all()) {
+  &:not(.mdc-slider--disabled) {
+    @include mdc-slider-highlight-color_($color, $query: $query);
+  }
+}
+
+@mixin mdc-slider-rail-color($color, $opacity: $mdc-slider-baseline-rail-opacity, $query: mdc-feature-all()) {
+  &:not(.mdc-slider--disabled) {
+    @include mdc-slider-rail-color_($color, $opacity, $query: $query);
+  }
+}
+
+@mixin mdc-slider-rail-tick-mark-color($color, $query: mdc-feature-all()) {
+  &:not(.mdc-slider--disabled) {
+    @include mdc-slider-rail-tick-mark-color_($color, $query: $query);
+  }
+}
+
+@mixin mdc-slider-thumb-color($color, $query: mdc-feature-all()) {
+  &:not(.mdc-slider--disabled) {
+    @include mdc-slider-thumb-color_($color, $query: $query);
+  }
+}
+
+@mixin mdc-slider-focus-halo-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(.mdc-slider--disabled) {
+    .mdc-slider__focus-ring {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(background-color, $color);
+      }
+    }
+  }
+}
+
+@mixin mdc-slider-value-pin-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(.mdc-slider--disabled) {
+    .mdc-slider__pin {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(color, $color);
+      }
+    }
+  }
+}
+
+@mixin mdc-slider-value-pin-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  &:not(.mdc-slider--disabled) {
+    .mdc-slider__pin {
+      @include mdc-feature-targets($feat-color) {
+        @include mdc-theme-prop(background-color, $color);
+      }
+    }
+  }
+}
+
+@mixin mdc-slider-value-pin-fill-color-accessible($color, $query: mdc-feature-all()) {
+  $color-value: mdc-theme-prop-value($color);
+  $ink-color: if(mdc-theme-tone($color-value) == "light", text-primary-on-light, text-primary-on-dark);
+
+  @include mdc-slider-value-pin-fill-color($color, $query: $query);
+  @include mdc-slider-value-pin-ink-color($ink-color, $query: $query);
+}
+
+// NOTE: This mixin sets the color of ALL customizable elements in the slider. If new elements are added, this mixin
+// should be updated to cover those additional elements.
+@mixin mdc-slider-color-accessible($color, $query: mdc-feature-all()) {
+  @include mdc-slider-highlight-color($color, $query: $query);
+  @include mdc-slider-rail-color($color, $query: $query);
+  @include mdc-slider-rail-tick-mark-color($color, $query: $query);
+  @include mdc-slider-thumb-color($color, $query: $query);
+  @include mdc-slider-focus-halo-color($color, $query: $query);
+  @include mdc-slider-value-pin-fill-color-accessible($color, $query: $query);
+}
+
+//
+// Private
+//
+
+@mixin mdc-slider-track_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  &__track-container {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      overflow: hidden;
+    }
+  }
+
+  &__track {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-origin: left top;
+
+      @include mdc-rtl(".mdc-slider") {
+        transform-origin: right top;
+      }
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      will-change: transform;
+    }
+  }
+}
+
+@mixin mdc-slider-track-marker_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // stylelint-disable-next-line selector-max-type
+  &__track-marker-container {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      margin-right: 0;
+      margin-left: -1px;
+      visibility: hidden;
+
+      @include mdc-rtl(".mdc-slider") {
+        margin-right: -1px;
+        margin-left: 0;
+      }
+
+      // Last marker at the very end of the slider (right-most in LTR, left-most in RTL)
+      // stylelint-disable-next-line selector-max-type
+      &::after {
+        display: block;
+        width: 2px;
+        height: 2px;
+        content: "";
+      }
+    }
+  }
+
+  &__track-marker {
+    @include mdc-feature-targets($feat-structure) {
+      flex: 1;
+
+      // stylelint-disable-next-line selector-max-type
+      &::after {
+        display: block;
+        width: 2px;
+        height: 2px;
+        content: "";
+      }
+
+      // stylelint-disable-next-line selector-max-type
+      &:first-child::after {
+        width: 3px;
+      }
+    }
+  }
+}
+
+@mixin mdc-slider-thumb_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  &__thumb-container {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 21px;
+      // Ensure that touching anywhere within the Y-coordinate space of thumb
+      // is considered "clicking on the thumb".
+      height: 100%;
+      user-select: none;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      will-change: transform;
+    }
+  }
+
+  &__thumb {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(.571);
+      stroke-width: 3.5;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition: transform 100ms ease-out, fill 100ms ease-out, stroke 100ms ease-out;
+    }
+  }
+}
+
+@mixin mdc-slider-focus-ring_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  &__focus-ring {
+    @include mdc-feature-targets($feat-structure) {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition: transform 266.67ms ease-out, opacity 266.67ms ease-out, background-color 266.67ms ease-out;
+    }
+  }
+}
+
+@mixin mdc-slider-pin_($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  &__pin {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      margin-top: -2px;
+      margin-left: -2px;
+      transform: rotate(-45deg) scale(0) translate(0, 0);
+      border-radius: 50% 50% 50% 0%;
+
+      // Ensuring that the pin is higher than the thumb in the stacking order
+      // removes some rendering jank observed in Chrome.
+      z-index: 1;
+    }
+
+    @include mdc-feature-targets($feat-animation) {
+      transition: transform 100ms ease-out;
+    }
+  }
+
+  &__pin-value-marker {
+    @include mdc-typography(body2, $query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@mixin mdc-slider-highlight-color_($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-slider__track {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+    }
+  }
+}
+
+@mixin mdc-slider-rail-color_($color, $opacity: $mdc-slider-baseline-rail-opacity, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-slider__track-container {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, rgba(mdc-theme-prop-value($color), $opacity));
+    }
+  }
+}
+
+@mixin mdc-slider-rail-tick-mark-color_($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-slider__track-marker::after,
+  .mdc-slider__track-marker-container::after {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+    }
+  }
+}
+
+@mixin mdc-slider-thumb-color_($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-slider__thumb {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(fill, $color);
+      @include mdc-theme-prop(stroke, $color);
+    }
+  }
+}
+
+@mixin mdc-slider-thumb-stroke-cutout_($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-slider__thumb {
+    @include mdc-feature-targets($feat-color) {
+      /* @alternate */
+      stroke: $color;
+      stroke: var(--mdc-slider-bg-color-behind-component, $color);
+    }
+  }
+}
+

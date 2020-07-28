@@ -1,0 +1,191 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "./variables";
+
+//
+// Flips the radius values based on RTL context.
+//
+// Examples:
+//
+// 1. mdc-shape-flip-radius((0, 4px, 4px, 0)) => 4px 0 0 4px
+// 2. mdc-shape-flip-radius((0, 8px)) => 8px 0
+//
+@function mdc-shape-flip-radius($radius) {
+  @if type-of($radius) == "list" {
+    @if length($radius) > 4 {
+      @error "Invalid radius: '#{$radius}' is more than 4 values";
+    }
+  }
+
+  @if length($radius) == 4 {
+    @return nth($radius, 2) nth($radius, 1) nth($radius, 4) nth($radius, 3);
+  } @else if length($radius) == 3 {
+    @return nth($radius, 2) nth($radius, 1) nth($radius, 2) nth($radius, 3);
+  } @else if length($radius) == 2 {
+    @return nth($radius, 2) nth($radius, 1);
+  } @else {
+    @return $radius;
+  }
+}
+
+//
+// Resolves the percentage unit radius to appropriate absolute radius value based on component height.
+// Use this for fixed height components only.
+//
+// Examples:
+//
+// mdc-shape-resolve-percentage-radius(36px, 50%) => `18px` (i.e., 36px / 2)
+//
+@function mdc-shape-resolve-percentage-radius($component-height, $radius) {
+  $radius: mdc-shape-prop-value($radius);
+
+  @if type-of($radius) == "list" {
+    $radius-value: ();
+
+    @each $corner in $radius {
+      $radius-value: append($radius-value, mdc-shape-resolve-percentage-for-corner_($component-height, $corner));
+    }
+
+    @return $radius-value;
+  } @else {
+    @return mdc-shape-resolve-percentage-for-corner_($component-height, $radius);
+  }
+}
+
+//
+// Returns $radius value of shape category - `large`, `medium` or `small`.
+// Otherwise, it returns the $radius itself if valid.
+// $radius can be a single value, or a list of up to 4 values.
+//
+// Examples:
+//
+// mdc-shape-prop-value(small) => 4px
+// mdc-shape-prop-value(small small 0 0) => 4px 4px 0 0
+//
+@function mdc-shape-prop-value($radius) {
+  @if type-of($radius) == "list" {
+    @if length($radius) > 4 {
+      @error "Invalid radius: '#{$radius}' is more than 4 values";
+    }
+
+    $radius-values: ();
+
+    @for $i from 1 through length($radius) {
+      $corner: nth($radius, $i);
+
+      @if map-has-key($mdc-shape-category-values, $corner) {
+        // If a category is encountered within a list of radii, apply the category's value for the corresponding corner
+        $radius-values:
+          append($radius-values, nth(mdc-shape-unpack-radius_(map-get($mdc-shape-category-values, $corner)), $i));
+      } @else {
+        $radius-values: append($radius-values, mdc-shape-validate-radius-value_($corner));
+      }
+    }
+
+    @return $radius-values;
+  } @else {
+    @if map-has-key($mdc-shape-category-values, $radius) {
+      @return map-get($mdc-shape-category-values, $radius);
+    } @else {
+      @return mdc-shape-validate-radius-value_($radius);
+    }
+  }
+}
+
+//
+// Accepts radius number or list of 2-4 radius values and returns 4 value list with
+// masked corners as mentioned in `$masked-corners`
+//
+// Example:
+//
+// 1. mdc-shape-mask-radius(2px 3px, 1 1 0 0) => 2px 3px 0 0
+// 2. mdc-shape-mask-radius(8px, 0 0 1 1) => 0 0 8px 8px
+// 3. mdc-shape-mask-radius(4px 4px 4px 4px, 0 1 1 0) => 0 4px 4px 0
+//
+@function mdc-shape-mask-radius($radius, $masked-corners) {
+  @if type-of($radius) == "list" {
+    @if length($radius) > 4 {
+      @error "Invalid radius: '#{$radius}' is more than 4 values";
+    }
+  }
+
+  @if length($masked-corners) != 4 {
+    @error "Expected masked-corners of length 4 but got '#{length($masked-corners)}'.";
+  }
+
+  $radius: mdc-shape-unpack-radius_($radius);
+
+  @return if(nth($masked-corners, 1) == 1, nth($radius, 1), 0)
+    if(nth($masked-corners, 2) == 1, nth($radius, 2), 0)
+    if(nth($masked-corners, 3) == 1, nth($radius, 3), 0)
+    if(nth($masked-corners, 4) == 1, nth($radius, 4), 0);
+}
+
+//
+// Unpacks shorthand values for border-radius (i.e. lists of 1-3 values).
+// If a list of 4 values is given, it is returned as-is.
+//
+// Examples:
+//
+// 1. mdc-shape-unpack-radius_(4px) => 4px 4px 4px 4px
+// 2. mdc-shape-unpack-radius_(4px 2px) => 4px 2px 4px 2px
+// 3. mdc-shape-unpack-radius_(4px 2px 2px) => 4px 2px 2px 2px
+// 2. mdc-shape-unpack-radius_(4px 2px 0 2px) => 4px 2px 0 2px
+//
+// TODO: This is private for purposes of getting it into a patch; make it public for a future minor/major release.
+//
+@function mdc-shape-unpack-radius_($radius) {
+  @if length($radius) == 4 {
+    @return $radius;
+  } @else if length($radius) == 3 {
+    @return nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 2);
+  } @else if length($radius) == 2 {
+    @return nth($radius, 1) nth($radius, 2) nth($radius, 1) nth($radius, 2);
+  } @else if length($radius) == 1 {
+    @return $radius $radius $radius $radius;
+  }
+
+  @error "Invalid radius: '#{$radius}' is more than 4 values";
+}
+
+@function mdc-shape-resolve-percentage-for-corner_($component-height, $radius) {
+  @if type-of($radius) == "number" and unit($radius) == "%" {
+    // Converts the percentage to number without unit. Example: 50% => 50.
+    $percentage: $radius / ($radius * 0 + 1);
+
+    @return $component-height * ($percentage / 100);
+  } @else {
+    @return $radius;
+  }
+}
+
+@function mdc-shape-validate-radius-value_($radius) {
+  $is-number: type-of($radius) == "number";
+
+  @if not ($is-number or str_index($radius, "var(") or str_index($radius, "calc(")) {
+    @error "Invalid radius: #{$radius}";
+  }
+
+  @return $radius;
+}
+

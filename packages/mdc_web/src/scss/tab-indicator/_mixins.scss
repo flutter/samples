@@ -1,0 +1,180 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/animation/variables";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+
+@mixin mdc-tab-indicator-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-animation: mdc-feature-create-target($query, animation);
+
+  // postcss-bem-linter: define tab-indicator
+
+  .mdc-tab-indicator {
+    @include mdc-tab-indicator-base_($query);
+  }
+
+  .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-structure) {
+      transform-origin: left;
+      opacity: 0;
+    }
+  }
+
+  .mdc-tab-indicator__content--underline {
+    @include mdc-feature-targets($feat-structure) {
+      align-self: flex-end;
+      box-sizing: border-box;
+      width: 100%;
+      border-top-style: solid;
+    }
+  }
+
+  .mdc-tab-indicator__content--icon {
+    @include mdc-feature-targets($feat-structure) {
+      align-self: center;
+      margin: 0 auto;
+    }
+  }
+
+  .mdc-tab-indicator--active .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-structure) {
+      opacity: 1;
+    }
+  }
+
+  // Slide by default
+  .mdc-tab-indicator .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-animation) {
+      transition: 250ms transform $mdc-animation-standard-curve-timing-function;
+    }
+  }
+
+  // --no-transition is applied in cases where styles need to be applied immediately to set up a transition
+  .mdc-tab-indicator--no-transition .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-animation) {
+      transition: none;
+    }
+  }
+
+  .mdc-tab-indicator--fade .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-animation) {
+      transition: 150ms opacity linear;
+    }
+  }
+
+  // postcss-bem-linter: ignore
+  .mdc-tab-indicator--active.mdc-tab-indicator--fade .mdc-tab-indicator__content {
+    @include mdc-feature-targets($feat-animation) {
+      transition-delay: 100ms;
+    }
+  }
+
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-tab-indicator-surface($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-feature-targets($feat-structure) {
+    position: relative;
+  }
+}
+
+@mixin mdc-tab-indicator-underline-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-tab-indicator__content--underline {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-color, $color);
+    }
+  }
+}
+
+@mixin mdc-tab-indicator-underline-height($height, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-tab-indicator__content--underline {
+    @include mdc-feature-targets($feat-structure) {
+      border-top-width: $height;
+    }
+  }
+}
+
+@mixin mdc-tab-indicator-underline-top-corner-radius($radius, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-tab-indicator__content--underline {
+    @include mdc-feature-targets($feat-structure) {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+  }
+}
+
+@mixin mdc-tab-indicator-icon-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-tab-indicator__content--icon {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-tab-indicator-icon-height($height, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-tab-indicator__content--icon {
+    @include mdc-feature-targets($feat-structure) {
+      height: $height;
+      font-size: $height;
+    }
+  }
+}
+
+//
+// Private
+//
+
+@mixin mdc-tab-indicator-base_($query) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  @include mdc-tab-indicator-underline-color(primary, $query);
+  @include mdc-tab-indicator-icon-color(secondary, $query);
+  @include mdc-tab-indicator-underline-height(2px, $query);
+  @include mdc-tab-indicator-icon-height(34px, $query);
+
+  @include mdc-feature-targets($feat-structure) {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+

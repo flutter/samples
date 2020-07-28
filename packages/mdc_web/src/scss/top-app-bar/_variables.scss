@@ -1,0 +1,54 @@
+//
+// Copyright 2018 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+// Default styles
+$mdc-top-app-bar-row-height: 64px !default;
+$mdc-top-app-bar-title-left-padding: 20px !default;
+$mdc-top-app-bar-section-vertical-padding: 8px !default;
+$mdc-top-app-bar-section-horizontal-padding: 12px !default;
+
+$mdc-top-app-bar-mobile-breakpoint: 599px !default;
+
+// Default mobile styles
+$mdc-top-app-bar-mobile-row-height: 56px !default;
+$mdc-top-app-bar-mobile-section-padding: 4px !default;
+
+// Short top app bar
+$mdc-top-app-bar-short-collapsed-border-radius: 4px !default;
+$mdc-top-app-bar-short-collapsed-width: 56px !default;
+$mdc-top-app-bar-short-collapsed-right-icon-padding: 12px !default;
+
+// Prominent styles
+$mdc-top-app-bar-prominent-row-height: 128px !default;
+$mdc-top-app-bar-prominent-title-bottom-padding: 2px !default;
+
+// Prominent mobile styles
+$mdc-top-app-bar-prominent-mobile-title-bottom-padding: 6px !default;
+
+// Dense styles
+$mdc-top-app-bar-dense-row-height: 48px !default;
+$mdc-top-app-bar-dense-section-horizontal-padding: 4px !default;
+$mdc-top-app-bar-dense-title-left-padding: 12px !default;
+
+// Dense & Prominent styles
+$mdc-top-app-bar-dense-prominent-title-bottom-padding: 9px !default;
+

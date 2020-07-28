@@ -1,0 +1,1371 @@
+// Copyright (c) 2015, the Dart project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+//
+// This file has been automatically generated.  Please do not edit it manually.
+// To regenerate the file, use the SDK script
+// "pkg/analyzer/tool/summary/generate.dart $IDL_FILE_PATH",
+// or "pkg/analyzer/tool/generate_files" for the analyzer package IDL/sources.
+
+
+/// Enum of declaration kinds in available files.
+enum AvailableDeclarationKind : byte {
+  CLASS,
+
+  CLASS_TYPE_ALIAS,
+
+  CONSTRUCTOR,
+
+  ENUM,
+
+  ENUM_CONSTANT,
+
+  EXTENSION,
+
+  FIELD,
+
+  FUNCTION,
+
+  FUNCTION_TYPE_ALIAS,
+
+  GETTER,
+
+  METHOD,
+
+  MIXIN,
+
+  SETTER,
+
+  VARIABLE
+}
+
+/// Enum representing nullability suffixes in summaries.
+///
+/// This enum is similar to [NullabilitySuffix], but the order is different so
+/// that [EntityRefNullabilitySuffix.starOrIrrelevant] can be the default.
+enum EntityRefNullabilitySuffix : byte {
+  /// An indication that the canonical representation of the type under
+  /// consideration ends with `*`.  Types having this nullability suffix are
+  /// called "legacy types"; it has not yet been determined whether they should
+  /// be unioned with the Null type.
+  ///
+  /// Also used in circumstances where no nullability suffix information is
+  /// needed.
+  starOrIrrelevant,
+
+  /// An indication that the canonical representation of the type under
+  /// consideration ends with `?`.  Types having this nullability suffix should
+  /// be interpreted as being unioned with the Null type.
+  question,
+
+  /// An indication that the canonical representation of the type under
+  /// consideration does not end with either `?` or `*`.
+  none
+}
+
+/// Enum used to indicate the kind of an index relation.
+enum IndexRelationKind : byte {
+  /// Left: class.
+  ///   Is ancestor of (is extended or implemented, directly or indirectly).
+  /// Right: other class declaration.
+  IS_ANCESTOR_OF,
+
+  /// Left: class.
+  ///   Is extended by.
+  /// Right: other class declaration.
+  IS_EXTENDED_BY,
+
+  /// Left: class.
+  ///   Is implemented by.
+  /// Right: other class declaration.
+  IS_IMPLEMENTED_BY,
+
+  /// Left: class.
+  ///   Is mixed into.
+  /// Right: other class declaration.
+  IS_MIXED_IN_BY,
+
+  /// Left: method, property accessor, function, variable.
+  ///   Is invoked at.
+  /// Right: location.
+  IS_INVOKED_BY,
+
+  /// Left: any element.
+  ///   Is referenced (and not invoked, read/written) at.
+  /// Right: location.
+  IS_REFERENCED_BY,
+
+  /// Left: unresolved member name.
+  ///   Is read at.
+  /// Right: location.
+  IS_READ_BY,
+
+  /// Left: unresolved member name.
+  ///   Is both read and written at.
+  /// Right: location.
+  IS_READ_WRITTEN_BY,
+
+  /// Left: unresolved member name.
+  ///   Is written at.
+  /// Right: location.
+  IS_WRITTEN_BY
+}
+
+/// When we need to reference a synthetic element in [PackageIndex] we use a
+/// value of this enum to specify which kind of the synthetic element we
+/// actually reference.
+enum IndexSyntheticElementKind : byte {
+  /// Not a synthetic element.
+  notSynthetic,
+
+  /// The unnamed synthetic constructor a class element.
+  constructor,
+
+  /// The synthetic field element.
+  field,
+
+  /// The synthetic getter of a property introducing element.
+  getter,
+
+  /// The synthetic setter of a property introducing element.
+  setter,
+
+  /// The synthetic top-level variable element.
+  topLevelVariable,
+
+  /// The synthetic `loadLibrary` element.
+  loadLibrary,
+
+  /// The synthetic `index` getter of an enum.
+  enumIndex,
+
+  /// The synthetic `values` getter of an enum.
+  enumValues,
+
+  /// The synthetic `toString` method of an enum.
+  enumToString,
+
+  /// The containing unit itself.
+  unit
+}
+
+/// Types of comments.
+enum LinkedNodeCommentType : byte {
+  block,
+
+  documentation,
+
+  endOfLine
+}
+
+/// Kinds of formal parameters.
+enum LinkedNodeFormalParameterKind : byte {
+  requiredPositional,
+
+  optionalPositional,
+
+  optionalNamed,
+
+  requiredNamed
+}
+
+/// Kinds of [LinkedNode].
+enum LinkedNodeKind : byte {
+  adjacentStrings,
+
+  annotation,
+
+  argumentList,
+
+  asExpression,
+
+  assertInitializer,
+
+  assertStatement,
+
+  assignmentExpression,
+
+  awaitExpression,
+
+  binaryExpression,
+
+  block,
+
+  blockFunctionBody,
+
+  booleanLiteral,
+
+  breakStatement,
+
+  cascadeExpression,
+
+  catchClause,
+
+  classDeclaration,
+
+  classTypeAlias,
+
+  comment,
+
+  commentReference,
+
+  compilationUnit,
+
+  conditionalExpression,
+
+  configuration,
+
+  constructorDeclaration,
+
+  constructorFieldInitializer,
+
+  constructorName,
+
+  continueStatement,
+
+  declaredIdentifier,
+
+  defaultFormalParameter,
+
+  doubleLiteral,
+
+  doStatement,
+
+  dottedName,
+
+  emptyFunctionBody,
+
+  emptyStatement,
+
+  enumConstantDeclaration,
+
+  enumDeclaration,
+
+  exportDirective,
+
+  expressionFunctionBody,
+
+  expressionStatement,
+
+  extendsClause,
+
+  extensionDeclaration,
+
+  fieldDeclaration,
+
+  fieldFormalParameter,
+
+  formalParameterList,
+
+  forEachPartsWithDeclaration,
+
+  forEachPartsWithIdentifier,
+
+  forElement,
+
+  forPartsWithDeclarations,
+
+  forPartsWithExpression,
+
+  forStatement,
+
+  functionDeclaration,
+
+  functionDeclarationStatement,
+
+  functionExpression,
+
+  functionExpressionInvocation,
+
+  functionTypeAlias,
+
+  functionTypedFormalParameter,
+
+  genericFunctionType,
+
+  genericTypeAlias,
+
+  hideCombinator,
+
+  ifElement,
+
+  ifStatement,
+
+  implementsClause,
+
+  importDirective,
+
+  instanceCreationExpression,
+
+  indexExpression,
+
+  integerLiteral,
+
+  interpolationExpression,
+
+  interpolationString,
+
+  isExpression,
+
+  label,
+
+  labeledStatement,
+
+  libraryDirective,
+
+  libraryIdentifier,
+
+  listLiteral,
+
+  mapLiteralEntry,
+
+  methodDeclaration,
+
+  methodInvocation,
+
+  mixinDeclaration,
+
+  namedExpression,
+
+  nativeClause,
+
+  nativeFunctionBody,
+
+  nullLiteral,
+
+  onClause,
+
+  parenthesizedExpression,
+
+  partDirective,
+
+  partOfDirective,
+
+  postfixExpression,
+
+  prefixExpression,
+
+  prefixedIdentifier,
+
+  propertyAccess,
+
+  redirectingConstructorInvocation,
+
+  rethrowExpression,
+
+  returnStatement,
+
+  setOrMapLiteral,
+
+  showCombinator,
+
+  simpleFormalParameter,
+
+  simpleIdentifier,
+
+  simpleStringLiteral,
+
+  spreadElement,
+
+  stringInterpolation,
+
+  superConstructorInvocation,
+
+  superExpression,
+
+  switchCase,
+
+  switchDefault,
+
+  switchStatement,
+
+  symbolLiteral,
+
+  thisExpression,
+
+  throwExpression,
+
+  topLevelVariableDeclaration,
+
+  tryStatement,
+
+  typeArgumentList,
+
+  typeName,
+
+  typeParameter,
+
+  typeParameterList,
+
+  variableDeclaration,
+
+  variableDeclarationList,
+
+  variableDeclarationStatement,
+
+  whileStatement,
+
+  withClause,
+
+  yieldStatement,
+
+  extensionOverride
+}
+
+/// Kinds of [LinkedNodeType]s.
+enum LinkedNodeTypeKind : byte {
+  bottom,
+
+  dynamic_,
+
+  function,
+
+  interface,
+
+  typeParameter,
+
+  void_
+}
+
+/// Enum used to indicate the kind of the error during top-level inference.
+enum TopLevelInferenceErrorKind : byte {
+  assignment,
+
+  instanceGetter,
+
+  dependencyCycle,
+
+  overrideConflictFieldType,
+
+  overrideNoCombinedSuperSignature
+}
+
+/// Enum of token types, corresponding to AST token types.
+enum UnlinkedTokenType : byte {
+  NOTHING,
+
+  ABSTRACT,
+
+  AMPERSAND,
+
+  AMPERSAND_AMPERSAND,
+
+  AMPERSAND_EQ,
+
+  AS,
+
+  ASSERT,
+
+  ASYNC,
+
+  AT,
+
+  AWAIT,
+
+  BACKPING,
+
+  BACKSLASH,
+
+  BANG,
+
+  BANG_EQ,
+
+  BANG_EQ_EQ,
+
+  BAR,
+
+  BAR_BAR,
+
+  BAR_EQ,
+
+  BREAK,
+
+  CARET,
+
+  CARET_EQ,
+
+  CASE,
+
+  CATCH,
+
+  CLASS,
+
+  CLOSE_CURLY_BRACKET,
+
+  CLOSE_PAREN,
+
+  CLOSE_SQUARE_BRACKET,
+
+  COLON,
+
+  COMMA,
+
+  CONST,
+
+  CONTINUE,
+
+  COVARIANT,
+
+  DEFAULT,
+
+  DEFERRED,
+
+  DO,
+
+  DOUBLE,
+
+  DYNAMIC,
+
+  ELSE,
+
+  ENUM,
+
+  EOF,
+
+  EQ,
+
+  EQ_EQ,
+
+  EQ_EQ_EQ,
+
+  EXPORT,
+
+  EXTENDS,
+
+  EXTERNAL,
+
+  FACTORY,
+
+  FALSE,
+
+  FINAL,
+
+  FINALLY,
+
+  FOR,
+
+  FUNCTION,
+
+  FUNCTION_KEYWORD,
+
+  GET,
+
+  GT,
+
+  GT_EQ,
+
+  GT_GT,
+
+  GT_GT_EQ,
+
+  GT_GT_GT,
+
+  GT_GT_GT_EQ,
+
+  HASH,
+
+  HEXADECIMAL,
+
+  HIDE,
+
+  IDENTIFIER,
+
+  IF,
+
+  IMPLEMENTS,
+
+  IMPORT,
+
+  IN,
+
+  INDEX,
+
+  INDEX_EQ,
+
+  INT,
+
+  INTERFACE,
+
+  IS,
+
+  LATE,
+
+  LIBRARY,
+
+  LT,
+
+  LT_EQ,
+
+  LT_LT,
+
+  LT_LT_EQ,
+
+  MINUS,
+
+  MINUS_EQ,
+
+  MINUS_MINUS,
+
+  MIXIN,
+
+  MULTI_LINE_COMMENT,
+
+  NATIVE,
+
+  NEW,
+
+  NULL,
+
+  OF,
+
+  ON,
+
+  OPEN_CURLY_BRACKET,
+
+  OPEN_PAREN,
+
+  OPEN_SQUARE_BRACKET,
+
+  OPERATOR,
+
+  PART,
+
+  PATCH,
+
+  PERCENT,
+
+  PERCENT_EQ,
+
+  PERIOD,
+
+  PERIOD_PERIOD,
+
+  PERIOD_PERIOD_PERIOD,
+
+  PERIOD_PERIOD_PERIOD_QUESTION,
+
+  PLUS,
+
+  PLUS_EQ,
+
+  PLUS_PLUS,
+
+  QUESTION,
+
+  QUESTION_PERIOD,
+
+  QUESTION_QUESTION,
+
+  QUESTION_QUESTION_EQ,
+
+  REQUIRED,
+
+  RETHROW,
+
+  RETURN,
+
+  SCRIPT_TAG,
+
+  SEMICOLON,
+
+  SET,
+
+  SHOW,
+
+  SINGLE_LINE_COMMENT,
+
+  SLASH,
+
+  SLASH_EQ,
+
+  SOURCE,
+
+  STAR,
+
+  STAR_EQ,
+
+  STATIC,
+
+  STRING,
+
+  STRING_INTERPOLATION_EXPRESSION,
+
+  STRING_INTERPOLATION_IDENTIFIER,
+
+  SUPER,
+
+  SWITCH,
+
+  SYNC,
+
+  THIS,
+
+  THROW,
+
+  TILDE,
+
+  TILDE_SLASH,
+
+  TILDE_SLASH_EQ,
+
+  TRUE,
+
+  TRY,
+
+  TYPEDEF,
+
+  VAR,
+
+  VOID,
+
+  WHILE,
+
+  WITH,
+
+  YIELD,
+
+  INOUT,
+
+  OUT
+}
+
+/// Information about the context of an exception in analysis driver.
+table AnalysisDriverExceptionContext {
+  /// The exception string.
+  exception:string (id: 1);
+
+  /// The state of files when the exception happened.
+  files:[AnalysisDriverExceptionFile] (id: 3);
+
+  /// The path of the file being analyzed when the exception happened.
+  path:string (id: 0);
+
+  /// The exception stack trace string.
+  stackTrace:string (id: 2);
+}
+
+/// Information about a single file in [AnalysisDriverExceptionContext].
+table AnalysisDriverExceptionFile {
+  /// The content of the file.
+  content:string (id: 1);
+
+  /// The path of the file.
+  path:string (id: 0);
+}
+
+/// Information about a resolved unit.
+table AnalysisDriverResolvedUnit {
+  /// The full list of analysis errors, both syntactic and semantic.
+  errors:[AnalysisDriverUnitError] (id: 0);
+
+  /// The index of the unit.
+  index:AnalysisDriverUnitIndex (id: 1);
+}
+
+/// Information about a subtype of one or more classes.
+table AnalysisDriverSubtype {
+  /// The names of defined instance members.
+  /// They are indexes into [AnalysisDriverUnitError.strings] list.
+  /// The list is sorted in ascending order.
+  members:[uint] (id: 1);
+
+  /// The name of the class.
+  /// It is an index into [AnalysisDriverUnitError.strings] list.
+  name:uint (id: 0);
+}
+
+/// Information about an error in a resolved unit.
+table AnalysisDriverUnitError {
+  /// The context messages associated with the error.
+  contextMessages:[DiagnosticMessage] (id: 5);
+
+  /// The optional correction hint for the error.
+  correction:string (id: 4);
+
+  /// The length of the error in the file.
+  length:uint (id: 1);
+
+  /// The message of the error.
+  message:string (id: 3);
+
+  /// The offset from the beginning of the file.
+  offset:uint (id: 0);
+
+  /// The unique name of the error code.
+  uniqueName:string (id: 2);
+}
+
+/// Information about a resolved unit.
+table AnalysisDriverUnitIndex {
+  /// Each item of this list corresponds to a unique referenced element.  It is
+  /// the kind of the synthetic element.
+  elementKinds:[IndexSyntheticElementKind] (id: 4);
+
+  /// Each item of this list corresponds to a unique referenced element.  It is
+  /// the identifier of the class member element name, or `null` if the element
+  /// is a top-level element.  The list is sorted in ascending order, so that
+  /// the client can quickly check whether an element is referenced in this
+  /// index.
+  elementNameClassMemberIds:[uint] (id: 7);
+
+  /// Each item of this list corresponds to a unique referenced element.  It is
+  /// the identifier of the named parameter name, or `null` if the element is
+  /// not a named parameter.  The list is sorted in ascending order, so that the
+  /// client can quickly check whether an element is referenced in this index.
+  elementNameParameterIds:[uint] (id: 8);
+
+  /// Each item of this list corresponds to a unique referenced element.  It is
+  /// the identifier of the top-level element name, or `null` if the element is
+  /// the unit.  The list is sorted in ascending order, so that the client can
+  /// quickly check whether an element is referenced in this index.
+  elementNameUnitMemberIds:[uint] (id: 6);
+
+  /// Each item of this list corresponds to a unique referenced element.  It is
+  /// the index into [unitLibraryUris] and [unitUnitUris] for the library
+  /// specific unit where the element is declared.
+  elementUnits:[uint] (id: 5);
+
+  /// Identifier of the null string in [strings].
+  nullStringId:uint (id: 1);
+
+  /// List of unique element strings used in this index.  The list is sorted in
+  /// ascending order, so that the client can quickly check the presence of a
+  /// string in this index.
+  strings:[string] (id: 0);
+
+  /// The list of classes declared in the unit.
+  subtypes:[AnalysisDriverSubtype] (id: 19);
+
+  /// The identifiers of supertypes of elements at corresponding indexes
+  /// in [subtypes].  They are indexes into [strings] list. The list is sorted
+  /// in ascending order.  There might be more than one element with the same
+  /// value if there is more than one subtype of this supertype.
+  supertypes:[uint] (id: 18);
+
+  /// Each item of this list corresponds to the library URI of a unique library
+  /// specific unit referenced in the index.  It is an index into [strings]
+  /// list.
+  unitLibraryUris:[uint] (id: 2);
+
+  /// Each item of this list corresponds to the unit URI of a unique library
+  /// specific unit referenced in the index.  It is an index into [strings]
+  /// list.
+  unitUnitUris:[uint] (id: 3);
+
+  /// Each item of this list is the `true` if the corresponding element usage
+  /// is qualified with some prefix.
+  usedElementIsQualifiedFlags:[ubyte] (id: 13);
+
+  /// Each item of this list is the kind of the element usage.
+  usedElementKinds:[IndexRelationKind] (id: 10);
+
+  /// Each item of this list is the length of the element usage.
+  usedElementLengths:[uint] (id: 12);
+
+  /// Each item of this list is the offset of the element usage relative to the
+  /// beginning of the file.
+  usedElementOffsets:[uint] (id: 11);
+
+  /// Each item of this list is the index into [elementUnits],
+  /// [elementNameUnitMemberIds], [elementNameClassMemberIds] and
+  /// [elementNameParameterIds].  The list is sorted in ascending order, so
+  /// that the client can quickly find element references in this index.
+  usedElements:[uint] (id: 9);
+
+  /// Each item of this list is the `true` if the corresponding name usage
+  /// is qualified with some prefix.
+  usedNameIsQualifiedFlags:[ubyte] (id: 17);
+
+  /// Each item of this list is the kind of the name usage.
+  usedNameKinds:[IndexRelationKind] (id: 15);
+
+  /// Each item of this list is the offset of the name usage relative to the
+  /// beginning of the file.
+  usedNameOffsets:[uint] (id: 16);
+
+  /// Each item of this list is the index into [strings] for a used name.  The
+  /// list is sorted in ascending order, so that the client can quickly find
+  /// whether a name is used in this index.
+  usedNames:[uint] (id: 14);
+}
+
+/// Information about an unlinked unit.
+table AnalysisDriverUnlinkedUnit {
+  /// List of class member names defined by the unit.
+  definedClassMemberNames:[string] (id: 2);
+
+  /// List of top-level names defined by the unit.
+  definedTopLevelNames:[string] (id: 1);
+
+  /// List of external names referenced by the unit.
+  referencedNames:[string] (id: 0);
+
+  /// List of names which are used in `extends`, `with` or `implements` clauses
+  /// in the file. Import prefixes and type arguments are not included.
+  subtypedNames:[string] (id: 3);
+
+  /// Unlinked information for the unit.
+  unit2:UnlinkedUnit2 (id: 4);
+}
+
+/// Information about a single declaration.
+table AvailableDeclaration {
+  children:[AvailableDeclaration] (id: 0);
+
+  codeLength:uint (id: 1);
+
+  codeOffset:uint (id: 2);
+
+  defaultArgumentListString:string (id: 3);
+
+  defaultArgumentListTextRanges:[uint] (id: 4);
+
+  docComplete:string (id: 5);
+
+  docSummary:string (id: 6);
+
+  fieldMask:uint (id: 7);
+
+  isAbstract:bool (id: 8);
+
+  isConst:bool (id: 9);
+
+  isDeprecated:bool (id: 10);
+
+  isFinal:bool (id: 11);
+
+  isStatic:bool (id: 12);
+
+  /// The kind of the declaration.
+  kind:AvailableDeclarationKind (id: 13);
+
+  locationOffset:uint (id: 14);
+
+  locationStartColumn:uint (id: 15);
+
+  locationStartLine:uint (id: 16);
+
+  /// The first part of the declaration name, usually the only one, for example
+  /// the name of a class like `MyClass`, or a function like `myFunction`.
+  name:string (id: 17);
+
+  parameterNames:[string] (id: 18);
+
+  parameters:string (id: 19);
+
+  parameterTypes:[string] (id: 20);
+
+  /// The partial list of relevance tags.  Not every declaration has one (for
+  /// example, function do not currently), and not every declaration has to
+  /// store one (for classes it can be computed when we know the library that
+  /// includes this file).
+  relevanceTags:[string] (id: 21);
+
+  requiredParameterCount:uint (id: 22);
+
+  returnType:string (id: 23);
+
+  typeParameters:string (id: 24);
+}
+
+/// Information about an available, even if not yet imported file.
+table AvailableFile {
+  /// Declarations of the file.
+  declarations:[AvailableDeclaration] (id: 0);
+
+  /// The Dartdoc directives in the file.
+  directiveInfo:DirectiveInfo (id: 1);
+
+  /// Exports directives of the file.
+  exports:[AvailableFileExport] (id: 2);
+
+  /// Is `true` if this file is a library.
+  isLibrary:bool (id: 3);
+
+  /// Is `true` if this file is a library, and it is deprecated.
+  isLibraryDeprecated:bool (id: 4);
+
+  /// Offsets of the first character of each line in the source code.
+  lineStarts:[uint] (id: 5);
+
+  /// URIs of `part` directives.
+  parts:[string] (id: 6);
+}
+
+/// Information about an export directive.
+table AvailableFileExport {
+  /// Combinators contained in this export directive.
+  combinators:[AvailableFileExportCombinator] (id: 1);
+
+  /// URI of the exported library.
+  uri:string (id: 0);
+}
+
+/// Information about a `show` or `hide` combinator in an export directive.
+table AvailableFileExportCombinator {
+  /// List of names which are hidden.  Empty if this is a `show` combinator.
+  hides:[string] (id: 1);
+
+  /// List of names which are shown.  Empty if this is a `hide` combinator.
+  shows:[string] (id: 0);
+}
+
+/// Information about linked libraries, a group of libraries that form
+/// a library cycle.
+table CiderLinkedLibraryCycle {
+  bundle:LinkedNodeBundle (id: 1);
+
+  /// The hash signature for this linked cycle. It depends of API signatures
+  /// of all files in the cycle, and on the signatures of the transitive
+  /// closure of the cycle dependencies.
+  signature:[uint] (id: 0);
+}
+
+/// Errors for a single unit.
+table CiderUnitErrors {
+  errors:[AnalysisDriverUnitError] (id: 1);
+
+  /// The hash signature of this data.
+  signature:[uint] (id: 0);
+}
+
+/// Information about a compilation unit, contains the content hash
+/// and unlinked summary.
+table CiderUnlinkedUnit {
+  /// The hash signature of the contents of the file.
+  contentDigest:[uint] (id: 0);
+
+  /// Unlinked summary of the compilation unit.
+  unlinkedUnit:UnlinkedUnit2 (id: 1);
+}
+
+table DiagnosticMessage {
+  /// The absolute and normalized path of the file associated with this message.
+  filePath:string (id: 0);
+
+  /// The length of the source range associated with this message.
+  length:uint (id: 1);
+
+  /// The text of the message.
+  message:string (id: 2);
+
+  /// The zero-based offset from the start of the file to the beginning of the
+  /// source range associated with this message.
+  offset:uint (id: 3);
+}
+
+/// Information about the Dartdoc directives in an [AvailableFile].
+table DirectiveInfo {
+  /// The names of the defined templates.
+  templateNames:[string] (id: 0);
+
+  /// The values of the defined templates.
+  templateValues:[string] (id: 1);
+}
+
+table LinkedLanguageVersion {
+  major:uint (id: 0);
+
+  minor:uint (id: 1);
+}
+
+table LinkedLibraryLanguageVersion {
+  override2:LinkedLanguageVersion (id: 1);
+
+  package:LinkedLanguageVersion (id: 0);
+}
+
+/// Information about a linked AST node.
+table LinkedNode {
+  /// The explicit or inferred return type of a function typed node.
+  variantField_24:LinkedNodeType (id: 24);
+
+  variantField_2:[LinkedNode] (id: 2);
+
+  variantField_4:[LinkedNode] (id: 4);
+
+  variantField_6:LinkedNode (id: 6);
+
+  variantField_7:LinkedNode (id: 7);
+
+  variantField_17:uint (id: 17);
+
+  variantField_8:LinkedNode (id: 8);
+
+  variantField_38:LinkedNodeTypeSubstitution (id: 38);
+
+  variantField_15:uint (id: 15);
+
+  variantField_28:UnlinkedTokenType (id: 28);
+
+  variantField_27:bool (id: 27);
+
+  variantField_9:LinkedNode (id: 9);
+
+  variantField_12:LinkedNode (id: 12);
+
+  variantField_5:[LinkedNode] (id: 5);
+
+  variantField_13:LinkedNode (id: 13);
+
+  variantField_33:[string] (id: 33);
+
+  variantField_29:LinkedNodeCommentType (id: 29);
+
+  variantField_3:[LinkedNode] (id: 3);
+
+  /// The language version information.
+  variantField_40:LinkedLibraryLanguageVersion (id: 40);
+
+  variantField_10:LinkedNode (id: 10);
+
+  variantField_26:LinkedNodeFormalParameterKind (id: 26);
+
+  variantField_21:double (id: 21);
+
+  variantField_25:LinkedNodeType (id: 25);
+
+  variantField_20:string (id: 20);
+
+  variantField_39:[LinkedNodeType] (id: 39);
+
+  flags:uint (id: 18);
+
+  variantField_1:string (id: 1);
+
+  variantField_36:uint (id: 36);
+
+  variantField_16:uint (id: 16);
+
+  variantField_30:string (id: 30);
+
+  variantField_14:LinkedNode (id: 14);
+
+  kind:LinkedNodeKind (id: 0);
+
+  variantField_31:bool (id: 31);
+
+  variantField_34:[string] (id: 34);
+
+  name:string (id: 37);
+
+  variantField_35:UnlinkedTokenType (id: 35);
+
+  variantField_32:TopLevelInferenceError (id: 32);
+
+  variantField_23:LinkedNodeType (id: 23);
+
+  variantField_11:LinkedNode (id: 11);
+
+  variantField_22:string (id: 22);
+
+  variantField_19:uint (id: 19);
+}
+
+/// Information about a group of libraries linked together, for example because
+/// they form a single cycle, or because they represent a single build artifact.
+table LinkedNodeBundle {
+  libraries:[LinkedNodeLibrary] (id: 1);
+
+  /// The shared list of references used in the [libraries].
+  references:LinkedNodeReferences (id: 0);
+}
+
+/// Information about a single library in a [LinkedNodeBundle].
+table LinkedNodeLibrary {
+  exports:[uint] (id: 2);
+
+  name:string (id: 3);
+
+  nameLength:uint (id: 5);
+
+  nameOffset:uint (id: 4);
+
+  units:[LinkedNodeUnit] (id: 1);
+
+  uriStr:string (id: 0);
+}
+
+/// Flattened tree of declarations referenced from [LinkedNode]s.
+table LinkedNodeReferences {
+  name:[string] (id: 1);
+
+  parent:[uint] (id: 0);
+}
+
+/// Information about a Dart type.
+table LinkedNodeType {
+  functionFormalParameters:[LinkedNodeTypeFormalParameter] (id: 0);
+
+  functionReturnType:LinkedNodeType (id: 1);
+
+  /// The typedef this function type is created for.
+  functionTypedef:uint (id: 9);
+
+  functionTypedefTypeArguments:[LinkedNodeType] (id: 10);
+
+  functionTypeParameters:[LinkedNodeTypeTypeParameter] (id: 2);
+
+  /// Reference to a [LinkedNodeReferences].
+  interfaceClass:uint (id: 3);
+
+  interfaceTypeArguments:[LinkedNodeType] (id: 4);
+
+  kind:LinkedNodeTypeKind (id: 5);
+
+  nullabilitySuffix:EntityRefNullabilitySuffix (id: 8);
+
+  typeParameterElement:uint (id: 6);
+
+  typeParameterId:uint (id: 7);
+}
+
+/// Information about a formal parameter in a function type.
+table LinkedNodeTypeFormalParameter {
+  kind:LinkedNodeFormalParameterKind (id: 0);
+
+  name:string (id: 1);
+
+  type:LinkedNodeType (id: 2);
+}
+
+/// Information about a type substitution.
+table LinkedNodeTypeSubstitution {
+  isLegacy:bool (id: 2);
+
+  typeArguments:[LinkedNodeType] (id: 1);
+
+  typeParameters:[uint] (id: 0);
+}
+
+/// Information about a type parameter in a function type.
+table LinkedNodeTypeTypeParameter {
+  bound:LinkedNodeType (id: 1);
+
+  name:string (id: 0);
+}
+
+/// Information about a single library in a [LinkedNodeLibrary].
+table LinkedNodeUnit {
+  isNNBD:bool (id: 3);
+
+  isSynthetic:bool (id: 2);
+
+  node:LinkedNode (id: 1);
+
+  /// If the unit is a part, the URI specified in the `part` directive.
+  /// Otherwise empty.
+  partUriStr:string (id: 4);
+
+  /// The absolute URI.
+  uriStr:string (id: 0);
+}
+
+/// Summary information about a package.
+table PackageBundle {
+  /// The version 2 of the summary.
+  bundle2:LinkedNodeBundle (id: 0);
+
+  /// The SDK specific data, if this bundle is for SDK.
+  sdk:PackageBundleSdk (id: 1);
+}
+
+/// Summary information about a package.
+table PackageBundleSdk {
+  /// The content of the `allowed_experiments.json` from SDK.
+  allowedExperimentsJson:string (id: 0);
+}
+
+/// Summary information about a top-level type inference error.
+table TopLevelInferenceError {
+  /// The [kind] specific arguments.
+  arguments:[string] (id: 1);
+
+  /// The kind of the error.
+  kind:TopLevelInferenceErrorKind (id: 0);
+}
+
+table UnlinkedInformativeData {
+  variantField_2:uint (id: 2);
+
+  variantField_3:uint (id: 3);
+
+  variantField_9:uint (id: 9);
+
+  variantField_8:uint (id: 8);
+
+  /// Offsets of the first character of each line in the source code.
+  variantField_7:[uint] (id: 7);
+
+  variantField_6:uint (id: 6);
+
+  variantField_5:uint (id: 5);
+
+  /// If the parameter has a default value, the source text of the constant
+  /// expression in the default value.  Otherwise the empty string.
+  variantField_10:string (id: 10);
+
+  variantField_1:uint (id: 1);
+
+  variantField_4:[string] (id: 4);
+
+  /// The kind of the node.
+  kind:LinkedNodeKind (id: 0);
+}
+
+/// Unlinked summary information about a namespace directive.
+table UnlinkedNamespaceDirective {
+  /// The configurations that control which library will actually be used.
+  configurations:[UnlinkedNamespaceDirectiveConfiguration] (id: 0);
+
+  /// The URI referenced by this directive, nad used by default when none
+  /// of the [configurations] matches.
+  uri:string (id: 1);
+}
+
+/// Unlinked summary information about a namespace directive configuration.
+table UnlinkedNamespaceDirectiveConfiguration {
+  /// The name of the declared variable used in the condition.
+  name:string (id: 0);
+
+  /// The URI to be used if the condition is true.
+  uri:string (id: 2);
+
+  /// The value to which the value of the declared variable will be compared,
+  /// or the empty string if the condition does not include an equality test.
+  value:string (id: 1);
+}
+
+/// Unlinked summary information about a compilation unit.
+table UnlinkedUnit2 {
+  /// The MD5 hash signature of the API portion of this unit. It depends on all
+  /// tokens that might affect APIs of declarations in the unit.
+  apiSignature:[uint] (id: 0);
+
+  /// URIs of `export` directives.
+  exports:[UnlinkedNamespaceDirective] (id: 1);
+
+  /// Is `true` if the unit contains a `library` directive.
+  hasLibraryDirective:bool (id: 6);
+
+  /// Is `true` if the unit contains a `part of` directive.
+  hasPartOfDirective:bool (id: 3);
+
+  /// URIs of `import` directives.
+  imports:[UnlinkedNamespaceDirective] (id: 2);
+
+  informativeData:[UnlinkedInformativeData] (id: 7);
+
+  /// Offsets of the first character of each line in the source code.
+  lineStarts:[uint] (id: 5);
+
+  /// URI of the `part of` directive.
+  partOfUri:string (id: 8);
+
+  /// URIs of `part` directives.
+  parts:[string] (id: 4);
+}
+
+root_type PackageBundle;
+
+file_identifier "PBdl";

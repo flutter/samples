@@ -1,0 +1,463 @@
+// Copyright 2016 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/shape/mixins";
+@import "package:mdc_web/src/scss/ripple/mixins";
+@import "package:mdc_web/src/scss/theme/functions";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "package:mdc_web/src/scss/typography/variables";
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "./variables";
+
+//
+// Public
+//
+
+@mixin mdc-list-core-styles($query: mdc-feature-all()) {
+  @include mdc-list-without-ripple($query);
+  @include mdc-list-ripple($query);
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// list styles. It is recommended that most users use `mdc-list-core-styles` instead.
+@mixin mdc-list-without-ripple($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-typography: mdc-feature-create-target($query, typography);
+
+  $item-primary-text-baseline-height: 32px;
+  $item-secondary-text-baseline-height: 20px;
+  $dense-item-primary-text-baseline-height: 24px;
+  $divider-color: if(
+    mdc-theme-tone($mdc-theme-background) == "dark",
+    $mdc-list-divider-color-on-dark-bg,
+    $mdc-list-divider-color-on-light-bg
+  );
+
+  .mdc-list {
+    @include mdc-list-base_($query);
+  }
+
+  @include mdc-list-item-secondary-text-ink-color(text-secondary-on-background, $query);
+  @include mdc-list-item-graphic-fill-color(transparent, $query);
+  @include mdc-list-item-graphic-ink-color(text-icon-on-background, $query);
+  @include mdc-list-item-meta-ink-color(text-hint-on-background, $query);
+  @include mdc-list-group-subheader-ink-color(text-primary-on-background, $query);
+
+  .mdc-list--dense {
+    @include mdc-feature-targets($feat-structure) {
+      padding-top: 4px;
+      padding-bottom: 4px;
+      font-size: .812rem;
+    }
+  }
+
+  .mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-list-item-base_;
+    }
+  }
+
+  // "Selected" is ephemeral and likely to change soon. E.g., selecting one or more photos to share in Google Photos.
+  // "Activated" is more permanent. E.g., the currently highlighted navigation destination in a drawer.
+  .mdc-list-item--selected,
+  .mdc-list-item--activated {
+    @include mdc-list-item-primary-text-ink-color(primary, $query);
+    @include mdc-list-item-graphic-ink-color(primary, $query);
+  }
+
+  .mdc-list-item--disabled {
+    @include mdc-list-item-primary-text-ink-color(text-disabled-on-background, $query);
+  }
+
+  .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-list-graphic-size_(24px);
+
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      fill: currentColor;
+    }
+  }
+
+  // Extra specificity is to override .material-icons display style if used in
+  // conjunction with mdc-list-item__graphic
+  // stylelint-disable plugin/selector-bem-pattern
+  .mdc-list .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      display: inline-flex;
+    }
+  }
+  // stylelint-enable plugin/selector-bem-pattern
+
+  .mdc-list-item__meta {
+    // stylelint-disable selector-class-pattern
+    &:not(.material-icons) {
+      @include mdc-typography(caption, $query);
+    }
+    // stylelint-enable selector-class-pattern
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(margin, auto, 0, ".mdc-list-item");
+    }
+  }
+
+  .mdc-list-item__text {
+    @include mdc-typography-overflow-ellipsis($query);
+  }
+
+  // Disable interaction on label elements that may automatically
+  // toggle corresponding checkbox / radio input.
+  .mdc-list-item__text[for] {
+    @include mdc-feature-targets($feat-structure) {
+      pointer-events: none;
+    }
+  }
+
+  .mdc-list-item__primary-text {
+    @include mdc-typography-overflow-ellipsis($query);
+    @include mdc-typography-baseline-top($item-primary-text-baseline-height, $query);
+    @include mdc-typography-baseline-bottom($item-secondary-text-baseline-height, $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: block;
+    }
+
+    // stylelint-disable plugin/selector-bem-pattern
+    .mdc-list--dense & {
+      @include mdc-typography-baseline-top($dense-item-primary-text-baseline-height, $query);
+      @include mdc-typography-baseline-bottom($item-secondary-text-baseline-height, $query);
+    }
+    // stylelint-enable plugin/selector-bem-pattern
+  }
+
+  .mdc-list-item__secondary-text {
+    @include mdc-typography(body2, $query);
+    @include mdc-typography-overflow-ellipsis($query);
+    @include mdc-typography-baseline-top($item-secondary-text-baseline-height, $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: block;
+    }
+
+    // stylelint-disable plugin/selector-bem-pattern
+    .mdc-list--dense & {
+      @include mdc-typography-baseline-top($item-secondary-text-baseline-height, $query);
+
+      @include mdc-feature-targets($feat-structure) {
+        font-size: inherit;
+      }
+    }
+    // stylelint-enable plugin/selector-bem-pattern
+  }
+
+  // stylelint-disable plugin/selector-bem-pattern
+  .mdc-list--dense .mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      height: 40px;
+    }
+  }
+
+  .mdc-list--dense .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-list-graphic-size_(20px);
+    }
+  }
+
+  .mdc-list--avatar-list .mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      height: 56px;
+    }
+  }
+
+  .mdc-list--avatar-list .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-list-graphic-size_(40px);
+
+      border-radius: 50%;
+    }
+  }
+
+  .mdc-list--two-line .mdc-list-item__text {
+    @include mdc-feature-targets($feat-structure) {
+      align-self: flex-start;
+    }
+  }
+
+  .mdc-list--two-line .mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      height: 72px;
+    }
+  }
+
+  .mdc-list--two-line.mdc-list--dense .mdc-list-item,
+  .mdc-list--avatar-list.mdc-list--dense .mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      height: 60px;
+    }
+  }
+
+  .mdc-list--avatar-list.mdc-list--dense .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-list-graphic-size_(36px);
+    }
+  }
+
+  // Only change mouse cursor for interactive list items which are not disabled.
+  :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      cursor: pointer;
+    }
+  }
+
+  // Override anchor tag styles for the use-case of a list being used for navigation
+  // stylelint-disable selector-max-type,selector-no-qualifying-type
+  a.mdc-list-item {
+    @include mdc-feature-targets($feat-structure) {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  // stylelint-enable selector-max-type,selector-no-qualifying-type
+
+  .mdc-list-divider {
+    @include mdc-feature-targets($feat-structure) {
+      height: 0;
+      margin: 0;
+      border: none;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+
+  // Note: ideally we'd be able to hoist this to the top-level `$feat-color`, but doing so
+  // will cause the `border` declaration on `.mdc-list-divider` above to override it.
+  @include mdc-list-divider-color($divider-color, $query);
+
+  .mdc-list-divider--padded {
+    @include mdc-feature-targets($feat-structure) {
+      // Leave gaps on each side to match the padding on list items
+      margin: 0 $mdc-list-side-padding;
+    }
+  }
+
+  .mdc-list-divider--inset {
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-box(margin, left, $mdc-list-text-offset, ".mdc-list-group");
+
+      width: calc(100% - #{$mdc-list-text-offset});
+    }
+  }
+
+  .mdc-list-divider--inset.mdc-list-divider--padded {
+    @include mdc-feature-targets($feat-structure) {
+      width: calc(100% - #{$mdc-list-text-offset} - #{$mdc-list-side-padding});
+    }
+  }
+
+  .mdc-list-group {
+    @include mdc-feature-targets($feat-structure) {
+      // Cancel top/bottom padding on individual lists within group
+      .mdc-list {
+        padding: 0;
+      }
+    }
+  }
+
+  .mdc-list-group__subheader {
+    $mdc-list-subheader-virtual-height: 3rem;
+    $mdc-list-subheader-leading: map-get(map-get($mdc-typography-styles, body1), line-height);
+    $mdc-list-subheader-margin: ($mdc-list-subheader-virtual-height - $mdc-list-subheader-leading) / 2;
+
+    @include mdc-typography(subtitle1, $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      margin: $mdc-list-subheader-margin $mdc-list-side-padding;
+    }
+  }
+}
+
+// This API is intended for use by frameworks that may want to separate the ripple-related styles from the other
+// list styles. It is recommended that most users use `mdc-list-core-styles` instead.
+@mixin mdc-list-ripple($query: mdc-feature-all()) {
+  @include mdc-ripple-common($query);
+
+  // List items should support states by default, but it should be possible to opt out.
+  // Direct child combinator is necessary for non-interactive modifier on parent to not
+  // match this selector.
+  :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item {
+    @include mdc-list-item-interactive-ripple_($query);
+  }
+
+  // Set styles only for focus state on disabled list item.
+  :not(.mdc-list--non-interactive) > .mdc-list-item--disabled {
+    @include mdc-ripple-surface($query: $query);
+    @include mdc-ripple-radius-bounded($query: $query);
+    @include mdc-states-base-color(mdc-theme-prop-value(on-surface), $query: $query);
+    @include mdc-states-focus-opacity(mdc-states-opacity(primary, focus), $query: $query);
+  }
+}
+
+@mixin mdc-list-item-primary-text-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(color, $color);
+  }
+}
+
+@mixin mdc-list-item-secondary-text-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-item__secondary-text {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-list-item-graphic-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, $color);
+    }
+  }
+}
+
+@mixin mdc-list-item-graphic-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-item__graphic {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-list-item-meta-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-item__meta {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+@mixin mdc-list-item-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  .mdc-list-item {
+    @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+  }
+}
+
+@mixin mdc-list-divider-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-divider {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(border-bottom-color, $color);
+    }
+  }
+}
+
+@mixin mdc-list-group-subheader-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  .mdc-list-group__subheader {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(color, $color);
+    }
+  }
+}
+
+//
+// Private
+//
+
+@mixin mdc-list-base_($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-typography: mdc-feature-create-target($query, typography);
+
+  @include mdc-typography(subtitle1, $query);
+
+  @include mdc-feature-targets($feat-typography) {
+    // According to the mocks and stickersheet, the line-height is
+    // adjusted to 24px for text content, same as for body1.
+    /* @alternate */
+    line-height: map-get(map-get($mdc-typography-styles, body1), line-height);
+  }
+
+  @include mdc-feature-targets($feat-structure) {
+    margin: 0;
+    padding: 8px 0;
+    list-style-type: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include mdc-list-item-primary-text-ink-color(text-primary-on-background, $query);
+}
+
+@mixin mdc-list-item-base_ {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  height: 48px;
+  padding: 0 $mdc-list-side-padding;
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Ripple styles for an interactive list item (one that is enabled and inside an interactive list).
+@mixin mdc-list-item-interactive-ripple_($query: mdc-feature-all()) {
+  @include mdc-ripple-surface($query);
+  @include mdc-ripple-radius-bounded($query: $query);
+  @include mdc-states(mdc-theme-prop-value(on-surface), false, $query);
+  @include mdc-states-activated(primary, false, $query);
+  @include mdc-states-selected(primary, false, $query);
+}
+
+// Sets the width and height of the graphic element, as well as calculates the margins for
+// the graphic element such that the text is always offset by 72px, which is defined within
+// the spec.
+@mixin mdc-list-graphic-size_($size) {
+  $text-offset: 72px;
+  $side-padding: $mdc-list-side-padding;
+  $margin-value: $text-offset - $side-padding - $size;
+
+  @include mdc-rtl-reflexive-box(margin, right, $margin-value, ".mdc-list-item");
+
+  width: $size;
+  height: $size;
+}
+

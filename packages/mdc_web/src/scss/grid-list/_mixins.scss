@@ -1,0 +1,252 @@
+//
+// Copyright 2019 Google Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+
+@import "package:mdc_web/src/scss/feature-targeting/functions";
+@import "package:mdc_web/src/scss/feature-targeting/mixins";
+@import "package:mdc_web/src/scss/rtl/mixins";
+@import "package:mdc_web/src/scss/theme/mixins";
+@import "package:mdc_web/src/scss/typography/mixins";
+@import "./variables";
+
+@mixin mdc-grid-list-core-styles($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+  $feat-typography: mdc-feature-create-target($query, typography);
+
+  // postcss-bem-linter: define grid-list
+  @include mdc-grid-list-tile-aspect(1, $query: $query);
+  @include mdc-grid-list-tile-gutter(4px, $query: $query);
+
+  .mdc-grid-list__tiles {
+    @include mdc-feature-targets($feat-structure) {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0;
+    }
+  }
+
+  .mdc-grid-list--tile-gutter-1 {
+    @include mdc-grid-list-tile-gutter(1px, $query: $query);
+  }
+
+  .mdc-grid-list--tile-aspect-16x9 {
+    @include mdc-grid-list-tile-aspect(16 / 9, $query: $query);
+  }
+
+  .mdc-grid-list--tile-aspect-3x2 {
+    @include mdc-grid-list-tile-aspect(3 / 2, $query: $query);
+  }
+
+  .mdc-grid-list--tile-aspect-2x3 {
+    @include mdc-grid-list-tile-aspect(2 / 3, $query: $query);
+  }
+
+  .mdc-grid-list--tile-aspect-4x3 {
+    @include mdc-grid-list-tile-aspect(4 / 3, $query: $query);
+  }
+
+  .mdc-grid-list--tile-aspect-3x4 {
+    @include mdc-grid-list-tile-aspect(3 / 4, $query: $query);
+  }
+  // postcss-bem-linter: end
+
+  // postcss-bem-linter: define grid-tile
+  .mdc-grid-tile {
+    @include mdc-feature-targets($feat-structure) {
+      display: block;
+      position: relative;
+      /* @alternate */
+      width: $mdc-grid-list-tile-width;
+      width: var(--mdc-grid-list-tile-width, $mdc-grid-list-tile-width);
+    }
+  }
+
+  .mdc-grid-tile__primary {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, background);
+      @include mdc-theme-prop(color, text-primary-on-background);
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      position: relative;
+      height: 0;
+    }
+  }
+
+  .mdc-grid-tile__primary-content {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .mdc-grid-tile__secondary {
+    @include mdc-feature-targets($feat-color) {
+      @include mdc-theme-prop(background-color, primary);
+      @include mdc-theme-prop(color, on-primary);
+    }
+
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      bottom: 0;
+      box-sizing: border-box;
+      height: $mdc-grid-list-oneline-cap-secondary-height;
+      padding: $mdc-grid-list-tile-secondary-padding;
+    }
+  }
+
+  .mdc-grid-tile__title {
+    @include mdc-typography-overflow-ellipsis($query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: block;
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      line-height: 1rem;
+    }
+
+    @include mdc-feature-targets($feat-typography) {
+      font-weight: #{map-get($mdc-typography-font-weight-values, medium)};
+    }
+  }
+
+  .mdc-grid-tile__support-text {
+    @include mdc-typography(subtitle1, $query: $query);
+    @include mdc-typography-overflow-ellipsis($query: $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      display: block;
+      margin: 0;
+      margin-top: 4px;
+      padding: 0;
+    }
+  }
+
+  .mdc-grid-tile__icon {
+    @include mdc-feature-targets($feat-structure) {
+      position: absolute;
+      top: calc(50% - #{$mdc-grid-list-tile-secondary-icon-size} / 2);
+      font-size: 0;
+    }
+  }
+  // postcss-bem-linter: end
+
+  // Linter disabled because we are nesting grid-tile under grid-list.
+  .mdc-grid-list--twoline-caption .mdc-grid-tile__secondary {
+    @include mdc-feature-targets($feat-structure) {
+      height: $mdc-grid-list-twoline-cap-secondary-height;
+    }
+  }
+
+  .mdc-grid-list--header-caption .mdc-grid-tile__secondary {
+    @include mdc-feature-targets($feat-structure) {
+      top: 0;
+      bottom: auto;
+    }
+  }
+
+  .mdc-grid-list--with-icon-align-start {
+    .mdc-grid-tile__secondary {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-rtl-reflexive-property(
+          padding,
+          $mdc-grid-list-tile-secondary-padding * 2 + $mdc-grid-list-tile-secondary-icon-size,
+          $mdc-grid-list-tile-secondary-padding-narrow,
+          ".mdc-grid-list"
+        );
+      }
+    }
+
+    .mdc-grid-tile__icon {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-rtl-reflexive-position(left, $mdc-grid-list-tile-secondary-padding, ".mdc-grid-list");
+
+        font-size: $mdc-grid-list-tile-secondary-icon-size;
+      }
+    }
+  }
+
+  .mdc-grid-list--with-icon-align-end {
+    .mdc-grid-tile__secondary {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-rtl-reflexive-property(
+          padding,
+          $mdc-grid-list-tile-secondary-padding,
+          $mdc-grid-list-tile-secondary-padding * 2 + $mdc-grid-list-tile-secondary-icon-size,
+          ".mdc-grid-list"
+        );
+      }
+    }
+
+    .mdc-grid-tile__icon {
+      @include mdc-feature-targets($feat-structure) {
+        @include mdc-rtl-reflexive-position(right, $mdc-grid-list-tile-secondary-padding, ".mdc-grid-list");
+
+        font-size: $mdc-grid-list-tile-secondary-icon-size;
+      }
+    }
+  }
+}
+
+@mixin mdc-grid-list-tile-aspect($width-height-ratio, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-grid-tile__primary {
+    @include mdc-feature-targets($feat-structure) {
+      padding-bottom: calc(100% / #{$width-height-ratio});
+    }
+  }
+}
+
+@mixin mdc-grid-list-tile-gutter($gutter-width, $query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-grid-tile {
+    @include mdc-feature-targets($feat-structure) {
+      margin: $gutter-width/2 0;
+      padding: 0 $gutter-width/2;
+    }
+  }
+
+  .mdc-grid-tile__secondary {
+    @include mdc-feature-targets($feat-structure) {
+      left: $gutter-width/2;
+      width: calc(100% - #{$gutter-width});
+    }
+  }
+
+  .mdc-grid-list__tiles {
+    @include mdc-feature-targets($feat-structure) {
+      margin: $gutter-width/2 auto;
+    }
+  }
+}
+
