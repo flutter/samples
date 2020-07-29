@@ -11,7 +11,16 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.3
-  google_maps_flutter: ^0.5.27
+  google_maps_flutter:
+    git:
+      url: git@github.com:ditman/plugins.git
+      path: packages/google_maps_flutter/google_maps_flutter
+      ref: gmaps-web
+  google_maps_flutter_web:
+    git:
+      url: git@github.com:ditman/plugins.git
+      path: packages/google_maps_flutter/google_maps_flutter_web
+      ref: gmaps-web
   provider: ^4.0.0
   uuid: ^2.0.4
 
