@@ -1,9 +1,8 @@
-name: federated_plugin
-description: A new flutter plugin project to demonstrate how to implement federated plugin.
+name: federated_plugin_web
+description: Web implementaton of federated_plugin to provide location.
 version: 0.0.1
 homepage:
-
-publish_to: 'none'
+publish_to: none
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -12,10 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
   federated_plugin_platform_interface:
     path: ../federated_plugin_platform_interface
-  federated_plugin_web:
-    path: ../federated_plugin_web
 
 dev_dependencies:
   flutter_test:
@@ -25,8 +24,6 @@ dev_dependencies:
 flutter:
   plugin:
     platforms:
-      android:
-        pluginClass: FederatedPlugin
-        package: dev.flutter.federated_plugin
       web:
-        default_package: federated_plugin_web
+        pluginClass: FederatedPlugin
+        fileName: federated_plugin_web.dart
