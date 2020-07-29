@@ -22,9 +22,9 @@ class FederatedPlugin extends FederatedPluginInterface {
   /// If any error, it's assume that user has denied the permission forever.
   @override
   Future<Location> getLocation() async {
-    Geoposition geoPosition;
     try {
-      geoPosition = await window.navigator.geolocation.getCurrentPosition();
+      final geoPosition =
+          await window.navigator.geolocation.getCurrentPosition();
       return Location(
         longitude: geoPosition.coords.longitude.toDouble(),
         latitude: geoPosition.coords.latitude.toDouble(),
