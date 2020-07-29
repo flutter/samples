@@ -313,6 +313,52 @@ samples:
     type: sample
     web: web/provider_shopper
 
+  - name: Web Dashboard
+    author: Flutter
+    screenshots:
+      - url: images/web_dashboard1.png
+        alt: Web Dashboard screenshot
+      - url: images/web_dashboard2.png
+        alt: Web Dashbaord screenshot
+      - url: images/web_dashboard3.png
+        alt: Web Dashboard screenshot
+    source: https://github.com/flutter/samples/tree/master/experimental/web_dashboard
+    description: >
+      A dashboard app that displays daily entries. Demonstrates AdaptiveScaffold and NavigationRail. Showcases how to
+      use Firebase, but uses a mock backend by default.
+    difficulty: advanced
+    widgets:
+      - AdaptiveScaffold
+      - NavigationRail
+      - FutureBuilder
+      - StreamBuilder
+    packages:
+      - firebase
+    tags: ['intermediate', 'sample', 'firebase']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/web_dashboard
+
+  - name: Form App
+    author: Flutter
+    screenshots:
+      - url: images/form_app1.png
+        alt: Form App screenshot
+      - url: images/form_app2.png
+        alt: Form App screenshot
+      - url: images/form_app3.png
+        alt: Form App screenshot
+    source: https://github.com/flutter/samples/tree/master/experimental/form_app
+    description: >
+      A Flutter sample app that shows how to use Forms.
+    difficulty: intermediate
+    widgets:
+      - Form
+    packages: []
+    tags: ['intermediate', 'sample', 'forms']
+    platforms: ['ios', 'android', 'web']
+    type: sample
+    web: web/form_app
 ###################
 #### Web Demos ####
 ###################

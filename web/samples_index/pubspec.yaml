@@ -8,7 +8,6 @@ environment:
 dependencies:
   json_annotation: ^3.0.0
   path: ^1.6.0
-  resource: ^2.1.6
   yaml: ^2.2.0
   mdc_web: ^0.5.0-pre
   sass_builder: ^2.1.0
