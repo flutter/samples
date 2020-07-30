@@ -19,7 +19,6 @@ class HomePage extends StatelessWidget {
           FlatButton.icon(
             textColor: Colors.white,
             onPressed: () {
-              /// Open [FavoritesPage] to show list of favorites.
               Navigator.pushNamed(context, FavoritesPage.routeName);
             },
             icon: Icon(Icons.favorite_border),
@@ -27,8 +26,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-
-      /// Show a ListView with [ItemTile] as items.
       body: ListView.builder(
         itemCount: 50,
         padding: const EdgeInsets.symmetric(vertical: 16),
@@ -47,11 +44,7 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Create a reference of the Favorites Model.
     var favoritesList = Provider.of<Favorites>(context);
-
-    // Check if the item is present in the favorites list.
-    var isFavorite = favoritesList.items.contains(itemNo);
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -65,20 +58,16 @@ class ItemTile extends StatelessWidget {
         ),
         trailing: IconButton(
           key: Key('icon_$itemNo'),
-          // Show a solid favorite icon if the item is a favorite,
-          // else show a favorite icon with border.
-          icon: isFavorite ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+          icon: favoritesList.items.contains(itemNo)
+              ? Icon(Icons.favorite)
+              : Icon(Icons.favorite_border),
           onPressed: () {
-            // Add the item to favorites if not present in the list,
-            // else remove it.
-            !isFavorite
+            !favoritesList.items.contains(itemNo)
                 ? favoritesList.add(itemNo)
                 : favoritesList.remove(itemNo);
-            isFavorite = favoritesList.items.contains(itemNo);
-            // Show the message of performed task to the user.
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                content: Text(isFavorite
+                content: Text(favoritesList.items.contains(itemNo)
                     ? 'Added to favorites.'
                     : 'Removed from favorites.'),
                 duration: Duration(seconds: 1),

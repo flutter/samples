@@ -11,18 +11,12 @@ class Favorites extends ChangeNotifier {
   List<int> get items => _favoriteItems;
 
   void add(int itemNo) {
-    // Add the item to the favorites list.
     _favoriteItems.add(itemNo);
-
-    // Tell the depending widgets to rebuild.
     notifyListeners();
   }
 
   void remove(int itemNo) {
-    // Remove the item from the favorites list.
     _favoriteItems.remove(itemNo);
-
-    // Tell the depending widgets to rebuild.
     notifyListeners();
   }
 }
