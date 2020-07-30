@@ -21,7 +21,7 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0-nullsafety"
   charcode:
     dependency: transitive
     description:
@@ -42,7 +42,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.13"
+    version: "1.15.0-nullsafety"
   convert:
     dependency: transitive
     description:
@@ -88,20 +88,50 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  google_maps:
+    dependency: transitive
+    description:
+      name: google_maps
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.4.4"
   google_maps_flutter:
     dependency: "direct main"
     description:
-      name: google_maps_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.30"
+      path: "packages/google_maps_flutter/google_maps_flutter"
+      ref: gmaps-web
+      resolved-ref: "062634c74bc84665cdf7229336941592ddd6e026"
+      url: "git@github.com:ditman/plugins.git"
+    source: git
+    version: "0.5.28+2"
   google_maps_flutter_platform_interface:
     dependency: transitive
     description:
       name: google_maps_flutter_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.2"
+  google_maps_flutter_web:
+    dependency: "direct main"
+    description:
+      path: "packages/google_maps_flutter/google_maps_flutter_web"
+      ref: gmaps-web
+      resolved-ref: "062634c74bc84665cdf7229336941592ddd6e026"
+      url: "git@github.com:ditman/plugins.git"
+    source: git
+    version: "0.1.0"
+  js_wrapping:
+    dependency: transitive
+    description:
+      name: js_wrapping
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.0"
   matcher:
     dependency: transitive
     description:
@@ -115,7 +145,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.8"
+    version: "1.3.0-nullsafety"
   nested:
     dependency: transitive
     description:
@@ -136,7 +166,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.0"
+    version: "1.9.2"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -150,7 +180,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.2"
+    version: "4.3.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -211,7 +241,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0-nullsafety"
   uuid:
     dependency: "direct main"
     description:
@@ -225,7 +255,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.8"
+    version: "2.1.0-nullsafety"
 sdks:
-  dart: ">=2.9.0-14.0.dev <3.0.0"
+  dart: ">=2.9.0-18.0 <2.9.0"
   flutter: ">=1.16.3 <2.0.0"
