@@ -22,7 +22,7 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
     );
 
 void addRandomItems() {
-  for (var i = 0; i < 10; i += 2) {
+  for (var i = 0; i < 5; i++) {
     favoritesList.add(Random().nextInt(50));
   }
 }

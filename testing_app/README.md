@@ -20,7 +20,7 @@ Show how to perform:
 - Navigate to the project's root folder using command line and follow the instructions below.
 
 ### To run tests using only the Flutter SDK:
-The Flutter SDK can run some of the testing types on its own viz. unit testing and widget testing without the need of a physical device/emulator.
+The Flutter SDK can run unit tests and widget tests in a virtual machine, without the need of a physical device or emulator.
 - To run all the test files in the `test/` directory in one go, run `flutter test`.
 - To run a particular test file, run `flutter test test/<file_path>`
 
@@ -29,11 +29,13 @@ The Flutter SDK can run some of the testing types on its own viz. unit testing a
   - Run `flutter run test/<file_path>`
 - Flutter Driver Tests:
   - Run `flutter drive --target=test_driver/<file_path>`
-  - eg. `flutter drive --target=test_driver/app.dart` to run the test in `test_driver/app_test.dart`
+    - eg. `flutter drive --target=test_driver/app.dart` to run the test in `test_driver/app_test.dart`
 - Performance Tests:
-  - Run `flutter drive --target=test_driver/<file_path> --profile` (Using a physical device and running performance tests in profile mode is recommended).
+  - Run `flutter drive --target=test_driver/app.dart --driver test_driver/perf_test.dart --profile --trace-startup` 
+    - Using a physical device and running performance tests in profile mode is recommended.
+    - The `--trace-startup` option is used to avoid flushing older timeline events when the timeline gets long.
 - State Management Tests:  
-  - For Testing State using Flutter Driver
+  - For testing state using Flutter Driver
     - Run `flutter drive --target=test_driver/<file_path>`
 
 ### CI/CD

@@ -36,7 +36,7 @@ void main() {
         await driver.scrollUntilVisible(
           listFinder,
           lastItem,
-          dyScroll: -1000.0,
+          dyScroll: -500.0,
         );
 
         // Check if the item contains the correct text.
@@ -46,7 +46,7 @@ void main() {
         await driver.scrollUntilVisible(
           listFinder,
           firstItem,
-          dyScroll: 1000.0,
+          dyScroll: 500.0,
         );
 
         // Check if the item contains the correct text.
@@ -58,9 +58,12 @@ void main() {
       final scrollingSummary = TimelineSummary.summarize(scrollingTimeline);
 
       // Then, save the summary to disk.
+      // Results will be stored in the file 'build/scrolling.timeline.json'.
       await scrollingSummary.writeSummaryToFile('scrolling', pretty: true);
 
       // Write the entire timeline to disk in a json format.
+      // Results will be stored in
+      // the file 'build/scrolling.timeline_summary.json'.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await scrollingSummary.writeTimelineToFile('scrolling', pretty: true);
@@ -110,10 +113,14 @@ void main() {
       final operationsSummary = TimelineSummary.summarize(operationsTimeline);
 
       // Then, save the summary to disk.
+      // Results will be stored in
+      // the file 'build/favorites_operations.timeline.json'.
       await operationsSummary.writeSummaryToFile('favorites_operations',
           pretty: true);
 
       // Write the entire timeline to disk in a json format.
+      // Results will be stored in
+      // the file 'build/favorites_operations.timeline_summary.json'.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await operationsSummary.writeTimelineToFile('favorites_operations',

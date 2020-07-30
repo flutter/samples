@@ -15,8 +15,6 @@ class FavoritesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Favorites'),
       ),
-
-      /// Build a ListView using the items in the [Favorites] Model.
       body: Consumer<Favorites>(
         builder: (context, value, child) => ListView.builder(
           itemCount: value.items.length,
@@ -51,9 +49,7 @@ class FavoriteItemTile extends StatelessWidget {
           key: Key('remove_icon_$itemNo'),
           icon: Icon(Icons.close),
           onPressed: () {
-            // Remove the item from favorites.
             Provider.of<Favorites>(context, listen: false).remove(itemNo);
-            // Show the user the message using Snackbar.
             Scaffold.of(context).showSnackBar(
               SnackBar(
                 content: Text('Removed from favorites.'),

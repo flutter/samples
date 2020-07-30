@@ -21,6 +21,7 @@ void main() {
       // Verify if the number was inserted.
       expect(favorites.items.contains(number), true);
     });
+
     test('An item should be removed', () {
       // Generate a random number.
       var number = Random().nextInt(50);
