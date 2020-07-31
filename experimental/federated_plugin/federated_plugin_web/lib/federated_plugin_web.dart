@@ -7,7 +7,6 @@ import 'dart:html' as html;
 import 'package:federated_plugin_platform_interface/federated_plugin_platform_interface.dart';
 import 'package:federated_plugin_platform_interface/location_model.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 /// Web Implementation of [FederatedPluginInterface] to provide location.
