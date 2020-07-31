@@ -14,8 +14,8 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 class FederatedPlugin extends FederatedPluginInterface {
   final html.Window _window;
 
-  FederatedPlugin({@visibleForTesting html.Window window})
-      : _window = window ?? html.window;
+  /// Constructor to override the window object for testing purpose.
+  FederatedPlugin({html.Window window}) : _window = window ?? html.window;
 
   /// Method to register the plugin which sets [FederatedPlugin] to be the default
   /// instance of [FederatedPluginInterface].
