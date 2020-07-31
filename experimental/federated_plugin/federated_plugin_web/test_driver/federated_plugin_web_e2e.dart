@@ -12,23 +12,7 @@ import 'package:mockito/mockito.dart';
 const kLatitude = 4;
 const kLongitude = 3;
 
-class WindowMock extends Mock implements Window {
-  @override
-  Navigator get navigator => NavigatorMock();
-}
-
-class NavigatorMock extends Mock implements Navigator {
-  @override
-  Geolocation get geolocation => GeoLocationMock();
-}
-
-class GeoLocationMock extends Mock implements Geolocation {
-  @override
-  Future<Geoposition> getCurrentPosition(
-      {bool enableHighAccuracy, Duration timeout, Duration maximumAge}) async {
-    return GeoPositionMock();
-  }
-}
+class GeoLocationMock extends Mock implements Geolocation {}
 
 class GeoPositionMock extends Mock implements Geoposition {
   @override
@@ -47,11 +31,19 @@ void main() {
   E2EWidgetsFlutterBinding.ensureInitialized();
 
   group('FederatedPlugin test', () {
-    final windowMock = WindowMock();
+    final geoLocationMock = GeoLocationMock();
+
+    setUp(() {
+      when(geoLocationMock.getCurrentPosition())
+          .thenAnswer((realInvocation) async => GeoPositionMock());
+    });
 
     testWidgets('getLocation Method', (tester) async {
-      final federatedPlugin = FederatedPlugin(window: windowMock);
+      final federatedPlugin = FederatedPlugin(geolocation: geoLocationMock);
       final location = await federatedPlugin.getLocation();
+
+      // Verify that getCurrentPosition was called.
+      verify(geoLocationMock.getCurrentPosition());
 
       // Verify the values of Location.longitude and Location.latitude.
       expect(location.longitude, kLongitude);

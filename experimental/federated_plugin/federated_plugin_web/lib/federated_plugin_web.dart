@@ -11,10 +11,11 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 /// Web Implementation of [FederatedPluginInterface] to provide location.
 class FederatedPlugin extends FederatedPluginInterface {
-  final html.Window _window;
+  final html.Geolocation _geolocation;
 
-  /// Constructor to override the window object for testing purpose.
-  FederatedPlugin({html.Window window}) : _window = window ?? html.window;
+  /// Constructor to override the geolocation object for testing purpose.
+  FederatedPlugin({html.Geolocation geolocation})
+      : _geolocation = geolocation ?? html.window.navigator.geolocation;
 
   /// Method to register the plugin which sets [FederatedPlugin] to be the default
   /// instance of [FederatedPluginInterface].
@@ -28,8 +29,7 @@ class FederatedPlugin extends FederatedPluginInterface {
   @override
   Future<Location> getLocation() async {
     try {
-      final geoPosition =
-          await _window.navigator.geolocation.getCurrentPosition();
+      final geoPosition = await _geolocation.getCurrentPosition();
       return Location(
         longitude: geoPosition.coords.longitude.toDouble(),
         latitude: geoPosition.coords.latitude.toDouble(),
