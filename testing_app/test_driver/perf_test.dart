@@ -24,33 +24,17 @@ void main() {
     test('Scrolling test', () async {
       // Create Finders that are used multiple times.
       final listFinder = find.byType('ListView');
-      final firstItem = find.byValueKey('text_0');
-      final lastItem = find.byValueKey('text_49');
 
       // Record a performance profile as the app scrolls through
       // the list of items.
       final scrollingTimeline = await driver.traceAction(() async {
-        // Scroll until the item to be found appears.
+        // Quickly scroll all the way down.
         // Use dxScroll to scroll horizontally and dyScroll
         // to scroll vertically.
-        await driver.scrollUntilVisible(
-          listFinder,
-          lastItem,
-          dyScroll: -500.0,
-        );
+        await driver.scroll(listFinder, 0, -7000, Duration(seconds: 1));
 
-        // Check if the item contains the correct text.
-        expect(await driver.getText(lastItem), 'Item 49');
-
-        // Scroll back up all the way.
-        await driver.scrollUntilVisible(
-          listFinder,
-          firstItem,
-          dyScroll: 500.0,
-        );
-
-        // Check if the item contains the correct text.
-        expect(await driver.getText(firstItem), 'Item 0');
+        // Quickly scroll back up all the way.
+        await driver.scroll(listFinder, 0, 7000, Duration(seconds: 1));
       });
 
       // Convert the Timeline into a TimelineSummary that's easier to
