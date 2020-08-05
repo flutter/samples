@@ -49,6 +49,9 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
     pushd "${PROJECT_NAME}"
 
+    # Grab packages.
+    "${LOCAL_SDK_PATH}/bin/flutter" pub get
+
     # Run the analyzer to find any static analysis issues.
     "${LOCAL_SDK_PATH}/bin/flutter" analyze
 

@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_module_using_plugin: ab21df6109f463a98496d1b37ad061e4fd4e3664
   FlutterPluginRegistrant: 5f023d9f4a14f5b49cc6bb950327099916b47859
-  url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
+  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
   url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
 

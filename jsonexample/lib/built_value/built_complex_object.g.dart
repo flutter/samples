@@ -108,25 +108,25 @@ class _$BuiltComplexObjectSerializer
           result.aListOfStrings.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(int)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(double)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'aListOfObjects':
           result.aListOfObjects.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(BuiltSimpleObject)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
       }
     }
