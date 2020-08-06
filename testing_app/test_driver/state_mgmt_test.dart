@@ -30,12 +30,12 @@ void main() {
       /// Specifically, send 'ADD' command to the handler in this case.
       await driver.requestData('ADD');
 
-      // Check if the new item apppears in the list.
+      // Check if the new item appears in the list.
       await driver.waitFor(find.text('Item 30'));
     });
 
     test('Verifying remove method', () async {
-      /// Peform remove operation on the provider using the [DataHandler].
+      /// Perform remove operation on the provider using the [DataHandler].
       await driver.requestData('REMOVE');
 
       // Verify if it disappears.
