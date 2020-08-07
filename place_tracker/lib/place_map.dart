@@ -134,7 +134,21 @@ class PlaceMapState extends State<PlaceMap> {
     });
 
     // Zoom to fit the initially selected category.
-    await _zoomToFitPlaces(
+    _zoomToFitSelectedCategory();
+  }
+
+  @override
+  void didUpdateWidget(PlaceMap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Zoom to fit the selected category.
+    if (mounted) {
+      _zoomToFitSelectedCategory();
+    }
+  }
+
+  /// Applies zoom to fit the places of the selected category
+  void _zoomToFitSelectedCategory() {
+    _zoomToFitPlaces(
       _getPlacesForCategory(
         Provider.of<AppState>(context, listen: false).selectedCategory,
         _markedPlaces.values.toList(),
