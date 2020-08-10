@@ -19,6 +19,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   test: ^1.14.4
+  e2e: ^0.6.3
   pedantic: ^1.9.0
 
 flutter:

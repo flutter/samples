@@ -31,10 +31,14 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
   - Run `flutter drive --target=test_driver/<file_path>`
     - eg. `flutter drive --target=test_driver/app.dart` to run the test in `test_driver/app_test.dart`
 - Performance Tests:
-  - Run `flutter drive --target=test_driver/app.dart --driver test_driver/perf_test.dart --profile --trace-startup` 
+  - Run `flutter drive --target=test_driver/app.dart --driver test_driver/perf_test.dart --profile --trace-startup`
     - Using a physical device and running performance tests in profile mode is recommended.
     - The `--trace-startup` option is used to avoid flushing older timeline events when the timeline gets long.
-- State Management Tests:  
+- [E2E](https://pub.dev/packages/e2e) Tests:
+  - Run `flutter drive --target test/perf_test_e2e.dart --driver test_driver/e2e_test.dart --profile`
+  - Similar to the above but the test is driven on device.
+  - You may also reference [E2E manual](https://github.com/flutter/plugins/tree/master/packages/e2e#firebase-test-lab) for how to run such test on Firebase Test Lab.
+- State Management Tests:
   - For testing state using Flutter Driver
     - Run `flutter drive --target=test_driver/<file_path>`
 
@@ -42,7 +46,7 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 - Refer [.travis.yml](../.travis.yml) and the [tool](../tool) directory to see how to test Flutter projects using Travis-CI.
 
 Note that we aren't performing Flutter Driver tests using the Travis tool in this repo. That is because it's recommended to use physical devices to run Driver tests. You can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://codemagic.io/) or any platform of your choice to do that.
-    
+
 ## Questions/issues
 
 If you have a general question about testing in Flutter, the best places to go are:
