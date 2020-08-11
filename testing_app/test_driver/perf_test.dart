@@ -42,12 +42,12 @@ void main() {
       final scrollingSummary = TimelineSummary.summarize(scrollingTimeline);
 
       // Then, save the summary to disk.
-      // Results will be stored in the file 'build/scrolling.timeline.json'.
+      // Results will be stored in
+      // the file 'build/scrolling.timeline_summary.json'.
       await scrollingSummary.writeSummaryToFile('scrolling', pretty: true);
 
       // Write the entire timeline to disk in a json format.
-      // Results will be stored in
-      // the file 'build/scrolling.timeline_summary.json'.
+      // Results will be stored in the file 'build/scrolling.timeline.json'.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await scrollingSummary.writeTimelineToFile('scrolling', pretty: true);
