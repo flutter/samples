@@ -5,12 +5,10 @@
 // This file duplicate the behavior of `test_driver/perf_test.dart` but uses
 // e2e package to implement a host-independent test.
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_test/flutter_test.dart';
 import 'package:e2e/e2e.dart';
 import 'package:e2e/e2e_perf.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:testing_app/main.dart' as app;
 
 void main() {
