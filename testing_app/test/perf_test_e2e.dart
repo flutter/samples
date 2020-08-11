@@ -6,10 +6,11 @@
 // e2e package to implement a host-independent test.
 
 import 'package:e2e/e2e.dart';
-import 'package:e2e/e2e_perf.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testing_app/main.dart' as app;
+
+import 'e2e_utils.dart';
 
 void main() {
   final binding =
