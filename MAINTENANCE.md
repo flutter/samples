@@ -19,4 +19,4 @@ match any new language/SDK features, etc.).
 | provider_counter          | redbrogdon         | 11/21/19       |
 | provider_shopper          | redbrogdon         | 11/21/19       |
 | testing_app               |                    |                |
-| veggieseasons             |                    |                |
+| veggieseasons             | filiph             | 8/13/20        |

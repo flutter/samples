@@ -4,7 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
@@ -73,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
+    final model = Provider.of<AppState>(context);
 
     return CupertinoTabView(
       builder: (context) {

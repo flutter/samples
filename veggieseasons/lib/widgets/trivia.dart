@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
@@ -48,8 +48,7 @@ class _TriviaViewState extends State<TriviaView> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final newAppState =
-        ScopedModel.of<AppState>(context, rebuildOnChange: true);
+    final newAppState = Provider.of<AppState>(context);
 
     setState(() {
       appState = newAppState;

@@ -13,8 +13,8 @@ dependencies:
   cupertino_icons: ^0.1.3
   font_awesome_flutter: ^8.8.1
   intl: ^0.16.1
-  scoped_model: ^1.0.1
-  shared_preferences: ^0.5.7
+  provider: ^4.3.2
+  shared_preferences: ^0.5.8
 
 dev_dependencies:
   flutter_test:
