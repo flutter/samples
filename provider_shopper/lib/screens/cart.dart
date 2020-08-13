@@ -37,7 +37,10 @@ class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var itemNameStyle = Theme.of(context).textTheme.headline6;
-    var cart = Provider.of<CartModel>(context);
+    // This gets the current state of CartModel and also tells Flutter
+    // to rebuild this widget when CartModel notifies listeners (in other words,
+    // when it changes).
+    var cart = context.watch<CartModel>();
 
     return ListView.builder(
       itemCount: cart.items.length,
@@ -64,6 +67,12 @@ class _CartTotal extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Another way to listen to a model's change is to include
+            // the Consumer widget. This widget will automatically listen
+            // to CartModel and rerun its builder on every change.
+            //
+            // The important thing is that it will not rebuild
+            // the rest of the widgets in this build method.
             Consumer<CartModel>(
                 builder: (context, cart, child) =>
                     Text('\$${cart.totalPrice}', style: hugeStyle)),
