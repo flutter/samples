@@ -112,7 +112,7 @@ packages:
     description:
       path: "packages/google_maps_flutter/google_maps_flutter"
       ref: gmaps-web
-      resolved-ref: "5ca8e8e6b25c9c6810661f1e5a75202c308800cd"
+      resolved-ref: "8365276eb60b3d228c61ef32dbc721a2631d7081"
       url: "git@github.com:ditman/plugins.git"
     source: git
     version: "0.5.29"
@@ -122,13 +122,13 @@ packages:
       name: google_maps_flutter_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   google_maps_flutter_web:
     dependency: "direct main"
     description:
       path: "packages/google_maps_flutter/google_maps_flutter_web"
       ref: gmaps-web
-      resolved-ref: "5ca8e8e6b25c9c6810661f1e5a75202c308800cd"
+      resolved-ref: "8365276eb60b3d228c61ef32dbc721a2631d7081"
       url: "git@github.com:ditman/plugins.git"
     source: git
     version: "0.1.0"
