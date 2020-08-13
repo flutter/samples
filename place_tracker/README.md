@@ -53,7 +53,8 @@ For help getting started with Flutter, view our online
 
 ## Caveat
 
-The google_maps_flutter plugin is in developer preview. 
+The google_maps_flutter plugin is in developer preview until [Dynamic thread
+merging](https://github.com/flutter/flutter/projects/155) is finished.
 * Dart APIs for controlling and interacting with a GoogleMap view from Flutter
   code are still being consolidated and expanded. The intention is to grow
   current coverage into a complete offering. Issues and pull requests aimed to
