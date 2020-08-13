@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// This file duplicate the behavior of `test_driver/perf_test.dart` but uses
-// e2e package to implement a host-independent test.
+// This file duplicates the behavior of test_driver/perf_test.dart, but uses
+// the e2e package to implement a host-independent test.
 
 import 'package:e2e/e2e.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ import 'e2e_utils.dart';
 void main() {
   final binding =
       E2EWidgetsFlutterBinding.ensureInitialized() as E2EWidgetsFlutterBinding;
-  // fullyLive frame policy simulates the way Flutter response to animations.
+  // The fullyLive frame policy simulates the way Flutter response to animations.
   // See https://github.com/flutter/flutter/issues/60237
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
