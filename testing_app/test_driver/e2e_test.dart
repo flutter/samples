@@ -12,6 +12,7 @@ Future<void> main() => driver.e2eDriver(responseDataCallback: (data) async {
         // This result is saved to `build/scrolling.json`.
         testOutputFilename: 'scrolling',
       );
+
       await driver.writeResponseData(
         data['favorites_operations'] as Map<String, dynamic>,
         // This result is saved to `build/favorites_operations.json`.

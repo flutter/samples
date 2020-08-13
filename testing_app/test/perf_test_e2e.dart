@@ -5,6 +5,8 @@
 // This file duplicates the behavior of test_driver/perf_test.dart, but uses
 // the e2e package to implement a host-independent test.
 
+import 'dart:convert' show JsonEncoder;
+
 import 'package:e2e/e2e.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -42,6 +44,9 @@ void main() {
       }, reportKey: 'scrolling');
       // The performance result is reported to `data['scrolling']`.
       // See `e2e_test.dart` for detail.
+      print('scrolling performance test result:');
+      print(JsonEncoder.withIndent('  ')
+          .convert(binding.reportData['scrolling']));
     }, semanticsEnabled: false);
 
     testWidgets('Favorites operations test', (tester) async {
@@ -74,6 +79,9 @@ void main() {
       }, reportKey: 'favorites_operations');
       // The performance result is reported to `data['favorites_operations']`.
       // See `e2e_test.dart` for detail.
+      print('favorites_operations performance test result:');
+      print(JsonEncoder.withIndent('  ')
+          .convert(binding.reportData['favorites_operations']));
     }, semanticsEnabled: false);
   });
 }
