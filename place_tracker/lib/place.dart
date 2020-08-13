@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-enum PlaceCategory {
-  favorite,
-  visited,
-  wantToGo,
-}
-
 class Place {
+  final String id;
+  final LatLng latLng;
+  final String name;
+  final PlaceCategory category;
+  final String description;
+  final int starRating;
+
   const Place({
     @required this.id,
     @required this.latLng,
@@ -20,13 +21,6 @@ class Place {
         assert(name != null),
         assert(category != null),
         assert(starRating != null && starRating >= 0 && starRating <= 5);
-
-  final String id;
-  final LatLng latLng;
-  final String name;
-  final PlaceCategory category;
-  final String description;
-  final int starRating;
 
   double get latitude => latLng.latitude;
 
@@ -49,4 +43,10 @@ class Place {
       starRating: starRating ?? this.starRating,
     );
   }
+}
+
+enum PlaceCategory {
+  favorite,
+  visited,
+  wantToGo,
 }

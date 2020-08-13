@@ -12,7 +12,7 @@ match any new language/SDK features, etc.).
 | infinite_list             | filiph             | 5/13/20        |
 | isolate_example           | johnpryan          | 11/21/19       |
 | jsonexample               | redbrogdon         | 1/3/20         |
-| place_tracker             |                    |                |
+| place_tracker             | johnpryan          | 8/13/20        |
 | platform_channels         |                    |                |
 | platform_design           | johnpryan          | 10/7/19        |
 | platform_view_swift       | redbrogdon         | 10/7/19        |
