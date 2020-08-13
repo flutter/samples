@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: 100,
         cacheExtent: 20.0,
+        controller: ScrollController(),
         padding: const EdgeInsets.symmetric(vertical: 16),
         itemBuilder: (context, index) => ItemTile(index),
       ),
