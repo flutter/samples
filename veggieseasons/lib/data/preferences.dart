@@ -4,13 +4,13 @@
 
 import 'dart:async';
 
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// A model class that mirrors the options in [SettingsScreen] and stores data
 /// in shared preferences.
-class Preferences extends Model {
+class Preferences extends ChangeNotifier {
   // Keys to use with shared preferences.
   static const _caloriesKey = 'calories';
   static const _preferredCategoriesKey = 'preferredCategories';

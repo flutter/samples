@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
@@ -32,10 +32,8 @@ class ListScreen extends StatelessWidget {
       builder: (context) {
         var dateString = DateFormat('MMMM y').format(DateTime.now());
 
-        final appState =
-            ScopedModel.of<AppState>(context, rebuildOnChange: true);
-        final prefs =
-            ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+        final appState = Provider.of<AppState>(context);
+        final prefs = Provider.of<Preferences>(context);
         final themeData = CupertinoTheme.of(context);
         return SafeArea(
           bottom: false,
