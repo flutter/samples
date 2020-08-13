@@ -77,4 +77,21 @@ gcloud firebase test android run --type instrumentation \
   --timeout 5m
 popd
 
+echo "== Run e2e test for testing_app =="
+pushd "testing_app"
+readonly APP_DIR=$(pwd)
+"${LOCAL_SDK_PATH}/bin/flutter" packages get
+"${LOCAL_SDK_PATH}/bin/flutter" build apk
+pushd "android"
+./gradlew app:assembleAndroidTest
+./gradlew app:assembleRelease -Ptarget=${APP_DIR}/test/perf_test_e2e.dart
+popd
+gcloud auth activate-service-account --key-file=../svc-keyfile.json
+gcloud --quiet config set project test-lab-project-ccbec
+gcloud firebase test android run --type instrumentation \
+  --app build/app/outputs/apk/release/app-release.apk \
+  --test build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
+  --timeout 5m
+popd
+
 echo "-- Success --"
