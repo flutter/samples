@@ -15,27 +15,11 @@ class PlaceList extends StatefulWidget {
 class PlaceListState extends State<PlaceList> {
   final ScrollController _scrollController = ScrollController();
 
-  void _onCategoryChanged(PlaceCategory newCategory) {
-    _scrollController.jumpTo(0.0);
-    Provider.of<AppState>(context, listen: false)
-        .setSelectedCategory(newCategory);
-  }
-
-  void _onPlaceChanged(Place value) {
-    // Replace the place with the modified version.
-    final newPlaces =
-        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
-    final index = newPlaces.indexWhere((place) => place.id == value.id);
-    newPlaces[index] = value;
-
-    Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
-  }
-
   @override
   Widget build(BuildContext context) {
     var state = Provider.of<AppState>(context);
     return Column(
-      children: <Widget>[
+      children: [
         _ListCategoryButtonBar(
           selectedCategory: state.selectedCategory,
           onCategoryChanged: (value) => _onCategoryChanged(value),
@@ -57,113 +41,29 @@ class PlaceListState extends State<PlaceList> {
       ],
     );
   }
-}
 
-class _PlaceListTile extends StatelessWidget {
-  const _PlaceListTile({
-    Key key,
-    @required this.place,
-    @required this.onPlaceChanged,
-  })  : assert(place != null),
-        assert(onPlaceChanged != null),
-        super(key: key);
-
-  final Place place;
-  final ValueChanged<Place> onPlaceChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => Navigator.push<void>(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return PlaceDetails(
-            place: place,
-            onChanged: (value) => onPlaceChanged(value),
-          );
-        }),
-      ),
-      child: Container(
-        padding: EdgeInsets.only(top: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              place.name,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
-              maxLines: 3,
-            ),
-            Row(
-              children: List.generate(5, (index) {
-                return Icon(
-                  Icons.star,
-                  size: 28.0,
-                  color: place.starRating > index
-                      ? Colors.amber
-                      : Colors.grey[400],
-                );
-              }).toList(),
-            ),
-            Text(
-              place.description ?? '',
-              style: Theme.of(context).textTheme.subtitle1,
-              maxLines: 4,
-              overflow: TextOverflow.ellipsis,
-            ),
-            SizedBox(height: 16.0),
-            Divider(
-              height: 2.0,
-              color: Colors.grey[700],
-            ),
-          ],
-        ),
-      ),
-    );
+  void _onCategoryChanged(PlaceCategory newCategory) {
+    _scrollController.jumpTo(0.0);
+    Provider.of<AppState>(context, listen: false)
+        .setSelectedCategory(newCategory);
   }
-}
 
-class _ListCategoryButtonBar extends StatelessWidget {
-  const _ListCategoryButtonBar({
-    Key key,
-    @required this.selectedCategory,
-    @required this.onCategoryChanged,
-  })  : assert(selectedCategory != null),
-        assert(onCategoryChanged != null),
-        super(key: key);
+  void _onPlaceChanged(Place value) {
+    // Replace the place with the modified version.
+    final newPlaces =
+        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
+    final index = newPlaces.indexWhere((place) => place.id == value.id);
+    newPlaces[index] = value;
 
-  final PlaceCategory selectedCategory;
-  final ValueChanged<PlaceCategory> onCategoryChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        _CategoryButton(
-          category: PlaceCategory.favorite,
-          selected: selectedCategory == PlaceCategory.favorite,
-          onCategoryChanged: onCategoryChanged,
-        ),
-        _CategoryButton(
-          category: PlaceCategory.visited,
-          selected: selectedCategory == PlaceCategory.visited,
-          onCategoryChanged: onCategoryChanged,
-        ),
-        _CategoryButton(
-          category: PlaceCategory.wantToGo,
-          selected: selectedCategory == PlaceCategory.wantToGo,
-          onCategoryChanged: onCategoryChanged,
-        ),
-      ],
-    );
+    Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
   }
 }
 
 class _CategoryButton extends StatelessWidget {
+  final PlaceCategory category;
+
+  final bool selected;
+  final ValueChanged<PlaceCategory> onCategoryChanged;
   const _CategoryButton({
     Key key,
     @required this.category,
@@ -172,10 +72,6 @@ class _CategoryButton extends StatelessWidget {
   })  : assert(category != null),
         assert(selected != null),
         super(key: key);
-
-  final PlaceCategory category;
-  final bool selected;
-  final ValueChanged<PlaceCategory> onCategoryChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -211,6 +107,110 @@ class _CategoryButton extends StatelessWidget {
             ),
           ),
           onPressed: () => onCategoryChanged(category),
+        ),
+      ),
+    );
+  }
+}
+
+class _ListCategoryButtonBar extends StatelessWidget {
+  final PlaceCategory selectedCategory;
+
+  final ValueChanged<PlaceCategory> onCategoryChanged;
+  const _ListCategoryButtonBar({
+    Key key,
+    @required this.selectedCategory,
+    @required this.onCategoryChanged,
+  })  : assert(selectedCategory != null),
+        assert(onCategoryChanged != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _CategoryButton(
+          category: PlaceCategory.favorite,
+          selected: selectedCategory == PlaceCategory.favorite,
+          onCategoryChanged: onCategoryChanged,
+        ),
+        _CategoryButton(
+          category: PlaceCategory.visited,
+          selected: selectedCategory == PlaceCategory.visited,
+          onCategoryChanged: onCategoryChanged,
+        ),
+        _CategoryButton(
+          category: PlaceCategory.wantToGo,
+          selected: selectedCategory == PlaceCategory.wantToGo,
+          onCategoryChanged: onCategoryChanged,
+        ),
+      ],
+    );
+  }
+}
+
+class _PlaceListTile extends StatelessWidget {
+  final Place place;
+
+  final ValueChanged<Place> onPlaceChanged;
+  const _PlaceListTile({
+    Key key,
+    @required this.place,
+    @required this.onPlaceChanged,
+  })  : assert(place != null),
+        assert(onPlaceChanged != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => Navigator.push<void>(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return PlaceDetails(
+            place: place,
+            onChanged: (value) => onPlaceChanged(value),
+          );
+        }),
+      ),
+      child: Container(
+        padding: EdgeInsets.only(top: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              place.name,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+              maxLines: 3,
+            ),
+            Row(
+              children: List.generate(5, (index) {
+                return Icon(
+                  Icons.star,
+                  size: 28.0,
+                  color: place.starRating > index
+                      ? Colors.amber
+                      : Colors.grey[400],
+                );
+              }).toList(),
+            ),
+            Text(
+              place.description ?? '',
+              style: Theme.of(context).textTheme.subtitle1,
+              maxLines: 4,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 16.0),
+            Divider(
+              height: 2.0,
+              color: Colors.grey[700],
+            ),
+          ],
         ),
       ),
     );

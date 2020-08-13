@@ -31,7 +31,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
+          children: const [
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
               child: Icon(Icons.pin_drop, size: 24.0),
@@ -40,7 +40,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
           ],
         ),
         backgroundColor: Colors.green[700],
-        actions: <Widget>[
+        actions: [
           Padding(
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
             child: IconButton(
@@ -63,7 +63,7 @@ class _PlaceTrackerHomePage extends StatelessWidget {
       ),
       body: IndexedStack(
         index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
-        children: <Widget>[
+        children: [
           PlaceMap(center: const LatLng(45.521563, -122.677433)),
           PlaceList()
         ],
@@ -102,7 +102,6 @@ class AppState extends ChangeNotifier {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other.runtimeType != runtimeType) return false;
     return other is AppState &&
         other.places == places &&
         other.selectedCategory == selectedCategory &&
