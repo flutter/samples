@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
@@ -15,7 +15,7 @@ import 'package:veggieseasons/widgets/settings_item.dart';
 class VeggieCategorySettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+    final model = Provider.of<Preferences>(context);
     final currentPrefs = model.preferredCategories;
     var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
@@ -79,7 +79,7 @@ class CalorieSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+    final model = Provider.of<Preferences>(context);
     var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
@@ -181,7 +181,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+    final prefs = Provider.of<Preferences>(context);
 
     return CupertinoPageScaffold(
       child: Container(
