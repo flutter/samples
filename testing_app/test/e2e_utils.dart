@@ -5,6 +5,9 @@
 // TODO(CareF): This file should be removed after the changes goes into flutter
 // stable version.
 
+// ignore linter to keep the code consistent with its duplicate in the framework
+// ignore_for_file: use_function_type_syntax_for_parameters, omit_local_variable_types, avoid_types_on_closure_parameters
+
 import 'dart:async';
 import 'dart:ui';
 
