@@ -32,14 +32,30 @@ class _AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cart = Provider.of<CartModel>(context);
+    // The context.select() method will let you listen to changes to
+    // a *part* of a model. You define a function that "selects" (i.e. returns)
+    // the part you're interested in, and the provider package will not rebuild
+    // this widget unless that particular part of the model changes.
+    //
+    // This can lead to significant performance improvements.
+    var isInCart = context.select<CartModel, bool>(
+      // Here, we are only interested whether [item] is inside the cart.
+      (cart) => cart.items.contains(item),
+    );
 
     return FlatButton(
-      onPressed: cart.items.contains(item) ? null : () => cart.add(item),
+      onPressed: isInCart
+          ? null
+          : () {
+              // If the item is not in cart, we let the user add it.
+              // We are using context.read() here because the callback
+              // is executed whenever the user taps the the button. In other
+              // words, it is executed outside the build method.
+              var cart = context.read<CartModel>();
+              cart.add(item);
+            },
       splashColor: Theme.of(context).primaryColor,
-      child: cart.items.contains(item)
-          ? Icon(Icons.check, semanticLabel: 'ADDED')
-          : Text('ADD'),
+      child: isInCart ? Icon(Icons.check, semanticLabel: 'ADDED') : Text('ADD'),
     );
   }
 }
@@ -67,8 +83,11 @@ class _MyListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var catalog = Provider.of<CatalogModel>(context);
-    var item = catalog.getByPosition(index);
+    var item = context.select<CatalogModel, Item>(
+      // Here, we are only interested in the item at [index]. We don't care
+      // about any other change.
+      (catalog) => catalog.getByPosition(index),
+    );
     var textTheme = Theme.of(context).textTheme.headline6;
 
     return Padding(
