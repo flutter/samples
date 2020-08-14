@@ -5,12 +5,10 @@
 import 'dart:async';
 
 import 'package:federated_plugin_platform_interface/federated_plugin_platform_interface.dart';
-import 'package:federated_plugin_platform_interface/location_model.dart';
-export 'package:federated_plugin_platform_interface/location_model.dart';
 
-/// Returns [Location] to provide latitude and longitude.
+/// Returns the current battery level of device.
 ///
-/// It uses [FederatedPluginInterface] interface to provide location.
-Future<Location> getLocation() async {
-  return await FederatedPluginInterface.instance.getLocation();
+/// It uses [FederatedPluginInterface] interface to provide current battery level.
+Future<int> getBatteryLevel() async {
+  return await FederatedPluginInterface.instance.getBatteryLevel();
 }

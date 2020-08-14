@@ -25,7 +25,8 @@ class FederatedPlugin extends FederatedPluginInterface {
 
   /// Returns the current battery level of device.
   ///
-  /// If any error, it's assume that the BatteryManager API is not support by browser.
+  /// If any error, it's assume that the BatteryManager API is not supported by
+  /// browser.
   @override
   Future<int> getBatteryLevel() async {
     try {
@@ -35,8 +36,7 @@ class FederatedPlugin extends FederatedPluginInterface {
     } catch (error) {
       throw PlatformException(
         code: 'STATUS_UNAVAILABLE',
-        message:
-        'The plugin is not supported by the browser.',
+        message: 'The plugin is not supported by the browser.',
         details: null,
       );
     }

@@ -18,15 +18,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// Demonstrates how to use the getLocation method from federated_plugin to access
-/// location data.
+/// Demonstrates how to use the getBatteryLevel method from federated_plugin to retrieve
+/// current battery level of device.
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Location location;
+  int batteryLevel;
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +40,20 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                location == null
+                batteryLevel == null
                     ? SizedBox.shrink()
                     : Text(
-                        'Latitude: ${location.latitude}\n'
-                        'Longitude: ${location.longitude}',
+                        'Battery Level: $batteryLevel',
                         style: Theme.of(context).textTheme.headline5,
                       ),
                 SizedBox(height: 16),
                 RaisedButton(
-                  child: Text('Get Location'),
+                  child: Text('Get Battery Level'),
                   onPressed: () async {
                     try {
-                      final result = await getLocation();
+                      final result = await getBatteryLevel();
                       setState(() {
-                        location = result;
+                        batteryLevel = result;
                       });
                     } catch (error) {
                       Scaffold.of(context).showSnackBar(
