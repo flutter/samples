@@ -1,5 +1,5 @@
 name: federated_plugin_web
-description: Web implementation of federated_plugin to provide location.
+description: Web implementation of federated_plugin to retrieve current battery level.
 version: 0.0.1
 homepage:
 publish_to: none

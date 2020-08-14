@@ -9,45 +9,35 @@ import 'package:federated_plugin_web/federated_plugin_web.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-const kLatitude = 4;
-const kLongitude = 3;
+const kBatteryLevel = 0.49;
 
-class GeoLocationMock extends Mock implements Geolocation {}
+class NavigatorMock extends Mock implements Navigator {}
 
-class GeoPositionMock extends Mock implements Geoposition {
+class BatteryManagerMock extends Mock implements BatteryManager {
   @override
-  Coordinates get coords => MockCoordinates();
-}
-
-class MockCoordinates extends Mock implements Coordinates {
-  @override
-  num get latitude => kLatitude;
-
-  @override
-  num get longitude => kLongitude;
+  num get level => kBatteryLevel;
 }
 
 void main() {
   E2EWidgetsFlutterBinding.ensureInitialized();
 
   group('FederatedPlugin test', () {
-    final geoLocationMock = GeoLocationMock();
+    final navigatorMock = NavigatorMock();
 
     setUp(() {
-      when(geoLocationMock.getCurrentPosition())
-          .thenAnswer((realInvocation) async => GeoPositionMock());
+      when(navigatorMock.getBattery())
+          .thenAnswer((realInvocation) async => BatteryManagerMock());
     });
 
-    testWidgets('getLocation Method', (tester) async {
-      final federatedPlugin = FederatedPlugin(geolocation: geoLocationMock);
-      final location = await federatedPlugin.getLocation();
+    testWidgets('getBatteryLevel Method', (tester) async {
+      final federatedPlugin = FederatedPlugin(navigator: navigatorMock);
+      final batteryLevel = await federatedPlugin.getBatteryLevel();
 
-      // Verify that getCurrentPosition was called.
-      verify(geoLocationMock.getCurrentPosition());
+      // Verify that getBattery was called.
+      verify(navigatorMock.getBattery());
 
-      // Verify the values of Location.longitude and Location.latitude.
-      expect(location.longitude, kLongitude);
-      expect(location.latitude, kLatitude);
+      // Verify the battery level.
+      expect(batteryLevel, kBatteryLevel * 100);
     });
   });
 }
