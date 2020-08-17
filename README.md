@@ -25,3 +25,8 @@ techniques for one of your own apps, try one of these resources:
 
 If you run into a bug in one of the samples, please file an issue in the
 [main Flutter repo](https://github.com/flutter/flutter/issues).
+
+
+## Code of conduct
+
+See the [Code of conduct](CONTRIBUTING.md)
