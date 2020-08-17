@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
-  e2e: ^0.6.1
+  e2e: ^0.7.0
   mockito: ^4.1.1
 
 flutter:
