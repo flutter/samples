@@ -29,4 +29,4 @@ If you run into a bug in one of the samples, please file an issue in the
 
 ## Code of conduct
 
-See the [Code of conduct](CONTRIBUTING.md)
+See the [Code of conduct](CODE_OF_CONDUCT.md)
