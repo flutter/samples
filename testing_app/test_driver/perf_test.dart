@@ -98,13 +98,13 @@ void main() {
 
       // Then, save the summary to disk.
       // Results will be stored in
-      // the file 'build/favorites_operations.timeline.json'.
+      // the file 'build/favorites_operations.timeline_summary.json'.
       await operationsSummary.writeSummaryToFile('favorites_operations',
           pretty: true);
 
       // Write the entire timeline to disk in a json format.
       // Results will be stored in
-      // the file 'build/favorites_operations.timeline_summary.json'.
+      // the file 'build/favorites_operations.timeline.json'.
       // This file can be opened in the Chrome browser's tracing tools
       // found by navigating to chrome://tracing.
       await operationsSummary.writeTimelineToFile('favorites_operations',
