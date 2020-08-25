@@ -16,6 +16,8 @@ dependencies:
     path: ../federated_plugin_platform_interface
   federated_plugin_web:
     path: ../federated_plugin_web
+  federated_plugin_windows:
+    path: ../federated_plugin_windows
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +32,5 @@ flutter:
         package: dev.flutter.federated_plugin
       web:
         default_package: federated_plugin_web
+      windows:
+        default_package: federated_plugin_windows
