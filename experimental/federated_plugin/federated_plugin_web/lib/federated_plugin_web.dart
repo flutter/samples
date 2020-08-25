@@ -5,17 +5,17 @@
 import 'dart:html' as html;
 
 import 'package:federated_plugin_platform_interface/federated_plugin_platform_interface.dart';
-import 'package:federated_plugin_platform_interface/location_model.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
-/// Web Implementation of [FederatedPluginInterface] to provide location.
+/// Web Implementation of [FederatedPluginInterface] to retrieve current battery
+/// level of device.
 class FederatedPlugin extends FederatedPluginInterface {
-  final html.Geolocation _geolocation;
+  final html.Navigator _navigator;
 
-  /// Constructor to override the geolocation object for testing purpose.
-  FederatedPlugin({html.Geolocation geolocation})
-      : _geolocation = geolocation ?? html.window.navigator.geolocation;
+  /// Constructor to override the navigator object for testing purpose.
+  FederatedPlugin({html.Navigator navigator})
+      : _navigator = navigator ?? html.window.navigator;
 
   /// Method to register the plugin which sets [FederatedPlugin] to be the default
   /// instance of [FederatedPluginInterface].
@@ -23,21 +23,20 @@ class FederatedPlugin extends FederatedPluginInterface {
     FederatedPluginInterface.instance = FederatedPlugin();
   }
 
-  /// Returns [Location] to provide latitude and longitude.
+  /// Returns the current battery level of device.
   ///
-  /// If any error, it's assume that user has denied the permission forever.
+  /// If any error, it's assume that the BatteryManager API is not supported by
+  /// browser.
   @override
-  Future<Location> getLocation() async {
+  Future<int> getBatteryLevel() async {
     try {
-      final geoPosition = await _geolocation.getCurrentPosition();
-      return Location(
-        longitude: geoPosition.coords.longitude.toDouble(),
-        latitude: geoPosition.coords.latitude.toDouble(),
-      );
+      final battery = await _navigator.getBattery() as html.BatteryManager;
+      // The battery level retrieved is in range of 0.0 to 1.0.
+      return battery.level * 100 as int;
     } catch (error) {
       throw PlatformException(
-        code: 'PERMISSION_DENIED',
-        message: 'Permission denied from User',
+        code: 'STATUS_UNAVAILABLE',
+        message: 'The plugin is not supported by the browser.',
         details: null,
       );
     }

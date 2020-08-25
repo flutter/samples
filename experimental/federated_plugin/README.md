@@ -1,6 +1,6 @@
 # federated_plugin
 
-A Flutter plugin sample that shows how to implement a federated plugin to fetch the device location on different platforms.
+A Flutter plugin sample that shows how to implement a federated plugin to retrieve current battery level on different platforms.
 
 This sample is currently being built. Not all platforms and functionality are in place.
 

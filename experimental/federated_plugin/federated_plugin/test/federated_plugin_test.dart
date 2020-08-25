@@ -10,17 +10,16 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Federated Plugin Test', () {
-    final location = Location(latitude: 131.0, longitude: 221.0);
-    MethodChannel('location').setMockMethodCallHandler((call) async {
-      if (call.method == 'getLocation') {
-        return [location.longitude, location.latitude];
+    final batteryLevel = 34;
+    MethodChannel('battery').setMockMethodCallHandler((call) async {
+      if (call.method == 'getBatteryLevel') {
+        return batteryLevel;
       }
     });
 
-    test('getLocation method test', () async {
-      final result = await getLocation();
-      expect(result.longitude, location.longitude);
-      expect(result.latitude, location.latitude);
+    test('getBatteryLevel method test', () async {
+      final result = await getBatteryLevel();
+      expect(result, batteryLevel);
     });
   });
 }
