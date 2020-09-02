@@ -28,4 +28,4 @@ flutter:
   module:
     androidX: true
     androidPackage: dev.flutter.example.flutter_module_using_plugin
-    iosBundleIdentifier: dev.flutter.example.flutterModuleUsingPlugin
+    iosBundleIdentifier: com.example.flutter-sample.flutterModuleUsingPlugin

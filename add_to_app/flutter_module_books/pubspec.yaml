@@ -30,4 +30,4 @@ flutter:
   module:
     androidX: true
     androidPackage: dev.flutter.example.flutter_module_books
-    iosBundleIdentifier: dev.flutter.example.flutterModuleBooks
+    iosBundleIdentifier: com.example.flutter-sample.flutterModuleBooks
