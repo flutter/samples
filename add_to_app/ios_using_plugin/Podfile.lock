@@ -7,18 +7,12 @@ PODS:
     - url_launcher
   - url_launcher (0.0.1):
     - Flutter
-  - url_launcher_macos (0.0.1):
-    - Flutter
-  - url_launcher_web (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `../flutter_module_using_plugin/.ios/Flutter/engine`)
   - flutter_module_using_plugin (from `../flutter_module_using_plugin/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant`)
   - url_launcher (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios`)
-  - url_launcher_macos (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher_macos/ios`)
-  - url_launcher_web (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher_web/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
@@ -29,18 +23,12 @@ EXTERNAL SOURCES:
     :path: "../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant"
   url_launcher:
     :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios"
-  url_launcher_macos:
-    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher_macos/ios"
-  url_launcher_web:
-    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher_web/ios"
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_module_using_plugin: ab21df6109f463a98496d1b37ad061e4fd4e3664
-  FlutterPluginRegistrant: 5f023d9f4a14f5b49cc6bb950327099916b47859
+  flutter_module_using_plugin: 3c6ddd2296edc03cbe09c33f12a2c522ccc36e5b
+  FlutterPluginRegistrant: d0de10c7c4fc31cc6b676a5965b96100f7c035f7
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
-  url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
-  url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
 
 PODFILE CHECKSUM: 357b6c94e1edb8289fba0dbdd79daa105ab9d88c
 
