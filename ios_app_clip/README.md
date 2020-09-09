@@ -1,6 +1,8 @@
 # ios_app_clip
 
-A sample project demonstrating integration with iOS 14's App Clip
+A sample project demonstrating integration with iOS 14's App Clip.
+
+The App Clip target is rendered by Flutter and uses a plugin.
 
 ## To run
 
