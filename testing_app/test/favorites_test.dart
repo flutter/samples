@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -21,9 +20,9 @@ Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
       ),
     );
 
-void addRandomItems() {
+void addItems() {
   for (var i = 0; i < 5; i++) {
-    favoritesList.add(Random().nextInt(50));
+    favoritesList.add(i);
   }
 }
 
@@ -32,8 +31,7 @@ void main() {
     testWidgets('Test if ListView shows up', (tester) async {
       await tester.pumpWidget(createFavoritesScreen());
 
-      // Add random values.
-      addRandomItems();
+      addItems();
       await tester.pumpAndSettle();
 
       // Verify if ListView shows up.
@@ -43,8 +41,7 @@ void main() {
     testWidgets('Testing Remove Button', (tester) async {
       await tester.pumpWidget(createFavoritesScreen());
 
-      // Add random values.
-      addRandomItems();
+      addItems();
       await tester.pumpAndSettle();
 
       // Get the total number of items available.

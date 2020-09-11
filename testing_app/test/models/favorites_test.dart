@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:math';
 import 'package:test/test.dart';
 import 'package:testing_app/models/favorites.dart';
 
@@ -13,7 +12,7 @@ void main() {
 
     test('A new item should be added', () {
       // Generate a random number.
-      var number = Random().nextInt(50);
+      var number = 35;
 
       // Add the number to the list.
       favorites.add(number);
@@ -24,7 +23,7 @@ void main() {
 
     test('An item should be removed', () {
       // Generate a random number.
-      var number = Random().nextInt(50);
+      var number = 45;
 
       // Add the number to the list.
       favorites.add(number);
