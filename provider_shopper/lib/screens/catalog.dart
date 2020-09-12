@@ -49,7 +49,7 @@ class _AddButton extends StatelessWidget {
           : () {
               // If the item is not in cart, we let the user add it.
               // We are using context.read() here because the callback
-              // is executed whenever the user taps the the button. In other
+              // is executed whenever the user taps the button. In other
               // words, it is executed outside the build method.
               var cart = context.read<CartModel>();
               cart.add(item);
