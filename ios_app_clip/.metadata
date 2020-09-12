@@ -4,7 +4,7 @@
 # This file should be version controlled and should not be manually edited.
 
 version:
-  revision: 7e480edc7e531c400aff4f08afeebe04c0f63e2e
-  channel: cupertino-icon-5
+  revision: 65ae30c8cc99b7d48b5bd08d3726f5669b819be0
+  channel: master
 
 project_type: app
