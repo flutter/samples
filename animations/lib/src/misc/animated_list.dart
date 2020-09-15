@@ -57,7 +57,10 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       leading: CircleAvatar(
         child: Icon(Icons.person),
       ),
-      onLongPress: () => deleteUser(index),
+      trailing: IconButton(
+        icon: Icon(Icons.delete),
+        onPressed: () => deleteUser(index),
+      ),
     );
   }
 
