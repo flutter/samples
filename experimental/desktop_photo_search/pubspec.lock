@@ -209,7 +209,7 @@ packages:
     description:
       path: "plugins/file_chooser"
       ref: HEAD
-      resolved-ref: "9a0b3860bf11cd02bc98194e57d286a6e70df1b6"
+      resolved-ref: dc5bad31ae93dd5d82e235e38d5c21b6a47445ab
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.2.0"
@@ -338,7 +338,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: "9a0b3860bf11cd02bc98194e57d286a6e70df1b6"
+      resolved-ref: dc5bad31ae93dd5d82e235e38d5c21b6a47445ab
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
