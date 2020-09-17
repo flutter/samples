@@ -64,6 +64,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  federated_plugin_windows:
+    dependency: "direct main"
+    description:
+      path: "../federated_plugin_windows"
+      relative: true
+    source: path
+    version: "0.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -177,4 +184,4 @@ packages:
     version: "2.1.0-nullsafety.2"
 sdks:
   dart: ">=2.10.0-0.0.dev <2.10.0"
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.20.0 <2.0.0"
