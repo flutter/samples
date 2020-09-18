@@ -1,11 +1,11 @@
-# Add-to-App Sample
+# Add-to-App Samples
 
 This directory contains a bunch of Android and iOS projects (beginning
-`android_` and `ios_`, respectively) thatimport and use one of several Flutter
+`android_` and `ios_`, respectively) that import and use one of several Flutter
 modules (which have names beginning with `flutter_`). They're designed to show
-recommended approaches for adding Flutter to pre-existing Android and iOS apps.
+recommended approaches for adding Flutter to existing Android and iOS apps.
 
-## Goals for this sample
+## Goals for these samples
 
 * Show developers how to add Flutter to their existing applications.
 * Show the following options:
@@ -17,7 +17,7 @@ recommended approaches for adding Flutter to pre-existing Android and iOS apps.
 
 ## tl;dr
 
-If you're just looking to quickly get up and running, these bash commands will
+If you're just looking to get up and running quickly, these bash commands will
 fetch packages and set up dependencies (note that the above commands assume
 you're building for both iOS and Android, with both toolchains installed):
 
@@ -37,11 +37,9 @@ you're building for both iOS and Android, with both toolchains installed):
 
   # For iOS builds:
   flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
-  cd ios_fullscreen
+  cd ../ios_fullscreen
   pod install
   cd ../ios_using_plugin
-  pod install
-  cd ../ios_using_prebuilt_module
   pod install
 ```
 
@@ -76,7 +74,6 @@ There are three Flutter modules included in the codebase:
   interop inside wrapper API and data classes that are shared between the
   platform and Flutter.
 
-
 Before using them, you need to resolve the Flutter modules' dependencies. Do so
 by running this command from within the `flutter_module`,
 `flutter_module_using_plugin`, and `flutter_module_books` directories:
@@ -92,7 +89,7 @@ Android and iOS applications that demonstrate different ways of importing
 them.
 
 With the exception of `android_using_prebuilt_module`, the Android apps are
-ready to run once you've completed the `flutter packages get` commands listed
+ready to run once you've completed the `flutter pub get` commands listed
 above. Two of the iOS apps (`ios_fullscreen` and `ios_using_plugin`) use
 Cocoapods, though, so you need to run this command within their project
 directories to install their dependencies:

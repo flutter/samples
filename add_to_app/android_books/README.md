@@ -1,9 +1,8 @@
-# flutter_module_using_plugin
+# android_books
 
-An example Flutter module that uses a native plugin, intended for use in the
-Flutter add-to-app samples. For more information on how to use it, see the
-[README](../README.md) file located in the [/add_to_app](/add_to_app) directory
-of this repo.
+An example Android application used in the Flutter add-to-app samples. For more
+information on how to use it, see the [README](../README.md) file located in the
+[/add_to_app](/add_to_app) directory of this repo.
 
 ## Getting Started
 
