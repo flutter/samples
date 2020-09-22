@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(CupertinoApp(home: Demo()));
+  runApp(Demo());
 }
 
 // The same content is shown for both the main app target and in the App
@@ -33,18 +33,20 @@ class _DemoState extends State<Demo> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('App Clip'),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(deviceInfo),
-            Padding(padding: EdgeInsets.only(top: 18)),
-            FlutterLogo(size: 128),
-          ],
+    return CupertinoApp(
+      home: CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: Text('App Clip'),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(deviceInfo),
+              Padding(padding: EdgeInsets.only(top: 18)),
+              FlutterLogo(size: 128),
+            ],
+          ),
         ),
       ),
     );
