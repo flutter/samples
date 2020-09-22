@@ -89,7 +89,7 @@ packages:
       name: flutter_plugin_android_lifecycle
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.8"
+    version: "1.0.9"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -106,16 +106,14 @@ packages:
       name: google_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.4.4"
+    version: "3.4.5"
   google_maps_flutter:
     dependency: "direct main"
     description:
-      path: "packages/google_maps_flutter/google_maps_flutter"
-      ref: gmaps-web
-      resolved-ref: "8365276eb60b3d228c61ef32dbc721a2631d7081"
-      url: "git@github.com:ditman/plugins.git"
-    source: git
-    version: "0.5.29"
+      name: google_maps_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.32"
   google_maps_flutter_platform_interface:
     dependency: transitive
     description:
@@ -126,12 +124,10 @@ packages:
   google_maps_flutter_web:
     dependency: "direct main"
     description:
-      path: "packages/google_maps_flutter/google_maps_flutter_web"
-      ref: gmaps-web
-      resolved-ref: "8365276eb60b3d228c61ef32dbc721a2631d7081"
-      url: "git@github.com:ditman/plugins.git"
-    source: git
-    version: "0.1.0"
+      name: google_maps_flutter_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0+2"
   html:
     dependency: transitive
     description:
@@ -194,7 +190,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.2"
+    version: "4.3.2+2"
   sanitize_html:
     dependency: transitive
     description:
@@ -269,7 +265,7 @@ packages:
       name: uuid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.2"
   vector_math:
     dependency: transitive
     description:
