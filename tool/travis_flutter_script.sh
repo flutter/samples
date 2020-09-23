@@ -32,6 +32,7 @@ declare -ar PROJECT_NAMES=(
     "animations" \
     "flutter_maps_firestore" \
     "infinite_list" \
+    "ios_app_clip" \
     "isolate_example" \
     "jsonexample" \
     "place_tracker" \
