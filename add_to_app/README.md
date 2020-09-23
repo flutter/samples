@@ -1,9 +1,11 @@
-# Add-to-App Sample
+# Add-to-App Samples
 
-This directory contains a bunch of Android and iOS projects that each import a
-standalone Flutter module.
+This directory contains a bunch of Android and iOS projects (beginning
+`android_` and `ios_`, respectively) that import and use one of several Flutter
+modules (which have names beginning with `flutter_`). They're designed to show
+recommended approaches for adding Flutter to existing Android and iOS apps.
 
-## Goals for this sample
+## Goals for these samples
 
 * Show developers how to add Flutter to their existing applications.
 * Show the following options:
@@ -13,10 +15,41 @@ standalone Flutter module.
 * Show Flutter being integrated ergonomically with applications with existing
   middleware and business logic data classes.
 
+## tl;dr
+
+If you're just looking to get up and running quickly, these bash commands will
+fetch packages and set up dependencies (note that the above commands assume
+you're building for both iOS and Android, with both toolchains installed):
+
+```bash
+  #!/bin/bash
+  set -e
+
+  cd flutter_module_using_plugin
+  flutter pub get
+  cd ../flutter_module_books
+  flutter pub get
+  cd ../flutter_module
+  flutter pub get
+
+  # For Android builds:
+  flutter build aar
+
+  # For iOS builds:
+  flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
+  cd ../ios_fullscreen
+  pod install
+  cd ../ios_using_plugin
+  pod install
+```
+
+Once those commands have run, you can go into any of the app directories (the
+ones beginning `android_` or `ios_`), and build the apps as you normally would.
+
 ## Installing Cocoapods
 
-The iOS samples in this repo require the latest version of Cocoapods. To install
-it, run the following command on a macOS machine:
+The iOS samples in this repo require the latest version of Cocoapods. To make
+sure you've got it, run the following command on a macOS machine:
 
 ```bash
 sudo gem install cocoapods
@@ -41,10 +74,9 @@ There are three Flutter modules included in the codebase:
   interop inside wrapper API and data classes that are shared between the
   platform and Flutter.
 
-
 Before using them, you need to resolve the Flutter modules' dependencies. Do so
-by running this command from within the `flutter_module` and
-`flutter_module_using_plugin` directories:
+by running this command from within the `flutter_module`,
+`flutter_module_using_plugin`, and `flutter_module_books` directories:
 
 ```bash
 flutter pub get
@@ -57,7 +89,7 @@ Android and iOS applications that demonstrate different ways of importing
 them.
 
 With the exception of `android_using_prebuilt_module`, the Android apps are
-ready to run once you've completed the `flutter packages get` commands listed
+ready to run once you've completed the `flutter pub get` commands listed
 above. Two of the iOS apps (`ios_fullscreen` and `ios_using_plugin`) use
 Cocoapods, though, so you need to run this command within their project
 directories to install their dependencies:
@@ -178,7 +210,7 @@ page.
       requirements.
     * If the `schema.dart` is modified, the generated classes can be updated with
 
-        ```shell
+        ```bash
         flutter pub run pigeon \
             --input pigeon/schema.dart \
             --java_out ../android_books/app/src/main/java/dev/flutter/example/books/Api.java \

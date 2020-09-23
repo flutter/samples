@@ -1,8 +1,11 @@
 # Books add-to-app sample
 
-This application simulates a mock scenario where an existing app with
-business logic and middleware already exists. This sample demonstrates how to
-do an add-to-app Flutter integration into existing conventions.
+This application simulates a mock scenario in which an existing app with
+business logic and middleware already exists. It demonstrates how to add Flutter
+to an app that has established patterns for these domains. For more information
+this and the other add-to-app samples available in this repo, see the
+[README](../README.md) file located in the [/add_to_app](/add_to_app) directory
+of this repo.
 
 This application also utilizes the [Pigeon](https://pub.dev/packages/pigeon)
 plugin to avoid manual platform channel wiring. Pigeon autogenerates the
@@ -29,14 +32,21 @@ flutter pub run pigeon \
     * On Android, the Kotlin app already uses GSON and OkHttp for networking and
       references the Google Books API as a data source. These same libraries
       also underpin the data fetched and shown in the Flutter screen.
-    * iOS TODO.
 * The platform application interfaces with the Flutter book details page using
   idiomatic platform API conventions rather than Flutter conventions.
     * On Android, the Flutter activity receives the book to show via activity
       intent and returns the edited book by setting the result intent on the
       activity. No Flutter concepts are leaked into the consumer activity.
-    * iOS TODO.
 * The [pigeon](https://pub.dev/packages/pigeon) plugin is used to generate
   interop APIs and data classes. The same `Book` model class is used within the
   Kotlin/Swift program, the Dart program and in the interop between Kotlin/Swift
   and Dart.
+
+## More info
+
+For more information about Flutter, check out
+[flutter.dev](https://flutter.dev).
+
+For instructions on how to integrate Flutter modules into your existing
+applications, see Flutter's
+[add-to-app documentation](https://flutter.dev/docs/development/add-to-app).
