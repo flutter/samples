@@ -1,8 +1,8 @@
 name: federated_plugin_linux
-description: A new flutter plugin project.
+description: Linux implementation of federated_plugin to retrieve current battery level.
 version: 0.0.1
-author:
 homepage:
+publish_to: none
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
