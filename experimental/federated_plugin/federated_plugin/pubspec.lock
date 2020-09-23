@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety"
+  federated_plugin_linux:
+    dependency: "direct main"
+    description:
+      path: "../federated_plugin_linux"
+      relative: true
+    source: path
+    version: "0.0.1"
   federated_plugin_platform_interface:
     dependency: "direct main"
     description:

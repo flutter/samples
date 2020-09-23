@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\out\\build",
+    "\\out\\build\\x64-Debug (default)\\.cmake",
+    "\\out\\build\\x64-Debug (default)\\CMakeFiles",
+    "\\out\\build\\x64-Debug (default)\\flutter",
+    "\\out\\build\\x64-Debug (default)\\flutter\\CMakeFiles"
+  ],
+  "SelectedNode": "\\my_application.cc",
+  "PreviewInSolutionExplorer": false
+}
