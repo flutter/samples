@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "federated_plugin_linux_example")
-set(APPLICATION_ID "com.example.federated_plugin_linux")
+set(BINARY_NAME "example")
+set(APPLICATION_ID "dev.flutter.example")
 
 cmake_policy(SET CMP0063 NEW)
 

@@ -28,19 +28,19 @@ static void federated_plugin_linux_plugin_handle_method_call(
 		string data;
 		array<char, 128> buffer;
 
-		std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("cat/sys/class/power_supply/BAT0/capacity", "r"), pclose);
+		std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("cat /sys/class/power_supply/BAT0/capacity", "r"), pclose);
 
-		while (fgets(buffer.data(), buffer.size(), pipe.get() != nullptr)) {
-			data + = buffer.data();
+		while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+			data += buffer.data();
 		}
 
-		double batteryLevel = atof(data.c_str());
+		int batteryLevel = atoi(data.c_str());
 
-		if (batteryLevel == 0.0) {
+		if (batteryLevel == 0) {
 			// Throw error
 		}
 		else {
-			g_autoptr(FlValue) result = fl_value_new_float(batteryLevel);
+			g_autoptr(FlValue) result = fl_value_new_int(batteryLevel);
 			response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
 		}
 	}
