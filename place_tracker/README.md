@@ -61,6 +61,13 @@ Specify your API key in `AppDelegate.swift`:
 }
 ```
 
+### Web
+Add your API key to `web/index.html` in the `<head>` tag:
+
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY_HERE>"></script>
+```
+
 For additional help setting up the plugin, see the plugin's
 [README](https://pub.dev/packages/google_maps_flutter)
 page.

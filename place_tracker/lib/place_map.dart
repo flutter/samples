@@ -15,6 +15,7 @@ class MapConfiguration {
   final List<Place> places;
 
   final PlaceCategory selectedCategory;
+
   const MapConfiguration({
     @required this.places,
     @required this.selectedCategory,
@@ -133,7 +134,21 @@ class PlaceMapState extends State<PlaceMap> {
     });
 
     // Zoom to fit the initially selected category.
-    await _zoomToFitPlaces(
+    _zoomToFitSelectedCategory();
+  }
+
+  @override
+  void didUpdateWidget(PlaceMap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Zoom to fit the selected category.
+    if (mounted) {
+      _zoomToFitSelectedCategory();
+    }
+  }
+
+  /// Applies zoom to fit the places of the selected category
+  void _zoomToFitSelectedCategory() {
+    _zoomToFitPlaces(
       _getPlacesForCategory(
         Provider.of<AppState>(context, listen: false).selectedCategory,
         _markedPlaces.values.toList(),
@@ -414,11 +429,13 @@ class PlaceMapState extends State<PlaceMap> {
     switch (category) {
       case PlaceCategory.favorite:
         return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context), 'assets/heart.png');
+            createLocalImageConfiguration(context, size: Size.square(32)),
+            'assets/heart.png');
         break;
       case PlaceCategory.visited:
         return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context), 'assets/visited.png');
+            createLocalImageConfiguration(context, size: Size.square(32)),
+            'assets/visited.png');
         break;
       case PlaceCategory.wantToGo:
       default:
@@ -437,6 +454,7 @@ class _AddPlaceButtonBar extends StatelessWidget {
 
   final VoidCallback onSavePressed;
   final VoidCallback onCancelPressed;
+
   const _AddPlaceButtonBar({
     Key key,
     @required this.visible,
