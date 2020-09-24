@@ -37,7 +37,7 @@ static void federated_plugin_linux_plugin_handle_method_call(
 		int batteryLevel = atoi(data.c_str());
 
 		if (batteryLevel == 0) {
-			// Throw error
+			response = FL_METHOD_RESPONSE(fl_method_error_response_new("STATUS_UNAVAILABLE", "Not able to determine battery level", nullptr));
 		}
 		else {
 			g_autoptr(FlValue) result = fl_value_new_int(batteryLevel);
