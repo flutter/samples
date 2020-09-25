@@ -126,14 +126,14 @@ class Contents extends StatelessWidget {
                 Text(
                   'Window is ${mediaInfo.size.width.toStringAsFixed(1)} x '
                   '${mediaInfo.size.height.toStringAsFixed(1)}',
-                  style: Theme.of(context).textTheme.headline,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
                     return Text(
                       'Taps: ${model.count}',
-                      style: Theme.of(context).textTheme.headline,
+                      style: Theme.of(context).textTheme.headline5,
                     );
                   },
                 ),

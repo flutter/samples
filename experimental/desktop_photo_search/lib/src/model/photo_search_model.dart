@@ -9,43 +9,24 @@ import 'package:meta/meta.dart';
 
 import '../unsplash/photo.dart';
 import '../unsplash/unsplash.dart';
-import '../widgets/data_tree.dart' show Entry;
 import 'search.dart';
 
-class _PhotoEntry extends Entry {
-  _PhotoEntry(this._photo, this._model) : super('Photo by ${_photo.user.name}');
-
-  final Photo _photo;
-  final PhotoSearchModel _model;
-
-  @override
-  bool get isSelected => false;
-
-  @override
-  set isSelected(bool selected) {
-    _model._setSelectedPhoto(_photo);
-  }
-}
-
-class _SearchEntry extends Entry {
-  _SearchEntry(String query, List<Photo> photos, PhotoSearchModel model)
-      : super(
-          query,
-          List<Entry>.unmodifiable(
-            photos.map<Entry>((photo) => _PhotoEntry(photo, model)),
-          ),
-        );
+class SearchEntry {
+  const SearchEntry(this.query, this.photos, this.model);
+  final String query;
+  final List<Photo> photos;
+  final PhotoSearchModel model;
 }
 
 class PhotoSearchModel extends ChangeNotifier {
   PhotoSearchModel(this._client);
   final Unsplash _client;
 
-  List<Entry> get entries => List.unmodifiable(_entries);
-  final List<Entry> _entries = <Entry>[];
+  List<SearchEntry> get entries => List.unmodifiable(_entries);
+  final List<SearchEntry> _entries = [];
 
   Photo get selectedPhoto => _selectedPhoto;
-  void _setSelectedPhoto(Photo photo) {
+  set selectedPhoto(Photo photo) {
     _selectedPhoto = photo;
     notifyListeners();
   }
@@ -63,7 +44,7 @@ class PhotoSearchModel extends ChangeNotifier {
         ..results.addAll(result.results);
     });
 
-    _entries.add(_SearchEntry(query, search.results.toList(), this));
+    _entries.add(SearchEntry(query, search.results.toList(), this));
     notifyListeners();
   }
 

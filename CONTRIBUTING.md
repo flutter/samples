@@ -28,6 +28,17 @@ Fixes and necessary improvements to the existing samples, mostly.
 
 ## Before you contribute
 
+### File an issue first!
+
+If you see a bug or have an idea for a feature that you feel would improve one
+of the samples already in the repo, **please
+[file an issue](https://github.com/flutter/samples/issues/new) before you begin
+coding or send a PR**. This will help prevent duplicate work by letting us know
+what you're up to. It will help avoid a situation in which you spend a lot of
+time coding something that's not quite right for the repo or its goals.
+
+### Sign the license agreement.
+
 Before we can use your code, you must sign the
 [Google Individual Contributor License Agreement](https://cla.developers.google.com/about/google-individual)
 (CLA), which you can do online. The CLA is necessary mainly because you own the
@@ -56,13 +67,13 @@ Each app should:
   [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
   release of the Flutter SDK.
 * Include the same
-  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/gallery/gallery/analysis_options.yaml)
+  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/animations/analysis_options.yaml)
   file used throughout the repo. These files include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
 * Be formatted with `flutter format`.
 * Include at least one working test in its `test` folder.
-* Be wired into the list of projects in [the CI script](travis_script.sh), which
+* Be wired into the list of projects in [the CI script](tool/travis_flutter_script.sh), which
   runs the analyzer, the formatter, and `flutter test`.
 * Avoid adding an onerous amount of blobs (typically images or other assets) to
   the repo.

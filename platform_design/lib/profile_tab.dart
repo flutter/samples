@@ -160,8 +160,8 @@ class PreferenceCard extends StatelessWidget {
 }
 
 class LogOutButton extends StatelessWidget {
-  static const _logoutMessage =
-      Text('You may check out any time you like, but you can never leave');
+  static const _logoutMessage = Text(
+      "You can't actually log out! This is just a demo of how alerts work.");
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On
@@ -186,7 +186,7 @@ class LogOutButton extends StatelessWidget {
               content: _logoutMessage,
               actions: [
                 FlatButton(
-                  child: const Text('Go back'),
+                  child: const Text('Got it'),
                   onPressed: () => Navigator.pop(context),
                 ),
                 FlatButton(
@@ -221,7 +221,7 @@ class LogOutButton extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                 ),
                 CupertinoActionSheetAction(
-                  child: const Text('Go back'),
+                  child: const Text('Got it'),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],

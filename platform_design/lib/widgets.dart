@@ -222,7 +222,7 @@ class SongPlaceholderTile extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              color: Colors.grey[400],
+              color: Theme.of(context).textTheme.bodyText2.color,
               width: 130,
             ),
             Padding(
@@ -235,27 +235,27 @@ class SongPlaceholderTile extends StatelessWidget {
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 60),
-                    color: Colors.grey[300],
+                    color: Theme.of(context).textTheme.bodyText2.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 20, top: 8),
-                    color: Colors.grey[300],
+                    color: Theme.of(context).textTheme.bodyText2.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 40, top: 8),
-                    color: Colors.grey[300],
+                    color: Theme.of(context).textTheme.bodyText2.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 80, top: 8),
-                    color: Colors.grey[300],
+                    color: Theme.of(context).textTheme.bodyText2.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 50, top: 8),
-                    color: Colors.grey[300],
+                    color: Theme.of(context).textTheme.bodyText2.color,
                   ),
                 ],
               ),
@@ -283,7 +283,7 @@ void showChoices(BuildContext context, List<String> choices) {
       showDialog<void>(
         context: context,
         builder: (context) {
-          int selectedRadio = 1;
+          var selectedRadio = 1;
           return AlertDialog(
             contentPadding: EdgeInsets.only(top: 12),
             content: StatefulBuilder(
@@ -325,6 +325,7 @@ void showChoices(BuildContext context, List<String> choices) {
           return SizedBox(
             height: 250,
             child: CupertinoPicker(
+              backgroundColor: Theme.of(context).canvasColor,
               useMagnifier: true,
               magnification: 1.1,
               itemExtent: 40,

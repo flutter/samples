@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
@@ -20,7 +20,7 @@ class ListScreen extends StatelessWidget {
       child: FutureBuilder<Set<VeggieCategory>>(
           future: prefs.preferredCategories,
           builder: (context, snapshot) {
-            final data = snapshot.data ?? Set<VeggieCategory>();
+            final data = snapshot.data ?? <VeggieCategory>{};
             return VeggieCard(veggie, inSeason, data.contains(veggie.category));
           }),
     );
@@ -30,15 +30,13 @@ class ListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabView(
       builder: (context) {
-        String dateString = DateFormat("MMMM y").format(DateTime.now());
+        var dateString = DateFormat('MMMM y').format(DateTime.now());
 
-        final appState =
-            ScopedModel.of<AppState>(context, rebuildOnChange: true);
-        final prefs =
-            ScopedModel.of<Preferences>(context, rebuildOnChange: true);
-
-        return DecoratedBox(
-          decoration: BoxDecoration(color: Color(0xffffffff)),
+        final appState = Provider.of<AppState>(context);
+        final prefs = Provider.of<Preferences>(context);
+        final themeData = CupertinoTheme.of(context);
+        return SafeArea(
+          bottom: false,
           child: ListView.builder(
             itemCount: appState.allVeggies.length + 2,
             itemBuilder: (context, index) {
@@ -49,7 +47,8 @@ class ListScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(dateString.toUpperCase(), style: Styles.minorText),
-                      Text('In season today', style: Styles.headlineText),
+                      Text('In season today',
+                          style: Styles.headlineText(themeData)),
                     ],
                   ),
                 );
@@ -61,10 +60,11 @@ class ListScreen extends StatelessWidget {
               } else if (index <= appState.availableVeggies.length + 1) {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                  child: Text('Not in season', style: Styles.headlineText),
+                  child: Text('Not in season',
+                      style: Styles.headlineText(themeData)),
                 );
               } else {
-                int relativeIndex =
+                var relativeIndex =
                     index - (appState.availableVeggies.length + 2);
                 return _generateVeggieRow(
                     appState.unavailableVeggies[relativeIndex], prefs,

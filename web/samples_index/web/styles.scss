@@ -1,0 +1,398 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file
+
+// Flutter brand colors
+$flutter-grey-900-color: #202124;
+$flutter-grey-800-color: #3C4043;
+$flutter-grey-700-color: #5F6368;
+$flutter-grey-500-color: #5F6368;
+$flutter-grey-300-color: #DADCE0;
+$flutter-blue-700-color: #02569B;
+$flutter-blue-600-color: #0175C2;
+$flutter-secondary-400-color: #13B9FD;
+$flutter-yellow: #FFC108;
+
+// Material Design Web theme colors. Must be imported before importing
+// material-components-web.scss.
+$mdc-theme-primary: $flutter-grey-500-color;
+$mdc-theme-secondary: $flutter-blue-700-color;
+
+@import 'package:mdc_web/material-components-web';
+
+// App colors
+$navbar-background-color: #3D4043;
+$dark-text-color: #202124;
+$light-text-color: #3D4043;
+$background-color: #F8F9FA;
+$text-color: $dark-text-color;
+$card-border-color: #DBDCE0;
+$type-label-border-color: #82868A;
+
+// Sizes
+$font-size-small: 0.875rem;
+$card-width: 300px;
+$mobile-width: 960px;
+$container-width: 960px;
+$footer-height: 96px;
+
+// Fonts
+$font: Roboto, sans-serif;
+$title-font: Google Sans Display, Roboto, sans-serif;
+$subtitle-font: Google Sans, Roboto, sans-serif;
+
+// CSS Reset
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: $background-color;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  font-family: $title-font;
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+* {
+  font-family: $font;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+[hidden] {
+  display: none;
+}
+
+
+// Custom Styles
+.content {
+  min-height: 100%;
+  >.container {
+    padding-bottom: $footer-height;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $navbar-background-color;
+  color: white;
+  padding: 16px 125px 16px 125px;
+  margin-bottom: 48px;
+
+
+  @media screen and (max-width: $mobile-width) {
+    padding: 8px 16px 8px 16px;
+    margin-bottom: 16px;
+  }
+
+  .leading {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .leading, .nav-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > * {
+      margin: 0 8px 3px 8px; // adjusted vertically to align flutter logo text with "Samples" text
+    }
+  }
+
+  .nav-items {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  span.title {
+    font-family: 'Google Sans Display', 'Roboto', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    margin: 0;
+    color: #13B9FD;
+  }
+
+  img {
+    height: 32px;
+  }
+
+  a {
+    color: white;
+
+    &:active {
+      color: white;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $dark-text-color;
+  color: white;
+  //padding: 36px 125px 36px 125px;
+  height: $footer-height;
+  margin-top: -$footer-height;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+  @media screen and (min-width: $mobile-width) {
+    max-width: $container-width;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+
+  .buttons {
+    button {
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.screenshots {
+  display: flex;
+  flex-direction: row;
+  height: 360px;
+  overflow-x: scroll;
+  margin: 48px 0 48px 0;
+
+  @media screen and (max-width: $mobile-width) {
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    img {
+      flex: 0 0 auto;
+    }
+  }
+
+  img {
+    border-radius: 8px;
+    margin: 0 8px 0 8px;
+    max-width:100%;
+    max-height:100%;
+  }
+}
+
+.index-header {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  max-width: 640px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.mdc-chip-set {
+  justify-content: center;
+}
+
+.mdc-chip {
+  @include mdc-chip-fill-color(transparent);
+  @include mdc-chip-ink-color($flutter-grey-500-color);
+  @include mdc-chip-selected-ink-color($flutter-grey-500-color);
+}
+
+.mdc-chip--selected {
+  font-weight: bold;
+  text-decoration: underline;
+  @include mdc-chip-fill-color(transparent);
+  @include mdc-chip-ink-color($flutter-grey-500-color);
+  @include mdc-chip-selected-ink-color($flutter-grey-500-color);
+}
+
+.mdc-card__media {
+  background-position: top;
+}
+
+.mdc-chip__text, .mdc-text-field__icon {
+  outline: 0;
+}
+
+#search-bar {
+  flex: 1;
+  @include mdc-text-field-fill-color($background-color);
+  @include mdc-text-field-line-ripple-color($flutter-blue-600-color);
+
+  @include mdc-states-hover-opacity(0.0);
+  @include mdc-states-focus-opacity(0.0);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $card-width);
+  grid-gap: 8px;
+  @media screen and (max-width: $mobile-width) {
+    display: block;
+  }
+}
+
+.demo-card {
+  width: $card-width;
+  margin: 12px;
+  border: 1px solid $card-border-color;
+  @media screen and (max-width: $mobile-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: $card-width;
+  }
+}
+
+.demo-card__title {
+  font-family: $font;
+  color: $dark-text-color;
+  margin: 0;
+}
+
+.demo-card__primary {
+  padding: 1rem;
+}
+
+.demo-card__primary-action {
+  height: 100%;
+}
+
+.demo-card__secondary {
+  font-family: $font;
+  padding: 0 1rem 8px;
+  color: $light-text-color;
+}
+
+.demo-card__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.type-label {
+  font-family: $font;
+  font-size: $font-size-small;
+  text-transform: capitalize;
+  color: $dark-text-color;
+  background-color: rgba(255, 255, 255, .95);
+  border-radius: 8px;
+  padding: 7px;
+  margin: 4px;
+}
+
+.type-label-bordered {
+  color: $type-label-border-color;
+  border: 1px solid $type-label-border-color;
+  background-color: transparent;
+  padding: 4px;
+  font-size: $font-size-small;
+}
+
+.description-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h1 {
+    margin-right: 8px;
+  }
+}
+
+.tags-container {
+  max-width: 400px;
+  .tags-label {
+    color: $dark-text-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 6px;
+    >span{
+      margin-left: 4px;
+    }
+  }
+
+  .tags {
+    color: $light-text-color;
+    line-height: 1.6em;
+
+    a {
+      margin-left: 8px;
+      margin-right: 8px;
+      text-decoration: underline;
+
+      color: $flutter-grey-900-color;
+
+      &:active {
+        color: $flutter-grey-900-color;
+      }
+
+      &:hover {
+        color: lighten($flutter-grey-900-color, 25%);
+      }
+    }
+  }
+}

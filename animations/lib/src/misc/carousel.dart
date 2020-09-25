@@ -41,7 +41,7 @@ class CarouselDemo extends StatelessWidget {
   }
 }
 
-typedef void OnCurrentItemChangedCallback(int currentItem);
+typedef OnCurrentItemChangedCallback = void Function(int currentItem);
 
 class Carousel extends StatefulWidget {
   final IndexedWidgetBuilder itemBuilder;

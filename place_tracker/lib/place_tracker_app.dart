@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
-import 'app_model.dart';
 import 'place.dart';
 import 'place_list.dart';
 import 'place_map.dart';
@@ -12,23 +12,10 @@ enum PlaceTrackerViewType {
   list,
 }
 
-class PlaceTrackerApp extends StatefulWidget {
-  @override
-  _PlaceTrackerAppState createState() => _PlaceTrackerAppState();
-}
-
-class _PlaceTrackerAppState extends State<PlaceTrackerApp> {
-  AppState appState = AppState();
-
+class PlaceTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context, child) {
-        return AppModel<AppState>(
-          initialState: AppState(),
-          child: child,
-        );
-      },
       home: _PlaceTrackerHomePage(),
     );
   }
@@ -39,11 +26,12 @@ class _PlaceTrackerHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var state = Provider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
+          children: const [
             Padding(
               padding: EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
               child: Icon(Icons.pin_drop, size: 24.0),
@@ -52,23 +40,21 @@ class _PlaceTrackerHomePage extends StatelessWidget {
           ],
         ),
         backgroundColor: Colors.green[700],
-        actions: <Widget>[
+        actions: [
           Padding(
             padding: EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
             child: IconButton(
               icon: Icon(
-                AppState.of(context).viewType == PlaceTrackerViewType.map
+                state.viewType == PlaceTrackerViewType.map
                     ? Icons.list
                     : Icons.map,
                 size: 32.0,
               ),
               onPressed: () {
-                AppState.updateWith(
-                  context,
-                  viewType:
-                      AppState.of(context).viewType == PlaceTrackerViewType.map
-                          ? PlaceTrackerViewType.list
-                          : PlaceTrackerViewType.map,
+                state.setViewType(
+                  state.viewType == PlaceTrackerViewType.map
+                      ? PlaceTrackerViewType.list
+                      : PlaceTrackerViewType.map,
                 );
               },
             ),
@@ -76,67 +62,46 @@ class _PlaceTrackerHomePage extends StatelessWidget {
         ],
       ),
       body: IndexedStack(
-        index:
-            AppState.of(context).viewType == PlaceTrackerViewType.map ? 0 : 1,
-        children: <Widget>[
+        index: state.viewType == PlaceTrackerViewType.map ? 0 : 1,
+        children: [
           PlaceMap(center: const LatLng(45.521563, -122.677433)),
-          PlaceList(),
+          PlaceList()
         ],
       ),
     );
   }
 }
 
-class AppState {
-  const AppState({
+class AppState extends ChangeNotifier {
+  AppState({
     this.places = StubData.places,
     this.selectedCategory = PlaceCategory.favorite,
     this.viewType = PlaceTrackerViewType.map,
   })  : assert(places != null),
         assert(selectedCategory != null);
 
-  final List<Place> places;
-  final PlaceCategory selectedCategory;
-  final PlaceTrackerViewType viewType;
+  List<Place> places;
+  PlaceCategory selectedCategory;
+  PlaceTrackerViewType viewType;
 
-  AppState copyWith({
-    List<Place> places,
-    PlaceCategory selectedCategory,
-    PlaceTrackerViewType viewType,
-  }) {
-    return AppState(
-      places: places ?? this.places,
-      selectedCategory: selectedCategory ?? this.selectedCategory,
-      viewType: viewType ?? this.viewType,
-    );
+  void setViewType(PlaceTrackerViewType viewType) {
+    this.viewType = viewType;
+    notifyListeners();
   }
 
-  static AppState of(BuildContext context) => AppModel.of<AppState>(context);
-
-  static void update(BuildContext context, AppState newState) {
-    AppModel.update<AppState>(context, newState);
+  void setSelectedCategory(PlaceCategory newCategory) {
+    selectedCategory = newCategory;
+    notifyListeners();
   }
 
-  static void updateWith(
-    BuildContext context, {
-    List<Place> places,
-    PlaceCategory selectedCategory,
-    PlaceTrackerViewType viewType,
-  }) {
-    update(
-      context,
-      AppState.of(context).copyWith(
-        places: places,
-        selectedCategory: selectedCategory,
-        viewType: viewType,
-      ),
-    );
+  void setPlaces(List<Place> newPlaces) {
+    places = newPlaces;
+    notifyListeners();
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other.runtimeType != runtimeType) return false;
     return other is AppState &&
         other.places == places &&
         other.selectedCategory == selectedCategory &&

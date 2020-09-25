@@ -1,6 +1,6 @@
-// Copyright 2019 The Chromium Authors. All rights reserved.
+// Copyright 2020 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// found in the LICENSE file
 
 // Called by https://pub.dartlang.org/packages/peanut to generate example pages
 // for hosting.
@@ -10,10 +10,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:markdown/markdown.dart';
 import 'package:path/path.dart' as p;
 
-void main(List<String> args) {
+import 'common.dart';
+
+main(List<String> args) async {
   final buildDir = args[0];
   final fileMap =
       (jsonDecode(args[1]) as Map<String, dynamic>).cast<String, String>();
@@ -32,21 +33,26 @@ void main(List<String> args) {
     }
   }
 
-  final tocFile = File(p.join(buildDir, 'index.html'));
-  if (!tocFile.existsSync()) {
-    throw StateError('$tocFile should exist!');
+  // Move each sample into a subdirectory, 'web'
+  for (var exampleDir in fileMap.values) {
+    var oldDirectory = Directory(p.join(buildDir, exampleDir));
+    Directory(p.join(buildDir, 'web')).createSync();
+    oldDirectory.renameSync(p.join(buildDir, 'web', exampleDir));
   }
 
-  tocFile.writeAsStringSync(
-      _tocTemplate(
-        fileMap.entries.map(
-          (entry) => _Demo(
-            entry.key,
-            entry.value,
-          ),
-        ),
-      ),
-      flush: true);
+  // Build the sample index and copy the files into this directory
+  print('building the sample index...');
+  await run('samples_index', 'pub', ['get']);
+  await run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
+
+  // Copy the contents of the samples_index/public directory to the build
+  // directory
+  logWrapped(ansiMagenta, '  Copying samples_index/public to build directory');
+  var contents = Directory(p.join('samples_index', 'public')).listSync();
+  for (var entity in contents) {
+    var newPath = p.join(buildDir, p.basename(entity.path));
+    entity.renameSync(newPath);
+  }
 }
 
 void _updateHtml(File htmlFile, String buildDir, String exampleDir) {
@@ -71,55 +77,6 @@ void _updateHtml(File htmlFile, String buildDir, String exampleDir) {
   }
 }
 
-class _Demo {
-  final String pkgDir, buildDir;
-
-  _Demo(this.pkgDir, this.buildDir);
-
-  String get content {
-    final path = p.normalize(p.join(pkgDir, '..', 'README.md'));
-
-    final readmeFile = File(path);
-
-    if (!readmeFile.existsSync()) {
-      print('  $path – No readme!');
-      return '';
-    }
-
-    var readmeContent = readmeFile.readAsStringSync();
-
-    final tripleLineIndex = readmeContent.indexOf('\n\n\n');
-    var secondDoubleIndex = readmeContent.indexOf('\n\n');
-
-    if (secondDoubleIndex >= 0) {
-      secondDoubleIndex = readmeContent.indexOf('\n\n', secondDoubleIndex + 1);
-    }
-
-    final endIndices =
-        ([tripleLineIndex, secondDoubleIndex].where((i) => i >= 0).toList()
-          ..sort());
-
-    final endIndex =
-        endIndices.isEmpty ? readmeContent.length : endIndices.first;
-
-    return markdownToHtml(readmeContent.substring(0, endIndex - 1));
-  }
-
-  String get name => _prettyName(buildDir);
-
-  String get html => '''
-<div>
-  <a href='$buildDir'>
-    <img src='${p.url.join(buildDir, 'assets/assets/preview.png')}' width="300" alt="$name">
-  </a>
-  <a class='demo-title' href='$buildDir'>$name</a>
-  <div>
-  ${_indent(content, 2)}
-  </div>
-</div>
-''';
-}
-
 final _underscoreOrSlash = RegExp('_|/');
 
 String _prettyName(String input) =>
@@ -139,75 +96,9 @@ const _analytics = '''
   gtag('config', '$_analyticsId');
 </script>''';
 
-String _indent(String content, int spaces) =>
-    LineSplitter.split(content).join('\n' + ' ' * spaces);
-
-const _itemsReplace = r'<!-- ITEMS -->';
-
 const _emptyTitle = '<title></title>';
 
 const _standardMeta = '''
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   $_emptyTitle''';
-
-String _tocTemplate(Iterable<_Demo> items) => '''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  ${_indent(_analytics, 2)}
-$_standardMeta
-  <meta name="generator" content="https://pub.dartlang.org/packages/peanut">
-  <style>
-    body {
-      font-family: "Google Sans", "Roboto", sans-serif;
-      text-align: center;
-    }
-    a {
-      text-decoration: none;
-      color: #1389FD;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    #toc {
-      text-align: left;
-      display: flex;
-      flex-wrap: wrap;
-      align-self: center;
-      margin: 0 auto;
-      align-content: space-between;
-      justify-content: center;
-    }
-    #toc > div {
-      width: 300px;
-      padding: 1rem;
-      margin: 0.5rem;
-      border: 1px solid rgba(0, 0, 0, 0.125);
-      border-radius: 4px;
-    }
-    #toc > div img {
-      display: block;
-      margin: 0 auto 1rem;
-    }
-    .demo-title {
-      font-size: 1.25rem;
-    }
-    #toc > div p {
-      margin-top: 0.5rem;
-      margin-bottom: 0;
-    }
-  </style>
-</head>
-<body>
-  <h2><a href='https://flutter.dev/web'>Flutter for web</a> samples</h2>
-  <a href='https://github.com/flutter/samples/tree/master/web'>Sample source code</a>
-  <div id="toc">
-    $_itemsReplace
-  </div>
-</body>
-</html>
-'''
-    .replaceFirst(
-        _itemsReplace, _indent(items.map((d) => d.html).join('\n'), 4))
-    .replaceFirst(_emptyTitle, '<title>Flutter for web samples</title>');

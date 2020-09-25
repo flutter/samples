@@ -4,7 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
@@ -15,7 +15,7 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabView(
       builder: (context) {
-        final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
+        final model = Provider.of<AppState>(context);
 
         return CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
@@ -27,7 +27,8 @@ class FavoritesScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Text(
                       'You haven\'t added any favorite veggies to your garden yet.',
-                      style: Styles.headlineDescription,
+                      style: Styles.headlineDescription(
+                          CupertinoTheme.of(context)),
                     ),
                   )
                 : ListView(

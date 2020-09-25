@@ -1,0 +1,36 @@
+name: federated_plugin
+description: A new flutter plugin project to demonstrate how to implement federated plugin.
+version: 0.0.1
+homepage:
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  federated_plugin_platform_interface:
+    path: ../federated_plugin_platform_interface
+  federated_plugin_web:
+    path: ../federated_plugin_web
+  federated_plugin_windows:
+    path: ../federated_plugin_windows
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic: ^1.9.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        pluginClass: FederatedPlugin
+        package: dev.flutter.federated_plugin
+      web:
+        default_package: federated_plugin_web
+      windows:
+        default_package: federated_plugin_windows

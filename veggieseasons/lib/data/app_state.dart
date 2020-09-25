@@ -2,38 +2,38 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:scoped_model/scoped_model.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'package:flutter/foundation.dart';
 import 'package:veggieseasons/data/local_veggie_provider.dart';
+import 'package:veggieseasons/data/veggie.dart';
 
-class AppState extends Model {
-  List<Veggie> _veggies;
+class AppState extends ChangeNotifier {
+  final List<Veggie> _veggies;
 
   AppState() : _veggies = LocalVeggieProvider.veggies;
 
   List<Veggie> get allVeggies => List<Veggie>.from(_veggies);
 
-  Veggie getVeggie(int id) => _veggies.singleWhere((v) => v.id == id);
-
   List<Veggie> get availableVeggies {
-    Season currentSeason = _getSeasonForDate(DateTime.now());
+    var currentSeason = _getSeasonForDate(DateTime.now());
     return _veggies.where((v) => v.seasons.contains(currentSeason)).toList();
-  }
-
-  List<Veggie> get unavailableVeggies {
-    Season currentSeason = _getSeasonForDate(DateTime.now());
-    return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
   }
 
   List<Veggie> get favoriteVeggies =>
       _veggies.where((v) => v.isFavorite).toList();
+
+  List<Veggie> get unavailableVeggies {
+    var currentSeason = _getSeasonForDate(DateTime.now());
+    return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
+  }
+
+  Veggie getVeggie(int id) => _veggies.singleWhere((v) => v.id == id);
 
   List<Veggie> searchVeggies(String terms) => _veggies
       .where((v) => v.name.toLowerCase().contains(terms.toLowerCase()))
       .toList();
 
   void setFavorite(int id, bool isFavorite) {
-    Veggie veggie = getVeggie(id);
+    var veggie = getVeggie(id);
     veggie.isFavorite = isFavorite;
     notifyListeners();
   }

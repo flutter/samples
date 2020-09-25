@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// ignore_for_file: argument_type_not_assignable, strong_mode_implicit_dynamic_parameter, strong_mode_implicit_dynamic_variable
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -40,22 +38,23 @@ class BasicsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
-    final boldStyle = localTheme.body1.copyWith(fontWeight: FontWeight.w600);
+    final boldStyle =
+        localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
 
-    final dynamic dynamicListOfInts = json.decode(JsonStrings.listOfInts);
+    final dynamicListOfInts = json.decode(JsonStrings.listOfInts) as List;
     final strongListOfInts = List<int>.from(dynamicListOfInts);
 
-    final dynamic dynamicListOfStrings = json.decode(JsonStrings.listOfStrings);
+    final dynamicListOfStrings = json.decode(JsonStrings.listOfStrings) as List;
     final strongListOfStrings = List<String>.from(dynamicListOfStrings);
 
-    final dynamic dynamicListOfDoubles = json.decode(JsonStrings.listOfDoubles);
+    final dynamicListOfDoubles = json.decode(JsonStrings.listOfDoubles) as List;
     final strongListOfDoubles = List<double>.from(dynamicListOfDoubles);
 
-    final dynamic dynamicListOfDynamics =
-        json.decode(JsonStrings.listOfDynamics);
+    final dynamicListOfDynamics =
+        json.decode(JsonStrings.listOfDynamics) as List;
     final strongListOfDynamics = List<dynamic>.from(dynamicListOfDynamics);
 
-    final dynamic dynamicMapOfDynamics = json.decode(JsonStrings.mapOfDynamics);
+    final dynamicMapOfDynamics = json.decode(JsonStrings.mapOfDynamics) as Map;
     final strongMapOfDynamics = Map<String, dynamic>.from(dynamicMapOfDynamics);
 
     return ListView(
@@ -75,7 +74,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfInts),
-                  style: localTheme.body1,
+                  style: localTheme.bodyText2,
                 ),
               ],
             ),
@@ -87,7 +86,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfStrings),
-                  style: localTheme.body1,
+                  style: localTheme.bodyText2,
                 ),
               ],
             ),
@@ -99,7 +98,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfDoubles),
-                  style: localTheme.body1,
+                  style: localTheme.bodyText2,
                 ),
               ],
             ),
@@ -111,7 +110,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfDynamics),
-                  style: localTheme.body1,
+                  style: localTheme.bodyText2,
                 ),
               ],
             ),
@@ -135,7 +134,7 @@ class BasicsPage extends StatelessWidget {
             },
             children: createMapRows(
               strongMapOfDynamics,
-              localTheme.body1,
+              localTheme.bodyText2,
               boldStyle,
             ),
           ),
@@ -148,9 +147,9 @@ class BasicsPage extends StatelessWidget {
 class ConvertedSimplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<ConvertedSimpleObject> objects = JsonStrings.simpleObjects.map(
+    var objects = JsonStrings.simpleObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Map<String, dynamic>;
         return ConvertedSimpleObject.fromJson(parsedJson);
       },
     ).toList();
@@ -169,9 +168,9 @@ class ConvertedSimplePage extends StatelessWidget {
 class ConvertedComplexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<ConvertedComplexObject> objects = JsonStrings.complexObjects.map(
+    var objects = JsonStrings.complexObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Map<String, dynamic>;
         return ConvertedComplexObject.fromJson(parsedJson);
       },
     ).toList();
@@ -190,12 +189,12 @@ class ConvertedComplexPage extends StatelessWidget {
 class ConvertedListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final dynamic parsedJson = json.decode(JsonStrings.listOfSimpleObjects);
+    final parsedJson = json.decode(JsonStrings.listOfSimpleObjects) as List;
 
-    final dynamic deserializedObjects =
-        parsedJson.map((dynamic o) => ConvertedComplexObject.fromJson(o));
+    final deserializedObjects = parsedJson.map((dynamic o) =>
+        ConvertedComplexObject.fromJson(o as Map<String, dynamic>));
 
-    final dynamic listOfObjects = deserializedObjects.toList();
+    final listOfObjects = deserializedObjects.toList();
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -211,9 +210,9 @@ class ConvertedListPage extends StatelessWidget {
 class SerializableSimplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<SerializableSimpleObject> objects = JsonStrings.simpleObjects.map(
+    var objects = JsonStrings.simpleObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Map<String, dynamic>;
         return SerializableSimpleObject.fromJson(parsedJson);
       },
     ).toList();
@@ -232,9 +231,9 @@ class SerializableSimplePage extends StatelessWidget {
 class SerializableComplexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<SerializableComplexObject> objects = JsonStrings.complexObjects.map(
+    var objects = JsonStrings.complexObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Map<String, dynamic>;
         return SerializableComplexObject.fromJson(parsedJson);
       },
     ).toList();
@@ -253,12 +252,12 @@ class SerializableComplexPage extends StatelessWidget {
 class SerializableListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final dynamic parsedJson = json.decode(JsonStrings.listOfSimpleObjects);
+    final parsedJson = json.decode(JsonStrings.listOfSimpleObjects) as List;
 
-    final dynamic deserializedObjects =
-        parsedJson.map((dynamic o) => SerializableSimpleObject.fromJson(o));
+    final deserializedObjects = parsedJson.map((dynamic o) =>
+        SerializableSimpleObject.fromJson(o as Map<String, dynamic>));
 
-    final dynamic listOfObjects = deserializedObjects.toList();
+    final listOfObjects = deserializedObjects.toList();
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -274,7 +273,7 @@ class SerializableListPage extends StatelessWidget {
 class BuiltSimplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<BuiltSimpleObject> objects = JsonStrings.simpleObjects.map(
+    var objects = JsonStrings.simpleObjects.map(
       (jsonString) {
         final dynamic parsedJson = json.decode(jsonString);
         return serializers.deserializeWith(
@@ -296,7 +295,7 @@ class BuiltSimplePage extends StatelessWidget {
 class BuiltComplexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<BuiltComplexObject> objects = JsonStrings.complexObjects.map(
+    var objects = JsonStrings.complexObjects.map(
       (jsonString) {
         final dynamic parsedJson = json.decode(jsonString);
         return serializers.deserializeWith(
@@ -318,12 +317,13 @@ class BuiltComplexPage extends StatelessWidget {
 class BuiltListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final dynamic parsedJson = json.decode(JsonStrings.listOfSimpleObjects);
+    final parsedJson = json.decode(JsonStrings.listOfSimpleObjects) as List;
 
-    final dynamic deserializedObjects = parsedJson.map((dynamic o) =>
-        serializers.deserializeWith(BuiltComplexObject.serializer, o));
+    final deserializedObjects = parsedJson.map((dynamic o) =>
+        serializers.deserializeWith(
+            BuiltComplexObject.serializer, o as Map<String, dynamic>));
 
-    final dynamic listOfObjects = deserializedObjects.toList();
+    final listOfObjects = deserializedObjects.toList();
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),

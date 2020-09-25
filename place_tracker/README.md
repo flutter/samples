@@ -1,11 +1,10 @@
 # Place Tracker
 
-A sample place tracking app that uses the [google_maps_flutter](https://github.com/flutter/plugins/tree/master/packages/google_maps_flutter) plugin. 
-Keep track of your favorite places, places you've visited, and places you want to go. View details
-about these places, show them on a map, and get directions to them.
-
-**This sample is not currently in a finished state. We're in the process
-of building it out. This sample currently only works on Android (see Caveat below).**
+A sample place tracking app that uses the
+[google_maps_flutter](https://github.com/flutter/plugins/tree/master/packages/google_maps_flutter)
+plugin. Keep track of your favorite places, places you've visited, and places
+you want to go. View details about these places, show them on a map, and get
+directions to them.
 
 ## Goals
 
@@ -17,14 +16,16 @@ of building it out. This sample currently only works on Android (see Caveat belo
 
 ### `place_map.dart`
 
-This page shows a full-screen GoogleMap widget with place markers. Provides examples of how
-to stack other widgets on top of a GoogleMap widget, how to add markers to a map, and how to make
-other flutter widgets interact with the GoogleMap widget.
+This page shows a full-screen GoogleMap widget with place markers. Provides
+examples of how to stack other widgets on top of a GoogleMap widget, how to add
+markers to a map, and how to make other flutter widgets interact with the
+GoogleMap widget.
 
 ### `place_details.dart`
 
-This page shows a detailed view of a single place. Provides examples of how to place a
-GoogleMap widget inside of a ListView and how to disable certain touch gestures on the map.
+This page shows a detailed view of a single place. Provides examples of how to
+place a GoogleMap widget inside of a ListView and how to disable certain touch
+gestures on the map.
 
 ## Getting Started
 
@@ -32,7 +33,9 @@ To run this sample app, you will need an API key.
 
 Get an API key at <https://cloud.google.com/maps-platform/>.
 
-Specify your API key in the application manifest `android/app/src/main/AndroidManifest.xml`:
+### Android
+Specify your API key in the application manifest
+`android/app/src/main/AndroidManifest.xml`:
 
 ```xml
 <manifest ...
@@ -41,21 +44,41 @@ Specify your API key in the application manifest `android/app/src/main/AndroidMa
                android:value="YOUR KEY HERE"/>
 ```
 
-For additional help setting up the plugin, see the plugin's [README](https://github.com/flutter/plugins/tree/master/packages/google_maps_flutter) page.
+### iOS
+Specify your API key in `AppDelegate.swift`:
+
+```swift
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GMSServices.provideAPIKey("YOUR API KEY HERE")
+    GeneratedPluginRegistrant.register(with: self)
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+```
+
+### Web
+Add your API key to `web/index.html` in the `<head>` tag:
+
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY_HERE>"></script>
+```
+
+For additional help setting up the plugin, see the plugin's
+[README](https://pub.dev/packages/google_maps_flutter)
+page.
 
 For help getting started with Flutter, view our online
 [documentation](https://flutter.io/).
 
 ## Caveat
 
-The google_maps_flutter plugin provides an *unpublished preview* of the Flutter API for Google Maps:
-* Dart APIs for controlling and interacting with a GoogleMap view from Flutter
-  code are still being consolidated and expanded. The intention is to grow
-  current coverage into a complete offering. Issues and pull requests aimed to
-  help us prioritize and speed up this effort are very welcome.
-* Currently the plugin only supports Android as it embeds a platform view in the
-  Flutter hierarchy which is currently only supported for Android ([tracking
-  issue](https://github.com/flutter/flutter/issues/19030)).
+The google_maps_flutter plugin is in developer preview until [dynamic thread
+merging](https://github.com/flutter/flutter/projects/155) is finished.
 
 ## Questions/issues
 

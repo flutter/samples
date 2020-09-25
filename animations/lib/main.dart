@@ -11,10 +11,16 @@ import 'src/basics/04_tweens.dart';
 import 'src/basics/05_animated_builder.dart';
 import 'src/basics/06_custom_tween.dart';
 import 'src/basics/07_tween_sequence.dart';
+import 'src/basics/08_fade_transition.dart';
+import 'src/misc/animated_list.dart';
+import 'src/misc/animated_positioned.dart';
+import 'src/misc/animated_switcher.dart';
 import 'src/misc/card_swipe.dart';
 import 'src/misc/carousel.dart';
+import 'src/misc/curved_animation.dart';
 import 'src/misc/expand_card.dart';
 import 'src/misc/focus_image.dart';
+import 'src/misc/hero_animation.dart';
 import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
 
@@ -57,6 +63,10 @@ final basicDemos = [
       name: 'Tween Sequences',
       route: TweenSequenceDemo.routeName,
       builder: (context) => TweenSequenceDemo()),
+  Demo(
+      name: 'Fade Transition',
+      route: FadeTransitionDemo.routeName,
+      builder: (context) => FadeTransitionDemo()),
 ];
 
 final miscDemos = [
@@ -84,6 +94,26 @@ final miscDemos = [
       name: 'Spring Physics',
       route: PhysicsCardDragDemo.routeName,
       builder: (context) => PhysicsCardDragDemo()),
+  Demo(
+      name: 'AnimatedList',
+      route: AnimatedListDemo.routeName,
+      builder: (context) => AnimatedListDemo()),
+  Demo(
+      name: 'AnimatedPositioned',
+      route: AnimatedPositionedDemo.routeName,
+      builder: (context) => AnimatedPositionedDemo()),
+  Demo(
+      name: 'AnimatedSwitcher',
+      route: AnimatedSwitcherDemo.routeName,
+      builder: (context) => AnimatedSwitcherDemo()),
+  Demo(
+      name: 'Hero Animation',
+      route: HeroAnimationDemo.routeName,
+      builder: (context) => HeroAnimationDemo()),
+  Demo(
+      name: 'Curved Animation',
+      route: CurvedAnimationDemo.routeName,
+      builder: (context) => CurvedAnimationDemo()),
 ];
 
 final basicDemoRoutes =
@@ -98,6 +128,7 @@ final allRoutes = <String, WidgetBuilder>{
 };
 
 class AnimationSamples extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Animation Samples',
@@ -111,8 +142,9 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.title;
+    final headerStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
       appBar: AppBar(
         title: Text('Animation Samples'),
@@ -134,6 +166,7 @@ class DemoTile extends StatelessWidget {
 
   DemoTile(this.demo);
 
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(demo.name),

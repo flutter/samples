@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/styles.dart';
@@ -15,15 +15,15 @@ import 'package:veggieseasons/widgets/settings_item.dart';
 class VeggieCategorySettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+    final model = Provider.of<Preferences>(context);
     final currentPrefs = model.preferredCategories;
-
+    var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('Preferred Categories'),
         previousPageTitle: 'Settings',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.scaffoldBackground(brightness),
       child: FutureBuilder<Set<VeggieCategory>>(
         future: currentPrefs,
         builder: (context, snapshot) {
@@ -79,13 +79,13 @@ class CalorieSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
-
+    final model = Provider.of<Preferences>(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         previousPageTitle: 'Settings',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.scaffoldBackground(brightness),
       child: ListView(
         children: [
           FutureBuilder<int>(
@@ -93,7 +93,7 @@ class CalorieSettingsScreen extends StatelessWidget {
             builder: (context, snapshot) {
               final steps = <SettingsItem>[];
 
-              for (int cals = max; cals < min; cals += step) {
+              for (var cals = max; cals < min; cals += step) {
                 steps.add(
                   SettingsItem(
                     label: cals.toString(),
@@ -138,7 +138,10 @@ class SettingsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           return Row(
             children: [
-              Text(snapshot.data?.toString() ?? ''),
+              Text(
+                snapshot.data?.toString() ?? '',
+                style: CupertinoTheme.of(context).textTheme.textStyle,
+              ),
               SizedBox(width: 8),
               SettingsNavigationIndicator(),
             ],
@@ -178,11 +181,11 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prefs = ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+    final prefs = Provider.of<Preferences>(context);
 
     return CupertinoPageScaffold(
       child: Container(
-        color: Styles.scaffoldBackground,
+        color: Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
         child: CustomScrollView(
           slivers: <Widget>[
             CupertinoSliverNavigationBar(

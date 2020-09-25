@@ -85,9 +85,11 @@ class SettingsItemState extends State<SettingsItem> {
 
   @override
   Widget build(BuildContext context) {
+    var themeData = CupertinoTheme.of(context);
+    var brightness = CupertinoTheme.brightnessOf(context);
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      color: pressed ? Styles.settingsItemPressed : Styles.transparentColor,
+      color: Styles.settingsItemColor(brightness),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () async {
@@ -132,20 +134,23 @@ class SettingsItemState extends State<SettingsItem> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(height: 8.5),
-                            Text(widget.label),
+                            Text(
+                              widget.label,
+                              style: Styles.settingsItemText(themeData),
+                            ),
                             SizedBox(height: 4),
                             Text(
                               widget.subtitle,
-                              style: TextStyle(
-                                fontSize: 12,
-                                letterSpacing: -0.2,
-                              ),
+                              style: Styles.settingsItemSubtitleText(themeData),
                             ),
                           ],
                         )
                       : Padding(
                           padding: EdgeInsets.only(top: 1.5),
-                          child: Text(widget.label),
+                          child: Text(
+                            widget.label,
+                            style: Styles.settingsItemText(themeData),
+                          ),
                         ),
                 ),
               ),

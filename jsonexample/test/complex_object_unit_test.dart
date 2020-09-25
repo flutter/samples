@@ -121,13 +121,13 @@ void main() {
     test('Typical object is converted correctly', () {
       final complexObject = ConvertedComplexObject.fromJson(typicalObjectJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -135,8 +135,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,
@@ -163,7 +163,7 @@ void main() {
       final complexObject =
           ConvertedComplexObject.fromJson(emptySimpleObjectsJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
@@ -177,7 +177,7 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, isNull);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {
         expect(complexObject.aListOfObjects[i].aString, isNull);
         expect(complexObject.aListOfObjects[i].anInt, isNull);
         expect(complexObject.aListOfObjects[i].aDouble, isNull);
@@ -191,13 +191,13 @@ void main() {
       final complexObject =
           ConvertedComplexObject.fromJson(unexpectedPropertiesJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -205,8 +205,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,
@@ -222,13 +222,13 @@ void main() {
       final complexObject =
           SerializableComplexObject.fromJson(typicalObjectJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -236,8 +236,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,
@@ -264,7 +264,7 @@ void main() {
       final complexObject =
           SerializableComplexObject.fromJson(emptySimpleObjectsJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
@@ -278,7 +278,7 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, isNull);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {
         expect(complexObject.aListOfObjects[i].aString, isNull);
         expect(complexObject.aListOfObjects[i].anInt, isNull);
         expect(complexObject.aListOfObjects[i].aDouble, isNull);
@@ -292,13 +292,13 @@ void main() {
       final complexObject =
           SerializableComplexObject.fromJson(unexpectedPropertiesJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -306,8 +306,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,
@@ -323,13 +323,13 @@ void main() {
       final complexObject = serializers.deserializeWith(
           BuiltComplexObject.serializer, typicalObjectJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -337,8 +337,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,
@@ -366,7 +366,7 @@ void main() {
       final complexObject = serializers.deserializeWith(
           BuiltComplexObject.serializer, emptySimpleObjectsJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
@@ -380,7 +380,7 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, isNull);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {
         expect(complexObject.aListOfObjects[i].aString, isNull);
         expect(complexObject.aListOfObjects[i].anInt, isNull);
         expect(complexObject.aListOfObjects[i].aDouble, isNull);
@@ -394,13 +394,13 @@ void main() {
       final complexObject = serializers.deserializeWith(
           BuiltComplexObject.serializer, unexpectedPropertiesJson);
 
-      expect(complexObject.aString, "Blah, blah, blah.");
+      expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
       expect(complexObject.aDouble, 1.0);
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, "Blah, blah, blah.");
+      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anObject.anInt, 1);
       expect(complexObject.anObject.aDouble, 1.0);
       expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
@@ -408,8 +408,8 @@ void main() {
       expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
       expect(complexObject.aListOfObjects.length, 3);
 
-      for (int i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, "Blah, blah, blah.");
+      for (var i = 0; i < 3; i++) {
+        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
         expect(complexObject.aListOfObjects[i].anInt, i + 1);
         expect(complexObject.aListOfObjects[i].aDouble, 1.0);
         expect(complexObject.aListOfObjects[i].aListOfStrings,

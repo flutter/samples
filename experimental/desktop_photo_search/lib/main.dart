@@ -4,9 +4,10 @@
 
 import 'dart:io';
 
+import 'package:file_chooser/file_chooser.dart' as file_chooser;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:file_chooser/file_chooser.dart' as file_choser;
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:meta/meta.dart';
@@ -14,7 +15,6 @@ import 'package:provider/provider.dart';
 
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
-import 'src/widgets/data_tree.dart';
 import 'src/widgets/photo_details.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/split.dart';
@@ -86,15 +86,29 @@ class UnsplashHomePage extends StatelessWidget {
           ? Split(
               axis: Axis.horizontal,
               initialFirstFraction: 0.4,
-              firstChild: DataTree(photoSearchModel.entries),
+              firstChild: Scrollbar(
+                child: SingleChildScrollView(
+                  child: TreeView(
+                    nodes: photoSearchModel.entries
+                        .map(_buildSearchEntry)
+                        .toList(),
+                    indent: 0,
+                  ),
+                ),
+              ),
               secondChild: Center(
                 child: photoSearchModel.selectedPhoto != null
                     ? PhotoDetails(
                         photo: photoSearchModel.selectedPhoto,
                         onPhotoSave: (photo) async {
-                          final result = await file_choser.showSavePanel(
+                          final result = await file_chooser.showSavePanel(
                             suggestedFileName: '${photo.id}.jpg',
-                            allowedFileTypes: ['jpg'],
+                            allowedFileTypes: const [
+                              file_chooser.FileTypeFilterGroup(
+                                label: 'JPGs',
+                                fileExtensions: ['jpg'],
+                              )
+                            ],
                           );
                           if (!result.canceled) {
                             final bytes =
@@ -117,6 +131,33 @@ class UnsplashHomePage extends StatelessWidget {
         tooltip: 'Search for a photo',
         child: Icon(Icons.search),
       ),
+    );
+  }
+
+  TreeNode _buildSearchEntry(SearchEntry searchEntry) {
+    return TreeNode(
+      content: Expanded(
+        child: Text(searchEntry.query),
+      ),
+      children: searchEntry.photos
+          .map<TreeNode>(
+            (photo) => TreeNode(
+              content: Expanded(
+                child: InkWell(
+                  onTap: () {
+                    searchEntry.model.selectedPhoto = photo;
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      'Photo by ${photo.user.name}',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

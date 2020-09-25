@@ -1,0 +1,27 @@
+name: samples_index
+description: A visual index of Flutter samples
+homepage: https://github.com/flutter/samples_index
+author: Flutter Team <flutter-dev@googlegroups.com>
+version: 0.0.1
+environment:
+  sdk: '>=2.5.0 <3.0.0'
+dependencies:
+  json_annotation: ^3.0.0
+  path: ^1.6.0
+  yaml: ^2.2.0
+  mdc_web: ^0.5.0-pre
+  sass_builder: ^2.1.0
+  checked_yaml: ^1.0.0
+  webdriver: ^2.1.0
+  html: ^0.14.0
+dev_dependencies:
+  grinder: ^0.8.3
+  pedantic: ^1.9.0
+  test: ^1.6.0
+  json_serializable: ^3.2.0
+  build: ^1.2.0
+  build_runner: ^1.7.0
+  build_web_compilers: ^2.7.0
+  tuneup: ^0.3.6
+  image: ^2.1.0
+

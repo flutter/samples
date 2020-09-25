@@ -3,27 +3,28 @@ description: Search for Photos, using the Unsplash API.
 version: 1.0.0+1
 
 environment:
-  sdk: ^2.7.0-dev
-  flutter: ^1.13.1-pre
+  sdk: ^2.9.0-11.0.dev
+  flutter: ^1.19.0-3.0.pre
 
 dependencies:
   flutter:
     sdk: flutter
   built_collection: ^4.3.0
   built_value: ^7.0.0
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^0.1.3
   file_chooser:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/file_chooser
   logging: ^0.11.3+2
+  flutter_simple_treeview: ^2.0.1
   menubar:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/menubar
   meta: ^1.1.8
-  pedantic: ^1.8.0
-  provider: ^3.2.0
+  pedantic: ^1.9.0
+  provider: ^4.1.0
   transparent_image: ^1.0.0
   uuid: ^2.0.4
   url_launcher: ^5.4.0

@@ -8,6 +8,7 @@ class TypewriterTween extends Tween<String> {
   TypewriterTween({String begin = '', String end})
       : super(begin: begin, end: end);
 
+  @override
   String lerp(double t) {
     var cutoff = (end.length * t).round();
     return end.substring(0, cutoff);
@@ -17,6 +18,7 @@ class TypewriterTween extends Tween<String> {
 class CustomTweenDemo extends StatefulWidget {
   static const String routeName = '/basics/custom_tweens';
 
+  @override
   _CustomTweenDemoState createState() => _CustomTweenDemoState();
 }
 
@@ -27,6 +29,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
   AnimationController controller;
   Animation<String> animation;
 
+  @override
   void initState() {
     super.initState();
 
@@ -34,11 +37,13 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
     animation = TypewriterTween(end: message).animate(controller);
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -52,9 +57,13 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
             textColor: Colors.white,
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {
-                controller.reverse();
+                controller.reverse().whenComplete(() {
+                  setState(() {});
+                });
               } else {
-                controller.forward();
+                controller.forward().whenComplete(() {
+                  setState(() {});
+                });
               }
             },
           ),

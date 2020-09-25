@@ -13,6 +13,7 @@ Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 class AnimatedContainerDemo extends StatefulWidget {
   static String routeName = '/basics/01_animated_container';
 
+  @override
   _AnimatedContainerDemoState createState() => _AnimatedContainerDemoState();
 }
 
@@ -21,6 +22,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
   double borderRadius;
   double margin;
 
+  @override
   void initState() {
     super.initState();
     color = Colors.deepPurple;
@@ -36,6 +38,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     // This widget is built using an AnimatedContainer, one of the easiest to use
     // animated Widgets. Whenever the AnimatedContainer's properties, such as decoration,

@@ -1,20 +1,55 @@
-# Add-to-App Sample
+# Add-to-App Samples
 
-This directory contains a bunch of Android and iOS projects that each import a
-standalone Flutter module.
+This directory contains a bunch of Android and iOS projects (beginning
+`android_` and `ios_`, respectively) that import and use one of several Flutter
+modules (which have names beginning with `flutter_`). They're designed to show
+recommended approaches for adding Flutter to existing Android and iOS apps.
 
-## Goals for this sample
+## Goals for these samples
 
 * Show developers how to add Flutter to their existing applications.
 * Show the following options:
   - Whether to build the Flutter module from source each time the app builds or
     rely on a separately pre-built module.
   - Whether plugins are needed by the Flutter module used in the app.
+* Show Flutter being integrated ergonomically with applications with existing
+  middleware and business logic data classes.
+
+## tl;dr
+
+If you're just looking to get up and running quickly, these bash commands will
+fetch packages and set up dependencies (note that the above commands assume
+you're building for both iOS and Android, with both toolchains installed):
+
+```bash
+  #!/bin/bash
+  set -e
+
+  cd flutter_module_using_plugin
+  flutter pub get
+  cd ../flutter_module_books
+  flutter pub get
+  cd ../flutter_module
+  flutter pub get
+
+  # For Android builds:
+  flutter build aar
+
+  # For iOS builds:
+  flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
+  cd ../ios_fullscreen
+  pod install
+  cd ../ios_using_plugin
+  pod install
+```
+
+Once those commands have run, you can go into any of the app directories (the
+ones beginning `android_` or `ios_`), and build the apps as you normally would.
 
 ## Installing Cocoapods
 
-The iOS samples in this repo require the latest version of Cocoapods. To install
-it, run the following command on a MacOS machine:
+The iOS samples in this repo require the latest version of Cocoapods. To make
+sure you've got it, run the following command on a macOS machine:
 
 ```bash
 sudo gem install cocoapods
@@ -26,20 +61,25 @@ See https://guides.cocoapods.org/using/getting-started.html for more details.
 
 ### Flutter modules
 
-There are two Flutter modules included in the codebase:
+There are three Flutter modules included in the codebase:
 
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
 * `flutter_module_using_plugin` does everything `flutter_module` does and adds
   another button that will open the Flutter documentation in a browser using the
   [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
+* `flutter_module_books` simulates an integration scenario with existing
+  platform business logic and middleware. It uses the [`pigeon`](https://pub.dev/packages/pigeon)
+  plugin to make integration easier by generating the platform channel
+  interop inside wrapper API and data classes that are shared between the
+  platform and Flutter.
 
 Before using them, you need to resolve the Flutter modules' dependencies. Do so
-by running this command from within the `flutter_module` and
-`flutter_module_using_plugin` directories:
+by running this command from within the `flutter_module`,
+`flutter_module_using_plugin`, and `flutter_module_books` directories:
 
 ```bash
-flutter packages get
+flutter pub get
 ```
 
 ### Android and iOS applications
@@ -49,7 +89,7 @@ Android and iOS applications that demonstrate different ways of importing
 them.
 
 With the exception of `android_using_prebuilt_module`, the Android apps are
-ready to run once you've completed the `flutter packages get` commands listed
+ready to run once you've completed the `flutter pub get` commands listed
 above. Two of the iOS apps (`ios_fullscreen` and `ios_using_plugin`) use
 Cocoapods, though, so you need to run this command within their project
 directories to install their dependencies:
@@ -138,6 +178,50 @@ For more information on how to modify an existing iOS app to reference prebuilt
 Flutter frameworks, see this article in the Flutter GitHub wiki:
 
 https://flutter.dev/docs/development/add-to-app/ios/project-setup
+
+### `android_books` and `ios_books (TODO)`
+
+These apps integrate the `flutter_books` module using the simpler build-together
+project setup. They simulate a mock scenario where an existing book catalog
+list app already exists. Flutter is used to implement an additional book details
+page.
+
+* Similar to `android_fullscreen` and `ios_fullscreen`.
+* An existing books catalog app is already implemented in Kotlin and Swift.
+* The platform-side app has existing middleware constraints that should also
+  be the middleware foundation for the additional Flutter screen.
+    * On Android, the Kotlin app already uses GSON and OkHttp for networking and
+      references the Google Books API as a data source. These same libraries
+      also underpin the data fetched and shown in the Flutter screen.
+    * iOS TODO.
+* The platform application interfaces with the Flutter book details page using
+  idiomatic platform API conventions rather than Flutter conventions.
+    * On Android, the Flutter activity receives the book to show via activity
+      intent and returns the edited book by setting the result intent on the
+      activity. No Flutter concepts are leaked into the consumer activity.
+    * iOS TODO.
+* The [pigeon](https://pub.dev/packages/pigeon) plugin is used to generate
+  interop APIs and data classes. The same `Book` model class is used within the
+  Kotlin/Swift program, the Dart program and in the interop between Kotlin/Swift
+  and Dart. No manual platform channel plumbing needed for interop.
+    * The `api.dart/java/mm` files generated from the
+      `flutter_module_books/pigeon/schema.dart` file are checked into source
+      control. Therefore `pigeon` is only a dev dependency with no runtime
+      requirements.
+    * If the `schema.dart` is modified, the generated classes can be updated with
+
+        ```bash
+        flutter pub run pigeon \
+            --input pigeon/schema.dart \
+            --java_out ../android_books/app/src/main/java/dev/flutter/example/books/Api.java \
+            --java_package "dev.flutter.example.books"
+        ```
+
+      in the `flutter_module_books` directory.
+
+Once you've understood the basics of add-to-app with `android_fullscreen` and
+`ios_fullscreen`, this is a good sample to demonstrate how to integrate Flutter
+in a slightly more realistic setting with existing business logic.
 
 ## Questions/issues
 

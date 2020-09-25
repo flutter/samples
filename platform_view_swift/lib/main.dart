@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   Future<void> _launchPlatformCount() async {
-    final int platformCounter =
-        await _methodChannel.invokeMethod('switchView', _counter);
+    final platformCounter =
+        await _methodChannel.invokeMethod<int>('switchView', _counter);
     setState(() => _counter = platformCounter);
   }
 
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Button tapped $_counter time${_counter == 1 ? '' : 's'}.',
-                    style: Theme.of(context).textTheme.subtitle,
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   SizedBox(height: 18),
                   RaisedButton(
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                 FlutterLogo(),
                 Text(
                   'Flutter',
-                  style: Theme.of(context).textTheme.headline,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
               ],
             ),

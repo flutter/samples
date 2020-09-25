@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class FocusImageDemo extends StatelessWidget {
   static String routeName = '/misc/focus_image';
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Focus Image')),
@@ -16,6 +17,7 @@ class FocusImageDemo extends StatelessWidget {
 }
 
 class Grid extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.builder(
@@ -68,6 +70,7 @@ class SmallCard extends StatelessWidget {
 
   SmallCard(this.imageAssetName);
 
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: Material(
@@ -91,6 +94,7 @@ class _SecondPage extends StatelessWidget {
 
   _SecondPage(this.imageAssetName);
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
