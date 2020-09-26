@@ -44,7 +44,7 @@
 		26DF66DC233136460076ACA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26DF66DE233136470076ACA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26DF66E1233136470076ACA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		26DF66E3233136470076ACA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26DF66E3233136470076ACA6 /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		26DF66E8233136470076ACA6 /* IOSFullScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSFullScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DF66EC233136470076ACA6 /* IOSFullScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFullScreenTests.swift; sourceTree = "<group>"; };
 		26DF66EE233136470076ACA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +59,7 @@
 		937908EB34261AC01440B337 /* Pods_IOSFullScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSFullScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC2707B63771A7B5BCBA3BA /* Pods-IOSFullScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFullScreenTests.debug.xcconfig"; path = "Target Support Files/Pods-IOSFullScreenTests/Pods-IOSFullScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3E00AFDA1215B19C1529F65 /* Pods-IOSFullScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSFullScreen.debug.xcconfig"; path = "Target Support Files/Pods-IOSFullScreen/Pods-IOSFullScreen.debug.xcconfig"; sourceTree = "<group>"; };
+		F7C79901251EF65800650C20 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +120,8 @@
 				26DF66DB233136460076ACA6 /* Main.storyboard */,
 				26DF66DE233136470076ACA6 /* Assets.xcassets */,
 				26DF66E0233136470076ACA6 /* LaunchScreen.storyboard */,
-				26DF66E3233136470076ACA6 /* Info.plist */,
+				26DF66E3233136470076ACA6 /* Info-Debug.plist */,
+				F7C79901251EF65800650C20 /* Info-Release.plist */,
 			);
 			path = IOSFullScreen;
 			sourceTree = "<group>";
@@ -581,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSFullScreen/Info.plist;
+				INFOPLIST_FILE = "IOSFullScreen/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSFullScreen/Info.plist;
+				INFOPLIST_FILE = "IOSFullScreen/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

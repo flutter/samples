@@ -42,7 +42,8 @@
 		26DC0F702398363A00D41B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26DC0F722398363B00D41B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26DC0F752398363B00D41B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		26DC0F772398363B00D41B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26DC0F772398363B00D41B08 /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
+		F7C7993B251EF8C000650C20 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +93,8 @@
 				26DC0F6F2398363A00D41B08 /* Main.storyboard */,
 				26DC0F722398363B00D41B08 /* Assets.xcassets */,
 				26DC0F742398363B00D41B08 /* LaunchScreen.storyboard */,
-				26DC0F772398363B00D41B08 /* Info.plist */,
+				26DC0F772398363B00D41B08 /* Info-Debug.plist */,
+				F7C7993B251EF8C000650C20 /* Info-Release.plist */,
 			);
 			path = IOSUsingPrebuiltModule;
 			sourceTree = "<group>";
@@ -321,7 +323,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
 				);
-				INFOPLIST_FILE = IOSUsingPrebuiltModule/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPrebuiltModule/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +344,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
 				);
-				INFOPLIST_FILE = IOSUsingPrebuiltModule/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPrebuiltModule/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
