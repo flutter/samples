@@ -45,7 +45,7 @@
 		261836602353DC9600E2709C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		261836622353DC9700E2709C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		261836652353DC9700E2709C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		261836672353DC9700E2709C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		261836672353DC9700E2709C /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		2618366C2353DC9700E2709C /* IOSUsingPluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSUsingPluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		261836702353DC9700E2709C /* IOSUsingPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSUsingPluginTests.swift; sourceTree = "<group>"; };
 		261836722353DC9700E2709C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +59,7 @@
 		9EF4D3F69A8A2DAF318D5D8F /* Pods-IOSUsingPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPlugin.release.xcconfig"; path = "Target Support Files/Pods-IOSUsingPlugin/Pods-IOSUsingPlugin.release.xcconfig"; sourceTree = "<group>"; };
 		BF8095192EC0A98CBABFC968 /* Pods-IOSUsingPluginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPluginUITests.debug.xcconfig"; path = "Target Support Files/Pods-IOSUsingPluginUITests/Pods-IOSUsingPluginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BE8518A3FAC05A3EF43C4A /* Pods-IOSUsingPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSUsingPlugin.debug.xcconfig"; path = "Target Support Files/Pods-IOSUsingPlugin/Pods-IOSUsingPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		F7C79933251EF79100650C20 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +120,8 @@
 				2618365F2353DC9600E2709C /* Main.storyboard */,
 				261836622353DC9700E2709C /* Assets.xcassets */,
 				261836642353DC9700E2709C /* LaunchScreen.storyboard */,
-				261836672353DC9700E2709C /* Info.plist */,
+				261836672353DC9700E2709C /* Info-Debug.plist */,
+				F7C79933251EF79100650C20 /* Info-Release.plist */,
 			);
 			path = IOSUsingPlugin;
 			sourceTree = "<group>";
@@ -581,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPlugin/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPlugin/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = IOSUsingPlugin/Info.plist;
+				INFOPLIST_FILE = "IOSUsingPlugin/Info-$(CONFIGURATION).plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
