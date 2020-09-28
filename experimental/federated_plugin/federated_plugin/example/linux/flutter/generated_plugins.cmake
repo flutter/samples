@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  federated_plugin_linux
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)

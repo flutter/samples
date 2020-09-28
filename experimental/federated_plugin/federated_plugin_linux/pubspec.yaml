@@ -2,7 +2,14 @@ name: federated_plugin_linux
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
-plublish_to: none
+plublish_to: none 
+
+flutter:
+  plugin:
+    platforms:
+      linux:
+        dartPluginClass: FederatedPluginLinux
+        pluginClass: none
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -21,9 +28,3 @@ dev_dependencies:
     sdk: flutter
   pedantic: ^1.9.0
 
-flutter:
-  plugin:
-    platforms:
-      linux:
-        dartPluginClass: FederatedPluginLinux
-        pluginClass: none
