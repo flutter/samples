@@ -3,18 +3,21 @@ import 'package:federated_plugin_platform_interface/federated_plugin_platform_in
 import 'package:upower/upower.dart';
 
 class FederatedPluginLinux extends FederatedPluginInterface {
-
   @override
   Future<int> getBatteryLevel() async {
     var uPowerClient = UPowerClient(DBusClient.system());
     await uPowerClient.connect();
 
     var batteryLevelSum = 0.0;
+    var deviceCount = 0;
     uPowerClient.devices.forEach((device) {
-      batteryLevelSum += device.percentage;
+      if (device.type == UPowerDeviceType.battery) {
+        batteryLevelSum += device.percentage;
+        deviceCount++;
+      }
     });
 
     uPowerClient.close();
-    return (batteryLevelSum / uPowerClient.devices.length).round();
+    return (batteryLevelSum / deviceCount).round();
   }
 }
