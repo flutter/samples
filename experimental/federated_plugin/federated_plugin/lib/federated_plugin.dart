@@ -17,7 +17,6 @@ Future<int> getBatteryLevel() async {
 
 FederatedPluginInterface get _instance {
   if (Platform.isLinux) {
-    print('True');
     return FederatedPluginLinux();
   } else {
     return FederatedPluginInterface.instance;
