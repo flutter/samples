@@ -9,10 +9,12 @@ import 'package:upower/upower.dart';
 /// Linux Implementation of [FederatedPluginInterface] to retrieve current battery
 /// level of device.
 class FederatedPluginLinux extends FederatedPluginInterface {
+  /// Constructor to get a [UPowerClient] mock for testing purpose.
   FederatedPluginLinux({this.uPowerClientMock});
 
   UPowerClient uPowerClientMock;
 
+  /// Returns the current battery level of device.
   @override
   Future<int> getBatteryLevel() async {
     var uPowerClient = uPowerClientMock ?? UPowerClient(DBusClient.system());

@@ -15,6 +15,7 @@ Future<int> getBatteryLevel() async {
   return await _instance.getBatteryLevel();
 }
 
+// TODO: Remove the getter once https://github.com/flutter/flutter/issues/52267 is fixed.
 FederatedPluginInterface get _instance {
   if (Platform.isLinux) {
     return FederatedPluginLinux();
