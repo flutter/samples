@@ -16,19 +16,19 @@ class HomeScreen extends StatelessWidget {
       tabBar: CupertinoTabBar(items: [
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.home),
-          title: Text('Home'),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.book),
-          title: Text('My Garden'),
+          label: 'My Garden',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.search),
-          title: Text('Search'),
+          label: 'Search',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.settings),
-          title: Text('Settings'),
+          label: 'Settings',
         ),
       ]),
       tabBuilder: (context, index) {
