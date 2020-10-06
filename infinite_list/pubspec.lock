@@ -171,5 +171,5 @@ packages:
     source: hosted
     version: "2.1.0-nullsafety.3"
 sdks:
-  dart: ">=2.10.0-110 <=2.11.0-161.0.dev"
+  dart: ">=2.10.0-110 <2.11.0"
   flutter: ">=1.16.0"
