@@ -1,6 +1,6 @@
 # Contributing
 
-_See also: [Flutter's code of conduct](https://flutter.io/design-principles/#code-of-conduct)_
+_See also: [Flutter's code of conduct](https://github.com/flutter/flutter/blob/master/CODE_OF_CONDUCT.md)_
 
 Want to contribute to the Flutter sample ecosystem? Great! First, read this
 page (including the small print at the end).
