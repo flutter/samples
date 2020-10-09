@@ -34,12 +34,12 @@ class GoodMyApp extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            // Notice how we're not getting a null error here despite
-            // tempWidgets being declared in line 9 without an initial value.
-            // This is because of null safety's definete assigment feature: We
-            // know that in all branches of the code (both the if- and else-
-            // branches), the variable was assigned a value, and thus isn't
-            // null.
+            // Notice how we're *not* getting an error saying that `tempWidgets`
+            // is unintialized or null here despite tempWidgets being declared
+            // in line 9 without an initial value. This is because of null
+            // safety's definite assignment feature: We know that in all branches
+            // of the code (both the if- and else- branches), the variable was
+            // assigned a value, and thus isn't null.
             children: tempWidgets,
           ),
         ),

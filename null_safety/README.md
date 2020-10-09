@@ -7,11 +7,11 @@ https://dart.dev/null-safety.
 The folder contains two sample Flutter apps:
 
   * `null_unsafe_app`: This contains a small weather app, which has three null
-    error in it's rendering code, as a result of not using null safety.
+    errors in its rendering code as a result of not using null safety.
     
-    Try running the app (`flutter run in a terminal, or the Run action in
+    Try running the app (`flutter run` in a terminal, or the Run action in
     VSCode/Android Studio), and see if the UI works. The null errors are
-    spurious, so try hot reloading a bunch of times and experience the app
+    sporadic, so try hot reloading a bunch of times and experience the app
     sometimes working and sometimes failing.
 
   * `null_safe_app`: This contains the same weather app, but this time using
@@ -37,13 +37,13 @@ flag](https://dart.dev/tools/experiment-flags).
      the Flutter SDK releases page:
      https://flutter.dev/docs/development/tools/sdk/releases.
         
-  1. Unzip the SDK to a folder, e.g. `/Users/michael/dev/preview/flutter` or
-     `C:\Users\michael\dev\preview\flutter\`
+  1. Unzip the SDK to a folder, e.g. `/Users/michael/dev/preview/flutter` (on
+     macOS/Linux) or `C:\Users\michael\dev\preview\flutter\` (on Windows)
 
 ### Running from the terminal/command-prompt
 
 Because null safety is still in tech preview, we need to pass a so-called
-'experiment flag' when invoking any Flutter command in the terminal, which looks
+_experiment flag_ when invoking any Flutter command in the terminal, which looks
 like this: `--enable-experiment=non-nullable`.
 
 To run the main app, type these commands in the terminal/command-prompt:
@@ -59,7 +59,7 @@ To run the main app, type these commands in the terminal/command-prompt:
 
 ### Running from VSCode
 
-This example contains a launch configuration for VSCode that runs passing the
+This example contains a launch configuration for VSCode that passes the
 experimental flag, so to run the sample in VSCode:
 
   1. Edit your VSCode configuration to point to one additional Dart SDK, the
