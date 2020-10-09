@@ -5,8 +5,8 @@ import 'services.dart';
 class GoodMyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var localizedAppName = Config.getAppName();
-    var temperatures = WeatherService.getTemperature();
+    final localizedAppName = Config.getAppName();
+    final temperatures = WeatherService.getTemperature();
 
     var tempWidgets;
     if (temperatures == null) {
@@ -17,7 +17,7 @@ class GoodMyApp extends StatelessWidget {
       // Notice how we access temperatures without getting an analysis error.
       [
         Text('Temperature next 3 days:'),
-        for (var t in temperatures)
+        for (final t in temperatures)
           // We first use the conditional member access operator to only call
           // round() and toString() if t isn't null. We then test if that
           // succeded, and if not use a null conditional operator to supply a

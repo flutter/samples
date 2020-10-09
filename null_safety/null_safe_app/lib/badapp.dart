@@ -8,12 +8,12 @@ import 'services.dart';
 class BadMyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var localizedAppName = Config.getAppName();
-    var temperatures = WeatherService.getTemperature();
+    final localizedAppName = Config.getAppName();
+    final temperatures = WeatherService.getTemperature();
 
     var tempWidgets = [
       Text('Temperature next 3 days:'),
-      // for (var t in temperatures) Text(t.round().toString()),
+      // for (final t in temperatures) Text(t.round().toString()),
     ];
 
     return MaterialApp(

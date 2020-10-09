@@ -10,8 +10,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var localizedAppName = Config.getAppName();
-    var temperatures = WeatherService.getTemperature();
+    final localizedAppName = Config.getAppName();
+    final temperatures = WeatherService.getTemperature();
 
     return MaterialApp(
       home: Scaffold(
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Temperature next 3 days:'),
-              for (var t in temperatures) Text(t.round().toString()),
+              for (final t in temperatures) Text(t.round().toString()),
             ],
           ),
         ),
