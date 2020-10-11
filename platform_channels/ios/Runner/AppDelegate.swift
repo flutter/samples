@@ -11,19 +11,18 @@ import Flutter
         FlutterMethodChannel(name: "methodChannelDemo", binaryMessenger: flutterViewController.binaryMessenger).setMethodCallHandler({
             (call: FlutterMethodCall, result: FlutterResult) -> Void in
             
-            let count = (call.arguments as? NSDictionary)?["count"] as? Int
-            
-            if count == nil {
+            guard let count = (call.arguments as? NSDictionary)?["count"] as? Int else {
                 result(FlutterError(code: "INVALID_ARGUMENT", message: "Value of count cannot be null", details: nil))
-            } else {
-                switch call.method {
-                case "increment":
-                    result(count! + 1)
-                case "decrement":
-                    result(count! - 1)
-                default:
-                    result(FlutterMethodNotImplemented)
-                }
+                return
+            }
+            
+            switch call.method {
+            case "increment":
+                result(count + 1)
+            case "decrement":
+                result(count - 1)
+            default:
+                result(FlutterMethodNotImplemented)
             }
         })
         
