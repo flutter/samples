@@ -238,15 +238,42 @@ class InfoView extends StatelessWidget {
 
 class DetailsScreen extends StatefulWidget {
   final int id;
+  final String restorationId;
 
-  DetailsScreen(this.id);
+  DetailsScreen({this.id, this.restorationId});
+
+  static String show(NavigatorState navigator, int veggieId) {
+    return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
+  }
+
+  static Route<void> _routeBuilder(BuildContext context, Object arguments) {
+    final veggieId = arguments as int;
+    return CupertinoPageRoute(
+      builder: (context) => DetailsScreen(id: veggieId, restorationId: 'details'),
+      fullscreenDialog: true,
+    );
+  }
 
   @override
   _DetailsScreenState createState() => _DetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
-  int _selectedViewIndex = 0;
+class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
+  final RestorableInt _selectedViewIndex = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_selectedViewIndex, 'tab');
+  }
+
+  @override
+  void dispose() {
+    _selectedViewIndex.dispose();
+    super.dispose();
+  }
 
   Widget _buildHeader(BuildContext context, AppState model) {
     final veggie = model.getVeggie(widget.id);
@@ -282,33 +309,37 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
 
-    return CupertinoPageScaffold(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
-                _buildHeader(context, appState),
-                SizedBox(height: 20),
-                CupertinoSegmentedControl<int>(
-                  children: {
-                    0: Text('Facts & Info'),
-                    1: Text('Trivia'),
-                  },
-                  groupValue: _selectedViewIndex,
-                  onValueChanged: (value) {
-                    setState(() => _selectedViewIndex = value);
-                  },
-                ),
-                _selectedViewIndex == 0
-                    ? InfoView(widget.id)
-                    : TriviaView(widget.id),
-              ],
+    return UnmanagedRestorationScope(
+      bucket: bucket,
+      child: CupertinoPageScaffold(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: ListView(
+                restorationId: 'list',
+                children: [
+                  _buildHeader(context, appState),
+                  SizedBox(height: 20),
+                  CupertinoSegmentedControl<int>(
+                    children: {
+                      0: Text('Facts & Info'),
+                      1: Text('Trivia'),
+                    },
+                    groupValue: _selectedViewIndex.value,
+                    onValueChanged: (value) {
+                      setState(() => _selectedViewIndex.value = value);
+                    },
+                  ),
+                  _selectedViewIndex.value == 0
+                      ? InfoView(widget.id)
+                      : TriviaView(id: widget.id, restorationId: 'trivia'),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

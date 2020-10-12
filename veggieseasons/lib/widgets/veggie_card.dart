@@ -142,12 +142,7 @@ class VeggieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PressableCard(
-      onPressed: () {
-        Navigator.of(context).push<void>(CupertinoPageRoute(
-          builder: (context) => DetailsScreen(veggie.id),
-          fullscreenDialog: true,
-        ));
-      },
+      onPressed: () => DetailsScreen.show(Navigator.of(context), veggie.id),
       child: Stack(
         children: [
           Semantics(

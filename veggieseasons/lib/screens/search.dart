@@ -12,36 +12,45 @@ import 'package:veggieseasons/widgets/search_bar.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
+  SearchScreen({this.restorationId, Key key}) : super(key: key);
+
+  final String restorationId;
+
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
-  final controller = TextEditingController();
+class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
+  final controller = RestorableTextEditingController();
   final focusNode = FocusNode();
-  String terms = '';
+  String terms;
 
   @override
-  void initState() {
-    super.initState();
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(controller, 'text');
     controller.addListener(_onTextChanged);
+    terms = controller.value.text;
   }
 
   @override
   void dispose() {
     focusNode.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   void _onTextChanged() {
-    setState(() => terms = controller.text);
+    setState(() => terms = controller.value.text);
   }
 
   Widget _createSearchBox() {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: SearchBar(
-        controller: controller,
+        controller: controller.value,
         focusNode: focusNode,
       ),
     );
@@ -61,6 +70,7 @@ class _SearchScreenState extends State<SearchScreen> {
     }
 
     return ListView.builder(
+      restorationId: 'list',
       itemCount: veggies.length + 1,
       itemBuilder: (context, i) {
         if (i == 0) {
@@ -100,6 +110,22 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         );
       },
+    return UnmanagedRestorationScope(
+      bucket: bucket,
+      child: CupertinoTabView(
+        restorationScopeId: 'tabview',
+        builder: (context) {
+          return SafeArea(
+            bottom: false,
+            child: Column(
+              children: [
+                _buildSearchResults(model.searchVeggies(terms)),
+                _createSearchBox(),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

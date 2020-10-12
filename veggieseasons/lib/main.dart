@@ -17,10 +17,41 @@ void main() {
   ]);
 
   runApp(
-    MultiProvider(
+    RootRestorationScope(
+      restorationId: 'root',
+      child: VeggieApp(),
+    ),
+  );
+}
+
+class VeggieApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _VeggieAppState();
+}
+
+class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
+  final _RestorableAppState _appState = _RestorableAppState();
+
+  @override
+  String get restorationId => 'wrapper';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_appState, 'state');
+  }
+
+  @override
+  void dispose() {
+    _appState.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => AppState(),
+        ChangeNotifierProvider.value(
+          value: _appState.value,
         ),
         ChangeNotifierProvider(
           create: (_) => Preferences()..load(),
@@ -28,8 +59,31 @@ void main() {
       ],
       child: CupertinoApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: HomeScreen(restorationId: 'home'),
+        restorationScopeId: 'app',
       ),
-    ),
-  );
+    );
+  }
+}
+
+class _RestorableAppState extends RestorableListenable<AppState> {
+  @override
+  AppState createDefaultValue() {
+    return AppState();
+  }
+
+  @override
+  AppState fromPrimitives(Object data) {
+    final appState = AppState();
+    final favorites = (data as List<dynamic>).cast<int>();
+    for (var id in favorites) {
+      appState.setFavorite(id, true);
+    }
+    return appState;
+  }
+
+  @override
+  Object toPrimitives() {
+    return value.favoriteVeggies.map((veggie) => veggie.id).toList();
+  }
 }

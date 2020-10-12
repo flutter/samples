@@ -70,10 +70,7 @@ class VeggieHeadline extends StatelessWidget {
     final themeData = CupertinoTheme.of(context);
 
     return GestureDetector(
-      onTap: () => Navigator.of(context).push<void>(CupertinoPageRoute(
-        builder: (context) => DetailsScreen(veggie.id),
-        fullscreenDialog: true,
-      )),
+      onTap: () => DetailsScreen.show(Navigator.of(context), veggie.id),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
