@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 class Config {
   static String getAppName() {
     // Imagine this looks up a localized version of the app name. We're using
-    // the current time to simulate a variance in responces.
+    // the current time to simulate a variance in responses.
     if (DateTime.now().second.isEven) {
       return 'Weather forecast';
     } else {
@@ -47,7 +47,7 @@ class Config {
 class WeatherService {
   static List<double> getTemperature() {
     // Imagine this makes a network call to get the current temperature.
-    // We're using the current time to simulate a variance in responces.
+    // We're using the current time to simulate a variance in responses.
     if (DateTime.now().millisecond.isEven) {
       return [32.2, 34.5, 31.0];
     } else {

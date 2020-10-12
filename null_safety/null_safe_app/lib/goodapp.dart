@@ -20,7 +20,7 @@ class GoodMyApp extends StatelessWidget {
         for (final t in temperatures)
           // We first use the conditional member access operator to only call
           // round() and toString() if t isn't null. We then test if that
-          // succeded, and if not use a null conditional operator to supply a
+          // succeeded, and if not use a null conditional operator to supply a
           // value handling the error case.
           Text(t?.round().toString() ?? 'no forecast'),
       ];
@@ -35,11 +35,11 @@ class GoodMyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // Notice how we're *not* getting an error saying that `tempWidgets`
-            // is unintialized or null here despite tempWidgets being declared
+            // is uninitialized or null here despite tempWidgets being declared
             // in line 9 without an initial value. This is because of null
-            // safety's definite assignment feature: We know that in all branches
-            // of the code (both the if- and else- branches), the variable was
-            // assigned a value, and thus isn't null.
+            // safety's definite assignment feature: We know that in all
+            // branches of the code (both the if- and else- branches), the
+            // variable was assigned a value, and thus isn't null.
             children: tempWidgets,
           ),
         ),
