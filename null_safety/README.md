@@ -17,13 +17,13 @@ The folder contains two sample Flutter apps:
   * `null_safe_app`: This contains the same weather app, but this time using
     null safety. There are two copies of the source code:
 
-  `lib/badapp.dart`: This is the same source code as in the unsafe app. Try
-  uncommenting the two commented lines of null-unsafe code, and notice how the
-  Dart analyzer with null safety immediately flags the lines as unsafe.
+    `lib/badapp.dart`: This is the same source code as in the unsafe app. Try
+    uncommenting the two commented lines of null-unsafe code, and notice how the
+    Dart analyzer with null safety immediately flags the lines as unsafe.
 
-  `lib/goodapp.dart`: This a safe version of the unsafe app, with the null
-  errors fixed. Read through the comments to see illustrations of how to resolve
-  null errors with null safety.
+    `lib/goodapp.dart`: This a safe version of the unsafe app, with the null
+    errors fixed. Read through the comments to see illustrations of how to resolve
+    null errors with null safety.
 
 ## Running the example code
 
@@ -33,12 +33,12 @@ flag](https://dart.dev/tools/experiment-flags).
 
 ### Flutter preview SDK installation
 
-  1. Download the latest null safety preview build from the **Dev channel** of
+  1. Download the latest null safety preview build from the **dev channel** of
      the Flutter SDK releases page:
      https://flutter.dev/docs/development/tools/sdk/releases.
         
   1. Unzip the SDK to a folder, e.g. `/Users/michael/dev/preview/flutter` (on
-     macOS/Linux) or `C:\Users\michael\dev\preview\flutter\` (on Windows)
+     macOS/Linux) or `C:\Users\michael\dev\preview\flutter\` (on Windows).
 
 ### Running from the terminal/command-prompt
 
