@@ -1,7 +1,7 @@
 # Null safety Flutter example
 
 This folder contains a demonstration of the upcoming Dart feature, sound null
-safety. For additional information about this feature, please see
+safety. For additional information about this feature, see
 https://dart.dev/null-safety.
 
 The folder contains two sample Flutter apps:
