@@ -15,7 +15,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
     with SingleTickerProviderStateMixin {
   static const Color beginColor = Colors.deepPurple;
   static const Color endColor = Colors.deepOrange;
-  Duration duration = Duration(milliseconds: 800);
+  Duration duration = Duration(milliseconds: 1000);
   AnimationController controller;
   Animation<Color> animation;
 
@@ -37,7 +37,7 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text('AnimatedBuilder')),
       body: Center(
         // AnimatedBuilder handles listening to a given animation and calling the builder
         // whenever the value of the animation change. This can be useful when a Widget

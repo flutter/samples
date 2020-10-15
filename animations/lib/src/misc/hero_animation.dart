@@ -10,7 +10,9 @@ class HeroAnimationDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Hero Animation'),
+      ),
       body: GestureDetector(
         child: Hero(
           tag: 'hero-page-child',
