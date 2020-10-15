@@ -39,7 +39,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final appBar = AppBar(
-      title: Text('AnimatedPositioned'),
+      title: Text('Animated Positioned'),
     );
     final topPadding = MediaQuery.of(context).padding.top;
     // AnimatedPositioned animates changes to a widget's position within a Stack
