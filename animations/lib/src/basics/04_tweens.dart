@@ -39,7 +39,9 @@ class _TweenDemoState extends State<TweenDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Tween')),
+      appBar: AppBar(
+        title: Text('Tween'),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

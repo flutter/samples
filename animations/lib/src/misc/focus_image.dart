@@ -10,7 +10,9 @@ class FocusImageDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Focus Image')),
+      appBar: AppBar(
+        title: Text('Focus Image'),
+      ),
       body: Grid(),
     );
   }

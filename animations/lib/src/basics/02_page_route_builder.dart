@@ -10,7 +10,9 @@ class PageRouteBuilderDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('PageRouteBuilder')),
+      appBar: AppBar(
+        title: Text('PageRouteBuilder'),
+      ),
       body: Center(
         child: RaisedButton(
           child: Text('Go!'),
@@ -42,7 +44,9 @@ class _Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Hurray! This is a New Page')),
+      appBar: AppBar(
+        title: Text('Hurray! This is a New Page'),
+      ),
       body: Center(
         child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
       ),

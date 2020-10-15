@@ -45,9 +45,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Fade Transition',
-        ),
+        title: Text('Fade Transition'),
       ),
       body: Center(
         child: Column(
