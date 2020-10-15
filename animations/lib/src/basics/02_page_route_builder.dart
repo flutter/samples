@@ -42,7 +42,7 @@ class _Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text('Page Route Builder')),
       body: Center(
         child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
       ),
