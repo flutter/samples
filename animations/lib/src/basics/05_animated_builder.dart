@@ -13,7 +13,7 @@ class AnimatedBuilderDemo extends StatefulWidget {
 
 class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
     with SingleTickerProviderStateMixin {
-  static const Color beginColor = Colors.deepPurple;
+  static const Color beginColor = Colors.indigoAccent;
   static const Color endColor = Colors.deepOrange;
   Duration duration = Duration(milliseconds: 800);
   AnimationController controller;
@@ -46,16 +46,21 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
         child: AnimatedBuilder(
           animation: animation,
           builder: (context, child) {
-            return MaterialButton(
-              color: animation.value,
-              child: child,
-              onPressed: () {
-                if (controller.status == AnimationStatus.completed) {
-                  controller.reverse();
-                } else {
-                  controller.forward();
-                }
-              },
+            return Container(
+              padding: const EdgeInsets.all(8),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: MaterialButton(
+                color: animation.value,
+                child: child,
+                onPressed: () {
+                  if (controller.status == AnimationStatus.completed) {
+                    controller.reverse();
+                  } else {
+                    controller.forward();
+                  }
+                },
+              ),
             );
           },
           // AnimatedBuilder can also accept a pre-built child Widget which is useful
@@ -64,7 +69,8 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
           // when the animation changes.
           child: Text(
             'Change Color',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+                color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
           ),
         ),
       ),
