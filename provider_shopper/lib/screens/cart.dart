@@ -46,6 +46,11 @@ class _CartList extends StatelessWidget {
       itemCount: cart.items.length,
       itemBuilder: (context, index) => ListTile(
         leading: Icon(Icons.done),
+        trailing: IconButton(
+            icon: Icon(Icons.delete),
+            onPressed: () {
+              cart.remove(cart.items[index]);
+            }),
         title: Text(
           cart.items[index].name,
           style: itemNameStyle,

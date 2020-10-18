@@ -40,4 +40,11 @@ class CartModel extends ChangeNotifier {
     // depend on it.
     notifyListeners();
   }
+
+  void remove(Item item) {
+    _itemIds.remove(item.id);
+    // This line tells [Model] that it should rebuild the widgets that
+    // depend on it.
+    notifyListeners();
+  }
 }
