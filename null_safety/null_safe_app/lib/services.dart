@@ -12,7 +12,7 @@ class Config {
 }
 
 class WeatherService {
-  static List<double?>? getTemperature() {
+  static List<double?>? getTemperatures() {
     // Imagine this makes a network call to get the current temperature.
     // We're using the current time to simulate a variance in responses.
     if (DateTime.now().millisecond.isEven) {

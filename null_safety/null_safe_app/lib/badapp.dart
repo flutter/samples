@@ -9,7 +9,7 @@ class BadMyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizedAppName = Config.getAppName();
-    final temperatures = WeatherService.getTemperature();
+    final temperatures = WeatherService.getTemperatures();
 
     var tempWidgets = [
       Text('Temperature next 3 days:'),

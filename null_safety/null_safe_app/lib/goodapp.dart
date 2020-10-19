@@ -6,7 +6,7 @@ class GoodMyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizedAppName = Config.getAppName();
-    final temperatures = WeatherService.getTemperature();
+    final temperatures = WeatherService.getTemperatures();
 
     var tempWidgets;
     if (temperatures == null) {

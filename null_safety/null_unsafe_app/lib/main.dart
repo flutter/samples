@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizedAppName = Config.getAppName();
-    final temperatures = WeatherService.getTemperature();
+    final temperatures = WeatherService.getTemperatures();
 
     return MaterialApp(
       home: Scaffold(
@@ -45,7 +45,7 @@ class Config {
 }
 
 class WeatherService {
-  static List<double> getTemperature() {
+  static List<double> getTemperatures() {
     // Imagine this makes a network call to get the current temperature.
     // We're using the current time to simulate a variance in responses.
     if (DateTime.now().millisecond.isEven) {
