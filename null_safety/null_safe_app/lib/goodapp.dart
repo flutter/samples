@@ -10,7 +10,7 @@ class GoodMyApp extends StatelessWidget {
 
     List<Widget> tempWidgets;
     if (temperatures == null) {
-      tempWidgets = [Text('Failed getting forecast :-(')];
+      tempWidgets = [Text('Temperature: Failed getting forecast :-(')];
     } else {
       // Null safety uses flow analysis. We checked for null in the branch
       // above, so in this branch it known that temperatures cannot be null.
