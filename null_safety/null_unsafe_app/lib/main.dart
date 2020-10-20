@@ -10,6 +10,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Get data from services. Note: in a real application,
+    // these would be async calls, but we’re using sync calls
+    // for simplicity.
     final localizedAppName = Config.getAppName();
     final temperatures = WeatherService.getTemperatures();
 
