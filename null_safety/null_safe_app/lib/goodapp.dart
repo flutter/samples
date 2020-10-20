@@ -8,14 +8,14 @@ class GoodMyApp extends StatelessWidget {
     final localizedAppName = Config.getAppName();
     final temperatures = WeatherService.getTemperatures();
 
-    var tempWidgets;
+    List<Widget> tempWidgets;
     if (temperatures == null) {
       tempWidgets = [Text('Failed getting forecast :-(')];
     } else {
       // Null safety uses flow analysis. We checked for null in the branch
       // above, so in this branch it known that temperatures cannot be null.
       // Notice how we access temperatures without getting an analysis error.
-      [
+      tempWidgets = [
         Text('Temperature next 3 days:'),
         for (final t in temperatures)
           // We first use the conditional member access operator to only call
@@ -35,11 +35,12 @@ class GoodMyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // Notice how we're *not* getting an error saying that `tempWidgets`
-            // is uninitialized or null here despite tempWidgets being declared
-            // in line 9 without an initial value. This is because of null
-            // safety's definite assignment feature: We know that in all
-            // branches of the code (both the if- and else- branches), the
-            // variable was assigned a value, and thus isn't null.
+            // is null here despite tempWidgets being declared in line 9 without
+            // an initial value. This is because of null safety's definite
+            // assignment feature: We know that in all branches of the code
+            // (both the if- and else- branches above), the variable was
+            // assigned a value, and thus isn't null. Try removing the assigment
+            // from the if-branch and notice the immediate error.
             children: tempWidgets,
           ),
         ),
