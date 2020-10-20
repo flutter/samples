@@ -1,10 +1,11 @@
 name: null_safe_app
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' # Do not publish apps & package using the null safety experiment.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.11.0-186.0 <2.12.0"
+  sdk: ">=2.11.0-234.0 <2.12.0"
+  flutter: ">=1.24.0-2.0.pre.86"
 
 dependencies:
   flutter:
@@ -14,8 +15,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-dependency_overrides:
-  characters: 1.1.0-nullsafety.3
 
 flutter:
   uses-material-design: true
