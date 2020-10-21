@@ -1,3 +1,7 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
 import 'services.dart';
@@ -12,7 +16,7 @@ class GoodMyApp extends StatelessWidget {
     if (temperatures == null) {
       tempWidgets = [Text('Temperature: Failed getting forecast :-(')];
     } else {
-      // Null safety uses flow analysis. We checked for null in the branch
+      // Null safety uses flow analysis. The code checked for null in the branch
       // above, so in this branch it known that temperatures cannot be null.
       // Notice how we access temperatures without getting an analysis error.
       tempWidgets = [

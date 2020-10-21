@@ -31,14 +31,13 @@ Null safety is still in technical preview. As a result you need to use a
 dev-channel Flutter build, and you have to pass an [experiment
 flag](https://dart.dev/tools/experiment-flags).
 
-### Flutter preview SDK installation
+### Flutter SDK requirements
 
-  1. Download the latest null safety preview build from the **dev channel** of
-     the Flutter SDK releases page:
-     https://flutter.dev/docs/development/tools/sdk/releases.
-        
-  1. Unzip the SDK to a folder, e.g. `/Users/michael/dev/preview/flutter` (on
-     macOS/Linux) or `C:\Users\michael\dev\preview\flutter\` (on Windows).
+This sample is
+[experimental](https://github.com/flutter/samples/tree/master/experimental), and
+requires using a **dev channel** Flutter SDK. You can change to the dev channel
+with `flutte channel dev` followed by `flutter upgrade` (don't forget to change
+back to `flutter channel stable` for production use.
 
 ### Running from the terminal/command-prompt
 
@@ -49,29 +48,20 @@ like this: `--enable-experiment=non-nullable`.
 To run the main app, type these commands in the terminal/command-prompt:
 
   - Windows:
-    - `cd <folder with samples repo>\null_safety\calculate_lix\`
-    - `C:\Users\michael\dev\preview\flutter\bin\flutter pub get`
-    - `C:\Users\michael\dev\preview\flutter\bin\flutter run --enable-experiment=non-nullable` 
+    - `cd <folder with samples repo>\experimental\null_safety\null_safe_app\`
+    - `flutter pub get`
+    - `flutter run --enable-experiment=non-nullable` 
   - macOS/Linux:
-    - `cd <folder with samples repo>/null_safety/calculate_lix/`
-    - `/Users/michael/dev/preview/flutter/bin/flutter pub get`
-    - `/Users/michael/dev/preview/flutter/bin/flutter flutter run --enable-experiment=non-nullable`
+    - `cd <folder with samples repo>/experimental/null_safety/null_safe_app/`
+    - `flutter pub get`
+    - `flutter run --enable-experiment=non-nullable`
 
 ### Running from VSCode
 
 This example contains a launch configuration for VSCode that passes the
 experimental flag, so to run the sample in VSCode:
 
-  1. Edit your VSCode configuration to point to one additional Dart SDK, the
-     preview SDK we just downloaded. See [details
-     here](https://dartcode.org/docs/quickly-switching-between-sdk-versions/)
-     for what values to put in **View > Command Palette > Open Settings (JSON)**.
-
   1. Invoke **File > Open**, and select the `null_safety/null_safe_app` folder.
-
-  1. Tell VSCode to use the preview Dart SDK: Open `lib/main.dart` and then
-     locate the 'Dart: <version number>' selector in the status bar at the
-     bottom, and select `Flutter: <dev channel version you downloaded>`.
 
   1. Select **Run > Run** and the project should run and print a message in the
      Debug Console.
@@ -84,14 +74,6 @@ experimental flag, so to run the sample in VSCode:
   1. Select Open Project, and select the `null_safety/null_safe_app` folder.
 
   1. Open the file `lib/main.dart` in the code editor.
-
-  1. Select 'Open Dart Settings' in the top banner.
-
-  1. Select both 'Enable Dart support' checkmarks at the top and bottom of the
-     dialog.
-  
-  1. Under Dart SDK specify the path to the Dart preview SDK (2.9.0-14.0.dev).
-     Click OK.
 
   1. Select Run > Run and the project should run and print a message in the Run
      pane.
