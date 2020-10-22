@@ -47,10 +47,11 @@ class _CartList extends StatelessWidget {
       itemBuilder: (context, index) => ListTile(
         leading: Icon(Icons.done),
         trailing: IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              cart.remove(cart.items[index]);
-            }),
+          icon: Icon(Icons.delete),
+          onPressed: () {
+            cart.remove(cart.items[index]);
+          },
+        ),
         title: Text(
           cart.items[index].name,
           style: itemNameStyle,
