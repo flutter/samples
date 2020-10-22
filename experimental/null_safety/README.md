@@ -36,7 +36,7 @@ flag](https://dart.dev/tools/experiment-flags).
 This sample is
 [experimental](https://github.com/flutter/samples/tree/master/experimental), and
 requires using a **dev channel** Flutter SDK. You can change to the dev channel
-with `flutte channel dev` followed by `flutter upgrade` (don't forget to change
+with `flutter channel dev` followed by `flutter upgrade` (don't forget to change
 back to `flutter channel stable` for production use.
 
 ### Running from the terminal/command-prompt
