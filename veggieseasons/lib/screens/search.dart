@@ -61,18 +61,16 @@ class _SearchScreenState extends State<SearchScreen> {
     }
 
     return ListView.builder(
-      itemCount: veggies.length+1,
+      itemCount: veggies.length + 1,
       itemBuilder: (context, i) {
-        if(i==0)
-          {
-            return SizedBox(
-              height: 64,
-            );
-          }
-        else{
+        if (i == 0) {
+          return SizedBox(
+            height: 64,
+          );
+        } else {
           return Padding(
             padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: VeggieHeadline(veggies[i-1]),
+            child: VeggieHeadline(veggies[i - 1]),
           );
         }
       },
