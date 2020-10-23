@@ -47,7 +47,7 @@ class _CartList extends StatelessWidget {
       itemBuilder: (context, index) => ListTile(
         leading: Icon(Icons.done),
         trailing: IconButton(
-          icon: Icon(Icons.delete),
+          icon: Icon(Icons.remove_circle_outline),
           onPressed: () {
             cart.remove(cart.items[index]);
           },
