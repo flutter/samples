@@ -1,6 +1,5 @@
 import UIKit
 import Flutter
-import os
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -29,12 +28,15 @@ import os
         
         FlutterBasicMessageChannel(name: "platformImageDemo", binaryMessenger: flutterViewController.binaryMessenger, codec: FlutterStandardMessageCodec.sharedInstance()).setMessageHandler{
             (message: Any?, reply: FlutterReply) -> Void in
-            guard let image = UIImage(named: "eat_new_orleans.jpg") else {
-                reply(nil)
-                return
-            }
             
-            reply(FlutterStandardTypedData(bytes: image.jpegData(compressionQuality: 1)!))
+            if(message as! String == "getImage") {
+                guard let image = UIImage(named: "eat_new_orleans.jpg") else {
+                    reply(nil)
+                    return
+                }
+                
+                reply(FlutterStandardTypedData(bytes: image.jpegData(compressionQuality: 1)!))
+            }
         }
         
         GeneratedPluginRegistrant.register(with: self)
