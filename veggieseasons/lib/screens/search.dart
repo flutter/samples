@@ -64,9 +64,12 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: veggies.length + 1,
       itemBuilder: (context, i) {
         if (i == 0) {
-          return Opacity(
-            opacity: 0,
+          return Visibility(
             child: _createSearchBox(),
+            visible: false,
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
           );
         } else {
           return Padding(
