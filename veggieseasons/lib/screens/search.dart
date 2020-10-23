@@ -64,8 +64,9 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: veggies.length + 1,
       itemBuilder: (context, i) {
         if (i == 0) {
-          return SizedBox(
-            height: 64,
+          return Opacity(
+            opacity: 0,
+            child: _createSearchBox(),
           );
         } else {
           return Padding(
@@ -87,13 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
           bottom: false,
           child: Stack(
             children: [
-              Column(
-                children: [
-                  Expanded(
-                    child: _buildSearchResults(model.searchVeggies(terms)),
-                  ),
-                ],
-              ),
+              _buildSearchResults(model.searchVeggies(terms)),
               _createSearchBox(),
             ],
           ),
