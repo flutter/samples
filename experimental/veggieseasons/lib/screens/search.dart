@@ -98,26 +98,12 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
   Widget build(BuildContext context) {
     final model = Provider.of<AppState>(context);
 
-    return CupertinoTabView(
-      builder: (context) {
-        return SafeArea(
-          bottom: false,
-          child: Stack(
-            children: [
-              _buildSearchResults(model.searchVeggies(terms)),
-              _createSearchBox(),
-            ],
-          ),
-        );
-      },
     return UnmanagedRestorationScope(
-      bucket: bucket,
       child: CupertinoTabView(
-        restorationScopeId: 'tabview',
         builder: (context) {
           return SafeArea(
             bottom: false,
-            child: Column(
+            child: Stack(
               children: [
                 _buildSearchResults(model.searchVeggies(terms)),
                 _createSearchBox(),
