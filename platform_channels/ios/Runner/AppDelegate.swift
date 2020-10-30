@@ -26,6 +26,19 @@ import Flutter
             }
         })
         
+        FlutterBasicMessageChannel(name: "platformImageDemo", binaryMessenger: flutterViewController.binaryMessenger, codec: FlutterStandardMessageCodec.sharedInstance()).setMessageHandler{
+            (message: Any?, reply: FlutterReply) -> Void in
+            
+            if(message as! String == "getImage") {
+                guard let image = UIImage(named: "eat_new_orleans.jpg") else {
+                    reply(nil)
+                    return
+                }
+                
+                reply(FlutterStandardTypedData(bytes: image.jpegData(compressionQuality: 1)!))
+            }
+        }
+        
         GeneratedPluginRegistrant.register(with: self)
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
