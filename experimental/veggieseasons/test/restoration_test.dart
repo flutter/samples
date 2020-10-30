@@ -22,9 +22,6 @@ void main() {
       ),
     );
 
-    final grapesFinder = find.text('Grapes').hitTestable();
-    final figsFinder = find.text('Figs').hitTestable();
-
     expect(find.text('In season today'), findsOneWidget);
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsNothing);

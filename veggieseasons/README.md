@@ -8,3 +8,8 @@ channel of flutter yet. Once commit
 [flutter/flutter@053ebf2](https://github.com/flutter/flutter/commit/053ebf2c080c7b8efbf4020683a5ba27d9daa3b8)
 has reached the stable channel, the app can move back to its old home in
 this directory.
+
+For more info on how to run the samples in the `experimental` directory,
+see the
+[README](https://github.com/flutter/samples/tree/master/experimental/README.md)
+in that folder.
