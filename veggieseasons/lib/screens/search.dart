@@ -61,12 +61,23 @@ class _SearchScreenState extends State<SearchScreen> {
     }
 
     return ListView.builder(
-      itemCount: veggies.length,
+      itemCount: veggies.length + 1,
       itemBuilder: (context, i) {
-        return Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-          child: VeggieHeadline(veggies[i]),
-        );
+        if (i == 0) {
+          return Visibility(
+            //an invisible search box at the starting of the list so that overlay search box doesn't cover content
+            child: _createSearchBox(),
+            visible: false,
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
+          );
+        } else {
+          return Padding(
+            padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+            child: VeggieHeadline(veggies[i - 1]),
+          );
+        }
       },
     );
   }
@@ -79,12 +90,10 @@ class _SearchScreenState extends State<SearchScreen> {
       builder: (context) {
         return SafeArea(
           bottom: false,
-          child: Column(
+          child: Stack(
             children: [
+              _buildSearchResults(model.searchVeggies(terms)),
               _createSearchBox(),
-              Expanded(
-                child: _buildSearchResults(model.searchVeggies(terms)),
-              ),
             ],
           ),
         );
