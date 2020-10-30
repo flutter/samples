@@ -109,17 +109,17 @@ void main() {
 
     expect(find.text('Apples'), findsOneWidget);
     expect(find.text('Tangelo'), findsNothing);
-    await tester.enterText(find.byType(CupertinoTextField), 'Tan');
+    await tester.enterText(find.byType(CupertinoTextField).hitTestable(), 'Tan');
     await tester.pumpAndSettle();
     expect(find.text('Apples'), findsNothing);
     expect(find.text('Tangelo'), findsOneWidget);
-    expect(find.text('Tan'), findsOneWidget);
+    expect(find.text('Tan').hitTestable(), findsOneWidget);
 
     // Restores search text and result.
     await tester.restartAndRestore();
     expect(find.text('Apples'), findsNothing);
     expect(find.text('Tangelo'), findsOneWidget);
-    expect(find.text('Tan'), findsOneWidget); // search text
+    expect(find.text('Tan').hitTestable(), findsOneWidget); // search text
 
     expect(find.text('Calorie Target'), findsNothing);
 
