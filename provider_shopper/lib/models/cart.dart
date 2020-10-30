@@ -40,4 +40,11 @@ class CartModel extends ChangeNotifier {
     // depend on it.
     notifyListeners();
   }
+
+  void remove(Item item) {
+    _itemIds.remove(item.id);
+    // Don't forget to tell dependent widgets to rebuild _every time_
+    // you change the model.
+    notifyListeners();
+  }
 }
