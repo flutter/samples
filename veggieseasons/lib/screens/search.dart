@@ -65,6 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
       itemBuilder: (context, i) {
         if (i == 0) {
           return Visibility(
+            //an invisible search box at the starting of the list so that overlay search box doesn't cover content
             child: _createSearchBox(),
             visible: false,
             maintainSize: true,
