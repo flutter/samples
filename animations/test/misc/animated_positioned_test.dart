@@ -17,15 +17,15 @@ void main() {
 
       var button = find.byType(InkWell);
 
-      // get initial position of the widget
+      // Get initial position of the widget.
       var initialPosition = tester.getTopLeft(button);
       expect(initialPosition, isNotNull);
 
-      // tap on the widget
+      // Tap on the widget.
       await tester.tap(button);
       await tester.pumpAndSettle();
 
-      // the new position should not be equal to initial position
+      // The new position should not be equal to initial position.
       var newPosition = tester.getTopLeft(button);
       expect(newPosition, isNot(offsetMoreOrLessEquals(initialPosition)));
     });
