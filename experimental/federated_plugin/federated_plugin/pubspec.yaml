@@ -30,6 +30,8 @@ flutter:
       android:
         pluginClass: FederatedPlugin
         package: dev.flutter.federated_plugin
+      ios:
+        pluginClass: SwiftFederatedPlugin
       web:
         default_package: federated_plugin_web
       windows:
