@@ -38,7 +38,14 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Used in tests to set the season independent of the current date.
+  static Season debugCurrentSeason;
+
   static Season _getSeasonForDate(DateTime date) {
+    if (debugCurrentSeason != null) {
+      return debugCurrentSeason;
+    }
+
     // Technically the start and end dates of seasons can vary by a day or so,
     // but this is close enough for produce.
     switch (date.month) {

@@ -13,6 +13,10 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
+  ListScreen({this.restorationId, Key key}) : super(key: key);
+
+  final String restorationId;
+
   Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
       {bool inSeason = true}) {
     return Padding(
@@ -29,6 +33,7 @@ class ListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTabView(
+      restorationScopeId: restorationId,
       builder: (context) {
         var dateString = DateFormat('MMMM y').format(DateTime.now());
 
@@ -38,6 +43,7 @@ class ListScreen extends StatelessWidget {
         return SafeArea(
           bottom: false,
           child: ListView.builder(
+            restorationId: 'list',
             itemCount: appState.allVeggies.length + 2,
             itemBuilder: (context, index) {
               if (index == 0) {

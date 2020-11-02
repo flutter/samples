@@ -11,9 +11,14 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
+  FavoritesScreen({this.restorationId, Key key}) : super(key: key);
+
+  final String restorationId;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabView(
+      restorationScopeId: restorationId,
       builder: (context) {
         final model = Provider.of<AppState>(context);
 
@@ -32,6 +37,7 @@ class FavoritesScreen extends StatelessWidget {
                     ),
                   )
                 : ListView(
+                    restorationId: 'list',
                     children: [
                       SizedBox(height: 24),
                       for (Veggie veggie in model.favoriteVeggies)

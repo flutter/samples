@@ -9,8 +9,9 @@ import 'package:veggieseasons/styles.dart';
 /// the user's score.
 class TriviaView extends StatefulWidget {
   final int id;
+  final String restorationId;
 
-  const TriviaView(this.id);
+  const TriviaView({this.id, this.restorationId});
 
   @override
   _TriviaViewState createState() => _TriviaViewState();
@@ -23,7 +24,7 @@ enum PlayerStatus {
   wasIncorrect,
 }
 
-class _TriviaViewState extends State<TriviaView> {
+class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   /// Current app state. This is used to fetch veggie data.
   AppState appState;
 
@@ -31,16 +32,26 @@ class _TriviaViewState extends State<TriviaView> {
   Veggie veggie;
 
   /// Index of the current trivia question.
-  int triviaIndex = 0;
+  RestorableInt triviaIndex = RestorableInt(0);
 
   /// User's score on the current veggie.
-  int score = 0;
+  RestorableInt score = RestorableInt(0);
 
   /// Trivia question currently being displayed.
-  Trivia get currentTrivia => veggie.trivia[triviaIndex];
+  Trivia get currentTrivia => veggie.trivia[triviaIndex.value];
 
   /// The current state of the game.
-  PlayerStatus status = PlayerStatus.readyToAnswer;
+  _RestorablePlayerStatus status = _RestorablePlayerStatus(PlayerStatus.readyToAnswer);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(triviaIndex, 'index');
+    registerForRestoration(score, 'score');
+    registerForRestoration(status, 'status');
+  }
 
   // Called at init and again if any dependencies (read: InheritedWidgets) on
   // on which this object relies are changed.
@@ -73,10 +84,18 @@ class _TriviaViewState extends State<TriviaView> {
   }
 
   @override
+  void dispose() {
+    triviaIndex.dispose();
+    score.dispose();
+    status.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (triviaIndex >= veggie.trivia.length) {
+    if (triviaIndex.value >= veggie.trivia.length) {
       return _buildFinishedView();
-    } else if (status == PlayerStatus.readyToAnswer) {
+    } else if (status.value == PlayerStatus.readyToAnswer) {
       return _buildQuestionView();
     } else {
       return _buildResultView();
@@ -85,19 +104,19 @@ class _TriviaViewState extends State<TriviaView> {
 
   void _resetGame() {
     setState(() {
-      triviaIndex = 0;
-      score = 0;
-      status = PlayerStatus.readyToAnswer;
+      triviaIndex.value = 0;
+      score.value = 0;
+      status.value = PlayerStatus.readyToAnswer;
     });
   }
 
   void _processAnswer(int answerIndex) {
     setState(() {
       if (answerIndex == currentTrivia.correctAnswerIndex) {
-        status = PlayerStatus.wasCorrect;
-        score++;
+        status.value = PlayerStatus.wasCorrect;
+        score.value++;
       } else {
-        status = PlayerStatus.wasIncorrect;
+        status.value = PlayerStatus.wasIncorrect;
       }
     });
   }
@@ -193,7 +212,7 @@ class _TriviaViewState extends State<TriviaView> {
       child: Column(
         children: [
           Text(
-            status == PlayerStatus.wasCorrect
+            status.value == PlayerStatus.wasCorrect
                 ? 'That\'s right!'
                 : 'Sorry, that wasn\'t the right answer.',
             style: CupertinoTheme.of(context).textTheme.textStyle,
@@ -202,12 +221,38 @@ class _TriviaViewState extends State<TriviaView> {
           CupertinoButton(
             child: Text('Next Question'),
             onPressed: () => setState(() {
-              triviaIndex++;
-              status = PlayerStatus.readyToAnswer;
+              triviaIndex.value++;
+              status.value = PlayerStatus.readyToAnswer;
             }),
           ),
         ],
       ),
     );
+  }
+}
+
+class _RestorablePlayerStatus extends RestorableValue<PlayerStatus> {
+  _RestorablePlayerStatus(this._defaultValue);
+
+  final PlayerStatus _defaultValue;
+
+  @override
+  PlayerStatus createDefaultValue() {
+    return _defaultValue;
+  }
+
+  @override
+  PlayerStatus fromPrimitives(Object data) {
+    return PlayerStatus.values[data as int];
+  }
+
+  @override
+  Object toPrimitives() {
+    return value.index;
+  }
+
+  @override
+  void didUpdateValue(PlayerStatus oldValue) {
+    notifyListeners();
   }
 }
