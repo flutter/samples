@@ -1,0 +1,30 @@
+name: federated_plugin_linux
+description: Linux implementation of federated_plugin to retrieve current battery level.
+version: 0.0.1
+homepage:
+plublish_to: none 
+
+flutter:
+  plugin:
+    platforms:
+      linux:
+        dartPluginClass: FederatedPluginLinux
+        pluginClass: none
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  federated_plugin_platform_interface:
+    path: ../federated_plugin_platform_interface
+  upower: 0.0.0-dev.1
+  dbus: 0.0.0-dev.20
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic: ^1.9.0
+  mockito: ^4.1.1
