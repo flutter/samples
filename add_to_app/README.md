@@ -36,7 +36,7 @@ you're building for both iOS and Android, with both toolchains installed):
   flutter build aar
 
   # For iOS builds:
-  flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
+  flutter build ios-framework --xcframework --output=../ios_using_prebuilt_module/Flutter
   cd ../ios_fullscreen
   pod install
   cd ../ios_using_plugin
@@ -167,7 +167,7 @@ To build `flutter_module` as a set of frameworks, run this command from the
 `flutter_module` directory:
 
 ```bash
-flutter build ios-framework --output=../ios_using_prebuilt_module/Flutter
+flutter build ios-framework --xcframework --output=../ios_using_prebuilt_module/Flutter
 ```
 
 This will output frameworks for debug, profile, and release modes into
