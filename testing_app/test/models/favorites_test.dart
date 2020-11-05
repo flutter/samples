@@ -11,7 +11,6 @@ void main() {
     var favorites = Favorites();
 
     test('A new item should be added', () {
-      // Generate a random number.
       var number = 35;
 
       // Add the number to the list.
@@ -22,7 +21,6 @@ void main() {
     });
 
     test('An item should be removed', () {
-      // Generate a random number.
       var number = 45;
 
       // Add the number to the list.
