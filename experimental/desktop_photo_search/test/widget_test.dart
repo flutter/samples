@@ -93,7 +93,10 @@ class PhotoSearchModelTester extends StatelessWidget {
       home: FlatButton(
         key: fabKey,
         onPressed: () async {
-          await Provider.of<PhotoSearchModel>(context).addSearch(query);
+          await Provider.of<PhotoSearchModel>(
+            context,
+            listen: false,
+          ).addSearch(query);
         },
         child: const Text('Search for a Photo'),
       ),
