@@ -24,7 +24,7 @@ class FavoritesPage extends StatelessWidget {
                     FavoriteItemTile(value.items[index]),
               )
             : Center(
-                child: Text('No Favorites Added'),
+                child: Text('No favorites added.'),
               ),
       ),
     );

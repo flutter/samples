@@ -32,8 +32,8 @@ void main() {
         (tester) async {
       await tester.pumpWidget(createFavoritesScreen());
 
-      // Verify if Placeholder Text shows up.
-      expect(find.text('No Favorites Added'), findsOneWidget);
+      // Verify if the placeholder text shows up.
+      expect(find.text('No favorites added.'), findsOneWidget);
     });
 
     testWidgets('Test if ListView shows up', (tester) async {
