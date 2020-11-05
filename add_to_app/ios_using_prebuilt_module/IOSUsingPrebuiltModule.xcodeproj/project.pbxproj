@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		269CD2AF239B23BA0091DFB6 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AD239B23BA0091DFB6 /* App.framework */; };
-		269CD2B0239B23BA0091DFB6 /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AD239B23BA0091DFB6 /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		269CD2B1239B23BA0091DFB6 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AE239B23BA0091DFB6 /* Flutter.framework */; };
-		269CD2B2239B23BA0091DFB6 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269CD2AE239B23BA0091DFB6 /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DC0F6C2398363A00D41B08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F6B2398363A00D41B08 /* AppDelegate.swift */; };
 		26DC0F6E2398363A00D41B08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC0F6D2398363A00D41B08 /* ViewController.swift */; };
 		26DC0F712398363A00D41B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F6F2398363A00D41B08 /* Main.storyboard */; };
 		26DC0F732398363B00D41B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F722398363B00D41B08 /* Assets.xcassets */; };
 		26DC0F762398363B00D41B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0F742398363B00D41B08 /* LaunchScreen.storyboard */; };
+		F77F88F1255396AD00309E51 /* App.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F88EF255396AD00309E51 /* App.xcframework */; };
+		F77F88F2255396AD00309E51 /* Flutter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F88F0255396AD00309E51 /* Flutter.xcframework */; };
+		F77F88F3255396B800309E51 /* App.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77F88EF255396AD00309E51 /* App.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F77F88F4255396B800309E51 /* Flutter.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77F88F0255396AD00309E51 /* Flutter.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,8 +25,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				269CD2B0239B23BA0091DFB6 /* App.framework in Embed Frameworks */,
-				269CD2B2239B23BA0091DFB6 /* Flutter.framework in Embed Frameworks */,
+				F77F88F3255396B800309E51 /* App.xcframework in Embed Frameworks */,
+				F77F88F4255396B800309E51 /* Flutter.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,8 +34,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		269CD2AD239B23BA0091DFB6 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = "Flutter/$(CONFIGURATION)/App.framework"; sourceTree = "<group>"; };
-		269CD2AE239B23BA0091DFB6 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = "Flutter/$(CONFIGURATION)/Flutter.framework"; sourceTree = "<group>"; };
 		26DC0F682398363A00D41B08 /* IOSUsingPrebuiltModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSUsingPrebuiltModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DC0F6B2398363A00D41B08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26DC0F6D2398363A00D41B08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +41,8 @@
 		26DC0F722398363B00D41B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26DC0F752398363B00D41B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26DC0F772398363B00D41B08 /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
+		F77F88EF255396AD00309E51 /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = "Flutter/$(CONFIGURATION)/App.xcframework"; sourceTree = "<group>"; };
+		F77F88F0255396AD00309E51 /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = "Flutter/$(CONFIGURATION)/Flutter.xcframework"; sourceTree = "<group>"; };
 		F7C7993B251EF8C000650C20 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				269CD2AF239B23BA0091DFB6 /* App.framework in Frameworks */,
-				269CD2B1239B23BA0091DFB6 /* Flutter.framework in Frameworks */,
+				F77F88F1255396AD00309E51 /* App.xcframework in Frameworks */,
+				F77F88F2255396AD00309E51 /* Flutter.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +62,8 @@
 		269CD2AC239B23BA0091DFB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				269CD2AD239B23BA0091DFB6 /* App.framework */,
-				269CD2AE239B23BA0091DFB6 /* Flutter.framework */,
+				F77F88EF255396AD00309E51 /* App.xcframework */,
+				F77F88F0255396AD00309E51 /* Flutter.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
-				ORGANIZATIONNAME = "Andrew Brogdon";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					26DC0F672398363A00D41B08 = {
 						CreatedOnToolsVersion = 10.3;
