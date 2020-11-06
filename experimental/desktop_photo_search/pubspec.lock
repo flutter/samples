@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.39.17"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   args:
     dependency: transitive
     description:
@@ -356,6 +363,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7"
+  msix:
+    dependency: "direct dev"
+    description:
+      name: msix
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.10"
   nested:
     dependency: transitive
     description:

@@ -39,9 +39,22 @@ dev_dependencies:
   build_runner: ^1.7.2
   built_value_generator: ^7.0.0
   grinder: ^0.8.3
+  msix: ^0.0.10
   source_gen: ^0.9.4
   test: ^1.9.4
   tuneup: ^0.3.6
 
 flutter:
   uses-material-design: true
+
+msix_config:
+  display_name: Photo Search
+  publisher_name: Flutter
+  identity_name: Google.Flutter.PhotoSearch
+  msix_version: 1.0.0.0
+  # certificate_subject: CN=MyName
+  # logo_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
+  # start_menu_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
+  # tile_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
+  icons_background_color: ffffff
+  architecture: x64
