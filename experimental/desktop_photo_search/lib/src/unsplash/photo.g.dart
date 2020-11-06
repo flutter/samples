@@ -189,13 +189,13 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(Tags)]))
-              as BuiltList<dynamic>);
+              as BuiltList<Object>);
           break;
         case 'current_user_collections':
           result.currentUserCollections.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(CurrentUserCollections)
-              ])) as BuiltList<dynamic>);
+              ])) as BuiltList<Object>);
           break;
         case 'urls':
           result.urls.replace(serializers.deserialize(value,
