@@ -9,7 +9,7 @@ public class SwiftFederatedPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    guard  call.method == "getBatteryLevel"  else {
+    guard call.method == "getBatteryLevel" else {
         result(FlutterMethodNotImplemented)
         return
     }
