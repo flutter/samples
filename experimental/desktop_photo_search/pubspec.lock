@@ -368,7 +368,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "0d0441dd67950bd24cc2073d196fda2d90430f05"
+      resolved-ref: e81fb3c285861b3db770731a6bc11873d1068a8d
       url: "https://github.com/domesticmouse/msix"
     source: git
     version: "0.1.0"
