@@ -48,8 +48,8 @@ flutter:
   uses-material-design: true
 
 msix_config:
-  display_name: Photo Search
-  publisher_name: Flutter
+  display_name: Flutter Desktop Photo Search
+  publisher_name: flutter.dev
   identity_name: Google.Flutter.PhotoSearch
   msix_version: 1.0.0.0
   # certificate_subject: CN=MyName
