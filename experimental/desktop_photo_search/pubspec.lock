@@ -369,7 +369,7 @@ packages:
       name: msix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.10"
+    version: "0.1.0"
   nested:
     dependency: transitive
     description:
@@ -418,7 +418,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0-nullsafety.2"
+    version: "1.10.0-nullsafety.3"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -432,7 +432,7 @@ packages:
       name: pool
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0-nullsafety.2"
+    version: "1.5.0-nullsafety.3"
   provider:
     dependency: "direct main"
     description:
@@ -460,7 +460,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4+1"
+    version: "2.1.5"
   shelf:
     dependency: transitive
     description:
@@ -507,14 +507,14 @@ packages:
       name: source_map_stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0-nullsafety.3"
+    version: "2.1.0-nullsafety.4"
   source_maps:
     dependency: transitive
     description:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.10-nullsafety.2"
+    version: "0.10.10-nullsafety.3"
   source_span:
     dependency: transitive
     description:
@@ -668,7 +668,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.0"
+    version: "5.5.0"
   watcher:
     dependency: transitive
     description:
@@ -689,7 +689,7 @@ packages:
       name: webkit_inspection_protocol
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.3"
+    version: "0.7.4"
   yaml:
     dependency: transitive
     description:
@@ -698,5 +698,5 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=2.12.0-0.0 <=2.12.0-31.0.dev"
+  dart: ">=2.12.0-0.0 <3.0.0"
   flutter: ">=1.22.0 <2.0.0"

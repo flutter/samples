@@ -24,6 +24,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
 pkg_check_modules(GLIB REQUIRED IMPORTED_TARGET glib-2.0)
 pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
+pkg_check_modules(BLKID REQUIRED IMPORTED_TARGET blkid)
 
 set(FLUTTER_LIBRARY "${EPHEMERAL_DIR}/libflutter_linux_gtk.so")
 
@@ -55,7 +56,7 @@ list(APPEND FLUTTER_LIBRARY_HEADERS
   "fl_view.h"
   "flutter_linux.h"
 )
-list_prepend(FLUTER_LIBRARY_HEADERS "${EPHEMERAL_DIR}/flutter_linux/")
+list_prepend(FLUTTER_LIBRARY_HEADERS "${EPHEMERAL_DIR}/flutter_linux/")
 add_library(flutter INTERFACE)
 target_include_directories(flutter INTERFACE
   "${EPHEMERAL_DIR}"
@@ -65,6 +66,7 @@ target_link_libraries(flutter INTERFACE
   PkgConfig::GTK
   PkgConfig::GLIB
   PkgConfig::GIO
+  PkgConfig::BLKID
 )
 add_dependencies(flutter flutter_assemble)
 
