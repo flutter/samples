@@ -175,7 +175,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.1"
+    version: "0.14.2"
   crypto:
     dependency: transitive
     description:
@@ -216,7 +216,7 @@ packages:
     description:
       path: "plugins/file_chooser"
       ref: HEAD
-      resolved-ref: "8ea9f1ce79f04e44bd6392f4155a014b0a7eb6e8"
+      resolved-ref: "85dde09b702a0cb1f5e1392d2f030bdc3d4e5be3"
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.2.0"
@@ -345,7 +345,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: "8ea9f1ce79f04e44bd6392f4155a014b0a7eb6e8"
+      resolved-ref: "85dde09b702a0cb1f5e1392d2f030bdc3d4e5be3"
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
@@ -366,9 +366,11 @@ packages:
   msix:
     dependency: "direct dev"
     description:
-      name: msix
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "0d0441dd67950bd24cc2073d196fda2d90430f05"
+      url: "https://github.com/domesticmouse/msix"
+    source: git
     version: "0.1.0"
   nested:
     dependency: transitive
