@@ -39,8 +39,7 @@ dev_dependencies:
   build_runner: ^1.7.2
   built_value_generator: ^7.0.0
   grinder: ^0.8.3
-  msix:
-    git: https://github.com/domesticmouse/msix
+  msix: ^0.1.2
   source_gen: ^0.9.4
   test: ^1.9.4
   tuneup: ^0.3.6

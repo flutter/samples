@@ -366,12 +366,10 @@ packages:
   msix:
     dependency: "direct dev"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: e81fb3c285861b3db770731a6bc11873d1068a8d
-      url: "https://github.com/domesticmouse/msix"
-    source: git
-    version: "0.1.0"
+      name: msix
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   nested:
     dependency: transitive
     description:
