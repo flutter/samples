@@ -136,7 +136,6 @@ class SettingsItemState extends State<SettingsItem> {
                             SizedBox(height: 8.5),
                             Text(
                               widget.label,
-                              style: Styles.settingsItemText(themeData),
                             ),
                             SizedBox(height: 4),
                             Text(
@@ -149,7 +148,6 @@ class SettingsItemState extends State<SettingsItem> {
                           padding: EdgeInsets.only(top: 1.5),
                           child: Text(
                             widget.label,
-                            style: Styles.settingsItemText(themeData),
                           ),
                         ),
                 ),

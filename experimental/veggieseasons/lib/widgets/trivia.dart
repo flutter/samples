@@ -41,7 +41,8 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   Trivia get currentTrivia => veggie.trivia[triviaIndex.value];
 
   /// The current state of the game.
-  _RestorablePlayerStatus status = _RestorablePlayerStatus(PlayerStatus.readyToAnswer);
+  _RestorablePlayerStatus status =
+      _RestorablePlayerStatus(PlayerStatus.readyToAnswer);
 
   @override
   String get restorationId => widget.restorationId;
@@ -137,7 +138,6 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
           SizedBox(height: 16),
           Text(
             'You answered',
-            style: Styles.triviaFinishedText(themeData),
           ),
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -152,7 +152,6 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   ' of ',
-                  style: Styles.triviaFinishedText(themeData),
                 ),
               ),
               Text(
@@ -163,7 +162,6 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
           ),
           Text(
             'questions correctly!',
-            style: Styles.triviaFinishedText(themeData),
           ),
           SizedBox(height: 16),
           CupertinoButton(

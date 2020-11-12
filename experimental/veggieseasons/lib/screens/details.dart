@@ -28,12 +28,10 @@ class ServingInfoChart extends StatelessWidget {
       builder: (context, snapshot) {
         final target = snapshot?.data ?? 2000;
         final percent = standardPercentage * 2000 ~/ target;
-        final themeData = CupertinoTheme.of(context);
 
         return Text(
           '$percent% DV',
           textAlign: TextAlign.end,
-          style: Styles.detailsServingValueText(themeData),
         );
       },
     );
@@ -54,7 +52,6 @@ class ServingInfoChart extends StatelessWidget {
             ),
             child: Text(
               'Serving info',
-              style: Styles.detailsServingHeaderText,
             ),
           ),
         ),
@@ -79,7 +76,6 @@ class ServingInfoChart extends StatelessWidget {
                         child: Text(
                           veggie.servingSize,
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText(themeData),
                         ),
                       ),
                     ],
@@ -96,7 +92,6 @@ class ServingInfoChart extends StatelessWidget {
                         child: Text(
                           '${veggie.caloriesPerServing} kCal',
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText(themeData),
                         ),
                       ),
                     ],
@@ -184,7 +179,7 @@ class InfoView extends StatelessWidget {
                     style: (snapshot.hasData &&
                             snapshot.data.contains(veggie.category))
                         ? Styles.detailsPreferredCategoryText(themeData)
-                        : Styles.detailsCategoryText(themeData),
+                        : themeData.textTheme.textStyle,
                   );
                 },
               ),
@@ -210,7 +205,6 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             veggie.shortDescription,
-            style: Styles.detailsDescriptionText(themeData),
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24),
@@ -249,7 +243,8 @@ class DetailsScreen extends StatefulWidget {
   static Route<void> _routeBuilder(BuildContext context, Object arguments) {
     final veggieId = arguments as int;
     return CupertinoPageRoute(
-      builder: (context) => DetailsScreen(id: veggieId, restorationId: 'details'),
+      builder: (context) =>
+          DetailsScreen(id: veggieId, restorationId: 'details'),
       fullscreenDialog: true,
     );
   }

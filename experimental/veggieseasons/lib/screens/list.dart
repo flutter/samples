@@ -32,6 +32,7 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = CupertinoTheme.of(context);
     return CupertinoTabView(
       restorationScopeId: restorationId,
       builder: (context) {
@@ -52,7 +53,8 @@ class ListScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(dateString.toUpperCase(), style: Styles.minorText),
+                      Text(dateString.toUpperCase(),
+                          style: Styles.minorText(themeData)),
                       Text('In season today',
                           style: Styles.headlineText(themeData)),
                     ],

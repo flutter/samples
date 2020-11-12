@@ -63,7 +63,6 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
             'No veggies matching your search terms were found.',
-            style: Styles.headlineDescription(CupertinoTheme.of(context)),
           ),
         ),
       );
