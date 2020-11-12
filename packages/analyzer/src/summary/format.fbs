@@ -1,7 +1,7 @@
 // Copyright (c) 2015, the Dart project authors. Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
-//
+
 // This file has been automatically generated.  Please do not edit it manually.
 // To regenerate the file, use the SDK script
 // "pkg/analyzer/tool/summary/generate.dart $IDL_FILE_PATH",
@@ -414,13 +414,13 @@ enum LinkedNodeKind : byte {
 
 /// Kinds of [LinkedNodeType]s.
 enum LinkedNodeTypeKind : byte {
-  bottom,
-
   dynamic_,
 
   function,
 
   interface,
+
+  never,
 
   typeParameter,
 
@@ -1114,6 +1114,8 @@ table LinkedNode {
 
   variantField_3:[LinkedNode] (id: 3);
 
+  variantField_41:[uint] (id: 41);
+
   /// The language version information.
   variantField_40:LinkedLibraryLanguageVersion (id: 40);
 
@@ -1247,15 +1249,13 @@ table LinkedNodeTypeTypeParameter {
 
 /// Information about a single library in a [LinkedNodeLibrary].
 table LinkedNodeUnit {
-  isNNBD:bool (id: 3);
-
   isSynthetic:bool (id: 2);
 
   node:LinkedNode (id: 1);
 
   /// If the unit is a part, the URI specified in the `part` directive.
   /// Otherwise empty.
-  partUriStr:string (id: 4);
+  partUriStr:string (id: 3);
 
   /// The absolute URI.
   uriStr:string (id: 0);
@@ -1274,6 +1274,9 @@ table PackageBundle {
 table PackageBundleSdk {
   /// The content of the `allowed_experiments.json` from SDK.
   allowedExperimentsJson:string (id: 0);
+
+  /// The language version of the SDK.
+  languageVersion:LinkedLanguageVersion (id: 1);
 }
 
 /// Summary information about a top-level type inference error.
