@@ -28,6 +28,14 @@ void addItems() {
 
 void main() {
   group('Favorites Page Widget Tests', () {
+    testWidgets('Test if Placeholder shows in case of empty list',
+        (tester) async {
+      await tester.pumpWidget(createFavoritesScreen());
+
+      // Verify if the placeholder text shows up.
+      expect(find.text('No favorites added.'), findsOneWidget);
+    });
+
     testWidgets('Test if ListView shows up', (tester) async {
       await tester.pumpWidget(createFavoritesScreen());
 

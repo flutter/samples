@@ -16,11 +16,16 @@ class FavoritesPage extends StatelessWidget {
         title: Text('Favorites'),
       ),
       body: Consumer<Favorites>(
-        builder: (context, value, child) => ListView.builder(
-          itemCount: value.items.length,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          itemBuilder: (context, index) => FavoriteItemTile(value.items[index]),
-        ),
+        builder: (context, value, child) => value.items.isNotEmpty
+            ? ListView.builder(
+                itemCount: value.items.length,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                itemBuilder: (context, index) =>
+                    FavoriteItemTile(value.items[index]),
+              )
+            : Center(
+                child: Text('No favorites added.'),
+              ),
       ),
     );
   }
