@@ -136,9 +136,7 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
             style: Styles.triviaFinishedTitleText(themeData),
           ),
           SizedBox(height: 16),
-          Text(
-            'You answered',
-          ),
+          Text('You answered', style: themeData.textTheme.textStyle),
           Row(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -150,9 +148,7 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  ' of ',
-                ),
+                child: Text(' of ', style: themeData.textTheme.textStyle),
               ),
               Text(
                 '${veggie.trivia.length}',
@@ -160,9 +156,7 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
               ),
             ],
           ),
-          Text(
-            'questions correctly!',
-          ),
+          Text('questions correctly!', style: themeData.textTheme.textStyle),
           SizedBox(height: 16),
           CupertinoButton(
             child: Text('Try Again'),

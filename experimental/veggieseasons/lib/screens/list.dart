@@ -40,7 +40,6 @@ class ListScreen extends StatelessWidget {
 
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
-        final themeData = CupertinoTheme.of(context);
         return SafeArea(
           bottom: false,
           child: ListView.builder(

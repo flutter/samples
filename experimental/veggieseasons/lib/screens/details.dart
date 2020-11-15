@@ -31,6 +31,7 @@ class ServingInfoChart extends StatelessWidget {
 
         return Text(
           '$percent% DV',
+          style: CupertinoTheme.of(context).textTheme.textStyle,
           textAlign: TextAlign.end,
         );
       },
@@ -52,6 +53,7 @@ class ServingInfoChart extends StatelessWidget {
             ),
             child: Text(
               'Serving info',
+              style: CupertinoTheme.of(context).textTheme.textStyle,
             ),
           ),
         ),
@@ -76,6 +78,7 @@ class ServingInfoChart extends StatelessWidget {
                         child: Text(
                           veggie.servingSize,
                           textAlign: TextAlign.end,
+                          style: CupertinoTheme.of(context).textTheme.textStyle,
                         ),
                       ),
                     ],
@@ -91,6 +94,7 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           '${veggie.caloriesPerServing} kCal',
+                          style: CupertinoTheme.of(context).textTheme.textStyle,
                           textAlign: TextAlign.end,
                         ),
                       ),
@@ -205,6 +209,7 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             veggie.shortDescription,
+            style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24),
@@ -319,8 +324,14 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
                   SizedBox(height: 20),
                   CupertinoSegmentedControl<int>(
                     children: {
-                      0: Text('Facts & Info'),
-                      1: Text('Trivia'),
+                      0: Text(
+                        'Facts & Info',
+                      ),
+                      //style: CupertinoTheme.of(context).textTheme.textStyle),
+                      1: Text(
+                        'Trivia',
+                      )
+                      //style: CupertinoTheme.of(context).textTheme.textStyle),
                     },
                     groupValue: _selectedViewIndex.value,
                     onValueChanged: (value) {

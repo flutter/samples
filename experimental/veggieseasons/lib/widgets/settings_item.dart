@@ -134,9 +134,8 @@ class SettingsItemState extends State<SettingsItem> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(height: 8.5),
-                            Text(
-                              widget.label,
-                            ),
+                            Text(widget.label,
+                                style: themeData.textTheme.textStyle),
                             SizedBox(height: 4),
                             Text(
                               widget.subtitle,
@@ -146,9 +145,8 @@ class SettingsItemState extends State<SettingsItem> {
                         )
                       : Padding(
                           padding: EdgeInsets.only(top: 1.5),
-                          child: Text(
-                            widget.label,
-                          ),
+                          child: Text(widget.label,
+                              style: themeData.textTheme.textStyle),
                         ),
                 ),
               ),

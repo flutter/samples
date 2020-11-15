@@ -97,6 +97,7 @@ class VeggieHeadline extends StatelessWidget {
                 ),
                 Text(
                   veggie.shortDescription,
+                  style: themeData.textTheme.textStyle,
                 ),
               ],
             ),

@@ -12,6 +12,7 @@ abstract class Styles {
   static CupertinoThemeData veggieThemeData = CupertinoThemeData(
     textTheme: CupertinoTextThemeData(
       textStyle: TextStyle(
+        color: CupertinoColors.label,
         fontSize: 16,
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.normal,
@@ -97,6 +98,20 @@ abstract class Styles {
   static TextStyle triviaFinishedBigText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
         fontSize: 48,
+      );
+
+  static TextStyle settingsGroupHeaderText(CupertinoThemeData themeData) =>
+      themeData.textTheme.textStyle.copyWith(
+        color: CupertinoColors.inactiveGray,
+        fontSize: 13.5,
+        letterSpacing: -0.5,
+      );
+
+  static TextStyle settingsGroupFooterText(CupertinoThemeData themeData) =>
+      themeData.textTheme.textStyle.copyWith(
+        color: Styles.settingsGroupSubtitle,
+        fontSize: 13,
+        letterSpacing: -0.08,
       );
 
   static const appBackground = Color(0xffd0d0d0);

@@ -28,11 +28,7 @@ class SettingsGroupHeader extends StatelessWidget {
       ),
       child: Text(
         title.toUpperCase(),
-        style: TextStyle(
-          color: CupertinoColors.inactiveGray,
-          fontSize: 13.5,
-          letterSpacing: -0.5,
-        ),
+        style: Styles.settingsGroupHeaderText(CupertinoTheme.of(context)),
       ),
     );
   }
@@ -51,14 +47,8 @@ class SettingsGroupFooter extends StatelessWidget {
         right: 15,
         top: 7.5,
       ),
-      child: Text(
-        title,
-        style: TextStyle(
-          color: Styles.settingsGroupSubtitle,
-          fontSize: 13,
-          letterSpacing: -0.08,
-        ),
-      ),
+      child: Text(title,
+          style: Styles.settingsGroupFooterText(CupertinoTheme.of(context))),
     );
   }
 }
