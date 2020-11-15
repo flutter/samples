@@ -64,7 +64,7 @@ class Unsplash {
 
     dynamic body;
     try {
-      body = json.decode(response.body);
+      body = json.fuse(utf8).decode(response.bodyBytes);
     } catch (e) {
       throw UnsplashException('Invalid JSON received');
     }
