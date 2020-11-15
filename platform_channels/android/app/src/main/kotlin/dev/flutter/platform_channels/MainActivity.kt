@@ -42,7 +42,7 @@ class MainActivity : FlutterActivity() {
         val sensorManger: SensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val accelerometerSensor: Sensor = sensorManger.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         EventChannel(flutterEngine.dartExecutor, "eventChannelDemo")
-                .setStreamHandler( AccelerometerStreamHandler(sensorManger, accelerometerSensor))
+                .setStreamHandler(AccelerometerStreamHandler(sensorManger, accelerometerSensor))
 
         // Registers a MessageHandler for BasicMessageChannel to receive a message from Dart and send
         // image data in reply.
