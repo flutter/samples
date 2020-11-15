@@ -1,3 +1,7 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import UIKit
 import Flutter
 
@@ -38,6 +42,8 @@ import Flutter
                 reply(FlutterStandardTypedData(bytes: image.jpegData(compressionQuality: 1)!))
             }
         }
+        
+        FlutterEventChannel(name: "eventChannelDemo", binaryMessenger: flutterViewController.binaryMessenger).setStreamHandler(AccelerometerStreamHandelr())
         
         GeneratedPluginRegistrant.register(with: self)
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)

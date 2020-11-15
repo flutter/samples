@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:platform_channels/src/accelerometer_event_channel.dart';
 
 /// Demonstrates how to use [EventChannel] to listen continuous values
@@ -25,7 +26,7 @@ class EventChannelDemo extends StatelessWidget {
           stream: Accelerometer.readings,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              return Text(snapshot.error.toString());
+              return Text((snapshot.error as PlatformException).message);
             } else if (snapshot.hasData) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
