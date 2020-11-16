@@ -18,6 +18,8 @@ dependencies:
     path: ../federated_plugin_web
   federated_plugin_windows:
     path: ../federated_plugin_windows
+  federated_plugin_macos:
+    path: ../federated_plugin_macos
 
 dev_dependencies:
   flutter_test:
@@ -36,3 +38,5 @@ flutter:
         default_package: federated_plugin_web
       windows:
         default_package: federated_plugin_windows
+      macos:
+        default_package: federated_plugin_macos
