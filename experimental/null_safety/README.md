@@ -27,53 +27,8 @@ The folder contains two sample Flutter apps:
 
 ## Running the example code
 
-Null safety is still in technical preview. As a result you need to use a
-dev-channel Flutter build, and you have to pass an [experiment
-flag](https://dart.dev/tools/experiment-flags).
-
-### Flutter SDK requirements
-
 This sample is
 [experimental](https://github.com/flutter/samples/tree/master/experimental), and
-requires using a **dev channel** Flutter SDK. You can change to the dev channel
-with `flutter channel dev` followed by `flutter upgrade` (don't forget to change
-back to `flutter channel stable` for production use.
-
-### Running from the terminal/command-prompt
-
-Because null safety is still in tech preview, we need to pass a so-called
-_experiment flag_ when invoking any Flutter command in the terminal, which looks
-like this: `--enable-experiment=non-nullable`.
-
-To run the main app, type these commands in the terminal/command-prompt:
-
-  - Windows:
-    - `cd <folder with samples repo>\experimental\null_safety\null_safe_app\`
-    - `flutter pub get`
-    - `flutter run --enable-experiment=non-nullable` 
-  - macOS/Linux:
-    - `cd <folder with samples repo>/experimental/null_safety/null_safe_app/`
-    - `flutter pub get`
-    - `flutter run --enable-experiment=non-nullable`
-
-### Running from VSCode
-
-This example contains a launch configuration for VSCode that passes the
-experimental flag, so to run the sample in VSCode:
-
-  1. Invoke **File > Open**, and select the `null_safety/null_safe_app` folder.
-
-  1. Select **Run > Run** and the project should run and print a message in the
-     Debug Console.
-
-
-### Running from Android Studio
-
-  1. Start Android Studio.
-
-  1. Select Open Project, and select the `null_safety/null_safe_app` folder.
-
-  1. Open the file `lib/main.dart` in the code editor.
-
-  1. Select Run > Run and the project should run and print a message in the Run
-     pane.
+requires using a **beta channel** Flutter SDK. You can change to the beta
+channel with `flutter channel beta` followed by `flutter upgrade` (don't forget
+to change back to `flutter channel stable` for production use.
