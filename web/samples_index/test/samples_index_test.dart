@@ -107,7 +107,8 @@ void main() {
           'widget:AnimatedBuilder '
           'widget:FutureBuilder '
           'package:json_serializable '
-          'package:path';
+          'package:path '
+          'type:sample';
 
       // Test if various queries match these attributes
       expect(matchesQuery('foo', attributes), false);
@@ -124,6 +125,11 @@ void main() {
       expect(matchesQuery('kitten tag:cats', attributes), true);
       expect(matchesQuery('tag:beginner dogs', attributes), false);
       expect(matchesQuery('asdf ', attributes), false);
+
+      // Test if queries match by type
+      expect(matchesQuery('type:sample', attributes), true);
+      expect(matchesQuery('type:cookbook', attributes), false);
+      expect(matchesQuery('kittens type:cookbook', attributes), false);
     });
   });
 

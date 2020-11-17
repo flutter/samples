@@ -33,7 +33,10 @@ void deploy() {
 @Depends(createThumbnails)
 Future buildRelease() async {
   var app = PubApp.local('build_runner');
-  await app.runAsync('build --release --output web:public --delete-conflicting-outputs'.split(' ').toList());
+  await app.runAsync(
+      'build --release --output web:public --delete-conflicting-outputs'
+          .split(' ')
+          .toList());
 }
 
 @DefaultTask('Build the project.')

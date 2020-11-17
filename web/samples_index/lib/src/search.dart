@@ -9,6 +9,17 @@ bool matchesQuery(String query, String sampleAttributes) {
   var queryWords = query.split(' ')..removeWhere((s) => s.isEmpty);
   var attributes = sampleAttributes.split(' ')..removeWhere((s) => s.isEmpty);
 
+  // Test for type filter
+  // This will check whether a type parameter is present in the
+  // search query, and return false if the self type mismatches
+  // the query type
+  for (var word in queryWords) {
+    if ((word.contains('type:') && !attributes.contains(word)) ||
+        (word.contains('platform:') && !attributes.contains('type:demo'))) {
+      return false;
+    }
+  }
+
   // Test for exact matches
   if (attributes.contains(query)) {
     return true;
