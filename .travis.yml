@@ -60,6 +60,7 @@ jobs:
   - name: Visual samples index tests
     os: linux
     dist: trusty
+    env: FLUTTER_VERSION=stable
     script:
       - cd web/samples_index
       - dart pub get
