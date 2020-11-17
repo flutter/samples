@@ -4,7 +4,7 @@
 
 import CoreMotion
 
-class AccelerometerStreamHandelr: NSObject, FlutterStreamHandler {
+class AccelerometerStreamHandler: NSObject, FlutterStreamHandler {
     
     var motionManger: CMMotionManager;
     
