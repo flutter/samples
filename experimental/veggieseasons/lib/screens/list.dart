@@ -32,7 +32,6 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = CupertinoTheme.of(context);
     return CupertinoTabView(
       restorationScopeId: restorationId,
       builder: (context) {
@@ -40,6 +39,7 @@ class ListScreen extends StatelessWidget {
 
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
+        final themeData = CupertinoTheme.of(context);
         return SafeArea(
           bottom: false,
           child: ListView.builder(

@@ -327,11 +327,9 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
                       0: Text(
                         'Facts & Info',
                       ),
-                      //style: CupertinoTheme.of(context).textTheme.textStyle),
                       1: Text(
                         'Trivia',
                       )
-                      //style: CupertinoTheme.of(context).textTheme.textStyle),
                     },
                     groupValue: _selectedViewIndex.value,
                     onValueChanged: (value) {

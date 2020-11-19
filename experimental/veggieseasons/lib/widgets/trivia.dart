@@ -143,7 +143,7 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
             textBaseline: TextBaseline.alphabetic,
             children: [
               Text(
-                '$score',
+                '${score.value}',
                 style: Styles.triviaFinishedBigText(themeData),
               ),
               Padding(
