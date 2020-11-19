@@ -51,6 +51,7 @@ String _descriptionHeader = '''
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="packages/mdc_web/material-components-web.min.js"></script>
+  <script src="https://kit.fontawesome.com/16cc04762e.js"></script>
   <script defer src="description.dart.js"></script>
 </head>
 ''';
@@ -171,14 +172,17 @@ String _descriptionPage(Sample sample) => '''
           </div>
         </div>
       </div>
-      <div class="screenshots">
-        ${util.indent(_descriptionScreenshots(sample), 4)}
+      <div class="slider-container">
+        <div class="slider-content">
+          ${util.indent(_descriptionScreenshots(sample), 4)}
+        </div>
       </div>
       <div class="description">
         ${util.indent(_descriptionText(sample), 4)}
       </div>
     </div>
   </div>
+  <script src="carousel.js"></script>
 </body>
 ''';
 
@@ -218,7 +222,8 @@ String _tags(Sample sample) {
 String _descriptionScreenshots(Sample sample) {
   var buf = StringBuffer();
   for (var screenshot in sample.screenshots) {
-    buf.write('<img src="${screenshot.url}" alt="${screenshot.alt}" />\n');
+    buf.write(
+        '''<div class="slider-single"><img class="slider-single-image" src="${screenshot.url}" alt="${screenshot.alt}" /></div>\n''');
   }
   return buf.toString();
 }
