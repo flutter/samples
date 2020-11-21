@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
@@ -100,15 +101,20 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
     return UnmanagedRestorationScope(
       child: CupertinoTabView(
         builder: (context) {
-          return SafeArea(
-            bottom: false,
-            child: Stack(
-              children: [
-                _buildSearchResults(model.searchVeggies(terms)),
-                _createSearchBox(),
-              ],
-            ),
-          );
+          final themeData = CupertinoTheme.of(context);
+
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+              value: SystemUiOverlayStyle(
+                  statusBarBrightness: themeData.brightness),
+              child: SafeArea(
+                bottom: false,
+                child: Stack(
+                  children: [
+                    _buildSearchResults(model.searchVeggies(terms)),
+                    _createSearchBox(),
+                  ],
+                ),
+              ));
         },
       ),
     );
