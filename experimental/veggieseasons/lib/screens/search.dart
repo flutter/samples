@@ -104,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
           return AnnotatedRegion<SystemUiOverlayStyle>(
               value: SystemUiOverlayStyle(
                   statusBarBrightness:
-                      MediaQuery.of(context).platformBrightness),
+                      MediaQuery.platformBrightnessOf(context)),
               child: SafeArea(
                 bottom: false,
                 child: Stack(

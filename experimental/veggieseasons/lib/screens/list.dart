@@ -43,7 +43,7 @@ class ListScreen extends StatelessWidget {
         final themeData = CupertinoTheme.of(context);
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle(
-              statusBarBrightness: MediaQuery.of(context).platformBrightness),
+              statusBarBrightness: MediaQuery.platformBrightnessOf(context)),
           child: SafeArea(
             bottom: false,
             child: ListView.builder(
