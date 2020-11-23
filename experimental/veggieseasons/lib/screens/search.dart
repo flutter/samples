@@ -101,11 +101,10 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
     return UnmanagedRestorationScope(
       child: CupertinoTabView(
         builder: (context) {
-          final themeData = CupertinoTheme.of(context);
-
           return AnnotatedRegion<SystemUiOverlayStyle>(
               value: SystemUiOverlayStyle(
-                  statusBarBrightness: themeData.brightness),
+                  statusBarBrightness:
+                      MediaQuery.of(context).platformBrightness),
               child: SafeArea(
                 bottom: false,
                 child: Stack(
