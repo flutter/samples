@@ -50,8 +50,8 @@ flutter:
 msix_config:
   display_name: Flutter Desktop Photo Search
   publisher_display_name: flutter.dev
-  publisher: CN=flutter.dev
-  identity_name: Google.Flutter.PhotoSearch
+  publisher: CN=01A6D5C0-D51A-4EEE-8DD0-F134DDD378F7
+  identity_name: 16354flutter.dev.FlutterDesktopPhotoSearch
   msix_version: 1.0.0.0
   # certificate_path: C:\<PathToCertificate>\<MyCertificate.pfx>
   # certificate_password: 1234 (require if using .pfx certificate)
