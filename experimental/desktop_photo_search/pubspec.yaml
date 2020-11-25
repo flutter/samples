@@ -49,12 +49,16 @@ flutter:
 
 msix_config:
   display_name: Flutter Desktop Photo Search
-  publisher_name: flutter.dev
+  publisher_display_name: flutter.dev
+  publisher: CN=flutter.dev
   identity_name: Google.Flutter.PhotoSearch
   msix_version: 1.0.0.0
-  # certificate_subject: CN=MyName
-  # logo_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  # start_menu_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  # tile_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  icons_background_color: ffffff
+  # certificate_path: C:\<PathToCertificate>\<MyCertificate.pfx>
+  # certificate_password: 1234 (require if using .pfx certificate)
+  # logo_path: C:\<PathToIcon>\<Logo.png>
+  # start_menu_icon_path: C:\<PathToIcon>\<Icon.png>
+  # tile_icon_path: C:\<PathToIcon>\<Icon.png>
+  icons_background_color: '#ffffff'
   architecture: x64
+  # See https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations
+  capabilities: 'internetClientServer'
