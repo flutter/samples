@@ -147,7 +147,7 @@ class Contents extends StatelessWidget {
                 if (showExit) ...[
                   SizedBox(height: 16),
                   RaisedButton(
-                    onPressed: () => SystemNavigator.pop(),
+                    onPressed: () => SystemNavigator.pop(animated: true),
                     child: Text('Exit this screen'),
                   ),
                 ],
