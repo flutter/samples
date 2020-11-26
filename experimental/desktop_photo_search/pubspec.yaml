@@ -53,12 +53,7 @@ msix_config:
   publisher: CN=01A6D5C0-D51A-4EEE-8DD0-F134DDD378F7
   identity_name: 16354flutter.dev.FlutterDesktopPhotoSearch
   msix_version: 1.0.0.0
-  # certificate_path: C:\<PathToCertificate>\<MyCertificate.pfx>
-  # certificate_password: 1234 (require if using .pfx certificate)
-  # logo_path: C:\<PathToIcon>\<Logo.png>
-  # start_menu_icon_path: C:\<PathToIcon>\<Icon.png>
-  # tile_icon_path: C:\<PathToIcon>\<Icon.png>
   icons_background_color: '#ffffff'
   architecture: x64
   # See https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations
-  capabilities: 'internetClientServer'
+  capabilities: 'internetClient'
