@@ -48,6 +48,8 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
           builder: (context, child) {
             return MaterialButton(
               color: animation.value,
+              height: 50,
+              minWidth: 100,
               child: child,
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {
