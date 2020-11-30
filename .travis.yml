@@ -63,8 +63,8 @@ jobs:
     env: FLUTTER_VERSION=stable
     script:
       - cd web/samples_index
-      - dart pub get
-      - dart test
+      - ../../flutter/bin/dart pub get
+      - ../../flutter/bin/dart test
 
   allow_failures:
   - env: FLUTTER_VERSION=beta
