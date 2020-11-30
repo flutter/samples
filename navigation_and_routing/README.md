@@ -3,8 +3,6 @@
 Sample code for [Learning Flutter's New Navigation and Routing System][article],
 an article explaining Navigator 2.0.
 
-## Goals for this sample
-
 ## Samples
 
 **Navigator 1.0 samples**
