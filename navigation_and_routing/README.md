@@ -1,16 +1,48 @@
-# navigation_and_routing
+# Navigation and Routing sample code
 
-A new Flutter project.
+Sample code for [Learning Flutter's New Navigation and Routing System][article],
+an article explaining Navigator 2.0.
 
-## Getting Started
+## Goals for this sample
 
-This project is a starting point for a Flutter application.
+## Samples
 
-A few resources to get you started if this is your first Flutter project:
+**Navigator 1.0 samples**
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* `nav_1/anonymous_routes.dart` - how to use a Navigator to push and pop
+  anonymous routes (e.g. MaterialPageRoute)
+* `nav_1/named_routes.dart` - how to use define named routes via the `routes`
+  parameter on MaterialApp, and navigate using Navigator.pushNamed
+* `nav_1/on_generate_route.dart` - Shows how to handle arbitrary named routes
+  using the `onGenerateRoute` callback defined in the `MaterialApp` constructor.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+** Navigator 2.0 samples**
+
+* `nav_2/pages.dart` - Shows how to define a list of [Page] objects on Navigator
+  declaratively.
+* `nav_2/router.dart` - Full sample that shows a custom RouteInformationParser
+  and RouterDelegate parsing named routes and declaratively building the stack
+  of pages for the Navigator.
+
+
+** Advanced **
+
+* `nav_2_advanced/nested_router.dart` - Shows two [RouterDelegate], one nested
+  within the other. A [BottomNavigationBar] can be used to select the route of
+  the outer RouterDelegate, and additional routes can be pushed onto the inner
+  RouterDelegate / Navigator.
+* `nav_2_advanced/transition_delegate.dart` - Shows how a custom
+  TransitionDelegate can be used to customized when transition animations are
+  shown.
+
+
+## Running
+
+Each file in this project is an entrypoint. To run, specify the filename of
+the sample:
+
+```bash
+flutter run lib/nav_2/router.dart
+```
+
+[article]: https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade
