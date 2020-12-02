@@ -39,7 +39,7 @@ dev_dependencies:
   build_runner: ^1.7.2
   built_value_generator: ^7.0.0
   grinder: ^0.8.3
-  msix: ^0.1.2
+  msix: ^0.1.5
   source_gen: ^0.9.4
   test: ^1.9.4
   tuneup: ^0.3.6
@@ -49,12 +49,11 @@ flutter:
 
 msix_config:
   display_name: Flutter Desktop Photo Search
-  publisher_name: flutter.dev
-  identity_name: Google.Flutter.PhotoSearch
+  publisher_display_name: flutter.dev
+  publisher: CN=01A6D5C0-D51A-4EEE-8DD0-F134DDD378F7
+  identity_name: 16354flutter.dev.FlutterDesktopPhotoSearch
   msix_version: 1.0.0.0
-  # certificate_subject: CN=MyName
-  # logo_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  # start_menu_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  # tile_icon_path: packages/flutter_gallery_assets/assets/logo/flutter_logo_color.png
-  icons_background_color: ffffff
+  icons_background_color: '#ffffff'
   architecture: x64
+  # See https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations
+  capabilities: 'internetClient'

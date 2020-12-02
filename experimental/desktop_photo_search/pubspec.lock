@@ -28,7 +28,7 @@ packages:
       name: ansicolor
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.5"
+    version: "1.1.1"
   args:
     dependency: transitive
     description:
@@ -211,12 +211,19 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.3"
+  file:
+    dependency: transitive
+    description:
+      name: file
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.2.1"
   file_chooser:
     dependency: "direct main"
     description:
       path: "plugins/file_chooser"
       ref: HEAD
-      resolved-ref: "85dde09b702a0cb1f5e1392d2f030bdc3d4e5be3"
+      resolved-ref: dc12db8bcbba6b868b884e4a143d4f843158d7ab
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.2.0"
@@ -325,7 +332,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.1"
   logging:
     dependency: "direct main"
     description:
@@ -345,7 +352,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: "85dde09b702a0cb1f5e1392d2f030bdc3d4e5be3"
+      resolved-ref: dc12db8bcbba6b868b884e4a143d4f843158d7ab
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
@@ -369,7 +376,7 @@ packages:
       name: msix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.5"
   nested:
     dependency: transitive
     description:
@@ -383,14 +390,14 @@ packages:
       name: node_interop
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   node_io:
     dependency: transitive
     description:
       name: node_io
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.2.0"
   node_preamble:
     dependency: transitive
     description:
@@ -563,7 +570,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.0-nullsafety.9"
+    version: "1.16.0-nullsafety.12"
   test_api:
     dependency: transitive
     description:
@@ -577,7 +584,7 @@ packages:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.12-nullsafety.9"
+    version: "0.3.12-nullsafety.11"
   timing:
     dependency: transitive
     description:

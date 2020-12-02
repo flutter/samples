@@ -1,9 +1,12 @@
 # Photo Search app
 
-This macOS application enables you to search [Unsplash](https://unsplash.com/)
-for photographs that interest you. To use it, you need to add an
-**Access Key** from [Unsplash API](https://unsplash.com/developers) to
-[unsplash_access_key.dart](lib/unsplash_access_key.dart).
+This desktop application enables you to search 
+[Unsplash](https://unsplash.com/) for photographs that interest you. 
+To use it, you need to add an **Access Key** from 
+[Unsplash API](https://unsplash.com/developers) to
+`lib/unsplash_access_key.dart`.
+
+This sample works on Windows, macOS and Linux.
 
 ## A quick tour of the code
 
@@ -21,6 +24,18 @@ atop [http], [built_value] and [built_collection] for JSON Rest API access.
 The [DataTreeNode] and widget family, along with the [Split] widget capture
 desktop file explorer master/detail view idioms.
 
+## Deploying to the Microsoft Store
+
+This sample uses Yehuda Kremer's [MSIX pub package][msix_pub_package] 
+to bundle up the Windows release build for distribution to the 
+[Microsoft Store][]. Microsoft maintains a [plethora of documentation][ms_store_publishing_doc] 
+on deploying to the Microsoft Store. 
+
+See the `msix_config` stanza in this sample's `pubspec.yaml` for an
+example configuration. Make sure the `display_name`, `publisher_display_name`
+`publisher` and `identity_name` attributes match the settings in your 
+Microsoft Partner Center application submission.
+
 ## macOS Network and File entitlements
 
 To access the network, macOS requires applications enable the
@@ -34,9 +49,10 @@ Please see [macOS Signing and Security][macOS-security] for more detail.
 
 ## Flutter Desktop is not in Flutter Stable Release Channel
 
-This sample is an initial preview, intended to enable developers to preview what is
-under development. As such, it is currently only available for use on the `master` channel
-of Flutter. Please see [Flutter build release channels][flutter_channels] for more detail,
+This sample is a preview, intended to enable developers to preview what is
+under development. As such, it is currently only available for use on 
+the `dev` and `master` channels of Flutter. Please see 
+[Flutter build release channels][flutter_channels] for more detail,
 and how to switch between Flutter release channels.
 
 [DataTreeNode]: lib/src/widgets/data_tree.dart
@@ -53,3 +69,7 @@ and how to switch between Flutter release channels.
 [macOS-security]: https://github.com/google/flutter-desktop-embedding/blob/master/macOS-Security.md
 [menubar]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/menubar
 [url_launcher]: https://pub.dev/packages/url_launcher
+
+[msix_pub_package]: https://pub.dev/packages/msix
+[Microsoft Store]: https://www.microsoft.com/en-au/p/flutter-desktop-photo-search/9nh719dxcpj4
+[ms_store_publishing_doc]: https://docs.microsoft.com/en-us/windows/uwp/publish/
