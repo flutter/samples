@@ -41,19 +41,6 @@ void main() {
       expect(sample.date, DateTime.parse('2019-12-15T02:59:43.1Z'));
       expect(sample.channel, 'stable');
     });
-
-    test('bad yaml', () async {
-      var file = File('test/yaml/bad.yaml');
-      var contents = await file.readAsString();
-      expect(contents, isNotEmpty);
-
-      expect(
-          () => checkedYamlDecode(contents, (m) => Index.fromJson(m),
-              sourceUrl: file.uri),
-          throwsA(predicate((e) =>
-              e is ParsedYamlException &&
-              e.message.endsWith('Unsupported value for "name".'))));
-    });
   });
 
   group('searching', () {

@@ -57,6 +57,15 @@ jobs:
     script: "./tool/travis_flutter_script.sh"
     env: FLUTTER_VERSION=beta
 
+  - name: Visual samples index tests
+    os: linux
+    dist: trusty
+    env: FLUTTER_VERSION=stable
+    script:
+      - cd web/samples_index
+      - ../../flutter/bin/dart pub get
+      - ../../flutter/bin/dart test
+
   allow_failures:
   - env: FLUTTER_VERSION=beta
 
