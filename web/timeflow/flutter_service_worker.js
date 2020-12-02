@@ -6,9 +6,9 @@ const RESOURCES = {
   "version.json": "6ce6e541ea6755920e21548a6cb27fba",
 "index.html": "51839f812a32cce7ac40ca488295da30",
 "/": "51839f812a32cce7ac40ca488295da30",
-"main.dart.js": "f4fc1ac2471dc48758cf25b76101ddc6",
+"main.dart.js": "a8a6647d192a8b4eb42601902846f5e5",
 "assets/AssetManifest.json": "e9760aff26d7236650b16d3f72345665",
-"assets/NOTICES": "1a8fb9a30352c40f8efdf5355504e4dc",
+"assets/NOTICES": "1d16a7f74299b6c693fa99d9d98844a0",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
 "assets/assets/preview.png": "84a7314976da474e68875dcf8e35cd1b"

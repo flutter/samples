@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="packages/mdc_web/material-components-web.min.js"></script>
+  <script src="https://kit.fontawesome.com/16cc04762e.js"></script>
   <script defer src="description.dart.js"></script>
 </head>
 
@@ -48,10 +49,12 @@
           </div>
         </div>
       </div>
-      <div class="screenshots">
-        <img src="images/jsonexample1.png" alt="JSON example screenshot" />
-    <img src="images/jsonexample2.png" alt="JSON example screenshot" />
-    <img src="images/jsonexample3.png" alt="JSON example screenshot" />
+      <div class="slider-container">
+        <div class="slider-content">
+          <div class="slider-single"><img class="slider-single-image" src="images/jsonexample1.png" alt="JSON example screenshot" /></div>
+    <div class="slider-single"><img class="slider-single-image" src="images/jsonexample2.png" alt="JSON example screenshot" /></div>
+    <div class="slider-single"><img class="slider-single-image" src="images/jsonexample3.png" alt="JSON example screenshot" /></div>
+        </div>
       </div>
       <div class="description">
         <p>A Flutter sample app that deserializes a set of JSON strings using three different libraries: dart:convert, json_serializable, and built_value.

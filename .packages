@@ -27,6 +27,7 @@ coverage:packages/coverage/
 crypto:packages/crypto/
 csslib:packages/csslib/
 dart_style:packages/dart_style/
+file:packages/file/
 fixnum:packages/fixnum/
 glob:packages/glob/
 graphs:packages/graphs/
