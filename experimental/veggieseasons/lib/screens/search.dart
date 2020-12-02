@@ -3,11 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/search_bar.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
             'No veggies matching your search terms were found.',
-            style: Styles.headlineDescription(CupertinoTheme.of(context)),
+            style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
         ),
       );
@@ -101,15 +101,19 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
     return UnmanagedRestorationScope(
       child: CupertinoTabView(
         builder: (context) {
-          return SafeArea(
-            bottom: false,
-            child: Stack(
-              children: [
-                _buildSearchResults(model.searchVeggies(terms)),
-                _createSearchBox(),
-              ],
-            ),
-          );
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+              value: SystemUiOverlayStyle(
+                  statusBarBrightness:
+                      MediaQuery.platformBrightnessOf(context)),
+              child: SafeArea(
+                bottom: false,
+                child: Stack(
+                  children: [
+                    _buildSearchResults(model.searchVeggies(terms)),
+                    _createSearchBox(),
+                  ],
+                ),
+              ));
         },
       ),
     );

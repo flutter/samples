@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -40,43 +41,48 @@ class ListScreen extends StatelessWidget {
         final appState = Provider.of<AppState>(context);
         final prefs = Provider.of<Preferences>(context);
         final themeData = CupertinoTheme.of(context);
-        return SafeArea(
-          bottom: false,
-          child: ListView.builder(
-            restorationId: 'list',
-            itemCount: appState.allVeggies.length + 2,
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(dateString.toUpperCase(), style: Styles.minorText),
-                      Text('In season today',
-                          style: Styles.headlineText(themeData)),
-                    ],
-                  ),
-                );
-              } else if (index <= appState.availableVeggies.length) {
-                return _generateVeggieRow(
-                  appState.availableVeggies[index - 1],
-                  prefs,
-                );
-              } else if (index <= appState.availableVeggies.length + 1) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
-                  child: Text('Not in season',
-                      style: Styles.headlineText(themeData)),
-                );
-              } else {
-                var relativeIndex =
-                    index - (appState.availableVeggies.length + 2);
-                return _generateVeggieRow(
-                    appState.unavailableVeggies[relativeIndex], prefs,
-                    inSeason: false);
-              }
-            },
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+              statusBarBrightness: MediaQuery.platformBrightnessOf(context)),
+          child: SafeArea(
+            bottom: false,
+            child: ListView.builder(
+              restorationId: 'list',
+              itemCount: appState.allVeggies.length + 2,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(dateString.toUpperCase(),
+                            style: Styles.minorText(themeData)),
+                        Text('In season today',
+                            style: Styles.headlineText(themeData)),
+                      ],
+                    ),
+                  );
+                } else if (index <= appState.availableVeggies.length) {
+                  return _generateVeggieRow(
+                    appState.availableVeggies[index - 1],
+                    prefs,
+                  );
+                } else if (index <= appState.availableVeggies.length + 1) {
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+                    child: Text('Not in season',
+                        style: Styles.headlineText(themeData)),
+                  );
+                } else {
+                  var relativeIndex =
+                      index - (appState.availableVeggies.length + 2);
+                  return _generateVeggieRow(
+                      appState.unavailableVeggies[relativeIndex], prefs,
+                      inSeason: false);
+                }
+              },
+            ),
           ),
         );
       },

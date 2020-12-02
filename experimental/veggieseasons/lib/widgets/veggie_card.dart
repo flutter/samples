@@ -117,7 +117,8 @@ class VeggieCard extends StatelessWidget {
   /// Whether [veggie] falls into one of user's preferred [VeggieCategory]s
   final bool isPreferredCategory;
 
-  Widget _buildDetails() {
+  Widget _buildDetails(BuildContext context) {
+    final themeData = CupertinoTheme.of(context);
     return FrostyBackground(
       color: Color(0x90ffffff),
       child: Padding(
@@ -127,11 +128,11 @@ class VeggieCard extends StatelessWidget {
           children: <Widget>[
             Text(
               veggie.name,
-              style: Styles.cardTitleText,
+              style: Styles.cardTitleText(themeData),
             ),
             Text(
               veggie.shortDescription,
-              style: Styles.cardDescriptionText,
+              style: Styles.cardDescriptionText(themeData),
             ),
           ],
         ),
@@ -165,7 +166,7 @@ class VeggieCard extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: _buildDetails(),
+            child: _buildDetails(context),
           ),
         ],
       ),

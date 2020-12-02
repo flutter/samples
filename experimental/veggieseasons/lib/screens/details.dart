@@ -28,12 +28,11 @@ class ServingInfoChart extends StatelessWidget {
       builder: (context, snapshot) {
         final target = snapshot?.data ?? 2000;
         final percent = standardPercentage * 2000 ~/ target;
-        final themeData = CupertinoTheme.of(context);
 
         return Text(
           '$percent% DV',
+          style: CupertinoTheme.of(context).textTheme.textStyle,
           textAlign: TextAlign.end,
-          style: Styles.detailsServingValueText(themeData),
         );
       },
     );
@@ -54,7 +53,7 @@ class ServingInfoChart extends StatelessWidget {
             ),
             child: Text(
               'Serving info',
-              style: Styles.detailsServingHeaderText,
+              style: CupertinoTheme.of(context).textTheme.textStyle,
             ),
           ),
         ),
@@ -79,7 +78,7 @@ class ServingInfoChart extends StatelessWidget {
                         child: Text(
                           veggie.servingSize,
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText(themeData),
+                          style: CupertinoTheme.of(context).textTheme.textStyle,
                         ),
                       ),
                     ],
@@ -95,8 +94,8 @@ class ServingInfoChart extends StatelessWidget {
                       TableCell(
                         child: Text(
                           '${veggie.caloriesPerServing} kCal',
+                          style: CupertinoTheme.of(context).textTheme.textStyle,
                           textAlign: TextAlign.end,
-                          style: Styles.detailsServingValueText(themeData),
                         ),
                       ),
                     ],
@@ -184,7 +183,7 @@ class InfoView extends StatelessWidget {
                     style: (snapshot.hasData &&
                             snapshot.data.contains(veggie.category))
                         ? Styles.detailsPreferredCategoryText(themeData)
-                        : Styles.detailsCategoryText(themeData),
+                        : themeData.textTheme.textStyle,
                   );
                 },
               ),
@@ -210,7 +209,7 @@ class InfoView extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             veggie.shortDescription,
-            style: Styles.detailsDescriptionText(themeData),
+            style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24),
@@ -249,7 +248,8 @@ class DetailsScreen extends StatefulWidget {
   static Route<void> _routeBuilder(BuildContext context, Object arguments) {
     final veggieId = arguments as int;
     return CupertinoPageRoute(
-      builder: (context) => DetailsScreen(id: veggieId, restorationId: 'details'),
+      builder: (context) =>
+          DetailsScreen(id: veggieId, restorationId: 'details'),
       fullscreenDialog: true,
     );
   }
@@ -324,8 +324,12 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
                   SizedBox(height: 20),
                   CupertinoSegmentedControl<int>(
                     children: {
-                      0: Text('Facts & Info'),
-                      1: Text('Trivia'),
+                      0: Text(
+                        'Facts & Info',
+                      ),
+                      1: Text(
+                        'Trivia',
+                      )
                     },
                     groupValue: _selectedViewIndex.value,
                     onValueChanged: (value) {

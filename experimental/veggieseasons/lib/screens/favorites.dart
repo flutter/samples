@@ -7,7 +7,6 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -32,8 +31,7 @@ class FavoritesScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Text(
                       'You haven\'t added any favorite veggies to your garden yet.',
-                      style: Styles.headlineDescription(
-                          CupertinoTheme.of(context)),
+                      style: CupertinoTheme.of(context).textTheme.textStyle,
                     ),
                   )
                 : ListView(

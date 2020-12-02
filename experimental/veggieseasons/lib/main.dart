@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/screens/home.dart';
+import 'package:veggieseasons/styles.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +59,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         ),
       ],
       child: CupertinoApp(
+        theme: Styles.veggieThemeData,
         debugShowCheckedModeBanner: false,
         home: HomeScreen(restorationId: 'home'),
         restorationScopeId: 'app',
