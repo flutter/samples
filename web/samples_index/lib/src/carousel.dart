@@ -18,6 +18,19 @@ class Carousel {
     lastSlideIndex = slides.length - 1;
     currentSlideIndex = -1;
 
+    // Remove container empty space when no images are available
+    if (lastSlideIndex == -1) {
+      container.classes.clear();
+      return;
+    }
+
+    // Skip carousel decoration when only one image is available
+    if (lastSlideIndex == 0) {
+      currentSlide = slides[currentSlideIndex + 1];
+      currentSlide.classes.add('active');
+      return;
+    }
+
     _hideSlides();
     _initBullets();
     _initArrows();
