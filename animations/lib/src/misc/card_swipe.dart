@@ -45,6 +45,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
               Expanded(
                 child: ClipRect(
                   child: Stack(
+                    clipBehavior: Clip.hardEdge,
                     children: <Widget>[
                       for (final fileName in fileNames)
                         SwipeableCard(
