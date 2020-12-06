@@ -14,6 +14,9 @@ class Carousel {
 
   Element prevSlide, currentSlide, nextSlide;
 
+  num x0;
+  bool touched = false;
+
   Carousel.init({this.withArrowKeyControl = false}) {
     lastSlideIndex = slides.length - 1;
     currentSlideIndex = -1;
@@ -34,6 +37,7 @@ class Carousel {
     _hideSlides();
     _initBullets();
     _initArrows();
+    _initGestureListener();
 
     if (withArrowKeyControl) {
       _initArrowKeyControl();
@@ -82,6 +86,30 @@ class Carousel {
 
     container.append(prevArrow);
     container.append(nextArrow);
+  }
+
+  void _touchStartListener(TouchEvent e) {
+    x0 = e.changedTouches.first.client.x;
+    touched = true;
+  }
+
+  void _touchEndListener(TouchEvent e) {
+    if (touched) {
+      int dx = e.changedTouches.first.client.x - x0;
+
+      // dx==0 case is ignored
+      if (dx > 0 && currentSlideIndex > 0) {
+        _slideLeft();
+      } else if (dx < 0 && currentSlideIndex < lastSlideIndex) {
+        _slideRight();
+      }
+      touched = false;
+    }
+  }
+
+  void _initGestureListener() {
+    container.onTouchStart.listen(_touchStartListener);
+    container.onTouchEnd.listen(_touchEndListener);
   }
 
   void _updateBullets() {
