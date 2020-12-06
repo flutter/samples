@@ -15,6 +15,7 @@ class PetListScreen extends StatefulWidget {
 
 class _PetListScreenState extends State<PetListScreen> {
   PetListModel petListModel;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -23,9 +24,15 @@ class _PetListScreenState extends State<PetListScreen> {
     // to PetModel.
     BasicMessageChannel('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
-      setState(() {
-        petListModel = PetListModel.fromJson(message);
-      });
+      if (message == null) {
+        scaffoldKey.currentState.showSnackBar(
+          SnackBar(content: const Text('Some Error Occurred while adding pet')),
+        );
+      } else {
+        setState(() {
+          petListModel = PetListModel.fromJson(message);
+        });
+      }
       return;
     });
   }
@@ -33,6 +40,7 @@ class _PetListScreenState extends State<PetListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: Text('Pet List'),
       ),
@@ -84,7 +92,6 @@ class BuildPetList extends StatelessWidget {
 
   void showSnackBar(String message, BuildContext context) {
     Scaffold.of(context).showSnackBar(SnackBar(
-      backgroundColor: Theme.of(context).primaryColor,
       content: Text(message),
     ));
   }
