@@ -68,6 +68,10 @@ $mode: cubic-bezier(0.17, 0.67, 0.55, 1.43);
 html, body {
   height: 100%;
   margin: 0;
+  @media screen and (max-width: $mobile-width) {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -140,8 +144,6 @@ a {
   color: white;
   padding: 16px 125px 16px 125px;
   margin-bottom: 48px;
-
-
   @media screen and (max-width: $mobile-width) {
     padding: 8px 16px 8px 16px;
     margin-bottom: 16px;
@@ -220,7 +222,6 @@ a {
   justify-content: space-between;
   align-items: start;
   margin-bottom: 12px;
-
   @media screen and (max-width: $mobile-width) {
     flex-direction: column;
   }
@@ -230,32 +231,6 @@ a {
       margin-right: 12px;
       margin-bottom: 8px;
     }
-  }
-}
-
-.screenshots {
-  display: flex;
-  flex-direction: row;
-  height: 360px;
-  overflow-x: scroll;
-  margin: 48px 0 48px 0;
-
-  @media screen and (max-width: $mobile-width) {
-    height: 240px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    img {
-      flex: 0 0 auto;
-    }
-  }
-
-  img {
-    border-radius: 8px;
-    margin: 0 8px 0 8px;
-    max-width: 100%;
-    max-height: 100%;
   }
 }
 
@@ -428,12 +403,13 @@ a {
 // Carousel Container
 .slider-container {
   position: relative;
-  margin: 0 auto;
+  margin: -80px auto -60px auto;
   width: 800px;
   height: 600px;
-  max-width: 100%;
-  margin-top: -80px;
-  margin-bottom: -60px;
+  max-width: 95%;
+  @media screen and (max-width: $mobile-width) {
+    margin: -80px 4px -60px 4px;
+  }
 
   .bullet-container {
     position: absolute;
@@ -471,6 +447,9 @@ a {
     width: 70%;
     height: 60%;
     transform: translate(-50%, -50%);
+    @media screen and (max-width: $mobile-width) {
+      width: 100%
+    }
 
     .slider-single {
       position: absolute;
@@ -497,6 +476,10 @@ a {
         .slider-single-image {
           transform: translateX(-50%) scale(0);
         }
+
+        @media screen and (max-width: $mobile-width) {
+          display: none;
+        }
       }
 
       &.prev {
@@ -520,6 +503,10 @@ a {
       &.next-hidden {
         .slider-single-image {
           transform: translateX(50%) scale(0);
+        }
+
+        @media screen and (max-width: $mobile-width) {
+          display: none;
         }
       }
 
@@ -545,6 +532,9 @@ a {
     padding: 20px 20px;
     margin-right: -2px;
     cursor: pointer;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
   }
 
   .slider-right {
@@ -558,6 +548,9 @@ a {
     padding: 20px 20px;
     margin-left: -2px;
     cursor: pointer;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
   }
 
   .hidden {
