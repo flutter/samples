@@ -1,3 +1,7 @@
+// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 /// Shows how to use [Navigator] APIs to push and pop an anonymous
 /// route. In this case, it is an instance of [MaterialPageRoute].
 library anonymous_routes;
