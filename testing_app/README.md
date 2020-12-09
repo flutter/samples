@@ -41,7 +41,17 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 - State Management Tests:
   - For testing state using Flutter Driver
     - Run `flutter drive --target=test_driver/<file_path>`
-
+    
+### To generate test coverage report:
+- Install the `lcov` tool:
+  - For MacOS, run `brew install lcov`
+  - For Linux, run `sudo apt install lcov`
+- Run tests with coverage:
+  - `flutter test --coverage`
+- Convert `lcov.info` into readable html:
+  - Run `genhtml coverage/lcov.info -o coverage/index`
+- Open `coverage/index/index.html` in your preferred browser.
+    
 ### CI/CD
 - Refer [.travis.yml](../.travis.yml) and the [tool](../tool) directory to see how to test Flutter projects using Travis-CI.
 
