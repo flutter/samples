@@ -14,6 +14,7 @@ class Preferences extends ChangeNotifier {
   // Keys to use with shared preferences.
   static const _caloriesKey = 'calories';
   static const _preferredCategoriesKey = 'preferredCategories';
+  static const _favoriteVeggiesKey = 'favoriteVeggies';
 
   // Indicates whether a call to [_loadFromSharedPrefs] is in progress;
   Future<void> _loading;
@@ -21,6 +22,13 @@ class Preferences extends ChangeNotifier {
   int _desiredCalories = 2000;
 
   final Set<VeggieCategory> _preferredCategories = <VeggieCategory>{};
+
+  final Set<int> _favoriteVeggies = <int>{};
+
+  Future<Set<int>> get favoriteVeggies async {
+    await _loading;
+    return _favoriteVeggies;
+  }
 
   Future<int> get desiredCalories async {
     await _loading;
@@ -30,6 +38,16 @@ class Preferences extends ChangeNotifier {
   Future<Set<VeggieCategory>> get preferredCategories async {
     await _loading;
     return Set.from(_preferredCategories);
+  }
+
+  Future<void> setFavioriteVeggie(int id, bool isFavorite) async {
+    if (isFavorite) {
+      _favoriteVeggies.add(id);
+    } else {
+      _favoriteVeggies.remove(id);
+    }
+    await _saveToSharedPrefs();
+    notifyListeners();
   }
 
   Future<void> addPreferredCategory(VeggieCategory category) async {
@@ -58,17 +76,21 @@ class Preferences extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt(_caloriesKey, _desiredCalories);
 
-    // Store preferred categories as a comma-separated string containing their
+    // Store preferred categories and favorite veggies as a comma-separated string containing their
     // indices.
     await prefs.setString(_preferredCategoriesKey,
         _preferredCategories.map((c) => c.index.toString()).join(','));
+    await prefs.setString(_favoriteVeggiesKey,
+        _favoriteVeggies.map((v) => v.toString()).join(','));
   }
 
   Future<void> _loadFromSharedPrefs() async {
     final prefs = await SharedPreferences.getInstance();
     _desiredCalories = prefs.getInt(_caloriesKey) ?? 2000;
     _preferredCategories.clear();
+    _favoriteVeggies.clear();
     final names = prefs.getString(_preferredCategoriesKey);
+    final favorites = prefs.getString(_favoriteVeggiesKey);
 
     if (names != null && names.isNotEmpty) {
       for (final name in names.split(',')) {
@@ -76,6 +98,13 @@ class Preferences extends ChangeNotifier {
         if (VeggieCategory.values[index] != null) {
           _preferredCategories.add(VeggieCategory.values[index]);
         }
+      }
+    }
+
+    if (favorites != null && favorites.isNotEmpty) {
+      for (final favorite in favorites.split(',')) {
+        final id = int.tryParse(favorite) ?? -1;
+        _favoriteVeggies.add(id);
       }
     }
 

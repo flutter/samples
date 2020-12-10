@@ -69,9 +69,11 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
 }
 
 class _RestorableAppState extends RestorableListenable<AppState> {
+  final preferences = Preferences()..load();
+
   @override
   AppState createDefaultValue() {
-    return AppState();
+    return AppState()..setFavorites(preferences.favoriteVeggies);
   }
 
   @override
@@ -80,6 +82,7 @@ class _RestorableAppState extends RestorableListenable<AppState> {
     final favorites = (data as List<dynamic>).cast<int>();
     for (var id in favorites) {
       appState.setFavorite(id, true);
+      preferences.setFavioriteVeggie(id, true);
     }
     return appState;
   }

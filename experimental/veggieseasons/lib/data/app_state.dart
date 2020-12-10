@@ -38,6 +38,14 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setFavorites(Future<Set<int>> favorites) {
+    favorites.then((list) => {
+          list.forEach((favorite) {
+            getVeggie(favorite).isFavorite = true;
+          })
+        });
+  }
+
   /// Used in tests to set the season independent of the current date.
   static Season debugCurrentSeason;
 

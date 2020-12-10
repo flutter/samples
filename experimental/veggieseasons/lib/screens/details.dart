@@ -220,6 +220,7 @@ class InfoView extends StatelessWidget {
                 value: veggie.isFavorite,
                 onChanged: (value) {
                   appState.setFavorite(id, value);
+                  prefs.setFavioriteVeggie(id, value);
                 },
               ),
               SizedBox(width: 8),
