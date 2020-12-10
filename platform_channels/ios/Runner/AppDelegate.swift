@@ -50,17 +50,14 @@ import Flutter
         // A FlutterBasicMessageChannel for sending petList to Dart.
         let stringCodecChannel = FlutterBasicMessageChannel(name: "stringCodecDemo", binaryMessenger: flutterViewController.binaryMessenger, codec: FlutterStringCodec.sharedInstance())
         
-        // Registers a MessageHandler for FlutterBasicMessageChannel to receive pet details to be added in petList and send the it back to Dart using
-        // stringCodecChannel.
+        // Registers a MessageHandler for FlutterBasicMessageChannel to receive pet details.
         FlutterBasicMessageChannel(name: "jsonMessageCodecDemo", binaryMessenger: flutterViewController.binaryMessenger, codec: FlutterJSONMessageCodec.sharedInstance())
             .setMessageHandler{(message: Any?, reply: FlutterReply) -> Void in
                 petList.insert(message! as! [String: String], at: 0)
                 stringCodecChannel.sendMessage(self.convertPetListToJson(petList: petList))
             }
         
-        
-        // Registers a MessageHandler for FlutterBasicMessageChannel to receive the index of pet details to be removed from the petList and send the petList back to Dart using
-        // stringCodecChannel. If the index is not in the range of petList, we send nil back to Dart.
+        // Registers a MessageHandler for FlutterBasicMessageHandler to receive indices of detail records to remove from the petList.
         FlutterBasicMessageChannel(name: "binaryCodecDemo", binaryMessenger: flutterViewController.binaryMessenger, codec: FlutterBinaryCodec.sharedInstance()).setMessageHandler{
             (message: Any?, reply: FlutterReply) -> Void in
             
@@ -71,12 +68,11 @@ import Flutter
             
             if (index >= 0 && index < petList.count) {
                 petList.remove(at: index)
-                reply( "Removed Successfully".data(using: .utf8)!)
+                reply("Removed Successfully".data(using: .utf8)!)
                 stringCodecChannel.sendMessage(self.convertPetListToJson(petList: petList))
             } else {
                 reply(nil)
             }
-            
         }
         
         GeneratedPluginRegistrant.register(with: self)

@@ -28,7 +28,7 @@ class _PetListScreenState extends State<PetListScreen> {
         scaffoldKey.currentState.showSnackBar(
           SnackBar(
               content:
-                  const Text('Some Error Occurred while adding pet details.')),
+                  const Text('An error occurred while adding pet details.')),
         );
       } else {
         setState(() {
