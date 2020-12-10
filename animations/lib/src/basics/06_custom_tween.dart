@@ -47,6 +47,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Custom Tween'),
         actions: [
           MaterialButton(
             child: Text(

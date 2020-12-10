@@ -44,6 +44,7 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('AnimatedSwitcher'),
         actions: [
           MaterialButton(
             onPressed: () => setState(

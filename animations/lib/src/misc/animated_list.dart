@@ -68,6 +68,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('AnimatedList'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
