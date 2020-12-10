@@ -45,7 +45,6 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
               Expanded(
                 child: ClipRect(
                   child: Stack(
-                    overflow: Overflow.clip,
                     children: <Widget>[
                       for (final fileName in fileNames)
                         SwipeableCard(
