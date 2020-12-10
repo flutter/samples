@@ -10,6 +10,14 @@ A collection of open source samples that illustrate best practices for
 The easiest way to browse through the samples in this repo (as well as a few others!)
 is the [visual samples index](https://flutter.github.io/samples).
 
+## Tip: download a single example using svn
+
+As this repository is quite big, you can use svn to download a single example. For example:
+
+```
+svn co https://github.com/flutter/samples/trunk/provider_shopper
+```
+
 ## Interested in contributing?
 
 See the [contributor's guide](CONTRIBUTING.md)!
