@@ -14,7 +14,7 @@ an article explaining Navigator 2.0.
 * `nav_1/on_generate_route.dart` - Shows how to handle arbitrary named routes
   using the `onGenerateRoute` callback defined in the `MaterialApp` constructor.
 
-** Navigator 2.0 samples**
+**Navigator 2.0 samples**
 
 * `nav_2/pages.dart` - Shows how to define a list of [Page] objects on Navigator
   declaratively.
@@ -23,7 +23,7 @@ an article explaining Navigator 2.0.
   of pages for the Navigator.
 
 
-** Advanced **
+**Advanced**
 
 * `nav_2_advanced/nested_router.dart` - Shows two [RouterDelegate], one nested
   within the other. A [BottomNavigationBar] can be used to select the route of
