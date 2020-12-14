@@ -12,19 +12,26 @@ Widget createHeroAnimationDemoScreen() => MaterialApp(
 
 void main() {
   group('Hero Animation Tests', () {
-    testWidgets('Heigth of Container changes on Tap', (tester) async {
+    testWidgets('Size of Container changes on Tap', (tester) async {
       await tester.pumpWidget(createHeroAnimationDemoScreen());
 
       // Get the initial Container.
       final initialContainer =
           tester.firstWidget(find.byType(Container)) as Container;
 
-      // Get height of Container.
+      // Get initial height of Container.
       // In this case minHeight is equal to maxHeight.
-
       var initialHeight =
           initialContainer.constraints.heightConstraints().maxHeight;
 
+      // Get initial width of Container.
+      // In this case minWidth is equal to maxWidth.
+      var initialWidth =
+          initialContainer.constraints.widthConstraints().maxWidth;
+
+      // Calculate initial area of Container
+      var initialArea = initialHeight * initialWidth;
+
       // Tap on the GestureDetector.
       await tester.tap(find.byType(GestureDetector));
       await tester.pumpAndSettle();
@@ -35,44 +42,19 @@ void main() {
 
       // Get height of Container.
       // In this case minHeight is equal to maxHeight.
-
       var finalHeight =
           finalContainer.constraints.heightConstraints().maxHeight;
-
-      expect(
-        initialHeight,
-        lessThan(finalHeight),
-      );
-    });
-
-    testWidgets('Width of Container changes on Tap', (tester) async {
-      await tester.pumpWidget(createHeroAnimationDemoScreen());
-
-      // Get the initial Container.
-      final initialContainer =
-          tester.firstWidget(find.byType(Container)) as Container;
-
-      // Get width of Container.
-      // In this case minWidth is equal to maxWidth.
-
-      var initialWidth =
-          initialContainer.constraints.widthConstraints().maxWidth;
-
-      // Tap on the GestureDetector.
-      await tester.tap(find.byType(GestureDetector));
-      await tester.pumpAndSettle();
-
-      // Get the final Container.
-      final finalContainer =
-          tester.firstWidget(find.byType(Container)) as Container;
 
       // Get width of Container.
       // In this case minWidth is equal to maxWidth.
       var finalWidth = finalContainer.constraints.widthConstraints().maxWidth;
 
+      // Calculate final area of Container
+      var finalArea = finalHeight * finalWidth;
+
       expect(
-        initialWidth,
-        lessThan(finalWidth),
+        initialArea,
+        lessThan(finalArea),
       );
     });
 
