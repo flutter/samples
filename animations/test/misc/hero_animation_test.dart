@@ -16,45 +16,25 @@ void main() {
       await tester.pumpWidget(createHeroAnimationDemoScreen());
 
       // Get the initial Container.
-      final initialContainer =
-          tester.firstWidget(find.byType(Container)) as Container;
+      var initialContainer = tester.firstWidget(find.byType(Container));
 
-      // Get initial height of Container.
-      // In this case minHeight is equal to maxHeight.
-      var initialHeight =
-          initialContainer.constraints.heightConstraints().maxHeight;
+      // Get the size of initial Container.
+      var initialSize = tester.getSize(find.byWidget(initialContainer));
 
-      // Get initial width of Container.
-      // In this case minWidth is equal to maxWidth.
-      var initialWidth =
-          initialContainer.constraints.widthConstraints().maxWidth;
-
-      // Calculate initial area of Container
-      var initialArea = initialHeight * initialWidth;
-
-      // Tap on the GestureDetector.
+      // Tap on the Gesture Detector.
       await tester.tap(find.byType(GestureDetector));
       await tester.pumpAndSettle();
 
       // Get the final Container.
-      final finalContainer =
-          tester.firstWidget(find.byType(Container)) as Container;
+      var finalContainer = tester.firstWidget(find.byType(Container));
 
-      // Get height of Container.
-      // In this case minHeight is equal to maxHeight.
-      var finalHeight =
-          finalContainer.constraints.heightConstraints().maxHeight;
+      // Get the size of final Container.
+      var finalSize = tester.getSize(find.byWidget(finalContainer));
 
-      // Get width of Container.
-      // In this case minWidth is equal to maxWidth.
-      var finalWidth = finalContainer.constraints.widthConstraints().maxWidth;
-
-      // Calculate final area of Container
-      var finalArea = finalHeight * finalWidth;
-
+      // initialSize should be less than finalSize.
       expect(
-        initialArea,
-        lessThan(finalArea),
+        initialSize,
+        lessThan(finalSize),
       );
     });
 
@@ -79,10 +59,12 @@ void main() {
       final finalContainer =
           tester.firstWidget(find.byType(Container)) as Container;
 
-      // Final Color should be Colors.white.
+      // Final color should not be same as initial color.
       expect(
         (finalContainer.decoration as BoxDecoration).color,
-        Colors.white,
+        isNot(
+          equals((initialContainer.decoration as BoxDecoration).color),
+        ),
       );
     });
 
