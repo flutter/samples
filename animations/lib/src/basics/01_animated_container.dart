@@ -48,7 +48,9 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
     // the properties of a container. For example, you could use this to design expanding
     // and shrinking cards.
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('AnimatedContainer'),
+      ),
       body: Center(
         child: Column(
           children: [

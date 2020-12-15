@@ -37,7 +37,9 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('AnimatedBuilder'),
+      ),
       body: Center(
         // AnimatedBuilder handles listening to a given animation and calling the builder
         // whenever the value of the animation change. This can be useful when a Widget
