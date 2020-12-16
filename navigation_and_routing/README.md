@@ -33,7 +33,7 @@ an article explaining Navigator 2.0.
   RouterDelegate, and additional routes can be pushed onto the inner
   RouterDelegate / Navigator.
 * [nav_2_advanced/transition_delegate.dart](lib/nav_2_advanced/transition_delegate.dart)
-  - Shows how a custom TransitionDelegate can be used to customized when
+  Shows how a custom TransitionDelegate can be used to customized when
   transition animations are shown.
 
 
