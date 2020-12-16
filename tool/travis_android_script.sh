@@ -4,13 +4,13 @@ set -e
 
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
-"${LOCAL_SDK_PATH}/bin/flutter" build aar
+flutter packages get
+flutter build aar
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
+flutter packages get
 popd
 
 declare -ar ANDROID_PROJECT_NAMES=(
@@ -58,8 +58,8 @@ popd
 echo "== Run e2e test for testing_app =="
 pushd "testing_app"
 readonly APP_DIR=$(pwd)
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
-"${LOCAL_SDK_PATH}/bin/flutter" build apk
+flutter packages get
+flutter build apk
 pushd "android"
 ./gradlew app:assembleAndroidTest
 ./gradlew app:assembleRelease -Ptarget=${APP_DIR}/test/perf_test_e2e.dart
