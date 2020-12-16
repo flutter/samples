@@ -45,3 +45,16 @@ jobs:
         with:
           channel: stable
       - run: ./tool/travis_android_script.sh
+  ios-build:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+      - run: ./tool/travis_ios_script.sh
