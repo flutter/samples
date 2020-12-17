@@ -1,5 +1,9 @@
 name: example
 description: Charts-Flutter Demo
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
