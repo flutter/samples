@@ -2,38 +2,15 @@
 
 set -e
 
-# Backs up one directory at a time, looking for one called "flutter". Once it
-# finds that directory, an absolute path to it is returned.
-function getFlutterPath() {
-    local path=""
-    local counter=0
-
-    while [[ "${counter}" -lt 10 ]]; do
-        [ -d "${path}flutter" ] && echo "$(pwd)/${path}flutter" && return 0
-        let counter++
-        path="${path}../"
-    done
-}
-
-readonly LOCAL_SDK_PATH=$(getFlutterPath)
-
-if [ -z "${LOCAL_SDK_PATH}" ]
-then
-    echo "Failed to find the Flutter SDK!"
-    exit 1
-fi
-
-echo "Flutter SDK found at ${LOCAL_SDK_PATH}"
-
 echo "Fetching dependencies and building 'flutter_module'."
 pushd add_to_app/flutter_module
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
-"${LOCAL_SDK_PATH}/bin/flutter" build aar
+flutter packages get
+flutter build aar
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
 pushd add_to_app/flutter_module_using_plugin
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
+flutter packages get
 popd
 
 declare -ar ANDROID_PROJECT_NAMES=(
@@ -59,6 +36,7 @@ done
 if [ ! -f "svc-keyfile.json" ]
 then
     echo "Keyfile for Firebase Test Lab not found. Skipping integration tests."
+    echo "-- Success --"
     exit 0
 fi
 
@@ -80,8 +58,8 @@ popd
 echo "== Run e2e test for testing_app =="
 pushd "testing_app"
 readonly APP_DIR=$(pwd)
-"${LOCAL_SDK_PATH}/bin/flutter" packages get
-"${LOCAL_SDK_PATH}/bin/flutter" build apk
+flutter packages get
+flutter build apk
 pushd "android"
 ./gradlew app:assembleAndroidTest
 ./gradlew app:assembleRelease -Ptarget=${APP_DIR}/test/perf_test_e2e.dart

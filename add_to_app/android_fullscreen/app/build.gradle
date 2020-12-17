@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    ndkVersion "21.3.6528147"
     compileSdkVersion 28
     defaultConfig {
         applicationId "dev.flutter.example.androidfullscreen"
