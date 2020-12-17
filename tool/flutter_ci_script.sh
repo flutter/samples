@@ -37,6 +37,7 @@ do
     # Reformat the web plugin registrant, if necessary.
     if [ -f "lib/generated_plugin_registrant.dart" ]
     then
+        echo "Renaming $(pwd)/lib/generated_plugin_registrant.dart"
         flutter format "lib/generated_plugin_registrant.dart"
     fi
 
