@@ -17,9 +17,9 @@ jobs:
       matrix:
         include:
           - flutter_version: dev
-            allow_failure: true
+            allow_failure: false
           - flutter_version: beta
-            allow_failure: true
+            allow_failure: false
           - flutter_version: stable
             allow_failure: false
     steps:
