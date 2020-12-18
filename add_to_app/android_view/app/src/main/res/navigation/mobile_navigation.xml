@@ -3,23 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_feed">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="dev.flutter.example.androidView.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_feed"
+        android:name="dev.flutter.example.androidView.ui.feed.FeedFragment"
+        android:label="@string/title_feed"
+        tools:layout="@layout/fragment_feed" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="dev.flutter.example.androidView.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_docs"
+        android:name="dev.flutter.example.androidView.ui.docs.DocsFragment"
+        android:label="@string/title_docs"
+        tools:layout="@layout/fragment_docs" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="dev.flutter.example.androidView.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
