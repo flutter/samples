@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
-import 'package:veggieseasons/data/veggie.dart';
+import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -19,6 +19,7 @@ class FavoritesScreen extends StatelessWidget {
     return CupertinoTabView(
       restorationScopeId: restorationId,
       builder: (context) {
+        final prefs = Provider.of<Preferences>(context);
         final model = Provider.of<AppState>(context);
 
         return CupertinoPageScaffold(
@@ -26,25 +27,30 @@ class FavoritesScreen extends StatelessWidget {
             middle: Text('My Garden'),
           ),
           child: Center(
-            child: model.favoriteVeggies.isEmpty
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Text(
-                      'You haven\'t added any favorite veggies to your garden yet.',
-                      style: CupertinoTheme.of(context).textTheme.textStyle,
-                    ),
-                  )
-                : ListView(
-                    restorationId: 'list',
-                    children: [
-                      SizedBox(height: 24),
-                      for (Veggie veggie in model.favoriteVeggies)
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(16, 0, 16, 24),
-                          child: VeggieHeadline(veggie),
+            child: FutureBuilder<Set<int>>(
+              future: prefs.favoriteVeggies,
+              builder: (context, snapshot) {
+                return snapshot.data == null || snapshot.data.isEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Text(
+                          'You haven\'t added any favorite veggies to your garden yet.',
+                          style: CupertinoTheme.of(context).textTheme.textStyle,
                         ),
-                    ],
-                  ),
+                      )
+                    : ListView(
+                        restorationId: 'list',
+                        children: [
+                          SizedBox(height: 24),
+                          for (var veggieID in snapshot.data)
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(16, 0, 16, 24),
+                              child: VeggieHeadline(model.getVeggie(veggieID)),
+                            ),
+                        ],
+                      );
+              },
+            ),
           ),
         );
       },

@@ -213,22 +213,26 @@ class InfoView extends StatelessWidget {
           ),
           ServingInfoChart(veggie, prefs),
           SizedBox(height: 24),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CupertinoSwitch(
-                value: veggie.isFavorite,
-                onChanged: (value) {
-                  appState.setFavorite(id, value);
-                  prefs.setFavioriteVeggie(id, value);
-                },
-              ),
-              SizedBox(width: 8),
-              Text(
-                'Save to Garden',
-                style: CupertinoTheme.of(context).textTheme.textStyle,
-              ),
-            ],
+          FutureBuilder<Set<int>>(
+            future: prefs.favoriteVeggies,
+            builder: (context, snapshot) {
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CupertinoSwitch(
+                    value: snapshot.data?.contains(veggie.id) ?? false,
+                    onChanged: (value) {
+                      prefs.setFavioriteVeggie(id, value);
+                    },
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    'Save to Garden',
+                    style: CupertinoTheme.of(context).textTheme.textStyle,
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),

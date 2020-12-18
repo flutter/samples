@@ -18,9 +18,6 @@ class AppState extends ChangeNotifier {
     return _veggies.where((v) => v.seasons.contains(currentSeason)).toList();
   }
 
-  List<Veggie> get favoriteVeggies =>
-      _veggies.where((v) => v.isFavorite).toList();
-
   List<Veggie> get unavailableVeggies {
     var currentSeason = _getSeasonForDate(DateTime.now());
     return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
@@ -31,20 +28,6 @@ class AppState extends ChangeNotifier {
   List<Veggie> searchVeggies(String terms) => _veggies
       .where((v) => v.name.toLowerCase().contains(terms.toLowerCase()))
       .toList();
-
-  void setFavorite(int id, bool isFavorite) {
-    var veggie = getVeggie(id);
-    veggie.isFavorite = isFavorite;
-    notifyListeners();
-  }
-
-  void setFavorites(Future<Set<int>> favorites) {
-    favorites.then((list) => {
-          list.forEach((favorite) {
-            getVeggie(favorite).isFavorite = true;
-          })
-        });
-  }
 
   /// Used in tests to set the season independent of the current date.
   static Season debugCurrentSeason;

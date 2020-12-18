@@ -30,16 +30,8 @@ class VeggieApp extends StatefulWidget {
   State<StatefulWidget> createState() => _VeggieAppState();
 }
 
-class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
-  final _RestorableAppState _appState = _RestorableAppState();
-
-  @override
-  String get restorationId => 'wrapper';
-
-  @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    registerForRestoration(_appState, 'state');
-  }
+class _VeggieAppState extends State<VeggieApp> {
+  final _appState = AppState();
 
   @override
   void dispose() {
@@ -52,7 +44,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: _appState.value,
+          value: _appState,
         ),
         ChangeNotifierProvider(
           create: (_) => Preferences()..load(),
@@ -65,30 +57,5 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         restorationScopeId: 'app',
       ),
     );
-  }
-}
-
-class _RestorableAppState extends RestorableListenable<AppState> {
-  final preferences = Preferences()..load();
-
-  @override
-  AppState createDefaultValue() {
-    return AppState()..setFavorites(preferences.favoriteVeggies);
-  }
-
-  @override
-  AppState fromPrimitives(Object data) {
-    final appState = AppState();
-    final favorites = (data as List<dynamic>).cast<int>();
-    for (var id in favorites) {
-      appState.setFavorite(id, true);
-      preferences.setFavioriteVeggie(id, true);
-    }
-    return appState;
-  }
-
-  @override
-  Object toPrimitives() {
-    return value.favoriteVeggies.map((veggie) => veggie.id).toList();
   }
 }
