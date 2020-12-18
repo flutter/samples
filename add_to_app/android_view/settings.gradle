@@ -1,0 +1,2 @@
+rootProject.name = "Flutter View Integration"
+include ':app'
