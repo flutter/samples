@@ -46,16 +46,43 @@ class _CellState extends State<Cell> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: randomLightColor(),
-      child: Center(
-        child: Column(
-          children: [
-            Text(
-              cellNumber.toString(),
-              style: TextStyle(fontSize: 21),
-            ),
-          ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Container(
+        color: Colors.white,
+        child: Builder(
+          builder: (BuildContext context) {
+            return Card(
+              margin: EdgeInsets.symmetric(horizontal: 36, vertical: 24),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              elevation: 16,
+              color: randomLightColor(),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          cellNumber.toString(),
+                          style: Theme.of(context).textTheme.headline3,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 50,
+                    top: 0,
+                    bottom: 0,
+                    child: Opacity(
+                      opacity: 0.2,
+                      child: FlutterLogo(size: 64),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

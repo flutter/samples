@@ -3,18 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ViewStub
-        android:id="@+id/flutterViewStub"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    android:layout_height="160dp">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/androidCard"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="36dp"
-        android:layout_marginVertical="18dp"
+        android:layout_marginVertical="24dp"
         app:cardBackgroundColor="#F1F1F1"
         app:cardCornerRadius="16dp"
         app:cardElevation="16dp">

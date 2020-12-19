@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 
+import 'cell.dart';
+
 /// The entrypoint for the flutter module.
 void main() {
   // This call ensures the Flutter binding has been set up before creating the
@@ -21,6 +23,14 @@ void main() {
       child: MyApp(),
     ),
   );
+}
+
+/// This is on alternate entrypoint for this module to display Flutter UI in
+/// a (multi-)view integration scenario.
+// This is unfortunately in this file due to
+// https://github.com/flutter/flutter/issues/72630.
+void showCell() {
+  runApp(Cell());
 }
 
 /// A simple model that uses a [MethodChannel] as the source of truth for the
