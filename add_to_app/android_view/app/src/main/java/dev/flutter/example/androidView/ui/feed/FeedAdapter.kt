@@ -22,7 +22,7 @@ class FeedAdapter(private val context: Context, private val flutterViewEngine: F
     private val random = Random.Default
     private val flutterView = FlutterView(context)
     private val flutterChannel = MethodChannel(flutterViewEngine.engine.dartExecutor, "dev.flutter.example/cell")
-    private val previousFlutterCells = LinkedList<Int>();
+    private val previousFlutterCells = TreeSet<Int>();
 
     private var flutterCell: Cell? = null
 
@@ -33,6 +33,8 @@ class FeedAdapter(private val context: Context, private val flutterViewEngine: F
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): Cell {
         val binding = AndroidCardBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
 
+        // Let the default view holder have an Android card. When needed, hide the Android card
+        // and show a Flutter one instead.
         return Cell(binding)
     }
 
@@ -43,20 +45,28 @@ class FeedAdapter(private val context: Context, private val flutterViewEngine: F
         // While scrolling backward, let it be deterministic, and only show cells that were
         // previously Flutter cells as Flutter cells.
         if (previousFlutterCells.contains(position)
-            || ((previousFlutterCells.isEmpty() || position > previousFlutterCells.last)
-            && flutterCell == null
-            && random.nextInt(3) == 0)) {
+            || ((previousFlutterCells.isEmpty() || position > previousFlutterCells.last())
+                && flutterCell == null
+                && random.nextInt(3) == 0)) {
             // If we're restoring a cell at a previous location, the current cell may not have
             // recycled yet. Yank it from the current one.
             if (flutterCell != null) {
+                Log.w("FeedAdapter", "While restoring a previous Flutter cell, a current "
+                        + "yet to be recycled Flutter cell was detached.")
                 flutterCell!!.binding.root.removeView(flutterView)
                 flutterViewEngine.detachFlutterView()
                 flutterCell = null
             }
+
+            // Add the Flutter card and hide the Android card
             cell.binding.root.addView(flutterView, matchParentLayout)
             cell.binding.androidCard.visibility = View.GONE
+
             flutterCell = cell
+            // Keep track that this position has once been a Flutter cell. Let it be a Flutter cell
+            // again when scrolling back to this position.
             previousFlutterCells.add(position)
+
             flutterViewEngine.attachFlutterView(flutterView)
             flutterChannel.invokeMethod("setCellNumber", position)
         } else {
