@@ -1,23 +1,22 @@
 package dev.flutter.example.androidView
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import dev.flutter.example.androidView.databinding.ActivityMainBinding
-import dev.flutter.example.androidView.ui.feed.FlutterViewEngine
 import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.dart.DartExecutor
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var flutterViewEngine: FlutterViewEngine
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,32 +24,59 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        // TODO: create a multi-engine version after
+        // https://github.com/flutter/flutter/issues/72009 is built.
+        val engine = FlutterEngine(applicationContext)
+        engine.dartExecutor.executeDartEntrypoint(
+            DartExecutor.DartEntrypoint(
+            FlutterInjector.instance().flutterLoader().findAppBundlePath(),
+            "showCell"))
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        val navController = navHostFragment.navController
-        val tabIds = setOf(R.id.navigation_feed, R.id.navigation_docs)
+        flutterViewEngine = FlutterViewEngine(engine)
+        flutterViewEngine.attachToActivity(this)
 
-        val appBarConfiguration = AppBarConfiguration(tabIds)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val layoutManager = LinearLayoutManager(this)
+        val recyclerView = binding.recyclerView
+        val adapter = ListAdapter(this, flutterViewEngine)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
 
-        navView.setOnNavigationItemSelectedListener { menuItem ->
-            if (menuItem.itemId == navController.currentBackStackEntry?.destination?.id)
-                return@setOnNavigationItemSelectedListener false
-            if (tabIds.contains(menuItem.itemId)) {
-                navController.navigate(menuItem.itemId, null, NavOptions.Builder()
-                    .setLaunchSingleTop(true)
-                    .setPopUpTo(navController.currentDestination!!.id, true)
-                    .build())
-                return@setOnNavigationItemSelectedListener true
-            }
-            false
+        layoutManager.onRestoreInstanceState(savedInstanceState?.getParcelable<Parcelable>("layoutManager"))
+        val previousFlutterCellsArray = savedInstanceState?.getIntegerArrayList("adapter")
+        if (previousFlutterCellsArray != null) {
+            adapter.previousFlutterCells = TreeSet(previousFlutterCellsArray)
         }
+    }
 
-        navController.addOnDestinationChangedListener { controller, destination, _ ->
-            if (tabIds.indexOf(destination.id) != -1) {
-                controller.graph.startDestination = destination.id
-            }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putParcelable("layoutManager", binding.recyclerView.layoutManager?.onSaveInstanceState())
+        val previousFlutterCells = (binding.recyclerView.adapter as? ListAdapter)?.previousFlutterCells
+        if (previousFlutterCells != null) {
+            outState.putIntegerArrayList(
+                "adapter",
+                ArrayList(previousFlutterCells)
+            )
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        flutterViewEngine.detachActivity()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        flutterViewEngine.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        flutterViewEngine.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

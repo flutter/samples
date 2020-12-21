@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package dev.flutter.example.androidView.ui.feed
+package dev.flutter.example.androidView
 
 import android.content.Intent
 import android.util.Log

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-package dev.flutter.example.androidView.ui.feed
+package dev.flutter.example.androidView
 
 import android.content.Context
 import android.util.Log
@@ -16,7 +16,7 @@ import io.flutter.plugin.common.MethodChannel
 import java.util.*
 import kotlin.random.Random
 
-class FeedAdapter(private val context: Context, private val flutterViewEngine: FlutterViewEngine) : RecyclerView.Adapter<FeedAdapter.Cell>() {
+class ListAdapter(private val context: Context, private val flutterViewEngine: FlutterViewEngine) : RecyclerView.Adapter<ListAdapter.Cell>() {
     var previousFlutterCells = TreeSet<Int>();
 
     private val matchParentLayout = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
