@@ -6,16 +6,23 @@ package dev.flutter.example.androidView.ui.feed
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import dev.flutter.example.androidView.MainActivity
 
 import dev.flutter.example.androidView.databinding.FragmentFeedBinding
 import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
+import java.util.*
+import kotlin.collections.ArrayList
 
 class FeedFragment : Fragment() {
     // TODO: add toggle for single vs multi-Flutter cells.
@@ -28,11 +35,17 @@ class FeedFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        flutterViewEngine = FlutterViewEngine(FlutterEngine(requireActivity().applicationContext))
-        flutterViewEngine.engine.dartExecutor.executeDartEntrypoint(
-            DartExecutor.DartEntrypoint(
-            FlutterInjector.instance().flutterLoader().findAppBundlePath(),
-            "showCell"))
+        Log.e("fragment", this.toString())
+        // TODO: make togglable after https://github.com/flutter/flutter/issues/72009 is built.
+        var engine = FlutterEngineCache.getInstance().get("feed")
+        if (engine == null) {
+            engine = FlutterEngine((requireActivity().applicationContext))
+            engine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint(
+                FlutterInjector.instance().flutterLoader().findAppBundlePath(),
+                "showCell"))
+        }
+
+        flutterViewEngine = FlutterViewEngine(engine)
         flutterViewEngine.attachToActivity(requireActivity())
     }
 
@@ -43,18 +56,55 @@ class FeedFragment : Fragment() {
     ): View? {
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val layoutManager = LinearLayoutManager(activity)
         val recyclerView = _binding!!.recyclerView
+        val adapter = FeedAdapter(requireActivity(), flutterViewEngine)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = FeedAdapter(requireActivity(), flutterViewEngine)
+        recyclerView.adapter = adapter
 
-        return binding.root
+        layoutManager.onRestoreInstanceState(savedInstanceState?.getParcelable<Parcelable>("layoutManager"))
+        val previousFlutterCellsArray = savedInstanceState?.getIntegerArrayList("adapter")
+        if (previousFlutterCellsArray != null) {
+            adapter.previousFlutterCells = TreeSet(previousFlutterCellsArray)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        flutterViewEngine.detachActivity()
+        Log.e("fragment", "onDestroyView")
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        flutterViewEngine.detachActivity()
+        Log.e("fragment", "onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.e("fragment", "onDetach")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        Log.e("fragment", "onSaveInstanceState")
+
+        outState.putParcelable("layoutManager", _binding?.recyclerView?.layoutManager?.onSaveInstanceState())
+        val previousFlutterCells = (_binding?.recyclerView?.adapter as? FeedAdapter)?.previousFlutterCells
+        if (previousFlutterCells != null) {
+            outState.putIntegerArrayList(
+                "adapter",
+                ArrayList(previousFlutterCells)
+            )
+        }
     }
 
     override fun onRequestPermissionsResult(

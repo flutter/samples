@@ -17,12 +17,13 @@ import java.util.*
 import kotlin.random.Random
 
 class FeedAdapter(private val context: Context, private val flutterViewEngine: FlutterViewEngine) : RecyclerView.Adapter<FeedAdapter.Cell>() {
+    var previousFlutterCells = TreeSet<Int>();
+
     private val matchParentLayout = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
     private val random = Random.Default
     private val flutterView = FlutterView(context)
     private val flutterChannel = MethodChannel(flutterViewEngine.engine.dartExecutor, "dev.flutter.example/cell")
-    private val previousFlutterCells = TreeSet<Int>();
 
     private var flutterCell: Cell? = null
 
@@ -69,6 +70,7 @@ class FeedAdapter(private val context: Context, private val flutterViewEngine: F
 
             flutterViewEngine.attachFlutterView(flutterView)
             flutterChannel.invokeMethod("setCellNumber", position)
+            Log.e("adapter", previousFlutterCells.toString())
         } else {
             cell.binding.androidCard.visibility = View.VISIBLE
             cell.binding.cellNumber.text = position.toString();

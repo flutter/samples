@@ -5,6 +5,7 @@
 package dev.flutter.example.androidView.ui.feed
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -40,6 +41,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
     private var platformPlugin: PlatformPlugin? = null
 
     private fun hookActivityAndView() {
+        Log.e("engine", "hook activity and view")
         activity!!.let { activity ->
             flutterView!!.let { flutterView ->
                 platformPlugin = PlatformPlugin(activity, engine.platformChannel)
@@ -52,6 +54,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
     }
 
     private fun unhookActivityAndView() {
+        Log.e("engine", "unhook activity and view")
         activity!!.lifecycle.removeObserver(this)
         engine.activityControlSurface.detachFromActivity()
         platformPlugin!!.destroy()
@@ -88,6 +91,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun resumeActivity() {
+        Log.e("engine", "resume")
         if (activity != null) {
             engine.lifecycleChannel.appIsResumed()
         }
@@ -97,6 +101,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun pauseActivity() {
+        Log.e("engine", "pause")
         if (activity != null) {
             engine.lifecycleChannel.appIsInactive()
         }
@@ -104,6 +109,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     private fun stopActivity() {
+        Log.e("engine", "stop")
         if (activity != null) {
             engine.lifecycleChannel.appIsPaused()
         }

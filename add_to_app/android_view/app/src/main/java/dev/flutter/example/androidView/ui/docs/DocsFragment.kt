@@ -4,32 +4,33 @@
 
 package dev.flutter.example.androidView.ui.docs
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dev.flutter.example.androidView.databinding.FragmentDocsBinding
+import io.flutter.FlutterInjector
+import io.flutter.embedding.android.FlutterFragment
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
 
-class DocsFragment : Fragment() {
-    private var _binding: FragmentDocsBinding? = null
+class DocsFragment : FlutterFragment() {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentDocsBinding.inflate(inflater, container, false)
-
-        return binding.root
+    override fun onAttach(context: Context) {
+        arguments = Bundle()
+        super.onAttach(context)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun provideFlutterEngine(context: Context): FlutterEngine? {
+        var engine = FlutterEngineCache.getInstance().get("docs")
+        if (engine == null) {
+            engine = FlutterEngine((requireActivity().applicationContext))
+            engine.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
+        }
+        return engine
     }
+
 }
