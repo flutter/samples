@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sensors/sensors.dart';
 
 // This is on alternate entrypoint for this module to display Flutter UI in
 // a (multi-)view integration scenario.
@@ -18,9 +19,13 @@ class Cell extends StatefulWidget {
   State<StatefulWidget> createState() => new _CellState();
 }
 
-class _CellState extends State<Cell> {
+class _CellState extends State<Cell> with WidgetsBindingObserver {
+  static const double gravity = 9.81;
+  static final AccelerometerEvent defaultPosition = AccelerometerEvent(0, 0, 0);
+
   int cellNumber = 0;
   Random randomColor;
+  AppLifecycleState appLifecycleState;
 
   @override
   void initState() {
@@ -33,9 +38,23 @@ class _CellState extends State<Cell> {
         });
       }
     });
+    // Keep track of what the current platform lifecycle state is.
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    setState(() { appLifecycleState = state; });
+  }
+
+  // Show a random bright color.
   Color randomLightColor() {
     if (randomColor == null) {
       randomColor = Random(cellNumber);
@@ -47,12 +66,15 @@ class _CellState extends State<Cell> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // The Flutter cells will be noticeably different (due to background color
+      // and the Flutter logo). The banner breaks immersion.
       debugShowCheckedModeBanner: false,
       home: Container(
         color: Colors.white,
         child: Builder(
           builder: (BuildContext context) {
             return Card(
+              // Mimic the platform Material look.
               margin: EdgeInsets.symmetric(horizontal: 36, vertical: 24),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
               elevation: 16,
@@ -64,6 +86,8 @@ class _CellState extends State<Cell> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
+                          // Show a number provided by the platform based on
+                          // the cell's index.
                           cellNumber.toString(),
                           style: Theme.of(context).textTheme.headline3,
                         ),
@@ -71,12 +95,29 @@ class _CellState extends State<Cell> {
                     ),
                   ),
                   Positioned(
-                    left: 50,
+                    left: 42,
                     top: 0,
                     bottom: 0,
                     child: Opacity(
                       opacity: 0.2,
-                      child: FlutterLogo(size: 64),
+                      child: StreamBuilder(
+                        // Don't continuously rebuild for nothing when the
+                        // cell isn't visible.
+                        stream: appLifecycleState == AppLifecycleState.resumed
+                            ? accelerometerEvents
+                            : Stream.value(defaultPosition),
+                        initialData: defaultPosition,
+                        builder: (BuildContext context, AsyncSnapshot<AccelerometerEvent> snapshot) {
+                          return Transform(
+                            // Figure out the phone's orientation relative
+                            // to gravity's direction. Ignore the z vector.
+                            transform: Matrix4.rotationX(snapshot.data.y / gravity * pi / 2)
+                                ..multiply(Matrix4.rotationY(snapshot.data.x / gravity * pi / 2)),
+                            alignment: Alignment.center,
+                            child: FlutterLogo(size: 72)
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],

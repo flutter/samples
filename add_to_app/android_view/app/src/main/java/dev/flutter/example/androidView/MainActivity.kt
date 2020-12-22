@@ -12,6 +12,9 @@ import io.flutter.embedding.engine.dart.DartExecutor
 import java.util.*
 import kotlin.collections.ArrayList
 
+// There are 3 files in this sample. MainActivity and ListAdapter are just
+// fictional setups. FlutterViewEngine is instructional and demonstrates the
+// various plumbing needed for a functioning FlutterView integration.
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -33,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             "showCell"))
 
         flutterViewEngine = FlutterViewEngine(engine)
+        // The activity and FlutterView have different lifecycles.
+        // Attach the activity right away but only start rendering when the
+        // view is also scrolled into the screen.
         flutterViewEngine.attachToActivity(this)
 
         val layoutManager = LinearLayoutManager(this)
@@ -41,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
+        // If the activity was restarted, keep track of the previous scroll
+        // position and of the previous cell indices that were randomly selected
+        // as Fluttor cells to preserve immersion.
         layoutManager.onRestoreInstanceState(savedInstanceState?.getParcelable<Parcelable>("layoutManager"))
         val previousFlutterCellsArray = savedInstanceState?.getIntegerArrayList("adapter")
         if (previousFlutterCellsArray != null) {
@@ -66,6 +75,8 @@ class MainActivity : AppCompatActivity() {
         flutterViewEngine.detachActivity()
     }
 
+    // These aren't used here but would be needed for Flutter plugins that may
+    // consume these events.
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

@@ -50,7 +50,10 @@ class ListAdapter(private val context: Context, private val flutterViewEngine: F
                 && flutterCell == null
                 && random.nextInt(3) == 0)) {
             // If we're restoring a cell at a previous location, the current cell may not have
-            // recycled yet. Yank it from the current one.
+            // recycled yet since that timing is indeterministic. Yank it from the current one.
+            //
+            // This shouldn't produce any visual glitches since in the forward direction,
+            // Flutter cells were only introduced once the previous Flutter cell recycled.
             if (flutterCell != null) {
                 Log.w("FeedAdapter", "While restoring a previous Flutter cell, a current "
                         + "yet to be recycled Flutter cell was detached.")
@@ -69,9 +72,10 @@ class ListAdapter(private val context: Context, private val flutterViewEngine: F
             previousFlutterCells.add(position)
 
             flutterViewEngine.attachFlutterView(flutterView)
+            // Tell Flutter which index it's at so Flutter could show the cell number too.
             flutterChannel.invokeMethod("setCellNumber", position)
-            Log.e("adapter", previousFlutterCells.toString())
         } else {
+            // If it's not selected as a Flutter cell, just show the Android card.
             cell.binding.androidCard.visibility = View.VISIBLE
             cell.binding.cellNumber.text = position.toString();
         }

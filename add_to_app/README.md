@@ -65,9 +65,11 @@ There are three Flutter modules included in the codebase:
 
 * `flutter_module` displays the dimensions of the screen, a button that
   increments a simple counter, and an optional exit button.
-* `flutter_module_using_plugin` does everything `flutter_module` does and adds
-  another button that will open the Flutter documentation in a browser using the
-  [`url_launcher`](https://pub.dev/packages/url_launcher) Flutter plugin.
+* `flutter_module_using_plugin` contains 2 programs. The main entrypoint does
+  everything `flutter_module` does and adds another button that will open the
+  Flutter documentation in a browser using the [`url_launcher`](https://pub.dev/packages/url_launcher)
+  Flutter plugin. A second `showCell` entrypoint displays a card meant to be
+  shown as a cell in a list.
 * `flutter_module_books` simulates an integration scenario with existing
   platform business logic and middleware. It uses the [`pigeon`](https://pub.dev/packages/pigeon)
   plugin to make integration easier by generating the platform channel
@@ -131,6 +133,23 @@ following differences:
 
 If you're interested in learning what additional steps an app needs to take in
 order to use a Flutter module that relies on plugins, these projects can help.
+
+### `android_view`
+
+Rather than integrating Flutter as a fullscreen page, the `android_view` demo
+integrates a partial screen `FlutterView` into an Android `RecyclerView`.
+
+* Demonstrates the additional application specific plumbing needed to hook a
+  `FlutterView` to both a separate, application owned `FlutterEngine` and to its
+  host activity which has its own lifecycle. This is different than a relatively
+  more self-contained `FlutterActivity`.
+* Show how a single `FlutterView` can be used in multiple places in the Android
+  activity in a performant way.
+* Demonstrates a `FlutterView`-based UI interwoven seamlessly into a native
+  Android UI.
+* The Flutter cells uses the [`sensors`](https://pub.dev/packages/sensors)
+  plugin and displays a Flutter logo rotate based on the phone's current
+  orientation.
 
 ### `android_using_prebuilt_module` and  `ios_using_prebuilt_module`
 

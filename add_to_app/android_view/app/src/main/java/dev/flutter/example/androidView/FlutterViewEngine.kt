@@ -15,10 +15,10 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.platform.PlatformPlugin
 
 /**
- *  This is an application specific class that exists to expose the intersection of an active
- *  activity and a visible view to a FlutterEngine.
+ *  This is an application specific wrapper class that exists to expose the intersection of an
+ *  active activity and a visible view to a FlutterEngine.
  *
- *  <p>Omitted features:
+ *  <p>Omitted features from the FlutterActivity:
  *  <ul>
  *  <li>State restoration. If you're integrating at the view level, you should handle activity
  *      state restoration yourself.
@@ -34,14 +34,20 @@ import io.flutter.plugin.platform.PlatformPlugin
  *      FlutterEngine.getNavigationChannel.popRoute(), or consume it natively. Though that decision
  *      may be difficult due to https://github.com/flutter/flutter/issues/67011.
  *  </ul>
+ *
+ * Your own FlutterView integrating application may need a similar wrapper but
+ * you must decide when the FlutterView is active based on your own application's
+ * intent.
  */
 class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
     private var flutterView: FlutterView? = null
     private var activity: ComponentActivity? = null
     private var platformPlugin: PlatformPlugin? = null
 
+    // This is the intersection of an available activity and of a visible
+    // FlutterView. This is where Flutter would start rendering.
     private fun hookActivityAndView() {
-        Log.e("engine", "hook activity and view")
+        // Assert state.
         activity!!.let { activity ->
             flutterView!!.let { flutterView ->
                 platformPlugin = PlatformPlugin(activity, engine.platformChannel)
@@ -53,13 +59,23 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
         }
     }
 
+    // Lost the intersection of either an available activity or a visible
+    // FlutterView.
     private fun unhookActivityAndView() {
-        Log.e("engine", "unhook activity and view")
+        // Stop reacting to activity events.
         activity!!.lifecycle.removeObserver(this)
+
+        // Plugins are no longer attached to an activity.
         engine.activityControlSurface.detachFromActivity()
+
+        // Release Flutter's control of UI such as system chrome.
         platformPlugin!!.destroy()
         platformPlugin = null
+
+        // Set Flutter's application state to detached.
         engine.lifecycleChannel.appIsDetached();
+
+        // Detach rendering pipeline.
         flutterView!!.detachFromFlutterEngine()
     }
 
@@ -89,9 +105,9 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
         flutterView = null
     }
 
+    // Only react to activity events when both activity and view are connected.
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     private fun resumeActivity() {
-        Log.e("engine", "resume")
         if (activity != null) {
             engine.lifecycleChannel.appIsResumed()
         }
@@ -101,7 +117,6 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     private fun pauseActivity() {
-        Log.e("engine", "pause")
         if (activity != null) {
             engine.lifecycleChannel.appIsInactive()
         }
@@ -109,20 +124,19 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     private fun stopActivity() {
-        Log.e("engine", "stop")
         if (activity != null) {
             engine.lifecycleChannel.appIsPaused()
         }
     }
 
+    // These events aren't used but would be needed for Flutter plugins consuming
+    // these events to function.
     fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (flutterView != null) {
-            // You must decide whether you want Flutter to get this. The request may be triggered
-            // by a plugin.
+        if (activity != null && flutterView != null) {
             engine
                 .activityControlSurface
                 .onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -130,9 +144,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (flutterView != null) {
-            // You must decide whether you want Flutter to get this. The request may be triggered
-            // by a plugin.
+        if (activity != null && flutterView != null) {
             engine.activityControlSurface.onActivityResult(requestCode, resultCode, data);
         }
     }

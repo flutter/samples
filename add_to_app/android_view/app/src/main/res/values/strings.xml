@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Flutter View Integration</string>
-    <string name="title_feed">Feed</string>
-    <string name="title_docs">Docs</string>
 </resources>
