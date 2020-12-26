@@ -106,13 +106,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  e2e:
-    dependency: "direct dev"
-    description:
-      name: e2e
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.0+1"
   fake_async:
     dependency: transitive
     description:
