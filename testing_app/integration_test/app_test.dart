@@ -14,7 +14,7 @@ void main() {
     testWidgets('Finding an item in the list', (tester) async {
       await tester.pumpWidget(TestingApp());
 
-      // Create finder that are used multiple times.
+      // Create variables for finders that are used multiple times.
       final itemFinder = find.byKey(ValueKey('text_25'));
 
       // Scroll until the item to be found appears.
