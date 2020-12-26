@@ -48,9 +48,9 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 - Open `coverage/index/index.html` in your preferred browser.
     
 ### CI/CD
-- Refer [.travis.yml](../.travis.yml) and the [tool](../tool) directory to see how to test Flutter projects using Travis-CI.
+- Refer [.github](../.github) and the [tool](../tool) directory to see how to test Flutter projects using GitHub Actions.
 
-Note that we aren't performing Flutter Driver tests using the Travis tool in this repo. That is because it's recommended to use physical devices to run Driver tests. You can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://codemagic.io/) or any platform of your choice to do that.
+Note that we aren't performing Flutter Integration tests using the GitHub Actions in this repo. That is because it's recommended to use physical devices to run Driver tests. You can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://codemagic.io/) or any platform of your choice to do that.
 
 ## Questions/issues
 
