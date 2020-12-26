@@ -12,7 +12,7 @@ would do.
 Show how to perform:
 
 - Widget Testing,
-- Flutter Driver(Integration) Testing,
+- Integration Testing,
 - Performance Testing, and
 - State Management Testing using the [Provider][] package.
 
@@ -27,20 +27,15 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 ### To run tests on a physical device/emulator:
 - Widget Tests:
   - Run `flutter run test/<file_path>`
-- Flutter Driver Tests:
-  - Run `flutter drive --target=test_driver/<file_path>`
-    - eg. `flutter drive --target=test_driver/app.dart` to run the test in `test_driver/app_test.dart`
+- Integration Tests:
+  - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart`
 - Performance Tests:
-  - Run `flutter drive --target=test_driver/app.dart --driver test_driver/perf_test.dart --profile --trace-startup`
+  - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/perf_test.dart --profile --trace-startup`
     - Using a physical device and running performance tests in profile mode is recommended.
     - The `--trace-startup` option is used to avoid flushing older timeline events when the timeline gets long.
-- [E2E](https://pub.dev/packages/e2e) Tests:
-  - Run `flutter drive --target test/perf_test_e2e.dart --driver test_driver/e2e_test.dart --profile`
-  - Similar to the above but the test is driven on device.
-  - You may also reference [E2E manual](https://github.com/flutter/plugins/tree/master/packages/e2e#firebase-test-lab) for how to run such test on Firebase Test Lab.
 - State Management Tests:
-  - For testing state using Flutter Driver
-    - Run `flutter drive --target=test_driver/<file_path>`
+  - For testing state using Flutter Integration Tests
+    - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/state_mgmt_test.dart`
     
 ### To generate test coverage report:
 - Install the `lcov` tool:
