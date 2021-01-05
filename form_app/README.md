@@ -2,7 +2,7 @@
 
 A sample demonstrating different types of forms and best practices.
 
-## Sign In w/ HTTP
+## Sign In with HTTP
 [*lib/src/sign_in_http.dart*](lib/src/sign_in_http.dart)
 
 A sign in form using `package:http` to send a request.
