@@ -19,7 +19,7 @@ void main() {
       // Get the initial Length of List.
       var initialLength = tester.widgetList(find.byType(ListTile)).length;
 
-      // initial length of List should be equal to 5.
+      // Initial length of List should be equal to 5.
       expect(
         initialLength,
         equals(5),
@@ -40,7 +40,7 @@ void main() {
       // Get the new Length of List.
       var newLength = tester.widgetList(find.byType(ListTile)).length;
 
-      // new Length should be greater than initial Length by one.
+      // New Length should be greater than initial Length by one.
       expect(
         newLength,
         equals(initialLength + 1),
@@ -62,7 +62,7 @@ void main() {
       // Get the new Length of List.
       var newLength = tester.widgetList(find.byType(ListTile)).length;
 
-      // new Length should be less than initial Length by one.
+      // New Length should be less than initial Length by one.
       expect(
         newLength,
         equals(initialLength - 1),
@@ -82,7 +82,7 @@ void main() {
       // Get the final Length of List.
       var finalLength = tester.widgetList(find.byType(ListTile)).length;
 
-      // new Length should be zero
+      // New Length should be zero
       expect(
         finalLength,
         equals(0),
