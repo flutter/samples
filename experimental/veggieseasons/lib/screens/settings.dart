@@ -23,7 +23,8 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 
   static Route<void> _routeBuilder(BuildContext context, Object argument) {
     return CupertinoPageRoute(
-      builder: (context) => VeggieCategorySettingsScreen(restorationId: 'category'),
+      builder: (context) =>
+          VeggieCategorySettingsScreen(restorationId: 'category'),
       title: 'Preferred Categories',
     );
   }
@@ -136,9 +137,10 @@ class CalorieSettingsScreen extends StatelessWidget {
                       label: cals.toString(),
                       icon: SettingsIcon(
                         icon: Styles.checkIcon,
-                        foregroundColor: snapshot.hasData && snapshot.data == cals
-                            ? CupertinoColors.activeBlue
-                            : Styles.transparentColor,
+                        foregroundColor:
+                            snapshot.hasData && snapshot.data == cals
+                                ? CupertinoColors.activeBlue
+                                : Styles.transparentColor,
                         backgroundColor: Styles.transparentColor,
                       ),
                       onPress: snapshot.hasData
@@ -211,6 +213,44 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  SettingsItem _buildRestoreDefaultsItem(
+      BuildContext context, Preferences prefs) {
+    return SettingsItem(
+      label: 'Restore Defaults',
+      icon: SettingsIcon(
+        backgroundColor: Styles.iconRed,
+        icon: Styles.resetIcon,
+      ),
+      content: SettingsNavigationIndicator(),
+      onPress: () {
+        showCupertinoDialog<void>(
+          context: context,
+          builder: (context) => CupertinoAlertDialog(
+            title: Text('Are you sure?'),
+            content: Text(
+              'Are you sure you want to reset the current preferences?',
+            ),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                isDestructiveAction: true,
+                child: Text('Yes'),
+                onPressed: () async {
+                  await prefs.restoreDefaults();
+                  Navigator.pop(context);
+                },
+              ),
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                child: Text('No'),
+                onPressed: () => Navigator.pop(context),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final prefs = Provider.of<Preferences>(context);
@@ -219,7 +259,8 @@ class SettingsScreen extends StatelessWidget {
       restorationId: restorationId,
       child: CupertinoPageScaffold(
         child: Container(
-          color: Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
+          color:
+              Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
           child: CustomScrollView(
             restorationId: 'list',
             slivers: <Widget>[
@@ -235,6 +276,7 @@ class SettingsScreen extends StatelessWidget {
                         items: [
                           _buildCaloriesItem(context, prefs),
                           _buildCategoriesItem(context, prefs),
+                          _buildRestoreDefaultsItem(context, prefs),
                         ],
                       ),
                     ],

@@ -216,8 +216,16 @@ abstract class Styles {
 
   static const Color iconGold = Color(0xffdba800);
 
+  static const Color iconRed = Color(0xffFF0000);
+
   static const preferenceIcon = IconData(
     0xf443,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const resetIcon = IconData(
+    0xf4c4,
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
   );
