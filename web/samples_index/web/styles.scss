@@ -41,10 +41,37 @@ $font: Roboto, sans-serif;
 $title-font: Google Sans Display, Roboto, sans-serif;
 $subtitle-font: Google Sans, Roboto, sans-serif;
 
+// Carousel Animation Configs
+$time: 500ms;
+$delay: $time/2;
+$mode: cubic-bezier(0.17, 0.67, 0.55, 1.43);
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 // CSS Reset
 html, body {
   height: 100%;
   margin: 0;
+  @media screen and (max-width: $mobile-width) {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -101,7 +128,8 @@ a {
 // Custom Styles
 .content {
   min-height: 100%;
-  >.container {
+
+  > .container {
     padding-bottom: $footer-height;
   }
 }
@@ -116,8 +144,6 @@ a {
   color: white;
   padding: 16px 125px 16px 125px;
   margin-bottom: 48px;
-
-
   @media screen and (max-width: $mobile-width) {
     padding: 8px 16px 8px 16px;
     margin-bottom: 16px;
@@ -133,6 +159,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     > * {
       margin: 0 8px 3px 8px; // adjusted vertically to align flutter logo text with "Samples" text
     }
@@ -195,7 +222,6 @@ a {
   justify-content: space-between;
   align-items: start;
   margin-bottom: 12px;
-
   @media screen and (max-width: $mobile-width) {
     flex-direction: column;
   }
@@ -205,32 +231,6 @@ a {
       margin-right: 12px;
       margin-bottom: 8px;
     }
-  }
-}
-
-.screenshots {
-  display: flex;
-  flex-direction: row;
-  height: 360px;
-  overflow-x: scroll;
-  margin: 48px 0 48px 0;
-
-  @media screen and (max-width: $mobile-width) {
-    height: 240px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    img {
-      flex: 0 0 auto;
-    }
-  }
-
-  img {
-    border-radius: 8px;
-    margin: 0 8px 0 8px;
-    max-width:100%;
-    max-height:100%;
   }
 }
 
@@ -354,6 +354,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
+
   h1 {
     margin-right: 8px;
   }
@@ -361,6 +362,7 @@ a {
 
 .tags-container {
   max-width: 400px;
+
   .tags-label {
     color: $dark-text-color;
     display: flex;
@@ -370,7 +372,8 @@ a {
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 6px;
-    >span{
+
+    > span {
       margin-left: 4px;
     }
   }
@@ -394,5 +397,163 @@ a {
         color: lighten($flutter-grey-900-color, 25%);
       }
     }
+  }
+}
+
+// Carousel Container
+.slider-container {
+  position: relative;
+  margin: -80px auto -60px auto;
+  width: 800px;
+  height: 600px;
+  max-width: 95%;
+  @media screen and (max-width: $mobile-width) {
+    margin: -80px 4px -60px 4px;
+  }
+
+  .bullet-container {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bullet {
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      height: 8px;
+      width: 18px;
+      border-radius: 8px;
+      background-color: black;
+      opacity: 0.2;
+      cursor: pointer;
+      transition: 40ms ease;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .slider-content {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    @media screen and (max-width: $mobile-width) {
+      width: 100%
+    }
+
+    .slider-single {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transition: z-index 0ms $delay;
+
+      .slider-single-image {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: $time $mode;
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      &.prev-hidden {
+        .slider-single-image {
+          transform: translateX(-50%) scale(0);
+        }
+
+        @media screen and (max-width: $mobile-width) {
+          display: none;
+        }
+      }
+
+      &.prev {
+        z-index: 1;
+
+        .slider-single-image {
+          opacity: 0.2;
+          transform: translateX(-25%) scale(0.8);
+        }
+      }
+
+      &.next {
+        z-index: 1;
+
+        .slider-single-image {
+          opacity: 0.2;
+          transform: translateX(25%) scale(0.8);
+        }
+      }
+
+      &.next-hidden {
+        .slider-single-image {
+          transform: translateX(50%) scale(0);
+        }
+
+        @media screen and (max-width: $mobile-width) {
+          display: none;
+        }
+      }
+
+      &.active {
+        z-index: 2;
+
+        .slider-single-image {
+          opacity: 1;
+          transform: translateX(0%) scale(1);
+        }
+      }
+    }
+  }
+
+  .slider-left {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    right: 100%;
+    top: 50%;
+    color: black;
+    transform: translateY(-50%);
+    padding: 20px 20px;
+    margin-right: -2px;
+    cursor: pointer;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  .slider-right {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    left: 100%;
+    top: 50%;
+    color: black;
+    transform: translateY(-50%);
+    padding: 20px 20px;
+    margin-left: -2px;
+    cursor: pointer;
+    @media screen and (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  .hidden {
+    display: none !important;
   }
 }

@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _iceCreamStores = Firestore.instance
+    _iceCreamStores = FirebaseFirestore.instance
         .collection('ice_cream_stores')
         .orderBy('name')
         .snapshots();
@@ -75,13 +75,13 @@ class _HomePageState extends State<HomePage> {
           return Stack(
             children: [
               StoreMap(
-                documents: snapshot.data.documents,
+                documents: snapshot.data.docs,
                 initialPosition: initialPosition,
                 mapController: _mapController,
               ),
               StoreCarousel(
                 mapController: _mapController,
-                documents: snapshot.data.documents,
+                documents: snapshot.data.docs,
               ),
             ],
           );

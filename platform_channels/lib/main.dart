@@ -25,6 +25,11 @@ class PlatformChannelSample extends StatelessWidget {
         '/addPetDetails': (context) => AddPetDetails(),
       },
       title: 'Platform Channel Sample',
+      theme: ThemeData(
+        snackBarTheme: SnackBarThemeData(
+          backgroundColor: Colors.blue[500],
+        ),
+      ),
       home: HomePage(),
     );
   }
