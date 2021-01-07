@@ -1,0 +1,48 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+# Use a package of configuration called an orb.
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+# Orchestrate or schedule a set of jobs
+
+jobs:
+  sync_pods:
+    macos:
+      xcode: "12.2.0"
+    environment:
+      LC_ALL: "en_US.UTF-8"
+      LANG: "en_US.UTF-8"
+      BUNDLE_PATH: vendor/bundle
+      SENTRY_ORG: betterment
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - checkout
+      - run:
+        name: Setup flutter environment
+        command: |
+          echo 'export FLUTTER_HOME=$HOME/sdks/flutter' >> $BASH_ENV
+          echo 'export FLUTTER_ROOT=$FLUTTER_HOME' >> $BASH_ENV
+          echo 'export FLUTTER_VERSION=1.22.5' >> $BASH_ENV
+          echo 'export FLUTTER_CHANNEL=stable' >> $BASH_ENV
+          echo 'export PATH=$FLUTTER_HOME/bin:$FLUTTER_HOME/bin/cache/dart-sdk/bin:$PATH' >> $BASH_ENV
+      - run:
+        name: Download Flutter
+        command: |
+          mkdir -p $HOME/sdks
+          curl --retry 3 -L -o /tmp/flutter.zip https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/macos/flutter_macos_${FLUTTER_VERSION}-${FLUTTER_CHANNEL}.zip
+          unzip -q /tmp/flutter.zip -d $HOME/sdks
+          flutter config --enable-macos-desktop
+          flutter doctor
+          flutter precache --force --ios --android --macos
+      - run:
+          name: Run sync podfiles
+          command: |
+            ./scripts/sync_pods.sh --deployment --allow-root
+
+workflows:
+  build:
+    jobs:
+      - sync_pods
+
+
