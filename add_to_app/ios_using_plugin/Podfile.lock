@@ -4,7 +4,13 @@ PODS:
     - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+    - hello
+    - shared_preferences
     - url_launcher
+  - hello (0.0.1):
+    - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
   - url_launcher (0.0.1):
     - Flutter
 
@@ -12,6 +18,8 @@ DEPENDENCIES:
   - Flutter (from `../flutter_module_using_plugin/.ios/Flutter/engine`)
   - flutter_module_using_plugin (from `../flutter_module_using_plugin/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant`)
+  - hello (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/hello/ios`)
+  - shared_preferences (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/shared_preferences/ios`)
   - url_launcher (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios`)
 
 EXTERNAL SOURCES:
@@ -21,15 +29,21 @@ EXTERNAL SOURCES:
     :path: "../flutter_module_using_plugin/.ios/Flutter"
   FlutterPluginRegistrant:
     :path: "../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant"
+  hello:
+    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/hello/ios"
+  shared_preferences:
+    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/shared_preferences/ios"
   url_launcher:
     :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios"
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_module_using_plugin: 3c6ddd2296edc03cbe09c33f12a2c522ccc36e5b
-  FlutterPluginRegistrant: d0de10c7c4fc31cc6b676a5965b96100f7c035f7
+  FlutterPluginRegistrant: 06393a83da5f6c2b3befeba8637cb7217e37d48b
+  hello: ad5f928531b3b8365e33a4d6b3f79878759e39c5
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
 PODFILE CHECKSUM: 357b6c94e1edb8289fba0dbdd79daa105ab9d88c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

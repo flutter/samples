@@ -9,8 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  hello:
+    path: ../hello
   provider: ^4.1.0
   url_launcher: ^5.2.5
+  shared_preferences: ^0.5.12
+
 
 dev_dependencies:
   flutter_test:
