@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/flutter/samples.svg?branch=master)](https://travis-ci.org/flutter/samples)
 
 A collection of open source samples that illustrate best practices for
-[Flutter](https://flutter.io).
+[Flutter](https://flutter.dev).
 
 ## Visual samples index
 
