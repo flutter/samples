@@ -110,7 +110,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   void _showDialog(String message) {
     showDialog(
       context: context,
-      child: AlertDialog(
+      builder: (context) => AlertDialog(
         title: Text(message),
         actions: [
           FlatButton(
