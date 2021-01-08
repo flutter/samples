@@ -32,7 +32,7 @@ to bundle up the Windows release build for distribution to the
 on deploying to the Microsoft Store. 
 
 See the `msix_config` stanza in this sample's `pubspec.yaml` for an
-example configuration. Make sure the `display_name`, `publisher_display_name`
+example configuration. Make sure the `display_name`, `publisher_display_name`,
 `publisher` and `identity_name` attributes match the settings in your 
 Microsoft Partner Center application submission.
 
