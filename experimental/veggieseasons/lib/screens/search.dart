@@ -8,7 +8,6 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/widgets/search_bar.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -49,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
   Widget _createSearchBox() {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: SearchBar(
+      child: CupertinoSearchTextField(
         controller: controller.value,
         focusNode: focusNode,
       ),
