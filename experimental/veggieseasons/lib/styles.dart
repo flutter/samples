@@ -206,7 +206,7 @@ abstract class Styles {
           : CupertinoColors.darkBackgroundGray;
 
   static Color settingsLineation(Brightness brightness) =>
-      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xFF4C4B4B);
+      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xff4c4b4b);
 
   static const Color settingsBackground = Color(0xffefeff4);
 
@@ -216,7 +216,7 @@ abstract class Styles {
 
   static const Color iconGold = Color(0xffdba800);
 
-  static const Color iconRed = Color(0xffFF0000);
+  static const Color iconRed = Color(0xffff0000);
 
   static const preferenceIcon = IconData(
     0xf443,
@@ -246,5 +246,5 @@ abstract class Styles {
 
   static const ColorFilter desaturatedColorFilter =
       // 222222 is a random color that has low color saturation.
-      ColorFilter.mode(Color(0xFF222222), BlendMode.saturation);
+      ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
 }

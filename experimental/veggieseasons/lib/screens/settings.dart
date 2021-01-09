@@ -228,7 +228,7 @@ class SettingsScreen extends StatelessWidget {
           builder: (context) => CupertinoAlertDialog(
             title: Text('Are you sure?'),
             content: Text(
-              'Are you sure you want to reset the current preferences?',
+              'Are you sure you want to reset the current settings?',
             ),
             actions: <Widget>[
               CupertinoDialogAction(
