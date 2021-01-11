@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  file_chooser
+  file_selector_windows
   menubar
   url_launcher_windows
 )
