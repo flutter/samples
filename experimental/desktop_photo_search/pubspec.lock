@@ -70,7 +70,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   build_resolvers:
     dependency: transitive
     description:
@@ -385,7 +385,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: "040f36c82b63e8764ec2fd97066767503a667b6d"
+      resolved-ref: ff9c2aebbbf673f9726f5c8052f6a21099fa51fd
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
@@ -409,7 +409,7 @@ packages:
       name: msix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.7"
+    version: "0.1.10"
   nested:
     dependency: transitive
     description:

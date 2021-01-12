@@ -112,11 +112,13 @@ class UnsplashHomePage extends StatelessWidget {
                               ),
                             ],
                           );
-                          final fileData =
-                              await photoSearchModel.download(photo: photo);
-                          final photoFile =
-                              XFile.fromData(fileData, mimeType: 'image/jpeg');
-                          photoFile.saveTo(path);
+                          if (path != null) {
+                            final fileData =
+                                await photoSearchModel.download(photo: photo);
+                            final photoFile = XFile.fromData(fileData,
+                                mimeType: 'image/jpeg');
+                            photoFile.saveTo(path);
+                          }
                         },
                       )
                     : Container(),
