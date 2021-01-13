@@ -70,7 +70,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   build_resolvers:
     dependency: transitive
     description:
@@ -176,6 +176,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.2"
+  cross_file:
+    dependency: transitive
+    description:
+      name: cross_file
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   crypto:
     dependency: transitive
     description:
@@ -218,15 +225,41 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.1"
-  file_chooser:
+  file_selector:
     dependency: "direct main"
     description:
-      path: "plugins/file_chooser"
-      ref: HEAD
-      resolved-ref: "040f36c82b63e8764ec2fd97066767503a667b6d"
-      url: "https://github.com/google/flutter-desktop-embedding.git"
-    source: git
-    version: "0.2.0"
+      name: file_selector
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0+2"
+  file_selector_linux:
+    dependency: "direct main"
+    description:
+      name: file_selector_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
+  file_selector_macos:
+    dependency: "direct main"
+    description:
+      name: file_selector_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
+  file_selector_platform_interface:
+    dependency: transitive
+    description:
+      name: file_selector_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  file_selector_windows:
+    dependency: "direct main"
+    description:
+      name: file_selector_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   fixnum:
     dependency: transitive
     description:
@@ -352,7 +385,7 @@ packages:
     description:
       path: "plugins/menubar"
       ref: HEAD
-      resolved-ref: "040f36c82b63e8764ec2fd97066767503a667b6d"
+      resolved-ref: ff9c2aebbbf673f9726f5c8052f6a21099fa51fd
       url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
@@ -376,7 +409,7 @@ packages:
       name: msix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.7"
+    version: "0.1.10"
   nested:
     dependency: transitive
     description:

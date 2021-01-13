@@ -3,8 +3,9 @@
 // found in the LICENSE file.
 
 import 'dart:io';
+import 'dart:typed_data';
 
-import 'package:file_chooser/file_chooser.dart' as file_chooser;
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
@@ -101,19 +102,22 @@ class UnsplashHomePage extends StatelessWidget {
                     ? PhotoDetails(
                         photo: photoSearchModel.selectedPhoto,
                         onPhotoSave: (photo) async {
-                          final result = await file_chooser.showSavePanel(
-                            suggestedFileName: '${photo.id}.jpg',
-                            allowedFileTypes: const [
-                              file_chooser.FileTypeFilterGroup(
-                                label: 'JPGs',
-                                fileExtensions: ['jpg'],
-                              )
+                          final path = await getSavePath(
+                            suggestedName: '${photo.id}.jpg',
+                            acceptedTypeGroups: <XTypeGroup>[
+                              XTypeGroup(
+                                label: 'JPG',
+                                extensions: ['jpg'],
+                                mimeTypes: ['image/jpeg'],
+                              ),
                             ],
                           );
-                          if (!result.canceled) {
-                            final bytes =
+                          if (path != null) {
+                            final fileData =
                                 await photoSearchModel.download(photo: photo);
-                            await File(result.paths[0]).writeAsBytes(bytes);
+                            final photoFile = XFile.fromData(fileData,
+                                mimeType: 'image/jpeg');
+                            photoFile.saveTo(path);
                           }
                         },
                       )

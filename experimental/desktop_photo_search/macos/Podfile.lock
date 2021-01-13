@@ -1,5 +1,5 @@
 PODS:
-  - file_chooser (0.0.2):
+  - file_selector_macos (0.0.1):
     - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - menubar (0.0.2):
@@ -9,15 +9,15 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
-  - file_chooser (from `Flutter/ephemeral/.symlinks/plugins/file_chooser/macos`)
+  - file_selector_macos (from `Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos`)
   - FlutterMacOS (from `Flutter/ephemeral/.symlinks/flutter/darwin-x64`)
   - menubar (from `Flutter/ephemeral/.symlinks/plugins/menubar/macos`)
   - url_launcher (from `Flutter/ephemeral/.symlinks/plugins/url_launcher/macos`)
   - url_launcher_macos (from `Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos`)
 
 EXTERNAL SOURCES:
-  file_chooser:
-    :path: Flutter/ephemeral/.symlinks/plugins/file_chooser/macos
+  file_selector_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/file_selector_macos/macos
   FlutterMacOS:
     :path: Flutter/ephemeral/.symlinks/flutter/darwin-x64
   menubar:
@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos
 
 SPEC CHECKSUMS:
-  file_chooser: 24432cf5dc836722b05c11c2a0a30d19c3c9b996
+  file_selector_macos: ff6dc948d4ddd34e8602a1f60b7d0b4cc6051a47
   FlutterMacOS: 15bea8a44d2fa024068daa0140371c020b4b6ff9
   menubar: 4e3d461d62d775540277ce6639acafe2a111a231
   url_launcher: af78307ef9bafff91273b34f1c6c0c86a0004fd7
@@ -36,4 +36,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d8ba9b3e9e93c62c74a660b46c6fcb09f03991a7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

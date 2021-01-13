@@ -13,10 +13,10 @@ dependencies:
   built_collection: ^4.3.0
   built_value: ^7.0.0
   cupertino_icons: ^0.1.3
-  file_chooser:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/file_chooser
+  file_selector: ^0.7.0
+  file_selector_linux: ^0.0.1
+  file_selector_macos: ^0.0.1
+  file_selector_windows: ^0.0.1
   http: ^0.12.2
   logging: ^0.11.3+2
   flutter_simple_treeview: ^2.0.1
@@ -53,7 +53,7 @@ msix_config:
   publisher: CN=01A6D5C0-D51A-4EEE-8DD0-F134DDD378F7
   identity_name: 16354flutter.dev.FlutterDesktopPhotoSearch
   msix_version: 1.0.0.0
-  icons_background_color: '#ffffff'
+  icons_background_color: "#ffffff"
   architecture: x64
   # See https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations
-  capabilities: 'internetClient'
+  capabilities: "internetClient"
