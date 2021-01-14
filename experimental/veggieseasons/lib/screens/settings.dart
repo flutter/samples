@@ -218,7 +218,7 @@ class SettingsScreen extends StatelessWidget {
     return SettingsItem(
       label: 'Restore Defaults',
       icon: SettingsIcon(
-        backgroundColor: Styles.iconRed,
+        backgroundColor: CupertinoColors.systemRed,
         icon: Styles.resetIcon,
       ),
       content: SettingsNavigationIndicator(),
