@@ -50,7 +50,7 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 ### CI/CD
 - Refer [.github](../.github) and the [tool](../tool) directory to see how to test Flutter projects using GitHub Actions.
 
-Note that we aren't performing Flutter Integration tests using the GitHub Actions in this repo. That is because it's recommended to use physical devices to run Driver tests. You can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://codemagic.io/) or any platform of your choice to do that.
+Note that tools like GitHub Actions can't run tests on a physical device, which is required to run integration tests. Instead, you can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab), [Codemagic](https://docs.codemagic.io/testing/aws/) or any platform of your choice to do that.
 
 ## Questions/issues
 
