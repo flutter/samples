@@ -25,7 +25,12 @@ declare -ar PROJECT_NAMES=(
     # "provider_shopper" \
     # Tracking issue: https://github.com/flutter/samples/issues/658
     # "testing_app" \
-    "veggieseasons" \
+    "experimental/desktop_photo_search" \
+    "experimental/federated_plugin/federated_plugin" \
+    "experimental/null_safety/null_safe_app" \
+    "experimental/null_safety/null_unsafe_app" \
+    "experimental/veggieseasons" \
+    "experimental/web_dashboard" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
