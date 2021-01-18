@@ -26,7 +26,8 @@ declare -ar PROJECT_NAMES=(
     # Tracking issue: https://github.com/flutter/samples/issues/658
     # "testing_app" \
     "experimental/desktop_photo_search" \
-    "experimental/federated_plugin/federated_plugin" \
+    # https://github.com/flutter/samples/issues/659
+    # "experimental/federated_plugin/federated_plugin" \
     "experimental/null_safety/null_safe_app" \
     "experimental/null_safety/null_unsafe_app" \
     "experimental/veggieseasons" \

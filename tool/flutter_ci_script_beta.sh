@@ -25,7 +25,8 @@ declare -ar PROJECT_NAMES=(
     # "provider_shopper" \
     # Tracking issue: https://github.com/flutter/samples/issues/658
     # "testing_app" \
-    "experimental/federated_plugin/federated_plugin" \
+    # Tracking issue: https://github.com/flutter/samples/issues/659
+    # "experimental/federated_plugin/federated_plugin" \
     "experimental/null_safety/null_safe_app" \
     "experimental/null_safety/null_unsafe_app" \
     "experimental/veggieseasons" \
