@@ -23,7 +23,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter" \
     # Tracking issue: https://github.com/flutter/samples/issues/657
     # "provider_shopper" \
-    "testing_app" \
+    # Tracking issue: https://github.com/flutter/samples/issues/658
+    # "testing_app" \
     "veggieseasons" \
 )
 
