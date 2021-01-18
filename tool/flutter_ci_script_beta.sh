@@ -30,7 +30,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/null_safety/null_safe_app" \
     "experimental/null_safety/null_unsafe_app" \
     "experimental/veggieseasons" \
-    "experimental/web_dashboard" \
+    # Tracking issue: https://github.com/flutter/samples/issues/660
+    # "experimental/web_dashboard" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
