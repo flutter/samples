@@ -11,7 +11,8 @@ declare -ar PROJECT_NAMES=(
     # "flutter_maps_firestore" \
     "infinite_list" \
     "ios_app_clip" \
-    "isolate_example" \
+    # Tracking issue: https://github.com/flutter/samples/issues/653
+    # "isolate_example" \
     "jsonexample" \
     "place_tracker" \
     "platform_channels" \
@@ -25,7 +26,7 @@ declare -ar PROJECT_NAMES=(
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's dev channel =="
     pushd "${PROJECT_NAME}"
 
     # Grab packages.

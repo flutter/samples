@@ -14,14 +14,15 @@ flutter packages get
 popd
 
 declare -ar ANDROID_PROJECT_NAMES=(
-    "add_to_app/android_fullscreen" \
+    # Tracking issue: https://github.com/flutter/samples/issues/654
+    # "add_to_app/android_fullscreen" \
     "add_to_app/android_using_plugin" \
     "add_to_app/android_using_prebuilt_module" \
 )
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's stable channel =="
     pushd "${PROJECT_NAME}"
 
     ./gradlew --stacktrace assembleDebug
