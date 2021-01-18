@@ -10,18 +10,8 @@ on:
     - cron: '0 0 * * *' # Every day at midnight
 
 jobs:
-  flutter-tests:
+  flutter-tests-stable:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - flutter_version: dev
-            allow_failure: true
-          - flutter_version: beta
-            allow_failure: true
-          - flutter_version: stable
-            allow_failure: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -29,13 +19,32 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: ${{ matrix.flutter_version }}
-      - run: ./tool/flutter_ci_script.sh
-        continue-on-error: ${{ matrix.allow_failure }}
+          channel: stable
+      - run: ./tool/flutter_ci_script_stable.sh
+  flutter-tests-beta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: beta
+      - run: ./tool/flutter_ci_script_beta.sh
+  flutter-tests-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: dev
+      - run: ./tool/flutter_ci_script_dev.sh
   android-build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -47,8 +56,6 @@ jobs:
       - run: ./tool/android_ci_script.sh
   ios-build:
     runs-on: macos-latest
-    strategy:
-      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
