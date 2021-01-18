@@ -21,7 +21,8 @@ declare -ar PROJECT_NAMES=(
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \
-    "provider_shopper" \
+    # Tracking issue: https://github.com/flutter/samples/issues/657
+    # "provider_shopper" \
     "testing_app" \
     "veggieseasons" \
 )
