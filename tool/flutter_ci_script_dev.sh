@@ -16,7 +16,8 @@ declare -ar PROJECT_NAMES=(
     "jsonexample" \
     # Tracking issue: https://github.com/flutter/samples/issues/655
     # "place_tracker" \
-    "platform_channels" \
+    # Tracking issue: https://github.com/flutter/samples/issues/656
+    # "platform_channels" \
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \
