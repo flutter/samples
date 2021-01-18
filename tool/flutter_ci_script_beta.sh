@@ -7,7 +7,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module_using_plugin" \
     "add_to_app/flutter_module_books" \
     "animations" \
-    "flutter_maps_firestore" \
+    # Tracking issue: https://github.com/flutter/samples/issues/652
+    # "flutter_maps_firestore" \
     "infinite_list" \
     "ios_app_clip" \
     "isolate_example" \
@@ -19,8 +20,7 @@ declare -ar PROJECT_NAMES=(
     "provider_counter" \
     "provider_shopper" \
     "testing_app" \
-# TODO(goderbauer): Add veggieseasons back when moved out of experimental again.
-#    "veggieseasons" \
+    "veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
