@@ -24,7 +24,7 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
   static final AccelerometerEvent defaultPosition = AccelerometerEvent(0, 0, 0);
 
   int cellNumber = 0;
-  Random randomColor;
+  Random _random;
   AppLifecycleState appLifecycleState;
 
   @override
@@ -34,7 +34,7 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
       if (call.method == 'setCellNumber') {
         setState(() {
           cellNumber = call.arguments as int;
-          randomColor = Random(cellNumber);
+          _random = Random(cellNumber);
         });
       }
     });
@@ -56,11 +56,10 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
 
   // Show a random bright color.
   Color randomLightColor() {
-    if (randomColor == null) {
-      randomColor = Random(cellNumber);
-    }
-    return Color.fromARGB(255, randomColor.nextInt(50) + 205,
-        randomColor.nextInt(50) + 205, randomColor.nextInt(50) + 205);
+    _random ??= Random(cellNumber);
+
+    return Color.fromARGB(255, _random.nextInt(50) + 205,
+        _random.nextInt(50) + 205, _random.nextInt(50) + 205);
   }
 
   @override
@@ -76,7 +75,9 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
             return Card(
               // Mimic the platform Material look.
               margin: EdgeInsets.symmetric(horizontal: 36, vertical: 24),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               elevation: 16,
               color: randomLightColor(),
               child: Stack(
@@ -107,12 +108,20 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                             ? accelerometerEvents
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
-                        builder: (BuildContext context, AsyncSnapshot<AccelerometerEvent> snapshot) {
+                        builder: (
+                            BuildContext context,
+                            AsyncSnapshot<AccelerometerEvent> snapshot) {
                           return Transform(
                             // Figure out the phone's orientation relative
                             // to gravity's direction. Ignore the z vector.
-                            transform: Matrix4.rotationX(snapshot.data.y / gravity * pi / 2)
-                                ..multiply(Matrix4.rotationY(snapshot.data.x / gravity * pi / 2)),
+                            transform:
+                              Matrix4.rotationX(
+                                snapshot.data.y / gravity * pi / 2
+                              )..multiply(
+                                Matrix4.rotationY(
+                                  snapshot.data.x / gravity * pi / 2
+                                )
+                              ),
                             alignment: Alignment.center,
                             child: FlutterLogo(size: 72)
                           );

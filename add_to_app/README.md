@@ -147,8 +147,8 @@ integrates a partial screen `FlutterView` into an Android `RecyclerView`.
   activity in a performant way.
 * Demonstrates a `FlutterView`-based UI interwoven seamlessly into a native
   Android UI.
-* The Flutter cells uses the [`sensors`](https://pub.dev/packages/sensors)
-  plugin and displays a Flutter logo rotate based on the phone's current
+* The Flutter cells use the [`sensors`](https://pub.dev/packages/sensors)
+  plugin and displays a Flutter logo, rotate based on the phone's current
   orientation.
 
 ### `android_using_prebuilt_module` and  `ios_using_prebuilt_module`

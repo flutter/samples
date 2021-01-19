@@ -1,7 +1,7 @@
 # android_view
 
-An example of an Android app integrating a Flutter add-to-app module at a view
-level. For more information on how to use it, see the [README](../README.md) 
+An example of an Android app that integrates a Flutter add-to-app module at a
+view level. For more information on how to use it, see the [README](../README.md)
 file located in the [/add_to_app](/add_to_app) directory of this repo.
 
 ## Getting Started

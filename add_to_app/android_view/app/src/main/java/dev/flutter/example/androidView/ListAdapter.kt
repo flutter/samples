@@ -20,7 +20,7 @@ import kotlin.random.Random
  * A demo-specific implementation of a [RecyclerView.Adapter] to setup the demo environment used
  * to display view-level Flutter cells inside a list.
  *
- * The only instructional parts of this class is to show when to call
+ * The only instructional parts of this class are to show when to call
  * [FlutterViewEngine.attachFlutterView] and [FlutterViewEngine.detachActivity] on a
  * [FlutterViewEngine] equivalent class that you may want to create in your own application.
  */
