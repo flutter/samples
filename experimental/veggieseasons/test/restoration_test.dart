@@ -137,7 +137,7 @@ void main() {
 
     expect(find.text('Tangelo'), findsOneWidget);
     expect(find.text('Serving info'), findsOneWidget);
-    
+
     // Restores details page
     await tester.restartAndRestore();
     expect(find.text('Tangelo'), findsOneWidget);
