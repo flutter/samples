@@ -99,21 +99,24 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
     final model = Provider.of<AppState>(context);
 
     return UnmanagedRestorationScope(
+      bucket: bucket,
       child: CupertinoTabView(
+        restorationScopeId: 'tabview',
         builder: (context) {
           return AnnotatedRegion<SystemUiOverlayStyle>(
-              value: SystemUiOverlayStyle(
-                  statusBarBrightness:
-                      MediaQuery.platformBrightnessOf(context)),
-              child: SafeArea(
-                bottom: false,
-                child: Stack(
-                  children: [
-                    _buildSearchResults(model.searchVeggies(terms)),
-                    _createSearchBox(),
-                  ],
-                ),
-              ));
+            value: SystemUiOverlayStyle(
+              statusBarBrightness: MediaQuery.platformBrightnessOf(context),
+            ),
+            child: SafeArea(
+              bottom: false,
+              child: Stack(
+                children: [
+                  _buildSearchResults(model.searchVeggies(terms)),
+                  _createSearchBox(),
+                ],
+              ),
+            ),
+          );
         },
       ),
     );
