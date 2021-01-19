@@ -110,7 +110,7 @@ class EntryTile extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FlatButton(
+          TextButton(
             child: Text('Edit'),
             onPressed: () {
               showDialog<void>(
@@ -121,7 +121,7 @@ class EntryTile extends StatelessWidget {
               );
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('Delete'),
             onPressed: () async {
               var shouldDelete = await showDialog<bool>(
@@ -129,11 +129,11 @@ class EntryTile extends StatelessWidget {
                 builder: (context) => AlertDialog(
                   title: Text('Delete entry?'),
                   actions: [
-                    FlatButton(
+                    TextButton(
                       child: Text('Cancel'),
                       onPressed: () => Navigator.of(context).pop(false),
                     ),
-                    FlatButton(
+                    TextButton(
                       child: Text('Delete'),
                       onPressed: () => Navigator.of(context).pop(true),
                     ),
@@ -146,7 +146,7 @@ class EntryTile extends StatelessWidget {
                     .entries
                     .delete(category.id, entry.id);
 
-                Scaffold.of(context).showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('Entry deleted'),
                   ),
