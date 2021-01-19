@@ -129,6 +129,29 @@ void main() {
     expect(find.text('Tangelo'), findsOneWidget);
     expect(find.text('Tan').hitTestable(), findsOneWidget); // search text
 
+    expect(find.text('Serving info'), findsNothing);
+
+    // Open a details page from search
+    await tester.tap(find.text('Tangelo'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Serving info'), findsOneWidget);
+    
+    // Restores details page
+    await tester.restartAndRestore();
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Serving info'), findsOneWidget);
+
+    // Go back to search page, is also restored
+    tester.state<NavigatorState>(find.byType(Navigator).last).pop();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Serving info'), findsNothing);
+    expect(find.text('Apples'), findsNothing);
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Tan').hitTestable(), findsOneWidget); // search text
+
     expect(find.text('Calorie Target'), findsNothing);
 
     // Go to "Settings".
