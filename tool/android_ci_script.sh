@@ -14,8 +14,7 @@ flutter packages get
 popd
 
 declare -ar ANDROID_PROJECT_NAMES=(
-    # Tracking issue: https://github.com/flutter/samples/issues/654
-    # "add_to_app/android_fullscreen" \
+    "add_to_app/android_fullscreen" \
     "add_to_app/android_using_plugin" \
     "add_to_app/android_using_prebuilt_module" \
 )
