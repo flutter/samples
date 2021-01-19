@@ -77,7 +77,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // You can access your providers anywhere you have access
-          // to the context. One way is to use Provider<Counter>.of(context).
+          // to the context. One way is to use Provider.of<Counter>(context).
           //
           // The provider package also defines extension methods on context
           // itself. You can call context.watch<Counter>() in a build method
