@@ -1,0 +1,25 @@
+{
+  "name": "multiple_flutters_module",
+  "version": "0.0.1",
+  "summary": "Flutter module",
+  "description": "Flutter module - multiple_flutters_module",
+  "homepage": "https://flutter.dev",
+  "license": {
+    "type": "BSD"
+  },
+  "authors": {
+    "Flutter Dev Team": "flutter-dev@googlegroups.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "vendored_frameworks": "App.framework",
+  "dependencies": {
+    "Flutter": [
+
+    ]
+  }
+}

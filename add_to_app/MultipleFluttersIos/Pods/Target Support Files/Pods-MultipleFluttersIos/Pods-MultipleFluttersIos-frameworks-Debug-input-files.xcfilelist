@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MultipleFluttersIos/Pods-MultipleFluttersIos-frameworks.sh
+${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt
+${PODS_ROOT}/../../multiple_flutters_module/.ios/Flutter/App.framework
