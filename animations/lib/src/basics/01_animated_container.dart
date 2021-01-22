@@ -69,7 +69,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                 ),
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 'change',
               ),

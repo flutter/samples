@@ -190,7 +190,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
             ),
           ],
         ),
-        FlatButton(
+        TextButton(
           child: Text('Edit'),
           onPressed: () async {
             var newDate = await showDatePicker(

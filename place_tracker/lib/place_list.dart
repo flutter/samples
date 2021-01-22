@@ -102,7 +102,7 @@ class _CategoryButton extends StatelessWidget {
       ),
       child: ButtonTheme(
         height: 50.0,
-        child: FlatButton(
+        child: TextButton(
           child: Text(
             _buttonText,
             style: TextStyle(

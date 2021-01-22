@@ -27,8 +27,8 @@ void main() {
       expect(find.byType(Placeholder), findsOneWidget);
       expect(find.byType(Image), findsNothing);
 
-      // Tap on RaisedButton to get Image.
-      await tester.tap(find.byType(RaisedButton));
+      // Tap on ElevatedButton to get Image.
+      await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
       expect(find.byType(Placeholder), findsNothing);

@@ -146,7 +146,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
             ),
           ),
           SizedBox(height: 25.0),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               controller.forward();
             },

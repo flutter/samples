@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                         style: Theme.of(context).textTheme.headline5,
                       ),
                 SizedBox(height: 16),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Get Battery Level'),
                   onPressed: () async {
                     try {

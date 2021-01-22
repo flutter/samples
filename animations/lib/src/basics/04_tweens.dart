@@ -51,7 +51,7 @@ class _TweenDemoState extends State<TweenDemo>
               child: Text('\$${animation.value.toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 24)),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 controller.status == AnimationStatus.completed
                     ? 'Buy a Mansion'

@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Testing Sample'),
         actions: <Widget>[
-          FlatButton.icon(
-            textColor: Colors.white,
+          TextButton.icon(
+            style: TextButton.styleFrom(primary: Colors.white),
             onPressed: () {
               Navigator.pushNamed(context, FavoritesPage.routeName);
             },

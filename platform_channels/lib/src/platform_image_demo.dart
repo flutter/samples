@@ -58,7 +58,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
             SizedBox(
               height: 16,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: imageData != null
                   ? null
                   : () {

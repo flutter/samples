@@ -22,7 +22,7 @@ void main() {
       await tester.pumpWidget(MyApp());
 
       // Tap button to retrieve current battery level from platform.
-      await tester.tap(find.byType(RaisedButton));
+      await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
       expect(find.text('Battery Level: $batteryLevel'), findsOneWidget);
