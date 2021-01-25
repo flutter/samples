@@ -36,7 +36,7 @@ class SingleFlutterViewController : FlutterViewController, DataModelObserver {
         result(nil)
       } else if (call.method == "next") {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "Count")
+        let vc = storyboard.instantiateViewController(withIdentifier: "NativeViewCount")
         navController.pushViewController(vc, animated: true)
         result(nil)
       } else {
