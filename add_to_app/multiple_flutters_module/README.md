@@ -1,11 +1,45 @@
 # multiple_flutters_module
 
-A new flutter module project.
+This is the module that is embedded in the `multiple_flutters_ios` and
+`multiple_flutters_android (TODO)` projects.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.dev/).
+For iOS instructions, see:
+[multiple_flutters_ios](../multiple_flutters_ios/README.md).
 
-For instructions integrating Flutter modules to your existing applications,
-see the [add-to-app documentation](https://flutter.dev/docs/development/add-to-app).
+For Android instructions, see:
+[multiple_flutters_android](../multiple_flutters_android/README.md).
+
+## Flutter Engine Group
+
+These examples use the Flutter engine group APIs on the host platform.  This
+allows for the sharing of memory and CPU intensive resources to be shared
+between engine instances.  More info on those API's can be found in the source
+code:
+
+* iOS -
+  [FlutterEngineGroup.h](https://github.com/flutter/engine/blob/master/shell/platform/darwin/ios/framework/Headers/FlutterEngineGroup.h)
+* Android -
+  [FlutterEngineGroup.java](https://github.com/flutter/engine/blob/master/shell/platform/android/io/flutter/embedding/engine/FlutterEngineGroup.java)
+
+## Data Synchronization Description
+
+This sample code uses a somewhat novel data synchronization mechanism to share
+data between the host platform and multiple instances of Flutter by combining
+the [Observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+and [Flutter platform
+channels](https://flutter.dev/docs/development/platform-integration/platform-channels).
+Here is how it works:
+
+* The definitive source of truth for the data lives in the host platform data
+  model.
+* Every host view displaying Flutter content maintains: a Flutter engine, a
+  bidirectional platform channel, a subscription to the host data model.
+* Flutter instances maintain a copy of the data it is interested in reading,
+  this data is seeded by the host when the instance is first displayed.
+* Mutations from Flutter code are sent to the host platform via the channel who
+  then performs the mutations then notifies all host view controllers and
+  Flutter engines of the new value.
+* Mutations from host code happen directly on the data model who notifies host
+  view controllers and Flutter engines of the new value.
