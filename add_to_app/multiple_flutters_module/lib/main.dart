@@ -1,3 +1,7 @@
+// Copyright 2021 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -44,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _channel = MethodChannel('multiple-flutters');
     _channel.setMethodCallHandler((MethodCall call) async {
       if (call.method == "setCount") {
+        // A notification that the host platform's data model has been updated.
         setState(() {
           _counter = call.arguments as int;
         });
@@ -53,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _incrementCounter() async {
+  void _incrementCounter() {
+    // Mutations to the data model are forwarded to the host platform.
     _channel.invokeMethod("incrementCount", _counter);
   }
 
