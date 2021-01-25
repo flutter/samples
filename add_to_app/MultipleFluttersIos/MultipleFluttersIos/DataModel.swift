@@ -1,10 +1,13 @@
 import Foundation
 
-
+/// A protocol that recieves updates when the datamodel is changed.
 protocol DataModelObserver : AnyObject {
   func onCountUpdate(newCount : Int64)
 }
 
+/// A wrapper object around a weak reference to an object that implements DataModelObserver.
+///
+/// This is required since you can't directly hold weak references to protocols in data structures.
 struct AnyDataModelObserver {
   weak var base: DataModelObserver?
   
@@ -13,6 +16,7 @@ struct AnyDataModelObserver {
   }
 }
 
+/// A singleton data model that is observable.
 class DataModel {
   private var _count : Int64 = 0
   var count : Int64 {

@@ -1,6 +1,11 @@
 import Foundation
 import Flutter
 
+/// A FlutterViewController intended for the MyApp widget in the Flutter module.
+///
+/// This view controller maintains a connection to the Flutter instance and syncs it with the
+/// datamodel.  In practice you should override the other init methods or switch to composition
+/// instead of inheritence.
 class SingleFlutterViewController : FlutterViewController, DataModelObserver {
   private var channel : FlutterMethodChannel?
   

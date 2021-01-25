@@ -1,6 +1,7 @@
 import UIKit
 import Flutter
 
+/// The app's UIApplicationDelegate.
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   let engines = FlutterEngineGroup(name: "multiple-flutters", project: nil)

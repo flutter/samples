@@ -1,6 +1,7 @@
 import UIKit
 import Flutter
 
+/// UIViewController associated with the NativeViewCount storyboard scene.
 class ViewController: UIViewController, DataModelObserver {
   @IBOutlet weak var countView : UILabel!
   

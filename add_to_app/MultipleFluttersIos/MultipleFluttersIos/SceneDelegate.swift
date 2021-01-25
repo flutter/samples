@@ -1,5 +1,6 @@
 import UIKit
 
+/// The UIWindowSceneDelegate for the app.
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 

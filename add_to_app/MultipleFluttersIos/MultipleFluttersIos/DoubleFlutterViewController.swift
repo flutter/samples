@@ -1,5 +1,7 @@
 import UIKit
 
+/// A UIViewController that hosts two instances of SingleFlutterViewController, splitting the screen
+/// between them.
 class DoubleFlutterViewController : UIViewController {
   private let topFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "topMain")
   private let bottomFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "bottomMain")
@@ -17,3 +19,4 @@ class DoubleFlutterViewController : UIViewController {
     bottomFlutter.didMove(toParent: self)
   }
 }
+ 
