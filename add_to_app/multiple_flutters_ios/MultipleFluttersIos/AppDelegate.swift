@@ -11,6 +11,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let engines = FlutterEngineGroup(name: "multiple-flutters", project: nil)
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    #if DEBUG
+        let isDebug = true
+    #else
+        let isDebug = false
+    #endif
+    if (isDebug) {
+      NSLog("⚠️ WARNING: the memory and CPU costs for Flutter engine groups are significantly greater in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097")
+    } else {
+      NSLog("⚠️ WARNING: the memory and CPU costs for Flutter engine groups are significantly less here than in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097")
+    }
+
     return true
   }
 
