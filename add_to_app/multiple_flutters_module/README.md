@@ -43,3 +43,8 @@ Here is how it works:
   Flutter engines of the new value.
 * Mutations from host code happen directly on the data model who notifies host
   view controllers and Flutter engines of the new value.
+
+This is just one possible way to synchronize the data between the host platform
+and multiple Flutter instances.  A more complete implementation is proposed in
+the work of
+[flutter/issues/72030](https://github.com/flutter/flutter/issues/72030).
