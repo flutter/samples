@@ -12,7 +12,7 @@ protocol DataModelObserver : AnyObject {
 /// A wrapper object around a weak reference to an object that implements DataModelObserver.
 ///
 /// This is required since you can't directly hold weak references to protocols in data structures.
-struct AnyDataModelObserver {
+private struct AnyDataModelObserver {
   weak var base: DataModelObserver?
   
   init(_ base: DataModelObserver ) {
