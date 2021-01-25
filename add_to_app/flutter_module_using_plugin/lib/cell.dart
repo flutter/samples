@@ -51,7 +51,9 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    setState(() { appLifecycleState = state; });
+    setState(() {
+      appLifecycleState = state;
+    });
   }
 
   // Show a random bright color.
@@ -108,23 +110,17 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                             ? accelerometerEvents
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
-                        builder: (
-                            BuildContext context,
+                        builder: (BuildContext context,
                             AsyncSnapshot<AccelerometerEvent> snapshot) {
                           return Transform(
-                            // Figure out the phone's orientation relative
-                            // to gravity's direction. Ignore the z vector.
-                            transform:
-                              Matrix4.rotationX(
-                                snapshot.data.y / gravity * pi / 2
-                              )..multiply(
-                                Matrix4.rotationY(
-                                  snapshot.data.x / gravity * pi / 2
-                                )
-                              ),
-                            alignment: Alignment.center,
-                            child: FlutterLogo(size: 72)
-                          );
+                              // Figure out the phone's orientation relative
+                              // to gravity's direction. Ignore the z vector.
+                              transform: Matrix4.rotationX(
+                                  snapshot.data.y / gravity * pi / 2)
+                                ..multiply(Matrix4.rotationY(
+                                    snapshot.data.x / gravity * pi / 2)),
+                              alignment: Alignment.center,
+                              child: FlutterLogo(size: 72));
                         },
                       ),
                     ),
