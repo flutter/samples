@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-@pragma('vm:entry-point')
 void main() => runApp(MyApp(Colors.blue));
 
 @pragma('vm:entry-point')

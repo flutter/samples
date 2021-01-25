@@ -21,22 +21,22 @@ class DataModel {
     }
     set {
       self._count = newValue
-      for observer in _observers {
+      for observer in observers {
         if let base = observer.base {
           base.onCountUpdate(newCount: self._count)
         }
       }
     }
   }
-  var _observers: [AnyDataModelObserver] = []
+  private var observers: [AnyDataModelObserver] = []
   static let shared = DataModel()
   
   func addObserver(observer : DataModelObserver) {
-    _observers.append(AnyDataModelObserver(observer))
+    observers.append(AnyDataModelObserver(observer))
   }
   
   func removeObserver(observer : DataModelObserver) {
-    _observers.removeAll { (element : AnyDataModelObserver) -> Bool in
+    observers.removeAll { (element : AnyDataModelObserver) -> Bool in
       if let base = element.base {
         return base === observer
       } else {

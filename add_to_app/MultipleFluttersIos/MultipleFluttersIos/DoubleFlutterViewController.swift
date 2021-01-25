@@ -1,18 +1,19 @@
 import UIKit
 
 class DoubleFlutterViewController : UIViewController {
-  let _topFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "topMain")
-  let _bottomFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "bottomMain")
+  private let topFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "topMain")
+  private let bottomFlutter : SingleFlutterViewController = SingleFlutterViewController(withEntrypoint: "bottomMain")
 
   override func viewDidLoad() {
-    addChild(_topFlutter)
-    addChild(_bottomFlutter)
-    let halfHeight = self.view.bounds.height/2.0
-    _topFlutter.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: halfHeight);
-    _bottomFlutter.view.frame = CGRect(x: 0, y: halfHeight, width: self.view.bounds.width, height: halfHeight);
-    self.view.addSubview(_topFlutter.view)
-    self.view.addSubview(_bottomFlutter.view)
-    _topFlutter.didMove(toParent: self)
-    _bottomFlutter.didMove(toParent: self)
+    addChild(topFlutter)
+    addChild(bottomFlutter)
+    let safeFrame = self.view.safeAreaLayoutGuide.layoutFrame
+    let halfHeight = safeFrame.height/2.0
+    topFlutter.view.frame = CGRect(x: safeFrame.minX, y: safeFrame.minY, width: safeFrame.width, height: halfHeight);
+    bottomFlutter.view.frame = CGRect(x: safeFrame.minX, y: topFlutter.view.frame.maxY, width: safeFrame.width, height: halfHeight);
+    self.view.addSubview(topFlutter.view)
+    self.view.addSubview(bottomFlutter.view)
+    topFlutter.didMove(toParent: self)
+    bottomFlutter.didMove(toParent: self)
   }
 }

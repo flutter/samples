@@ -2,13 +2,12 @@ import Foundation
 import Flutter
 
 class SingleFlutterViewController : FlutterViewController, DataModelObserver {
-  var _channel : FlutterMethodChannel?
-  var _engine : FlutterEngine!
+  private var channel : FlutterMethodChannel?
   
   init(withEntrypoint entryPoint: String?) {
     let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    _engine = appDelegate.engines.makeEngine(withEntrypoint: entryPoint, libraryURI: nil)
-    super.init(engine: _engine, nibName: nil, bundle: nil)
+    let newEngine = appDelegate.engines.makeEngine(withEntrypoint: entryPoint, libraryURI: nil)
+    super.init(engine: newEngine, nibName: nil, bundle: nil)
     DataModel.shared.addObserver(observer: self);
   }
   
@@ -21,17 +20,17 @@ class SingleFlutterViewController : FlutterViewController, DataModelObserver {
   }
   
   func onCountUpdate(newCount: Int64) {
-    if let channel = _channel {
+    if let channel = channel {
       channel.invokeMethod("setCount", arguments: newCount);
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    _channel = FlutterMethodChannel(name: "multiple-flutters", binaryMessenger: self.engine!.binaryMessenger)
-    _channel!.invokeMethod("setCount", arguments: DataModel.shared.count)
+    channel = FlutterMethodChannel(name: "multiple-flutters", binaryMessenger: self.engine!.binaryMessenger)
+    channel!.invokeMethod("setCount", arguments: DataModel.shared.count)
     let navController = self.navigationController!
-    _channel!.setMethodCallHandler { (call : FlutterMethodCall, result : @escaping FlutterResult) in
+    channel!.setMethodCallHandler { (call : FlutterMethodCall, result : @escaping FlutterResult) in
       if (call.method == "incrementCount") {
         DataModel.shared.count = DataModel.shared.count + 1
         result(nil)
