@@ -17,7 +17,6 @@ declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/android_fullscreen" \
     "add_to_app/android_using_plugin" \
     "add_to_app/android_using_prebuilt_module" \
-    "add_to_app/android_view" \
 )
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
