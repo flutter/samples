@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
-  String id;
+  final String id;
 
   DetailScreen({
     this.id,
