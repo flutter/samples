@@ -4,7 +4,7 @@
 
 import Foundation
 
-/// A protocol that recieves updates when the datamodel is changed.
+/// A protocol that receives updates when the datamodel is changed.
 protocol DataModelObserver: AnyObject {
   func onCountUpdate(newCount: Int64)
 }
