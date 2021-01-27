@@ -35,12 +35,12 @@ Here is how it works:
 * The definitive source of truth for the data lives in the host platform data
   model.
 * Every host view displaying Flutter content maintains: a Flutter engine, a
-  bidirectional platform channel, a subscription to the host data model.
-* Flutter instances maintain a copy of the data it is interested in reading,
-  this data is seeded by the host when the instance is first displayed.
-* Mutations from Flutter code are sent to the host platform via the channel who
-  then performs the mutations then notifies all host view controllers and
-  Flutter engines of the new value.
+  bidirectional platform channel, and a subscription to the host data model.
+* Flutter instances maintain a copy of the data they are interested in reading,
+  and this data is seeded by the host when the instance is first displayed.
+* Mutations from Flutter code are sent to the host platform via the channel. The
+  host platform performs the mutations, and then notifies all host view
+  controllers and Flutter engines of the new value.
 * Mutations from host code happen directly on the data model who notifies host
   view controllers and Flutter engines of the new value.
 
