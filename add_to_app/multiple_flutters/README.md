@@ -28,6 +28,23 @@ code:
 - Android -
   [FlutterEngineGroup.java](https://github.com/flutter/engine/blob/master/shell/platform/android/io/flutter/embedding/engine/FlutterEngineGroup.java)
 
+## Important Files
+
+### iOS
+
+- [DataModel.swift](./multiple_flutters_ios/MultipleFluttersIos/HostViewController.swift)
+  — Observable data model that is the source of truth for the host platform and Flutter.
+- [HostViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/HostViewController.swift)
+  — A UIViewController that synchronizes to the DataModel.
+- [main.dart](./multiple_flutters_module/lib/main.dart) — The Flutter source
+  code.
+- [SingleFlutterViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/SingleFlutterViewController.swift)
+  — A subclass of FlutterViewController that synchronizes with the DataModel.
+- [DoubleFlutterViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/SingleFlutterViewController.swift)
+  — A UIViewController that embeds multiple Flutter instances.
+
+### Android
+
 ## Data Synchronization Description
 
 This sample code uses a somewhat novel data synchronization mechanism to share
