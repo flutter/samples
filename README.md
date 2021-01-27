@@ -18,6 +18,12 @@ As this repository is quite big, you can use svn to download a single example. F
 svn co https://github.com/flutter/samples/trunk/provider_shopper
 ```
 
+You can also use a shallow clone, to only download the latest revision:
+
+```
+git clone --depth 1 https://github.com/flutter/samples.git
+```
+
 ## Interested in contributing?
 
 See the [contributor's guide](CONTRIBUTING.md)!
