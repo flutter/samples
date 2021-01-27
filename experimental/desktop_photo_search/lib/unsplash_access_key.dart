@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // TODO: Retrieve an API Access Key from https://unsplash.com/developers
-const String unsplashAccessKey = '';
+const String unsplashAccessKey = '3Vpdck3K0Q4KJ8hR946sAccsveBD7YzOFa8vxXuZJUY';
 
 // The application name for the above API Access Key.
-const unsplashAppName = '';
+const unsplashAppName = 'desktop_photo_search';

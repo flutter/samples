@@ -27,9 +27,11 @@ class PolicyDialog extends StatelessWidget {
             height: height / 4,
             width: width / 4,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RichText(
-                  textAlign: TextAlign.left,
+                  textAlign: TextAlign.center,
                   text: TextSpan(
                     text: 'Terms & Conditions:\n',
                     style: Theme.of(context).textTheme.headline5,
@@ -39,11 +41,11 @@ class PolicyDialog extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(
                     text: '• ',
-                    style: TextStyle(color: Colors.lightBlue, fontSize: 18),
+                    style: TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://policies.google.com/terms',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             final url = 'https://policies.google.com/terms';
@@ -59,11 +61,11 @@ class PolicyDialog extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(
                     text: '• ',
-                    style: TextStyle(color: Colors.lightBlue, fontSize: 18),
+                    style: TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://unsplash.com/terms',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             final url = 'https://unsplash.com/terms';
