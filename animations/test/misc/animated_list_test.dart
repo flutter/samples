@@ -45,6 +45,7 @@ void main() {
         equals(initialLength + 1),
       );
     });
+
     testWidgets(
         'Length of list decreases on Delete Icon Button tap at middle index',
         (tester) async {
