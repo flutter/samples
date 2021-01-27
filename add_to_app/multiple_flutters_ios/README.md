@@ -15,4 +15,4 @@ open MultipleFluttersIos.xcworkspace
 ```
 
 For more information see
-[multiple_flutters_module](../multiple/flutters_module/README.md).
+[multiple_flutters_module](../multiple_flutters_module/README.md).
