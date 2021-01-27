@@ -17,11 +17,8 @@ jobs:
       matrix:
         include:
           - flutter_version: dev
-            allow_failure: true
           - flutter_version: beta
-            allow_failure: true
           - flutter_version: stable
-            allow_failure: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -31,7 +28,6 @@ jobs:
         with:
           channel: ${{ matrix.flutter_version }}
       - run: ./tool/flutter_ci_script.sh
-        continue-on-error: ${{ matrix.allow_failure }}
   android-build:
     runs-on: ubuntu-latest
     strategy:
