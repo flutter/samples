@@ -6,7 +6,7 @@ import Flutter
 import UIKit
 
 /// UIViewController associated with the NativeViewCount storyboard scene.
-class ViewController: UIViewController, DataModelObserver {
+class HostViewController: UIViewController, DataModelObserver {
   @IBOutlet weak var countView: UILabel!
 
   deinit {
@@ -29,6 +29,9 @@ class ViewController: UIViewController, DataModelObserver {
 
   @IBAction func onNext() {
     let navController = self.navigationController!
+    // Based on the number of view controllers in the stack we push a
+    // SingleFlutterViewController or DoubleFlutterViewController to alternatve
+    // between the two.
     if navController.viewControllers.count % 4 == 1 {
       let vc = SingleFlutterViewController(withEntrypoint: nil)
       navController.pushViewController(vc, animated: true)

@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-1555" y="-191"/>
         </scene>
-        <!--View Controller-->
+        <!--Host View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="NativeViewCount" id="BYZ-38-t0r" customClass="ViewController" customModule="MultipleFluttersIos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NativeViewCount" id="BYZ-38-t0r" customClass="HostViewController" customModule="MultipleFluttersIos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
