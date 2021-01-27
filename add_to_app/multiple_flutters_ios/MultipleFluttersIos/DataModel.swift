@@ -12,11 +12,11 @@ protocol DataModelObserver: AnyObject {
 /// A wrapper object around a weak reference to an object that implements DataModelObserver.
 ///
 /// This is required since you can't directly hold weak references to protocols in data structures.
-private struct AnyDataModelObserver {
-  weak var base: DataModelObserver?
+private struct DataModelObserverWrapper {
+  weak var wrapped: DataModelObserver?
 
-  init(_ base: DataModelObserver) {
-    self.base = base
+  init(_ wrapped: DataModelObserver) {
+    self.wrapped = wrapped
   }
 }
 
@@ -30,23 +30,23 @@ class DataModel {
     set {
       self._count = newValue
       for observer in observers {
-        if let base = observer.base {
-          base.onCountUpdate(newCount: self._count)
+        if let wrapped = observer.wrapped {
+          wrapped.onCountUpdate(newCount: self._count)
         }
       }
     }
   }
-  private var observers: [AnyDataModelObserver] = []
+  private var observers: [DataModelObserverWrapper] = []
   static let shared = DataModel()
 
   func addObserver(observer: DataModelObserver) {
-    observers.append(AnyDataModelObserver(observer))
+    observers.append(DataModelObserverWrapper(observer))
   }
 
   func removeObserver(observer: DataModelObserver) {
-    observers.removeAll { (element: AnyDataModelObserver) -> Bool in
-      if let base = element.base {
-        return base === observer
+    observers.removeAll { (element: DataModelObserverWrapper) -> Bool in
+      if let wrapped = element.wrapped {
+        return wrapped === observer
       } else {
         return true
       }
