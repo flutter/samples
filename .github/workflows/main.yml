@@ -27,7 +27,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: ${{ matrix.flutter_version }}
-      - run: source tool/flutter_ci_script.sh
+      - run: ./tool/flutter_ci_script.sh
   android-build:
     runs-on: ubuntu-latest
     strategy:
@@ -40,7 +40,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: stable
-      - run: source tool/android_ci_script.sh
+      - run: ./tool/android_ci_script.sh
   ios-build:
     runs-on: macos-latest
     strategy:
@@ -53,4 +53,4 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: stable
-      - run: source tool/ios_ci_script.sh
+      - run: ./tool/ios_ci_script.sh
