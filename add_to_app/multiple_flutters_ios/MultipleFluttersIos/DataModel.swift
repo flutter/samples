@@ -5,8 +5,8 @@
 import Foundation
 
 /// A protocol that recieves updates when the datamodel is changed.
-protocol DataModelObserver : AnyObject {
-  func onCountUpdate(newCount : Int64)
+protocol DataModelObserver: AnyObject {
+  func onCountUpdate(newCount: Int64)
 }
 
 /// A wrapper object around a weak reference to an object that implements DataModelObserver.
@@ -14,16 +14,16 @@ protocol DataModelObserver : AnyObject {
 /// This is required since you can't directly hold weak references to protocols in data structures.
 private struct AnyDataModelObserver {
   weak var base: DataModelObserver?
-  
-  init(_ base: DataModelObserver ) {
+
+  init(_ base: DataModelObserver) {
     self.base = base
   }
 }
 
 /// A singleton data model that is observable.
 class DataModel {
-  private var _count : Int64 = 0
-  var count : Int64 {
+  private var _count: Int64 = 0
+  var count: Int64 {
     get {
       return self._count
     }
@@ -38,13 +38,13 @@ class DataModel {
   }
   private var observers: [AnyDataModelObserver] = []
   static let shared = DataModel()
-  
-  func addObserver(observer : DataModelObserver) {
+
+  func addObserver(observer: DataModelObserver) {
     observers.append(AnyDataModelObserver(observer))
   }
-  
-  func removeObserver(observer : DataModelObserver) {
-    observers.removeAll { (element : AnyDataModelObserver) -> Bool in
+
+  func removeObserver(observer: DataModelObserver) {
+    observers.removeAll { (element: AnyDataModelObserver) -> Bool in
       if let base = element.base {
         return base === observer
       } else {
