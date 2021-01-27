@@ -1,7 +1,7 @@
-# multiple_flutters_module
+# multiple_flutters
 
-This is the module that is embedded in the `multiple_flutters_ios` and
-`multiple_flutters_android (TODO)` projects.
+This is a sample that shows how to use the Flutter Engine Groups API to embed
+multiple instances of Flutter into an existing Android or iOS project.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ For Android instructions, see:
 
 ## Flutter Engine Group
 
-These examples use the Flutter engine group APIs on the host platform.  This
+These examples use the Flutter Engine Group APIs on the host platform.  This
 allows for the sharing of memory and CPU intensive resources to be shared
 between engine instances.  More info on those API's can be found in the source
 code:
