@@ -26,7 +26,8 @@ void runWeb() {
 @Task()
 void runFirebase() {
   run('flutter',
-      arguments: 'run -d web --web-port=5000 lib/main_firebase.dart '.split(' '));
+      arguments:
+          'run -d web --web-port=5000 lib/main_firebase.dart '.split(' '));
 }
 
 @Task()

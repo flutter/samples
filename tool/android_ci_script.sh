@@ -21,7 +21,7 @@ declare -ar ANDROID_PROJECT_NAMES=(
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's stable channel =="
     pushd "${PROJECT_NAME}"
 
     ./gradlew --stacktrace assembleDebug

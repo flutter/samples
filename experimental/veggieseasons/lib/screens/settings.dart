@@ -23,7 +23,8 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 
   static Route<void> _routeBuilder(BuildContext context, Object argument) {
     return CupertinoPageRoute(
-      builder: (context) => VeggieCategorySettingsScreen(restorationId: 'category'),
+      builder: (context) =>
+          VeggieCategorySettingsScreen(restorationId: 'category'),
       title: 'Preferred Categories',
     );
   }
@@ -136,9 +137,10 @@ class CalorieSettingsScreen extends StatelessWidget {
                       label: cals.toString(),
                       icon: SettingsIcon(
                         icon: Styles.checkIcon,
-                        foregroundColor: snapshot.hasData && snapshot.data == cals
-                            ? CupertinoColors.activeBlue
-                            : Styles.transparentColor,
+                        foregroundColor:
+                            snapshot.hasData && snapshot.data == cals
+                                ? CupertinoColors.activeBlue
+                                : Styles.transparentColor,
                         backgroundColor: Styles.transparentColor,
                       ),
                       onPress: snapshot.hasData
@@ -219,7 +221,8 @@ class SettingsScreen extends StatelessWidget {
       restorationId: restorationId,
       child: CupertinoPageScaffold(
         child: Container(
-          color: Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
+          color:
+              Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
           child: CustomScrollView(
             restorationId: 'list',
             slivers: <Widget>[

@@ -7,25 +7,35 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/flutter_module_using_plugin" \
     "add_to_app/flutter_module_books" \
     "animations" \
-    "flutter_maps_firestore" \
+    # Tracking issue: https://github.com/flutter/samples/issues/652
+    # "flutter_maps_firestore" \
     "infinite_list" \
     "ios_app_clip" \
-    "isolate_example" \
+    # Tracking issue: https://github.com/flutter/samples/issues/653
+    # "isolate_example" \
     "jsonexample" \
-    "place_tracker" \
-    "platform_channels" \
+    # Tracking issue: https://github.com/flutter/samples/issues/655
+    # "place_tracker" \
+    # Tracking issue: https://github.com/flutter/samples/issues/656
+    # "platform_channels" \
     "platform_design"
     "platform_view_swift" \
     "provider_counter" \
-    "provider_shopper" \
-    "testing_app" \
-# TODO(goderbauer): Add veggieseasons back when moved out of experimental again.
-#    "veggieseasons" \
+    # Tracking issue: https://github.com/flutter/samples/issues/657
+    # "provider_shopper" \
+    # Tracking issue: https://github.com/flutter/samples/issues/658
+    # "testing_app" \
+    # Tracking issue: https://github.com/flutter/samples/issues/659
+    # "experimental/federated_plugin/federated_plugin" \
+    "experimental/null_safety/null_safe_app" \
+    "experimental/null_safety/null_unsafe_app" \
+    "experimental/veggieseasons" \
+    "experimental/web_dashboard" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
 do
-    echo "== Testing '${PROJECT_NAME}' on Flutter's ${FLUTTER_VERSION} channel =="
+    echo "== Testing '${PROJECT_NAME}' on Flutter's beta channel =="
     pushd "${PROJECT_NAME}"
 
     # Grab packages.
