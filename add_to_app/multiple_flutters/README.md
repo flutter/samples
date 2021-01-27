@@ -40,7 +40,7 @@ code:
   code.
 - [SingleFlutterViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/SingleFlutterViewController.swift)
   — A subclass of FlutterViewController that synchronizes with the DataModel.
-- [DoubleFlutterViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/SingleFlutterViewController.swift)
+- [DoubleFlutterViewController.swift](./multiple_flutters_ios/MultipleFluttersIos/DoubleFlutterViewController.swift)
   — A UIViewController that embeds multiple Flutter instances.
 
 ### Android
