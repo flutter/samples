@@ -4,6 +4,7 @@
 
 import 'dart:io';
 
+import 'package:animations/animations.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ import 'src/widgets/photo_details.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/split.dart';
 import 'unsplash_access_key.dart';
+import 'src/widgets/about_dialog.dart';
 
 void main() {
   Logger.root.level = Level.ALL;
@@ -73,6 +75,18 @@ class UnsplashHomePage extends StatelessWidget {
               builder: (context) =>
                   PhotoSearchDialog(photoSearchModel.addSearch),
             );
+          },
+        ),
+      ]),
+      menubar.Submenu(label: 'About', children: [
+        menubar.MenuItem(
+          label: 'About ...',
+          onClicked: () {
+            showModal<Dialog>(
+                context: context,
+                builder: (context) {
+                  return PolicyDialog();
+                });
           },
         ),
       ])
