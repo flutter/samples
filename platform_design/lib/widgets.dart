@@ -309,11 +309,11 @@ void showChoices(BuildContext context, List<String> choices) {
               },
             ),
             actions: [
-              FlatButton(
+              TextButton(
                 child: Text('OK'),
                 onPressed: () => Navigator.of(context).pop(),
               ),
-              FlatButton(
+              TextButton(
                 child: Text('CANCEL'),
                 onPressed: () => Navigator.of(context).pop(),
               ),

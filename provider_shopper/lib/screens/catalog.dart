@@ -43,7 +43,7 @@ class _AddButton extends StatelessWidget {
       (cart) => cart.items.contains(item),
     );
 
-    return FlatButton(
+    return TextButton(
       onPressed: isInCart
           ? null
           : () {
@@ -54,7 +54,14 @@ class _AddButton extends StatelessWidget {
               var cart = context.read<CartModel>();
               cart.add(item);
             },
-      splashColor: Theme.of(context).primaryColor,
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+          if (states.contains(MaterialState.pressed)) {
+            return Theme.of(context).primaryColor;
+          }
+          return null; // Defer to the widget's default.
+        }),
+      ),
       child: isInCart ? Icon(Icons.check, semanticLabel: 'ADDED') : Text('ADD'),
     );
   }

@@ -52,9 +52,9 @@ class _PerformancePageState extends State<PerformancePage> {
                 FutureBuilder(
                   future: computeFuture,
                   builder: (context, snapshot) {
-                    return RaisedButton(
+                    return ElevatedButton(
                       child: const Text('Compute on Main'),
-                      elevation: 8.0,
+                      style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed:
                           snapshot.connectionState == ConnectionState.done
                               ? () => handleComputeOnMain(context)
@@ -65,9 +65,9 @@ class _PerformancePageState extends State<PerformancePage> {
                 FutureBuilder(
                   future: computeFuture,
                   builder: (context, snapshot) {
-                    return RaisedButton(
+                    return ElevatedButton(
                         child: const Text('Compute on Secondary'),
-                        elevation: 8.0,
+                        style: ElevatedButton.styleFrom(elevation: 8.0),
                         onPressed:
                             snapshot.connectionState == ConnectionState.done
                                 ? () => handleComputeOnSecondary(context)

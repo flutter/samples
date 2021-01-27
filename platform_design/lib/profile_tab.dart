@@ -177,7 +177,7 @@ class LogOutButton extends StatelessWidget {
   // ===========================================================================
 
   Widget _buildAndroid(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
         // You should do something with the result of the dialog prompt in a
@@ -189,11 +189,11 @@ class LogOutButton extends StatelessWidget {
               title: Text('Log out?'),
               content: _logoutMessage,
               actions: [
-                FlatButton(
+                TextButton(
                   child: const Text('Got it'),
                   onPressed: () => Navigator.pop(context),
                 ),
-                FlatButton(
+                TextButton(
                   child: const Text('Cancel'),
                   onPressed: () => Navigator.pop(context),
                 ),

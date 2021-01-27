@@ -33,13 +33,13 @@ void main() {
       // Initially the value of count should be 0.
       expect(find.text('Value of count is 0'), findsOneWidget);
 
-      // Tap the RaisedButton with Icons.add to increment the value of count.
+      // Tap the ElevatedButton with Icons.add to increment the value of count.
       await tester.tap(find.byIcon(Icons.add));
       await tester.pump();
 
       expect(find.text('Value of count is 1'), findsOneWidget);
 
-      // Tap the RaisedButton with Icons.remove to decrement the value of count.
+      // Tap the ElevatedButton with Icons.remove to decrement the value of count.
       await tester.tap(find.byIcon(Icons.remove));
       await tester.pump();
 

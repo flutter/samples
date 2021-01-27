@@ -138,7 +138,7 @@ class Contents extends StatelessWidget {
                 SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
-                    return RaisedButton(
+                    return ElevatedButton(
                       onPressed: () => model.increment(),
                       child: Text('Tap me!'),
                     );
@@ -146,7 +146,7 @@ class Contents extends StatelessWidget {
                 ),
                 if (showExit) ...[
                   SizedBox(height: 16),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () => SystemNavigator.pop(animated: true),
                     child: Text('Exit this screen'),
                   ),

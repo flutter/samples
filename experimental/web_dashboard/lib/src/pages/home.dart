@@ -30,8 +30,8 @@ class _HomePageState extends State<HomePage> {
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: FlatButton(
-            textColor: Colors.white,
+          child: TextButton(
+            style: TextButton.styleFrom(primary: Colors.white),
             onPressed: () => _handleSignOut(),
             child: Text('Sign Out'),
           ),
@@ -90,13 +90,13 @@ class _HomePageState extends State<HomePage> {
       builder: (context) => AlertDialog(
         title: Text('Are you sure you want to sign out?'),
         actions: [
-          FlatButton(
+          TextButton(
             child: Text('No'),
             onPressed: () {
               Navigator.of(context).pop(false);
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('Yes'),
             onPressed: () {
               Navigator.of(context).pop(true);

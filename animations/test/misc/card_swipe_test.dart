@@ -56,7 +56,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Tap the Refill button.
-      await tester.tap(find.byType(RaisedButton));
+      await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
       // Check if the entire stack is refilled.
