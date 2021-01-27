@@ -61,7 +61,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
                 size: 300,
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('animate'),
               onPressed: () => setState(() {
                 _controller.animateTo(1.0).then<TickerFuture>(

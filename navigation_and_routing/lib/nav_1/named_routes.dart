@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlatButton(
+        child: TextButton(
           child: Text('View Details'),
           onPressed: () {
             Navigator.pushNamed(
@@ -50,7 +50,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlatButton(
+        child: TextButton(
           child: Text('Pop!'),
           onPressed: () {
             Navigator.pop(context);

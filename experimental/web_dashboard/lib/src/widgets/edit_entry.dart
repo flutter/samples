@@ -103,7 +103,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(intl.DateFormat('MM/dd/yyyy').format(widget.entry.time)),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Edit'),
                   onPressed: () async {
                     var result = await showDatePicker(
@@ -127,7 +127,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('Cancel'),
                   onPressed: () {
                     widget.onDone(false);
@@ -136,7 +136,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('OK'),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {

@@ -1,6 +1,6 @@
 # Flutter samples
 
-[![Build Status](https://travis-ci.org/flutter/samples.svg?branch=master)](https://travis-ci.org/flutter/samples)
+[![Build Status](https://github.com/flutter/samples/workflows/Flutter%20CI/badge.svg)](https://github.com/flutter/samples/actions?workflow=Flutter%20CI)
 
 A collection of open source samples that illustrate best practices for
 [Flutter](https://flutter.dev).

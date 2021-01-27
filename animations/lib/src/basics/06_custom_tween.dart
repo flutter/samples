@@ -71,27 +71,32 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
         ],
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Card(
-                child: Container(
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: AnimatedBuilder(
-                    animation: animation,
-                    builder: (context, child) {
-                      return Text('${animation.value}',
-                          style: TextStyle(
-                              fontSize: 16, fontFamily: 'SpecialElite'));
-                    },
+                  child: Card(
+                    child: Container(
+                      padding: EdgeInsets.all(8.0),
+                      child: AnimatedBuilder(
+                        animation: animation,
+                        builder: (context, child) {
+                          return Text('${animation.value}',
+                              style: TextStyle(
+                                  fontSize: 16, fontFamily: 'SpecialElite'));
+                        },
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

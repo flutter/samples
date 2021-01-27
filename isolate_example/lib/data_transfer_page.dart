@@ -54,25 +54,28 @@ class DataTransferPage extends StatelessWidget {
           ),
           Column(
             children: [
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Transfer Data to 2nd Isolate'),
-                color: (controller.runningTest == 1)
-                    ? Colors.blueAccent
-                    : Colors.grey[300],
+                style: ElevatedButton.styleFrom(
+                    primary: (controller.runningTest == 1)
+                        ? Colors.blueAccent
+                        : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(false),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Transfer Data with TransferableTypedData'),
-                color: (controller.runningTest == 2)
-                    ? Colors.blueAccent
-                    : Colors.grey[300],
+                style: ElevatedButton.styleFrom(
+                    primary: (controller.runningTest == 2)
+                        ? Colors.blueAccent
+                        : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(true),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Generate on 2nd Isolate'),
-                color: (controller.runningTest == 3)
-                    ? Colors.blueAccent
-                    : Colors.grey[300],
+                style: ElevatedButton.styleFrom(
+                    primary: (controller.runningTest == 3)
+                        ? Colors.blueAccent
+                        : Colors.grey[300]),
                 onPressed: controller.generateOnSecondaryIsolate,
               ),
             ],

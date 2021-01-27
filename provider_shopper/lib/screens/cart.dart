@@ -83,12 +83,12 @@ class _CartTotal extends StatelessWidget {
                 builder: (context, cart, child) =>
                     Text('\$${cart.totalPrice}', style: hugeStyle)),
             SizedBox(width: 24),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Scaffold.of(context).showSnackBar(
                     SnackBar(content: Text('Buying not supported yet.')));
               },
-              color: Colors.white,
+              style: TextButton.styleFrom(primary: Colors.white),
               child: Text('BUY'),
             ),
           ],

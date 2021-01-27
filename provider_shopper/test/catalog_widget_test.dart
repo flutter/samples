@@ -48,7 +48,7 @@ void main() {
       expect(find.text('ADD'), findsWidgets);
 
       // Performing the click on the ADD button of the first item in the list.
-      await tester.tap(find.widgetWithText(FlatButton, 'ADD').first);
+      await tester.tap(find.widgetWithText(TextButton, 'ADD').first);
       await tester.pumpAndSettle();
 
       // Verifying if the tapped ADD button has changed to the check icon.

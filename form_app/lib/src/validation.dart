@@ -24,8 +24,8 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
         actions: [
           Padding(
             padding: EdgeInsets.all(8),
-            child: FlatButton(
-              textColor: Colors.white,
+            child: TextButton(
+              style: TextButton.styleFrom(primary: Colors.white),
               child: Text('Submit'),
               onPressed: () {
                 // Validate the form by getting the FormState from the GlobalKey
@@ -41,7 +41,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                     title: Text('Your story'),
                     content: Text('The $adjective developer saw a $noun'),
                     actions: [
-                      FlatButton(
+                      TextButton(
                         child: Text('Done'),
                         onPressed: () {
                           Navigator.of(context).pop();
