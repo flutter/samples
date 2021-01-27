@@ -48,6 +48,7 @@ class DataModel {
       if let wrapped = element.wrapped {
         return wrapped === observer
       } else {
+        // Handle observers who dealloc'd without removing themselves.
         return true
       }
     }
