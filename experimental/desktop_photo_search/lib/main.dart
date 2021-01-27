@@ -12,6 +12,7 @@ import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:meta/meta.dart';
 import 'package:provider/provider.dart';
+
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
 import 'src/widgets/photo_details.dart';
