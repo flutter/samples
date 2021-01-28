@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     #endif
     if isDebug {
       NSLog(
-        "⚠️ WARNING: the memory and CPU costs for Flutter engine groups are significantly greater in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097"
+        "📣 NOTICE: the memory and CPU costs for Flutter engine groups are significantly greater in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097"
       )
     } else {
       NSLog(
-        "⚠️ WARNING: the memory and CPU costs for Flutter engine groups are significantly less here than in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097"
+        "📣 NOTICE: the memory and CPU costs for Flutter engine groups are significantly less here than in debug builds.  See also: https://github.com/dart-lang/sdk/issues/36097"
       )
     }
 
