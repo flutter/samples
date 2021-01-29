@@ -82,8 +82,8 @@ class UnsplashHomePage extends StatelessWidget {
           label: 'About ...',
           onClicked: () {
             showDialog<void>(
-                context: context,
-                builder: (context) => PolicyDialog(),
+              context: context,
+              builder: (context) => PolicyDialog(),
             );
           },
         ),

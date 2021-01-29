@@ -348,7 +348,7 @@ samples:
         alt: Form App screenshot
       - url: images/form_app3.png
         alt: Form App screenshot
-    source: https://github.com/flutter/samples/tree/master/experimental/form_app
+    source: https://github.com/flutter/samples/tree/master/form_app
     description: >
       A Flutter sample app that shows how to use Forms.
     difficulty: intermediate

@@ -45,7 +45,9 @@ class PolicyDialog extends StatelessWidget {
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://policies.google.com/terms',
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.lightBlue),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             final url = 'https://policies.google.com/terms';
@@ -65,7 +67,9 @@ class PolicyDialog extends StatelessWidget {
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://unsplash.com/terms',
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.lightBlue),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
                             final url = 'https://unsplash.com/terms';
