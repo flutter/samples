@@ -58,4 +58,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v0.1
-      - run: ./tool/copyright_ci_script.sh
+      - run: pub global activate copywriter
+      - run: copywriter -d
