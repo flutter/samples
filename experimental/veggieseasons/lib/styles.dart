@@ -120,19 +120,11 @@ abstract class Styles {
           ? CupertinoColors.lightBackgroundGray
           : null;
 
-  static Color searchBackground(CupertinoThemeData themeData) =>
-      themeData.barBackgroundColor;
-
   static const frostedBackground = Color(0xccf8f8f8);
 
   static const closeButtonUnpressed = Color(0xff101010);
 
   static const closeButtonPressed = Color(0xff808080);
-
-  static TextStyle searchText(CupertinoThemeData themeData) =>
-      themeData.textTheme.textStyle.copyWith(
-        fontSize: 14,
-      );
 
   static TextStyle settingsItemSubtitleText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
