@@ -198,7 +198,7 @@ abstract class Styles {
           : CupertinoColors.darkBackgroundGray;
 
   static Color settingsLineation(Brightness brightness) =>
-      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xFF4C4B4B);
+      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xff4c4b4b);
 
   static const Color settingsBackground = Color(0xffefeff4);
 
@@ -210,6 +210,12 @@ abstract class Styles {
 
   static const preferenceIcon = IconData(
     0xf443,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const resetIcon = IconData(
+    0xf4c4,
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
   );
@@ -230,5 +236,5 @@ abstract class Styles {
 
   static const ColorFilter desaturatedColorFilter =
       // 222222 is a random color that has low color saturation.
-      ColorFilter.mode(Color(0xFF222222), BlendMode.saturation);
+      ColorFilter.mode(Color(0xff222222), BlendMode.saturation);
 }

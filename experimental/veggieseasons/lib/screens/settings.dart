@@ -213,6 +213,44 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  SettingsItem _buildRestoreDefaultsItem(
+      BuildContext context, Preferences prefs) {
+    return SettingsItem(
+      label: 'Restore Defaults',
+      icon: SettingsIcon(
+        backgroundColor: CupertinoColors.systemRed,
+        icon: Styles.resetIcon,
+      ),
+      content: SettingsNavigationIndicator(),
+      onPress: () {
+        showCupertinoDialog<void>(
+          context: context,
+          builder: (context) => CupertinoAlertDialog(
+            title: Text('Are you sure?'),
+            content: Text(
+              'Are you sure you want to reset the current settings?',
+            ),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                isDestructiveAction: true,
+                child: Text('Yes'),
+                onPressed: () async {
+                  await prefs.restoreDefaults();
+                  Navigator.pop(context);
+                },
+              ),
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                child: Text('No'),
+                onPressed: () => Navigator.pop(context),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final prefs = Provider.of<Preferences>(context);
@@ -238,6 +276,7 @@ class SettingsScreen extends StatelessWidget {
                         items: [
                           _buildCaloriesItem(context, prefs),
                           _buildCategoriesItem(context, prefs),
+                          _buildRestoreDefaultsItem(context, prefs),
                         ],
                       ),
                     ],
