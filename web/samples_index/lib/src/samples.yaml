@@ -524,24 +524,6 @@ samples:
     web: web/timeflow
     type: demo
 
-  - name: Vision Challenge
-    author: Yukkei Choi
-    screenshots:
-      - url: images/vision_challenge1.png
-        alt: Vision Challenge screenshot
-      - url: images/vision_challenge2.png
-        alt: Vision Challenge screenshot
-    source: https://github.com/flutter/samples/tree/master/web/vision_challenge
-    description: >
-      A fun game to test your color perception abilities.
-    difficulty: advanced
-    widgets: []
-    packages: []
-    platforms: ['web']
-    tags: ['demo', 'game']
-    web: web/vision_challenge
-    type: demo
-    
   - name: Dice
     author: Jaime Blasco
     screenshots:
