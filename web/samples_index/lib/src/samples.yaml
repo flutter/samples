@@ -289,6 +289,72 @@ samples:
     platforms: ['ios']
     type: sample
 
+  - name: Infinite List
+    author: Flutter
+    screenshots:
+      - url: images/infinite_list.png
+        alt: Infinite List screenshot
+    source: https://github.com/flutter/samples/tree/master/infinite_list
+    description: >
+      A Flutter sample app that shows an implementation of the "infinite list" UX pattern. 
+      That is, a list is shown to the user as if it was continuous although it is internally 
+      paginated. This is a common feature of mobile apps, from shopping catalogs 
+      through search engines to social media clients.
+    difficulty: intermediate
+    widgets:
+      - Selector
+      - AppBar
+      - ListTile
+      - ListView
+    packages:
+      - provider
+      - meta
+    tags: ['sample', 'material', 'design', 'android', 'ios']
+    platforms: ['ios', 'android']
+    type: sample
+
+  - name: IOS App Clip
+    author: Flutter
+    screenshots:
+      - url: images/ios_app_clip.png
+        alt: IOS App Clip screenshot
+    source: https://github.com/flutter/samples/tree/master/ios_app_clip
+    description: >
+      A Flutter sample app that shows the demonstrating integration with iOS 14's App Clip,
+      the App Clip target is rendered by Flutter and uses a plugin.
+    difficulty: intermediate
+    widgets:
+      - CupertinoApp
+      - AppBar
+      - FlutterLogo
+    packages:
+      - device_info
+    tags: ['sample', 'Device Info', 'ios']
+    platforms: ['ios']
+    type: sample
+
+  - name: Testing App
+    author: Flutter
+    screenshots:
+      - url: images/testing_app1.png
+        alt: Testing App screenshot
+      - url: images/testing_app2.png
+        alt: Testing App screenshot
+    source: https://github.com/flutter/samples/tree/master/testing_app
+    description: >
+      A Flutter sample app that shows different types of testing in Flutter.
+    difficulty: intermediate
+    widgets:
+      - AppBar
+      - ListTile
+      - ListView
+      - Snackbar
+    packages:
+      - provider
+    tags: ['sample', 'material', 'android', 'ios']
+    platforms: ['ios', 'android']
+    type: sample
+
   - name: Provider Shopper
     author: Flutter
     screenshots:
