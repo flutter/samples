@@ -6,15 +6,11 @@ const RESOURCES = {
   "version.json": "406822e15c66b599d2ed163a6e51b435",
 "index.html": "9c473ce14d9afeb3525b5e9ea752c013",
 "/": "9c473ce14d9afeb3525b5e9ea752c013",
-"main.dart.js": "0535bbfb9a6ceb58081b094477937415",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"manifest.json": "a5e226d4e414529057b75848d0066787",
+"main.dart.js": "f090c409c8706ae5395be37418e3322d",
 "assets/asset/seattle.jpg": "b3497f8c3eac62f0f696e9423be862a0",
 "assets/asset/fonts/plaster/Plaster-Regular.ttf": "3bdb6c45e898b254e76cd6c164850f94",
 "assets/AssetManifest.json": "ecb4d39e576209dc5ae70fad278c3df6",
-"assets/NOTICES": "cb361e74e66795bae958b8ae728cb0a5",
+"assets/NOTICES": "be05cbc81bce0d247157def42422b469",
 "assets/FontManifest.json": "f0a8246bfb399b5df0043e73f578e332",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac"
 };
@@ -160,7 +156,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }

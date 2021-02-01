@@ -6,9 +6,9 @@ const RESOURCES = {
   "version.json": "e4796c6eeace7d7897bf0b66b0acb15e",
 "index.html": "51839f812a32cce7ac40ca488295da30",
 "/": "51839f812a32cce7ac40ca488295da30",
-"main.dart.js": "d68036a6838d25a201bb0f421aa7539f",
+"main.dart.js": "d295aceccf13e83ad28953edd5c1eb54",
 "assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
-"assets/NOTICES": "673fe8c84ceb19fbeb6d7af232a128fa",
+"assets/NOTICES": "8e616c710efc0ada2570f2a0561c31cf",
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
 "assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
 "assets/github_data/contributors.json": "4f7b5d7640ca5ab67ee419df55a4833f",
@@ -160,7 +160,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }

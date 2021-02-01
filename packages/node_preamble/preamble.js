@@ -5,9 +5,9 @@ var dartNodePreambleSelf = typeof global !== "undefined" ? global : window;
 
 var self = Object.create(dartNodePreambleSelf);
 
-self.scheduleImmediate = self.setImmediate
+self.scheduleImmediate = typeof setImmediate !== "undefined"
     ? function (cb) {
-        dartNodePreambleSelf.setImmediate(cb);
+        setImmediate(cb);
       }
     : function(cb) {
         setTimeout(cb, 0);
@@ -31,6 +31,10 @@ if (typeof __filename !== "undefined") {
   self.__filename = __filename;
 }
 
+if (typeof Buffer !== "undefined") {
+  self.Buffer = Buffer;
+}
+
 // if we're running in a browser, Dart supports most of this out of box
 // make sure we only run these in Node.js environment
 
@@ -43,7 +47,7 @@ try {
   }
 
   // Check if we're in Electron, with Node.js integration, and override if true.
-  if (dartNodePreambleSelf.process && dartNodePreambleSelf.process.versions && dartNodePreambleSelf.process.versions.hasOwnProperty('electron') && dartNodePreambleSelf.process.versions.hasOwnProperty('node')) {
+  if ("undefined" !== typeof process && process.versions && process.versions.hasOwnProperty('electron') && process.versions.hasOwnProperty('node')) {
     dartNodeIsActuallyNode = true;
   }
 } catch(e) {}
