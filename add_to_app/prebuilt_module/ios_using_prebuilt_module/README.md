@@ -12,3 +12,12 @@ For more information about Flutter, check out
 For instructions on how to integrate Flutter modules into your existing
 applications, see Flutter's
 [add-to-app documentation](https://flutter.dev/docs/development/add-to-app).
+
+## Requirements
+
+* Flutter
+* Android
+  * Android Studio
+* iOS
+  * Xcode
+  * Cocoapods

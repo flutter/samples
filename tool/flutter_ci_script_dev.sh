@@ -3,9 +3,10 @@
 set -e
 
 declare -ar PROJECT_NAMES=(
-    "add_to_app/flutter_module" \
-    "add_to_app/flutter_module_using_plugin" \
-    "add_to_app/flutter_module_books" \
+    "add_to_app/fullscreen/flutter_module" \
+    "add_to_app/prebuilt_module/flutter_module" \
+    "add_to_app/plugin/flutter_module_using_plugin" \
+    "add_to_app/books/flutter_module_books" \
     "animations" \
     # Tracking issue: https://github.com/flutter/samples/issues/652
     # "flutter_maps_firestore" \

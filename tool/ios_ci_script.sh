@@ -6,19 +6,19 @@ echo "Pre-caching ios artifacts, such as the Flutter.framework"
 flutter precache --no-web --no-linux --no-windows --no-fuchsia --no-android --no-macos
 
 echo "Fetching dependencies and building 'flutter_module'."
-pushd add_to_app/flutter_module
+pushd add_to_app/prebuilt_module/flutter_module
 flutter packages get
 flutter build ios-framework --xcframework --output="$(pwd)/../ios_using_prebuilt_module/Flutter"
 popd
 
 echo "Fetching dependencies for 'flutter_module_using_plugin'."
-pushd add_to_app/flutter_module_using_plugin
+pushd add_to_app/plugin/flutter_module_using_plugin
 flutter packages get
 popd
 
 
-echo "== Testing 'add_to_app/ios_fullscreen' on Flutter's $FLUTTER_VERSION channel =="
-pushd "add_to_app/ios_fullscreen"
+echo "== Testing 'add_to_app/fullscreen/ios_fullscreen' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/fullscreen/ios_fullscreen"
 
 pod install
 
@@ -35,8 +35,8 @@ COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
 
 popd
 
-echo "== Testing 'add_to_app/ios_using_plugin' on Flutter's $FLUTTER_VERSION channel =="
-pushd "add_to_app/ios_using_plugin"
+echo "== Testing 'add_to_app/plugin/ios_using_plugin' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/plugin/ios_using_plugin"
 
 pod install
 
@@ -53,8 +53,8 @@ COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
 
 popd
 
-echo "== Testing 'add_to_app/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
-pushd "add_to_app/ios_using_prebuilt_module"
+echo "== Testing 'add_to_app/prebuilt_module/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/prebuilt_module/ios_using_prebuilt_module"
 
 xcodebuild CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
 CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
