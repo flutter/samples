@@ -5,17 +5,21 @@ set -e
 echo "Pre-caching ios artifacts, such as the Flutter.framework"
 flutter precache --no-web --no-linux --no-windows --no-fuchsia --no-android --no-macos
 
-echo "Fetching dependencies and building 'flutter_module'."
+echo "Fetching dependencies and building 'prebuilt_module/flutter_module'."
 pushd add_to_app/prebuilt_module/flutter_module
 flutter packages get
 flutter build ios-framework --xcframework --output="$(pwd)/../ios_using_prebuilt_module/Flutter"
 popd
 
-echo "Fetching dependencies for 'flutter_module_using_plugin'."
+echo "Fetching dependencies for 'plugin/flutter_module_using_plugin'."
 pushd add_to_app/plugin/flutter_module_using_plugin
 flutter packages get
 popd
 
+echo "Fetching dependencies and building 'fullscreen/flutter_module'."
+pushd add_to_app/fullscreen/flutter_module
+flutter packages get
+popd
 
 echo "== Testing 'add_to_app/fullscreen/ios_fullscreen' on Flutter's $FLUTTER_VERSION channel =="
 pushd "add_to_app/fullscreen/ios_fullscreen"
