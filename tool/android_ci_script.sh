@@ -2,21 +2,26 @@
 
 set -e
 
-echo "Fetching dependencies and building 'flutter_module'."
+echo "Fetching dependencies and building 'prebuilt_module/flutter_module/'."
 pushd add_to_app/prebuilt_module/flutter_module/
 flutter packages get
 flutter build aar
 popd
 
-echo "Fetching dependencies for 'flutter_module_using_plugin'."
+echo "Fetching dependencies for 'plugin/flutter_module_using_plugin'."
 pushd add_to_app/plugin/flutter_module_using_plugin
+flutter packages get
+popd
+
+echo "Fetching dependencies for 'fullscreen/'."
+pushd add_to_app/fullscreen/flutter_module
 flutter packages get
 popd
 
 declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/fullscreen/android_fullscreen" \
     "add_to_app/plugin/android_using_plugin" \
-    "add_to_app/prebuild_module/android_using_prebuilt_module" \
+    "add_to_app/prebuilt_module/android_using_prebuilt_module" \
 )
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
