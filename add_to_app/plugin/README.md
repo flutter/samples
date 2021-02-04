@@ -31,6 +31,7 @@ you're building for both iOS and Android, with both toolchains installed):
 
   # For Android builds:
   open -a "Android Studio" ../android_using_plugin # macOS only
+  # Or open the ../android_using_plugin folder in Android Studio for other platforms.
 
   # For iOS builds:
   cd ../ios_using_plugin

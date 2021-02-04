@@ -3,9 +3,7 @@
 This application simulates a mock scenario in which an existing app with
 business logic and middleware already exists. It demonstrates how to add Flutter
 to an app that has established patterns for these domains. For more information
-this and the other add-to-app samples available in this repo, see the
-[README](../README.md) file located in the [/add_to_app](/add_to_app) directory
-of this repo.
+on how to use it, see the [README.md](../README.md) parent directory.
 
 This application also utilizes the [Pigeon](https://pub.dev/packages/pigeon)
 plugin to avoid manual platform channel wiring. Pigeon autogenerates the

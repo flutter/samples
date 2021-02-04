@@ -32,6 +32,7 @@ you're building for both iOS and Android, with both toolchains installed):
 
   # For Android builds:
   open -a "Android Studio" ../android_fullscreen # macOS only
+  # Or open the ../android_fullscreen folder in Android Studio for other platforms.
 
   # For iOS builds:
   cd ../ios_fullscreen

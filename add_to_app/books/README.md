@@ -63,6 +63,7 @@ you're building for both iOS and Android, with both toolchains installed):
 
   # For Android builds:
   open -a "Android Studio" ../android_books # macOS only
+  # Or open the ../android_books folder in Android Studio for other platforms.
 
   # For iOS builds:
   # TODO iOS sample

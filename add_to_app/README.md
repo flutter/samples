@@ -8,15 +8,15 @@ existing Android and iOS apps.
 
 * [`fullscreen`](./fullscreen) — Embeds a full screen instance of
   Flutter into an existing iOS or Android app.
+* [`prebuild_module`](./prebuilt_module) — Embeds a full screen
+  instance of Flutter as a prebuilt library that can be loaded into an existing
+  iOS or Android app.
 * [`plugin`](./plugin) — Embeds a full screen Flutter instance that
   is using plugins into an existing iOS or Android app.
 * [`books`](./books) — Mimics a real world use-case of embedding Flutter into an
   existing Android app and demonstrates using
   [Pigeon](https://pub.dev/packages/pigeon) to communicate between Fluter and
   the host application.
-* [`prebuild_module`](./prebuilt_module) — Embeds a full screen
-  instance of Flutter as a prebuilt library that can be loaded into an existing
-  iOS or Android app.
 
 ## Goals for these samples
 

@@ -66,6 +66,8 @@ you're building for both iOS and Android, with both toolchains installed):
   # For Android builds:
   flutter build aar
   open -a "Android Studio" ../android_using_prebuilt_module/ # macOS only
+  # Or open the ../android_using_prebuilt_module folder in Android Studio for
+  # other platforms.
 
   # For iOS builds:
   flutter build ios-framework --xcframework --output=../ios_using_prebuilt_module/Flutter

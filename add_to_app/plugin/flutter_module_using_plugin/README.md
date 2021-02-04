@@ -2,8 +2,7 @@
 
 An example Flutter module that uses a native plugin, intended for use in the
 Flutter add-to-app samples. For more information on how to use it, see the
-[README](../README.md) file located in the [/add_to_app](/add_to_app) directory
-of this repo.
+[README.md](../README.md) parent directory.
 
 ## Getting Started
 
