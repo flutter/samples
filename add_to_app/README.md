@@ -17,6 +17,9 @@ existing Android and iOS apps.
   existing Android app and demonstrates using
   [Pigeon](https://pub.dev/packages/pigeon) to communicate between Fluter and
   the host application.
+* ['multiple_flutters'](./multiple_flutters) — Shows the usage of the Flutter
+  Engine Group APIs to embed multiple instances of Flutter into an existing app
+  with low memory cost.
 
 ## Goals for these samples
 
