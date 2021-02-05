@@ -21,6 +21,11 @@ pushd add_to_app/fullscreen/flutter_module
 flutter packages get
 popd
 
+echo "Fetching dependencies and building 'multiple_flutters/multiple_flutters_module'."
+pushd add_to_app//multiple_flutters/multiple_flutters_module
+flutter packages get
+popd
+
 echo "== Testing 'add_to_app/fullscreen/ios_fullscreen' on Flutter's $FLUTTER_VERSION channel =="
 pushd "add_to_app/fullscreen/ios_fullscreen"
 
@@ -65,6 +70,24 @@ CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
 COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Debug | xcpretty
 
 xcodebuild CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
+-destination generic/platform=iOS | xcpretty
+
+popd
+
+echo "== Testing 'add_to_app/multiple_flutters/multiple_flutters_ios' on Flutter's $FLUTTER_VERSION channel =="
+pushd "add_to_app/multiple_flutters/multiple_flutters_ios"
+
+pod install
+
+xcodebuild -workspace "MultipleFluttersIos.xcworkspace" \
+-scheme "MultipleFluttersIos" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
+COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Debug | xcpretty
+
+xcodebuild -workspace "MultipleFluttersIos.xcworkspace" \
+-scheme "MultipleFluttersIos" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
 CODE_SIGN_IDENTITY=- EXPANDED_CODE_SIGN_IDENTITY=- \
 COMPILER_INDEX_STORE_ENABLE=NO CONFIGURATION=Release \
 -destination generic/platform=iOS | xcpretty
