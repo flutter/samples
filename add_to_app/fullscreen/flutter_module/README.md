@@ -1,8 +1,8 @@
-# ios_using_prebuilt_module
+# flutter_module
 
-An example iOS application used in the Flutter add-to-app samples. For more
-information on how to use it, see the [README](../README.md) file located in the
-[/add_to_app](/add_to_app) directory of this repo.
+An example Flutter module used in the Flutter add-to-app samples. For more
+information on how to use it, see the [README.md](../README.md) parent
+directory.
 
 ## Getting Started
 
