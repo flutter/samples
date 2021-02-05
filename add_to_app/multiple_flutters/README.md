@@ -56,11 +56,10 @@ code:
 
 ## Data Synchronization Description
 
-This sample code uses a somewhat novel data synchronization mechanism to share
-data between the host platform and multiple instances of Flutter by combining
-the [Observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)
-and [Flutter platform
-channels](https://flutter.dev/docs/development/platform-integration/platform-channels).
+This sample code performs data synchronization to share data between the host
+platform and multiple instances of Flutter by combining the
+[Observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern) and
+[Flutter platform channels](https://flutter.dev/docs/development/platform-integration/platform-channels).
 Here is how it works:
 
 - The definitive source of truth for the data lives in the host platform data
