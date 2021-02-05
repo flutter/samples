@@ -88,7 +88,7 @@ class _PerformancePageState extends State<PerformancePage> {
         var snackBar = SnackBar(
           content: Text('Main Isolate Done!'),
         );
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       });
 
     setState(() {
@@ -102,7 +102,7 @@ class _PerformancePageState extends State<PerformancePage> {
         var snackBar = SnackBar(
           content: Text('Secondary Isolate Done!'),
         );
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       });
 
     setState(() {
