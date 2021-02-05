@@ -58,7 +58,10 @@ do
     flutter format -n --set-exit-if-changed .
 
     # Run the actual tests.
-    flutter test
+    if [ -d "test"]
+    then
+        flutter test
+    fi
 
     popd
 done
