@@ -11,6 +11,15 @@ For iOS instructions, see:
 For Android instructions, see:
 [multiple_flutters_android](../multiple_flutters_android/README.md).
 
+## Requirements
+
+* Flutter -- after version 1991216543eb74e07c2de3746ca07c92071b19ac
+* Android
+  * Android Studio
+* iOS
+  * Xcode
+  * Cocoapods
+
 ## Flutter Engine Group
 
 These examples use the Flutter Engine Group APIs on the host platform which
