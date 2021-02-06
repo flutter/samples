@@ -94,7 +94,6 @@ class _CartTotal extends StatelessWidget {
                   ),
                 ));
               },
-              style: TextButton.styleFrom(primary: Colors.white),
               child: Text(
                 'BUY',
                 style: TextStyle(
