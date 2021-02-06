@@ -85,8 +85,7 @@ class _CartTotal extends StatelessWidget {
             SizedBox(width: 24),
             TextButton(
               onPressed: () {
-                //Updated Method of using Snack Bar for more info visit "https://flutter.dev/docs/release/breaking-changes/scaffold-messenger"
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: const Text('Buying not supported yet.'),
                   duration: const Duration(seconds: 1),
                   action: SnackBarAction(
@@ -96,7 +95,13 @@ class _CartTotal extends StatelessWidget {
                 ));
               },
               style: TextButton.styleFrom(primary: Colors.white),
-              child: Text('BUY',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              child:  Text(
+                  'BUY',
+                  style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
