@@ -24,4 +24,3 @@ dev_dependencies:
   build_web_compilers: ^2.7.0
   tuneup: ^0.3.6
   image: ^2.1.0
-

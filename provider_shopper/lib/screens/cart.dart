@@ -93,6 +93,7 @@ class _CartTotal extends StatelessWidget {
                     onPressed: () { },
                   ),
                 ));
+
               },
               style: TextButton.styleFrom(primary: Colors.white),
               child:  Text(

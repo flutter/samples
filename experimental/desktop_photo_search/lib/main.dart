@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
+import 'src/widgets/about_dialog.dart';
 import 'src/widgets/photo_details.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/split.dart';
@@ -72,6 +73,17 @@ class UnsplashHomePage extends StatelessWidget {
               context: context,
               builder: (context) =>
                   PhotoSearchDialog(photoSearchModel.addSearch),
+            );
+          },
+        ),
+      ]),
+      menubar.Submenu(label: 'About', children: [
+        menubar.MenuItem(
+          label: 'About ...',
+          onClicked: () {
+            showDialog<void>(
+              context: context,
+              builder: (context) => PolicyDialog(),
             );
           },
         ),
