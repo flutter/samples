@@ -90,7 +90,7 @@ class PhotoSearchModelTester extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FlatButton(
+      home: TextButton(
         key: fabKey,
         onPressed: () async {
           await Provider.of<PhotoSearchModel>(

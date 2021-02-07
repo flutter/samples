@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   SizedBox(height: 18),
-                  RaisedButton(
+                  ElevatedButton(
                     child: const Text('Continue in iOS view'),
                     onPressed: _launchPlatformCount,
                   ),

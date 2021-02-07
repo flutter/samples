@@ -119,7 +119,7 @@ class TM extends State<App> {
             child: Container(
                 child: CustomPaint(
                     painter: P(),
-                    child: FlatButton(
+                    child: TextButton(
                         onPressed: press,
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,

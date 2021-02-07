@@ -403,17 +403,17 @@ a {
 // Carousel Container
 .slider-container {
   position: relative;
-  margin: -80px auto -60px auto;
+  margin: 12px auto 24px auto;
   width: 800px;
-  height: 600px;
+  height: 500px;
   max-width: 95%;
   @media screen and (max-width: $mobile-width) {
-    margin: -80px 4px -60px 4px;
+    margin: 12px 4px;
   }
 
   .bullet-container {
     position: absolute;
-    bottom: 80px;
+    bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -432,7 +432,7 @@ a {
       background-color: black;
       opacity: 0.2;
       cursor: pointer;
-      transition: 40ms ease;
+      transition: 200ms ease;
 
       &.active {
         opacity: 1;
@@ -445,10 +445,10 @@ a {
     left: 50%;
     top: 50%;
     width: 70%;
-    height: 60%;
+    height: 85%;
     transform: translate(-50%, -50%);
     @media screen and (max-width: $mobile-width) {
-      width: 100%
+      width: 100%;
     }
 
     .slider-single {

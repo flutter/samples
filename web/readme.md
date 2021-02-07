@@ -6,7 +6,7 @@ and web demos hosted with it.
 ## See the demos in action
 
 Compiled versions of the samples are hosted at
-[flutter.github.io/samples/#?platform=web][samples].
+https://flutter.github.io/samples/#?platform=web.
 
 ## Building samples code
 

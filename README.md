@@ -1,14 +1,29 @@
 # Flutter samples
 
-[![Build Status](https://travis-ci.org/flutter/samples.svg?branch=master)](https://travis-ci.org/flutter/samples)
+[![Build Status](https://github.com/flutter/samples/workflows/Master%20Branch%20CI/badge.svg)](https://github.com/flutter/samples/actions?workflow=Master%20Branch%20CI)
 
 A collection of open source samples that illustrate best practices for
-[Flutter](https://flutter.io).
+[Flutter](https://flutter.dev).
 
 ## Visual samples index
 
 The easiest way to browse through the samples in this repo (as well as a few others!)
 is the [visual samples index](https://flutter.github.io/samples).
+
+## Tip: minimize download size
+
+As this repository is quite big, you can use svn to download a single example.
+For example:
+
+```
+svn co https://github.com/flutter/samples/trunk/provider_shopper
+```
+
+You can also use a shallow clone to download just the latest revision:
+
+```
+git clone --depth 1 https://github.com/flutter/samples.git
+```
 
 ## Interested in contributing?
 

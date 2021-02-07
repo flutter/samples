@@ -86,7 +86,7 @@ class _SignInButtonState extends State<SignInButton> {
           _showError();
         }
 
-        return RaisedButton(
+        return ElevatedButton(
           child: Text('Sign In with Google'),
           onPressed: () => _signIn(),
         );
@@ -95,7 +95,7 @@ class _SignInButtonState extends State<SignInButton> {
   }
 
   void _showError() {
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Unable to sign in.'),
       ),

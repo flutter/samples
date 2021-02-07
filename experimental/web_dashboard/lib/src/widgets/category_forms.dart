@@ -76,7 +76,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('Cancel'),
                   onPressed: () {
                     widget.onDone(false);
@@ -85,7 +85,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('OK'),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {

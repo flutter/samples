@@ -5,12 +5,12 @@
 import FlutterMacOS
 import Foundation
 
-import file_chooser
+import file_selector_macos
 import menubar
 import url_launcher_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  FileChooserPlugin.register(with: registry.registrar(forPlugin: "FileChooserPlugin"))
+  FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
   MenubarPlugin.register(with: registry.registrar(forPlugin: "MenubarPlugin"))
   UrlLauncherPlugin.register(with: registry.registrar(forPlugin: "UrlLauncherPlugin"))
 }

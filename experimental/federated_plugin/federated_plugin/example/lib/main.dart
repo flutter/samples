@@ -34,41 +34,37 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Federated Plugin Demo'),
       ),
-      body: Builder(
-        builder: (context) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                batteryLevel == null
-                    ? SizedBox.shrink()
-                    : Text(
-                        'Battery Level: $batteryLevel',
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                SizedBox(height: 16),
-                RaisedButton(
-                  child: Text('Get Battery Level'),
-                  onPressed: () async {
-                    try {
-                      final result = await getBatteryLevel();
-                      setState(() {
-                        batteryLevel = result;
-                      });
-                    } catch (error) {
-                      Scaffold.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Theme.of(context).primaryColor,
-                          content: Text(error.message as String),
-                        ),
-                      );
-                    }
-                  },
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            batteryLevel == null
+                ? SizedBox.shrink()
+                : Text(
+                    'Battery Level: $batteryLevel',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              child: Text('Get Battery Level'),
+              onPressed: () async {
+                try {
+                  final result = await getBatteryLevel();
+                  setState(() {
+                    batteryLevel = result;
+                  });
+                } catch (error) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      content: Text(error.message as String),
+                    ),
+                  );
+                }
+              },
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }

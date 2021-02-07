@@ -59,7 +59,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
                   ),
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Refill'),
                 onPressed: () {
                   setState(() {

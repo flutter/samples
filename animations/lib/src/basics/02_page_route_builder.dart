@@ -14,7 +14,7 @@ class PageRouteBuilderDemo extends StatelessWidget {
         title: Text('Page 1'),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text('Go!'),
           onPressed: () {
             Navigator.of(context).push<void>(_createRoute());

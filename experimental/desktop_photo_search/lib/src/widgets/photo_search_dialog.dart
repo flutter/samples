@@ -50,13 +50,13 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
           },
         ),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
             child: Text('Cancel'.toUpperCase()),
           ),
-          FlatButton(
+          TextButton(
             onPressed: _searchEnabled
                 ? () {
                     widget.callback(_controller.text);

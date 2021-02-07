@@ -1,3 +1,7 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:async';
 import 'dart:math';
 
@@ -475,16 +479,16 @@ class _AddPlaceButtonBar extends StatelessWidget {
         child: ButtonBar(
           alignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
-              color: Colors.blue,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.blue),
               child: const Text(
                 'Save',
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               onPressed: onSavePressed,
             ),
-            RaisedButton(
-              color: Colors.red,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.red),
               child: const Text(
                 'Cancel',
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
@@ -523,30 +527,33 @@ class _CategoryButtonBar extends StatelessWidget {
         child: ButtonBar(
           alignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
-              color: selectedPlaceCategory == PlaceCategory.favorite
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: selectedPlaceCategory == PlaceCategory.favorite
+                      ? Colors.green[700]
+                      : Colors.lightGreen),
               child: const Text(
                 'Favorites',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
               onPressed: () => onChanged(PlaceCategory.favorite),
             ),
-            RaisedButton(
-              color: selectedPlaceCategory == PlaceCategory.visited
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: selectedPlaceCategory == PlaceCategory.visited
+                      ? Colors.green[700]
+                      : Colors.lightGreen),
               child: const Text(
                 'Visited',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
               ),
               onPressed: () => onChanged(PlaceCategory.visited),
             ),
-            RaisedButton(
-              color: selectedPlaceCategory == PlaceCategory.wantToGo
-                  ? Colors.green[700]
-                  : Colors.lightGreen,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: selectedPlaceCategory == PlaceCategory.wantToGo
+                      ? Colors.green[700]
+                      : Colors.lightGreen),
               child: const Text(
                 'Want To Go',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),

@@ -43,27 +43,32 @@ void main() {
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsOneWidget);
     expect(find.text('Serving info'), findsOneWidget);
-    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value, isFalse);
+    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value,
+        isFalse);
     await tester.tap(find.byType(CupertinoSwitch));
     await tester.pumpAndSettle();
-    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value, isTrue);
+    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value,
+        isTrue);
 
     // Current details page is restored.
     await tester.restartAndRestore();
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsOneWidget);
     expect(find.text('Serving info'), findsOneWidget);
-    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value, isTrue);
+    expect(tester.widget<CupertinoSwitch>(find.byType(CupertinoSwitch)).value,
+        isTrue);
 
     await tester.tap(find.text('Trivia'));
     await tester.pumpAndSettle();
     expect(find.text('Serving info'), findsNothing);
-    expect(find.text("Which of these isn't a variety of figs?"), findsOneWidget);
+    expect(
+        find.text("Which of these isn't a variety of figs?"), findsOneWidget);
 
     // Restores to trivia page.
     await tester.restartAndRestore();
     expect(find.text('Serving info'), findsNothing);
-    expect(find.text("Which of these isn't a variety of figs?"), findsOneWidget);
+    expect(
+        find.text("Which of these isn't a variety of figs?"), findsOneWidget);
 
     await tester.tap(find.text('Brown Turkey'));
     await tester.pumpAndSettle();
@@ -92,13 +97,15 @@ void main() {
     await tester.tap(find.text('My Garden'));
     await tester.pumpAndSettle();
 
-    expect(find.text('My Garden'), findsNWidgets(2)); // Name of the tap & title of page.
+    expect(find.text('My Garden'),
+        findsNWidgets(2)); // Name of the tap & title of page.
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsOneWidget);
 
     // Restores the current selected tab.
     await tester.restartAndRestore();
-    expect(find.text('My Garden'), findsNWidgets(2)); // Name of the tap & title of page.
+    expect(find.text('My Garden'),
+        findsNWidgets(2)); // Name of the tap & title of page.
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsOneWidget);
     expect(find.text('Apples'), findsNothing);
@@ -109,7 +116,8 @@ void main() {
 
     expect(find.text('Apples'), findsOneWidget);
     expect(find.text('Tangelo'), findsNothing);
-    await tester.enterText(find.byType(CupertinoTextField).hitTestable(), 'Tan');
+    await tester.enterText(
+        find.byType(CupertinoTextField).hitTestable(), 'Tan');
     await tester.pumpAndSettle();
     expect(find.text('Apples'), findsNothing);
     expect(find.text('Tangelo'), findsOneWidget);
@@ -117,6 +125,29 @@ void main() {
 
     // Restores search text and result.
     await tester.restartAndRestore();
+    expect(find.text('Apples'), findsNothing);
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Tan').hitTestable(), findsOneWidget); // search text
+
+    expect(find.text('Serving info'), findsNothing);
+
+    // Open a details page from search
+    await tester.tap(find.text('Tangelo'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Serving info'), findsOneWidget);
+
+    // Restores details page
+    await tester.restartAndRestore();
+    expect(find.text('Tangelo'), findsOneWidget);
+    expect(find.text('Serving info'), findsOneWidget);
+
+    // Go back to search page, is also restored
+    tester.state<NavigatorState>(find.byType(Navigator).last).pop();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Serving info'), findsNothing);
     expect(find.text('Apples'), findsNothing);
     expect(find.text('Tangelo'), findsOneWidget);
     expect(find.text('Tan').hitTestable(), findsOneWidget); // search text

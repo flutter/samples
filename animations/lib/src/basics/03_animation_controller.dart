@@ -68,7 +68,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
                 textScaleFactor: 1 + controller.value,
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('animate'),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {

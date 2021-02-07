@@ -140,7 +140,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
           ...widget.destinations.map(
             (d) => BottomNavigationBarItem(
               icon: Icon(d.icon),
-              title: Text(d.title),
+              label: d.title,
             ),
           ),
         ],

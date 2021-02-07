@@ -32,12 +32,14 @@ class MyLogin extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              RaisedButton(
-                color: Colors.yellow,
+              ElevatedButton(
                 child: Text('ENTER'),
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/catalog');
                 },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.yellow,
+                ),
               )
             ],
           ),

@@ -73,7 +73,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                       formData.password = value;
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('Sign in'),
                     onPressed: () async {
                       // Use a JSON encoded string to send
@@ -110,10 +110,10 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   void _showDialog(String message) {
     showDialog(
       context: context,
-      child: AlertDialog(
+      builder: (context) => AlertDialog(
         title: Text(message),
         actions: [
-          FlatButton(
+          TextButton(
             child: Text('OK'),
             onPressed: () => Navigator.of(context).pop(),
           ),
