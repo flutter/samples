@@ -1,4 +1,4 @@
-name: Beta branch CI
+name: Beta Branch CI
 
 on:
   push:
