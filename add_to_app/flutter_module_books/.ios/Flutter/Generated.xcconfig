@@ -1,0 +1,13 @@
+// This is a generated file; do not edit or check into version control.
+FLUTTER_ROOT=C:\flutter_windows_1.22.4-stable\flutter
+FLUTTER_APPLICATION_PATH=C:\Users\gupta\OneDrive\Desktop\Flutter Projects\samples\add_to_app\flutter_module_books
+FLUTTER_TARGET=lib\main.dart
+FLUTTER_BUILD_DIR=build
+SYMROOT=${SOURCE_ROOT}/../build\ios
+OTHER_LDFLAGS=$(inherited) -framework Flutter
+FLUTTER_BUILD_NAME=1.0.0
+FLUTTER_BUILD_NUMBER=1
+DART_OBFUSCATION=false
+TRACK_WIDGET_CREATION=false
+TREE_SHAKE_ICONS=false
+PACKAGE_CONFIG=.packages

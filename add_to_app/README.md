@@ -15,7 +15,7 @@ existing Android and iOS apps.
   is using plugins into an existing iOS or Android app.
 * [`books`](./books) — Mimics a real world use-case of embedding Flutter into an
   existing Android app and demonstrates using
-  [Pigeon](https://pub.dev/packages/pigeon) to communicate between Fluter and
+  [Pigeon](https://pub.dev/packages/pigeon) to communicate between Flutter and
   the host application.
 
 ## Goals for these samples
