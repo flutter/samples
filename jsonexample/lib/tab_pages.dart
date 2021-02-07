@@ -39,7 +39,7 @@ class BasicsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
     final boldStyle =
-        localTheme.bodyText2.copyWith(fontWeight: FontWeight.w600);
+        localTheme.bodyText2!.copyWith(fontWeight: FontWeight.w600);
 
     final dynamicListOfInts = json.decode(JsonStrings.listOfInts) as List;
     final strongListOfInts = List<int>.from(dynamicListOfInts);
@@ -134,7 +134,7 @@ class BasicsPage extends StatelessWidget {
             },
             children: createMapRows(
               strongMapOfDynamics,
-              localTheme.bodyText2,
+              localTheme.bodyText2!,
               boldStyle,
             ),
           ),
@@ -275,7 +275,7 @@ class BuiltSimplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var objects = JsonStrings.simpleObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Object;
         return serializers.deserializeWith(
             BuiltSimpleObject.serializer, parsedJson);
       },
@@ -297,7 +297,7 @@ class BuiltComplexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var objects = JsonStrings.complexObjects.map(
       (jsonString) {
-        final dynamic parsedJson = json.decode(jsonString);
+        final parsedJson = json.decode(jsonString) as Object;
         return serializers.deserializeWith(
             BuiltComplexObject.serializer, parsedJson);
       },

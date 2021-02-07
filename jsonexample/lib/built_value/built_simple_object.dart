@@ -13,23 +13,17 @@ abstract class BuiltSimpleObject
   static Serializer<BuiltSimpleObject> get serializer =>
       _$builtSimpleObjectSerializer;
 
-  @nullable
-  String get aString;
+  String? get aString;
 
-  @nullable
-  int get anInt;
+  int? get anInt;
 
-  @nullable
-  double get aDouble;
+  double? get aDouble;
 
-  @nullable
-  BuiltList<String> get aListOfStrings;
+  BuiltList<String>? get aListOfStrings;
 
-  @nullable
-  BuiltList<int> get aListOfInts;
+  BuiltList<int>? get aListOfInts;
 
-  @nullable
-  BuiltList<double> get aListOfDoubles;
+  BuiltList<double>? get aListOfDoubles;
 
   BuiltSimpleObject._();
 

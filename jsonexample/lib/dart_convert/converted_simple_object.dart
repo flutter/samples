@@ -12,20 +12,18 @@ class ConvertedSimpleObject {
     this.aListOfDoubles,
   });
 
-  final String aString;
-  final int anInt;
-  final double aDouble;
-  final List<String> aListOfStrings;
-  final List<int> aListOfInts;
-  final List<double> aListOfDoubles;
+  final String? aString;
+  final int? anInt;
+  final double? aDouble;
+  final List<String>? aListOfStrings;
+  final List<int>? aListOfInts;
+  final List<double>? aListOfDoubles;
 
   factory ConvertedSimpleObject.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-
     return ConvertedSimpleObject(
-      aString: json['aString'] as String,
-      anInt: json['anInt'] as int,
-      aDouble: json['aDouble'] as double,
+      aString: json['aString'] as String?,
+      anInt: json['anInt'] as int?,
+      aDouble: json['aDouble'] as double?,
       aListOfStrings: json['aListOfStrings'] != null
           ? List<String>.from(json['aListOfStrings'] as Iterable<dynamic>)
           : null,

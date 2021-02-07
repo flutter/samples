@@ -20,14 +20,14 @@ class SerializableComplexObject {
     this.aListOfObjects,
   });
 
-  final String aString;
-  final int anInt;
-  final double aDouble;
-  final SerializableSimpleObject anObject;
-  final List<String> aListOfStrings;
-  final List<int> aListOfInts;
-  final List<double> aListOfDoubles;
-  final List<SerializableSimpleObject> aListOfObjects;
+  final String? aString;
+  final int? anInt;
+  final double? aDouble;
+  final SerializableSimpleObject? anObject;
+  final List<String>? aListOfStrings;
+  final List<int>? aListOfInts;
+  final List<double>? aListOfDoubles;
+  final List<SerializableSimpleObject>? aListOfObjects;
 
   factory SerializableComplexObject.fromJson(Map<String, dynamic> json) =>
       _$SerializableComplexObjectFromJson(json);
