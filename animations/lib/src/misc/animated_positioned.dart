@@ -14,8 +14,8 @@ class AnimatedPositionedDemo extends StatefulWidget {
 }
 
 class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
-  double topPosition;
-  double leftPosition;
+  late double topPosition;
+  late double leftPosition;
 
   double generateTopPosition(double top) => Random().nextDouble() * top;
 
@@ -65,8 +65,10 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
                     child: Text(
                       'Click Me',
                       style: TextStyle(
-                        color:
-                            Theme.of(context).buttonTheme.colorScheme.onPrimary,
+                        color: Theme.of(context)
+                            .buttonTheme
+                            .colorScheme!
+                            .onPrimary,
                       ),
                     ),
                     color: Theme.of(context).primaryColor,

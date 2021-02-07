@@ -15,14 +15,15 @@ class CurvedAnimationDemo extends StatefulWidget {
 class CurveChoice {
   final Curve curve;
   final String name;
-  const CurveChoice({this.curve, this.name});
+
+  const CurveChoice({required this.curve, required this.name});
 }
 
 class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> animationRotation;
-  Animation<Offset> animationTranslation;
+  late AnimationController controller;
+  late Animation<double> animationRotation;
+  late Animation<Offset> animationTranslation;
   static const _duration = Duration(seconds: 4);
   List<CurveChoice> curves = [
     CurveChoice(curve: Curves.bounceIn, name: 'Bounce In'),
@@ -38,8 +39,8 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     CurveChoice(curve: Curves.easeInCirc, name: 'Ease In Circle'),
     CurveChoice(curve: Curves.easeOutCirc, name: 'Ease Out Circle'),
   ];
-  CurveChoice selectedForwardCurve, selectedReverseCurve;
-  CurvedAnimation curvedAnimation;
+  late CurveChoice selectedForwardCurve, selectedReverseCurve;
+  late CurvedAnimation curvedAnimation;
 
   @override
   void initState() {
@@ -100,10 +101,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
                   value: curve, child: Text(curve.name));
             }).toList(),
             onChanged: (newCurve) {
-              setState(() {
-                selectedForwardCurve = newCurve;
-                curvedAnimation.curve = selectedForwardCurve.curve;
-              });
+              if (newCurve != null) {
+                setState(() {
+                  selectedForwardCurve = newCurve;
+                  curvedAnimation.curve = selectedForwardCurve.curve;
+                });
+              }
             },
             value: selectedForwardCurve,
           ),
@@ -118,10 +121,12 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
                   value: curve, child: Text(curve.name));
             }).toList(),
             onChanged: (newCurve) {
-              setState(() {
-                selectedReverseCurve = newCurve;
-                curvedAnimation.reverseCurve = selectedReverseCurve.curve;
-              });
+              if (newCurve != null) {
+                setState(() {
+                  selectedReverseCurve = newCurve;
+                  curvedAnimation.reverseCurve = selectedReverseCurve.curve;
+                });
+              }
             },
             value: selectedReverseCurve,
           ),

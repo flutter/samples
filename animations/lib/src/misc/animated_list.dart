@@ -20,17 +20,18 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     setState(() {
       var index = listData.length;
       listData.add(
-        UserModel(firstName: 'New', lastName: 'Person'),
+        UserModel(++_maxIdValue, 'New', 'Person'),
       );
       _listKey.currentState
-          .insertItem(index, duration: Duration(milliseconds: 300));
+          ?.insertItem(index, duration: Duration(milliseconds: 300));
     });
   }
 
-  void deleteUser(int index) {
+  void deleteUser(int id) {
     setState(() {
+      final index = listData.indexWhere((u) => u.id == id);
       var user = listData.removeAt(index);
-      _listKey.currentState.removeItem(
+      _listKey.currentState?.removeItem(
         index,
         (context, animation) {
           return FadeTransition(
@@ -49,7 +50,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     });
   }
 
-  Widget _buildItem(UserModel user, [int index]) {
+  Widget _buildItem(UserModel user) {
     return ListTile(
       key: ValueKey<UserModel>(user),
       title: Text(user.firstName),
@@ -59,7 +60,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       ),
       trailing: IconButton(
         icon: Icon(Icons.delete),
-        onPressed: () => deleteUser(index),
+        onPressed: () => deleteUser(user.id),
       ),
     );
   }
@@ -83,7 +84,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
           itemBuilder: (context, index, animation) {
             return FadeTransition(
               opacity: animation,
-              child: _buildItem(listData[index], index),
+              child: _buildItem(listData[index]),
             );
           },
         ),
@@ -93,31 +94,23 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
 }
 
 class UserModel {
-  const UserModel({this.firstName, this.lastName});
+  UserModel(
+    this.id,
+    this.firstName,
+    this.lastName,
+  );
 
+  final int id;
   final String firstName;
   final String lastName;
 }
 
 List<UserModel> initialListData = [
-  UserModel(
-    firstName: 'Govind',
-    lastName: 'Dixit',
-  ),
-  UserModel(
-    firstName: 'Greta',
-    lastName: 'Stoll',
-  ),
-  UserModel(
-    firstName: 'Monty',
-    lastName: 'Carlo',
-  ),
-  UserModel(
-    firstName: 'Petey',
-    lastName: 'Cruiser',
-  ),
-  UserModel(
-    firstName: 'Barry',
-    lastName: 'Cade',
-  ),
+  UserModel(0, 'Govind', 'Dixit'),
+  UserModel(1, 'Greta', 'Stoll'),
+  UserModel(2, 'Monty', 'Carlo'),
+  UserModel(3, 'Petey', 'Cruiser'),
+  UserModel(4, 'Barry', 'Cade'),
 ];
+
+int _maxIdValue = 4;

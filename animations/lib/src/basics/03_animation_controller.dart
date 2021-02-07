@@ -20,7 +20,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
   // Widget is not visible.
 
   static const Duration _duration = Duration(seconds: 1);
-  AnimationController controller;
+  late AnimationController controller;
 
   @override
   void initState() {

@@ -5,13 +5,13 @@
 import 'package:flutter/material.dart';
 
 class TypewriterTween extends Tween<String> {
-  TypewriterTween({String begin = '', String end})
+  TypewriterTween({String begin = '', String end = ''})
       : super(begin: begin, end: end);
 
   @override
   String lerp(double t) {
-    var cutoff = (end.length * t).round();
-    return end.substring(0, cutoff);
+    var cutoff = (end!.length * t).round();
+    return end!.substring(0, cutoff);
   }
 }
 
@@ -26,8 +26,8 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 3);
   static const String message = loremIpsum;
-  AnimationController controller;
-  Animation<String> animation;
+  late AnimationController controller;
+  late Animation<String> animation;
 
   @override
   void initState() {

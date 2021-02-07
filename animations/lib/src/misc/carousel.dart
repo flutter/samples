@@ -46,15 +46,15 @@ typedef OnCurrentItemChangedCallback = void Function(int currentItem);
 class Carousel extends StatefulWidget {
   final IndexedWidgetBuilder itemBuilder;
 
-  const Carousel({Key key, @required this.itemBuilder});
+  const Carousel({Key? key, required this.itemBuilder}) : super(key: key);
 
   @override
   _CarouselState createState() => _CarouselState();
 }
 
 class _CarouselState extends State<Carousel> {
-  PageController _controller;
-  int _currentPage;
+  late PageController _controller;
+  late int _currentPage;
   bool _pageHasChanged = false;
 
   @override
@@ -81,11 +81,11 @@ class _CarouselState extends State<Carousel> {
       itemBuilder: (context, index) => AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
-          var result = _pageHasChanged ? _controller.page : _currentPage * 1.0;
+          var result = _pageHasChanged ? _controller.page! : _currentPage * 1.0;
 
           // The horizontal position of the page between a 1 and 0
           var value = result - index;
-          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0) as double;
+          value = (1 - (value.abs() * .5)).clamp(0.0, 1.0);
 
           return Center(
             child: SizedBox(

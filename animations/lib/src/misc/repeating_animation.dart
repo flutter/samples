@@ -13,8 +13,8 @@ class RepeatingAnimationDemo extends StatefulWidget {
 
 class RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<BorderRadius> _borderRadius;
+  late AnimationController _controller;
+  late Animation<BorderRadius> _borderRadius;
 
   @override
   void initState() {

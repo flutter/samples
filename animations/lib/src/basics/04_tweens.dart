@@ -15,8 +15,8 @@ class _TweenDemoState extends State<TweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 1);
   static const double accountBalance = 1000000;
-  AnimationController controller;
-  Animation<double> animation;
+  late AnimationController controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
