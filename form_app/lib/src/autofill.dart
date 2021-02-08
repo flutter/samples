@@ -14,7 +14,14 @@ class AutofillDemo extends StatefulWidget {
 class _AutofillDemoState extends State<AutofillDemo> {
   final _formKey = GlobalKey<FormState>();
 
-  FocusNode _firstName, _lastName, _email, _telephone, _streetAddresss, _postalCode, _country, _countrycode;
+  FocusNode _firstName;
+  FocusNode _lastName;
+  FocusNode _email;
+  FocusNode _telephone;
+  FocusNode _streetAddresss;
+  FocusNode _postalCode;
+  FocusNode _country;
+  FocusNode _countrycode;
 
   @override
   void initState() {
