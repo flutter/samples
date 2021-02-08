@@ -14,12 +14,13 @@ class AutofillDemo extends StatefulWidget {
 class _AutofillDemoState extends State<AutofillDemo> {
   final _formKey = GlobalKey<FormState>();
 
-  FocusNode _lastname, _email, _telephone, _streetAddresss, _postalCode, _country, _countrycode;
+  FocusNode _firstName, _lastName, _email, _telephone, _streetAddresss, _postalCode, _country, _countrycode;
 
   @override
   void initState() {
     super.initState();
-    _lastname = FocusNode();
+    _firstName =FocusNode();
+    _lastName = FocusNode();
     _email = FocusNode();
     _telephone = FocusNode();
     _streetAddresss = FocusNode();
@@ -30,13 +31,14 @@ class _AutofillDemoState extends State<AutofillDemo> {
 
   @override
   void dispose() {
-    _lastname = FocusNode();
-    _email = FocusNode();
-    _telephone = FocusNode();
-    _streetAddresss = FocusNode();
-    _postalCode = FocusNode();
-    _country = FocusNode();
-    _countrycode = FocusNode();
+    _firstName.dispose();
+    _lastName.dispose();
+    _email.dispose();
+    _telephone.dispose();
+    _streetAddresss.dispose();
+    _postalCode.dispose();
+    _country.dispose();
+    _countrycode.dispose();
     super.dispose();
   }
 
@@ -57,8 +59,10 @@ class _AutofillDemoState extends State<AutofillDemo> {
                   ...[
                     Text('This sample demonstrates autofill. '),
                     TextFormField(
-                      onFieldSubmitted: (vaue) {
-                        _lastname.requestFocus();
+                      autofocus: true,
+                      focusNode: _firstName,
+                      onFieldSubmitted: (value) {
+                        _lastName.requestFocus();
                       },
                       decoration: InputDecoration(
                         hintText: 'Jane',
@@ -67,7 +71,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       autofillHints: [AutofillHints.givenName],
                     ),
                     TextFormField(
-                      focusNode: _lastname,
+                      focusNode: _lastName,
                       textInputAction: TextInputAction.next,
                       onFieldSubmitted: (value) {
                         _email.requestFocus();

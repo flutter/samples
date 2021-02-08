@@ -16,17 +16,20 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
   String noun;
   bool agreedToTerms = false;
 
+  FocusNode _adjective;
   FocusNode _noun;
 
   @override
   void initState() {
     super.initState();
+    _adjective = FocusNode();
     _noun = FocusNode();
   }
 
   @override
   void dispose() {
-    _noun = FocusNode();
+    _adjective.dispose();
+    _noun.dispose();
     super.dispose();
   }
 
@@ -78,6 +81,8 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
               children: [
                 // A text field that validates that the text is an adjective.
                 TextFormField(
+                  autofocus: true,
+                  focusNode: _adjective,
                   textInputAction: TextInputAction.next,
                   validator: (value) {
                     if (value.isEmpty) {
