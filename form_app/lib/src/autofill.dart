@@ -14,6 +14,32 @@ class AutofillDemo extends StatefulWidget {
 class _AutofillDemoState extends State<AutofillDemo> {
   final _formKey = GlobalKey<FormState>();
 
+  FocusNode _lastname, _email, _telephone, _streetAddresss, _postalCode, _country, _countrycode;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastname = FocusNode();
+    _email = FocusNode();
+    _telephone = FocusNode();
+    _streetAddresss = FocusNode();
+    _postalCode = FocusNode();
+    _country = FocusNode();
+    _countrycode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _lastname = FocusNode();
+    _email = FocusNode();
+    _telephone = FocusNode();
+    _streetAddresss = FocusNode();
+    _postalCode = FocusNode();
+    _country = FocusNode();
+    _countrycode = FocusNode();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +57,9 @@ class _AutofillDemoState extends State<AutofillDemo> {
                   ...[
                     Text('This sample demonstrates autofill. '),
                     TextFormField(
+                      onFieldSubmitted: (vaue) {
+                        _lastname.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: 'Jane',
                         labelText: 'First Name',
@@ -38,6 +67,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       autofillHints: [AutofillHints.givenName],
                     ),
                     TextFormField(
+                      focusNode: _lastname,
+                      textInputAction: TextInputAction.next,
+                      onFieldSubmitted: (value) {
+                        _email.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: 'Doe',
                         labelText: 'Last Name',
@@ -46,6 +80,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                     ),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
+                      focusNode: _email,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (value) {
+                        _telephone.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: 'foo@example.com',
                         labelText: 'Email',
@@ -54,6 +93,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                     ),
                     TextField(
                       keyboardType: TextInputType.phone,
+                      focusNode: _telephone,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (value) {
+                        _streetAddresss.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: '(123) 456-7890',
                         labelText: 'Telephone',
@@ -62,6 +106,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                     ),
                     TextField(
                       keyboardType: TextInputType.streetAddress,
+                      focusNode: _streetAddresss,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (value) {
+                        _postalCode.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: '123 4th Ave',
                         labelText: 'Street Address',
@@ -70,6 +119,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                     ),
                     TextField(
                       keyboardType: TextInputType.number,
+                      focusNode: _postalCode,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (value) {
+                        _country.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: '12345',
                         labelText: 'Postal Code',
@@ -77,6 +131,11 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       autofillHints: <String>[AutofillHints.postalCode],
                     ),
                     TextField(
+                      focusNode: _country,
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (value) {
+                        _countrycode.requestFocus();
+                      },
                       decoration: InputDecoration(
                         hintText: 'United States',
                         labelText: 'Country',
@@ -84,6 +143,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                       autofillHints: <String>[AutofillHints.countryName],
                     ),
                     TextField(
+                      focusNode: _countrycode,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: '1',

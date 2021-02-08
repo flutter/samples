@@ -16,6 +16,20 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
   String noun;
   bool agreedToTerms = false;
 
+  FocusNode _noun;
+
+  @override
+  void initState() {
+    super.initState();
+    _noun = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _noun = FocusNode();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +78,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
               children: [
                 // A text field that validates that the text is an adjective.
                 TextFormField(
+                  textInputAction: TextInputAction.next,
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter an adjective.';
@@ -80,6 +95,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                   ),
                   onChanged: (value) {
                     adjective = value;
+                    _noun.requestFocus();
                   },
                 ),
                 SizedBox(
@@ -87,6 +103,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                 ),
                 // A text field that validates that the text is a noun.
                 TextFormField(
+                  focusNode: _noun,
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter a noun.';
