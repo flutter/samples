@@ -6,10 +6,10 @@ multiple instances of Flutter into an existing Android or iOS project.
 ## Getting Started
 
 For iOS instructions, see:
-[multiple_flutters_ios](../multiple_flutters_ios/README.md).
+[multiple_flutters_ios](./multiple_flutters_ios/README.md).
 
 For Android instructions, see:
-[multiple_flutters_android](../multiple_flutters_android/README.md).
+[multiple_flutters_android](./multiple_flutters_android/README.md).
 
 ## Requirements
 

@@ -22,7 +22,7 @@ flutter packages get
 popd
 
 echo "Fetching dependencies and building 'multiple_flutters/multiple_flutters_module'."
-pushd add_to_app//multiple_flutters/multiple_flutters_module
+pushd add_to_app/multiple_flutters/multiple_flutters_module
 flutter packages get
 popd
 
