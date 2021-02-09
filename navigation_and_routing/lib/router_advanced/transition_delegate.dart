@@ -5,7 +5,7 @@
 /// Shows how a custom TransitionDelegate can be used to customized when
 /// transition animations are shown. (For example, [when two routes are popped
 /// off the stack](https://github.com/flutter/flutter/issues/12146), however the
-/// default TransitionDelegate will handle this if you are using Navigator 2.0)
+/// default TransitionDelegate will handle this if you are using Router)
 import 'package:flutter/material.dart';
 
 void main() {
