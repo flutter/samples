@@ -5,16 +5,16 @@ an article explaining the Router widget and it's associated classes.
 
 ## Samples
 
-**Introductory samples**
+**Navigator samples**
 
-* [introduction/anonymous_routes.dart](lib/introduction/anonymous_routes.dart) -
+* [navigator/anonymous_routes.dart](lib/navigator/anonymous_routes.dart) -
   Shows how to use a Navigator to push and pop anonymous routes (e.g.
   MaterialPageRoute)
-* [introduction/named_routes.dart](lib/introduction/named_routes.dart) - Shows
+* [navigator/named_routes.dart](lib/navigator/named_routes.dart) - Shows
   how to use define named routes via the `routes` parameter on MaterialApp, and
   navigate using Navigator.pushNamed
-* [introduction/on_generate_route.dart](lib/introduction/on_generate_route.dart)
-  - Shows how to handle arbitrary named routes using the `onGenerateRoute`
+* [navigator/on_generate_route.dart](lib/navigator/on_generate_route.dart) -
+  Shows how to handle arbitrary named routes using the `onGenerateRoute`
   callback defined in the `MaterialApp` constructor.
 
 **Router samples**
@@ -36,7 +36,6 @@ an article explaining the Router widget and it's associated classes.
   Shows how a custom TransitionDelegate can be used to customized when
   transition animations are shown.
 
-
 ## Running
 
 Each file in this project is an entrypoint. To run, specify the filename of
@@ -45,5 +44,4 @@ the sample:
 ```bash
 flutter run lib/router/router.dart
 ```
-
 [article]: https://medium.com/flutter/learning-flutters-new-navigation-and-routing-system-7c9068155ade
