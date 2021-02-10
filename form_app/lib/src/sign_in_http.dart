@@ -40,23 +40,6 @@ class SignInHttpDemo extends StatefulWidget {
 class _SignInHttpDemoState extends State<SignInHttpDemo> {
   FormData formData = FormData();
 
-  FocusNode _email;
-  FocusNode _password;
-
-  @override
-  void initState() {
-    super.initState();
-    _email = FocusNode();
-    _password = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    _email.dispose();
-    _password.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +55,6 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                 ...[
                   TextFormField(
                     autofocus:  true,
-                    focusNode: _email,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       filled: true,
@@ -81,11 +63,9 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     ),
                     onChanged: (value) {
                       formData.email = value;
-                      _password.requestFocus();
                     },
                   ),
                   TextFormField(
-                    focusNode: _password,
                     decoration: InputDecoration(
                       filled: true,
                       labelText: 'Password',
