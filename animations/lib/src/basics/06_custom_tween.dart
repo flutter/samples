@@ -26,8 +26,8 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 3);
   static const String message = loremIpsum;
-  late AnimationController controller;
-  late Animation<String> animation;
+  late final AnimationController controller;
+  late final Animation<String> animation;
 
   @override
   void initState() {

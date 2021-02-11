@@ -35,7 +35,7 @@ class DraggableCard extends StatefulWidget {
 
 class _DraggableCardState extends State<DraggableCard>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  late final AnimationController _controller;
 
   /// The alignment of the card as it is dragged or being animated.
   ///
@@ -44,7 +44,7 @@ class _DraggableCardState extends State<DraggableCard>
   /// this value is set to the value of the [_animation].
   var _dragAlignment = Alignment.center;
 
-  Animation<Alignment>? _animation;
+  late Animation<Alignment> _animation;
 
   final _spring = const SpringDescription(
     mass: 10,
@@ -82,7 +82,7 @@ class _DraggableCardState extends State<DraggableCard>
   void initState() {
     super.initState();
     _controller = AnimationController.unbounded(vsync: this)
-      ..addListener(() => setState(() => _dragAlignment = _animation!.value));
+      ..addListener(() => setState(() => _dragAlignment = _animation.value));
   }
 
   @override

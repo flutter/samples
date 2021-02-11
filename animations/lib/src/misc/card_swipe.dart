@@ -114,7 +114,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
-  double? _dragStartX;
+  late double _dragStartX;
   bool _isSwipingLeft = false;
 
   @override
@@ -148,7 +148,7 @@ class _SwipeableCardState extends State<SwipeableCard>
   /// Changes the animation to animate to the left or right depending on the
   /// swipe, and sets the AnimationController's value to the swiped amount.
   void _dragUpdate(DragUpdateDetails details) {
-    var isSwipingLeft = (details.localPosition.dx - _dragStartX!) < 0;
+    var isSwipingLeft = (details.localPosition.dx - _dragStartX) < 0;
     if (isSwipingLeft != _isSwipingLeft) {
       _isSwipingLeft = isSwipingLeft;
       _updateAnimation(details.localPosition.dx);
@@ -164,7 +164,7 @@ class _SwipeableCardState extends State<SwipeableCard>
       // Calculate the amount dragged in unit coordinates (between 0 and 1)
       // using this widgets width.
       _controller.value =
-          (details.localPosition.dx - _dragStartX!).abs() / size.width;
+          (details.localPosition.dx - _dragStartX).abs() / size.width;
     });
   }
 

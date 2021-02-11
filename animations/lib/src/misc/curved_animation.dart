@@ -21,9 +21,9 @@ class CurveChoice {
 
 class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<double> animationRotation;
-  late Animation<Offset> animationTranslation;
+  late final AnimationController controller;
+  late final Animation<double> animationRotation;
+  late final Animation<Offset> animationTranslation;
   static const _duration = Duration(seconds: 4);
   List<CurveChoice> curves = [
     CurveChoice(curve: Curves.bounceIn, name: 'Bounce In'),
@@ -40,7 +40,7 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     CurveChoice(curve: Curves.easeOutCirc, name: 'Ease Out Circle'),
   ];
   late CurveChoice selectedForwardCurve, selectedReverseCurve;
-  late CurvedAnimation curvedAnimation;
+  late final CurvedAnimation curvedAnimation;
 
   @override
   void initState() {

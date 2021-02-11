@@ -18,7 +18,7 @@ class HeroAnimationDemo extends StatelessWidget {
           tag: 'hero-page-child',
           child: _createHeroContainer(
             size: 50.0,
-            color: Colors.grey[300]!,
+            color: Colors.grey.shade300,
           ),
         ),
         onTap: () => Navigator.of(context)

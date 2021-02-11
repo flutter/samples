@@ -15,9 +15,9 @@ class FadeTransitionDemo extends StatefulWidget {
 
 class _FadeTransitionDemoState extends State<FadeTransitionDemo>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-  late CurvedAnimation _curve;
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+  late final CurvedAnimation _curve;
 
   @override
   void initState() {

@@ -14,7 +14,14 @@ class AnimatedListDemo extends StatefulWidget {
 
 class _AnimatedListDemoState extends State<AnimatedListDemo> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
-  final listData = initialListData;
+  final listData = [
+    UserModel(0, 'Govind', 'Dixit'),
+    UserModel(1, 'Greta', 'Stoll'),
+    UserModel(2, 'Monty', 'Carlo'),
+    UserModel(3, 'Petey', 'Cruiser'),
+    UserModel(4, 'Barry', 'Cade'),
+  ];
+  final initialListSize = 5;
 
   void addUser() {
     setState(() {
@@ -22,8 +29,8 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       listData.add(
         UserModel(++_maxIdValue, 'New', 'Person'),
       );
-      _listKey.currentState
-          ?.insertItem(index, duration: Duration(milliseconds: 300));
+      _listKey.currentState!
+          .insertItem(index, duration: Duration(milliseconds: 300));
     });
   }
 
@@ -31,7 +38,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     setState(() {
       final index = listData.indexWhere((u) => u.id == id);
       var user = listData.removeAt(index);
-      _listKey.currentState?.removeItem(
+      _listKey.currentState!.removeItem(
         index,
         (context, animation) {
           return FadeTransition(
@@ -80,7 +87,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
       body: SafeArea(
         child: AnimatedList(
           key: _listKey,
-          initialItemCount: initialListData.length,
+          initialItemCount: 5,
           itemBuilder: (context, index, animation) {
             return FadeTransition(
               opacity: animation,
@@ -104,13 +111,5 @@ class UserModel {
   final String firstName;
   final String lastName;
 }
-
-List<UserModel> initialListData = [
-  UserModel(0, 'Govind', 'Dixit'),
-  UserModel(1, 'Greta', 'Stoll'),
-  UserModel(2, 'Monty', 'Carlo'),
-  UserModel(3, 'Petey', 'Cruiser'),
-  UserModel(4, 'Barry', 'Cade'),
-];
 
 int _maxIdValue = 4;
