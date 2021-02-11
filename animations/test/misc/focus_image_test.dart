@@ -1,10 +1,10 @@
-// Copyright 2019 The Flutter team. All rights reserved.
+// Copyright 2021 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:animations/src/misc/focus_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:animations/src/misc/focus_image.dart';
 
 Widget createFocusImageScreen() => MaterialApp(
       home: FocusImageDemo(),
@@ -16,7 +16,7 @@ void main() {
       await tester.pumpWidget(createFocusImageScreen());
 
       // Get the initial inkwell.
-      final initialInkwell = tester.firstWidget(find.byType(InkWell));
+      final initialInkwell = tester.widget(find.byType(InkWell).at(0));
 
       // Get the size of initial inkwell.
       var initialSize = tester.getSize(find.byWidget(initialInkwell));
@@ -26,7 +26,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Get the final inkwell.
-      final finalInkwell = tester.firstWidget(find.byType(InkWell));
+      final finalInkwell = tester.widget(find.byType(InkWell).at(0));
 
       // Get the size of final inkwell.
       var finalSize = tester.getSize(find.byWidget(finalInkwell));
