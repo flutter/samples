@@ -15,7 +15,7 @@ class CardSwipeDemo extends StatefulWidget {
 }
 
 class _CardSwipeDemoState extends State<CardSwipeDemo> {
-  List<String> fileNames;
+  late List<String> fileNames;
 
   @override
   void initState() {
@@ -102,8 +102,8 @@ class SwipeableCard extends StatefulWidget {
   final VoidCallback onSwiped;
 
   SwipeableCard({
-    this.onSwiped,
-    this.imageAssetName,
+    required this.onSwiped,
+    required this.imageAssetName,
   });
 
   @override
@@ -112,9 +112,9 @@ class SwipeableCard extends StatefulWidget {
 
 class _SwipeableCardState extends State<SwipeableCard>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> _animation;
-  double _dragStartX;
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+  late double _dragStartX;
   bool _isSwipingLeft = false;
 
   @override
@@ -155,18 +155,29 @@ class _SwipeableCardState extends State<SwipeableCard>
     }
 
     setState(() {
+      final size = context.size;
+
+      if (size == null) {
+        return;
+      }
+
       // Calculate the amount dragged in unit coordinates (between 0 and 1)
       // using this widgets width.
       _controller.value =
-          (details.localPosition.dx - _dragStartX).abs() / context.size.width;
+          (details.localPosition.dx - _dragStartX).abs() / size.width;
     });
   }
 
   /// Runs the fling / spring animation using the final velocity of the drag
   /// gesture.
   void _dragEnd(DragEndDetails details) {
-    var velocity =
-        (details.velocity.pixelsPerSecond.dx / context.size.width).abs();
+    final size = context.size;
+
+    if (size == null) {
+      return;
+    }
+
+    var velocity = (details.velocity.pixelsPerSecond.dx / size.width).abs();
     _animate(velocity: velocity);
   }
 

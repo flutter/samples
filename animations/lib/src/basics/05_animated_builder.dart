@@ -16,8 +16,8 @@ class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
   static const Color beginColor = Colors.deepPurple;
   static const Color endColor = Colors.deepOrange;
   Duration duration = Duration(milliseconds: 800);
-  AnimationController controller;
-  Animation<Color> animation;
+  late AnimationController controller;
+  late Animation<Color?> animation;
 
   @override
   void initState() {
