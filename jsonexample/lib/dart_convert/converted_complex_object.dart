@@ -16,22 +16,20 @@ class ConvertedComplexObject {
     this.aListOfObjects,
   });
 
-  final String aString;
-  final int anInt;
-  final double aDouble;
-  final ConvertedSimpleObject anObject;
-  final List<String> aListOfStrings;
-  final List<int> aListOfInts;
-  final List<double> aListOfDoubles;
-  final List<ConvertedSimpleObject> aListOfObjects;
+  final String? aString;
+  final int? anInt;
+  final double? aDouble;
+  final ConvertedSimpleObject? anObject;
+  final List<String>? aListOfStrings;
+  final List<int>? aListOfInts;
+  final List<double>? aListOfDoubles;
+  final List<ConvertedSimpleObject>? aListOfObjects;
 
   factory ConvertedComplexObject.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-
     return ConvertedComplexObject(
-        aString: json['aString'] as String,
-        anInt: json['anInt'] as int,
-        aDouble: json['aDouble'] as double,
+        aString: json['aString'] as String?,
+        anInt: json['anInt'] as int?,
+        aDouble: json['aDouble'] as double?,
         anObject: json['anObject'] != null
             ? ConvertedSimpleObject.fromJson(
                 json['anObject'] as Map<String, dynamic>)

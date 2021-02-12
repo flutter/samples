@@ -9,24 +9,25 @@ part of 'serializable_complex_object.dart';
 SerializableComplexObject _$SerializableComplexObjectFromJson(
     Map<String, dynamic> json) {
   return SerializableComplexObject(
-    aString: json['aString'] as String,
-    anInt: json['anInt'] as int,
-    aDouble: (json['aDouble'] as num)?.toDouble(),
+    aString: json['aString'] as String?,
+    anInt: json['anInt'] as int?,
+    aDouble: (json['aDouble'] as num?)?.toDouble(),
     anObject: json['anObject'] == null
         ? null
         : SerializableSimpleObject.fromJson(
             json['anObject'] as Map<String, dynamic>),
-    aListOfStrings:
-        (json['aListOfStrings'] as List)?.map((e) => e as String)?.toList(),
-    aListOfInts: (json['aListOfInts'] as List)?.map((e) => e as int)?.toList(),
-    aListOfDoubles: (json['aListOfDoubles'] as List)
-        ?.map((e) => (e as num)?.toDouble())
-        ?.toList(),
-    aListOfObjects: (json['aListOfObjects'] as List)
-        ?.map((e) => e == null
-            ? null
-            : SerializableSimpleObject.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    aListOfStrings: (json['aListOfStrings'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList(),
+    aListOfInts:
+        (json['aListOfInts'] as List<dynamic>?)?.map((e) => e as int).toList(),
+    aListOfDoubles: (json['aListOfDoubles'] as List<dynamic>?)
+        ?.map((e) => (e as num).toDouble())
+        .toList(),
+    aListOfObjects: (json['aListOfObjects'] as List<dynamic>?)
+        ?.map(
+            (e) => SerializableSimpleObject.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
