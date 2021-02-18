@@ -54,6 +54,8 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
               children: [
                 ...[
                   TextFormField(
+                    autofocus:  true,
+                    textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       filled: true,
                       hintText: 'Your email address',

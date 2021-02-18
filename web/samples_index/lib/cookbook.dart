@@ -55,7 +55,7 @@ class CookbookScraper {
 
   Future takeScreenshot(String url) async {
     var screenshot = await _driver.captureScreenshotAsList();
-    var file = File('web${screenshotPath(url)}');
+    var file = File('web/${screenshotPath(url)}');
     await file.create(recursive: true);
     await file.writeAsBytes(screenshot);
   }
@@ -72,5 +72,9 @@ String screenshotPath(String url) {
 String parseFileName(String link) {
   var p = path.basename(link);
   var dot = p.indexOf('.');
-  return p.substring(0, dot);
+  var detailName = p.substring(0, dot);
+  // var categoryName = path.split(link);
+  var components = path.split(link);
+  var categoryName = components[components.length - 2];
+  return '$categoryName-$detailName';
 }

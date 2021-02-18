@@ -4,4 +4,4 @@ Flutter app demonstrating
 Contributed by Felix Blaschke.
 
 One of a series of samples
-[published here](https://github.com/felixblaschke/simple_animations_example_app).
+[published here](https://github.com/felixblaschke/simple_animations/tree/2.4.2/example).
