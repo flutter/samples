@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [beta]
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # Every day at midnight
 
 defaults:
   run:
