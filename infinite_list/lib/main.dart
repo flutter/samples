@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Infinite List Sample'),
       ),
-      body: Selector<Catalog, int>(
+      body: Selector<Catalog, int?>(
         // Selector is a widget from package:provider. It allows us to listen
         // to only one aspect of a provided value. In this case, we are only
         // listening to the catalog's `itemCount`, because that's all we need

@@ -32,7 +32,7 @@ class Catalog extends ChangeNotifier {
 
   /// The size of the catalog. This is `null` at first, and only when the user
   /// reaches the end of the catalog, it will hold the actual number.
-  int itemCount;
+  int? itemCount;
 
   /// After the catalog is disposed, we don't allow it to call
   /// [notifyListeners].
@@ -62,7 +62,7 @@ class Catalog extends ChangeNotifier {
 
     // If the corresponding page is already in memory, return immediately.
     if (_pages.containsKey(startingIndex)) {
-      var item = _pages[startingIndex].items[index - startingIndex];
+      var item = _pages[startingIndex]!.items[index - startingIndex];
       return item;
     }
 
