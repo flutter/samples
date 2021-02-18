@@ -1,6 +1,9 @@
 name: tool
 publish_to: none
 
+environment:                                                            
+  sdk: '>=2.10.0 <3.0.0'
+
 dependencies:
-  markdown: ^2.0.3
-  path: ^1.6.2
+  markdown: ^4.0.0-nullsafety.0
+  path: ^1.8.0-nullsafety.3

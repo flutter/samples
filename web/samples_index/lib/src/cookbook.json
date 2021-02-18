@@ -5,7 +5,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/page-route-animation.png",
+					"url": "images/cookbook/animation-page-route-animation.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -30,7 +30,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/physics-simulation.png",
+					"url": "images/cookbook/animation-physics-simulation.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -55,7 +55,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/animated-container.png",
+					"url": "images/cookbook/animation-animated-container.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -80,7 +80,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/opacity-animation.png",
+					"url": "images/cookbook/animation-opacity-animation.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -105,7 +105,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/drawer.png",
+					"url": "images/cookbook/design-drawer.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -130,7 +130,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/snackbars.png",
+					"url": "images/cookbook/design-snackbars.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -155,7 +155,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/package-fonts.png",
+					"url": "images/cookbook/design-package-fonts.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -180,7 +180,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/orientation.png",
+					"url": "images/cookbook/design-orientation.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -205,7 +205,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/fonts.png",
+					"url": "images/cookbook/design-fonts.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -230,7 +230,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/themes.png",
+					"url": "images/cookbook/design-themes.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -255,7 +255,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/tabs.png",
+					"url": "images/cookbook/design-tabs.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -280,7 +280,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/validation.png",
+					"url": "images/cookbook/forms-validation.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -305,7 +305,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/text-input.png",
+					"url": "images/cookbook/forms-text-input.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -330,7 +330,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/focus.png",
+					"url": "images/cookbook/forms-focus.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -355,7 +355,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/text-field-changes.png",
+					"url": "images/cookbook/forms-text-field-changes.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -380,7 +380,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/retrieve-input.png",
+					"url": "images/cookbook/forms-retrieve-input.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -405,7 +405,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/ripples.png",
+					"url": "images/cookbook/gestures-ripples.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -430,7 +430,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/handling-taps.png",
+					"url": "images/cookbook/gestures-handling-taps.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -455,7 +455,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/dismissible.png",
+					"url": "images/cookbook/gestures-dismissible.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -480,7 +480,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/network-image.png",
+					"url": "images/cookbook/images-network-image.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -505,7 +505,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/fading-in-images.png",
+					"url": "images/cookbook/images-fading-in-images.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -530,7 +530,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/cached-images.png",
+					"url": "images/cookbook/images-cached-images.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -555,7 +555,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/grid-lists.png",
+					"url": "images/cookbook/lists-grid-lists.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -580,7 +580,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/horizontal-list.png",
+					"url": "images/cookbook/lists-horizontal-list.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -605,7 +605,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/mixed-list.png",
+					"url": "images/cookbook/lists-mixed-list.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -630,7 +630,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/floating-app-bar.png",
+					"url": "images/cookbook/lists-floating-app-bar.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -655,7 +655,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/basic-list.png",
+					"url": "images/cookbook/lists-basic-list.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -680,7 +680,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/long-lists.png",
+					"url": "images/cookbook/lists-long-lists.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -705,7 +705,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/error-reporting.png",
+					"url": "images/cookbook/maintenance-error-reporting.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -730,7 +730,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/hero-animations.png",
+					"url": "images/cookbook/navigation-hero-animations.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -755,7 +755,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/navigation-basics.png",
+					"url": "images/cookbook/navigation-navigation-basics.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -780,7 +780,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/named-routes.png",
+					"url": "images/cookbook/navigation-named-routes.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -805,7 +805,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/navigate-with-arguments.png",
+					"url": "images/cookbook/navigation-navigate-with-arguments.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -830,7 +830,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/returning-data.png",
+					"url": "images/cookbook/navigation-returning-data.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -855,7 +855,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/passing-data.png",
+					"url": "images/cookbook/navigation-passing-data.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -876,11 +876,36 @@
 			"channel": null
 		},
 		{
+			"name": "Delete data on the internet",
+			"author": "Flutter",
+			"screenshots": [
+				{
+					"url": "images/cookbook/networking-delete-data.png",
+					"alt": "Cookbook article"
+				}
+			],
+			"source": "https://flutter.dev/docs/cookbook/networking/delete-data.html",
+			"web": null,
+			"description": "This recipe covers how to delete data over\nthe internet using the http package.",
+			"difficulty": null,
+			"widgets": [],
+			"packages": [],
+			"tags": [
+				"cookbook",
+				"networking"
+			],
+			"platforms": [],
+			"links": [],
+			"type": "cookbook",
+			"date": null,
+			"channel": null
+		},
+		{
 			"name": "Fetch data from the internet",
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/fetch-data.png",
+					"url": "images/cookbook/networking-fetch-data.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -905,13 +930,13 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/authenticated-requests.png",
+					"url": "images/cookbook/networking-authenticated-requests.png",
 					"alt": "Cookbook article"
 				}
 			],
 			"source": "https://flutter.dev/docs/cookbook/networking/authenticated-requests.html",
 			"web": null,
-			"description": "To fetch data from many web services, you need to provide\nauthorization. There are many ways to do this, but perhaps the most common\nuses the Authorization HTTP header.",
+			"description": "To fetch data from most web services, you need to provide\nauthorization. There are many ways to do this,\nbut perhaps the most common uses the Authorization HTTP header.",
 			"difficulty": null,
 			"widgets": [],
 			"packages": [],
@@ -930,7 +955,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/background-parsing.png",
+					"url": "images/cookbook/networking-background-parsing.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -955,13 +980,38 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/send-data.png",
+					"url": "images/cookbook/networking-send-data.png",
 					"alt": "Cookbook article"
 				}
 			],
 			"source": "https://flutter.dev/docs/cookbook/networking/send-data.html",
 			"web": null,
-			"description": "Sending data to the internet is necessary for most apps.\nThe http package has got it covered too.",
+			"description": "Sending data to the internet is necessary for most apps.\nThe http package has got that covered, too.",
+			"difficulty": null,
+			"widgets": [],
+			"packages": [],
+			"tags": [
+				"cookbook",
+				"networking"
+			],
+			"platforms": [],
+			"links": [],
+			"type": "cookbook",
+			"date": null,
+			"channel": null
+		},
+		{
+			"name": "Update data over the internet",
+			"author": "Flutter",
+			"screenshots": [
+				{
+					"url": "images/cookbook/networking-update-data.png",
+					"alt": "Cookbook article"
+				}
+			],
+			"source": "https://flutter.dev/docs/cookbook/networking/update-data.html",
+			"web": null,
+			"description": "Updating data over the internet is necessary for most apps.\nThe http package has got that covered!",
 			"difficulty": null,
 			"widgets": [],
 			"packages": [],
@@ -980,7 +1030,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/web-sockets.png",
+					"url": "images/cookbook/networking-web-sockets.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1005,13 +1055,13 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/sqlite.png",
+					"url": "images/cookbook/persistence-sqlite.png",
 					"alt": "Cookbook article"
 				}
 			],
 			"source": "https://flutter.dev/docs/cookbook/persistence/sqlite.html",
 			"web": null,
-			"description": "If writing an app that needs to persist and query larger amounts of data on\nthe local device, consider using a database instead of a local file or\nkey-value store. In general, databases provide faster inserts, updates,\nand queries, compared to other local persistence solutions.",
+			"description": "If you are writing an app that needs to persist and query large amounts of data on\nthe local device, consider using a database instead of a local file or\nkey-value store. In general, databases provide faster inserts, updates,\nand queries compared to other local persistence solutions.",
 			"difficulty": null,
 			"widgets": [],
 			"packages": [],
@@ -1030,7 +1080,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/reading-writing-files.png",
+					"url": "images/cookbook/persistence-reading-writing-files.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1055,7 +1105,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/key-value.png",
+					"url": "images/cookbook/persistence-key-value.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1080,7 +1130,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/play-video.png",
+					"url": "images/cookbook/plugins-play-video.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1105,7 +1155,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/picture-using-camera.png",
+					"url": "images/cookbook/plugins-picture-using-camera.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1130,13 +1180,13 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/introduction.png",
+					"url": "images/cookbook/integration-introduction.png",
 					"alt": "Cookbook article"
 				}
 			],
 			"source": "https://flutter.dev/docs/cookbook/testing/integration/introduction.html",
 			"web": null,
-			"description": "Unit tests and widget tests are handy for testing individual classes,\nfunctions, or widgets. However, they generally don’t test how\nindividual pieces work together as a whole or capture the performance\nof an application running on a real device. These tasks are performed\nwith integration tests.",
+			"description": "Unit tests and widget tests are handy for testing individual classes,\nfunctions, or widgets. However, they generally don’t test how\nindividual pieces work together as a whole, or capture the performance\nof an application running on a real device. These tasks are performed\nwith integration tests.",
 			"difficulty": null,
 			"widgets": [],
 			"packages": [],
@@ -1155,7 +1205,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/scrolling.png",
+					"url": "images/cookbook/integration-scrolling.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1180,7 +1230,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/profiling.png",
+					"url": "images/cookbook/integration-profiling.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1205,13 +1255,13 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/introduction.png",
+					"url": "images/cookbook/unit-introduction.png",
 					"alt": "Cookbook article"
 				}
 			],
 			"source": "https://flutter.dev/docs/cookbook/testing/unit/introduction.html",
 			"web": null,
-			"description": "How can you ensure that your app continues to work as you add more features or\nchange existing functionality? By writing tests.",
+			"description": "How can you ensure that your app continues to work as you\nadd more features or change existing functionality?\nBy writing tests.",
 			"difficulty": null,
 			"widgets": [],
 			"packages": [],
@@ -1230,7 +1280,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/mocking.png",
+					"url": "images/cookbook/unit-mocking.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1255,7 +1305,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/introduction.png",
+					"url": "images/cookbook/widget-introduction.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1280,7 +1330,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/finders.png",
+					"url": "images/cookbook/widget-finders.png",
 					"alt": "Cookbook article"
 				}
 			],
@@ -1305,7 +1355,7 @@
 			"author": "Flutter",
 			"screenshots": [
 				{
-					"url": "images/cookbook/tap-drag.png",
+					"url": "images/cookbook/widget-tap-drag.png",
 					"alt": "Cookbook article"
 				}
 			],

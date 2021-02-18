@@ -8,9 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.14.4
-  google_maps_flutter: ^1.0.6
-  google_maps_webservice: ^0.0.18
+  cloud_firestore: ^0.16.0
+  firebase_core: ^0.7.0
+  google_maps_flutter: ^1.2.0
+  google_maps_webservice: ^0.0.19
   location: ^3.0.2
 
 dev_dependencies:
