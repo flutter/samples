@@ -64,6 +64,8 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
               children: [
                 // A text field that validates that the text is an adjective.
                 TextFormField(
+                  autofocus: true,
+                  textInputAction: TextInputAction.next,
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter an adjective.';
