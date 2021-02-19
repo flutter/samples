@@ -18,13 +18,15 @@ page.
   * On Android, the Kotlin app already uses GSON and OkHttp for networking and
     references the Google Books API as a data source. These same libraries also
     underpin the data fetched and shown in the Flutter screen.
-  * iOS TODO.
+  * On iOS, the Swift app does a similar fetch and parse of the Google Books API
+    using iOS's builtin libraries.
 * The platform application interfaces with the Flutter book details page using
   idiomatic platform API conventions rather than Flutter conventions.
   * On Android, the Flutter activity receives the book to show via activity
     intent and returns the edited book by setting the result intent on the
     activity. No Flutter concepts are leaked into the consumer activity.
-  * iOS TODO.
+  * On iOS, Storyboards are used to design the presentation of the books, just
+    as one might do in a full UIKit app.
 * The [pigeon](https://pub.dev/packages/pigeon) plugin is used to generate
   interop APIs and data classes. The same `Book` model class is used within the
   Kotlin/Swift program, the Dart program and in the interop between Kotlin/Swift
@@ -36,10 +38,13 @@ page.
   * If the `schema.dart` is modified, the generated classes can be updated with
 
       ```bash
-      flutter pub run pigeon \
-          --input pigeon/schema.dart \
-          --java_out ../android_books/app/src/main/java/dev/flutter/example/books/Api.java \
-          --java_package "dev.flutter.example.books"
+      flutter pub run pigeon --input pigeon/schema.dart \
+        --dart_out lib/api.dart \
+        --objc_header_out ../ios_books/IosBooks/api.h \
+        --objc_source_out ../ios_books/IosBooks/api.m \
+        --objc_prefix BK \
+        --java_out ../android_books/app/src/main/java/dev/flutter/example/books/Api.java \
+        --java_package "dev.flutter.example.books"
       ```
 
       in the `flutter_module_books` directory.
@@ -66,13 +71,16 @@ you're building for both iOS and Android, with both toolchains installed):
   # Or open the ../android_books folder in Android Studio for other platforms.
 
   # For iOS builds:
-  # TODO iOS sample
+  cd ../ios_books
+  pod install
+  open ios_books/IosBooks.xcworkspace
 ```
 
 ## Requirements
 
 * Flutter
 * Android Studio
+* Cocoapods (iOS)
 
 ## Questions/issues
 
