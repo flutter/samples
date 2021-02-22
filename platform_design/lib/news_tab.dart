@@ -101,6 +101,7 @@ class _NewsTabState extends State<NewsTab> {
       ),
       body: Container(
         child: ListView.builder(
+          itemCount: _itemsLength,
           itemBuilder: _listBuilder,
         ),
       ),
@@ -111,6 +112,7 @@ class _NewsTabState extends State<NewsTab> {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(),
       child: ListView.builder(
+        itemCount: _itemsLength,
         itemBuilder: _listBuilder,
       ),
     );

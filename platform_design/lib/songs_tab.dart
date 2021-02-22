@@ -132,6 +132,7 @@ class _SongsTabState extends State<SongsTab> {
         onRefresh: _refreshData,
         child: ListView.builder(
           padding: EdgeInsets.symmetric(vertical: 12),
+          itemCount: _itemsLength,
           itemBuilder: _listBuilder,
         ),
       ),
@@ -156,7 +157,10 @@ class _SongsTabState extends State<SongsTab> {
           sliver: SliverPadding(
             padding: EdgeInsets.symmetric(vertical: 12),
             sliver: SliverList(
-              delegate: SliverChildBuilderDelegate(_listBuilder),
+              delegate: SliverChildBuilderDelegate(
+                _listBuilder,
+                childCount: _itemsLength,
+              ),
             ),
           ),
         ),
