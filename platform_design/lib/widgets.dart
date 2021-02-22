@@ -9,12 +9,10 @@ import 'package:flutter/material.dart';
 /// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
   const PlatformWidget({
-    Key key,
-    @required this.androidBuilder,
-    @required this.iosBuilder,
-  })  : assert(androidBuilder != null),
-        assert(iosBuilder != null),
-        super(key: key);
+    Key? key,
+    required this.androidBuilder,
+    required this.iosBuilder,
+  }) : super(key: key);
 
   final WidgetBuilder androidBuilder;
   final WidgetBuilder iosBuilder;
@@ -28,7 +26,7 @@ class PlatformWidget extends StatelessWidget {
         return iosBuilder(context);
       default:
         assert(false, 'Unexpected platform $defaultTargetPlatform');
-        return null;
+        return Container();
     }
   }
 }
@@ -40,15 +38,15 @@ class PlatformWidget extends StatelessWidget {
 class PressableCard extends StatefulWidget {
   const PressableCard({
     this.onPressed,
-    this.color,
-    this.flattenAnimation,
+    required this.color,
+    required this.flattenAnimation,
     this.child,
   });
 
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color color;
   final Animation<double> flattenAnimation;
-  final Widget child;
+  final Widget? child;
 
   @override
   State<StatefulWidget> createState() => _PressableCardState();
@@ -57,8 +55,8 @@ class PressableCard extends StatefulWidget {
 class _PressableCardState extends State<PressableCard>
     with SingleTickerProviderStateMixin {
   bool pressed = false;
-  AnimationController controller;
-  Animation<double> elevationAnimation;
+  late AnimationController controller;
+  late Animation<double> elevationAnimation;
 
   @override
   void initState() {
@@ -94,7 +92,7 @@ class _PressableCardState extends State<PressableCard>
         behavior: HitTestBehavior.opaque,
         onTap: () {
           if (widget.onPressed != null) {
-            widget.onPressed();
+            widget.onPressed!();
           }
         },
         // This widget both internally drives an animation when pressed and
@@ -138,13 +136,17 @@ class _PressableCardState extends State<PressableCard>
 /// This is an example of a custom widget that an app developer might create for
 /// use on both iOS and Android as part of their brand's unique design.
 class HeroAnimatingSongCard extends StatelessWidget {
-  HeroAnimatingSongCard(
-      {this.song, this.color, this.heroAnimation, this.onPressed});
+  HeroAnimatingSongCard({
+    required this.song,
+    required this.color,
+    required this.heroAnimation,
+    this.onPressed,
+  });
 
   final String song;
   final Color color;
   final Animation<double> heroAnimation;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   double get playButtonSize => 50 + 50 * heroAnimation.value;
 
@@ -226,7 +228,7 @@ class SongPlaceholderTile extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              color: Theme.of(context).textTheme.bodyText2.color,
+              color: Theme.of(context).textTheme.bodyText2!.color,
               width: 130,
             ),
             Padding(
@@ -239,27 +241,27 @@ class SongPlaceholderTile extends StatelessWidget {
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 60),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    color: Theme.of(context).textTheme.bodyText2!.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 20, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    color: Theme.of(context).textTheme.bodyText2!.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 40, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    color: Theme.of(context).textTheme.bodyText2!.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 80, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    color: Theme.of(context).textTheme.bodyText2!.color,
                   ),
                   Container(
                     height: 9,
                     margin: EdgeInsets.only(right: 50, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    color: Theme.of(context).textTheme.bodyText2!.color,
                   ),
                 ],
               ),
@@ -287,7 +289,7 @@ void showChoices(BuildContext context, List<String> choices) {
       showDialog<void>(
         context: context,
         builder: (context) {
-          var selectedRadio = 1;
+          int? selectedRadio = 1;
           return AlertDialog(
             contentPadding: EdgeInsets.only(top: 12),
             content: StatefulBuilder(
@@ -300,7 +302,7 @@ void showChoices(BuildContext context, List<String> choices) {
                       value: index,
                       groupValue: selectedRadio,
                       // ignore: avoid_types_on_closure_parameters
-                      onChanged: (int value) {
+                      onChanged: (int? value) {
                         setState(() => selectedRadio = value);
                       },
                     );

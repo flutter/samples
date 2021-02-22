@@ -22,9 +22,9 @@ class NewsTab extends StatefulWidget {
 class _NewsTabState extends State<NewsTab> {
   static const _itemsLength = 20;
 
-  List<Color> colors;
-  List<String> titles;
-  List<String> contents;
+  late List<Color> colors;
+  late List<String> titles;
+  late List<String> contents;
 
   @override
   void initState() {
@@ -36,7 +36,7 @@ class _NewsTabState extends State<NewsTab> {
   }
 
   Widget _listBuilder(BuildContext context, int index) {
-    if (index >= _itemsLength) return null;
+    if (index >= _itemsLength) return Container();
 
     return SafeArea(
       top: false,

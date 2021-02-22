@@ -15,9 +15,9 @@ class SongsTab extends StatefulWidget {
   static const androidIcon = Icon(Icons.music_note);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const SongsTab({Key key, this.androidDrawer}) : super(key: key);
+  const SongsTab({Key? key, this.androidDrawer}) : super(key: key);
 
-  final Widget androidDrawer;
+  final Widget? androidDrawer;
 
   @override
   _SongsTabState createState() => _SongsTabState();
@@ -28,8 +28,8 @@ class _SongsTabState extends State<SongsTab> {
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
-  List<MaterialColor> colors;
-  List<String> songNames;
+  late List<MaterialColor> colors;
+  late List<String> songNames;
 
   @override
   void initState() {
@@ -51,7 +51,7 @@ class _SongsTabState extends State<SongsTab> {
   }
 
   Widget _listBuilder(BuildContext context, int index) {
-    if (index >= _itemsLength) return null;
+    if (index >= _itemsLength) return Container();
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
@@ -96,7 +96,7 @@ class _SongsTabState extends State<SongsTab> {
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
     // purposes.
-    WidgetsBinding.instance.reassembleApplication();
+    WidgetsBinding.instance!.reassembleApplication();
   }
 
   // ===========================================================================
@@ -117,7 +117,8 @@ class _SongsTabState extends State<SongsTab> {
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () async => await _androidRefreshKey.currentState.show(),
+            onPressed: () async =>
+                await _androidRefreshKey.currentState!.show(),
           ),
           IconButton(
             icon: Icon(Icons.shuffle),

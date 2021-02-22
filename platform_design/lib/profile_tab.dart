@@ -109,7 +109,11 @@ class ProfileTab extends StatelessWidget {
 }
 
 class PreferenceCard extends StatelessWidget {
-  const PreferenceCard({this.header, this.content, this.preferenceChoices});
+  const PreferenceCard({
+    required this.header,
+    required this.content,
+    required this.preferenceChoices,
+  });
 
   final String header;
   final String content;
