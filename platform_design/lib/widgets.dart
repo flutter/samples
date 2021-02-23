@@ -26,7 +26,7 @@ class PlatformWidget extends StatelessWidget {
         return iosBuilder(context);
       default:
         assert(false, 'Unexpected platform $defaultTargetPlatform');
-        return Container();
+        return SizedBox.shrink();
     }
   }
 }
@@ -55,8 +55,8 @@ class PressableCard extends StatefulWidget {
 class _PressableCardState extends State<PressableCard>
     with SingleTickerProviderStateMixin {
   bool pressed = false;
-  late AnimationController controller;
-  late Animation<double> elevationAnimation;
+  late final AnimationController controller;
+  late final Animation<double> elevationAnimation;
 
   @override
   void initState() {
@@ -91,9 +91,7 @@ class _PressableCardState extends State<PressableCard>
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () {
-          if (widget.onPressed != null) {
-            widget.onPressed!();
-          }
+          widget.onPressed?.call();
         },
         // This widget both internally drives an animation when pressed and
         // responds to an external animation to flatten the card when in a
@@ -297,12 +295,11 @@ void showChoices(BuildContext context, List<String> choices) {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: List<Widget>.generate(choices.length, (index) {
-                    return RadioListTile(
+                    return RadioListTile<int?>(
                       title: Text(choices[index]),
                       value: index,
                       groupValue: selectedRadio,
-                      // ignore: avoid_types_on_closure_parameters
-                      onChanged: (int? value) {
+                      onChanged: (value) {
                         setState(() => selectedRadio = value);
                       },
                     );
