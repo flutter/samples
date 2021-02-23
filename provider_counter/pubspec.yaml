@@ -11,13 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  provider: ^4.3.2
-  cupertino_icons: ^1.0.0
+  provider: ^5.0.0-nullsafety.5
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
+  pedantic: ^1.10.0
 
 
 flutter:
