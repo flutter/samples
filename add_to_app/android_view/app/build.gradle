@@ -4,9 +4,7 @@ plugins {
 }
 
 android {
-    ndkVersion "21.3.6528147"
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "dev.flutter.example.androidView"
