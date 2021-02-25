@@ -3,20 +3,20 @@ description: A project showcasing a Flutter app following different platform IA 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.5.0 <3.0.0"
+  sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
-  english_words: ^3.1.5
-  flutter_lorem: ^1.1.0
+  english_words: ^4.0.0-nullsafety.0
+  flutter_lorem: ^2.0.0
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.3
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
+  pedantic: ^1.10.0
 
 flutter:
   uses-material-design: true
