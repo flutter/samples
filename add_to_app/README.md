@@ -20,6 +20,8 @@ existing Android and iOS apps.
 * ['multiple_flutters'](./multiple_flutters) — Shows the usage of the Flutter
   Engine Group APIs to embed multiple instances of Flutter into an existing app
   with low memory cost.
+* ['android_view'](./android_view) — Shows how to integrates a Flutter
+  add-to-app module at a view level for Android.
 
 ## Goals for these samples
 
