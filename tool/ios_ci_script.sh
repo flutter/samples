@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -o pipefail # Necessary so xcpretty won't mask xcodebuild failures later.
 
 echo "Pre-caching ios artifacts, such as the Flutter.framework"
 flutter precache --no-web --no-linux --no-windows --no-fuchsia --no-android --no-macos
