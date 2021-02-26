@@ -19,7 +19,7 @@ page.
     references the Google Books API as a data source. These same libraries also
     underpin the data fetched and shown in the Flutter screen.
   * On iOS, the Swift app does a similar fetch and parse of the Google Books API
-    using iOS's builtin libraries.
+    using iOS's built-in libraries.
 * The platform application interfaces with the Flutter book details page using
   idiomatic platform API conventions rather than Flutter conventions.
   * On Android, the Flutter activity receives the book to show via activity
