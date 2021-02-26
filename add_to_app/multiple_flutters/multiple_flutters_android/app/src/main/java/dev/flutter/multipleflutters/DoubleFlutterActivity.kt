@@ -64,14 +64,14 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
     }
 
     override fun onDestroy() {
-        topBindings.detach()
-        topBindings.detach()
-
         for (i in 0 until numberOfFlutters) {
             FlutterEngineCache.getInstance().remove(i.toString())
         }
 
         super.onDestroy()
+
+        bottomBindings.detach()
+        topBindings.detach()
     }
 
     override fun onNext() {
