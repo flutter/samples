@@ -4,9 +4,9 @@
 
 import 'dart:html';
 
-import 'package:e2e/e2e.dart';
 import 'package:federated_plugin_web/federated_plugin_web.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
 import 'package:mockito/mockito.dart';
 
 const kBatteryLevel = 0.49;
@@ -19,7 +19,7 @@ class BatteryManagerMock extends Mock implements BatteryManager {
 }
 
 void main() {
-  E2EWidgetsFlutterBinding.ensureInitialized();
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('FederatedPlugin test', () {
     final navigatorMock = NavigatorMock();

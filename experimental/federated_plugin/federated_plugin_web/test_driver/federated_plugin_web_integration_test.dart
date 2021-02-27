@@ -4,6 +4,7 @@
 
 import 'dart:async';
 
-import 'package:e2e/e2e_driver.dart' as e2e;
+import 'package:integration_test/integration_test_driver.dart';
 
-Future<void> main() async => e2e.main();
+
+Future<void> main() async => integrationDriver();
