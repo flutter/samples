@@ -55,7 +55,8 @@ popd
 
 flutter_pacakges_get "add_to_app/books/flutter_module_books"
 flutter_pacakges_get "add_to_app/fullscreen/flutter_module"
-flutter_pacakges_get "add_to_app/multiple_flutters/multiple_flutters_module"
+# TODO: enable once FlutterEngineGroup hits stable
+# flutter_pacakges_get "add_to_app/multiple_flutters/multiple_flutters_module"
 flutter_pacakges_get "add_to_app/plugin/flutter_module_using_plugin"
 
 ###############################################################################
@@ -64,7 +65,8 @@ flutter_pacakges_get "add_to_app/plugin/flutter_module_using_plugin"
 
 build "add_to_app/books/ios_books" "IosBooks.xcworkspace" "IosBooks"
 build "add_to_app/fullscreen/ios_fullscreen" "IOSFullScreen.xcworkspace" "IOSFullScreen"
-build "add_to_app/multiple_flutters/multiple_flutters_ios" "MultipleFluttersIos.xcworkspace" "MultipleFluttersIos"
+# TODO: enable once FlutterEngineGroup hits stable
+# build "add_to_app/multiple_flutters/multiple_flutters_ios" "MultipleFluttersIos.xcworkspace" "MultipleFluttersIos"
 build "add_to_app/plugin/ios_using_plugin" "IOSUsingPlugin.xcworkspace" "IOSUsingPlugin"
 
 echo "== Testing 'add_to_app/prebuilt_module/ios_using_prebuilt_module' on Flutter's $FLUTTER_VERSION channel =="
