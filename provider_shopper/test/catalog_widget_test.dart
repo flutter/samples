@@ -16,7 +16,7 @@ Widget createCatalogScreen() => MultiProvider(
         ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {
-            cart.catalog = catalog;
+            cart!.catalog = catalog;
             return cart;
           },
         ),

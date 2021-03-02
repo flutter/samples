@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {
+            if (cart == null) throw ArgumentError.notNull('cart');
             cart.catalog = catalog;
             return cart;
           },
