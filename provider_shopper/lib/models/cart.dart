@@ -7,7 +7,7 @@ import 'package:provider_shopper/models/catalog.dart';
 
 class CartModel extends ChangeNotifier {
   /// The private field backing [catalog].
-  CatalogModel _catalog;
+  late CatalogModel _catalog;
 
   /// Internal, private state of the cart. Stores the ids of each item.
   final List<int> _itemIds = [];
@@ -16,9 +16,6 @@ class CartModel extends ChangeNotifier {
   CatalogModel get catalog => _catalog;
 
   set catalog(CatalogModel newCatalog) {
-    assert(newCatalog != null);
-    assert(_itemIds.every((id) => newCatalog.getById(id) != null),
-        'The catalog $newCatalog does not have one of $_itemIds in it.');
     _catalog = newCatalog;
     // Notify listeners, in case the new catalog provides information
     // different from the previous one. For example, availability of an item

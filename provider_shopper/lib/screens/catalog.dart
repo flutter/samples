@@ -28,7 +28,7 @@ class MyCatalog extends StatelessWidget {
 class _AddButton extends StatelessWidget {
   final Item item;
 
-  const _AddButton({Key key, @required this.item}) : super(key: key);
+  const _AddButton({required this.item, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _AddButton extends StatelessWidget {
               cart.add(item);
             },
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+        overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
           if (states.contains(MaterialState.pressed)) {
             return Theme.of(context).primaryColor;
           }
@@ -86,7 +86,7 @@ class _MyAppBar extends StatelessWidget {
 class _MyListItem extends StatelessWidget {
   final int index;
 
-  _MyListItem(this.index, {Key key}) : super(key: key);
+  _MyListItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
