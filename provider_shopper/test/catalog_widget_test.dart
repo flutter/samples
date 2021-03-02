@@ -13,10 +13,10 @@ import 'package:provider_shopper/screens/catalog.dart';
 Widget createCatalogScreen() => MultiProvider(
       providers: [
         Provider(create: (context) => CatalogModel()),
-        ChangeNotifierProxyProvider<CatalogModel, CartModel?>(
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {
-            cart!.catalog = catalog;
+            cart.catalog = catalog;
             return cart;
           },
         ),

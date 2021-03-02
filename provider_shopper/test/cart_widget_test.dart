@@ -9,17 +9,17 @@ import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 
-CartModel? cartModel;
-CatalogModel? catalogModel;
+CartModel cartModel;
+CatalogModel catalogModel;
 Widget createCartScreen() => MultiProvider(
       providers: [
         Provider(create: (context) => CatalogModel()),
-        ChangeNotifierProxyProvider<CatalogModel, CartModel?>(
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {
             catalogModel = catalog;
             cartModel = cart;
-            cart!.catalog = catalogModel!;
+            cart.catalog = catalogModel;
             return cart;
           },
         ),
@@ -48,8 +48,8 @@ void main() {
 
       // Adding five items in the cart and testing.
       for (var i = 0; i < 5; i++) {
-        var item = catalogModel!.getByPosition(i);
-        cartModel!.add(item);
+        var item = catalogModel.getByPosition(i);
+        cartModel.add(item);
         await tester.pumpAndSettle();
         expect(find.text(item.name), findsOneWidget);
       }
