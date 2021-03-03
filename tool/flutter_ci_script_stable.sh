@@ -21,6 +21,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter" \
     "provider_shopper" \
     "testing_app" \
+    "null_safety/null_safe_app" \
+    "null_safety/null_unsafe_app" \
 # TODO(goderbauer): Add veggieseasons back when moved out of experimental again.
 #    "veggieseasons" \
 )
