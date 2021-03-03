@@ -87,16 +87,14 @@ class DataTransferPage extends StatelessWidget {
 }
 
 class DataTransferIsolateController extends ChangeNotifier {
-  Isolate _isolate;
-  ReceivePort _incomingReceivePort;
-  SendPort _outgoingSendPort;
+  Isolate? _isolate;
+  late ReceivePort _incomingReceivePort;
+  late SendPort _outgoingSendPort;
 
   final currentProgress = <String>[];
   int runningTest = 0;
   Stopwatch _timer = Stopwatch();
   double progressPercent = 0;
-
-  Isolate get newIsolate => _isolate;
 
   bool get running => runningTest != 0;
 
@@ -262,7 +260,7 @@ Iterable<int> createNums() sync* {
   }
 }
 
-Future<void> generateAndSum(
+Future<int> generateAndSum(
   SendPort callerSP,
   Iterable<int> iter,
   int length,

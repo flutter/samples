@@ -15,7 +15,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('This test will always pass', (tester) async {
-    return true;
-  });
+  testWidgets('This test will always pass', (tester) async {});
 }

@@ -25,11 +25,7 @@ class _PetListScreenState extends State<PetListScreen> {
     BasicMessageChannel('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       if (message == null) {
-        scaffoldKey.currentState.showSnackBar(
-          SnackBar(
-              content:
-                  const Text('An error occurred while adding pet details.')),
-        );
+        showSnackBar('An error occurred while adding pet details.', context);
       } else {
         setState(() {
           petListModel = PetListModel.fromJson(message);
@@ -91,10 +87,10 @@ class BuildPetList extends StatelessWidget {
       },
     );
   }
+}
 
-  void showSnackBar(String message, BuildContext context) {
-    Scaffold.of(context).showSnackBar(SnackBar(
-      content: Text(message),
-    ));
-  }
+void showSnackBar(String message, BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(message),
+  ));
 }

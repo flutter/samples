@@ -204,7 +204,7 @@ class PlaceMapState extends State<PlaceMap> {
       });
 
       // Show a confirmation snackbar that has an action to edit the new place.
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           duration: Duration(seconds: 3),
           content:

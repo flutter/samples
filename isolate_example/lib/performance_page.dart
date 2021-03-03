@@ -88,7 +88,7 @@ class _PerformancePageState extends State<PerformancePage> {
         var snackBar = SnackBar(
           content: Text('Main Isolate Done!'),
         );
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       });
 
     setState(() {
@@ -102,7 +102,7 @@ class _PerformancePageState extends State<PerformancePage> {
         var snackBar = SnackBar(
           content: Text('Secondary Isolate Done!'),
         );
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       });
 
     setState(() {
@@ -131,8 +131,8 @@ class SmoothAnimationWidget extends StatefulWidget {
 
 class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<BorderRadius> _borderAnimation;
+  late final AnimationController _animationController;
+  late final Animation<BorderRadius> _borderAnimation;
 
   @override
   void initState() {
