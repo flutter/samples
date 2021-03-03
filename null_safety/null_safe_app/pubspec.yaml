@@ -1,16 +1,16 @@
 name: null_safe_app
 description: A new Flutter project.
 publish_to: 'none' # Do not publish apps & package using the null safety experiment.
-version: 1.1.0
+version: 1.2.0
 
 environment:
-  sdk: ">=2.12.0-29 <3.0.0"
-  flutter: ">=1.24.0-3.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
