@@ -1,7 +1,7 @@
 # Null safety Flutter example
 
-This folder contains a demonstration of the upcoming Dart feature, sound null
-safety. For additional information about this feature, see
+This folder contains a demonstration of Dart's sound null
+safety feature. For additional information about this feature, see
 https://dart.dev/null-safety.
 
 The folder contains two sample Flutter apps:
@@ -27,8 +27,4 @@ The folder contains two sample Flutter apps:
 
 ## Running the example code
 
-This sample is
-[experimental](https://github.com/flutter/samples/tree/master/experimental), and
-requires using a **beta channel** Flutter SDK. You can change to the beta
-channel with `flutter channel beta` followed by `flutter upgrade` (don't forget
-to change back to `flutter channel stable` for production use.
+This sample requires Flutter 2.0 or later.
