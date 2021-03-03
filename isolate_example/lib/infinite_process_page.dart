@@ -86,7 +86,7 @@ class InfiniteProcessPage extends StatelessWidget {
                     Radio<int>(
                       value: i,
                       groupValue: controller.currentMultiplier,
-                      onChanged: (val) => controller.setMultiplier(val),
+                      onChanged: (val) => controller.setMultiplier(val!),
                     ),
                     Text('${i}x')
                   ],
@@ -101,10 +101,10 @@ class InfiniteProcessPage extends StatelessWidget {
 }
 
 class InfiniteProcessIsolateController extends ChangeNotifier {
-  Isolate newIsolate;
-  ReceivePort receivePort;
-  SendPort newIceSP;
-  Capability capability;
+  Isolate? newIsolate;
+  late ReceivePort receivePort;
+  late SendPort newIceSP;
+  Capability? capability;
 
   int _currentMultiplier = 1;
   final List<int> _currentResults = [];
@@ -146,17 +146,17 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
   }
 
   void terminate() {
-    newIsolate.kill();
+    newIsolate?.kill();
     _created = false;
     _currentResults.clear();
     notifyListeners();
   }
 
   void pausedSwitch() {
-    if (_paused) {
-      newIsolate.resume(capability);
+    if (_paused && capability != null) {
+      newIsolate?.resume(capability!);
     } else {
-      capability = newIsolate.pause();
+      capability = newIsolate?.pause();
     }
 
     _paused = !_paused;
