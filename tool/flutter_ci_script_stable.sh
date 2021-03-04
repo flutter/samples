@@ -23,7 +23,7 @@ declare -ar PROJECT_NAMES=(
     "testing_app" \
     "null_safety/null_safe_app" \
     "null_safety/null_unsafe_app" \
-    "experimental/veggieseasons" \
+    "veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
