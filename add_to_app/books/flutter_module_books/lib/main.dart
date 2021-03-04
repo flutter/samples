@@ -190,7 +190,7 @@ class _BookDetailState extends State<BookDetail> {
                   ),
                   SizedBox(height: 12),
                   Text(
-                    book.description,
+                    book.summary,
                     style: TextStyle(color: Colors.grey.shade600, height: 1.24),
                   ),
                 ],

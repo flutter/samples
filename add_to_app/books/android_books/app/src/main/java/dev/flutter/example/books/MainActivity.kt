@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 book.subtitle = volumeInfoJson.get("subtitle")?.asString
                 // Sorry co-authors, we're trying to keep this simple.
                 book.author = volumeInfoJson.getAsJsonArray("authors")[0].asString
-                book.description = volumeInfoJson.get("description").asString
+                book.summary = volumeInfoJson.get("description").asString
                 book.publishDate = volumeInfoJson.get("publishedDate").asString
                 book.pageCount = volumeInfoJson.get("pageCount").asLong
                 books.add(book)

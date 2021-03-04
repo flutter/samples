@@ -8,7 +8,7 @@ class Book {
   String title;
   String subtitle;
   String author;
-  String description;
+  String summary;
   String publishDate;
   int pageCount;
   // Thumbnail thumbnail;
