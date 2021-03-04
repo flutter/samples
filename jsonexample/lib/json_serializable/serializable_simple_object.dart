@@ -19,12 +19,12 @@ class SerializableSimpleObject {
     this.aListOfDoubles,
   });
 
-  final String aString;
-  final int anInt;
-  final double aDouble;
-  final List<String> aListOfStrings;
-  final List<int> aListOfInts;
-  final List<double> aListOfDoubles;
+  final String? aString;
+  final int? anInt;
+  final double? aDouble;
+  final List<String>? aListOfStrings;
+  final List<int>? aListOfInts;
+  final List<double>? aListOfDoubles;
 
   factory SerializableSimpleObject.fromJson(Map<String, dynamic> json) =>
       _$SerializableSimpleObjectFromJson(json);

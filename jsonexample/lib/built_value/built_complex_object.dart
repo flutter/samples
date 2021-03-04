@@ -14,29 +14,21 @@ abstract class BuiltComplexObject
   static Serializer<BuiltComplexObject> get serializer =>
       _$builtComplexObjectSerializer;
 
-  @nullable
-  String get aString;
+  String? get aString;
 
-  @nullable
-  int get anInt;
+  int? get anInt;
 
-  @nullable
-  double get aDouble;
+  double? get aDouble;
 
-  @nullable
-  BuiltSimpleObject get anObject;
+  BuiltSimpleObject? get anObject;
 
-  @nullable
-  BuiltList<String> get aListOfStrings;
+  BuiltList<String>? get aListOfStrings;
 
-  @nullable
-  BuiltList<int> get aListOfInts;
+  BuiltList<int>? get aListOfInts;
 
-  @nullable
-  BuiltList<double> get aListOfDoubles;
+  BuiltList<double>? get aListOfDoubles;
 
-  @nullable
-  BuiltList<BuiltSimpleObject> get aListOfObjects;
+  BuiltList<BuiltSimpleObject>? get aListOfObjects;
 
   BuiltComplexObject._();
 

@@ -2,12 +2,12 @@ name: jsonexample
 description: A demonstration of JSON parsing
 
 environment:
-  sdk: '>=2.5.0 <3.0.0'
+  sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
-  json_annotation: ^3.0.1
-  built_collection: ^4.3.2
-  built_value: ^7.0.4
+  json_annotation: ^4.0.0-0
+  built_collection: ^5.0.0-0
+  built_value: ^8.0.0-0
 
   flutter:
     sdk: flutter
@@ -15,9 +15,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.7.2
-  built_value_generator: ^7.0.4
-  json_serializable: ^3.2.5
+  build_runner: ^1.11.1
+  built_value_generator: ^8.0.0-0
+  json_serializable: ^4.0.0-0
   pedantic: ^1.9.0
 
 flutter:

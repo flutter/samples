@@ -20,55 +20,63 @@ class _$BuiltComplexObjectSerializer
   Iterable<Object> serialize(Serializers serializers, BuiltComplexObject object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.aString != null) {
+    Object? value;
+    value = object.aString;
+    if (value != null) {
       result
         ..add('aString')
-        ..add(serializers.serialize(object.aString,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.anInt != null) {
+    value = object.anInt;
+    if (value != null) {
       result
         ..add('anInt')
-        ..add(serializers.serialize(object.anInt,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.aDouble != null) {
+    value = object.aDouble;
+    if (value != null) {
       result
         ..add('aDouble')
-        ..add(serializers.serialize(object.aDouble,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    if (object.anObject != null) {
+    value = object.anObject;
+    if (value != null) {
       result
         ..add('anObject')
-        ..add(serializers.serialize(object.anObject,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltSimpleObject)));
     }
-    if (object.aListOfStrings != null) {
+    value = object.aListOfStrings;
+    if (value != null) {
       result
         ..add('aListOfStrings')
-        ..add(serializers.serialize(object.aListOfStrings,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.aListOfInts != null) {
+    value = object.aListOfInts;
+    if (value != null) {
       result
         ..add('aListOfInts')
-        ..add(serializers.serialize(object.aListOfInts,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(int)])));
     }
-    if (object.aListOfDoubles != null) {
+    value = object.aListOfDoubles;
+    if (value != null) {
       result
         ..add('aListOfDoubles')
-        ..add(serializers.serialize(object.aListOfDoubles,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(double)])));
     }
-    if (object.aListOfObjects != null) {
+    value = object.aListOfObjects;
+    if (value != null) {
       result
         ..add('aListOfObjects')
-        ..add(serializers.serialize(object.aListOfObjects,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType(BuiltSimpleObject)])));
     }
@@ -85,7 +93,7 @@ class _$BuiltComplexObjectSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'aString':
           result.aString = serializers.deserialize(value,
@@ -137,24 +145,24 @@ class _$BuiltComplexObjectSerializer
 
 class _$BuiltComplexObject extends BuiltComplexObject {
   @override
-  final String aString;
+  final String? aString;
   @override
-  final int anInt;
+  final int? anInt;
   @override
-  final double aDouble;
+  final double? aDouble;
   @override
-  final BuiltSimpleObject anObject;
+  final BuiltSimpleObject? anObject;
   @override
-  final BuiltList<String> aListOfStrings;
+  final BuiltList<String>? aListOfStrings;
   @override
-  final BuiltList<int> aListOfInts;
+  final BuiltList<int>? aListOfInts;
   @override
-  final BuiltList<double> aListOfDoubles;
+  final BuiltList<double>? aListOfDoubles;
   @override
-  final BuiltList<BuiltSimpleObject> aListOfObjects;
+  final BuiltList<BuiltSimpleObject>? aListOfObjects;
 
   factory _$BuiltComplexObject(
-          [void Function(BuiltComplexObjectBuilder) updates]) =>
+          [void Function(BuiltComplexObjectBuilder)? updates]) =>
       (new BuiltComplexObjectBuilder()..update(updates)).build();
 
   _$BuiltComplexObject._(
@@ -224,62 +232,63 @@ class _$BuiltComplexObject extends BuiltComplexObject {
 
 class BuiltComplexObjectBuilder
     implements Builder<BuiltComplexObject, BuiltComplexObjectBuilder> {
-  _$BuiltComplexObject _$v;
+  _$BuiltComplexObject? _$v;
 
-  String _aString;
-  String get aString => _$this._aString;
-  set aString(String aString) => _$this._aString = aString;
+  String? _aString;
+  String? get aString => _$this._aString;
+  set aString(String? aString) => _$this._aString = aString;
 
-  int _anInt;
-  int get anInt => _$this._anInt;
-  set anInt(int anInt) => _$this._anInt = anInt;
+  int? _anInt;
+  int? get anInt => _$this._anInt;
+  set anInt(int? anInt) => _$this._anInt = anInt;
 
-  double _aDouble;
-  double get aDouble => _$this._aDouble;
-  set aDouble(double aDouble) => _$this._aDouble = aDouble;
+  double? _aDouble;
+  double? get aDouble => _$this._aDouble;
+  set aDouble(double? aDouble) => _$this._aDouble = aDouble;
 
-  BuiltSimpleObjectBuilder _anObject;
+  BuiltSimpleObjectBuilder? _anObject;
   BuiltSimpleObjectBuilder get anObject =>
       _$this._anObject ??= new BuiltSimpleObjectBuilder();
-  set anObject(BuiltSimpleObjectBuilder anObject) =>
+  set anObject(BuiltSimpleObjectBuilder? anObject) =>
       _$this._anObject = anObject;
 
-  ListBuilder<String> _aListOfStrings;
+  ListBuilder<String>? _aListOfStrings;
   ListBuilder<String> get aListOfStrings =>
       _$this._aListOfStrings ??= new ListBuilder<String>();
-  set aListOfStrings(ListBuilder<String> aListOfStrings) =>
+  set aListOfStrings(ListBuilder<String>? aListOfStrings) =>
       _$this._aListOfStrings = aListOfStrings;
 
-  ListBuilder<int> _aListOfInts;
+  ListBuilder<int>? _aListOfInts;
   ListBuilder<int> get aListOfInts =>
       _$this._aListOfInts ??= new ListBuilder<int>();
-  set aListOfInts(ListBuilder<int> aListOfInts) =>
+  set aListOfInts(ListBuilder<int>? aListOfInts) =>
       _$this._aListOfInts = aListOfInts;
 
-  ListBuilder<double> _aListOfDoubles;
+  ListBuilder<double>? _aListOfDoubles;
   ListBuilder<double> get aListOfDoubles =>
       _$this._aListOfDoubles ??= new ListBuilder<double>();
-  set aListOfDoubles(ListBuilder<double> aListOfDoubles) =>
+  set aListOfDoubles(ListBuilder<double>? aListOfDoubles) =>
       _$this._aListOfDoubles = aListOfDoubles;
 
-  ListBuilder<BuiltSimpleObject> _aListOfObjects;
+  ListBuilder<BuiltSimpleObject>? _aListOfObjects;
   ListBuilder<BuiltSimpleObject> get aListOfObjects =>
       _$this._aListOfObjects ??= new ListBuilder<BuiltSimpleObject>();
-  set aListOfObjects(ListBuilder<BuiltSimpleObject> aListOfObjects) =>
+  set aListOfObjects(ListBuilder<BuiltSimpleObject>? aListOfObjects) =>
       _$this._aListOfObjects = aListOfObjects;
 
   BuiltComplexObjectBuilder();
 
   BuiltComplexObjectBuilder get _$this {
-    if (_$v != null) {
-      _aString = _$v.aString;
-      _anInt = _$v.anInt;
-      _aDouble = _$v.aDouble;
-      _anObject = _$v.anObject?.toBuilder();
-      _aListOfStrings = _$v.aListOfStrings?.toBuilder();
-      _aListOfInts = _$v.aListOfInts?.toBuilder();
-      _aListOfDoubles = _$v.aListOfDoubles?.toBuilder();
-      _aListOfObjects = _$v.aListOfObjects?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _aString = $v.aString;
+      _anInt = $v.anInt;
+      _aDouble = $v.aDouble;
+      _anObject = $v.anObject?.toBuilder();
+      _aListOfStrings = $v.aListOfStrings?.toBuilder();
+      _aListOfInts = $v.aListOfInts?.toBuilder();
+      _aListOfDoubles = $v.aListOfDoubles?.toBuilder();
+      _aListOfObjects = $v.aListOfObjects?.toBuilder();
       _$v = null;
     }
     return this;
@@ -287,14 +296,12 @@ class BuiltComplexObjectBuilder
 
   @override
   void replace(BuiltComplexObject other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BuiltComplexObject;
   }
 
   @override
-  void update(void Function(BuiltComplexObjectBuilder) updates) {
+  void update(void Function(BuiltComplexObjectBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -313,7 +320,7 @@ class BuiltComplexObjectBuilder
               aListOfDoubles: _aListOfDoubles?.build(),
               aListOfObjects: _aListOfObjects?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'anObject';
         _anObject?.build();

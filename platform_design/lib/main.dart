@@ -116,7 +116,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             );
           default:
             assert(false, 'Unexpected tab');
-            return null;
+            return SizedBox.shrink();
         }
       },
     );

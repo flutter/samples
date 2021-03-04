@@ -31,7 +31,11 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({this.name, this.route, this.builder});
+  const Demo({
+    required this.name,
+    required this.route,
+    required this.builder,
+  });
 }
 
 final basicDemos = [

@@ -127,22 +127,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
 
@@ -169,21 +170,21 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, isNull);
-      expect(complexObject.anObject.anInt, isNull);
-      expect(complexObject.anObject.aDouble, isNull);
-      expect(complexObject.anObject.aListOfStrings, isNull);
-      expect(complexObject.anObject.aListOfInts, isNull);
-      expect(complexObject.anObject.aListOfDoubles, isNull);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, isNull);
+      expect(complexObject.anObject?.anInt, isNull);
+      expect(complexObject.anObject?.aDouble, isNull);
+      expect(complexObject.anObject?.aListOfStrings, isNull);
+      expect(complexObject.anObject?.aListOfInts, isNull);
+      expect(complexObject.anObject?.aListOfDoubles, isNull);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, isNull);
-        expect(complexObject.aListOfObjects[i].anInt, isNull);
-        expect(complexObject.aListOfObjects[i].aDouble, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfStrings, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfInts, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, isNull);
+        expect(complexObject.aListOfObjects?[i].aString, isNull);
+        expect(complexObject.aListOfObjects?[i].anInt, isNull);
+        expect(complexObject.aListOfObjects?[i].aDouble, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfDoubles, isNull);
       }
     });
 
@@ -197,22 +198,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
   });
@@ -228,22 +230,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
 
@@ -270,21 +273,21 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, isNull);
-      expect(complexObject.anObject.anInt, isNull);
-      expect(complexObject.anObject.aDouble, isNull);
-      expect(complexObject.anObject.aListOfStrings, isNull);
-      expect(complexObject.anObject.aListOfInts, isNull);
-      expect(complexObject.anObject.aListOfDoubles, isNull);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, isNull);
+      expect(complexObject.anObject?.anInt, isNull);
+      expect(complexObject.anObject?.aDouble, isNull);
+      expect(complexObject.anObject?.aListOfStrings, isNull);
+      expect(complexObject.anObject?.aListOfInts, isNull);
+      expect(complexObject.anObject?.aListOfDoubles, isNull);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, isNull);
-        expect(complexObject.aListOfObjects[i].anInt, isNull);
-        expect(complexObject.aListOfObjects[i].aDouble, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfStrings, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfInts, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, isNull);
+        expect(complexObject.aListOfObjects?[i].aString, isNull);
+        expect(complexObject.aListOfObjects?[i].anInt, isNull);
+        expect(complexObject.aListOfObjects?[i].aDouble, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfDoubles, isNull);
       }
     });
 
@@ -298,22 +301,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
   });
@@ -329,22 +333,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
 
@@ -372,21 +377,21 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, isNull);
-      expect(complexObject.anObject.anInt, isNull);
-      expect(complexObject.anObject.aDouble, isNull);
-      expect(complexObject.anObject.aListOfStrings, isNull);
-      expect(complexObject.anObject.aListOfInts, isNull);
-      expect(complexObject.anObject.aListOfDoubles, isNull);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, isNull);
+      expect(complexObject.anObject?.anInt, isNull);
+      expect(complexObject.anObject?.aDouble, isNull);
+      expect(complexObject.anObject?.aListOfStrings, isNull);
+      expect(complexObject.anObject?.aListOfInts, isNull);
+      expect(complexObject.anObject?.aListOfDoubles, isNull);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, isNull);
-        expect(complexObject.aListOfObjects[i].anInt, isNull);
-        expect(complexObject.aListOfObjects[i].aDouble, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfStrings, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfInts, isNull);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, isNull);
+        expect(complexObject.aListOfObjects?[i].aString, isNull);
+        expect(complexObject.aListOfObjects?[i].anInt, isNull);
+        expect(complexObject.aListOfObjects?[i].aDouble, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, isNull);
+        expect(complexObject.aListOfObjects?[i].aListOfDoubles, isNull);
       }
     });
 
@@ -400,22 +405,23 @@ void main() {
       expect(complexObject.aListOfStrings, ['one', 'two', 'three']);
       expect(complexObject.aListOfInts, [1, 2, 3]);
       expect(complexObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.anObject.aString, 'Blah, blah, blah.');
-      expect(complexObject.anObject.anInt, 1);
-      expect(complexObject.anObject.aDouble, 1.0);
-      expect(complexObject.anObject.aListOfStrings, ['one', 'two', 'three']);
-      expect(complexObject.anObject.aListOfInts, [1, 2, 3]);
-      expect(complexObject.anObject.aListOfDoubles, [1.0, 2.0, 3.0]);
-      expect(complexObject.aListOfObjects.length, 3);
+      expect(complexObject.anObject?.aString, 'Blah, blah, blah.');
+      expect(complexObject.anObject?.anInt, 1);
+      expect(complexObject.anObject?.aDouble, 1.0);
+      expect(complexObject.anObject?.aListOfStrings, ['one', 'two', 'three']);
+      expect(complexObject.anObject?.aListOfInts, [1, 2, 3]);
+      expect(complexObject.anObject?.aListOfDoubles, [1.0, 2.0, 3.0]);
+      expect(complexObject.aListOfObjects?.length, 3);
 
       for (var i = 0; i < 3; i++) {
-        expect(complexObject.aListOfObjects[i].aString, 'Blah, blah, blah.');
-        expect(complexObject.aListOfObjects[i].anInt, i + 1);
-        expect(complexObject.aListOfObjects[i].aDouble, 1.0);
-        expect(complexObject.aListOfObjects[i].aListOfStrings,
+        expect(complexObject.aListOfObjects?[i].aString, 'Blah, blah, blah.');
+        expect(complexObject.aListOfObjects?[i].anInt, i + 1);
+        expect(complexObject.aListOfObjects?[i].aDouble, 1.0);
+        expect(complexObject.aListOfObjects?[i].aListOfStrings,
             ['one', 'two', 'three']);
-        expect(complexObject.aListOfObjects[i].aListOfInts, [1, 2, 3]);
-        expect(complexObject.aListOfObjects[i].aListOfDoubles, [1.0, 2.0, 3.0]);
+        expect(complexObject.aListOfObjects?[i].aListOfInts, [1, 2, 3]);
+        expect(
+            complexObject.aListOfObjects?[i].aListOfDoubles, [1.0, 2.0, 3.0]);
       }
     });
   });

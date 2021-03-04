@@ -3,21 +3,21 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.16.0
-  firebase_core: ^0.7.0
-  google_maps_flutter: ^1.2.0
-  google_maps_webservice: ^0.0.19
-  location: ^3.0.2
+  cloud_firestore: ^0.17.0-1.0.nullsafety.2
+  firebase_core: ^0.8.0-1.0.nullsafety.2
+  google_maps_flutter: ^2.0.0
+  google_maps_webservice: ^0.0.20-nullsafety.0
+  location: ^4.0.0-nullsafety.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
+  pedantic: ^1.10.0
 
 flutter:
   uses-material-design: true

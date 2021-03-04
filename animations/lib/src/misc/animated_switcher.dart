@@ -30,8 +30,8 @@ class AnimatedSwitcherDemo extends StatefulWidget {
 }
 
 class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
-  Widget container;
-  int keyCount;
+  late Widget container;
+  late int keyCount;
 
   @override
   void initState() {
@@ -53,7 +53,7 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
             child: Text(
               'Change Widget',
               style: TextStyle(
-                  color: Theme.of(context).buttonTheme.colorScheme.onPrimary),
+                  color: Theme.of(context).buttonTheme.colorScheme!.onPrimary),
             ),
           ),
         ],
