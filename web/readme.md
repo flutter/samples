@@ -10,26 +10,22 @@ https://flutter.github.io/samples/#?platform=web.
 
 ## Building samples code
 
-Update Flutter and enable web support
+Building web samples requires Flutter 2.0 or later.
 
 ```console
-$ flutter channel dev
+$ flutter channel stable
 $ flutter upgrade
-$ flutter config --enable-web
 ```
 
 Run the demo using the `chrome` device type:
 
 ```console
-$ cd slide_puzzle
+$ cd charts
 $ flutter packages get
 $ flutter run -d chrome
 ```
 
 You should see a message printing the URL to access: `http://localhost:8080`
-
-Web support is available as a technical preview and is only available in the
-`dev` or `master` channels.
 
 ## Deploying to GitHub Pages
 
