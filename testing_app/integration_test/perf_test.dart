@@ -66,7 +66,7 @@ void main() {
           for (var icon in iconKeys) {
             // Tap onto the icon.
             await tester.tap(find.byKey(ValueKey(icon)));
-            await tester.pumpAndSettle();
+            await tester.pumpAndSettle(Duration(seconds: 1));
 
             // Verify if appropriate message appears.
             expect(find.text('Added to favorites.'), findsOneWidget);
@@ -87,7 +87,7 @@ void main() {
           for (final iconKey in removeIconKeys) {
             // Tap onto the remove icon.
             await tester.tap(find.byKey(ValueKey(iconKey)));
-            await tester.pumpAndSettle();
+            await tester.pumpAndSettle(Duration(seconds: 1));
 
             // Verify if appropriate message appears.
             expect(find.text('Removed from favorites.'), findsOneWidget);
