@@ -80,7 +80,7 @@ void main() {
 
       // Tap on the remove icon.
       await tester.tap(find.byKey(ValueKey('remove_icon_5')));
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettle(Duration(seconds: 1));
 
       // Verify if it disappears.
       expect(find.text('Item 5'), findsNothing);
