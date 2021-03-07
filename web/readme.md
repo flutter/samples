@@ -10,8 +10,6 @@ https://flutter.github.io/samples/#?platform=web.
 
 ## Building samples code
 
-Building web samples requires Flutter 2.0 or later.
-
 ```console
 $ flutter channel stable
 $ flutter upgrade
