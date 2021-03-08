@@ -23,8 +23,7 @@ declare -ar PROJECT_NAMES=(
     "testing_app" \
     "null_safety/null_safe_app" \
     "null_safety/null_unsafe_app" \
-# TODO(goderbauer): Add veggieseasons back when moved out of experimental again.
-#    "veggieseasons" \
+    "veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"

@@ -21,6 +21,7 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "testing_app"
+    "veggieseasons" 
     "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
     "null_safety/null_safe_app"
