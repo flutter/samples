@@ -10,11 +10,6 @@ https://flutter.github.io/samples/#?platform=web.
 
 ## Building samples code
 
-```console
-$ flutter channel stable
-$ flutter upgrade
-```
-
 Run the demo using the `chrome` device type:
 
 ```console
