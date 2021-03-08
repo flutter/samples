@@ -30,8 +30,8 @@ declare -ar PROJECT_NAMES=(
     # "experimental/federated_plugin/federated_plugin" \
     "null_safety/null_safe_app" \
     "null_safety/null_unsafe_app" \
-    "experimental/veggieseasons" \
     "experimental/web_dashboard" \
+    "veggieseasons" \
 )
 
 for PROJECT_NAME in "${PROJECT_NAMES[@]}"
