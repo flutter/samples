@@ -7,7 +7,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/books/flutter_module_books"
-    "add_to_app/multiple_flutters/multiple_flutters_module"
+    # TODO(domesticmouse): tracking issue https://github.com/flutter/samples/issues/759 
+    # "add_to_app/multiple_flutters/multiple_flutters_module"
     "animations"
     "flutter_maps_firestore"
     "infinite_list"
