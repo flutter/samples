@@ -20,6 +20,15 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
         EngineBindings(activity = this, delegate = this, entrypoint = "bottomMain")
     }
     private val numberOfFlutters = 2
+    private val engineCountStart : Int
+    private companion object {
+        var engineCounter = 0
+    }
+
+    init {
+        engineCountStart = engineCounter
+        engineCounter += numberOfFlutters
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,26 +44,26 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
 
         setContentView(root)
 
-        val app = applicationContext as App
-
         for (i in 0 until numberOfFlutters) {
+            val engineId = engineCountStart + i
+            val containerId = 12345 + engineId
             val flutterContainer = FrameLayout(this)
             root.addView(flutterContainer)
-            flutterContainer.id = 12345 + i
+            flutterContainer.id = containerId
             flutterContainer.layoutParams = LinearLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 1.0f
             )
             val engine = if (i == 0) topBindings.engine else bottomBindings.engine
-            FlutterEngineCache.getInstance().put(i.toString(), engine)
+            FlutterEngineCache.getInstance().put(engineId.toString(), engine)
             val flutterFragment =
-                FlutterFragment.withCachedEngine(i.toString()).build<FlutterFragment>()
+                FlutterFragment.withCachedEngine(engineId.toString()).build<FlutterFragment>()
             fragmentManager
                 .beginTransaction()
                 .add(
-                    12345 + i,
-                    flutterFragment
+                        containerId,
+                        flutterFragment
                 )
                 .commit()
         }
@@ -65,7 +74,8 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
 
     override fun onDestroy() {
         for (i in 0 until numberOfFlutters) {
-            FlutterEngineCache.getInstance().remove(i.toString())
+            val engineId = engineCountStart + i
+            FlutterEngineCache.getInstance().remove(engineId.toString())
         }
 
         super.onDestroy()
