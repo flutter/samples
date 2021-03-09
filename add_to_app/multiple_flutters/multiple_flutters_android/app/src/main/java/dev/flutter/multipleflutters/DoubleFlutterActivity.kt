@@ -44,8 +44,6 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
 
         setContentView(root)
 
-        val app = applicationContext as App
-
         for (i in 0 until numberOfFlutters) {
             val engineId = engineCountStart + i
             val containerId = 12345 + engineId
