@@ -20,9 +20,14 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
         EngineBindings(activity = this, delegate = this, entrypoint = "bottomMain")
     }
     private val numberOfFlutters = 2
-    private var engineCountStart = 0
+    private val engineCountStart : Int
     private companion object {
-        var engineCount = 0
+        var engineCounter = 0
+    }
+
+    init {
+        engineCountStart = engineCounter
+        engineCounter += numberOfFlutters
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,10 +46,8 @@ class DoubleFlutterActivity : FragmentActivity(), EngineBindingsDelegate {
 
         val app = applicationContext as App
 
-        engineCountStart = engineCount
         for (i in 0 until numberOfFlutters) {
-            val engineId = engineCount
-            engineCount += 1
+            val engineId = engineCountStart + i
             val containerId = 12345 + engineId
             val flutterContainer = FrameLayout(this)
             root.addView(flutterContainer)
