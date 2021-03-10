@@ -5,3 +5,6 @@ evaluate(new File(
   settingsDir.parentFile,
   'flutter_module_using_plugin/.android/include_flutter.groovy'
 ))
+
+include ':flutter_module_using_plugin'
+project(':flutter_module_using_plugin').projectDir = new File('../flutter_module_using_plugin')
