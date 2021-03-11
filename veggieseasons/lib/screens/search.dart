@@ -45,12 +45,12 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
     setState(() => terms = controller.value.text);
   }
 
-  Widget _createSearchBox() {
+  Widget _createSearchBox({bool focus = true}) {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: CupertinoSearchTextField(
         controller: controller.value,
-        focusNode: focusNode,
+        focusNode: focus ? focusNode : null,
       ),
     );
   }
@@ -77,7 +77,7 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
             // This invisible and otherwise unnecessary search box is used to
             // pad the list entries downward, so none will be underneath the
             // real search box when the list is at its top scroll position.
-            child: _createSearchBox(),
+            child: _createSearchBox(focus: false),
             visible: false,
             maintainSize: true,
             maintainAnimation: true,
