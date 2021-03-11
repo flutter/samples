@@ -47,14 +47,6 @@ Likewise, to save a Photo to the local file system using the `file_chooser` plug
 
 Please see [macOS Signing and Security][macOS-security] for more detail.
 
-## Flutter Desktop is not in Flutter Stable Release Channel
-
-This sample is a preview, intended to enable developers to preview what is
-under development. As such, it is currently only available for use on 
-the `dev` and `master` channels of Flutter. Please see 
-[Flutter build release channels][flutter_channels] for more detail,
-and how to switch between Flutter release channels.
-
 [DataTreeNode]: lib/src/widgets/data_tree.dart
 [Split]: lib/src/widgets/split.dart
 [Unsplash]: lib/src/unsplash/unsplash.dart
