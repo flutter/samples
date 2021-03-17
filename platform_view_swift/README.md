@@ -16,7 +16,7 @@ takes place in a single file.
 
 ### `ios/Runner/PlatformViewController.swift` and `AppDelegate.swift`
 
-These files contain the Swift code repsonsible for setting up a platform
+These files contain the Swift code responsible for setting up a platform
 channel, launching a native UIViewController, and returning control to
 Flutter when finished.
 
