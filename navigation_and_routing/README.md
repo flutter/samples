@@ -1,7 +1,7 @@
 # Navigation and Routing sample code
 
 Sample code for [Learning Flutter's New Navigation and Routing System][article],
-an article explaining the Router widget and it's associated classes.
+an article explaining the Router widget and its associated classes.
 
 ## Samples
 
@@ -33,7 +33,7 @@ an article explaining the Router widget and it's associated classes.
   RouterDelegate, and additional routes can be pushed onto the inner
   RouterDelegate / Navigator.
 * [router_advanced/transition_delegate.dart](lib/router_advanced/transition_delegate.dart)
-  Shows how a custom TransitionDelegate can be used to customized when
+  Shows how a custom TransitionDelegate can be used to customize when
   transition animations are shown.
 
 ## Running
