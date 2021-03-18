@@ -47,13 +47,11 @@ Likewise, to save a Photo to the local file system using the `file_chooser` plug
 
 Please see [macOS Signing and Security][macOS-security] for more detail.
 
-## Flutter Desktop is not in Flutter Stable Release Channel
+## Flutter Desktop is in Beta
 
-This sample is a preview, intended to enable developers to preview what is
-under development. As such, it is currently only available for use on 
-the `dev` and `master` channels of Flutter. Please see 
-[Flutter build release channels][flutter_channels] for more detail,
-and how to switch between Flutter release channels.
+Flutter's Desktop support is now in `beta`, with a snapshot available in the 
+`stable` channel. Please see the [setup documentation][] for how to configure 
+your development environment to enable Flutter's Desktop support.
 
 [DataTreeNode]: lib/src/widgets/data_tree.dart
 [Split]: lib/src/widgets/split.dart
@@ -68,6 +66,7 @@ and how to switch between Flutter release channels.
 [macOS-read-write]: https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_files_user-selected_read-write
 [macOS-security]: https://github.com/google/flutter-desktop-embedding/blob/master/macOS-Security.md
 [menubar]: https://github.com/google/flutter-desktop-embedding/tree/master/plugins/menubar
+[setup documentation]: https://flutter.dev/desktop#set-up
 [url_launcher]: https://pub.dev/packages/url_launcher
 
 [msix_pub_package]: https://pub.dev/packages/msix
