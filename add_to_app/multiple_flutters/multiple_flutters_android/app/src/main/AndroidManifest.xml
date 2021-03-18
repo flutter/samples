@@ -8,6 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowNativeHeapPointerTagging="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleFlutters">
         <activity android:name=".MainActivity">
