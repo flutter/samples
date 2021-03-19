@@ -43,7 +43,7 @@ Future<void> watch() async => _logProcessOutput(
 Future<void> analyzeSource() async => _logProcessOutput(
       Process.start(
         'flutter',
-        ['pub', 'run', 'tuneup'],
+        ['analyze'],
       ),
     );
 

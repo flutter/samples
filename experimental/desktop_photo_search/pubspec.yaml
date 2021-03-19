@@ -5,6 +5,7 @@ publish_to: none
 
 environment:
   sdk: ^2.11.0
+  flutter: ^2.0.0
 
 dependencies:
   flutter:
@@ -35,13 +36,12 @@ dev_dependencies:
     sdk: flutter
   async: ^2.4.0
   build: ^1.2.2
-  build_runner: ^1.7.2
+  build_runner: ^1.10.4
   built_value_generator: ^8.0.3
   grinder: ^0.8.3
   msix: ^0.1.5
   source_gen: ^0.9.4
   test: ^1.9.4
-  tuneup: ^0.3.6
 
 flutter:
   uses-material-design: true
