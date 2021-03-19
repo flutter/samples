@@ -30,53 +30,59 @@ class _$UserSerializer implements StructuredSerializer<User> {
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
-    if (object.updatedAt != null) {
+    Object value;
+    value = object.updatedAt;
+    if (value != null) {
       result
         ..add('updated_at')
-        ..add(serializers.serialize(object.updatedAt,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.portfolioUrl != null) {
+    value = object.portfolioUrl;
+    if (value != null) {
       result
         ..add('portfolio_url')
-        ..add(serializers.serialize(object.portfolioUrl,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.bio != null) {
+    value = object.bio;
+    if (value != null) {
       result
         ..add('bio')
-        ..add(serializers.serialize(object.bio,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.location != null) {
+    value = object.location;
+    if (value != null) {
       result
         ..add('location')
-        ..add(serializers.serialize(object.location,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.totalLikes != null) {
+    value = object.totalLikes;
+    if (value != null) {
       result
         ..add('total_likes')
-        ..add(serializers.serialize(object.totalLikes,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.totalPhotos != null) {
+    value = object.totalPhotos;
+    if (value != null) {
       result
         ..add('total_photos')
-        ..add(serializers.serialize(object.totalPhotos,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.totalCollections != null) {
+    value = object.totalCollections;
+    if (value != null) {
       result
         ..add('total_collections')
-        ..add(serializers.serialize(object.totalCollections,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.links != null) {
+    value = object.links;
+    if (value != null) {
       result
         ..add('links')
-        ..add(serializers.serialize(object.links,
-            specifiedType: const FullType(Links)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Links)));
     }
     return result;
   }
@@ -90,7 +96,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -183,15 +189,9 @@ class _$User extends User {
       this.totalCollections,
       this.links})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('User', 'id');
-    }
-    if (username == null) {
-      throw new BuiltValueNullFieldError('User', 'username');
-    }
-    if (name == null) {
-      throw new BuiltValueNullFieldError('User', 'name');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'User', 'id');
+    BuiltValueNullFieldError.checkNotNull(username, 'User', 'username');
+    BuiltValueNullFieldError.checkNotNull(name, 'User', 'name');
   }
 
   @override
@@ -311,18 +311,19 @@ class UserBuilder implements Builder<User, UserBuilder> {
   UserBuilder();
 
   UserBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _updatedAt = _$v.updatedAt;
-      _username = _$v.username;
-      _name = _$v.name;
-      _portfolioUrl = _$v.portfolioUrl;
-      _bio = _$v.bio;
-      _location = _$v.location;
-      _totalLikes = _$v.totalLikes;
-      _totalPhotos = _$v.totalPhotos;
-      _totalCollections = _$v.totalCollections;
-      _links = _$v.links?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _updatedAt = $v.updatedAt;
+      _username = $v.username;
+      _name = $v.name;
+      _portfolioUrl = $v.portfolioUrl;
+      _bio = $v.bio;
+      _location = $v.location;
+      _totalLikes = $v.totalLikes;
+      _totalPhotos = $v.totalPhotos;
+      _totalCollections = $v.totalCollections;
+      _links = $v.links?.toBuilder();
       _$v = null;
     }
     return this;
@@ -330,9 +331,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
 
   @override
   void replace(User other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$User;
   }
 
@@ -347,10 +346,11 @@ class UserBuilder implements Builder<User, UserBuilder> {
     try {
       _$result = _$v ??
           new _$User._(
-              id: id,
+              id: BuiltValueNullFieldError.checkNotNull(id, 'User', 'id'),
               updatedAt: updatedAt,
-              username: username,
-              name: name,
+              username: BuiltValueNullFieldError.checkNotNull(
+                  username, 'User', 'username'),
+              name: BuiltValueNullFieldError.checkNotNull(name, 'User', 'name'),
               portfolioUrl: portfolioUrl,
               bio: bio,
               location: location,

@@ -42,7 +42,7 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'latitude':
           result.latitude = serializers.deserialize(value,
@@ -69,12 +69,8 @@ class _$Position extends Position {
       (new PositionBuilder()..update(updates)).build();
 
   _$Position._({this.latitude, this.longitude}) : super._() {
-    if (latitude == null) {
-      throw new BuiltValueNullFieldError('Position', 'latitude');
-    }
-    if (longitude == null) {
-      throw new BuiltValueNullFieldError('Position', 'longitude');
-    }
+    BuiltValueNullFieldError.checkNotNull(latitude, 'Position', 'latitude');
+    BuiltValueNullFieldError.checkNotNull(longitude, 'Position', 'longitude');
   }
 
   @override
@@ -120,9 +116,10 @@ class PositionBuilder implements Builder<Position, PositionBuilder> {
   PositionBuilder();
 
   PositionBuilder get _$this {
-    if (_$v != null) {
-      _latitude = _$v.latitude;
-      _longitude = _$v.longitude;
+    final $v = _$v;
+    if ($v != null) {
+      _latitude = $v.latitude;
+      _longitude = $v.longitude;
       _$v = null;
     }
     return this;
@@ -130,9 +127,7 @@ class PositionBuilder implements Builder<Position, PositionBuilder> {
 
   @override
   void replace(Position other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Position;
   }
 
@@ -143,8 +138,12 @@ class PositionBuilder implements Builder<Position, PositionBuilder> {
 
   @override
   _$Position build() {
-    final _$result =
-        _$v ?? new _$Position._(latitude: latitude, longitude: longitude);
+    final _$result = _$v ??
+        new _$Position._(
+            latitude: BuiltValueNullFieldError.checkNotNull(
+                latitude, 'Position', 'latitude'),
+            longitude: BuiltValueNullFieldError.checkNotNull(
+                longitude, 'Position', 'longitude'));
     replace(_$result);
     return _$result;
   }

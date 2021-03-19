@@ -25,103 +25,116 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
     ];
-    if (object.createdAt != null) {
+    Object value;
+    value = object.createdAt;
+    if (value != null) {
       result
         ..add('created_at')
-        ..add(serializers.serialize(object.createdAt,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.updatedAt != null) {
+    value = object.updatedAt;
+    if (value != null) {
       result
         ..add('updated_at')
-        ..add(serializers.serialize(object.updatedAt,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.width != null) {
+    value = object.width;
+    if (value != null) {
       result
         ..add('width')
-        ..add(serializers.serialize(object.width,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.height != null) {
+    value = object.height;
+    if (value != null) {
       result
         ..add('height')
-        ..add(serializers.serialize(object.height,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.color != null) {
+    value = object.color;
+    if (value != null) {
       result
         ..add('color')
-        ..add(serializers.serialize(object.color,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.downloads != null) {
+    value = object.downloads;
+    if (value != null) {
       result
         ..add('downloads')
-        ..add(serializers.serialize(object.downloads,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.likes != null) {
+    value = object.likes;
+    if (value != null) {
       result
         ..add('likes')
-        ..add(serializers.serialize(object.likes,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.likedByUser != null) {
+    value = object.likedByUser;
+    if (value != null) {
       result
         ..add('liked_by_user')
-        ..add(serializers.serialize(object.likedByUser,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.exif != null) {
+    value = object.exif;
+    if (value != null) {
       result
         ..add('exif')
-        ..add(serializers.serialize(object.exif,
-            specifiedType: const FullType(Exif)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Exif)));
     }
-    if (object.location != null) {
+    value = object.location;
+    if (value != null) {
       result
         ..add('location')
-        ..add(serializers.serialize(object.location,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(Location)));
     }
-    if (object.tags != null) {
+    value = object.tags;
+    if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(object.tags,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(Tags)])));
     }
-    if (object.currentUserCollections != null) {
+    value = object.currentUserCollections;
+    if (value != null) {
       result
         ..add('current_user_collections')
-        ..add(serializers.serialize(object.currentUserCollections,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 BuiltList, const [const FullType(CurrentUserCollections)])));
     }
-    if (object.urls != null) {
+    value = object.urls;
+    if (value != null) {
       result
         ..add('urls')
-        ..add(serializers.serialize(object.urls,
-            specifiedType: const FullType(Urls)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Urls)));
     }
-    if (object.links != null) {
+    value = object.links;
+    if (value != null) {
       result
         ..add('links')
-        ..add(serializers.serialize(object.links,
-            specifiedType: const FullType(Links)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Links)));
     }
-    if (object.user != null) {
+    value = object.user;
+    if (value != null) {
       result
         ..add('user')
-        ..add(serializers.serialize(object.user,
-            specifiedType: const FullType(User)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(User)));
     }
     return result;
   }
@@ -135,7 +148,7 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -274,9 +287,7 @@ class _$Photo extends Photo {
       this.links,
       this.user})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Photo', 'id');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'Photo', 'id');
   }
 
   @override
@@ -453,24 +464,25 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
   PhotoBuilder();
 
   PhotoBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _createdAt = _$v.createdAt;
-      _updatedAt = _$v.updatedAt;
-      _width = _$v.width;
-      _height = _$v.height;
-      _color = _$v.color;
-      _downloads = _$v.downloads;
-      _likes = _$v.likes;
-      _likedByUser = _$v.likedByUser;
-      _description = _$v.description;
-      _exif = _$v.exif?.toBuilder();
-      _location = _$v.location?.toBuilder();
-      _tags = _$v.tags?.toBuilder();
-      _currentUserCollections = _$v.currentUserCollections?.toBuilder();
-      _urls = _$v.urls?.toBuilder();
-      _links = _$v.links?.toBuilder();
-      _user = _$v.user?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _createdAt = $v.createdAt;
+      _updatedAt = $v.updatedAt;
+      _width = $v.width;
+      _height = $v.height;
+      _color = $v.color;
+      _downloads = $v.downloads;
+      _likes = $v.likes;
+      _likedByUser = $v.likedByUser;
+      _description = $v.description;
+      _exif = $v.exif?.toBuilder();
+      _location = $v.location?.toBuilder();
+      _tags = $v.tags?.toBuilder();
+      _currentUserCollections = $v.currentUserCollections?.toBuilder();
+      _urls = $v.urls?.toBuilder();
+      _links = $v.links?.toBuilder();
+      _user = $v.user?.toBuilder();
       _$v = null;
     }
     return this;
@@ -478,9 +490,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
 
   @override
   void replace(Photo other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Photo;
   }
 
@@ -495,7 +505,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
     try {
       _$result = _$v ??
           new _$Photo._(
-              id: id,
+              id: BuiltValueNullFieldError.checkNotNull(id, 'Photo', 'id'),
               createdAt: createdAt,
               updatedAt: updatedAt,
               width: width,

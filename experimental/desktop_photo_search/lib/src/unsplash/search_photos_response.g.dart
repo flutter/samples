@@ -33,17 +33,18 @@ class _$SearchPhotosResponseSerializer
           specifiedType:
               const FullType(BuiltList, const [const FullType(Photo)])),
     ];
-    if (object.total != null) {
+    Object value;
+    value = object.total;
+    if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(object.total,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.totalPages != null) {
+    value = object.totalPages;
+    if (value != null) {
       result
         ..add('total_pages')
-        ..add(serializers.serialize(object.totalPages,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -58,7 +59,7 @@ class _$SearchPhotosResponseSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,
@@ -95,9 +96,8 @@ class _$SearchPhotosResponse extends SearchPhotosResponse {
 
   _$SearchPhotosResponse._({this.total, this.totalPages, this.results})
       : super._() {
-    if (results == null) {
-      throw new BuiltValueNullFieldError('SearchPhotosResponse', 'results');
-    }
+    BuiltValueNullFieldError.checkNotNull(
+        results, 'SearchPhotosResponse', 'results');
   }
 
   @override
@@ -154,10 +154,11 @@ class SearchPhotosResponseBuilder
   SearchPhotosResponseBuilder();
 
   SearchPhotosResponseBuilder get _$this {
-    if (_$v != null) {
-      _total = _$v.total;
-      _totalPages = _$v.totalPages;
-      _results = _$v.results?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _total = $v.total;
+      _totalPages = $v.totalPages;
+      _results = $v.results.toBuilder();
       _$v = null;
     }
     return this;
@@ -165,9 +166,7 @@ class SearchPhotosResponseBuilder
 
   @override
   void replace(SearchPhotosResponse other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SearchPhotosResponse;
   }
 
