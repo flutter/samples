@@ -40,7 +40,7 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'errors':
           result.errors.replace(serializers.deserialize(value,
@@ -63,9 +63,7 @@ class _$ApiError extends ApiError {
       (new ApiErrorBuilder()..update(updates)).build();
 
   _$ApiError._({this.errors}) : super._() {
-    if (errors == null) {
-      throw new BuiltValueNullFieldError('ApiError', 'errors');
-    }
+    BuiltValueNullFieldError.checkNotNull(errors, 'ApiError', 'errors');
   }
 
   @override
@@ -104,8 +102,9 @@ class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
   ApiErrorBuilder();
 
   ApiErrorBuilder get _$this {
-    if (_$v != null) {
-      _errors = _$v.errors?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _errors = $v.errors.toBuilder();
       _$v = null;
     }
     return this;
@@ -113,9 +112,7 @@ class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
 
   @override
   void replace(ApiError other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ApiError;
   }
 

@@ -39,7 +39,7 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'title':
           result.title = serializers.deserialize(value,
@@ -60,9 +60,7 @@ class _$Tags extends Tags {
       (new TagsBuilder()..update(updates)).build();
 
   _$Tags._({this.title}) : super._() {
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Tags', 'title');
-    }
+    BuiltValueNullFieldError.checkNotNull(title, 'Tags', 'title');
   }
 
   @override
@@ -100,8 +98,9 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
   TagsBuilder();
 
   TagsBuilder get _$this {
-    if (_$v != null) {
-      _title = _$v.title;
+    final $v = _$v;
+    if ($v != null) {
+      _title = $v.title;
       _$v = null;
     }
     return this;
@@ -109,9 +108,7 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
 
   @override
   void replace(Tags other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Tags;
   }
 
@@ -122,7 +119,10 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
 
   @override
   _$Tags build() {
-    final _$result = _$v ?? new _$Tags._(title: title);
+    final _$result = _$v ??
+        new _$Tags._(
+            title:
+                BuiltValueNullFieldError.checkNotNull(title, 'Tags', 'title'));
     replace(_$result);
     return _$result;
   }
