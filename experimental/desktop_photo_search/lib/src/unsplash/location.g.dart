@@ -22,22 +22,26 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
   Iterable<Object> serialize(Serializers serializers, Location object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.city != null) {
+    Object value;
+    value = object.city;
+    if (value != null) {
       result
         ..add('city')
-        ..add(serializers.serialize(object.city,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.country != null) {
+    value = object.country;
+    if (value != null) {
       result
         ..add('country')
-        ..add(serializers.serialize(object.country,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.position != null) {
+    value = object.position;
+    if (value != null) {
       result
         ..add('position')
-        ..add(serializers.serialize(object.position,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(Position)));
     }
     return result;
@@ -52,7 +56,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'city':
           result.city = serializers.deserialize(value,
@@ -136,10 +140,11 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   LocationBuilder();
 
   LocationBuilder get _$this {
-    if (_$v != null) {
-      _city = _$v.city;
-      _country = _$v.country;
-      _position = _$v.position?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _city = $v.city;
+      _country = $v.country;
+      _position = $v.position?.toBuilder();
       _$v = null;
     }
     return this;
@@ -147,9 +152,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
 
   @override
   void replace(Location other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Location;
   }
 

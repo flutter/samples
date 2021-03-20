@@ -43,7 +43,7 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'query':
           result.query = serializers.deserialize(value,
@@ -72,12 +72,8 @@ class _$Search extends Search {
       (new SearchBuilder()..update(updates)).build();
 
   _$Search._({this.query, this.results}) : super._() {
-    if (query == null) {
-      throw new BuiltValueNullFieldError('Search', 'query');
-    }
-    if (results == null) {
-      throw new BuiltValueNullFieldError('Search', 'results');
-    }
+    BuiltValueNullFieldError.checkNotNull(query, 'Search', 'query');
+    BuiltValueNullFieldError.checkNotNull(results, 'Search', 'results');
   }
 
   @override
@@ -122,9 +118,10 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
   SearchBuilder();
 
   SearchBuilder get _$this {
-    if (_$v != null) {
-      _query = _$v.query;
-      _results = _$v.results?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _query = $v.query;
+      _results = $v.results.toBuilder();
       _$v = null;
     }
     return this;
@@ -132,9 +129,7 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
 
   @override
   void replace(Search other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Search;
   }
 
@@ -147,7 +142,11 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
   _$Search build() {
     _$Search _$result;
     try {
-      _$result = _$v ?? new _$Search._(query: query, results: results.build());
+      _$result = _$v ??
+          new _$Search._(
+              query: BuiltValueNullFieldError.checkNotNull(
+                  query, 'Search', 'query'),
+              results: results.build());
     } catch (_) {
       String _$failedField;
       try {

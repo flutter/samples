@@ -31,22 +31,26 @@ class _$CurrentUserCollectionsSerializer
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
-    if (object.title != null) {
+    Object value;
+    value = object.title;
+    if (value != null) {
       result
         ..add('title')
-        ..add(serializers.serialize(object.title,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.publishedAt != null) {
+    value = object.publishedAt;
+    if (value != null) {
       result
         ..add('published_at')
-        ..add(serializers.serialize(object.publishedAt,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.updatedAt != null) {
+    value = object.updatedAt;
+    if (value != null) {
       result
         ..add('updated_at')
-        ..add(serializers.serialize(object.updatedAt,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -62,7 +66,7 @@ class _$CurrentUserCollectionsSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -104,9 +108,7 @@ class _$CurrentUserCollections extends CurrentUserCollections {
   _$CurrentUserCollections._(
       {this.id, this.title, this.publishedAt, this.updatedAt})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('CurrentUserCollections', 'id');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'CurrentUserCollections', 'id');
   }
 
   @override
@@ -169,11 +171,12 @@ class CurrentUserCollectionsBuilder
   CurrentUserCollectionsBuilder();
 
   CurrentUserCollectionsBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _title = _$v.title;
-      _publishedAt = _$v.publishedAt;
-      _updatedAt = _$v.updatedAt;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _title = $v.title;
+      _publishedAt = $v.publishedAt;
+      _updatedAt = $v.updatedAt;
       _$v = null;
     }
     return this;
@@ -181,9 +184,7 @@ class CurrentUserCollectionsBuilder
 
   @override
   void replace(CurrentUserCollections other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CurrentUserCollections;
   }
 
@@ -196,7 +197,8 @@ class CurrentUserCollectionsBuilder
   _$CurrentUserCollections build() {
     final _$result = _$v ??
         new _$CurrentUserCollections._(
-            id: id,
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, 'CurrentUserCollections', 'id'),
             title: title,
             publishedAt: publishedAt,
             updatedAt: updatedAt);

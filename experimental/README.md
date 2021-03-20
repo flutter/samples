@@ -8,7 +8,7 @@ experiment.
 
 We're maintaining these samples here so that folks can see some of Flutter's
 upcoming features as they evolve and get a sense for how they'll eventually
-be used. If you'd like to run the apps, make sure to switch the the master
+be used. If you'd like to run the apps, make sure to switch to the master
 channel first:
 
 ```bash

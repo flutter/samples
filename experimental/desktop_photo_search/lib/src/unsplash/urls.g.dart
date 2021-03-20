@@ -22,34 +22,40 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
   Iterable<Object> serialize(Serializers serializers, Urls object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.raw != null) {
+    Object value;
+    value = object.raw;
+    if (value != null) {
       result
         ..add('raw')
-        ..add(serializers.serialize(object.raw,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.full != null) {
+    value = object.full;
+    if (value != null) {
       result
         ..add('full')
-        ..add(serializers.serialize(object.full,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.regular != null) {
+    value = object.regular;
+    if (value != null) {
       result
         ..add('regular')
-        ..add(serializers.serialize(object.regular,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.small != null) {
+    value = object.small;
+    if (value != null) {
       result
         ..add('small')
-        ..add(serializers.serialize(object.small,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.thumb != null) {
+    value = object.thumb;
+    if (value != null) {
       result
         ..add('thumb')
-        ..add(serializers.serialize(object.thumb,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -64,7 +70,7 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'raw':
           result.raw = serializers.deserialize(value,
@@ -175,12 +181,13 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
   UrlsBuilder();
 
   UrlsBuilder get _$this {
-    if (_$v != null) {
-      _raw = _$v.raw;
-      _full = _$v.full;
-      _regular = _$v.regular;
-      _small = _$v.small;
-      _thumb = _$v.thumb;
+    final $v = _$v;
+    if ($v != null) {
+      _raw = $v.raw;
+      _full = $v.full;
+      _regular = $v.regular;
+      _small = $v.small;
+      _thumb = $v.thumb;
       _$v = null;
     }
     return this;
@@ -188,9 +195,7 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
 
   @override
   void replace(Urls other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Urls;
   }
 

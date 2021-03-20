@@ -86,13 +86,13 @@ class Unsplash {
     // https://help.unsplash.com/en/articles/2511258-guideline-triggering-a-download
 
     _log.info('GET ${photo.urls.full}');
-    final futureBytes = http.readBytes(photo.urls.full, headers: {
+    final futureBytes = http.readBytes(Uri.parse(photo.urls.full), headers: {
       'Accept-Version': 'v1',
       'Authorization': 'Client-ID $_accessKey',
     });
 
     _log.info('GET ${photo.links.downloadLocation}');
-    unawaited(http.get(photo.links.downloadLocation, headers: {
+    unawaited(http.get(Uri.parse(photo.links.downloadLocation), headers: {
       'Accept-Version': 'v1',
       'Authorization': 'Client-ID $_accessKey',
     }));

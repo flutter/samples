@@ -6,7 +6,7 @@ A sample app which demonstrates how to use `MethodChannel`, `EventChannel`, `Bas
 
 * Demonstrate how to use `MethodChannel` to invoke platform methods.
 * Demonstrate how to use `EventChannel` to listen continuous value changes from the platform.
-* Demonstrate how to use `BasicMessageChanngel` and `MessageCodec` to send messages of different types across the platform.
+* Demonstrate how to use `BasicMessageChannel` and `MessageCodec` to send messages of different types across the platform.
 
 ## The important bits
 

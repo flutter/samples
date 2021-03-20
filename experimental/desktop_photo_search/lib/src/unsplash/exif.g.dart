@@ -22,41 +22,47 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
   Iterable<Object> serialize(Serializers serializers, Exif object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.make != null) {
+    Object value;
+    value = object.make;
+    if (value != null) {
       result
         ..add('make')
-        ..add(serializers.serialize(object.make,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.model != null) {
+    value = object.model;
+    if (value != null) {
       result
         ..add('model')
-        ..add(serializers.serialize(object.model,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.exposureTime != null) {
+    value = object.exposureTime;
+    if (value != null) {
       result
         ..add('exposure_time')
-        ..add(serializers.serialize(object.exposureTime,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.aperture != null) {
+    value = object.aperture;
+    if (value != null) {
       result
         ..add('aperture')
-        ..add(serializers.serialize(object.aperture,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.focalLength != null) {
+    value = object.focalLength;
+    if (value != null) {
       result
         ..add('focal_length')
-        ..add(serializers.serialize(object.focalLength,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.iso != null) {
+    value = object.iso;
+    if (value != null) {
       result
         ..add('iso')
-        ..add(serializers.serialize(object.iso,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -70,7 +76,7 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'make':
           result.make = serializers.deserialize(value,
@@ -203,13 +209,14 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
   ExifBuilder();
 
   ExifBuilder get _$this {
-    if (_$v != null) {
-      _make = _$v.make;
-      _model = _$v.model;
-      _exposureTime = _$v.exposureTime;
-      _aperture = _$v.aperture;
-      _focalLength = _$v.focalLength;
-      _iso = _$v.iso;
+    final $v = _$v;
+    if ($v != null) {
+      _make = $v.make;
+      _model = $v.model;
+      _exposureTime = $v.exposureTime;
+      _aperture = $v.aperture;
+      _focalLength = $v.focalLength;
+      _iso = $v.iso;
       _$v = null;
     }
     return this;
@@ -217,9 +224,7 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
 
   @override
   void replace(Exif other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Exif;
   }
 

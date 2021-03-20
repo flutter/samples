@@ -18,9 +18,15 @@ pushd add_to_app/fullscreen/flutter_module
 flutter packages get
 popd
 
+echo "Fetching dependencies for 'multiple_flutters/'."
+pushd add_to_app/multiple_flutters/multiple_flutters_module
+flutter packages get
+popd
+
 declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/fullscreen/android_fullscreen" \
     "add_to_app/plugin/android_using_plugin" \
+    "add_to_app/multiple_flutters/multiple_flutters_android" \
     "add_to_app/prebuilt_module/android_using_prebuilt_module" \
 )
 

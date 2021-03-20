@@ -22,28 +22,33 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
   Iterable<Object> serialize(Serializers serializers, Links object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.self != null) {
+    Object value;
+    value = object.self;
+    if (value != null) {
       result
         ..add('self')
-        ..add(serializers.serialize(object.self,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.html != null) {
+    value = object.html;
+    if (value != null) {
       result
         ..add('html')
-        ..add(serializers.serialize(object.html,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.download != null) {
+    value = object.download;
+    if (value != null) {
       result
         ..add('download')
-        ..add(serializers.serialize(object.download,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.downloadLocation != null) {
+    value = object.downloadLocation;
+    if (value != null) {
       result
         ..add('download_location')
-        ..add(serializers.serialize(object.downloadLocation,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -58,7 +63,7 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'self':
           result.self = serializers.deserialize(value,
@@ -157,11 +162,12 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
   LinksBuilder();
 
   LinksBuilder get _$this {
-    if (_$v != null) {
-      _self = _$v.self;
-      _html = _$v.html;
-      _download = _$v.download;
-      _downloadLocation = _$v.downloadLocation;
+    final $v = _$v;
+    if ($v != null) {
+      _self = $v.self;
+      _html = $v.html;
+      _download = $v.download;
+      _downloadLocation = $v.downloadLocation;
       _$v = null;
     }
     return this;
@@ -169,9 +175,7 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
 
   @override
   void replace(Links other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Links;
   }
 
