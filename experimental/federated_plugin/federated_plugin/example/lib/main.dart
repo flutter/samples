@@ -58,7 +58,9 @@ class _HomePageState extends State<HomePage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: Theme.of(context).primaryColor,
-                      content: Text((error as PlatformException).message as String),
+                      content: Text(
+                        (error as PlatformException).message as String,
+                      ),
                     ),
                   );
                 }
