@@ -5,6 +5,8 @@
 import 'package:federated_plugin/federated_plugin.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter/services.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +28,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int batteryLevel;
+  int? batteryLevel;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,6 @@ class _HomePageState extends State<HomePage> {
                   ),
             SizedBox(height: 16),
             ElevatedButton(
-              child: Text('Get Battery Level'),
               onPressed: () async {
                 try {
                   final result = await getBatteryLevel();
@@ -57,11 +58,12 @@ class _HomePageState extends State<HomePage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: Theme.of(context).primaryColor,
-                      content: Text(error.message as String),
+                      content: Text((error as PlatformException).message as String),
                     ),
                   );
                 }
               },
+              child: Text('Get Battery Level'),
             ),
           ],
         ),

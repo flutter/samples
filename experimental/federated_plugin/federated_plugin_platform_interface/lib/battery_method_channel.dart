@@ -12,6 +12,6 @@ class BatteryMethodChannel extends FederatedPluginInterface {
 
   @override
   Future<int> getBatteryLevel() async {
-    return await _methodChannel.invokeMethod<int>('getBatteryLevel');
+    return await _methodChannel.invokeMethod<int>('getBatteryLevel') as int;
   }
 }

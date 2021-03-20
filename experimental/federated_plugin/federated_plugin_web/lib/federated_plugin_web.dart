@@ -14,7 +14,7 @@ class FederatedPlugin extends FederatedPluginInterface {
   final html.Navigator _navigator;
 
   /// Constructor to override the navigator object for testing purpose.
-  FederatedPlugin({html.Navigator navigator})
+  FederatedPlugin({html.Navigator? navigator})
       : _navigator = navigator ?? html.window.navigator;
 
   /// Method to register the plugin which sets [FederatedPlugin] to be the default
@@ -32,7 +32,7 @@ class FederatedPlugin extends FederatedPluginInterface {
     try {
       final battery = await _navigator.getBattery() as html.BatteryManager;
       // The battery level retrieved is in range of 0.0 to 1.0.
-      return battery.level * 100 as int;
+      return battery.level! * 100 as int;
     } catch (error) {
       throw PlatformException(
         code: 'STATUS_UNAVAILABLE',
