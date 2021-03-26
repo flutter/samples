@@ -26,10 +26,10 @@ class BooksApp extends StatefulWidget {
 class _BooksAppState extends State<BooksApp> {
   Book _selectedBook;
 
-  List<Book> books = [
-    Book('Stranger in a Strange Land', 'Robert A. Heinlein'),
-    Book('Foundation', 'Isaac Asimov'),
-    Book('Fahrenheit 451', 'Ray Bradbury'),
+  final List<Book> books = [
+    Book('Left Hand of Darkness', 'Ursula K. Le Guin'),
+    Book('Too Like the Lightning', 'Ada Palmer'),
+    Book('Kindred', 'Octavia E. Butler'),
   ];
 
   @override

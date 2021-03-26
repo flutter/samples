@@ -45,9 +45,9 @@ class BooksAppState extends ChangeNotifier {
   Book _selectedBook;
 
   final List<Book> books = [
-    Book('Stranger in a Strange Land', 'Robert A. Heinlein'),
-    Book('Foundation', 'Isaac Asimov'),
-    Book('Fahrenheit 451', 'Ray Bradbury'),
+    Book('Left Hand of Darkness', 'Ursula K. Le Guin'),
+    Book('Too Like the Lightning', 'Ada Palmer'),
+    Book('Kindred', 'Octavia E. Butler'),
   ];
 
   BooksAppState() : _selectedIndex = 0;
