@@ -87,7 +87,7 @@ packages:
       name: nested
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.5-nullsafety.1"
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -101,14 +101,14 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   provider:
     dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-nullsafety.3"
+    version: "5.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

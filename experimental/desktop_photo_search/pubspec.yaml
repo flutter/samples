@@ -18,7 +18,7 @@ dependencies:
   file_selector_macos: ^0.0.1
   file_selector_windows: ^0.0.1
   http: ^0.13.0
-  logging: ^0.11.3+2
+  logging: ^1.0.1
   flutter_simple_treeview: ^2.0.1
   menubar:
     git:
@@ -35,12 +35,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   async: ^2.4.0
-  build: ^1.2.2
+  build: ^2.0.0
   build_runner: ^1.10.4
   built_value_generator: ^8.0.3
-  grinder: ^0.8.3
-  msix: ^0.1.5
-  source_gen: ^0.9.4
+  grinder: ^0.9.0
+  msix: ^1.0.3
+  source_gen: ^1.0.0
   test: ^1.9.4
 
 flutter:

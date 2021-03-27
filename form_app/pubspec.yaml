@@ -11,15 +11,15 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   intl: any
-  http: ^0.12.0
-  mockito: ^4.1.1
-  json_annotation: ^3.0.0
-  english_words: ^3.1.0
+  http: ^0.13.1
+  mockito: ^5.0.3
+  json_annotation: ^4.0.1
+  english_words: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: ^3.0.0
+  json_serializable: ^4.1.0
   build_runner: ^1.10.0
 flutter:
   uses-material-design: true

@@ -9,9 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^4.1.0
-  url_launcher: ^5.2.5
-  sensors: ^0.4.2
+  provider: ^5.0.0
+  url_launcher: ^6.0.3
+  sensors: ^2.0.0
 
 dev_dependencies:
   flutter_test:
