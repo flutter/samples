@@ -17,9 +17,9 @@ class _$BuiltSimpleObjectSerializer
   final String wireName = 'BuiltSimpleObject';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, BuiltSimpleObject object,
+  Iterable<Object?> serialize(Serializers serializers, BuiltSimpleObject object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.aString;
     if (value != null) {
@@ -70,7 +70,7 @@ class _$BuiltSimpleObjectSerializer
 
   @override
   BuiltSimpleObject deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new BuiltSimpleObjectBuilder();
 
@@ -78,7 +78,7 @@ class _$BuiltSimpleObjectSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'aString':
           result.aString = serializers.deserialize(value,
@@ -94,20 +94,20 @@ class _$BuiltSimpleObjectSerializer
           break;
         case 'aListOfStrings':
           result.aListOfStrings.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
               as BuiltList<Object>);
           break;
         case 'aListOfInts':
           result.aListOfInts.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(int)]))
+                      const FullType(BuiltList, const [const FullType(int)]))!
               as BuiltList<Object>);
           break;
         case 'aListOfDoubles':
           result.aListOfDoubles.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(double)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(double)]))!
               as BuiltList<Object>);
           break;
       }
