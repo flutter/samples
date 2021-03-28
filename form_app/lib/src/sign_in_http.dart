@@ -54,7 +54,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
               children: [
                 ...[
                   TextFormField(
-                    autofocus:  true,
+                    autofocus: true,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       filled: true,
@@ -80,13 +80,13 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     onPressed: () async {
                       // Use a JSON encoded string to send
                       var result = await widget.httpClient.post(
-                          'https://example.com/signin',
+                          Uri.parse('https://example.com/signin'),
                           body: json.encode(formData.toJson()),
                           headers: {'content-type': 'application/json'});
 
-                      if (result.statusCode == 200) {
+                      if (result?.statusCode == 200) {
                         _showDialog('Succesfully signed in.');
-                      } else if (result.statusCode == 401) {
+                      } else if (result?.statusCode == 401) {
                         _showDialog('Unable to sign in.');
                       } else {
                         _showDialog('Something went wrong. Please try again.');
