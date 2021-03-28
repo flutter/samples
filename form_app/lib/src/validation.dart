@@ -12,9 +12,9 @@ class FormValidationDemo extends StatefulWidget {
 
 class _FormValidationDemoState extends State<FormValidationDemo> {
   final _formKey = GlobalKey<FormState>();
-  String? adjective;
-  String? noun;
-  bool? agreedToTerms = false;
+  String adjective;
+  String noun;
+  bool agreedToTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
               onPressed: () {
                 // Validate the form by getting the FormState from the GlobalKey
                 // and calling validate() on it.
-                var valid = _formKey.currentState!.validate();
+                var valid = _formKey.currentState.validate();
                 if (!valid) {
                   return;
                 }
@@ -67,7 +67,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                   autofocus: true,
                   textInputAction: TextInputAction.next,
                   validator: (value) {
-                    if (value!.isEmpty) {
+                    if (value.isEmpty) {
                       return 'Please enter an adjective.';
                     }
                     if (english_words.adjectives.contains(value)) {
@@ -90,7 +90,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                 // A text field that validates that the text is a noun.
                 TextFormField(
                   validator: (value) {
-                    if (value!.isEmpty) {
+                    if (value.isEmpty) {
                       return 'Please enter a noun.';
                     }
                     if (english_words.nouns.contains(value)) {
@@ -114,7 +114,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                 // checkbox.
                 FormField(
                   initialValue: false,
-                  validator: (dynamic value) {
+                  validator: (value) {
                     if (value == false) {
                       return 'You must agree to the terms of service.';
                     }
@@ -149,7 +149,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                             formFieldState.errorText ?? "",
                             style: Theme.of(context)
                                 .textTheme
-                                .caption!
+                                .caption
                                 .copyWith(color: Theme.of(context).errorColor),
                           ),
                       ],
