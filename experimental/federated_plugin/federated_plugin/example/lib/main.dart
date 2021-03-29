@@ -4,7 +4,6 @@
 
 import 'package:federated_plugin/federated_plugin.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 
 void main() {
