@@ -9,12 +9,12 @@ import 'package:platform_channels/src/add_pet_details.dart';
 
 void main() {
   group('AddPetDetails tests', () {
-    var petList = <Map>[];
+    var petList = <Map<String, dynamic>>[];
 
     setUpAll(() {
       BasicMessageChannel<dynamic>('jsonMessageCodecDemo', JSONMessageCodec())
           .setMockMessageHandler((dynamic message) async {
-        petList.add(message as Map);
+        petList.add(message as Map<String, dynamic>);
       });
     });
 

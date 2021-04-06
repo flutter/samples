@@ -47,7 +47,7 @@ class PetListModel {
     this.petList,
   });
 
-  final List<PetDetails> petList;
+  final List<PetDetails>? petList;
 
   /// Method that maps the incoming string of json object to List of [PetDetails].
   factory PetListModel.fromJson(String jsonString) {
@@ -65,8 +65,8 @@ class PetListModel {
 /// A simple model that provides pet details like [petType] and [breed] of pet.
 class PetDetails {
   PetDetails({
-    this.petType,
-    this.breed,
+    required this.petType,
+    required this.breed,
   });
 
   final String petType;

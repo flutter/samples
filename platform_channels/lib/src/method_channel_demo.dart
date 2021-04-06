@@ -41,11 +41,11 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 onPressed: () async {
                   try {
                     final value = await Counter.increment(counterValue: count);
-                    setState(() => count = value);
+                    setState(() => count = value!);
                   } catch (error) {
                     showErrorMessage(
                       context,
-                      error.message as String,
+                      error as String,
                     );
                   }
                 },
@@ -59,11 +59,11 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 onPressed: () async {
                   try {
                     final value = await Counter.decrement(counterValue: count);
-                    setState(() => count = value);
+                    setState(() => count = value!);
                   } catch (error) {
                     showErrorMessage(
                       context,
-                      error.message as String,
+                      error as String,
                     );
                   }
                 },

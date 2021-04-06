@@ -15,9 +15,9 @@ class Accelerometer {
   static Stream<AccelerometerReadings> get readings {
     return _eventChannel.receiveBroadcastStream().map(
           (dynamic event) => AccelerometerReadings(
-            event[0] as double,
-            event[1] as double,
-            event[2] as double,
+            event[0] as double?,
+            event[1] as double?,
+            event[2] as double?,
           ),
         );
   }
@@ -25,13 +25,13 @@ class Accelerometer {
 
 class AccelerometerReadings {
   /// Acceleration force along the x-axis.
-  final double x;
+  final double? x;
 
   /// Acceleration force along the y-axis.
-  final double y;
+  final double? y;
 
   /// Acceleration force along the z-axis.
-  final double z;
+  final double? z;
 
   AccelerometerReadings(this.x, this.y, this.z);
 }

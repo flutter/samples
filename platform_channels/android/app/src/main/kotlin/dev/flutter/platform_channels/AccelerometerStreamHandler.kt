@@ -29,7 +29,9 @@ class AccelerometerStreamHandler(sManager: SensorManager, s: Sensor) : EventChan
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 
     override fun onSensorChanged(sensorEvent: SensorEvent?) {
-        if (sensorEvent != null) {
+        if (sensorEvent == null) {
+            eventSink.error("DATA_UNAVAILABLE","Cannot get accelerometer data",null)
+        } else {
             val axisValues = listOf(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2])
             eventSink.success(axisValues)
         }

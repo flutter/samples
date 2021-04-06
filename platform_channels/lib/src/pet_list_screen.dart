@@ -14,7 +14,7 @@ class PetListScreen extends StatefulWidget {
 }
 
 class _PetListScreenState extends State<PetListScreen> {
-  PetListModel petListModel;
+  PetListModel? petListModel;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -50,14 +50,14 @@ class _PetListScreenState extends State<PetListScreen> {
       ),
       body: petListModel?.petList?.isEmpty ?? true
           ? Center(child: Text('Enter Pet Details'))
-          : BuildPetList(petListModel.petList),
+          : BuildPetList(petListModel!.petList),
     );
   }
 }
 
 /// Shows list of [PetDetails].
 class BuildPetList extends StatelessWidget {
-  final List<PetDetails> petList;
+  final List<PetDetails>? petList;
 
   BuildPetList(this.petList);
 
@@ -65,12 +65,12 @@ class BuildPetList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.all(8),
-      itemCount: petList.length,
+      itemCount: petList!.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text('Pet breed: ${petList[index].breed}'),
+          title: Text('Pet breed: ${petList![index].breed}'),
           subtitle: Text(
-            'Pet type: ${petList[index].petType}',
+            'Pet type: ${petList![index].petType}',
           ),
           trailing: IconButton(
             icon: Icon(Icons.delete),
@@ -79,7 +79,7 @@ class BuildPetList extends StatelessWidget {
                 await PetListMessageChannel.removePet(index);
                 showSnackBar('Removed successfully!', context);
               } catch (error) {
-                showSnackBar(error.message.toString(), context);
+                showSnackBar(error.toString(), context);
               }
             },
           ),
