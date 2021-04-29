@@ -41,7 +41,6 @@ dev_dependencies:
   grinder: ^0.8.3
   msix: ^0.1.5
   source_gen: ^0.9.4
-  test: ^1.9.4
 
 flutter:
   uses-material-design: true
