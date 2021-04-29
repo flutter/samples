@@ -15,7 +15,7 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore"
     "infinite_list"
     "ios_app_clip"
-    "isolate_example"
+    # "isolate_example"
     "jsonexample"
     "place_tracker"
     "platform_channels"
