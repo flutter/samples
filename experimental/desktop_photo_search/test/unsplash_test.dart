@@ -6,9 +6,9 @@ import 'package:desktop_photo_search/src/unsplash/photo.dart';
 import 'package:desktop_photo_search/src/unsplash/search_photos_response.dart';
 import 'package:desktop_photo_search/src/unsplash/unsplash.dart';
 import 'package:desktop_photo_search/src/unsplash/user.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
-import 'package:test/test.dart';
 
 void main() {
   test('Photo.fromJson', () {
