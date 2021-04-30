@@ -10,17 +10,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.3
-  font_awesome_flutter: ^8.8.1
-  intl: ^0.16.1
-  provider: ^4.3.2
-  shared_preferences: ^0.5.8
+  cupertino_icons: ^1.0.2
+  font_awesome_flutter: ^9.0.0
+  intl: ^0.17.0
+  provider: ^5.0.0
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.9.0
-  flutter_launcher_icons: ^0.7.5
+  pedantic: ^1.11.0
+  flutter_launcher_icons: ^0.9.0
 
 flutter:
 
