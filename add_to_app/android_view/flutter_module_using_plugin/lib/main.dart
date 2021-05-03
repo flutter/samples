@@ -29,6 +29,7 @@ void main() {
 /// a (multi-)view integration scenario.
 // This is unfortunately in this file due to
 // https://github.com/flutter/flutter/issues/72630.
+@pragma("vm:entry-point")
 void showCell() {
   runApp(Cell());
 }
