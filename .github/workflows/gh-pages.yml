@@ -4,20 +4,26 @@ on:
     branches:
       - master
 jobs:
-  jekyll:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: true
           fetch-depth: 0
+
+      - name: Init scripts
+        uses: subosito/flutter-action@v1
+        run: dart pub get
+        working-directory: web/_tool
+
       - name: Build
-        run: >
-          cd web/_tool
-          pub get
-          cd ..
-          dart _tool/build_ci.dart
+        uses: subosito/flutter-action@v1
+        run: dart _tool/build_ci.dart
+        working-directory: web
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
