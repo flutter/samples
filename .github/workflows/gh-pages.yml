@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Build
+        run: >
+          cd web/_tool
+          pub get
+          cd ..
+          dart _tool/build_ci.dart
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: web/samples_index/public
