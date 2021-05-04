@@ -7,7 +7,7 @@ main() async {
       .map((path) => p.relative(path, from: Directory.current.path))
       .toList();
 
-  print('building the sample index...');
+  print('Building the sample index...');
   await run('samples_index', 'pub', ['get']);
   await run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
 
