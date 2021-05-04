@@ -14,7 +14,7 @@ class CState extends State<Cook> {
 
   initState() {
     super.initState();
-    cb = List();
+    cb = [];
   }
 
   Widget build(ct) {
