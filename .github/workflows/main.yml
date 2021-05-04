@@ -62,6 +62,8 @@ jobs:
           submodules: true
           fetch-depth: 0
       - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
       - name: Init scripts
         run: dart pub get
         working-directory: web/_tool
