@@ -1,5 +1,5 @@
 name: Verify web demos
-on: [push]
+on: [push, pull_request]
 jobs:
   verify-web-demos:
     runs-on: ubuntu-latest
