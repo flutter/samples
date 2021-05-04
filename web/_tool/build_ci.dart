@@ -2,10 +2,14 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'common.dart';
 
+final ignoredDirectories = ['_tool', 'samples_index'];
+
 main() async {
-  final packageDirs = listPackageDirs(Directory.current)
-      .map((path) => p.relative(path, from: Directory.current.path))
-      .toList();
+  final packageDirs = [
+    ...listPackageDirs(Directory.current)
+        .map((path) => p.relative(path, from: Directory.current.path))
+        .where((path) => !ignoredDirectories.contains(path))
+  ];
 
   print('Building the sample index...');
   await run('samples_index', 'pub', ['get']);
@@ -17,7 +21,7 @@ main() async {
 
   for (var i = 0; i < packageDirs.length; i++) {
     var directory = packageDirs[i];
-    if (directory == 'samples_index') continue;
+
     logWrapped(ansiMagenta, '\n$directory (${i + 1} of ${packageDirs.length})');
 
     // Create the target directory
