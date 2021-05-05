@@ -17,7 +17,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(redbrogdon): Restore during next beta branch merge.
     # "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
-    "experimental/web_dashboard"
+    # TODO(redbrogdon): Restore during next beta branch merge.
+    # "experimental/web_dashboard"
     "flutter_maps_firestore"
     "infinite_list"
     "ios_app_clip"
@@ -34,7 +35,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "testing_app"
-    "veggieseasons"
+    # TODO(redbrogdon): Restore during next beta branch merge.
+    # "veggieseasons"
 )
 
 ci_projects "dev" "${PROJECT_NAMES[@]}"
