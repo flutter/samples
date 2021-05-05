@@ -12,7 +12,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
     "animations"
-    "experimental/desktop_photo_search"
+    # TODO(redbrogdon): Restore during next beta branch merge.
+    # "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     "flutter_maps_firestore"

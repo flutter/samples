@@ -14,7 +14,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(redbrogdon): Update once this PR makes it to release:
     # https://github.com/flutter/flutter/pull/79860
     # "animations"
-    "experimental/desktop_photo_search"
+    # TODO(redbrogdon): Restore during next beta branch merge.
+    # "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
