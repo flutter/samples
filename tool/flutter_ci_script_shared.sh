@@ -24,7 +24,7 @@ function ci_projects () {
         flutter format -n --set-exit-if-changed .
 
         # Run the actual tests.
-        if [ -d "test"]
+        if [ -d "test" ]
         then
             flutter test
         fi
