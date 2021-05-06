@@ -10,4 +10,4 @@
 # whenever a new version of `package:pedantic` is released. To avoid this,
 # specify a specific version of `analysis_options.yaml` instead.
 
-include: package:pedantic/analysis_options.1.9.0.yaml
+include: package:pedantic/analysis_options.1.11.0.yaml

@@ -508,22 +508,6 @@ samples:
     web: web/slide_puzzle
     type: demo
 
-  - name: Timeflow
-    author: Fabian Stein
-    screenshots:
-      - url: images/timeflow1.png
-        alt: Timeflow screenshot
-    source: https://github.com/Fabian-Stein/timeflow
-    description: >
-      A gentle animation that provides a calming experience to stressed developers.
-    difficulty: advanced
-    widgets: []
-    packages: []
-    platforms: ['web']
-    tags: ['demo', 'animation']
-    web: web/timeflow
-    type: demo
-
   - name: Dice
     author: Jaime Blasco
     screenshots:

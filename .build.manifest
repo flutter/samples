@@ -67,7 +67,6 @@ images/cookbook/basic-list.png
 images/cookbook/basic-list_thumb.png
 images/cookbook/cached-images.png
 images/cookbook/cached-images_thumb.png
-images/cookbook/delete-data_thumb.png
 images/cookbook/design-drawer.png
 images/cookbook/design-drawer_thumb.png
 images/cookbook/design-fonts.png
@@ -252,7 +251,6 @@ images/cookbook/unit-introduction.png
 images/cookbook/unit-introduction_thumb.png
 images/cookbook/unit-mocking.png
 images/cookbook/unit-mocking_thumb.png
-images/cookbook/update-data_thumb.png
 images/cookbook/validation.png
 images/cookbook/validation_thumb.png
 images/cookbook/web-sockets.png
@@ -770,6 +768,7 @@ packages/node_preamble/preamble.min.js
 packages/package_resolver/src/test_package_config
 packages/pedantic/analysis_options.1.0.0.yaml
 packages/pedantic/analysis_options.1.1.0.yaml
+packages/pedantic/analysis_options.1.11.0.yaml
 packages/pedantic/analysis_options.1.2.0.yaml
 packages/pedantic/analysis_options.1.3.0.yaml
 packages/pedantic/analysis_options.1.4.0.yaml
@@ -810,7 +809,6 @@ styles.css
 take_a_picture_using_the_camera.html
 tap_drag_and_enter_text.html
 testing_app.html
-timeflow.html
 update_data_over_the_internet.html
 update_the_u_i_based_on_orientation.html
 use_a_custom_font.html
