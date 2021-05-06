@@ -60,7 +60,7 @@ class CatmullInterpolator implements Interpolator {
   }
 
   static void test() {
-    List<Point2D> controlPoints = List<Point2D>();
+    List<Point2D> controlPoints = <Point2D>[];
     controlPoints.add(Point2D(-1, 1));
     controlPoints.add(Point2D(0, 1));
     controlPoints.add(Point2D(1, -1));

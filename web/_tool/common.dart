@@ -36,3 +36,16 @@ Future<bool> run(
 void logWrapped(int code, String message) {
   print('\x1B[${code}m$message\x1B[0m');
 }
+
+Iterable<String> listPackageDirs(Directory dir) sync* {
+  if (File('${dir.path}/pubspec.yaml').existsSync()) {
+    yield dir.path;
+  } else {
+    for (var subDir in dir
+        .listSync(followLinks: true)
+        .whereType<Directory>()
+        .where((d) => !Uri.file(d.path).pathSegments.last.startsWith('.'))) {
+      yield* listPackageDirs(subDir);
+    }
+  }
+}

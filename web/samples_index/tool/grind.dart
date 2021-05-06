@@ -19,7 +19,7 @@ void testCli() async => await TestRunner().testAsync(platformSelector: 'vm');
 
 @Task()
 void analyze() {
-  PubApp.local('tuneup')..run(['check']);
+  PubApp.local('tuneup').run(['check']);
 }
 
 @Task('deploy')

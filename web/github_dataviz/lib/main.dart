@@ -46,7 +46,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     createAnimation(0);
 
-    weekLabels = List();
+    weekLabels = <WeekLabel>[];
     weekLabels.add(WeekLabel.forDate(DateTime(2019, 2, 26), "v1.2"));
     weekLabels.add(WeekLabel.forDate(DateTime(2018, 12, 4), "v1.0"));
 //    weekLabels.add(WeekLabel.forDate(new DateTime(2018, 9, 19), "Preview 2"));
@@ -79,9 +79,9 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     // Combined contributions data
-    List<DataSeries> dataToPlot = List();
+    List<DataSeries> dataToPlot = [];
     if (contributions != null) {
-      List<int> series = List();
+      List<int> series = [];
       for (UserContribution userContrib in contributions) {
         for (int i = 0; i < userContrib.contributions.length; i++) {
           ContributionData data = userContrib.contributions[i];
@@ -228,7 +228,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
   List<StatForWeek> summarizeWeeksFromTSV(
       String statByWeekStr, int numWeeksTotal) {
-    List<StatForWeek> loadedStats = List();
+    List<StatForWeek> loadedStats = [];
     HashMap<int, StatForWeek> statMap = HashMap();
     statByWeekStr.split("\n").forEach((s) {
       List<String> split = s.split("\t");
@@ -237,7 +237,8 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
         statMap[weekNum] = StatForWeek(weekNum, int.parse(split[1]));
       }
     });
-    print("Laoded ${statMap.length} weeks.");
+    print("Loaded ${statMap.length} weeks.");
+
     // Convert into a list by week, but fill in empty weeks with 0
     for (int i = 0; i < numWeeksTotal; i++) {
       StatForWeek starsForWeek = statMap[i];

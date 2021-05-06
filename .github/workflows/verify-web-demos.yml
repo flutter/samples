@@ -1,0 +1,20 @@
+name: Verify web demos
+on: [push, pull_request]
+jobs:
+  verify-web-demos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+      - name: Init scripts
+        run: dart pub get
+        working-directory: web/_tool
+      - name: Verify packages
+        run: dart _tool/verify_packages.dart
+        working-directory: web

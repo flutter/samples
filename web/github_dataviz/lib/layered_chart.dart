@@ -47,12 +47,12 @@ class LayeredChartState extends State<LayeredChart> {
     graphHeight = MathUtils.clampedMap(screenRatio, 0.5, 2.5, 50, 150);
 
     int m = dataToPlot.length;
-    paths = List<Path>(m);
-    capPaths = List<Path>(m);
-    maxValues = List<double>(m);
+    paths = <Path>[];
+    capPaths = <Path>[];
+    maxValues = <double>[];
     for (int i = 0; i < m; i++) {
       int n = dataToPlot[i].series.length;
-      maxValues[i] = 0;
+      maxValues.add(0);
       for (int j = 0; j < n; j++) {
         double v = dataToPlot[i].series[j].toDouble();
         if (v > maxValues[i]) {
@@ -69,11 +69,11 @@ class LayeredChartState extends State<LayeredChart> {
     double xWidth = (endX - startX) / numPoints;
     double capRangeX = capSize * cos(capTheta);
     double tanCapTheta = tan(capTheta);
-    List<double> curvePoints = List<double>(numPoints);
+    List<double> curvePoints = <double>[];
     for (int i = 0; i < m; i++) {
       List<int> series = dataToPlot[i].series;
       int n = series.length;
-      List<Point2D> controlPoints = List<Point2D>();
+      List<Point2D> controlPoints = <Point2D>[];
       controlPoints.add(Point2D(-1, 0));
       double last = 0;
       for (int j = 0; j < n; j++) {
@@ -88,11 +88,11 @@ class LayeredChartState extends State<LayeredChart> {
         cpv.value = MathUtils.map(
             j.toDouble(), 0, (numPoints - 1).toDouble(), 0, (n - 1).toDouble());
         curve.progressiveGet(cpv);
-        curvePoints[j] = MathUtils.map(
-            max(0, cpv.value), 0, maxValues[i].toDouble(), 0, graphHeight);
+        curvePoints.add(MathUtils.map(
+            max(0, cpv.value), 0, maxValues[i].toDouble(), 0, graphHeight));
       }
-      paths[i] = Path();
-      capPaths[i] = Path();
+      paths.add(Path());
+      capPaths.add(Path());
       paths[i].moveTo(startX, startY);
       capPaths[i].moveTo(startX, startY);
       for (int j = 0; j < numPoints; j++) {
@@ -133,7 +133,7 @@ class LayeredChartState extends State<LayeredChart> {
       capPaths[i].lineTo(startX, startY + 1);
       capPaths[i].close();
     }
-    labelPainter = List<TextPainter>();
+    labelPainter = <TextPainter>[];
     for (int i = 0; i < dataToPlot.length; i++) {
       TextSpan span = TextSpan(
           style: TextStyle(
@@ -146,7 +146,7 @@ class LayeredChartState extends State<LayeredChart> {
       tp.layout();
       labelPainter.add(tp);
     }
-    milestonePainter = List<TextPainter>();
+    milestonePainter = <TextPainter>[];
     for (int i = 0; i < milestones.length; i++) {
       TextSpan span = TextSpan(
           style: TextStyle(
