@@ -9,17 +9,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
-  intl: any
-  http: ^0.12.0
-  mockito: ^4.1.1
-  json_annotation: ^3.0.0
-  english_words: ^3.1.0
+  cupertino_icons: ^1.0.3
+  intl: ^0.17.0
+  http: ^0.13.3
+  mockito: ^5.0.7
+  json_annotation: ^4.0.1
+  english_words: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: ^3.0.0
-  build_runner: ^1.10.0
+  json_serializable: ^4.1.1
+  build_runner: ^2.0.2
 flutter:
   uses-material-design: true

@@ -54,7 +54,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
               children: [
                 ...[
                   TextFormField(
-                    autofocus:  true,
+                    autofocus: true,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       filled: true,
@@ -80,7 +80,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     onPressed: () async {
                       // Use a JSON encoded string to send
                       var result = await widget.httpClient.post(
-                          'https://example.com/signin',
+                          Uri.parse('https://example.com/signout'),
                           body: json.encode(formData.toJson()),
                           headers: {'content-type': 'application/json'});
 
