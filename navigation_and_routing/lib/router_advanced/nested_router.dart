@@ -6,6 +6,7 @@
 /// [BottomNavigationBar] can be used to select the route of the outer
 /// RouterDelegate, and additional routes can be pushed onto the inner
 /// RouterDelegate / Navigator.
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -90,18 +91,19 @@ class BooksAppState extends ChangeNotifier {
 class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   @override
   Future<BookRoutePath> parseRouteInformation(
-      RouteInformation routeInformation) async {
+    RouteInformation routeInformation,
+  ) {
     final uri = Uri.parse(routeInformation.location);
 
     if (uri.pathSegments.isNotEmpty && uri.pathSegments.first == 'settings') {
-      return BooksSettingsPath();
+      return SynchronousFuture(BooksSettingsPath());
     } else {
-      if (uri.pathSegments.length >= 2) {
-        if (uri.pathSegments[0] == 'book') {
-          return BooksDetailsPath(int.tryParse(uri.pathSegments[1]));
-        }
+      if (uri.pathSegments.length >= 2 && uri.pathSegments[0] == 'book') {
+        return SynchronousFuture(
+          BooksDetailsPath(int.tryParse(uri.pathSegments[1])),
+        );
       }
-      return BooksListPath();
+      return SynchronousFuture(BooksListPath());
     }
   }
 
@@ -166,7 +168,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) async {
+  Future<void> setNewRoutePath(BookRoutePath path) {
     if (path is BooksListPath) {
       appState.selectedIndex = 0;
       appState.selectedBook = null;
@@ -175,6 +177,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     } else if (path is BooksDetailsPath) {
       appState.setSelectedBookById(path.id);
     }
+    return SynchronousFuture<void>(null);
   }
 }
 
@@ -304,10 +307,11 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) async {
+  Future<void> setNewRoutePath(BookRoutePath path) {
     // This is not required for inner router delegate because it does not
     // parse route
     assert(false);
+    return SynchronousFuture<void>(null);
   }
 
   void _handleBookTapped(Book book) {

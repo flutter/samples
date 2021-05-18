@@ -5,6 +5,7 @@
 /// Full sample that shows a custom RouteInformationParser and RouterDelegate
 /// parsing named routes and declaratively building the stack of pages for the
 /// [Navigator].
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class BooksApp extends StatefulWidget {
 class _BooksAppState extends State<BooksApp> {
   BookRouterDelegate _routerDelegate = BookRouterDelegate();
   BookRouteInformationParser _routeInformationParser =
-  BookRouteInformationParser();
+      BookRouteInformationParser();
 
   @override
   Widget build(BuildContext context) {
@@ -41,24 +42,25 @@ class _BooksAppState extends State<BooksApp> {
 class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   @override
   Future<BookRoutePath> parseRouteInformation(
-      RouteInformation routeInformation) async {
+    RouteInformation routeInformation,
+  ) {
     final uri = Uri.parse(routeInformation.location);
     // Handle '/'
     if (uri.pathSegments.length == 0) {
-      return BookRoutePath.home();
+      return SynchronousFuture(BookRoutePath.home());
     }
 
     // Handle '/book/:id'
-    if (uri.pathSegments.length == 2) {
-      if (uri.pathSegments[0] != 'book') return BookRoutePath.unknown();
+    if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'book') {
       var remaining = uri.pathSegments[1];
       var id = int.tryParse(remaining);
-      if (id == null) return BookRoutePath.unknown();
-      return BookRoutePath.details(id);
+      if (id != null) {
+        return SynchronousFuture(BookRoutePath.details(id));
+      }
     }
 
     // Handle unknown routes
-    return BookRoutePath.unknown();
+    return SynchronousFuture(BookRoutePath.unknown());
   }
 
   @override
@@ -133,17 +135,17 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) async {
+  Future<void> setNewRoutePath(BookRoutePath path) {
     if (path.isUnknown) {
       _selectedBook = null;
       show404 = true;
-      return;
+      return SynchronousFuture<void>(null);
     }
 
     if (path.isDetailsPage) {
       if (path.id < 0 || path.id > books.length - 1) {
         show404 = true;
-        return;
+        return SynchronousFuture<void>(null);
       }
 
       _selectedBook = books[path.id];
@@ -152,6 +154,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     }
 
     show404 = false;
+    return SynchronousFuture<void>(null);
   }
 
   void _handleBookTapped(Book book) {
