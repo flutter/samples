@@ -40,13 +40,13 @@ const RESOURCES = {
 "assets/fonts/Arkipelago.otf": "8d60d9104579c47ed7aed99f61cba541",
 "assets/fonts/OpenSans-Bold.ttf": "50145685042b4df07a1fd19957275b81",
 "assets/fonts/OpenSans-Regular.ttf": "629a55a7e793da068dc580d184cc0e31",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/FontManifest.json": "6e8f98a76d0618880949fbf456dfe91d",
 "assets/AssetManifest.json": "548d1ff88261be32e74ae616118e1d8f",
-"assets/NOTICES": "705d1730eeb07899b11494d88d22c9e9",
+"assets/NOTICES": "580165bb11bf7bdf7a69482e35496771",
 "version.json": "80ec7e6e3e8a22f5e6876e9f61e47dd9",
 "data.json": "35a2823b6112e4fca5d15ccc2f40f93c",
-"main.dart.js": "4f77286ee0f35ddd720b07030f464414",
+"main.dart.js": "c50eebd9aad44695e447deae6d627876",
 "index.html": "51839f812a32cce7ac40ca488295da30",
 "/": "51839f812a32cce7ac40ca488295da30"
 };
@@ -66,7 +66,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });

@@ -4,15 +4,15 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "assets/fonts/Corben/Corben-Bold.ttf": "8f9921f9c52d3c25fd354d6e01f7b024",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/FontManifest.json": "11713463a3278663f446ba3377b96009",
 "assets/AssetManifest.json": "3a1a25fc13ec0260a7852156dbee4d3d",
-"assets/NOTICES": "643e5e7b74fef23f17ec4597ed8546ca",
+"assets/NOTICES": "f5d643fd7184ca79ac6e5092a2517cc6",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "version.json": "8026fd05e799ba6302cc6eac2f583a3e",
 "manifest.json": "5bfaa8407b6bbc7d3ec933b8243f9786",
-"main.dart.js": "92508388891138fb365e79e7be869e2e",
+"main.dart.js": "9068bbda72f101fc9b4ce68e73c66e7d",
 "index.html": "32a753cd40727968c29938c1c32a2fe2",
 "/": "32a753cd40727968c29938c1c32a2fe2"
 };
@@ -32,7 +32,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
