@@ -28,7 +28,7 @@ void main() {
       await binding.watchPerformance(
         () async {
           // Quickly scroll all the way down.
-          await scroller.animateTo(
+          await scroller!.animateTo(
             7000,
             duration: const Duration(seconds: 1),
             curve: Curves.linear,

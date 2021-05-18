@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/favorites.dart';
 
-Favorites favoritesList;
+late Favorites favoritesList;
 
 Widget createFavoritesScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) {
