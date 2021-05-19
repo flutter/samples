@@ -4,8 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:jsonexample/dart_convert/converted_simple_object.dart';
 import 'package:jsonexample/dart_convert/converted_complex_object.dart';
+import 'package:jsonexample/dart_convert/converted_simple_object.dart';
 import 'package:jsonexample/widgets.dart';
 
 void main() {
