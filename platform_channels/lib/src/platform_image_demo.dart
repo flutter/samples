@@ -18,7 +18,7 @@ class PlatformImageDemo extends StatefulWidget {
 }
 
 class _PlatformImageDemoState extends State<PlatformImageDemo> {
-  Future<Uint8List> imageData;
+  Future<Uint8List>? imageData;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +41,14 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                       return Placeholder();
                     } else if (snapshot.hasError) {
                       return Center(
-                        child: Text(snapshot.error.toString()),
+                        child: Text(
+                          (snapshot.error as PlatformException).message!,
+                        ),
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
                       return Image.memory(
-                        snapshot.data,
+                        snapshot.data!,
                         fit: BoxFit.fill,
                       );
                     }

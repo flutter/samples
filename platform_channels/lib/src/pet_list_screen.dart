@@ -14,7 +14,7 @@ class PetListScreen extends StatefulWidget {
 }
 
 class _PetListScreenState extends State<PetListScreen> {
-  PetListModel petListModel;
+  PetListModel? petListModel;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -43,14 +43,14 @@ class _PetListScreenState extends State<PetListScreen> {
         title: Text('Pet List'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/addPetDetails');
         },
+        child: Icon(Icons.add),
       ),
-      body: petListModel?.petList?.isEmpty ?? true
+      body: petListModel?.petList.isEmpty ?? true
           ? Center(child: Text('Enter Pet Details'))
-          : BuildPetList(petListModel.petList),
+          : BuildPetList(petListModel!.petList),
     );
   }
 }
@@ -79,7 +79,7 @@ class BuildPetList extends StatelessWidget {
                 await PetListMessageChannel.removePet(index);
                 showSnackBar('Removed successfully!', context);
               } catch (error) {
-                showSnackBar(error.message.toString(), context);
+                showSnackBar((error as PlatformException).message!, context);
               }
             },
           ),

@@ -64,7 +64,7 @@ class _AddPetDetailsState extends State<AddPetDetails> {
               groupValue: petType,
               onChanged: (value) {
                 setState(() {
-                  petType = value;
+                  petType = value!;
                 });
               },
             ),
@@ -74,7 +74,7 @@ class _AddPetDetailsState extends State<AddPetDetails> {
               groupValue: petType,
               onChanged: (value) {
                 setState(() {
-                  petType = value;
+                  petType = value!;
                 });
               },
             ),

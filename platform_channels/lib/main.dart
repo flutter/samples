@@ -39,9 +39,7 @@ class DemoInfo {
   final String demoTitle;
   final String demoRoute;
 
-  DemoInfo(this.demoTitle, this.demoRoute)
-      : assert(demoTitle != null),
-        assert(demoRoute != null);
+  DemoInfo(this.demoTitle, this.demoRoute);
 }
 
 List<DemoInfo> demoList = [

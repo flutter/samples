@@ -32,6 +32,8 @@ class AccelerometerStreamHandler(sManager: SensorManager, s: Sensor) : EventChan
         if (sensorEvent != null) {
             val axisValues = listOf(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2])
             eventSink.success(axisValues)
+        } else {
+            eventSink.error("DATA_UNAVAILABLE", "Cannot get accelerometer data", null)
         }
     }
 }
