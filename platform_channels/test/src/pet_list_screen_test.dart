@@ -28,7 +28,6 @@ void main() {
       // Mock for the pet list received from the platform.
       basicMessageChannel.setMockMessageHandler((message) async {
         petListModel = PetListModel.fromJson(message!);
-        return;
       });
 
       // Mock for the index received from the Dart to delete the pet details,
@@ -45,7 +44,6 @@ void main() {
         // Send the updated petList back.
         final map = {'petList': petList};
         await basicMessageChannel.send(json.encode(map));
-        return;
       });
     });
 
