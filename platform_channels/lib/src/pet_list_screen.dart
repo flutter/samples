@@ -31,6 +31,7 @@ class _PetListScreenState extends State<PetListScreen> {
           petListModel = PetListModel.fromJson(message);
         });
       }
+      return null;
     });
   }
 
