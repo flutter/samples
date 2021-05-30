@@ -49,8 +49,7 @@ class FormApp extends StatelessWidget {
     return MaterialApp(
       title: 'Form Samples',
       theme: ThemeData(primarySwatch: Colors.teal),
-      routes:
-          Map.fromEntries(demos.map(((d) => MapEntry(d.route!, d.builder!)))),
+      routes: Map.fromEntries(demos.map(((d) => MapEntry(d.route, d.builder)))),
       home: HomePage(),
     );
   }
@@ -78,18 +77,18 @@ class DemoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(demo.name!),
+      title: Text(demo.name),
       onTap: () {
-        Navigator.pushNamed(context, demo.route!);
+        Navigator.pushNamed(context, demo.route);
       },
     );
   }
 }
 
 class Demo {
-  final String? name;
-  final String? route;
-  final WidgetBuilder? builder;
+  final String name;
+  final String route;
+  final WidgetBuilder builder;
 
-  const Demo({this.name, this.route, this.builder});
+  const Demo({required this.name, required this.route, required this.builder});
 }

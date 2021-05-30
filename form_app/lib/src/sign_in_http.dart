@@ -12,12 +12,12 @@ part 'sign_in_http.g.dart';
 
 @JsonSerializable()
 class FormData {
-  String? email;
-  String? password;
+  String email;
+  String password;
 
   FormData({
-    this.email,
-    this.password,
+    required this.email,
+    required this.password,
   });
 
   factory FormData.fromJson(Map<String, dynamic> json) =>
@@ -27,10 +27,10 @@ class FormData {
 }
 
 class SignInHttpDemo extends StatefulWidget {
-  final http.Client? httpClient;
+  final http.Client httpClient;
 
   SignInHttpDemo({
-    this.httpClient,
+    required this.httpClient,
   });
 
   @override
@@ -38,7 +38,7 @@ class SignInHttpDemo extends StatefulWidget {
 }
 
 class _SignInHttpDemoState extends State<SignInHttpDemo> {
-  FormData formData = FormData();
+  FormData formData = FormData(email: '', password: '');
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     child: Text('Sign in'),
                     onPressed: () async {
                       // Use a JSON encoded string to send
-                      var result = await widget.httpClient!.post(
+                      var result = await widget.httpClient.post(
                           Uri.parse('https://example.com/signout'),
                           body: json.encode(formData.toJson()),
                           headers: {'content-type': 'application/json'});

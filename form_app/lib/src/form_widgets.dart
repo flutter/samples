@@ -16,7 +16,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   String description = '';
   DateTime date = DateTime.now();
   double maxValue = 0;
-  bool? brushedTeeth = false;
+  bool brushedTeeth = false;
   bool enableFeature = false;
 
   @override
@@ -112,7 +112,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                               value: brushedTeeth,
                               onChanged: (checked) {
                                 setState(() {
-                                  brushedTeeth = checked;
+                                  brushedTeeth = checked ?? false;
                                 });
                               },
                             ),
@@ -157,13 +157,15 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
 }
 
 class _FormDatePicker extends StatefulWidget {
-  final DateTime? date;
+  late final DateTime _date;
   final ValueChanged? onChanged;
 
   _FormDatePicker({
-    this.date,
-    this.onChanged,
-  });
+    DateTime? date,
+    required this.onChanged,
+  }) {
+    this._date = date ?? DateTime.now();
+  }
 
   @override
   _FormDatePickerState createState() => _FormDatePickerState();
@@ -185,7 +187,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
               style: Theme.of(context).textTheme.bodyText1,
             ),
             Text(
-              intl.DateFormat.yMd().format(widget.date!),
+              intl.DateFormat.yMd().format(widget._date),
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ],
@@ -195,7 +197,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           onPressed: () async {
             var newDate = await showDatePicker(
               context: context,
-              initialDate: widget.date!,
+              initialDate: widget._date,
               firstDate: DateTime(1900),
               lastDate: DateTime(2100),
             );
