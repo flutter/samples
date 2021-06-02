@@ -9,14 +9,10 @@ linter:
   rules:
     avoid_types_on_closure_parameters: true
     avoid_void_async: true
-    await_only_futures: true
-    camel_case_types: true
     cancel_subscriptions: true
     close_sinks: true
     directives_ordering: true
     file_names: false
-    hash_and_equals: true
-    non_constant_identifier_names: true
     package_api_docs: true
     package_prefixed_library_names: true
     test_types_in_equals: true
