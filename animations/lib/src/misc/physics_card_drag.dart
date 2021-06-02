@@ -12,9 +12,9 @@ class PhysicsCardDragDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Spring Physics'),
+        title: const Text('Spring Physics'),
       ),
-      body: DraggableCard(
+      body: const DraggableCard(
         child: FlutterLogo(
           size: 128,
         ),
@@ -27,7 +27,7 @@ class PhysicsCardDragDemo extends StatelessWidget {
 /// released.
 class DraggableCard extends StatefulWidget {
   final Widget child;
-  DraggableCard({required this.child});
+  const DraggableCard({required this.child});
 
   @override
   _DraggableCardState createState() => _DraggableCardState();

@@ -10,7 +10,7 @@ class FocusImageDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Focus Image')),
+      appBar: AppBar(title: const Text('Focus Image')),
       body: Grid(),
     );
   }
@@ -23,11 +23,11 @@ class Grid extends StatelessWidget {
       body: GridView.builder(
         itemCount: 40,
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (context, index) {
           return (index >= 20)
-              ? SmallCard('assets/eat_cape_town_sm.jpg')
-              : SmallCard('assets/eat_new_orleans_sm.jpg');
+              ? const SmallCard('assets/eat_cape_town_sm.jpg')
+              : const SmallCard('assets/eat_new_orleans_sm.jpg');
         },
       ),
     );
@@ -68,7 +68,7 @@ Tween<RelativeRect> _createTween(BuildContext context) {
 class SmallCard extends StatelessWidget {
   final String imageAssetName;
 
-  SmallCard(this.imageAssetName);
+  const SmallCard(this.imageAssetName);
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class SmallCard extends StatelessWidget {
 class _SecondPage extends StatelessWidget {
   final String imageAssetName;
 
-  _SecondPage(this.imageAssetName);
+  const _SecondPage(this.imageAssetName);
 
   @override
   Widget build(BuildContext context) {

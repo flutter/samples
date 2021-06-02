@@ -47,7 +47,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Custom Tween'),
+        title: const Text('Custom Tween'),
         actions: [
           MaterialButton(
             child: Text(
@@ -79,16 +79,18 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Card(
                     child: Container(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: AnimatedBuilder(
                         animation: animation,
                         builder: (context, child) {
-                          return Text('${animation.value}',
-                              style: TextStyle(
-                                  fontSize: 16, fontFamily: 'SpecialElite'));
+                          return Text(
+                            animation.value,
+                            style: const TextStyle(
+                                fontSize: 16, fontFamily: 'SpecialElite'),
+                          );
                         },
                       ),
                     ),

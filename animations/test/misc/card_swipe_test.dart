@@ -20,7 +20,8 @@ void main() {
       var totalCards = tester.widgetList(find.byType(SwipeableCard)).length;
 
       // Swipe out one card.
-      await tester.drag(find.byType(SwipeableCard).first, Offset(100.0, 0.0));
+      await tester.drag(
+          find.byType(SwipeableCard).first, const Offset(100.0, 0.0));
       await tester.pumpAndSettle();
 
       // Check if removed properly.
@@ -37,7 +38,8 @@ void main() {
       // Swipe out all cards.
       for (var i = 0; i < totalCards; i++) {
         // Swipe out one by one.
-        await tester.drag(find.byType(SwipeableCard).first, Offset(100.0, 0.0));
+        await tester.drag(
+            find.byType(SwipeableCard).first, const Offset(100.0, 0.0));
         await tester.pumpAndSettle();
       }
 
@@ -52,7 +54,8 @@ void main() {
       var totalCards = tester.widgetList(find.byType(SwipeableCard)).length;
 
       // Swipe out one card.
-      await tester.drag(find.byType(SwipeableCard).first, Offset(100.0, 0.0));
+      await tester.drag(
+          find.byType(SwipeableCard).first, const Offset(100.0, 0.0));
       await tester.pumpAndSettle();
 
       // Tap the Refill button.

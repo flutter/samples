@@ -33,7 +33,7 @@ class RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Repeating Animation')),
+      appBar: AppBar(title: const Text('Repeating Animation')),
       body: Center(
         child: AnimatedBuilder(
           animation: _borderRadius,

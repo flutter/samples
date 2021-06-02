@@ -49,13 +49,13 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
     // and shrinking cards.
     return Scaffold(
       appBar: AppBar(
-        title: Text('AnimatedContainer'),
+        title: const Text('AnimatedContainer'),
       ),
       body: Center(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 128,
                 height: 128,
@@ -70,7 +70,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
               ),
             ),
             ElevatedButton(
-              child: Text(
+              child: const Text(
                 'change',
               ),
               onPressed: () => change(),
