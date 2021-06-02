@@ -14,7 +14,7 @@ class MyCatalog extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           _MyAppBar(),
-          SliverToBoxAdapter(child: SizedBox(height: 12)),
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverList(
             delegate: SliverChildBuilderDelegate(
                 (context, index) => _MyListItem(index)),
@@ -62,7 +62,9 @@ class _AddButton extends StatelessWidget {
           return null; // Defer to the widget's default.
         }),
       ),
-      child: isInCart ? Icon(Icons.check, semanticLabel: 'ADDED') : Text('ADD'),
+      child: isInCart
+          ? const Icon(Icons.check, semanticLabel: 'ADDED')
+          : const Text('ADD'),
     );
   }
 }
@@ -75,7 +77,7 @@ class _MyAppBar extends StatelessWidget {
       floating: true,
       actions: [
         IconButton(
-          icon: Icon(Icons.shopping_cart),
+          icon: const Icon(Icons.shopping_cart),
           onPressed: () => Navigator.pushNamed(context, '/cart'),
         ),
       ],
@@ -86,7 +88,7 @@ class _MyAppBar extends StatelessWidget {
 class _MyListItem extends StatelessWidget {
   final int index;
 
-  _MyListItem(this.index, {Key? key}) : super(key: key);
+  const _MyListItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,11 +111,11 @@ class _MyListItem extends StatelessWidget {
                 color: item.color,
               ),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             Expanded(
               child: Text(item.name, style: textTheme),
             ),
-            SizedBox(width: 24),
+            const SizedBox(width: 24),
             _AddButton(item: item),
           ],
         ),

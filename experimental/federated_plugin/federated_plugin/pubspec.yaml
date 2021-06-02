@@ -1,9 +1,8 @@
 name: federated_plugin
 description: A new flutter plugin project to demonstrate how to implement federated plugin.
 version: 0.0.1
-homepage:
 
-publish_to: 'none'
+publish_to: "none"
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -24,7 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.11.0
+  flutter_lints: ^1.0.0
 
 flutter:
   plugin:

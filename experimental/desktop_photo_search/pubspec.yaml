@@ -18,14 +18,13 @@ dependencies:
   file_selector_macos: ^0.0.1
   file_selector_windows: ^0.0.1
   http: ^0.13.0
-  logging: ^0.11.3+2
+  logging: ^1.0.1
   flutter_simple_treeview: ^2.0.1
   menubar:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/menubar
   meta: ^1.1.8
-  pedantic: ^1.9.0
   provider: ^5.0.0
   transparent_image: ^2.0.0
   uuid: ^3.0.1
@@ -35,12 +34,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   async: ^2.4.0
-  build: ^1.2.2
-  build_runner: ^1.10.4
+  build: ^2.0.2
+  build_runner: ^2.0.4
   built_value_generator: ^8.0.3
-  grinder: ^0.8.3
-  msix: ^0.1.5
-  source_gen: ^0.9.4
+  grinder: ^0.9.0
+  msix: ^2.1.2
+  source_gen: ^1.0.1
+  flutter_lints: ^1.0.0
 
 flutter:
   uses-material-design: true

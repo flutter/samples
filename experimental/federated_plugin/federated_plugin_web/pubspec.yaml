@@ -1,7 +1,6 @@
 name: federated_plugin_web
 description: Web implementation of federated_plugin to retrieve current battery level.
 version: 0.0.1
-homepage:
 publish_to: none
 
 environment:
@@ -21,7 +20,7 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  pedantic: ^1.11.0
+  flutter_lints: ^1.0.0
   mockito: ^5.0.2
 
 flutter:

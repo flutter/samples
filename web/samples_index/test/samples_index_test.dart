@@ -54,7 +54,7 @@ void main() {
       var sample = index.samples.first;
       expect(
           sample.searchAttributes.split(' '),
-          containsAll([
+          containsAll(const <String>[
             'kittens',
             'tag:beginner',
             'tag:kittens',

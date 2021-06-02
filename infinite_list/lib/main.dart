@@ -30,7 +30,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Infinite List Sample'),
+        title: const Text('Infinite List Sample'),
       ),
       body: Selector<Catalog, int?>(
         // Selector is a widget from package:provider. It allows us to listen
@@ -54,7 +54,7 @@ class MyHomePage extends StatelessWidget {
             var item = catalog.getByIndex(index);
 
             if (item.isLoading) {
-              return LoadingItemTile();
+              return const LoadingItemTile();
             }
 
             return ItemTile(item: item);

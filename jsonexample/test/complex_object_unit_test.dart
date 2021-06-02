@@ -325,7 +325,7 @@ void main() {
   group('BuiltComplexObject unit tests', () {
     test('Typical object is converted correctly', () {
       final complexObject = serializers.deserializeWith(
-          BuiltComplexObject.serializer, typicalObjectJson);
+          BuiltComplexObject.serializer, typicalObjectJson)!;
 
       expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
@@ -354,8 +354,8 @@ void main() {
     });
 
     test('Empty object results in null fields', () {
-      final complexObject =
-          serializers.deserializeWith(BuiltComplexObject.serializer, emptyJson);
+      final complexObject = serializers.deserializeWith(
+          BuiltComplexObject.serializer, emptyJson)!;
 
       expect(complexObject.aString, isNull);
       expect(complexObject.anInt, isNull);
@@ -369,7 +369,7 @@ void main() {
 
     test('Empty simple objects result in instances with null fields', () {
       final complexObject = serializers.deserializeWith(
-          BuiltComplexObject.serializer, emptySimpleObjectsJson);
+          BuiltComplexObject.serializer, emptySimpleObjectsJson)!;
 
       expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);
@@ -397,7 +397,7 @@ void main() {
 
     test('Unexpected properties are ignored', () {
       final complexObject = serializers.deserializeWith(
-          BuiltComplexObject.serializer, unexpectedPropertiesJson);
+          BuiltComplexObject.serializer, unexpectedPropertiesJson)!;
 
       expect(complexObject.aString, 'Blah, blah, blah.');
       expect(complexObject.anInt, 1);

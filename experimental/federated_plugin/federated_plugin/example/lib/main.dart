@@ -33,19 +33,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Federated Plugin Demo'),
+        title: const Text('Federated Plugin Demo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             batteryLevel == null
-                ? SizedBox.shrink()
+                ? const SizedBox.shrink()
                 : Text(
                     'Battery Level: $batteryLevel',
                     style: Theme.of(context).textTheme.headline5,
                   ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
                 try {
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 }
               },
-              child: Text('Get Battery Level'),
+              child: const Text('Get Battery Level'),
             ),
           ],
         ),

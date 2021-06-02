@@ -9,9 +9,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('federated plugin demo tests', () {
-    final batteryLevel = 45;
+    const batteryLevel = 45;
     setUpAll(() {
-      MethodChannel('battery').setMockMethodCallHandler((call) async {
+      const MethodChannel('battery').setMockMethodCallHandler((call) async {
         if (call.method == 'getBatteryLevel') {
           return batteryLevel;
         }

@@ -28,9 +28,9 @@ class _SettingsTabState extends State<SettingsTab> {
   Widget _buildList() {
     return ListView(
       children: [
-        Padding(padding: EdgeInsets.only(top: 24)),
+        const Padding(padding: EdgeInsets.only(top: 24)),
         ListTile(
-          title: Text('Send me marketing emails'),
+          title: const Text('Send me marketing emails'),
           // The Material switch has a platform adaptive constructor.
           trailing: Switch.adaptive(
             value: switch1,
@@ -38,42 +38,42 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
         ),
         ListTile(
-          title: Text('Enable notifications'),
+          title: const Text('Enable notifications'),
           trailing: Switch.adaptive(
             value: switch2,
             onChanged: (value) => setState(() => switch2 = value),
           ),
         ),
         ListTile(
-          title: Text('Remind me to rate this app'),
+          title: const Text('Remind me to rate this app'),
           trailing: Switch.adaptive(
             value: switch3,
             onChanged: (value) => setState(() => switch3 = value),
           ),
         ),
         ListTile(
-          title: Text('Background song refresh'),
+          title: const Text('Background song refresh'),
           trailing: Switch.adaptive(
             value: switch4,
             onChanged: (value) => setState(() => switch4 = value),
           ),
         ),
         ListTile(
-          title: Text('Recommend me songs based on my location'),
+          title: const Text('Recommend me songs based on my location'),
           trailing: Switch.adaptive(
             value: switch5,
             onChanged: (value) => setState(() => switch5 = value),
           ),
         ),
         ListTile(
-          title: Text('Auto-transition playback to cast devices'),
+          title: const Text('Auto-transition playback to cast devices'),
           trailing: Switch.adaptive(
             value: switch6,
             onChanged: (value) => setState(() => switch6 = value),
           ),
         ),
         ListTile(
-          title: Text('Find friends from my contact list'),
+          title: const Text('Find friends from my contact list'),
           trailing: Switch.adaptive(
             value: switch7,
             onChanged: (value) => setState(() => switch7 = value),
@@ -90,7 +90,7 @@ class _SettingsTabState extends State<SettingsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(SettingsTab.title),
+        title: const Text(SettingsTab.title),
       ),
       body: _buildList(),
     );
@@ -98,7 +98,7 @@ class _SettingsTabState extends State<SettingsTab> {
 
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(),
+      navigationBar: const CupertinoNavigationBar(),
       child: _buildList(),
     );
   }

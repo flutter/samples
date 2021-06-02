@@ -7,37 +7,40 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 class IndexController extends ChangeNotifier {
+  // ignore: constant_identifier_names
   static const int NEXT = 1;
+  // ignore: constant_identifier_names
   static const int PREVIOUS = -1;
+  // ignore: constant_identifier_names
   static const int MOVE = 0;
 
-  Completer _completer;
+  Completer<void> _completer;
 
   int index;
   bool animation;
   int event;
 
-  Future move(int index, {bool animation: true}) {
+  Future move(int index, {bool animation = true}) {
     this.animation = animation ?? true;
     this.index = index;
-    this.event = MOVE;
-    _completer = new Completer();
+    event = MOVE;
+    _completer = Completer();
     notifyListeners();
     return _completer.future;
   }
 
-  Future next({bool animation: true}) {
-    this.event = NEXT;
+  Future next({bool animation = true}) {
+    event = NEXT;
     this.animation = animation ?? true;
-    _completer = new Completer();
+    _completer = Completer();
     notifyListeners();
     return _completer.future;
   }
 
-  Future previous({bool animation: true}) {
-    this.event = PREVIOUS;
+  Future previous({bool animation = true}) {
+    event = PREVIOUS;
     this.animation = animation ?? true;
-    _completer = new Completer();
+    _completer = Completer();
     notifyListeners();
     return _completer.future;
   }
@@ -49,7 +52,7 @@ class IndexController extends ChangeNotifier {
   }
 }
 
-typedef void PaintCallback(Canvas canvas, Size siz);
+typedef PaintCallback = void Function(Canvas canvas, Size siz);
 
 class ColorPainter extends CustomPainter {
   final Paint _paint;
@@ -62,8 +65,7 @@ class ColorPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     int index = info.fromIndex;
     _paint.color = colors[index];
-    canvas.drawRect(
-        new Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
+    canvas.drawRect(Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
     if (info.done) {
       return;
     }
@@ -85,9 +87,9 @@ class ColorPainter extends CustomPainter {
         }
         alpha = (0xff * opacity).toInt();
 
-        _paint.color = new Color((alpha << 24) | color);
+        _paint.color = Color((alpha << 24) | color);
         canvas.drawRect(
-            new Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
+            Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
       }
     } else {
       if (index > 0) {
@@ -103,9 +105,9 @@ class ColorPainter extends CustomPainter {
         }
         alpha = (0xff * opacity).toInt();
 
-        _paint.color = new Color((alpha << 24) | color);
+        _paint.color = Color((alpha << 24) | color);
         canvas.drawRect(
-            new Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
+            Rect.fromLTWH(0.0, 0.0, size.width, size.height), _paint);
       }
     }
   }
@@ -117,12 +119,12 @@ class ColorPainter extends CustomPainter {
 }
 
 class _ParallaxColorState extends State<ParallaxColor> {
-  Paint paint = new Paint();
+  Paint paint = Paint();
 
   @override
   Widget build(BuildContext context) {
-    return new CustomPaint(
-      painter: new ColorPainter(paint, widget.info, widget.colors),
+    return CustomPaint(
+      painter: ColorPainter(paint, widget.info, widget.colors),
       child: widget.child,
     );
   }
@@ -135,7 +137,7 @@ class ParallaxColor extends StatefulWidget {
 
   final TransformInfo info;
 
-  ParallaxColor({
+  const ParallaxColor({
     @required this.colors,
     @required this.info,
     @required this.child,
@@ -143,7 +145,7 @@ class ParallaxColor extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new _ParallaxColorState();
+    return _ParallaxColorState();
   }
 }
 
@@ -153,20 +155,20 @@ class ParallaxContainer extends StatelessWidget {
   final double translationFactor;
   final double opacityFactor;
 
-  ParallaxContainer(
+  const ParallaxContainer(
       {@required this.child,
       @required this.position,
-      this.translationFactor: 100.0,
-      this.opacityFactor: 1.0})
+      this.translationFactor = 100.0,
+      this.opacityFactor = 1.0})
       : assert(position != null),
         assert(translationFactor != null);
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: (1 - position.abs()).clamp(0.0, 1.0) * opacityFactor,
-      child: new Transform.translate(
-        offset: new Offset(position * translationFactor, 0.0),
+      opacity: (1 - position.abs()).clamp(0.0, 1.0) * opacityFactor as double,
+      child: Transform.translate(
+        offset: Offset(position * translationFactor, 0.0),
         child: child,
       ),
     );
@@ -177,7 +179,7 @@ class ParallaxImage extends StatelessWidget {
   final Image image;
   final double imageFactor;
 
-  ParallaxImage.asset(String name, {double position, this.imageFactor: 0.3})
+  ParallaxImage.asset(String name, {double position, this.imageFactor = 0.3})
       : assert(imageFactor != null),
         image = Image.asset(name,
             fit: BoxFit.cover,
@@ -262,18 +264,19 @@ abstract class PageTransformer {
   ///
   final bool reverse;
 
-  PageTransformer({this.reverse: false});
+  PageTransformer({this.reverse = false});
 
   /// Return a transformed widget, based on child and TransformInfo
   Widget transform(Widget child, TransformInfo info);
 }
 
-typedef Widget PageTransformerBuilderCallback(Widget child, TransformInfo info);
+typedef PageTransformerBuilderCallback = Widget Function(
+    Widget child, TransformInfo info);
 
 class PageTransformerBuilder extends PageTransformer {
   final PageTransformerBuilderCallback builder;
 
-  PageTransformerBuilder({bool reverse: false, @required this.builder})
+  PageTransformerBuilder({bool reverse = false, @required this.builder})
       : assert(builder != null),
         super(reverse: reverse);
 
@@ -292,16 +295,16 @@ class TransformerPageController extends PageController {
     int initialPage = 0,
     bool keepPage = true,
     double viewportFraction = 1.0,
-    this.loop: false,
+    this.loop = false,
     this.itemCount,
-    this.reverse: false,
+    this.reverse = false,
   }) : super(
             initialPage: TransformerPageController._getRealIndexFromRenderIndex(
                 initialPage ?? 0, loop, itemCount, reverse),
             keepPage: keepPage,
             viewportFraction: viewportFraction);
 
-  int getRenderIndexFromRealIndex(num index) {
+  int getRenderIndexFromRealIndex(int index) {
     return _getRenderIndexFromRealIndex(index, loop, itemCount, reverse);
   }
 
@@ -310,8 +313,8 @@ class TransformerPageController extends PageController {
     return loop ? itemCount + kMaxValue : itemCount;
   }
 
-  static _getRenderIndexFromRealIndex(
-      num index, bool loop, int itemCount, bool reverse) {
+  static int _getRenderIndexFromRealIndex(
+      int index, bool loop, int itemCount, bool reverse) {
     if (itemCount == 0) return 0;
     int renderIndex;
     if (loop) {
@@ -341,7 +344,7 @@ class TransformerPageController extends PageController {
     return page;
   }
 
-  static _getRenderPageFromRealPage(
+  static double _getRenderPageFromRealPage(
       double page, bool loop, int itemCount, bool reverse) {
     double renderPage;
     if (loop) {
@@ -360,18 +363,19 @@ class TransformerPageController extends PageController {
     return renderPage;
   }
 
+  @override
   double get page {
     return loop
         ? _getRenderPageFromRealPage(realPage, loop, itemCount, reverse)
         : realPage;
   }
 
-  int getRealIndexFromRenderIndex(num index) {
+  int getRealIndexFromRenderIndex(int index) {
     return _getRealIndexFromRenderIndex(index, loop, itemCount, reverse);
   }
 
   static int _getRealIndexFromRenderIndex(
-      num index, bool loop, int itemCount, bool reverse) {
+      int index, bool loop, int itemCount, bool reverse) {
     int result = reverse ? (itemCount - index - 1) : index;
     if (loop) {
       result += kMiddleValue;
@@ -439,13 +443,13 @@ class TransformerPageView extends StatefulWidget {
   ///
   /// [itemBuilder] will be called only with indices greater than or equal to
   /// zero and less than [itemCount].
-  TransformerPageView({
+  const TransformerPageView({
     Key key,
     this.index,
     Duration duration,
-    this.curve: Curves.ease,
-    this.viewportFraction: 1.0,
-    this.loop: false,
+    this.curve = Curves.ease,
+    this.viewportFraction = 1.0,
+    this.loop = false,
     this.scrollDirection = Axis.horizontal,
     this.physics,
     this.pageSnapping = true,
@@ -457,17 +461,17 @@ class TransformerPageView extends StatefulWidget {
     @required this.itemCount,
   })  : assert(itemCount != null),
         assert(itemCount == 0 || itemBuilder != null || transformer != null),
-        this.duration =
-            duration ?? new Duration(milliseconds: kDefaultTransactionDuration),
+        duration = duration ??
+            const Duration(milliseconds: kDefaultTransactionDuration),
         super(key: key);
 
   factory TransformerPageView.children(
       {Key key,
       int index,
       Duration duration,
-      Curve curve: Curves.ease,
-      double viewportFraction: 1.0,
-      bool loop: false,
+      Curve curve = Curves.ease,
+      double viewportFraction = 1.0,
+      bool loop = false,
       Axis scrollDirection = Axis.horizontal,
       ScrollPhysics physics,
       bool pageSnapping = true,
@@ -477,9 +481,9 @@ class TransformerPageView extends StatefulWidget {
       @required List<Widget> children,
       TransformerPageController pageController}) {
     assert(children != null);
-    return new TransformerPageView(
+    return TransformerPageView(
       itemCount: children.length,
-      itemBuilder: (BuildContext context, int index) {
+      itemBuilder: (context, index) {
         return children[index];
       },
       pageController: pageController,
@@ -499,7 +503,7 @@ class TransformerPageView extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new _TransformerPageViewState();
+    return _TransformerPageViewState();
   }
 
   static int getRealIndexFromRenderIndex(
@@ -517,7 +521,7 @@ class TransformerPageView extends StatefulWidget {
       int itemCount,
       bool loop,
       double viewportFraction}) {
-    return new PageController(
+    return PageController(
         initialPage: getRealIndexFromRenderIndex(
             reverse: reverse, index: index, itemCount: itemCount, loop: loop),
         viewportFraction: viewportFraction);
@@ -544,19 +548,17 @@ class _TransformerPageViewState extends State<TransformerPageView> {
   }
 
   Widget _buildItem(BuildContext context, int index) {
-    return new AnimatedBuilder(
+    return AnimatedBuilder(
         animation: _pageController,
-        builder: (BuildContext c, Widget w) {
+        builder: (c, w) {
           int renderIndex = _pageController.getRenderIndexFromRealIndex(index);
           Widget child;
           if (widget.itemBuilder != null) {
             child = widget.itemBuilder(context, renderIndex);
           }
-          if (child == null) {
-            child = new Container();
-          }
+          child ??= Container();
           if (_size == null) {
-            return child ?? new Container();
+            return child ?? Container();
           }
 
           double position;
@@ -570,11 +572,11 @@ class _TransformerPageViewState extends State<TransformerPageView> {
           }
           position *= widget.viewportFraction;
 
-          TransformInfo info = new TransformInfo(
+          TransformInfo info = TransformInfo(
               index: renderIndex,
               width: _size.width,
               height: _size.height,
-              position: position.clamp(-1.0, 1.0),
+              position: position.clamp(-1.0, 1.0) as double,
               activeIndex:
                   _pageController.getRenderIndexFromRealIndex(_activeIndex),
               fromIndex: _fromIndex,
@@ -600,7 +602,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
   Widget build(BuildContext context) {
     IndexedWidgetBuilder builder =
         _transformer == null ? _buildItemNormal : _buildItem;
-    Widget child = new PageView.builder(
+    Widget child = PageView.builder(
       itemBuilder: builder,
       itemCount: _pageController.getRealItemCount(),
       onPageChanged: _onIndexChanged,
@@ -613,7 +615,8 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     if (_transformer == null) {
       return child;
     }
-    return new NotificationListener(
+    return NotificationListener(
+        // ignore: avoid_types_on_closure_parameters
         onNotification: (ScrollNotification notification) {
           if (notification is ScrollStartNotification) {
             _calcCurrentPixels();
@@ -637,7 +640,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     }
   }
 
-  void _onGetSize(_) {
+  void _onGetSize(dynamic _) {
     Size size;
     if (context == null) {
       onGetSize(size);
@@ -667,14 +670,12 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     _transformer = widget.transformer;
     //  int index = widget.index ?? 0;
     _pageController = widget.pageController;
-    if (_pageController == null) {
-      _pageController = new TransformerPageController(
-          initialPage: widget.index,
-          itemCount: widget.itemCount,
-          loop: widget.loop,
-          reverse:
-              widget.transformer == null ? false : widget.transformer.reverse);
-    }
+    _pageController ??= TransformerPageController(
+        initialPage: widget.index,
+        itemCount: widget.itemCount,
+        loop: widget.loop,
+        reverse:
+            widget.transformer == null ? false : widget.transformer.reverse);
     // int initPage = _getRealIndexFromRenderIndex(index);
     // _pageController = new PageController(initialPage: initPage,viewportFraction: widget.viewportFraction);
     _fromIndex = _activeIndex = _pageController.initialPage;
@@ -696,7 +697,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
         _pageController = widget.pageController;
       } else {
         created = true;
-        _pageController = new TransformerPageController(
+        _pageController = TransformerPageController(
             initialPage: widget.index,
             itemCount: widget.itemCount,
             loop: widget.loop,
@@ -714,8 +715,9 @@ class _TransformerPageViewState extends State<TransformerPageView> {
             duration: widget.duration, curve: widget.curve);
       }
     }
-    if (_transformer != null)
+    if (_transformer != null) {
       WidgetsBinding.instance.addPostFrameCallback(_onGetSize);
+    }
 
     if (_controller != getNotifier()) {
       if (_controller != null) {
@@ -731,8 +733,9 @@ class _TransformerPageViewState extends State<TransformerPageView> {
 
   @override
   void didChangeDependencies() {
-    if (_transformer != null)
+    if (_transformer != null) {
       WidgetsBinding.instance.addPostFrameCallback(_onGetSize);
+    }
     super.didChangeDependencies();
   }
 
@@ -800,6 +803,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
 
   ChangeNotifier _controller;
 
+  @override
   void dispose() {
     super.dispose();
     if (_controller != null) {

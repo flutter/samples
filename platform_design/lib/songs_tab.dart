@@ -67,7 +67,7 @@ class _SongsTabState extends State<SongsTab> {
         child: HeroAnimatingSongCard(
           song: songNames[index],
           color: color,
-          heroAnimation: AlwaysStoppedAnimation(0),
+          heroAnimation: const AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
               builder: (context) => SongDetailTab(
@@ -113,15 +113,15 @@ class _SongsTabState extends State<SongsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(SongsTab.title),
+        title: const Text(SongsTab.title),
         actions: [
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             onPressed: () async =>
                 await _androidRefreshKey.currentState!.show(),
           ),
           IconButton(
-            icon: Icon(Icons.shuffle),
+            icon: const Icon(Icons.shuffle),
             onPressed: _togglePlatform,
           ),
         ],
@@ -131,7 +131,7 @@ class _SongsTabState extends State<SongsTab> {
         key: _androidRefreshKey,
         onRefresh: _refreshData,
         child: ListView.builder(
-          padding: EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           itemCount: _itemsLength,
           itemBuilder: _listBuilder,
         ),
@@ -145,7 +145,7 @@ class _SongsTabState extends State<SongsTab> {
         CupertinoSliverNavigationBar(
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
-            child: Icon(CupertinoIcons.shuffle),
+            child: const Icon(CupertinoIcons.shuffle),
             onPressed: _togglePlatform,
           ),
         ),
@@ -155,7 +155,7 @@ class _SongsTabState extends State<SongsTab> {
         SliverSafeArea(
           top: false,
           sliver: SliverPadding(
-            padding: EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: 12),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 _listBuilder,
