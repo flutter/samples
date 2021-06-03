@@ -19,7 +19,7 @@ class EventChannelDemo extends StatelessWidget {
     final textStyle = Theme.of(context).textTheme.headline5;
     return Scaffold(
       appBar: AppBar(
-        title: Text('EventChannel Demo'),
+        title: const Text('EventChannel Demo'),
       ),
       body: Center(
         child: StreamBuilder<AccelerometerReadings>(

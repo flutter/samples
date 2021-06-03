@@ -22,7 +22,7 @@ class _PetListScreenState extends State<PetListScreen> {
     super.initState();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
-    BasicMessageChannel('stringCodecDemo', StringCodec())
+    const BasicMessageChannel('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       if (message == null) {
         showSnackBar('An error occurred while adding pet details.', context);
@@ -40,16 +40,16 @@ class _PetListScreenState extends State<PetListScreen> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Pet List'),
+        title: const Text('Pet List'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.pushNamed(context, '/addPetDetails');
         },
       ),
       body: petListModel?.petList?.isEmpty ?? true
-          ? Center(child: Text('Enter Pet Details'))
+          ? const Center(child: Text('Enter Pet Details'))
           : BuildPetList(petListModel.petList),
     );
   }
@@ -59,12 +59,12 @@ class _PetListScreenState extends State<PetListScreen> {
 class BuildPetList extends StatelessWidget {
   final List<PetDetails> petList;
 
-  BuildPetList(this.petList);
+  const BuildPetList(this.petList);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       itemCount: petList.length,
       itemBuilder: (context, index) {
         return ListTile(
@@ -73,7 +73,7 @@ class BuildPetList extends StatelessWidget {
             'Pet type: ${petList[index].petType}',
           ),
           trailing: IconButton(
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: () async {
               try {
                 await PetListMessageChannel.removePet(index);

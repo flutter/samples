@@ -12,7 +12,8 @@ void main() {
     var petList = <Map>[];
 
     setUpAll(() {
-      BasicMessageChannel<dynamic>('jsonMessageCodecDemo', JSONMessageCodec())
+      const BasicMessageChannel<dynamic>(
+              'jsonMessageCodecDemo', JSONMessageCodec())
           .setMockMessageHandler((dynamic message) async {
         petList.add(message as Map);
       });

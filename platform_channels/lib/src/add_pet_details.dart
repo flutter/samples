@@ -22,10 +22,10 @@ class _AddPetDetailsState extends State<AddPetDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Pet Details'),
+        title: const Text('Add Pet Details'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               PetListMessageChannel.addPetDetails(
                 PetDetails(
@@ -43,19 +43,19 @@ class _AddPetDetailsState extends State<AddPetDetails> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextField(
               controller: breedTextController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 filled: true,
                 hintText: 'Breed of pet',
                 labelText: 'Breed',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             RadioListTile<String>(
