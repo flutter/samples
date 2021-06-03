@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
@@ -17,8 +16,8 @@ typedef PhotoDetailsPhotoSaveCallback = void Function(Photo);
 
 class PhotoDetails extends StatefulWidget {
   const PhotoDetails({
-    @required this.photo,
-    @required this.onPhotoSave,
+    required this.photo,
+    required this.onPhotoSave,
   });
   final Photo photo;
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
@@ -32,21 +31,21 @@ class _PhotoDetailsState extends State<PhotoDetails>
   Widget _buildPhotoAttribution(BuildContext context) {
     return Row(
       children: [
-        Text('Photo by '),
+        const Text('Photo by '),
         Link(
           uri: Uri.parse(
-              'https://unsplash.com/@${widget.photo.user.username}?utm_source=$unsplashAppName&utm_medium=referral'),
+              'https://unsplash.com/@${widget.photo.user!.username}?utm_source=$unsplashAppName&utm_medium=referral'),
           builder: (context, followLink) => TextButton(
             onPressed: followLink,
-            child: Text(widget.photo.user.name),
+            child: Text(widget.photo.user!.name),
           ),
         ),
-        Text(' on '),
+        const Text(' on '),
         Link(
           uri: _unsplashHomepage,
           builder: (context, followLink) => TextButton(
             onPressed: followLink,
-            child: Text('Unsplash'),
+            child: const Text('Unsplash'),
           ),
         ),
       ],
@@ -65,22 +64,22 @@ class _PhotoDetailsState extends State<PhotoDetails>
               const SizedBox(height: 16),
               Card(
                 shape: ContinuousRectangleBorder(
-                  side: BorderSide(color: Colors.black12),
+                  side: const BorderSide(color: Colors.black12),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: AnimatedSize(
                   vsync: this,
-                  duration: Duration(milliseconds: 750),
+                  duration: const Duration(milliseconds: 750),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
                     child: ConstrainedBox(
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: 400,
                         minHeight: 400,
                       ),
                       child: FadeInImage.memoryNetwork(
                         placeholder: kTransparentImage,
-                        image: widget.photo.urls.small,
+                        image: widget.photo.urls!.small!,
                       ),
                     ),
                   ),
@@ -97,7 +96,7 @@ class _PhotoDetailsState extends State<PhotoDetails>
                     const SizedBox(width: 8),
                     IconButton(
                       visualDensity: VisualDensity.compact,
-                      icon: Icon(Icons.cloud_download),
+                      icon: const Icon(Icons.cloud_download),
                       onPressed: () => widget.onPhotoSave(widget.photo),
                     ),
                   ],

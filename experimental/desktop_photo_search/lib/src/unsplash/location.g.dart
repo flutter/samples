@@ -19,10 +19,10 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
   final String wireName = 'Location';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Location object,
+  Iterable<Object?> serialize(Serializers serializers, Location object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    Object value;
+    final result = <Object?>[];
+    Object? value;
     value = object.city;
     if (value != null) {
       result
@@ -48,7 +48,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
   }
 
   @override
-  Location deserialize(Serializers serializers, Iterable<Object> serialized,
+  Location deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new LocationBuilder();
 
@@ -56,7 +56,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'city':
           result.city = serializers.deserialize(value,
@@ -68,7 +68,7 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
           break;
         case 'position':
           result.position.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Position)) as Position);
+              specifiedType: const FullType(Position))! as Position);
           break;
       }
     }
@@ -79,13 +79,13 @@ class _$LocationSerializer implements StructuredSerializer<Location> {
 
 class _$Location extends Location {
   @override
-  final String city;
+  final String? city;
   @override
-  final String country;
+  final String? country;
   @override
-  final Position position;
+  final Position? position;
 
-  factory _$Location([void Function(LocationBuilder) updates]) =>
+  factory _$Location([void Function(LocationBuilder)? updates]) =>
       (new LocationBuilder()..update(updates)).build();
 
   _$Location._({this.city, this.country, this.position}) : super._();
@@ -123,19 +123,19 @@ class _$Location extends Location {
 }
 
 class LocationBuilder implements Builder<Location, LocationBuilder> {
-  _$Location _$v;
+  _$Location? _$v;
 
-  String _city;
-  String get city => _$this._city;
-  set city(String city) => _$this._city = city;
+  String? _city;
+  String? get city => _$this._city;
+  set city(String? city) => _$this._city = city;
 
-  String _country;
-  String get country => _$this._country;
-  set country(String country) => _$this._country = country;
+  String? _country;
+  String? get country => _$this._country;
+  set country(String? country) => _$this._country = country;
 
-  PositionBuilder _position;
+  PositionBuilder? _position;
   PositionBuilder get position => _$this._position ??= new PositionBuilder();
-  set position(PositionBuilder position) => _$this._position = position;
+  set position(PositionBuilder? position) => _$this._position = position;
 
   LocationBuilder();
 
@@ -157,7 +157,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
   }
 
   @override
-  void update(void Function(LocationBuilder) updates) {
+  void update(void Function(LocationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -169,7 +169,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder> {
           new _$Location._(
               city: city, country: country, position: _position?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'position';
         _position?.build();

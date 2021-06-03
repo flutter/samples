@@ -271,7 +271,7 @@ packages:
       name: flutter_simple_treeview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "3.0.0-nullsafety.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -582,7 +582,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.5"
+    version: "6.0.6"
   url_launcher_linux:
     dependency: transitive
     description:

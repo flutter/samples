@@ -13,16 +13,15 @@ import 'links.dart';
 part 'user.g.dart';
 
 abstract class User implements Built<User, UserBuilder> {
-  factory User([void Function(UserBuilder) updates]) = _$User;
+  factory User([void Function(UserBuilder)? updates]) = _$User;
 
   User._();
 
   @BuiltValueField(wireName: 'id')
   String get id;
 
-  @nullable
   @BuiltValueField(wireName: 'updated_at')
-  String get updatedAt;
+  String? get updatedAt;
 
   @BuiltValueField(wireName: 'username')
   String get username;
@@ -30,39 +29,32 @@ abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: 'name')
   String get name;
 
-  @nullable
   @BuiltValueField(wireName: 'portfolio_url')
-  String get portfolioUrl;
+  String? get portfolioUrl;
 
-  @nullable
   @BuiltValueField(wireName: 'bio')
-  String get bio;
+  String? get bio;
 
-  @nullable
   @BuiltValueField(wireName: 'location')
-  String get location;
+  String? get location;
 
-  @nullable
   @BuiltValueField(wireName: 'total_likes')
-  int get totalLikes;
+  int? get totalLikes;
 
-  @nullable
   @BuiltValueField(wireName: 'total_photos')
-  int get totalPhotos;
+  int? get totalPhotos;
 
-  @nullable
   @BuiltValueField(wireName: 'total_collections')
-  int get totalCollections;
+  int? get totalCollections;
 
-  @nullable
   @BuiltValueField(wireName: 'links')
-  Links get links;
+  Links? get links;
 
   String toJson() {
     return json.encode(serializers.serializeWith(User.serializer, this));
   }
 
-  static User fromJson(String jsonString) {
+  static User? fromJson(String jsonString) {
     return serializers.deserializeWith(
         User.serializer, json.decode(jsonString));
   }

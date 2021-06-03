@@ -13,18 +13,18 @@ import '../serializers.dart';
 part 'api_error.g.dart';
 
 abstract class ApiError implements Built<ApiError, ApiErrorBuilder> {
-  factory ApiError([void Function(ApiErrorBuilder) updates]) = _$ApiError;
+  factory ApiError([void Function(ApiErrorBuilder)? updates]) = _$ApiError;
 
   ApiError._();
 
   @BuiltValueField(wireName: 'errors')
-  BuiltList<String> get errors;
+  BuiltList<String>? get errors;
 
   String toJson() {
     return json.encode(serializers.serializeWith(ApiError.serializer, this));
   }
 
-  static ApiError fromJson(String jsonString) {
+  static ApiError? fromJson(String jsonString) {
     return serializers.deserializeWith(
         ApiError.serializer, json.decode(jsonString));
   }

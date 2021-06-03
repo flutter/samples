@@ -20,82 +20,66 @@ import 'user.dart';
 part 'photo.g.dart';
 
 abstract class Photo implements Built<Photo, PhotoBuilder> {
-  factory Photo([void Function(PhotoBuilder) updates]) = _$Photo;
+  factory Photo([void Function(PhotoBuilder)? updates]) = _$Photo;
 
   Photo._();
 
   @BuiltValueField(wireName: 'id')
   String get id;
 
-  @nullable
   @BuiltValueField(wireName: 'created_at')
-  String get createdAt;
+  String? get createdAt;
 
-  @nullable
   @BuiltValueField(wireName: 'updated_at')
-  String get updatedAt;
+  String? get updatedAt;
 
-  @nullable
   @BuiltValueField(wireName: 'width')
-  int get width;
+  int? get width;
 
-  @nullable
   @BuiltValueField(wireName: 'height')
-  int get height;
+  int? get height;
 
-  @nullable
   @BuiltValueField(wireName: 'color')
-  String get color;
+  String? get color;
 
-  @nullable
   @BuiltValueField(wireName: 'downloads')
-  int get downloads;
+  int? get downloads;
 
-  @nullable
   @BuiltValueField(wireName: 'likes')
-  int get likes;
+  int? get likes;
 
-  @nullable
   @BuiltValueField(wireName: 'liked_by_user')
-  bool get likedByUser;
+  bool? get likedByUser;
 
-  @nullable
   @BuiltValueField(wireName: 'description')
-  String get description;
+  String? get description;
 
-  @nullable
   @BuiltValueField(wireName: 'exif')
-  Exif get exif;
+  Exif? get exif;
 
-  @nullable
   @BuiltValueField(wireName: 'location')
-  Location get location;
+  Location? get location;
 
-  @nullable
   @BuiltValueField(wireName: 'tags')
-  BuiltList<Tags> get tags;
+  BuiltList<Tags>? get tags;
 
-  @nullable
   @BuiltValueField(wireName: 'current_user_collections')
-  BuiltList<CurrentUserCollections> get currentUserCollections;
+  BuiltList<CurrentUserCollections>? get currentUserCollections;
 
-  @nullable
   @BuiltValueField(wireName: 'urls')
-  Urls get urls;
+  Urls? get urls;
 
-  @nullable
   @BuiltValueField(wireName: 'links')
-  Links get links;
+  Links? get links;
 
-  @nullable
   @BuiltValueField(wireName: 'user')
-  User get user;
+  User? get user;
 
   String toJson() {
     return json.encode(serializers.serializeWith(Photo.serializer, this));
   }
 
-  static Photo fromJson(String jsonString) {
+  static Photo? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Photo.serializer, json.decode(jsonString));
   }

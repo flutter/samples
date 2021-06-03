@@ -19,9 +19,9 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
   final String wireName = 'Position';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Position object,
+  Iterable<Object?> serialize(Serializers serializers, Position object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'latitude',
       serializers.serialize(object.latitude,
           specifiedType: const FullType(double)),
@@ -34,7 +34,7 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
   }
 
   @override
-  Position deserialize(Serializers serializers, Iterable<Object> serialized,
+  Position deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new PositionBuilder();
 
@@ -42,7 +42,7 @@ class _$PositionSerializer implements StructuredSerializer<Position> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'latitude':
           result.latitude = serializers.deserialize(value,
@@ -65,10 +65,10 @@ class _$Position extends Position {
   @override
   final double longitude;
 
-  factory _$Position([void Function(PositionBuilder) updates]) =>
+  factory _$Position([void Function(PositionBuilder)? updates]) =>
       (new PositionBuilder()..update(updates)).build();
 
-  _$Position._({this.latitude, this.longitude}) : super._() {
+  _$Position._({required this.latitude, required this.longitude}) : super._() {
     BuiltValueNullFieldError.checkNotNull(latitude, 'Position', 'latitude');
     BuiltValueNullFieldError.checkNotNull(longitude, 'Position', 'longitude');
   }
@@ -103,15 +103,15 @@ class _$Position extends Position {
 }
 
 class PositionBuilder implements Builder<Position, PositionBuilder> {
-  _$Position _$v;
+  _$Position? _$v;
 
-  double _latitude;
-  double get latitude => _$this._latitude;
-  set latitude(double latitude) => _$this._latitude = latitude;
+  double? _latitude;
+  double? get latitude => _$this._latitude;
+  set latitude(double? latitude) => _$this._latitude = latitude;
 
-  double _longitude;
-  double get longitude => _$this._longitude;
-  set longitude(double longitude) => _$this._longitude = longitude;
+  double? _longitude;
+  double? get longitude => _$this._longitude;
+  set longitude(double? longitude) => _$this._longitude = longitude;
 
   PositionBuilder();
 
@@ -132,7 +132,7 @@ class PositionBuilder implements Builder<Position, PositionBuilder> {
   }
 
   @override
-  void update(void Function(PositionBuilder) updates) {
+  void update(void Function(PositionBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

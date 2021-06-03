@@ -19,9 +19,9 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
   final String wireName = 'Search';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Search object,
+  Iterable<Object?> serialize(Serializers serializers, Search object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'query',
       serializers.serialize(object.query,
           specifiedType: const FullType(String)),
@@ -35,7 +35,7 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
   }
 
   @override
-  Search deserialize(Serializers serializers, Iterable<Object> serialized,
+  Search deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new SearchBuilder();
 
@@ -43,7 +43,7 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'query':
           result.query = serializers.deserialize(value,
@@ -52,7 +52,7 @@ class _$SearchSerializer implements StructuredSerializer<Search> {
         case 'results':
           result.results.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(Photo)]))
+                      const FullType(BuiltList, const [const FullType(Photo)]))!
               as BuiltList<Object>);
           break;
       }
@@ -68,10 +68,10 @@ class _$Search extends Search {
   @override
   final BuiltList<Photo> results;
 
-  factory _$Search([void Function(SearchBuilder) updates]) =>
+  factory _$Search([void Function(SearchBuilder)? updates]) =>
       (new SearchBuilder()..update(updates)).build();
 
-  _$Search._({this.query, this.results}) : super._() {
+  _$Search._({required this.query, required this.results}) : super._() {
     BuiltValueNullFieldError.checkNotNull(query, 'Search', 'query');
     BuiltValueNullFieldError.checkNotNull(results, 'Search', 'results');
   }
@@ -104,16 +104,16 @@ class _$Search extends Search {
 }
 
 class SearchBuilder implements Builder<Search, SearchBuilder> {
-  _$Search _$v;
+  _$Search? _$v;
 
-  String _query;
-  String get query => _$this._query;
-  set query(String query) => _$this._query = query;
+  String? _query;
+  String? get query => _$this._query;
+  set query(String? query) => _$this._query = query;
 
-  ListBuilder<Photo> _results;
+  ListBuilder<Photo>? _results;
   ListBuilder<Photo> get results =>
       _$this._results ??= new ListBuilder<Photo>();
-  set results(ListBuilder<Photo> results) => _$this._results = results;
+  set results(ListBuilder<Photo>? results) => _$this._results = results;
 
   SearchBuilder();
 
@@ -134,7 +134,7 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
   }
 
   @override
-  void update(void Function(SearchBuilder) updates) {
+  void update(void Function(SearchBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -148,7 +148,7 @@ class SearchBuilder implements Builder<Search, SearchBuilder> {
                   query, 'Search', 'query'),
               results: results.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'results';
         results.build();

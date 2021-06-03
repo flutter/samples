@@ -19,20 +19,23 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
   final String wireName = 'ApiError';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, ApiError object,
+  Iterable<Object?> serialize(Serializers serializers, ApiError object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'errors',
-      serializers.serialize(object.errors,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(String)])),
-    ];
-
+    final result = <Object?>[];
+    Object? value;
+    value = object.errors;
+    if (value != null) {
+      result
+        ..add('errors')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
     return result;
   }
 
   @override
-  ApiError deserialize(Serializers serializers, Iterable<Object> serialized,
+  ApiError deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new ApiErrorBuilder();
 
@@ -40,12 +43,12 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'errors':
           result.errors.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
               as BuiltList<Object>);
           break;
       }
@@ -57,14 +60,12 @@ class _$ApiErrorSerializer implements StructuredSerializer<ApiError> {
 
 class _$ApiError extends ApiError {
   @override
-  final BuiltList<String> errors;
+  final BuiltList<String>? errors;
 
-  factory _$ApiError([void Function(ApiErrorBuilder) updates]) =>
+  factory _$ApiError([void Function(ApiErrorBuilder)? updates]) =>
       (new ApiErrorBuilder()..update(updates)).build();
 
-  _$ApiError._({this.errors}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(errors, 'ApiError', 'errors');
-  }
+  _$ApiError._({this.errors}) : super._();
 
   @override
   ApiError rebuild(void Function(ApiErrorBuilder) updates) =>
@@ -92,19 +93,19 @@ class _$ApiError extends ApiError {
 }
 
 class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
-  _$ApiError _$v;
+  _$ApiError? _$v;
 
-  ListBuilder<String> _errors;
+  ListBuilder<String>? _errors;
   ListBuilder<String> get errors =>
       _$this._errors ??= new ListBuilder<String>();
-  set errors(ListBuilder<String> errors) => _$this._errors = errors;
+  set errors(ListBuilder<String>? errors) => _$this._errors = errors;
 
   ApiErrorBuilder();
 
   ApiErrorBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _errors = $v.errors.toBuilder();
+      _errors = $v.errors?.toBuilder();
       _$v = null;
     }
     return this;
@@ -117,7 +118,7 @@ class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
   }
 
   @override
-  void update(void Function(ApiErrorBuilder) updates) {
+  void update(void Function(ApiErrorBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -125,12 +126,12 @@ class ApiErrorBuilder implements Builder<ApiError, ApiErrorBuilder> {
   _$ApiError build() {
     _$ApiError _$result;
     try {
-      _$result = _$v ?? new _$ApiError._(errors: errors.build());
+      _$result = _$v ?? new _$ApiError._(errors: _errors?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'errors';
-        errors.build();
+        _errors?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'ApiError', _$failedField, e.toString());

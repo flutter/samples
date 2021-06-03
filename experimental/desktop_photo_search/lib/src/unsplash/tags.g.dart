@@ -19,9 +19,9 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
   final String wireName = 'Tags';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Tags object,
+  Iterable<Object?> serialize(Serializers serializers, Tags object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'title',
       serializers.serialize(object.title,
           specifiedType: const FullType(String)),
@@ -31,7 +31,7 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
   }
 
   @override
-  Tags deserialize(Serializers serializers, Iterable<Object> serialized,
+  Tags deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new TagsBuilder();
 
@@ -39,7 +39,7 @@ class _$TagsSerializer implements StructuredSerializer<Tags> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'title':
           result.title = serializers.deserialize(value,
@@ -56,10 +56,10 @@ class _$Tags extends Tags {
   @override
   final String title;
 
-  factory _$Tags([void Function(TagsBuilder) updates]) =>
+  factory _$Tags([void Function(TagsBuilder)? updates]) =>
       (new TagsBuilder()..update(updates)).build();
 
-  _$Tags._({this.title}) : super._() {
+  _$Tags._({required this.title}) : super._() {
     BuiltValueNullFieldError.checkNotNull(title, 'Tags', 'title');
   }
 
@@ -89,11 +89,11 @@ class _$Tags extends Tags {
 }
 
 class TagsBuilder implements Builder<Tags, TagsBuilder> {
-  _$Tags _$v;
+  _$Tags? _$v;
 
-  String _title;
-  String get title => _$this._title;
-  set title(String title) => _$this._title = title;
+  String? _title;
+  String? get title => _$this._title;
+  set title(String? title) => _$this._title = title;
 
   TagsBuilder();
 
@@ -113,7 +113,7 @@ class TagsBuilder implements Builder<Tags, TagsBuilder> {
   }
 
   @override
-  void update(void Function(TagsBuilder) updates) {
+  void update(void Function(TagsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

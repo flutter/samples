@@ -24,16 +24,16 @@ class _$SearchPhotosResponseSerializer
   final String wireName = 'SearchPhotosResponse';
 
   @override
-  Iterable<Object> serialize(
+  Iterable<Object?> serialize(
       Serializers serializers, SearchPhotosResponse object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'results',
       serializers.serialize(object.results,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Photo)])),
     ];
-    Object value;
+    Object? value;
     value = object.total;
     if (value != null) {
       result
@@ -51,7 +51,7 @@ class _$SearchPhotosResponseSerializer
 
   @override
   SearchPhotosResponse deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new SearchPhotosResponseBuilder();
 
@@ -59,7 +59,7 @@ class _$SearchPhotosResponseSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,
@@ -72,7 +72,7 @@ class _$SearchPhotosResponseSerializer
         case 'results':
           result.results.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(Photo)]))
+                      const FullType(BuiltList, const [const FullType(Photo)]))!
               as BuiltList<Object>);
           break;
       }
@@ -84,17 +84,17 @@ class _$SearchPhotosResponseSerializer
 
 class _$SearchPhotosResponse extends SearchPhotosResponse {
   @override
-  final int total;
+  final int? total;
   @override
-  final int totalPages;
+  final int? totalPages;
   @override
   final BuiltList<Photo> results;
 
   factory _$SearchPhotosResponse(
-          [void Function(SearchPhotosResponseBuilder) updates]) =>
+          [void Function(SearchPhotosResponseBuilder)? updates]) =>
       (new SearchPhotosResponseBuilder()..update(updates)).build();
 
-  _$SearchPhotosResponse._({this.total, this.totalPages, this.results})
+  _$SearchPhotosResponse._({this.total, this.totalPages, required this.results})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         results, 'SearchPhotosResponse', 'results');
@@ -136,20 +136,20 @@ class _$SearchPhotosResponse extends SearchPhotosResponse {
 
 class SearchPhotosResponseBuilder
     implements Builder<SearchPhotosResponse, SearchPhotosResponseBuilder> {
-  _$SearchPhotosResponse _$v;
+  _$SearchPhotosResponse? _$v;
 
-  int _total;
-  int get total => _$this._total;
-  set total(int total) => _$this._total = total;
+  int? _total;
+  int? get total => _$this._total;
+  set total(int? total) => _$this._total = total;
 
-  int _totalPages;
-  int get totalPages => _$this._totalPages;
-  set totalPages(int totalPages) => _$this._totalPages = totalPages;
+  int? _totalPages;
+  int? get totalPages => _$this._totalPages;
+  set totalPages(int? totalPages) => _$this._totalPages = totalPages;
 
-  ListBuilder<Photo> _results;
+  ListBuilder<Photo>? _results;
   ListBuilder<Photo> get results =>
       _$this._results ??= new ListBuilder<Photo>();
-  set results(ListBuilder<Photo> results) => _$this._results = results;
+  set results(ListBuilder<Photo>? results) => _$this._results = results;
 
   SearchPhotosResponseBuilder();
 
@@ -171,7 +171,7 @@ class SearchPhotosResponseBuilder
   }
 
   @override
-  void update(void Function(SearchPhotosResponseBuilder) updates) {
+  void update(void Function(SearchPhotosResponseBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -183,7 +183,7 @@ class SearchPhotosResponseBuilder
           new _$SearchPhotosResponse._(
               total: total, totalPages: totalPages, results: results.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'results';
         results.build();

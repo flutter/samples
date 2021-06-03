@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class PolicyDialog extends StatelessWidget {
-  PolicyDialog({
-    Key key,
+  const PolicyDialog({
+    Key? key,
     this.radius = 8,
   }) : super(key: key);
 
@@ -23,7 +23,7 @@ class PolicyDialog extends StatelessWidget {
         builder: (context) {
           var height = MediaQuery.of(context).size.height;
           var width = MediaQuery.of(context).size.width;
-          return Container(
+          return SizedBox(
             height: height / 4,
             width: width / 4,
             child: Column(
@@ -41,16 +41,16 @@ class PolicyDialog extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(
                     text: '• ',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
+                    style: const TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://policies.google.com/terms',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
-                            final url = 'https://policies.google.com/terms';
+                            const url = 'https://policies.google.com/terms';
                             if (await url_launcher.canLaunch(url)) {
                               await url_launcher.launch(url);
                             }
@@ -63,16 +63,16 @@ class PolicyDialog extends StatelessWidget {
                   textAlign: TextAlign.left,
                   text: TextSpan(
                     text: '• ',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
+                    style: const TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'https://unsplash.com/terms',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.lightBlue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
-                            final url = 'https://unsplash.com/terms';
+                            const url = 'https://unsplash.com/terms';
                             if (await url_launcher.canLaunch(url)) {
                               await url_launcher.launch(url);
                             }
@@ -93,7 +93,7 @@ class PolicyDialog extends StatelessWidget {
           },
           child: Text(
             'CLOSE'.toUpperCase(),
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           ),
         ),
       ],
