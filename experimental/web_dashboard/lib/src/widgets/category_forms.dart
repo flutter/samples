@@ -13,7 +13,7 @@ class NewCategoryForm extends StatefulWidget {
 }
 
 class _NewCategoryFormState extends State<NewCategoryForm> {
-  Category _category = Category('');
+  final Category _category = Category('');
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class EditCategoryForm extends StatefulWidget {
   final Category category;
   final ValueChanged<bool> onDone;
 
-  EditCategoryForm({
+  const EditCategoryForm({
     @required this.category,
     @required this.onDone,
   });
@@ -57,7 +57,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               initialValue: widget.category.name,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Name',
               ),
               onChanged: (newValue) {
@@ -77,7 +77,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: ElevatedButton(
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                   onPressed: () {
                     widget.onDone(false);
                   },
@@ -86,7 +86,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: ElevatedButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
                       widget.onDone(true);

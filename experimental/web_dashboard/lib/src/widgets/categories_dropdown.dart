@@ -13,7 +13,7 @@ class CategoryDropdown extends StatefulWidget {
   final CategoryApi api;
   final ValueChanged<Category> onSelected;
 
-  CategoryDropdown({
+  const CategoryDropdown({
     @required this.api,
     @required this.onSelected,
   });
@@ -27,6 +27,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
   Future<List<Category>> _future;
   Stream<List<Category>> _stream;
 
+  @override
   void initState() {
     super.initState();
 
@@ -69,7 +70,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
       builder: (context, futureSnapshot) {
         // Show an empty dropdown while the data is loading.
         if (!futureSnapshot.hasData) {
-          return DropdownButton<Category>(items: [], onChanged: null);
+          return DropdownButton<Category>(items: const [], onChanged: null);
         }
 
         return StreamBuilder<List<Category>>(

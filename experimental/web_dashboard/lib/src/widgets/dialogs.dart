@@ -14,7 +14,7 @@ class NewCategoryDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text('New Category'),
+      title: const Text('New Category'),
       children: <Widget>[
         NewCategoryForm(),
       ],
@@ -25,7 +25,7 @@ class NewCategoryDialog extends StatelessWidget {
 class EditCategoryDialog extends StatelessWidget {
   final Category category;
 
-  EditCategoryDialog({
+  const EditCategoryDialog({
     @required this.category,
   });
 
@@ -34,7 +34,7 @@ class EditCategoryDialog extends StatelessWidget {
     var api = Provider.of<AppState>(context).api;
 
     return SimpleDialog(
-      title: Text('Edit Category'),
+      title: const Text('Edit Category'),
       children: [
         EditCategoryForm(
           category: category,
@@ -59,7 +59,7 @@ class _NewEntryDialogState extends State<NewEntryDialog> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text('New Entry'),
+      title: const Text('New Entry'),
       children: [
         NewEntryForm(),
       ],
@@ -71,7 +71,7 @@ class EditEntryDialog extends StatelessWidget {
   final Category category;
   final Entry entry;
 
-  EditEntryDialog({
+  const EditEntryDialog({
     this.category,
     this.entry,
   });
@@ -81,7 +81,7 @@ class EditEntryDialog extends StatelessWidget {
     var api = Provider.of<AppState>(context).api;
 
     return SimpleDialog(
-      title: Text('Edit Entry'),
+      title: const Text('Edit Entry'),
       children: [
         EditEntryForm(
           entry: entry,

@@ -29,7 +29,7 @@ class _EntriesPageState extends State<EntriesPage> {
             onSelected: (category) => setState(() => _selected = category)),
         Expanded(
           child: _selected == null
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : EntriesList(
                   category: _selected,
                   api: appState.api.entries,
@@ -89,7 +89,7 @@ class _EntriesListState extends State<EntriesList> {
   }
 
   Widget _buildLoadingIndicator() {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 }
 
@@ -97,7 +97,7 @@ class EntryTile extends StatelessWidget {
   final Category category;
   final Entry entry;
 
-  EntryTile({
+  const EntryTile({
     this.category,
     this.entry,
   });
@@ -111,7 +111,7 @@ class EntryTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextButton(
-            child: Text('Edit'),
+            child: const Text('Edit'),
             onPressed: () {
               showDialog<void>(
                 context: context,
@@ -122,19 +122,19 @@ class EntryTile extends StatelessWidget {
             },
           ),
           TextButton(
-            child: Text('Delete'),
+            child: const Text('Delete'),
             onPressed: () async {
               var shouldDelete = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text('Delete entry?'),
+                  title: const Text('Delete entry?'),
                   actions: [
                     TextButton(
-                      child: Text('Cancel'),
+                      child: const Text('Cancel'),
                       onPressed: () => Navigator.of(context).pop(false),
                     ),
                     TextButton(
-                      child: Text('Delete'),
+                      child: const Text('Delete'),
                       onPressed: () => Navigator.of(context).pop(true),
                     ),
                   ],
@@ -147,7 +147,7 @@ class EntryTile extends StatelessWidget {
                     .delete(category.id, entry.id);
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Entry deleted'),
                   ),
                 );

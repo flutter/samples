@@ -12,7 +12,7 @@ import 'entries.dart';
 class HomePage extends StatefulWidget {
   final VoidCallback onSignOut;
 
-  HomePage({
+  const HomePage({
     @required this.onSignOut,
   });
 
@@ -26,19 +26,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
-      title: Text('Dashboard App'),
+      title: const Text('Dashboard App'),
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
             style: TextButton.styleFrom(primary: Colors.white),
             onPressed: () => _handleSignOut(),
-            child: Text('Sign Out'),
+            child: const Text('Sign Out'),
           ),
         )
       ],
       currentIndex: _pageIndex,
-      destinations: [
+      destinations: const [
         AdaptiveScaffoldDestination(title: 'Home', icon: Icons.home),
         AdaptiveScaffoldDestination(title: 'Entries', icon: Icons.list),
         AdaptiveScaffoldDestination(title: 'Settings', icon: Icons.settings),
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
 
   FloatingActionButton _buildFab(BuildContext context) {
     return FloatingActionButton(
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
       onPressed: () => _handleFabPressed(),
     );
   }
@@ -88,16 +88,16 @@ class _HomePageState extends State<HomePage> {
     var shouldSignOut = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Are you sure you want to sign out?'),
+        title: const Text('Are you sure you want to sign out?'),
         actions: [
           TextButton(
-            child: Text('No'),
+            child: const Text('No'),
             onPressed: () {
               Navigator.of(context).pop(false);
             },
           ),
           TextButton(
-            child: Text('Yes'),
+            child: const Text('Yes'),
             onPressed: () {
               Navigator.of(context).pop(true);
             },
@@ -122,6 +122,6 @@ class _HomePageState extends State<HomePage> {
       return EntriesPage();
     }
 
-    return Center(child: Text('Settings page'));
+    return const Center(child: Text('Settings page'));
   }
 }

@@ -17,7 +17,7 @@ class NewEntryForm extends StatefulWidget {
 
 class _NewEntryFormState extends State<NewEntryForm> {
   Category _selected;
-  Entry _entry = Entry(0, DateTime.now());
+  final Entry _entry = Entry(0, DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class EditEntryForm extends StatefulWidget {
   final Entry entry;
   final ValueChanged<bool> onDone;
 
-  EditEntryForm({
+  const EditEntryForm({
     @required this.entry,
     @required this.onDone,
   });
@@ -75,10 +75,10 @@ class _EditEntryFormState extends State<EditEntryForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: TextFormField(
               initialValue: widget.entry.value.toString(),
-              decoration: InputDecoration(labelText: 'Value'),
+              decoration: const InputDecoration(labelText: 'Value'),
               keyboardType: TextInputType.number,
               validator: (value) {
                 try {
@@ -98,18 +98,19 @@ class _EditEntryFormState extends State<EditEntryForm> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(intl.DateFormat('MM/dd/yyyy').format(widget.entry.time)),
                 ElevatedButton(
-                  child: Text('Edit'),
+                  child: const Text('Edit'),
                   onPressed: () async {
                     var result = await showDatePicker(
                         context: context,
                         initialDate: widget.entry.time,
-                        firstDate: DateTime.now().subtract(Duration(days: 365)),
+                        firstDate:
+                            DateTime.now().subtract(const Duration(days: 365)),
                         lastDate: DateTime.now());
                     if (result == null) {
                       return;
@@ -128,7 +129,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: ElevatedButton(
-                  child: Text('Cancel'),
+                  child: const Text('Cancel'),
                   onPressed: () {
                     widget.onDone(false);
                   },
@@ -137,7 +138,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: ElevatedButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
                       widget.onDone(true);
