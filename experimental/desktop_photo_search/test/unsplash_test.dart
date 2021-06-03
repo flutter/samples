@@ -284,8 +284,7 @@ void main() {
         httpClient: httpClient,
       );
 
-      final response = await (unsplashClient.searchPhotos(query: 'red')
-          as FutureOr<SearchPhotosResponse>);
+      final response = (await unsplashClient.searchPhotos(query: 'red'))!;
 
       expect(response.total, 133);
       expect(response.totalPages, 7);
@@ -527,8 +526,7 @@ void main() {
       httpClient: httpClient,
     );
 
-    final response = await (unsplashClient.searchPhotos(query: 'red')
-        as FutureOr<SearchPhotosResponse>);
+    final response = (await unsplashClient.searchPhotos(query: 'red'))!;
 
     expect(response.total, 22395);
     expect(response.totalPages, 2240);
