@@ -10,7 +10,7 @@ import 'package:veggieseasons/screens/search.dart';
 import 'package:veggieseasons/screens/settings.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key key, this.restorationId}) : super(key: key);
+  const HomeScreen({Key key, this.restorationId}) : super(key: key);
 
   final String restorationId;
 
@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       restorationId: restorationId,
       child: CupertinoTabScaffold(
         restorationId: 'scaffold',
-        tabBar: CupertinoTabBar(items: [
+        tabBar: CupertinoTabBar(items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
             label: 'Home',
@@ -40,13 +40,13 @@ class HomeScreen extends StatelessWidget {
         ]),
         tabBuilder: (context, index) {
           if (index == 0) {
-            return ListScreen(restorationId: 'list');
+            return const ListScreen(restorationId: 'list');
           } else if (index == 1) {
-            return FavoritesScreen(restorationId: 'favorites');
+            return const FavoritesScreen(restorationId: 'favorites');
           } else if (index == 2) {
-            return SearchScreen(restorationId: 'search');
+            return const SearchScreen(restorationId: 'search');
           } else {
-            return SettingsScreen(restorationId: 'settings');
+            return const SettingsScreen(restorationId: 'settings');
           }
         },
       ),

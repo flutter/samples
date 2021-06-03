@@ -22,7 +22,7 @@ class FrostedBox extends StatelessWidget {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
       child: DecoratedBox(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Styles.frostedBackground,
         ),
         child: child,
@@ -117,7 +117,7 @@ class CloseButtonState extends State<CloseButton> {
             child: Center(
               child: ColorChangingIcon(
                 CupertinoIcons.clear_thick,
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 color: tapInProgress
                     ? Styles.closeButtonPressed
                     : Styles.closeButtonUnpressed,
