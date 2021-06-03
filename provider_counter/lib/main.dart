@@ -54,13 +54,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Demo Home Page'),
+        title: const Text('Flutter Demo Home Page'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button this many times:'),
+            const Text('You have pushed the button this many times:'),
             // Consumer looks for an ancestor Provider widget
             // and retrieves its model (Counter, in this case).
             // Then it uses that model to build widgets, and will trigger
@@ -96,7 +96,7 @@ class MyHomePage extends StatelessWidget {
           counter.increment();
         },
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
