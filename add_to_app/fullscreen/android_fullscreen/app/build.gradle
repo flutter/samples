@@ -18,6 +18,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig debug.signingConfig
         }
     }
     compileOptions {
