@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Platform Channel Sample'),
+        title: const Text('Platform Channel Sample'),
       ),
       body: ListView(
         children: demoList.map((demoInfo) => DemoTile(demoInfo)).toList(),
@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final DemoInfo demoInfo;
 
-  DemoTile(this.demoInfo);
+  const DemoTile(this.demoInfo);
 
   @override
   Widget build(BuildContext context) {

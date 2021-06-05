@@ -4,7 +4,7 @@ homepage: https://github.com/flutter/samples_index
 author: Flutter Team <flutter-dev@googlegroups.com>
 version: 0.0.1
 environment:
-  sdk: '>=2.5.0 <3.0.0'
+  sdk: ">=2.5.0 <3.0.0"
 dependencies:
   json_annotation: ^3.0.0
   path: ^1.6.0
@@ -16,7 +16,7 @@ dependencies:
   html: ^0.14.0
 dev_dependencies:
   grinder: ^0.8.3
-  pedantic: ^1.9.0
+  flutter_lints: ^1.0.0
   test: ^1.6.0
   json_serializable: ^3.2.0
   build: ^1.2.0

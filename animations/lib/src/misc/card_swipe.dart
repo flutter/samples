@@ -35,7 +35,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Swipe'),
+        title: const Text('Card Swipe'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -78,7 +78,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
 class Card extends StatelessWidget {
   final String imageAssetName;
 
-  Card(this.imageAssetName);
+  const Card(this.imageAssetName);
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class SwipeableCard extends StatefulWidget {
   final String imageAssetName;
   final VoidCallback onSwiped;
 
-  SwipeableCard({
+  const SwipeableCard({
     required this.onSwiped,
     required this.imageAssetName,
   });
@@ -123,7 +123,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     _controller = AnimationController.unbounded(vsync: this);
     _animation = _controller.drive(Tween<Offset>(
       begin: Offset.zero,
-      end: Offset(1, 0),
+      end: const Offset(1, 0),
     ));
   }
 
@@ -184,12 +184,13 @@ class _SwipeableCardState extends State<SwipeableCard>
   void _updateAnimation(double dragPosition) {
     _animation = _controller.drive(Tween<Offset>(
       begin: Offset.zero,
-      end: _isSwipingLeft ? Offset(-1, 0) : Offset(1, 0),
+      end: _isSwipingLeft ? const Offset(-1, 0) : const Offset(1, 0),
     ));
   }
 
   void _animate({double velocity = 0}) {
-    var description = SpringDescription(mass: 50, stiffness: 1, damping: 1);
+    var description =
+        const SpringDescription(mass: 50, stiffness: 1, damping: 1);
     var simulation =
         SpringSimulation(description, _controller.value, 1, velocity);
     _controller.animateWith(simulation).then<void>((_) {

@@ -10,7 +10,7 @@ const ansiMagenta = 35;
 
 Future<bool> run(
     String workingDir, String commandName, List<String> args) async {
-  var commandDescription = '`${([commandName]..addAll(args)).join(' ')}`';
+  var commandDescription = '`${([commandName, ...args]).join(' ')}`';
 
   logWrapped(ansiMagenta, '  Running $commandDescription');
 

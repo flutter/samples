@@ -7,6 +7,7 @@ import 'dart:math';
 import 'auth.dart';
 
 class MockAuthService implements Auth {
+  @override
   Future<bool> get isSignedIn async => false;
 
   @override
@@ -26,5 +27,6 @@ class MockAuthService implements Auth {
 }
 
 class MockUser implements User {
+  @override
   String get uid => "123";
 }

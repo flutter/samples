@@ -10,7 +10,7 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  FavoritesScreen({this.restorationId, Key key}) : super(key: key);
+  const FavoritesScreen({this.restorationId, Key key}) : super(key: key);
 
   final String restorationId;
 
@@ -22,7 +22,7 @@ class FavoritesScreen extends StatelessWidget {
         final model = Provider.of<AppState>(context);
 
         return CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
+          navigationBar: const CupertinoNavigationBar(
             middle: Text('My Garden'),
           ),
           child: Center(
@@ -37,10 +37,10 @@ class FavoritesScreen extends StatelessWidget {
                 : ListView(
                     restorationId: 'list',
                     children: [
-                      SizedBox(height: 24),
+                      const SizedBox(height: 24),
                       for (Veggie veggie in model.favoriteVeggies)
                         Padding(
-                          padding: EdgeInsets.fromLTRB(16, 0, 16, 24),
+                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
                           child: VeggieHeadline(veggie),
                         ),
                     ],

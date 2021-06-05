@@ -11,7 +11,8 @@ void main() {
   group('Platform Image Demo tests', () {
     setUpAll(() {
       // Register a mock for MessageHandler.
-      BasicMessageChannel<dynamic>('platformImageDemo', StandardMessageCodec())
+      const BasicMessageChannel<dynamic>(
+              'platformImageDemo', StandardMessageCodec())
           .setMockMessageHandler((dynamic message) async {
         var byteData = await rootBundle.load('assets/eat_new_orleans.jpg');
         return byteData.buffer.asUint8List();

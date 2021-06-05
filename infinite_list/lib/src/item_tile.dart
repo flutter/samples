@@ -11,7 +11,7 @@ import 'api/item.dart';
 class ItemTile extends StatelessWidget {
   final Item item;
 
-  ItemTile({required this.item, Key? key}) : super(key: key);
+  const ItemTile({required this.item, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +41,12 @@ class LoadingItemTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
-        leading: AspectRatio(
+        leading: const AspectRatio(
           aspectRatio: 1,
           child: Placeholder(),
         ),
         title: Text('...', style: Theme.of(context).textTheme.headline6),
-        trailing: Text('\$ ...'),
+        trailing: const Text('\$ ...'),
       ),
     );
   }

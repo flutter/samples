@@ -26,14 +26,14 @@ class AppState {
 /// Creates a [DashboardApi] for the given user. This allows users of this
 /// widget to specify whether [MockDashboardApi] or [ApiBuilder] should be
 /// created when the user logs in.
-typedef DashboardApi ApiBuilder(User user);
+typedef ApiBuilder = DashboardApi Function(User user);
 
 /// An app that displays a personalized dashboard.
 class DashboardApp extends StatefulWidget {
-  static ApiBuilder _mockApiBuilder =
-      (user) => MockDashboardApi()..fillWithMockData();
-  static ApiBuilder _apiBuilder =
-      (user) => FirebaseDashboardApi(Firestore.instance, user.uid);
+  static DashboardApi _mockApiBuilder(User user) =>
+      MockDashboardApi()..fillWithMockData();
+  static DashboardApi _apiBuilder(User user) =>
+      FirebaseDashboardApi(Firestore.instance, user.uid);
 
   final Auth auth;
   final ApiBuilder apiBuilder;
@@ -55,6 +55,7 @@ class DashboardApp extends StatefulWidget {
 class _DashboardAppState extends State<DashboardApp> {
   AppState _appState;
 
+  @override
   void initState() {
     super.initState();
     _appState = AppState(widget.auth);
@@ -80,7 +81,7 @@ class SignInSwitcher extends StatefulWidget {
   final AppState appState;
   final ApiBuilder apiBuilder;
 
-  SignInSwitcher({
+  const SignInSwitcher({
     this.appState,
     this.apiBuilder,
   });
@@ -97,7 +98,7 @@ class _SignInSwitcherState extends State<SignInSwitcher> {
     return AnimatedSwitcher(
       switchInCurve: Curves.easeOut,
       switchOutCurve: Curves.easeOut,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       child: _isSignedIn
           ? HomePage(
               onSignOut: _handleSignOut,

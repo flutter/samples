@@ -76,7 +76,7 @@ class InfiniteProcessPage extends StatelessWidget {
                     inactiveTrackColor: Colors.deepOrangeAccent,
                     inactiveThumbColor: Colors.black,
                   ),
-                  Text('Pause/Resume'),
+                  const Text('Pause/Resume'),
                 ],
               ),
               Row(
@@ -207,7 +207,7 @@ class RunningList extends StatelessWidget {
                     ? Colors.lightGreenAccent
                     : Colors.deepOrangeAccent,
               ),
-              Divider(
+              const Divider(
                 color: Colors.blue,
                 height: 3,
               ),

@@ -24,7 +24,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
 
     _curve = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
@@ -45,7 +45,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Fade Transition',
         ),
       ),
@@ -55,14 +55,14 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
           children: <Widget>[
             FadeTransition(
               opacity: _animation,
-              child: Icon(
+              child: const Icon(
                 Icons.star,
                 color: Colors.amber,
                 size: 300,
               ),
             ),
             ElevatedButton(
-              child: Text('animate'),
+              child: const Text('animate'),
               onPressed: () => setState(() {
                 _controller.animateTo(1.0).then<TickerFuture>(
                     (value) => _controller.animateBack(0.0));

@@ -12,31 +12,27 @@ import '../serializers.dart';
 part 'links.g.dart';
 
 abstract class Links implements Built<Links, LinksBuilder> {
-  factory Links([void Function(LinksBuilder) updates]) = _$Links;
+  factory Links([void Function(LinksBuilder)? updates]) = _$Links;
 
   Links._();
 
-  @nullable
   @BuiltValueField(wireName: 'self')
-  String get self;
+  String? get self;
 
-  @nullable
   @BuiltValueField(wireName: 'html')
-  String get html;
+  String? get html;
 
-  @nullable
   @BuiltValueField(wireName: 'download')
-  String get download;
+  String? get download;
 
-  @nullable
   @BuiltValueField(wireName: 'download_location')
-  String get downloadLocation;
+  String? get downloadLocation;
 
   String toJson() {
     return json.encode(serializers.serializeWith(Links.serializer, this));
   }
 
-  static Links fromJson(String jsonString) {
+  static Links? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Links.serializer, json.decode(jsonString));
   }

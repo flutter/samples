@@ -24,15 +24,12 @@ import 'package:flutter/material.dart';
 class Split extends StatefulWidget {
   /// Builds a split oriented along [axis].
   const Split({
-    Key key,
-    @required this.axis,
-    @required this.firstChild,
-    @required this.secondChild,
-    double initialFirstFraction,
+    Key? key,
+    required this.axis,
+    required this.firstChild,
+    required this.secondChild,
+    double? initialFirstFraction,
   })  : initialFirstFraction = initialFirstFraction ?? 0.5,
-        assert(axis != null),
-        assert(firstChild != null),
-        assert(secondChild != null),
         super(key: key);
 
   /// The main axis the children will lay out on.
@@ -81,7 +78,7 @@ class Split extends StatefulWidget {
 }
 
 class _SplitState extends State<Split> {
-  double firstFraction;
+  late double firstFraction;
 
   double get secondFraction => 1 - firstFraction;
 
@@ -111,9 +108,8 @@ class _SplitState extends State<Split> {
     var secondSize = axisSize * secondFraction;
 
     // Clamp the sizes to be sure there is enough space for the dividers.
-    firstSize = firstSize.clamp(halfDivider, axisSize - halfDivider) as double;
-    secondSize =
-        secondSize.clamp(halfDivider, axisSize - halfDivider) as double;
+    firstSize = firstSize.clamp(halfDivider, axisSize - halfDivider);
+    secondSize = secondSize.clamp(halfDivider, axisSize - halfDivider);
 
     // Remove space from each child to place the divider in the middle.
     firstSize = firstSize - halfDivider;
@@ -126,7 +122,7 @@ class _SplitState extends State<Split> {
         // Update the fraction of space consumed by the children,
         // being sure not to allocate any negative space.
         firstFraction += fractionalDelta;
-        firstFraction = firstFraction.clamp(0.0, 1.0) as double;
+        firstFraction = firstFraction.clamp(0.0, 1.0);
       });
     }
 

@@ -151,7 +151,7 @@ class HomePage extends StatelessWidget {
     final headerStyle = Theme.of(context).textTheme.headline6;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animation Samples'),
+        title: const Text('Animation Samples'),
       ),
       body: ListView(
         children: [
@@ -168,7 +168,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final Demo demo;
 
-  DemoTile(this.demo);
+  const DemoTile(this.demo);
 
   @override
   Widget build(BuildContext context) {

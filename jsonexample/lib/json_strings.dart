@@ -3,22 +3,22 @@
 // found in the LICENSE file.
 
 abstract class JsonStrings {
-  static final String listOfInts = '[1, 2, 3]';
+  static const listOfInts = '[1, 2, 3]';
 
-  static final String listOfDoubles = '[1.0, 2.0, 3.0]';
+  static const listOfDoubles = '[1.0, 2.0, 3.0]';
 
-  static final String listOfStrings = '["one", "two", "three"]';
+  static const listOfStrings = '["one", "two", "three"]';
 
-  static final String listOfDynamics = '[1, "two", 3.0]';
+  static const listOfDynamics = '[1, "two", 3.0]';
 
-  static final String mapOfDynamics = '''
+  static const mapOfDynamics = '''
   {
     "anInt": 1,
     "aString": "Blah, blah, blah.",
     "aDouble": 1.0
   }''';
 
-  static final String listOfSimpleObjects = '''
+  static const listOfSimpleObjects = '''
   [
     {
       "aString": "Blah, blah, blah.",
@@ -97,7 +97,7 @@ abstract class JsonStrings {
   ]
   ''';
 
-  static final List<String> simpleObjects = [
+  static final simpleObjects = [
     '''
   {
     "aString": "Blah, blah, blah.",
@@ -184,7 +184,7 @@ abstract class JsonStrings {
   }''',
   ];
 
-  static final List<String> complexObjects = [
+  static final complexObjects = [
     '''
   {
     "aString": "Blah, blah, blah.",

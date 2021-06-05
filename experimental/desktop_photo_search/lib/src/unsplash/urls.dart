@@ -12,35 +12,30 @@ import '../serializers.dart';
 part 'urls.g.dart';
 
 abstract class Urls implements Built<Urls, UrlsBuilder> {
-  factory Urls([void Function(UrlsBuilder b) updates]) = _$Urls;
+  factory Urls([void Function(UrlsBuilder b)? updates]) = _$Urls;
 
   Urls._();
 
-  @nullable
   @BuiltValueField(wireName: 'raw')
-  String get raw;
+  String? get raw;
 
-  @nullable
   @BuiltValueField(wireName: 'full')
-  String get full;
+  String? get full;
 
-  @nullable
   @BuiltValueField(wireName: 'regular')
-  String get regular;
+  String? get regular;
 
-  @nullable
   @BuiltValueField(wireName: 'small')
-  String get small;
+  String? get small;
 
-  @nullable
   @BuiltValueField(wireName: 'thumb')
-  String get thumb;
+  String? get thumb;
 
   String toJson() {
     return json.encode(serializers.serializeWith(Urls.serializer, this));
   }
 
-  static Urls fromJson(String jsonString) {
+  static Urls? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Urls.serializer, json.decode(jsonString));
   }

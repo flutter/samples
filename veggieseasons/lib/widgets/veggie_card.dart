@@ -105,7 +105,7 @@ class _PressableCardState extends State<PressableCard> {
 }
 
 class VeggieCard extends StatelessWidget {
-  VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory);
+  const VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory);
 
   /// Veggie to be displayed by the card.
   final Veggie veggie;
@@ -120,7 +120,7 @@ class VeggieCard extends StatelessWidget {
   Widget _buildDetails(BuildContext context) {
     final themeData = CupertinoTheme.of(context);
     return FrostyBackground(
-      color: Color(0x90ffffff),
+      color: const Color(0x90ffffff),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

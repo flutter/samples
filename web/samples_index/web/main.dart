@@ -37,13 +37,13 @@ void main() {
     }));
 
   // Filter cards on each keypress
-  searchBar.listen('keydown', (Event e) async {
+  searchBar.listen('keydown', (e) async {
     await Future(() {});
     handleSearch();
   });
 
   // Update the URL only when the user is done typing in the search bar
-  searchBar.listen('change', (Event e) {
+  searchBar.listen('change', (e) {
     queryParams[searchKey] = searchBar.value;
     updateHash();
   });
@@ -58,7 +58,7 @@ void main() {
 
   // Initialize chips
   chipSet = MDCChipSet(querySelector('.mdc-chip-set'));
-  chipSet.listen('MDCChip:selection', (Event e) {
+  chipSet.listen('MDCChip:selection', (e) {
     // Get the query parameters for this chip
     var selectedChipIndex = chipSet.chips.indexWhere((chip) => chip.selected);
     var chipParams = paramsForChip(selectedChipIndex);

@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home page'),
+        title: const Text('Home page'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     'Button tapped $_counter time${_counter == 1 ? '' : 's'}.',
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   ElevatedButton(
                     child: const Text('Continue in iOS view'),
                     onPressed: _launchPlatformCount,
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(bottom: 15, left: 5),
             child: Row(
               children: [
-                FlutterLogo(),
+                const FlutterLogo(),
                 Text(
                   'Flutter',
                   style: Theme.of(context).textTheme.headline5,

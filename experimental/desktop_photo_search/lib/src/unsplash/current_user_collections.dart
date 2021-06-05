@@ -14,7 +14,7 @@ part 'current_user_collections.g.dart';
 abstract class CurrentUserCollections
     implements Built<CurrentUserCollections, CurrentUserCollectionsBuilder> {
   factory CurrentUserCollections(
-          [void Function(CurrentUserCollectionsBuilder) updates]) =
+          [void Function(CurrentUserCollectionsBuilder)? updates]) =
       _$CurrentUserCollections;
 
   CurrentUserCollections._();
@@ -22,24 +22,21 @@ abstract class CurrentUserCollections
   @BuiltValueField(wireName: 'id')
   int get id;
 
-  @nullable
   @BuiltValueField(wireName: 'title')
-  String get title;
+  String? get title;
 
-  @nullable
   @BuiltValueField(wireName: 'published_at')
-  String get publishedAt;
+  String? get publishedAt;
 
-  @nullable
   @BuiltValueField(wireName: 'updated_at')
-  String get updatedAt;
+  String? get updatedAt;
 
   String toJson() {
     return json.encode(
         serializers.serializeWith(CurrentUserCollections.serializer, this));
   }
 
-  static CurrentUserCollections fromJson(String jsonString) {
+  static CurrentUserCollections? fromJson(String jsonString) {
     return serializers.deserializeWith(
         CurrentUserCollections.serializer, json.decode(jsonString));
   }

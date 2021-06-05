@@ -22,7 +22,7 @@ class CarouselDemo extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Carousel Demo'),
+        title: const Text('Carousel Demo'),
       ),
       body: Center(
         child: Padding(

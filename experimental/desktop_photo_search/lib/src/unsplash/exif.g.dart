@@ -19,10 +19,10 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
   final String wireName = 'Exif';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Exif object,
+  Iterable<Object?> serialize(Serializers serializers, Exif object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    Object value;
+    final result = <Object?>[];
+    Object? value;
     value = object.make;
     if (value != null) {
       result
@@ -68,7 +68,7 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
   }
 
   @override
-  Exif deserialize(Serializers serializers, Iterable<Object> serialized,
+  Exif deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new ExifBuilder();
 
@@ -76,7 +76,7 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'make':
           result.make = serializers.deserialize(value,
@@ -111,19 +111,19 @@ class _$ExifSerializer implements StructuredSerializer<Exif> {
 
 class _$Exif extends Exif {
   @override
-  final String make;
+  final String? make;
   @override
-  final String model;
+  final String? model;
   @override
-  final String exposureTime;
+  final String? exposureTime;
   @override
-  final String aperture;
+  final String? aperture;
   @override
-  final String focalLength;
+  final String? focalLength;
   @override
-  final int iso;
+  final int? iso;
 
-  factory _$Exif([void Function(ExifBuilder) updates]) =>
+  factory _$Exif([void Function(ExifBuilder)? updates]) =>
       (new ExifBuilder()..update(updates)).build();
 
   _$Exif._(
@@ -180,31 +180,31 @@ class _$Exif extends Exif {
 }
 
 class ExifBuilder implements Builder<Exif, ExifBuilder> {
-  _$Exif _$v;
+  _$Exif? _$v;
 
-  String _make;
-  String get make => _$this._make;
-  set make(String make) => _$this._make = make;
+  String? _make;
+  String? get make => _$this._make;
+  set make(String? make) => _$this._make = make;
 
-  String _model;
-  String get model => _$this._model;
-  set model(String model) => _$this._model = model;
+  String? _model;
+  String? get model => _$this._model;
+  set model(String? model) => _$this._model = model;
 
-  String _exposureTime;
-  String get exposureTime => _$this._exposureTime;
-  set exposureTime(String exposureTime) => _$this._exposureTime = exposureTime;
+  String? _exposureTime;
+  String? get exposureTime => _$this._exposureTime;
+  set exposureTime(String? exposureTime) => _$this._exposureTime = exposureTime;
 
-  String _aperture;
-  String get aperture => _$this._aperture;
-  set aperture(String aperture) => _$this._aperture = aperture;
+  String? _aperture;
+  String? get aperture => _$this._aperture;
+  set aperture(String? aperture) => _$this._aperture = aperture;
 
-  String _focalLength;
-  String get focalLength => _$this._focalLength;
-  set focalLength(String focalLength) => _$this._focalLength = focalLength;
+  String? _focalLength;
+  String? get focalLength => _$this._focalLength;
+  set focalLength(String? focalLength) => _$this._focalLength = focalLength;
 
-  int _iso;
-  int get iso => _$this._iso;
-  set iso(int iso) => _$this._iso = iso;
+  int? _iso;
+  int? get iso => _$this._iso;
+  set iso(int? iso) => _$this._iso = iso;
 
   ExifBuilder();
 
@@ -229,7 +229,7 @@ class ExifBuilder implements Builder<Exif, ExifBuilder> {
   }
 
   @override
-  void update(void Function(ExifBuilder) updates) {
+  void update(void Function(ExifBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

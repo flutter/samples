@@ -19,11 +19,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.11.0
+  flutter_lints: ^1.0.0
   flutter_launcher_icons: ^0.9.0
 
 flutter:
-
   assets:
     - assets/images/apple.jpg
     - assets/images/artichoke.jpg

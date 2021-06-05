@@ -35,7 +35,7 @@ class SongDetailTab extends StatelessWidget {
             child: HeroAnimatingSongCard(
               song: song,
               color: color,
-              heroAnimation: AlwaysStoppedAnimation(1),
+              heroAnimation: const AlwaysStoppedAnimation(1),
             ),
             // This app uses a flightShuttleBuilder to specify the exact widget
             // to build while the hero transition is mid-flight.
@@ -50,7 +50,7 @@ class SongDetailTab extends StatelessWidget {
               );
             },
           ),
-          Divider(
+          const Divider(
             height: 0,
             color: Colors.grey,
           ),
@@ -59,9 +59,8 @@ class SongDetailTab extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (context, index) {
                 if (index == 0) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, top: 16, bottom: 8),
+                  return const Padding(
+                    padding: EdgeInsets.only(left: 15, top: 16, bottom: 8),
                     child: Text(
                       'You might also like:',
                       style: TextStyle(

@@ -5,7 +5,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
 
 import '../unsplash/photo.dart';
 import '../unsplash/unsplash.dart';
@@ -25,13 +24,13 @@ class PhotoSearchModel extends ChangeNotifier {
   List<SearchEntry> get entries => List.unmodifiable(_entries);
   final List<SearchEntry> _entries = [];
 
-  Photo get selectedPhoto => _selectedPhoto;
-  set selectedPhoto(Photo photo) {
+  Photo? get selectedPhoto => _selectedPhoto;
+  set selectedPhoto(Photo? photo) {
     _selectedPhoto = photo;
     notifyListeners();
   }
 
-  Photo _selectedPhoto;
+  Photo? _selectedPhoto;
 
   Future<void> addSearch(String query) async {
     final result = await _client.searchPhotos(
@@ -41,13 +40,12 @@ class PhotoSearchModel extends ChangeNotifier {
     final search = Search((s) {
       s
         ..query = query
-        ..results.addAll(result.results);
+        ..results.addAll(result!.results);
     });
 
     _entries.add(SearchEntry(query, search.results.toList(), this));
     notifyListeners();
   }
 
-  Future<Uint8List> download({@required Photo photo}) =>
-      _client.download(photo);
+  Future<Uint8List> download({required Photo photo}) => _client.download(photo);
 }

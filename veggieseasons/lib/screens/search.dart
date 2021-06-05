@@ -11,7 +11,7 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
-  SearchScreen({this.restorationId, Key key}) : super(key: key);
+  const SearchScreen({this.restorationId, Key key}) : super(key: key);
 
   final String restorationId;
 
@@ -85,7 +85,7 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
           );
         } else {
           return Padding(
-            padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: VeggieHeadline(veggies[i - 1]),
           );
         }

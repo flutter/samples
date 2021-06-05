@@ -40,16 +40,16 @@ class _TweenDemoState extends State<TweenDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tweens'),
+        title: const Text('Tweens'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 200),
+              constraints: const BoxConstraints(maxWidth: 200),
               child: Text('\$${animation.value.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 24)),
+                  style: const TextStyle(fontSize: 24)),
             ),
             ElevatedButton(
               child: Text(

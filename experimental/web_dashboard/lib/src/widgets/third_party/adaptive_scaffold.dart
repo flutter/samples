@@ -35,7 +35,7 @@ class AdaptiveScaffold extends StatefulWidget {
   final ValueChanged<int> onNavigationIndexChange;
   final FloatingActionButton floatingActionButton;
 
-  AdaptiveScaffold({
+  const AdaptiveScaffold({
     this.title,
     this.body,
     this.actions = const [],

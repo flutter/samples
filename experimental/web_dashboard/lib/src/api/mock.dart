@@ -20,11 +20,11 @@ class MockDashboardApi implements DashboardApi {
 
   /// Creates a [MockDashboardApi] filled with mock data for the last 30 days.
   Future<void> fillWithMockData() async {
-    await Future<void>.delayed(Duration(seconds: 1));
+    await Future<void>.delayed(const Duration(seconds: 1));
     var category1 = await categories.insert(Category('Coffee (oz)'));
     var category2 = await categories.insert(Category('Running (miles)'));
     var category3 = await categories.insert(Category('Git Commits'));
-    var monthAgo = DateTime.now().subtract(Duration(days: 30));
+    var monthAgo = DateTime.now().subtract(const Duration(days: 30));
 
     for (var category in [category1, category2, category3]) {
       for (var i = 0; i < 30; i++) {
@@ -37,8 +37,8 @@ class MockDashboardApi implements DashboardApi {
 }
 
 class MockCategoryApi implements CategoryApi {
-  Map<String, Category> _storage = {};
-  StreamController<List<Category>> _streamController =
+  final Map<String, Category> _storage = {};
+  final StreamController<List<Category>> _streamController =
       StreamController<List<Category>>.broadcast();
 
   @override
@@ -74,6 +74,7 @@ class MockCategoryApi implements CategoryApi {
     return category..id = id;
   }
 
+  @override
   Stream<List<Category>> subscribe() => _streamController.stream;
 
   void _emit() {
@@ -82,8 +83,8 @@ class MockCategoryApi implements CategoryApi {
 }
 
 class MockEntryApi implements EntryApi {
-  Map<String, Entry> _storage = {};
-  StreamController<_EntriesEvent> _streamController =
+  final Map<String, Entry> _storage = {};
+  final StreamController<_EntriesEvent> _streamController =
       StreamController.broadcast();
 
   @override

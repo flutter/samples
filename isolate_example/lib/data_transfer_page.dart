@@ -43,7 +43,7 @@ class DataTransferPage extends StatelessWidget {
               'Number Generator Progress',
               style: Theme.of(context).textTheme.headline6,
             ),
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
           ),
           LinearProgressIndicator(
             value: controller.progressPercent,
@@ -213,7 +213,7 @@ class RunningList extends StatelessWidget {
                 ),
                 color: Colors.lightGreenAccent,
               ),
-              Divider(
+              const Divider(
                 color: Colors.blue,
                 height: 3,
               ),

@@ -206,7 +206,7 @@ class PlaceMapState extends State<PlaceMap> {
       // Show a confirmation snackbar that has an action to edit the new place.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          duration: Duration(seconds: 3),
+          duration: const Duration(seconds: 3),
           content:
               const Text('New place added.', style: TextStyle(fontSize: 16.0)),
           action: SnackBarAction(
@@ -293,7 +293,7 @@ class PlaceMapState extends State<PlaceMap> {
       final newMarker = Marker(
         markerId: MarkerId(_lastMapPosition.toString()),
         position: _lastMapPosition,
-        infoWindow: InfoWindow(title: 'New Place'),
+        infoWindow: const InfoWindow(title: 'New Place'),
         draggable: true,
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
       );
@@ -433,12 +433,12 @@ class PlaceMapState extends State<PlaceMap> {
     switch (category) {
       case PlaceCategory.favorite:
         return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context, size: Size.square(32)),
+            createLocalImageConfiguration(context, size: const Size.square(32)),
             'assets/heart.png');
         break;
       case PlaceCategory.visited:
         return BitmapDescriptor.fromAssetImage(
-            createLocalImageConfiguration(context, size: Size.square(32)),
+            createLocalImageConfiguration(context, size: const Size.square(32)),
             'assets/visited.png');
         break;
       case PlaceCategory.wantToGo:
@@ -598,7 +598,7 @@ class _MapFabs extends StatelessWidget {
               backgroundColor: Colors.green,
               child: const Icon(Icons.add_location, size: 36.0),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             FloatingActionButton(
               heroTag: 'toggle_map_type_button',
               onPressed: onToggleMapTypePressed,

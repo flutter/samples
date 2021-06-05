@@ -24,14 +24,14 @@ class _$CurrentUserCollectionsSerializer
   final String wireName = 'CurrentUserCollections';
 
   @override
-  Iterable<Object> serialize(
+  Iterable<Object?> serialize(
       Serializers serializers, CurrentUserCollections object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
-    Object value;
+    Object? value;
     value = object.title;
     if (value != null) {
       result
@@ -58,7 +58,7 @@ class _$CurrentUserCollectionsSerializer
 
   @override
   CurrentUserCollections deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CurrentUserCollectionsBuilder();
 
@@ -66,7 +66,7 @@ class _$CurrentUserCollectionsSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -95,18 +95,18 @@ class _$CurrentUserCollections extends CurrentUserCollections {
   @override
   final int id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String publishedAt;
+  final String? publishedAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
 
   factory _$CurrentUserCollections(
-          [void Function(CurrentUserCollectionsBuilder) updates]) =>
+          [void Function(CurrentUserCollectionsBuilder)? updates]) =>
       (new CurrentUserCollectionsBuilder()..update(updates)).build();
 
   _$CurrentUserCollections._(
-      {this.id, this.title, this.publishedAt, this.updatedAt})
+      {required this.id, this.title, this.publishedAt, this.updatedAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'CurrentUserCollections', 'id');
   }
@@ -150,23 +150,23 @@ class _$CurrentUserCollections extends CurrentUserCollections {
 
 class CurrentUserCollectionsBuilder
     implements Builder<CurrentUserCollections, CurrentUserCollectionsBuilder> {
-  _$CurrentUserCollections _$v;
+  _$CurrentUserCollections? _$v;
 
-  int _id;
-  int get id => _$this._id;
-  set id(int id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
-  String _title;
-  String get title => _$this._title;
-  set title(String title) => _$this._title = title;
+  String? _title;
+  String? get title => _$this._title;
+  set title(String? title) => _$this._title = title;
 
-  String _publishedAt;
-  String get publishedAt => _$this._publishedAt;
-  set publishedAt(String publishedAt) => _$this._publishedAt = publishedAt;
+  String? _publishedAt;
+  String? get publishedAt => _$this._publishedAt;
+  set publishedAt(String? publishedAt) => _$this._publishedAt = publishedAt;
 
-  String _updatedAt;
-  String get updatedAt => _$this._updatedAt;
-  set updatedAt(String updatedAt) => _$this._updatedAt = updatedAt;
+  String? _updatedAt;
+  String? get updatedAt => _$this._updatedAt;
+  set updatedAt(String? updatedAt) => _$this._updatedAt = updatedAt;
 
   CurrentUserCollectionsBuilder();
 
@@ -189,7 +189,7 @@ class CurrentUserCollectionsBuilder
   }
 
   @override
-  void update(void Function(CurrentUserCollectionsBuilder) updates) {
+  void update(void Function(CurrentUserCollectionsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

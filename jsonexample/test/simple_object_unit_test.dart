@@ -146,7 +146,7 @@ void main() {
   group('BuiltSimpleObject unit tests', () {
     test('Typical object is converted correctly', () {
       final simpleObject = serializers.deserializeWith(
-          BuiltSimpleObject.serializer, typicalObjectJson);
+          BuiltSimpleObject.serializer, typicalObjectJson)!;
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, 'Blah, blah, blah.');
@@ -159,7 +159,7 @@ void main() {
 
     test('Empty object results in null fields', () {
       final simpleObject =
-          serializers.deserializeWith(BuiltSimpleObject.serializer, emptyJson);
+          serializers.deserializeWith(BuiltSimpleObject.serializer, emptyJson)!;
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, isNull);
@@ -172,7 +172,7 @@ void main() {
 
     test('Empty lists are converted as empty lists', () {
       final simpleObject = serializers.deserializeWith(
-          BuiltSimpleObject.serializer, emptyListJson);
+          BuiltSimpleObject.serializer, emptyListJson)!;
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, 'Blah, blah, blah.');
@@ -185,7 +185,7 @@ void main() {
 
     test('Unexpected properties are ignored', () {
       final simpleObject = serializers.deserializeWith(
-          BuiltSimpleObject.serializer, unexpectedPropertiesJson);
+          BuiltSimpleObject.serializer, unexpectedPropertiesJson)!;
 
       expect(simpleObject, isNotNull);
       expect(simpleObject.aString, 'Blah, blah, blah.');

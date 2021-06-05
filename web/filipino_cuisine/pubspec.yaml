@@ -10,8 +10,7 @@ dependencies:
   http: ^0.12.0
 
 dev_dependencies:
-  pedantic: ^1.9.0
-
+  flutter_lints: ^1.0.0
 
 flutter_icons:
   android: "launcher_icon"
