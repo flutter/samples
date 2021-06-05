@@ -25,19 +25,19 @@ class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
   late final Animation<double> animationRotation;
   late final Animation<Offset> animationTranslation;
   static const _duration = Duration(seconds: 4);
-  List<CurveChoice> curves = [
-    const CurveChoice(curve: Curves.bounceIn, name: 'Bounce In'),
-    const CurveChoice(curve: Curves.bounceOut, name: 'Bounce Out'),
-    const CurveChoice(curve: Curves.easeInCubic, name: 'Ease In Cubic'),
-    const CurveChoice(curve: Curves.easeOutCubic, name: 'Ease Out Cubic'),
-    const CurveChoice(curve: Curves.easeInExpo, name: 'Ease In Expo'),
-    const CurveChoice(curve: Curves.easeOutExpo, name: 'Ease Out Expo'),
-    const CurveChoice(curve: Curves.elasticIn, name: 'Elastic In'),
-    const CurveChoice(curve: Curves.elasticOut, name: 'Elastic Out'),
-    const CurveChoice(curve: Curves.easeInQuart, name: 'Ease In Quart'),
-    const CurveChoice(curve: Curves.easeOutQuart, name: 'Ease Out Quart'),
-    const CurveChoice(curve: Curves.easeInCirc, name: 'Ease In Circle'),
-    const CurveChoice(curve: Curves.easeOutCirc, name: 'Ease Out Circle'),
+  List<CurveChoice> curves = const [
+    CurveChoice(curve: Curves.bounceIn, name: 'Bounce In'),
+    CurveChoice(curve: Curves.bounceOut, name: 'Bounce Out'),
+    CurveChoice(curve: Curves.easeInCubic, name: 'Ease In Cubic'),
+    CurveChoice(curve: Curves.easeOutCubic, name: 'Ease Out Cubic'),
+    CurveChoice(curve: Curves.easeInExpo, name: 'Ease In Expo'),
+    CurveChoice(curve: Curves.easeOutExpo, name: 'Ease Out Expo'),
+    CurveChoice(curve: Curves.elasticIn, name: 'Elastic In'),
+    CurveChoice(curve: Curves.elasticOut, name: 'Elastic Out'),
+    CurveChoice(curve: Curves.easeInQuart, name: 'Ease In Quart'),
+    CurveChoice(curve: Curves.easeOutQuart, name: 'Ease Out Quart'),
+    CurveChoice(curve: Curves.easeInCirc, name: 'Ease In Circle'),
+    CurveChoice(curve: Curves.easeOutCirc, name: 'Ease Out Circle'),
   ];
   late CurveChoice selectedForwardCurve, selectedReverseCurve;
   late final CurvedAnimation curvedAnimation;
