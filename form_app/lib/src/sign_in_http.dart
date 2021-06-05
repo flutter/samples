@@ -16,8 +16,8 @@ class FormData {
   String password;
 
   FormData({
-    this.email,
-    this.password,
+    required this.email,
+    required this.password,
   });
 
   factory FormData.fromJson(Map<String, dynamic> json) =>
@@ -30,7 +30,7 @@ class SignInHttpDemo extends StatefulWidget {
   final http.Client httpClient;
 
   SignInHttpDemo({
-    this.httpClient,
+    required this.httpClient,
   });
 
   @override
@@ -38,7 +38,7 @@ class SignInHttpDemo extends StatefulWidget {
 }
 
 class _SignInHttpDemoState extends State<SignInHttpDemo> {
-  FormData formData = FormData();
+  FormData formData = FormData(email: '', password: '');
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
               children: [
                 ...[
                   TextFormField(
-                    autofocus:  true,
+                    autofocus: true,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       filled: true,
@@ -80,7 +80,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     onPressed: () async {
                       // Use a JSON encoded string to send
                       var result = await widget.httpClient.post(
-                          'https://example.com/signin',
+                          Uri.parse('https://example.com/signout'),
                           body: json.encode(formData.toJson()),
                           headers: {'content-type': 'application/json'});
 
