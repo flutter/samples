@@ -29,6 +29,7 @@ csslib:packages/csslib/
 dart_style:packages/dart_style/
 file:packages/file/
 fixnum:packages/fixnum/
+flutter_lints:packages/flutter_lints/
 glob:packages/glob/
 graphs:packages/graphs/
 grinder:packages/grinder/
@@ -42,6 +43,7 @@ io:packages/io/
 js:packages/js/
 json_annotation:packages/json_annotation/
 json_serializable:packages/json_serializable/
+lints:packages/lints/
 logging:packages/logging/
 matcher:packages/matcher/
 mdc_web:packages/mdc_web/

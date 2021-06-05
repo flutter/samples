@@ -381,6 +381,7 @@ packages/build_runner/src/server/graph_viz.html
 packages/build_runner/src/server/graph_viz.js
 packages/build_runner/src/server/graph_viz_main.dart.js
 packages/build_web_compilers/src/dev_compiler_stack_trace/stack_trace_mapper.dart.js
+packages/flutter_lints/flutter.yaml
 packages/intl/src/data/dates/README.txt
 packages/intl/src/data/dates/patterns/af.json
 packages/intl/src/data/dates/patterns/am.json
@@ -613,6 +614,8 @@ packages/intl/src/data/dates/symbols/zh_CN.json
 packages/intl/src/data/dates/symbols/zh_HK.json
 packages/intl/src/data/dates/symbols/zh_TW.json
 packages/intl/src/data/dates/symbols/zu.json
+packages/lints/core.yaml
+packages/lints/recommended.yaml
 packages/mdc_web/material-components-web.css
 packages/mdc_web/material-components-web.js
 packages/mdc_web/material-components-web.min.css
