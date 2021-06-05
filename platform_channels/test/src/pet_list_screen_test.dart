@@ -13,7 +13,7 @@ import 'package:platform_channels/src/pet_list_screen.dart';
 void main() {
   group('PetListScreen tests', () {
     final basicMessageChannel =
-        BasicMessageChannel('stringCodecDemo', StringCodec());
+        BasicMessageChannel<String?>('stringCodecDemo', StringCodec());
 
     var petList = [
       {
@@ -33,7 +33,7 @@ void main() {
 
       // Mock for the index received from the Dart to delete the pet details,
       // and send the updated pet list back to Dart.
-      BasicMessageChannel('binaryCodecDemo', BinaryCodec())
+      BasicMessageChannel<ByteData?>('binaryCodecDemo', BinaryCodec())
           .setMockMessageHandler((message) async {
         // Convert the ByteData to String.
         final index = utf8.decoder.convert(message!.buffer

@@ -14,7 +14,7 @@ class PetListScreen extends StatefulWidget {
 }
 
 class _PetListScreenState extends State<PetListScreen> {
-  PetListModel? petListModel;
+  PetListModel petListModel = PetListModel(petList: []);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -22,7 +22,7 @@ class _PetListScreenState extends State<PetListScreen> {
     super.initState();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
-    BasicMessageChannel('stringCodecDemo', StringCodec())
+    BasicMessageChannel<String?>('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       if (message == null) {
         showSnackBar('An error occurred while adding pet details.', context);
@@ -48,9 +48,9 @@ class _PetListScreenState extends State<PetListScreen> {
         },
         child: Icon(Icons.add),
       ),
-      body: petListModel?.petList.isEmpty ?? true
+      body: petListModel.petList.isEmpty
           ? Center(child: Text('Enter Pet Details'))
-          : BuildPetList(petListModel!.petList),
+          : BuildPetList(petListModel.petList),
     );
   }
 }
