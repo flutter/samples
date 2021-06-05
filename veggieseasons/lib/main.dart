@@ -61,7 +61,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
       child: CupertinoApp(
         theme: Styles.veggieThemeData,
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(restorationId: 'home'),
+        home: const HomeScreen(restorationId: 'home'),
         restorationScopeId: 'app',
       ),
     );

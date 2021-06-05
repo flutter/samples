@@ -19,9 +19,9 @@ class _$UserSerializer implements StructuredSerializer<User> {
   final String wireName = 'User';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, User object,
+  Iterable<Object?> serialize(Serializers serializers, User object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'username',
@@ -30,7 +30,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
-    Object value;
+    Object? value;
     value = object.updatedAt;
     if (value != null) {
       result
@@ -88,7 +88,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
   }
 
   @override
-  User deserialize(Serializers serializers, Iterable<Object> serialized,
+  User deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new UserBuilder();
 
@@ -96,7 +96,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -140,7 +140,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
           break;
         case 'links':
           result.links.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Links)) as Links);
+              specifiedType: const FullType(Links))! as Links);
           break;
       }
     }
@@ -153,34 +153,34 @@ class _$User extends User {
   @override
   final String id;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   final String username;
   @override
   final String name;
   @override
-  final String portfolioUrl;
+  final String? portfolioUrl;
   @override
-  final String bio;
+  final String? bio;
   @override
-  final String location;
+  final String? location;
   @override
-  final int totalLikes;
+  final int? totalLikes;
   @override
-  final int totalPhotos;
+  final int? totalPhotos;
   @override
-  final int totalCollections;
+  final int? totalCollections;
   @override
-  final Links links;
+  final Links? links;
 
-  factory _$User([void Function(UserBuilder) updates]) =>
+  factory _$User([void Function(UserBuilder)? updates]) =>
       (new UserBuilder()..update(updates)).build();
 
   _$User._(
-      {this.id,
+      {required this.id,
       this.updatedAt,
-      this.username,
-      this.name,
+      required this.username,
+      required this.name,
       this.portfolioUrl,
       this.bio,
       this.location,
@@ -261,52 +261,52 @@ class _$User extends User {
 }
 
 class UserBuilder implements Builder<User, UserBuilder> {
-  _$User _$v;
+  _$User? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _updatedAt;
-  String get updatedAt => _$this._updatedAt;
-  set updatedAt(String updatedAt) => _$this._updatedAt = updatedAt;
+  String? _updatedAt;
+  String? get updatedAt => _$this._updatedAt;
+  set updatedAt(String? updatedAt) => _$this._updatedAt = updatedAt;
 
-  String _username;
-  String get username => _$this._username;
-  set username(String username) => _$this._username = username;
+  String? _username;
+  String? get username => _$this._username;
+  set username(String? username) => _$this._username = username;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _portfolioUrl;
-  String get portfolioUrl => _$this._portfolioUrl;
-  set portfolioUrl(String portfolioUrl) => _$this._portfolioUrl = portfolioUrl;
+  String? _portfolioUrl;
+  String? get portfolioUrl => _$this._portfolioUrl;
+  set portfolioUrl(String? portfolioUrl) => _$this._portfolioUrl = portfolioUrl;
 
-  String _bio;
-  String get bio => _$this._bio;
-  set bio(String bio) => _$this._bio = bio;
+  String? _bio;
+  String? get bio => _$this._bio;
+  set bio(String? bio) => _$this._bio = bio;
 
-  String _location;
-  String get location => _$this._location;
-  set location(String location) => _$this._location = location;
+  String? _location;
+  String? get location => _$this._location;
+  set location(String? location) => _$this._location = location;
 
-  int _totalLikes;
-  int get totalLikes => _$this._totalLikes;
-  set totalLikes(int totalLikes) => _$this._totalLikes = totalLikes;
+  int? _totalLikes;
+  int? get totalLikes => _$this._totalLikes;
+  set totalLikes(int? totalLikes) => _$this._totalLikes = totalLikes;
 
-  int _totalPhotos;
-  int get totalPhotos => _$this._totalPhotos;
-  set totalPhotos(int totalPhotos) => _$this._totalPhotos = totalPhotos;
+  int? _totalPhotos;
+  int? get totalPhotos => _$this._totalPhotos;
+  set totalPhotos(int? totalPhotos) => _$this._totalPhotos = totalPhotos;
 
-  int _totalCollections;
-  int get totalCollections => _$this._totalCollections;
-  set totalCollections(int totalCollections) =>
+  int? _totalCollections;
+  int? get totalCollections => _$this._totalCollections;
+  set totalCollections(int? totalCollections) =>
       _$this._totalCollections = totalCollections;
 
-  LinksBuilder _links;
+  LinksBuilder? _links;
   LinksBuilder get links => _$this._links ??= new LinksBuilder();
-  set links(LinksBuilder links) => _$this._links = links;
+  set links(LinksBuilder? links) => _$this._links = links;
 
   UserBuilder();
 
@@ -336,7 +336,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
   }
 
   @override
-  void update(void Function(UserBuilder) updates) {
+  void update(void Function(UserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -359,7 +359,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
               totalCollections: totalCollections,
               links: _links?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'links';
         _links?.build();

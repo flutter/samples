@@ -12,7 +12,7 @@ import '../serializers.dart';
 part 'position.g.dart';
 
 abstract class Position implements Built<Position, PositionBuilder> {
-  factory Position([void Function(PositionBuilder) updates]) = _$Position;
+  factory Position([void Function(PositionBuilder)? updates]) = _$Position;
 
   Position._();
 
@@ -26,7 +26,7 @@ abstract class Position implements Built<Position, PositionBuilder> {
     return json.encode(serializers.serializeWith(Position.serializer, this));
   }
 
-  static Position fromJson(String jsonString) {
+  static Position? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Position.serializer, json.decode(jsonString));
   }

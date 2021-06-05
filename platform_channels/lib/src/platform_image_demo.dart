@@ -24,7 +24,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Platform Image Demo'),
+        title: const Text('Platform Image Demo'),
       ),
       body: Center(
         child: Column(
@@ -38,7 +38,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                   future: imageData,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.none) {
-                      return Placeholder();
+                      return const Placeholder();
                     } else if (snapshot.hasError) {
                       return Center(
                         child: Text(
@@ -52,12 +52,12 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                         fit: BoxFit.fill,
                       );
                     }
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   },
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             ElevatedButton(
@@ -68,7 +68,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                         imageData = PlatformImageFetcher.getImage();
                       });
                     },
-              child: Text('Get Image'),
+              child: const Text('Get Image'),
             )
           ],
         ),

@@ -95,7 +95,7 @@ Stream<File> _filesWithoutCopyright() async* {
     var firstThreeLines = await file
         .openRead()
         .transform(utf8.decoder)
-        .transform(LineSplitter())
+        .transform(const LineSplitter())
         .take(3)
         .fold<String>('', (previous, element) {
       if (previous == '') return element;

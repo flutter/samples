@@ -13,7 +13,8 @@ import 'package:veggieseasons/widgets/settings_group.dart';
 import 'package:veggieseasons/widgets/settings_item.dart';
 
 class VeggieCategorySettingsScreen extends StatelessWidget {
-  VeggieCategorySettingsScreen({Key key, this.restorationId}) : super(key: key);
+  const VeggieCategorySettingsScreen({Key key, this.restorationId})
+      : super(key: key);
 
   final String restorationId;
 
@@ -24,7 +25,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
   static Route<void> _routeBuilder(BuildContext context, Object argument) {
     return CupertinoPageRoute(
       builder: (context) =>
-          VeggieCategorySettingsScreen(restorationId: 'category'),
+          const VeggieCategorySettingsScreen(restorationId: 'category'),
       title: 'Preferred Categories',
     );
   }
@@ -37,7 +38,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
     return RestorationScope(
       restorationId: restorationId,
       child: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
+        navigationBar: const CupertinoNavigationBar(
           middle: Text('Preferred Categories'),
           previousPageTitle: 'Settings',
         ),
@@ -65,7 +66,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
                   },
                 );
               } else {
-                toggle = CupertinoSwitch(
+                toggle = const CupertinoSwitch(
                   value: false,
                   onChanged: null,
                 );
@@ -93,7 +94,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 }
 
 class CalorieSettingsScreen extends StatelessWidget {
-  CalorieSettingsScreen({Key key, this.restorationId}) : super(key: key);
+  const CalorieSettingsScreen({Key key, this.restorationId}) : super(key: key);
 
   final String restorationId;
 
@@ -107,7 +108,8 @@ class CalorieSettingsScreen extends StatelessWidget {
 
   static Route<void> _routeBuilder(BuildContext context, Object argument) {
     return CupertinoPageRoute<void>(
-      builder: (context) => CalorieSettingsScreen(restorationId: 'calorie'),
+      builder: (context) =>
+          const CalorieSettingsScreen(restorationId: 'calorie'),
       title: 'Calorie Target',
     );
   }
@@ -119,7 +121,7 @@ class CalorieSettingsScreen extends StatelessWidget {
     return RestorationScope(
       restorationId: restorationId,
       child: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
+        navigationBar: const CupertinoNavigationBar(
           previousPageTitle: 'Settings',
         ),
         backgroundColor: Styles.scaffoldBackground(brightness),
@@ -152,9 +154,10 @@ class CalorieSettingsScreen extends StatelessWidget {
 
                 return SettingsGroup(
                   items: steps,
-                  header: SettingsGroupHeader('Available calorie levels'),
-                  footer: SettingsGroupFooter('These are used for serving '
-                      'calculations'),
+                  header: const SettingsGroupHeader('Available calorie levels'),
+                  footer:
+                      const SettingsGroupFooter('These are used for serving '
+                          'calculations'),
                 );
               },
             ),
@@ -166,14 +169,14 @@ class CalorieSettingsScreen extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
-  SettingsScreen({this.restorationId, Key key}) : super(key: key);
+  const SettingsScreen({this.restorationId, Key key}) : super(key: key);
 
   final String restorationId;
 
   SettingsItem _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
       label: 'Calorie Target',
-      icon: SettingsIcon(
+      icon: const SettingsIcon(
         backgroundColor: Styles.iconBlue,
         icon: Styles.calorieIcon,
       ),
@@ -186,8 +189,8 @@ class SettingsScreen extends StatelessWidget {
                 snapshot.data?.toString() ?? '',
                 style: CupertinoTheme.of(context).textTheme.textStyle,
               ),
-              SizedBox(width: 8),
-              SettingsNavigationIndicator(),
+              const SizedBox(width: 8),
+              const SettingsNavigationIndicator(),
             ],
           );
         },
@@ -202,11 +205,11 @@ class SettingsScreen extends StatelessWidget {
     return SettingsItem(
       label: 'Preferred Categories',
       subtitle: 'What types of veggies you prefer!',
-      icon: SettingsIcon(
+      icon: const SettingsIcon(
         backgroundColor: Styles.iconGold,
         icon: Styles.preferenceIcon,
       ),
-      content: SettingsNavigationIndicator(),
+      content: const SettingsNavigationIndicator(),
       onPress: () {
         VeggieCategorySettingsScreen.show(Navigator.of(context));
       },
@@ -217,23 +220,23 @@ class SettingsScreen extends StatelessWidget {
       BuildContext context, Preferences prefs) {
     return SettingsItem(
       label: 'Restore Defaults',
-      icon: SettingsIcon(
+      icon: const SettingsIcon(
         backgroundColor: CupertinoColors.systemRed,
         icon: Styles.resetIcon,
       ),
-      content: SettingsNavigationIndicator(),
+      content: const SettingsNavigationIndicator(),
       onPress: () {
         showCupertinoDialog<void>(
           context: context,
           builder: (context) => CupertinoAlertDialog(
-            title: Text('Are you sure?'),
-            content: Text(
+            title: const Text('Are you sure?'),
+            content: const Text(
               'Are you sure you want to reset the current settings?',
             ),
             actions: <Widget>[
               CupertinoDialogAction(
                 isDestructiveAction: true,
-                child: Text('Yes'),
+                child: const Text('Yes'),
                 onPressed: () async {
                   await prefs.restoreDefaults();
                   Navigator.pop(context);
@@ -241,7 +244,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               CupertinoDialogAction(
                 isDefaultAction: true,
-                child: Text('No'),
+                child: const Text('No'),
                 onPressed: () => Navigator.pop(context),
               )
             ],
@@ -264,7 +267,7 @@ class SettingsScreen extends StatelessWidget {
           child: CustomScrollView(
             restorationId: 'list',
             slivers: <Widget>[
-              CupertinoSliverNavigationBar(
+              const CupertinoSliverNavigationBar(
                 largeTitle: Text('Settings'),
               ),
               SliverSafeArea(

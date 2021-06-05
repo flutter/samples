@@ -19,10 +19,10 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
   final String wireName = 'Urls';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Urls object,
+  Iterable<Object?> serialize(Serializers serializers, Urls object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    Object value;
+    final result = <Object?>[];
+    Object? value;
     value = object.raw;
     if (value != null) {
       result
@@ -62,7 +62,7 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
   }
 
   @override
-  Urls deserialize(Serializers serializers, Iterable<Object> serialized,
+  Urls deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new UrlsBuilder();
 
@@ -70,7 +70,7 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'raw':
           result.raw = serializers.deserialize(value,
@@ -101,17 +101,17 @@ class _$UrlsSerializer implements StructuredSerializer<Urls> {
 
 class _$Urls extends Urls {
   @override
-  final String raw;
+  final String? raw;
   @override
-  final String full;
+  final String? full;
   @override
-  final String regular;
+  final String? regular;
   @override
-  final String small;
+  final String? small;
   @override
-  final String thumb;
+  final String? thumb;
 
-  factory _$Urls([void Function(UrlsBuilder) updates]) =>
+  factory _$Urls([void Function(UrlsBuilder)? updates]) =>
       (new UrlsBuilder()..update(updates)).build();
 
   _$Urls._({this.raw, this.full, this.regular, this.small, this.thumb})
@@ -156,27 +156,27 @@ class _$Urls extends Urls {
 }
 
 class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
-  _$Urls _$v;
+  _$Urls? _$v;
 
-  String _raw;
-  String get raw => _$this._raw;
-  set raw(String raw) => _$this._raw = raw;
+  String? _raw;
+  String? get raw => _$this._raw;
+  set raw(String? raw) => _$this._raw = raw;
 
-  String _full;
-  String get full => _$this._full;
-  set full(String full) => _$this._full = full;
+  String? _full;
+  String? get full => _$this._full;
+  set full(String? full) => _$this._full = full;
 
-  String _regular;
-  String get regular => _$this._regular;
-  set regular(String regular) => _$this._regular = regular;
+  String? _regular;
+  String? get regular => _$this._regular;
+  set regular(String? regular) => _$this._regular = regular;
 
-  String _small;
-  String get small => _$this._small;
-  set small(String small) => _$this._small = small;
+  String? _small;
+  String? get small => _$this._small;
+  set small(String? small) => _$this._small = small;
 
-  String _thumb;
-  String get thumb => _$this._thumb;
-  set thumb(String thumb) => _$this._thumb = thumb;
+  String? _thumb;
+  String? get thumb => _$this._thumb;
+  set thumb(String? thumb) => _$this._thumb = thumb;
 
   UrlsBuilder();
 
@@ -200,7 +200,7 @@ class UrlsBuilder implements Builder<Urls, UrlsBuilder> {
   }
 
   @override
-  void update(void Function(UrlsBuilder) updates) {
+  void update(void Function(UrlsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

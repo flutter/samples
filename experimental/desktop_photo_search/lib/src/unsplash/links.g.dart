@@ -19,10 +19,10 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
   final String wireName = 'Links';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Links object,
+  Iterable<Object?> serialize(Serializers serializers, Links object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    Object value;
+    final result = <Object?>[];
+    Object? value;
     value = object.self;
     if (value != null) {
       result
@@ -55,7 +55,7 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
   }
 
   @override
-  Links deserialize(Serializers serializers, Iterable<Object> serialized,
+  Links deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new LinksBuilder();
 
@@ -63,7 +63,7 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'self':
           result.self = serializers.deserialize(value,
@@ -90,15 +90,15 @@ class _$LinksSerializer implements StructuredSerializer<Links> {
 
 class _$Links extends Links {
   @override
-  final String self;
+  final String? self;
   @override
-  final String html;
+  final String? html;
   @override
-  final String download;
+  final String? download;
   @override
-  final String downloadLocation;
+  final String? downloadLocation;
 
-  factory _$Links([void Function(LinksBuilder) updates]) =>
+  factory _$Links([void Function(LinksBuilder)? updates]) =>
       (new LinksBuilder()..update(updates)).build();
 
   _$Links._({this.self, this.html, this.download, this.downloadLocation})
@@ -140,23 +140,23 @@ class _$Links extends Links {
 }
 
 class LinksBuilder implements Builder<Links, LinksBuilder> {
-  _$Links _$v;
+  _$Links? _$v;
 
-  String _self;
-  String get self => _$this._self;
-  set self(String self) => _$this._self = self;
+  String? _self;
+  String? get self => _$this._self;
+  set self(String? self) => _$this._self = self;
 
-  String _html;
-  String get html => _$this._html;
-  set html(String html) => _$this._html = html;
+  String? _html;
+  String? get html => _$this._html;
+  set html(String? html) => _$this._html = html;
 
-  String _download;
-  String get download => _$this._download;
-  set download(String download) => _$this._download = download;
+  String? _download;
+  String? get download => _$this._download;
+  set download(String? download) => _$this._download = download;
 
-  String _downloadLocation;
-  String get downloadLocation => _$this._downloadLocation;
-  set downloadLocation(String downloadLocation) =>
+  String? _downloadLocation;
+  String? get downloadLocation => _$this._downloadLocation;
+  set downloadLocation(String? downloadLocation) =>
       _$this._downloadLocation = downloadLocation;
 
   LinksBuilder();
@@ -180,7 +180,7 @@ class LinksBuilder implements Builder<Links, LinksBuilder> {
   }
 
   @override
-  void update(void Function(LinksBuilder) updates) {
+  void update(void Function(LinksBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file
 
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:grinder/grinder.dart';
 import 'package:path/path.dart' as path;
@@ -12,10 +12,11 @@ import 'package:samples_index/src/templates.dart' as templates;
 import 'package:samples_index/cookbook.dart';
 import 'package:image/image.dart' as image;
 
-void main(args) => grind(args);
+Future<void> main(List<String> args) => grind(args);
 
 @Task('Run tests in the VM')
-void testCli() async => await TestRunner().testAsync(platformSelector: 'vm');
+Future<void> testCli() async =>
+    await TestRunner().testAsync(platformSelector: 'vm');
 
 @Task()
 void analyze() {
@@ -25,13 +26,13 @@ void analyze() {
 @Task('deploy')
 @Depends(analyze, testCli, generate, buildRelease)
 void deploy() {
-  print('All tasks completed. ');
-  print('');
+  log('All tasks completed. ');
+  log('');
 }
 
 @Task('Run build_runner to public/ directory')
 @Depends(createThumbnails)
-Future buildRelease() async {
+Future<void> buildRelease() async {
   var app = PubApp.local('build_runner');
   await app.runAsync(
       'build --release --output web:public --delete-conflicting-outputs'
@@ -41,9 +42,9 @@ Future buildRelease() async {
 
 @DefaultTask('Build the project.')
 @Depends(clean)
-Future generate() async {
+Future<void> generate() async {
   var samples = await getSamples();
-  print('Generating index for ${samples.length} samples...');
+  log('Generating index for ${samples.length} samples...');
   var outputFile = File('web/index.html');
   await outputFile.create(recursive: true);
   await outputFile.writeAsString(templates.index(samples));
@@ -55,12 +56,12 @@ Future generate() async {
     });
     futures.add(future);
   }
-  await Future.wait(futures);
-  print('Generated index for ${samples.length} samples.');
+  await Future.wait<void>(futures);
+  log('Generated index for ${samples.length} samples.');
 }
 
 @Task('Scrape the cookbook for images and descriptions')
-Future scrapeCookbook() async {
+Future<void> scrapeCookbook() async {
   var driver = await Process.start(
       'chromedriver', ['--port=4444', '--url-base=wd/hub', '--verbose']);
   await driver.stdout.pipe(stdout);
@@ -68,7 +69,7 @@ Future scrapeCookbook() async {
   var scraper = CookbookScraper();
   await scraper.init();
   var links = await scraper.fetchCookbookLinks();
-  print('Scraping ${links.length} cookbook articles');
+  log('Scraping ${links.length} cookbook articles');
   var allSamples = <Sample>[];
   for (var link in links) {
     allSamples.add(await scraper.getMetadata(link));
@@ -76,23 +77,23 @@ Future scrapeCookbook() async {
   }
   var file = File('lib/src/cookbook.json');
   await file.create();
-  var encoder = JsonEncoder.withIndent('\t');
+  var encoder = const JsonEncoder.withIndent('\t');
   await file.writeAsString(encoder.convert(Index(allSamples)));
   await scraper.dispose();
   var killed = driver.kill();
   if (!killed) {
-    print('failed to kill chromedriver process');
+    log('failed to kill chromedriver process');
   }
 }
 
 @Task('creates thumbnail images in web/images')
-Future createThumbnails() async {
+Future<void> createThumbnails() async {
   await _createThumbnails(Directory('web/images'));
   await _createThumbnails(Directory('web/images/cookbook'));
 }
 
 // Creates a thumbnail image for each png file
-Future _createThumbnails(Directory directory) async {
+Future<void> _createThumbnails(Directory directory) async {
   var files = await directory.list().toList();
   var filesToWrite = <Future>{};
 
@@ -112,16 +113,16 @@ Future _createThumbnails(Directory directory) async {
     filesToWrite.add(thumbnailFile.writeAsBytes(image.encodePng(resized)));
   }
 
-  await Future.wait(filesToWrite);
+  await Future.wait<void>(filesToWrite);
 }
 
 @Task('remove generated HTML files')
-Future clean() async {
+Future<void> clean() async {
   var tasks = <Future>[];
   await for (var file in Directory('web').list(recursive: true)) {
     if (path.extension(file.path) == '.html') {
       tasks.add(file.delete());
     }
   }
-  await Future.wait(tasks);
+  await Future.wait<void>(tasks);
 }

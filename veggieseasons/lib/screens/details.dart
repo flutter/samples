@@ -43,7 +43,7 @@ class ServingInfoChart extends StatelessWidget {
     final themeData = CupertinoTheme.of(context);
     return Column(
       children: [
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
@@ -187,9 +187,9 @@ class InfoView extends StatelessWidget {
                   );
                 },
               ),
-              Spacer(),
+              const Spacer(),
               for (Season season in veggie.seasons) ...[
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Padding(
                   padding: Styles.seasonIconPadding[season],
                   child: Icon(
@@ -201,18 +201,18 @@ class InfoView extends StatelessWidget {
               ],
             ],
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             veggie.name,
             style: Styles.detailsTitleText(themeData),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             veggie.shortDescription,
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
           ServingInfoChart(veggie, prefs),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -222,7 +222,7 @@ class InfoView extends StatelessWidget {
                   appState.setFavorite(id, value);
                 },
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(
                 'Save to Garden',
                 style: CupertinoTheme.of(context).textTheme.textStyle,
@@ -239,7 +239,7 @@ class DetailsScreen extends StatefulWidget {
   final int id;
   final String restorationId;
 
-  DetailsScreen({this.id, this.restorationId});
+  const DetailsScreen({this.id, this.restorationId});
 
   static String show(NavigatorState navigator, int veggieId) {
     return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
@@ -321,9 +321,9 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
                 restorationId: 'list',
                 children: [
                   _buildHeader(context, appState),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   CupertinoSegmentedControl<int>(
-                    children: {
+                    children: const {
                       0: Text(
                         'Facts & Info',
                       ),

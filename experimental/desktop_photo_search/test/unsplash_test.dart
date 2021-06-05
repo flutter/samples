@@ -90,7 +90,7 @@ void main() {
 }
       ''';
 
-    final photo = Photo.fromJson(input);
+    final photo = Photo.fromJson(input)!;
     expect(photo.id, 'Dwu85P9SOIk');
     expect(photo.createdAt, '2016-05-03T11:00:28-04:00');
     expect(photo.updatedAt, '2016-07-10T11:00:01-05:00');
@@ -99,12 +99,12 @@ void main() {
     expect(photo.color, '#6E633A');
     expect(photo.downloads, 1345);
     expect(photo.likedByUser, false);
-    expect(photo.exif.make, 'Canon');
-    expect(photo.exif.iso, 100);
-    expect(photo.location.city, 'Montreal');
-    expect(photo.location.country, 'Canada');
-    expect(photo.location.position.latitude, 45.4732984);
-    expect(photo.location.position.longitude, -73.6384879);
+    expect(photo.exif!.make, 'Canon');
+    expect(photo.exif!.iso, 100);
+    expect(photo.location!.city, 'Montreal');
+    expect(photo.location!.country, 'Canada');
+    expect(photo.location!.position!.latitude, 45.4732984);
+    expect(photo.location!.position!.longitude, -73.6384879);
   });
 
   test('User.fromJson', () {
@@ -149,7 +149,7 @@ void main() {
 }
       ''';
 
-    final user = User.fromJson(input);
+    final user = User.fromJson(input)!;
     expect(user.id, 'pXhwzz1JtQU');
   });
 
@@ -207,11 +207,11 @@ void main() {
 }
       ''';
 
-    final response = SearchPhotosResponse.fromJson(input);
+    final response = SearchPhotosResponse.fromJson(input)!;
     expect(response.total, 133);
     expect(response.totalPages, 7);
     expect(response.results[0].id, 'eOLpJytrbsQ');
-    expect(response.results[0].user.id, 'Ul0QVz12Goo');
+    expect(response.results[0].user!.id, 'Ul0QVz12Goo');
   });
 
   group('Unsplash API client', () {
@@ -283,12 +283,12 @@ void main() {
         httpClient: httpClient,
       );
 
-      final response = await unsplashClient.searchPhotos(query: 'red');
+      final response = (await unsplashClient.searchPhotos(query: 'red'))!;
 
       expect(response.total, 133);
       expect(response.totalPages, 7);
       expect(response.results[0].id, 'eOLpJytrbsQ');
-      expect(response.results[0].user.id, 'Ul0QVz12Goo');
+      expect(response.results[0].user!.id, 'Ul0QVz12Goo');
     });
 
     test('handles failure', () async {
@@ -525,12 +525,12 @@ void main() {
       httpClient: httpClient,
     );
 
-    final response = await unsplashClient.searchPhotos(query: 'red');
+    final response = (await unsplashClient.searchPhotos(query: 'red'))!;
 
     expect(response.total, 22395);
     expect(response.totalPages, 2240);
     expect(response.results[0].id, 'E4u_Zo9PET8');
-    expect(response.results[0].user.id, '_2nQcPrbyuE');
-    expect(response.results[0].user.name, 'Sergiu Vălenaș');
+    expect(response.results[0].user!.id, '_2nQcPrbyuE');
+    expect(response.results[0].user!.name, 'Sergiu Vălenaș');
   });
 }

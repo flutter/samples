@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            bottom: TabBar(
+            bottom: const TabBar(
               tabs: [
                 Tab(
                   icon: Icon(Icons.flash_on),
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            title: Text('Isolate Example'),
+            title: const Text('Isolate Example'),
           ),
           body: TabBarView(
             children: [

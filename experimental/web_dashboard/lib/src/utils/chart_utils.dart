@@ -60,6 +60,6 @@ Iterable<List<Entry>> _entriesInRangeImpl(
     }
 
     yield es;
-    d = d.add(Duration(days: 1));
+    d = d.add(const Duration(days: 1));
   }
 }

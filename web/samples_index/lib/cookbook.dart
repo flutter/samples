@@ -15,7 +15,7 @@ class CookbookScraper {
   WebDriver _driver;
 
   Future init() async {
-    _driver = await createDriver(desired: {});
+    _driver = await createDriver(desired: <String, dynamic>{});
   }
 
   Future dispose() async {

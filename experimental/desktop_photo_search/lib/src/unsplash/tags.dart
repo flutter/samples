@@ -12,7 +12,7 @@ import '../serializers.dart';
 part 'tags.g.dart';
 
 abstract class Tags implements Built<Tags, TagsBuilder> {
-  factory Tags([void Function(TagsBuilder) updates]) = _$Tags;
+  factory Tags([void Function(TagsBuilder)? updates]) = _$Tags;
 
   Tags._();
 
@@ -23,7 +23,7 @@ abstract class Tags implements Built<Tags, TagsBuilder> {
     return json.encode(serializers.serializeWith(Tags.serializer, this));
   }
 
-  static Tags fromJson(String jsonString) {
+  static Tags? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Tags.serializer, json.decode(jsonString));
   }

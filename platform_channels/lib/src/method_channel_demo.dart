@@ -30,7 +30,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
             'Value of count is $count',
             style: Theme.of(context).textTheme.headline5,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Row(
@@ -50,8 +50,8 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                     );
                   }
                 },
-                icon: Icon(Icons.add),
-                label: Text('Increment'),
+                icon: const Icon(Icons.add),
+                label: const Text('Increment'),
               ),
 
               // Whenever users press the ElevatedButton, it invokes
@@ -68,8 +68,8 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                     );
                   }
                 },
-                icon: Icon(Icons.remove),
-                label: Text('Decrement'),
+                icon: const Icon(Icons.remove),
+                label: const Text('Decrement'),
               )
             ],
           )

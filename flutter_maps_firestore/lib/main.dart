@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
           if (!snapshot.hasData) {
-            return Center(child: const Text('Loading...'));
+            return const Center(child: Text('Loading...'));
           }
 
           return Stack(
@@ -211,7 +211,7 @@ class _StoreListTileState extends State<StoreListTile> {
     return ListTile(
       title: Text(widget.document['name'] as String),
       subtitle: Text(widget.document['address'] as String),
-      leading: Container(
+      leading: SizedBox(
         width: 100,
         height: 100,
         child: _placePhotoUrl.isNotEmpty

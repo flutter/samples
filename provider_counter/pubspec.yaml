@@ -11,13 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  provider: ^5.0.0-nullsafety.5
-  cupertino_icons: ^1.0.2
+  provider: ^5.0.0
+  cupertino_icons: ^1.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.10.0
+  flutter_lints: ^1.0.0
 
 flutter:
   uses-material-design: true

@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:veggieseasons/data/veggie.dart';
 
 abstract class Styles {
-  static CupertinoThemeData veggieThemeData = CupertinoThemeData(
+  static CupertinoThemeData veggieThemeData = const CupertinoThemeData(
     textTheme: CupertinoTextThemeData(
       textStyle: TextStyle(
         color: CupertinoColors.label,
@@ -30,7 +30,7 @@ abstract class Styles {
 
   static TextStyle minorText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(128, 128, 128, 1),
+        color: const Color.fromRGBO(128, 128, 128, 1),
       );
 
   static TextStyle headlineName(CupertinoThemeData themeData) =>
@@ -41,19 +41,19 @@ abstract class Styles {
 
   static TextStyle cardTitleText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(0, 0, 0, 0.9),
+        color: const Color.fromRGBO(0, 0, 0, 0.9),
         fontSize: 32,
         fontWeight: FontWeight.bold,
       );
 
   static TextStyle cardCategoryText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(255, 255, 255, 0.9),
+        color: const Color.fromRGBO(255, 255, 255, 0.9),
       );
 
   static TextStyle cardDescriptionText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(0, 0, 0, 0.9),
+        color: const Color.fromRGBO(0, 0, 0, 0.9),
       );
 
   static TextStyle detailsTitleText(CupertinoThemeData themeData) =>
@@ -69,13 +69,13 @@ abstract class Styles {
 
   static TextStyle detailsBoldDescriptionText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(0, 0, 0, 0.9),
+        color: const Color.fromRGBO(0, 0, 0, 0.9),
         fontWeight: FontWeight.bold,
       );
 
   static TextStyle detailsServingHeaderText(CupertinoThemeData themeData) =>
       themeData.textTheme.textStyle.copyWith(
-        color: Color.fromRGBO(176, 176, 176, 1),
+        color: const Color.fromRGBO(176, 176, 176, 1),
         fontWeight: FontWeight.bold,
       );
 
@@ -198,7 +198,9 @@ abstract class Styles {
           : CupertinoColors.darkBackgroundGray;
 
   static Color settingsLineation(Brightness brightness) =>
-      brightness == Brightness.light ? Color(0xffbcbbc1) : Color(0xff4c4b4b);
+      brightness == Brightness.light
+          ? const Color(0xffbcbbc1)
+          : const Color(0xff4c4b4b);
 
   static const Color settingsBackground = Color(0xffefeff4);
 

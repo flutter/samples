@@ -37,7 +37,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${_place.name}'),
+        title: Text(_place.name),
         backgroundColor: Colors.green[700],
         actions: [
           Padding(

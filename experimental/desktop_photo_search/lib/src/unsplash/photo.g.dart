@@ -19,13 +19,13 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
   final String wireName = 'Photo';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Photo object,
+  Iterable<Object?> serialize(Serializers serializers, Photo object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
     ];
-    Object value;
+    Object? value;
     value = object.createdAt;
     if (value != null) {
       result
@@ -140,7 +140,7 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
   }
 
   @override
-  Photo deserialize(Serializers serializers, Iterable<Object> serialized,
+  Photo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new PhotoBuilder();
 
@@ -148,7 +148,7 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -192,35 +192,35 @@ class _$PhotoSerializer implements StructuredSerializer<Photo> {
           break;
         case 'exif':
           result.exif.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Exif)) as Exif);
+              specifiedType: const FullType(Exif))! as Exif);
           break;
         case 'location':
           result.location.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Location)) as Location);
+              specifiedType: const FullType(Location))! as Location);
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(Tags)]))
+                      const FullType(BuiltList, const [const FullType(Tags)]))!
               as BuiltList<Object>);
           break;
         case 'current_user_collections':
           result.currentUserCollections.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(CurrentUserCollections)
-              ])) as BuiltList<Object>);
+              ]))! as BuiltList<Object>);
           break;
         case 'urls':
           result.urls.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Urls)) as Urls);
+              specifiedType: const FullType(Urls))! as Urls);
           break;
         case 'links':
           result.links.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Links)) as Links);
+              specifiedType: const FullType(Links))! as Links);
           break;
         case 'user':
           result.user.replace(serializers.deserialize(value,
-              specifiedType: const FullType(User)) as User);
+              specifiedType: const FullType(User))! as User);
           break;
       }
     }
@@ -233,43 +233,43 @@ class _$Photo extends Photo {
   @override
   final String id;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
-  final int width;
+  final int? width;
   @override
-  final int height;
+  final int? height;
   @override
-  final String color;
+  final String? color;
   @override
-  final int downloads;
+  final int? downloads;
   @override
-  final int likes;
+  final int? likes;
   @override
-  final bool likedByUser;
+  final bool? likedByUser;
   @override
-  final String description;
+  final String? description;
   @override
-  final Exif exif;
+  final Exif? exif;
   @override
-  final Location location;
+  final Location? location;
   @override
-  final BuiltList<Tags> tags;
+  final BuiltList<Tags>? tags;
   @override
-  final BuiltList<CurrentUserCollections> currentUserCollections;
+  final BuiltList<CurrentUserCollections>? currentUserCollections;
   @override
-  final Urls urls;
+  final Urls? urls;
   @override
-  final Links links;
+  final Links? links;
   @override
-  final User user;
+  final User? user;
 
-  factory _$Photo([void Function(PhotoBuilder) updates]) =>
+  factory _$Photo([void Function(PhotoBuilder)? updates]) =>
       (new PhotoBuilder()..update(updates)).build();
 
   _$Photo._(
-      {this.id,
+      {required this.id,
       this.createdAt,
       this.updatedAt,
       this.width,
@@ -387,79 +387,79 @@ class _$Photo extends Photo {
 }
 
 class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
-  _$Photo _$v;
+  _$Photo? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _createdAt;
-  String get createdAt => _$this._createdAt;
-  set createdAt(String createdAt) => _$this._createdAt = createdAt;
+  String? _createdAt;
+  String? get createdAt => _$this._createdAt;
+  set createdAt(String? createdAt) => _$this._createdAt = createdAt;
 
-  String _updatedAt;
-  String get updatedAt => _$this._updatedAt;
-  set updatedAt(String updatedAt) => _$this._updatedAt = updatedAt;
+  String? _updatedAt;
+  String? get updatedAt => _$this._updatedAt;
+  set updatedAt(String? updatedAt) => _$this._updatedAt = updatedAt;
 
-  int _width;
-  int get width => _$this._width;
-  set width(int width) => _$this._width = width;
+  int? _width;
+  int? get width => _$this._width;
+  set width(int? width) => _$this._width = width;
 
-  int _height;
-  int get height => _$this._height;
-  set height(int height) => _$this._height = height;
+  int? _height;
+  int? get height => _$this._height;
+  set height(int? height) => _$this._height = height;
 
-  String _color;
-  String get color => _$this._color;
-  set color(String color) => _$this._color = color;
+  String? _color;
+  String? get color => _$this._color;
+  set color(String? color) => _$this._color = color;
 
-  int _downloads;
-  int get downloads => _$this._downloads;
-  set downloads(int downloads) => _$this._downloads = downloads;
+  int? _downloads;
+  int? get downloads => _$this._downloads;
+  set downloads(int? downloads) => _$this._downloads = downloads;
 
-  int _likes;
-  int get likes => _$this._likes;
-  set likes(int likes) => _$this._likes = likes;
+  int? _likes;
+  int? get likes => _$this._likes;
+  set likes(int? likes) => _$this._likes = likes;
 
-  bool _likedByUser;
-  bool get likedByUser => _$this._likedByUser;
-  set likedByUser(bool likedByUser) => _$this._likedByUser = likedByUser;
+  bool? _likedByUser;
+  bool? get likedByUser => _$this._likedByUser;
+  set likedByUser(bool? likedByUser) => _$this._likedByUser = likedByUser;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  ExifBuilder _exif;
+  ExifBuilder? _exif;
   ExifBuilder get exif => _$this._exif ??= new ExifBuilder();
-  set exif(ExifBuilder exif) => _$this._exif = exif;
+  set exif(ExifBuilder? exif) => _$this._exif = exif;
 
-  LocationBuilder _location;
+  LocationBuilder? _location;
   LocationBuilder get location => _$this._location ??= new LocationBuilder();
-  set location(LocationBuilder location) => _$this._location = location;
+  set location(LocationBuilder? location) => _$this._location = location;
 
-  ListBuilder<Tags> _tags;
+  ListBuilder<Tags>? _tags;
   ListBuilder<Tags> get tags => _$this._tags ??= new ListBuilder<Tags>();
-  set tags(ListBuilder<Tags> tags) => _$this._tags = tags;
+  set tags(ListBuilder<Tags>? tags) => _$this._tags = tags;
 
-  ListBuilder<CurrentUserCollections> _currentUserCollections;
+  ListBuilder<CurrentUserCollections>? _currentUserCollections;
   ListBuilder<CurrentUserCollections> get currentUserCollections =>
       _$this._currentUserCollections ??=
           new ListBuilder<CurrentUserCollections>();
   set currentUserCollections(
-          ListBuilder<CurrentUserCollections> currentUserCollections) =>
+          ListBuilder<CurrentUserCollections>? currentUserCollections) =>
       _$this._currentUserCollections = currentUserCollections;
 
-  UrlsBuilder _urls;
+  UrlsBuilder? _urls;
   UrlsBuilder get urls => _$this._urls ??= new UrlsBuilder();
-  set urls(UrlsBuilder urls) => _$this._urls = urls;
+  set urls(UrlsBuilder? urls) => _$this._urls = urls;
 
-  LinksBuilder _links;
+  LinksBuilder? _links;
   LinksBuilder get links => _$this._links ??= new LinksBuilder();
-  set links(LinksBuilder links) => _$this._links = links;
+  set links(LinksBuilder? links) => _$this._links = links;
 
-  UserBuilder _user;
+  UserBuilder? _user;
   UserBuilder get user => _$this._user ??= new UserBuilder();
-  set user(UserBuilder user) => _$this._user = user;
+  set user(UserBuilder? user) => _$this._user = user;
 
   PhotoBuilder();
 
@@ -495,7 +495,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
   }
 
   @override
-  void update(void Function(PhotoBuilder) updates) {
+  void update(void Function(PhotoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -523,7 +523,7 @@ class PhotoBuilder implements Builder<Photo, PhotoBuilder> {
               links: _links?.build(),
               user: _user?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'exif';
         _exif?.build();

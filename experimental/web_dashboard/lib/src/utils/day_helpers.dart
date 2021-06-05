@@ -10,6 +10,6 @@ extension DayUtils on DateTime {
 
   /// Checks that the two [DateTime]s share the same date.
   bool isSameDay(DateTime d2) {
-    return this.year == d2.year && this.month == d2.month && this.day == d2.day;
+    return year == d2.year && month == d2.month && day == d2.day;
   }
 }

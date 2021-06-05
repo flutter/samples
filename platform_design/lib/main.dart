@@ -30,7 +30,7 @@ class MyAdaptingApp extends StatelessWidget {
           // Instead of letting Cupertino widgets auto-adapt to the Material
           // theme (which is green), this app will use a different theme
           // for Cupertino (which is blue by default).
-          data: CupertinoThemeData(),
+          data: const CupertinoThemeData(),
           child: Material(child: child),
         );
       },
@@ -82,7 +82,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   Widget _buildIosHomePage(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: SongsTab.title,
             icon: SongsTab.iosIcon,
@@ -116,7 +116,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
             );
           default:
             assert(false, 'Unexpected tab');
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
         }
       },
     );
@@ -139,7 +139,7 @@ class _AndroidDrawer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: Colors.green),
+            decoration: const BoxDecoration(color: Colors.green),
             child: Padding(
               padding: const EdgeInsets.only(bottom: 20),
               child: Icon(
@@ -151,14 +151,14 @@ class _AndroidDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: SongsTab.androidIcon,
-            title: Text(SongsTab.title),
+            title: const Text(SongsTab.title),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: NewsTab.androidIcon,
-            title: Text(NewsTab.title),
+            title: const Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(
@@ -167,7 +167,7 @@ class _AndroidDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: ProfileTab.androidIcon,
-            title: Text(ProfileTab.title),
+            title: const Text(ProfileTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(context,
@@ -175,13 +175,13 @@ class _AndroidDrawer extends StatelessWidget {
             },
           ),
           // Long drawer contents are often segmented.
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Divider(),
           ),
           ListTile(
             leading: SettingsTab.androidIcon,
-            title: Text(SettingsTab.title),
+            title: const Text(SettingsTab.title),
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(context,

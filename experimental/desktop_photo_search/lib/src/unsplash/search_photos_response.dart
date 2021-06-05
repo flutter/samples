@@ -16,18 +16,16 @@ part 'search_photos_response.g.dart';
 abstract class SearchPhotosResponse
     implements Built<SearchPhotosResponse, SearchPhotosResponseBuilder> {
   factory SearchPhotosResponse(
-          [void Function(SearchPhotosResponseBuilder) updates]) =
+          [void Function(SearchPhotosResponseBuilder)? updates]) =
       _$SearchPhotosResponse;
 
   SearchPhotosResponse._();
 
-  @nullable
   @BuiltValueField(wireName: 'total')
-  int get total;
+  int? get total;
 
-  @nullable
   @BuiltValueField(wireName: 'total_pages')
-  int get totalPages;
+  int? get totalPages;
 
   @BuiltValueField(wireName: 'results')
   BuiltList<Photo> get results;
@@ -37,7 +35,7 @@ abstract class SearchPhotosResponse
         serializers.serializeWith(SearchPhotosResponse.serializer, this));
   }
 
-  static SearchPhotosResponse fromJson(String jsonString) {
+  static SearchPhotosResponse? fromJson(String jsonString) {
     return serializers.deserializeWith(
         SearchPhotosResponse.serializer, json.decode(jsonString));
   }

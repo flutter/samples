@@ -46,7 +46,7 @@ class _PerformancePageState extends State<PerformancePage> {
           SmoothAnimationWidget(),
           Container(
             alignment: Alignment.bottomCenter,
-            padding: EdgeInsets.only(top: 150),
+            padding: const EdgeInsets.only(top: 150),
             child: Column(
               children: [
                 FutureBuilder(
@@ -85,7 +85,7 @@ class _PerformancePageState extends State<PerformancePage> {
   void handleComputeOnMain(BuildContext context) {
     var future = computeOnMainIsolate()
       ..then((_) {
-        var snackBar = SnackBar(
+        var snackBar = const SnackBar(
           content: Text('Main Isolate Done!'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -99,7 +99,7 @@ class _PerformancePageState extends State<PerformancePage> {
   void handleComputeOnSecondary(BuildContext context) {
     var future = computeOnSecondaryIsolate()
       ..then((_) {
-        var snackBar = SnackBar(
+        var snackBar = const SnackBar(
           content: Text('Secondary Isolate Done!'),
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -114,7 +114,7 @@ class _PerformancePageState extends State<PerformancePage> {
     // A delay is added here to give Flutter the chance to redraw the UI at
     // least once before the computation (which, since it's run on the main
     // isolate, will lock up the app) begins executing.
-    await Future<void>.delayed(Duration(milliseconds: 100));
+    await Future<void>.delayed(const Duration(milliseconds: 100));
     fib(45);
   }
 
@@ -156,14 +156,14 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
         animation: _borderAnimation,
         builder: (context, child) {
           return Container(
-            child: FlutterLogo(
+            child: const FlutterLogo(
               size: 200,
             ),
             alignment: Alignment.bottomCenter,
             width: 350,
             height: 200,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 colors: [
                   Colors.blueAccent,

@@ -10,7 +10,7 @@ import 'package:platform_channels/src/method_channel_demo.dart';
 void main() {
   group('MethodChannelDemo tests', () {
     setUpAll(() {
-      final methodChannel = MethodChannel('methodChannelDemo');
+      const methodChannel = MethodChannel('methodChannelDemo');
 
       // Register a mock MethodCallHandler.
       methodChannel.setMockMethodCallHandler((call) async {

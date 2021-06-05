@@ -38,12 +38,12 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final appBar = AppBar(title: Text('AnimatedPositioned'));
+    final appBar = AppBar(title: const Text('AnimatedPositioned'));
     final topPadding = MediaQuery.of(context).padding.top;
     // AnimatedPositioned animates changes to a widget's position within a Stack
     return Scaffold(
       appBar: appBar,
-      body: Container(
+      body: SizedBox(
         height: size.height,
         width: size.width,
         child: Stack(
@@ -51,7 +51,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
             AnimatedPositioned(
               top: topPosition,
               left: leftPosition,
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               child: InkWell(
                 onTap: () => changePosition(
                     size.height -

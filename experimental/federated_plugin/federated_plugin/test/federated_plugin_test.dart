@@ -10,8 +10,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Federated Plugin Test', () {
-    final batteryLevel = 34;
-    MethodChannel('battery').setMockMethodCallHandler((call) async {
+    const batteryLevel = 34;
+    const MethodChannel('battery').setMockMethodCallHandler((call) async {
       if (call.method == 'getBatteryLevel') {
         return batteryLevel;
       }

@@ -20,7 +20,7 @@ void main() {
       expect(imageList.length, 2);
 
       // Swipe the Carousel.
-      await tester.fling(find.byType(CarouselDemo), Offset(-400, 0), 800);
+      await tester.fling(find.byType(CarouselDemo), const Offset(-400, 0), 800);
       await tester.pumpAndSettle();
 
       // Get the images available on the screen after swipe.

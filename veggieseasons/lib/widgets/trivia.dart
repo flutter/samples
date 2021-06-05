@@ -135,7 +135,7 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
             'All done!',
             style: Styles.triviaFinishedTitleText(themeData),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text('You answered', style: themeData.textTheme.textStyle),
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -157,9 +157,9 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
             ],
           ),
           Text('questions correctly!', style: themeData.textTheme.textStyle),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           CupertinoButton(
-            child: Text('Try Again'),
+            child: const Text('Try Again'),
             onPressed: () => _resetGame(),
           ),
         ],
@@ -173,12 +173,12 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             currentTrivia.question,
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           for (int i = 0; i < currentTrivia.answers.length; i++)
             Padding(
               padding: const EdgeInsets.all(8),
@@ -209,9 +209,9 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
                 : 'Sorry, that wasn\'t the right answer.',
             style: CupertinoTheme.of(context).textTheme.textStyle,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           CupertinoButton(
-            child: Text('Next Question'),
+            child: const Text('Next Question'),
             onPressed: () => setState(() {
               triviaIndex.value++;
               status.value = PlayerStatus.readyToAnswer;

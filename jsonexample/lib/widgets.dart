@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:jsonexample/utils.dart';
 
 class SimpleObjectView extends StatelessWidget {
-  SimpleObjectView(dynamic obj) : simpleObject = obj;
+  const SimpleObjectView(this.simpleObject);
 
   final dynamic simpleObject;
 
@@ -93,7 +93,7 @@ class SimpleObjectView extends StatelessWidget {
 }
 
 class SimpleObjectViewList extends StatelessWidget {
-  SimpleObjectViewList(List<dynamic> objects) : simpleObjects = objects;
+  const SimpleObjectViewList(this.simpleObjects);
 
   final List<dynamic> simpleObjects;
 
@@ -125,7 +125,7 @@ class SimpleObjectViewList extends StatelessWidget {
 class ComplexObjectView extends StatelessWidget {
   final dynamic complexObject;
 
-  ComplexObjectView(dynamic obj) : complexObject = obj;
+  const ComplexObjectView(this.complexObject);
 
   List<Widget> _generateSimpleObjectWidgets(Iterable<dynamic>? simpleObjects) {
     if (simpleObjects == null) {
@@ -267,7 +267,7 @@ class ComplexObjectView extends StatelessWidget {
 }
 
 class ComplexObjectViewList extends StatelessWidget {
-  ComplexObjectViewList(List<dynamic> objects) : complexObjects = objects;
+  const ComplexObjectViewList(this.complexObjects);
 
   final List<dynamic> complexObjects;
 

@@ -92,7 +92,7 @@ class _CategoryButton extends StatelessWidget {
     }
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 12.0),
+      margin: const EdgeInsets.symmetric(vertical: 12.0),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -179,14 +179,14 @@ class _PlaceListTile extends StatelessWidget {
         }),
       ),
       child: Container(
-        padding: EdgeInsets.only(top: 16.0),
+        padding: const EdgeInsets.only(top: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               place.name,
               textAlign: TextAlign.left,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),
@@ -209,7 +209,7 @@ class _PlaceListTile extends StatelessWidget {
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Divider(
               height: 2.0,
               color: Colors.grey[700],

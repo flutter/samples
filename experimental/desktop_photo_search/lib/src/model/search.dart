@@ -14,7 +14,7 @@ import '../unsplash/photo.dart';
 part 'search.g.dart';
 
 abstract class Search implements Built<Search, SearchBuilder> {
-  factory Search([void Function(SearchBuilder) updates]) = _$Search;
+  factory Search([void Function(SearchBuilder)? updates]) = _$Search;
   Search._();
 
   @BuiltValueField(wireName: 'query')
@@ -27,7 +27,7 @@ abstract class Search implements Built<Search, SearchBuilder> {
     return json.encode(serializers.serializeWith(Search.serializer, this));
   }
 
-  static Search fromJson(String jsonString) {
+  static Search? fromJson(String jsonString) {
     return serializers.deserializeWith(
         Search.serializer, json.decode(jsonString));
   }

@@ -54,22 +54,22 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
     // has completed.
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animation Controller'),
+        title: const Text('Animation Controller'),
       ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 200),
+              constraints: const BoxConstraints(maxWidth: 200),
               child: Text(
-                '${controller.value.toStringAsFixed(2)}',
+                controller.value.toStringAsFixed(2),
                 style: Theme.of(context).textTheme.headline3,
                 textScaleFactor: 1 + controller.value,
               ),
             ),
             ElevatedButton(
-              child: Text('animate'),
+              child: const Text('animate'),
               onPressed: () {
                 if (controller.status == AnimationStatus.completed) {
                   controller.reverse();

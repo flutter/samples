@@ -31,7 +31,7 @@ void main() {
       expect(find.text('Item 0'), findsOneWidget);
 
       // Fling i.e scroll down.
-      await tester.fling(find.byType(ListView), Offset(0, -200), 3000);
+      await tester.fling(find.byType(ListView), const Offset(0, -200), 3000);
       await tester.pumpAndSettle();
 
       // Check if "Item 0" disappeared.
@@ -46,7 +46,7 @@ void main() {
 
       // Tap the first item's icon to add it to favorites.
       await tester.tap(find.byIcon(Icons.favorite_border).first);
-      await tester.pumpAndSettle(Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       // Verify if the appropriate message is shown.
       expect(find.text('Added to favorites.'), findsOneWidget);
@@ -57,7 +57,7 @@ void main() {
       // Tap the first item's icon which has filled icon to
       // remove it from favorites.
       await tester.tap(find.byIcon(Icons.favorite).first);
-      await tester.pumpAndSettle(Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       // Verify if the appropriate message is shown.
       expect(find.text('Removed from favorites.'), findsOneWidget);

@@ -11,7 +11,7 @@ class ExpandCardDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expandable Card'),
+        title: const Text('Expandable Card'),
       ),
       body: Center(
         child: ExpandCard(),
