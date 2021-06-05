@@ -22,7 +22,7 @@ class _PetListScreenState extends State<PetListScreen> {
     super.initState();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
-   const BasicMessageChannel<String?>('stringCodecDemo', StringCodec())
+    const BasicMessageChannel<String?>('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       if (message == null) {
         showSnackBar('An error occurred while adding pet details.', context);
