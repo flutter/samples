@@ -32,17 +32,17 @@ void main() {
 class CounterModel extends ChangeNotifier {
   CounterModel() {
     _channel.setMethodCallHandler(_handleMessage);
-    _channel.invokeMethod('requestCounter');
+    _channel.invokeMethod<void>('requestCounter');
   }
 
-  final _channel = MethodChannel('dev.flutter.example/counter');
+  final _channel = const MethodChannel('dev.flutter.example/counter');
 
   int _count = 0;
 
   int get count => _count;
 
   void increment() {
-    _channel.invokeMethod('incrementCounter');
+    _channel.invokeMethod<void>('incrementCounter');
   }
 
   Future<dynamic> _handleMessage(MethodCall call) async {
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Module Title',
       routes: {
         '/': (context) => FullScreenView(),
-        '/mini': (context) => Contents(),
+        '/mini': (context) => const Contents(),
       },
     );
   }
@@ -77,7 +77,7 @@ class FullScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Full-screen Flutter'),
+        title: const Text('Full-screen Flutter'),
       ),
       body: const Contents(showExit: true),
     );
@@ -108,7 +108,7 @@ class Contents extends StatelessWidget {
               ),
             ),
           ),
-          Positioned.fill(
+          const Positioned.fill(
             child: Opacity(
               opacity: .25,
               child: FittedBox(
@@ -126,7 +126,7 @@ class Contents extends StatelessWidget {
                   '${mediaInfo.size.height.toStringAsFixed(1)}',
                   style: Theme.of(context).textTheme.headline5,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
                     return Text(
@@ -135,20 +135,20 @@ class Contents extends StatelessWidget {
                     );
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
                     return ElevatedButton(
                       onPressed: () => model.increment(),
-                      child: Text('Tap me!'),
+                      child: const Text('Tap me!'),
                     );
                   },
                 ),
                 if (showExit) ...[
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () => SystemNavigator.pop(animated: true),
-                    child: Text('Exit this screen'),
+                    child: const Text('Exit this screen'),
                   ),
                 ],
               ],
