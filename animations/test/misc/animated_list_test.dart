@@ -6,7 +6,7 @@ import 'package:animations/src/misc/animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createAnimatedListDemoScreen() => MaterialApp(
+Widget createAnimatedListDemoScreen() => const MaterialApp(
       home: AnimatedListDemo(),
     );
 

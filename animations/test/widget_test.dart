@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('smoke test', (tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(AnimationSamples());
+    await tester.pumpWidget(const AnimationSamples());
 
     // Verify that a least one of our demos is showing up in the list
     expect(find.text('AnimatedContainer'), findsOneWidget);
