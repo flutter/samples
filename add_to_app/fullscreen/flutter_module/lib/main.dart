@@ -17,7 +17,7 @@ void main() {
   runApp(
     ChangeNotifierProvider.value(
       value: model,
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -58,12 +58,14 @@ class CounterModel extends ChangeNotifier {
 /// It offers two routes, one suitable for displaying as a full screen and
 /// another designed to be part of a larger UI.class MyApp extends StatelessWidget {
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Module Title',
       routes: {
-        '/': (context) => FullScreenView(),
+        '/': (context) => const FullScreenView(),
         '/mini': (context) => const Contents(),
       },
     );
@@ -73,6 +75,8 @@ class MyApp extends StatelessWidget {
 /// Wraps [Contents] in a Material [Scaffold] so it looks correct when displayed
 /// full-screen.
 class FullScreenView extends StatelessWidget {
+  const FullScreenView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +96,7 @@ class FullScreenView extends StatelessWidget {
 class Contents extends StatelessWidget {
   final bool showExit;
 
-  const Contents({this.showExit = false});
+  const Contents({this.showExit = false, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
