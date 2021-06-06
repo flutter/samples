@@ -19,7 +19,7 @@ void main() {
     });
 
     testWidgets('get current battery level from platform', (tester) async {
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(const MyApp());
 
       // Tap button to retrieve current battery level from platform.
       await tester.tap(find.byType(ElevatedButton));
