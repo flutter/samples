@@ -41,7 +41,7 @@ class Book {
 }
 
 abstract class FlutterBookApi {
-  void displayBookDetails(Book arg);
+  void displayBookDetails(Book book);
   static void setup(FlutterBookApi api) {
     {
       const BasicMessageChannel<Object> channel = BasicMessageChannel<Object>(
@@ -50,7 +50,7 @@ abstract class FlutterBookApi {
       if (api == null) {
         channel.setMessageHandler(null);
       } else {
-        channel.setMessageHandler((Object message) async {
+        channel.setMessageHandler((message) async {
           if (message == null) {
             return;
           }
