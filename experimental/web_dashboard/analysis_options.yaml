@@ -7,13 +7,11 @@ analyzer:
 
 linter:
   rules:
-    avoid_print: false
     avoid_types_on_closure_parameters: true
     avoid_void_async: true
     cancel_subscriptions: true
     close_sinks: true
     directives_ordering: true
-    file_names: false
     package_api_docs: true
     package_prefixed_library_names: true
     test_types_in_equals: true
