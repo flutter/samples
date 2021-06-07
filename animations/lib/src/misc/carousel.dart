@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 class CarouselDemo extends StatelessWidget {
+  CarouselDemo({Key? key}) : super(key: key);
   static String routeName = '/misc/carousel';
 
   static const List<String> fileNames = [
