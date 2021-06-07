@@ -20,13 +20,15 @@ import 'performance_page.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: HomePage(),
     ),
   );
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,7 +54,7 @@ class HomePage extends StatelessWidget {
             ),
             title: const Text('Isolate Example'),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               PerformancePage(),
               InfiniteProcessPageStarter(),
