@@ -10,7 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(BooksApp());
+  runApp(const BooksApp());
 }
 
 class Book {
@@ -21,13 +21,15 @@ class Book {
 }
 
 class BooksApp extends StatefulWidget {
+  const BooksApp({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _BooksAppState();
 }
 
 class _BooksAppState extends State<BooksApp> {
-  BookRouterDelegate _routerDelegate = BookRouterDelegate();
-  BookRouteInformationParser _routeInformationParser =
+  final BookRouterDelegate _routerDelegate = BookRouterDelegate();
+  final BookRouteInformationParser _routeInformationParser =
       BookRouteInformationParser();
 
   @override
@@ -56,12 +58,12 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   }
 
   @override
-  RouteInformation restoreRouteInformation(BookRoutePath path) {
-    if (path.isHomePage) {
-      return RouteInformation(location: '/');
+  RouteInformation restoreRouteInformation(BookRoutePath configuration) {
+    if (configuration.isHomePage) {
+      return const RouteInformation(location: '/');
     }
-    if (path.isDetailsPage) {
-      return RouteInformation(location: '/book/${path.id}');
+    if (configuration.isDetailsPage) {
+      return RouteInformation(location: '/book/${configuration.id}');
     }
     return null;
   }
@@ -69,6 +71,7 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
 
 class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   Book _selectedBook;
@@ -81,6 +84,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
 
   BookRouterDelegate() : navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
   BookRoutePath get currentConfiguration => _selectedBook == null
       ? BookRoutePath.home()
       : BookRoutePath.details(books.indexOf(_selectedBook));
@@ -91,8 +95,8 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
       key: navigatorKey,
       transitionDelegate: NoAnimationTransitionDelegate(),
       pages: [
-        MaterialPage(
-          key: ValueKey('BooksListPage'),
+        MaterialPage<void>(
+          key: const ValueKey('BooksListPage'),
           child: BooksListScreen(
             books: books,
             onTapped: _handleBookTapped,
@@ -100,7 +104,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
         ),
         if (_selectedBook != null) BookDetailsPage(book: _selectedBook)
       ],
-      onPopPage: (route, result) {
+      onPopPage: (route, dynamic result) {
         if (!route.didPop(result)) {
           return false;
         }
@@ -115,9 +119,9 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) {
-    if (path.isDetailsPage) {
-      _selectedBook = books[path.id];
+  Future<void> setNewRoutePath(BookRoutePath configuration) {
+    if (configuration.isDetailsPage) {
+      _selectedBook = books[configuration.id];
     }
     return SynchronousFuture<void>(null);
   }
@@ -128,17 +132,18 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 }
 
-class BookDetailsPage extends Page {
+class BookDetailsPage extends Page<void> {
   final Book book;
 
   BookDetailsPage({
     this.book,
   }) : super(key: ValueKey(book));
 
+  @override
   Route createRoute(BuildContext context) {
-    return MaterialPageRoute(
+    return MaterialPageRoute<void>(
       settings: this,
-      builder: (BuildContext context) {
+      builder: (context) {
         return BookDetailsScreen(book: book);
       },
     );
@@ -161,10 +166,11 @@ class BooksListScreen extends StatelessWidget {
   final List<Book> books;
   final ValueChanged<Book> onTapped;
 
-  BooksListScreen({
+  const BooksListScreen({
     @required this.books,
     @required this.onTapped,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -187,9 +193,10 @@ class BooksListScreen extends StatelessWidget {
 class BookDetailsScreen extends StatelessWidget {
   final Book book;
 
-  BookDetailsScreen({
+  const BookDetailsScreen({
     @required this.book,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

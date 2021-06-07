@@ -9,7 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(BooksApp());
+  runApp(const BooksApp());
 }
 
 class Book {
@@ -20,13 +20,15 @@ class Book {
 }
 
 class BooksApp extends StatefulWidget {
+  const BooksApp({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _BooksAppState();
 }
 
 class _BooksAppState extends State<BooksApp> {
-  BookRouterDelegate _routerDelegate = BookRouterDelegate();
-  BookRouteInformationParser _routeInformationParser =
+  final BookRouterDelegate _routerDelegate = BookRouterDelegate();
+  final BookRouteInformationParser _routeInformationParser =
       BookRouteInformationParser();
 
   @override
@@ -46,7 +48,7 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   ) {
     final uri = Uri.parse(routeInformation.location);
     // Handle '/'
-    if (uri.pathSegments.length == 0) {
+    if (uri.pathSegments.isEmpty) {
       return SynchronousFuture(BookRoutePath.home());
     }
 
@@ -64,15 +66,15 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   }
 
   @override
-  RouteInformation restoreRouteInformation(BookRoutePath path) {
-    if (path.isUnknown) {
-      return RouteInformation(location: '/404');
+  RouteInformation restoreRouteInformation(BookRoutePath configuration) {
+    if (configuration.isUnknown) {
+      return const RouteInformation(location: '/404');
     }
-    if (path.isHomePage) {
-      return RouteInformation(location: '/');
+    if (configuration.isHomePage) {
+      return const RouteInformation(location: '/');
     }
-    if (path.isDetailsPage) {
-      return RouteInformation(location: '/book/${path.id}');
+    if (configuration.isDetailsPage) {
+      return RouteInformation(location: '/book/${configuration.id}');
     }
     return null;
   }
@@ -80,6 +82,7 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
 
 class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   Book _selectedBook;
@@ -93,6 +96,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
 
   BookRouterDelegate() : navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
   BookRoutePath get currentConfiguration {
     if (show404) {
       return BookRoutePath.unknown();
@@ -107,19 +111,22 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     return Navigator(
       key: navigatorKey,
       pages: [
-        MaterialPage(
-          key: ValueKey('BooksListPage'),
+        MaterialPage<void>(
+          key: const ValueKey('BooksListPage'),
           child: BooksListScreen(
             books: books,
             onTapped: _handleBookTapped,
           ),
         ),
         if (show404)
-          MaterialPage(key: ValueKey('UnknownPage'), child: UnknownScreen())
+          const MaterialPage<void>(
+            key: ValueKey('UnknownPage'),
+            child: UnknownScreen(),
+          )
         else if (_selectedBook != null)
           BookDetailsPage(book: _selectedBook)
       ],
-      onPopPage: (route, result) {
+      onPopPage: (route, dynamic result) {
         if (!route.didPop(result)) {
           return false;
         }
@@ -135,20 +142,20 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) {
-    if (path.isUnknown) {
+  Future<void> setNewRoutePath(BookRoutePath configuration) {
+    if (configuration.isUnknown) {
       _selectedBook = null;
       show404 = true;
       return SynchronousFuture<void>(null);
     }
 
-    if (path.isDetailsPage) {
-      if (path.id < 0 || path.id > books.length - 1) {
+    if (configuration.isDetailsPage) {
+      if (configuration.id < 0 || configuration.id > books.length - 1) {
         show404 = true;
         return SynchronousFuture<void>(null);
       }
 
-      _selectedBook = books[path.id];
+      _selectedBook = books[configuration.id];
     } else {
       _selectedBook = null;
     }
@@ -163,17 +170,18 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 }
 
-class BookDetailsPage extends Page {
+class BookDetailsPage extends Page<void> {
   final Book book;
 
   BookDetailsPage({
     this.book,
   }) : super(key: ValueKey(book));
 
+  @override
   Route createRoute(BuildContext context) {
-    return MaterialPageRoute(
+    return MaterialPageRoute<void>(
       settings: this,
-      builder: (BuildContext context) {
+      builder: (context) {
         return BookDetailsScreen(book: book);
       },
     );
@@ -203,10 +211,11 @@ class BooksListScreen extends StatelessWidget {
   final List<Book> books;
   final ValueChanged<Book> onTapped;
 
-  BooksListScreen({
+  const BooksListScreen({
     @required this.books,
     @required this.onTapped,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -229,9 +238,10 @@ class BooksListScreen extends StatelessWidget {
 class BookDetailsScreen extends StatelessWidget {
   final Book book;
 
-  BookDetailsScreen({
+  const BookDetailsScreen({
     @required this.book,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -254,11 +264,13 @@ class BookDetailsScreen extends StatelessWidget {
 }
 
 class UnknownScreen extends StatelessWidget {
+  const UnknownScreen({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: const Center(
         child: Text('404!'),
       ),
     );

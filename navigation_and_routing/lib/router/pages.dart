@@ -8,7 +8,7 @@ library nav2_pages;
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(BooksApp());
+  runApp(const BooksApp());
 }
 
 class Book {
@@ -19,6 +19,8 @@ class Book {
 }
 
 class BooksApp extends StatefulWidget {
+  const BooksApp({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _BooksAppState();
 }
@@ -38,8 +40,8 @@ class _BooksAppState extends State<BooksApp> {
       title: 'Books App',
       home: Navigator(
         pages: [
-          MaterialPage(
-            key: ValueKey('BooksListPage'),
+          MaterialPage<void>(
+            key: const ValueKey('BooksListPage'),
             child: BooksListScreen(
               books: books,
               onTapped: _handleBookTapped,
@@ -47,7 +49,7 @@ class _BooksAppState extends State<BooksApp> {
           ),
           if (_selectedBook != null) BookDetailsPage(book: _selectedBook)
         ],
-        onPopPage: (route, result) {
+        onPopPage: (route, dynamic result) {
           if (!route.didPop(result)) {
             return false;
           }
@@ -70,17 +72,18 @@ class _BooksAppState extends State<BooksApp> {
   }
 }
 
-class BookDetailsPage extends Page {
+class BookDetailsPage extends Page<void> {
   final Book book;
 
   BookDetailsPage({
     this.book,
   }) : super(key: ValueKey(book));
 
+  @override
   Route createRoute(BuildContext context) {
-    return MaterialPageRoute(
+    return MaterialPageRoute<void>(
       settings: this,
-      builder: (BuildContext context) {
+      builder: (context) {
         return BookDetailsScreen(book: book);
       },
     );
@@ -91,10 +94,11 @@ class BooksListScreen extends StatelessWidget {
   final List<Book> books;
   final ValueChanged<Book> onTapped;
 
-  BooksListScreen({
+  const BooksListScreen({
     @required this.books,
     @required this.onTapped,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -117,9 +121,10 @@ class BooksListScreen extends StatelessWidget {
 class BookDetailsScreen extends StatelessWidget {
   final Book book;
 
-  BookDetailsScreen({
+  const BookDetailsScreen({
     @required this.book,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
