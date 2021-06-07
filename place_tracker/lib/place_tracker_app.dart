@@ -17,6 +17,8 @@ enum PlaceTrackerViewType {
 }
 
 class PlaceTrackerApp extends StatelessWidget {
+  const PlaceTrackerApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
