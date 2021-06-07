@@ -22,10 +22,12 @@ final _placesApiClient = GoogleMapsPlaces(apiKey: googleMapsApiKey);
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,8 +42,7 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({required this.title});
-
+  const HomePage({required this.title, Key? key}) : super(key: key);
   final String title;
 
   @override
