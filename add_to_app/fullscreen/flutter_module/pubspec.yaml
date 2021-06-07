@@ -17,6 +17,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   espresso: ^0.0.1+2
+  flutter_lints: ^1.0.0
 
 flutter:
   uses-material-design: true
