@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Place {
@@ -10,33 +9,29 @@ class Place {
   final LatLng latLng;
   final String name;
   final PlaceCategory category;
-  final String description;
+  final String? description;
   final int starRating;
 
   const Place({
-    @required this.id,
-    @required this.latLng,
-    @required this.name,
-    @required this.category,
+    required this.id,
+    required this.latLng,
+    required this.name,
+    required this.category,
     this.description,
     this.starRating = 0,
-  })  : assert(id != null),
-        assert(latLng != null),
-        assert(name != null),
-        assert(category != null),
-        assert(starRating != null && starRating >= 0 && starRating <= 5);
+  }) : assert(starRating >= 0 && starRating <= 5);
 
   double get latitude => latLng.latitude;
 
   double get longitude => latLng.longitude;
 
   Place copyWith({
-    String id,
-    LatLng latLng,
-    String name,
-    PlaceCategory category,
-    String description,
-    int starRating,
+    String? id,
+    LatLng? latLng,
+    String? name,
+    PlaceCategory? category,
+    String? description,
+    int? starRating,
   }) {
     return Place(
       id: id ?? this.id,

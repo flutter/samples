@@ -10,7 +10,7 @@ import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class PlaceList extends StatefulWidget {
-  const PlaceList({Key key}) : super(key: key);
+  const PlaceList({Key? key}) : super(key: key);
 
   @override
   PlaceListState createState() => PlaceListState();
@@ -69,17 +69,15 @@ class _CategoryButton extends StatelessWidget {
   final bool selected;
   final ValueChanged<PlaceCategory> onCategoryChanged;
   const _CategoryButton({
-    Key key,
-    @required this.category,
-    @required this.selected,
-    @required this.onCategoryChanged,
-  })  : assert(category != null),
-        assert(selected != null),
-        super(key: key);
+    Key? key,
+    required this.category,
+    required this.selected,
+    required this.onCategoryChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String _buttonText;
+    late String _buttonText;
     switch (category) {
       case PlaceCategory.favorite:
         _buttonText = 'Favorites';
@@ -122,12 +120,10 @@ class _ListCategoryButtonBar extends StatelessWidget {
 
   final ValueChanged<PlaceCategory> onCategoryChanged;
   const _ListCategoryButtonBar({
-    Key key,
-    @required this.selectedCategory,
-    @required this.onCategoryChanged,
-  })  : assert(selectedCategory != null),
-        assert(onCategoryChanged != null),
-        super(key: key);
+    Key? key,
+    required this.selectedCategory,
+    required this.onCategoryChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -159,12 +155,10 @@ class _PlaceListTile extends StatelessWidget {
 
   final ValueChanged<Place> onPlaceChanged;
   const _PlaceListTile({
-    Key key,
-    @required this.place,
-    @required this.onPlaceChanged,
-  })  : assert(place != null),
-        assert(onPlaceChanged != null),
-        super(key: key);
+    Key? key,
+    required this.place,
+    required this.onPlaceChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
