@@ -44,7 +44,7 @@ class PetListMessageChannel {
 /// A model class that provides [petList] which is received from platform.
 class PetListModel {
   PetListModel({
-    this.petList,
+    required this.petList,
   });
 
   final List<PetDetails> petList;
@@ -65,8 +65,8 @@ class PetListModel {
 /// A simple model that provides pet details like [petType] and [breed] of pet.
 class PetDetails {
   PetDetails({
-    this.petType,
-    this.breed,
+    required this.petType,
+    required this.breed,
   });
 
   final String petType;

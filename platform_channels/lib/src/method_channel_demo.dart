@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:platform_channels/src/counter_method_channel.dart';
 
 /// The widget demonstrates how to use [MethodChannel] to invoke platform methods.
@@ -45,7 +46,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                   } catch (error) {
                     showErrorMessage(
                       context,
-                      error.message as String,
+                      (error as PlatformException).message!,
                     );
                   }
                 },
@@ -63,7 +64,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                   } catch (error) {
                     showErrorMessage(
                       context,
-                      error.message as String,
+                      (error as PlatformException).message!,
                     );
                   }
                 },
