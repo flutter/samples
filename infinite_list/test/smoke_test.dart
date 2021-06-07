@@ -9,7 +9,7 @@ import 'package:infinitelist/main.dart';
 
 void main() {
   testWidgets('Infinite list smoke test', (tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(const MyApp());
 
     const loadingDuration = Duration(milliseconds: 500);
 
