@@ -11,12 +11,14 @@ import 'package:sensors/sensors.dart';
 // This is on alternate entrypoint for this module to display Flutter UI in
 // a (multi-)view integration scenario.
 void main() {
-  runApp(Cell());
+  runApp(const Cell());
 }
 
 class Cell extends StatefulWidget {
+  const Cell({Key key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() => new _CellState();
+  State<StatefulWidget> createState() => _CellState();
 }
 
 class _CellState extends State<Cell> with WidgetsBindingObserver {
@@ -29,8 +31,8 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
 
   @override
   void initState() {
-    final channel = MethodChannel('dev.flutter.example/cell');
-    channel.setMethodCallHandler((MethodCall call) async {
+    const channel = MethodChannel('dev.flutter.example/cell');
+    channel.setMethodCallHandler((call) async {
       if (call.method == 'setCellNumber') {
         setState(() {
           cellNumber = call.arguments as int;
@@ -73,10 +75,10 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
       home: Container(
         color: Colors.white,
         child: Builder(
-          builder: (BuildContext context) {
+          builder: (context) {
             return Card(
               // Mimic the platform Material look.
-              margin: EdgeInsets.symmetric(horizontal: 36, vertical: 24),
+              margin: const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -103,15 +105,14 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                     bottom: 0,
                     child: Opacity(
                       opacity: 0.2,
-                      child: StreamBuilder(
+                      child: StreamBuilder<AccelerometerEvent>(
                         // Don't continuously rebuild for nothing when the
                         // cell isn't visible.
                         stream: appLifecycleState == AppLifecycleState.resumed
                             ? accelerometerEvents
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
-                        builder: (BuildContext context,
-                            AsyncSnapshot<AccelerometerEvent> snapshot) {
+                        builder: (context, snapshot) {
                           return Transform(
                               // Figure out the phone's orientation relative
                               // to gravity's direction. Ignore the z vector.
@@ -120,7 +121,7 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                                 ..multiply(Matrix4.rotationY(
                                     snapshot.data.x / gravity * pi / 2)),
                               alignment: Alignment.center,
-                              child: FlutterLogo(size: 72));
+                              child: const FlutterLogo(size: 72));
                         },
                       ),
                     ),
