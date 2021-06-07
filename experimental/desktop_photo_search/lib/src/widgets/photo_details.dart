@@ -18,7 +18,8 @@ class PhotoDetails extends StatefulWidget {
   const PhotoDetails({
     required this.photo,
     required this.onPhotoSave,
-  });
+    Key? key,
+  }) : super(key: key);
   final Photo photo;
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
 

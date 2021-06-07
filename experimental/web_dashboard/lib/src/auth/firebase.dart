@@ -19,8 +19,7 @@ class FirebaseAuthService implements Auth {
   Future<User> signIn() async {
     try {
       return await _signIn();
-    } on PlatformException catch (e) {
-      print('Unable to sign in: $e');
+    } on PlatformException {
       throw SignInException();
     }
   }
