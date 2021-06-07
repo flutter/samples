@@ -9,15 +9,17 @@ import 'src/catalog.dart';
 import 'src/item_tile.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Catalog>(
       create: (context) => Catalog(),
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Infinite List Sample',
         home: MyHomePage(),
       ),
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
