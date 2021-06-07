@@ -37,12 +37,14 @@ void main() {
       create: (context) => PhotoSearchModel(
         Unsplash(accessKey: unsplashAccessKey),
       ),
-      child: UnsplashSearchApp(),
+      child: const UnsplashSearchApp(),
     ),
   );
 }
 
 class UnsplashSearchApp extends StatelessWidget {
+  const UnsplashSearchApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +58,7 @@ class UnsplashSearchApp extends StatelessWidget {
 }
 
 class UnsplashHomePage extends StatelessWidget {
-  const UnsplashHomePage({required this.title});
+  const UnsplashHomePage({required this.title, Key? key}) : super(key: key);
   final String title;
 
   @override
@@ -70,7 +72,7 @@ class UnsplashHomePage extends StatelessWidget {
             showDialog<void>(
               context: context,
               builder: (context) =>
-                  PhotoSearchDialog(photoSearchModel.addSearch),
+                  PhotoSearchDialog(callback: photoSearchModel.addSearch),
             );
           },
         ),
@@ -139,7 +141,8 @@ class UnsplashHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => showDialog<void>(
           context: context,
-          builder: (context) => PhotoSearchDialog(photoSearchModel.addSearch),
+          builder: (context) =>
+              PhotoSearchDialog(callback: photoSearchModel.addSearch),
         ),
         tooltip: 'Search for a photo',
         child: const Icon(Icons.search),
