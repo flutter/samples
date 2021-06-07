@@ -30,6 +30,8 @@ int fib(int n) {
 }
 
 class PerformancePage extends StatefulWidget {
+  const PerformancePage({Key? key}) : super(key: key);
+
   @override
   _PerformancePageState createState() => _PerformancePageState();
 }
@@ -43,7 +45,7 @@ class _PerformancePageState extends State<PerformancePage> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SmoothAnimationWidget(),
+          const SmoothAnimationWidget(),
           Container(
             alignment: Alignment.bottomCenter,
             padding: const EdgeInsets.only(top: 150),
@@ -125,6 +127,8 @@ class _PerformancePageState extends State<PerformancePage> {
 }
 
 class SmoothAnimationWidget extends StatefulWidget {
+  const SmoothAnimationWidget({Key? key}) : super(key: key);
+
   @override
   SmoothAnimationWidgetState createState() => SmoothAnimationWidgetState();
 }

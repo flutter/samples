@@ -11,4 +11,4 @@ PRODUCT_NAME = isolate_example
 PRODUCT_BUNDLE_IDENTIFIER = dev.flutter.isolateExample
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2020 dev.flutter. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2021 dev.flutter. All rights reserved.
