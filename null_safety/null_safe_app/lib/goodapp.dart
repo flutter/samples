@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'services.dart';
 
 class GoodMyApp extends StatelessWidget {
+  const GoodMyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final localizedAppName = Config.getAppName();
@@ -14,13 +16,13 @@ class GoodMyApp extends StatelessWidget {
 
     List<Widget> tempWidgets;
     if (temperatures == null) {
-      tempWidgets = [Text('Temperature: Failed getting forecast :-(')];
+      tempWidgets = [const Text('Temperature: Failed getting forecast :-(')];
     } else {
       // Null safety uses flow analysis. The code checked for null in the branch
       // above, so in this branch it known that temperatures cannot be null.
       // Notice how we access temperatures without getting an analysis error.
       tempWidgets = [
-        Text('Temperature next 3 days:'),
+        const Text('Temperature next 3 days:'),
         for (final t in temperatures)
           // We first use the conditional member access operator to only call
           // round() and toString() if t isn't null. We then test if that

@@ -12,13 +12,15 @@ import 'services.dart';
 // uncomment the for-loop and appBar lines below, and note how the new null
 // safety static analysis immediately flags those lines as errors.
 class BadMyApp extends StatelessWidget {
+  const BadMyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final localizedAppName = Config.getAppName();
     final temperatures = WeatherService.getTemperatures();
 
     var tempWidgets = [
-      Text('Temperature next 3 days:'),
+      const Text('Temperature next 3 days:'),
       // for (final t in temperatures) Text(t.round().toString()),
     ];
 
