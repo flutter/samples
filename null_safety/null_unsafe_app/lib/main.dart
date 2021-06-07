@@ -5,13 +5,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 // This app simulates possible null errors. Try running it and see if it fails.
 // You can then try to hot reload a few times; you should see it occasionally
 // failing and occasionally succeeding.
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // Get data from services. Note: in a real application,
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Temperature next 3 days:'),
+              const Text('Temperature next 3 days:'),
               for (final t in temperatures) Text(t.round().toString()),
             ],
           ),
