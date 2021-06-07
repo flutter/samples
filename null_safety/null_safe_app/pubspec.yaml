@@ -1,6 +1,6 @@
 name: null_safe_app
 description: A new Flutter project.
-publish_to: 'none' # Do not publish apps & package using the null safety experiment.
+publish_to: "none" # Do not publish apps & package using the null safety experiment.
 version: 1.2.0
 
 environment:
@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
 
 flutter:
   uses-material-design: true
