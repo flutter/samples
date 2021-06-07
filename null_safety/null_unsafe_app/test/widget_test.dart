@@ -8,8 +8,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Rendering the page throws an exception',
-      (WidgetTester tester) async {
+  testWidgets('Rendering the page throws an exception', (tester) async {
     // Do nothing, running the app throws an exception on widget render.
   });
 }
