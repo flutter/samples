@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedBuilderDemo extends StatefulWidget {
+  const AnimatedBuilderDemo({Key? key}) : super(key: key);
   static const String routeName = '/basics/animated_builder';
 
   @override

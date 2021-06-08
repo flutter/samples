@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
 class CardSwipeDemo extends StatefulWidget {
+  const CardSwipeDemo({Key? key}) : super(key: key);
   static String routeName = '/misc/card_swipe';
 
   @override
@@ -78,7 +79,7 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
 class Card extends StatelessWidget {
   final String imageAssetName;
 
-  const Card(this.imageAssetName);
+  const Card({required this.imageAssetName, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +102,9 @@ class SwipeableCard extends StatefulWidget {
   final String imageAssetName;
   final VoidCallback onSwiped;
 
-  const SwipeableCard({
-    required this.onSwiped,
-    required this.imageAssetName,
-  });
+  const SwipeableCard(
+      {required this.onSwiped, required this.imageAssetName, Key? key})
+      : super(key: key);
 
   @override
   _SwipeableCardState createState() => _SwipeableCardState();
@@ -135,7 +135,7 @@ class _SwipeableCardState extends State<SwipeableCard>
         onHorizontalDragStart: _dragStart,
         onHorizontalDragUpdate: _dragUpdate,
         onHorizontalDragEnd: _dragEnd,
-        child: Card(widget.imageAssetName),
+        child: Card(imageAssetName: widget.imageAssetName),
       ),
     );
   }

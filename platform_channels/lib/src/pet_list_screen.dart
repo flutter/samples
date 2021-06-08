@@ -14,7 +14,7 @@ class PetListScreen extends StatefulWidget {
 }
 
 class _PetListScreenState extends State<PetListScreen> {
-  PetListModel petListModel;
+  PetListModel petListModel = PetListModel(petList: []);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -22,7 +22,7 @@ class _PetListScreenState extends State<PetListScreen> {
     super.initState();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
-    const BasicMessageChannel('stringCodecDemo', StringCodec())
+    const BasicMessageChannel<String?>('stringCodecDemo', StringCodec())
         .setMessageHandler((message) async {
       if (message == null) {
         showSnackBar('An error occurred while adding pet details.', context);
@@ -31,7 +31,7 @@ class _PetListScreenState extends State<PetListScreen> {
           petListModel = PetListModel.fromJson(message);
         });
       }
-      return;
+      return null;
     });
   }
 
@@ -48,7 +48,7 @@ class _PetListScreenState extends State<PetListScreen> {
           Navigator.pushNamed(context, '/addPetDetails');
         },
       ),
-      body: petListModel?.petList?.isEmpty ?? true
+      body: petListModel.petList.isEmpty
           ? const Center(child: Text('Enter Pet Details'))
           : BuildPetList(petListModel.petList),
     );
@@ -79,7 +79,7 @@ class BuildPetList extends StatelessWidget {
                 await PetListMessageChannel.removePet(index);
                 showSnackBar('Removed successfully!', context);
               } catch (error) {
-                showSnackBar(error.message.toString(), context);
+                showSnackBar((error as PlatformException).message!, context);
               }
             },
           ),

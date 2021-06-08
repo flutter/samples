@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:jsonexample/utils.dart';
 
 class SimpleObjectView extends StatelessWidget {
-  const SimpleObjectView(this.simpleObject);
+  const SimpleObjectView({required this.simpleObject, Key? key})
+      : super(key: key);
 
   final dynamic simpleObject;
 
@@ -93,7 +94,8 @@ class SimpleObjectView extends StatelessWidget {
 }
 
 class SimpleObjectViewList extends StatelessWidget {
-  const SimpleObjectViewList(this.simpleObjects);
+  const SimpleObjectViewList({required this.simpleObjects, Key? key})
+      : super(key: key);
 
   final List<dynamic> simpleObjects;
 
@@ -108,7 +110,7 @@ class SimpleObjectViewList extends StatelessWidget {
           style: Theme.of(context).textTheme.subtitle1,
         ),
         const SizedBox(height: 4.0),
-        SimpleObjectView(simpleObjects[i]),
+        SimpleObjectView(simpleObject: simpleObjects[i]),
         const SizedBox(height: 24.0),
       ]);
     }
@@ -125,7 +127,8 @@ class SimpleObjectViewList extends StatelessWidget {
 class ComplexObjectView extends StatelessWidget {
   final dynamic complexObject;
 
-  const ComplexObjectView(this.complexObject);
+  const ComplexObjectView({required this.complexObject, Key? key})
+      : super(key: key);
 
   List<Widget> _generateSimpleObjectWidgets(Iterable<dynamic>? simpleObjects) {
     if (simpleObjects == null) {
@@ -149,7 +152,7 @@ class ComplexObjectView extends StatelessWidget {
     return simpleObjects
         .expand((dynamic o) => [
               const SizedBox(height: 4.0),
-              SimpleObjectView(o),
+              SimpleObjectView(simpleObject: o),
               const SizedBox(height: 4.0),
             ])
         .toList();
@@ -204,7 +207,7 @@ class ComplexObjectView extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(24.0, 4.0, 0.0, 4.0),
-          child: SimpleObjectView(complexObject.anObject),
+          child: SimpleObjectView(simpleObject: complexObject.anObject),
         ),
         Table(
           columnWidths: const {
@@ -267,7 +270,8 @@ class ComplexObjectView extends StatelessWidget {
 }
 
 class ComplexObjectViewList extends StatelessWidget {
-  const ComplexObjectViewList(this.complexObjects);
+  const ComplexObjectViewList({required this.complexObjects, Key? key})
+      : super(key: key);
 
   final List<dynamic> complexObjects;
 
@@ -282,7 +286,7 @@ class ComplexObjectViewList extends StatelessWidget {
           style: Theme.of(context).textTheme.subtitle1,
         ),
         const SizedBox(height: 4.0),
-        ComplexObjectView(complexObjects[i]),
+        ComplexObjectView(complexObject: complexObjects[i]),
         const SizedBox(height: 24.0),
       ]);
     }

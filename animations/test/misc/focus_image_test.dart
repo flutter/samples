@@ -6,7 +6,7 @@ import 'package:animations/src/misc/focus_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createFocusImageScreen() => MaterialApp(
+Widget createFocusImageScreen() => const MaterialApp(
       home: FocusImageDemo(),
     );
 
