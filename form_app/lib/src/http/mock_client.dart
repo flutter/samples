@@ -11,10 +11,10 @@ class MockClient extends Mock implements http.Client {
   MockClient() {
     when(post('https://example.com/signin', body: anyNamed('body')))
         .thenAnswer((answering) {
-      var body = answering.namedArguments[Symbol('body')];
+      dynamic body = answering.namedArguments[const Symbol('body')];
 
       if (body != null && body is String) {
-        var decodedJson = json.decode(body);
+        var decodedJson = json.decode(body) as Map<String, String>;
 
         if (decodedJson['email'] == 'root' &&
             decodedJson['password'] == 'password') {

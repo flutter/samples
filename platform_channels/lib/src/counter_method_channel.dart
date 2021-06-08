@@ -14,16 +14,16 @@ class Counter {
   static MethodChannel methodChannel = const MethodChannel('methodChannelDemo');
 
   /// This method is responsible to increment and return the value of count.
-  static Future<int> increment({int counterValue}) async {
+  static Future<int> increment({required int counterValue}) async {
     final result = await methodChannel
         .invokeMethod<int>('increment', {'count': counterValue});
-    return result;
+    return result!;
   }
 
   /// This method is responsible to decrement and return the value of count.
-  static Future<int> decrement({int counterValue}) async {
+  static Future<int> decrement({required int counterValue}) async {
     final result = await methodChannel
         .invokeMethod<int>('decrement', {'count': counterValue});
-    return result;
+    return result!;
   }
 }

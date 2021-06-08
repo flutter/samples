@@ -10,8 +10,10 @@ import 'package:provider/provider.dart';
 class MockCounterModel extends ChangeNotifier implements CounterModel {
   int _count = 0;
 
+  @override
   int get count => _count;
 
+  @override
   void increment() {
     _count++;
     notifyListeners();
@@ -19,13 +21,13 @@ class MockCounterModel extends ChangeNotifier implements CounterModel {
 }
 
 void main() {
-  testWidgets('MiniView smoke test', (WidgetTester tester) async {
+  testWidgets('MiniView smoke test', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
       MaterialApp(
         home: ChangeNotifierProvider<CounterModel>.value(
           value: MockCounterModel(),
-          child: Contents(),
+          child: const Contents(),
         ),
       ),
     );

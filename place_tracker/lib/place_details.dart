@@ -15,20 +15,18 @@ class PlaceDetails extends StatefulWidget {
   final ValueChanged<Place> onChanged;
 
   const PlaceDetails({
-    @required this.place,
-    @required this.onChanged,
-    Key key,
-  })  : assert(place != null),
-        assert(onChanged != null),
-        super(key: key);
+    required this.place,
+    required this.onChanged,
+    Key? key,
+  }) : super(key: key);
 
   @override
   PlaceDetailsState createState() => PlaceDetailsState();
 }
 
 class PlaceDetailsState extends State<PlaceDetails> {
-  Place _place;
-  GoogleMapController _mapController;
+  late Place _place;
+  GoogleMapController? _mapController;
   final Set<Marker> _markers = {};
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -65,7 +63,7 @@ class PlaceDetailsState extends State<PlaceDetails> {
   void initState() {
     _place = widget.place;
     _nameController.text = _place.name;
-    _descriptionController.text = _place.description;
+    _descriptionController.text = _place.description!;
     return super.initState();
   }
 
@@ -124,12 +122,10 @@ class _DescriptionTextField extends StatelessWidget {
 
   final ValueChanged<String> onChanged;
   const _DescriptionTextField({
-    @required this.controller,
-    @required this.onChanged,
-    Key key,
-  })  : assert(controller != null),
-        assert(onChanged != null),
-        super(key: key);
+    required this.controller,
+    required this.onChanged,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -155,18 +151,16 @@ class _DescriptionTextField extends StatelessWidget {
 class _Map extends StatelessWidget {
   final LatLng center;
 
-  final GoogleMapController mapController;
+  final GoogleMapController? mapController;
   final ArgumentCallback<GoogleMapController> onMapCreated;
   final Set<Marker> markers;
   const _Map({
-    @required this.center,
-    @required this.mapController,
-    @required this.onMapCreated,
-    @required this.markers,
-    Key key,
-  })  : assert(center != null),
-        assert(onMapCreated != null),
-        super(key: key);
+    required this.center,
+    required this.mapController,
+    required this.onMapCreated,
+    required this.markers,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -198,12 +192,10 @@ class _NameTextField extends StatelessWidget {
 
   final ValueChanged<String> onChanged;
   const _NameTextField({
-    @required this.controller,
-    @required this.onChanged,
-    Key key,
-  })  : assert(controller != null),
-        assert(onChanged != null),
-        super(key: key);
+    required this.controller,
+    required this.onChanged,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +219,7 @@ class _NameTextField extends StatelessWidget {
 
 class _Reviews extends StatelessWidget {
   const _Reviews({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -320,11 +312,10 @@ class _StarBar extends StatelessWidget {
   final int rating;
   final ValueChanged<int> onChanged;
   const _StarBar({
-    @required this.rating,
-    @required this.onChanged,
-    Key key,
-  })  : assert(rating != null && rating >= 0 && rating <= maxStars),
-        assert(onChanged != null),
+    required this.rating,
+    required this.onChanged,
+    Key? key,
+  })  : assert(rating >= 0 && rating <= maxStars),
         super(key: key);
 
   @override

@@ -19,8 +19,8 @@ void main() {
       // calls the BinaryMessenger.setMessageHandler registered for the EventChannel
       // and add the incoming message to the StreamController used by the EventChannel
       // after decoding the message with codec used by the EventChannel.
-      void emitValues(ByteData event) {
-        ServicesBinding.instance.defaultBinaryMessenger.handlePlatformMessage(
+      void emitValues(ByteData? event) {
+        ServicesBinding.instance?.defaultBinaryMessenger.handlePlatformMessage(
           'eventChannelDemo',
           event,
           (reply) {},
@@ -29,7 +29,7 @@ void main() {
 
       // Register a mock for EventChannel. EventChannel under the hood uses
       // MethodChannel to listen and cancel the created stream.
-      ServicesBinding.instance.defaultBinaryMessenger
+      ServicesBinding.instance?.defaultBinaryMessenger
           .setMockMessageHandler('eventChannelDemo', (message) async {
         // Decode the message into MethodCallHandler.
         final methodCall = standardMethod.decodeMethodCall(message);
