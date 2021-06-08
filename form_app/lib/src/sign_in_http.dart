@@ -29,9 +29,10 @@ class FormData {
 class SignInHttpDemo extends StatefulWidget {
   final http.Client httpClient;
 
-  SignInHttpDemo({
+  const SignInHttpDemo({
     this.httpClient,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _SignInHttpDemoState createState() => _SignInHttpDemoState();
@@ -44,19 +45,19 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign in Form'),
+        title: const Text('Sign in Form'),
       ),
       body: Form(
         child: Scrollbar(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               children: [
                 ...[
                   TextFormField(
-                    autofocus:  true,
+                    autofocus: true,
                     textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       filled: true,
                       hintText: 'Your email address',
                       labelText: 'Email',
@@ -66,7 +67,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     },
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       filled: true,
                       labelText: 'Password',
                     ),
@@ -76,7 +77,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                     },
                   ),
                   TextButton(
-                    child: Text('Sign in'),
+                    child: const Text('Sign in'),
                     onPressed: () async {
                       // Use a JSON encoded string to send
                       var result = await widget.httpClient.post(
@@ -96,7 +97,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                 ].expand(
                   (widget) => [
                     widget,
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     )
                   ],
@@ -110,13 +111,13 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
   }
 
   void _showDialog(String message) {
-    showDialog(
+    showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(message),
         actions: [
           TextButton(
-            child: Text('OK'),
+            child: const Text('OK'),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ],

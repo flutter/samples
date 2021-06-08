@@ -15,7 +15,7 @@ import 'src/validation.dart';
 final http.Client httpClient = MockClient();
 
 void main() {
-  runApp(FormApp());
+  runApp(const FormApp());
 }
 
 final demos = [
@@ -29,41 +29,44 @@ final demos = [
   Demo(
     name: 'Autofill',
     route: '/autofill',
-    builder: (context) => AutofillDemo(),
+    builder: (context) => const AutofillDemo(),
   ),
   Demo(
     name: 'Form widgets',
     route: '/form_widgets',
-    builder: (context) => FormWidgetsDemo(),
+    builder: (context) => const FormWidgetsDemo(),
   ),
   Demo(
     name: 'Validation',
     route: '/validation',
-    builder: (context) => FormValidationDemo(),
+    builder: (context) => const FormValidationDemo(),
   ),
 ];
 
 class FormApp extends StatelessWidget {
+  const FormApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Form Samples',
       theme: ThemeData(primarySwatch: Colors.teal),
       routes: Map.fromEntries(demos.map((d) => MapEntry(d.route, d.builder))),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Samples'),
+        title: const Text('Form Samples'),
       ),
       body: ListView(
-        children: [...demos.map((d) => DemoTile(d))],
+        children: [...demos.map((d) => DemoTile(demo: d))],
       ),
     );
   }
@@ -72,7 +75,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final Demo demo;
 
-  DemoTile(this.demo);
+  const DemoTile({this.demo, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
