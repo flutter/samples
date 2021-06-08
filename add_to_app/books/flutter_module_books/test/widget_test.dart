@@ -9,8 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 void main() {
-  testWidgets('Pressing clear calls the cancel API',
-      (WidgetTester tester) async {
+  testWidgets('Pressing clear calls the cancel API', (tester) async {
     MockHostBookApi mockHostApi = MockHostBookApi();
 
     await tester.pumpWidget(
@@ -24,8 +23,7 @@ void main() {
     verify(mockHostApi.cancel());
   });
 
-  testWidgets('Pressing done calls the finish editing API',
-      (WidgetTester tester) async {
+  testWidgets('Pressing done calls the finish editing API', (tester) async {
     MockHostBookApi mockHostApi = MockHostBookApi();
 
     await tester.pumpWidget(
