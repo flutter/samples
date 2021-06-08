@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
 
 class FormWidgetsDemo extends StatefulWidget {
+  const FormWidgetsDemo({Key key}) : super(key: key);
+
   @override
   _FormWidgetsDemoState createState() => _FormWidgetsDemoState();
 }
@@ -23,7 +25,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form widgets'),
+        title: const Text('Form widgets'),
       ),
       body: Form(
         key: _formKey,
@@ -32,16 +34,16 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
             alignment: Alignment.topCenter,
             child: Card(
               child: SingleChildScrollView(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 400),
+                  constraints: const BoxConstraints(maxWidth: 400),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ...[
                         TextFormField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             filled: true,
                             hintText: 'Enter a title...',
                             labelText: 'Title',
@@ -53,8 +55,8 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           },
                         ),
                         TextFormField(
-                          decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             filled: true,
                             hintText: 'Enter a description...',
                             labelText: 'Description',
@@ -64,7 +66,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           },
                           maxLines: 5,
                         ),
-                        _FormDatePicker(
+                        _FormDatePicker<DateTime>(
                           date: date,
                           onChanged: (value) {
                             setState(() {
@@ -139,7 +141,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                       ].expand(
                         (widget) => [
                           widget,
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           )
                         ],
@@ -156,11 +158,11 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   }
 }
 
-class _FormDatePicker extends StatefulWidget {
+class _FormDatePicker<T> extends StatefulWidget {
   final DateTime date;
-  final ValueChanged onChanged;
+  final ValueChanged<T> onChanged;
 
-  _FormDatePicker({
+  const _FormDatePicker({
     this.date,
     this.onChanged,
   });
@@ -191,7 +193,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           ],
         ),
         TextButton(
-          child: Text('Edit'),
+          child: const Text('Edit'),
           onPressed: () async {
             var newDate = await showDatePicker(
               context: context,

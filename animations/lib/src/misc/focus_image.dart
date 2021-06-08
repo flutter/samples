@@ -5,18 +5,20 @@
 import 'package:flutter/material.dart';
 
 class FocusImageDemo extends StatelessWidget {
+  const FocusImageDemo({Key? key}) : super(key: key);
   static String routeName = '/misc/focus_image';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Focus Image')),
-      body: Grid(),
+      body: const Grid(),
     );
   }
 }
 
 class Grid extends StatelessWidget {
+  const Grid({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +28,12 @@ class Grid extends StatelessWidget {
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (context, index) {
           return (index >= 20)
-              ? const SmallCard('assets/eat_cape_town_sm.jpg')
-              : const SmallCard('assets/eat_new_orleans_sm.jpg');
+              ? const SmallCard(
+                  imageAssetName: 'assets/eat_cape_town_sm.jpg',
+                )
+              : const SmallCard(
+                  imageAssetName: 'assets/eat_new_orleans_sm.jpg',
+                );
         },
       ),
     );
@@ -66,9 +72,8 @@ Tween<RelativeRect> _createTween(BuildContext context) {
 }
 
 class SmallCard extends StatelessWidget {
+  const SmallCard({required this.imageAssetName, Key? key}) : super(key: key);
   final String imageAssetName;
-
-  const SmallCard(this.imageAssetName);
 
   @override
   Widget build(BuildContext context) {

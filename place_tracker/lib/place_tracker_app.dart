@@ -17,7 +17,7 @@ enum PlaceTrackerViewType {
 }
 
 class PlaceTrackerApp extends StatelessWidget {
-  const PlaceTrackerApp({Key key}) : super(key: key);
+  const PlaceTrackerApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class PlaceTrackerApp extends StatelessWidget {
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
-  const _PlaceTrackerHomePage({Key key}) : super(key: key);
+  const _PlaceTrackerHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +83,7 @@ class AppState extends ChangeNotifier {
     this.places = StubData.places,
     this.selectedCategory = PlaceCategory.favorite,
     this.viewType = PlaceTrackerViewType.map,
-  })  : assert(places != null),
-        assert(selectedCategory != null);
+  });
 
   List<Place> places;
   PlaceCategory selectedCategory;

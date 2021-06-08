@@ -23,6 +23,7 @@ Widget generateContainer(int keyCount) => Container(
     );
 
 class AnimatedSwitcherDemo extends StatefulWidget {
+  const AnimatedSwitcherDemo({Key? key}) : super(key: key);
   static String routeName = '/basics/10_animated_switcher';
 
   @override

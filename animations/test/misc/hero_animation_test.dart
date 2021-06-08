@@ -6,7 +6,7 @@ import 'package:animations/src/misc/hero_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget createHeroAnimationDemoScreen() => MaterialApp(
+Widget createHeroAnimationDemoScreen() => const MaterialApp(
       home: HeroAnimationDemo(),
     );
 
