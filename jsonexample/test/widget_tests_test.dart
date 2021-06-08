@@ -22,7 +22,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: SimpleObjectView(simpleObject),
+          home: SimpleObjectView(simpleObject: simpleObject),
         ),
       );
 
@@ -46,7 +46,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: SimpleObjectView(simpleObject),
+          home: SimpleObjectView(simpleObject: simpleObject),
         ),
       );
 
@@ -65,7 +65,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: SimpleObjectView(simpleObject),
+          home: SimpleObjectView(simpleObject: simpleObject),
         ),
       );
 
@@ -120,7 +120,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComplexObjectView(complexObject),
+          home: ComplexObjectView(complexObject: complexObject),
         ),
       );
 
@@ -162,7 +162,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComplexObjectView(complexObject),
+          home: ComplexObjectView(complexObject: complexObject),
         ),
       );
 
@@ -183,7 +183,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComplexObjectView(complexObject),
+          home: ComplexObjectView(complexObject: complexObject),
         ),
       );
 

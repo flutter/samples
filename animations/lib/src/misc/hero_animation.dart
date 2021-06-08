@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 class HeroAnimationDemo extends StatelessWidget {
+  const HeroAnimationDemo({Key? key}) : super(key: key);
   static const String routeName = '/misc/hero_animation';
 
   @override
@@ -21,14 +22,16 @@ class HeroAnimationDemo extends StatelessWidget {
             color: Colors.grey.shade300,
           ),
         ),
-        onTap: () => Navigator.of(context)
-            .push<void>(MaterialPageRoute(builder: (context) => HeroPage())),
+        onTap: () => Navigator.of(context).push<void>(
+            MaterialPageRoute(builder: (context) => const HeroPage())),
       ),
     );
   }
 }
 
 class HeroPage extends StatelessWidget {
+  const HeroPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

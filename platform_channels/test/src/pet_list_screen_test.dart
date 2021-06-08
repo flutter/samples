@@ -13,7 +13,7 @@ import 'package:platform_channels/src/pet_list_screen.dart';
 void main() {
   group('PetListScreen tests', () {
     const basicMessageChannel =
-        BasicMessageChannel('stringCodecDemo', StringCodec());
+        BasicMessageChannel<String?>('stringCodecDemo', StringCodec());
 
     var petList = [
       {
@@ -22,21 +22,21 @@ void main() {
       }
     ];
 
-    PetListModel petListModel;
+    PetListModel? petListModel;
 
     setUpAll(() {
       // Mock for the pet list received from the platform.
       basicMessageChannel.setMockMessageHandler((message) async {
-        petListModel = PetListModel.fromJson(message);
-        return;
+        petListModel = PetListModel.fromJson(message!);
+        return null;
       });
 
       // Mock for the index received from the Dart to delete the pet details,
       // and send the updated pet list back to Dart.
-      const BasicMessageChannel('binaryCodecDemo', BinaryCodec())
+      const BasicMessageChannel<ByteData?>('binaryCodecDemo', BinaryCodec())
           .setMockMessageHandler((message) async {
         // Convert the ByteData to String.
-        final index = utf8.decoder.convert(message.buffer
+        final index = utf8.decoder.convert(message!.buffer
             .asUint8List(message.offsetInBytes, message.lengthInBytes));
 
         // Remove the pet details at the given index.
@@ -45,7 +45,8 @@ void main() {
         // Send the updated petList back.
         final map = {'petList': petList};
         await basicMessageChannel.send(json.encode(map));
-        return;
+
+        return null;
       });
     });
 
@@ -60,7 +61,7 @@ void main() {
       basicMessageChannel.send(json.encode(map));
 
       // Get the details of first pet.
-      final petDetails = petListModel.petList.first;
+      final petDetails = petListModel!.petList.first;
       expect(petDetails.petType, 'Dog');
       expect(petDetails.breed, 'Pug');
     });
@@ -68,7 +69,7 @@ void main() {
     testWidgets('BuildPetList test', (tester) async {
       await tester.pumpWidget(MaterialApp(
         home: Scaffold(
-          body: BuildPetList(petListModel.petList),
+          body: BuildPetList(petListModel!.petList),
         ),
       ));
 
@@ -77,7 +78,7 @@ void main() {
 
       // Delete the pet details.
       await tester.tap(find.byIcon(Icons.delete).first);
-      expect(petListModel.petList, isEmpty);
+      expect(petListModel!.petList, isEmpty);
     });
   });
 }
