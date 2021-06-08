@@ -1,7 +1,6 @@
 name: federated_plugin_macos
 description: macOS implementation of federated_plugin to retrieve current battery level.
 version: 0.0.1
-homepage:
 publish_to: none
 
 environment:
@@ -15,6 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
 
 flutter:
   plugin:
