@@ -10,7 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(NestedRouterDemo());
+  runApp(const NestedRouterDemo());
 }
 
 class Book {
@@ -21,13 +21,15 @@ class Book {
 }
 
 class NestedRouterDemo extends StatefulWidget {
+  const NestedRouterDemo({Key? key}) : super(key: key);
+
   @override
   _NestedRouterDemoState createState() => _NestedRouterDemoState();
 }
 
 class _NestedRouterDemoState extends State<NestedRouterDemo> {
-  BookRouterDelegate _routerDelegate = BookRouterDelegate();
-  BookRouteInformationParser _routeInformationParser =
+  final BookRouterDelegate _routerDelegate = BookRouterDelegate();
+  final BookRouteInformationParser _routeInformationParser =
       BookRouteInformationParser();
 
   @override
@@ -43,7 +45,7 @@ class _NestedRouterDemoState extends State<NestedRouterDemo> {
 class BooksAppState extends ChangeNotifier {
   int _selectedIndex;
 
-  Book _selectedBook;
+  Book? _selectedBook;
 
   final List<Book> books = [
     Book('Left Hand of Darkness', 'Ursula K. Le Guin'),
@@ -66,16 +68,17 @@ class BooksAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Book get selectedBook => _selectedBook;
+  Book? get selectedBook => _selectedBook;
 
-  set selectedBook(Book book) {
+  set selectedBook(Book? book) {
     _selectedBook = book;
     notifyListeners();
   }
 
   int getSelectedBookById() {
+    if (_selectedBook == null) return 0;
     if (!books.contains(_selectedBook)) return 0;
-    return books.indexOf(_selectedBook);
+    return books.indexOf(_selectedBook!);
   }
 
   void setSelectedBookById(int id) {
@@ -93,14 +96,14 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   Future<BookRoutePath> parseRouteInformation(
     RouteInformation routeInformation,
   ) {
-    final uri = Uri.parse(routeInformation.location);
+    final uri = Uri.parse(routeInformation.location ?? '');
 
     if (uri.pathSegments.isNotEmpty && uri.pathSegments.first == 'settings') {
       return SynchronousFuture(BooksSettingsPath());
     } else {
       if (uri.pathSegments.length >= 2 && uri.pathSegments[0] == 'book') {
         return SynchronousFuture(
-          BooksDetailsPath(int.tryParse(uri.pathSegments[1])),
+          BooksDetailsPath(int.tryParse(uri.pathSegments[1])!),
         );
       }
       return SynchronousFuture(BooksListPath());
@@ -108,12 +111,12 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
   }
 
   @override
-  RouteInformation restoreRouteInformation(BookRoutePath configuration) {
+  RouteInformation? restoreRouteInformation(BookRoutePath configuration) {
     if (configuration is BooksListPath) {
-      return RouteInformation(location: '/home');
+      return const RouteInformation(location: '/home');
     }
     if (configuration is BooksSettingsPath) {
-      return RouteInformation(location: '/settings');
+      return const RouteInformation(location: '/settings');
     }
     if (configuration is BooksDetailsPath) {
       return RouteInformation(location: '/book/${configuration.id}');
@@ -124,6 +127,7 @@ class BookRouteInformationParser extends RouteInformationParser<BookRoutePath> {
 
 class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
+  @override
   final GlobalKey<NavigatorState> navigatorKey;
 
   BooksAppState appState = BooksAppState();
@@ -132,6 +136,7 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     appState.addListener(notifyListeners);
   }
 
+  @override
   BookRoutePath get currentConfiguration {
     if (appState.selectedIndex == 1) {
       return BooksSettingsPath();
@@ -149,11 +154,11 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
     return Navigator(
       key: navigatorKey,
       pages: [
-        MaterialPage(
+        MaterialPage<void>(
           child: AppShell(appState: appState),
         ),
       ],
-      onPopPage: (route, result) {
+      onPopPage: (route, dynamic result) {
         if (!route.didPop(result)) {
           return false;
         }
@@ -168,14 +173,14 @@ class BookRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) {
-    if (path is BooksListPath) {
+  Future<void> setNewRoutePath(BookRoutePath configuration) {
+    if (configuration is BooksListPath) {
       appState.selectedIndex = 0;
       appState.selectedBook = null;
-    } else if (path is BooksSettingsPath) {
+    } else if (configuration is BooksSettingsPath) {
       appState.selectedIndex = 1;
-    } else if (path is BooksDetailsPath) {
-      appState.setSelectedBookById(path.id);
+    } else if (configuration is BooksDetailsPath) {
+      appState.setSelectedBookById(configuration.id);
     }
     return SynchronousFuture<void>(null);
   }
@@ -198,18 +203,20 @@ class BooksDetailsPath extends BookRoutePath {
 class AppShell extends StatefulWidget {
   final BooksAppState appState;
 
-  AppShell({
-    @required this.appState,
-  });
+  const AppShell({
+    required this.appState,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _AppShellState createState() => _AppShellState();
 }
 
 class _AppShellState extends State<AppShell> {
-  InnerRouterDelegate _routerDelegate;
-  ChildBackButtonDispatcher _backButtonDispatcher;
+  late final InnerRouterDelegate _routerDelegate;
+  late final ChildBackButtonDispatcher _backButtonDispatcher;
 
+  @override
   void initState() {
     super.initState();
     _routerDelegate = InnerRouterDelegate(widget.appState);
@@ -226,7 +233,7 @@ class _AppShellState extends State<AppShell> {
     super.didChangeDependencies();
     // Defer back button dispatching to the child router
     _backButtonDispatcher = Router.of(context)
-        .backButtonDispatcher
+        .backButtonDispatcher!
         .createChildBackButtonDispatcher();
   }
 
@@ -245,7 +252,7 @@ class _AppShellState extends State<AppShell> {
         backButtonDispatcher: _backButtonDispatcher,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), label: 'Settings'),
@@ -261,9 +268,12 @@ class _AppShellState extends State<AppShell> {
 
 class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<BookRoutePath> {
+  @override
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   BooksAppState get appState => _appState;
   BooksAppState _appState;
+
   set appState(BooksAppState value) {
     if (value == _appState) {
       return;
@@ -285,20 +295,20 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
               books: appState.books,
               onTapped: _handleBookTapped,
             ),
-            key: ValueKey('BooksListPage'),
+            key: const ValueKey('BooksListPage'),
           ),
           if (appState.selectedBook != null)
-            MaterialPage(
+            MaterialPage<void>(
               key: ValueKey(appState.selectedBook),
-              child: BookDetailsScreen(book: appState.selectedBook),
+              child: BookDetailsScreen(book: appState.selectedBook!),
             ),
         ] else
-          FadeAnimationPage(
+          const FadeAnimationPage(
             child: SettingsScreen(),
             key: ValueKey('SettingsPage'),
           ),
       ],
-      onPopPage: (route, result) {
+      onPopPage: (route, dynamic result) {
         appState.selectedBook = null;
         notifyListeners();
         return route.didPop(result);
@@ -307,7 +317,7 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 
   @override
-  Future<void> setNewRoutePath(BookRoutePath path) {
+  Future<void> setNewRoutePath(BookRoutePath configuration) {
     // This is not required for inner router delegate because it does not
     // parse route
     assert(false);
@@ -320,13 +330,15 @@ class InnerRouterDelegate extends RouterDelegate<BookRoutePath>
   }
 }
 
-class FadeAnimationPage extends Page {
+class FadeAnimationPage extends Page<void> {
   final Widget child;
 
-  FadeAnimationPage({Key key, this.child}) : super(key: key);
+  const FadeAnimationPage({LocalKey? key, required this.child})
+      : super(key: key);
 
+  @override
   Route createRoute(BuildContext context) {
-    return PageRouteBuilder(
+    return PageRouteBuilder<void>(
       settings: this,
       pageBuilder: (context, animation, animation2) {
         var curveTween = CurveTween(curve: Curves.easeIn);
@@ -344,10 +356,11 @@ class BooksListScreen extends StatelessWidget {
   final List<Book> books;
   final ValueChanged<Book> onTapped;
 
-  BooksListScreen({
-    @required this.books,
-    @required this.onTapped,
-  });
+  const BooksListScreen({
+    required this.books,
+    required this.onTapped,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -369,9 +382,10 @@ class BooksListScreen extends StatelessWidget {
 class BookDetailsScreen extends StatelessWidget {
   final Book book;
 
-  BookDetailsScreen({
-    @required this.book,
-  });
+  const BookDetailsScreen({
+    required this.book,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -385,9 +399,9 @@ class BookDetailsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Back'),
+              child: const Text('Back'),
             ),
-            if (book != null) ...[
+            ...[
               Text(book.title, style: Theme.of(context).textTheme.headline6),
               Text(book.author, style: Theme.of(context).textTheme.subtitle1),
             ],
@@ -399,9 +413,11 @@ class BookDetailsScreen extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Settings screen'),
       ),

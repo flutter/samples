@@ -9,31 +9,35 @@ library anonymous_routes;
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Nav2App());
+  runApp(const Nav2App());
 }
 
 class Nav2App extends StatelessWidget {
+  const Nav2App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeScreen(),
     );
   }
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: TextButton(
-          child: Text('View Details'),
+          child: const Text('View Details'),
           onPressed: () {
-            Navigator.push(
+            Navigator.push<void>(
               context,
               MaterialPageRoute(builder: (context) {
-                return DetailScreen();
+                return const DetailScreen();
               }),
             );
           },
@@ -44,13 +48,15 @@ class HomeScreen extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: TextButton(
-          child: Text('Pop!'),
+          child: const Text('Pop!'),
           onPressed: () {
             Navigator.pop(context);
           },
