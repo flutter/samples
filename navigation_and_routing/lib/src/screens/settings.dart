@@ -24,72 +24,80 @@ class _SettingsScreenState extends State<SettingsScreen> {
             alignment: Alignment.topCenter,
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 400),
-              child: Card(
+              child: const Card(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
-                  child: Column(
-                    children: [
-                      ...[
-                        Text(
-                          'Settings',
-                          style: Theme.of(context).textTheme.headline4,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            BookstoreAuth.of(context).signOut();
-                          },
-                          child: const Text('Sign out'),
-                        ),
-                        Link(
-                          uri: Uri.parse('/books/0'),
-                          builder: (context, followLink) {
-                            return TextButton(
-                              child: const Text('Go directly to /books/0'),
-                              onPressed: followLink,
-                            );
-                          },
-                        ),
-                        Link(
-                          uri: Uri.parse('/books/0'),
-                          builder: (context, followLink) {
-                            return TextButton(
-                              child: const Text('Go directly to /authors/0'),
-                              onPressed: followLink,
-                            );
-                          },
-                        ),
-                      ].map((w) =>
-                          Padding(padding: const EdgeInsets.all(8), child: w)),
-                      TextButton(
-                        onPressed: () => showDialog<String>(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: const Text('Alert!'),
-                            content: const Text('You showed a dialog'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancel'),
-                                child: const Text('Cancel'),
-                              ),
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          ),
-                        ),
-                        child: const Text('Show Dialog'),
-                      )
-                    ],
-                  ),
+                  padding: EdgeInsets.symmetric(vertical: 18, horizontal: 12),
+                  child: SettingsContent(),
                 ),
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class SettingsContent extends StatelessWidget {
+  const SettingsContent({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ...[
+          Text(
+            'Settings',
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              BookstoreAuth.of(context).signOut();
+            },
+            child: const Text('Sign out'),
+          ),
+          Link(
+            uri: Uri.parse('/books/0'),
+            builder: (context, followLink) {
+              return TextButton(
+                child: const Text('Go directly to /books/0'),
+                onPressed: followLink,
+              );
+            },
+          ),
+          Link(
+            uri: Uri.parse('/authors/0'),
+            builder: (context, followLink) {
+              return TextButton(
+                child: const Text('Go directly to /authors/0'),
+                onPressed: followLink,
+              );
+            },
+          ),
+        ].map((w) => Padding(padding: const EdgeInsets.all(8), child: w)),
+        TextButton(
+          onPressed: () => showDialog<String>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Alert!'),
+              content: const Text('The alert description goes here.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.pop(context, 'Cancel'),
+                  child: const Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context, 'OK'),
+                  child: const Text('OK'),
+                ),
+              ],
+            ),
+          ),
+          child: const Text('Show Dialog'),
+        )
+      ],
     );
   }
 }
