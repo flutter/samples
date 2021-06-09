@@ -15,9 +15,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ios_app_clip/main.dart';
 
 void main() {
-  testWidgets('Smoke test', (WidgetTester tester) async {
+  testWidgets('Smoke test', (tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(Demo());
+    await tester.pumpWidget(const Demo());
 
     expect(find.byType(FlutterLogo), findsOneWidget);
   });
