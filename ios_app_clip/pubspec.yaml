@@ -1,7 +1,7 @@
 name: ios_app_clip
 description: An example Flutter project that can build as an App Clip.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -13,10 +13,11 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  device_info: '>=0.4.2+7 <2.0.0'
+  device_info: ">=0.4.2+7 <2.0.0"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
 
 flutter:

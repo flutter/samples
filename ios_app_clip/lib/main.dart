@@ -7,12 +7,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Demo());
+  runApp(const Demo());
 }
 
 // The same content is shown for both the main app target and in the App
 // Clip.
 class Demo extends StatefulWidget {
+  const Demo({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _DemoState();
 }
@@ -22,7 +24,7 @@ class _DemoState extends State<Demo> {
 
   @override
   void initState() {
-    DeviceInfoPlugin().iosInfo.then((IosDeviceInfo info) {
+    DeviceInfoPlugin().iosInfo.then((info) {
       setState(() {
         deviceInfo = '${info.name} on ${info.systemName} version '
             '${info.systemVersion}';
@@ -35,7 +37,7 @@ class _DemoState extends State<Demo> {
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
+        navigationBar: const CupertinoNavigationBar(
           middle: Text('App Clip'),
         ),
         child: Center(
@@ -43,8 +45,8 @@ class _DemoState extends State<Demo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(deviceInfo),
-              Padding(padding: EdgeInsets.only(top: 18)),
-              FlutterLogo(size: 128),
+              const Padding(padding: EdgeInsets.only(top: 18)),
+              const FlutterLogo(size: 128),
             ],
           ),
         ),
