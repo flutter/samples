@@ -25,7 +25,7 @@ class BookstoreRouteGuard implements RouteGuard<ParsedRoute> {
     }
     // Go to /books if the user is signed in and tries to go to /signin.
     else if (signedIn && from == signInRoute) {
-      return ParsedRoute('/books', '/books', {}, {});
+      return ParsedRoute('/books/popular', '/books/popular', {}, {});
     }
     return from;
   }

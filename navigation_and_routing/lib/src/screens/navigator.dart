@@ -58,7 +58,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         // the /books or /authors tab in BookstoreScaffold.
         if (route.settings is Page &&
             (route.settings as Page).key == bookDetailsKey) {
-          widget.routeState.go('/books');
+          widget.routeState.go('/books/popular');
         }
 
         if (route.settings is Page &&
@@ -87,7 +87,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
                 var signedIn = await widget.auth
                     .signIn(credentials.username, credentials.password);
                 if (signedIn) {
-                  widget.routeState.go('/books');
+                  widget.routeState.go('/books/popular');
                 }
               },
             ),

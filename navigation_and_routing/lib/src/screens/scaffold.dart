@@ -26,7 +26,7 @@ class BookstoreScaffold extends StatelessWidget {
         selectedIndex: selectedIndex,
         body: BookstoreScaffoldBody(currentRoute: currentRoute),
         onDestinationSelected: (idx) {
-          if (idx == 0) routeState.go('/books');
+          if (idx == 0) routeState.go('/books/popular');
           if (idx == 1) routeState.go('/authors');
           if (idx == 2) routeState.go('/settings');
         },
@@ -49,7 +49,7 @@ class BookstoreScaffold extends StatelessWidget {
   }
 
   int _getSelectedIndex(String pathTemplate) {
-    if (pathTemplate == '/books') return 0;
+    if (pathTemplate.startsWith('/books')) return 0;
     if (pathTemplate == '/authors') return 1;
     if (pathTemplate == '/settings') return 2;
     return 0;
