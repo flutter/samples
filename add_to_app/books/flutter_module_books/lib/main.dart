@@ -29,22 +29,19 @@ class FlutterBookApiHandler extends FlutterBookApi {
   final BookReceived callback;
 
   @override
+  // ignore: avoid_renaming_method_parameters
   void displayBookDetails(Book book) {
-    assert(
-      book != null,
-      'Non-null book expected from FlutterBookApi.displayBookDetails call.',
-    );
     callback(book);
   }
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({required this.hostApi, required this.flutterApi, Key? key}) : super(key: key);
+  const BookDetail({this.hostApi, this.flutterApi, Key? key}) : super(key: key);
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
-  final HostBookApi hostApi;
-  final FlutterBookApi flutterApi;
+  final HostBookApi? hostApi;
+  final FlutterBookApi? flutterApi;
 
   @override
   _BookDetailState createState() => _BookDetailState();
@@ -53,7 +50,7 @@ class BookDetail extends StatefulWidget {
 class _BookDetailState extends State<BookDetail> {
   Book? book;
 
-  late HostBookApi hostApi;
+  HostBookApi? hostApi;
 
   FocusNode textFocusNode = FocusNode();
   TextEditingController titleTextController = TextEditingController();
@@ -115,7 +112,7 @@ class _BookDetailState extends State<BookDetail> {
           // Pressing clear cancels the edit and leaves the activity without
           // modification.
           onPressed: () {
-            hostApi.cancel();
+            hostApi?.cancel();
             clear();
           },
         ),
@@ -124,7 +121,7 @@ class _BookDetailState extends State<BookDetail> {
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
             onPressed: () {
-              hostApi.finishEditingBook(book!);
+              hostApi?.finishEditingBook(book!);
               clear();
             },
           ),

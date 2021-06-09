@@ -43,12 +43,14 @@ abstract class FlutterBookApi {
   static void setup(FlutterBookApi? api) {
     {
       const BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-          'dev.flutter.pigeon.FlutterBookApi.displayBookDetails', StandardMessageCodec());
+          'dev.flutter.pigeon.FlutterBookApi.displayBookDetails',
+          StandardMessageCodec());
       if (api == null) {
         channel.setMessageHandler(null);
       } else {
-        channel.setMessageHandler((Object? message) async {
-          assert(message != null, 'Argument for dev.flutter.pigeon.FlutterBookApi.displayBookDetails was null. Expected Book.');
+        channel.setMessageHandler((message) async {
+          assert(message != null,
+              'Argument for dev.flutter.pigeon.FlutterBookApi.displayBookDetails was null. Expected Book.');
           final Book input = Book.decode(message!);
           api.displayBookDetails(input);
           return;
@@ -62,13 +64,15 @@ class HostBookApi {
   /// Constructor for [HostBookApi].  The [binaryMessenger] named argument is
   /// available for dependency injection.  If it is left null, the default
   /// BinaryMessenger will be used which routes to the host platform.
-  HostBookApi({BinaryMessenger? binaryMessenger}) : _binaryMessenger = binaryMessenger;
+  HostBookApi({BinaryMessenger? binaryMessenger})
+      : _binaryMessenger = binaryMessenger;
 
   final BinaryMessenger? _binaryMessenger;
 
   Future<void> cancel() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.HostBookApi.cancel', const StandardMessageCodec(), binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.HostBookApi.cancel', const StandardMessageCodec(),
+        binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(null) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -78,7 +82,8 @@ class HostBookApi {
         details: null,
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error =
+          (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -92,7 +97,9 @@ class HostBookApi {
   Future<void> finishEditingBook(Book arg) async {
     final Object encoded = arg.encode();
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.HostBookApi.finishEditingBook', const StandardMessageCodec(), binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.HostBookApi.finishEditingBook',
+        const StandardMessageCodec(),
+        binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(encoded) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -102,7 +109,8 @@ class HostBookApi {
         details: null,
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error =
+          (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
