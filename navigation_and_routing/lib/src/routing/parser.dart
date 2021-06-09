@@ -7,11 +7,16 @@ import 'package:path_to_regexp/path_to_regexp.dart';
 
 import 'parsed_route.dart';
 
+abstract class RouteGuard<T> {
+  Future<T> redirect(T from);
+}
+
 /// Parses the URI path into a [ParsedRoute].
 class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   final List<String> _pathTemplates = [];
+  RouteGuard<ParsedRoute>? guard;
 
-  TemplateRouteParser(List<String> pathTemplates) {
+  TemplateRouteParser(List<String> pathTemplates, {this.guard}) {
     for (var template in pathTemplates) {
       _addRoute(template);
     }
@@ -28,8 +33,9 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   }
 
   Future<ParsedRoute> _parse(RouteInformation routeInformation) async {
-    var path = routeInformation.location!;
-    var queryParams = Uri.parse(path).queryParameters;
+    final path = routeInformation.location!;
+    final queryParams = Uri.parse(path).queryParameters;
+    var parsedRoute = ParsedRoute('/', '/', {}, {});
 
     for (var pathTemplate in _pathTemplates) {
       final parameters = <String>[];
@@ -37,12 +43,18 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
       if (pathRegExp.hasMatch(path)) {
         final match = pathRegExp.matchAsPrefix(path);
         if (match == null) continue;
-        var params = extract(parameters, match);
-        return ParsedRoute(path, pathTemplate, params, queryParams);
+        final params = extract(parameters, match);
+        parsedRoute = ParsedRoute(path, pathTemplate, params, queryParams);
       }
     }
 
-    return ParsedRoute('/', '/', {}, {});
+    // Redirect if a guard is present
+    var guard = this.guard;
+    if (guard != null) {
+      return guard.redirect(parsedRoute);
+    }
+
+    return parsedRoute;
   }
 
   @override

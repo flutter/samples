@@ -26,7 +26,7 @@ class Nav2App extends StatelessWidget {
         }
 
         // Handle '/details/:id'
-        var uri = Uri.parse(settings!.name ?? '');
+        var uri = Uri.parse(settings.name ?? '');
         if (uri.pathSegments.length == 2 &&
             uri.pathSegments.first == 'details') {
           var id = uri.pathSegments[1];

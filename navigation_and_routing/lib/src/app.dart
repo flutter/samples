@@ -5,12 +5,13 @@
 import 'package:bookstore/src/auth/auth.dart';
 import 'package:flutter/material.dart';
 
+import 'auth/auth_guard.dart';
 import 'data/library.dart';
 import 'data/library_scope.dart';
-import 'routing/auth_guard.dart';
 import 'routing/delegate.dart';
 import 'routing/parser.dart';
 import 'routing/route_state.dart';
+import 'screens/navigator.dart';
 
 class Bookstore extends StatefulWidget {
   const Bookstore({Key? key}) : super(key: key);
@@ -23,20 +24,9 @@ class _BookstoreState extends State<Bookstore> {
   final auth = BookstoreAuth();
   late final BookstoreRouteGuard guard;
   late final RouteState routeState;
-  late final BookstoreRouterDelegate routerDelegate;
-
-  /// Configure the parser with all of the app's allowed path templates.
-  final routeParser = TemplateRouteParser([
-    '/signin',
-    '/books',
-    '/authors',
-    '/settings',
-    '/books/new',
-    '/books/all',
-    '/books/popular',
-    '/books/:bookId',
-    '/authors/:authorId',
-  ]);
+  late final SimpleRouterDelegate routerDelegate;
+  late final TemplateRouteParser routeParser;
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   final library = Library()
     ..addBook('Left Hand of Darkness', 'Ursula K. Le Guin', true, true)
@@ -47,13 +37,39 @@ class _BookstoreState extends State<Bookstore> {
   @override
   void initState() {
     guard = BookstoreRouteGuard(auth: auth);
+
+    /// Configure the parser with all of the app's allowed path templates.
+    routeParser = TemplateRouteParser([
+      '/signin',
+      '/books',
+      '/authors',
+      '/settings',
+      '/books/new',
+      '/books/all',
+      '/books/popular',
+      '/books/:bookId',
+      '/authors/:authorId',
+    ], guard: guard);
+
     routeState = RouteState(routeParser);
-    routerDelegate = BookstoreRouterDelegate(routeState, auth, guard);
+
+    routerDelegate = SimpleRouterDelegate(
+      routeState: routeState,
+      navigatorKey: navigatorKey,
+      builder: (context) => BookstoreNavigator(
+        navigatorKey: navigatorKey,
+        routeState: routeState,
+        auth: auth,
+      ),
+    );
+
+    // TODO: remove?
     auth.addListener(() async {
       if (!auth.signedIn) {
         routeState.go('/signin');
       }
     });
+
     super.initState();
   }
 
