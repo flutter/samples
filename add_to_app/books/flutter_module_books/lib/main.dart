@@ -5,16 +5,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_module_books/api.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: const Color(0xff6200ee),
       ),
-      home: BookDetail(),
+      home: const BookDetail(),
     );
   }
 }
@@ -37,7 +39,7 @@ class FlutterBookApiHandler extends FlutterBookApi {
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({this.hostApi, this.flutterApi});
+  const BookDetail({this.hostApi, this.flutterApi, Key key}) : super(key: key);
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
@@ -73,7 +75,7 @@ class _BookDetailState extends State<BookDetail> {
     FlutterBookApi.setup(FlutterBookApiHandler(
         // The `FlutterBookApi` just has one method. Just give a closure for that
         // method to the handler class.
-        (Book book) {
+        (book) {
       setState(() {
         // This book model is what we're going to return to Kotlin eventually.
         // Keep it bound to the UI.
@@ -107,9 +109,9 @@ class _BookDetailState extends State<BookDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Details'),
+        title: const Text('Book Details'),
         leading: IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           // Pressing clear cancels the edit and leaves the activity without
           // modification.
           onPressed: () {
@@ -119,7 +121,7 @@ class _BookDetailState extends State<BookDetail> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.check),
+            icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
             onPressed: () {
               hostApi.finishEditingBook(book);
@@ -131,44 +133,44 @@ class _BookDetailState extends State<BookDetail> {
       body: book == null
           // Draw a spinner until the platform gives us the book to show details
           // for.
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Focus(
               focusNode: textFocusNode,
               child: ListView(
-                padding: EdgeInsets.all(24),
+                padding: const EdgeInsets.all(24),
                 children: [
                   TextField(
                     controller: titleTextController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
                       hintText: "Title",
                       labelText: "Title",
                     ),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextField(
                     controller: subtitleTextController,
                     maxLines: 2,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
                       hintText: "Subtitle",
                       labelText: "Subtitle",
                     ),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextField(
                     controller: authorTextController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       filled: true,
                       hintText: "Author",
                       labelText: "Author",
                     ),
                   ),
-                  SizedBox(height: 32),
-                  Divider(),
+                  const SizedBox(height: 32),
+                  const Divider(),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -176,9 +178,9 @@ class _BookDetailState extends State<BookDetail> {
                           '${book.pageCount} pages  ~  published ${book.publishDate}'),
                     ),
                   ),
-                  Divider(),
-                  SizedBox(height: 32),
-                  Center(
+                  const Divider(),
+                  const SizedBox(height: 32),
+                  const Center(
                     child: Text(
                       'BOOK DESCRIPTION',
                       style: TextStyle(
@@ -188,7 +190,7 @@ class _BookDetailState extends State<BookDetail> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Text(
                     book.summary,
                     style: TextStyle(color: Colors.grey.shade600, height: 1.24),
