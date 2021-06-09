@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+import '../routing/parsed_route.dart';
+import '../screens/settings.dart';
+import '../util/fade_transition_page.dart';
+import 'authors.dart';
+import 'books.dart';
+
+/// Displays the contents of the body of [BookstoreScaffold]
+class BookstoreScaffoldBody extends StatelessWidget {
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  final ParsedRoute currentRoute;
+
+  const BookstoreScaffoldBody({
+    required this.currentRoute,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      key: navigatorKey,
+      onPopPage: (route, dynamic result) => route.didPop(result),
+      pages: [
+        if (currentRoute.pathTemplate.startsWith('/authors'))
+          const FadeTransitionPage<void>(
+            key: ValueKey('authors'),
+            child: AuthorsScreen(),
+          )
+        else if (currentRoute.pathTemplate.startsWith('/settings'))
+          const FadeTransitionPage<void>(
+            key: ValueKey('settings'),
+            child: SettingsScreen(),
+          )
+        else if (currentRoute.pathTemplate.startsWith('/books') ||
+            currentRoute.pathTemplate == '/')
+          FadeTransitionPage<void>(
+            key: const ValueKey('books'),
+            child: BooksScreen(currentRoute: currentRoute),
+          )
+        //  TODO: determine why the Navigator is built with empty pages when the user is signed out...
+        else
+          FadeTransitionPage<void>(
+            key: const ValueKey('empty'),
+            child: Container(),
+          ),
+      ],
+    );
+  }
+}

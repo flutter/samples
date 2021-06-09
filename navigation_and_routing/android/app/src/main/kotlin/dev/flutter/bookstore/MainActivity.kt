@@ -1,4 +1,4 @@
-package com.example.navigation_and_routing
+package dev.flutter.bookstore
 
 import io.flutter.embedding.android.FlutterActivity
 
