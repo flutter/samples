@@ -34,7 +34,7 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.check));
 
-    verify(mockHostApi.finishEditingBook(any));
+    verify(mockHostApi.finishEditingBook(any!));
   });
 }
 

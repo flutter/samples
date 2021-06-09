@@ -8,7 +8,7 @@ import 'package:flutter_module_books/api.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class FlutterBookApiHandler extends FlutterBookApi {
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({this.hostApi, this.flutterApi, Key key}) : super(key: key);
+  const BookDetail({required this.hostApi, required this.flutterApi, Key? key}) : super(key: key);
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
@@ -51,9 +51,9 @@ class BookDetail extends StatefulWidget {
 }
 
 class _BookDetailState extends State<BookDetail> {
-  Book book;
+  Book? book;
 
-  HostBookApi hostApi;
+  late HostBookApi hostApi;
 
   FocusNode textFocusNode = FocusNode();
   TextEditingController titleTextController = TextEditingController();
@@ -80,7 +80,7 @@ class _BookDetailState extends State<BookDetail> {
         // This book model is what we're going to return to Kotlin eventually.
         // Keep it bound to the UI.
         this.book = book;
-        titleTextController.text = book.title;
+        titleTextController.text = book.title!;
         titleTextController.addListener(() {
           this.book?.title = titleTextController.text;
         });
@@ -90,7 +90,7 @@ class _BookDetailState extends State<BookDetail> {
         subtitleTextController.addListener(() {
           this.book?.subtitle = subtitleTextController.text;
         });
-        authorTextController.text = book.author;
+        authorTextController.text = book.author!;
         authorTextController.addListener(() {
           this.book?.author = authorTextController.text;
         });
@@ -124,7 +124,7 @@ class _BookDetailState extends State<BookDetail> {
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
             onPressed: () {
-              hostApi.finishEditingBook(book);
+              hostApi.finishEditingBook(book!);
               clear();
             },
           ),
@@ -175,7 +175,7 @@ class _BookDetailState extends State<BookDetail> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          '${book.pageCount} pages  ~  published ${book.publishDate}'),
+                          '${book!.pageCount} pages  ~  published ${book!.publishDate}'),
                     ),
                   ),
                   const Divider(),
@@ -192,7 +192,7 @@ class _BookDetailState extends State<BookDetail> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    book.summary,
+                    book!.summary!,
                     style: TextStyle(color: Colors.grey.shade600, height: 1.24),
                   ),
                 ],
