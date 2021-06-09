@@ -60,12 +60,8 @@ class _BookstoreState extends State<Bookstore> {
       ),
     );
 
-    // TODO: remove?
-    auth.addListener(() async {
-      if (!auth.signedIn) {
-        routeState.go('/signin');
-      }
-    });
+    // Listen for when the user logs out and display the signin screen.
+    auth.addListener(_handleAuthStateChanged);
 
     super.initState();
   }
@@ -85,5 +81,19 @@ class _BookstoreState extends State<Bookstore> {
         ),
       ),
     );
+  }
+
+  Future<void> _handleAuthStateChanged() async {
+    if (!auth.signedIn) {
+      routeState.go('/signin');
+    }
+  }
+
+  @override
+  void dispose() {
+    auth.removeListener(_handleAuthStateChanged);
+    routeState.dispose();
+    routerDelegate.dispose();
+    super.dispose();
   }
 }
