@@ -4,7 +4,7 @@
 
 import 'package:flutter/widgets.dart';
 
-import 'library.dart';
+import '../data.dart';
 
 class LibraryScope extends InheritedWidget {
   final Library library;

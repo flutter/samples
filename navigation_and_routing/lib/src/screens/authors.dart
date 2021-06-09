@@ -4,9 +4,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../data/library_scope.dart';
-import '../routing/route_state.dart';
+import '../routing.dart';
 import '../widgets/author_list.dart';
+import '../widgets/library_scope.dart';
 
 class AuthorsScreen extends StatelessWidget {
   final String title = "Authors";

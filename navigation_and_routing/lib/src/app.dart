@@ -2,16 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:bookstore/src/auth/auth.dart';
 import 'package:flutter/material.dart';
 
-import 'auth/auth_guard.dart';
-import 'data/library.dart';
-import 'data/library_scope.dart';
-import 'routing/delegate.dart';
-import 'routing/parser.dart';
-import 'routing/route_state.dart';
+import 'auth.dart';
+import 'data.dart';
+import 'routing.dart';
 import 'screens/navigator.dart';
+import 'widgets/library_scope.dart';
 
 class Bookstore extends StatefulWidget {
   const Bookstore({Key? key}) : super(key: key);

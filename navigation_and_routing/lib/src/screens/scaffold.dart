@@ -5,8 +5,7 @@
 import 'package:adaptive_navigation/adaptive_navigation.dart';
 import 'package:flutter/material.dart';
 
-import '../routing/parsed_route.dart';
-import '../routing/route_state.dart';
+import '../routing.dart';
 import 'scaffold_body.dart';
 
 class BookstoreScaffold extends StatelessWidget {

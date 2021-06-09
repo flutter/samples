@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:bookstore/src/screens/author_details.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
-import '../data/book.dart';
+import '../data.dart';
+import 'author_details.dart';
 
 class BookDetailsScreen extends StatelessWidget {
   final Book? book;
@@ -34,11 +34,17 @@ class BookDetailsScreen extends StatelessWidget {
           children: [
             Text(
               book!.title,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
             Text(
               book!.author.name,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .subtitle1,
             ),
             TextButton(
               child: const Text('View author (Push)'),

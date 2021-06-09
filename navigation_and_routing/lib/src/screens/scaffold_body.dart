@@ -4,9 +4,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../routing/parsed_route.dart';
+import '../routing.dart';
 import '../screens/settings.dart';
-import '../util/fade_transition_page.dart';
+import '../widgets/fade_transition_page.dart';
 import 'authors.dart';
 import 'books.dart';
 

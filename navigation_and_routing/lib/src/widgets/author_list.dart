@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../data/author.dart';
+import '../data.dart';
 
 class AuthorList extends StatelessWidget {
   final List<Author> authors;

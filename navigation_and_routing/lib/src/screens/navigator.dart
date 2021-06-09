@@ -1,17 +1,18 @@
-import 'package:bookstore/src/screens/scaffold.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
-import '../auth/auth.dart';
-import '../data/author.dart';
-import '../data/book.dart';
-import '../data/library_scope.dart';
-import '../routing/route_state.dart';
+import '../auth.dart';
+import '../data.dart';
+import '../routing.dart';
 import '../screens/sign_in.dart';
-import '../util/fade_transition_page.dart';
+import '../widgets/fade_transition_page.dart';
+import '../widgets/library_scope.dart';
 import 'author_details.dart';
 import 'book_details.dart';
+import 'scaffold.dart';
 
+/// Builds the top-level navigator for the app. The pages to display are based
+/// on the [routeState] that was parsed by the TemplateRouteParser.
 class BookstoreNavigator extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
   final RouteState routeState;

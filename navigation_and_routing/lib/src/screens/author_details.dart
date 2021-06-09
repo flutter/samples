@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:bookstore/src/screens/book_details.dart';
-import 'package:bookstore/src/widgets/book_list.dart';
 import 'package:flutter/material.dart';
 
-import '../data/author.dart';
+import '../data.dart';
+import '../widgets/book_list.dart';
+import 'book_details.dart';
 
 class AuthorDetailsScreen extends StatelessWidget {
   final Author author;

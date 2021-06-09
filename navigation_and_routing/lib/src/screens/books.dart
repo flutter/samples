@@ -4,11 +4,10 @@
 
 import 'package:flutter/material.dart';
 
-import '../data/book.dart';
-import '../data/library_scope.dart';
-import '../routing/parsed_route.dart';
-import '../routing/route_state.dart';
+import '../data.dart';
+import '../routing.dart';
 import '../widgets/book_list.dart';
+import '../widgets/library_scope.dart';
 
 class BooksScreen extends StatefulWidget {
   final ParsedRoute currentRoute;
