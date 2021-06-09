@@ -44,8 +44,8 @@ class _BookstoreState extends State<Bookstore> {
       '/books/new',
       '/books/all',
       '/books/popular',
-      '/books/:bookId',
-      '/authors/:authorId',
+      '/book/:bookId',
+      '/author/:authorId',
     ], guard: guard);
 
     routeState = RouteState(routeParser);

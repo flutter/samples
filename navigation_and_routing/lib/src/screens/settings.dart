@@ -59,19 +59,19 @@ class SettingsContent extends StatelessWidget {
             child: const Text('Sign out'),
           ),
           Link(
-            uri: Uri.parse('/books/0'),
+            uri: Uri.parse('/book/0'),
             builder: (context, followLink) {
               return TextButton(
-                child: const Text('Go directly to /books/0'),
+                child: const Text('Go directly to /book/0'),
                 onPressed: followLink,
               );
             },
           ),
           Link(
-            uri: Uri.parse('/authors/0'),
+            uri: Uri.parse('/author/0'),
             builder: (context, followLink) {
               return TextButton(
-                child: const Text('Go directly to /authors/0'),
+                child: const Text('Go directly to /author/0'),
                 onPressed: followLink,
               );
             },

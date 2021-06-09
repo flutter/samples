@@ -24,7 +24,7 @@ class BookstoreScaffold extends StatelessWidget {
     return Scaffold(
       body: AdaptiveNavigationScaffold(
         selectedIndex: selectedIndex,
-        body: BookstoreScaffoldBody(currentRoute: routeState.route),
+        body: BookstoreScaffoldBody(currentRoute: currentRoute),
         onDestinationSelected: (idx) {
           if (idx == 0) routeState.go('/books');
           if (idx == 1) routeState.go('/authors');

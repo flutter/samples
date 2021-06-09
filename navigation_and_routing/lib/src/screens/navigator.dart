@@ -40,13 +40,13 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
     final library = LibraryScope.of(context);
 
     Book? book;
-    if (pathTemplate == '/books/:bookId') {
+    if (pathTemplate == '/book/:bookId') {
       book = library.allBooks.firstWhereOrNull((b) =>
           b.id.toString() == widget.routeState.route.parameters['bookId']);
     }
 
     Author? author;
-    if (pathTemplate == '/authors/:authorId') {
+    if (pathTemplate == '/author/:authorId') {
       author = library.allAuthors.firstWhereOrNull((b) =>
           b.id.toString() == widget.routeState.route.parameters['authorId']);
     }
@@ -69,6 +69,10 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         return route.didPop(result);
       },
       pages: [
+        // TODO: remove this page
+        // This is required because the app doesn't immediately display the
+        // /signin page when the user is logged out. (the BookstoreAuth class is
+        // initialized with signedIn = false.)
         if (widget.routeState.route.pathTemplate == '/')
           const FadeTransitionPage<void>(
             key: ValueKey('None'),

@@ -97,7 +97,7 @@ class _BooksScreenState extends State<BooksScreen>
   RouteState get routeState => RouteState.of(context);
 
   void _handleBookTapped(Book book) {
-    routeState.go('/books/${book.id}');
+    routeState.go('/book/${book.id}');
   }
 
   void _handleTabIndexChanged() {
