@@ -22,6 +22,8 @@ class BookstoreScaffoldBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // A nested Router isn't necessary because the back button behavior doesn't
+    // need to be customized.
     return Navigator(
       key: navigatorKey,
       onPopPage: (route, dynamic result) => route.didPop(result),
