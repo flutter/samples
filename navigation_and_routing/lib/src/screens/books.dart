@@ -94,7 +94,7 @@ class _BooksScreenState extends State<BooksScreen>
     }
   }
 
-  RouteState get routeState => RouteState.of(context);
+  RouteState get routeState => RouteStateScope.of(context)!;
 
   void _handleBookTapped(Book book) {
     routeState.go('/book/${book.id}');

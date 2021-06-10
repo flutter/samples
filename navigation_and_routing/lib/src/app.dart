@@ -68,7 +68,7 @@ class _BookstoreState extends State<Bookstore> {
   @override
   Widget build(BuildContext context) {
     return RouteStateScope(
-      state: routeState,
+      notifier: routeState,
       child: BookstoreAuthScope(
         auth: auth,
         child: LibraryScope(

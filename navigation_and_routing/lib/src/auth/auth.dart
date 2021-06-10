@@ -29,12 +29,6 @@ class BookstoreAuth extends ChangeNotifier {
     return _signedIn;
   }
 
-  static BookstoreAuth of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()!
-        .auth;
-  }
-
   @override
   bool operator ==(Object other) {
     return other is BookstoreAuth && other._signedIn == _signedIn;
@@ -44,16 +38,16 @@ class BookstoreAuth extends ChangeNotifier {
   int get hashCode => _signedIn.hashCode;
 }
 
-class BookstoreAuthScope extends InheritedWidget {
-  final BookstoreAuth auth;
-
+class BookstoreAuthScope extends InheritedNotifier<BookstoreAuth> {
   const BookstoreAuthScope({
-    Key? key,
-    required this.auth,
+    required BookstoreAuth notifier,
     required Widget child,
-  }) : super(key: key, child: child);
+    Key? key,
+  }) : super(key: key, notifier: notifier, child: child);
 
-  @override
-  bool updateShouldNotify(BookstoreAuthScope oldWidget) =>
-      auth != oldWidget.auth;
+  static BookstoreAuth? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()
+        ?.notifier;
+  }
 }

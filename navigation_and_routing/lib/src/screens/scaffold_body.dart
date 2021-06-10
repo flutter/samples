@@ -13,15 +13,15 @@ import 'books.dart';
 /// Displays the contents of the body of [BookstoreScaffold]
 class BookstoreScaffoldBody extends StatelessWidget {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-  final ParsedRoute currentRoute;
 
   const BookstoreScaffoldBody({
-    required this.currentRoute,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var currentRoute = RouteStateScope.of(context)!.route;
+
     // A nested Router isn't necessary because the back button behavior doesn't
     // need to be customized.
     return Navigator(

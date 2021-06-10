@@ -9,22 +9,19 @@ import '../routing.dart';
 import 'scaffold_body.dart';
 
 class BookstoreScaffold extends StatelessWidget {
-  final ParsedRoute currentRoute;
-
   const BookstoreScaffold({
     Key? key,
-    required this.currentRoute,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final routeState = RouteState.of(context);
-    final selectedIndex = _getSelectedIndex(currentRoute.pathTemplate);
+    final routeState = RouteStateScope.of(context)!;
+    final selectedIndex = _getSelectedIndex(routeState.route.pathTemplate);
 
     return Scaffold(
       body: AdaptiveNavigationScaffold(
         selectedIndex: selectedIndex,
-        body: BookstoreScaffoldBody(currentRoute: currentRoute),
+        body: const BookstoreScaffoldBody(),
         onDestinationSelected: (idx) {
           if (idx == 0) routeState.go('/books/popular');
           if (idx == 1) routeState.go('/authors');

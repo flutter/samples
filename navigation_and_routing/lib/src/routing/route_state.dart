@@ -31,23 +31,19 @@ class RouteState extends ChangeNotifier {
     this.route =
         await parser.parseRouteInformation(RouteInformation(location: route));
   }
-
-  static RouteState of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<RouteStateScope>()!.state;
-  }
 }
 
 /// Provides the current [RouteState] to descendent widgets in the tree.
-class RouteStateScope extends InheritedWidget {
-  final RouteState state;
-
+class RouteStateScope extends InheritedNotifier<RouteState> {
   const RouteStateScope({
-    Key? key,
-    required this.state,
+    required RouteState notifier,
     required Widget child,
-  }) : super(key: key, child: child);
+    Key? key,
+  }) : super(key: key, notifier: notifier, child: child);
 
-  @override
-  bool updateShouldNotify(RouteStateScope oldWidget) =>
-      state != oldWidget.state;
+  static RouteState? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<RouteStateScope>()
+        ?.notifier;
+  }
 }
