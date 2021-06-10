@@ -15,11 +15,9 @@ import 'scaffold.dart';
 /// on the [routeState] that was parsed by the TemplateRouteParser.
 class BookstoreNavigator extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
-  final RouteState routeState;
   final BookstoreAuth auth;
 
   const BookstoreNavigator({
-    required this.routeState,
     required this.auth,
     required this.navigatorKey,
     Key? key,
@@ -36,19 +34,20 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
 
   @override
   Widget build(BuildContext context) {
-    final pathTemplate = widget.routeState.route.pathTemplate;
+    final routeState = RouteStateScope.of(context)!;
+    final pathTemplate = routeState.route.pathTemplate;
     final library = LibraryScope.of(context);
 
     Book? book;
     if (pathTemplate == '/book/:bookId') {
-      book = library.allBooks.firstWhereOrNull((b) =>
-          b.id.toString() == widget.routeState.route.parameters['bookId']);
+      book = library.allBooks.firstWhereOrNull(
+          (b) => b.id.toString() == routeState.route.parameters['bookId']);
     }
 
     Author? author;
     if (pathTemplate == '/author/:authorId') {
       author = library.allAuthors.firstWhereOrNull((b) =>
-          b.id.toString() == widget.routeState.route.parameters['authorId']);
+          b.id.toString() == routeState.route.parameters['authorId']);
     }
 
     return Navigator(
@@ -58,27 +57,18 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         // the /books or /authors tab in BookstoreScaffold.
         if (route.settings is Page &&
             (route.settings as Page).key == bookDetailsKey) {
-          widget.routeState.go('/books/popular');
+          routeState.go('/books/popular');
         }
 
         if (route.settings is Page &&
             (route.settings as Page).key == authorDetailsKey) {
-          widget.routeState.go('/authors');
+          routeState.go('/authors');
         }
 
         return route.didPop(result);
       },
       pages: [
-        // TODO: remove this page
-        // This is required because the app doesn't immediately display the
-        // /signin page when the user is logged out. (the BookstoreAuth class is
-        // initialized with signedIn = false.)
-        if (widget.routeState.route.pathTemplate == '/')
-          const FadeTransitionPage<void>(
-            key: ValueKey('None'),
-            child: Scaffold(),
-          )
-        else if (widget.routeState.route.pathTemplate == '/signin')
+        if (routeState.route.pathTemplate == '/signin')
           // Display the sign in screen.
           FadeTransitionPage<void>(
             key: const ValueKey('Sign in'),
@@ -87,7 +77,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
                 var signedIn = await widget.auth
                     .signIn(credentials.username, credentials.password);
                 if (signedIn) {
-                  widget.routeState.go('/books/popular');
+                  routeState.go('/books/popular');
                 }
               },
             ),

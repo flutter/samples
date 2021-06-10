@@ -36,16 +36,20 @@ class _BookstoreState extends State<Bookstore> {
     guard = BookstoreRouteGuard(auth: auth);
 
     /// Configure the parser with all of the app's allowed path templates.
-    routeParser = TemplateRouteParser([
-      '/signin',
-      '/authors',
-      '/settings',
-      '/books/new',
-      '/books/all',
-      '/books/popular',
-      '/book/:bookId',
-      '/author/:authorId',
-    ], guard: guard);
+    routeParser = TemplateRouteParser(
+      [
+        '/signin',
+        '/authors',
+        '/settings',
+        '/books/new',
+        '/books/all',
+        '/books/popular',
+        '/book/:bookId',
+        '/author/:authorId',
+      ],
+      guard: guard,
+      initialRoute: '/signin',
+    );
 
     routeState = RouteState(routeParser);
 
@@ -54,7 +58,6 @@ class _BookstoreState extends State<Bookstore> {
       navigatorKey: navigatorKey,
       builder: (context) => BookstoreNavigator(
         navigatorKey: navigatorKey,
-        routeState: routeState,
         auth: auth,
       ),
     );

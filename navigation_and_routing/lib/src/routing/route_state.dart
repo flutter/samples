@@ -16,9 +16,10 @@ import 'parser.dart';
 /// ```
 class RouteState extends ChangeNotifier {
   TemplateRouteParser parser;
-  ParsedRoute _route = ParsedRoute('/', '/', {}, {});
+  ParsedRoute _route;
 
-  RouteState(this.parser);
+  RouteState(this.parser)
+      : _route = parser.initialRoute;
 
   ParsedRoute get route => _route;
 

@@ -15,8 +15,12 @@ abstract class RouteGuard<T> {
 class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   final List<String> _pathTemplates = [];
   RouteGuard<ParsedRoute>? guard;
+  final ParsedRoute initialRoute;
 
-  TemplateRouteParser(List<String> pathTemplates, {this.guard}) {
+  TemplateRouteParser(List<String> pathTemplates,
+      {String? initialRoute = '/', this.guard})
+      : initialRoute =
+            ParsedRoute(initialRoute ?? '/', initialRoute ?? '/', {}, {}) {
     for (var template in pathTemplates) {
       _addRoute(template);
     }
@@ -35,7 +39,7 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   Future<ParsedRoute> _parse(RouteInformation routeInformation) async {
     final path = routeInformation.location!;
     final queryParams = Uri.parse(path).queryParameters;
-    var parsedRoute = ParsedRoute('/', '/', {}, {});
+    var parsedRoute = initialRoute;
 
     for (var pathTemplate in _pathTemplates) {
       final parameters = <String>[];
