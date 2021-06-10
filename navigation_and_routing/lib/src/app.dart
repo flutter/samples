@@ -70,7 +70,7 @@ class _BookstoreState extends State<Bookstore> {
     return RouteStateScope(
       notifier: routeState,
       child: BookstoreAuthScope(
-        auth: auth,
+        notifier: auth,
         child: LibraryScope(
           library: library,
           child: MaterialApp.router(

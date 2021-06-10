@@ -96,7 +96,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
           // Display the app
           FadeTransitionPage<void>(
             key: scaffoldKey,
-            child: BookstoreScaffold(),
+            child: const BookstoreScaffold(),
           ),
           // Add an additional page to the stack if the user is viewing a book
           // or an author
