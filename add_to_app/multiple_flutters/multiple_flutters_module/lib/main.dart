@@ -14,7 +14,7 @@ void topMain() => runApp(const MyApp(color: Colors.green));
 void bottomMain() => runApp(const MyApp(color: Colors.purple));
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key, @required this.color}) : super(key: key);
+  const MyApp({Key? key, required this.color}) : super(key: key);
 
   final MaterialColor color;
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -39,8 +39,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  MethodChannel _channel;
+  int? _counter = 0;
+  late MethodChannel _channel;
 
   @override
   void initState() {
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (call.method == "setCount") {
         // A notification that the host platform's data model has been updated.
         setState(() {
-          _counter = call.arguments as int;
+          _counter = call.arguments as int?;
         });
       } else {
         throw Exception('not implemented ${call.method}');
