@@ -41,5 +41,20 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>FlutterDeepLinkingEnabled</key>
+    <true/>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>flutterbooksample.com</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+        <string>customscheme</string>
+        </array>
+        </dict>
+    </array>
 </dict>
 </plist>
