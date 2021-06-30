@@ -4,19 +4,19 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "e4796c6eeace7d7897bf0b66b0acb15e",
+"assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
+"assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
+"assets/github_data/contributors.json": "4f7b5d7640ca5ab67ee419df55a4833f",
+"assets/github_data/comments.tsv": "062efd1b6e583ce9b71fd1c655f101cd",
+"assets/github_data/pull_requests.tsv": "583f0c3151b9234502a7037bf9735494",
+"assets/github_data/commits.tsv": "684e345ed4d734f5b4a890098d175b37",
+"assets/github_data/forks.tsv": "307c19f9166eb30ffe34a8de50ac7b57",
+"assets/github_data/stars.tsv": "f949dd28b49c2374880c22b2c8937a76",
+"assets/NOTICES": "050f624513cf2288a8180cdf7e2acdc3",
+"assets/FontManifest.json": "d751713988987e9331980363e24189ce",
 "main.dart.js": "f88871404685aa9f7feb7d1b378b509a",
 "index.html": "51839f812a32cce7ac40ca488295da30",
-"/": "51839f812a32cce7ac40ca488295da30",
-"assets/github_data/contributors.json": "4f7b5d7640ca5ab67ee419df55a4833f",
-"assets/github_data/commits.tsv": "684e345ed4d734f5b4a890098d175b37",
-"assets/github_data/stars.tsv": "f949dd28b49c2374880c22b2c8937a76",
-"assets/github_data/pull_requests.tsv": "583f0c3151b9234502a7037bf9735494",
-"assets/github_data/forks.tsv": "307c19f9166eb30ffe34a8de50ac7b57",
-"assets/github_data/comments.tsv": "062efd1b6e583ce9b71fd1c655f101cd",
-"assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
-"assets/NOTICES": "050f624513cf2288a8180cdf7e2acdc3",
-"assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
-"assets/FontManifest.json": "d751713988987e9331980363e24189ce"
+"/": "51839f812a32cce7ac40ca488295da30"
 };
 
 // The application shell files that are downloaded before a service worker can
