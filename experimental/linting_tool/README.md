@@ -1,16 +1,21 @@
 # linting_tool
 
-A new Flutter project.
+A desktop tool that helps you manage linter rules for your Flutter project.
 
-## Getting Started
+This sample is currently being built. Not all platforms and functionality are in place.
 
-This project is a starting point for a Flutter application.
+## Goals for this sample
 
-A few resources to get you started if this is your first Flutter project:
+* Show how to read and write files on Desktop
+* Show how to create, parse and use yaml files
+* Show how to implement basic navigation in Desktop apps
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Questions/issues
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you have a general question about Flutter, the best places to go are:
+
+* [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
+* [The Flutter Gitter channel](https://gitter.im/flutter/flutter)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+If you run into an issue with the sample itself, please [file an issue](https://github.com/flutter/samples/issues).
