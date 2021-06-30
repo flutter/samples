@@ -46,8 +46,8 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
 
     Author? author;
     if (pathTemplate == '/author/:authorId') {
-      author = library.allAuthors.firstWhereOrNull((b) =>
-          b.id.toString() == routeState.route.parameters['authorId']);
+      author = library.allAuthors.firstWhereOrNull(
+          (b) => b.id.toString() == routeState.route.parameters['authorId']);
     }
 
     return Navigator(

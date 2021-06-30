@@ -44,7 +44,13 @@ class BookstoreScaffoldBody extends StatelessWidget {
             key: const ValueKey('books'),
             child: BooksScreen(currentRoute: currentRoute),
           )
-        //  TODO: determine why the Navigator is built with empty pages when the user is signed out...
+
+          // Avoid building a Navigator with an empty `pages` list when the
+          // RouteState is set to an unexpected path, such as /signin.
+          //
+          // Since RouteStateScope is an InheritedNotifier, any change to the
+          // route will result in a call to this build method, even though this
+          // widget isn't built when those routes are active.
         else
           FadeTransitionPage<void>(
             key: const ValueKey('empty'),
