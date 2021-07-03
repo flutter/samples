@@ -1,5 +1,14 @@
 function ci_projects () {
     local channel="$1"
+
+    # The `-n` option has been replaced with a more flexible `-o` for "output"
+    # in dev.
+    if [ $channel == "dev" ]; then
+        format_option="-o none"
+    else
+        format_option="-n"
+    fi
+
     shift
     local arr=("$@")
     for PROJECT_NAME in "${arr[@]}"
@@ -13,15 +22,8 @@ function ci_projects () {
         # Run the analyzer to find any static analysis issues.
         flutter analyze
 
-        # Reformat the web plugin registrant, if necessary.
-        if [ -f "lib/generated_plugin_registrant.dart" ]
-        then
-            echo "Renaming $(pwd)/lib/generated_plugin_registrant.dart"
-            flutter format "lib/generated_plugin_registrant.dart"
-        fi
-
         # Run the formatter on all the dart files to make sure everything's linted.
-        flutter format -n --set-exit-if-changed .
+        flutter format $format_option --set-exit-if-changed .
 
         # Run the actual tests.
         if [ -d "test" ]
