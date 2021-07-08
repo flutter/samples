@@ -1,0 +1,19 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+linter:
+  rules:
+    avoid_types_on_closure_parameters: true
+    avoid_void_async: true
+    cancel_subscriptions: true
+    close_sinks: true
+    directives_ordering: true
+    package_api_docs: true
+    package_prefixed_library_names: true
+    test_types_in_equals: true
+    throw_in_finally: true
+    unnecessary_statements: true
