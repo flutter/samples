@@ -15,10 +15,8 @@ import 'scaffold.dart';
 /// on the [routeState] that was parsed by the TemplateRouteParser.
 class BookstoreNavigator extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
-  final BookstoreAuth auth;
 
   const BookstoreNavigator({
-    required this.auth,
     required this.navigatorKey,
     Key? key,
   }) : super(key: key);
@@ -28,6 +26,7 @@ class BookstoreNavigator extends StatefulWidget {
 }
 
 class _BookstoreNavigatorState extends State<BookstoreNavigator> {
+  final signInKey = const ValueKey('Sign in');
   final scaffoldKey = const ValueKey<String>('App scaffold');
   final bookDetailsKey = const ValueKey<String>('Book details screen');
   final authorDetailsKey = const ValueKey<String>('Author details screen');
@@ -35,18 +34,19 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
   @override
   Widget build(BuildContext context) {
     final routeState = RouteStateScope.of(context)!;
+    final authState = BookstoreAuthScope.of(context)!;
     final pathTemplate = routeState.route.pathTemplate;
     final library = LibraryScope.of(context);
 
-    Book? book;
+    Book? selectedBook;
     if (pathTemplate == '/book/:bookId') {
-      book = library.allBooks.firstWhereOrNull(
+      selectedBook = library.allBooks.firstWhereOrNull(
           (b) => b.id.toString() == routeState.route.parameters['bookId']);
     }
 
-    Author? author;
+    Author? selectedAuthor;
     if (pathTemplate == '/author/:authorId') {
-      author = library.allAuthors.firstWhereOrNull(
+      selectedAuthor = library.allAuthors.firstWhereOrNull(
           (b) => b.id.toString() == routeState.route.parameters['authorId']);
     }
 
@@ -71,11 +71,11 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         if (routeState.route.pathTemplate == '/signin')
           // Display the sign in screen.
           FadeTransitionPage<void>(
-            key: const ValueKey('Sign in'),
+            key: signInKey,
             child: SignInScreen(
               onSignIn: (credentials) async {
-                var signedIn = await widget.auth
-                    .signIn(credentials.username, credentials.password);
+                var signedIn = await authState.signIn(
+                    credentials.username, credentials.password);
                 if (signedIn) {
                   routeState.go('/books/popular');
                 }
@@ -90,18 +90,18 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
           ),
           // Add an additional page to the stack if the user is viewing a book
           // or an author
-          if (book != null)
+          if (selectedBook != null)
             MaterialPage<void>(
               key: bookDetailsKey,
               child: BookDetailsScreen(
-                book: book,
+                book: selectedBook,
               ),
             )
-          else if (author != null)
+          else if (selectedAuthor != null)
             MaterialPage<void>(
               key: authorDetailsKey,
               child: AuthorDetailsScreen(
-                author: author,
+                author: selectedAuthor,
               ),
             ),
         ],

@@ -37,7 +37,7 @@ class _BookstoreState extends State<Bookstore> {
 
     /// Configure the parser with all of the app's allowed path templates.
     routeParser = TemplateRouteParser(
-      [
+      allowedPaths: [
         '/signin',
         '/authors',
         '/settings',
@@ -58,7 +58,6 @@ class _BookstoreState extends State<Bookstore> {
       navigatorKey: navigatorKey,
       builder: (context) => BookstoreNavigator(
         navigatorKey: navigatorKey,
-        auth: auth,
       ),
     );
 
