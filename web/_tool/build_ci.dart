@@ -16,8 +16,8 @@ main() async {
   ];
 
   print('Building the sample index...');
-  await run('samples_index', 'pub', ['get']);
-  await run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
+  await _run('samples_index', 'pub', ['get']);
+  await _run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
 
   // Create the directory each Flutter Web sample lives in
   Directory(p.join(Directory.current.path, 'samples_index', 'public', 'web'))
@@ -36,8 +36,17 @@ main() async {
         'public', 'web', directoryName);
 
     // Build the sample and copy the files
-    await run(directory, 'flutter', ['pub', 'get']);
-    await run(directory, 'flutter', ['build', 'web']);
-    await run(directory, 'mv', [sourceBuildDir, targetDirectory]);
+    await _run(directory, 'flutter', ['pub', 'get']);
+    await _run(directory, 'flutter', ['build', 'web']);
+    await _run(directory, 'mv', [sourceBuildDir, targetDirectory]);
+  }
+}
+
+// Invokes run() and exits if the sub-process failed.
+Future<void> _run(
+    String workingDir, String commandName, List<String> args) async {
+  var success = await run(workingDir, commandName, args);
+  if (!success) {
+    exit(1);
   }
 }
