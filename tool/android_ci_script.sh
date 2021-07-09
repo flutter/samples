@@ -2,6 +2,8 @@
 
 set -e
 
+flutter doctor -v
+
 echo "Fetching dependencies and building 'prebuilt_module/flutter_module/'."
 pushd add_to_app/prebuilt_module/flutter_module/
 flutter packages get

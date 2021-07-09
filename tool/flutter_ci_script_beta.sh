@@ -5,13 +5,18 @@ set -e
 DIR="${BASH_SOURCE%/*}"
 source "$DIR/flutter_ci_script_shared.sh"
 
+flutter doctor -v
+
 declare -ar PROJECT_NAMES=(
-    "add_to_app/books/flutter_module_books"
+    # TODO(redbrogdon) Replace use of mockito
+    # "add_to_app/books/flutter_module_books"
     "add_to_app/fullscreen/flutter_module"
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
-    "animations"
+    # TODO(redbrogdon): Update once this PR makes it to release:
+    # https://github.com/flutter/flutter/pull/79860
+    # "animations"
     # TODO(redbrogdon): Restore during next beta branch merge.
     # "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
@@ -20,7 +25,9 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore"
     "infinite_list"
     "ios_app_clip"
-    "isolate_example"
+    # TODO(redbrogdon): Update once this PR makes it to release:
+    # https://github.com/flutter/flutter/pull/79860
+    # "isolate_example"
     "jsonexample"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
