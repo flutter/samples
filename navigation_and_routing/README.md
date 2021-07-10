@@ -43,7 +43,7 @@ a `navigatorKey`. Instead of returning a Navigator directly, a
 pages, based on the current RouteState.
 
 ```dart
-routerDelegate = SimpleRouterDelegate(
+SimpleRouterDelegate(
   routeState: routeState,
   navigatorKey: navigatorKey,
   builder: (context) => BookstoreNavigator(
@@ -98,6 +98,32 @@ navigation rail or bottom navigation bar based on the size of the screen. The
 body of this screen is `BookstoreScaffoldBody`, which configures a nested
 Navigator to display either the `AuthorsScreen`, `SettingsScreen`, or
 `BooksScreen` widget.
+
+## Linking vs updating RouteState
+
+There are two ways to change the current route, either by updating RouteState,
+which the RouterDelegate listens to, or use the Link widget from
+`package:url_launcher`, which provides a Link widget. The `SettingsScreen`
+widget demonstrates both options:
+
+```
+Link(
+  uri: Uri.parse('/book/0'),
+  builder: (context, followLink) {
+    return TextButton(
+      child: const Text('Go directly to /book/0 (Link)'),
+      onPressed: followLink,
+    );
+  },
+),
+TextButton(
+  child: const Text('Go directly to /book/0 (RouteState)'),
+  onPressed: () {
+    RouteStateScope.of(context)!.go('/book/0');
+  },
+),
+```
+
 
 [Router]: https://api.flutter.dev/flutter/widgets/Router-class.html
 [RouterDelegate]: https://api.flutter.dev/flutter/widgets/RouterDelegate-class.html

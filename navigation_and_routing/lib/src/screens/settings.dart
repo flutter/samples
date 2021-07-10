@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:bookstore/src/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
@@ -62,18 +63,15 @@ class SettingsContent extends StatelessWidget {
             uri: Uri.parse('/book/0'),
             builder: (context, followLink) {
               return TextButton(
-                child: const Text('Go directly to /book/0'),
+                child: const Text('Go directly to /book/0 (Link)'),
                 onPressed: followLink,
               );
             },
           ),
-          Link(
-            uri: Uri.parse('/author/0'),
-            builder: (context, followLink) {
-              return TextButton(
-                child: const Text('Go directly to /author/0'),
-                onPressed: followLink,
-              );
+          TextButton(
+            child: const Text('Go directly to /book/0 (RouteState)'),
+            onPressed: () {
+              RouteStateScope.of(context)!.go('/book/0');
             },
           ),
         ].map((w) => Padding(padding: const EdgeInsets.all(8), child: w)),
