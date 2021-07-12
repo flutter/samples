@@ -11,7 +11,12 @@ class Library {
   final List<Book> allBooks = [];
   final List<Author> allAuthors = [];
 
-  void addBook(String title, String authorName, bool isPopular, bool isNew) {
+  void addBook({
+    required String title,
+    required String authorName,
+    required bool isPopular,
+    required bool isNew,
+  }) {
     var author =
         allAuthors.firstWhereOrNull((author) => author.name == authorName);
     var book = Book(allBooks.length, title, isPopular, isNew);

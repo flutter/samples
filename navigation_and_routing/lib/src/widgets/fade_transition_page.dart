@@ -6,9 +6,13 @@ import 'package:flutter/material.dart';
 
 class FadeTransitionPage<T> extends Page<T> {
   final Widget child;
+  final Duration duration;
 
-  const FadeTransitionPage({LocalKey? key, required this.child})
-      : super(key: key);
+  const FadeTransitionPage({
+    LocalKey? key,
+    required this.child,
+    this.duration = const Duration(milliseconds: 300),
+  }) : super(key: key);
 
   @override
   Route<T> createRoute(BuildContext context) {
@@ -17,10 +21,9 @@ class FadeTransitionPage<T> extends Page<T> {
 }
 
 class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
-  PageBasedFadeTransitionRoute(Page page)
-      : super(
-          settings: page,
-        );
+  final FadeTransitionPage<T> page;
+
+  PageBasedFadeTransitionRoute(this.page) : super(settings: page);
 
   @override
   Color? get barrierColor => null;
@@ -29,7 +32,7 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
   String? get barrierLabel => null;
 
   @override
-  Duration get transitionDuration => const Duration(milliseconds: 300);
+  Duration get transitionDuration => page.duration;
 
   @override
   bool get maintainState => true;

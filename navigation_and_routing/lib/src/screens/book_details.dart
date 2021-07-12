@@ -21,7 +21,7 @@ class BookDetailsScreen extends StatelessWidget {
     if (book == null) {
       return const Scaffold(
         body: Center(
-          child: Text('No book with found.'),
+          child: Text('No book found.'),
         ),
       );
     }

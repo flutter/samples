@@ -26,10 +26,26 @@ class _BookstoreState extends State<Bookstore> {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   final library = Library()
-    ..addBook('Left Hand of Darkness', 'Ursula K. Le Guin', true, true)
-    ..addBook('Too Like the Lightning', 'Ada Palmer', false, true)
-    ..addBook('Kindred', 'Octavia E. Butler', true, false)
-    ..addBook('The Lathe of Heaven', 'Ursula K. Le Guin', false, false);
+    ..addBook(
+        title: 'Left Hand of Darkness',
+        authorName: 'Ursula K. Le Guin',
+        isPopular: true,
+        isNew: true)
+    ..addBook(
+        title: 'Too Like the Lightning',
+        authorName: 'Ada Palmer',
+        isPopular: false,
+        isNew: true)
+    ..addBook(
+        title: 'Kindred',
+        authorName: 'Octavia E. Butler',
+        isPopular: true,
+        isNew: false)
+    ..addBook(
+        title: 'The Lathe of Heaven',
+        authorName: 'Ursula K. Le Guin',
+        isPopular: false,
+        isNew: false);
 
   @override
   void initState() {
@@ -37,7 +53,7 @@ class _BookstoreState extends State<Bookstore> {
 
     /// Configure the parser with all of the app's allowed path templates.
     routeParser = TemplateRouteParser(
-      [
+      allowedPaths: [
         '/signin',
         '/authors',
         '/settings',
@@ -58,7 +74,6 @@ class _BookstoreState extends State<Bookstore> {
       navigatorKey: navigatorKey,
       builder: (context) => BookstoreNavigator(
         navigatorKey: navigatorKey,
-        auth: auth,
       ),
     );
 
@@ -85,7 +100,7 @@ class _BookstoreState extends State<Bookstore> {
     );
   }
 
-  Future<void> _handleAuthStateChanged() async {
+  void _handleAuthStateChanged() {
     if (!auth.signedIn) {
       routeState.go('/signin');
     }

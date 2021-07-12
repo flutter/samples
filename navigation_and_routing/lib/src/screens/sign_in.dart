@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class Credentials {
   final String username;
   final String password;
+
   Credentials(this.username, this.password);
 }
 
@@ -24,8 +25,8 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  String username = '';
-  String password = '';
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,26 +43,20 @@ class _SignInScreenState extends State<SignInScreen> {
                 Text('Sign in', style: Theme.of(context).textTheme.headline4),
                 TextField(
                   decoration: const InputDecoration(labelText: 'Username'),
-                  onChanged: (v) {
-                    setState(() {
-                      username = v;
-                    });
-                  },
+                  controller: _usernameController,
                 ),
                 TextField(
                   decoration: const InputDecoration(labelText: 'Password'),
                   obscureText: true,
-                  onChanged: (v) {
-                    setState(() {
-                      password = v;
-                    });
-                  },
+                  controller: _passwordController,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: TextButton(
                     onPressed: () async {
-                      widget.onSignIn(Credentials(username, password));
+                      widget.onSignIn(Credentials(
+                          _usernameController.value.text,
+                          _passwordController.value.text));
                     },
                     child: const Text('Sign in'),
                   ),

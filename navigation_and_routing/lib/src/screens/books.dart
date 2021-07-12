@@ -33,6 +33,20 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final newPath = routeState.route.pathTemplate;
+    if (newPath.startsWith('/books/popular')) {
+      _tabController.index = 0;
+    } else if (newPath.startsWith('/books/new')) {
+      _tabController.index = 1;
+    } else if (newPath == '/books/all') {
+      _tabController.index = 2;
+    }
+  }
+
+  @override
   void dispose() {
     _tabController.removeListener(_handleTabIndexChanged);
     super.dispose();
@@ -113,18 +127,5 @@ class _BooksScreenState extends State<BooksScreen>
         routeState.go('/books/popular');
         break;
     }
-  }
-
-  @override
-  void didUpdateWidget(BooksScreen oldWidget) {
-    var newPath = routeState.route.pathTemplate;
-    if (newPath.startsWith('/books/popular')) {
-      _tabController.index = 0;
-    } else if (newPath.startsWith('/books/new')) {
-      _tabController.index = 1;
-    } else if (newPath == '/books/all') {
-      _tabController.index = 2;
-    }
-    super.didUpdateWidget(oldWidget);
   }
 }
