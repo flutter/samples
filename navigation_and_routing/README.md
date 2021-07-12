@@ -1,7 +1,16 @@
 # Navigation and Routing
-A Flutter sample app that shows how to configure the
-[Router](https://api.flutter.dev/flutter/widgets/Router-class.html) to handle
-common navigation scenarios.
+A sample that shows how to use the [Router][] API to handle common navigation
+scenarios.
+
+## Goals
+- Demonstrate common navigation scenarios:
+  - Parsing path parameters ('/user/:id')
+  - Sign in (validation / guards)
+  - Nested navigation
+- Provide a reusable implementation of RouterDelegate and RouteInformationParser
+- Demonstrate how [deep linking][] is configured on iOS and Android
+- Demonstrate how to use the Link widget from `package:url_Launcher` with the
+  Router API.
 
 ## How it works
 The top-level widget, `Bookstore`, sets up the state for this app. It places
@@ -38,9 +47,8 @@ It implements these classes:
 ## App Structure
 
 The `SimpleRouterDelegate` constructor requires a `WidgetBuilder` parameter and
-a `navigatorKey`. Instead of returning a Navigator directly, a
-`BookstoreNavigator` widget is used, which configures a Navigator with a list of
-pages, based on the current RouteState.
+a `navigatorKey`. This app uses a `BookstoreNavigator` widget, which configures
+a Navigator with a list of pages, based on the current RouteState.
 
 ```dart
 SimpleRouterDelegate(
@@ -69,7 +77,6 @@ return Navigator(
         child: SignInScreen(),
       ),
     else ...[
-      // Display the app
       FadeTransitionPage<void>(
         key: scaffoldKey,
         child: BookstoreScaffold(),
@@ -124,8 +131,18 @@ TextButton(
 ),
 ```
 
+## Questions/issues
+
+If you have a general question about the Router API, the best places to go are:
+
+- [The FlutterDev Google Group](https://groups.google.com/forum/#!forum/flutter-dev)
+- [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
+
+If you run into an issue with the sample itself, please file an issue
+in the [main Flutter repo](https://github.com/flutter/flutter/issues).
 
 [Router]: https://api.flutter.dev/flutter/widgets/Router-class.html
 [RouterDelegate]: https://api.flutter.dev/flutter/widgets/RouterDelegate-class.html
 [RouteInformationParser]: https://api.flutter.dev/flutter/widgets/RouteInformationParser-class.html
 [router-ctor]: https://api.flutter.dev/flutter/material/MaterialApp/MaterialApp.router.html
+[deep linking]: https://flutter.dev/docs/development/ui/navigation/deep-linking
