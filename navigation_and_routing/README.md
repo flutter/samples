@@ -14,15 +14,16 @@ scenarios.
 
 ## How it works
 The top-level widget, `Bookstore`, sets up the state for this app. It places
-three InheritedNotifiers in the wiget tree, RouteStateScope, BookstoreAuthScope,
-and LibraryScope, which provide the state for the application:
+three `InheritedNotifier` widgets in the tree: `RouteStateScope`,
+`BookstoreAuthScope`, and `LibraryScope`, which provide the state for the
+application:
 
-  - **RouteState**: stores the current route path (`/book/1`) as a `ParsedRoute`
+  - **`RouteState`**: stores the current route path (`/book/1`) as a `ParsedRoute`
     object (see below).
-  - **BookstoreAuthScope**: stores a mock authentication API, `BookstoreAuth`.
-  - **LibraryScope**: stores the data for the app, `Library`.
+  - **`BookstoreAuthScope`**: stores a mock authentication API, `BookstoreAuth`.
+  - **`LibraryScope`**: stores the data for the app, `Library`.
 
-The `Bookstore` widget also uses  uses the [MaterialApp.router()][router-ctor]
+The `Bookstore` widget also uses the [MaterialApp.router()][router-ctor]
 constructor to opt-in to the [Router][] API. This constructor requires a
 [RouterDelegate][] and [RouteInformationParser][]. This app uses the
 `routing.dart` library, described below.
@@ -31,24 +32,24 @@ constructor to opt-in to the [Router][] API. This constructor requires a
 This library contains a general-purpose routing solution for medium-sized apps.
 It implements these classes:
 
-- **SimpleRouterDelegate**: Implements RouterDelegate. Updates `RouteState` when
+- **`SimpleRouterDelegate`**: Implements `RouterDelegate`. Updates `RouteState` when
   a new route has been pushed to the application by the operating system. Also
   notifies the `Router` widget whenever the `RouteState` changes.
-- **TemplateRouteParser**: Implements RouteInformationParser. Parses the
+- **`TemplateRouteParser`**: Implements RouteInformationParser. Parses the
   incoming route path into a `ParsedRoute` object. A `RouteGuard` can be
   provided to guard access to certain routes.
-- **ParsedRoute**: Contains the current route location ("/user/2"), path
+- **`ParsedRoute`**: Contains the current route location ("/user/2"), path
   parameters ({id: 2}), query parameters ("?search=abc"), and path template
   ("/user/:id")
-- **RouteState**: Stores the current `ParsedRoute`.
-- **RouteGuard**: Guards access to routes. Can be overridden to redirect the
+- **`RouteState`**: Stores the current `ParsedRoute`.
+- **`RouteGuard`**: Guards access to routes. Can be overridden to redirect the
   incoming route if a condition isn't met.
 
 ## App Structure
 
 The `SimpleRouterDelegate` constructor requires a `WidgetBuilder` parameter and
 a `navigatorKey`. This app uses a `BookstoreNavigator` widget, which configures
-a Navigator with a list of pages, based on the current RouteState.
+a `Navigator` with a list of pages, based on the current `RouteState`.
 
 ```dart
 SimpleRouterDelegate(
@@ -60,8 +61,8 @@ SimpleRouterDelegate(
 );
 ```
 
-This Navigator is configured to display either the sign-in screen or the
-BookstoreScaffold. An additional screen is stacked on top of the
+This `Navigator` is configured to display either the sign-in screen or the
+`BookstoreScaffold`. An additional screen is stacked on top of the
 `BookstoreScaffold` if a book or author is currently selected:
 
 ```dart
@@ -108,10 +109,9 @@ Navigator to display either the `AuthorsScreen`, `SettingsScreen`, or
 
 ## Linking vs updating RouteState
 
-There are two ways to change the current route, either by updating RouteState,
+There are two ways to change the current route, either by updating `RouteState`,
 which the RouterDelegate listens to, or use the Link widget from
-`package:url_launcher`, which provides a Link widget. The `SettingsScreen`
-widget demonstrates both options:
+`package:url_launcher`. The `SettingsScreen` widget demonstrates both options:
 
 ```
 Link(
