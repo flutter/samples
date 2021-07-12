@@ -100,7 +100,7 @@ class _BookstoreState extends State<Bookstore> {
     );
   }
 
-  Future<void> _handleAuthStateChanged() async {
+  void _handleAuthStateChanged() {
     if (!auth.signedIn) {
       routeState.go('/signin');
     }
