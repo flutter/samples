@@ -17,6 +17,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/desktop_photo_search"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
+    "experimental/linting_tool"
     "flutter_maps_firestore"
     "infinite_list"
     "ios_app_clip"

@@ -22,6 +22,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin"
     # TODO(redbrogdon): Restore during next beta branch merge.
     # "experimental/web_dashboard"
+    "experimental/linting_tool"
     "flutter_maps_firestore"
     "infinite_list"
     "ios_app_clip"
