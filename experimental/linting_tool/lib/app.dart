@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/widgets/adaptive_nav.dart';
-import 'package:linting_tool/widgets/routes.dart' as routes;
+import 'package:linting_tool/routes.dart' as routes;
 
 class LintingTool extends StatefulWidget {
   const LintingTool({Key? key}) : super(key: key);
