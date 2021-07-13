@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(abd99): Implement HomePage with list of lint rules.
+    // TODO(abd99): Implement HomePage, showing a list of supported lint rules.
     return const Text('Home');
   }
 }

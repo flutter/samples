@@ -9,7 +9,7 @@ class SavedLintsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(abd99): Implement SavedLintsPage.
+    // TODO(abd99): Implement SavedLintsPage, showing a list of saved lint rules profiles.
     return const Text('Saved Profiles');
   }
 }

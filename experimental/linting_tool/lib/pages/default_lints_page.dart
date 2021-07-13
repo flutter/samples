@@ -9,7 +9,7 @@ class DefaultLintsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(abd99): Implement DefaultLintsPage.
+    // TODO(abd99): Implement DefaultLintsPage, showing a list of default lint rules.
     return const Text('Default Profiles');
   }
 }
