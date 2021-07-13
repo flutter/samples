@@ -198,7 +198,6 @@ class _NavigationRailHeader extends StatelessWidget {
                               size: 16,
                             ),
                           ),
-                          // const _ReplyLogo(),
                           const FlutterLogo(),
                           const SizedBox(width: 10),
                           Align(
