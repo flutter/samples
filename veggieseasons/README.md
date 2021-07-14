@@ -22,13 +22,6 @@ These are the screens presented in the app, roughly analogous to
 UIViewControllers. `HomeScreen` is the root, and the others are shown
 as the user navigates.
 
-### `/widgets/search_bar.dart`
-
-An example of how to construct an Cupertino-style search bar. The
-Flutter team [is working on an official widget](https://github.com/flutter/flutter/issues/9784)
-for this. Once that effort is complete, developers will not need to roll
-their own search bars, so to speak.
-
 ## Questions/issues
 
 If you have a general question about any of the techniques you see in
