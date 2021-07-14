@@ -34,7 +34,9 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.check));
 
-    verify(mockHostApi.finishEditingBook(any));
+    // TODO(domesticmouse): Find a better way to deal with this warning
+    // ignore: null_check_always_fails
+    verify(mockHostApi.finishEditingBook(any!));
   });
 }
 
