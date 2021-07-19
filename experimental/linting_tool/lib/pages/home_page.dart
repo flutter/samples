@@ -3,13 +3,74 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:linting_tool/model/rules_store.dart';
+import 'package:linting_tool/layout/adaptive.dart';
+import 'package:linting_tool/widgets/lint_expansion_tile.dart';
+import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      var rulesStore = Provider.of<RuleStore>(context, listen: false);
+      if (rulesStore.rules.isEmpty && !rulesStore.isLoading) {
+        rulesStore.fetchRules();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // TODO(abd99): Implement HomePage, showing a list of supported lint rules.
-    return const Text('Home');
+    return Consumer<RuleStore>(
+      builder: (context, rulesStore, child) {
+        if (rulesStore.isLoading) {
+          return const CircularProgressIndicator.adaptive();
+        }
+
+        if (!rulesStore.isLoading) {
+          if (rulesStore.rules.isNotEmpty) {
+            final isDesktop = isDisplayLarge(context);
+            final isTablet = isDisplayMedium(context);
+            final startPadding = isTablet
+                ? 60.0
+                : isDesktop
+                    ? 120.0
+                    : 4.0;
+            final endPadding = isTablet
+                ? 60.0
+                : isDesktop
+                    ? 120.0
+                    : 4.0;
+
+            return ListView.separated(
+              padding: EdgeInsetsDirectional.only(
+                start: startPadding,
+                end: endPadding,
+                top: isDesktop ? 28 : 0,
+                bottom: isDesktop ? kToolbarHeight : 0,
+              ),
+              itemCount: rulesStore.rules.length,
+              cacheExtent: 5,
+              itemBuilder: (context, index) {
+                return LintExpansionTile(
+                  rule: rulesStore.rules[index],
+                );
+              },
+              separatorBuilder: (context, index) => const SizedBox(height: 4),
+            );
+          }
+        }
+
+        return Text(rulesStore.error ?? 'Failed to load rules.');
+      },
+    );
   }
 }
