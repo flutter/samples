@@ -21,7 +21,9 @@ class RuleStore extends ChangeNotifier {
 
   List<Rule> get rules => _rules;
 
-  String? error;
+  String? _error;
+
+  String? get error => _error;
 
   Future<void> fetchRules() async {
     if (!_isLoading) _isLoading = true;
@@ -31,7 +33,7 @@ class RuleStore extends ChangeNotifier {
       _rules = rules;
     } on SocketException catch (e) {
       log(e.toString());
-      error = 'Check internet connection.';
+      _error = 'Check internet connection.';
     } on Exception catch (e) {
       log(e.toString());
     }
