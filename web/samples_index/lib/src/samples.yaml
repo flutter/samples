@@ -275,7 +275,7 @@ samples:
         alt: Platform View Swift screenshot
       - url: images/platform_view_swift2.png
         alt: Platform View Swift screenshot
-    source: https://github.com/flutter/samples/tree/master/platform_design
+    source: https://github.com/flutter/samples/tree/master/platform_view_swift
     description: >
       A Flutter sample app that combines a native iOS UIViewController with a
       full-screen Flutter view.
