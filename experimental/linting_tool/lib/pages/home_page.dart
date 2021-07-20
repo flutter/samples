@@ -8,24 +8,8 @@ import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/widgets/lint_expansion_tile.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      var rulesStore = Provider.of<RuleStore>(context, listen: false);
-      if (rulesStore.rules.isEmpty && !rulesStore.isLoading) {
-        rulesStore.fetchRules();
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +53,19 @@ class _HomePageState extends State<HomePage> {
           }
         }
 
-        return Text(rulesStore.error ?? 'Failed to load rules.');
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(rulesStore.error ?? 'Failed to load rules.'),
+            const SizedBox(
+              height: 16.0,
+            ),
+            IconButton(
+              onPressed: () => rulesStore.fetchRules(),
+              icon: const Icon(Icons.refresh),
+            ),
+          ],
+        );
       },
     );
   }
