@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linting_tool/theme/colors.dart';
 
@@ -202,6 +203,24 @@ class AppTheme {
         fontSize: 12,
         letterSpacing: 0.2,
         color: AppColors.white50,
+      ),
+    );
+  }
+
+  static MarkdownStyleSheet buildMarkDownTheme(ThemeData theme) {
+    final textTheme = theme.textTheme;
+    return MarkdownStyleSheet.largeFromTheme(theme).copyWith(
+      strong: textTheme.subtitle2!,
+      em: textTheme.bodyText2!.copyWith(
+        fontWeight: FontWeight.w900,
+        fontStyle: FontStyle.italic,
+      ),
+      codeblockPadding: const EdgeInsets.all(8),
+      codeblockDecoration: BoxDecoration(
+        color: Colors.grey.shade100,
+      ),
+      code: TextStyle(
+        backgroundColor: Colors.grey.shade100,
       ),
     );
   }
