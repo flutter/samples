@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:linting_tool/model/rules_store.dart';
 import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/widgets/adaptive_nav.dart';
 import 'package:linting_tool/routes.dart' as routes;
+import 'package:provider/provider.dart';
 
 class LintingTool extends StatefulWidget {
   const LintingTool({Key? key}) : super(key: key);
@@ -19,22 +21,25 @@ class LintingTool extends StatefulWidget {
 class _LintingToolState extends State<LintingTool> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Linting Tool',
-      theme: AppTheme.buildReplyLightTheme(context),
-      darkTheme: AppTheme.buildReplyDarkTheme(context),
-      themeMode: ThemeMode.light,
-      initialRoute: LintingTool.homeRoute,
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case LintingTool.homeRoute:
-            return MaterialPageRoute<void>(
-              builder: (context) => const AdaptiveNav(),
-              settings: settings,
-            );
-        }
-        return null;
-      },
+    return ChangeNotifierProvider<RuleStore>(
+      create: (context) => RuleStore(),
+      child: MaterialApp(
+        title: 'Flutter Linting Tool',
+        theme: AppTheme.buildReplyLightTheme(context),
+        darkTheme: AppTheme.buildReplyDarkTheme(context),
+        themeMode: ThemeMode.light,
+        initialRoute: LintingTool.homeRoute,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case LintingTool.homeRoute:
+              return MaterialPageRoute<void>(
+                builder: (context) => const AdaptiveNav(),
+                settings: settings,
+              );
+          }
+          return null;
+        },
+      ),
     );
   }
 }

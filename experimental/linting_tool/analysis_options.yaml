@@ -1,6 +1,8 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  exclude:
+    - lib/model/rule.g.dart
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
