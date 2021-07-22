@@ -6,21 +6,21 @@ import CoreMotion
 
 class AccelerometerStreamHandler: NSObject, FlutterStreamHandler {
     
-    var motionManger: CMMotionManager;
+    var motionManager: CMMotionManager;
     
     override init() {
-        motionManger = CMMotionManager()
+        motionManager = CMMotionManager()
     }
     
     func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         
-        if !motionManger.isAccelerometerAvailable {
+        if !motionManager.isAccelerometerAvailable {
             events(FlutterError(code: "SENSOR_UNAVAILABLE", message: "Accelerometer is not available", details: nil))
         }
         
-        motionManger.accelerometerUpdateInterval = 0.1
+        motionManager.accelerometerUpdateInterval = 0.1
         
-        motionManger.startAccelerometerUpdates(to: OperationQueue.main) {(data, error) in
+        motionManager.startAccelerometerUpdates(to: OperationQueue.main) {(data, error) in
             guard let accelerationData = data?.acceleration else {
                 events(FlutterError(code: "DATA_UNAVAILABLE", message: "Cannot get accelerometer data", details: nil ))
                 return
