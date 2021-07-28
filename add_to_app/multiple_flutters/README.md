@@ -13,7 +13,7 @@ For Android instructions, see:
 
 ## Requirements
 
-* Flutter -- after version 1991216543eb74e07c2de3746ca07c92071b19ac
+* Flutter -- after Flutter v2
 * Android
   * Android Studio
 * iOS
