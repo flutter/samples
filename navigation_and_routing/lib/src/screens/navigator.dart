@@ -16,7 +16,7 @@ import 'book_details.dart';
 import 'scaffold.dart';
 
 /// Builds the top-level navigator for the app. The pages to display are based
-/// on the [routeState] that was parsed by the TemplateRouteParser.
+/// on the `routeState` that was parsed by the TemplateRouteParser.
 class BookstoreNavigator extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 

@@ -3,9 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// Shows how a custom TransitionDelegate can be used to customized when
-/// transition animations are shown. (For example, [when two routes are popped
-/// off the stack](https://github.com/flutter/flutter/issues/12146), however the
-/// default TransitionDelegate will handle this if you are using Router)
+/// transition animations are shown. (For example,
+/// [when two routes are popped off the stack](https://github.com/flutter/flutter/issues/12146),
+/// however the default TransitionDelegate will handle this if you are using
+/// `Router`.)
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

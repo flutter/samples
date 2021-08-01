@@ -34,17 +34,11 @@ class BookDetailsScreen extends StatelessWidget {
           children: [
             Text(
               book!.title,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline4,
+              style: Theme.of(context).textTheme.headline4,
             ),
             Text(
               book!.author.name,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .subtitle1,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
             TextButton(
               child: const Text('View author (Push)'),
@@ -62,8 +56,8 @@ class BookDetailsScreen extends StatelessWidget {
               uri: Uri.parse('/author/${book!.author.id}'),
               builder: (context, followLink) {
                 return TextButton(
-                  child: const Text('View author (Link)'),
                   onPressed: followLink,
+                  child: const Text('View author (Link)'),
                 );
               },
             ),

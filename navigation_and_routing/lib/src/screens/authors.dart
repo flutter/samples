@@ -9,7 +9,7 @@ import '../widgets/author_list.dart';
 import '../widgets/library_scope.dart';
 
 class AuthorsScreen extends StatelessWidget {
-  final String title = "Authors";
+  final String title = 'Authors';
 
   const AuthorsScreen({Key? key}) : super(key: key);
 

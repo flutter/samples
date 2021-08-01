@@ -18,8 +18,7 @@ class RouteState extends ChangeNotifier {
   TemplateRouteParser parser;
   ParsedRoute _route;
 
-  RouteState(this.parser)
-      : _route = parser.initialRoute;
+  RouteState(this.parser) : _route = parser.initialRoute;
 
   ParsedRoute get route => _route;
 

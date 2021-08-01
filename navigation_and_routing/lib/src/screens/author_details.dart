@@ -5,9 +5,8 @@
 import 'package:flutter/material.dart';
 
 import '../data.dart';
-import '../widgets/book_list.dart';
-import 'book_details.dart';
 import '../routing.dart';
+import '../widgets/book_list.dart';
 
 class AuthorDetailsScreen extends StatelessWidget {
   final Author author;
