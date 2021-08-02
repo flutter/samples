@@ -51,7 +51,7 @@ class Sample {
 
   /// The difficulty level. Values are either 'beginner', 'intermediate', or
   /// 'advanced'.
-  final String difficulty;
+  final String? difficulty;
 
   /// List of widgets or Flutter APIs used by the sample. e.g. "AnimatedBuilder"
   /// or "ChangeNotifier".
@@ -89,7 +89,7 @@ class Sample {
     required this.source,
     this.web,
     required this.description,
-    required this.difficulty,
+    this.difficulty = 'beginner',
     this.widgets = const [],
     this.packages = const [],
     this.tags = const [],

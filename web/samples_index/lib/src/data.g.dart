@@ -38,7 +38,7 @@ Sample _$SampleFromJson(Map json) {
       source: $checkedConvert(json, 'source', (v) => v as String),
       web: $checkedConvert(json, 'web', (v) => v as String?),
       description: $checkedConvert(json, 'description', (v) => v as String),
-      difficulty: $checkedConvert(json, 'difficulty', (v) => v as String),
+      difficulty: $checkedConvert(json, 'difficulty', (v) => v as String?),
       widgets: $checkedConvert(json, 'widgets',
           (v) => (v as List<dynamic>).map((e) => e as String).toList()),
       packages: $checkedConvert(json, 'packages',
