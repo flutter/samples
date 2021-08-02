@@ -3,8 +3,15 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:linting_tool/app.dart';
+import 'package:linting_tool/model/profile.dart';
+import 'package:linting_tool/model/rule.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(RuleAdapter());
+  Hive.registerAdapter(RulesProfileAdapter());
+  await Hive.openLazyBox<RulesProfile>('rules_profile');
   runApp(const LintingTool());
 }

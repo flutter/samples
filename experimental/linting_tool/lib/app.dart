@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/model/rules_store.dart';
 import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/widgets/adaptive_nav.dart';
@@ -21,8 +22,15 @@ class LintingTool extends StatefulWidget {
 class _LintingToolState extends State<LintingTool> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<RuleStore>(
-      create: (context) => RuleStore(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<RuleStore>(
+          create: (context) => RuleStore(),
+        ),
+        ChangeNotifierProvider<ProfilesStore>(
+          create: (context) => ProfilesStore(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Linting Tool',
         theme: AppTheme.buildReplyLightTheme(context),

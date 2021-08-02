@@ -4,9 +4,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:linting_tool/model/profile.dart';
+import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/theme/colors.dart';
+import 'package:provider/provider.dart';
 
 class LintExpansionTile extends StatefulWidget {
   final Rule rule;
@@ -127,13 +130,177 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
           alignment: Alignment.centerRight,
           child: ElevatedButton(
             child: const Text('Add to profile'),
-            onPressed: () {
-              // TODO(abd99): Iplement adding to a profile.
+            onPressed: () async {
+              ProfileType? destinationProfileType =
+                  await showDialog<ProfileType>(
+                context: context,
+                builder: (context) {
+                  return const _ProfileTypeDialog();
+                },
+              );
+              if (destinationProfileType == ProfileType.newProfile) {
+                showDialog<String>(
+                  context: context,
+                  builder: (context) {
+                    return _NewProfileDialog(rule: rule);
+                  },
+                );
+              } else if (destinationProfileType ==
+                  ProfileType.existingProfile) {
+                showDialog<String>(
+                  context: context,
+                  builder: (context) {
+                    return _ExistingProfileDialog(rule: rule);
+                  },
+                );
+              }
             },
           ),
         ),
         const SizedBox(
           height: 16.0,
+        ),
+      ],
+    );
+  }
+}
+
+enum ProfileType {
+  newProfile,
+  existingProfile,
+}
+
+class _ProfileTypeDialog extends StatelessWidget {
+  const _ProfileTypeDialog({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      actionsPadding: const EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        bottom: 16.0,
+      ),
+      title: const Text('Select Profile Type'),
+      actions: [
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context, ProfileType.existingProfile);
+          },
+          child: const Text('Existing Profile'),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context, ProfileType.newProfile);
+          },
+          child: const Text('Create new profile'),
+        ),
+      ],
+    );
+  }
+}
+
+class _NewProfileDialog extends StatelessWidget {
+  final Rule rule;
+  const _NewProfileDialog({
+    required this.rule,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String name = '';
+    final _formKey = GlobalKey<FormState>();
+
+    return AlertDialog(
+      title: const Text('Create new lint profile'),
+      content: Form(
+        key: _formKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Profile Name'),
+            TextFormField(
+              onChanged: (value) {
+                name = value;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Name cannot be empty.';
+                }
+                return null;
+              },
+            ),
+          ],
+        ),
+      ),
+      actionsPadding: const EdgeInsets.all(16.0),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              var newProfile = RulesProfile(
+                name: name,
+                rules: [rule],
+              );
+              await Provider.of<ProfilesStore>(context, listen: false)
+                  .addToNewProfile(newProfile);
+              Navigator.pop(context);
+            }
+          },
+          child: const Text('Save'),
+        ),
+      ],
+    );
+  }
+}
+
+class _ExistingProfileDialog extends StatelessWidget {
+  const _ExistingProfileDialog({
+    Key? key,
+    required this.rule,
+  }) : super(key: key);
+
+  final Rule rule;
+
+  @override
+  Widget build(BuildContext context) {
+    var profilesStore = Provider.of<ProfilesStore>(context);
+    var savedProfiles = profilesStore.savedProfiles;
+    return AlertDialog(
+      title: const Text('Select a lint profile'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(
+          savedProfiles.length,
+          (index) => ListTile(
+            title: Text(savedProfiles[index].name),
+            onTap: () async {
+              await profilesStore.addToExistingProfile(
+                  savedProfiles[index], rule);
+              Navigator.pop(context);
+            },
+          ),
+        ),
+      ),
+      actionsPadding: const EdgeInsets.all(16.0),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Cancel'),
         ),
       ],
     );
