@@ -34,7 +34,7 @@ class Sample {
   final String name;
 
   /// The author of the sample. Typically "Flutter"
-  final String author;
+  final String? author;
 
   /// Screenshots of the sample or cookbook article. At least 1 screenshot is
   /// required.
@@ -84,7 +84,7 @@ class Sample {
 
   Sample({
     required this.name,
-    required this.author,
+    this.author = 'Flutter',
     required this.screenshots,
     required this.source,
     this.web,

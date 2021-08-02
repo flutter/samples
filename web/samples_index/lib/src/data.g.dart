@@ -28,7 +28,7 @@ Sample _$SampleFromJson(Map json) {
   return $checkedNew('Sample', json, () {
     final val = Sample(
       name: $checkedConvert(json, 'name', (v) => v as String),
-      author: $checkedConvert(json, 'author', (v) => v as String),
+      author: $checkedConvert(json, 'author', (v) => v as String?),
       screenshots: $checkedConvert(
           json,
           'screenshots',
