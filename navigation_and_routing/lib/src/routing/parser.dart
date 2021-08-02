@@ -25,8 +25,10 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   TemplateRouteParser({
     /// The list of allowed path templates (['/', '/users/:id'])
     required List<String> allowedPaths,
+
     /// The initial route
     String? initialRoute = '/',
+
     ///  [RouteGuard] used to redirect.
     this.guard,
   }) : initialRoute =

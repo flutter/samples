@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:bookstore/src/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
 import '../auth/auth.dart';
+import '../routing.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -63,8 +63,8 @@ class SettingsContent extends StatelessWidget {
             uri: Uri.parse('/book/0'),
             builder: (context, followLink) {
               return TextButton(
-                child: const Text('Go directly to /book/0 (Link)'),
                 onPressed: followLink,
+                child: const Text('Go directly to /book/0 (Link)'),
               );
             },
           ),
