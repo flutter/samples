@@ -187,7 +187,7 @@ String _descriptionPage(Sample sample) => '''
 
 String _descriptionButtons(Sample sample) {
   var buf = StringBuffer();
-  if (sample?.web?.isNotEmpty == true) {
+  if (sample.web?.isNotEmpty == true) {
     buf.write(
         '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.web}';"><span class="mdc-button__ripple"></span> Launch App</button>''');
   }
