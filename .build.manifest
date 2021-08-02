@@ -375,7 +375,6 @@ packages/$sdk/dev_compiler/web/dart_stack_trace_mapper.js
 packages/_fe_analyzer_shared/src/parser/parser.md
 packages/analyzer/src/summary/format.fbs
 packages/build_runner/src/server/README.md
-packages/build_runner/src/server/build_updates_client/hot_reload_client.dart.js
 packages/build_runner/src/server/build_updates_client/live_reload_client.js
 packages/build_runner/src/server/graph_viz.html
 packages/build_runner/src/server/graph_viz.js
@@ -768,7 +767,6 @@ packages/mdc_web/src/scss/typography/_variables.scss
 packages/mdc_web/src/scss/typography/mdc-typography.scss
 packages/node_preamble/preamble.js
 packages/node_preamble/preamble.min.js
-packages/package_resolver/src/test_package_config
 packages/pedantic/analysis_options.1.0.0.yaml
 packages/pedantic/analysis_options.1.1.0.yaml
 packages/pedantic/analysis_options.1.11.0.yaml

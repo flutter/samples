@@ -59,23 +59,27 @@ if (dartNodeIsActuallyNode) {
   // https://github.com/mbullington/node_preamble.dart/issues/18#issuecomment-527305561
   var url = ("undefined" !== typeof __webpack_require__ ? __non_webpack_require__ : require)("url");
 
-  self.location = {
-    get href() {
-      if (url.pathToFileURL) {
-        return url.pathToFileURL(process.cwd()).href + "/";
-      } else {
-        // This isn't really a correct transformation, but it's the best we have
-        // for versions of Node <10.12.0 which introduced `url.pathToFileURL()`.
-        // For example, it will fail for paths that contain characters that need
-        // to be escaped in URLs.
-        return "file://" + (function() {
-          var cwd = process.cwd();
-          if (process.platform != "win32") return cwd;
-          return "/" + cwd.replace(/\\/g, "/");
-        })() + "/"
+  // Setting `self.location=` in Electron throws a `TypeError`, so we define it
+  // as a property instead to be safe.
+  Object.defineProperty(self, "location", {
+    value: {
+      get href() {
+        if (url.pathToFileURL) {
+          return url.pathToFileURL(process.cwd()).href + "/";
+        } else {
+          // This isn't really a correct transformation, but it's the best we have
+          // for versions of Node <10.12.0 which introduced `url.pathToFileURL()`.
+          // For example, it will fail for paths that contain characters that need
+          // to be escaped in URLs.
+          return "file://" + (function() {
+            var cwd = process.cwd();
+            if (process.platform != "win32") return cwd;
+            return "/" + cwd.replace(/\\/g, "/");
+          })() + "/"
+        }
       }
     }
-  };
+  });
 
   (function() {
     function computeCurrentScript() {
@@ -93,15 +97,20 @@ if (dartNodeIsActuallyNode) {
       }
     }
 
+    // Setting `self.document=` isn't known to throw an error anywhere like
+    // `self.location=` does on Electron, but it's better to be future-proof
+    // just in case..
     var cachedCurrentScript = null;
-    self.document = {
-      get currentScript() {
-        if (cachedCurrentScript == null) {
-          cachedCurrentScript = {src: computeCurrentScript()};
+    Object.defineProperty(self, "document", {
+      value: {
+        get currentScript() {
+          if (cachedCurrentScript == null) {
+            cachedCurrentScript = {src: computeCurrentScript()};
+          }
+          return cachedCurrentScript;
         }
-        return cachedCurrentScript;
       }
-    };
+    });
   })();
 
   self.dartDeferredLibraryLoader = function(uri, successCallback, errorCallback) {

@@ -20,6 +20,7 @@ charcode:packages/charcode/
 checked_yaml:packages/checked_yaml/
 cli_repl:packages/cli_repl/
 cli_util:packages/cli_util/
+clock:packages/clock/
 code_builder:packages/code_builder/
 collection:packages/collection/
 convert:packages/convert/
@@ -30,11 +31,11 @@ dart_style:packages/dart_style/
 file:packages/file/
 fixnum:packages/fixnum/
 flutter_lints:packages/flutter_lints/
+frontend_server_client:packages/frontend_server_client/
 glob:packages/glob/
 graphs:packages/graphs/
 grinder:packages/grinder/
 html:packages/html/
-http:packages/http/
 http_multi_server:packages/http_multi_server/
 http_parser:packages/http_parser/
 image:packages/image/
@@ -50,10 +51,8 @@ mdc_web:packages/mdc_web/
 meta:packages/meta/
 mime:packages/mime/
 node_interop:packages/node_interop/
-node_io:packages/node_io/
 node_preamble:packages/node_preamble/
 package_config:packages/package_config/
-package_resolver:packages/package_resolver/
 path:packages/path/
 pedantic:packages/pedantic/
 petitparser:packages/petitparser/
