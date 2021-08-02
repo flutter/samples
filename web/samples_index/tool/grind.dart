@@ -109,7 +109,7 @@ Future<void> _createThumbnails(Directory directory) async {
     var thumbnailFile = File(path.join(pathPrefix, filename + '_thumb.png'));
 
     var img = image.decodeImage(await file.readAsBytes());
-    var resized = image.copyResize(img, width: 640);
+    var resized = image.copyResize(img!, width: 640);
     filesToWrite.add(thumbnailFile.writeAsBytes(image.encodePng(resized)));
   }
 

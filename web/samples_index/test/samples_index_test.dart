@@ -16,8 +16,11 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => Index.fromJson(m),
+      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
+      if (index == null) {
+        throw('unable to load YAML from $file');
+      }
       expect(index.samples, isNotEmpty);
 
       var sample = index.samples.first;
@@ -49,8 +52,11 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => Index.fromJson(m),
+      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
+      if (index == null) {
+        throw('unable to load YAML from $file');
+      }
       var sample = index.samples.first;
       expect(
           sample.searchAttributes.split(' '),

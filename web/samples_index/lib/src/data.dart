@@ -44,7 +44,7 @@ class Sample {
   final String source;
 
   /// A link to this sample running in the browser.
-  final String web;
+  final String? web;
 
   /// 3-5 sentences describing the sample.
   final String description;
@@ -76,26 +76,26 @@ class Sample {
   final String type;
 
   /// The date this sample was created.
-  final DateTime date;
+  final DateTime? date;
 
   /// The Flutter channel this sample runs on. Either 'stable', 'dev' or
   /// 'master'.
-  final String channel;
+  final String? channel;
 
   Sample({
-    this.name,
-    this.author,
-    this.screenshots,
-    this.source,
+    required this.name,
+    required this.author,
+    required this.screenshots,
+    required this.source,
     this.web,
-    this.description,
-    this.difficulty,
+    required this.description,
+    required this.difficulty,
     this.widgets = const [],
     this.packages = const [],
     this.tags = const [],
     this.platforms = const [],
     this.links = const [],
-    this.type,
+    required this.type,
     this.date,
     this.channel,
   });

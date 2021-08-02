@@ -4,8 +4,8 @@ import 'package:mdc_web/mdc_web.dart';
 import 'package:samples_index/browser.dart';
 
 /// The Material text input for searching
-MDCTextField searchBar;
-MDCChipSet chipSet;
+late final MDCTextField searchBar;
+late final MDCChipSet chipSet;
 
 /// The current set of query parameters that determine how the cards are
 /// filtered. e.g. {'search': 'kittens', 'platform': 'ios'}
@@ -16,9 +16,9 @@ const platformKey = 'platform';
 
 void main() {
   // Initialize Material components
-  MDCFloatingLabel(querySelector('.mdc-floating-label'));
-  searchBar = MDCTextField(querySelector('#search-bar'));
-  MDCRipple(querySelector('#clear-button'));
+  MDCFloatingLabel(querySelector('.mdc-floating-label')!);
+  searchBar = MDCTextField(querySelector('#search-bar')!);
+  MDCRipple(querySelector('#clear-button')!);
 
   // Listen for hash changes
   window.onHashChange.listen((_) {
@@ -33,7 +33,7 @@ void main() {
   querySelectorAll('.mdc-card__primary-action').forEach((el) => MDCRipple(el)
     // Navigate to the description page when tapped
     ..listen('click', (e) {
-      window.location.href = el.attributes['href'];
+      window.location.href = el.attributes['href']!;
     }));
 
   // Filter cards on each keypress
@@ -44,12 +44,12 @@ void main() {
 
   // Update the URL only when the user is done typing in the search bar
   searchBar.listen('change', (e) {
-    queryParams[searchKey] = searchBar.value;
+    queryParams[searchKey] = searchBar.value!;
     updateHash();
   });
 
   // Update the hash, cards, and text input when the clear button is pressed
-  querySelector('#clear-button').onClick.listen((e) {
+  querySelector('#clear-button')!.onClick.listen((e) {
     queryParams.remove('search');
     updateHash();
     setSearchBarText();
@@ -57,10 +57,10 @@ void main() {
   });
 
   // Initialize chips
-  chipSet = MDCChipSet(querySelector('.mdc-chip-set'));
+  chipSet = MDCChipSet(querySelector('.mdc-chip-set')!);
   chipSet.listen('MDCChip:selection', (e) {
     // Get the query parameters for this chip
-    var selectedChipIndex = chipSet.chips.indexWhere((chip) => chip.selected);
+    var selectedChipIndex = chipSet.chips.indexWhere((chip) => chip.selected!);
     var chipParams = paramsForChip(selectedChipIndex);
 
     // Overwrite query parameters with new ones
@@ -89,7 +89,7 @@ void setSearchBarText() {
 
 void setSelectedChips() {
   var type = queryParams.containsKey(typeKey) ? queryParams[typeKey] : '';
-  if (type.isNotEmpty) {
+  if (type!.isNotEmpty) {
     if (type == 'sample') {
       chipSet.chips[1].selected = true;
     }
@@ -101,7 +101,7 @@ void setSelectedChips() {
   // Apply the platform from the hash in the URL
   var platform =
       queryParams.containsKey(platformKey) ? queryParams[platformKey] : '';
-  if (platform.isNotEmpty) {
+  if (platform!.isNotEmpty) {
     if (platform == 'web') {
       chipSet.chips[3].selected = true;
     }
@@ -113,7 +113,7 @@ void setSelectedChips() {
 
 void handleSearch() {
   var search = searchBar.value;
-  queryParams[searchKey] = search;
+  queryParams[searchKey] = search!;
   filterCards();
 }
 
@@ -139,7 +139,7 @@ void filterCards() {
   var elements = querySelectorAll('[search-attrs]');
   for (var element in elements) {
     var searchAttributes = element.attributes['search-attrs'];
-    if (matchesQuery(searchQuery, searchAttributes)) {
+    if (matchesQuery(searchQuery, searchAttributes!)) {
       element.hidden = false;
     } else {
       element.hidden = true;

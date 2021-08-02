@@ -3,7 +3,7 @@
 // found in the LICENSE file
 
 bool matchesQuery(String query, String sampleAttributes) {
-  if (query == null || query.isEmpty) {
+  if (query.isEmpty) {
     return true;
   }
   var queryWords = query.split(' ')..removeWhere((s) => s.isEmpty);
@@ -68,11 +68,13 @@ String searchQueryFromParams(Map<String, String> params) {
   }
   if (params.containsKey('type')) {
     if (buf.isNotEmpty) buf.write(' ');
-    buf.write('type:' + params['type']);
+    var value = params['type'];
+    if (value != null) buf.write('type:' + value);
   }
   if (params.containsKey('platform')) {
     if (buf.isNotEmpty) buf.write(' ');
-    buf.write('platform:' + params['platform']);
+    var value = params['platform'];
+    if (value != null) buf.write('platform:' + value);
   }
 
   return buf.toString();
