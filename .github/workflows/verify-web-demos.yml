@@ -9,7 +9,7 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: stable
       - name: Init scripts
