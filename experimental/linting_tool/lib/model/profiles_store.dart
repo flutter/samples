@@ -8,6 +8,8 @@ import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/hive_service.dart';
 
+const _boxName = 'rules_profile';
+
 class ProfilesStore extends ChangeNotifier {
   ProfilesStore() {
     fetchSavedProfiles();
@@ -28,7 +30,7 @@ class ProfilesStore extends ChangeNotifier {
     if (!_isLoading) _isLoading = true;
     notifyListeners();
     try {
-      var profiles = await HiveService.getBoxes<RulesProfile>('rules_profile');
+      var profiles = await HiveService.getBoxes<RulesProfile>(_boxName);
       _savedProfiles = profiles;
     } on Exception catch (e) {
       log(e.toString());
@@ -39,7 +41,7 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> addToNewProfile(RulesProfile profile) async {
-    await HiveService.addBox<RulesProfile>(profile, 'rules_profile');
+    await HiveService.addBox<RulesProfile>(profile, _boxName);
 
     await Future.delayed(const Duration(milliseconds: 100), () async {
       await fetchSavedProfiles();
@@ -50,8 +52,7 @@ class ProfilesStore extends ChangeNotifier {
     RulesProfile newProfile =
         RulesProfile(name: profile.name, rules: profile.rules..add(rule));
 
-    await HiveService.updateBox<RulesProfile>(
-        profile, newProfile, 'rules_profile');
+    await HiveService.updateBox<RulesProfile>(profile, newProfile, _boxName);
 
     await Future.delayed(const Duration(milliseconds: 100), () async {
       await fetchSavedProfiles();
@@ -59,7 +60,7 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> deleteProfile(RulesProfile profile) async {
-    await HiveService.deleteBox<RulesProfile>(profile, 'rules_profile');
+    await HiveService.deleteBox<RulesProfile>(profile, _boxName);
 
     await Future.delayed(const Duration(milliseconds: 100), () async {
       await fetchSavedProfiles();
