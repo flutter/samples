@@ -138,6 +138,7 @@ class RulesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayLarge(context);
     final isTablet = isDisplayMedium(context);
+    var textTheme = Theme.of(context).textTheme;
     final startPadding = isTablet
         ? 60.0
         : isDesktop
@@ -149,6 +150,28 @@ class RulesPage extends StatelessWidget {
             ? 120.0
             : 4.0;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          profile.name,
+          style: textTheme.subtitle2!.copyWith(
+            color: textTheme.bodyText1!.color,
+          ),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 80.0),
+          child: TextButton.icon(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios_new),
+            label: const Text('Back'),
+          ),
+        ),
+        leadingWidth: 160.0,
+        toolbarHeight: 38.0,
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+      ),
       body: ListView.separated(
         padding: EdgeInsetsDirectional.only(
           start: startPadding,
