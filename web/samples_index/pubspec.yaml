@@ -4,23 +4,29 @@ homepage: https://github.com/flutter/samples_index
 author: Flutter Team <flutter-dev@googlegroups.com>
 version: 0.0.1
 environment:
-  sdk: ">=2.5.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 dependencies:
-  json_annotation: ^3.0.0
+  json_annotation: ^4.0.1
   path: ^1.6.0
-  yaml: ^2.2.0
-  mdc_web: ^0.5.0-pre
+  yaml: ^3.0.0
+  mdc_web: ^0.6.0
   sass_builder: ^2.1.0
-  checked_yaml: ^1.0.0
-  webdriver: ^2.1.0
-  html: ^0.14.0
+  checked_yaml: ^2.0.1
+  webdriver: ^3.0.0
+  html: ^0.15.0
 dev_dependencies:
-  grinder: ^0.8.3
+  grinder: ^0.9.0
   flutter_lints: ^1.0.0
-  test: ^1.6.0
-  json_serializable: ^3.2.0
-  build: ^1.2.0
-  build_runner: ^1.7.0
-  build_web_compilers: ^2.7.0
-  tuneup: ^0.3.6
-  image: ^2.1.0
+  test: ^1.17.10
+  json_serializable: ^4.0.2
+  build: ^2.0.3
+  build_runner: ^2.0.6
+  build_web_compilers: ^3.0.0
+  tuneup: ^0.3.8
+  image: ^3.0.2
+# waiting for the next material-components-web release.
+# Once released, it will need to be rolled into package:mdc_web.
+#
+# https://github.com/material-components/material-components-web/pull/7158
+dependency_overrides:
+  sass: 1.32.10

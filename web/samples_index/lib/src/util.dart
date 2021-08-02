@@ -23,7 +23,9 @@ String pascalCase(String input) {
 
 String _fixCase(String input, String separator) =>
     input.replaceAllMapped(_upperCase, (match) {
-      var lower = match.group(0).toLowerCase();
+      var group = match.group(0);
+      if (group == null) return input;
+      var lower = group.toLowerCase();
 
       if (match.start > 0) {
         lower = '$separator$lower';

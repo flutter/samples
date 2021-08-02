@@ -5,7 +5,7 @@ samples:
         alt: a kitten
       - url: https://placekitten.com/400/400
         alt: another kitten
-    source: http://github.com/johnpryan/kittens
+    source: https://github.com/johnpryan/kittens
     description: A sample kitten app
     difficulty: beginner
     widgets:
@@ -20,7 +20,7 @@ samples:
       - text: inspiration
         href: https://apps.apple.com/us/app/neko-atsume-kitty-collector/id923917775
       - text: author
-        href: http://jpryan.me
+        href: https://jpryan.me
     type: sample # sample, app, or cookbook
     date: 2019-12-15T02:59:43.1Z
     channel: stable

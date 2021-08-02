@@ -12,7 +12,7 @@ import 'package:html/parser.dart' show parse;
 import 'package:path/path.dart' as path;
 
 class CookbookScraper {
-  WebDriver _driver;
+  late WebDriver _driver;
 
   Future init() async {
     _driver = await createDriver(desired: <String, dynamic>{});
@@ -36,7 +36,12 @@ class CookbookScraper {
     await _driver.get(Uri.parse(url));
     var pageContent = await _driver.pageSource;
     var page = parse(pageContent);
-    var name = page.querySelector('main>.container>header>h1').text;
+    var search = 'main>.container>header>h1';
+    var h1 = page.querySelector(search);
+    if (h1 == null) {
+      throw ('Could not find match for $search on page $url');
+    }
+    var name = h1.text;
     var description = page.querySelectorAll('main>.container>p').first.text;
 
     var urlSegments = Uri.parse(url).pathSegments;
@@ -50,6 +55,7 @@ class CookbookScraper {
       screenshots: [Screenshot(screenshotPath(url), 'Cookbook article')],
       tags: ['cookbook', category],
       source: url,
+      difficulty: 'advanced',
     );
   }
 

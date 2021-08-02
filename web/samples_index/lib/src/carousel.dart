@@ -7,14 +7,15 @@ import 'dart:html';
 class Carousel {
   final bool withArrowKeyControl;
 
-  final Element container = querySelector('.slider-container');
+  final Element container = querySelector('.slider-container')!;
   final List<Element> slides = querySelectorAll('.slider-single');
 
-  int currentSlideIndex, lastSlideIndex;
+  late int currentSlideIndex;
+  late int lastSlideIndex;
 
-  Element prevSlide, currentSlide, nextSlide;
+  late Element prevSlide, currentSlide, nextSlide;
 
-  num x0;
+  late num x0;
   bool touched = false;
 
   Carousel.init({this.withArrowKeyControl = false}) {
@@ -90,13 +91,13 @@ class Carousel {
   }
 
   void _touchStartListener(TouchEvent e) {
-    x0 = e.changedTouches.first.client.x;
+    x0 = e.changedTouches!.first.client.x;
     touched = true;
   }
 
   void _touchEndListener(TouchEvent e) {
     if (touched) {
-      int dx = (e.changedTouches.first.client.x - x0) as int;
+      int dx = (e.changedTouches!.first.client.x - x0) as int;
 
       // dx==0 case is ignored
       if (dx > 0 && currentSlideIndex > 0) {
@@ -115,7 +116,7 @@ class Carousel {
 
   void _updateBullets() {
     final bullets =
-        querySelector('.bullet-container').querySelectorAll('.bullet');
+        querySelector('.bullet-container')!.querySelectorAll('.bullet');
     for (var i = 0; i < bullets.length; i++) {
       bullets[i].classes.remove('active');
       if (i == currentSlideIndex) {
@@ -132,18 +133,18 @@ class Carousel {
     if (currentSlideIndex == slides.length - 1) {
       slides[0].classes.add('hidden');
       slides[slides.length - 1].classes.remove('hidden');
-      prevArrow.classes.remove('hidden');
-      nextArrow.classes.add('hidden');
+      prevArrow!.classes.remove('hidden');
+      nextArrow!.classes.add('hidden');
     } else if (currentSlideIndex == 0) {
       slides[slides.length - 1].classes.add('hidden');
       slides[0].classes.remove('hidden');
-      prevArrow.classes.add('hidden');
-      nextArrow.classes.remove('hidden');
+      prevArrow!.classes.add('hidden');
+      nextArrow!.classes.remove('hidden');
     } else {
       slides[slides.length - 1].classes.remove('hidden');
       slides[0].classes.remove('hidden');
-      prevArrow.classes.remove('hidden');
-      nextArrow.classes.remove('hidden');
+      prevArrow!.classes.remove('hidden');
+      nextArrow!.classes.remove('hidden');
     }
   }
 

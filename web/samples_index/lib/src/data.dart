@@ -34,7 +34,7 @@ class Sample {
   final String name;
 
   /// The author of the sample. Typically "Flutter"
-  final String author;
+  final String? author;
 
   /// Screenshots of the sample or cookbook article. At least 1 screenshot is
   /// required.
@@ -44,14 +44,14 @@ class Sample {
   final String source;
 
   /// A link to this sample running in the browser.
-  final String web;
+  final String? web;
 
   /// 3-5 sentences describing the sample.
   final String description;
 
   /// The difficulty level. Values are either 'beginner', 'intermediate', or
   /// 'advanced'.
-  final String difficulty;
+  final String? difficulty;
 
   /// List of widgets or Flutter APIs used by the sample. e.g. "AnimatedBuilder"
   /// or "ChangeNotifier".
@@ -76,26 +76,26 @@ class Sample {
   final String type;
 
   /// The date this sample was created.
-  final DateTime date;
+  final DateTime? date;
 
   /// The Flutter channel this sample runs on. Either 'stable', 'dev' or
   /// 'master'.
-  final String channel;
+  final String? channel;
 
   Sample({
-    this.name,
-    this.author,
-    this.screenshots,
-    this.source,
+    required this.name,
+    this.author = 'Flutter',
+    required this.screenshots,
+    required this.source,
     this.web,
-    this.description,
-    this.difficulty,
+    required this.description,
+    this.difficulty = 'beginner',
     this.widgets = const [],
     this.packages = const [],
     this.tags = const [],
     this.platforms = const [],
     this.links = const [],
-    this.type,
+    required this.type,
     this.date,
     this.channel,
   });

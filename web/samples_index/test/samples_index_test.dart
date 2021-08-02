@@ -16,15 +16,18 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => Index.fromJson(m),
+      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
+      if (index == null) {
+        throw('unable to load YAML from $file');
+      }
       expect(index.samples, isNotEmpty);
 
       var sample = index.samples.first;
       expect(sample, isNotNull);
       expect(sample.name, 'Kittens');
       expect(sample.screenshots, hasLength(2));
-      expect(sample.source, 'http://github.com/johnpryan/kittens');
+      expect(sample.source, 'https://github.com/johnpryan/kittens');
       expect(sample.description, 'A sample kitten app');
       expect(sample.difficulty, 'beginner');
       expect(sample.widgets, hasLength(2));
@@ -36,7 +39,7 @@ void main() {
       expect(sample.platforms, hasLength(3));
       expect(sample.links, hasLength(2));
       expect(sample.links[1].text, 'author');
-      expect(sample.links[1].href, 'http://jpryan.me');
+      expect(sample.links[1].href, 'https://jpryan.me');
       expect(sample.type, 'sample');
       expect(sample.date, DateTime.parse('2019-12-15T02:59:43.1Z'));
       expect(sample.channel, 'stable');
@@ -49,8 +52,11 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => Index.fromJson(m),
+      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
+      if (index == null) {
+        throw('unable to load YAML from $file');
+      }
       var sample = index.samples.first;
       expect(
           sample.searchAttributes.split(' '),
