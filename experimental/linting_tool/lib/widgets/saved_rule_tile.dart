@@ -31,6 +31,7 @@ class _SavedRuleTileState extends State<SavedRuleTile> {
     final setsString = rule.sets.isNotEmpty ? rule.sets.join(', ') : 'none';
 
     // TODO(abd99): Add option to remove rule from profile.
+    // TODO(abd99): Add right click functionality.
     return ExpansionTile(
       collapsedBackgroundColor: AppColors.white50,
       title: Text(
