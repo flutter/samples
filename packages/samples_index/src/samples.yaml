@@ -440,6 +440,30 @@ samples:
     links: []
     type: sample
     web: web/form_app
+  - name: Navigation and Routing
+    author: Flutter
+    screenshots:
+      - url: images/navigation_and_routing1.png
+        alt: Navigation and Routing screenshot
+      - url: images/navigation_and_routing2.png
+        alt: Navigation and Routing screenshot
+      - url: images/navigation_and_routing3.png
+        alt: Navigation and Routing screenshot
+      - url: images/navigation_and_routing4.png
+        alt: Navigation and Routing screenshot
+    source: https://github.com/flutter/samples/tree/master/navigation_and_Routing
+    description: >
+      A Flutter sample app that shows how to use how to use the Router API to
+      handle common navigation scenarios.
+    difficulty: advanced
+    widgets:
+      - Router
+    packages: []
+    tags: ['advanced', 'sample', 'navigation', 'router']
+    platforms: ['ios', 'android', 'web']
+    links: []
+    type: sample
+    web: web/navigation_and_routing
 ###################
 #### Web Demos ####
 ###################

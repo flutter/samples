@@ -307,6 +307,14 @@ images/logos/logo_flutter_1080px_clr.png
 images/logos/logo_flutter_96px_clr.png
 images/logos/logo_lockup_flutter_horizontal_wht.png
 images/logos/logo_lockup_flutter_horizontal_wht_96.png
+images/navigation_and_routing1.png
+images/navigation_and_routing1_thumb.png
+images/navigation_and_routing2.png
+images/navigation_and_routing2_thumb.png
+images/navigation_and_routing3.png
+images/navigation_and_routing3_thumb.png
+images/navigation_and_routing4.png
+images/navigation_and_routing4_thumb.png
 images/particle_background1.png
 images/particle_background1_thumb.png
 images/place_tracker1.png
@@ -365,6 +373,7 @@ make_authenticated_requests.html
 mock_dependencies_using_mockito.html
 navigate_to_a_new_screen_and_back.html
 navigate_with_named_routes.html
+navigation_and_routing.html
 packages/$sdk/_internal/strong.sum
 packages/$sdk/dev_compiler/kernel/amd/dart_sdk.js
 packages/$sdk/dev_compiler/kernel/amd/require.js
