@@ -9,6 +9,7 @@ import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/widgets/adaptive_nav.dart';
 import 'package:linting_tool/routes.dart' as routes;
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class LintingTool extends StatefulWidget {
   const LintingTool({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _LintingToolState extends State<LintingTool> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<RuleStore>(
-          create: (context) => RuleStore(),
+          create: (context) => RuleStore(http.Client()),
         ),
         ChangeNotifierProvider<ProfilesStore>(
           create: (context) => ProfilesStore(),
