@@ -18,8 +18,8 @@ const RESOURCES = {
 "manifest.json": "3cdc33454263edf7deea1c1d6347ab88",
 "version.json": "2545af3387d7845af86ae1d4c38e97b4",
 "main.dart.js": "2cb6894430e8ceec713eae244d9c1be0",
-"index.html": "cf40ff901de484eee328d53c364656c2",
-"/": "cf40ff901de484eee328d53c364656c2"
+"index.html": "d01351f138fb0aac1e3114979f75de91",
+"/": "d01351f138fb0aac1e3114979f75de91"
 };
 
 // The application shell files that are downloaded before a service worker can
