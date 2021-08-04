@@ -91,7 +91,19 @@ class _NavViewState extends State<_NavView> {
 
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Flutter Linting Tool',
+          style: textTheme.subtitle2!.copyWith(
+            color: textTheme.bodyText1!.color,
+          ),
+        ),
+        toolbarHeight: 38.0,
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+      ),
       body: Row(
         children: [
           LayoutBuilder(

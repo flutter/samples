@@ -8,9 +8,12 @@ import 'package:linting_tool/model/rule.dart';
 
 class APIProvider {
   final _baseURL = 'https://dart-lang.github.io/linter';
+  final http.Client httpClient;
+  APIProvider(this.httpClient);
+
   Future<List<Rule>> getRulesList() async {
     http.Response response =
-        await http.get(Uri.parse('$_baseURL//lints/machine/rules.json'));
+        await httpClient.get(Uri.parse('$_baseURL//lints/machine/rules.json'));
 
     if (response.statusCode == 200) {
       List<Rule> rulesList = [];

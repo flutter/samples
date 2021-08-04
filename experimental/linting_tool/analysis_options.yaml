@@ -3,6 +3,7 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - lib/model/rule.g.dart
+    - test/widget_test.mocks.dart
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false

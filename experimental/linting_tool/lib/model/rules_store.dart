@@ -8,9 +8,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/repository.dart';
+import 'package:http/http.dart' as http;
 
 class RuleStore extends ChangeNotifier {
-  RuleStore() {
+  late final Repository repository;
+
+  RuleStore(http.Client httpClient) {
+    repository = Repository(httpClient);
     fetchRules();
   }
   bool _isLoading = true;
@@ -29,7 +33,7 @@ class RuleStore extends ChangeNotifier {
     if (!_isLoading) _isLoading = true;
     notifyListeners();
     try {
-      var rules = await Repository().getRulesList();
+      var rules = await repository.getRulesList();
       _rules = rules;
     } on SocketException catch (e) {
       log(e.toString());
