@@ -451,7 +451,7 @@ samples:
         alt: Navigation and Routing screenshot
       - url: images/navigation_and_routing4.png
         alt: Navigation and Routing screenshot
-    source: https://github.com/flutter/samples/tree/master/navigation_and_Routing
+    source: https://github.com/flutter/samples/tree/master/navigation_and_routing
     description: >
       A Flutter sample app that shows how to use how to use the Router API to
       handle common navigation scenarios.
