@@ -42,7 +42,7 @@ Future<void> fixBaseTags() async {
           continue;
         }
         var newContents = contents.replaceFirst(
-            regex, '<base href="/samples/web/$sampleDirName">');
+            regex, '<base href="/samples/web/$sampleDirName/">');
         await index.writeAsString(newContents);
       }
     }
