@@ -73,7 +73,7 @@ you're building for both iOS and Android, with both toolchains installed):
   # For iOS builds:
   cd ../ios_books
   pod install
-  open ios_books/IosBooks.xcworkspace
+  open IosBooks.xcworkspace
 ```
 
 ## Requirements
