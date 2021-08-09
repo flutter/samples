@@ -49,8 +49,12 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> addToExistingProfile(RulesProfile profile, Rule rule) async {
-    RulesProfile newProfile =
-        RulesProfile(name: profile.name, rules: profile.rules..add(rule));
+    var rules = profile.rules;
+    if (!rules.contains(rule)) {
+      rules.add(rule);
+    }
+
+    RulesProfile newProfile = RulesProfile(name: profile.name, rules: rules);
 
     await HiveService.updateBox<RulesProfile>(profile, newProfile, _boxName);
 
