@@ -5,6 +5,7 @@
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/api_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:yaml/yaml.dart';
 
 class Repository {
   late final APIProvider _apiProvider;
@@ -14,4 +15,6 @@ class Repository {
   }
 
   Future<List<Rule>> getRulesList() => _apiProvider.getRulesList();
+
+  Future<YamlMap> getTemplateFile() => _apiProvider.getTemplateFile();
 }

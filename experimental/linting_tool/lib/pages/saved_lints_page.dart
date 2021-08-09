@@ -45,7 +45,7 @@ class SavedLintsPage extends StatelessWidget {
               ),
               itemCount: profilesStore.savedProfiles.length,
               cacheExtent: 5,
-              itemBuilder: (context, index) {
+              itemBuilder: (itemBuilderContext, index) {
                 var profile = profilesStore.savedProfiles[index];
                 return ListTile(
                   title: Text(
@@ -74,10 +74,19 @@ class SavedLintsPage extends StatelessWidget {
                       ),
                       PopupMenuButton<String>(
                         icon: const Icon(Icons.more_vert),
-                        onSelected: (value) {
+                        onSelected: (value) async {
                           switch (value) {
                             case 'Export file':
-                              // TODO(abd99): Implement exporting files.
+                              var saved = await profilesStore
+                                  .exportProfileFile(profile);
+
+                              if (!saved) {
+                                _showSnackBar(
+                                  context,
+                                  profilesStore.error ?? 'Failed to save file.',
+                                );
+                              }
+
                               break;
                             case 'Delete':
                               profilesStore.deleteProfile(profile);
@@ -121,6 +130,14 @@ class SavedLintsPage extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  void _showSnackBar(BuildContext context, String data) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(data),
+      ),
     );
   }
 }
