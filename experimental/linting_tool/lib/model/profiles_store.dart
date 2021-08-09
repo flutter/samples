@@ -77,17 +77,20 @@ class ProfilesStore extends ChangeNotifier {
     });
   }
 
-  Future<bool> exportProfileFile(RulesProfile profile) async {
+  Future<bool> exportProfileFile(
+    RulesProfile profile, {
+    RulesStyle rulesStyle = RulesStyle.booleanMap,
+  }) async {
     _isLoading = true;
-
     notifyListeners();
 
     var resultSaved = false;
 
     try {
-      var templateMap = await repository.getTemplateFile();
+      var templateFileData = await repository.getTemplateFile();
 
-      String newYamlFile = _prepareYamlFile(profile, templateMap);
+      String newYamlFile =
+          _prepareYamlFile(profile, templateFileData, rulesStyle);
 
       resultSaved = await _saveFileToDisk(newYamlFile);
     } on SocketException catch (e) {
@@ -99,7 +102,6 @@ class ProfilesStore extends ChangeNotifier {
     }
 
     _isLoading = false;
-
     notifyListeners();
 
     return resultSaved;
@@ -107,34 +109,51 @@ class ProfilesStore extends ChangeNotifier {
 
   Future<bool> _saveFileToDisk(String newYamlFile) async {
     const name = 'analysis_options.yaml';
+
+    /// Get file path using file picker.
     var savePath = await file_selector.getSavePath(
       suggestedName: name,
     );
 
     final data = Uint8List.fromList(newYamlFile.codeUnits);
     final file = file_selector.XFile.fromData(data, name: name);
+
+    /// Save file to disk if path was provided.
     if (savePath != null) {
       file.saveTo(savePath);
       return true;
     }
+
     var errorMessage = 'File path not found.';
     _error = errorMessage;
     throw Exception(errorMessage);
   }
 
-  String _prepareYamlFile(RulesProfile profile, YamlMap templateFile) {
+  String _prepareYamlFile(
+      RulesProfile profile, YamlMap templateFile, RulesStyle rulesStyle) {
     var rules = profile.rules.map((e) => e.name).toList();
-    var rulesMap = Map.fromEntries(
-      rules.map(
-        (e) => MapEntry(e, true),
-      ),
-    );
 
-    var doc = json.decode(json.encode(templateFile)) as Map<String, dynamic>;
-    doc.update('linter', (dynamic value) => {'rules': rulesMap});
+    var rulesData =
+        json.decode(json.encode(templateFile)) as Map<String, dynamic>;
 
-    var style = YamlStyle.pubspecYaml;
+    /// Add rules to existing template according to formatting style.
+    if (rulesStyle == RulesStyle.booleanMap) {
+      var rulesMap = Map.fromEntries(
+        rules.map(
+          (e) => MapEntry(e, true),
+        ),
+      );
+      rulesData.update('linter', (dynamic value) => {'rules': rulesMap});
+    } else {
+      rulesData.update('linter', (dynamic value) => {'rules': rules});
+    }
 
-    return json2yaml(doc, yamlStyle: style);
+    return json2yaml(rulesData, yamlStyle: YamlStyle.pubspecYaml);
   }
+}
+
+/// Formatting style for rules.
+enum RulesStyle {
+  list,
+  booleanMap,
 }
