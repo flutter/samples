@@ -5,6 +5,7 @@
 import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'common.dart';
+import 'fix_base_tags.dart';
 
 final ignoredDirectories = ['_tool', 'samples_index'];
 
@@ -40,6 +41,9 @@ main() async {
     await _run(directory, 'flutter', ['build', 'web']);
     await _run(directory, 'mv', [sourceBuildDir, targetDirectory]);
   }
+
+  // Update the <base href> tags in each index.html file
+  await fixBaseTags();
 }
 
 // Invokes run() and exits if the sub-process failed.
