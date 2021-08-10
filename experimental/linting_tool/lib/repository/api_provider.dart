@@ -5,6 +5,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:linting_tool/model/rule.dart';
+import 'package:yaml/yaml.dart';
 
 class APIProvider {
   final _baseURL = 'https://dart-lang.github.io/linter';
@@ -12,7 +13,7 @@ class APIProvider {
   APIProvider(this.httpClient);
 
   Future<List<Rule>> getRulesList() async {
-    http.Response response =
+    final response =
         await httpClient.get(Uri.parse('$_baseURL//lints/machine/rules.json'));
 
     if (response.statusCode == 200) {
@@ -24,6 +25,16 @@ class APIProvider {
       return rulesList;
     } else {
       throw Exception('Failed to load rules');
+    }
+  }
+
+  Future<YamlMap> getTemplateFile() async {
+    final response = await httpClient.get(Uri.parse(
+        'https://raw.githubusercontent.com/flutter/flutter/master/packages/flutter_tools/templates/app_shared/analysis_options.yaml.tmpl'));
+    if (response.statusCode == 200) {
+      return loadYaml(response.body) as YamlMap;
+    } else {
+      throw Exception('Failed to load template file');
     }
   }
 }

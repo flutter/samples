@@ -38,7 +38,7 @@ class _TestApp extends StatelessWidget {
           create: (context) => RuleStore(_mockClient),
         ),
         ChangeNotifierProvider<ProfilesStore>(
-          create: (context) => ProfilesStore(),
+          create: (context) => ProfilesStore(_mockClient),
         ),
       ],
       child: MaterialApp(

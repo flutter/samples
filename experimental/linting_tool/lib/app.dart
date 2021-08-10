@@ -11,6 +11,8 @@ import 'package:linting_tool/routes.dart' as routes;
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
+final client = http.Client();
+
 class LintingTool extends StatefulWidget {
   const LintingTool({Key? key}) : super(key: key);
 
@@ -26,10 +28,10 @@ class _LintingToolState extends State<LintingTool> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<RuleStore>(
-          create: (context) => RuleStore(http.Client()),
+          create: (context) => RuleStore(client),
         ),
         ChangeNotifierProvider<ProfilesStore>(
-          create: (context) => ProfilesStore(),
+          create: (context) => ProfilesStore(client),
         ),
       ],
       child: MaterialApp(

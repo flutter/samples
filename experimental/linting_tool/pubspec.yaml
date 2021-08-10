@@ -12,14 +12,21 @@ dependencies:
   adaptive_breakpoints: ^0.0.4
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
+  file_selector: ^0.8.2
+  file_selector_linux: ^0.0.2+1
+  file_selector_macos: ^0.0.4+1
+  file_selector_web: ^0.8.1+1
+  file_selector_windows: ^0.0.2+1
   flutter_markdown: ^0.6.2
   google_fonts: ^2.1.0
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   http: ^0.13.3
+  json2yaml: ^2.0.0
   json_annotation: ^4.0.1
   mockito: ^5.0.13
   provider: ^5.0.0
+  yaml: ^3.1.0
 
 dev_dependencies:
   flutter_test:
