@@ -13,7 +13,7 @@ class APIProvider {
   APIProvider(this.httpClient);
 
   Future<List<Rule>> getRulesList() async {
-    var response =
+    final response =
         await httpClient.get(Uri.parse('$_baseURL//lints/machine/rules.json'));
 
     if (response.statusCode == 200) {
@@ -29,7 +29,7 @@ class APIProvider {
   }
 
   Future<YamlMap> getTemplateFile() async {
-    var response = await httpClient.get(Uri.parse(
+    final response = await httpClient.get(Uri.parse(
         'https://raw.githubusercontent.com/flutter/flutter/master/packages/flutter_tools/templates/app_shared/analysis_options.yaml.tmpl'));
     if (response.statusCode == 200) {
       return loadYaml(response.body) as YamlMap;
