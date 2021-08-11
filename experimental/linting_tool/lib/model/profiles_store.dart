@@ -59,8 +59,15 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> addToExistingProfile(RulesProfile profile, Rule rule) async {
-    RulesProfile newProfile =
-        RulesProfile(name: profile.name, rules: profile.rules..add(rule));
+    // TODO(abd99): Consider refactoring to LinkedHashSet/SplayTreeSet to avoid
+    // duplication automatically.
+    // ref: https://github.com/flutter/samples/pull/870#discussion_r685666792
+    var rules = profile.rules;
+    if (!rules.contains(rule)) {
+      rules.add(rule);
+    }
+
+    RulesProfile newProfile = RulesProfile(name: profile.name, rules: rules);
 
     await HiveService.updateBox<RulesProfile>(profile, newProfile, _boxName);
 
