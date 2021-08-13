@@ -14,7 +14,10 @@ dependencies:
   json_annotation: ^3.0.0
   provider: ^4.0.0
   uuid: ^2.0.0
-  charts_flutter: ^0.9.0
+  charts_flutter:
+    git:
+      url: git://github.com/google/charts.git
+      path: charts_flutter
 dev_dependencies:
   flutter_test:
     sdk: flutter
