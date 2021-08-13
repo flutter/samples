@@ -14,7 +14,6 @@ dependencies:
 
 dev_dependencies:
   pigeon: ^0.1.0
-  mockito: ^4.1.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
