@@ -34,7 +34,6 @@ class _SavedRuleTileState extends State<SavedRuleTile> {
         rule.incompatible.isNotEmpty ? rule.incompatible.join(', ') : 'none';
     final setsString = rule.sets.isNotEmpty ? rule.sets.join(', ') : 'none';
 
-    // TODO(abd99): Add right click functionality.
     return Consumer<EditingController>(
       builder: (context, editingController, child) {
         return ExpansionTile(
