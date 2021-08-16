@@ -2,16 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:context_menus/context_menus.dart';
 import 'package:flutter/material.dart';
 import 'package:linting_tool/layout/adaptive.dart';
-import 'package:linting_tool/model/profile.dart';
+import 'package:linting_tool/model/editing_controller.dart';
+import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/widgets/saved_rule_tile.dart';
+import 'package:provider/provider.dart';
 
 class RulesPage extends StatelessWidget {
-  final RulesProfile profile;
+  final int selectedProfileIndex;
 
   const RulesPage({
-    required this.profile,
+    required this.selectedProfileIndex,
     Key? key,
   }) : super(key: key);
 
@@ -33,7 +36,10 @@ class RulesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          profile.name,
+          context
+              .read<ProfilesStore>()
+              .savedProfiles[selectedProfileIndex]
+              .name,
           style: textTheme.subtitle2!.copyWith(
             color: textTheme.bodyText1!.color,
           ),
@@ -53,21 +59,103 @@ class RulesPage extends StatelessWidget {
         backgroundColor: Colors.white,
         brightness: Brightness.light,
       ),
-      body: ListView.separated(
-        padding: EdgeInsetsDirectional.only(
-          start: startPadding,
-          end: endPadding,
-          top: isDesktop ? 28 : 0,
-          bottom: isDesktop ? kToolbarHeight : 0,
+      body: ContextMenuOverlay(
+        child: Consumer<ProfilesStore>(
+          builder: (context, profilesStore, child) {
+            var profile = profilesStore.savedProfiles[selectedProfileIndex];
+            return profile.rules.isEmpty
+                ? const Center(
+                    child: Text('There are no rules added to the profile.'),
+                  )
+                : Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: ListView.separated(
+                          padding: EdgeInsetsDirectional.only(
+                            start: startPadding,
+                            end: endPadding,
+                            top: isDesktop ? 28 : 0,
+                            bottom: isDesktop ? kToolbarHeight : 0,
+                          ),
+                          itemCount: profile.rules.length,
+                          cacheExtent: 5,
+                          itemBuilder: (context, index) {
+                            return ContextMenuRegion(
+                              contextMenu: GenericContextMenu(
+                                buttonConfigs: [
+                                  ContextMenuButtonConfig(
+                                    'Remove from profile',
+                                    onPressed: () {
+                                      context
+                                          .read<ProfilesStore>()
+                                          .removeRuleFromProfile(
+                                              profile, profile.rules[index]);
+                                    },
+                                  ),
+                                ],
+                              ),
+                              child: SavedRuleTile(
+                                rule: profile.rules[index],
+                              ),
+                            );
+                          },
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 4),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsetsDirectional.only(top: 28),
+                        child: Row(
+                          children: [
+                            Consumer<EditingController>(
+                              builder: (context, editingController, child) {
+                                var isEditing = editingController.isEditing;
+                                return isEditing
+                                    ? Column(
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(Icons.done),
+                                            onPressed: () {
+                                              editingController.isEditing =
+                                                  false;
+                                            },
+                                          ),
+                                          if (editingController
+                                              .selectedRules.isNotEmpty)
+                                            IconButton(
+                                              icon: const Icon(Icons.delete),
+                                              onPressed: () {
+                                                editingController
+                                                    .deleteSelected(
+                                                  profile,
+                                                  profilesStore,
+                                                );
+                                              },
+                                            ),
+                                        ],
+                                      )
+                                    : IconButton(
+                                        icon: const Icon(Icons.edit),
+                                        onPressed: () {
+                                          editingController.isEditing = true;
+                                        },
+                                      );
+                              },
+                            ),
+                            SizedBox(
+                                width: isTablet
+                                    ? 30
+                                    : isDesktop
+                                        ? 60
+                                        : 16),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+          },
         ),
-        itemCount: profile.rules.length,
-        cacheExtent: 5,
-        itemBuilder: (context, index) {
-          return SavedRuleTile(
-            rule: profile.rules[index],
-          );
-        },
-        separatorBuilder: (context, index) => const SizedBox(height: 4),
       ),
     );
   }

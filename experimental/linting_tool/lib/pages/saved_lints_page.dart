@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:linting_tool/layout/adaptive.dart';
+import 'package:linting_tool/model/editing_controller.dart';
 import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/pages/rules_page.dart';
 import 'package:linting_tool/theme/colors.dart';
@@ -56,7 +57,10 @@ class SavedLintsPage extends StatelessWidget {
                     Navigator.push<void>(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RulesPage(profile: profile),
+                        builder: (context) => ChangeNotifierProvider(
+                          create: (context) => EditingController(),
+                          child: RulesPage(selectedProfileIndex: index),
+                        ),
                       ),
                     );
                   },
@@ -66,7 +70,16 @@ class SavedLintsPage extends StatelessWidget {
                       IconButton(
                         icon: const Icon(Icons.edit),
                         onPressed: () {
-                          // TODO(abd99): Implement edit functionality.
+                          Navigator.push<void>(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChangeNotifierProvider(
+                                create: (context) =>
+                                    EditingController(isEditing: true),
+                                child: RulesPage(selectedProfileIndex: index),
+                              ),
+                            ),
+                          );
                         },
                       ),
                       const SizedBox(
