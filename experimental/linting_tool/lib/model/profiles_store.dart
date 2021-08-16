@@ -76,6 +76,21 @@ class ProfilesStore extends ChangeNotifier {
     });
   }
 
+  Future<void> updateProfile(
+      RulesProfile oldProfile, RulesProfile newProfile) async {
+    await HiveService.updateBox<RulesProfile>(oldProfile, newProfile, _boxName);
+
+    await Future.delayed(const Duration(milliseconds: 100), () async {
+      await fetchSavedProfiles();
+    });
+  }
+
+  Future<void> removeRuleFromProfile(RulesProfile profile, Rule rule) async {
+    var newProfile =
+        RulesProfile(name: profile.name, rules: profile.rules..remove(rule));
+    await updateProfile(profile, newProfile);
+  }
+
   Future<void> deleteProfile(RulesProfile profile) async {
     await HiveService.deleteBox<RulesProfile>(profile, _boxName);
 
