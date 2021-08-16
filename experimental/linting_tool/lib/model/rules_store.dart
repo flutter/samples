@@ -6,6 +6,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/repository.dart';
 import 'package:http/http.dart' as http;
@@ -28,6 +29,27 @@ class RuleStore extends ChangeNotifier {
   String? _error;
 
   String? get error => _error;
+
+  List<RulesProfile> get defaultProfiles {
+    List<RulesProfile> _defaultProfiles = [];
+
+    var rulesWithDefaultSets =
+        rules.where((rule) => rule.sets.isNotEmpty).toList();
+
+    for (final rule in rulesWithDefaultSets) {
+      for (final setName in rule.sets) {
+        var profileIndex =
+            _defaultProfiles.indexWhere((profile) => profile.name == setName);
+        if (profileIndex >= 0) {
+          _defaultProfiles[profileIndex].rules.add(rule);
+        } else {
+          _defaultProfiles.add(RulesProfile(name: setName, rules: [rule]));
+        }
+      }
+    }
+
+    return _defaultProfiles;
+  }
 
   Future<void> fetchRules() async {
     if (!_isLoading) _isLoading = true;
