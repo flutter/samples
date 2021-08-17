@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:provider/provider.dart';
 import 'package:web_dashboard/src/api/api.dart';
-import 'package:intl/intl.dart' as intl;
 
 import '../app.dart';
 import 'categories_dropdown.dart';

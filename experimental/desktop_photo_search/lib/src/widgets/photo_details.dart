@@ -27,8 +27,7 @@ class PhotoDetails extends StatefulWidget {
   _PhotoDetailsState createState() => _PhotoDetailsState();
 }
 
-class _PhotoDetailsState extends State<PhotoDetails>
-    with TickerProviderStateMixin {
+class _PhotoDetailsState extends State<PhotoDetails> {
   Widget _buildPhotoAttribution(BuildContext context) {
     return Row(
       children: [
@@ -69,7 +68,6 @@ class _PhotoDetailsState extends State<PhotoDetails>
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: AnimatedSize(
-                  vsync: this,
                   duration: const Duration(milliseconds: 750),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 40),
