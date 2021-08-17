@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/model/rules_store.dart';
-import 'package:linting_tool/pages/rules_page.dart';
+import 'package:linting_tool/pages/default_rules_page.dart';
 import 'package:linting_tool/theme/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -55,7 +55,7 @@ class DefaultLintsPage extends StatelessWidget {
                   Navigator.push<void>(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RulesPage(profile: profile),
+                      builder: (context) => DefaultRulesPage(profile: profile),
                     ),
                   );
                 },
