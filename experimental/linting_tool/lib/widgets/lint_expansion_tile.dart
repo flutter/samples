@@ -177,6 +177,8 @@ class _ProfileTypeDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var profilesStore = context.watch<ProfilesStore>();
+
     return AlertDialog(
       actionsPadding: const EdgeInsets.only(
         left: 16.0,
@@ -185,17 +187,18 @@ class _ProfileTypeDialog extends StatelessWidget {
       ),
       title: const Text('Select Profile Type'),
       actions: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context, ProfileType.existingProfile);
-          },
-          child: const Text('Existing Profile'),
-        ),
+        if (profilesStore.savedProfiles.isNotEmpty)
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context, ProfileType.existingProfile);
+            },
+            child: const Text('Existing'),
+          ),
         TextButton(
           onPressed: () {
             Navigator.pop(context, ProfileType.newProfile);
           },
-          child: const Text('Create new profile'),
+          child: const Text('New'),
         ),
       ],
     );

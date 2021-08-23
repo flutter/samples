@@ -692,14 +692,14 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.4"
   url_launcher_windows:
     dependency: transitive
     description:
       name: url_launcher_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   vector_math:
     dependency: transitive
     description:
@@ -728,6 +728,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.5"
+  window_size:
+    dependency: "direct main"
+    description:
+      path: "plugins/window_size"
+      ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
+      resolved-ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
+      url: "git://github.com/google/flutter-desktop-embedding.git"
+    source: git
+    version: "0.1.0"
   xdg_directories:
     dependency: transitive
     description:

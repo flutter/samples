@@ -2,13 +2,12 @@
 
 A desktop tool that helps you manage linter rules for your Flutter project.
 
-This sample is currently being built. Not all platforms and functionality are in place.
-
 ## Goals for this sample
 
 * Show how to read and write files on Desktop
 * Show how to create, parse and use yaml files
 * Show how to implement basic navigation in Desktop apps
+* Show how to implement right-click popup menus
 
 ## Questions/issues
 

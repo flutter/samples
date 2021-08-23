@@ -195,7 +195,6 @@ class _NavigationRailHeader extends StatelessWidget {
                   children: [
                     const SizedBox(width: 6),
                     InkWell(
-                      key: const ValueKey('ReplyLogo'),
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       onTap: () {
                         extended.value = !extended.value!;
@@ -323,7 +322,15 @@ class _NavigationRailTrailingSection extends StatelessWidget {
   void _onTapped(BuildContext context, String key) {
     switch (key) {
       case 'About':
-        showAboutDialog(context: context);
+        showAboutDialog(
+          context: context,
+          applicationIcon: const FlutterLogo(),
+          children: [
+            const Text(
+              'A tool that helps you manage linter rules for your Flutter projects.',
+            ),
+          ],
+        );
         break;
       default:
         break;

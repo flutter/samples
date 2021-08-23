@@ -3,6 +3,8 @@ description: A new Flutter project.
 
 version: 1.0.0+1
 
+publish_to: 'none'
+
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
@@ -28,6 +30,11 @@ dependencies:
   provider: ^5.0.0
   yaml: ^3.1.0
   context_menus: ^0.1.0+5
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
 
 dev_dependencies:
   flutter_test:

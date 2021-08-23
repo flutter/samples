@@ -18,12 +18,16 @@ class AppTheme {
       ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: AppColors.blue700,
-        selectedIconTheme: const IconThemeData(color: AppColors.orange500),
+        selectedIconTheme: const IconThemeData(
+          color: AppColors.orange500,
+        ),
         selectedLabelTextStyle:
             GoogleFonts.workSansTextTheme().headline5!.copyWith(
                   color: AppColors.orange500,
                 ),
-        unselectedIconTheme: const IconThemeData(color: AppColors.blue200),
+        unselectedIconTheme: const IconThemeData(
+          color: AppColors.blue200,
+        ),
         unselectedLabelTextStyle:
             GoogleFonts.workSansTextTheme().headline5!.copyWith(
                   color: AppColors.blue200,
@@ -36,7 +40,9 @@ class AppTheme {
         AppColors.lightChipBackground,
         Brightness.light,
       ),
-      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey),
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.blueGrey,
+      ),
       textTheme: _buildReplyLightTextTheme(base.textTheme),
       scaffoldBackgroundColor: AppColors.blue50,
     );
@@ -52,12 +58,16 @@ class AppTheme {
       ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: AppColors.darkBottomAppBarBackground,
-        selectedIconTheme: const IconThemeData(color: AppColors.orange300),
+        selectedIconTheme: const IconThemeData(
+          color: AppColors.orange300,
+        ),
         selectedLabelTextStyle:
             GoogleFonts.workSansTextTheme().headline5!.copyWith(
                   color: AppColors.orange300,
                 ),
-        unselectedIconTheme: const IconThemeData(color: AppColors.greyLabel),
+        unselectedIconTheme: const IconThemeData(
+          color: AppColors.greyLabel,
+        ),
         unselectedLabelTextStyle:
             GoogleFonts.workSansTextTheme().headline5!.copyWith(
                   color: AppColors.greyLabel,

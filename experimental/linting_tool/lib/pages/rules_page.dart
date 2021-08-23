@@ -27,7 +27,7 @@ class RulesPage extends StatelessWidget {
         ? 60.0
         : isDesktop
             ? 120.0
-            : 4.0;
+            : 16.0;
     final endPadding = isTablet
         ? 60.0
         : isDesktop
@@ -59,6 +59,9 @@ class RulesPage extends StatelessWidget {
         backgroundColor: Colors.white,
         brightness: Brightness.light,
       ),
+
+      /// ContextMenuOverlay is required to show
+      /// right-click context menus using ContextMenuRegion.
       body: ContextMenuOverlay(
         child: Consumer<ProfilesStore>(
           builder: (context, profilesStore, child) {
@@ -75,17 +78,18 @@ class RulesPage extends StatelessWidget {
                           padding: EdgeInsetsDirectional.only(
                             start: startPadding,
                             end: endPadding,
-                            top: isDesktop ? 28 : 0,
-                            bottom: isDesktop ? kToolbarHeight : 0,
+                            top: isDesktop ? 28 : 16,
+                            bottom: isDesktop ? kToolbarHeight : 16,
                           ),
                           itemCount: profile.rules.length,
                           cacheExtent: 5,
                           itemBuilder: (context, index) {
+                            /// Show righ-click context menu to delete rule.
                             return ContextMenuRegion(
                               contextMenu: GenericContextMenu(
                                 buttonConfigs: [
                                   ContextMenuButtonConfig(
-                                    'Remove from profile',
+                                    'Remove rule from profile',
                                     onPressed: () {
                                       context
                                           .read<ProfilesStore>()
