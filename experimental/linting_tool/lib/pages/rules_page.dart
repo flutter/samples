@@ -27,7 +27,7 @@ class RulesPage extends StatelessWidget {
         ? 60.0
         : isDesktop
             ? 120.0
-            : 4.0;
+            : 16.0;
     final endPadding = isTablet
         ? 60.0
         : isDesktop
@@ -75,8 +75,8 @@ class RulesPage extends StatelessWidget {
                           padding: EdgeInsetsDirectional.only(
                             start: startPadding,
                             end: endPadding,
-                            top: isDesktop ? 28 : 0,
-                            bottom: isDesktop ? kToolbarHeight : 0,
+                            top: isDesktop ? 28 : 16,
+                            bottom: isDesktop ? kToolbarHeight : 16,
                           ),
                           itemCount: profile.rules.length,
                           cacheExtent: 5,
