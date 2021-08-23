@@ -74,8 +74,9 @@ class SavedLintsPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => ChangeNotifierProvider(
-                                create: (context) =>
-                                    EditingController(isEditing: true),
+                                create: (context) => EditingController(
+                                  isEditing: true,
+                                ),
                                 child: RulesPage(selectedProfileIndex: index),
                               ),
                             ),
