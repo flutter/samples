@@ -195,7 +195,6 @@ class _NavigationRailHeader extends StatelessWidget {
                   children: [
                     const SizedBox(width: 6),
                     InkWell(
-                      key: const ValueKey('ReplyLogo'),
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       onTap: () {
                         extended.value = !extended.value!;
