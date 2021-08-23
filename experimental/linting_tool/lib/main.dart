@@ -13,5 +13,8 @@ Future<void> main() async {
   Hive.registerAdapter(RuleAdapter());
   Hive.registerAdapter(RulesProfileAdapter());
   await Hive.openLazyBox<RulesProfile>('rules_profile');
+
+  setWindowMinSize(const Size(600, 600));
+
   runApp(const LintingTool());
 }
