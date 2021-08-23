@@ -59,6 +59,9 @@ class RulesPage extends StatelessWidget {
         backgroundColor: Colors.white,
         brightness: Brightness.light,
       ),
+
+      /// ContextMenuOverlay is required to show
+      /// right-click context menus using ContextMenuRegion.
       body: ContextMenuOverlay(
         child: Consumer<ProfilesStore>(
           builder: (context, profilesStore, child) {
@@ -81,11 +84,12 @@ class RulesPage extends StatelessWidget {
                           itemCount: profile.rules.length,
                           cacheExtent: 5,
                           itemBuilder: (context, index) {
+                            /// Show righ-click context menu to delete rule.
                             return ContextMenuRegion(
                               contextMenu: GenericContextMenu(
                                 buttonConfigs: [
                                   ContextMenuButtonConfig(
-                                    'Remove from profile',
+                                    'Remove rule from profile',
                                     onPressed: () {
                                       context
                                           .read<ProfilesStore>()

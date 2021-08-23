@@ -7,6 +7,7 @@ import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/model/rule.dart';
 
+/// Used to control editing of the saved profiles on the RulesPage.
 class EditingController extends ChangeNotifier {
   bool _isEditing;
 

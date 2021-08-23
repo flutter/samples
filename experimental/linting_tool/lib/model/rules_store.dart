@@ -11,6 +11,7 @@ import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/repository.dart';
 import 'package:http/http.dart' as http;
 
+/// Manages fetching rules from the web.
 class RuleStore extends ChangeNotifier {
   late final Repository repository;
 

@@ -111,6 +111,7 @@ class ProfilesStore extends ChangeNotifier {
     try {
       var templateFileData = await repository.getTemplateFile();
 
+      /// Fetch formatted data to create new YamlFile.
       String newYamlFile =
           _prepareYamlFile(profile, templateFileData, rulesStyle);
 
