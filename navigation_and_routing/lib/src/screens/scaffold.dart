@@ -15,7 +15,7 @@ class BookstoreScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final routeState = RouteStateScope.of(context)!;
+    final routeState = RouteStateScope.of(context);
     final selectedIndex = _getSelectedIndex(routeState.route.pathTemplate);
 
     return Scaffold(

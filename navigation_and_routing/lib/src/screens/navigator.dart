@@ -37,8 +37,8 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
 
   @override
   Widget build(BuildContext context) {
-    final routeState = RouteStateScope.of(context)!;
-    final authState = BookstoreAuthScope.of(context)!;
+    final routeState = RouteStateScope.of(context);
+    final authState = BookstoreAuthScope.of(context);
     final pathTemplate = routeState.route.pathTemplate;
     final library = LibraryScope.of(context);
 

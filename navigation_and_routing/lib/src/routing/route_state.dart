@@ -44,6 +44,6 @@ class RouteStateScope extends InheritedNotifier<RouteState> {
     Key? key,
   }) : super(key: key, notifier: notifier, child: child);
 
-  static RouteState? of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<RouteStateScope>()?.notifier;
+  static RouteState of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<RouteStateScope>()!.notifier!;
 }
