@@ -2,10 +2,30 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:collection/collection.dart';
-
 import 'author.dart';
 import 'book.dart';
+
+final libraryInstance = Library()
+  ..addBook(
+      title: 'Left Hand of Darkness',
+      authorName: 'Ursula K. Le Guin',
+      isPopular: true,
+      isNew: true)
+  ..addBook(
+      title: 'Too Like the Lightning',
+      authorName: 'Ada Palmer',
+      isPopular: false,
+      isNew: true)
+  ..addBook(
+      title: 'Kindred',
+      authorName: 'Octavia E. Butler',
+      isPopular: true,
+      isNew: false)
+  ..addBook(
+      title: 'The Lathe of Heaven',
+      authorName: 'Ursula K. Le Guin',
+      isPopular: false,
+      isNew: false);
 
 class Library {
   final List<Book> allBooks = [];
@@ -17,18 +37,17 @@ class Library {
     required bool isPopular,
     required bool isNew,
   }) {
-    var author =
-        allAuthors.firstWhereOrNull((author) => author.name == authorName);
-    var book = Book(allBooks.length, title, isPopular, isNew);
+    var author = allAuthors.firstWhere(
+      (author) => author.name == authorName,
+      orElse: () {
+        final value = Author(allAuthors.length, authorName);
+        allAuthors.add(value);
+        return value;
+      },
+    );
+    var book = Book(allBooks.length, title, isPopular, isNew, author);
 
-    if (author == null) {
-      author = Author(allAuthors.length, authorName, [book]);
-      allAuthors.add(author);
-    } else {
-      author.books.add(book);
-    }
-
-    book.author = author;
+    author.books.add(book);
     allBooks.add(book);
   }
 

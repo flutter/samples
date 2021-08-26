@@ -5,10 +5,8 @@
 import 'package:flutter/material.dart';
 
 import 'auth.dart';
-import 'data.dart';
 import 'routing.dart';
 import 'screens/navigator.dart';
-import 'widgets/library_scope.dart';
 
 class Bookstore extends StatefulWidget {
   const Bookstore({Key? key}) : super(key: key);
@@ -23,28 +21,6 @@ class _BookstoreState extends State<Bookstore> {
   late final RouteState _routeState;
   late final SimpleRouterDelegate _routerDelegate;
   late final TemplateRouteParser _routeParser;
-
-  final library = Library()
-    ..addBook(
-        title: 'Left Hand of Darkness',
-        authorName: 'Ursula K. Le Guin',
-        isPopular: true,
-        isNew: true)
-    ..addBook(
-        title: 'Too Like the Lightning',
-        authorName: 'Ada Palmer',
-        isPopular: false,
-        isNew: true)
-    ..addBook(
-        title: 'Kindred',
-        authorName: 'Octavia E. Butler',
-        isPopular: true,
-        isNew: false)
-    ..addBook(
-        title: 'The Lathe of Heaven',
-        authorName: 'Ursula K. Le Guin',
-        isPopular: false,
-        isNew: false);
 
   @override
   void initState() {
@@ -85,12 +61,9 @@ class _BookstoreState extends State<Bookstore> {
         notifier: _routeState,
         child: BookstoreAuthScope(
           notifier: _auth,
-          child: LibraryScope(
-            library: library,
-            child: MaterialApp.router(
-              routerDelegate: _routerDelegate,
-              routeInformationParser: _routeParser,
-            ),
+          child: MaterialApp.router(
+            routerDelegate: _routerDelegate,
+            routeInformationParser: _routeParser,
           ),
         ),
       );

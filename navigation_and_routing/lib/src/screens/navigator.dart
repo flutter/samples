@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 
 import '../auth.dart';
 import '../data.dart';
+import '../data/library.dart';
 import '../routing.dart';
 import '../screens/sign_in.dart';
 import '../widgets/fade_transition_page.dart';
-import '../widgets/library_scope.dart';
 import 'author_details.dart';
 import 'book_details.dart';
 import 'scaffold.dart';
@@ -40,17 +40,16 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
     final routeState = RouteStateScope.of(context);
     final authState = BookstoreAuthScope.of(context);
     final pathTemplate = routeState.route.pathTemplate;
-    final library = LibraryScope.of(context);
 
     Book? selectedBook;
     if (pathTemplate == '/book/:bookId') {
-      selectedBook = library.allBooks.firstWhereOrNull(
+      selectedBook = libraryInstance.allBooks.firstWhereOrNull(
           (b) => b.id.toString() == routeState.route.parameters['bookId']);
     }
 
     Author? selectedAuthor;
     if (pathTemplate == '/author/:authorId') {
-      selectedAuthor = library.allAuthors.firstWhereOrNull(
+      selectedAuthor = libraryInstance.allAuthors.firstWhereOrNull(
           (b) => b.id.toString() == routeState.route.parameters['authorId']);
     }
 
