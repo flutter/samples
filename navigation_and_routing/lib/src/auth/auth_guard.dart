@@ -7,7 +7,7 @@ import 'auth.dart';
 
 /// An implementation of [RouteGuard] that redirects to /signIn
 class BookstoreRouteGuard implements RouteGuard<ParsedRoute> {
-  BookstoreAuth auth;
+  final BookstoreAuth auth;
 
   BookstoreRouteGuard({
     required this.auth,

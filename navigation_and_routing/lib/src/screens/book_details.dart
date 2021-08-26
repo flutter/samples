@@ -45,21 +45,18 @@ class BookDetailsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push<void>(
                   MaterialPageRoute<void>(
-                    builder: (context) {
-                      return AuthorDetailsScreen(author: book!.author);
-                    },
+                    builder: (context) =>
+                        AuthorDetailsScreen(author: book!.author),
                   ),
                 );
               },
             ),
             Link(
               uri: Uri.parse('/author/${book!.author.id}'),
-              builder: (context, followLink) {
-                return TextButton(
-                  onPressed: followLink,
-                  child: const Text('View author (Link)'),
-                );
-              },
+              builder: (context, followLink) => TextButton(
+                onPressed: followLink,
+                child: const Text('View author (Link)'),
+              ),
             ),
           ],
         ),

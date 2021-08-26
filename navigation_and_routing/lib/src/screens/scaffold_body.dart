@@ -41,9 +41,9 @@ class BookstoreScaffoldBody extends StatelessWidget {
           )
         else if (currentRoute.pathTemplate.startsWith('/books') ||
             currentRoute.pathTemplate == '/')
-          FadeTransitionPage<void>(
-            key: const ValueKey('books'),
-            child: BooksScreen(currentRoute: currentRoute),
+          const FadeTransitionPage<void>(
+            key: ValueKey('books'),
+            child: BooksScreen(),
           )
 
         // Avoid building a Navigator with an empty `pages` list when the

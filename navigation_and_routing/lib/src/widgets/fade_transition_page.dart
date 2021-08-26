@@ -15,15 +15,14 @@ class FadeTransitionPage<T> extends Page<T> {
   }) : super(key: key);
 
   @override
-  Route<T> createRoute(BuildContext context) {
-    return PageBasedFadeTransitionRoute<T>(this);
-  }
+  Route<T> createRoute(BuildContext context) =>
+      PageBasedFadeTransitionRoute<T>(this);
 }
 
 class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
-  final FadeTransitionPage<T> page;
+  final FadeTransitionPage<T> _page;
 
-  PageBasedFadeTransitionRoute(this.page) : super(settings: page);
+  PageBasedFadeTransitionRoute(this._page) : super(settings: _page);
 
   @override
   Color? get barrierColor => null;
@@ -32,7 +31,7 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
   String? get barrierLabel => null;
 
   @override
-  Duration get transitionDuration => page.duration;
+  Duration get transitionDuration => _page.duration;
 
   @override
   bool get maintainState => true;
@@ -49,7 +48,6 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return child;
-  }
+          Animation<double> secondaryAnimation, Widget child) =>
+      child;
 }

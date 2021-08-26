@@ -17,11 +17,9 @@ class BookList extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: books.length,
-      itemBuilder: (context, index) {
-        return ListTile(
+  Widget build(BuildContext context) => ListView.builder(
+        itemCount: books.length,
+        itemBuilder: (context, index) => ListTile(
           title: Text(
             books[index].title,
           ),
@@ -29,8 +27,6 @@ class BookList extends StatelessWidget {
             books[index].author.name,
           ),
           onTap: onTap != null ? () => onTap!(books[index]) : null,
-        );
-      },
-    );
-  }
+        ),
+      );
 }

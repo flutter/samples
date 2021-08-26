@@ -9,9 +9,7 @@ import 'package:flutter/widgets.dart';
 class BookstoreAuth extends ChangeNotifier {
   bool _signedIn = false;
 
-  bool get signedIn {
-    return _signedIn;
-  }
+  bool get signedIn => _signedIn;
 
   Future<void> signOut() async {
     await Future<void>.delayed(const Duration(milliseconds: 200));
@@ -30,9 +28,8 @@ class BookstoreAuth extends ChangeNotifier {
   }
 
   @override
-  bool operator ==(Object other) {
-    return other is BookstoreAuth && other._signedIn == _signedIn;
-  }
+  bool operator ==(Object other) =>
+      other is BookstoreAuth && other._signedIn == _signedIn;
 
   @override
   int get hashCode => _signedIn.hashCode;
@@ -45,9 +42,7 @@ class BookstoreAuthScope extends InheritedNotifier<BookstoreAuth> {
     Key? key,
   }) : super(key: key, notifier: notifier, child: child);
 
-  static BookstoreAuth? of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()
-        ?.notifier;
-  }
+  static BookstoreAuth? of(BuildContext context) => context
+      .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()
+      ?.notifier;
 }

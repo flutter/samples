@@ -17,25 +17,23 @@ class AuthorDetailsScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(author.name),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Expanded(
-              child: BookList(
-                books: author.books,
-                onTap: (book) {
-                  RouteStateScope.of(context)!.go('/book/${book.id}');
-                },
-              ),
-            ),
-          ],
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text(author.name),
         ),
-      ),
-    );
-  }
+        body: Center(
+          child: Column(
+            children: [
+              Expanded(
+                child: BookList(
+                  books: author.books,
+                  onTap: (book) {
+                    RouteStateScope.of(context)!.go('/book/${book.id}');
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

@@ -10,11 +10,8 @@ import '../widgets/book_list.dart';
 import '../widgets/library_scope.dart';
 
 class BooksScreen extends StatefulWidget {
-  final ParsedRoute currentRoute;
-
   const BooksScreen({
     Key? key,
-    required this.currentRoute,
   }) : super(key: key);
 
   @override
@@ -36,7 +33,7 @@ class _BooksScreenState extends State<BooksScreen>
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final newPath = routeState.route.pathTemplate;
+    final newPath = _routeState.route.pathTemplate;
     if (newPath.startsWith('/books/popular')) {
       _tabController.index = 0;
     } else if (newPath.startsWith('/books/new')) {
@@ -96,35 +93,23 @@ class _BooksScreenState extends State<BooksScreen>
     );
   }
 
-  String get title {
-    switch (_tabController.index) {
-      case 1:
-        return 'New';
-      case 2:
-        return 'All';
-      case 0:
-      default:
-        return 'Popular';
-    }
-  }
-
-  RouteState get routeState => RouteStateScope.of(context)!;
+  RouteState get _routeState => RouteStateScope.of(context)!;
 
   void _handleBookTapped(Book book) {
-    routeState.go('/book/${book.id}');
+    _routeState.go('/book/${book.id}');
   }
 
   void _handleTabIndexChanged() {
     switch (_tabController.index) {
       case 1:
-        routeState.go('/books/new');
+        _routeState.go('/books/new');
         break;
       case 2:
-        routeState.go('/books/all');
+        _routeState.go('/books/all');
         break;
       case 0:
       default:
-        routeState.go('/books/popular');
+        _routeState.go('/books/popular');
         break;
     }
   }
