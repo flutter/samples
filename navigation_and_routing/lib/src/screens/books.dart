@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../data.dart';
 import '../routing.dart';
 import '../widgets/book_list.dart';
-import '../widgets/library_scope.dart';
 
 class BooksScreen extends StatefulWidget {
   const BooksScreen({
@@ -50,48 +49,45 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   @override
-  Widget build(BuildContext context) {
-    final library = LibraryScope.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Books'),
-        bottom: TabBar(
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Books'),
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: const [
+              Tab(
+                text: 'Popular',
+                icon: Icon(Icons.people),
+              ),
+              Tab(
+                text: 'New',
+                icon: Icon(Icons.new_releases),
+              ),
+              Tab(
+                text: 'All',
+                icon: Icon(Icons.list),
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(
           controller: _tabController,
-          tabs: const [
-            Tab(
-              text: 'Popular',
-              icon: Icon(Icons.people),
+          children: [
+            BookList(
+              books: libraryInstance.popularBooks,
+              onTap: _handleBookTapped,
             ),
-            Tab(
-              text: 'New',
-              icon: Icon(Icons.new_releases),
+            BookList(
+              books: libraryInstance.newBooks,
+              onTap: _handleBookTapped,
             ),
-            Tab(
-              text: 'All',
-              icon: Icon(Icons.list),
+            BookList(
+              books: libraryInstance.allBooks,
+              onTap: _handleBookTapped,
             ),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          BookList(
-            books: library.popularBooks,
-            onTap: _handleBookTapped,
-          ),
-          BookList(
-            books: library.newBooks,
-            onTap: _handleBookTapped,
-          ),
-          BookList(
-            books: library.allBooks,
-            onTap: _handleBookTapped,
-          ),
-        ],
-      ),
-    );
-  }
+      );
 
   RouteState get _routeState => RouteStateScope.of(context);
 

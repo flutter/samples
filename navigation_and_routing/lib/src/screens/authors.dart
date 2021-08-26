@@ -4,9 +4,9 @@
 
 import 'package:flutter/material.dart';
 
+import '../data/library.dart';
 import '../routing.dart';
 import '../widgets/author_list.dart';
-import '../widgets/library_scope.dart';
 
 class AuthorsScreen extends StatelessWidget {
   final String title = 'Authors';
@@ -19,7 +19,7 @@ class AuthorsScreen extends StatelessWidget {
           title: Text(title),
         ),
         body: AuthorList(
-          authors: LibraryScope.of(context).allAuthors,
+          authors: libraryInstance.allAuthors,
           onTap: (author) {
             RouteStateScope.of(context).go('/author/${author.id}');
           },
