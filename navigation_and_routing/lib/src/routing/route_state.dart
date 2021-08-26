@@ -15,10 +15,10 @@ import 'parser.dart';
 /// RouteStateScope.of(context).go('/book/2');
 /// ```
 class RouteState extends ChangeNotifier {
-  TemplateRouteParser parser;
+  final TemplateRouteParser _parser;
   ParsedRoute _route;
 
-  RouteState(this.parser) : _route = parser.initialRoute;
+  RouteState(this._parser) : _route = _parser.initialRoute;
 
   ParsedRoute get route => _route;
 
@@ -32,7 +32,7 @@ class RouteState extends ChangeNotifier {
 
   Future<void> go(String route) async {
     this.route =
-        await parser.parseRouteInformation(RouteInformation(location: route));
+        await _parser.parseRouteInformation(RouteInformation(location: route));
   }
 }
 
