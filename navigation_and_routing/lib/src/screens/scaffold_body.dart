@@ -21,7 +21,7 @@ class BookstoreScaffoldBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var currentRoute = RouteStateScope.of(context)!.route;
+    var currentRoute = RouteStateScope.of(context).route;
 
     // A nested Router isn't necessary because the back button behavior doesn't
     // need to be customized.

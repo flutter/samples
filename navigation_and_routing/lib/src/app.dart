@@ -48,8 +48,6 @@ class _BookstoreState extends State<Bookstore> {
 
   @override
   void initState() {
-    final guard = BookstoreRouteGuard(auth: _auth);
-
     /// Configure the parser with all of the app's allowed path templates.
     _routeParser = TemplateRouteParser(
       allowedPaths: [
@@ -62,7 +60,7 @@ class _BookstoreState extends State<Bookstore> {
         '/book/:bookId',
         '/author/:authorId',
       ],
-      guard: guard,
+      guard: _guard,
       initialRoute: '/signin',
     );
 
@@ -96,6 +94,21 @@ class _BookstoreState extends State<Bookstore> {
           ),
         ),
       );
+
+  Future<ParsedRoute> _guard(ParsedRoute from) async {
+    final signedIn = _auth.signedIn;
+    final signInRoute = ParsedRoute('/signin', '/signin', {}, {});
+
+    // Go to /signin if the user is not signed in
+    if (!signedIn && from != signInRoute) {
+      return signInRoute;
+    }
+    // Go to /books if the user is signed in and tries to go to /signin.
+    else if (signedIn && from == signInRoute) {
+      return ParsedRoute('/books/popular', '/books/popular', {}, {});
+    }
+    return from;
+  }
 
   void _handleAuthStateChanged() {
     if (!_auth.signedIn) {
