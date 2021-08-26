@@ -30,10 +30,10 @@ class BookstoreNavigator extends StatefulWidget {
 }
 
 class _BookstoreNavigatorState extends State<BookstoreNavigator> {
-  final signInKey = const ValueKey('Sign in');
-  final scaffoldKey = const ValueKey<String>('App scaffold');
-  final bookDetailsKey = const ValueKey<String>('Book details screen');
-  final authorDetailsKey = const ValueKey<String>('Author details screen');
+  final _signInKey = const ValueKey('Sign in');
+  final _scaffoldKey = const ValueKey<String>('App scaffold');
+  final _bookDetailsKey = const ValueKey<String>('Book details screen');
+  final _authorDetailsKey = const ValueKey<String>('Author details screen');
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +60,12 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         // When a page that is stacked on top of the scaffold is popped, display
         // the /books or /authors tab in BookstoreScaffold.
         if (route.settings is Page &&
-            (route.settings as Page).key == bookDetailsKey) {
+            (route.settings as Page).key == _bookDetailsKey) {
           routeState.go('/books/popular');
         }
 
         if (route.settings is Page &&
-            (route.settings as Page).key == authorDetailsKey) {
+            (route.settings as Page).key == _authorDetailsKey) {
           routeState.go('/authors');
         }
 
@@ -75,7 +75,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         if (routeState.route.pathTemplate == '/signin')
           // Display the sign in screen.
           FadeTransitionPage<void>(
-            key: signInKey,
+            key: _signInKey,
             child: SignInScreen(
               onSignIn: (credentials) async {
                 var signedIn = await authState.signIn(
@@ -89,21 +89,21 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         else ...[
           // Display the app
           FadeTransitionPage<void>(
-            key: scaffoldKey,
+            key: _scaffoldKey,
             child: const BookstoreScaffold(),
           ),
           // Add an additional page to the stack if the user is viewing a book
           // or an author
           if (selectedBook != null)
             MaterialPage<void>(
-              key: bookDetailsKey,
+              key: _bookDetailsKey,
               child: BookDetailsScreen(
                 book: selectedBook,
               ),
             )
           else if (selectedAuthor != null)
             MaterialPage<void>(
-              key: authorDetailsKey,
+              key: _authorDetailsKey,
               child: AuthorDetailsScreen(
                 author: selectedAuthor,
               ),

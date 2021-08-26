@@ -44,9 +44,8 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
 
   @override
   Future<ParsedRoute> parseRouteInformation(
-      RouteInformation routeInformation) async {
-    return await _parse(routeInformation);
-  }
+          RouteInformation routeInformation) async =>
+      await _parse(routeInformation);
 
   Future<ParsedRoute> _parse(RouteInformation routeInformation) async {
     final path = routeInformation.location!;
@@ -74,7 +73,6 @@ class TemplateRouteParser extends RouteInformationParser<ParsedRoute> {
   }
 
   @override
-  RouteInformation restoreRouteInformation(ParsedRoute configuration) {
-    return RouteInformation(location: configuration.path);
-  }
+  RouteInformation restoreRouteInformation(ParsedRoute configuration) =>
+      RouteInformation(location: configuration.path);
 }

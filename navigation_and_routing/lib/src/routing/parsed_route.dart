@@ -27,13 +27,12 @@ class ParsedRoute {
       this.path, this.pathTemplate, this.parameters, this.queryParameters);
 
   @override
-  bool operator ==(Object other) {
-    return other is ParsedRoute &&
-        other.pathTemplate == pathTemplate &&
-        other.path == path &&
-        _mapEquality.equals(parameters, other.parameters) &&
-        _mapEquality.equals(queryParameters, other.queryParameters);
-  }
+  bool operator ==(Object other) =>
+      other is ParsedRoute &&
+      other.pathTemplate == pathTemplate &&
+      other.path == path &&
+      _mapEquality.equals(parameters, other.parameters) &&
+      _mapEquality.equals(queryParameters, other.queryParameters);
 
   @override
   int get hashCode => hash4(

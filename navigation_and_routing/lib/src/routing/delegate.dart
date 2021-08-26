@@ -28,9 +28,7 @@ class SimpleRouterDelegate extends RouterDelegate<ParsedRoute>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return builder(context);
-  }
+  Widget build(BuildContext context) => builder(context);
 
   @override
   Future<void> setNewRoutePath(ParsedRoute configuration) async {
@@ -39,9 +37,7 @@ class SimpleRouterDelegate extends RouterDelegate<ParsedRoute>
   }
 
   @override
-  ParsedRoute get currentConfiguration {
-    return routeState.route;
-  }
+  ParsedRoute get currentConfiguration => routeState.route;
 
   @override
   void dispose() {

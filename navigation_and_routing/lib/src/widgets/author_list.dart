@@ -17,11 +17,9 @@ class AuthorList extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: authors.length,
-      itemBuilder: (context, index) {
-        return ListTile(
+  Widget build(BuildContext context) => ListView.builder(
+        itemCount: authors.length,
+        itemBuilder: (context, index) => ListTile(
           title: Text(
             authors[index].name,
           ),
@@ -29,8 +27,6 @@ class AuthorList extends StatelessWidget {
             '${authors[index].books.length} books',
           ),
           onTap: onTap != null ? () => onTap!(authors[index]) : null,
-        );
-      },
-    );
-  }
+        ),
+      );
 }

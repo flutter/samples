@@ -19,7 +19,6 @@ class LibraryScope extends InheritedWidget {
   bool updateShouldNotify(LibraryScope oldWidget) =>
       library != oldWidget.library;
 
-  static Library of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<LibraryScope>()!.library;
-  }
+  static Library of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<LibraryScope>()!.library;
 }

@@ -32,15 +32,11 @@ class Library {
     allBooks.add(book);
   }
 
-  List<Book> get popularBooks {
-    return [
-      ...allBooks.where((book) => book.isPopular),
-    ];
-  }
+  List<Book> get popularBooks => [
+        ...allBooks.where((book) => book.isPopular),
+      ];
 
-  List<Book> get newBooks {
-    return [
-      ...allBooks.where((book) => book.isNew),
-    ];
-  }
+  List<Book> get newBooks => [
+        ...allBooks.where((book) => book.isNew),
+      ];
 }
