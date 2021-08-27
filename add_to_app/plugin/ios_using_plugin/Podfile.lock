@@ -4,7 +4,10 @@ PODS:
     - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+    - sensors
     - url_launcher
+  - sensors (0.0.1):
+    - Flutter
   - url_launcher (0.0.1):
     - Flutter
 
@@ -12,7 +15,8 @@ DEPENDENCIES:
   - Flutter (from `../flutter_module_using_plugin/.ios/Flutter/engine`)
   - flutter_module_using_plugin (from `../flutter_module_using_plugin/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant`)
-  - url_launcher (from `../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios`)
+  - sensors (from `../flutter_module_using_plugin/.ios/.symlinks/plugins/sensors/ios`)
+  - url_launcher (from `../flutter_module_using_plugin/.ios/.symlinks/plugins/url_launcher/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
@@ -21,15 +25,18 @@ EXTERNAL SOURCES:
     :path: "../flutter_module_using_plugin/.ios/Flutter"
   FlutterPluginRegistrant:
     :path: "../flutter_module_using_plugin/.ios/Flutter/FlutterPluginRegistrant"
+  sensors:
+    :path: "../flutter_module_using_plugin/.ios/.symlinks/plugins/sensors/ios"
   url_launcher:
-    :path: "../flutter_module_using_plugin/.ios/Flutter/.symlinks/url_launcher/ios"
+    :path: "../flutter_module_using_plugin/.ios/.symlinks/plugins/url_launcher/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  Flutter: bdfa2e8fe0e2880a2c6a58a0b1a8675c262a07af
   flutter_module_using_plugin: 3c6ddd2296edc03cbe09c33f12a2c522ccc36e5b
-  FlutterPluginRegistrant: d0de10c7c4fc31cc6b676a5965b96100f7c035f7
+  FlutterPluginRegistrant: 0b50fd1ba3828e7cda5bb7ebe2c7b90149023083
+  sensors: 84eb7a30e47a649e4172b71d6e81be614c280336
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
 PODFILE CHECKSUM: 357b6c94e1edb8289fba0dbdd79daa105ab9d88c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0
