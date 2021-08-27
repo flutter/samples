@@ -30,7 +30,7 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 - Integration Tests:
   - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart`
 - Performance Tests:
-  - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/perf_test.dart --profile --trace-startup`
+  - Run `flutter drive --driver=integration_test/perf_driver.dart --target=integration_test/perf_test.dart --profile --trace-startup`
     - Using a physical device and running performance tests in profile mode is recommended.
     - The `--trace-startup` option is used to avoid flushing older timeline events when the timeline gets long.
 - State Management Tests:
