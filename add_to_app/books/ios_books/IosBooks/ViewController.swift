@@ -103,7 +103,7 @@ class ViewController: UITableViewController, BKHostBookApi {
     let flutterViewController = FlutterViewController.init(
       engine: appDelegate.engine, nibName: nil, bundle: nil)
     self.editingIndex = index
-    api.displayBookDetails(self.books[index]) { (error) in
+    api.displayBookDetailsBook(self.books[index]) { (error) in
       if let error = error {
         print(error)
       }
@@ -114,7 +114,7 @@ class ViewController: UITableViewController, BKHostBookApi {
   /**
    Called by Pigeon when the FlutterViewController is dismissed without accepting any edits.
    */
-  func cancel(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+  func cancelWithError(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
     self.editingIndex = -1
     self.dismiss(animated: true, completion: nil)
   }
@@ -122,7 +122,7 @@ class ViewController: UITableViewController, BKHostBookApi {
   /**
    Called by Pigeon when edits to the book are accepted in the FlutterViewController.
    */
-  func finishEditing(_ input: BKBook, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+  func finishEditingBook(_ input: BKBook, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
     self.books[editingIndex] = input
     self.tableView.reloadData()
     self.editingIndex = -1

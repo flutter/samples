@@ -43,7 +43,7 @@ class FlutterBookActivity: FlutterActivity() {
                     // TODO(gaaclarke): the Pigeon generated data class should just implement
                     // Serializable so we won't need 'toMap()' here
                     // https://github.com/flutter/flutter/issues/58909
-                    book.toMap()
+                    HashMap(book.toMap())
                 )
         }
 
@@ -54,7 +54,7 @@ class FlutterBookActivity: FlutterActivity() {
          *                     activity's {@code onActivityResult}.
          */
         fun getBookFromResultIntent(resultIntent: Intent): Api.Book {
-            return Api.Book.fromMap(resultIntent.getSerializableExtra(FlutterBookActivity.EXTRA_BOOK) as HashMap<*, *>);
+            return Api.Book.fromMap((resultIntent.getSerializableExtra(FlutterBookActivity.EXTRA_BOOK) as HashMap<String, Any>));
         }
     }
 
@@ -68,7 +68,7 @@ class FlutterBookActivity: FlutterActivity() {
 
         // The book to give to Flutter is passed in from the MainActivity via this activity's
         // source intent getter. The intent contains the book serialized as on extra.
-        val bookToShow = Api.Book.fromMap(intent.getSerializableExtra(EXTRA_BOOK) as HashMap<*, *>)
+        val bookToShow = Api.Book.fromMap(intent.getSerializableExtra(EXTRA_BOOK) as HashMap<String, Any>)
 
         // Register the HostBookApiHandler callback class to get results from Flutter.
         Api.HostBookApi.setup(flutterEngine.dartExecutor, HostBookApiHandler())
@@ -94,7 +94,7 @@ class FlutterBookActivity: FlutterActivity() {
             }
             // Flutter returned an edited book instance. Return it to the MainActivity via the
             // standard Android Activity set result mechanism.
-            setResult(Activity.RESULT_OK, Intent().putExtra(EXTRA_BOOK, book.toMap()))
+            setResult(Activity.RESULT_OK, Intent().putExtra(EXTRA_BOOK, HashMap(book.toMap())))
             finish()
         }
     }
