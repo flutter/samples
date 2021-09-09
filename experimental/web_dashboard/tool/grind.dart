@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 import 'dart:convert';
 import 'dart:io';
-import 'package:path/path.dart' as path;
 
 import 'package:grinder/grinder.dart';
+import 'package:path/path.dart' as path;
 
 void main(List<String> args) => grind(args);
 

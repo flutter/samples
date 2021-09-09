@@ -136,7 +136,7 @@ class SmoothAnimationWidget extends StatefulWidget {
 class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
   late final AnimationController _animationController;
-  late final Animation<BorderRadius> _borderAnimation;
+  late final Animation<BorderRadius?> _borderAnimation;
 
   @override
   void initState() {

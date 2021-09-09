@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_module_books/api.dart';
 import 'package:flutter_module_books/main.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 
 void main() {
   testWidgets('Pressing clear calls the cancel API', (tester) async {
@@ -20,7 +19,7 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.clear));
 
-    verify(mockHostApi.cancel());
+    expect(mockHostApi.cancelCalls, 1);
   });
 
   testWidgets('Pressing done calls the finish editing API', (tester) async {
@@ -34,8 +33,22 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.check));
 
-    verify(mockHostApi.finishEditingBook(any));
+    expect(mockHostApi.booksFinished.length, 1);
   });
 }
 
-class MockHostBookApi extends Mock implements HostBookApi {}
+// A super-simple mock for testing that calls are made to the API.
+class MockHostBookApi implements HostBookApi {
+  int cancelCalls = 0;
+  final booksFinished = <Book>[];
+
+  @override
+  Future<void> cancel() async {
+    cancelCalls++;
+  }
+
+  @override
+  Future<void> finishEditingBook(Book arg) async {
+    booksFinished.add(arg);
+  }
+}

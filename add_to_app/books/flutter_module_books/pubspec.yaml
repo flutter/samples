@@ -13,11 +13,10 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  pigeon: ^1.0.0
-  mockito: ^5.0.0
+  pigeon: ^1.0.2
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.4
 
 flutter:
   uses-material-design: true
