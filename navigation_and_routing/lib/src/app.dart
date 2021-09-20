@@ -64,6 +64,19 @@ class _BookstoreState extends State<Bookstore> {
           child: MaterialApp.router(
             routerDelegate: _routerDelegate,
             routeInformationParser: _routeParser,
+            // Revert back to pre-Flutter-2.5 transition behavior:
+            // https://github.com/flutter/flutter/issues/82053
+            theme: ThemeData(
+              pageTransitionsTheme: const PageTransitionsTheme(
+                builders: <TargetPlatform, PageTransitionsBuilder>{
+                  TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+                  TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+                  TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
+                  TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+                  TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+                },
+              ),
+            ),
           ),
         ),
       );
