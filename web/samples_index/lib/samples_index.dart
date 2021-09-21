@@ -18,7 +18,7 @@ Future<List<Sample>> getSamples() async {
   var index = checkedYamlDecode(
       contents, (m) => m != null ? Index.fromJson(m) : null,
       sourceUrl: yamlFile.uri);
-  if (index == null) throw('unable to get load from ${yamlFile.uri}');
+  if (index == null) throw ('unable to get load from ${yamlFile.uri}');
   var cookbookIndex =
       Index.fromJson(json.decode(cookbookContents) as Map<dynamic, dynamic>);
   return index.samples..addAll(cookbookIndex.samples);

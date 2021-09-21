@@ -4,10 +4,10 @@
 
 import 'dart:io';
 
-import 'package:samples_index/samples_index.dart';
-import 'package:samples_index/browser.dart';
-import 'package:test/test.dart';
 import 'package:checked_yaml/checked_yaml.dart';
+import 'package:samples_index/browser.dart';
+import 'package:samples_index/samples_index.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('YAML', () {
@@ -16,10 +16,11 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
+      var index = checkedYamlDecode(
+          contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
       if (index == null) {
-        throw('unable to load YAML from $file');
+        throw ('unable to load YAML from $file');
       }
       expect(index.samples, isNotEmpty);
 
@@ -52,10 +53,11 @@ void main() {
       var contents = await file.readAsString();
       expect(contents, isNotEmpty);
 
-      var index = checkedYamlDecode(contents, (m) => m != null ? Index.fromJson(m) : null,
+      var index = checkedYamlDecode(
+          contents, (m) => m != null ? Index.fromJson(m) : null,
           sourceUrl: file.uri);
       if (index == null) {
-        throw('unable to load YAML from $file');
+        throw ('unable to load YAML from $file');
       }
       var sample = index.samples.first;
       expect(

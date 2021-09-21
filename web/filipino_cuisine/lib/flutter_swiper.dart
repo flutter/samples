@@ -3,8 +3,8 @@
 
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 import 'flutter_page_indicator.dart';
 import 'transformer_page_view.dart';

@@ -31,9 +31,7 @@ Future<void> fixBaseTags() async {
         throw ('no index.html file found in ${builtSample.path}');
       }
 
-      var sampleDirName = p
-          .split(builtSample.path)
-          .last;
+      var sampleDirName = p.split(builtSample.path).last;
 
       if (await index.exists()) {
         final regex = RegExp('<base href="(.*)">');
