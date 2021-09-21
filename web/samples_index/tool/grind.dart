@@ -6,11 +6,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
+import 'package:image/image.dart' as image;
 import 'package:path/path.dart' as path;
+import 'package:samples_index/cookbook.dart';
 import 'package:samples_index/samples_index.dart';
 import 'package:samples_index/src/templates.dart' as templates;
-import 'package:samples_index/cookbook.dart';
-import 'package:image/image.dart' as image;
 
 Future<void> main(List<String> args) => grind(args);
 

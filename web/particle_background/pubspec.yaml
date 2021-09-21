@@ -1,6 +1,5 @@
 name: particle_background
 description: Example for the simple_animations package
-author: Felix Blaschke <felix@felix-blaschke.de>
 homepage: https://github.com/felixblaschke/simple_animations
 
 environment:
