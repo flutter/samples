@@ -47,7 +47,7 @@ packages:
       name: logging
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   meta:
     dependency: "direct main"
     description:

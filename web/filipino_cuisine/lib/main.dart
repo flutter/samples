@@ -8,13 +8,19 @@ import 'flutter_swiper.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final _themeData = ThemeData(
+    brightness: Brightness.light,
+    iconTheme: const IconThemeData(color: Colors.red),
+  );
+
   @override
   Widget build(context) {
     return MaterialApp(
-        theme: ThemeData(
-            brightness: Brightness.light,
-            accentColor: Colors.red,
-            iconTheme: const IconThemeData(color: Colors.red)),
+        theme: _themeData.copyWith(
+          colorScheme: _themeData.colorScheme.copyWith(
+            secondary: Colors.red,
+          ),
+        ),
         title: "Filipino Cuisine",
         home: Home());
   }
@@ -123,7 +129,7 @@ class HState extends State<Home> {
             context,
             MaterialPageRoute(
                 builder: (cx) => Cook(
-                      fi['in'] as List<String>,
+                      (fi['in'] as List).cast(),
                       fi['pf'] as String,
                       fi['fn'] as String,
                     ))),
