@@ -1,7 +1,6 @@
 name: samples_index
 description: A visual index of Flutter samples
 homepage: https://github.com/flutter/samples_index
-author: Flutter Team <flutter-dev@googlegroups.com>
 version: 0.0.1
 environment:
   sdk: ">=2.12.0 <3.0.0"

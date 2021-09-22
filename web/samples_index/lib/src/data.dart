@@ -6,8 +6,8 @@
 library data;
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:samples_index/src/util.dart' as util;
 import 'package:path/path.dart' as path;
+import 'package:samples_index/src/util.dart' as util;
 
 part 'data.g.dart';
 

@@ -4,12 +4,12 @@
 
 import 'dart:io';
 
+import 'package:html/parser.dart' show parse;
+import 'package:path/path.dart' as path;
 import 'package:samples_index/src/data.dart';
 
 /// Utilities for generating cookbook article data
 import 'package:webdriver/io.dart';
-import 'package:html/parser.dart' show parse;
-import 'package:path/path.dart' as path;
 
 class CookbookScraper {
   late WebDriver _driver;
