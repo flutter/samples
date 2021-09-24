@@ -1,6 +1,7 @@
 # linting_tool
 
-A desktop tool that helps you manage linter rules for your Flutter project.
+A desktop tool that helps you manage [linter rules](https://dart.dev/guides/language/analysis-options#enabling-linter-rules)
+for your Flutter project.
 
 ## Goals for this sample
 
