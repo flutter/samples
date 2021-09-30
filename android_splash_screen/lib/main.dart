@@ -4,7 +4,7 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-// Main app that contains the Flutter starter app
+// Main widget that contains the Flutter starter app
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            // CustomAppBar(),
             const Padding(
                 padding: EdgeInsets.only(top: 42, bottom: 250),
                 child: Align(
@@ -76,7 +75,6 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget titleSection = Row(
       children: [
-        // SizedBox(width: 12),
         Padding(
           padding: const EdgeInsets.only(left: 12, right: 4),
           child: ClipRRect(
