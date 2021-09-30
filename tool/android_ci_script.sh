@@ -30,6 +30,7 @@ declare -ar ANDROID_PROJECT_NAMES=(
     "add_to_app/plugin/android_using_plugin" \
     "add_to_app/multiple_flutters/multiple_flutters_android" \
     "add_to_app/prebuilt_module/android_using_prebuilt_module" \
+    "android_splash_screen" \
 )
 
 for PROJECT_NAME in "${ANDROID_PROJECT_NAMES[@]}"
