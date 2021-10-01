@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+  * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.splash_screen_sample
 
 import androidx.core.view.WindowCompat
@@ -23,7 +39,6 @@ import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import android.transition.Transition
 import android.animation.Animator
 
-
 class MainActivity : FlutterActivity() {
 
   var flutterUIReady : Boolean = false
@@ -33,22 +48,20 @@ class MainActivity : FlutterActivity() {
 
     super.onCreate(savedInstanceState)
 
-    // This activity will be handling the splash screen transition
+    // This activity will be handling the splash screen transition.
     val splashScreen = installSplashScreen()
 
-    // The splashscreen goes edge to edge, so for a smooth transition to our app, we also
+    // The splashscreen goes edge to edge, so for a smooth transition to our app, also
     // want to draw edge to edge.
     WindowCompat.setDecorFitsSystemWindows(window, false)
     val insetsController = WindowCompat.getInsetsController(window, window.decorView)
     insetsController?.isAppearanceLightNavigationBars = true
     insetsController?.isAppearanceLightStatusBars = true
 
-
-    // The content view needs to set before calling setOnExitAnimationListener
-    // to ensure that the SplashScreenView is attach to the right view root.
-    val rootLayout= findViewById(android.R.id.content) as FrameLayout
+    // The content view needs to be set before calling setOnExitAnimationListener
+    // to ensure that the SplashScreenView is attached to the right view root.
+    val rootLayout = findViewById(android.R.id.content) as FrameLayout
     View.inflate(this, R.layout.main_activity_2, rootLayout)
-
 
     ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container)) { v, i ->
       val insets = i.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -62,7 +75,6 @@ class MainActivity : FlutterActivity() {
     splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
       onSplashScreenExit(splashScreenViewProvider)
     }
-
   }
 
   override fun onFlutterUiDisplayed(){
@@ -78,7 +90,7 @@ class MainActivity : FlutterActivity() {
   }
 
   /**
-   * Hides the splash screen only when the entire animation has finished and the Flutter UI is ready to display
+   * Hides the splash screen only when the entire animation has finished and the Flutter UI is ready to display.
    */
   private fun hideSplashScreenAnimation(){
     val splashView = findViewById(R.id.container) as ConstraintLayout
@@ -96,19 +108,19 @@ class MainActivity : FlutterActivity() {
   }
 
   /**
-   * Handles the transition from the splash screen to the application
+   * Handles the transition from the splash screen to the application.
    */
   private fun onSplashScreenExit(splashScreenViewProvider: SplashScreenViewProvider) {
     val accelerateInterpolator = FastOutLinearInInterpolator()
     val splashScreenView = splashScreenViewProvider.view
     val iconView = splashScreenViewProvider.iconView
 
-    // We'll change the alpha of the main view
+    // Change the alpha of the main view.
     val alpha = ValueAnimator.ofInt(255, 0)
     alpha.duration = SPLASHSCREEN_ALPHA_ANIMATION_DURATION.toLong()
     alpha.interpolator = accelerateInterpolator
 
-    // And we translate the icon down
+    // And translate the icon down.
     val translationY = ObjectAnimator.ofFloat(
       iconView,
       View.TRANSLATION_Y,
@@ -118,10 +130,9 @@ class MainActivity : FlutterActivity() {
     translationY.duration = SPLASHSCREEN_TY_ANIMATION_DURATION.toLong()
     translationY.interpolator = accelerateInterpolator
 
-    // And we play all of the animation together
+    // And play all of the animation together.
     val animatorSet = AnimatorSet()
     animatorSet.playTogether(alpha)
-
 
     val root = findViewById<ConstraintLayout>(R.id.container)
     val set1 = ConstraintSet().apply {
@@ -162,7 +173,7 @@ class MainActivity : FlutterActivity() {
     }
     alpha.addUpdateListener(function)
 
-    // Once the application is finished, we remove the splash screen from our view
+    // Once the application is finished, remove the splash screen from our view
     // hierarchy.
     animatorSet.doOnEnd {
       splashScreenViewProvider.remove()
@@ -172,11 +183,10 @@ class MainActivity : FlutterActivity() {
       splashScreenViewProvider,
       splashScreenView
     ) { animatorSet.start() }
-
   }
 
   /**
-   * Wait until the AVD animation is finished before starting the splash screen dismiss animation
+   * Wait until the AVD animation is finished before starting the splash screen dismiss animation.
    */
   private fun SplashScreenViewProvider.remainingAnimationDuration() = iconAnimationStartMillis +
     iconAnimationDurationMillis - System.currentTimeMillis()
@@ -186,8 +196,8 @@ class MainActivity : FlutterActivity() {
     view: View,
     onAnimationFinished: () -> Unit
   ) {
-    // If we want to wait for our Animated Vector Drawable to finish animating, we can compute
-    // the remaining time to delay the start of the exit animation
+    // If wanting to wait for our Animated Vector Drawable to finish animating, can compute
+    // the remaining time to delay the start of the exit animation.
     val delayMillis: Long =
       if (WAIT_FOR_AVD_TO_FINISH) splashScreenViewProvider.remainingAnimationDuration() else 0
     view.postDelayed(delayMillis, onAnimationFinished)

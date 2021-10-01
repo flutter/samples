@@ -15,13 +15,15 @@ A Flutter app that exemplifies how to implement an animated splash screen for An
 
 When creating a Flutter app, the Android code generated may include the deprecated implementation of a splash screen. This includes a definition of `io.flutter.embedding.android.SplashScreenDrawable` in the ` /android/app/src/main/AndroidManifest.xml` file and an implementation of `provideSplashScreen()` in the `/android/app/src/main/kotlin/MainActivity.kt` file. Make sure to remove this code.
 
+**NOTE:** This should no longer be a concern as of Flutter 2.5.
+
 ### Modify Android build files
-In order to support the Android 12 SplashScreen API, you will need to:
-1. update the Android `compileSdkVersion` to 31 in the `/android/app/build.gradle` file, and
-2. update the `ext.kotlin_version` to the latest Kotlin extension version (1.5.31 at the time of publication) in the `/android/build.gradle` file.
+In order to support the Android 12 SplashScreen API, you need to:
+1. Update the Android `compileSdkVersion` to 31 in the `/android/app/build.gradle` file, and
+2. Update the `ext.kotlin_version` to the latest Kotlin extension version (1.5.31 at the time of publication) in the `/android/build.gradle` file.
 
 ### Timing the splash screen animation
-In order to ensure a smooth transition between the animated splash screen and the Flutter UI displaying for the first time, be sure to handle both the case where the Flutter UI is ready to be displayed before the animation finishes and vice versa. This can be done by overriding `onFlutterUiDisplayed()` and `onFlutterUiNoLongerDisplayed()` in `/android/app/src/main/kotlin/com/example/splash-screen-sample/MainActivity.kt`, the implementation of the `FlutterActivity` in this project.
+In order to ensure a smooth transition between the animated splash screen and the Flutter UI displaying for the first time, be sure to handle both the case where the Flutter UI is ready to be displayed before the animation finishes and vice versa. This can be done by overriding `onFlutterUiDisplayed()` and `onFlutterUiNoLongerDisplayed()` in `/android/app/src/main/kotlin/com/example/splash-screen-sample/MainActivity.kt`, the implementation of `FlutterActivity` in this project.
 
 ## Questions/Issues
 
