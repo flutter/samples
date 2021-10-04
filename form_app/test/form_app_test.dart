@@ -16,6 +16,7 @@ void main() {
     expect(find.text('Unable to sign in.'), findsNothing);
     expect(find.text('Successfully signed in.'), findsOneWidget);
   });
+
   testWidgets('sign in with bad password', (tester) async {
     await _signIn(tester, 'admin','pw');
     expect(find.byType(AlertDialog), findsOneWidget);
@@ -30,6 +31,7 @@ Future<void> _signIn(WidgetTester tester, String email, String password) async {
       httpClient: httpClient,
     ),
   ));
+
   var textFormField = find.byType(TextFormField);
   expect(textFormField, findsNWidgets(2));
 
@@ -43,7 +45,6 @@ Future<void> _signIn(WidgetTester tester, String email, String password) async {
   var button = find.byType(TextButton);
   expect(button, findsOneWidget);
   await tester.tap(button);
-
 
   // Wait for dialog
   await tester.pumpAndSettle();
