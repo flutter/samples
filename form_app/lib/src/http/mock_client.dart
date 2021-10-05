@@ -9,12 +9,14 @@ import 'package:mockito/mockito.dart';
 
 class MockClient extends Mock implements http.Client {
   MockClient() {
-    when(post('https://example.com/signin', body: anyNamed('body')))
+    when(post('https://example.com/signin',
+            body: anyNamed('body'), headers: anyNamed('headers')))
         .thenAnswer((answering) {
       dynamic body = answering.namedArguments[const Symbol('body')];
 
       if (body != null && body is String) {
-        var decodedJson = json.decode(body) as Map<String, String>;
+        var decodedJson = Map<String, dynamic>.from(
+            json.decode(body) as Map<String, dynamic>);
 
         if (decodedJson['email'] == 'root' &&
             decodedJson['password'] == 'password') {

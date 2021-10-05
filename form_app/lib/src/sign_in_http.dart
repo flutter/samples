@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sign_in_http.g.dart';
@@ -86,7 +86,7 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                           headers: {'content-type': 'application/json'});
 
                       if (result.statusCode == 200) {
-                        _showDialog('Succesfully signed in.');
+                        _showDialog('Successfully signed in.');
                       } else if (result.statusCode == 401) {
                         _showDialog('Unable to sign in.');
                       } else {
