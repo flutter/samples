@@ -16,8 +16,7 @@ class SongDetailTab extends StatelessWidget {
     required this.id,
     required this.song,
     required this.color,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final int id;
   final String song;
@@ -72,7 +71,7 @@ class SongDetailTab extends StatelessWidget {
                   );
                 }
                 // Just a bunch of boxes that simulates loading song choices.
-                return const SongPlaceholderTile();
+                return SongPlaceholderTile();
               },
             ),
           ),

@@ -11,11 +11,9 @@ import 'settings_tab.dart';
 import 'songs_tab.dart';
 import 'widgets.dart';
 
-void main() => runApp(const MyAdaptingApp());
+void main() => runApp(MyAdaptingApp());
 
 class MyAdaptingApp extends StatelessWidget {
-  const MyAdaptingApp({Key? key}) : super(key: key);
-
   @override
   Widget build(context) {
     // Either Material or Cupertino widgets work in either Material or Cupertino
@@ -36,7 +34,7 @@ class MyAdaptingApp extends StatelessWidget {
           child: Material(child: child),
         );
       },
-      home: const PlatformAdaptingHomePage(),
+      home: PlatformAdaptingHomePage(),
     );
   }
 }
@@ -49,8 +47,6 @@ class MyAdaptingApp extends StatelessWidget {
 // These differences are also subjective and have more than one 'right' answer
 // depending on the app and content.
 class PlatformAdaptingHomePage extends StatefulWidget {
-  const PlatformAdaptingHomePage({Key? key}) : super(key: key);
-
   @override
   _PlatformAdaptingHomePageState createState() =>
       _PlatformAdaptingHomePageState();
@@ -111,12 +107,12 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
           case 1:
             return CupertinoTabView(
               defaultTitle: NewsTab.title,
-              builder: (context) => const NewsTab(),
+              builder: (context) => NewsTab(),
             );
           case 2:
             return CupertinoTabView(
               defaultTitle: ProfileTab.title,
-              builder: (context) => const ProfileTab(),
+              builder: (context) => ProfileTab(),
             );
           default:
             assert(false, 'Unexpected tab');
@@ -165,8 +161,8 @@ class _AndroidDrawer extends StatelessWidget {
             title: const Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const NewsTab()));
+              Navigator.push<void>(
+                  context, MaterialPageRoute(builder: (context) => NewsTab()));
             },
           ),
           ListTile(
@@ -175,7 +171,7 @@ class _AndroidDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const ProfileTab()));
+                  MaterialPageRoute(builder: (context) => ProfileTab()));
             },
           ),
           // Long drawer contents are often segmented.
@@ -189,7 +185,7 @@ class _AndroidDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const SettingsTab()));
+                  MaterialPageRoute(builder: (context) => SettingsTab()));
             },
           ),
         ],

@@ -11,7 +11,7 @@ import 'package:platform_design/main.dart';
 
 void main() {
   testWidgets('Can change platform correctly', (tester) async {
-    await tester.pumpWidget(const MyAdaptingApp());
+    await tester.pumpWidget(MyAdaptingApp());
 
     // The test should be able to find the drawer button.
     expect(find.byIcon(Icons.menu), findsOneWidget);
@@ -19,7 +19,7 @@ void main() {
     expect(find.byIcon(Icons.refresh), findsOneWidget);
 
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-    await tester.pumpWidget(const MyAdaptingApp());
+    await tester.pumpWidget(MyAdaptingApp());
 
     // There should now be a large title style nav bar.
     expect(find.byType(CupertinoSliverNavigationBar), findsOneWidget);

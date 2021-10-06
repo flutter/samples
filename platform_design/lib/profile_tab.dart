@@ -13,8 +13,6 @@ class ProfileTab extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
-  const ProfileTab({Key? key}) : super(key: key);
-
   Widget _buildBody(BuildContext context) {
     return SafeArea(
       child: Padding(
@@ -91,7 +89,7 @@ class ProfileTab extends StatelessWidget {
               CupertinoPageRoute(
                 title: SettingsTab.title,
                 fullscreenDialog: true,
-                builder: (context) => const SettingsTab(),
+                builder: (context) => SettingsTab(),
               ),
             );
           },
