@@ -41,8 +41,7 @@ class PressableCard extends StatefulWidget {
     required this.color,
     required this.flattenAnimation,
     this.child,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onPressed;
   final Color color;
