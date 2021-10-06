@@ -19,10 +19,10 @@ import 'home.dart';
 
 /// The main gallery app widget.
 class GalleryApp extends StatefulWidget {
-  GalleryApp({Key key}) : super(key: key);
+  const GalleryApp({Key key}) : super(key: key);
 
   @override
-  GalleryAppState createState() => new GalleryAppState();
+  GalleryAppState createState() => GalleryAppState();
 }
 
 /// The main gallery app state.
@@ -34,11 +34,11 @@ class GalleryAppState extends State<GalleryApp> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
         title: defaultConfig.appName,
         theme: defaultConfig.theme,
         showPerformanceOverlay: _showPerformanceOverlay,
-        home: new Home(
+        home: Home(
           showPerformanceOverlay: _showPerformanceOverlay,
           onShowPerformanceOverlayChanged: (bool value) {
             setState(() {
@@ -50,5 +50,5 @@ class GalleryAppState extends State<GalleryApp> {
 }
 
 void main() {
-  runApp(new GalleryApp());
+  runApp(const GalleryApp());
 }

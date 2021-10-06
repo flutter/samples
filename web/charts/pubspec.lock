@@ -14,14 +14,23 @@ packages:
       name: charts_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.0"
+    version: "0.11.0"
   charts_flutter:
     dependency: "direct main"
     description:
-      name: charts_flutter
+      path: charts_flutter
+      ref: HEAD
+      resolved-ref: "30477090290b348ed3101bc13017aae465f59017"
+      url: "https://github.com/google/charts"
+    source: git
+    version: "0.11.0"
+  clock:
+    dependency: transitive
+    description:
+      name: clock
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.0"
+    version: "1.1.0"
   collection:
     dependency: transitive
     description:
@@ -34,13 +43,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   intl:
     dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.8"
+    version: "0.17.0"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:

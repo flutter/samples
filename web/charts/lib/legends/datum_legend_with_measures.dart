@@ -28,13 +28,14 @@ import 'package:charts_flutter/flutter.dart' as charts;
 ///
 /// Also shows the option to provide a custom measure formatter.
 class DatumLegendWithMeasures extends StatelessWidget {
-  final List<charts.Series> seriesList;
+  final List<charts.Series<LinearSales, int>> seriesList;
   final bool animate;
 
-  DatumLegendWithMeasures(this.seriesList, {this.animate});
+  const DatumLegendWithMeasures(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory DatumLegendWithMeasures.withSampleData() {
-    return new DatumLegendWithMeasures(
+    return DatumLegendWithMeasures(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -46,22 +47,22 @@ class DatumLegendWithMeasures extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory DatumLegendWithMeasures.withRandomData() {
-    return new DatumLegendWithMeasures(_createRandomData());
+    return DatumLegendWithMeasures(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, int>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(2014, random.nextInt(100)),
-      new LinearSales(2015, random.nextInt(100)),
-      new LinearSales(2016, random.nextInt(100)),
-      new LinearSales(2017, random.nextInt(100)),
+      LinearSales(2014, random.nextInt(100)),
+      LinearSales(2015, random.nextInt(100)),
+      LinearSales(2016, random.nextInt(100)),
+      LinearSales(2017, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -73,7 +74,7 @@ class DatumLegendWithMeasures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.PieChart(
+    return charts.PieChart<int>(
       seriesList,
       animate: animate,
       // Add the legend behavior to the chart to turn on legends.
@@ -84,13 +85,13 @@ class DatumLegendWithMeasures extends StatelessWidget {
         // This section is excluded from being copied to the gallery.
         // This is added in order to generate the image for the gallery to show
         // an initial selection so that measure values are shown in the gallery.
-        new charts.InitialSelection(
+        charts.InitialSelection(
           selectedDataConfig: [
-            new charts.SeriesDatumConfig('Sales', 0),
+            charts.SeriesDatumConfig('Sales', 0),
           ],
         ),
         // EXCLUDE_FROM_GALLERY_DOCS_END
-        new charts.DatumLegend(
+        charts.DatumLegend(
           // Positions for "start" and "end" will be left and right respectively
           // for widgets with a build context that has directionality ltr.
           // For rtl, "start" and "end" will be right and left respectively.
@@ -102,7 +103,7 @@ class DatumLegendWithMeasures extends StatelessWidget {
           // legend entries will grow as new rows first instead of a new column.
           horizontalFirst: false,
           // This defines the padding around each legend entry.
-          cellPadding: new EdgeInsets.only(right: 4.0, bottom: 4.0),
+          cellPadding: const EdgeInsets.only(right: 4.0, bottom: 4.0),
           // Set [showMeasures] to true to display measures in series legend.
           showMeasures: true,
           // Configure the measure value to be shown by default in the legend.
@@ -120,14 +121,14 @@ class DatumLegendWithMeasures extends StatelessWidget {
   /// Create series list with one series
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(2014, 100),
-      new LinearSales(2015, 75),
-      new LinearSales(2016, 25),
-      new LinearSales(2017, 5),
+      LinearSales(2014, 100),
+      LinearSales(2015, 75),
+      LinearSales(2016, 25),
+      LinearSales(2017, 5),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

@@ -25,11 +25,12 @@ class ScatterPlotAnimationZoomChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  ScatterPlotAnimationZoomChart(this.seriesList, {this.animate});
+  const ScatterPlotAnimationZoomChart(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
   factory ScatterPlotAnimationZoomChart.withSampleData() {
-    return new ScatterPlotAnimationZoomChart(
+    return ScatterPlotAnimationZoomChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,25 +42,25 @@ class ScatterPlotAnimationZoomChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory ScatterPlotAnimationZoomChart.withRandomData() {
-    return new ScatterPlotAnimationZoomChart(_createRandomData());
+    return ScatterPlotAnimationZoomChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = <LinearSales>[];
 
-    final makeRadius = (int value) => (random.nextInt(value) + 2).toDouble();
+    makeRadius(int value) => (random.nextInt(value) + 2).toDouble();
 
     for (var i = 0; i < 100; i++) {
-      data.add(new LinearSales(i, random.nextInt(100), makeRadius(4)));
+      data.add(LinearSales(i, random.nextInt(100), makeRadius(4)));
     }
 
-    final maxMeasure = 100;
+    const maxMeasure = 100;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         colorFn: (LinearSales sales, _) {
           // Color bucket the measure column value into 3 distinct colors.
@@ -84,34 +85,32 @@ class ScatterPlotAnimationZoomChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(seriesList,
-        animate: animate,
-        behaviors: [
-          new charts.PanAndZoomBehavior(),
-        ]);
+    return charts.ScatterPlotChart(seriesList, animate: animate, behaviors: [
+      charts.PanAndZoomBehavior(),
+    ]);
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 5, 3.0),
-      new LinearSales(10, 25, 5.0),
-      new LinearSales(12, 75, 4.0),
-      new LinearSales(13, 225, 5.0),
-      new LinearSales(16, 50, 4.0),
-      new LinearSales(24, 75, 3.0),
-      new LinearSales(25, 100, 3.0),
-      new LinearSales(34, 150, 5.0),
-      new LinearSales(37, 10, 4.5),
-      new LinearSales(45, 300, 8.0),
-      new LinearSales(52, 15, 4.0),
-      new LinearSales(56, 200, 7.0),
+      LinearSales(0, 5, 3.0),
+      LinearSales(10, 25, 5.0),
+      LinearSales(12, 75, 4.0),
+      LinearSales(13, 225, 5.0),
+      LinearSales(16, 50, 4.0),
+      LinearSales(24, 75, 3.0),
+      LinearSales(25, 100, 3.0),
+      LinearSales(34, 150, 5.0),
+      LinearSales(37, 10, 4.5),
+      LinearSales(45, 300, 8.0),
+      LinearSales(52, 15, 4.0),
+      LinearSales(56, 200, 7.0),
     ];
 
-    final maxMeasure = 300;
+    const maxMeasure = 300;
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         colorFn: (LinearSales sales, _) {
           // Color bucket the measure column value into 3 distinct colors.

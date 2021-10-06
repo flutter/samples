@@ -37,10 +37,11 @@ class StaticallyProvidedTicks extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  StaticallyProvidedTicks(this.seriesList, {this.animate});
+  const StaticallyProvidedTicks(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory StaticallyProvidedTicks.withSampleData() {
-    return new StaticallyProvidedTicks(
+    return StaticallyProvidedTicks(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -52,22 +53,22 @@ class StaticallyProvidedTicks extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory StaticallyProvidedTicks.withRandomData() {
-    return new StaticallyProvidedTicks(_createRandomData());
+    return StaticallyProvidedTicks(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final globalSalesData = [
-      new OrdinalSales('2014', random.nextInt(100) * 100),
-      new OrdinalSales('2015', random.nextInt(100) * 100),
-      new OrdinalSales('2016', random.nextInt(100) * 100),
-      new OrdinalSales('2017', random.nextInt(100) * 100),
+      OrdinalSales('2014', random.nextInt(100) * 100),
+      OrdinalSales('2015', random.nextInt(100) * 100),
+      OrdinalSales('2016', random.nextInt(100) * 100),
+      OrdinalSales('2017', random.nextInt(100) * 100),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -81,41 +82,40 @@ class StaticallyProvidedTicks extends StatelessWidget {
   Widget build(BuildContext context) {
     // Create the ticks to be used the domain axis.
     final staticTicks = <charts.TickSpec<String>>[
-      new charts.TickSpec(
+      const charts.TickSpec(
           // Value must match the domain value.
           '2014',
           // Optional label for this tick, defaults to domain value if not set.
           label: 'Year 2014',
           // The styling for this tick.
-          style: new charts.TextStyleSpec(
-              color: new charts.Color(r: 0x4C, g: 0xAF, b: 0x50))),
+          style: charts.TextStyleSpec(
+              color: charts.Color(r: 0x4C, g: 0xAF, b: 0x50))),
       // If no text style is specified - the style from renderSpec will be used
       // if one is specified.
-      new charts.TickSpec('2015'),
-      new charts.TickSpec('2016'),
-      new charts.TickSpec('2017'),
+      const charts.TickSpec('2015'),
+      const charts.TickSpec('2016'),
+      const charts.TickSpec('2017'),
     ];
 
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
-      domainAxis: new charts.OrdinalAxisSpec(
-          tickProviderSpec:
-              new charts.StaticOrdinalTickProviderSpec(staticTicks)),
+      domainAxis: charts.OrdinalAxisSpec(
+          tickProviderSpec: charts.StaticOrdinalTickProviderSpec(staticTicks)),
     );
   }
 
   /// Create series list with single series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final globalSalesData = [
-      new OrdinalSales('2014', 5000),
-      new OrdinalSales('2015', 25000),
-      new OrdinalSales('2016', 100000),
-      new OrdinalSales('2017', 750000),
+      OrdinalSales('2014', 5000),
+      OrdinalSales('2015', 25000),
+      OrdinalSales('2016', 100000),
+      OrdinalSales('2017', 750000),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

@@ -32,10 +32,11 @@ class FlippedVerticalAxis extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  FlippedVerticalAxis(this.seriesList, {this.animate});
+  const FlippedVerticalAxis(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory FlippedVerticalAxis.withSampleData() {
-    return new FlippedVerticalAxis(
+    return FlippedVerticalAxis(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -47,25 +48,25 @@ class FlippedVerticalAxis extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory FlippedVerticalAxis.withRandomData() {
-    return new FlippedVerticalAxis(_createRandomData());
+    return FlippedVerticalAxis(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<RunnerRank, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     const runners = ['Smith', 'Jones', 'Brown', 'Doe'];
 
     // Randomly assign runners, but leave the order of the places.
     final raceData = [
-      new RunnerRank(runners.removeAt(random.nextInt(runners.length)), 1),
-      new RunnerRank(runners.removeAt(random.nextInt(runners.length)), 2),
-      new RunnerRank(runners.removeAt(random.nextInt(runners.length)), 3),
-      new RunnerRank(runners.removeAt(random.nextInt(runners.length)), 4),
+      RunnerRank(runners.removeAt(random.nextInt(runners.length)), 1),
+      RunnerRank(runners.removeAt(random.nextInt(runners.length)), 2),
+      RunnerRank(runners.removeAt(random.nextInt(runners.length)), 3),
+      RunnerRank(runners.removeAt(random.nextInt(runners.length)), 4),
     ];
 
     return [
-      new charts.Series<RunnerRank, String>(
+      charts.Series<RunnerRank, String>(
         id: 'Race Results',
         domainFn: (RunnerRank row, _) => row.name,
         measureFn: (RunnerRank row, _) => row.place,
@@ -80,7 +81,7 @@ class FlippedVerticalAxis extends StatelessWidget {
   // TODO: Remove this comment
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
       flipVerticalAxis: true,
@@ -90,14 +91,14 @@ class FlippedVerticalAxis extends StatelessWidget {
   /// Create series list with multiple series
   static List<charts.Series<RunnerRank, String>> _createSampleData() {
     final raceData = [
-      new RunnerRank('Smith', 1),
-      new RunnerRank('Jones', 2),
-      new RunnerRank('Brown', 3),
-      new RunnerRank('Doe', 4),
+      RunnerRank('Smith', 1),
+      RunnerRank('Jones', 2),
+      RunnerRank('Brown', 3),
+      RunnerRank('Doe', 4),
     ];
 
     return [
-      new charts.Series<RunnerRank, String>(
+      charts.Series<RunnerRank, String>(
           id: 'Race Results',
           domainFn: (RunnerRank row, _) => row.name,
           measureFn: (RunnerRank row, _) => row.place,

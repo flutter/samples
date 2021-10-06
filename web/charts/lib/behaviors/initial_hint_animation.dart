@@ -51,11 +51,12 @@ class InitialHintAnimation extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  InitialHintAnimation(this.seriesList, {this.animate});
+  const InitialHintAnimation(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.
   factory InitialHintAnimation.withSampleData() {
-    return new InitialHintAnimation(
+    return InitialHintAnimation(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -67,35 +68,35 @@ class InitialHintAnimation extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory InitialHintAnimation.withRandomData() {
-    return new InitialHintAnimation(_createRandomData());
+    return InitialHintAnimation(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
-      new OrdinalSales('2018', random.nextInt(100)),
-      new OrdinalSales('2019', random.nextInt(100)),
-      new OrdinalSales('2020', random.nextInt(100)),
-      new OrdinalSales('2021', random.nextInt(100)),
-      new OrdinalSales('2022', random.nextInt(100)),
-      new OrdinalSales('2023', random.nextInt(100)),
-      new OrdinalSales('2024', random.nextInt(100)),
-      new OrdinalSales('2025', random.nextInt(100)),
-      new OrdinalSales('2026', random.nextInt(100)),
-      new OrdinalSales('2027', random.nextInt(100)),
-      new OrdinalSales('2028', random.nextInt(100)),
-      new OrdinalSales('2029', random.nextInt(100)),
-      new OrdinalSales('2030', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2018', random.nextInt(100)),
+      OrdinalSales('2019', random.nextInt(100)),
+      OrdinalSales('2020', random.nextInt(100)),
+      OrdinalSales('2021', random.nextInt(100)),
+      OrdinalSales('2022', random.nextInt(100)),
+      OrdinalSales('2023', random.nextInt(100)),
+      OrdinalSales('2024', random.nextInt(100)),
+      OrdinalSales('2025', random.nextInt(100)),
+      OrdinalSales('2026', random.nextInt(100)),
+      OrdinalSales('2027', random.nextInt(100)),
+      OrdinalSales('2028', random.nextInt(100)),
+      OrdinalSales('2029', random.nextInt(100)),
+      OrdinalSales('2030', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,
@@ -108,7 +109,7 @@ class InitialHintAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
       // Optionally turn off the animation that animates values up from the
@@ -117,17 +118,17 @@ class InitialHintAnimation extends StatelessWidget {
       animationDuration: Duration.zero,
       // Set the initial viewport by providing a new AxisSpec with the
       // desired viewport: a starting domain and the data size.
-      domainAxis: new charts.OrdinalAxisSpec(
-          viewport: new charts.OrdinalViewport('2018', 4)),
+      domainAxis:
+          charts.OrdinalAxisSpec(viewport: charts.OrdinalViewport('2018', 4)),
       behaviors: [
         // Add this behavior to show initial hint animation that will pan to the
         // final desired viewport.
         // The duration of the animation can be adjusted by pass in
         // [hintDuration]. By default this is 3000ms.
-        new charts.InitialHintBehavior(maxHintTranslate: 4.0),
+        charts.InitialHintBehavior(maxHintTranslate: 4.0),
         // Optionally add a pan or pan and zoom behavior.
         // If pan/zoom is not added, the viewport specified remains the viewport
-        new charts.PanAndZoomBehavior(),
+        charts.PanAndZoomBehavior(),
       ],
     );
   }
@@ -135,27 +136,27 @@ class InitialHintAnimation extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final data = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
-      new OrdinalSales('2018', 33),
-      new OrdinalSales('2019', 80),
-      new OrdinalSales('2020', 21),
-      new OrdinalSales('2021', 77),
-      new OrdinalSales('2022', 8),
-      new OrdinalSales('2023', 12),
-      new OrdinalSales('2024', 42),
-      new OrdinalSales('2025', 70),
-      new OrdinalSales('2026', 77),
-      new OrdinalSales('2027', 55),
-      new OrdinalSales('2028', 19),
-      new OrdinalSales('2029', 66),
-      new OrdinalSales('2030', 27),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
+      OrdinalSales('2018', 33),
+      OrdinalSales('2019', 80),
+      OrdinalSales('2020', 21),
+      OrdinalSales('2021', 77),
+      OrdinalSales('2022', 8),
+      OrdinalSales('2023', 12),
+      OrdinalSales('2024', 42),
+      OrdinalSales('2025', 70),
+      OrdinalSales('2026', 77),
+      OrdinalSales('2027', 55),
+      OrdinalSales('2028', 19),
+      OrdinalSales('2029', 66),
+      OrdinalSales('2030', 27),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,
