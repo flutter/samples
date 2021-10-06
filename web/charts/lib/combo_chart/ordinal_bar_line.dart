@@ -25,10 +25,11 @@ class OrdinalComboBarLineChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  OrdinalComboBarLineChart(this.seriesList, {this.animate});
+  const OrdinalComboBarLineChart(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory OrdinalComboBarLineChart.withSampleData() {
-    return new OrdinalComboBarLineChart(
+    return OrdinalComboBarLineChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,48 +41,48 @@ class OrdinalComboBarLineChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory OrdinalComboBarLineChart.withRandomData() {
-    return new OrdinalComboBarLineChart(_createRandomData());
+    return OrdinalComboBarLineChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final desktopSalesData = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     final tableSalesData = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     final mobileSalesData = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Desktop',
           colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: desktopSalesData),
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Tablet',
           colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: tableSalesData),
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Mobile',
           colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,
@@ -95,15 +96,15 @@ class OrdinalComboBarLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.OrdinalComboChart(seriesList,
+    return charts.OrdinalComboChart(seriesList,
         animate: animate,
         // Configure the default renderer as a bar renderer.
-        defaultRenderer: new charts.BarRendererConfig(
+        defaultRenderer: charts.BarRendererConfig(
             groupingType: charts.BarGroupingType.grouped),
         // Custom renderer configuration for the line series. This will be used for
         // any series that does not define a rendererIdKey.
         customSeriesRenderers: [
-          new charts.LineRendererConfig(
+          charts.LineRendererConfig(
               // ID used to link series to this renderer.
               customRendererId: 'customLine')
         ]);
@@ -112,40 +113,40 @@ class OrdinalComboBarLineChart extends StatelessWidget {
   /// Create series list with multiple series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final desktopSalesData = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
     ];
 
     final tableSalesData = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
     ];
 
     final mobileSalesData = [
-      new OrdinalSales('2014', 10),
-      new OrdinalSales('2015', 50),
-      new OrdinalSales('2016', 200),
-      new OrdinalSales('2017', 150),
+      OrdinalSales('2014', 10),
+      OrdinalSales('2015', 50),
+      OrdinalSales('2016', 200),
+      OrdinalSales('2017', 150),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Desktop',
           colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: desktopSalesData),
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Tablet',
           colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: tableSalesData),
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
           id: 'Mobile ',
           colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
           domainFn: (OrdinalSales sales, _) => sales.year,

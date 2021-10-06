@@ -29,11 +29,12 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  BucketingAxisScatterPlotChart(this.seriesList, {this.animate});
+  const BucketingAxisScatterPlotChart(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
   factory BucketingAxisScatterPlotChart.withSampleData() {
-    return new BucketingAxisScatterPlotChart(
+    return BucketingAxisScatterPlotChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -45,61 +46,55 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory BucketingAxisScatterPlotChart.withRandomData() {
-    return new BucketingAxisScatterPlotChart(_createRandomData());
+    return BucketingAxisScatterPlotChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, num>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
-    final makeRadius = (int value) => (random.nextInt(value) + 6).toDouble();
+    makeRadius(int value) => (random.nextInt(value) + 6).toDouble();
 
     // Make sure that the measure values for the first five series are well
     // above the threshold. This simulates the grouping of the small values into
     // the "Other" series.
     final myFakeDesktopData = [
-      new LinearSales(
+      LinearSales(
           random.nextInt(100), (random.nextInt(50) + 50) / 100, makeRadius(6)),
     ];
 
     final myFakeTabletData = [
-      new LinearSales(
+      LinearSales(
           random.nextInt(100), (random.nextInt(50) + 50) / 100, makeRadius(6)),
     ];
 
     final myFakeMobileData = [
-      new LinearSales(
+      LinearSales(
           random.nextInt(100), (random.nextInt(50) + 50) / 100, makeRadius(6)),
     ];
 
     final myFakeChromebookData = [
-      new LinearSales(
+      LinearSales(
           random.nextInt(100), (random.nextInt(50) + 50) / 100, makeRadius(6)),
     ];
 
     final myFakeHomeData = [
-      new LinearSales(
+      LinearSales(
           random.nextInt(100), (random.nextInt(50) + 50) / 100, makeRadius(6)),
     ];
 
     // Make sure that the "Other" series values are smaller.
     final myFakeOtherData = [
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
-      new LinearSales(
-          random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
+      LinearSales(random.nextInt(100), random.nextInt(50) / 100, makeRadius(6)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Desktop',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.blue.shadeDefault,
@@ -107,7 +102,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeDesktopData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Tablet',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.red.shadeDefault,
@@ -115,7 +110,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeTabletData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Mobile',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.green.shadeDefault,
@@ -123,7 +118,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeMobileData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Chromebook',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.purple.shadeDefault,
@@ -131,7 +126,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeChromebookData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Home',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.indigo.shadeDefault,
@@ -139,7 +134,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeHomeData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Other',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.gray.shadeDefault,
@@ -153,19 +148,19 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(seriesList,
+    return charts.ScatterPlotChart(seriesList,
         // Set up a bucketing axis that will place all values below 0.1 (10%)
         // into a bucket at the bottom of the chart.
         //
         // Configure a tick count of 3 so that we get 100%, 50%, and the
         // threshold.
-        primaryMeasureAxis: new charts.BucketingAxisSpec(
+        primaryMeasureAxis: charts.BucketingAxisSpec(
             threshold: 0.1,
-            tickProviderSpec: new charts.BucketingNumericTickProviderSpec(
+            tickProviderSpec: const charts.BucketingNumericTickProviderSpec(
                 desiredTickCount: 3)),
         // Add a series legend to display the series names.
         behaviors: [
-          new charts.SeriesLegend(position: charts.BehaviorPosition.end),
+          charts.SeriesLegend(position: charts.BehaviorPosition.end),
         ],
         animate: animate);
   }
@@ -173,36 +168,36 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final myFakeDesktopData = [
-      new LinearSales(52, 0.75, 14.0),
+      LinearSales(52, 0.75, 14.0),
     ];
 
     final myFakeTabletData = [
-      new LinearSales(45, 0.3, 18.0),
+      LinearSales(45, 0.3, 18.0),
     ];
 
     final myFakeMobileData = [
-      new LinearSales(56, 0.8, 17.0),
+      LinearSales(56, 0.8, 17.0),
     ];
 
     final myFakeChromebookData = [
-      new LinearSales(25, 0.6, 13.0),
+      LinearSales(25, 0.6, 13.0),
     ];
 
     final myFakeHomeData = [
-      new LinearSales(34, 0.5, 15.0),
+      LinearSales(34, 0.5, 15.0),
     ];
 
     final myFakeOtherData = [
-      new LinearSales(10, 0.25, 15.0),
-      new LinearSales(12, 0.075, 14.0),
-      new LinearSales(13, 0.225, 15.0),
-      new LinearSales(16, 0.03, 14.0),
-      new LinearSales(24, 0.04, 13.0),
-      new LinearSales(37, 0.1, 14.5),
+      LinearSales(10, 0.25, 15.0),
+      LinearSales(12, 0.075, 14.0),
+      LinearSales(13, 0.225, 15.0),
+      LinearSales(16, 0.03, 14.0),
+      LinearSales(24, 0.04, 13.0),
+      LinearSales(37, 0.1, 14.5),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Desktop',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.blue.shadeDefault,
@@ -210,7 +205,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeDesktopData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Tablet',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.red.shadeDefault,
@@ -218,7 +213,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeTabletData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Mobile',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.green.shadeDefault,
@@ -226,7 +221,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeMobileData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Chromebook',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.purple.shadeDefault,
@@ -234,7 +229,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeChromebookData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Home',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.indigo.shadeDefault,
@@ -242,7 +237,7 @@ class BucketingAxisScatterPlotChart extends StatelessWidget {
           measureFn: (LinearSales sales, _) => sales.revenueShare,
           radiusPxFn: (LinearSales sales, _) => sales.radius,
           data: myFakeHomeData),
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
           id: 'Other',
           colorFn: (LinearSales sales, _) =>
               charts.MaterialPalette.gray.shadeDefault,

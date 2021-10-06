@@ -33,10 +33,11 @@ class BarChartWithSecondaryAxisOnly extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  BarChartWithSecondaryAxisOnly(this.seriesList, {this.animate});
+  const BarChartWithSecondaryAxisOnly(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory BarChartWithSecondaryAxisOnly.withSampleData() {
-    return new BarChartWithSecondaryAxisOnly(
+    return BarChartWithSecondaryAxisOnly(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -48,22 +49,22 @@ class BarChartWithSecondaryAxisOnly extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory BarChartWithSecondaryAxisOnly.withRandomData() {
-    return new BarChartWithSecondaryAxisOnly(_createRandomData());
+    return BarChartWithSecondaryAxisOnly(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final globalSalesData = [
-      new OrdinalSales('2014', random.nextInt(100) * 100),
-      new OrdinalSales('2015', random.nextInt(100) * 100),
-      new OrdinalSales('2016', random.nextInt(100) * 100),
-      new OrdinalSales('2017', random.nextInt(100) * 100),
+      OrdinalSales('2014', random.nextInt(100) * 100),
+      OrdinalSales('2015', random.nextInt(100) * 100),
+      OrdinalSales('2016', random.nextInt(100) * 100),
+      OrdinalSales('2017', random.nextInt(100) * 100),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -77,7 +78,7 @@ class BarChartWithSecondaryAxisOnly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
     );
@@ -86,14 +87,14 @@ class BarChartWithSecondaryAxisOnly extends StatelessWidget {
   /// Create series list with multiple series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final globalSalesData = [
-      new OrdinalSales('2014', 500),
-      new OrdinalSales('2015', 2500),
-      new OrdinalSales('2016', 1000),
-      new OrdinalSales('2017', 7500),
+      OrdinalSales('2014', 500),
+      OrdinalSales('2015', 2500),
+      OrdinalSales('2016', 1000),
+      OrdinalSales('2017', 7500),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

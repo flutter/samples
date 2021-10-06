@@ -1,5 +1,6 @@
 name: example
 description: Charts-Flutter Demo
+publish_to: none
 
 environment:
   sdk: '>=2.10.0 <3.0.0'
@@ -7,9 +8,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  charts_flutter: any
+  charts_flutter: 
+    git:
+      url: https://github.com/google/charts
+      path: charts_flutter
   meta: ^1.1.1
-  intl: ^0.15.2
+  intl: ^0.17.0
+
+dev_dependencies: 
+  flutter_lints: ^1.0.4
 
 flutter:
   uses-material-design: true
