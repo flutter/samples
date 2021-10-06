@@ -1427,7 +1427,7 @@ class SwiperPluginView extends StatelessWidget {
   final SwiperPlugin plugin;
   final SwiperPluginConfig config;
 
-  const SwiperPluginView(this.plugin, this.config);
+  const SwiperPluginView(this.plugin, this.config, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -12,6 +12,8 @@ class SettingsTab extends StatefulWidget {
   static const androidIcon = Icon(Icons.settings);
   static const iosIcon = Icon(CupertinoIcons.gear);
 
+  const SettingsTab({Key? key}) : super(key: key);
+
   @override
   _SettingsTabState createState() => _SettingsTabState();
 }

@@ -13,7 +13,7 @@ void main() {
     await tester.pumpWidget(
       ChangeNotifierProvider(
         create: (context) => Counter(),
-        child: MyApp(),
+        child: const MyApp(),
       ),
     );
 
