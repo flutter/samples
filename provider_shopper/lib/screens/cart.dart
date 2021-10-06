@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:provider_shopper/models/cart.dart';
 
 class MyCart extends StatelessWidget {
+  const MyCart({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

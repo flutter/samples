@@ -21,7 +21,7 @@ Widget createCatalogScreen() => MultiProvider(
           },
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         home: MyCatalog(),
       ),
     );
