@@ -39,4 +39,4 @@ techniques for one of your own apps, try one of these resources:
 * [StackOverflow](https://stackoverflow.com/questions/tagged/flutter)
 
 If you run into a bug in one of the samples, please file an issue in the
-[main Flutter repo](https://github.com/flutter/flutter/issues).
+[main Flutter repository](https://github.com/flutter/flutter/issues).
