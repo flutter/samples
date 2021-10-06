@@ -11,10 +11,12 @@ import '../app.dart';
 import 'edit_entry.dart';
 
 class NewCategoryDialog extends StatelessWidget {
+  const NewCategoryDialog({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: const Text('New Category'),
+    return const SimpleDialog(
+      title: Text('New Category'),
       children: <Widget>[
         NewCategoryForm(),
       ],
@@ -27,7 +29,8 @@ class EditCategoryDialog extends StatelessWidget {
 
   const EditCategoryDialog({
     @required this.category,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +54,8 @@ class EditCategoryDialog extends StatelessWidget {
 }
 
 class NewEntryDialog extends StatefulWidget {
+  const NewEntryDialog({Key key}) : super(key: key);
+
   @override
   _NewEntryDialogState createState() => _NewEntryDialogState();
 }
@@ -58,8 +63,8 @@ class NewEntryDialog extends StatefulWidget {
 class _NewEntryDialogState extends State<NewEntryDialog> {
   @override
   Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: const Text('New Entry'),
+    return const SimpleDialog(
+      title: Text('New Entry'),
       children: [
         NewEntryForm(),
       ],
@@ -74,7 +79,8 @@ class EditEntryDialog extends StatelessWidget {
   const EditEntryDialog({
     this.category,
     this.entry,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

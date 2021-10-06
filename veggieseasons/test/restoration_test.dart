@@ -16,7 +16,7 @@ void main() {
     AppState.debugCurrentSeason = Season.autumn;
 
     await tester.pumpWidget(
-      RootRestorationScope(
+      const RootRestorationScope(
         restorationId: 'root',
         child: VeggieApp(),
       ),

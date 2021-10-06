@@ -17,7 +17,7 @@ void main() {
     binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
     testWidgets('Scrolling test', (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Create variables for finders that are used multiple times.
       final listFinder = find.byType(ListView);
@@ -49,7 +49,7 @@ void main() {
     });
 
     testWidgets('Favorites operations test', (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Record the performance summary as operations are performed
       // on the favorites list.

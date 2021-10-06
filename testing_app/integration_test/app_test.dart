@@ -12,7 +12,7 @@ void main() {
     IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
     testWidgets('Finding an item in the list', (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Create variables for finders that are used multiple times.
       final itemFinder = find.byKey(const ValueKey('text_25'));
@@ -28,7 +28,7 @@ void main() {
     });
 
     testWidgets('Testing IconButtons', (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Create a finder for the icon.
       final iconFinder = find.byKey(const ValueKey('icon_0'));
@@ -51,7 +51,7 @@ void main() {
 
     testWidgets('Verifying whether item gets added to favorites',
         (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Add item to favorites.
       await tester.tap(find.byKey(const ValueKey('icon_5')));
@@ -71,7 +71,7 @@ void main() {
     });
 
     testWidgets('Testing remove button', (tester) async {
-      await tester.pumpWidget(TestingApp());
+      await tester.pumpWidget(const TestingApp());
 
       // Add item to favorites.
       await tester.tap(find.byKey(const ValueKey('icon_5')));

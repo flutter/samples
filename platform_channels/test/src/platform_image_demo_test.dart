@@ -20,7 +20,7 @@ void main() {
     });
 
     testWidgets('Platform Image test', (tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: PlatformImageDemo(),
       ));
 

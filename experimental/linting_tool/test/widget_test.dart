@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:http/http.dart' as http;
 import 'package:linting_tool/app.dart';
 import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/profiles_store.dart';
@@ -20,7 +21,7 @@ import 'package:linting_tool/widgets/adaptive_nav.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
+
 import 'widget_test.mocks.dart';
 
 late MockClient _mockClient;

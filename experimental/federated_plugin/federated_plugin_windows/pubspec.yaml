@@ -1,7 +1,6 @@
 name: federated_plugin_windows
 description: Windows implementation of federated_plugin to retrieve current battery level.
 version: 0.0.1
-author:
 homepage:
 publish_to: none
 

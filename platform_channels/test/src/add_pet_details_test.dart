@@ -20,7 +20,7 @@ void main() {
     });
 
     testWidgets('Enter pet details', (tester) async {
-      await tester.pumpWidget(MaterialApp(home: AddPetDetails()));
+      await tester.pumpWidget(const MaterialApp(home: AddPetDetails()));
 
       // Enter the breed of cat.
       await tester.enterText(find.byType(TextField), 'Persian');

@@ -10,6 +10,8 @@ import 'package:testing_app/screens/favorites.dart';
 class HomePage extends StatelessWidget {
   static String routeName = '/';
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +42,7 @@ class HomePage extends StatelessWidget {
 class ItemTile extends StatelessWidget {
   final int itemNo;
 
-  const ItemTile(
-    this.itemNo,
-  );
+  const ItemTile(this.itemNo, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

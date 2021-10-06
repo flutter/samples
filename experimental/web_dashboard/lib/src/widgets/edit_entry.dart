@@ -11,6 +11,8 @@ import '../app.dart';
 import 'categories_dropdown.dart';
 
 class NewEntryForm extends StatefulWidget {
+  const NewEntryForm({Key key}) : super(key: key);
+
   @override
   _NewEntryFormState createState() => _NewEntryFormState();
 }
@@ -58,7 +60,8 @@ class EditEntryForm extends StatefulWidget {
   const EditEntryForm({
     @required this.entry,
     @required this.onDone,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _EditEntryFormState createState() => _EditEntryFormState();

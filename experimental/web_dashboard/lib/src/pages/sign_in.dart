@@ -13,7 +13,8 @@ class SignInPage extends StatelessWidget {
   const SignInPage({
     @required this.auth,
     @required this.onSuccess,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,8 @@ class SignInButton extends StatefulWidget {
   const SignInButton({
     @required this.auth,
     @required this.onSuccess,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _SignInButtonState createState() => _SignInButtonState();
