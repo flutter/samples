@@ -32,11 +32,12 @@ class SelectionUserManaged extends StatefulWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  SelectionUserManaged(this.seriesList, {this.animate});
+  const SelectionUserManaged(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.
   factory SelectionUserManaged.withSampleData() {
-    return new SelectionUserManaged(
+    return SelectionUserManaged(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -48,22 +49,22 @@ class SelectionUserManaged extends StatefulWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory SelectionUserManaged.withRandomData() {
-    return new SelectionUserManaged(_createRandomData());
+    return SelectionUserManaged(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,
@@ -77,14 +78,14 @@ class SelectionUserManaged extends StatefulWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final data = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (OrdinalSales sales, _) => sales.year,
@@ -96,20 +97,20 @@ class SelectionUserManaged extends StatefulWidget {
 
   @override
   SelectionUserManagedState createState() {
-    return new SelectionUserManagedState();
+    return SelectionUserManagedState();
   }
 }
 
 class SelectionUserManagedState extends State<SelectionUserManaged> {
-  final _myState = new charts.UserManagedState<String>();
+  final _myState = charts.UserManagedState<String>();
 
   @override
   Widget build(BuildContext context) {
-    final chart = new charts.BarChart(
+    final chart = charts.BarChart(
       widget.seriesList,
       animate: false, //widget.animate,
       selectionModels: [
-        new charts.SelectionModelConfig(
+        charts.SelectionModelConfig(
             type: charts.SelectionModelType.info,
             updatedListener: _infoSelectionModelUpdated)
       ],
@@ -119,17 +120,17 @@ class SelectionUserManagedState extends State<SelectionUserManaged> {
       // The initial selection can still be optionally added by adding the
       // initial selection behavior.
       behaviors: [
-        new charts.InitialSelection(selectedDataConfig: [
-          new charts.SeriesDatumConfig<String>('Sales', '2016')
+        charts.InitialSelection(selectedDataConfig: [
+          charts.SeriesDatumConfig<String>('Sales', '2016')
         ])
       ],
     );
 
-    final clearSelection = new MaterialButton(
-        onPressed: _handleClearSelection, child: new Text('Clear Selection'));
+    final clearSelection = MaterialButton(
+        onPressed: _handleClearSelection, child: const Text('Clear Selection'));
 
-    return new Column(
-        children: [new SizedBox(child: chart, height: 150.0), clearSelection]);
+    return Column(
+        children: [SizedBox(child: chart, height: 150.0), clearSelection]);
   }
 
   void _infoSelectionModelUpdated(charts.SelectionModel<String> model) {
@@ -141,7 +142,7 @@ class SelectionUserManagedState extends State<SelectionUserManaged> {
     // This also allows you to listen to the selection model update events and
     // alter the selection.
     _myState.selectionModels[charts.SelectionModelType.info] =
-        new charts.UserManagedSelectionModel(model: model);
+        charts.UserManagedSelectionModel(model: model);
   }
 
   void _handleClearSelection() {
@@ -150,7 +151,7 @@ class SelectionUserManagedState extends State<SelectionUserManaged> {
     // no selection model to clear all selection when rebuilt.
     setState(() {
       _myState.selectionModels[charts.SelectionModelType.info] =
-          new charts.UserManagedSelectionModel();
+          charts.UserManagedSelectionModel();
     });
   }
 }

@@ -22,11 +22,12 @@ class SelectionBarHighlight extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  SelectionBarHighlight(this.seriesList, {this.animate});
+  const SelectionBarHighlight(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.
   factory SelectionBarHighlight.withSampleData() {
-    return new SelectionBarHighlight(
+    return SelectionBarHighlight(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -38,22 +39,22 @@ class SelectionBarHighlight extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory SelectionBarHighlight.withRandomData() {
-    return new SelectionBarHighlight(_createRandomData());
+    return SelectionBarHighlight(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new OrdinalSales('2014', random.nextInt(100)),
-      new OrdinalSales('2015', random.nextInt(100)),
-      new OrdinalSales('2016', random.nextInt(100)),
-      new OrdinalSales('2017', random.nextInt(100)),
+      OrdinalSales('2014', random.nextInt(100)),
+      OrdinalSales('2015', random.nextInt(100)),
+      OrdinalSales('2016', random.nextInt(100)),
+      OrdinalSales('2017', random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -74,7 +75,7 @@ class SelectionBarHighlight extends StatelessWidget {
     //
     // [defaultInteractions] can be set to false to avoid the default
     // interactions.
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
       defaultInteractions: true,
@@ -84,14 +85,14 @@ class SelectionBarHighlight extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final data = [
-      new OrdinalSales('2014', 5),
-      new OrdinalSales('2015', 25),
-      new OrdinalSales('2016', 100),
-      new OrdinalSales('2017', 75),
+      OrdinalSales('2014', 5),
+      OrdinalSales('2015', 25),
+      OrdinalSales('2016', 100),
+      OrdinalSales('2017', 75),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Sales',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

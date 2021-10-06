@@ -32,95 +32,93 @@ import 'sliding_viewport_on_selection.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Selection Bar Highlight',
       subtitle: 'Simple bar chart with tap activation',
-      childBuilder: () => new SelectionBarHighlight.withRandomData(),
+      childBuilder: () => SelectionBarHighlight.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Selection Line Highlight',
       subtitle: 'Line chart with tap and drag activation',
-      childBuilder: () => new SelectionLineHighlight.withRandomData(),
+      childBuilder: () => SelectionLineHighlight.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Selection Line Highlight Custom Shape',
       subtitle: 'Line chart with tap and drag activation and a custom shape',
-      childBuilder: () =>
-          new SelectionLineHighlightCustomShape.withRandomData(),
+      childBuilder: () => SelectionLineHighlightCustomShape.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Selection Scatter Plot Highlight',
       subtitle: 'Scatter plot chart with tap and drag activation',
-      childBuilder: () => new SelectionScatterPlotHighlight.withRandomData(),
+      childBuilder: () => SelectionScatterPlotHighlight.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Selection Callback Example',
       subtitle: 'Timeseries that updates external components on selection',
-      childBuilder: () => new SelectionCallbackExample.withRandomData(),
+      childBuilder: () => SelectionCallbackExample.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'User managed selection',
       subtitle:
           'Example where selection can be set and cleared programmatically',
-      childBuilder: () => new SelectionUserManaged.withRandomData(),
+      childBuilder: () => SelectionUserManaged.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Bar Chart with initial selection',
       subtitle: 'Single series with initial selection',
-      childBuilder: () => new InitialSelection.withRandomData(),
+      childBuilder: () => InitialSelection.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Line Chart with Chart Titles',
       subtitle: 'Line chart with four chart titles',
-      childBuilder: () => new ChartTitleLine.withRandomData(),
+      childBuilder: () => ChartTitleLine.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.flag),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.flag),
       title: 'Line Chart with Slider',
       subtitle: 'Line chart with a slider behavior',
-      childBuilder: () => new SliderLine.withRandomData(),
+      childBuilder: () => SliderLine.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Percent of Domain',
-      subtitle: 'Stacked bar chart with measures calculated as percent of ' +
-          'domain',
-      childBuilder: () => new PercentOfDomainBarChart.withRandomData(),
+      subtitle:
+          'Stacked bar chart with measures calculated as percent of ' 'domain',
+      childBuilder: () => PercentOfDomainBarChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Percent of Domain by Category',
       subtitle: 'Grouped stacked bar chart with measures calculated as '
           'percent of domain and series category',
-      childBuilder: () =>
-          new PercentOfDomainByCategoryBarChart.withRandomData(),
+      childBuilder: () => PercentOfDomainByCategoryBarChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Percent of Series',
-      subtitle: 'Grouped bar chart with measures calculated as percent of ' +
-          'series',
-      childBuilder: () => new PercentOfSeriesBarChart.withRandomData(),
+      subtitle:
+          'Grouped bar chart with measures calculated as percent of ' 'series',
+      childBuilder: () => PercentOfSeriesBarChart.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Sliding viewport on domain selection',
       subtitle: 'Center viewport on selected domain',
-      childBuilder: () => new SlidingViewportOnSelection.withRandomData(),
+      childBuilder: () => SlidingViewportOnSelection.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Initial hint animation ',
       subtitle: 'Animate into final viewport',
-      childBuilder: () => new InitialHintAnimation.withRandomData(),
+      childBuilder: () => InitialHintAnimation.withRandomData(),
     ),
   ];
 }

@@ -25,10 +25,11 @@ class HiddenTicksAndLabelsAxis extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  HiddenTicksAndLabelsAxis(this.seriesList, {this.animate});
+  const HiddenTicksAndLabelsAxis(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory HiddenTicksAndLabelsAxis.withSampleData() {
-    return new HiddenTicksAndLabelsAxis(
+    return HiddenTicksAndLabelsAxis(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -40,22 +41,22 @@ class HiddenTicksAndLabelsAxis extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory HiddenTicksAndLabelsAxis.withRandomData() {
-    return new HiddenTicksAndLabelsAxis(_createRandomData());
+    return HiddenTicksAndLabelsAxis(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<OrdinalSales, String>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final globalSalesData = [
-      new OrdinalSales('2014', random.nextInt(100) * 100),
-      new OrdinalSales('2015', random.nextInt(100) * 100),
-      new OrdinalSales('2016', random.nextInt(100) * 100),
-      new OrdinalSales('2017', random.nextInt(100) * 100),
+      OrdinalSales('2014', random.nextInt(100) * 100),
+      OrdinalSales('2015', random.nextInt(100) * 100),
+      OrdinalSales('2016', random.nextInt(100) * 100),
+      OrdinalSales('2017', random.nextInt(100) * 100),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,
@@ -67,7 +68,7 @@ class HiddenTicksAndLabelsAxis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
+    return charts.BarChart(
       seriesList,
       animate: animate,
 
@@ -76,30 +77,30 @@ class HiddenTicksAndLabelsAxis extends StatelessWidget {
       /// The NoneRenderSpec can still draw an axis line with
       /// showAxisLine=true.
       primaryMeasureAxis:
-          new charts.NumericAxisSpec(renderSpec: new charts.NoneRenderSpec()),
+          const charts.NumericAxisSpec(renderSpec: charts.NoneRenderSpec()),
 
       /// This is an OrdinalAxisSpec to match up with BarChart's default
       /// ordinal domain axis (use NumericAxisSpec or DateTimeAxisSpec for
       /// other charts).
-      domainAxis: new charts.OrdinalAxisSpec(
+      domainAxis: const charts.OrdinalAxisSpec(
           // Make sure that we draw the domain axis line.
           showAxisLine: true,
           // But don't draw anything else.
-          renderSpec: new charts.NoneRenderSpec()),
+          renderSpec: charts.NoneRenderSpec()),
     );
   }
 
   /// Create series list with single series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final globalSalesData = [
-      new OrdinalSales('2014', 5000),
-      new OrdinalSales('2015', 25000),
-      new OrdinalSales('2016', 100000),
-      new OrdinalSales('2017', 750000),
+      OrdinalSales('2014', 5000),
+      OrdinalSales('2015', 25000),
+      OrdinalSales('2016', 100000),
+      OrdinalSales('2017', 750000),
     ];
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      charts.Series<OrdinalSales, String>(
         id: 'Global Revenue',
         domainFn: (OrdinalSales sales, _) => sales.year,
         measureFn: (OrdinalSales sales, _) => sales.sales,

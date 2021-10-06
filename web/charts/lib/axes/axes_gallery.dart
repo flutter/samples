@@ -34,104 +34,103 @@ import 'statically_provided_ticks.dart';
 
 List<GalleryScaffold> buildGallery() {
   return [
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Bar chart with Secondary Measure Axis',
       subtitle: 'Bar chart with a series using a secondary measure axis',
-      childBuilder: () => new BarChartWithSecondaryAxis.withRandomData(),
+      childBuilder: () => BarChartWithSecondaryAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Bar chart with Secondary Measure Axis only',
       subtitle: 'Bar chart with both series using secondary measure axis',
-      childBuilder: () => new BarChartWithSecondaryAxisOnly.withRandomData(),
+      childBuilder: () => BarChartWithSecondaryAxisOnly.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Transform.rotate(
-          angle: 1.5708, child: new Icon(Icons.insert_chart)),
+    GalleryScaffold(
+      listTileIcon: Transform.rotate(
+          angle: 1.5708, child: const Icon(Icons.insert_chart)),
       title: 'Horizontal bar chart with Secondary Measure Axis',
       subtitle:
           'Horizontal Bar chart with a series using secondary measure axis',
-      childBuilder: () =>
-          new HorizontalBarChartWithSecondaryAxis.withRandomData(),
+      childBuilder: () => HorizontalBarChartWithSecondaryAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Short Ticks Axis',
       subtitle: 'Bar chart with the primary measure axis having short ticks',
-      childBuilder: () => new ShortTickLengthAxis.withRandomData(),
+      childBuilder: () => ShortTickLengthAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Custom Axis Fonts',
       subtitle: 'Bar chart with custom axis font size and color',
-      childBuilder: () => new CustomFontSizeAndColor.withRandomData(),
+      childBuilder: () => CustomFontSizeAndColor.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Label Alignment Axis',
       subtitle: 'Bar chart with custom measure axis label alignments',
-      childBuilder: () => new MeasureAxisLabelAlignment.withRandomData(),
+      childBuilder: () => MeasureAxisLabelAlignment.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'No Axis',
       subtitle: 'Bar chart with only the axis line drawn',
-      childBuilder: () => new HiddenTicksAndLabelsAxis.withRandomData(),
+      childBuilder: () => HiddenTicksAndLabelsAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Statically Provided Ticks',
       subtitle: 'Bar chart with statically provided ticks',
-      childBuilder: () => new StaticallyProvidedTicks.withRandomData(),
+      childBuilder: () => StaticallyProvidedTicks.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Custom Formatter',
       subtitle: 'Timeseries with custom domain and measure tick formatters',
-      childBuilder: () => new CustomAxisTickFormatters.withRandomData(),
+      childBuilder: () => CustomAxisTickFormatters.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Custom Tick Count',
       subtitle: 'Timeseries with custom measure axis tick count',
-      childBuilder: () => new CustomMeasureTickCount.withRandomData(),
+      childBuilder: () => CustomMeasureTickCount.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Integer Measure Ticks',
       subtitle: 'Timeseries with only whole number measure axis ticks',
-      childBuilder: () => new IntegerOnlyMeasureAxis.withRandomData(),
+      childBuilder: () => IntegerOnlyMeasureAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Non-zero bound Axis',
       subtitle: 'Timeseries with measure axis that does not include zero',
-      childBuilder: () => new NonzeroBoundMeasureAxis.withRandomData(),
+      childBuilder: () => NonzeroBoundMeasureAxis.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.insert_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.insert_chart),
       title: 'Ordinal axis with initial viewport',
       subtitle: 'Single series with initial viewport',
-      childBuilder: () => new OrdinalInitialViewport.withRandomData(),
+      childBuilder: () => OrdinalInitialViewport.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Numeric axis with initial viewport',
       subtitle: 'Initial viewport is set to a subset of the data',
-      childBuilder: () => new NumericInitialViewport.withRandomData(),
+      childBuilder: () => NumericInitialViewport.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Gridline dash pattern',
       subtitle: 'Timeseries with measure gridlines that have a dash pattern',
-      childBuilder: () => new GridlineDashPattern.withRandomData(),
+      childBuilder: () => GridlineDashPattern.withRandomData(),
     ),
-    new GalleryScaffold(
-      listTileIcon: new Icon(Icons.show_chart),
+    GalleryScaffold(
+      listTileIcon: const Icon(Icons.show_chart),
       title: 'Disjoint Measure Axes',
       subtitle: 'Line chart with disjoint measure axes',
-      childBuilder: () => new DisjointMeasureAxisLineChart.withRandomData(),
+      childBuilder: () => DisjointMeasureAxisLineChart.withRandomData(),
     ),
   ];
 }

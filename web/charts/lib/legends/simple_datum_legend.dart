@@ -24,10 +24,11 @@ class SimpleDatumLegend extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  SimpleDatumLegend(this.seriesList, {this.animate});
+  const SimpleDatumLegend(this.seriesList, {this.animate, Key key})
+      : super(key: key);
 
   factory SimpleDatumLegend.withSampleData() {
-    return new SimpleDatumLegend(
+    return SimpleDatumLegend(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -39,22 +40,22 @@ class SimpleDatumLegend extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory SimpleDatumLegend.withRandomData() {
-    return new SimpleDatumLegend(_createRandomData());
+    return SimpleDatumLegend(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<LinearSales, int>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new LinearSales(0, random.nextInt(100)),
-      new LinearSales(1, random.nextInt(100)),
-      new LinearSales(2, random.nextInt(100)),
-      new LinearSales(3, random.nextInt(100)),
+      LinearSales(0, random.nextInt(100)),
+      LinearSales(1, random.nextInt(100)),
+      LinearSales(2, random.nextInt(100)),
+      LinearSales(3, random.nextInt(100)),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,
@@ -66,26 +67,26 @@ class SimpleDatumLegend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.PieChart(
+    return charts.PieChart(
       seriesList,
       animate: animate,
       // Add the series legend behavior to the chart to turn on series legends.
       // By default the legend will display above the chart.
-      behaviors: [new charts.DatumLegend()],
+      behaviors: [charts.DatumLegend()],
     );
   }
 
   /// Create series list with one series
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
-      new LinearSales(3, 5),
+      LinearSales(0, 100),
+      LinearSales(1, 75),
+      LinearSales(2, 25),
+      LinearSales(3, 5),
     ];
 
     return [
-      new charts.Series<LinearSales, int>(
+      charts.Series<LinearSales, int>(
         id: 'Sales',
         domainFn: (LinearSales sales, _) => sales.year,
         measureFn: (LinearSales sales, _) => sales.sales,

@@ -25,11 +25,13 @@ class TimeSeriesRangeAnnotationMarginChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
 
-  TimeSeriesRangeAnnotationMarginChart(this.seriesList, {this.animate});
+  const TimeSeriesRangeAnnotationMarginChart(this.seriesList,
+      {this.animate, Key key})
+      : super(key: key);
 
   /// Creates a [TimeSeriesChart] with sample data and no transition.
   factory TimeSeriesRangeAnnotationMarginChart.withSampleData() {
-    return new TimeSeriesRangeAnnotationMarginChart(
+    return TimeSeriesRangeAnnotationMarginChart(
       _createSampleData(),
       // Disable animations for image tests.
       animate: false,
@@ -41,24 +43,24 @@ class TimeSeriesRangeAnnotationMarginChart extends StatelessWidget {
   // It is used for creating random series data to demonstrate animation in
   // the example app only.
   factory TimeSeriesRangeAnnotationMarginChart.withRandomData() {
-    return new TimeSeriesRangeAnnotationMarginChart(_createRandomData());
+    return TimeSeriesRangeAnnotationMarginChart(_createRandomData());
   }
 
   /// Create random data.
   static List<charts.Series<TimeSeriesSales, DateTime>> _createRandomData() {
-    final random = new Random();
+    final random = Random();
 
     final data = [
-      new TimeSeriesSales(new DateTime(2017, 9, 19), random.nextInt(100)),
-      new TimeSeriesSales(new DateTime(2017, 9, 26), random.nextInt(100)),
-      new TimeSeriesSales(new DateTime(2017, 10, 3), random.nextInt(100)),
+      TimeSeriesSales(DateTime(2017, 9, 19), random.nextInt(100)),
+      TimeSeriesSales(DateTime(2017, 9, 26), random.nextInt(100)),
+      TimeSeriesSales(DateTime(2017, 10, 3), random.nextInt(100)),
       // Fix one of the points to 100 so that the annotations are consistently
       // placed.
-      new TimeSeriesSales(new DateTime(2017, 10, 10), 100),
+      TimeSeriesSales(DateTime(2017, 10, 10), 100),
     ];
 
     return [
-      new charts.Series<TimeSeriesSales, DateTime>(
+      charts.Series<TimeSeriesSales, DateTime>(
         id: 'Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
@@ -70,37 +72,35 @@ class TimeSeriesRangeAnnotationMarginChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.TimeSeriesChart(seriesList,
+    return charts.TimeSeriesChart(seriesList,
         animate: animate,
 
         // Allow enough space in the left and right chart margins for the
         // annotations.
-        layoutConfig: new charts.LayoutConfig(
-            leftMarginSpec: new charts.MarginSpec.fixedPixel(60),
-            topMarginSpec: new charts.MarginSpec.fixedPixel(20),
-            rightMarginSpec: new charts.MarginSpec.fixedPixel(60),
-            bottomMarginSpec: new charts.MarginSpec.fixedPixel(20)),
+        layoutConfig: charts.LayoutConfig(
+            leftMarginSpec: charts.MarginSpec.fixedPixel(60),
+            topMarginSpec: charts.MarginSpec.fixedPixel(20),
+            rightMarginSpec: charts.MarginSpec.fixedPixel(60),
+            bottomMarginSpec: charts.MarginSpec.fixedPixel(20)),
         behaviors: [
           // Define one domain and two measure annotations configured to render
           // labels in the chart margins.
-          new charts.RangeAnnotation([
-            new charts.RangeAnnotationSegment(
-                new DateTime(2017, 10, 4),
-                new DateTime(2017, 10, 15),
-                charts.RangeAnnotationAxisType.domain,
+          charts.RangeAnnotation([
+            charts.RangeAnnotationSegment(DateTime(2017, 10, 4),
+                DateTime(2017, 10, 15), charts.RangeAnnotationAxisType.domain,
                 startLabel: 'D1 Start',
                 endLabel: 'D1 End',
                 labelAnchor: charts.AnnotationLabelAnchor.end,
                 color: charts.MaterialPalette.gray.shade200,
                 // Override the default vertical direction for domain labels.
                 labelDirection: charts.AnnotationLabelDirection.horizontal),
-            new charts.RangeAnnotationSegment(
+            charts.RangeAnnotationSegment(
                 15, 20, charts.RangeAnnotationAxisType.measure,
                 startLabel: 'M1 Start',
                 endLabel: 'M1 End',
                 labelAnchor: charts.AnnotationLabelAnchor.end,
                 color: charts.MaterialPalette.gray.shade300),
-            new charts.RangeAnnotationSegment(
+            charts.RangeAnnotationSegment(
                 35, 65, charts.RangeAnnotationAxisType.measure,
                 startLabel: 'M2 Start',
                 endLabel: 'M2 End',
@@ -113,14 +113,14 @@ class TimeSeriesRangeAnnotationMarginChart extends StatelessWidget {
   /// Create one series with sample hard coded data.
   static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
     final data = [
-      new TimeSeriesSales(new DateTime(2017, 9, 19), 5),
-      new TimeSeriesSales(new DateTime(2017, 9, 26), 25),
-      new TimeSeriesSales(new DateTime(2017, 10, 3), 100),
-      new TimeSeriesSales(new DateTime(2017, 10, 10), 75),
+      TimeSeriesSales(DateTime(2017, 9, 19), 5),
+      TimeSeriesSales(DateTime(2017, 9, 26), 25),
+      TimeSeriesSales(DateTime(2017, 10, 3), 100),
+      TimeSeriesSales(DateTime(2017, 10, 10), 75),
     ];
 
     return [
-      new charts.Series<TimeSeriesSales, DateTime>(
+      charts.Series<TimeSeriesSales, DateTime>(
         id: 'Sales',
         domainFn: (TimeSeriesSales sales, _) => sales.time,
         measureFn: (TimeSeriesSales sales, _) => sales.sales,
