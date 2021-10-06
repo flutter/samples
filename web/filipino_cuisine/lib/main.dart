@@ -42,7 +42,8 @@ class HState extends State<Home> {
   }
 
   Future<void> getData() async {
-    http.Response r = await http.get('/data.json');
+    http.Response r = await http.get(
+        'https://flutter.github.io/samples/web/filipino_cuisine/data.json');
     fd = json.decode(r.body) as Map<String, dynamic>;
     setState(() => fi = fd['0'] as Map<String, dynamic>);
   }

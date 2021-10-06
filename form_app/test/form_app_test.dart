@@ -12,13 +12,13 @@ final http.Client httpClient = MockClient();
 
 void main() {
   testWidgets('sign in', (tester) async {
-    await _signIn(tester, 'root','password');
+    await _signIn(tester, 'root', 'password');
     expect(find.text('Unable to sign in.'), findsNothing);
     expect(find.text('Successfully signed in.'), findsOneWidget);
   });
 
   testWidgets('sign in with bad password', (tester) async {
-    await _signIn(tester, 'admin','pw');
+    await _signIn(tester, 'admin', 'pw');
     expect(find.byType(AlertDialog), findsOneWidget);
     expect(find.text('Unable to sign in.'), findsOneWidget);
     expect(find.text('Successfully signed in.'), findsNothing);
