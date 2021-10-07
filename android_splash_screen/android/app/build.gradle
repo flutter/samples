@@ -68,6 +68,4 @@ dependencies {
     // For loading and tinting drawables on older versions of the platform
     implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:2.1.0"
-
-
 }

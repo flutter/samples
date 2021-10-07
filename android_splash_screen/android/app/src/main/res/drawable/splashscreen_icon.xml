@@ -24,25 +24,6 @@
         android:height="108dp"
         android:viewportHeight="432"
         android:viewportWidth="432">
-
-      <!-- DEBUG GROUP (Uncomment to check if the icon fits within the bounds)
-      <path
-          android:fillColor="#0000FF"
-          android:pathData="m 0 0, 0 432, 432 0, 0 -432" />
-      <group
-          android:translateX="72"
-          android:translateY="72"
-          android:scaleX="0.67"
-          android:scaleY="0.67">
-          <path
-              android:fillColor="#00FF00"
-              android:pathData="
-              M 0, 216
-              a 216, 216 0 1,0 432, 0
-              a 216, 216 0 1,0 -432, 0" />
-      </group>
-      END DEBUG GROUP -->
-
       <!--
        Scale down the icon and translate if to fit
        within the inner 2/3 (scale <= 0.67) or the viewport.
@@ -70,7 +51,6 @@
       </group>
     </vector>
   </aapt:attr>
-
 
   <target android:name="anim">
     <aapt:attr name="android:animation">
