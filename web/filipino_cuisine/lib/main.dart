@@ -32,8 +32,8 @@ class Home extends StatefulWidget {
 }
 
 class HState extends State<Home> {
-  Map<String, dynamic> fd;
-  Map<String, dynamic> fi;
+  Map<String, dynamic>? fd;
+  Map<String, dynamic>? fi;
 
   @override
   void initState() {
@@ -42,10 +42,10 @@ class HState extends State<Home> {
   }
 
   Future<void> getData() async {
-    http.Response r = await http.get(
-        'https://flutter.github.io/samples/web/filipino_cuisine/data.json');
-    fd = json.decode(r.body) as Map<String, dynamic>;
-    setState(() => fi = fd['0'] as Map<String, dynamic>);
+    http.Response r = await http.get(Uri.parse(
+        'https://flutter.github.io/samples/web/filipino_cuisine/data.json'));
+    fd = json.decode(r.body) as Map<String, dynamic>?;
+    setState(() => fi = fd!['0'] as Map<String, dynamic>?);
   }
 
   @override
@@ -66,58 +66,59 @@ class HState extends State<Home> {
               flex: 5,
               child: Swiper(
                   onIndexChanged: (n) =>
-                      setState(() => fi = fd['$n'] as Map<String, dynamic>),
+                      setState(() => fi = fd!['$n'] as Map<String, dynamic>?),
                   itemCount:
-                      fd.keys.where((key) => int.tryParse(key) != null).length,
+                      fd!.keys.where((key) => int.tryParse(key) != null).length,
                   itemBuilder: (cx, i) {
                     return Container(
                         margin: const EdgeInsets.only(top: 40, bottom: 24),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Hero(
-                              tag: fd['$i']['fn'],
-                              child: Image.asset(fd['$i']['pf'] as String,
+                              tag: fd!['$i']['fn'] as Object,
+                              child: Image.asset(fd!['$i']['pf'] as String,
                                   fit: BoxFit.cover)),
                         ));
                   },
                   viewportFraction: .85,
                   scale: .9)),
-          Text(fi['fn'] as String,
-              style:
-                  t.headline2.copyWith(fontFamily: 'ark', color: Colors.black)),
+          Text(fi!['fn'] as String,
+              style: t.headline2!
+                  .copyWith(fontFamily: 'ark', color: Colors.black)),
           Container(
-            child: Text(fi['cn'] as String,
-                style: t.subtitle1.apply(color: Colors.red, fontFamily: 'opb')),
+            child: Text(fi!['cn'] as String,
+                style:
+                    t.subtitle1!.apply(color: Colors.red, fontFamily: 'opb')),
             margin: const EdgeInsets.only(top: 10, bottom: 30),
           ),
           Container(
-              child: Text(fi['dc'] as String,
+              child: Text(fi!['dc'] as String,
                   textAlign: TextAlign.center,
-                  style: t.subtitle1.copyWith(fontFamily: 'opr')),
+                  style: t.subtitle1!.copyWith(fontFamily: 'opr')),
               margin: const EdgeInsets.only(left: 10, right: 10)),
           Expanded(
               flex: 2,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: fi['ig'].length as int,
+                  itemCount: fi!['ig'].length as int?,
                   itemBuilder: (cx, i) {
                     return Row(children: <Widget>[
                       Container(
                           margin: const EdgeInsets.only(left: 10),
                           height: 60,
-                          child: Image.asset(fi['ig'][i]['p'] as String,
+                          child: Image.asset(fi!['ig'][i]['p'] as String,
                               fit: BoxFit.contain)),
                       Container(
                           margin: const EdgeInsets.only(left: 5, right: 10),
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(fi['ig'][i]['n'] as String,
-                                    style: t.subtitle2
+                                Text(fi!['ig'][i]['n'] as String,
+                                    style: t.subtitle2!
                                         .copyWith(fontFamily: 'opb')),
-                                Text(fi['ig'][i]['c'] as String,
+                                Text(fi!['ig'][i]['c'] as String,
                                     style:
-                                        t.caption.copyWith(fontFamily: 'opr'))
+                                        t.caption!.copyWith(fontFamily: 'opr'))
                               ]))
                     ]);
                   }))
@@ -130,9 +131,9 @@ class HState extends State<Home> {
             context,
             MaterialPageRoute(
                 builder: (cx) => Cook(
-                      (fi['in'] as List).cast(),
-                      fi['pf'] as String,
-                      fi['fn'] as String,
+                      (fi!['in'] as List).cast(),
+                      fi!['pf'] as String?,
+                      fi!['fn'] as String?,
                     ))),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -142,11 +143,11 @@ class HState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(fi['fv'] as bool
+                    icon: Icon(fi!['fv'] as bool
                         ? Icons.favorite
                         : Icons.favorite_border),
                     onPressed: () =>
-                        setState(() => fi['fv'] = !(fi['fv'] as bool))),
+                        setState(() => fi!['fv'] = !(fi!['fv'] as bool))),
                 IconButton(icon: const Icon(Icons.share), onPressed: () {})
               ])),
     );
