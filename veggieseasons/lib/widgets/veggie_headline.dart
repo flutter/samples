@@ -8,11 +8,12 @@ import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class ZoomClipAssetImage extends StatelessWidget {
-  const ZoomClipAssetImage(
-      {required this.zoom,
-      this.height,
-      this.width,
-      required this.imageAsset});
+  const ZoomClipAssetImage({
+    required this.zoom,
+    this.height,
+    this.width,
+    required this.imageAsset,
+  });
 
   final double zoom;
   final double? height;
