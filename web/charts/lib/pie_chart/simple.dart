@@ -22,9 +22,9 @@ import 'package:flutter/material.dart';
 
 class SimplePieChart extends StatelessWidget {
   final List<charts.Series> seriesList;
-  final bool animate;
+  final bool? animate;
 
-  const SimplePieChart(this.seriesList, {this.animate, Key key})
+  const SimplePieChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [PieChart] with sample data and no transition.

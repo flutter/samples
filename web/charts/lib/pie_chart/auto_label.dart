@@ -23,9 +23,9 @@ import 'package:flutter/material.dart';
 
 class DonutAutoLabelChart extends StatelessWidget {
   final List<charts.Series> seriesList;
-  final bool animate;
+  final bool? animate;
 
-  const DonutAutoLabelChart(this.seriesList, {this.animate, Key key})
+  const DonutAutoLabelChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [PieChart] with sample data and no transition.

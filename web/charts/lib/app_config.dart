@@ -17,10 +17,10 @@ import 'package:flutter/material.dart';
 
 /// A particular configuration of the app.
 class AppConfig {
-  final String appName;
-  final String appLink;
-  final ThemeData theme;
-  final bool showPerformanceOverlay;
+  final String? appName;
+  final String? appLink;
+  final ThemeData? theme;
+  final bool? showPerformanceOverlay;
 
   AppConfig(
       {this.appName, this.appLink, this.theme, this.showPerformanceOverlay});
