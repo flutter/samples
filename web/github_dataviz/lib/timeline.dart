@@ -12,19 +12,21 @@ typedef MouseUpCallback = void Function();
 class Timeline extends StatefulWidget {
   final int numWeeks;
   final double animationValue;
-  final List<WeekLabel> weekLabels;
+  final List<WeekLabel>? weekLabels;
 
-  final MouseDownCallback mouseDownCallback;
-  final MouseMoveCallback mouseMoveCallback;
-  final MouseUpCallback mouseUpCallback;
+  final MouseDownCallback? mouseDownCallback;
+  final MouseMoveCallback? mouseMoveCallback;
+  final MouseUpCallback? mouseUpCallback;
 
-  Timeline(
-      {@required this.numWeeks,
-      @required this.animationValue,
-      @required this.weekLabels,
+  const Timeline(
+      {required this.numWeeks,
+      required this.animationValue,
+      required this.weekLabels,
       this.mouseDownCallback,
       this.mouseMoveCallback,
-      this.mouseUpCallback});
+      this.mouseUpCallback,
+      Key? key})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -39,17 +41,17 @@ class TimelineState extends State<Timeline> {
   void initState() {
     super.initState();
     for (int year = 2015; year < 2020; year++) {
-      String yearLabel = "$year";
+      String yearLabel = '$year';
       labelPainters[yearLabel] =
           _makeTextPainter(Constants.timelineLineColor, yearLabel);
     }
 
-    widget.weekLabels.forEach((WeekLabel weekLabel) {
+    for (var weekLabel in widget.weekLabels!) {
       labelPainters[weekLabel.label] =
           _makeTextPainter(Constants.milestoneTimelineColor, weekLabel.label);
-      labelPainters[weekLabel.label + "_red"] =
+      labelPainters[weekLabel.label + '_red'] =
           _makeTextPainter(Colors.redAccent, weekLabel.label);
-    });
+    }
   }
 
   @override
@@ -58,18 +60,18 @@ class TimelineState extends State<Timeline> {
       behavior: HitTestBehavior.translucent,
       onHorizontalDragDown: (DragDownDetails details) {
         if (widget.mouseDownCallback != null) {
-          widget.mouseDownCallback(
+          widget.mouseDownCallback!(
               _getClampedXFractionLocalCoords(context, details.globalPosition));
         }
       },
       onHorizontalDragEnd: (DragEndDetails details) {
         if (widget.mouseUpCallback != null) {
-          widget.mouseUpCallback();
+          widget.mouseUpCallback!();
         }
       },
       onHorizontalDragUpdate: (DragUpdateDetails details) {
         if (widget.mouseMoveCallback != null) {
-          widget.mouseMoveCallback(
+          widget.mouseMoveCallback!(
               _getClampedXFractionLocalCoords(context, details.globalPosition));
         }
       },
@@ -95,17 +97,17 @@ class TimelineState extends State<Timeline> {
 
   double _getClampedXFractionLocalCoords(
       BuildContext context, Offset globalOffset) {
-    final RenderBox box = context.findRenderObject();
+    final RenderBox box = context.findRenderObject() as RenderBox;
     final Offset localOffset = box.globalToLocal(globalOffset);
-    return MathUtils.clamp(localOffset.dx / context.size.width, 0, 1);
+    return MathUtils.clamp(localOffset.dx / context.size!.width, 0, 1);
   }
 }
 
 class TimelinePainter extends CustomPainter {
   TimelineState state;
 
-  Paint mainLinePaint;
-  Paint milestoneLinePaint;
+  late Paint mainLinePaint;
+  late Paint milestoneLinePaint;
 
   Color lineColor = Colors.white;
 
@@ -114,7 +116,7 @@ class TimelinePainter extends CustomPainter {
   int weekYearOffset =
       9; // Week 0 in our data is 9 weeks before the year boundary (i.e. week 43)
 
-  List<WeekLabel> weekLabels;
+  List<WeekLabel>? weekLabels;
 
   int yearNumber = 2015;
 
@@ -164,7 +166,7 @@ class TimelinePainter extends CustomPainter {
             var mappedValue =
                 MathUtils.clampedMap(currTimeXDiff, 0, 0.025, 0, 1);
             var lerpedColor = Color.lerp(Constants.milestoneTimelineColor,
-                Constants.timelineLineColor, mappedValue);
+                Constants.timelineLineColor, mappedValue)!;
             mainLinePaint.color = lerpedColor;
           } else {
             mainLinePaint.color = Constants.timelineLineColor;
@@ -174,8 +176,8 @@ class TimelinePainter extends CustomPainter {
         }
 
         if (isYear) {
-          var yearLabel = "$yearNumber";
-          state.labelPainters[yearLabel]
+          var yearLabel = '$yearNumber';
+          state.labelPainters[yearLabel]!
               .paint(canvas, Offset(currX, size.height - labelHeight));
           yearNumber++;
         }
@@ -183,19 +185,19 @@ class TimelinePainter extends CustomPainter {
     }
 
     {
-      for (int i = 0; i < weekLabels.length; i++) {
-        WeekLabel weekLabel = weekLabels[i];
-        double currX = (weekLabel.weekNum / numWeeks.toDouble()) * size.width;
+      for (int i = 0; i < weekLabels!.length; i++) {
+        WeekLabel weekLabel = weekLabels![i];
+        double currX = (weekLabel.weekNum! / numWeeks.toDouble()) * size.width;
         var timelineXDiff = (currTimeX - currX) / size.width;
         double maxTimelineDiff = 0.08;
-        TextPainter textPainter = state.labelPainters[weekLabel.label];
+        TextPainter textPainter = state.labelPainters[weekLabel.label]!;
         if (timelineXDiff > 0 &&
             timelineXDiff < maxTimelineDiff &&
             animationValue < 1) {
           var mappedValue =
               MathUtils.clampedMap(timelineXDiff, 0, maxTimelineDiff, 0, 1);
           var lerpedColor = Color.lerp(
-              Colors.redAccent, Constants.milestoneTimelineColor, mappedValue);
+              Colors.redAccent, Constants.milestoneTimelineColor, mappedValue)!;
           milestoneLinePaint.strokeWidth =
               MathUtils.clampedMap(timelineXDiff, 0, maxTimelineDiff, 6, 1);
           milestoneLinePaint.color = lerpedColor;

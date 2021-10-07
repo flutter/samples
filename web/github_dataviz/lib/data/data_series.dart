@@ -1,6 +1,6 @@
 class DataSeries {
   String label;
-  List<int> series;
+  List<int?> series;
 
   DataSeries(this.label, this.series);
 }
