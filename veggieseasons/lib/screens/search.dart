@@ -11,9 +11,9 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({this.restorationId, Key key}) : super(key: key);
+  const SearchScreen({this.restorationId, Key? key}) : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -22,13 +22,13 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
   final controller = RestorableTextEditingController();
   final focusNode = FocusNode();
-  String terms;
+  String? terms;
 
   @override
-  String get restorationId => widget.restorationId;
+  String? get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(controller, 'text');
     controller.addListener(_onTextChanged);
     terms = controller.value.text;

@@ -9,14 +9,14 @@ import 'package:veggieseasons/styles.dart';
 
 class ZoomClipAssetImage extends StatelessWidget {
   const ZoomClipAssetImage(
-      {@required this.zoom,
+      {required this.zoom,
       this.height,
       this.width,
-      @required this.imageAsset});
+      required this.imageAsset});
 
   final double zoom;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final String imageAsset;
 
   @override
@@ -28,8 +28,8 @@ class ZoomClipAssetImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: OverflowBox(
-          maxHeight: height * zoom,
-          maxWidth: width * zoom,
+          maxHeight: height! * zoom,
+          maxWidth: width! * zoom,
           child: Image.asset(
             imageAsset,
             fit: BoxFit.fill,

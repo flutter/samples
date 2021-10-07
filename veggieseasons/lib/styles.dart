@@ -115,7 +115,7 @@ abstract class Styles {
 
   static const appBackground = Color(0xffd0d0d0);
 
-  static Color scaffoldBackground(Brightness brightness) =>
+  static Color? scaffoldBackground(Brightness brightness) =>
       brightness == Brightness.light
           ? CupertinoColors.lightBackgroundGray
           : null;

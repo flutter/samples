@@ -13,16 +13,16 @@ import 'package:veggieseasons/widgets/settings_group.dart';
 import 'package:veggieseasons/widgets/settings_item.dart';
 
 class VeggieCategorySettingsScreen extends StatelessWidget {
-  const VeggieCategorySettingsScreen({Key key, this.restorationId})
+  const VeggieCategorySettingsScreen({Key? key, this.restorationId})
       : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   static String show(NavigatorState navigator) {
     return navigator.restorablePush(_routeBuilder);
   }
 
-  static Route<void> _routeBuilder(BuildContext context, Object argument) {
+  static Route<void> _routeBuilder(BuildContext context, Object? argument) {
     return CupertinoPageRoute(
       builder: (context) =>
           const VeggieCategorySettingsScreen(restorationId: 'category'),
@@ -56,7 +56,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
               // otherwise.
               if (snapshot.hasData) {
                 toggle = CupertinoSwitch(
-                  value: snapshot.data.contains(category),
+                  value: snapshot.data!.contains(category),
                   onChanged: (value) {
                     if (value) {
                       model.addPreferredCategory(category);
@@ -73,7 +73,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
               }
 
               items.add(SettingsItem(
-                label: veggieCategoryNames[category],
+                label: veggieCategoryNames[category]!,
                 content: toggle,
               ));
             }
@@ -94,9 +94,9 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 }
 
 class CalorieSettingsScreen extends StatelessWidget {
-  const CalorieSettingsScreen({Key key, this.restorationId}) : super(key: key);
+  const CalorieSettingsScreen({Key? key, this.restorationId}) : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   static const max = 1000;
   static const min = 2600;
@@ -106,7 +106,7 @@ class CalorieSettingsScreen extends StatelessWidget {
     return navigator.restorablePush(_routeBuilder);
   }
 
-  static Route<void> _routeBuilder(BuildContext context, Object argument) {
+  static Route<void> _routeBuilder(BuildContext context, Object? argument) {
     return CupertinoPageRoute<void>(
       builder: (context) =>
           const CalorieSettingsScreen(restorationId: 'calorie'),
@@ -169,9 +169,9 @@ class CalorieSettingsScreen extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({this.restorationId, Key key}) : super(key: key);
+  const SettingsScreen({this.restorationId, Key? key}) : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   SettingsItem _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(

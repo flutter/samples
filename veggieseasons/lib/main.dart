@@ -37,7 +37,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
   String get restorationId => 'wrapper';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_appState, 'state');
   }
 
@@ -75,7 +75,7 @@ class _RestorableAppState extends RestorableListenable<AppState> {
   }
 
   @override
-  AppState fromPrimitives(Object data) {
+  AppState fromPrimitives(Object? data) {
     final appState = AppState();
     final favorites = (data as List<dynamic>).cast<int>();
     for (var id in favorites) {
