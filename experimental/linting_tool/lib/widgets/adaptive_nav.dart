@@ -3,12 +3,13 @@
 // found in the LICENSE file.
 
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/pages/default_lints_page.dart';
 import 'package:linting_tool/pages/home_page.dart';
 import 'package:linting_tool/pages/saved_lints_page.dart';
-import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/theme/colors.dart';
 
 final navKey = GlobalKey<NavigatorState>();

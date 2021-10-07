@@ -6,14 +6,15 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
+
+import 'package:file_selector/file_selector.dart' as file_selector;
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:json2yaml/json2yaml.dart';
 import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/hive_service.dart';
 import 'package:linting_tool/repository/repository.dart';
-import 'package:http/http.dart' as http;
-import 'package:file_selector/file_selector.dart' as file_selector;
 import 'package:yaml/yaml.dart';
 
 const _boxName = 'rules_profile';
