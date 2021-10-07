@@ -128,9 +128,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     const double timelinePadding = 60.0;
 
     var timeline = Timeline(
-      numWeeks: dataToPlot != null && dataToPlot.isNotEmpty
-          ? dataToPlot.last.series.length
-          : 0,
+      numWeeks: dataToPlot.isNotEmpty ? dataToPlot.last.series.length : 0,
       animationValue: interpolatedAnimationValue,
       weekLabels: weekLabels,
       mouseDownCallback: (double xFraction) {
