@@ -21,10 +21,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class DonutPieChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, int>> seriesList;
+  final bool? animate;
 
-  const DonutPieChart(this.seriesList, {this.animate, Key key})
+  const DonutPieChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [PieChart] with sample data and no transition.

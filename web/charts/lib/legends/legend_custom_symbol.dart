@@ -30,11 +30,11 @@ class IconRenderer extends charts.CustomSymbolRenderer {
 
   @override
   Widget build(BuildContext context,
-      {Size size, Color color, bool enabled = true}) {
+      {Size? size, Color? color, bool enabled = true}) {
     // Lighten the color if the symbol is not enabled
     // Example: If user has tapped on a Series deselecting it.
     if (!enabled) {
-      color = color.withOpacity(0.26);
+      color = color!.withOpacity(0.26);
     }
 
     return SizedBox.fromSize(
@@ -43,10 +43,10 @@ class IconRenderer extends charts.CustomSymbolRenderer {
 }
 
 class LegendWithCustomSymbol extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const LegendWithCustomSymbol(this.seriesList, {this.animate, Key key})
+  const LegendWithCustomSymbol(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory LegendWithCustomSymbol.withSampleData() {

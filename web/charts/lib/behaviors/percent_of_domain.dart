@@ -24,10 +24,10 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class PercentOfDomainBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const PercentOfDomainBarChart(this.seriesList, {this.animate, Key key})
+  const PercentOfDomainBarChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a stacked [BarChart] with sample data and no transition.

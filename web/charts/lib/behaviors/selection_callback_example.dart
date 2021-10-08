@@ -33,10 +33,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class SelectionCallbackExample extends StatefulWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, DateTime>> seriesList;
+  final bool? animate;
 
-  const SelectionCallbackExample(this.seriesList, {this.animate, Key key})
+  const SelectionCallbackExample(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [charts.TimeSeriesChart] with sample data and no transition.
@@ -130,8 +130,8 @@ class SelectionCallbackExample extends StatefulWidget {
 }
 
 class _SelectionCallbackState extends State<SelectionCallbackExample> {
-  DateTime _time;
-  Map<String, num> _measures;
+  DateTime? _time;
+  Map<String?, num?>? _measures;
 
   // Listens to the underlying selection changes, and updates the information
   // relevant to building the primitive legend like information under the
@@ -139,8 +139,8 @@ class _SelectionCallbackState extends State<SelectionCallbackExample> {
   _onSelectionChanged(charts.SelectionModel model) {
     final selectedDatum = model.selectedDatum;
 
-    DateTime time;
-    final measures = <String, num>{};
+    DateTime? time;
+    final measures = <String?, num?>{};
 
     // We get the model that updated with a list of [SeriesDatum] which is
     // simply a pair of series & datum.
@@ -185,7 +185,7 @@ class _SelectionCallbackState extends State<SelectionCallbackExample> {
           padding: const EdgeInsets.only(top: 5.0),
           child: Text(_time.toString())));
     }
-    _measures?.forEach((String series, num value) {
+    _measures?.forEach((String? series, num? value) {
       children.add(Text('$series: $value'));
     });
 
