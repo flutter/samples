@@ -38,7 +38,7 @@ abstract class EntryApi {
 
   Future<List<Entry>> list(String categoryId);
 
-  Future<Entry> update(String categoryId, String id, Entry? entry);
+  Future<Entry> update(String categoryId, String id, Entry entry);
 
   Stream<List<Entry>> subscribe(String categoryId);
 }

@@ -93,7 +93,7 @@ class EditEntryDialog extends StatelessWidget {
           entry: entry,
           onDone: (shouldUpdate) {
             if (shouldUpdate) {
-              api!.entries.update(category!.id!, entry!.id!, entry);
+              api!.entries.update(category!.id!, entry!.id!, entry!);
             }
             Navigator.of(context).pop();
           },

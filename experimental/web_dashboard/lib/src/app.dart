@@ -55,7 +55,7 @@ class DashboardApp extends StatefulWidget {
 }
 
 class _DashboardAppState extends State<DashboardApp> {
-  AppState _appState;
+  late final AppState _appState;
 
   @override
   void initState() {

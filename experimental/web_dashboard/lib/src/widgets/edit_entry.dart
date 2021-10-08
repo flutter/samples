@@ -33,6 +33,7 @@ class _NewEntryFormState extends State<NewEntryForm> {
           child: CategoryDropdown(
             api: api.categories,
             onSelected: (category) {
+              if (category == null) return;
               setState(() {
                 _selected = category;
               });
