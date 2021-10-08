@@ -29,10 +29,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class SelectionUserManaged extends StatefulWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const SelectionUserManaged(this.seriesList, {this.animate, Key key})
+  const SelectionUserManaged(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.

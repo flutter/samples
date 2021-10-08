@@ -20,17 +20,17 @@ typedef GalleryWidgetBuilder = Widget Function();
 /// Helper to build gallery.
 class GalleryScaffold extends StatefulWidget {
   /// The widget used for leading in a [ListTile].
-  final Widget listTileIcon;
+  final Widget? listTileIcon;
   final String title;
   final String subtitle;
   final GalleryWidgetBuilder childBuilder;
 
   const GalleryScaffold(
       {this.listTileIcon,
-      this.title,
-      this.subtitle,
-      this.childBuilder,
-      Key key})
+      required this.title,
+      required this.subtitle,
+      required this.childBuilder,
+      Key? key})
       : super(key: key);
 
   /// Gets the gallery

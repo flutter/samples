@@ -32,10 +32,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class RTLLineSegments extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, num>> seriesList;
+  final bool? animate;
 
-  const RTLLineSegments(this.seriesList, {this.animate, Key key})
+  const RTLLineSegments(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [LineChart] with sample data and no transition.
@@ -242,7 +242,7 @@ class RTLLineSegments extends StatelessWidget {
 class LinearSales {
   final int year;
   final int sales;
-  final List<int> dashPattern;
+  final List<int>? dashPattern;
   final double strokeWidthPx;
 
   LinearSales(this.year, this.sales, this.dashPattern, this.strokeWidthPx);

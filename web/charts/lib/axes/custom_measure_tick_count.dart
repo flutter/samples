@@ -25,10 +25,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class CustomMeasureTickCount extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, DateTime>> seriesList;
+  final bool? animate;
 
-  const CustomMeasureTickCount(this.seriesList, {this.animate, Key key})
+  const CustomMeasureTickCount(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [TimeSeriesChart] with sample data and no transition.
