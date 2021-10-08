@@ -22,10 +22,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 
 /// Example of a Spark Bar by hiding both axis, reducing the chart margins.
 class SparkBar extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const SparkBar(this.seriesList, {this.animate, Key key}) : super(key: key);
+  const SparkBar(this.seriesList, {this.animate, Key? key}) : super(key: key);
 
   factory SparkBar.withSampleData() {
     return SparkBar(

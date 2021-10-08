@@ -25,11 +25,11 @@ import 'package:charts_flutter/flutter.dart' as charts;
 /// The second series of bars is rendered with a pattern by defining a
 /// fillPatternFn mapping function.
 class HorizontalPatternForwardHatchBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
   const HorizontalPatternForwardHatchBarChart(this.seriesList,
-      {this.animate, Key key})
+      {this.animate, Key? key})
       : super(key: key);
 
   factory HorizontalPatternForwardHatchBarChart.withSampleData() {

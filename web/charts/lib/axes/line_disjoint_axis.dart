@@ -28,10 +28,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class DisjointMeasureAxisLineChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, num>> seriesList;
+  final bool? animate;
 
-  const DisjointMeasureAxisLineChart(this.seriesList, {this.animate, Key key})
+  const DisjointMeasureAxisLineChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [LineChart] with sample data and no transition.
@@ -263,8 +263,8 @@ class DisjointMeasureAxisLineChart extends StatelessWidget {
 /// Sample linear data type.
 class LinearClicks {
   final int year;
-  final int clickCount;
-  final double clickRate;
+  final int? clickCount;
+  final double? clickRate;
 
   LinearClicks(this.year, {this.clickCount, this.clickRate});
 }
