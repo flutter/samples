@@ -8,11 +8,11 @@ class UserContribution {
   UserContribution(this.user, this.contributions);
 
   static UserContribution fromJson(Map<String, dynamic> jsonMap) {
-    List<ContributionData> contributionList = (jsonMap["weeks"] as List)
+    List<ContributionData> contributionList = (jsonMap['weeks'] as List)
         .map((e) => ContributionData.fromJson(e))
         .toList();
     var userContribution =
-        UserContribution(User.fromJson(jsonMap["author"]), contributionList);
+        UserContribution(User.fromJson(jsonMap['author']), contributionList);
     return userContribution;
   }
 }
