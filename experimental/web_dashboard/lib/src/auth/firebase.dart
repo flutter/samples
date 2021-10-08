@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:firebase_auth/firebase_auth.dart' hide FirebaseUser;
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -34,7 +34,7 @@ class FirebaseAuthService implements Auth {
 
     var googleAuth = await googleUser.authentication;
 
-    var credential = GoogleAuthProvider.getCredential(
+    var credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
     var authResult = await _auth.signInWithCredential(credential);
