@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:linting_tool/model/rules_store.dart';
 import 'package:linting_tool/layout/adaptive.dart';
+import 'package:linting_tool/model/rules_store.dart';
 import 'package:linting_tool/widgets/lint_expansion_tile.dart';
 import 'package:provider/provider.dart';
 

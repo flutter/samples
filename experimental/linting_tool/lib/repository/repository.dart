@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:http/http.dart' as http;
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/api_provider.dart';
-import 'package:http/http.dart' as http;
 import 'package:yaml/yaml.dart';
 
 class Repository {

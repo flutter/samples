@@ -3,13 +3,13 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:linting_tool/model/profiles_store.dart';
 import 'package:linting_tool/model/rules_store.dart';
+import 'package:linting_tool/routes.dart' as routes;
 import 'package:linting_tool/theme/app_theme.dart';
 import 'package:linting_tool/widgets/adaptive_nav.dart';
-import 'package:linting_tool/routes.dart' as routes;
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
 
 final client = http.Client();
 
