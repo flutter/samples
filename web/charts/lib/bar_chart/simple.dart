@@ -21,10 +21,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class SimpleBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const SimpleBarChart(this.seriesList, {this.animate, Key key})
+  const SimpleBarChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.
