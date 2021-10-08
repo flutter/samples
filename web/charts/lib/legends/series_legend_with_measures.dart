@@ -29,10 +29,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 ///
 /// Also shows the option to provide a custom measure formatter.
 class LegendWithMeasures extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const LegendWithMeasures(this.seriesList, {this.animate, Key key})
+  const LegendWithMeasures(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory LegendWithMeasures.withSampleData() {
@@ -153,7 +153,7 @@ class LegendWithMeasures extends StatelessWidget {
           showMeasures: true,
           // Optionally provide a measure formatter to format the measure value.
           // If none is specified the value is formatted as a decimal.
-          measureFormatter: (num value) {
+          measureFormatter: (num? value) {
             return value == null ? '-' : '${value}k';
           },
         ),

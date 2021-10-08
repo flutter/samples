@@ -38,10 +38,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class SelectionScatterPlotHighlight extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, num>> seriesList;
+  final bool? animate;
 
-  const SelectionScatterPlotHighlight(this.seriesList, {this.animate, Key key})
+  const SelectionScatterPlotHighlight(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [ScatterPlotChart] with sample data and no transition.
@@ -225,9 +225,9 @@ class LinearSales {
   final int year;
   final int sales;
   final double radius;
-  final String shape;
-  final charts.Color fillColor;
-  final double strokeWidth;
+  final String? shape;
+  final charts.Color? fillColor;
+  final double? strokeWidth;
 
   LinearSales(this.year, this.sales, this.radius, this.shape, this.fillColor,
       this.strokeWidth);

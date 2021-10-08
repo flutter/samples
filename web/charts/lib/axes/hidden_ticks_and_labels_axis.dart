@@ -22,10 +22,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 
 /// Example of hiding both axis.
 class HiddenTicksAndLabelsAxis extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const HiddenTicksAndLabelsAxis(this.seriesList, {this.animate, Key key})
+  const HiddenTicksAndLabelsAxis(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory HiddenTicksAndLabelsAxis.withSampleData() {
