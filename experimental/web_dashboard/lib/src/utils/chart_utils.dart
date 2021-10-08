@@ -15,14 +15,14 @@ class EntryTotal {
 
 /// Returns a list of [EntryTotal] objects. Each [EntryTotal] is the sum of
 /// the values of all the entries on a given day.
-List<EntryTotal> entryTotalsByDay(List<Entry> entries, int daysAgo,
-    {DateTime today}) {
+List<EntryTotal> entryTotalsByDay(List<Entry>? entries, int daysAgo,
+    {DateTime? today}) {
   today ??= DateTime.now();
   return _entryTotalsByDay(entries, daysAgo, today).toList();
 }
 
 Iterable<EntryTotal> _entryTotalsByDay(
-    List<Entry> entries, int daysAgo, DateTime today) sync* {
+    List<Entry>? entries, int daysAgo, DateTime today) sync* {
   var start = today.subtract(Duration(days: daysAgo));
   var entriesByDay = _entriesInRange(start, today, entries);
 
@@ -42,18 +42,18 @@ Iterable<EntryTotal> _entryTotalsByDay(
 /// lists. The outer list represents the number of days since [start], and the
 /// inner list is the group of entries on that day.
 List<List<Entry>> _entriesInRange(
-        DateTime start, DateTime end, List<Entry> entries) =>
+        DateTime start, DateTime end, List<Entry>? entries) =>
     _entriesInRangeImpl(start, end, entries).toList();
 
 Iterable<List<Entry>> _entriesInRangeImpl(
-    DateTime start, DateTime end, List<Entry> entries) sync* {
+    DateTime start, DateTime end, List<Entry>? entries) sync* {
   start = start.atMidnight;
   end = end.atMidnight;
   var d = start;
 
   while (d.compareTo(end) <= 0) {
     var es = <Entry>[];
-    for (var entry in entries) {
+    for (var entry in entries!) {
       if (d.isSameDay(entry.time.atMidnight)) {
         es.add(entry);
       }

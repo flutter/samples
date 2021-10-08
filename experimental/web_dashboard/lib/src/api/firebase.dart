@@ -74,14 +74,14 @@ class FirebaseEntryApi implements EntryApi {
     var document = _categoriesRef.doc('$categoryId/entries/$id');
     await document.update(entry.toJson());
     var snapshot = await document.get();
-    return Entry.fromJson(snapshot.data())..id = snapshot.id;
+    return Entry.fromJson(snapshot.data()!)..id = snapshot.id;
   }
 
   @override
   Future<Entry> get(String categoryId, String id) async {
     var document = _categoriesRef.doc('$categoryId/entries/$id');
     var snapshot = await document.get();
-    return Entry.fromJson(snapshot.data())..id = snapshot.id;
+    return Entry.fromJson(snapshot.data()!)..id = snapshot.id;
   }
 }
 
@@ -119,7 +119,7 @@ class FirebaseCategoryApi implements CategoryApi {
   Future<Category> get(String id) async {
     var document = _categoriesRef.doc(id);
     var snapshot = await document.get();
-    return Category.fromJson(snapshot.data())..id = snapshot.id;
+    return Category.fromJson(snapshot.data()!)..id = snapshot.id;
   }
 
   @override
@@ -143,6 +143,6 @@ class FirebaseCategoryApi implements CategoryApi {
     var document = _categoriesRef.doc(id);
     await document.update(category.toJson());
     var snapshot = await document.get();
-    return Category.fromJson(snapshot.data())..id = snapshot.id;
+    return Category.fromJson(snapshot.data()!)..id = snapshot.id;
   }
 }

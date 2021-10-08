@@ -12,14 +12,14 @@ import '../widgets/categories_dropdown.dart';
 import '../widgets/dialogs.dart';
 
 class EntriesPage extends StatefulWidget {
-  const EntriesPage({Key key}) : super(key: key);
+  const EntriesPage({Key? key}) : super(key: key);
 
   @override
   _EntriesPageState createState() => _EntriesPageState();
 }
 
 class _EntriesPageState extends State<EntriesPage> {
-  Category _selected;
+  Category? _selected;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +27,14 @@ class _EntriesPageState extends State<EntriesPage> {
     return Column(
       children: [
         CategoryDropdown(
-            api: appState.api.categories,
+            api: appState.api!.categories,
             onSelected: (category) => setState(() => _selected = category)),
         Expanded(
           child: _selected == null
               ? const Center(child: CircularProgressIndicator())
               : EntriesList(
-                  category: _selected,
-                  api: appState.api.entries,
+                  category: _selected!,
+                  api: appState.api!.entries,
                 ),
         ),
       ],
@@ -47,8 +47,8 @@ class EntriesList extends StatefulWidget {
   final EntryApi api;
 
   EntriesList({
-    @required this.category,
-    @required this.api,
+    required this.category,
+    required this.api,
   }) : super(key: ValueKey(category.id));
 
   @override
@@ -63,14 +63,14 @@ class _EntriesListState extends State<EntriesList> {
     }
 
     return FutureBuilder<List<Entry>>(
-      future: widget.api.list(widget.category.id),
+      future: widget.api.list(widget.category.id!),
       builder: (context, futureSnapshot) {
         if (!futureSnapshot.hasData) {
           return _buildLoadingIndicator();
         }
         return StreamBuilder<List<Entry>>(
           initialData: futureSnapshot.data,
-          stream: widget.api.subscribe(widget.category.id),
+          stream: widget.api.subscribe(widget.category.id!),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return _buildLoadingIndicator();
@@ -79,10 +79,10 @@ class _EntriesListState extends State<EntriesList> {
               itemBuilder: (context, index) {
                 return EntryTile(
                   category: widget.category,
-                  entry: snapshot.data[index],
+                  entry: snapshot.data![index],
                 );
               },
-              itemCount: snapshot.data.length,
+              itemCount: snapshot.data!.length,
             );
           },
         );
@@ -96,20 +96,20 @@ class _EntriesListState extends State<EntriesList> {
 }
 
 class EntryTile extends StatelessWidget {
-  final Category category;
-  final Entry entry;
+  final Category? category;
+  final Entry? entry;
 
   const EntryTile({
     this.category,
     this.entry,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(entry.value.toString()),
-      subtitle: Text(intl.DateFormat('MM/dd/yy h:mm a').format(entry.time)),
+      title: Text(entry!.value.toString()),
+      subtitle: Text(intl.DateFormat('MM/dd/yy h:mm a').format(entry!.time)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -127,7 +127,7 @@ class EntryTile extends StatelessWidget {
           TextButton(
             child: const Text('Delete'),
             onPressed: () async {
-              var shouldDelete = await showDialog<bool>(
+              var shouldDelete = await (showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Delete entry?'),
@@ -142,12 +142,12 @@ class EntryTile extends StatelessWidget {
                     ),
                   ],
                 ),
-              );
+              ) as FutureOr<bool>);
               if (shouldDelete) {
                 await Provider.of<AppState>(context, listen: false)
-                    .api
+                    .api!
                     .entries
-                    .delete(category.id, entry.id);
+                    .delete(category!.id!, entry!.id!);
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

@@ -11,19 +11,19 @@ import '../app.dart';
 import 'categories_dropdown.dart';
 
 class NewEntryForm extends StatefulWidget {
-  const NewEntryForm({Key key}) : super(key: key);
+  const NewEntryForm({Key? key}) : super(key: key);
 
   @override
   _NewEntryFormState createState() => _NewEntryFormState();
 }
 
 class _NewEntryFormState extends State<NewEntryForm> {
-  Category _selected;
+  late Category _selected;
   final Entry _entry = Entry(0, DateTime.now());
 
   @override
   Widget build(BuildContext context) {
-    var api = Provider.of<AppState>(context).api;
+    var api = Provider.of<AppState>(context).api!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class _NewEntryFormState extends State<NewEntryForm> {
           entry: _entry,
           onDone: (shouldInsert) {
             if (shouldInsert) {
-              api.entries.insert(_selected.id, _entry);
+              api.entries.insert(_selected.id!, _entry);
             }
             Navigator.of(context).pop();
           },
@@ -54,13 +54,13 @@ class _NewEntryFormState extends State<NewEntryForm> {
 }
 
 class EditEntryForm extends StatefulWidget {
-  final Entry entry;
+  final Entry? entry;
   final ValueChanged<bool> onDone;
 
   const EditEntryForm({
-    @required this.entry,
-    @required this.onDone,
-    Key key,
+    required this.entry,
+    required this.onDone,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -80,19 +80,19 @@ class _EditEntryFormState extends State<EditEntryForm> {
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextFormField(
-              initialValue: widget.entry.value.toString(),
+              initialValue: widget.entry!.value.toString(),
               decoration: const InputDecoration(labelText: 'Value'),
               keyboardType: TextInputType.number,
               validator: (value) {
                 try {
-                  int.parse(value);
+                  int.parse(value!);
                 } catch (e) {
                   return "Please enter a whole number";
                 }
                 return null;
               },
               onChanged: (newValue) {
-                widget.entry.value = int.parse(newValue);
+                widget.entry!.value = int.parse(newValue);
               },
             ),
           ),
@@ -101,13 +101,13 @@ class _EditEntryFormState extends State<EditEntryForm> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(intl.DateFormat('MM/dd/yyyy').format(widget.entry.time)),
+                Text(intl.DateFormat('MM/dd/yyyy').format(widget.entry!.time)),
                 ElevatedButton(
                   child: const Text('Edit'),
                   onPressed: () async {
                     var result = await showDatePicker(
                         context: context,
-                        initialDate: widget.entry.time,
+                        initialDate: widget.entry!.time,
                         firstDate:
                             DateTime.now().subtract(const Duration(days: 365)),
                         lastDate: DateTime.now());
@@ -115,7 +115,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
                       return;
                     }
                     setState(() {
-                      widget.entry.time = result;
+                      widget.entry!.time = result;
                     });
                   },
                 )
@@ -139,7 +139,7 @@ class _EditEntryFormState extends State<EditEntryForm> {
                 child: ElevatedButton(
                   child: const Text('OK'),
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       widget.onDone(true);
                     }
                   },

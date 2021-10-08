@@ -30,7 +30,7 @@ class MockDashboardApi implements DashboardApi {
       for (var i = 0; i < 30; i++) {
         var date = monthAgo.add(Duration(days: i));
         var value = Random().nextInt(6) + 1;
-        await entries.insert(category.id, Entry(value, date));
+        await entries.insert(category.id!, Entry(value, date));
       }
     }
   }
@@ -42,14 +42,14 @@ class MockCategoryApi implements CategoryApi {
       StreamController<List<Category>>.broadcast();
 
   @override
-  Future<Category> delete(String id) async {
+  Future<Category?> delete(String id) async {
     var removed = _storage.remove(id);
     _emit();
     return removed;
   }
 
   @override
-  Future<Category> get(String id) async {
+  Future<Category?> get(String id) async {
     return _storage[id];
   }
 
@@ -88,7 +88,7 @@ class MockEntryApi implements EntryApi {
       StreamController.broadcast();
 
   @override
-  Future<Entry> delete(String categoryId, String id) async {
+  Future<Entry?> delete(String categoryId, String id) async {
     _emit(categoryId);
     return _storage.remove('$categoryId-$id');
   }
@@ -107,12 +107,12 @@ class MockEntryApi implements EntryApi {
     return _storage.keys
         .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
-        .toList();
+        .toList() as FutureOr<List<Entry>>;
   }
 
   @override
-  Future<Entry> update(String categoryId, String id, Entry entry) async {
-    _storage['$categoryId-$id'] = entry;
+  Future<Entry?> update(String categoryId, String id, Entry? entry) async {
+    _storage['$categoryId-$id'] = entry!;
     _emit(categoryId);
     return entry..id = id;
   }
@@ -134,7 +134,7 @@ class MockEntryApi implements EntryApi {
   }
 
   @override
-  Future<Entry> get(String categoryId, String id) async {
+  Future<Entry?> get(String categoryId, String id) async {
     return _storage['$categoryId-$id'];
   }
 }

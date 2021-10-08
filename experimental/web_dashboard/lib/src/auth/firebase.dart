@@ -25,21 +25,21 @@ class FirebaseAuthService implements Auth {
   }
 
   Future<User> _signIn() async {
-    GoogleSignInAccount googleUser;
+    GoogleSignInAccount? googleUser;
     if (await isSignedIn) {
       googleUser = await _googleSignIn.signInSilently();
     } else {
       googleUser = await _googleSignIn.signIn();
     }
 
-    var googleAuth = await googleUser.authentication;
+    var googleAuth = await googleUser!.authentication;
 
     var credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
     var authResult = await _auth.signInWithCredential(credential);
 
-    return _FirebaseUser(authResult.user.uid);
+    return _FirebaseUser(authResult.user!.uid);
   }
 
   @override

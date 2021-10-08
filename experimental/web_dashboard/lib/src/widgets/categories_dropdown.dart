@@ -11,12 +11,12 @@ import '../api/api.dart';
 /// one.
 class CategoryDropdown extends StatefulWidget {
   final CategoryApi api;
-  final ValueChanged<Category> onSelected;
+  final ValueChanged<Category?> onSelected;
 
   const CategoryDropdown({
-    @required this.api,
-    @required this.onSelected,
-    Key key,
+    required this.api,
+    required this.onSelected,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -24,9 +24,9 @@ class CategoryDropdown extends StatefulWidget {
 }
 
 class _CategoryDropdownState extends State<CategoryDropdown> {
-  Category _selected;
-  Future<List<Category>> _future;
-  Stream<List<Category>> _stream;
+  Category? _selected;
+  Future<List<Category>>? _future;
+  Stream<List<Category>>? _stream;
 
   @override
   void initState() {
@@ -78,7 +78,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
           initialData: futureSnapshot.hasData ? futureSnapshot.data : [],
           stream: _stream,
           builder: (context, snapshot) {
-            var data = snapshot.hasData ? snapshot.data : <Category>[];
+            var data = snapshot.hasData ? snapshot.data! : <Category>[];
             return DropdownButton<Category>(
               value: _selected,
               items: data.map(_buildDropdownItem).toList(),
@@ -92,7 +92,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
     );
   }
 
-  void _setSelected(Category category) {
+  void _setSelected(Category? category) {
     if (_selected == category) {
       return;
     }
