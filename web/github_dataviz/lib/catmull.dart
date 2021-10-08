@@ -1,8 +1,8 @@
 import 'package:github_dataviz/mathutils.dart';
 
 class ControlPointAndValue {
-  int point;
-  double value;
+  late int point;
+  double? value;
 
   ControlPointAndValue() {
     value = 0;
@@ -37,9 +37,9 @@ class CatmullInterpolator implements Interpolator {
   }
 
   ControlPointAndValue progressiveGet(ControlPointAndValue cpv) {
-    double v = cpv.value;
+    double? v = cpv.value;
     for (int i = cpv.point; i < controlPoints.length - 1; i++) {
-      if (controlPoints[i].x >= v) {
+      if (controlPoints[i].x >= v!) {
         double t = (v - controlPoints[i - 1].x) /
             (controlPoints[i].x - controlPoints[i - 1].x);
         double p0 = controlPoints[i - 2].y;
