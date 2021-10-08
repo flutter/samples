@@ -8,7 +8,7 @@ class ContributionData {
 
   static ContributionData fromJson(Map<String, dynamic> jsonMap) {
     ContributionData data = ContributionData(
-        jsonMap["w"], jsonMap["a"], jsonMap["d"], jsonMap["c"]);
+        jsonMap['w'], jsonMap['a'], jsonMap['d'], jsonMap['c']);
     return data;
   }
 }

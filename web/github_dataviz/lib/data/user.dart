@@ -6,7 +6,7 @@ class User {
   User(this.id, this.username, this.avatarUrl);
 
   static User fromJson(Map<String, dynamic> jsonMap) {
-    User user = User(jsonMap["id"], jsonMap["login"], jsonMap["avatar_url"]);
+    User user = User(jsonMap['id'], jsonMap['login'], jsonMap['avatar_url']);
     return user;
   }
 }
