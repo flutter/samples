@@ -6,12 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_app/src/http/mock_client.dart';
 import 'package:form_app/src/sign_in_http.dart';
-import 'package:http/http.dart' as http;
-import 'package:mockito/annotations.dart';
 
-final http.Client httpClient = MockClient();
-
-@GenerateMocks([http.Client])
 void main() {
   testWidgets('sign in', (tester) async {
     await _signIn(tester, 'root', 'password');
@@ -30,7 +25,7 @@ void main() {
 Future<void> _signIn(WidgetTester tester, String email, String password) async {
   await tester.pumpWidget(MaterialApp(
     home: SignInHttpDemo(
-      httpClient: httpClient,
+      httpClient: mockClient,
     ),
   ));
 

@@ -12,7 +12,6 @@ dependencies:
   cupertino_icons: ^1.0.0
   intl: ^0.17.0
   http: ^0.13.0
-  mockito: ^5.0.0
   json_annotation: any
   english_words: ^4.0.0
 

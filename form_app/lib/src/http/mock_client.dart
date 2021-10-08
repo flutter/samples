@@ -1,33 +1,18 @@
-// Copyright 2020, the Flutter project authors. Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
-
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:mockito/mockito.dart';
+import 'package:http/testing.dart';
 
-class MockClient extends Mock implements http.Client {
-  MockClient() {
-    when(post(Uri.parse('https://example.com/signin'),
-            body: anyNamed('body'), headers: anyNamed('headers')))
-        .thenAnswer((answering) {
-      dynamic body = answering.namedArguments[const Symbol('body')];
+// Set up a mock HTTP client.
+final http.Client mockClient = MockClient(_mockHandler);
 
-      if (body != null && body is String) {
-        var decodedJson = Map<String, dynamic>.from(
-            json.decode(body) as Map<String, dynamic>);
+Future<http.Response> _mockHandler(http.Request request) async {
+  var decodedJson = Map<String, dynamic>.from(
+      json.decode(request.body) as Map<String, dynamic>);
 
-        if (decodedJson['email'] == 'root' &&
-            decodedJson['password'] == 'password') {
-          return Future.value(http.Response('', 200));
-        }
-      }
-
-      return Future.value(http.Response('', 401));
-    });
-
-    when(post(Uri.parse('https://example.com/signout')))
-        .thenAnswer((_) => Future.value(http.Response('', 401)));
+  if (decodedJson['email'] == 'root' && decodedJson['password'] == 'password') {
+    return http.Response('', 200);
   }
+
+  return http.Response('', 401);
 }
