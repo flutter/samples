@@ -14,7 +14,9 @@ class LayeredChart extends StatefulWidget {
   final List<WeekLabel> milestones;
   final double animationValue;
 
-  LayeredChart(this.dataToPlot, this.milestones, this.animationValue);
+  const LayeredChart(this.dataToPlot, this.milestones, this.animationValue,
+      {Key key})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -136,7 +138,7 @@ class LayeredChartState extends State<LayeredChart> {
     labelPainter = <TextPainter>[];
     for (int i = 0; i < dataToPlot.length; i++) {
       TextSpan span = TextSpan(
-          style: TextStyle(
+          style: const TextStyle(
               color: Color.fromARGB(255, 255, 255, 255), fontSize: 12),
           text: dataToPlot[i].label.toUpperCase());
       TextPainter tp = TextPainter(
@@ -149,7 +151,7 @@ class LayeredChartState extends State<LayeredChart> {
     milestonePainter = <TextPainter>[];
     for (int i = 0; i < milestones.length; i++) {
       TextSpan span = TextSpan(
-          style: TextStyle(
+          style: const TextStyle(
               color: Color.fromARGB(255, 255, 255, 255), fontSize: 10),
           text: milestones[i].label.toUpperCase());
       TextPainter tp = TextPainter(
@@ -176,7 +178,7 @@ class LayeredChartState extends State<LayeredChart> {
 class ChartPainter extends CustomPainter {
   static List<Color> colors = [
     Colors.red[900],
-    Color(0xffc4721a),
+    const Color(0xffc4721a),
     Colors.lime[900],
     Colors.green[900],
     Colors.blue[900],
@@ -220,13 +222,13 @@ class ChartPainter extends CustomPainter {
       this.capSize,
       this.numPoints,
       this.amount) {
-    this.capTheta = pi * capDegrees / 180;
+    capTheta = pi * capDegrees / 180;
     pathPaint = Paint();
     pathPaint.style = PaintingStyle.fill;
     capPaint = Paint();
     capPaint.style = PaintingStyle.fill;
     textPaint = Paint();
-    textPaint.color = Color(0xFFFFFFFF);
+    textPaint.color = const Color(0xFFFFFFFF);
     milestonePaint = Paint();
     milestonePaint.color = Constants.milestoneColor;
     milestonePaint.style = PaintingStyle.stroke;
@@ -236,19 +238,19 @@ class ChartPainter extends CustomPainter {
     linePaint.strokeWidth = 0.5;
     fillPaint = Paint();
     fillPaint.style = PaintingStyle.fill;
-    fillPaint.color = Color(0xFF000000);
+    fillPaint.color = const Color(0xFF000000);
   }
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (dataToPlot.length == 0) {
+    if (dataToPlot.isEmpty) {
       return;
     }
 
     if (state.lastSize == null ||
         size.width != state.lastSize.width ||
         size.height != state.lastSize.height) {
-      print("Building paths, lastsize = ${state.lastSize}");
+      print('Building paths, lastsize = ${state.lastSize}');
       state.buildPaths(size, dataToPlot, milestones, numPoints, graphGap,
           margin, capTheta, capSize);
     }
@@ -282,7 +284,7 @@ class ChartPainter extends CustomPainter {
           canvas.translate(textX, textY);
           canvas.skew(tan(capTheta * 1.0), -tan(state.theta));
           canvas.translate(-tp.width / 2, 0);
-          tp.paint(canvas, Offset(0, 0));
+          tp.paint(canvas, const Offset(0, 0));
           canvas.restore();
         }
       }
@@ -302,7 +304,7 @@ class ChartPainter extends CustomPainter {
         canvas.skew(0, -tan(state.theta));
         canvas.drawRect(
             Rect.fromLTWH(-1, -1, tp.width + 2, tp.height + 2), fillPaint);
-        tp.paint(canvas, Offset(0, 0));
+        tp.paint(canvas, const Offset(0, 0));
         canvas.restore();
       }
 
