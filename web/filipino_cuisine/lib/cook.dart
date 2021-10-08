@@ -5,7 +5,8 @@ class Cook extends StatefulWidget {
   final String? img;
   final String? nme;
 
-  const Cook(this.dr, this.img, this.nme);
+  const Cook(this.dr, this.img, this.nme, {Key? key}) : super(key: key);
+
   @override
   CState createState() => CState();
 }

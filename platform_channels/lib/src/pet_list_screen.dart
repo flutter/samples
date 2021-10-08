@@ -9,6 +9,8 @@ import 'package:platform_channels/src/pet_list_message_channel.dart';
 /// Demonstrates how to use [BasicMessageChannel] to send & receive the platform
 /// Message.
 class PetListScreen extends StatefulWidget {
+  const PetListScreen({Key? key}) : super(key: key);
+
   @override
   _PetListScreenState createState() => _PetListScreenState();
 }
@@ -59,7 +61,7 @@ class _PetListScreenState extends State<PetListScreen> {
 class BuildPetList extends StatelessWidget {
   final List<PetDetails> petList;
 
-  const BuildPetList(this.petList);
+  const BuildPetList(this.petList, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

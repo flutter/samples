@@ -14,7 +14,8 @@ class HomePage extends StatefulWidget {
 
   const HomePage({
     @required this.onSignOut,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
     if (_pageIndex == 0) {
       showDialog<NewCategoryDialog>(
         context: context,
-        builder: (context) => NewCategoryDialog(),
+        builder: (context) => const NewCategoryDialog(),
       );
       return;
     }
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
     if (_pageIndex == 1) {
       showDialog<NewEntryDialog>(
         context: context,
-        builder: (context) => NewEntryDialog(),
+        builder: (context) => const NewEntryDialog(),
       );
       return;
     }
@@ -115,11 +116,11 @@ class _HomePageState extends State<HomePage> {
 
   static Widget _pageAtIndex(int index) {
     if (index == 0) {
-      return DashboardPage();
+      return const DashboardPage();
     }
 
     if (index == 1) {
-      return EntriesPage();
+      return const EntriesPage();
     }
 
     return const Center(child: Text('Settings page'));

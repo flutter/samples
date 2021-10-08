@@ -5,16 +5,17 @@ import 'package:http/http.dart' as http;
 import 'cook.dart';
 import 'flutter_swiper.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  final _themeData = ThemeData(
-    brightness: Brightness.light,
-    iconTheme: const IconThemeData(color: Colors.red),
-  );
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(context) {
+    final _themeData = ThemeData(
+      brightness: Brightness.light,
+      iconTheme: const IconThemeData(color: Colors.red),
+    );
     return MaterialApp(
         theme: _themeData.copyWith(
           colorScheme: _themeData.colorScheme.copyWith(
@@ -22,11 +23,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
         title: "Filipino Cuisine",
-        home: Home());
+        home: const Home());
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   HState createState() => HState();
 }

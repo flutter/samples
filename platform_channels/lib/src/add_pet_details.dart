@@ -10,6 +10,8 @@ import 'package:platform_channels/src/pet_list_message_channel.dart';
 /// The widget uses [TextField] and [RadioListTile] to take the [PetDetails.breed] and
 /// [PetDetails.petType] from the user respectively.
 class AddPetDetails extends StatefulWidget {
+  const AddPetDetails({Key? key}) : super(key: key);
+
   @override
   _AddPetDetailsState createState() => _AddPetDetailsState();
 }

@@ -26,8 +26,8 @@ void main() {
       child: MaterialApp(
         initialRoute: '/',
         routes: {
-          '/': (context) => MyLogin(),
-          '/catalog': (context) => MyCatalog(),
+          '/': (context) => const MyLogin(),
+          '/catalog': (context) => const MyCatalog(),
         },
       ),
     ));

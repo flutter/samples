@@ -26,7 +26,7 @@ void main() {
     });
 
     testWidgets('MethodChannelDemo count test', (tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: MethodChannelDemo(),
       ));
 

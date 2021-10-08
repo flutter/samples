@@ -94,6 +94,7 @@ abstract class FlutterBookApi {
       if (api == null) {
         channel.setMessageHandler(null);
       } else {
+        // ignore: avoid_types_on_closure_parameters
         channel.setMessageHandler((Object? message) async {
           assert(message != null,
               'Argument for dev.flutter.pigeon.FlutterBookApi.displayBookDetails was null.');
