@@ -25,10 +25,10 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class DatumLegendOptions extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, int>> seriesList;
+  final bool? animate;
 
-  const DatumLegendOptions(this.seriesList, {this.animate, Key key})
+  const DatumLegendOptions(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory DatumLegendOptions.withSampleData() {

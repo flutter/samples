@@ -22,10 +22,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CustomAxisTickFormatters extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, DateTime>> seriesList;
+  final bool? animate;
 
-  const CustomAxisTickFormatters(this.seriesList, {this.animate, Key key})
+  const CustomAxisTickFormatters(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [TimeSeriesChart] with sample data and no transition.

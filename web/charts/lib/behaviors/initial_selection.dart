@@ -31,10 +31,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class InitialSelection extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const InitialSelection(this.seriesList, {this.animate, Key key})
+  const InitialSelection(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   /// Creates a [BarChart] with initial selection behavior.

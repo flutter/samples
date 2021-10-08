@@ -21,10 +21,10 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class GroupedStackedBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const GroupedStackedBarChart(this.seriesList, {this.animate, Key key})
+  const GroupedStackedBarChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory GroupedStackedBarChart.withSampleData() {

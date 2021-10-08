@@ -21,10 +21,11 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class RTLBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const RTLBarChart(this.seriesList, {this.animate, Key key}) : super(key: key);
+  const RTLBarChart(this.seriesList, {this.animate, Key? key})
+      : super(key: key);
 
   /// Creates a [BarChart] with sample data and no transition.
   factory RTLBarChart.withSampleData() {

@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 class Cook extends StatefulWidget {
   final List<String> dr;
-  final String img;
-  final String nme;
+  final String? img;
+  final String? nme;
 
-  const Cook(this.dr, this.img, this.nme, {Key key}) : super(key: key);
+  const Cook(this.dr, this.img, this.nme, {Key? key}) : super(key: key);
 
   @override
   CState createState() => CState();
 }
 
 class CState extends State<Cook> {
-  List<bool> cb;
+  late List<bool?> cb;
 
   @override
   initState() {
@@ -35,13 +35,13 @@ class CState extends State<Cook> {
                   leading: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Hero(
-                          tag: widget.nme,
-                          child: Image.asset(widget.img,
+                          tag: widget.nme!,
+                          child: Image.asset(widget.img!,
                               fit: BoxFit.cover, width: 100, height: 100))),
-                  title: Text(widget.nme,
+                  title: Text(widget.nme!,
                       style: Theme.of(context)
                           .textTheme
-                          .headline3
+                          .headline3!
                           .copyWith(fontFamily: 'ark', color: Colors.black))),
               margin: const EdgeInsets.only(top: 40, bottom: 30, left: 20)),
           Expanded(
