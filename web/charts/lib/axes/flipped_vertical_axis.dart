@@ -29,10 +29,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 /// Note: primary and secondary may flip left and right positioning when
 /// RTL.flipAxisLocations is set.
 class FlippedVerticalAxis extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const FlippedVerticalAxis(this.seriesList, {this.animate, Key key})
+  const FlippedVerticalAxis(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory FlippedVerticalAxis.withSampleData() {

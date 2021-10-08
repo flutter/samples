@@ -23,10 +23,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 /// Example of a stacked bar chart with three series, each rendered with
 /// different fill colors.
 class StackedFillColorBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const StackedFillColorBarChart(this.seriesList, {this.animate, Key key})
+  const StackedFillColorBarChart(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory StackedFillColorBarChart.withSampleData() {

@@ -23,10 +23,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 /// Example of using a custom primary measure replacing the renderSpec with one
 /// that aligns the text under the tick and left justifies.
 class MeasureAxisLabelAlignment extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+  final List<charts.Series<dynamic, String>> seriesList;
+  final bool? animate;
 
-  const MeasureAxisLabelAlignment(this.seriesList, {this.animate, Key key})
+  const MeasureAxisLabelAlignment(this.seriesList, {this.animate, Key? key})
       : super(key: key);
 
   factory MeasureAxisLabelAlignment.withSampleData() {
