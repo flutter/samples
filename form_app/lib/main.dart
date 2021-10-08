@@ -44,7 +44,7 @@ final demos = [
 ];
 
 class FormApp extends StatelessWidget {
-  const FormApp({Key key}) : super(key: key);
+  const FormApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class FormApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +73,16 @@ class HomePage extends StatelessWidget {
 }
 
 class DemoTile extends StatelessWidget {
-  final Demo demo;
+  final Demo? demo;
 
-  const DemoTile({this.demo, Key key}) : super(key: key);
+  const DemoTile({this.demo, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(demo.name),
+      title: Text(demo!.name),
       onTap: () {
-        Navigator.pushNamed(context, demo.route);
+        Navigator.pushNamed(context, demo!.route);
       },
     );
   }
@@ -93,5 +93,5 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({this.name, this.route, this.builder});
+  const Demo({required this.name, required this.route, required this.builder});
 }

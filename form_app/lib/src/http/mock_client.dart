@@ -9,7 +9,7 @@ import 'package:mockito/mockito.dart';
 
 class MockClient extends Mock implements http.Client {
   MockClient() {
-    when(post('https://example.com/signin',
+    when(post(Uri.parse('https://example.com/signin'),
             body: anyNamed('body'), headers: anyNamed('headers')))
         .thenAnswer((answering) {
       dynamic body = answering.namedArguments[const Symbol('body')];
@@ -27,7 +27,7 @@ class MockClient extends Mock implements http.Client {
       return Future.value(http.Response('', 401));
     });
 
-    when(post('https://example.com/signout'))
+    when(post(Uri.parse('https://example.com/signout')))
         .thenAnswer((_) => Future.value(http.Response('', 401)));
   }
 }
