@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mockito/annotations.dart';
 
 import 'src/autofill.dart';
 import 'src/form_widgets.dart';
@@ -14,6 +15,7 @@ import 'src/validation.dart';
 // Set up a mock HTTP client.
 final http.Client httpClient = MockClient();
 
+@GenerateMocks([http.Client])
 void main() {
   runApp(const FormApp());
 }
