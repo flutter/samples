@@ -11,12 +11,10 @@ import 'package:github_dataviz/mathutils.dart';
 
 class LayeredChart extends StatefulWidget {
   final List<DataSeries> dataToPlot;
-  final List<WeekLabel>? milestones;
+  final List<WeekLabel> milestones;
   final double animationValue;
 
-  const LayeredChart(this.dataToPlot, this.milestones, this.animationValue,
-      {Key? key})
-      : super(key: key);
+  LayeredChart(this.dataToPlot, this.milestones, this.animationValue);
 
   @override
   State<StatefulWidget> createState() {
@@ -25,14 +23,14 @@ class LayeredChart extends StatefulWidget {
 }
 
 class LayeredChartState extends State<LayeredChart> {
-  late List<Path> paths;
-  late List<Path> capPaths;
-  late List<double> maxValues;
-  late double theta;
-  late double graphHeight;
-  late List<TextPainter> labelPainter;
-  late List<TextPainter> milestonePainter;
-  Size? lastSize;
+  List<Path> paths;
+  List<Path> capPaths;
+  List<double> maxValues;
+  double theta;
+  double graphHeight;
+  List<TextPainter> labelPainter;
+  List<TextPainter> milestonePainter;
+  Size lastSize;
 
   void buildPaths(
       Size size,
@@ -56,7 +54,7 @@ class LayeredChartState extends State<LayeredChart> {
       int n = dataToPlot[i].series.length;
       maxValues.add(0);
       for (int j = 0; j < n; j++) {
-        double v = dataToPlot[i].series[j]!.toDouble();
+        double v = dataToPlot[i].series[j].toDouble();
         if (v > maxValues[i]) {
           maxValues[i] = v;
         }
@@ -73,13 +71,13 @@ class LayeredChartState extends State<LayeredChart> {
     double tanCapTheta = tan(capTheta);
     List<double> curvePoints = <double>[];
     for (int i = 0; i < m; i++) {
-      List<int?> series = dataToPlot[i].series;
+      List<int> series = dataToPlot[i].series;
       int n = series.length;
       List<Point2D> controlPoints = <Point2D>[];
       controlPoints.add(Point2D(-1, 0));
       double last = 0;
       for (int j = 0; j < n; j++) {
-        double v = series[j]!.toDouble();
+        double v = series[j].toDouble();
         controlPoints.add(Point2D(j.toDouble(), v));
         last = v;
       }
@@ -91,7 +89,7 @@ class LayeredChartState extends State<LayeredChart> {
             j.toDouble(), 0, (numPoints - 1).toDouble(), 0, (n - 1).toDouble());
         curve.progressiveGet(cpv);
         curvePoints.add(MathUtils.map(
-            max(0, cpv.value!), 0, maxValues[i].toDouble(), 0, graphHeight));
+            max(0, cpv.value), 0, maxValues[i].toDouble(), 0, graphHeight));
       }
       paths.add(Path());
       capPaths.add(Path());
@@ -138,7 +136,7 @@ class LayeredChartState extends State<LayeredChart> {
     labelPainter = <TextPainter>[];
     for (int i = 0; i < dataToPlot.length; i++) {
       TextSpan span = TextSpan(
-          style: const TextStyle(
+          style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255), fontSize: 12),
           text: dataToPlot[i].label.toUpperCase());
       TextPainter tp = TextPainter(
@@ -151,7 +149,7 @@ class LayeredChartState extends State<LayeredChart> {
     milestonePainter = <TextPainter>[];
     for (int i = 0; i < milestones.length; i++) {
       TextSpan span = TextSpan(
-          style: const TextStyle(
+          style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255), fontSize: 10),
           text: milestones[i].label.toUpperCase());
       TextPainter tp = TextPainter(
@@ -176,15 +174,15 @@ class LayeredChartState extends State<LayeredChart> {
 }
 
 class ChartPainter extends CustomPainter {
-  static List<Color?> colors = [
+  static List<Color> colors = [
     Colors.red[900],
-    const Color(0xffc4721a),
+    Color(0xffc4721a),
     Colors.lime[900],
     Colors.green[900],
     Colors.blue[900],
     Colors.purple[900],
   ];
-  static List<Color?> capColors = [
+  static List<Color> capColors = [
     Colors.red[500],
     Colors.amber[500],
     Colors.lime[500],
@@ -194,21 +192,21 @@ class ChartPainter extends CustomPainter {
   ];
 
   List<DataSeries> dataToPlot;
-  List<WeekLabel>? milestones;
+  List<WeekLabel> milestones;
 
   double margin;
   double graphGap;
-  late double capTheta;
+  double capTheta;
   double capSize;
   int numPoints;
   double amount = 1.0;
 
-  late Paint pathPaint;
-  late Paint capPaint;
-  late Paint textPaint;
-  late Paint milestonePaint;
-  late Paint linePaint;
-  late Paint fillPaint;
+  Paint pathPaint;
+  Paint capPaint;
+  Paint textPaint;
+  Paint milestonePaint;
+  Paint linePaint;
+  Paint fillPaint;
 
   LayeredChartState state;
 
@@ -222,13 +220,13 @@ class ChartPainter extends CustomPainter {
       this.capSize,
       this.numPoints,
       this.amount) {
-    capTheta = pi * capDegrees / 180;
+    this.capTheta = pi * capDegrees / 180;
     pathPaint = Paint();
     pathPaint.style = PaintingStyle.fill;
     capPaint = Paint();
     capPaint.style = PaintingStyle.fill;
     textPaint = Paint();
-    textPaint.color = const Color(0xFFFFFFFF);
+    textPaint.color = Color(0xFFFFFFFF);
     milestonePaint = Paint();
     milestonePaint.color = Constants.milestoneColor;
     milestonePaint.style = PaintingStyle.stroke;
@@ -238,20 +236,20 @@ class ChartPainter extends CustomPainter {
     linePaint.strokeWidth = 0.5;
     fillPaint = Paint();
     fillPaint.style = PaintingStyle.fill;
-    fillPaint.color = const Color(0xFF000000);
+    fillPaint.color = Color(0xFF000000);
   }
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (dataToPlot.isEmpty) {
+    if (dataToPlot.length == 0) {
       return;
     }
 
     if (state.lastSize == null ||
-        size.width != state.lastSize!.width ||
-        size.height != state.lastSize!.height) {
-      print('Building paths, lastsize = ${state.lastSize}');
-      state.buildPaths(size, dataToPlot, milestones!, numPoints, graphGap,
+        size.width != state.lastSize.width ||
+        size.height != state.lastSize.height) {
+      print("Building paths, lastsize = ${state.lastSize}");
+      state.buildPaths(size, dataToPlot, milestones, numPoints, graphGap,
           margin, capTheta, capSize);
     }
     int m = dataToPlot.length;
@@ -266,9 +264,9 @@ class ChartPainter extends CustomPainter {
     double endY = startY - (endX - startX) * tan(state.theta);
     // MILESTONES
     {
-      for (int i = 0; i < milestones!.length; i++) {
-        WeekLabel milestone = milestones![i];
-        double p = (milestone.weekNum!.toDouble() / numWeeks) + (1 - amount);
+      for (int i = 0; i < milestones.length; i++) {
+        WeekLabel milestone = milestones[i];
+        double p = (milestone.weekNum.toDouble() / numWeeks) + (1 - amount);
         if (p < 1) {
           double x1 = MathUtils.map(p, 0, 1, startX, endX);
           double y1 = MathUtils.map(p, 0, 1, startY, endY);
@@ -284,7 +282,7 @@ class ChartPainter extends CustomPainter {
           canvas.translate(textX, textY);
           canvas.skew(tan(capTheta * 1.0), -tan(state.theta));
           canvas.translate(-tp.width / 2, 0);
-          tp.paint(canvas, const Offset(0, 0));
+          tp.paint(canvas, Offset(0, 0));
           canvas.restore();
         }
       }
@@ -304,11 +302,11 @@ class ChartPainter extends CustomPainter {
         canvas.skew(0, -tan(state.theta));
         canvas.drawRect(
             Rect.fromLTWH(-1, -1, tp.width + 2, tp.height + 2), fillPaint);
-        tp.paint(canvas, const Offset(0, 0));
+        tp.paint(canvas, Offset(0, 0));
         canvas.restore();
       }
 
-      linePaint.color = capColors[i]!;
+      linePaint.color = capColors[i];
       canvas.drawLine(Offset(startX, startY), Offset(endX, endY), linePaint);
 
       Path clipPath = Path();
@@ -319,8 +317,8 @@ class ChartPainter extends CustomPainter {
       clipPath.close();
       canvas.clipPath(clipPath);
 
-      pathPaint.color = colors[i]!;
-      capPaint.color = capColors[i]!;
+      pathPaint.color = colors[i];
+      capPaint.color = capColors[i];
       double offsetX = MathUtils.map(1 - amount, 0, 1, startX, endX);
       double offsetY = MathUtils.map(1 - amount, 0, 1, startY, endY);
       canvas.translate(offsetX - startX, offsetY - startY);
