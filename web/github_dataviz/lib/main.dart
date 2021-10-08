@@ -19,21 +19,21 @@ import 'package:github_dataviz/mathutils.dart';
 import 'package:github_dataviz/timeline.dart';
 
 class MainLayout extends StatefulWidget {
-  const MainLayout({Key key}) : super(key: key);
+  const MainLayout({Key? key}) : super(key: key);
 
   @override
   _MainLayoutState createState() => _MainLayoutState();
 }
 
 class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
-  AnimationController _animation;
-  List<UserContribution> contributions;
-  List<StatForWeek> starsByWeek;
-  List<StatForWeek> forksByWeek;
-  List<StatForWeek> pushesByWeek;
-  List<StatForWeek> issueCommentsByWeek;
-  List<StatForWeek> pullRequestActivityByWeek;
-  List<WeekLabel> weekLabels;
+  AnimationController? _animation;
+  List<UserContribution>? contributions;
+  List<StatForWeek>? starsByWeek;
+  List<StatForWeek>? forksByWeek;
+  List<StatForWeek>? pushesByWeek;
+  List<StatForWeek>? issueCommentsByWeek;
+  List<StatForWeek>? pullRequestActivityByWeek;
+  late List<WeekLabel> weekLabels;
 
   static const double earlyInterpolatorFraction = 0.8;
   static final EarlyInterpolator interpolator =
@@ -68,10 +68,10 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 14400),
       vsync: this,
     )..repeat();
-    _animation.addListener(() {
+    _animation!.addListener(() {
       setState(() {
         if (!timelineOverride) {
-          animationValue = _animation.value;
+          animationValue = _animation!.value;
           interpolatedAnimationValue = interpolator.get(animationValue);
         }
       });
@@ -84,7 +84,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     List<DataSeries> dataToPlot = [];
     if (contributions != null) {
       List<int> series = [];
-      for (UserContribution userContrib in contributions) {
+      for (UserContribution userContrib in contributions!) {
         for (int i = 0; i < userContrib.contributions.length; i++) {
           ContributionData data = userContrib.contributions[i];
           if (series.length > i) {
@@ -99,27 +99,27 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     if (starsByWeek != null) {
       dataToPlot
-          .add(DataSeries('Stars', starsByWeek.map((e) => e.stat).toList()));
+          .add(DataSeries('Stars', starsByWeek!.map((e) => e.stat).toList()));
     }
 
     if (forksByWeek != null) {
       dataToPlot
-          .add(DataSeries('Forks', forksByWeek.map((e) => e.stat).toList()));
+          .add(DataSeries('Forks', forksByWeek!.map((e) => e.stat).toList()));
     }
 
     if (pushesByWeek != null) {
       dataToPlot
-          .add(DataSeries('Pushes', pushesByWeek.map((e) => e.stat).toList()));
+          .add(DataSeries('Pushes', pushesByWeek!.map((e) => e.stat).toList()));
     }
 
     if (issueCommentsByWeek != null) {
       dataToPlot.add(DataSeries(
-          'Issue Comments', issueCommentsByWeek.map((e) => e.stat).toList()));
+          'Issue Comments', issueCommentsByWeek!.map((e) => e.stat).toList()));
     }
 
     if (pullRequestActivityByWeek != null) {
       dataToPlot.add(DataSeries('Pull Request Activity',
-          pullRequestActivityByWeek.map((e) => e.stat).toList()));
+          pullRequestActivityByWeek!.map((e) => e.stat).toList()));
     }
 
     LayeredChart layeredChart =
@@ -128,15 +128,13 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     const double timelinePadding = 60.0;
 
     var timeline = Timeline(
-      numWeeks: dataToPlot != null && dataToPlot.isNotEmpty
-          ? dataToPlot.last.series.length
-          : 0,
+      numWeeks: dataToPlot.isNotEmpty ? dataToPlot.last.series.length : 0,
       animationValue: interpolatedAnimationValue,
       weekLabels: weekLabels,
       mouseDownCallback: (double xFraction) {
         setState(() {
           timelineOverride = true;
-          _animation.stop();
+          _animation?.stop();
           interpolatedAnimationValue = xFraction;
         });
       },
@@ -178,7 +176,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _animation.dispose();
+    _animation?.dispose();
     super.dispose();
   }
 
@@ -245,7 +243,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     // Convert into a list by week, but fill in empty weeks with 0
     for (int i = 0; i < numWeeksTotal; i++) {
-      StatForWeek starsForWeek = statMap[i];
+      StatForWeek? starsForWeek = statMap[i];
       if (starsForWeek == null) {
         loadedStats.add(StatForWeek(i, 0));
       } else {

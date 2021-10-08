@@ -14,18 +14,18 @@ class Timeline extends StatefulWidget {
   final double animationValue;
   final List<WeekLabel> weekLabels;
 
-  final MouseDownCallback mouseDownCallback;
-  final MouseMoveCallback mouseMoveCallback;
-  final MouseUpCallback mouseUpCallback;
+  final MouseDownCallback? mouseDownCallback;
+  final MouseMoveCallback? mouseMoveCallback;
+  final MouseUpCallback? mouseUpCallback;
 
   const Timeline(
-      {@required this.numWeeks,
-      @required this.animationValue,
-      @required this.weekLabels,
+      {required this.numWeeks,
+      required this.animationValue,
+      required this.weekLabels,
       this.mouseDownCallback,
       this.mouseMoveCallback,
       this.mouseUpCallback,
-      Key key})
+      Key? key})
       : super(key: key);
 
   @override
@@ -59,19 +59,22 @@ class TimelineState extends State<Timeline> {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onHorizontalDragDown: (DragDownDetails details) {
-        if (widget.mouseDownCallback != null) {
-          widget.mouseDownCallback(
+        final mouseDownCallback = widget.mouseDownCallback;
+        if (mouseDownCallback != null) {
+          mouseDownCallback(
               _getClampedXFractionLocalCoords(context, details.globalPosition));
         }
       },
       onHorizontalDragEnd: (DragEndDetails details) {
-        if (widget.mouseUpCallback != null) {
-          widget.mouseUpCallback();
+        final mouseUpCallback = widget.mouseUpCallback;
+        if (mouseUpCallback != null) {
+          mouseUpCallback();
         }
       },
       onHorizontalDragUpdate: (DragUpdateDetails details) {
-        if (widget.mouseMoveCallback != null) {
-          widget.mouseMoveCallback(
+        final mouseMoveCallback = widget.mouseMoveCallback;
+        if (mouseMoveCallback != null) {
+          mouseMoveCallback(
               _getClampedXFractionLocalCoords(context, details.globalPosition));
         }
       },
@@ -97,17 +100,17 @@ class TimelineState extends State<Timeline> {
 
   double _getClampedXFractionLocalCoords(
       BuildContext context, Offset globalOffset) {
-    final RenderBox box = context.findRenderObject();
+    final RenderBox box = context.findRenderObject() as RenderBox;
     final Offset localOffset = box.globalToLocal(globalOffset);
-    return MathUtils.clamp(localOffset.dx / context.size.width, 0, 1);
+    return MathUtils.clamp(localOffset.dx / context.size!.width, 0, 1);
   }
 }
 
 class TimelinePainter extends CustomPainter {
   TimelineState state;
 
-  Paint mainLinePaint;
-  Paint milestoneLinePaint;
+  late Paint mainLinePaint;
+  late Paint milestoneLinePaint;
 
   Color lineColor = Colors.white;
 
@@ -166,7 +169,7 @@ class TimelinePainter extends CustomPainter {
             var mappedValue =
                 MathUtils.clampedMap(currTimeXDiff, 0, 0.025, 0, 1);
             var lerpedColor = Color.lerp(Constants.milestoneTimelineColor,
-                Constants.timelineLineColor, mappedValue);
+                Constants.timelineLineColor, mappedValue)!;
             mainLinePaint.color = lerpedColor;
           } else {
             mainLinePaint.color = Constants.timelineLineColor;
@@ -177,7 +180,7 @@ class TimelinePainter extends CustomPainter {
 
         if (isYear) {
           var yearLabel = '$yearNumber';
-          state.labelPainters[yearLabel]
+          state.labelPainters[yearLabel]!
               .paint(canvas, Offset(currX, size.height - labelHeight));
           yearNumber++;
         }
@@ -187,17 +190,17 @@ class TimelinePainter extends CustomPainter {
     {
       for (int i = 0; i < weekLabels.length; i++) {
         WeekLabel weekLabel = weekLabels[i];
-        double currX = (weekLabel.weekNum / numWeeks.toDouble()) * size.width;
+        double currX = (weekLabel.weekNum! / numWeeks.toDouble()) * size.width;
         var timelineXDiff = (currTimeX - currX) / size.width;
         double maxTimelineDiff = 0.08;
-        TextPainter textPainter = state.labelPainters[weekLabel.label];
+        TextPainter textPainter = state.labelPainters[weekLabel.label]!;
         if (timelineXDiff > 0 &&
             timelineXDiff < maxTimelineDiff &&
             animationValue < 1) {
           var mappedValue =
               MathUtils.clampedMap(timelineXDiff, 0, maxTimelineDiff, 0, 1);
           var lerpedColor = Color.lerp(
-              Colors.redAccent, Constants.milestoneTimelineColor, mappedValue);
+              Colors.redAccent, Constants.milestoneTimelineColor, mappedValue)!;
           milestoneLinePaint.strokeWidth =
               MathUtils.clampedMap(timelineXDiff, 0, maxTimelineDiff, 6, 1);
           milestoneLinePaint.color = lerpedColor;

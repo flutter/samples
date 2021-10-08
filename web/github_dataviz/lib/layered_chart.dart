@@ -15,7 +15,7 @@ class LayeredChart extends StatefulWidget {
   final double animationValue;
 
   const LayeredChart(this.dataToPlot, this.milestones, this.animationValue,
-      {Key key})
+      {Key? key})
       : super(key: key);
 
   @override
@@ -25,14 +25,14 @@ class LayeredChart extends StatefulWidget {
 }
 
 class LayeredChartState extends State<LayeredChart> {
-  List<Path> paths;
-  List<Path> capPaths;
-  List<double> maxValues;
-  double theta;
-  double graphHeight;
-  List<TextPainter> labelPainter;
-  List<TextPainter> milestonePainter;
-  Size lastSize;
+  late List<Path> paths;
+  late List<Path> capPaths;
+  late List<double> maxValues;
+  late double theta;
+  late double graphHeight;
+  late List<TextPainter> labelPainter;
+  late List<TextPainter> milestonePainter;
+  Size? lastSize;
 
   void buildPaths(
       Size size,
@@ -91,7 +91,7 @@ class LayeredChartState extends State<LayeredChart> {
             j.toDouble(), 0, (numPoints - 1).toDouble(), 0, (n - 1).toDouble());
         curve.progressiveGet(cpv);
         curvePoints.add(MathUtils.map(
-            max(0, cpv.value), 0, maxValues[i].toDouble(), 0, graphHeight));
+            max(0, cpv.value!), 0, maxValues[i].toDouble(), 0, graphHeight));
       }
       paths.add(Path());
       capPaths.add(Path());
@@ -176,7 +176,7 @@ class LayeredChartState extends State<LayeredChart> {
 }
 
 class ChartPainter extends CustomPainter {
-  static List<Color> colors = [
+  static List<Color?> colors = [
     Colors.red[900],
     const Color(0xffc4721a),
     Colors.lime[900],
@@ -184,7 +184,7 @@ class ChartPainter extends CustomPainter {
     Colors.blue[900],
     Colors.purple[900],
   ];
-  static List<Color> capColors = [
+  static List<Color?> capColors = [
     Colors.red[500],
     Colors.amber[500],
     Colors.lime[500],
@@ -198,17 +198,17 @@ class ChartPainter extends CustomPainter {
 
   double margin;
   double graphGap;
-  double capTheta;
+  late double capTheta;
   double capSize;
   int numPoints;
   double amount = 1.0;
 
-  Paint pathPaint;
-  Paint capPaint;
-  Paint textPaint;
-  Paint milestonePaint;
-  Paint linePaint;
-  Paint fillPaint;
+  late Paint pathPaint;
+  late Paint capPaint;
+  late Paint textPaint;
+  late Paint milestonePaint;
+  late Paint linePaint;
+  late Paint fillPaint;
 
   LayeredChartState state;
 
@@ -248,8 +248,8 @@ class ChartPainter extends CustomPainter {
     }
 
     if (state.lastSize == null ||
-        size.width != state.lastSize.width ||
-        size.height != state.lastSize.height) {
+        size.width != state.lastSize!.width ||
+        size.height != state.lastSize!.height) {
       print('Building paths, lastsize = ${state.lastSize}');
       state.buildPaths(size, dataToPlot, milestones, numPoints, graphGap,
           margin, capTheta, capSize);
@@ -268,7 +268,7 @@ class ChartPainter extends CustomPainter {
     {
       for (int i = 0; i < milestones.length; i++) {
         WeekLabel milestone = milestones[i];
-        double p = (milestone.weekNum.toDouble() / numWeeks) + (1 - amount);
+        double p = (milestone.weekNum!.toDouble() / numWeeks) + (1 - amount);
         if (p < 1) {
           double x1 = MathUtils.map(p, 0, 1, startX, endX);
           double y1 = MathUtils.map(p, 0, 1, startY, endY);
@@ -308,7 +308,7 @@ class ChartPainter extends CustomPainter {
         canvas.restore();
       }
 
-      linePaint.color = capColors[i];
+      linePaint.color = capColors[i]!;
       canvas.drawLine(Offset(startX, startY), Offset(endX, endY), linePaint);
 
       Path clipPath = Path();
@@ -319,8 +319,8 @@ class ChartPainter extends CustomPainter {
       clipPath.close();
       canvas.clipPath(clipPath);
 
-      pathPaint.color = colors[i];
-      capPaint.color = capColors[i];
+      pathPaint.color = colors[i]!;
+      capPaint.color = capColors[i]!;
       double offsetX = MathUtils.map(1 - amount, 0, 1, startX, endX);
       double offsetY = MathUtils.map(1 - amount, 0, 1, startY, endY);
       canvas.translate(offsetX - startX, offsetY - startY);

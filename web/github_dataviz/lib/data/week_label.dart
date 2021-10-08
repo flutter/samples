@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
 class WeekLabel {
-  int weekNum;
+  int? weekNum;
   String label;
 
   WeekLabel(this.weekNum, this.label);
