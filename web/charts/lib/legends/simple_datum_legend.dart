@@ -22,9 +22,9 @@ import 'package:charts_flutter/flutter.dart' as charts;
 
 class SimpleDatumLegend extends StatelessWidget {
   final List<charts.Series> seriesList;
-  final bool? animate;
+  final bool animate;
 
-  const SimpleDatumLegend(this.seriesList, {this.animate, Key? key})
+  const SimpleDatumLegend(this.seriesList, {this.animate, Key key})
       : super(key: key);
 
   factory SimpleDatumLegend.withSampleData() {

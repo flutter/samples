@@ -17,11 +17,11 @@ import 'package:flutter/material.dart';
 
 /// A menu drawer supporting toggling theme and performance overlay.
 class GalleryDrawer extends StatelessWidget {
-  final bool? showPerformanceOverlay;
-  final ValueChanged<bool>? onShowPerformanceOverlayChanged;
+  final bool showPerformanceOverlay;
+  final ValueChanged<bool> onShowPerformanceOverlayChanged;
 
   const GalleryDrawer(
-      {Key? key,
+      {Key key,
       this.showPerformanceOverlay,
       this.onShowPerformanceOverlayChanged})
       : super(key: key);
@@ -35,13 +35,13 @@ class GalleryDrawer extends StatelessWidget {
           leading: const Icon(Icons.assessment),
           title: const Text('Performance Overlay'),
           onTap: () {
-            onShowPerformanceOverlayChanged!(!showPerformanceOverlay!);
+            onShowPerformanceOverlayChanged(!showPerformanceOverlay);
           },
-          selected: showPerformanceOverlay!,
+          selected: showPerformanceOverlay,
           trailing: Checkbox(
             value: showPerformanceOverlay,
-            onChanged: (bool? value) {
-              onShowPerformanceOverlayChanged!(!showPerformanceOverlay!);
+            onChanged: (bool value) {
+              onShowPerformanceOverlayChanged(!showPerformanceOverlay);
             },
           ),
         ),

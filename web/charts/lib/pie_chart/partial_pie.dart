@@ -23,9 +23,9 @@ import 'package:flutter/material.dart';
 
 class PartialPieChart extends StatelessWidget {
   final List<charts.Series> seriesList;
-  final bool? animate;
+  final bool animate;
 
-  const PartialPieChart(this.seriesList, {this.animate, Key? key})
+  const PartialPieChart(this.seriesList, {this.animate, Key key})
       : super(key: key);
 
   /// Creates a [PieChart] with sample data and no transition.

@@ -20,24 +20,24 @@ typedef GalleryWidgetBuilder = Widget Function();
 /// Helper to build gallery.
 class GalleryScaffold extends StatefulWidget {
   /// The widget used for leading in a [ListTile].
-  final Widget? listTileIcon;
-  final String? title;
-  final String? subtitle;
-  final GalleryWidgetBuilder? childBuilder;
+  final Widget listTileIcon;
+  final String title;
+  final String subtitle;
+  final GalleryWidgetBuilder childBuilder;
 
   const GalleryScaffold(
       {this.listTileIcon,
       this.title,
       this.subtitle,
       this.childBuilder,
-      Key? key})
+      Key key})
       : super(key: key);
 
   /// Gets the gallery
   Widget buildGalleryListTile(BuildContext context) => ListTile(
       leading: listTileIcon,
-      title: Text(title!),
-      subtitle: Text(subtitle!),
+      title: Text(title),
+      subtitle: Text(subtitle),
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (_) => this));
       });
@@ -54,11 +54,11 @@ class _GalleryScaffoldState extends State<GalleryScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title!)),
+      appBar: AppBar(title: Text(widget.title)),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(children: <Widget>[
-            SizedBox(height: 250.0, child: widget.childBuilder!()),
+            SizedBox(height: 250.0, child: widget.childBuilder()),
           ])),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.refresh), onPressed: _handleButtonPress),

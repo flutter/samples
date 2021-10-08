@@ -22,11 +22,10 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class LineRangeAnnotationMarginChart extends StatelessWidget {
-  final List<charts.Series<dynamic, num>> seriesList;
-  final bool? animate;
+  final List<charts.Series> seriesList;
+  final bool animate;
 
-  const LineRangeAnnotationMarginChart(this.seriesList,
-      {this.animate, Key? key})
+  const LineRangeAnnotationMarginChart(this.seriesList, {this.animate, Key key})
       : super(key: key);
 
   /// Creates a [LineChart] with sample data and range annotations.
