@@ -49,7 +49,7 @@ void main() {
 
     testWidgets('EventChannel AccelerometerReadings Stream test',
         (tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: EventChannelDemo(),
       ));
 

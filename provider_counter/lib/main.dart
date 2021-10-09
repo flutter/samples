@@ -18,7 +18,7 @@ void main() {
       // can own Counter's lifecycle, making sure to call `dispose`
       // when not needed anymore.
       create: (context) => Counter(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -37,6 +37,8 @@ class Counter with ChangeNotifier {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,12 +46,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -10,7 +10,7 @@ import 'package:testing_app/screens/home.dart';
 
 Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) => Favorites(),
-      child: MaterialApp(
+      child: const MaterialApp(
         home: HomePage(),
       ),
     );

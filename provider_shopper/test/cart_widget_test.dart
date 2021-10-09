@@ -24,7 +24,7 @@ Widget createCartScreen() => MultiProvider(
           },
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         home: MyCart(),
       ),
     );

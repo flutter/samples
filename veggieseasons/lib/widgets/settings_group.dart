@@ -14,7 +14,7 @@ import 'settings_item.dart';
 // See https://github.com/flutter/flutter/projects/29 for more info.
 
 class SettingsGroupHeader extends StatelessWidget {
-  const SettingsGroupHeader(this.title);
+  const SettingsGroupHeader(this.title, {Key? key}) : super(key: key);
 
   final String title;
 
@@ -35,7 +35,7 @@ class SettingsGroupHeader extends StatelessWidget {
 }
 
 class SettingsGroupFooter extends StatelessWidget {
-  const SettingsGroupFooter(this.title);
+  const SettingsGroupFooter(this.title, {Key? key}) : super(key: key);
 
   final String title;
 
@@ -58,7 +58,9 @@ class SettingsGroup extends StatelessWidget {
     required this.items,
     this.header,
     this.footer,
-  }) : assert(items.isNotEmpty);
+    Key? key,
+  })  : assert(items.isNotEmpty),
+        super(key: key);
 
   final List<SettingsItem> items;
   final Widget? header;

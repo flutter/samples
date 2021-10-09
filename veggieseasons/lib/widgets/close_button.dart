@@ -77,7 +77,7 @@ class _ColorChangingIconState
 
 /// A simple "close this modal" button that invokes a callback when pressed.
 class CloseButton extends StatefulWidget {
-  const CloseButton(this.onPressed);
+  const CloseButton(this.onPressed, {Key? key}) : super(key: key);
 
   final VoidCallback onPressed;
 

@@ -6,10 +6,10 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/model/rule.dart';
 import 'package:linting_tool/repository/repository.dart';
-import 'package:http/http.dart' as http;
 
 /// Manages fetching rules from the web.
 class RuleStore extends ChangeNotifier {

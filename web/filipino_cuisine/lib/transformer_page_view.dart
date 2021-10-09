@@ -141,7 +141,8 @@ class ParallaxColor extends StatefulWidget {
     required this.colors,
     required this.info,
     required this.child,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -159,7 +160,9 @@ class ParallaxContainer extends StatelessWidget {
       {required this.child,
       required this.position,
       this.translationFactor = 100.0,
-      this.opacityFactor = 1.0});
+      this.opacityFactor = 1.0,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -178,13 +181,14 @@ class ParallaxImage extends StatelessWidget {
   final double imageFactor;
 
   ParallaxImage.asset(String name,
-      {required double position, this.imageFactor = 0.3})
+      {required double position, this.imageFactor = 0.3, Key? key})
       : image = Image.asset(name,
             fit: BoxFit.cover,
             alignment: FractionalOffset(
               0.5 + position * imageFactor,
               0.5,
-            ));
+            )),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

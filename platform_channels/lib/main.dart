@@ -10,19 +10,21 @@ import 'package:platform_channels/src/pet_list_screen.dart';
 import 'package:platform_channels/src/platform_image_demo.dart';
 
 void main() {
-  runApp(PlatformChannelSample());
+  runApp(const PlatformChannelSample());
 }
 
 class PlatformChannelSample extends StatelessWidget {
+  const PlatformChannelSample({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/methodChannelDemo': (context) => MethodChannelDemo(),
-        '/eventChannelDemo': (context) => EventChannelDemo(),
-        '/platformImageDemo': (context) => PlatformImageDemo(),
-        '/petListScreen': (context) => PetListScreen(),
-        '/addPetDetails': (context) => AddPetDetails(),
+        '/methodChannelDemo': (context) => const MethodChannelDemo(),
+        '/eventChannelDemo': (context) => const EventChannelDemo(),
+        '/platformImageDemo': (context) => const PlatformImageDemo(),
+        '/petListScreen': (context) => const PetListScreen(),
+        '/addPetDetails': (context) => const AddPetDetails(),
       },
       title: 'Platform Channel Sample',
       theme: ThemeData(
@@ -30,7 +32,7 @@ class PlatformChannelSample extends StatelessWidget {
           backgroundColor: Colors.blue[500],
         ),
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -62,6 +64,8 @@ List<DemoInfo> demoList = [
 ];
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +83,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final DemoInfo demoInfo;
 
-  const DemoTile(this.demoInfo);
+  const DemoTile(this.demoInfo, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

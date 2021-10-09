@@ -18,7 +18,7 @@ void main() {
   ]);
 
   runApp(
-    RootRestorationScope(
+    const RootRestorationScope(
       restorationId: 'root',
       child: VeggieApp(),
     ),
@@ -26,6 +26,8 @@ void main() {
 }
 
 class VeggieApp extends StatefulWidget {
+  const VeggieApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _VeggieAppState();
 }
