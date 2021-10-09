@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 // Demonstrates how to use autofill hints. The full list of hints is here:
 // https://github.com/flutter/engine/blob/master/lib/web_ui/lib/src/engine/text_editing/autofill_hint.dart
 class AutofillDemo extends StatefulWidget {
-  const AutofillDemo({Key key}) : super(key: key);
+  const AutofillDemo({Key? key}) : super(key: key);
 
   @override
   _AutofillDemoState createState() => _AutofillDemoState();

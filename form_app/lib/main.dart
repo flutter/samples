@@ -3,16 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 import 'src/autofill.dart';
 import 'src/form_widgets.dart';
 import 'src/http/mock_client.dart';
 import 'src/sign_in_http.dart';
 import 'src/validation.dart';
-
-// Set up a mock HTTP client.
-final http.Client httpClient = MockClient();
 
 void main() {
   runApp(const FormApp());
@@ -23,7 +19,8 @@ final demos = [
     name: 'Sign in with HTTP',
     route: '/signin_http',
     builder: (context) => SignInHttpDemo(
-      httpClient: httpClient,
+      // This sample uses a mock HTTP client.
+      httpClient: mockClient,
     ),
   ),
   Demo(
@@ -44,7 +41,7 @@ final demos = [
 ];
 
 class FormApp extends StatelessWidget {
-  const FormApp({Key key}) : super(key: key);
+  const FormApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +55,7 @@ class FormApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +70,16 @@ class HomePage extends StatelessWidget {
 }
 
 class DemoTile extends StatelessWidget {
-  final Demo demo;
+  final Demo? demo;
 
-  const DemoTile({this.demo, Key key}) : super(key: key);
+  const DemoTile({this.demo, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(demo.name),
+      title: Text(demo!.name),
       onTap: () {
-        Navigator.pushNamed(context, demo.route);
+        Navigator.pushNamed(context, demo!.route);
       },
     );
   }
@@ -93,5 +90,5 @@ class Demo {
   final String route;
   final WidgetBuilder builder;
 
-  const Demo({this.name, this.route, this.builder});
+  const Demo({required this.name, required this.route, required this.builder});
 }
