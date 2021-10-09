@@ -485,23 +485,6 @@ samples:
     web: web/charts
     type: demo
 
-  - name: Filipino Cuisine
-    author: github.com/markgrancapal
-    screenshots:
-      - url: images/filipino_cuisine1.png
-        alt: Filipino Cuisine screenshot
-    source: https://github.com/markgrancapal/filipino_cuisine
-    description: >
-      Flutter Create challenge entry
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'flutter create']
-    web: web/filipino_cuisine
-    type: demo
-
   - name: GitHub Dataviz
     author: Larva Labs
     screenshots:
