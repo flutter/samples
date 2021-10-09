@@ -15,6 +15,8 @@ class NewsTab extends StatefulWidget {
   static const androidIcon = Icon(Icons.library_books);
   static const iosIcon = Icon(CupertinoIcons.news);
 
+  const NewsTab({Key? key}) : super(key: key);
+
   @override
   _NewsTabState createState() => _NewsTabState();
 }
