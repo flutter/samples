@@ -39,14 +39,16 @@ class DashboardApp extends StatefulWidget {
   final ApiBuilder apiBuilder;
 
   /// Runs the app using Firebase
-  DashboardApp.firebase()
+  DashboardApp.firebase({Key key})
       : auth = FirebaseAuthService(),
-        apiBuilder = _apiBuilder;
+        apiBuilder = _apiBuilder,
+        super(key: key);
 
   /// Runs the app using mock data
-  DashboardApp.mock()
+  DashboardApp.mock({Key key})
       : auth = MockAuthService(),
-        apiBuilder = _mockApiBuilder;
+        apiBuilder = _mockApiBuilder,
+        super(key: key);
 
   @override
   _DashboardAppState createState() => _DashboardAppState();
@@ -84,7 +86,8 @@ class SignInSwitcher extends StatefulWidget {
   const SignInSwitcher({
     this.appState,
     this.apiBuilder,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _SignInSwitcherState createState() => _SignInSwitcherState();

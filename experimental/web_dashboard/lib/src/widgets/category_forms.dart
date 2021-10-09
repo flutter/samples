@@ -8,6 +8,8 @@ import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
 
 class NewCategoryForm extends StatefulWidget {
+  const NewCategoryForm({Key key}) : super(key: key);
+
   @override
   _NewCategoryFormState createState() => _NewCategoryFormState();
 }
@@ -37,7 +39,8 @@ class EditCategoryForm extends StatefulWidget {
   const EditCategoryForm({
     @required this.category,
     @required this.onDone,
-  });
+    Key key,
+  }) : super(key: key);
 
   @override
   _EditCategoryFormState createState() => _EditCategoryFormState();

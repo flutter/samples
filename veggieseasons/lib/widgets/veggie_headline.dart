@@ -12,7 +12,9 @@ class ZoomClipAssetImage extends StatelessWidget {
       {@required this.zoom,
       this.height,
       this.width,
-      @required this.imageAsset});
+      @required this.imageAsset,
+      Key key})
+      : super(key: key);
 
   final double zoom;
   final double height;
@@ -43,7 +45,7 @@ class ZoomClipAssetImage extends StatelessWidget {
 class VeggieHeadline extends StatelessWidget {
   final Veggie veggie;
 
-  const VeggieHeadline(this.veggie);
+  const VeggieHeadline(this.veggie, {Key key}) : super(key: key);
 
   List<Widget> _buildSeasonDots(List<Season> seasons) {
     var widgets = <Widget>[];
