@@ -26,7 +26,8 @@ void main() {
       test('delete', () async {
         await api.categories.insert(Category('Coffees Drank'));
         var category = await api.categories.insert(Category('Miles Ran'));
-        var removed = await (api.categories.delete(category.id!) as FutureOr<Category>);
+        var removed =
+            await (api.categories.delete(category.id!) as FutureOr<Category>);
 
         expect(removed.name, 'Miles Ran');
 
@@ -38,7 +39,8 @@ void main() {
         var category = await api.categories.insert(Category('Coffees Drank'));
         await api.categories.update(Category('Bagels Consumed'), category.id!);
 
-        var latest = await (api.categories.get(category.id!) as FutureOr<Category>);
+        var latest =
+            await (api.categories.get(category.id!) as FutureOr<Category>);
         expect(latest.name, equals('Bagels Consumed'));
       });
       test('subscribe', () async {
@@ -80,8 +82,8 @@ void main() {
 
       test('update', () async {
         var entry = await api.entries.insert(category.id!, Entry(1, dateTime));
-        var updated =
-            await api.entries.update(category.id!, entry.id!, Entry(2, dateTime));
+        var updated = await api.entries
+            .update(category.id!, entry.id!, Entry(2, dateTime));
         expect(updated.value, 2);
       });
 
