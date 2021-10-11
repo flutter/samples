@@ -107,9 +107,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    ) as FutureOr<bool>);
+    ));
 
-    if (!shouldSignOut) {
+    if (shouldSignOut == null || !shouldSignOut) {
       return;
     }
 

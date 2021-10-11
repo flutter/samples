@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:uuid/uuid.dart' as uuid;
+import 'package:collection/collection.dart';
 
 import 'api.dart';
 
@@ -104,10 +105,12 @@ class MockEntryApi implements EntryApi {
 
   @override
   Future<List<Entry>> list(String categoryId) async {
-    return _storage.keys
+    var list = _storage.keys
         .where((k) => k.startsWith(categoryId))
         .map((k) => _storage[k])
-        .toList() as FutureOr<List<Entry>>;
+        .whereNotNull()
+        .toList();
+    return list;
   }
 
   @override

@@ -74,7 +74,9 @@ class CategoryChart extends StatelessWidget {
   }
 
   Widget _buildLoadingIndicator() {
-    return const Center(child: CircularProgressIndicator());
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
   }
 }
 

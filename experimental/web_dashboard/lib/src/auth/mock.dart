@@ -12,11 +12,6 @@ class MockAuthService implements Auth {
 
   @override
   Future<User> signIn() async {
-    // Sign in will randomly fail 25% of the time.
-    var random = Random();
-    if (random.nextInt(4) == 0) {
-      throw SignInException();
-    }
     return MockUser();
   }
 

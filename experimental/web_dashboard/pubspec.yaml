@@ -15,7 +15,13 @@ dependencies:
   json_annotation: ^4.1.0
   provider: ^6.0.0
   uuid: ^3.0.0
-  charts_flutter: ^0.11.0
+  # The published version of charts_flutter is not up to date with master:
+  # https://github.com/google/charts/issues/678
+  charts_flutter:
+    git:
+      url: git://github.com/google/charts.git
+      path: charts_flutter
+      ref: 03c2aa67d12952e7f3cbba1d87646d96a9a7cdc4
 dev_dependencies:
   flutter_test:
     sdk: flutter
