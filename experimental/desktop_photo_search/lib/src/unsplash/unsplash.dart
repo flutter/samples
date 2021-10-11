@@ -7,7 +7,6 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:pedantic/pedantic.dart';
 
 import 'api_error.dart';
 import 'photo.dart';
@@ -89,10 +88,10 @@ class Unsplash {
     });
 
     _log.info('GET ${photo.links!.downloadLocation}');
-    unawaited(http.get(Uri.parse(photo.links!.downloadLocation!), headers: {
+    http.get(Uri.parse(photo.links!.downloadLocation!), headers: {
       'Accept-Version': 'v1',
       'Authorization': 'Client-ID $_accessKey',
-    }));
+    });
 
     return futureBytes;
   }
