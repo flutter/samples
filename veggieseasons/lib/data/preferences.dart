@@ -16,7 +16,7 @@ class Preferences extends ChangeNotifier {
   static const _preferredCategoriesKey = 'preferredCategories';
 
   // Indicates whether a call to [_loadFromSharedPrefs] is in progress;
-  Future<void> _loading;
+  Future<void>? _loading;
 
   int _desiredCalories = 2000;
 
@@ -79,9 +79,7 @@ class Preferences extends ChangeNotifier {
     if (names != null && names.isNotEmpty) {
       for (final name in names.split(',')) {
         final index = int.tryParse(name) ?? -1;
-        if (VeggieCategory.values[index] != null) {
-          _preferredCategories.add(VeggieCategory.values[index]);
-        }
+        _preferredCategories.add(VeggieCategory.values[index]);
       }
     }
 

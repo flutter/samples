@@ -13,7 +13,7 @@ import 'package:veggieseasons/widgets/close_button.dart';
 import 'package:veggieseasons/widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
-  const ServingInfoChart(this.veggie, this.prefs, {Key key}) : super(key: key);
+  const ServingInfoChart(this.veggie, this.prefs, {Key? key}) : super(key: key);
 
   final Veggie veggie;
 
@@ -26,7 +26,7 @@ class ServingInfoChart extends StatelessWidget {
     return FutureBuilder<int>(
       future: targetCalories,
       builder: (context, snapshot) {
-        final target = snapshot?.data ?? 2000;
+        final target = snapshot.data ?? 2000;
         final percent = standardPercentage * 2000 ~/ target;
 
         return Text(
@@ -141,7 +141,7 @@ class ServingInfoChart extends StatelessWidget {
                   builder: (context, snapshot) {
                     return Text(
                       'Percent daily values based on a diet of '
-                      '${snapshot?.data ?? '2,000'} calories.',
+                      '${snapshot.data ?? '2,000'} calories.',
                       style: Styles.detailsServingNoteText(themeData),
                     );
                   },
@@ -156,9 +156,9 @@ class ServingInfoChart extends StatelessWidget {
 }
 
 class InfoView extends StatelessWidget {
-  final int id;
+  final int? id;
 
-  const InfoView(this.id, {Key key}) : super(key: key);
+  const InfoView(this.id, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -179,9 +179,9 @@ class InfoView extends StatelessWidget {
                 future: prefs.preferredCategories,
                 builder: (context, snapshot) {
                   return Text(
-                    veggie.categoryName.toUpperCase(),
+                    veggie.categoryName!.toUpperCase(),
                     style: (snapshot.hasData &&
-                            snapshot.data.contains(veggie.category))
+                            snapshot.data!.contains(veggie.category))
                         ? Styles.detailsPreferredCategoryText(themeData)
                         : themeData.textTheme.textStyle,
                   );
@@ -191,7 +191,7 @@ class InfoView extends StatelessWidget {
               for (Season season in veggie.seasons) ...[
                 const SizedBox(width: 12),
                 Padding(
-                  padding: Styles.seasonIconPadding[season],
+                  padding: Styles.seasonIconPadding[season]!,
                   child: Icon(
                     Styles.seasonIconData[season],
                     semanticLabel: seasonNames[season],
@@ -236,17 +236,18 @@ class InfoView extends StatelessWidget {
 }
 
 class DetailsScreen extends StatefulWidget {
-  final int id;
-  final String restorationId;
+  final int? id;
+  final String? restorationId;
 
-  const DetailsScreen({this.id, this.restorationId, Key key}) : super(key: key);
+  const DetailsScreen({this.id, this.restorationId, Key? key})
+      : super(key: key);
 
   static String show(NavigatorState navigator, int veggieId) {
     return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
   }
 
-  static Route<void> _routeBuilder(BuildContext context, Object arguments) {
-    final veggieId = arguments as int;
+  static Route<void> _routeBuilder(BuildContext context, Object? arguments) {
+    final veggieId = arguments as int?;
     return CupertinoPageRoute(
       builder: (context) =>
           DetailsScreen(id: veggieId, restorationId: 'details'),
@@ -262,10 +263,10 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
   final RestorableInt _selectedViewIndex = RestorableInt(0);
 
   @override
-  String get restorationId => widget.restorationId;
+  String? get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_selectedViewIndex, 'tab');
   }
 

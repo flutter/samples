@@ -14,12 +14,12 @@ class FrostyBackground extends StatelessWidget {
     this.color,
     this.intensity = 25,
     this.child,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final Color color;
+  final Color? color;
   final double intensity;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -41,23 +41,17 @@ class FrostyBackground extends StatelessWidget {
 /// elevation and invoking an optional [onPressed] callback.
 class PressableCard extends StatefulWidget {
   const PressableCard({
-    @required this.child,
+    required this.child,
     this.borderRadius = const BorderRadius.all(Radius.circular(5)),
     this.upElevation = 2,
     this.downElevation = 0,
     this.shadowColor = CupertinoColors.black,
     this.duration = const Duration(milliseconds: 100),
     this.onPressed,
-    Key key,
-  })  : assert(child != null),
-        assert(borderRadius != null),
-        assert(upElevation != null),
-        assert(downElevation != null),
-        assert(shadowColor != null),
-        assert(duration != null),
-        super(key: key);
+    Key? key,
+  }) : super(key: key);
 
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   final Widget child;
 
@@ -84,7 +78,7 @@ class _PressableCardState extends State<PressableCard> {
       onTap: () {
         setState(() => cardIsDown = false);
         if (widget.onPressed != null) {
-          widget.onPressed();
+          widget.onPressed!();
         }
       },
       onTapDown: (details) => setState(() => cardIsDown = true),
@@ -107,7 +101,7 @@ class _PressableCardState extends State<PressableCard> {
 
 class VeggieCard extends StatelessWidget {
   const VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory,
-      {Key key})
+      {Key? key})
       : super(key: key);
 
   /// Veggie to be displayed by the card.

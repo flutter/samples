@@ -14,9 +14,9 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
-  const ListScreen({this.restorationId, Key key}) : super(key: key);
+  const ListScreen({this.restorationId, Key? key}) : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   Widget _generateVeggieRow(Veggie veggie, Preferences prefs,
       {bool inSeason = true}) {

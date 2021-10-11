@@ -10,9 +10,9 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({this.restorationId, Key key}) : super(key: key);
+  const FavoritesScreen({this.restorationId, Key? key}) : super(key: key);
 
-  final String restorationId;
+  final String? restorationId;
 
   @override
   Widget build(BuildContext context) {

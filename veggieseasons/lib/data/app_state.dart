@@ -26,22 +26,22 @@ class AppState extends ChangeNotifier {
     return _veggies.where((v) => !v.seasons.contains(currentSeason)).toList();
   }
 
-  Veggie getVeggie(int id) => _veggies.singleWhere((v) => v.id == id);
+  Veggie getVeggie(int? id) => _veggies.singleWhere((v) => v.id == id);
 
-  List<Veggie> searchVeggies(String terms) => _veggies
-      .where((v) => v.name.toLowerCase().contains(terms.toLowerCase()))
+  List<Veggie> searchVeggies(String? terms) => _veggies
+      .where((v) => v.name.toLowerCase().contains(terms!.toLowerCase()))
       .toList();
 
-  void setFavorite(int id, bool isFavorite) {
+  void setFavorite(int? id, bool isFavorite) {
     var veggie = getVeggie(id);
     veggie.isFavorite = isFavorite;
     notifyListeners();
   }
 
   /// Used in tests to set the season independent of the current date.
-  static Season debugCurrentSeason;
+  static Season? debugCurrentSeason;
 
-  static Season _getSeasonForDate(DateTime date) {
+  static Season? _getSeasonForDate(DateTime date) {
     if (debugCurrentSeason != null) {
       return debugCurrentSeason;
     }

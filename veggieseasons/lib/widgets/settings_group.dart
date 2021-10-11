@@ -14,7 +14,7 @@ import 'settings_item.dart';
 // See https://github.com/flutter/flutter/projects/29 for more info.
 
 class SettingsGroupHeader extends StatelessWidget {
-  const SettingsGroupHeader(this.title, {Key key}) : super(key: key);
+  const SettingsGroupHeader(this.title, {Key? key}) : super(key: key);
 
   final String title;
 
@@ -35,7 +35,7 @@ class SettingsGroupHeader extends StatelessWidget {
 }
 
 class SettingsGroupFooter extends StatelessWidget {
-  const SettingsGroupFooter(this.title, {Key key}) : super(key: key);
+  const SettingsGroupFooter(this.title, {Key? key}) : super(key: key);
 
   final String title;
 
@@ -55,17 +55,16 @@ class SettingsGroupFooter extends StatelessWidget {
 
 class SettingsGroup extends StatelessWidget {
   SettingsGroup({
-    @required this.items,
+    required this.items,
     this.header,
     this.footer,
-    Key key,
-  })  : assert(items != null),
-        assert(items.isNotEmpty),
+    Key? key,
+  })  : assert(items.isNotEmpty),
         super(key: key);
 
   final List<SettingsItem> items;
-  final Widget header;
-  final Widget footer;
+  final Widget? header;
+  final Widget? footer;
   @override
   Widget build(BuildContext context) {
     var brightness = CupertinoTheme.brightnessOf(context);
@@ -85,7 +84,7 @@ class SettingsGroup extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (header != null) header,
+          if (header != null) header!,
           Container(
             decoration: BoxDecoration(
               color: CupertinoColors.white,
@@ -105,7 +104,7 @@ class SettingsGroup extends StatelessWidget {
               children: dividedItems,
             ),
           ),
-          if (footer != null) footer,
+          if (footer != null) footer!,
         ],
       ),
     );

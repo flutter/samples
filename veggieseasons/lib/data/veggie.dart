@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
 enum VeggieCategory {
   allium,
@@ -71,18 +70,18 @@ const Map<Season, String> seasonNames = {
 
 class Veggie {
   Veggie({
-    @required this.id,
-    @required this.name,
-    @required this.imageAssetPath,
-    @required this.category,
-    @required this.shortDescription,
-    @required this.accentColor,
-    @required this.seasons,
-    @required this.vitaminAPercentage,
-    @required this.vitaminCPercentage,
-    @required this.servingSize,
-    @required this.caloriesPerServing,
-    @required this.trivia,
+    required this.id,
+    required this.name,
+    required this.imageAssetPath,
+    required this.category,
+    required this.shortDescription,
+    required this.accentColor,
+    required this.seasons,
+    required this.vitaminAPercentage,
+    required this.vitaminCPercentage,
+    required this.servingSize,
+    required this.caloriesPerServing,
+    required this.trivia,
     this.isFavorite = false,
   });
 
@@ -127,5 +126,5 @@ class Veggie {
   /// A set of trivia questions and answers related to the veggie.
   final List<Trivia> trivia;
 
-  String get categoryName => veggieCategoryNames[category];
+  String? get categoryName => veggieCategoryNames[category];
 }
