@@ -5,8 +5,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:uuid/uuid.dart' as uuid;
 import 'package:collection/collection.dart';
+import 'package:uuid/uuid.dart' as uuid;
 
 import 'api.dart';
 
@@ -56,7 +56,7 @@ class MockCategoryApi implements CategoryApi {
 
   @override
   Future<Category> insert(Category category) async {
-    var id = uuid.Uuid().v4();
+    var id = const uuid.Uuid().v4();
     var newCategory = Category(category.name)..id = id;
     _storage[id] = newCategory;
     _emit();
@@ -96,7 +96,7 @@ class MockEntryApi implements EntryApi {
 
   @override
   Future<Entry> insert(String categoryId, Entry entry) async {
-    var id = uuid.Uuid().v4();
+    var id = const uuid.Uuid().v4();
     var newEntry = Entry(entry.value, entry.time)..id = id;
     _storage['$categoryId-$id'] = newEntry;
     _emit(categoryId);

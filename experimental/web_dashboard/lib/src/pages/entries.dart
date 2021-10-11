@@ -35,7 +35,7 @@ class _EntriesPageState extends State<EntriesPage> {
           child: _selected == null
               ? const Center(child: CircularProgressIndicator())
               : EntriesList(
-                  category: _selected!,
+                  category: _selected,
                   api: appState.api!.entries,
                 ),
         ),
@@ -45,13 +45,13 @@ class _EntriesPageState extends State<EntriesPage> {
 }
 
 class EntriesList extends StatefulWidget {
-  final Category category;
+  final Category? category;
   final EntryApi api;
 
   EntriesList({
-    required this.category,
+    this.category,
     required this.api,
-  }) : super(key: ValueKey(category.id));
+  }) : super(key: ValueKey(category?.id));
 
   @override
   _EntriesListState createState() => _EntriesListState();
@@ -65,14 +65,14 @@ class _EntriesListState extends State<EntriesList> {
     }
 
     return FutureBuilder<List<Entry>>(
-      future: widget.api.list(widget.category.id!),
+      future: widget.api.list(widget.category!.id!),
       builder: (context, futureSnapshot) {
         if (!futureSnapshot.hasData) {
           return _buildLoadingIndicator();
         }
         return StreamBuilder<List<Entry>>(
           initialData: futureSnapshot.data,
-          stream: widget.api.subscribe(widget.category.id!),
+          stream: widget.api.subscribe(widget.category!.id!),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return _buildLoadingIndicator();
