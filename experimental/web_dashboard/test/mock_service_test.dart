@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:web_dashboard/src/api/api.dart';
@@ -26,8 +24,7 @@ void main() {
       test('delete', () async {
         await api.categories.insert(Category('Coffees Drank'));
         var category = await api.categories.insert(Category('Miles Ran'));
-        var removed =
-            await api.categories.delete(category.id!);
+        var removed = await api.categories.delete(category.id!);
 
         expect(removed, isNotNull);
         expect(removed!.name, 'Miles Ran');
@@ -40,8 +37,7 @@ void main() {
         var category = await api.categories.insert(Category('Coffees Drank'));
         await api.categories.update(Category('Bagels Consumed'), category.id!);
 
-        var latest =
-            await api.categories.get(category.id!);
+        var latest = await api.categories.get(category.id!);
         expect(latest, isNotNull);
         expect(latest!.name, equals('Bagels Consumed'));
       });
