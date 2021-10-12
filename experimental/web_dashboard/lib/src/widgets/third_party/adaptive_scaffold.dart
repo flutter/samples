@@ -18,8 +18,8 @@ class AdaptiveScaffoldDestination {
   final IconData icon;
 
   const AdaptiveScaffoldDestination({
-    @required this.title,
-    @required this.icon,
+    required this.title,
+    required this.icon,
   });
 }
 
@@ -27,23 +27,23 @@ class AdaptiveScaffoldDestination {
 /// [NavigationRail], or [BottomNavigationBar]. Navigation destinations are
 /// defined in the [destinations] parameter.
 class AdaptiveScaffold extends StatefulWidget {
-  final Widget title;
+  final Widget? title;
   final List<Widget> actions;
-  final Widget body;
+  final Widget? body;
   final int currentIndex;
   final List<AdaptiveScaffoldDestination> destinations;
-  final ValueChanged<int> onNavigationIndexChange;
-  final FloatingActionButton floatingActionButton;
+  final ValueChanged<int>? onNavigationIndexChange;
+  final FloatingActionButton? floatingActionButton;
 
   const AdaptiveScaffold({
     this.title,
     this.body,
     this.actions = const [],
-    @required this.currentIndex,
-    @required this.destinations,
+    required this.currentIndex,
+    required this.destinations,
     this.onNavigationIndexChange,
     this.floatingActionButton,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -122,7 +122,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
               color: Colors.grey[300],
             ),
             Expanded(
-              child: widget.body,
+              child: widget.body!,
             ),
           ],
         ),
@@ -155,7 +155,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
   void _destinationTapped(AdaptiveScaffoldDestination destination) {
     var idx = widget.destinations.indexOf(destination);
     if (idx != widget.currentIndex) {
-      widget.onNavigationIndexChange(idx);
+      widget.onNavigationIndexChange!(idx);
     }
   }
 }

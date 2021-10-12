@@ -15,12 +15,12 @@ const _daysBefore = 10;
 
 class CategoryChart extends StatelessWidget {
   final Category category;
-  final DashboardApi api;
+  final DashboardApi? api;
 
   const CategoryChart({
-    @required this.category,
-    @required this.api,
-    Key key,
+    required this.category,
+    required this.api,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -51,14 +51,14 @@ class CategoryChart extends StatelessWidget {
           // Load the initial snapshot using a FutureBuilder, and subscribe to
           // additional updates with a StreamBuilder.
           child: FutureBuilder<List<Entry>>(
-            future: api.entries.list(category.id),
+            future: api!.entries.list(category.id!),
             builder: (context, futureSnapshot) {
               if (!futureSnapshot.hasData) {
                 return _buildLoadingIndicator();
               }
               return StreamBuilder<List<Entry>>(
                 initialData: futureSnapshot.data,
-                stream: api.entries.subscribe(category.id),
+                stream: api!.entries.subscribe(category.id!),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return _buildLoadingIndicator();
@@ -74,12 +74,14 @@ class CategoryChart extends StatelessWidget {
   }
 
   Widget _buildLoadingIndicator() {
-    return const Center(child: CircularProgressIndicator());
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
   }
 }
 
 class _BarChart extends StatelessWidget {
-  final List<Entry> entries;
+  final List<Entry>? entries;
 
   const _BarChart({this.entries});
 
@@ -96,14 +98,10 @@ class _BarChart extends StatelessWidget {
       id: 'Entries',
       colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
       domainFn: (entryTotal, _) {
-        if (entryTotal == null) return null;
-
         var format = intl.DateFormat.Md();
         return format.format(entryTotal.day);
       },
       measureFn: (total, _) {
-        if (total == null) return null;
-
         return total.value;
       },
       data: utils.entryTotalsByDay(entries, _daysBefore),

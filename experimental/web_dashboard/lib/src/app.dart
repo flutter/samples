@@ -18,7 +18,7 @@ import 'pages/sign_in.dart';
 /// The global state the app.
 class AppState {
   final Auth auth;
-  DashboardApi api;
+  DashboardApi? api;
 
   AppState(this.auth);
 }
@@ -33,19 +33,19 @@ class DashboardApp extends StatefulWidget {
   static DashboardApi _mockApiBuilder(User user) =>
       MockDashboardApi()..fillWithMockData();
   static DashboardApi _apiBuilder(User user) =>
-      FirebaseDashboardApi(Firestore.instance, user.uid);
+      FirebaseDashboardApi(FirebaseFirestore.instance, user.uid);
 
   final Auth auth;
   final ApiBuilder apiBuilder;
 
   /// Runs the app using Firebase
-  DashboardApp.firebase({Key key})
+  DashboardApp.firebase({Key? key})
       : auth = FirebaseAuthService(),
         apiBuilder = _apiBuilder,
         super(key: key);
 
   /// Runs the app using mock data
-  DashboardApp.mock({Key key})
+  DashboardApp.mock({Key? key})
       : auth = MockAuthService(),
         apiBuilder = _mockApiBuilder,
         super(key: key);
@@ -55,7 +55,7 @@ class DashboardApp extends StatefulWidget {
 }
 
 class _DashboardAppState extends State<DashboardApp> {
-  AppState _appState;
+  late final AppState _appState;
 
   @override
   void initState() {
@@ -80,13 +80,13 @@ class _DashboardAppState extends State<DashboardApp> {
 /// Switches between showing the [SignInPage] or [HomePage], depending on
 /// whether or not the user is signed in.
 class SignInSwitcher extends StatefulWidget {
-  final AppState appState;
-  final ApiBuilder apiBuilder;
+  final AppState? appState;
+  final ApiBuilder? apiBuilder;
 
   const SignInSwitcher({
     this.appState,
     this.apiBuilder,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -107,14 +107,14 @@ class _SignInSwitcherState extends State<SignInSwitcher> {
               onSignOut: _handleSignOut,
             )
           : SignInPage(
-              auth: widget.appState.auth,
+              auth: widget.appState!.auth,
               onSuccess: _handleSignIn,
             ),
     );
   }
 
   void _handleSignIn(User user) {
-    widget.appState.api = widget.apiBuilder(user);
+    widget.appState!.api = widget.apiBuilder!(user);
 
     setState(() {
       _isSignedIn = true;
@@ -122,7 +122,7 @@ class _SignInSwitcherState extends State<SignInSwitcher> {
   }
 
   Future _handleSignOut() async {
-    await widget.appState.auth.signOut();
+    await widget.appState!.auth.signOut();
     setState(() {
       _isSignedIn = false;
     });

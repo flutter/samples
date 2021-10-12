@@ -11,9 +11,9 @@ class SignInPage extends StatelessWidget {
   final ValueChanged<User> onSuccess;
 
   const SignInPage({
-    @required this.auth,
-    @required this.onSuccess,
-    Key key,
+    required this.auth,
+    required this.onSuccess,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -31,9 +31,9 @@ class SignInButton extends StatefulWidget {
   final ValueChanged<User> onSuccess;
 
   const SignInButton({
-    @required this.auth,
-    @required this.onSuccess,
-    Key key,
+    required this.auth,
+    required this.onSuccess,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class SignInButton extends StatefulWidget {
 }
 
 class _SignInButtonState extends State<SignInButton> {
-  Future<bool> _checkSignInFuture;
+  Future<bool>? _checkSignInFuture;
 
   @override
   void initState() {

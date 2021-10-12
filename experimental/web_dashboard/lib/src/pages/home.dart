@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../widgets/dialogs.dart';
@@ -13,8 +15,8 @@ class HomePage extends StatefulWidget {
   final VoidCallback onSignOut;
 
   const HomePage({
-    @required this.onSignOut,
-    Key key,
+    required this.onSignOut,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _handleSignOut() async {
-    var shouldSignOut = await showDialog<bool>(
+    var shouldSignOut = await (showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Are you sure you want to sign out?'),
@@ -105,9 +107,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
+    ));
 
-    if (!shouldSignOut) {
+    if (shouldSignOut == null || !shouldSignOut) {
       return;
     }
 

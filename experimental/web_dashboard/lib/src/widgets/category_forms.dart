@@ -8,7 +8,7 @@ import 'package:web_dashboard/src/api/api.dart';
 import 'package:web_dashboard/src/app.dart';
 
 class NewCategoryForm extends StatefulWidget {
-  const NewCategoryForm({Key key}) : super(key: key);
+  const NewCategoryForm({Key? key}) : super(key: key);
 
   @override
   _NewCategoryFormState createState() => _NewCategoryFormState();
@@ -24,7 +24,7 @@ class _NewCategoryFormState extends State<NewCategoryForm> {
       category: _category,
       onDone: (shouldInsert) {
         if (shouldInsert) {
-          api.categories.insert(_category);
+          api!.categories.insert(_category);
         }
         Navigator.of(context).pop();
       },
@@ -37,9 +37,9 @@ class EditCategoryForm extends StatefulWidget {
   final ValueChanged<bool> onDone;
 
   const EditCategoryForm({
-    @required this.category,
-    @required this.onDone,
-    Key key,
+    required this.category,
+    required this.onDone,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -67,7 +67,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
                 widget.category.name = newValue;
               },
               validator: (value) {
-                if (value.isEmpty) {
+                if (value!.isEmpty) {
                   return 'Please enter a name';
                 }
                 return null;
@@ -91,7 +91,7 @@ class _EditCategoryFormState extends State<EditCategoryForm> {
                 child: ElevatedButton(
                   child: const Text('OK'),
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       widget.onDone(true);
                     }
                   },

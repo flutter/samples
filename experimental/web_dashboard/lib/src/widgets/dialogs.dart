@@ -11,7 +11,7 @@ import '../app.dart';
 import 'edit_entry.dart';
 
 class NewCategoryDialog extends StatelessWidget {
-  const NewCategoryDialog({Key key}) : super(key: key);
+  const NewCategoryDialog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class EditCategoryDialog extends StatelessWidget {
   final Category category;
 
   const EditCategoryDialog({
-    @required this.category,
-    Key key,
+    required this.category,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -43,7 +43,7 @@ class EditCategoryDialog extends StatelessWidget {
           category: category,
           onDone: (shouldUpdate) {
             if (shouldUpdate) {
-              api.categories.update(category, category.id);
+              api!.categories.update(category, category.id!);
             }
             Navigator.of(context).pop();
           },
@@ -54,7 +54,7 @@ class EditCategoryDialog extends StatelessWidget {
 }
 
 class NewEntryDialog extends StatefulWidget {
-  const NewEntryDialog({Key key}) : super(key: key);
+  const NewEntryDialog({Key? key}) : super(key: key);
 
   @override
   _NewEntryDialogState createState() => _NewEntryDialogState();
@@ -73,13 +73,13 @@ class _NewEntryDialogState extends State<NewEntryDialog> {
 }
 
 class EditEntryDialog extends StatelessWidget {
-  final Category category;
-  final Entry entry;
+  final Category? category;
+  final Entry? entry;
 
   const EditEntryDialog({
     this.category,
     this.entry,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -93,7 +93,7 @@ class EditEntryDialog extends StatelessWidget {
           entry: entry,
           onDone: (shouldUpdate) {
             if (shouldUpdate) {
-              api.entries.update(category.id, entry.id, entry);
+              api!.entries.update(category!.id!, entry!.id!, entry!);
             }
             Navigator.of(context).pop();
           },

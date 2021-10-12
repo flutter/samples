@@ -3,28 +3,31 @@ description: A dashboard app sample
 version: 1.0.0+1
 publish_to: none
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^0.13.0
-  cupertino_icons: ^0.1.2
-  firebase_auth: ^0.16.1
-  firebase_core: ^0.4.3
+  cloud_firestore: ^2.5.0
+  cupertino_icons: ^1.0.0
+  firebase_auth: ^3.1.0
+  firebase_core: ^1.7.0
   google_sign_in: ^5.0.0
-  json_annotation: ^3.0.0
-  provider: ^4.0.0
-  uuid: ^2.0.0
+  json_annotation: ^4.1.0
+  provider: ^6.0.0
+  uuid: ^3.0.0
+  # The published version of charts_flutter is not up to date with master:
+  # https://github.com/google/charts/issues/678
   charts_flutter:
     git:
       url: git://github.com/google/charts.git
       path: charts_flutter
+      ref: 03c2aa67d12952e7f3cbba1d87646d96a9a7cdc4
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.8.0
-  json_serializable: ^3.3.0
-  grinder: ^0.8.4
+  build_runner: ^2.1.0
+  json_serializable: ^5.0.0
+  grinder: ^0.9.0
   flutter_lints: ^1.0.0
 flutter:
   uses-material-design: true
