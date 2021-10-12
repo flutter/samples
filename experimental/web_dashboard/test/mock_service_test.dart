@@ -27,9 +27,10 @@ void main() {
         await api.categories.insert(Category('Coffees Drank'));
         var category = await api.categories.insert(Category('Miles Ran'));
         var removed =
-            await (api.categories.delete(category.id!) as FutureOr<Category>);
+            await api.categories.delete(category.id!);
 
-        expect(removed.name, 'Miles Ran');
+        expect(removed, isNotNull);
+        expect(removed!.name, 'Miles Ran');
 
         var categories = await api.categories.list();
         expect(categories, hasLength(1));
@@ -40,8 +41,9 @@ void main() {
         await api.categories.update(Category('Bagels Consumed'), category.id!);
 
         var latest =
-            await (api.categories.get(category.id!) as FutureOr<Category>);
-        expect(latest.name, equals('Bagels Consumed'));
+            await api.categories.get(category.id!);
+        expect(latest, isNotNull);
+        expect(latest!.name, equals('Bagels Consumed'));
       });
       test('subscribe', () async {
         var stream = api.categories.subscribe();
