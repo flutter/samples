@@ -41,7 +41,8 @@ class PressableCard extends StatefulWidget {
     required this.color,
     required this.flattenAnimation,
     this.child,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final VoidCallback? onPressed;
   final Color color;
@@ -140,7 +141,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
     required this.color,
     required this.heroAnimation,
     this.onPressed,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String song;
   final Color color;
@@ -218,6 +220,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
 /// This is an example of a custom widget that an app developer might create for
 /// use on both iOS and Android as part of their brand's unique design.
 class SongPlaceholderTile extends StatelessWidget {
+  const SongPlaceholderTile({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

@@ -13,6 +13,8 @@ class ProfileTab extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
+  const ProfileTab({Key? key}) : super(key: key);
+
   Widget _buildBody(BuildContext context) {
     return SafeArea(
       child: Padding(
@@ -55,7 +57,7 @@ class ProfileTab extends StatelessWidget {
             Expanded(
               child: Container(),
             ),
-            LogOutButton(),
+            const LogOutButton(),
           ],
         ),
       ),
@@ -89,7 +91,7 @@ class ProfileTab extends StatelessWidget {
               CupertinoPageRoute(
                 title: SettingsTab.title,
                 fullscreenDialog: true,
-                builder: (context) => SettingsTab(),
+                builder: (context) => const SettingsTab(),
               ),
             );
           },
@@ -113,7 +115,8 @@ class PreferenceCard extends StatelessWidget {
     required this.header,
     required this.content,
     required this.preferenceChoices,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String header;
   final String content;
@@ -170,6 +173,8 @@ class PreferenceCard extends StatelessWidget {
 class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text(
       "You can't actually log out! This is just a demo of how alerts work.");
+
+  const LogOutButton({Key? key}) : super(key: key);
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On
