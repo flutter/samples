@@ -67,7 +67,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           maxLines: 5,
                         ),
                         _FormDatePicker(
-                          initialDate: date,
+                          date: date,
                           onChanged: (value) {
                             setState(() {
                               date = value;
@@ -159,11 +159,11 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
 }
 
 class _FormDatePicker extends StatefulWidget {
-  final DateTime initialDate;
+  final DateTime date;
   final ValueChanged<DateTime> onChanged;
 
   const _FormDatePicker({
-    required this.initialDate,
+    required this.date,
     required this.onChanged,
   });
 
@@ -187,7 +187,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
               style: Theme.of(context).textTheme.bodyText1,
             ),
             Text(
-              intl.DateFormat.yMd().format(widget.initialDate),
+              intl.DateFormat.yMd().format(widget.date),
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ],
@@ -197,7 +197,7 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           onPressed: () async {
             var newDate = await showDatePicker(
               context: context,
-              initialDate: widget.initialDate,
+              initialDate: widget.date,
               firstDate: DateTime(1900),
               lastDate: DateTime(2100),
             );
