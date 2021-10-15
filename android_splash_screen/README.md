@@ -8,7 +8,7 @@ A Flutter app that exemplifies how to implement an animated splash screen for An
 - Demonstrate the compatibility of animated splash screens and Flutter apps running on Android
 - Demonstrate the smoothness achievable by a splash screen as a transition to the Flutter UI
 
-## The Important Bits
+## The important bits
 
 ### Remove deprecated code
 
