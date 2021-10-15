@@ -179,10 +179,9 @@ class MainActivity : FlutterActivity() {
       splashScreenViewProvider.remove()
     }
 
-    waitForAnimatedIconToFinish(
-      splashScreenViewProvider,
-      splashScreenView
-    ) { animatorSet.start() }
+    waitForAnimatedIconToFinish(splashScreenViewProvider, splashScreenView) {
+      animatorSet.start()
+    }
   }
 
   /**
