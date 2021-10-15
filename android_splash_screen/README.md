@@ -4,7 +4,6 @@ A Flutter app that exemplifies how to implement an animated splash screen for An
 
 **NOTE:** There is a pub package available to implement static splash screens in your Flutter app: [flutter_native_splash](https://pub.dev/packages/flutter_native_splash).
 
-
 ## Goals
 - Demonstrate the compatibility of animated splash screens and Flutter apps running on Android
 - Demonstrate the smoothness achievable by a splash screen as a transition to the Flutter UI
