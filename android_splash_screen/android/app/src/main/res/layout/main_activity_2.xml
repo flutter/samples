@@ -1,0 +1,76 @@
+<!--
+  ~ Copyright (C) 2021 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!-- This layout is the final frame of the interpolation animation. -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+  <ImageView
+      android:id="@+id/icon_background"
+      android:layout_width="72dp"
+      android:layout_height="72dp"
+      app:layout_constraintBottom_toBottomOf="@+id/imageView"
+      app:layout_constraintEnd_toEndOf="@+id/imageView"
+      app:layout_constraintStart_toStartOf="@+id/imageView"
+      app:layout_constraintTop_toTopOf="@+id/imageView"
+      android:src="@drawable/android_background" />
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginStart="24dp"
+      android:src="@drawable/android"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/android" />
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Super Splash Screen Demo"
+      android:textSize="24dp"
+      app:layout_constraintBottom_toBottomOf="@+id/imageView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.495"
+      app:layout_constraintStart_toEndOf="@+id/imageView"
+      app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+  <androidx.constraintlayout.helper.widget.Flow
+      android:id="@+id/flow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="16dp"
+      app:constraint_referenced_ids="imageView2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/icon_background" />
+
+  <ImageView
+      android:id="@+id/imageView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      app:layout_constraintStart_toStartOf="@+id/icon_background"
+      app:layout_constraintTop_toBottomOf="@+id/icon_background"
+      tools:srcCompat="@tools:sample/avatars" />
+</androidx.constraintlayout.widget.ConstraintLayout>
