@@ -7,6 +7,7 @@ reduce redundant work.*
 
 - [ ] I read the [Flutter Style Guide] _recently_, and have followed its advice.
 - [ ] I signed the [CLA].
+- [ ] I read the [Contributors Guide].
 - [ ] I updated/added relevant documentation (doc comments with `///`).
 - [ ] All existing and new tests are passing.
 
@@ -16,3 +17,4 @@ If you need help, consider asking for advice on the #hackers-devrel channel on [
 [Flutter Style Guide]: https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo
 [CLA]: https://cla.developers.google.com/
 [Discord]: https://github.com/flutter/flutter/wiki/Chat
+[Contributors Guide]: https://github.com/flutter/samples/blob/master/CONTRIBUTING.md
