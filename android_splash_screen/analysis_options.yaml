@@ -12,8 +12,6 @@ linter:
     cancel_subscriptions: true
     close_sinks: true
     directives_ordering: true
-    # Required because of the numbered sources in  lib/src/basics
-    file_names: false
     package_api_docs: true
     package_prefixed_library_names: true
     test_types_in_equals: true
