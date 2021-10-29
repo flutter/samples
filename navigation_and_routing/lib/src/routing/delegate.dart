@@ -22,7 +22,6 @@ class SimpleRouterDelegate extends RouterDelegate<ParsedRoute>
     required this.routeState,
     required this.builder,
     required this.navigatorKey,
-    // ignore: prefer_initializing_formals
   }) {
     routeState.addListener(notifyListeners);
   }
