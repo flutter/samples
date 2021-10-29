@@ -68,7 +68,7 @@ class _BookstoreState extends State<Bookstore> {
             // https://github.com/flutter/flutter/issues/82053
             theme: ThemeData(
               pageTransitionsTheme: const PageTransitionsTheme(
-                builders: <TargetPlatform, PageTransitionsBuilder>{
+                builders: {
                   TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
                   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
                   TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
