@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import Flutter
+import FlutterPluginRegistrant
 import Foundation
 
 /// A FlutterViewController intended for the MyApp widget in the Flutter module.
@@ -16,6 +17,7 @@ class SingleFlutterViewController: FlutterViewController, DataModelObserver {
   init(withEntrypoint entryPoint: String?) {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let newEngine = appDelegate.engines.makeEngine(withEntrypoint: entryPoint, libraryURI: nil)
+    GeneratedPluginRegistrant.register(with: newEngine)
     super.init(engine: newEngine, nibName: nil, bundle: nil)
     DataModel.shared.addObserver(observer: self)
   }

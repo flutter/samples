@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 
 void main() => runApp(const MyApp(color: Colors.blue));
 
@@ -89,6 +90,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 _channel.invokeMethod<void>("next", _counter);
               },
               child: const Text('Next'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                // Use the url_launcher plugin to open the Flutter docs in
+                // a browser.
+                const url = 'https://flutter.dev/docs';
+                if (await launcher.canLaunch(url)) {
+                  launcher.launch(url);
+                }
+              },
+              child: const Text('Open Flutter Docs'),
             ),
           ],
         ),
