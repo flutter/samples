@@ -17,7 +17,7 @@ class NewCategoryDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SimpleDialog(
       title: Text('New Category'),
-      children: <Widget>[
+      children: [
         NewCategoryForm(),
       ],
     );

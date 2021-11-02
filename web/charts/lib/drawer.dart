@@ -29,7 +29,7 @@ class GalleryDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(children: <Widget>[
+      child: ListView(children: [
         // Performance overlay toggle.
         ListTile(
           leading: const Icon(Icons.assessment),

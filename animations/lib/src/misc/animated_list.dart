@@ -78,7 +78,7 @@ class _AnimatedListDemoState extends State<AnimatedListDemo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AnimatedList'),
-        actions: <Widget>[
+        actions: [
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: addUser,

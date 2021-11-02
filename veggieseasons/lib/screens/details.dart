@@ -174,7 +174,7 @@ class InfoView extends StatelessWidget {
         children: [
           Row(
             mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
+            children: [
               FutureBuilder<Set<VeggieCategory>>(
                 future: prefs.preferredCategories,
                 builder: (context, snapshot) {

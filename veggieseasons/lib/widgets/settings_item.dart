@@ -130,7 +130,7 @@ class SettingsItemState extends State<SettingsItem> {
                   child: widget.subtitle != null
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
+                          children: [
                             const SizedBox(height: 8.5),
                             Text(widget.label,
                                 style: themeData.textTheme.textStyle),

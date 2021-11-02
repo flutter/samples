@@ -65,7 +65,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: '(123) 456-7890',
                         labelText: 'Telephone',
                       ),
-                      autofillHints: <String>[AutofillHints.telephoneNumber],
+                      autofillHints: [AutofillHints.telephoneNumber],
                     ),
                     const TextField(
                       keyboardType: TextInputType.streetAddress,
@@ -74,7 +74,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: '123 4th Ave',
                         labelText: 'Street Address',
                       ),
-                      autofillHints: <String>[AutofillHints.streetAddressLine1],
+                      autofillHints: [AutofillHints.streetAddressLine1],
                     ),
                     const TextField(
                       keyboardType: TextInputType.number,
@@ -83,7 +83,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: '12345',
                         labelText: 'Postal Code',
                       ),
-                      autofillHints: <String>[AutofillHints.postalCode],
+                      autofillHints: [AutofillHints.postalCode],
                     ),
                     const TextField(
                       textInputAction: TextInputAction.next,
@@ -91,7 +91,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: 'United States',
                         labelText: 'Country',
                       ),
-                      autofillHints: <String>[AutofillHints.countryName],
+                      autofillHints: [AutofillHints.countryName],
                     ),
                     const TextField(
                       keyboardType: TextInputType.number,
@@ -99,7 +99,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
                         hintText: '1',
                         labelText: 'Country Code',
                       ),
-                      autofillHints: <String>[AutofillHints.countryCode],
+                      autofillHints: [AutofillHints.countryCode],
                     ),
                   ].expand(
                     (widget) => [

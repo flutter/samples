@@ -20,7 +20,7 @@ class ParticleBackgroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: <Widget>[
+      children: [
         Positioned.fill(child: AnimatedBackground()),
         Positioned.fill(child: Particles(30)),
         Positioned.fill(child: CenteredText()),

@@ -25,7 +25,7 @@ class _AddPetDetailsState extends State<AddPetDetails> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Pet Details'),
-        actions: <Widget>[
+        actions: [
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {

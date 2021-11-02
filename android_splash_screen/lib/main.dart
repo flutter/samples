@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: Column(
-          children: <Widget>[
+          children: [
             const Padding(
                 padding: EdgeInsets.only(top: 42, bottom: 250),
                 child: Align(

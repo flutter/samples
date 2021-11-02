@@ -153,7 +153,7 @@ class DisjointMeasureAxisLineChart extends StatelessWidget {
         primaryMeasureAxis: const charts.NumericAxisSpec(
             tickProviderSpec: charts.StaticNumericTickProviderSpec(
           // Create the ticks to be used the domain axis.
-          <charts.TickSpec<num>>[
+          [
             charts.TickSpec(0, label: ''),
             charts.TickSpec(1, label: ''),
             charts.TickSpec(2, label: ''),

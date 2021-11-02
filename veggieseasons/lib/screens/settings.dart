@@ -233,7 +233,7 @@ class SettingsScreen extends StatelessWidget {
             content: const Text(
               'Are you sure you want to reset the current settings?',
             ),
-            actions: <Widget>[
+            actions: [
               CupertinoDialogAction(
                 isDestructiveAction: true,
                 child: const Text('Yes'),
@@ -266,7 +266,7 @@ class SettingsScreen extends StatelessWidget {
               Styles.scaffoldBackground(CupertinoTheme.brightnessOf(context)),
           child: CustomScrollView(
             restorationId: 'list',
-            slivers: <Widget>[
+            slivers: [
               const CupertinoSliverNavigationBar(
                 largeTitle: Text('Settings'),
               ),
@@ -274,7 +274,7 @@ class SettingsScreen extends StatelessWidget {
                 top: false,
                 sliver: SliverList(
                   delegate: SliverChildListDelegate(
-                    <Widget>[
+                    [
                       SettingsGroup(
                         items: [
                           _buildCaloriesItem(context, prefs),

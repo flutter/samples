@@ -53,7 +53,7 @@ class _FadeTransitionDemoState extends State<FadeTransitionDemo>
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
+          children: [
             FadeTransition(
               opacity: _animation,
               child: const Icon(

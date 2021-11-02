@@ -18,7 +18,7 @@ class Book {
   Thumbnail? thumbnail;
 
   Object encode() {
-    final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
+    final pigeonMap = <Object?, Object?>{};
     pigeonMap['title'] = title;
     pigeonMap['subtitle'] = subtitle;
     pigeonMap['author'] = author;
@@ -30,7 +30,7 @@ class Book {
   }
 
   static Book decode(Object message) {
-    final Map<Object?, Object?> pigeonMap = message as Map<Object?, Object?>;
+    final pigeonMap = message as Map<Object?, Object?>;
     return Book()
       ..title = pigeonMap['title'] as String?
       ..subtitle = pigeonMap['subtitle'] as String?
@@ -48,13 +48,13 @@ class Thumbnail {
   String? url;
 
   Object encode() {
-    final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
+    final pigeonMap = <Object?, Object?>{};
     pigeonMap['url'] = url;
     return pigeonMap;
   }
 
   static Thumbnail decode(Object message) {
-    final Map<Object?, Object?> pigeonMap = message as Map<Object?, Object?>;
+    final pigeonMap = message as Map<Object?, Object?>;
     return Thumbnail()..url = pigeonMap['url'] as String?;
   }
 }
@@ -89,7 +89,7 @@ abstract class FlutterBookApi {
   void displayBookDetails(Book book);
   static void setup(FlutterBookApi? api) {
     {
-      const BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+      const channel = BasicMessageChannel<Object?>(
           'dev.flutter.pigeon.FlutterBookApi.displayBookDetails', codec);
       if (api == null) {
         channel.setMessageHandler(null);
@@ -146,7 +146,7 @@ class HostBookApi {
   static const MessageCodec<Object?> codec = _HostBookApiCodec();
 
   Future<void> cancel() async {
-    final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+    final channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.HostBookApi.cancel', codec,
         binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
@@ -158,8 +158,7 @@ class HostBookApi {
         details: null,
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,

@@ -43,7 +43,7 @@ class _DemoState extends State<Demo> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
               Text(deviceInfo),
               const Padding(padding: EdgeInsets.only(top: 18)),
               const FlutterLogo(size: 128),

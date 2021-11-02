@@ -11,7 +11,7 @@ import 'package:jsonexample/dart_convert/converted_simple_object.dart';
 import 'package:jsonexample/json_serializable/serializable_simple_object.dart';
 
 void main() {
-  const typicalObjectJson = <String, dynamic>{
+  const typicalObjectJson = {
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
@@ -20,7 +20,7 @@ void main() {
     'aListOfDoubles': [1.0, 2.0, 3.0]
   };
 
-  const emptyListJson = <String, dynamic>{
+  const emptyListJson = {
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,
@@ -29,7 +29,7 @@ void main() {
     'aListOfDoubles': <double>[]
   };
 
-  const unexpectedPropertiesJson = <String, dynamic>{
+  const unexpectedPropertiesJson = {
     'aString': 'Blah, blah, blah.',
     'anInt': 1,
     'aDouble': 1.0,

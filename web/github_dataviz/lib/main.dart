@@ -48,7 +48,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
 
     createAnimation(0);
 
-    weekLabels = <WeekLabel>[];
+    weekLabels = [];
     weekLabels.add(WeekLabel.forDate(DateTime(2019, 2, 26), 'v1.2'));
     weekLabels.add(WeekLabel.forDate(DateTime(2018, 12, 4), 'v1.0'));
 //    weekLabels.add(WeekLabel.forDate(new DateTime(2018, 9, 19), "Preview 2"));
@@ -155,7 +155,7 @@ class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
     Column mainColumn = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
+      children: [
         Expanded(child: layeredChart),
         Padding(
           padding: const EdgeInsets.only(
