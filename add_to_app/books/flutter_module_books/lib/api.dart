@@ -165,8 +165,6 @@ class HostBookApi {
         message: error['message'] as String?,
         details: error['details'],
       );
-    } else {
-      return;
     }
   }
 
@@ -190,8 +188,6 @@ class HostBookApi {
         message: error['message'] as String?,
         details: error['details'],
       );
-    } else {
-      return;
     }
   }
 }
