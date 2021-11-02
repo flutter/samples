@@ -26,7 +26,6 @@ export_fonts_from_a_package.html
 fade_a_widget_in_and_out.html
 fade_in_images_with_a_placeholder.html
 fetch_data_from_the_internet.html
-filipino_cuisine.html
 find_widgets.html
 flutter_maps_firestore.html
 focus_and_text_fields.html
@@ -263,8 +262,6 @@ images/cookbook/widget-tap-drag.png
 images/cookbook/widget-tap-drag_thumb.png
 images/dice.png
 images/dice_thumb.png
-images/filipino_cuisine1.png
-images/filipino_cuisine1_thumb.png
 images/flutter_maps_firestore1.png
 images/flutter_maps_firestore1_thumb.png
 images/flutter_maps_firestore2.png
@@ -794,7 +791,6 @@ packages/test/dart.js
 packages/test/src/runner/browser/static/default.html.tpl
 packages/test/src/runner/browser/static/favicon.ico
 packages/test/src/runner/browser/static/host.css
-packages/test/src/runner/browser/static/host.dart.js
 packages/test/src/runner/browser/static/index.html
 parse_j_s_o_n_in_the_background.html
 particle_background.html
