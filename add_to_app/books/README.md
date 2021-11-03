@@ -2,7 +2,7 @@
 
 Mimics a real world use-case of embedding Flutter into an existing Android app
 and demonstrates using [Pigeon](https://pub.dev/packages/pigeon) to communicate
-between Fluter and the host application.
+between Flutter and the host application.
 
 ## Description
 
