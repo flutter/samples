@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Testing Sample'),
-        actions: <Widget>[
+        actions: [
           TextButton.icon(
             style: TextButton.styleFrom(primary: Colors.white),
             onPressed: () {

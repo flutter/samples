@@ -49,7 +49,7 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
             }
           },
         ),
-        actions: <Widget>[
+        actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();

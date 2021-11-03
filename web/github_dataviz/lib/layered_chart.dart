@@ -49,9 +49,9 @@ class LayeredChartState extends State<LayeredChart> {
     graphHeight = MathUtils.clampedMap(screenRatio, 0.5, 2.5, 50, 150);
 
     int m = dataToPlot.length;
-    paths = <Path>[];
-    capPaths = <Path>[];
-    maxValues = <double>[];
+    paths = [];
+    capPaths = [];
+    maxValues = [];
     for (int i = 0; i < m; i++) {
       int n = dataToPlot[i].series.length;
       maxValues.add(0);
@@ -71,11 +71,11 @@ class LayeredChartState extends State<LayeredChart> {
     double xWidth = (endX - startX) / numPoints;
     double capRangeX = capSize * cos(capTheta);
     double tanCapTheta = tan(capTheta);
-    List<double> curvePoints = <double>[];
+    final curvePoints = <double>[];
     for (int i = 0; i < m; i++) {
       List<int> series = dataToPlot[i].series;
       int n = series.length;
-      List<Point2D> controlPoints = <Point2D>[];
+      final controlPoints = <Point2D>[];
       controlPoints.add(Point2D(-1, 0));
       double last = 0;
       for (int j = 0; j < n; j++) {
@@ -135,7 +135,7 @@ class LayeredChartState extends State<LayeredChart> {
       capPaths[i].lineTo(startX, startY + 1);
       capPaths[i].close();
     }
-    labelPainter = <TextPainter>[];
+    labelPainter = [];
     for (int i = 0; i < dataToPlot.length; i++) {
       TextSpan span = TextSpan(
           style: const TextStyle(
@@ -148,7 +148,7 @@ class LayeredChartState extends State<LayeredChart> {
       tp.layout();
       labelPainter.add(tp);
     }
-    milestonePainter = <TextPainter>[];
+    milestonePainter = [];
     for (int i = 0; i < milestones.length; i++) {
       TextSpan span = TextSpan(
           style: const TextStyle(

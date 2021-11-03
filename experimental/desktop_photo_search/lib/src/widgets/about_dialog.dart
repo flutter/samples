@@ -42,7 +42,7 @@ class PolicyDialog extends StatelessWidget {
                   text: TextSpan(
                     text: '• ',
                     style: const TextStyle(color: Colors.black, fontSize: 18),
-                    children: <TextSpan>[
+                    children: [
                       TextSpan(
                         text: 'https://policies.google.com/terms',
                         style: const TextStyle(
@@ -64,7 +64,7 @@ class PolicyDialog extends StatelessWidget {
                   text: TextSpan(
                     text: '• ',
                     style: const TextStyle(color: Colors.black, fontSize: 18),
-                    children: <TextSpan>[
+                    children: [
                       TextSpan(
                         text: 'https://unsplash.com/terms',
                         style: const TextStyle(
@@ -86,7 +86,7 @@ class PolicyDialog extends StatelessWidget {
           );
         },
       ),
-      actions: <Widget>[
+      actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();

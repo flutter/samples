@@ -115,7 +115,7 @@ class UnsplashHomePage extends StatelessWidget {
                         onPhotoSave: (photo) async {
                           final path = await getSavePath(
                             suggestedName: '${photo.id}.jpg',
-                            acceptedTypeGroups: <XTypeGroup>[
+                            acceptedTypeGroups: [
                               XTypeGroup(
                                 label: 'JPG',
                                 extensions: ['jpg'],

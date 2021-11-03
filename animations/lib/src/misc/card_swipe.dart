@@ -42,11 +42,11 @@ class _CardSwipeDemoState extends State<CardSwipeDemo> {
         padding: const EdgeInsets.all(12.0),
         child: Center(
           child: Column(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: ClipRect(
                   child: Stack(
-                    children: <Widget>[
+                    children: [
                       for (final fileName in fileNames)
                         SwipeableCard(
                           imageAssetName: fileName,
