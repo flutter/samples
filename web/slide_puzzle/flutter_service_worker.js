@@ -3,22 +3,22 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "7360eddfd93d6f625e7b20b66fdaa9ec",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"assets/asset/seattle.jpg": "5aba717f317de2d8b24259e6c109322b",
-"assets/asset/fonts/plaster/Plaster-Regular.ttf": "3bdb6c45e898b254e76cd6c164850f94",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/NOTICES": "016fe6febe7a137ee8f6635aaf4dbb07",
-"assets/FontManifest.json": "f0a8246bfb399b5df0043e73f578e332",
-"assets/AssetManifest.json": "ecb4d39e576209dc5ae70fad278c3df6",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
+  "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"main.dart.js": "e860c4a8433e22edfaefff8d164ff9d6",
+"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"index.html": "b455c459831327d50bd88af6747884e1",
+"/": "b455c459831327d50bd88af6747884e1",
 "manifest.json": "0567201f1f510a6af2f372f309dfe098",
-"index.html": "320fa9a6eb2b3ac5c19a76dd9292d7d3",
-"/": "320fa9a6eb2b3ac5c19a76dd9292d7d3"
+"version.json": "7360eddfd93d6f625e7b20b66fdaa9ec",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/NOTICES": "016fe6febe7a137ee8f6635aaf4dbb07",
+"assets/asset/fonts/plaster/Plaster-Regular.ttf": "3bdb6c45e898b254e76cd6c164850f94",
+"assets/asset/seattle.jpg": "5aba717f317de2d8b24259e6c109322b",
+"assets/FontManifest.json": "f0a8246bfb399b5df0043e73f578e332",
+"assets/AssetManifest.json": "ecb4d39e576209dc5ae70fad278c3df6",
+"main.dart.js": "e860c4a8433e22edfaefff8d164ff9d6"
 };
 
 // The application shell files that are downloaded before a service worker can
