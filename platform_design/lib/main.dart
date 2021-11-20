@@ -37,7 +37,7 @@ class MyAdaptingApp extends StatelessWidget {
         );
       },
       // ignore: use_key_in_widget_constructors
-      home: PlatformAdaptingHomePage(),
+      home: const PlatformAdaptingHomePage(),
     );
   }
 }
