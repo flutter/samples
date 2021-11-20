@@ -51,7 +51,6 @@ class DefaultRulesPage extends StatelessWidget {
         leadingWidth: 160.0,
         toolbarHeight: 38.0,
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
       ),
       body: ListView.separated(
         padding: EdgeInsetsDirectional.only(
