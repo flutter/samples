@@ -36,7 +36,7 @@ class MyAdaptingApp extends StatelessWidget {
           child: Material(child: child),
         );
       },
-      // ignore: use_key_in_widget_constructors
+      // ignore: use_key_in_widget_constructors, prefer_const_constructors
       home: PlatformAdaptingHomePage(),
     );
   }
