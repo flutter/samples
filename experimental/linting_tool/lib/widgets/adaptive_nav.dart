@@ -103,7 +103,6 @@ class _NavViewState extends State<_NavView> {
         ),
         toolbarHeight: 38.0,
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
       ),
       body: Row(
         children: [
