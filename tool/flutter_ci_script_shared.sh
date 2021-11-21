@@ -12,7 +12,11 @@ function ci_projects () {
         flutter pub get
 
         # Run the analyzer to find any static analysis issues.
-        dart analyze --fatal-infos
+        if ["$channel" == 'stable']; then
+            dart analyze --fatal-infos
+        else
+            dart analyze
+        fi
 
         # Run the formatter on all the dart files to make sure everything's linted.
         dart format --output none --set-exit-if-changed .
