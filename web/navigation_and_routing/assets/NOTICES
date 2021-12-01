@@ -2088,6 +2088,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 async
 cli_util
+mime
 shelf_static
 
 Copyright 2015, the Dart project authors. 
@@ -5190,7 +5191,6 @@ quiver
    limitations under the License.
 --------------------------------------------------------------------------------
 collection
-mime
 source_map_stack_trace
 stream_channel
 typed_data
@@ -6138,6 +6138,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 flutter_lints
 plugin_platform_interface
 url_launcher
+url_launcher_android
+url_launcher_ios
 url_launcher_linux
 url_launcher_macos
 url_launcher_platform_interface

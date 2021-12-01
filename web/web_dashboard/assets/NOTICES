@@ -1882,6 +1882,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 async
 cli_util
+mime
 
 Copyright 2015, the Dart project authors. 
 
@@ -5422,7 +5423,6 @@ firebase_core_platform_interface
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 collection
-mime
 stream_channel
 typed_data
 

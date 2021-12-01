@@ -11690,7 +11690,7 @@ N5:function N5(a,b,c){this.b=a
 this.c=b
 this.a=c},
 OQ:function OQ(){},
-hY(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,a0){return new M.wk(!1,!1,a,c,o,q,p,r,f,k,j,b,d,e,a0,!0,g,h,!0,!0,null)},
+hY(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,a0,a1){return new M.wk(!1,!1,a,c,o,q,p,s,f,k,j,b,d,e,a1,!0,g,h,!0,!0,r)},
 ahE(a){var s=a.pA(t.Np)
 if(s!=null)return s
 throw H.b(U.U_(H.a([U.tN("Scaffold.of() called with a context that does not contain a Scaffold."),U.bx("No Scaffold ancestor could be found starting from the context that was passed to Scaffold.of(). This usually happens when the context provided is from the same StatefulWidget as that whose build function actually creates the Scaffold widget being sought."),U.TC('There are several ways to avoid this problem. The simplest is to use a Builder to get a context that is "under" the Scaffold. For an example of this, please see the documentation for Scaffold.of():\n  https://api.flutter.dev/flutter/material/Scaffold/of.html'),U.TC("A more efficient solution is to split your build function into several widgets. This introduces a new context from which you can obtain the Scaffold. In this solution, you would have an outer widget that creates the Scaffold populated by instances of your new inner widgets, and then in these inner widgets you would use Scaffold.of().\nA less elegant but more expedient solution is assign a GlobalKey to the Scaffold, then use the key.currentState property to obtain the ScaffoldState rather than using the Scaffold.of() function."),a.a6F("The context used was")],t.qe)))},
@@ -35574,19 +35574,19 @@ W0(){var s,r,q,p,o,n=this,m=null,l=C.b.cl(n.id,0,Math.min(3,5)),k=H.a([],t.ur)
 for(s=l.length,r=0;r<l.length;l.length===s||(0,H.D)(l),++r){q=l[r]
 p=new L.eB(q.b,m)
 o=q.a
-k.push(new F.BC(p,p,o))}return M.hY(m,m,n.d,new L.rW(k,n.k1,n.go,C.c7,m,m),m,m,C.U,m,!0,m,m,!0,!1,!1,m,m,m,m,!0,m)},
+k.push(new F.BC(p,p,o))}return M.hY(m,m,n.d,new L.rW(k,n.k1,n.go,C.c7,m,m),m,m,C.U,m,!0,m,m,!0,!1,!1,m,m,m,n.a,m,!0,m)},
 W7(){var s,r,q,p,o,n=this,m=null,l=C.b.cl(n.id,0,Math.min(3,7)),k=H.a([],t.P2)
 for(s=l.length,r=0;r<l.length;l.length===s||(0,H.D)(l),++r){q=l[r]
 p=new L.eB(q.b,m)
 o=q.a
 k.push(new E.EK(p,p,new L.d7(o,m,m,m,m,m,m,m,m)))}k=T.wi(H.a([new E.v3(m,k,n.go,n.k1,m),C.we,T.Dm(n.d,1)],t.p),C.Z,C.ae,C.aq)
-return M.hY(m,m,k,m,m,m,C.U,m,!0,m,m,!0,!1,!1,m,m,m,m,!0,m)},
+return M.hY(m,m,k,m,m,m,C.U,m,!0,m,m,!0,!1,!1,m,m,m,n.a,m,!0,m)},
 W6(){var s,r,q,p,o=this,n=null,m=H.a([],t.p)
 for(s=o.id,r=o.go,q=0;q<3;++q){p=s[q]
-m.push(Q.Wo(new L.eB(p.b,n),new E.Qe(o,p),C.b.eo(s,p)===r,n,new L.d7(p.a,n,n,n,n,n,n,n,n)))}return M.hY(n,n,o.d,n,n,Z.ag8(T.ew(m,C.Z,C.ae,C.aq)),C.U,n,!0,n,n,!0,!1,!1,n,n,n,n,!0,n)},
+m.push(Q.Wo(new L.eB(p.b,n),new E.Qe(o,p),C.b.eo(s,p)===r,n,new L.d7(p.a,n,n,n,n,n,n,n,n)))}return M.hY(n,n,o.d,n,n,Z.ag8(T.ew(m,C.Z,C.ae,C.aq)),C.U,n,!0,n,n,!0,!1,!1,n,n,n,o.a,n,!0,n)},
 Wa(){var s,r,q,p,o=this,n=null,m=t.p,l=H.a([],m)
 for(s=o.id,r=o.go,q=0;q<3;++q){p=s[q]
-l.push(Q.Wo(new L.eB(p.b,n),new E.Qf(o,p),C.b.eo(s,p)===r,n,new L.d7(p.a,n,n,n,n,n,n,n,n)))}return T.wi(H.a([Z.ag8(T.ew(l,C.Z,C.ae,C.aq)),C.we,T.Dm(M.hY(n,n,o.d,n,n,n,C.U,n,!0,n,n,!0,!1,!1,n,n,n,n,!0,n),1)],m),C.Z,C.ae,C.aq)},
+l.push(Q.Wo(new L.eB(p.b,n),new E.Qf(o,p),C.b.eo(s,p)===r,n,new L.d7(p.a,n,n,n,n,n,n,n,n)))}return T.wi(H.a([Z.ag8(T.ew(l,C.Z,C.ae,C.aq)),C.we,T.Dm(M.hY(n,n,o.d,n,n,n,C.U,n,!0,n,n,!0,!1,!1,n,n,n,o.a,n,!0,n),1)],m),C.Z,C.ae,C.aq)},
 G(a,b){var s=this
 switch(s.gXe().$1(b)){case C.pK:return s.W0()
 case C.pL:return s.W7()
@@ -35760,20 +35760,20 @@ return P.a3($async$cs,r)}}
 Z.wh.prototype={}
 D.le.prototype={
 G(a,b){var s=null,r=this.c
-return M.hY(E.Qj(s,L.dL(r.b,s,s,s,s,s,s,s)),s,T.ix(T.ew(H.a([T.Dm(new T.lh(r.c,new D.Qu(b),s),1)],t.p),C.Z,C.ae,C.aq),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)}}
+return M.hY(E.Qj(s,L.dL(r.b,s,s,s,s,s,s,s)),s,T.ix(T.ew(H.a([T.Dm(new T.lh(r.c,new D.Qu(b),s),1)],t.p),C.Z,C.ae,C.aq),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)}}
 D.Qu.prototype={
 $1(a){this.a.J(t.i).f.cs(0,"/book/"+a.a)},
 $S:95}
 L.Bn.prototype={
 G(a,b){var s=null
-return M.hY(E.Qj(s,L.dL("Authors",s,s,s,s,s,s,s)),s,new X.Bm($.PR().b,new L.Qx(b),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)}}
+return M.hY(E.Qj(s,L.dL("Authors",s,s,s,s,s,s,s)),s,new X.Bm($.PR().b,new L.Qx(b),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)}}
 L.Qx.prototype={
 $1(a){this.a.J(t.i).f.cs(0,"/author/"+a.a)},
 $S:316}
 F.Bx.prototype={
 G(a,b){var s=null,r=this.c,q=r.b
 r=r.c
-return M.hY(E.Qj(s,L.dL(q,s,s,s,s,s,s,s)),s,T.ix(T.ew(H.a([L.dL(q,s,s,s,s,K.aj(b).U.d,s,s),L.dL(r.b,s,s,s,s,K.aj(b).U.r,s,s),U.mV(C.Mf,new F.QL(this,b),s),D.agH(new F.QM(),P.xv("/author/"+r.a,0,s))],t.p),C.Z,C.ae,C.aq),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)}}
+return M.hY(E.Qj(s,L.dL(q,s,s,s,s,s,s,s)),s,T.ix(T.ew(H.a([L.dL(q,s,s,s,s,K.aj(b).U.d,s,s),L.dL(r.b,s,s,s,s,K.aj(b).U.r,s,s),U.mV(C.Mf,new F.QL(this,b),s),D.agH(new F.QM(),P.xv("/author/"+r.a,0,s))],t.p),C.Z,C.ae,C.aq),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)}}
 F.QL.prototype={
 $0(){K.mk(this.b,!1).q1(V.aqZ(new F.QK(this.a),null,t.H))},
 $S:0}
@@ -35802,7 +35802,7 @@ else if(s==="/books/all")r.gkR().o3(2)},
 m(a){this.gkR().a3(0,this.gGn())
 this.SP(0)},
 G(a,b){var s=null,r=E.Qj(new E.x_(C.D_,this.gkR(),s),C.Ma),q=this.gkR(),p=$.PR(),o=this.gZb()
-return M.hY(r,s,new E.x1(q,H.a([new T.lh(p.gaaa(),o,s),new T.lh(p.ga9i(),o,s),new T.lh(p.a,o,s)],t.p),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)},
+return M.hY(r,s,new E.x1(q,H.a([new T.lh(p.gaaa(),o,s),new T.lh(p.ga9i(),o,s),new T.lh(p.a,o,s)],t.p),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)},
 Zc(a){this.c.J(t.i).f.cs(0,"/book/"+a.a)},
 a_U(){var s=this
 switch(s.gkR().c){case 1:s.c.J(t.i).f.cs(0,"/books/new")
@@ -35851,7 +35851,7 @@ return P.a3($async$$1,r)},
 $S:322}
 M.By.prototype={
 G(a,b){var s=null,r=b.J(t.i).f
-return M.hY(s,s,new E.rB(C.xh,this.YT(r.b.b),C.Dk,new M.QQ(r),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)},
+return M.hY(s,s,new E.rB(C.xh,this.YT(r.b.b),C.Dk,new M.QQ(r),s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)},
 YT(a){if(C.c.c6(a,"/books"))return 0
 if(a==="/authors")return 1
 if(a==="/settings")return 2
@@ -35875,7 +35875,7 @@ G.wB.prototype={
 aD(){return new G.N3(C.m)}}
 G.N3.prototype={
 G(a,b){var s=null
-return M.hY(s,s,Q.a_h(!0,E.asl(new T.cS(C.e7,s,s,new T.db(C.xw,C.yH,s),s),s,C.U,s,s,C.p),C.a2,!0),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)}}
+return M.hY(s,s,Q.a_h(!0,E.asl(new T.cS(C.e7,s,s,new T.db(C.xw,C.yH,s),s),s,C.U,s,s,C.p),C.a2,!0),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)}}
 G.GR.prototype={
 G(a,b){var s=null,r=P.av(new H.aI(H.a([L.dL("Settings",s,s,s,s,K.aj(b).U.d,s,s),new D.D9(new G.a0m(b),s,s,C.F,s,!1,C.M6,s),D.agH(new G.a0n(),P.xv("/book/0",0,s)),U.mV(C.M7,new G.a0o(b),s)],t.p),new G.a0p(),t.s9),!0,t.l7)
 r.push(U.mV(C.Mg,new G.a0q(b),s))
@@ -35915,7 +35915,7 @@ aD(){return new U.N8(D.ahZ(null),D.ahZ(null),C.m)},
 a9F(a){return this.c.$1(a)}}
 U.N8.prototype={
 G(a,b){var s=null,r=S.QT(C.Iu)
-return M.hY(s,s,T.ix(new V.t6(M.dW(s,T.ew(H.a([L.dL("Sign in",s,s,s,s,K.aj(b).U.d,s,s),Z.ai0(this.d,C.Cb,!1),Z.ai0(this.e,C.Cc,!0),new T.c8(C.BB,U.mV(C.Me,new U.a8b(this),s),s)],t.p),C.Z,C.dl,C.bT),s,r,s,s,s,C.bf,s),s),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,!0,s)}}
+return M.hY(s,s,T.ix(new V.t6(M.dW(s,T.ew(H.a([L.dL("Sign in",s,s,s,s,K.aj(b).U.d,s,s),Z.ai0(this.d,C.Cb,!1),Z.ai0(this.e,C.Cc,!0),new T.c8(C.BB,U.mV(C.Me,new U.a8b(this),s),s)],t.p),C.Z,C.dl,C.bT),s,r,s,s,s,C.bf,s),s),s,s),s,s,s,C.U,s,!0,s,s,!0,!1,!1,s,s,s,s,s,!0,s)}}
 U.a8b.prototype={
 $0(){var s=0,r=P.a4(t.H),q=this,p,o
 var $async$$0=P.a_(function(a,b){if(a===1)return P.a1(b,r)
