@@ -6,6 +6,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/pages/default_lints_page.dart';
 import 'package:linting_tool/pages/home_page.dart';
@@ -103,7 +104,7 @@ class _NavViewState extends State<_NavView> {
         ),
         toolbarHeight: 38.0,
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: Row(
         children: [
