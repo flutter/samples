@@ -4,6 +4,7 @@
 
 import 'package:context_menus/context_menus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/model/editing_controller.dart';
 import 'package:linting_tool/model/profiles_store.dart';
