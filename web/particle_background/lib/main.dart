@@ -3,12 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:particle_background/simple_animations_package.dart';
 
-void main() => runApp(ParticleApp());
+void main() => runApp(const ParticleApp());
 
 class ParticleApp extends StatelessWidget {
+  const ParticleApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: ParticleBackgroundPage(),
       ),
@@ -17,10 +19,12 @@ class ParticleApp extends StatelessWidget {
 }
 
 class ParticleBackgroundPage extends StatelessWidget {
+  const ParticleBackgroundPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
+      children: const [
         Positioned.fill(child: AnimatedBackground()),
         Positioned.fill(child: Particles(30)),
         Positioned.fill(child: CenteredText()),
@@ -32,7 +36,7 @@ class ParticleBackgroundPage extends StatelessWidget {
 class Particles extends StatefulWidget {
   final int numberOfParticles;
 
-  Particles(this.numberOfParticles);
+  const Particles(this.numberOfParticles, {key}) : super(key: key);
 
   @override
   _ParticlesState createState() => _ParticlesState();
@@ -54,7 +58,7 @@ class _ParticlesState extends State<Particles> {
   @override
   Widget build(BuildContext context) {
     return Rendering(
-      startTime: Duration(seconds: 30),
+      startTime: const Duration(seconds: 30),
       onTick: _simulateParticles,
       builder: (context, time) {
         return CustomPaint(
@@ -65,14 +69,16 @@ class _ParticlesState extends State<Particles> {
   }
 
   _simulateParticles(Duration time) {
-    particles.forEach((particle) => particle.maintainRestart(time));
+    for (var particle in particles) {
+      particle.maintainRestart(time);
+    }
   }
 }
 
 class ParticleModel {
-  Animatable tween;
-  double size;
-  AnimationProgress animationProgress;
+  late Animatable tween;
+  late double size;
+  late AnimationProgress animationProgress;
   Random random;
 
   ParticleModel(this.random) {
@@ -113,13 +119,13 @@ class ParticlePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = Colors.white.withAlpha(50);
 
-    particles.forEach((particle) {
+    for (var particle in particles) {
       var progress = particle.animationProgress.progress(time);
       final animation = particle.tween.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
       canvas.drawCircle(position, size.width * 0.2 * particle.size, paint);
-    });
+    }
   }
 
   @override
@@ -127,20 +133,24 @@ class ParticlePainter extends CustomPainter {
 }
 
 class AnimatedBackground extends StatelessWidget {
+  const AnimatedBackground({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final tween = MultiTrackTween([
-      Track("color1").add(Duration(seconds: 3),
-          ColorTween(begin: Color(0xff8a113a), end: Colors.lightBlue.shade900)),
-      Track("color2").add(Duration(seconds: 3),
-          ColorTween(begin: Color(0xff440216), end: Colors.blue.shade600))
+      Track("color1").add(
+          const Duration(seconds: 3),
+          ColorTween(
+              begin: const Color(0xff8a113a), end: Colors.lightBlue.shade900)),
+      Track("color2").add(const Duration(seconds: 3),
+          ColorTween(begin: const Color(0xff440216), end: Colors.blue.shade600))
     ]);
 
     return ControlledAnimation(
       playback: Playback.MIRROR,
       tween: tween,
       duration: tween.duration,
-      builder: (context, animation) {
+      builder: (context, dynamic animation) {
         return Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -155,12 +165,12 @@ class AnimatedBackground extends StatelessWidget {
 
 class CenteredText extends StatelessWidget {
   const CenteredText({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         "Welcome to Flutter for web",
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
