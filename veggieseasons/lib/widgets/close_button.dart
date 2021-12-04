@@ -5,7 +5,6 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/styles.dart';
 
 /// Partially overlays and then blurs its child's background.
