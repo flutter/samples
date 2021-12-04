@@ -4,6 +4,7 @@
 
 import 'package:context_menus/context_menus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/model/editing_controller.dart';
 import 'package:linting_tool/model/profiles_store.dart';
@@ -57,7 +58,7 @@ class RulesPage extends StatelessWidget {
         leadingWidth: 160.0,
         toolbarHeight: 38.0,
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
 
       /// ContextMenuOverlay is required to show

@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:animations/src/misc/card_swipe.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

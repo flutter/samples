@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/model/profile.dart';
 import 'package:linting_tool/widgets/lint_expansion_tile.dart';
@@ -51,7 +52,7 @@ class DefaultRulesPage extends StatelessWidget {
         leadingWidth: 160.0,
         toolbarHeight: 38.0,
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: ListView.separated(
         padding: EdgeInsetsDirectional.only(

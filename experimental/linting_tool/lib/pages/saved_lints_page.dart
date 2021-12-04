@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:linting_tool/layout/adaptive.dart';
 import 'package:linting_tool/model/editing_controller.dart';
 import 'package:linting_tool/model/profiles_store.dart';
