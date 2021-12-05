@@ -71,6 +71,7 @@ void main() {
     await Hive.openLazyBox<RulesProfile>('rules_profile');
     _mockClient = MockClient();
   });
+
   testWidgets('NavigationRail smoke test', (tester) async {
     var responseBody =
         '''[{"name": "always_use_package_imports","description": "Avoid relative imports for files in `lib/`.","group": "errors","maturity": "stable","incompatible": [],"sets": [],"details": "*DO* avoid relative imports for files in `lib/`.\n\nWhen mixing relative and absolute imports it's possible to create confusion\nwhere the same member gets imported in two different ways. One way to avoid\nthat is to ensure you consistently use absolute imports for files withing the\n`lib/` directory.\n\nThis is the opposite of 'prefer_relative_imports'.\nMight be used with 'avoid_relative_lib_imports' to avoid relative imports of\nfiles within `lib/` directory outside of it. (for example `test/`)\n\n**GOOD:**\n\n```dart\nimport 'package:foo/bar.dart';\n\nimport 'package:foo/baz.dart';\n\nimport 'package:foo/src/baz.dart';\n...\n```\n\n**BAD:**\n\n```dart\nimport 'baz.dart';\n\nimport 'src/bag.dart'\n\nimport '../lib/baz.dart';\n\n...\n```\n\n"}]''';
@@ -82,20 +83,23 @@ void main() {
     );
 
     await tester.pumpWidget(const _TestApp());
-
     expect(find.byType(HomePage), findsOneWidget);
     expect(find.byType(SavedLintsPage), findsNothing);
-    await tester.tap(find.text('Saved Profiles'));
+
+    var offset = tester.getCenter(find.text('Saved Profiles').first);
+    await tester.tapAt(offset);
     await tester.pumpAndSettle();
     expect(find.byType(SavedLintsPage), findsOneWidget);
-
     expect(find.byType(DefaultLintsPage), findsNothing);
-    await tester.tap(find.text('Default Profiles'));
+
+    offset = tester.getCenter(find.text('Default Profiles').first);
+    await tester.tapAt(offset);
     await tester.pumpAndSettle();
     expect(find.byType(DefaultLintsPage), findsOneWidget);
-
     expect(find.byType(HomePage), findsNothing);
-    await tester.tap(find.text('Home'));
+
+    offset = tester.getCenter(find.text('Home').first);
+    await tester.tapAt(offset);
     await tester.pumpAndSettle();
     expect(find.byType(HomePage), findsOneWidget);
   });
