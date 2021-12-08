@@ -46,7 +46,7 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var favoritesList = Provider.of<Favorites>(context);
+    final favoritesList = context.watch<Favorites>();
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
