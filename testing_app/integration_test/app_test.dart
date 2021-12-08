@@ -64,10 +64,11 @@ void main() {
 
       // Check if the added item has appeared in the list.
       expect(
-          tester
-              .widget<Text>(find.byKey(const ValueKey('favorites_text_5')))
-              .data,
-          equals('Item 5'));
+        tester
+            .widget<Text>(find.byKey(const ValueKey('favorites_text_5')))
+            .data,
+        equals('Item 5'),
+      );
     });
 
     testWidgets('Testing remove button', (tester) async {
