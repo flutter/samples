@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
 
 class FavoritesPage extends StatelessWidget {
-  static String routeName = '/favorites_page';
+  static const routeName = '/favorites_page';
 
   const FavoritesPage({Key? key}) : super(key: key);
 

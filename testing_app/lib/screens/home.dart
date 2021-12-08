@@ -8,7 +8,7 @@ import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/favorites.dart';
 
 class HomePage extends StatelessWidget {
-  static String routeName = '/';
+  static const routeName = '/';
 
   const HomePage({Key? key}) : super(key: key);
 
