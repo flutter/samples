@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:veggieseasons/screens/favorites.dart';
 import 'package:veggieseasons/screens/list.dart';
 import 'package:veggieseasons/screens/search.dart';

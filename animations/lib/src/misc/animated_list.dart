@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AnimatedListDemo extends StatefulWidget {
   const AnimatedListDemo({Key? key}) : super(key: key);
