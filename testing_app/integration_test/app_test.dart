@@ -35,6 +35,8 @@ void main() {
 
       // Tap on the icon.
       await tester.tap(iconFinder);
+
+      // Wait 1 second for the SnackBar to be displayed
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
       // Verify if appropriate message appears.
@@ -42,11 +44,12 @@ void main() {
 
       // Tap on the icon again.
       await tester.tap(iconFinder);
+
+      // Wait 1 second for the SnackBar to be displayed
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
       // Verify if appropriate message appears.
       expect(find.text('Removed from favorites.'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
     });
 
     testWidgets('Verifying whether item gets added to favorites',
@@ -55,7 +58,7 @@ void main() {
 
       // Add item to favorites.
       await tester.tap(find.byKey(const ValueKey('icon_5')));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
 
       // Tap on the favorites button on the AppBar.
       // The Favorites List should appear.
@@ -64,10 +67,11 @@ void main() {
 
       // Check if the added item has appeared in the list.
       expect(
-          tester
-              .widget<Text>(find.byKey(const ValueKey('favorites_text_5')))
-              .data,
-          equals('Item 5'));
+        tester
+            .widget<Text>(find.byKey(const ValueKey('favorites_text_5')))
+            .data,
+        equals('Item 5'),
+      );
     });
 
     testWidgets('Testing remove button', (tester) async {
@@ -75,7 +79,7 @@ void main() {
 
       // Add item to favorites.
       await tester.tap(find.byKey(const ValueKey('icon_5')));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
 
       // Navigate to Favorites screen.
       await tester.tap(find.text('Favorites'));
@@ -83,6 +87,8 @@ void main() {
 
       // Tap on the remove icon.
       await tester.tap(find.byKey(const ValueKey('remove_icon_5')));
+
+      // Wait 1 second for the SnackBar to be displayed
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
       // Verify if it disappears.

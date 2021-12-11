@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:testing_app/models/favorites.dart';
 
 class FavoritesPage extends StatelessWidget {
-  static String routeName = '/favorites_page';
+  static const routeName = '/favorites_page';
 
   const FavoritesPage({Key? key}) : super(key: key);
 
@@ -54,7 +54,7 @@ class FavoriteItemTile extends StatelessWidget {
           key: Key('remove_icon_$itemNo'),
           icon: const Icon(Icons.close),
           onPressed: () {
-            Provider.of<Favorites>(context, listen: false).remove(itemNo);
+            context.read<Favorites>().remove(itemNo);
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Removed from favorites.'),

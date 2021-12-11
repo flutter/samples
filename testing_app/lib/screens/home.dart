@@ -8,7 +8,7 @@ import 'package:testing_app/models/favorites.dart';
 import 'package:testing_app/screens/favorites.dart';
 
 class HomePage extends StatelessWidget {
-  static String routeName = '/';
+  static const routeName = '/';
 
   const HomePage({Key? key}) : super(key: key);
 
@@ -46,7 +46,7 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var favoritesList = Provider.of<Favorites>(context);
+    final favoritesList = context.watch<Favorites>();
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
