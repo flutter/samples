@@ -5,8 +5,8 @@
 import FlutterMacOS
 import Foundation
 
-import federated_plugin_macos
+import federated_plugin
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  FederatedPluginMacosPlugin.register(with: registry.registrar(forPlugin: "FederatedPluginMacosPlugin"))
+  FederatedPlugin.register(with: registry.registrar(forPlugin: "FederatedPlugin"))
 }
