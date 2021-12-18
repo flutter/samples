@@ -1,7 +1,7 @@
 // Copyright 2019 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CarouselDemo extends StatelessWidget {
@@ -77,6 +77,12 @@ class _CarouselState extends State<Carousel> {
         });
       },
       controller: _controller,
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+        },
+      ),
       itemBuilder: (context, index) => AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
