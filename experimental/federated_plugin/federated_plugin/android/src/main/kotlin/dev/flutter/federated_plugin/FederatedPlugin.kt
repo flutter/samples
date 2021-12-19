@@ -1,5 +1,14 @@
-package com.example.federated_plugin
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
+package dev.flutter.federated_plugin
+
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
+import android.os.Build
 import androidx.annotation.NonNull
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -8,7 +17,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** FederatedPlugin */
 class FederatedPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
     private var context: Context? = null

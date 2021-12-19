@@ -1,0 +1,28 @@
+PODS:
+  - federated_plugin (0.0.1)
+  - federated_plugin_macos (0.0.1):
+    - FlutterMacOS
+  - FlutterMacOS (1.22.4)
+
+DEPENDENCIES:
+  - federated_plugin (from `Flutter/ephemeral/.symlinks/plugins/federated_plugin/macos`)
+  - federated_plugin_macos (from `Flutter/ephemeral/.symlinks/plugins/federated_plugin_macos/macos`)
+
+SPEC REPOS:
+  trunk:
+    - FlutterMacOS
+
+EXTERNAL SOURCES:
+  federated_plugin:
+    :path: Flutter/ephemeral/.symlinks/plugins/federated_plugin/macos
+  federated_plugin_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/federated_plugin_macos/macos
+
+SPEC CHECKSUMS:
+  federated_plugin: ddb135b88798bdd6a14f08e47513e2f53d8a071f
+  federated_plugin_macos: 17ae257684352ae643c3cec850b1299c3b6c5856
+  FlutterMacOS: ac210ef71944b3f04789076d70d4c72c7ec0c619
+
+PODFILE CHECKSUM: d8ba9b3e9e93c62c74a660b46c6fcb09f03991a7
+
+COCOAPODS: 1.10.1

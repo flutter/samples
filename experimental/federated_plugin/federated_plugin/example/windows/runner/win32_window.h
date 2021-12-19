@@ -1,7 +1,8 @@
-#ifndef RUNNER_WIN32_WINDOW_H_
-#define RUNNER_WIN32_WINDOW_H_
+#ifndef WIN32_WINDOW_H_
+#define WIN32_WINDOW_H_
 
-#include <windows.h>
+#include <Windows.h>
+#include <Windowsx.h>
 
 #include <functional>
 #include <memory>
@@ -51,9 +52,6 @@ class Win32Window {
   // If true, closing this window will quit the application.
   void SetQuitOnClose(bool quit_on_close);
 
-  // Return a RECT representing the bounds of the current client area.
-  RECT GetClientArea();
-
  protected:
   // Processes and route salient window messages for mouse handling,
   // size change and DPI. Delegates handling of these to member overloads that
@@ -95,4 +93,4 @@ class Win32Window {
   HWND child_content_ = nullptr;
 };
 
-#endif  // RUNNER_WIN32_WINDOW_H_
+#endif  // WIN32_WINDOW_H_

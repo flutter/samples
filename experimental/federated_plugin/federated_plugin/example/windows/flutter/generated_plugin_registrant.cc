@@ -6,9 +6,9 @@
 
 #include "generated_plugin_registrant.h"
 
-#include <federated_plugin/federated_plugin.h>
+#include <federated_plugin_windows/federated_plugin_windows_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-  FederatedPluginRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("FederatedPlugin"));
+  FederatedPluginWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("FederatedPluginWindowsPlugin"));
 }

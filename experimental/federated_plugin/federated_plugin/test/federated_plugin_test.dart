@@ -1,23 +1,25 @@
+// Copyright 2020 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'package:federated_plugin/federated_plugin.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:federated_plugin/federated_plugin.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('federated_plugin');
-
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+  group('Federated Plugin Test', () {
+    const batteryLevel = 34;
+    const MethodChannel('battery').setMockMethodCallHandler((call) async {
+      if (call.method == 'getBatteryLevel') {
+        return batteryLevel;
+      }
     });
-  });
 
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
-  });
-
-  test('getPlatformVersion', () async {
-    expect(await FederatedPlugin.platformVersion, '42');
+    test('getBatteryLevel method test', () async {
+      final result = await getBatteryLevel();
+      expect(result, batteryLevel);
+    });
   });
 }

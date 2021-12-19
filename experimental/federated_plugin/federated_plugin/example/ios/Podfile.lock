@@ -1,0 +1,22 @@
+PODS:
+  - federated_plugin (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - federated_plugin (from `.symlinks/plugins/federated_plugin/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  federated_plugin:
+    :path: ".symlinks/plugins/federated_plugin/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  federated_plugin: 12a8f1fe5aa96bc5b2b269d9235c451f9c95f81c
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
