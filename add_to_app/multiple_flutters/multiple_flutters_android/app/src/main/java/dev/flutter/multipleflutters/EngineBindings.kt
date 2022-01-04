@@ -74,8 +74,7 @@ class EngineBindings(activity: Activity, delegate: EngineBindingsDelegate, entry
      * This tears down the messaging connections on the platform channel and the DataModel.
      */
     fun detach() {
-        // TODO: Uncomment after https://github.com/flutter/engine/pull/24644 is on stable.
-        // engine.destroy();
+        engine.destroy();
         DataModel.instance.removeObserver(this)
         channel.setMethodCallHandler(null)
     }
