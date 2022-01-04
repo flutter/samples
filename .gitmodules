@@ -1,0 +1,3 @@
+[submodule "web/slide_puzzle"]
+	path = web/slide_puzzle
+	url = git@github.com:VGVentures/slide_puzzle.git
