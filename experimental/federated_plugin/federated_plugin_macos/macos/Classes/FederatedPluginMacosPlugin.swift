@@ -16,22 +16,22 @@ public class FederatedPluginMacosPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "getBatteryLevel":
-        getBatteryLevel(result)
+      getBatteryLevel(result)
     default:
       result(FlutterMethodNotImplemented)
     }
   }
 
-    private func getBatteryLevel(_ result: FlutterResult) {
-        let snapshot = IOPSCopyPowerSourcesInfo().takeRetainedValue()
-        let sources = IOPSCopyPowerSourcesList(snapshot).takeRetainedValue() as Array
-        let sourceInfo : NSDictionary = IOPSGetPowerSourceDescription(snapshot, sources[0]).takeUnretainedValue()
-        
-        guard let capacity = sourceInfo[kIOPSCurrentCapacityKey] as? Int else {
-            result(FlutterError(code: "STATUS_UNAVAILABLE", message: "Not able to determine battery level", details: nil))
-            return
-        }
-        
-        result(capacity)
+  private func getBatteryLevel(_ result: FlutterResult) {
+    let snapshot = IOPSCopyPowerSourcesInfo().takeRetainedValue()
+    let sources = IOPSCopyPowerSourcesList(snapshot).takeRetainedValue() as Array
+    let sourceInfo : NSDictionary = IOPSGetPowerSourceDescription(snapshot, sources[0]).takeUnretainedValue()
+    
+    guard let capacity = sourceInfo[kIOPSCurrentCapacityKey] as? Int else {
+      result(FlutterError(code: "STATUS_UNAVAILABLE", message: "Not able to determine battery level", details: nil))
+      return
     }
+    
+    result(capacity)
+  }
 }
