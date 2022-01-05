@@ -25,8 +25,8 @@ const RESOURCES = {
 "assets/assets/fonts/GoogleSans-Italic.ttf": "b08c7421b2d5350ea3003c8f38932601",
 "assets/assets/fonts/GoogleSans-Bold.ttf": "c0370e8a74992bab73461f8348e3b369",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"index.html": "d49076a80cd7b417d94787ba3611d1d4",
-"/": "d49076a80cd7b417d94787ba3611d1d4",
+"index.html": "8d827553dc41456675187745ac2ef82c",
+"/": "8d827553dc41456675187745ac2ef82c",
 "favicon.png": "fa7fde306a35e196516bf8b1d6100f14"
 };
 
