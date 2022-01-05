@@ -76,7 +76,7 @@ class SettingsContent extends StatelessWidget {
               builder: (context) => AlertDialog(
                 title: const Text('Alert!'),
                 content: const Text('The alert description goes here.'),
-                actions: <Widget>[
+                actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context, 'Cancel'),
                     child: const Text('Cancel'),
