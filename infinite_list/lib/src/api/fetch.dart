@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'item.dart';
@@ -30,7 +31,7 @@ Future<ItemPage> fetchPage(int startingIndex) async {
   // The page of items is generated here.
   return ItemPage(
     items: List.generate(
-        itemsPerPage,
+        min(itemsPerPage, catalogLength - startingIndex),
         (index) => Item(
               color: Colors.primaries[index % Colors.primaries.length],
               name: 'Color #${startingIndex + index}',

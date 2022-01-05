@@ -30,9 +30,9 @@ class BookstoreNavigator extends StatefulWidget {
 
 class _BookstoreNavigatorState extends State<BookstoreNavigator> {
   final _signInKey = const ValueKey('Sign in');
-  final _scaffoldKey = const ValueKey<String>('App scaffold');
-  final _bookDetailsKey = const ValueKey<String>('Book details screen');
-  final _authorDetailsKey = const ValueKey<String>('Author details screen');
+  final _scaffoldKey = const ValueKey('App scaffold');
+  final _bookDetailsKey = const ValueKey('Book details screen');
+  final _authorDetailsKey = const ValueKey('Author details screen');
 
   @override
   Widget build(BuildContext context) {
