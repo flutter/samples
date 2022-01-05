@@ -17,8 +17,8 @@ const RESOURCES = {
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"index.html": "0503c3d42983c104f29c97817eff7535",
-"/": "0503c3d42983c104f29c97817eff7535",
+"index.html": "4acab63a4ba96d1db2c81a700db49514",
+"/": "4acab63a4ba96d1db2c81a700db49514",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
 
