@@ -82,9 +82,7 @@ class AppTheme {
       ),
       colorScheme: const ColorScheme.dark(
         primary: AppColors.blue200,
-        primaryVariant: AppColors.blue300,
         secondary: AppColors.orange300,
-        secondaryVariant: AppColors.orange300,
         surface: AppColors.black800,
         error: AppColors.red200,
         onPrimary: AppColors.black900,
