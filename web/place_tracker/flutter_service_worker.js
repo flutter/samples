@@ -21,8 +21,8 @@ const RESOURCES = {
 "assets/assets/visited.png": "7ffb4d1849aa8c7899d2be15a4b71014",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"index.html": "c6ea7edca002ba6ed2b10f123b2e84f4",
-"/": "c6ea7edca002ba6ed2b10f123b2e84f4",
+"index.html": "c52f89aade8e0615bdaa45f4f1bf80d6",
+"/": "c52f89aade8e0615bdaa45f4f1bf80d6",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
 
