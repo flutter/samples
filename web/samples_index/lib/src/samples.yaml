@@ -520,13 +520,13 @@ samples:
     type: demo
 
   - name: Slide Puzzle
-    author: Kevin Moore
+    author: Very Good Ventures
     screenshots:
       - url: images/slide_puzzle1.png
         alt: Slide Puzzle screenshot
-    source: https://github.com/kevmoo/slide_puzzle
+    source: https://github.com/VGVentures/slide_puzzle
     description: >
-      A slide (15) puzzle implemented in Dart and Flutter.
+      A slide puzzle built for Flutter Challenge.
     difficulty: advanced
     widgets: []
     packages: []
