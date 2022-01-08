@@ -34,7 +34,7 @@ final demos = [
     builder: (context) => const FormWidgetsDemo(),
   ),
   Demo(
-    name: 'Validation',
+    name: 'Doğrulama',
     route: '/validation',
     builder: (context) => const FormValidationDemo(),
   ),
