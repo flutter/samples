@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 
 set(EPHEMERAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ephemeral")
 
@@ -23,6 +23,7 @@ list(APPEND FLUTTER_LIBRARY_HEADERS
   "flutter_windows.h"
   "flutter_messenger.h"
   "flutter_plugin_registrar.h"
+  "flutter_texture_registrar.h"
 )
 list(TRANSFORM FLUTTER_LIBRARY_HEADERS PREPEND "${EPHEMERAL_DIR}/")
 add_library(flutter INTERFACE)
@@ -34,8 +35,8 @@ add_dependencies(flutter flutter_assemble)
 
 # === Wrapper ===
 list(APPEND CPP_WRAPPER_SOURCES_CORE
-  "engine_method_result.cc"
-	"standard_codec.cc"
+  "core_implementations.cc"
+  "standard_codec.cc"
 )
 list(TRANSFORM CPP_WRAPPER_SOURCES_CORE PREPEND "${WRAPPER_ROOT}/")
 list(APPEND CPP_WRAPPER_SOURCES_PLUGIN
@@ -91,6 +92,7 @@ add_custom_command(
     ${FLUTTER_TOOL_ENVIRONMENT}
     "${FLUTTER_ROOT}/packages/flutter_tools/bin/tool_backend.bat"
       windows-x64 $<CONFIG>
+  VERBATIM
 )
 add_custom_target(flutter_assemble DEPENDS
   "${FLUTTER_LIBRARY}"

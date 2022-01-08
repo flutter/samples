@@ -1,11 +1,13 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 set(PROJECT_NAME "federated_plugin_windows")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
-set(PLUGIN_NAME "${PROJECT_NAME}_plugin")
+# This value is used when generating builds using this plugin, so it must
+# not be changed
+set(PLUGIN_NAME "federated_plugin_windows_plugin")
 
 add_library(${PLUGIN_NAME} SHARED
-  "${PLUGIN_NAME}.cpp"
+  "federated_plugin_windows_plugin.cpp"
 )
 apply_standard_settings(${PLUGIN_NAME})
 set_target_properties(${PLUGIN_NAME} PROPERTIES
