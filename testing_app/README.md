@@ -28,7 +28,8 @@ The Flutter SDK can run unit tests and widget tests in a virtual machine, withou
 - Widget Tests:
   - Run `flutter run test/<file_path>`
 - Integration Tests:
-  - Run `flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart`
+  - Run `flutter test integration_test` to run all the integration tests with a single command.
+  - Alternatively, you can run `flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart` to run them separately. You can also provide custom driver files with this command.
 - Performance Tests:
   - Run `flutter drive --driver=integration_test/perf_driver.dart --target=integration_test/perf_test.dart --profile --trace-startup`
     - Using a physical device and running performance tests in profile mode is recommended.
