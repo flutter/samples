@@ -78,6 +78,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
                       ),
                       child: FadeInImage.memoryNetwork(
                         placeholder: kTransparentImage,
+                        imageSemanticLabel: widget.photo.description,
                         image: widget.photo.urls!.small!,
                       ),
                     ),
@@ -94,6 +95,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
                     _buildPhotoAttribution(context),
                     const SizedBox(width: 8),
                     IconButton(
+                      tooltip: 'Download',
                       visualDensity: VisualDensity.compact,
                       icon: const Icon(Icons.cloud_download),
                       onPressed: () => widget.onPhotoSave(widget.photo),
