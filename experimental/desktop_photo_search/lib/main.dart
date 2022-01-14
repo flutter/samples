@@ -151,6 +151,9 @@ class UnsplashHomePage extends StatelessWidget {
   }
 
   TreeNode _buildSearchEntry(SearchEntry searchEntry) {
+    void selectPhoto(photo) { searchEntry.model.selectedPhoto = photo; }
+    String labelForPhoto(photo) => 'Photo by ${photo.user!.name}';
+
     return TreeNode(
       content: Expanded(
         child: Text(searchEntry.query),
@@ -159,14 +162,16 @@ class UnsplashHomePage extends StatelessWidget {
           .map<TreeNode>(
             (photo) => TreeNode(
               content: Expanded(
-                child: InkWell(
-                  onTap: () {
-                    searchEntry.model.selectedPhoto = photo;
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      'Photo by ${photo.user!.name}',
+                child: Semantics(
+                  button: true,
+                  onTap: () => selectPhoto(photo),
+                  label: labelForPhoto(photo),
+                  excludeSemantics: true,
+                  child: InkWell(
+                    onTap: () => selectPhoto(photo),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(labelForPhoto(photo)),
                     ),
                   ),
                 ),
