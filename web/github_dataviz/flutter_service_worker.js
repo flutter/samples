@@ -3,24 +3,24 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "canvaskit/canvaskit.js": "43fa9e17039a625450b6aba93baf521e",
-"canvaskit/profiling/canvaskit.js": "f3bfccc993a1e0bfdd3440af60d99df4",
-"canvaskit/profiling/canvaskit.wasm": "a9610cf39260f60fbe7524a785c66101",
-"canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498",
-"main.dart.js": "30c20ed2c5726a94e909b729c638e866",
-"version.json": "ff2d7b9d108edf1118c26085e5decea6",
+  "assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
+"assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
 "assets/NOTICES": "e5c059b8d929414cbd579eb63a24c144",
-"assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
-"assets/github_data/commits.tsv": "684e345ed4d734f5b4a890098d175b37",
 "assets/github_data/comments.tsv": "062efd1b6e583ce9b71fd1c655f101cd",
 "assets/github_data/forks.tsv": "307c19f9166eb30ffe34a8de50ac7b57",
+"assets/github_data/pull_requests.tsv": "583f0c3151b9234502a7037bf9735494",
 "assets/github_data/stars.tsv": "f949dd28b49c2374880c22b2c8937a76",
 "assets/github_data/contributors.json": "4f7b5d7640ca5ab67ee419df55a4833f",
-"assets/github_data/pull_requests.tsv": "583f0c3151b9234502a7037bf9735494",
-"assets/assets/preview.png": "f41b57a2a2dab8d74ade52f9175b4a59",
+"assets/github_data/commits.tsv": "684e345ed4d734f5b4a890098d175b37",
 "index.html": "51839f812a32cce7ac40ca488295da30",
-"/": "51839f812a32cce7ac40ca488295da30"
+"/": "51839f812a32cce7ac40ca488295da30",
+"version.json": "ff2d7b9d108edf1118c26085e5decea6",
+"main.dart.js": "30c20ed2c5726a94e909b729c638e866",
+"canvaskit/profiling/canvaskit.js": "f3bfccc993a1e0bfdd3440af60d99df4",
+"canvaskit/profiling/canvaskit.wasm": "a9610cf39260f60fbe7524a785c66101",
+"canvaskit/canvaskit.js": "43fa9e17039a625450b6aba93baf521e",
+"canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498"
 };
 
 // The application shell files that are downloaded before a service worker can
