@@ -152,7 +152,10 @@ class UnsplashHomePage extends StatelessWidget {
   }
 
   TreeNode _buildSearchEntry(SearchEntry searchEntry) {
-    void selectPhoto(Photo photo) { searchEntry.model.selectedPhoto = photo; }
+    void selectPhoto(Photo photo) {
+      searchEntry.model.selectedPhoto = photo;
+    }
+
     String labelForPhoto(Photo photo) => 'Photo by ${photo.user!.name}';
 
     return TreeNode(
