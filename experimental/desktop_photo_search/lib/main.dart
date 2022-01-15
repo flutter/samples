@@ -12,6 +12,7 @@ import 'package:menubar/menubar.dart' as menubar;
 import 'package:provider/provider.dart';
 
 import 'src/model/photo_search_model.dart';
+import 'src/unsplash/photo.dart';
 import 'src/unsplash/unsplash.dart';
 import 'src/widgets/about_dialog.dart';
 import 'src/widgets/photo_details.dart';
@@ -151,6 +152,12 @@ class UnsplashHomePage extends StatelessWidget {
   }
 
   TreeNode _buildSearchEntry(SearchEntry searchEntry) {
+    void selectPhoto(Photo photo) {
+      searchEntry.model.selectedPhoto = photo;
+    }
+
+    String labelForPhoto(Photo photo) => 'Photo by ${photo.user!.name}';
+
     return TreeNode(
       content: Expanded(
         child: Text(searchEntry.query),
@@ -159,14 +166,16 @@ class UnsplashHomePage extends StatelessWidget {
           .map<TreeNode>(
             (photo) => TreeNode(
               content: Expanded(
-                child: InkWell(
-                  onTap: () {
-                    searchEntry.model.selectedPhoto = photo;
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      'Photo by ${photo.user!.name}',
+                child: Semantics(
+                  button: true,
+                  onTap: () => selectPhoto(photo),
+                  label: labelForPhoto(photo),
+                  excludeSemantics: true,
+                  child: InkWell(
+                    onTap: () => selectPhoto(photo),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(labelForPhoto(photo)),
                     ),
                   ),
                 ),
