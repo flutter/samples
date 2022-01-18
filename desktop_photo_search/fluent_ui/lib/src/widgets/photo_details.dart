@@ -33,7 +33,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
   Widget _buildPhotoAttribution(BuildContext context) {
     return Row(
       children: [
-        const Text('Photo by '),
+        const Text('Photo by'),
         Link(
           uri: Uri.parse(
               'https://unsplash.com/@${widget.photo.user!.username}?utm_source=$unsplashAppName&utm_medium=referral'),
@@ -42,7 +42,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
             child: Text(widget.photo.user!.name),
           ),
         ),
-        const Text(' on '),
+        const Text('on'),
         Link(
           uri: _unsplashHomepage,
           builder: (context, followLink) => TextButton(

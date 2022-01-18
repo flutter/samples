@@ -163,10 +163,9 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
                 excludeSemantics: true,
                 child: GestureDetector(
                   onTap: () => selectPhoto(photo),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(labelForPhoto(photo),
-                        style: const TextStyle(color: Colors.black)),
+                  child: Text(
+                    labelForPhoto(photo),
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ),
               ),
