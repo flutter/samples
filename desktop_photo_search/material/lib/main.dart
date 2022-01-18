@@ -14,9 +14,9 @@ import 'package:provider/provider.dart';
 import 'src/model/photo_search_model.dart';
 import 'src/unsplash/photo.dart';
 import 'src/unsplash/unsplash.dart';
-import 'src/widgets/about_dialog.dart';
 import 'src/widgets/photo_details.dart';
 import 'src/widgets/photo_search_dialog.dart';
+import 'src/widgets/policy_dialog.dart';
 import 'src/widgets/split.dart';
 import 'unsplash_access_key.dart';
 
