@@ -54,7 +54,7 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'.toUpperCase()),
+            child: const Text('CANCEL'),
           ),
           TextButton(
             onPressed: _searchEnabled
@@ -63,7 +63,7 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
                     Navigator.of(context).pop();
                   }
                 : null,
-            child: Text('Search'.toUpperCase()),
+            child: const Text('SEARCH'),
           ),
         ],
       );
