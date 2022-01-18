@@ -5,6 +5,7 @@
 import 'dart:io';
 
 import 'package:file_selector/file_selector.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 import 'package:logging/logging.dart';
@@ -155,7 +156,10 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
               PhotoSearchDialog(callback: photoSearchModel.addSearch),
         ),
         tooltip: 'Search for a photo',
-        child: const Icon(Icons.search),
+        child: const Icon(
+          FluentIcons.search_24_regular,
+          size: 24,
+        ),
       ),
     );
   }

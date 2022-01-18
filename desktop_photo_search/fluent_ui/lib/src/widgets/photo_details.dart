@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
@@ -97,7 +98,10 @@ class _PhotoDetailsState extends State<PhotoDetails> {
                     IconButton(
                       tooltip: 'Download',
                       visualDensity: VisualDensity.compact,
-                      icon: const Icon(Icons.cloud_download),
+                      icon: const Icon(
+                        FluentIcons.arrow_download_20_regular,
+                        size: 20,
+                      ),
                       onPressed: () => widget.onPhotoSave(widget.photo),
                     ),
                   ],
