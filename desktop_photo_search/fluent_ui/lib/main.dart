@@ -5,9 +5,7 @@
 import 'dart:io';
 
 import 'package:file_selector/file_selector.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:provider/provider.dart';
@@ -49,12 +47,9 @@ class UnsplashSearchApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const FluentApp(
       title: 'Photo Search',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const UnsplashHomePage(title: 'Photo Search'),
+      home: UnsplashHomePage(title: 'Photo Search'),
     );
   }
 }
@@ -99,11 +94,9 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
       ])
     ]);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: photoSearchModel.entries.isNotEmpty
+    return Container(
+      color: Colors.white,
+      child: photoSearchModel.entries.isNotEmpty
           ? Split(
               axis: Axis.horizontal,
               initialFirstFraction: 0.4,
@@ -112,10 +105,9 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
                 child: SingleChildScrollView(
                   controller: _treeViewScrollController,
                   child: TreeView(
-                    nodes: photoSearchModel.entries
+                    items: photoSearchModel.entries
                         .map(_buildSearchEntry)
                         .toList(),
-                    indent: 0,
                   ),
                 ),
               ),
@@ -147,49 +139,34 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
               ),
             )
           : const Center(
-              child: Text('Search for Photos using the Fab button'),
+              child: Text('Search for Photos using the Search menu'),
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => showDialog<void>(
-          context: context,
-          builder: (context) =>
-              PhotoSearchDialog(callback: photoSearchModel.addSearch),
-        ),
-        tooltip: 'Search for a photo',
-        child: const Icon(
-          FluentIcons.search_24_regular,
-          size: 24,
-        ),
-      ),
     );
   }
 
-  TreeNode _buildSearchEntry(SearchEntry searchEntry) {
+  TreeViewItem _buildSearchEntry(SearchEntry searchEntry) {
     void selectPhoto(Photo photo) {
       searchEntry.model.selectedPhoto = photo;
     }
 
     String labelForPhoto(Photo photo) => 'Photo by ${photo.user!.name}';
 
-    return TreeNode(
-      content: Expanded(
-        child: Text(searchEntry.query),
-      ),
+    return TreeViewItem(
+      content: Text(searchEntry.query),
       children: searchEntry.photos
-          .map<TreeNode>(
-            (photo) => TreeNode(
-              content: Expanded(
-                child: Semantics(
-                  button: true,
+          .map<TreeViewItem>(
+            (photo) => TreeViewItem(
+              content: Semantics(
+                button: true,
+                onTap: () => selectPhoto(photo),
+                label: labelForPhoto(photo),
+                excludeSemantics: true,
+                child: GestureDetector(
                   onTap: () => selectPhoto(photo),
-                  label: labelForPhoto(photo),
-                  excludeSemantics: true,
-                  child: InkWell(
-                    onTap: () => selectPhoto(photo),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(labelForPhoto(photo)),
-                    ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(labelForPhoto(photo),
+                        style: const TextStyle(color: Colors.black)),
                   ),
                 ),
               ),

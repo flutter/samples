@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class PolicyDialog extends StatelessWidget {
@@ -11,7 +11,7 @@ class PolicyDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return ContentDialog(
       title: const Text('Terms & Conditions'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -25,8 +25,8 @@ class PolicyDialog extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'https://policies.google.com/terms',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.lightBlue),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.blue.normal),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
                       const url = 'https://policies.google.com/terms';
@@ -46,8 +46,8 @@ class PolicyDialog extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'https://unsplash.com/terms',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.lightBlue),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.blue.normal),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
                       const url = 'https://unsplash.com/terms';
@@ -62,11 +62,11 @@ class PolicyDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        TextButton(
+        FilledButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('CLOSE'),
+          child: const Text('Accept'),
         ),
       ],
     );

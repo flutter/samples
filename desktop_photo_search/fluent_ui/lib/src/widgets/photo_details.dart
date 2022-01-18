@@ -2,8 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:fluent_ui/fluent_ui.dart' hide FluentIcons;
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Card, BorderSide;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
@@ -65,7 +66,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
               const SizedBox(height: 16),
               Card(
                 shape: ContinuousRectangleBorder(
-                  side: const BorderSide(color: Colors.black12),
+                  side: const BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: AnimatedSize(
@@ -96,8 +97,6 @@ class _PhotoDetailsState extends State<PhotoDetails> {
                     _buildPhotoAttribution(context),
                     const SizedBox(width: 8),
                     IconButton(
-                      tooltip: 'Download',
-                      visualDensity: VisualDensity.compact,
                       icon: const Icon(
                         FluentIcons.arrow_download_20_regular,
                         size: 20,

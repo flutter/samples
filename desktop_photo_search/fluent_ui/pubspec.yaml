@@ -19,7 +19,6 @@ dependencies:
   file_selector_windows: ^0.0.1
   http: ^0.13.0
   logging: ^1.0.1
-  flutter_simple_treeview: ^3.0.0-nullsafety.1
   menubar:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
@@ -30,6 +29,7 @@ dependencies:
   uuid: ^3.0.1
   url_launcher: ^6.0.2
   fluentui_system_icons: ^1.1.154
+  fluent_ui: ^3.6.0
 
 dev_dependencies:
   flutter_test:

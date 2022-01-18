@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 
 typedef PhotoSearchDialogCallback = void Function(String searchQuery);
 
@@ -34,14 +34,11 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
   }
 
   @override
-  Widget build(BuildContext context) => AlertDialog(
+  Widget build(BuildContext context) => ContentDialog(
         title: const Text('Photo Search'),
-        content: TextField(
+        content: TextBox(
           autofocus: true,
           controller: _controller,
-          decoration: const InputDecoration(
-            hintText: 'Search query',
-          ),
           onSubmitted: (content) {
             if (content.isNotEmpty) {
               widget.callback(content);
@@ -50,20 +47,20 @@ class _PhotoSearchDialogState extends State<PhotoSearchDialog> {
           },
         ),
         actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('CANCEL'),
-          ),
-          TextButton(
+          FilledButton(
             onPressed: _searchEnabled
                 ? () {
                     widget.callback(_controller.text);
                     Navigator.of(context).pop();
                   }
                 : null,
-            child: const Text('SEARCH'),
+            child: const Text('Search'),
+          ),
+          Button(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Cancel'),
           ),
         ],
       );
