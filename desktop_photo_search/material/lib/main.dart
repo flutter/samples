@@ -58,9 +58,16 @@ class UnsplashSearchApp extends StatelessWidget {
   }
 }
 
-class UnsplashHomePage extends StatelessWidget {
+class UnsplashHomePage extends StatefulWidget {
   const UnsplashHomePage({required this.title, Key? key}) : super(key: key);
   final String title;
+
+  @override
+  State<UnsplashHomePage> createState() => _UnsplashHomePageState();
+}
+
+class _UnsplashHomePageState extends State<UnsplashHomePage> {
+  final _treeViewScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -93,14 +100,16 @@ class UnsplashHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
       ),
       body: photoSearchModel.entries.isNotEmpty
           ? Split(
               axis: Axis.horizontal,
               initialFirstFraction: 0.4,
               firstChild: Scrollbar(
+                controller: _treeViewScrollController,
                 child: SingleChildScrollView(
+                  controller: _treeViewScrollController,
                   child: TreeView(
                     nodes: photoSearchModel.entries
                         .map(_buildSearchEntry)
