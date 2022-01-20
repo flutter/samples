@@ -71,7 +71,7 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
     menubar.setApplicationMenu([
       menubar.Submenu(label: 'Search', children: [
         menubar.MenuItem(
-          label: 'Search ...',
+          label: 'Search...',
           onClicked: () {
             showDialog<void>(
               context: context,
@@ -83,7 +83,7 @@ class _UnsplashHomePageState extends State<UnsplashHomePage> {
       ]),
       menubar.Submenu(label: 'About', children: [
         menubar.MenuItem(
-          label: 'About ...',
+          label: 'About...',
           onClicked: () {
             showDialog<void>(
               context: context,
