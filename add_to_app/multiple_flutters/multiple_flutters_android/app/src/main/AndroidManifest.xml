@@ -37,6 +37,15 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             />
+        <!-- Whether leave or clean up the VM after the last shell shuts down. If your want to let
+             your app destroy the last shell and re-create shells more quickly, set it to true,
+             otherwise if you want to clean up the memory of the leak VM, set it to false.
+             (This setting works after the Flutter 2.10 stable version.)
+             View https://github.com/flutter/flutter/issues/95903 for more detail. -->
+        <meta-data
+            android:name="io.flutter.embedding.android.LeakVM"
+            android:value="false"
+            />
     </application>
 
 </manifest>
