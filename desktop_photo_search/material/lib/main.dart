@@ -13,6 +13,7 @@ import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/policy_dialog.dart';
+import 'src/widgets/unsplash_notice.dart';
 import 'src/widgets/unsplash_search_content.dart';
 import 'unsplash_access_key.dart';
 
@@ -87,23 +88,25 @@ class UnsplashHomePage extends StatelessWidget {
       ])
     ]);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: photoSearchModel.entries.isNotEmpty
-          ? const UnsplashSearchContent()
-          : const Center(
-              child: Text('Search for Photos using the Fab button'),
-            ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => showDialog<void>(
-          context: context,
-          builder: (context) =>
-              PhotoSearchDialog(callback: photoSearchModel.addSearch),
+    return UnsplashNotice(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
         ),
-        tooltip: 'Search for a photo',
-        child: const Icon(Icons.search),
+        body: photoSearchModel.entries.isNotEmpty
+            ? const UnsplashSearchContent()
+            : const Center(
+                child: Text('Search for Photos using the Fab button'),
+              ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showDialog<void>(
+            context: context,
+            builder: (context) =>
+                PhotoSearchDialog(callback: photoSearchModel.addSearch),
+          ),
+          tooltip: 'Search for a photo',
+          child: const Icon(Icons.search),
+        ),
       ),
     );
   }

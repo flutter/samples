@@ -44,9 +44,10 @@ flutter:
 msix_config:
   display_name: Flutter Desktop Photo Search
   publisher_display_name: flutter.dev
+  store: false # Set to true to deploy to Microsoft Store
   publisher: CN=01A6D5C0-D51A-4EEE-8DD0-F134DDD378F7
   identity_name: 16354flutter.dev.FlutterDesktopPhotoSearch
-  msix_version: 1.0.0.0
+  msix_version: 1.0.0.1
   icons_background_color: "#ffffff"
   architecture: x64
   # See https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations

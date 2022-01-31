@@ -13,6 +13,7 @@ import 'src/model/photo_search_model.dart';
 import 'src/unsplash/unsplash.dart';
 import 'src/widgets/photo_search_dialog.dart';
 import 'src/widgets/policy_dialog.dart';
+import 'src/widgets/unsplash_notice.dart';
 import 'src/widgets/unsplash_search_content.dart';
 import 'unsplash_access_key.dart';
 
@@ -84,13 +85,15 @@ class UnsplashHomePage extends StatelessWidget {
       ])
     ]);
 
-    return Container(
-      color: Colors.white,
-      child: photoSearchModel.entries.isNotEmpty
-          ? const UnsplashSearchContent()
-          : const Center(
-              child: Text('Search for Photos using the Search menu'),
-            ),
+    return UnsplashNotice(
+      child: Container(
+        color: Colors.white,
+        child: photoSearchModel.entries.isNotEmpty
+            ? const UnsplashSearchContent()
+            : const Center(
+                child: Text('Search for Photos using the Search menu'),
+              ),
+      ),
     );
   }
 }
