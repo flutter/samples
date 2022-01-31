@@ -91,7 +91,7 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
                   child: InkWell(
                     onTap: () => selectPhoto(photo),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 12),
+                      padding: const EdgeInsets.all(12),
                       child: Text(labelForPhoto(photo)),
                     ),
                   ),

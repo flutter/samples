@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 project(desktop_photo_search LANGUAGES CXX)
 
 set(BINARY_NAME "desktop_photo_search")
