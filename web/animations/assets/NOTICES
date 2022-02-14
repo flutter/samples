@@ -292,6 +292,7 @@ abseil-cpp
 angle
 boringssl
 etc1
+expat
 fuchsia-vulkan
 khronos
 libwebp
@@ -3864,6 +3865,23 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 --------------------------------------------------------------------------------
 boringssl
 
+Copyright (c) 2018, Google Inc.
+Copyright (c) 2020, Arm Ltd.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
+OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+--------------------------------------------------------------------------------
+boringssl
+
 Copyright (c) 2019, Google Inc.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -3897,6 +3915,22 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 boringssl
 
 Copyright (c) 2020, Google Inc.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
+OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+--------------------------------------------------------------------------------
+boringssl
+
+Copyright (c) 2021, Google Inc.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -4227,37 +4261,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 boringssl
 
 Copyright 2009 Google Inc. All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:
-
-    * Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above
-copyright notice, this list of conditions and the following disclaimer
-in the documentation and/or other materials provided with the
-distribution.
-    * Neither the name of Google Inc. nor the names of its
-contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
---------------------------------------------------------------------------------
-boringssl
-
-Copyright 2009, Google Inc.
-All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -4678,6 +4681,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 clock
 fake_async
+material_color_utilities
 
 
                                  Apache License
@@ -5577,6 +5581,916 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 expat
 
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2000-2004 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2001-2002 Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016      Cristian Rodríguez <crrodriguez@opensuse.org>
+Copyright (c) 2016-2019 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2018      Yury Gribov <tetra2005@gmail.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2000-2005 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2001-2002 Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002-2016 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2016      Cristian Rodríguez <crrodriguez@opensuse.org>
+Copyright (c) 2016      Thomas Beutlich <tc@tbeu.de>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2000-2006 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2001-2002 Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002-2016 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2005-2009 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016      Eric Rahm <erahm@mozilla.com>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2016      Gaurav <g.gupta@samsung.com>
+Copyright (c) 2016      Thomas Beutlich <tc@tbeu.de>
+Copyright (c) 2016      Gustavo Grieco <gustavo.grieco@imag.fr>
+Copyright (c) 2016      Pascal Cuoq <cuoq@trust-in-soft.com>
+Copyright (c) 2016      Ed Schouten <ed@nuxi.nl>
+Copyright (c) 2017-2018 Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2017      Václav Slavík <vaclav@slavik.io>
+Copyright (c) 2017      Viktor Szakats <commit@vsz.me>
+Copyright (c) 2017      Chanho Park <chanho61.park@samsung.com>
+Copyright (c) 2017      Rolf Eike Beer <eike@sf-mail.de>
+Copyright (c) 2017      Hans Wennborg <hans@chromium.org>
+Copyright (c) 2018      Anton Maklakov <antmak.pub@gmail.com>
+Copyright (c) 2018      Benjamin Peterson <benjamin@python.org>
+Copyright (c) 2018      Marco Maggi <marco.maggi-ipsu@poste.it>
+Copyright (c) 2018      Mariusz Zaborski <oshogbo@vexillium.org>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Copyright (c) 2019-2020 Ben Wagner <bungeman@chromium.org>
+Copyright (c) 2019      Vadim Zeitlin <vadim@zeitlins.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2001-2002 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2006      Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2017 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2001-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002      Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002-2016 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2005-2009 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2016      Pascal Cuoq <cuoq@trust-in-soft.com>
+Copyright (c) 2016      Don Lewis <truckman@apache.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2017      Alexander Bluhm <alexander.bluhm@gmx.net>
+Copyright (c) 2017      Benbuck Nason <bnason@netflix.com>
+Copyright (c) 2017      José Gutiérrez de la Concha <jose@zeroc.com>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2001-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2004-2009 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2005-2007 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Copyright (c) 2020      Joe Orton <jorton@redhat.com>
+Copyright (c) 2020      Kleber Tarcísio <klebertarcisio@yahoo.com.br>
+Copyright (c) 2021      Tim Bray <tbray@textuality.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2001-2004 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002-2009 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2017 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2017      Franek Korta <fkorta@gmail.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002-2005 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2017 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002-2016 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2018      Benjamin Peterson <benjamin@python.org>
+Copyright (c) 2018      Anton Maklakov <antmak.pub@gmail.com>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Copyright (c) 2020      Boris Kolpackov <boris@codesynthesis.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2005      Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2019 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2005-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2019 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2016-2017 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2017      Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2017      Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2002-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2002-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2005-2009 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2017      Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2004-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2005-2007 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2017-2019 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2001-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2004-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2005-2007 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2016-2019 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Copyright (c) 2019      Zhongyuan Zhou <zhouzhongyuan@huawei.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2016-2017 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2016-2018 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2018      Marco Maggi <marco.maggi-ipsu@poste.it>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1997-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright (c) 2001-2019 Expat maintainers
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 1999-2000 Thai Open Source Software Center Ltd
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2007      Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2017      Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2001-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2005-2007 Steven Solie <ssolie@users.sourceforge.net>
+Copyright (c) 2005-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2016-2019 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Rhodri James <rhodri@wildebeest.org.uk>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2000      Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2002      Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2005      Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2017-2021 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2000 Clark Cooper <coopercc@users.sourceforge.net>
+Copyright (c) 2017 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2001      Tim Peters <tim.peters@gmail.com>
+Copyright (c) 2001-2005 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2006-2017 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2007-2021 Sebastian Pipping <sebastian@pipping.org>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2002-2003 Fred L. Drake, Jr. <fdrake@users.sourceforge.net>
+Copyright (c) 2002-2006 Karl Waclawek <karl@waclawek.net>
+Copyright (c) 2003      Greg Stein <gstein@users.sourceforge.net>
+Copyright (c) 2016-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2018      Yury Gribov <tetra2005@gmail.com>
+Copyright (c) 2019      David Loffredo <loffredo@steptools.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2017      José Gutiérrez de la Concha <jose@zeroc.com>
+Copyright (c) 2017-2021 Sebastian Pipping <sebastian@pipping.org>
+Copyright (c) 2017      Franek Korta <fkorta@gmail.com>
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
+Copyright (c) 2019 Expat development team
+Licensed under the MIT license:
+
+Permission is  hereby granted,  free of charge,  to any  person obtaining
+a  copy  of  this  software   and  associated  documentation  files  (the
+"Software"),  to  deal in  the  Software  without restriction,  including
+without  limitation the  rights  to use,  copy,  modify, merge,  publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons  to whom  the Software  is  furnished to  do so,  subject to  the
+following conditions:
+
+The above copyright  notice and this permission notice  shall be included
+in all copies or substantial portions of the Software.
+
+THE  SOFTWARE  IS  PROVIDED  "AS  IS",  WITHOUT  WARRANTY  OF  ANY  KIND,
+EXPRESS  OR IMPLIED,  INCLUDING  BUT  NOT LIMITED  TO  THE WARRANTIES  OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR  OTHER LIABILITY, WHETHER  IN AN  ACTION OF CONTRACT,  TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------------
+expat
+
 Copyright 2021 Google Inc.
 
 Redistribution and use in source and binary forms, with or without
@@ -5639,101 +6553,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---------------------------------------------------------------------------------
-files
-
-Copyright (c) 1998, 1999 Thai Open Source Software Center Ltd
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---------------------------------------------------------------------------------
-files
-
-Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---------------------------------------------------------------------------------
-files
-
-Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
-                               and Clark Cooper
-Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006 Expat maintainers.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---------------------------------------------------------------------------------
-files
-
-Copyright 2000, Clark Cooper
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --------------------------------------------------------------------------------
 flutter
 
@@ -6362,33 +7181,6 @@ Legal Terms
 fuchsia_sdk
 
 Copyright 2014 The Fuchsia Authors. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:
-
-   * Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above
-copyright notice, this list of conditions and the following disclaimer
-in the documentation and/or other materials provided with the
-distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
---------------------------------------------------------------------------------
-fuchsia_sdk
-
-Copyright 2015 The Fuchsia Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -8333,6 +9125,31 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 --------------------------------------------------------------------------------
 harfbuzz
 
+Copyright © 2011,2012,2013  Google, Inc.
+Copyright © 2021  Khaled Hosny
+
+ This is part of HarfBuzz, a text shaping library.
+
+Permission is hereby granted, without written agreement and without
+license or royalty fees, to use, copy, modify, and distribute this
+software and its documentation for any purpose, provided that the
+above copyright notice and the following two paragraphs appear in
+all copies of this software.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+--------------------------------------------------------------------------------
+harfbuzz
+
 Copyright © 2011,2012,2014  Google, Inc.
 
  This is part of HarfBuzz, a text shaping library.
@@ -8479,6 +9296,7 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 harfbuzz
 
 Copyright © 2012,2017  Google, Inc.
+Copyright © 2021 Behdad Esfahbod
 
  This is part of HarfBuzz, a text shaping library.
 
@@ -9284,6 +10102,78 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 --------------------------------------------------------------------------------
 harfbuzz
 
+Copyright © 2021  Behdad Esfahbod
+
+ This is part of HarfBuzz, a text shaping library.
+
+Permission is hereby granted, without written agreement and without
+license or royalty fees, to use, copy, modify, and distribute this
+software and its documentation for any purpose, provided that the
+above copyright notice and the following two paragraphs appear in
+all copies of this software.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+--------------------------------------------------------------------------------
+harfbuzz
+
+Copyright © 2021  Behdad Esfahbod.
+
+ This is part of HarfBuzz, a text shaping library.
+
+Permission is hereby granted, without written agreement and without
+license or royalty fees, to use, copy, modify, and distribute this
+software and its documentation for any purpose, provided that the
+above copyright notice and the following two paragraphs appear in
+all copies of this software.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+--------------------------------------------------------------------------------
+harfbuzz
+
+Copyright © 2021  Google, Inc.
+
+ This is part of HarfBuzz, a text shaping library.
+
+Permission is hereby granted, without written agreement and without
+license or royalty fees, to use, copy, modify, and distribute this
+software and its documentation for any purpose, provided that the
+above copyright notice and the following two paragraphs appear in
+all copies of this software.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+--------------------------------------------------------------------------------
+harfbuzz
+
 HarfBuzz is licensed under the so-called "Old MIT" license.  Details follow.
 For parts of HarfBuzz that are licensed under different licenses see individual
 files names COPYING in subdirectories where applicable.
@@ -9297,7 +10187,7 @@ Copyright © 2008,2010  Nokia Corporation and/or its subsidiary(-ies)
 Copyright © 2009  Keith Stribley
 Copyright © 2009  Martin Hosken and SIL International
 Copyright © 2007  Chris Wilson
-Copyright © 2006  Behdad Esfahbod
+Copyright © 2005,2006,2020,2021  Behdad Esfahbod
 Copyright © 2005  David Turner
 Copyright © 2004,2007,2008,2009,2010  Red Hat, Inc.
 Copyright © 1998-2004  David Turner and Werner Lemberg
@@ -11515,6 +12405,79 @@ TO DO
 
 Please send bug reports, offers of help, etc. to jpeg-info@jpegclub.org.
 --------------------------------------------------------------------------------
+libtess2
+
+Copyright (C) [dates of first publication] Silicon Graphics, Inc.
+All Rights Reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice including the dates of first publication and either this
+permission notice or a reference to http://oss.sgi.com/projects/FreeB/ shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL SILICON GRAPHICS, INC.
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of Silicon Graphics, Inc. shall not
+be used in advertising or otherwise to promote the sale, use or other dealings in
+this Software without prior written authorization from Silicon Graphics, Inc.
+--------------------------------------------------------------------------------
+libtess2
+
+Copyright (c) 2009 Mikko Mononen memon@inside.org
+
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+--------------------------------------------------------------------------------
+libtess2
+
+SGI FREE SOFTWARE LICENSE B (Version 2.0, Sept. 18, 2008)
+Copyright (C) [dates of first publication] Silicon Graphics, Inc.
+All Rights Reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice including the dates of first publication and either this
+permission notice or a reference to http://oss.sgi.com/projects/FreeB/ shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL SILICON GRAPHICS, INC.
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of Silicon Graphics, Inc. shall not
+be used in advertising or otherwise to promote the sale, use or other dealings in
+this Software without prior written authorization from Silicon Graphics, Inc.
+--------------------------------------------------------------------------------
 libwebp
 
 Copyright (c) 2010, Google Inc. All rights reserved.
@@ -11945,37 +12908,6 @@ distribution.
    * Neither the name of Google Inc. nor the names of its
 contributors may be used to endorse or promote products derived from
 this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
---------------------------------------------------------------------------------
-pkg
-
-Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
-for details. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:
-
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above
-      copyright notice, this list of conditions and the following
-      disclaimer in the documentation and/or other materials provided
-      with the distribution.
-    * Neither the name of Google Inc. nor the names of its
-      contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -12709,6 +13641,7 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
   defined by the Mozilla Public License, v. 2.0.
 --------------------------------------------------------------------------------
 skcms
+vulkan
 
 Copyright (c) 2018 Google Inc. All rights reserved.
 
@@ -14409,6 +15342,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+--------------------------------------------------------------------------------
+sqlite
+
+The source code for SQLite is in the public domain. No claim of
+copyright is made on any part of the core source code. (The
+documentation and test code is a different matter - some sections of
+documentation and test logic are governed by open-source licenses.)
+All contributors to the SQLite core software have signed affidavits
+specifically disavowing any copyright interest in the code. This means
+that anybody is able to legally do anything they want with the SQLite
+source code.
+
+There are other SQL database engines with liberal licenses that allow
+the code to be broadly and freely used. But those other engines are
+still governed by copyright law. SQLite is different in that copyright
+law simply does not apply.
+
+The source code files for other SQL database engines typically begin
+with a comment describing your legal rights to view and copy that
+file. The SQLite source code contains no license since it is not
+governed by copyright. Instead of a license, the SQLite source code
+offers a blessing:
+
+May you do good and not evil
+May you find forgiveness for yourself and forgive others
+May you share freely, never taking more than you give.
 --------------------------------------------------------------------------------
 tcmalloc
 

@@ -3,22 +3,22 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "32a753cd40727968c29938c1c32a2fe2",
-"/": "32a753cd40727968c29938c1c32a2fe2",
-"version.json": "c877dd821e537c427c816dfd698efafd",
-"manifest.json": "5bfaa8407b6bbc7d3ec933b8243f9786",
-"main.dart.js": "0696fdd574841df6f869f95a2aa232e0",
-"canvaskit/profiling/canvaskit.wasm": "a9610cf39260f60fbe7524a785c66101",
-"canvaskit/profiling/canvaskit.js": "f3bfccc993a1e0bfdd3440af60d99df4",
-"canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498",
-"canvaskit/canvaskit.js": "43fa9e17039a625450b6aba93baf521e",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"assets/FontManifest.json": "11713463a3278663f446ba3377b96009",
+  "assets/FontManifest.json": "11713463a3278663f446ba3377b96009",
 "assets/AssetManifest.json": "3a1a25fc13ec0260a7852156dbee4d3d",
+"assets/NOTICES": "543940a61e407d862ca096c56dea09b9",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/fonts/Corben/Corben-Bold.ttf": "8f9921f9c52d3c25fd354d6e01f7b024",
-"assets/NOTICES": "bd16217b4ce3b12311ee98a51a64e536"
+"index.html": "32a753cd40727968c29938c1c32a2fe2",
+"/": "32a753cd40727968c29938c1c32a2fe2",
+"version.json": "c877dd821e537c427c816dfd698efafd",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"main.dart.js": "79f219f374ca536d467b5b5b3bfedf90",
+"manifest.json": "5bfaa8407b6bbc7d3ec933b8243f9786",
+"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
+"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
+"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
 };
 
 // The application shell files that are downloaded before a service worker can
