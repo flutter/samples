@@ -4,6 +4,7 @@
 
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/common/theme.dart';
@@ -23,7 +24,7 @@ const double kWindowWidth = 400;
 const double kWindowHeight = 800;
 
 void setupWindow() {
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Demo');
     setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
