@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/common/theme.dart';
@@ -10,9 +12,30 @@ import 'package:provider_shopper/models/catalog.dart';
 import 'package:provider_shopper/screens/cart.dart';
 import 'package:provider_shopper/screens/catalog.dart';
 import 'package:provider_shopper/screens/login.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
+  setupWindow();
   runApp(const MyApp());
+}
+
+const double kWindowWidth = 400;
+const double kWindowHeight = 800;
+
+void setupWindow() {
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('Provider Demo');
+    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
+    getCurrentScreen().then((screen) {
+      setWindowFrame(Rect.fromCenter(
+        center: screen!.frame.center,
+        width: kWindowWidth,
+        height: kWindowHeight,
+      ));
+    });
+  }
 }
 
 class MyApp extends StatelessWidget {
