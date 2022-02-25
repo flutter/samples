@@ -1,5 +1,6 @@
 name: provider_shopper
 description: A shopping app sample that uses Provider for state management.
+publis_to: none
 
 version: 1.0.0+1
 
