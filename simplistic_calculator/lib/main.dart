@@ -167,323 +167,325 @@ class MyApp extends ConsumerWidget {
       home: Scaffold(
         body: Container(
           color: Colors.white,
-          child: LayoutGrid(
-            areas: '''
-            display display display display
-            clear   bkspc   lparen  rparen
-            sqrt    pow     abs     sgn
-            ceil    floor   e       ln 
-            sin     cos     tan     fact
-            arcsin  arccos  arctan  mod
-            seven   eight   nine    divide
-            four    five    six     multiply
-            one     two     three   minus
-            zero    point   equals  plus
-            ''',
-            columnSizes: [1.fr, 1.fr, 1.fr, 1.fr],
-            rowSizes: [
-              2.fr,
-              1.fr,
-              1.fr,
-              1.fr,
-              1.fr,
-              1.fr,
-              2.fr,
-              2.fr,
-              2.fr,
-              2.fr
-            ],
-            children: [
-              NamedAreaGridPlacement(
-                areaName: 'display',
-                child: SizedBox.expand(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                    child: display.error.isEmpty
-                        ? AutoSizeText(
-                            display.buffer,
-                            textAlign: TextAlign.end,
-                            style: const TextStyle(
-                              fontSize: 80,
-                              color: Colors.black,
+          child: SafeArea(
+            child: LayoutGrid(
+              areas: '''
+              display display display display
+              clear   bkspc   lparen  rparen
+              sqrt    pow     abs     sgn
+              ceil    floor   e       ln
+              sin     cos     tan     fact
+              arcsin  arccos  arctan  mod
+              seven   eight   nine    divide
+              four    five    six     multiply
+              one     two     three   minus
+              zero    point   equals  plus
+              ''',
+              columnSizes: [1.fr, 1.fr, 1.fr, 1.fr],
+              rowSizes: [
+                2.fr,
+                1.fr,
+                1.fr,
+                1.fr,
+                1.fr,
+                1.fr,
+                2.fr,
+                2.fr,
+                2.fr,
+                2.fr
+              ],
+              children: [
+                NamedAreaGridPlacement(
+                  areaName: 'display',
+                  child: SizedBox.expand(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 8),
+                      child: display.error.isEmpty
+                          ? AutoSizeText(
+                              display.buffer,
+                              textAlign: TextAlign.end,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.black,
+                              ),
+                              maxLines: 2,
+                            )
+                          : AutoSizeText(
+                              display.error,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(
+                                fontSize: 80,
+                                color: Colors.red,
+                              ),
+                              maxLines: 2,
                             ),
-                            maxLines: 2,
-                          )
-                        : AutoSizeText(
-                            display.error,
-                            textAlign: TextAlign.start,
-                            style: const TextStyle(
-                              fontSize: 80,
-                              color: Colors.red,
-                            ),
-                            maxLines: 2,
-                          ),
+                    ),
                   ),
                 ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'clear',
-                child: CalcButton(
-                  op: (engine) => engine.clear(),
-                  label: 'AC',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'bkspc',
-                child: CalcButton(
-                  op: (engine) => engine.backspace(),
-                  label: '⌫',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'lparen',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('('),
-                  label: '(',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'rparen',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer(')'),
-                  label: ')',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'sqrt',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('sqrt('),
-                  label: '√',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'pow',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('^'),
-                  label: '^',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'abs',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('abs('),
-                  label: 'Abs',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'sgn',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('sgn('),
-                  label: 'Sgn',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'ceil',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('ceil('),
-                  label: 'Ceil',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'floor',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('floor('),
-                  label: 'Floor',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'e',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('e('),
-                  label: 'e',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'ln',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('ln('),
-                  label: 'ln',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'sin',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('sin('),
-                  label: 'Sin',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'cos',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('cos('),
-                  label: 'Cos',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'tan',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('tan('),
-                  label: 'Tan',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'fact',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('!'),
-                  label: '!',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'arcsin',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('arcsin('),
-                  label: 'Arc Sin',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'arccos',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('arccos('),
-                  label: 'Arc Cos',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'arctan',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('arctan('),
-                  label: 'Arc Tan',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'mod',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('%'),
-                  label: 'Mod',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'seven',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('7'),
-                  label: '7',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'eight',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('8'),
-                  label: '8',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'nine',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('9'),
-                  label: '9',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'four',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('4'),
-                  label: '4',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'five',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('5'),
-                  label: '5',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'six',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('6'),
-                  label: '6',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'one',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('1'),
-                  label: '1',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'two',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('2'),
-                  label: '2',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'three',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('3'),
-                  label: '3',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'zero',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('0'),
-                  label: '0',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'point',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer('.'),
-                  label: '.',
-                ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'equals',
-                child: const CalcEqualsButton(),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'plus',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer(
-                    '+',
-                    continueWithResult: true,
+                NamedAreaGridPlacement(
+                  areaName: 'clear',
+                  child: CalcButton(
+                    op: (engine) => engine.clear(),
+                    label: 'AC',
                   ),
-                  label: '+',
                 ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'minus',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer(
-                    '-',
-                    continueWithResult: true,
+                NamedAreaGridPlacement(
+                  areaName: 'bkspc',
+                  child: CalcButton(
+                    op: (engine) => engine.backspace(),
+                    label: '⌫',
                   ),
-                  label: '-',
                 ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'multiply',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer(
-                    '*',
-                    continueWithResult: true,
+                NamedAreaGridPlacement(
+                  areaName: 'lparen',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('('),
+                    label: '(',
                   ),
-                  label: '*',
                 ),
-              ),
-              NamedAreaGridPlacement(
-                areaName: 'divide',
-                child: CalcButton(
-                  op: (engine) => engine.addToBuffer(
-                    '/',
-                    continueWithResult: true,
+                NamedAreaGridPlacement(
+                  areaName: 'rparen',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer(')'),
+                    label: ')',
                   ),
-                  label: '/',
                 ),
-              ),
-            ],
+                NamedAreaGridPlacement(
+                  areaName: 'sqrt',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('sqrt('),
+                    label: '√',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'pow',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('^'),
+                    label: '^',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'abs',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('abs('),
+                    label: 'Abs',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'sgn',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('sgn('),
+                    label: 'Sgn',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'ceil',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('ceil('),
+                    label: 'Ceil',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'floor',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('floor('),
+                    label: 'Floor',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'e',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('e('),
+                    label: 'e',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'ln',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('ln('),
+                    label: 'ln',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'sin',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('sin('),
+                    label: 'Sin',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'cos',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('cos('),
+                    label: 'Cos',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'tan',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('tan('),
+                    label: 'Tan',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'fact',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('!'),
+                    label: '!',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'arcsin',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('arcsin('),
+                    label: 'Arc Sin',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'arccos',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('arccos('),
+                    label: 'Arc Cos',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'arctan',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('arctan('),
+                    label: 'Arc Tan',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'mod',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('%'),
+                    label: 'Mod',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'seven',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('7'),
+                    label: '7',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'eight',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('8'),
+                    label: '8',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'nine',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('9'),
+                    label: '9',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'four',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('4'),
+                    label: '4',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'five',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('5'),
+                    label: '5',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'six',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('6'),
+                    label: '6',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'one',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('1'),
+                    label: '1',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'two',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('2'),
+                    label: '2',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'three',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('3'),
+                    label: '3',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'zero',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('0'),
+                    label: '0',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'point',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer('.'),
+                    label: '.',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'equals',
+                  child: const CalcEqualsButton(),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'plus',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer(
+                      '+',
+                      continueWithResult: true,
+                    ),
+                    label: '+',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'minus',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer(
+                      '-',
+                      continueWithResult: true,
+                    ),
+                    label: '-',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'multiply',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer(
+                      '*',
+                      continueWithResult: true,
+                    ),
+                    label: '*',
+                  ),
+                ),
+                NamedAreaGridPlacement(
+                  areaName: 'divide',
+                  child: CalcButton(
+                    op: (engine) => engine.addToBuffer(
+                      '/',
+                      continueWithResult: true,
+                    ),
+                    label: '/',
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
