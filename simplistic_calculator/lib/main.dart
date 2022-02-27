@@ -129,7 +129,7 @@ void main() {
   setupWindow();
   runApp(
     const ProviderScope(
-      child: MyApp(),
+      child: CalculatorApp(),
     ),
   );
 }
@@ -155,8 +155,8 @@ void setupWindow() {
   }
 }
 
-class MyApp extends ConsumerWidget {
-  const MyApp({Key? key}) : super(key: key);
+class CalculatorApp extends ConsumerWidget {
+  const CalculatorApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
