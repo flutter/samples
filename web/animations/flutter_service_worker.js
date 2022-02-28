@@ -19,7 +19,7 @@ const RESOURCES = {
 "version.json": "42906adb43c8fac5e6348de24f5c28d0",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"main.dart.js": "faef642c52a94b59c2885633ec1c63a2",
+"main.dart.js": "b9b32a6e4edca09e00d150f2679b6bac",
 "manifest.json": "1294ed65db20bc1191041c5e3a73d8f9",
 "canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
 "canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
