@@ -12,9 +12,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:window_size/window_size.dart';
 
+const double windowWidth = 600;
+const double windowHeight = 900;
+
+void main() {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('Simplistic Calculator');
+  }
+
+  runApp(
+    const ProviderScope(
+      child: CalculatorApp(),
+    ),
+  );
+}
+
 @immutable
-class Display {
-  const Display({
+class CalculatorState {
+  const CalculatorState({
     required this.buffer,
     required this.calcHistory,
     required this.mode,
@@ -26,13 +42,13 @@ class Display {
   final CalculatorEngineMode mode;
   final String error;
 
-  Display copyWith({
+  CalculatorState copyWith({
     String? buffer,
     List<String>? calcHistory,
     CalculatorEngineMode? mode,
     String? error,
   }) =>
-      Display(
+      CalculatorState(
         buffer: buffer ?? this.buffer,
         calcHistory: calcHistory ?? this.calcHistory,
         mode: mode ?? this.mode,
@@ -42,10 +58,10 @@ class Display {
 
 enum CalculatorEngineMode { input, result }
 
-class CalculatorEngine extends StateNotifier<Display> {
+class CalculatorEngine extends StateNotifier<CalculatorState> {
   CalculatorEngine()
       : super(
-          const Display(
+          const CalculatorState(
             buffer: '0',
             calcHistory: [],
             mode: CalculatorEngineMode.result,
@@ -100,17 +116,16 @@ class CalculatorEngine extends StateNotifier<Display> {
           mode: CalculatorEngineMode.result,
         );
       } else {
-        if (result.ceil() == result) {
-          state = state.copyWith(
-            buffer: result.toInt().toString(),
+        final resultStr = result.ceil() == result
+            ? result.toInt().toString()
+            : result.toString();
+        state = state.copyWith(
+            buffer: resultStr,
             mode: CalculatorEngineMode.result,
-          );
-        } else {
-          state = state.copyWith(
-            buffer: result.toString(),
-            mode: CalculatorEngineMode.result,
-          );
-        }
+            calcHistory: [
+              '${state.buffer} = $resultStr',
+              ...state.calcHistory,
+            ]);
       }
     } catch (err) {
       state = state.copyWith(
@@ -122,45 +137,214 @@ class CalculatorEngine extends StateNotifier<Display> {
   }
 }
 
-final displayProvider =
-    StateNotifierProvider<CalculatorEngine, Display>((_) => CalculatorEngine());
+final calculatorStateProvider =
+    StateNotifierProvider<CalculatorEngine, CalculatorState>(
+        (_) => CalculatorEngine());
 
-void main() {
-  setupWindow();
-  runApp(
-    const ProviderScope(
-      child: CalculatorApp(),
-    ),
-  );
+class ButtonDefinition {
+  const ButtonDefinition({
+    required this.areaName,
+    required this.label,
+    required this.op,
+    this.type = CalcButtonType.outlined,
+  });
+
+  final String areaName;
+  final String label;
+  final CalculatorEngineCallback op;
+  final CalcButtonType type;
 }
 
-const double kWindowWidth = 600;
-const double kWindowHeight = 900;
-
-void setupWindow() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
-    WidgetsFlutterBinding.ensureInitialized();
-    setWindowTitle('Simplistic Calculator');
-    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
-    getCurrentScreen().then((screen) {
-      setWindowFrame(
-        const Rect.fromLTWH(
-          300,
-          300,
-          kWindowHeight,
-          kWindowWidth,
-        ),
-      );
-    });
-  }
-}
+final buttonDefinitions = <ButtonDefinition>[
+  ButtonDefinition(
+    areaName: 'clear',
+    op: (engine) => engine.clear(),
+    label: 'AC',
+  ),
+  ButtonDefinition(
+    areaName: 'bkspc',
+    op: (engine) => engine.backspace(),
+    label: '⌫',
+  ),
+  ButtonDefinition(
+    areaName: 'lparen',
+    op: (engine) => engine.addToBuffer('('),
+    label: '(',
+  ),
+  ButtonDefinition(
+    areaName: 'rparen',
+    op: (engine) => engine.addToBuffer(')'),
+    label: ')',
+  ),
+  ButtonDefinition(
+    areaName: 'sqrt',
+    op: (engine) => engine.addToBuffer('sqrt('),
+    label: '√',
+  ),
+  ButtonDefinition(
+    areaName: 'pow',
+    op: (engine) => engine.addToBuffer('^'),
+    label: '^',
+  ),
+  ButtonDefinition(
+    areaName: 'abs',
+    op: (engine) => engine.addToBuffer('abs('),
+    label: 'Abs',
+  ),
+  ButtonDefinition(
+    areaName: 'sgn',
+    op: (engine) => engine.addToBuffer('sgn('),
+    label: 'Sgn',
+  ),
+  ButtonDefinition(
+    areaName: 'ceil',
+    op: (engine) => engine.addToBuffer('ceil('),
+    label: 'Ceil',
+  ),
+  ButtonDefinition(
+    areaName: 'floor',
+    op: (engine) => engine.addToBuffer('floor('),
+    label: 'Floor',
+  ),
+  ButtonDefinition(
+    areaName: 'e',
+    op: (engine) => engine.addToBuffer('e('),
+    label: 'e',
+  ),
+  ButtonDefinition(
+    areaName: 'ln',
+    op: (engine) => engine.addToBuffer('ln('),
+    label: 'ln',
+  ),
+  ButtonDefinition(
+    areaName: 'sin',
+    op: (engine) => engine.addToBuffer('sin('),
+    label: 'Sin',
+  ),
+  ButtonDefinition(
+    areaName: 'cos',
+    op: (engine) => engine.addToBuffer('cos('),
+    label: 'Cos',
+  ),
+  ButtonDefinition(
+    areaName: 'tan',
+    op: (engine) => engine.addToBuffer('tan('),
+    label: 'Tan',
+  ),
+  ButtonDefinition(
+    areaName: 'fact',
+    op: (engine) => engine.addToBuffer('!'),
+    label: '!',
+  ),
+  ButtonDefinition(
+    areaName: 'arcsin',
+    op: (engine) => engine.addToBuffer('arcsin('),
+    label: 'Arc Sin',
+  ),
+  ButtonDefinition(
+    areaName: 'arccos',
+    op: (engine) => engine.addToBuffer('arccos('),
+    label: 'Arc Cos',
+  ),
+  ButtonDefinition(
+    areaName: 'arctan',
+    op: (engine) => engine.addToBuffer('arctan('),
+    label: 'Arc Tan',
+  ),
+  ButtonDefinition(
+    areaName: 'mod',
+    op: (engine) => engine.addToBuffer('%'),
+    label: 'Mod',
+  ),
+  ButtonDefinition(
+    areaName: 'seven',
+    op: (engine) => engine.addToBuffer('7'),
+    label: '7',
+  ),
+  ButtonDefinition(
+    areaName: 'eight',
+    op: (engine) => engine.addToBuffer('8'),
+    label: '8',
+  ),
+  ButtonDefinition(
+    areaName: 'nine',
+    op: (engine) => engine.addToBuffer('9'),
+    label: '9',
+  ),
+  ButtonDefinition(
+    areaName: 'four',
+    op: (engine) => engine.addToBuffer('4'),
+    label: '4',
+  ),
+  ButtonDefinition(
+    areaName: 'five',
+    op: (engine) => engine.addToBuffer('5'),
+    label: '5',
+  ),
+  ButtonDefinition(
+    areaName: 'six',
+    op: (engine) => engine.addToBuffer('6'),
+    label: '6',
+  ),
+  ButtonDefinition(
+    areaName: 'one',
+    op: (engine) => engine.addToBuffer('1'),
+    label: '1',
+  ),
+  ButtonDefinition(
+    areaName: 'two',
+    op: (engine) => engine.addToBuffer('2'),
+    label: '2',
+  ),
+  ButtonDefinition(
+    areaName: 'three',
+    op: (engine) => engine.addToBuffer('3'),
+    label: '3',
+  ),
+  ButtonDefinition(
+    areaName: 'zero',
+    op: (engine) => engine.addToBuffer('0'),
+    label: '0',
+  ),
+  ButtonDefinition(
+    areaName: 'point',
+    op: (engine) => engine.addToBuffer('.'),
+    label: '.',
+  ),
+  ButtonDefinition(
+    areaName: 'equals',
+    op: (engine) => engine.evaluate(),
+    label: '=',
+    type: CalcButtonType.elevated,
+  ),
+  ButtonDefinition(
+    areaName: 'plus',
+    op: (engine) => engine.addToBuffer('+', continueWithResult: true),
+    label: '+',
+  ),
+  ButtonDefinition(
+    areaName: 'minus',
+    op: (engine) => engine.addToBuffer('-', continueWithResult: true),
+    label: '-',
+  ),
+  ButtonDefinition(
+    areaName: 'multiply',
+    op: (engine) => engine.addToBuffer('*', continueWithResult: true),
+    label: '*',
+  ),
+  ButtonDefinition(
+    areaName: 'divide',
+    op: (engine) => engine.addToBuffer('/', continueWithResult: true),
+    label: '/',
+  ),
+];
 
 class CalculatorApp extends ConsumerWidget {
   const CalculatorApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Display display = ref.watch(displayProvider);
+    final state = ref.watch(calculatorStateProvider);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -170,18 +354,18 @@ class CalculatorApp extends ConsumerWidget {
           child: SafeArea(
             child: LayoutGrid(
               areas: '''
-              display display display display
-              clear   bkspc   lparen  rparen
-              sqrt    pow     abs     sgn
-              ceil    floor   e       ln
-              sin     cos     tan     fact
-              arcsin  arccos  arctan  mod
-              seven   eight   nine    divide
-              four    five    six     multiply
-              one     two     three   minus
-              zero    point   equals  plus
+              display display display display  history
+              clear   bkspc   lparen  rparen   history
+              sqrt    pow     abs     sgn      history
+              ceil    floor   e       ln       history
+              sin     cos     tan     fact     history
+              arcsin  arccos  arctan  mod      history
+              seven   eight   nine    divide   history
+              four    five    six     multiply history
+              one     two     three   minus    history
+              zero    point   equals  plus     history
               ''',
-              columnSizes: [1.fr, 1.fr, 1.fr, 1.fr],
+              columnSizes: [1.fr, 1.fr, 1.fr, 1.fr, 2.fr],
               rowSizes: [
                 2.fr,
                 1.fr,
@@ -201,9 +385,9 @@ class CalculatorApp extends ConsumerWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 8),
-                      child: display.error.isEmpty
+                      child: state.error.isEmpty
                           ? AutoSizeText(
-                              display.buffer,
+                              state.buffer,
                               textAlign: TextAlign.end,
                               style: const TextStyle(
                                 fontSize: 80,
@@ -212,7 +396,7 @@ class CalculatorApp extends ConsumerWidget {
                               maxLines: 2,
                             )
                           : AutoSizeText(
-                              display.error,
+                              state.error,
                               textAlign: TextAlign.start,
                               style: const TextStyle(
                                 fontSize: 80,
@@ -223,265 +407,37 @@ class CalculatorApp extends ConsumerWidget {
                     ),
                   ),
                 ),
-                NamedAreaGridPlacement(
-                  areaName: 'clear',
-                  child: CalcButton(
-                    op: (engine) => engine.clear(),
-                    label: 'AC',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'bkspc',
-                  child: CalcButton(
-                    op: (engine) => engine.backspace(),
-                    label: '⌫',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'lparen',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('('),
-                    label: '(',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'rparen',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer(')'),
-                    label: ')',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'sqrt',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('sqrt('),
-                    label: '√',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'pow',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('^'),
-                    label: '^',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'abs',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('abs('),
-                    label: 'Abs',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'sgn',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('sgn('),
-                    label: 'Sgn',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'ceil',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('ceil('),
-                    label: 'Ceil',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'floor',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('floor('),
-                    label: 'Floor',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'e',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('e('),
-                    label: 'e',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'ln',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('ln('),
-                    label: 'ln',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'sin',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('sin('),
-                    label: 'Sin',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'cos',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('cos('),
-                    label: 'Cos',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'tan',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('tan('),
-                    label: 'Tan',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'fact',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('!'),
-                    label: '!',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'arcsin',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('arcsin('),
-                    label: 'Arc Sin',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'arccos',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('arccos('),
-                    label: 'Arc Cos',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'arctan',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('arctan('),
-                    label: 'Arc Tan',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'mod',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('%'),
-                    label: 'Mod',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'seven',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('7'),
-                    label: '7',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'eight',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('8'),
-                    label: '8',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'nine',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('9'),
-                    label: '9',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'four',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('4'),
-                    label: '4',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'five',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('5'),
-                    label: '5',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'six',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('6'),
-                    label: '6',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'one',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('1'),
-                    label: '1',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'two',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('2'),
-                    label: '2',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'three',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('3'),
-                    label: '3',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'zero',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('0'),
-                    label: '0',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'point',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer('.'),
-                    label: '.',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'equals',
-                  child: const CalcEqualsButton(),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'plus',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer(
-                      '+',
-                      continueWithResult: true,
+                ...buttonDefinitions.map(
+                  (definition) => NamedAreaGridPlacement(
+                    areaName: definition.areaName,
+                    child: CalcButton(
+                      label: definition.label,
+                      op: definition.op,
+                      type: definition.type,
                     ),
-                    label: '+',
                   ),
                 ),
                 NamedAreaGridPlacement(
-                  areaName: 'minus',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer(
-                      '-',
-                      continueWithResult: true,
+                  areaName: 'history',
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: ListView(
+                      children: [
+                        const ListTile(
+                          title: Text(
+                            'History',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        ...state.calcHistory.map(
+                          (result) => ListTile(
+                            title: Text(result),
+                          ),
+                        )
+                      ],
                     ),
-                    label: '-',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'multiply',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer(
-                      '*',
-                      continueWithResult: true,
-                    ),
-                    label: '*',
-                  ),
-                ),
-                NamedAreaGridPlacement(
-                  areaName: 'divide',
-                  child: CalcButton(
-                    op: (engine) => engine.addToBuffer(
-                      '/',
-                      continueWithResult: true,
-                    ),
-                    label: '/',
                   ),
                 ),
               ],
@@ -493,47 +449,32 @@ class CalculatorApp extends ConsumerWidget {
   }
 }
 
-class CalcEqualsButton extends ConsumerWidget {
-  const CalcEqualsButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox.expand(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: () => ref.read(displayProvider.notifier).evaluate(),
-          child: const AutoSizeText(
-            '=',
-            style: TextStyle(fontSize: 40, color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-typedef _CalculatorEngineCallback = void Function(CalculatorEngine engine);
+typedef CalculatorEngineCallback = void Function(CalculatorEngine engine);
+enum CalcButtonType { outlined, elevated }
 
 class CalcButton extends ConsumerWidget {
   const CalcButton({
     Key? key,
     required this.op,
     required this.label,
+    required this.type,
   }) : super(key: key);
 
-  final _CalculatorEngineCallback op;
+  final CalculatorEngineCallback op;
   final String label;
+  final CalcButtonType type;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final buttonConstructor = type == CalcButtonType.elevated
+        ? ElevatedButton.new
+        : OutlinedButton.new;
+
     return SizedBox.expand(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: OutlinedButton(
-          onPressed: () => op(ref.read(displayProvider.notifier)),
+        padding: const EdgeInsets.all(8),
+        child: buttonConstructor(
+          onPressed: () => op(ref.read(calculatorStateProvider.notifier)),
           child: AutoSizeText(
             label,
             style: const TextStyle(fontSize: 40, color: Colors.black54),
