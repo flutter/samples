@@ -1,5 +1,6 @@
 name: provider_shopper
 description: A shopping app sample that uses Provider for state management.
+publish_to: none
 
 version: 1.0.0+1
 
@@ -12,6 +13,13 @@ dependencies:
 
   # Import the provider package.
   provider: ^5.0.0
+
+  # plugin is not yet part of the flutter framework
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: 03d957e8b5c99fc83cd4a781031b154ab3de8753
 
 dev_dependencies:
   flutter_test:
