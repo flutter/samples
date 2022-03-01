@@ -1,6 +1,7 @@
 name: animations
 description: A new Flutter project.
 version: 1.0.0+1
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -14,6 +15,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+
+  # plugin is not yet part of the flutter framework
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: 03d957e8b5c99fc83cd4a781031b154ab3de8753
 
 flutter:
   uses-material-design: true
