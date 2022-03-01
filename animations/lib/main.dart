@@ -2,7 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:window_size/window_size.dart';
 
 import 'src/basics/01_animated_container.dart';
 import 'src/basics/02_page_route_builder.dart';
@@ -24,7 +28,29 @@ import 'src/misc/hero_animation.dart';
 import 'src/misc/physics_card_drag.dart';
 import 'src/misc/repeating_animation.dart';
 
-void main() => runApp(const AnimationSamples());
+void main() {
+  setupWindow();
+  runApp(const AnimationSamples());
+}
+
+const double kWindowWidth = 480;
+const double kWindowHeight = 854;
+
+void setupWindow() {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('Animation Samples');
+    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
+    getCurrentScreen().then((screen) {
+      setWindowFrame(Rect.fromCenter(
+        center: screen!.frame.center,
+        width: kWindowWidth,
+        height: kWindowHeight,
+      ));
+    });
+  }
+}
 
 class Demo {
   final String name;
