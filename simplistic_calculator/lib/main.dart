@@ -12,9 +12,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:window_size/window_size.dart';
 
-const double windowWidth = 600;
-const double windowHeight = 900;
-
 void main() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
@@ -472,7 +469,7 @@ class CalcButton extends ConsumerWidget {
 
     return SizedBox.expand(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(4),
         child: buttonConstructor(
           onPressed: () => op(ref.read(calculatorStateProvider.notifier)),
           child: AutoSizeText(
