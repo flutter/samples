@@ -52,7 +52,6 @@ void setupWindow() {
   }
 }
 
-
 class Demo {
   final String name;
   final String route;
