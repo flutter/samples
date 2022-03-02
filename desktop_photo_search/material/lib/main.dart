@@ -54,7 +54,6 @@ void setupWindow() {
   }
 }
 
-
 class UnsplashSearchApp extends StatelessWidget {
   const UnsplashSearchApp({Key? key}) : super(key: key);
 
