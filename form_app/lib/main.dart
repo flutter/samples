@@ -2,7 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:window_size/window_size.dart';
 
 import 'src/autofill.dart';
 import 'src/form_widgets.dart';
@@ -11,7 +15,27 @@ import 'src/sign_in_http.dart';
 import 'src/validation.dart';
 
 void main() {
+  setupWindow();
   runApp(const FormApp());
+}
+
+const double kWindowWidth = 480;
+const double kWindowHeight = 854;
+
+void setupWindow() {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('Form Samples');
+    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
+    getCurrentScreen().then((screen) {
+      setWindowFrame(Rect.fromCenter(
+        center: screen!.frame.center,
+        width: kWindowWidth,
+        height: kWindowHeight,
+      ));
+    });
+  }
 }
 
 final demos = [
