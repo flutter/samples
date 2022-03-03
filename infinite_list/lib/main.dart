@@ -23,7 +23,7 @@ const double kWindowHeight = 854;
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
-    setWindowTitle('Animation Samples');
+    setWindowTitle('Infinite List');
     setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
     setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
     getCurrentScreen().then((screen) {
