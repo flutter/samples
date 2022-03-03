@@ -2,10 +2,28 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jsonexample/tab_pages.dart';
+import 'package:window_size/window_size.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  setupWindow();
+  runApp(const MyApp());
+}
+
+const double kWindowWidth = 1200;
+const double kWindowHeight = 800;
+
+void setupWindow() {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('JSON Sample');
+    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
