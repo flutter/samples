@@ -12,18 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:window_size/window_size.dart';
 
 import 'data_transfer_page.dart';
 import 'infinite_process_page.dart';
 import 'performance_page.dart';
 
 void main() {
+  setupWindow();
   runApp(
     const MaterialApp(
       home: HomePage(),
     ),
   );
+}
+
+const double kWindowWidth = 1024;
+const double kWindowHeight = 800;
+
+void setupWindow() {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    WidgetsFlutterBinding.ensureInitialized();
+    setWindowTitle('Isolate Example');
+    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+  }
 }
 
 class HomePage extends StatelessWidget {
