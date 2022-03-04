@@ -1,1 +1,6 @@
 include: ../analysis_options.yaml
+
+# Files under typer/ are partially completed files, and often invalid
+analyzer:
+  exclude:
+    - typer/**
