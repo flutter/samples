@@ -27,20 +27,20 @@ void main() {
   runApp(const Bookstore());
 }
 
-const double kWindowWidth = 480;
-const double kWindowHeight = 854;
+const double windowWidth = 480;
+const double windowHeight = 854;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Navigation and routing');
-    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
-    setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMinSize(const Size(windowWidth, windowHeight));
+    setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
       setWindowFrame(Rect.fromCenter(
         center: screen!.frame.center,
-        width: kWindowWidth,
-        height: kWindowHeight,
+        width: windowWidth,
+        height: windowHeight,
       ));
     });
   }
