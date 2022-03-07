@@ -1,5 +1,6 @@
 name: veggieseasons
 description: An iOS app that shows the fruits and veggies currently in season.
+publish_to: none
 
 version: 1.2.0
 
