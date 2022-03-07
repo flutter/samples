@@ -16,6 +16,7 @@ void main() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Simplistic Calculator');
+    setWindowMinSize(const Size(600, 500));
   }
 
   runApp(
