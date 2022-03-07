@@ -28,20 +28,20 @@ void main() {
   );
 }
 
-const double kWindowWidth = 360;
-const double kWindowHeight = 640;
+const double windowWidth = 360;
+const double windowHeight = 640;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Provider Counter');
-    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
-    setWindowMaxSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMinSize(const Size(windowWidth, windowHeight));
+    setWindowMaxSize(const Size(windowWidth, windowHeight));
     getCurrentScreen().then((screen) {
       setWindowFrame(Rect.fromCenter(
         center: screen!.frame.center,
-        width: kWindowWidth,
-        height: kWindowHeight,
+        width: windowWidth,
+        height: windowHeight,
       ));
     });
   }
