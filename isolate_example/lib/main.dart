@@ -31,14 +31,14 @@ void main() {
   );
 }
 
-const double kWindowWidth = 1024;
-const double kWindowHeight = 800;
+const double windowWidth = 1024;
+const double windowHeight = 800;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Isolate Example');
-    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMinSize(const Size(windowWidth, windowHeight));
   }
 }
 

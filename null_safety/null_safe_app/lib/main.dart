@@ -15,13 +15,13 @@ void main() {
   runApp(const GoodMyApp());
 }
 
-const double kWindowWidth = 400;
-const double kWindowHeight = 400;
+const double windowWidth = 400;
+const double windowHeight = 400;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     WidgetsFlutterBinding.ensureInitialized();
     setWindowTitle('Weather');
-    setWindowMinSize(const Size(kWindowWidth, kWindowHeight));
+    setWindowMinSize(const Size(windowWidth, windowHeight));
   }
 }
