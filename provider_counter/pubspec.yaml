@@ -1,6 +1,7 @@
 name: provider_counter
 description: >
   The starter Flutter application, but using Provider to manage state.
+publish_to: none
 
 version: 1.0.0
 
@@ -13,6 +14,11 @@ dependencies:
 
   provider: ^5.0.0
   cupertino_icons: ^1.0.3
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: 03d957e8b5c99fc83cd4a781031b154ab3de8753
 
 dev_dependencies:
   flutter_test:
