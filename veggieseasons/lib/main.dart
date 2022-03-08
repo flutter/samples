@@ -48,7 +48,6 @@ void setupWindow() {
   }
 }
 
-
 class VeggieApp extends StatefulWidget {
   const VeggieApp({Key? key}) : super(key: key);
 
