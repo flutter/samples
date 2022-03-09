@@ -1,5 +1,6 @@
 name: veggieseasons
 description: An iOS app that shows the fruits and veggies currently in season.
+publish_to: none
 
 version: 1.2.0
 
@@ -15,6 +16,10 @@ dependencies:
   intl: ^0.17.0
   provider: ^6.0.1
   shared_preferences: ^2.0.5
+  window_size: 
+    git:
+      url: https://github.com/google/flutter-desktop-embedding
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_test:
