@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:fluent_ui/fluent_ui.dart' hide FluentIcons;
+import 'package:fluent_ui/fluent_ui.dart' hide Card, FluentIcons;
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart' show Card, BorderSide;
 import 'package:transparent_image/transparent_image.dart';
