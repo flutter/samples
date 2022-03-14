@@ -9,14 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^4.0.2
+  provider: ^6.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  espresso: ^0.0.1+2
+  espresso: ^0.1.0+4
   flutter_lints: ^1.0.0
 
 flutter:

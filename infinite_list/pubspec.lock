@@ -122,7 +122,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "6.0.2"
   sky_engine:
     dependency: transitive
     description: flutter

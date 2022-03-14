@@ -7,7 +7,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^2.5.0
+  cloud_firestore: ^3.1.10
   cupertino_icons: ^1.0.0
   firebase_auth: ^3.1.0
   firebase_core: ^1.7.0
@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.0
-  json_serializable: ^5.0.0
+  json_serializable: ^6.1.5
   grinder: ^0.9.0
   flutter_lints: ^1.0.0
 flutter:
