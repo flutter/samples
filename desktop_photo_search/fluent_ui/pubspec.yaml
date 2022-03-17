@@ -12,7 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   file_selector: ^0.8.3
   file_selector_linux: ^0.0.2+1
-  file_selector_macos: ^0.0.4+1
+  file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
   fluent_ui: ^3.7.0
   fluentui_system_icons: ^1.1.157
@@ -28,7 +28,6 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
-      ref: 03d957e8b5c99fc83cd4a781031b154ab3de8753
   provider: ^6.0.2
   transparent_image: ^2.0.0
   url_launcher: ^6.0.18
@@ -42,7 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
-  msix: ^2.8.5
+  msix: ^3.4.0
 
 flutter:
   uses-material-design: true

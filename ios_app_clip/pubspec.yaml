@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  device_info: ">=0.4.2+7 <2.0.0"
+  device_info: ^2.0.3
 
 dev_dependencies:
   flutter_test:
