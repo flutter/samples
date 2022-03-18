@@ -9,7 +9,7 @@ function ci_projects () {
         pushd "${PROJECT_NAME}"
 
         # Grab packages.
-        flutter pub get
+        flutter pub get --verbose
 
         # Run the analyzer to find any static analysis issues.
         dart analyze --fatal-infos
