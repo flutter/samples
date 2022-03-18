@@ -54,7 +54,6 @@ node_interop:packages/node_interop/
 node_preamble:packages/node_preamble/
 package_config:packages/package_config/
 path:packages/path/
-pedantic:packages/pedantic/
 petitparser:packages/petitparser/
 pool:packages/pool/
 protobuf:packages/protobuf/
@@ -70,6 +69,7 @@ shelf_packages_handler:packages/shelf_packages_handler/
 shelf_static:packages/shelf_static/
 shelf_web_socket:packages/shelf_web_socket/
 source_gen:packages/source_gen/
+source_helper:packages/source_helper/
 source_map_stack_trace:packages/source_map_stack_trace/
 source_maps:packages/source_maps/
 source_span:packages/source_span/

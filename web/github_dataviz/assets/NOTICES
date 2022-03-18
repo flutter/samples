@@ -4617,7 +4617,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 charcode
 http_parser
-source_span
 string_scanner
 
 Copyright 2014, the Dart project authors. All rights reserved.
@@ -10188,6 +10187,7 @@ PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 --------------------------------------------------------------------------------
 http
 path
+source_span
 
 Copyright 2014, the Dart project authors. 
 

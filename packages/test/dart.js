@@ -52,7 +52,14 @@ if (link.href == '') {
 
 var script = document.createElement('script');
 
-script.src = link.href + '.browser_test.dart.js';
+if (typeof trustedTypes !== 'undefined') {
+  const sanitizer = trustedTypes.createPolicy('dart#test', {
+    createScriptURL: (input) => input + '.browser_test.dart.js'
+  });
+  script.src = sanitizer.createScriptURL(link.href);
+} else {
+  script.src = link.href + '.browser_test.dart.js';
+}
 
 script.onerror = function(event) {
   var message = "Failed to load script at " + script.src +

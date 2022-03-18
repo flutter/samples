@@ -36,6 +36,8 @@ enum AvailableDeclarationKind : byte {
 
   SETTER,
 
+  TYPE_ALIAS,
+
   VARIABLE
 }
 
@@ -66,10 +68,22 @@ enum IndexRelationKind : byte {
   /// Right: location.
   IS_INVOKED_BY,
 
+  /// Left: an unnamed constructor.
+  ///   Is invoked by an enum constant, without arguments, which is special
+  ///   because when the name given, an empty argument list must be added.
+  /// Right: location.
+  IS_INVOKED_BY_ENUM_CONSTANT_WITHOUT_ARGUMENTS,
+
   /// Left: any element.
   ///   Is referenced (and not invoked, read/written) at.
   /// Right: location.
   IS_REFERENCED_BY,
+
+  /// Left: a constructor.
+  ///   Is referenced by a constructor tear-off at, which is special because
+  ///   the name of the constructor is required (`new` for unnamed).
+  /// Right: location.
+  IS_REFERENCED_BY_CONSTRUCTOR_TEAR_OFF,
 
   /// Left: unresolved member name.
   ///   Is read at.
@@ -285,25 +299,6 @@ table AnalysisDriverUnitIndex {
   usedNames:[uint] (id: 14);
 }
 
-/// Information about an unlinked unit.
-table AnalysisDriverUnlinkedUnit {
-  /// List of class member names defined by the unit.
-  definedClassMemberNames:[string] (id: 2);
-
-  /// List of top-level names defined by the unit.
-  definedTopLevelNames:[string] (id: 1);
-
-  /// List of external names referenced by the unit.
-  referencedNames:[string] (id: 0);
-
-  /// List of names which are used in `extends`, `with` or `implements` clauses
-  /// in the file. Import prefixes and type arguments are not included.
-  subtypedNames:[string] (id: 3);
-
-  /// Unlinked information for the unit.
-  unit2:UnlinkedUnit2 (id: 4);
-}
-
 /// Information about a single declaration.
 table AvailableDeclaration {
   children:[AvailableDeclaration] (id: 0);
@@ -414,16 +409,6 @@ table CiderUnitErrors {
   signature:[uint] (id: 0);
 }
 
-/// Information about a compilation unit, contains the content hash
-/// and unlinked summary.
-table CiderUnlinkedUnit {
-  /// The hash signature of the contents of the file.
-  contentDigest:[uint] (id: 0);
-
-  /// Unlinked summary of the compilation unit.
-  unlinkedUnit:UnlinkedUnit2 (id: 1);
-}
-
 table DiagnosticMessage {
   /// The absolute and normalized path of the file associated with this message.
   filePath:string (id: 0);
@@ -455,60 +440,6 @@ table DirectiveInfo {
 table PackageBundle {
   /// The version 2 of the summary.
   fake:uint (id: 0);
-}
-
-/// Unlinked summary information about a namespace directive.
-table UnlinkedNamespaceDirective {
-  /// The configurations that control which library will actually be used.
-  configurations:[UnlinkedNamespaceDirectiveConfiguration] (id: 0);
-
-  /// The URI referenced by this directive, nad used by default when none
-  /// of the [configurations] matches.
-  uri:string (id: 1);
-}
-
-/// Unlinked summary information about a namespace directive configuration.
-table UnlinkedNamespaceDirectiveConfiguration {
-  /// The name of the declared variable used in the condition.
-  name:string (id: 0);
-
-  /// The URI to be used if the condition is true.
-  uri:string (id: 2);
-
-  /// The value to which the value of the declared variable will be compared,
-  /// or the empty string if the condition does not include an equality test.
-  value:string (id: 1);
-}
-
-/// Unlinked summary information about a compilation unit.
-table UnlinkedUnit2 {
-  /// The MD5 hash signature of the API portion of this unit. It depends on all
-  /// tokens that might affect APIs of declarations in the unit.
-  apiSignature:[uint] (id: 0);
-
-  /// URIs of `export` directives.
-  exports:[UnlinkedNamespaceDirective] (id: 1);
-
-  /// Is `true` if the unit contains a `library` directive.
-  hasLibraryDirective:bool (id: 6);
-
-  /// Is `true` if the unit contains a `part of` directive.
-  hasPartOfDirective:bool (id: 3);
-
-  /// URIs of `import` directives.
-  imports:[UnlinkedNamespaceDirective] (id: 2);
-
-  /// Offsets of the first character of each line in the source code.
-  lineStarts:[uint] (id: 5);
-
-  /// The library name of the `part of my.name;` directive.
-  partOfName:string (id: 8);
-
-  /// URI of the `part of 'uri';` directive.
-  partOfUri:string (id: 7);
-
-  /// URIs of `part` directives.
-  parts:[string] (id: 4);
 }
 
 root_type PackageBundle;
