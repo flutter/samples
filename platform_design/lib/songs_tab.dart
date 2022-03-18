@@ -96,7 +96,7 @@ class _SongsTabState extends State<SongsTab> {
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
     // purposes.
-    WidgetsBinding.instance!.reassembleApplication();
+    WidgetsBinding.instance.reassembleApplication();
   }
 
   // ===========================================================================
