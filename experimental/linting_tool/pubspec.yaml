@@ -32,9 +32,8 @@ dependencies:
   context_menus: ^1.0.1
   window_size:
     git:
-      url: git://github.com/google/flutter-desktop-embedding.git
+      url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
-      ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
 
 dev_dependencies:
   flutter_test:

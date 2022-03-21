@@ -77,7 +77,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.7"
+    version: "2.1.8"
   build_runner_core:
     dependency: transitive
     description:
@@ -217,7 +217,7 @@ packages:
       name: file_selector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.4"
+    version: "0.8.4+1"
   file_selector_linux:
     dependency: "direct main"
     description:
@@ -753,9 +753,9 @@ packages:
     dependency: "direct main"
     description:
       path: "plugins/window_size"
-      ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
-      resolved-ref: e48abe7c3e9ebfe0b81622167c5201d4e783bb81
-      url: "git://github.com/google/flutter-desktop-embedding.git"
+      ref: HEAD
+      resolved-ref: "5c51870ced62a00e809ba4b81a846a052d241c9f"
+      url: "https://github.com/google/flutter-desktop-embedding.git"
     source: git
     version: "0.1.0"
   xdg_directories:
