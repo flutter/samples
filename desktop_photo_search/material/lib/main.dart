@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:provider/provider.dart';
@@ -86,6 +87,12 @@ class UnsplashHomePage extends StatelessWidget {
               builder: (context) =>
                   PhotoSearchDialog(callback: photoSearchModel.addSearch),
             );
+          },
+        ),
+        menubar.MenuItem(
+          label: 'Quit',
+          onClicked: () {
+            SystemNavigator.pop();
           },
         ),
       ]),
