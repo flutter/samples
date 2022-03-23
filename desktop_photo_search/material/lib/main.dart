@@ -89,12 +89,13 @@ class UnsplashHomePage extends StatelessWidget {
             );
           },
         ),
-        menubar.MenuItem(
-          label: 'Quit',
-          onClicked: () {
-            SystemNavigator.pop();
-          },
-        ),
+        if (!Platform.isMacOS)
+          menubar.MenuItem(
+            label: 'Quit',
+            onClicked: () {
+              SystemNavigator.pop();
+            },
+          ),
       ]),
       menubar.Submenu(label: 'About', children: [
         menubar.MenuItem(
