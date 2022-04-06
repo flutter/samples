@@ -23,6 +23,12 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
   final _treeViewScrollController = ScrollController();
 
   @override
+  dispose() {
+    _treeViewScrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final photoSearchModel = Provider.of<PhotoSearchModel>(context);
 
