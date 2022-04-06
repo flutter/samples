@@ -70,14 +70,14 @@ packages:
       name: fluent_ui
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.9.1"
+    version: "3.10.0"
   fluentui_system_icons:
     dependency: "direct main"
     description:
       name: fluentui_system_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.162"
+    version: "1.1.163"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -97,6 +97,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_riverpod:
     dependency: "direct main"
     description:
