@@ -37,6 +37,7 @@ class MainMenuScreen extends StatelessWidget {
           ),
         ),
         rectangularMenuArea: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             ElevatedButton(
               onPressed: () {

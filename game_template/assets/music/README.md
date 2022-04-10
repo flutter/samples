@@ -3,4 +3,4 @@ Attribution 4.0 International (CC BY 4.0).
 
 https://freemusicarchive.org/music/mr-smith
 
-Mr Smith's music is used in this project with his explicit permission.
+Mr Smith's music is used in this template project with his explicit permission.
