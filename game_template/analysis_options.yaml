@@ -1,0 +1,6 @@
+include: ../analysis_options.yaml
+
+linter:
+  rules:
+    # Remove or force lint rules by adding lines like the following:
+    # file_names: false
