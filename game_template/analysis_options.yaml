@@ -3,4 +3,5 @@ include: ../analysis_options.yaml
 linter:
   rules:
     # Remove or force lint rules by adding lines like the following:
-    # file_names: false
+    prefer_const_constructors: false  # Annoying in early development
+    prefer_single_quotes: false  # Annoying when game shows text with apostrophes

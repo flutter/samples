@@ -20,9 +20,12 @@ dependencies:
   provider: ^6.0.2
   shared_preferences: ^2.0.13
 
-  games_services: ^2.0.7
-  google_mobile_ads: ^1.1.0
-  in_app_purchase: ^3.0.1
+  # If you don't need one of the following dependencies,
+  # delete the relevant line below, and get rid of any Dart code
+  # that references the dependency.
+  games_services: ^2.0.7  # Achievements and leaderboards
+  google_mobile_ads: ^1.1.0  # Ads
+  in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
   flutter_test:
