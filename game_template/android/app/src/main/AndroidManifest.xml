@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- AdMob app ID: TODO: replace with an actually AdMob app ID
+        <!-- AdMob app ID: TODO: replace with an actual AdMob app ID
              Get it here: https://support.google.com/admob/answer/7356431
          -->
         <meta-data
