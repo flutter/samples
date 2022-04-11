@@ -224,7 +224,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.12"
+    version: "3.3.13"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
@@ -238,7 +238,7 @@ packages:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.10"
+    version: "3.3.11"
   firebase_core:
     dependency: "direct main"
     description:
