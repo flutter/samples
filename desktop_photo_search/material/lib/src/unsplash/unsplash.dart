@@ -73,7 +73,10 @@ class Unsplash {
     }
 
     return SearchPhotosResponse.fromJson(
-      response.body,
+      // Per Response#body, if the Content-Type header is unknown, bodyBytes
+      // is interpreted as latin1. Unsplash returns utf8, but with no encoding
+      // specified in the Content-Type, so we must do it ourselves.
+      utf8.decode(response.bodyBytes),
     );
   }
 
