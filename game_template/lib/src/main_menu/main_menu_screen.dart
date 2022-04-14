@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:game_template/src/audio/audio_controller.dart';
-import 'package:game_template/src/audio/sounds.dart';
-import 'package:game_template/src/games_services/games_services.dart';
-import 'package:game_template/src/settings/settings.dart';
-import 'package:game_template/src/style/palette.dart';
-import 'package:game_template/src/style/responsive_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import '../audio/audio_controller.dart';
+import '../audio/sounds.dart';
+import '../games_services/games_services.dart';
+import '../settings/settings.dart';
+import '../style/palette.dart';
+import '../style/responsive_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({Key? key}) : super(key: key);

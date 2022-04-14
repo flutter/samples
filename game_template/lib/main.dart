@@ -1,30 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:game_template/src/ads/ads_controller.dart';
-import 'package:game_template/src/app_lifecycle/app_lifecycle.dart';
-import 'package:game_template/src/audio/audio_controller.dart';
-import 'package:game_template/src/games_services/games_services.dart';
-import 'package:game_template/src/games_services/score.dart';
-import 'package:game_template/src/in_app_purchase/in_app_purchase.dart';
-import 'package:game_template/src/level_selection/level_selection_screen.dart';
-import 'package:game_template/src/level_selection/levels.dart';
-import 'package:game_template/src/main_menu/main_menu_screen.dart';
-import 'package:game_template/src/play_session/play_session_screen.dart';
-import 'package:game_template/src/player_progress/persistence/local_storage_player_progress_persistence.dart';
-import 'package:game_template/src/player_progress/persistence/player_progress_persistence.dart';
-import 'package:game_template/src/player_progress/player_progress.dart';
-import 'package:game_template/src/settings/persistence/local_storage_settings_persistence.dart';
-import 'package:game_template/src/settings/persistence/settings_persistence.dart';
-import 'package:game_template/src/settings/settings.dart';
-import 'package:game_template/src/settings/settings_screen.dart';
-import 'package:game_template/src/style/my_transition.dart';
-import 'package:game_template/src/style/palette.dart';
-import 'package:game_template/src/style/snack_bar.dart';
-import 'package:game_template/src/win_game/win_game_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
+
+import 'src/ads/ads_controller.dart';
+import 'src/app_lifecycle/app_lifecycle.dart';
+import 'src/audio/audio_controller.dart';
+import 'src/games_services/games_services.dart';
+import 'src/games_services/score.dart';
+import 'src/in_app_purchase/in_app_purchase.dart';
+import 'src/level_selection/level_selection_screen.dart';
+import 'src/level_selection/levels.dart';
+import 'src/main_menu/main_menu_screen.dart';
+import 'src/play_session/play_session_screen.dart';
+import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
+import 'src/player_progress/persistence/player_progress_persistence.dart';
+import 'src/player_progress/player_progress.dart';
+import 'src/settings/persistence/local_storage_settings_persistence.dart';
+import 'src/settings/persistence/settings_persistence.dart';
+import 'src/settings/settings.dart';
+import 'src/settings/settings_screen.dart';
+import 'src/style/my_transition.dart';
+import 'src/style/palette.dart';
+import 'src/style/snack_bar.dart';
+import 'src/win_game/win_game_screen.dart';
 
 void main() {
   if (kReleaseMode) {

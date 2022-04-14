@@ -3,10 +3,11 @@ import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart' hide Logger;
 import 'package:flutter/widgets.dart';
-import 'package:game_template/src/audio/songs.dart';
-import 'package:game_template/src/audio/sounds.dart';
-import 'package:game_template/src/settings/settings.dart';
 import 'package:logging/logging.dart';
+
+import '../settings/settings.dart';
+import 'songs.dart';
+import 'sounds.dart';
 
 class AudioController {
   static final _log = Logger('AudioController');

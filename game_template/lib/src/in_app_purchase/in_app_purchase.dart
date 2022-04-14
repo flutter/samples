@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:game_template/src/in_app_purchase/ad_removal.dart';
-import 'package:game_template/src/style/snack_bar.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:logging/logging.dart';
+
+import '../style/snack_bar.dart';
+import 'ad_removal.dart';
 
 class InAppPurchaseController extends ChangeNotifier {
   static final Logger _log = Logger('InAppPurchases');

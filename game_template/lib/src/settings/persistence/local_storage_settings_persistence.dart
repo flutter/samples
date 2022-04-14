@@ -1,5 +1,6 @@
-import 'package:game_template/src/settings/persistence/settings_persistence.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'settings_persistence.dart';
 
 class LocalStorageSettingsPersistence extends SettingsPersistence {
   final Future<SharedPreferences> instanceFuture =

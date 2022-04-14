@@ -1,4 +1,4 @@
-import 'package:game_template/src/player_progress/persistence/player_progress_persistence.dart';
+import 'player_progress_persistence.dart';
 
 class MemoryOnlyPlayerProgressPersistence implements PlayerProgressPersistence {
   int level = 0;

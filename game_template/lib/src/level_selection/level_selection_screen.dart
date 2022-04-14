@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:game_template/src/audio/audio_controller.dart';
-import 'package:game_template/src/audio/sounds.dart';
-import 'package:game_template/src/level_selection/levels.dart';
-import 'package:game_template/src/player_progress/player_progress.dart';
-import 'package:game_template/src/style/palette.dart';
-import 'package:game_template/src/style/responsive_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import '../audio/audio_controller.dart';
+import '../audio/sounds.dart';
+import '../player_progress/player_progress.dart';
+import '../style/palette.dart';
+import '../style/responsive_screen.dart';
+import 'levels.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
   const LevelSelectionScreen({Key? key}) : super(key: key);

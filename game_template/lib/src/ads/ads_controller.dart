@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:game_template/src/ads/preloaded_banner_ad.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import 'preloaded_banner_ad.dart';
 
 class AdsController {
   final MobileAds _instance;

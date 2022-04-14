@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:game_template/src/ads/ads_controller.dart';
-import 'package:game_template/src/ads/preloaded_banner_ad.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
+
+import 'ads_controller.dart';
+import 'preloaded_banner_ad.dart';
 
 /// Displays a banner ad that conforms to the widget's size in the layout,
 /// and reloads the ad when the user changes orientation.

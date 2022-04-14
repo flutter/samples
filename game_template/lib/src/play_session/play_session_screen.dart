@@ -1,19 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:game_template/src/ads/ads_controller.dart';
-import 'package:game_template/src/audio/audio_controller.dart';
-import 'package:game_template/src/audio/sounds.dart';
-import 'package:game_template/src/game_internals/level_state.dart';
-import 'package:game_template/src/games_services/games_services.dart';
-import 'package:game_template/src/games_services/score.dart';
-import 'package:game_template/src/in_app_purchase/in_app_purchase.dart';
-import 'package:game_template/src/level_selection/levels.dart';
-import 'package:game_template/src/player_progress/player_progress.dart';
-import 'package:game_template/src/style/palette.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart' hide Level;
 import 'package:provider/provider.dart';
+
+import '../ads/ads_controller.dart';
+import '../audio/audio_controller.dart';
+import '../audio/sounds.dart';
+import '../game_internals/level_state.dart';
+import '../games_services/games_services.dart';
+import '../games_services/score.dart';
+import '../in_app_purchase/in_app_purchase.dart';
+import '../level_selection/levels.dart';
+import '../player_progress/player_progress.dart';
+import '../style/palette.dart';
 
 class PlaySessionScreen extends StatefulWidget {
   final GameLevel level;

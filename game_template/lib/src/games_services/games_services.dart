@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:game_template/src/games_services/score.dart' as internal;
-import 'package:games_services/games_services.dart';
+import 'package:games_services/games_services.dart' as gs;
 import 'package:logging/logging.dart';
+
+import 'score.dart';
 
 class GamesServicesController {
   static final Logger _log = Logger('GamesServicesController');
@@ -19,8 +20,8 @@ class GamesServicesController {
     }
 
     try {
-      await GamesServices.unlock(
-        achievement: Achievement(
+      await gs.GamesServices.unlock(
+        achievement: gs.Achievement(
           androidID: android,
           iOSID: iOS,
         ),
@@ -32,11 +33,11 @@ class GamesServicesController {
 
   Future<void> initialize() async {
     try {
-      await GamesServices.signIn();
+      await gs.GamesServices.signIn();
       // The API is unclear so we're checking to be sure. The above call
       // returns a String, not a boolean, and there's no documentation
       // as to whether every non-error result means we're safely signed in.
-      final signedIn = await GamesServices.isSignedIn;
+      final signedIn = await gs.GamesServices.isSignedIn;
       _signedInCompleter.complete(signedIn);
     } catch (e) {
       _log.severe('Cannot log into GamesServices: $e');
@@ -51,7 +52,7 @@ class GamesServicesController {
     }
 
     try {
-      await GamesServices.showAchievements();
+      await gs.GamesServices.showAchievements();
     } catch (e) {
       _log.severe('Cannot show achievements: $e');
     }
@@ -64,16 +65,16 @@ class GamesServicesController {
     }
 
     try {
-      await GamesServices.showLeaderboards(
+      await gs.GamesServices.showLeaderboards(
         iOSLeaderboardID: "game_template.highest_score",
-        androidLeaderboardID: "CgkIgZ29mawJEAIQAQ",
+        androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
       );
     } catch (e) {
       _log.severe('Cannot show leaderboard: $e');
     }
   }
 
-  Future<void> submitLeaderboardScore(internal.Score score) async {
+  Future<void> submitLeaderboardScore(Score score) async {
     if (!await signedIn) {
       _log.severe('Trying to award achievement when not logged in.');
       return;
@@ -82,10 +83,10 @@ class GamesServicesController {
     _log.info('Submitting $score to leaderboard.');
 
     try {
-      await GamesServices.submitScore(
-        score: Score(
+      await gs.GamesServices.submitScore(
+        score: gs.Score(
           iOSLeaderboardID: 'game_template.highest_score',
-          androidLeaderboardID: 'CgkIgZ29mawJEAIQAQ',
+          androidLeaderboardID: 'sOmE_iD_fRoM_gPlAy',
           value: score.score,
         ),
       );

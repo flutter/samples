@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:game_template/src/player_progress/persistence/player_progress_persistence.dart';
+
+import 'persistence/player_progress_persistence.dart';
 
 class PlayerProgress extends ChangeNotifier {
   final PlayerProgressPersistence _store;

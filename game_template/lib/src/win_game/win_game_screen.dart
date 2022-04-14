@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:game_template/src/ads/ads_controller.dart';
-import 'package:game_template/src/ads/banner_ad_widget.dart';
-import 'package:game_template/src/games_services/score.dart';
-import 'package:game_template/src/in_app_purchase/in_app_purchase.dart';
-import 'package:game_template/src/style/palette.dart';
-import 'package:game_template/src/style/responsive_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import '../ads/ads_controller.dart';
+import '../ads/banner_ad_widget.dart';
+import '../games_services/score.dart';
+import '../in_app_purchase/in_app_purchase.dart';
+import '../style/palette.dart';
+import '../style/responsive_screen.dart';
 
 class WinGameScreen extends StatelessWidget {
   final Score score;

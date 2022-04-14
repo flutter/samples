@@ -1,5 +1,6 @@
-import 'package:game_template/src/player_progress/persistence/player_progress_persistence.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'player_progress_persistence.dart';
 
 class LocalStoragePlayerProgressPersistence extends PlayerProgressPersistence {
   final Future<SharedPreferences> instanceFuture =

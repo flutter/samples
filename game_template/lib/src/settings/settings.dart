@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:game_template/src/settings/persistence/settings_persistence.dart';
+
+import 'persistence/settings_persistence.dart';
 
 class SettingsController {
   final SettingsPersistence _persistence;
