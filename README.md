@@ -19,10 +19,13 @@ For example:
 svn co https://github.com/flutter/samples/trunk/provider_shopper
 ```
 
-You can also use a shallow clone to download just the latest revision:
+You can also use a
+[partial clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/)
+to skip blob objects that aren't currently checked out,
+while including the full commit history:
 
 ```
-git clone --depth 1 https://github.com/flutter/samples.git
+git clone --filter=blob:none https://github.com/flutter/samples.git
 ```
 
 ## Interested in contributing?
