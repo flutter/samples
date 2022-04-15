@@ -20,5 +20,8 @@ target 'IOSUsingPlugin' do
     inherit! :search_paths
     # Pods for testing
   end
+end
 
+post_install do |installer|
+  flutter_post_install(installer) if defined?(flutter_post_install)
 end
