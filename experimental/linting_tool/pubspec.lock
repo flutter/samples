@@ -140,7 +140,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.16.0"
   context_menus:
     dependency: "direct main"
     description:
@@ -196,7 +196,7 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0"
   ffi:
     dependency: transitive
     description:
@@ -271,7 +271,7 @@ packages:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.0"
   flutter_markdown:
     dependency: "direct main"
     description:
@@ -400,7 +400,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   logging:
     dependency: transitive
     description:
@@ -773,5 +773,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.16.0 <3.0.0"
+  dart: ">=2.17.0-206.0.dev <3.0.0"
   flutter: ">=2.10.0"

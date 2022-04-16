@@ -49,7 +49,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.16.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -63,7 +63,7 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0"
   fluent_ui:
     dependency: "direct main"
     description:
@@ -89,14 +89,14 @@ packages:
       name: flutter_layout_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "2.0.0"
   flutter_lints:
     dependency: "direct dev"
     description:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.0"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -127,7 +127,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   matcher:
     dependency: transitive
     description:
@@ -245,13 +245,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.9"
-  typed_data:
-    dependency: transitive
-    description:
-      name: typed_data
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
   vector_math:
     dependency: transitive
     description:
@@ -269,5 +262,5 @@ packages:
     source: git
     version: "0.1.0"
 sdks:
-  dart: ">=2.16.1 <3.0.0"
+  dart: ">=2.17.0-206.0.dev <3.0.0"
   flutter: ">=2.8.0"

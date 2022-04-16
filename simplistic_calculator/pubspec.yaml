@@ -13,7 +13,7 @@ dependencies:
   fluentui_system_icons: ^1.1.161
   flutter:
     sdk: flutter
-  flutter_layout_grid: ^1.0.3
+  flutter_layout_grid: ^2.0.0
   flutter_riverpod: ^1.0.3
   math_expressions: ^2.3.0
   window_size: 
@@ -22,7 +22,7 @@ dependencies:
       path: plugins/window_size
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 

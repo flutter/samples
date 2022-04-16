@@ -8,7 +8,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.0
 flutter:
   assets:
     - preview.png

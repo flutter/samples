@@ -36,7 +36,7 @@ dev_dependencies:
   build: ^2.2.1
   build_runner: ^2.1.7
   built_value_generator: ^8.1.4
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
