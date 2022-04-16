@@ -72,9 +72,7 @@ class Unsplash {
       throw UnsplashException(apiError.errors!.join(', '));
     }
 
-    return SearchPhotosResponse.fromJson(
-      response.body,
-    );
+    return SearchPhotosResponse.fromJson(json.encode(body));
   }
 
   Future<Uint8List> download(Photo photo) async {
