@@ -77,7 +77,7 @@ packages:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.0"
+    version: "1.14.1"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -91,7 +91,7 @@ packages:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.1"
+    version: "1.6.2"
   flutter:
     dependency: "direct main"
     description: flutter
