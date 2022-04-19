@@ -10,6 +10,7 @@ on:
 defaults:
   run:
     shell: bash
+  if: ${{ github.repository == 'flutter/samples' }}
 
 jobs:
   # Run the stable test script on the beta channel. Since this branch will soon

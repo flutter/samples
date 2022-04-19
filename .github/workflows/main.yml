@@ -12,6 +12,7 @@ on:
 defaults:
   run:
     shell: bash
+  if: ${{ github.repository == 'flutter/samples' }}
 
 jobs:
   flutter-tests:

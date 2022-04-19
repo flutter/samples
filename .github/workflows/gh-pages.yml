@@ -8,6 +8,7 @@ jobs:
     permissions:
      contents: write
     runs-on: ubuntu-latest
+    if: ${{ github.repository == 'flutter/samples' }}
 
     steps:
       - name: Checkout
