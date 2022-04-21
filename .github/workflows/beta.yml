@@ -22,7 +22,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@5f87f43226edfc1a08fc4c0d26875fa13e3540c4
+      - uses: actions/checkout@f25a3a9f25bd5f4c5d77189cab02ff357b5aedeb
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
         with:
           distribution: 'zulu'
