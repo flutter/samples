@@ -28,7 +28,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: "12.x"
-      - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
+      - uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
         with:
           channel: ${{ matrix.flutter_version }}
       - run: ./tool/flutter_ci_script_${{ matrix.flutter_version }}.sh
@@ -40,7 +40,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: "12.x"
-      - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
+      - uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
         with:
           channel: stable
       - run: ./tool/android_ci_script.sh
@@ -52,7 +52,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: "12.x"
-      - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
+      - uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
         with:
           channel: stable
       - run: ./tool/ios_ci_script.sh
