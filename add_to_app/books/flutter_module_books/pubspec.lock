@@ -171,7 +171,7 @@ packages:
       name: pigeon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   pub_semver:
     dependency: transitive
     description:
