@@ -1,6 +1,10 @@
 version: 2
 enable-beta-ecosystems: true
 updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
   - package-ecosystem: "pub"
     directory: "add_to_app/android_view/flutter_module_using_plugin/"
     schedule:
