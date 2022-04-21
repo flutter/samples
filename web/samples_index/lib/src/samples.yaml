@@ -468,6 +468,11 @@ samples:
     
   - name: Photo Search app
     author: Flutter
+    screenshots:
+      - url: images/desktop_photo_search-fluent_ui.png
+        alt: Desktop Photo Search with FluentUI widgets
+      - url: images/desktop_photo_search-material.png
+        alt: Desktop Photo Search with Material widgets
     source: https://github.com/flutter/samples/tree/master/desktop_photo_search
     description: >
       This is the Photo Search app, built out with two different widget sets,
