@@ -440,6 +440,7 @@ samples:
     links: []
     type: sample
     web: web/form_app
+    
   - name: Navigation and Routing
     author: Flutter
     screenshots:
@@ -464,6 +465,33 @@ samples:
     links: []
     type: sample
     web: web/navigation_and_routing
+    
+  - name: Photo Search app
+    author: Flutter
+    screenshots:
+      - url: images/desktop_photo_search-fluent_ui.png
+        alt: Desktop Photo Search with FluentUI widgets
+      - url: images/desktop_photo_search-material.png
+        alt: Desktop Photo Search with Material widgets
+    source: https://github.com/flutter/samples/tree/master/desktop_photo_search
+    description: >
+      This is the Photo Search app, built out with two different widget sets,
+      `material` shows the Photo Search app built with Material widgets, and
+      `fluent_ui` shows the Photo Search app built with Fluent UI widgets.
+    difficulty: medium
+    widgets: []
+    packages: 
+      - built_collection
+      - built_value
+      - file_selector
+      - fluent_ui
+      - flutter/material
+      - provider
+      - url_launcher
+    tags: ['desktop', 'rest-api']
+    platforms: ['windows', 'macos', 'linux']
+    type: sample
+    
 ###################
 #### Web Demos ####
 ###################
