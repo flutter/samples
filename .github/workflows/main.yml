@@ -2,9 +2,9 @@ name: Master Branch CI
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # Every day at midnight
@@ -27,7 +27,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          distribution: 'zulu'
+          java-version: '12.x'
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: ${{ matrix.flutter_version }}
@@ -39,7 +40,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          distribution: 'zulu'
+          java-version: '12.x'
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: stable
@@ -51,7 +53,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
+          distribution: 'zulu'
+          java-version: '12.x'
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: stable
