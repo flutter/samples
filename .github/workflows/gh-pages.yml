@@ -6,9 +6,9 @@ on:
 jobs:
   build-and-deploy:
     permissions:
-     contents: write
+      contents: write
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'flutter/samples' }}
+    if: github.repository == 'flutter/samples'
 
     steps:
       - name: Checkout

@@ -17,7 +17,7 @@ jobs:
   # need to test.
   stable-tests-on-beta:
     runs-on: ${{ matrix.os }}
-    if: ${{ github.repository == 'flutter/samples' }}
+    if: github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: beta
@@ -35,12 +35,12 @@ jobs:
   # channel.
   android-build:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'flutter/samples' }}
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: beta
@@ -49,12 +49,12 @@ jobs:
   # channel.
   ios-build:
     runs-on: macos-latest
-    if: ${{ github.repository == 'flutter/samples' }}
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: beta
