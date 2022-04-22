@@ -245,7 +245,7 @@ packages:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.1"
+    version: "1.15.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
