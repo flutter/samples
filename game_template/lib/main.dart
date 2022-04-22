@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'src/ads/ads_controller.dart';
 import 'src/app_lifecycle/app_lifecycle.dart';
 import 'src/audio/audio_controller.dart';
+import 'src/crashlytics/crashlytics.dart';
 import 'src/games_services/games_services.dart';
 import 'src/games_services/score.dart';
 import 'src/in_app_purchase/in_app_purchase.dart';
@@ -27,7 +29,28 @@ import 'src/style/palette.dart';
 import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 
-void main() {
+Future<void> main() async {
+  FirebaseCrashlytics? crashlytics;
+  // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+  //   try {
+  //     WidgetsFlutterBinding.ensureInitialized();
+  //     await Firebase.initializeApp(
+  //       options: DefaultFirebaseOptions.currentPlatform,
+  //     );
+  //     crashlytics = FirebaseCrashlytics.instance;
+  //   } catch (e) {
+  //     debugPrint("Firebase couldn't be initialized: $e");
+  //   }
+  // }
+
+  await guardWithCrashlytics(
+    guardedMain,
+    crashlytics: crashlytics,
+  );
+}
+
+/// Without logging and crash reporting, this would be `void main()`.
+void guardedMain() {
   if (kReleaseMode) {
     // Don't log anything below warnings in production.
     Logger.root.level = Level.WARNING;
