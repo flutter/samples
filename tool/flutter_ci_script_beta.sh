@@ -34,7 +34,8 @@ declare -ar PROJECT_NAMES=(
     "place_tracker"
     # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
     # "platform_channels"
-    "platform_design"
+    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
+    # "platform_design"
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
