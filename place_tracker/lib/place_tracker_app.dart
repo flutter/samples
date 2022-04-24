@@ -114,5 +114,5 @@ class AppState extends ChangeNotifier {
   }
 
   @override
-  int get hashCode => hashValues(places, selectedCategory, viewType);
+  int get hashCode => Object.hash(places, selectedCategory, viewType);
 }
