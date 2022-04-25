@@ -1,4 +1,8 @@
 name: Verify web demos
+
+# Declare default permissions as read only.
+permissions: read-all
+
 on: [push, pull_request]
 jobs:
   verify-web-demos:

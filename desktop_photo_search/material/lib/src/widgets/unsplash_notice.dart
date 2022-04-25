@@ -8,10 +8,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../unsplash_access_key.dart';
 
-final _unsplashHomepage =
-    'https://unsplash.com/?utm_source=${Uri.encodeFull(unsplashAppName)}&utm_medium=referral';
-final _unsplashPrivacyPolicy =
-    'https://unsplash.com/privacy?utm_source=${Uri.encodeFull(unsplashAppName)}&utm_medium=referral';
+final _unsplashHomepage = Uri.parse(
+    'https://unsplash.com/?utm_source=${Uri.encodeFull(unsplashAppName)}&utm_medium=referral');
+final _unsplashPrivacyPolicy = Uri.parse(
+    'https://unsplash.com/privacy?utm_source=${Uri.encodeFull(unsplashAppName)}&utm_medium=referral');
 
 class UnsplashNotice extends StatefulWidget {
   const UnsplashNotice({Key? key, required this.child}) : super(key: key);
@@ -65,7 +65,7 @@ class _UnsplashDialog extends StatelessWidget {
                 text: 'Unsplash',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
-                    if (!await launch(_unsplashHomepage)) {
+                    if (!await launchUrl(_unsplashHomepage)) {
                       throw 'Could not launch $_unsplashHomepage';
                     }
                   },
@@ -82,7 +82,7 @@ class _UnsplashDialog extends StatelessWidget {
                 text: 'how Unsplash collects and uses data',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
-                    if (!await launch(_unsplashPrivacyPolicy)) {
+                    if (!await launchUrl(_unsplashPrivacyPolicy)) {
                       throw 'Could not launch $_unsplashPrivacyPolicy';
                     }
                   },
