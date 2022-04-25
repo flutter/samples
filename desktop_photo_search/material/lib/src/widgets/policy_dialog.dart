@@ -29,9 +29,9 @@ class PolicyDialog extends StatelessWidget {
                       fontWeight: FontWeight.bold, color: Colors.lightBlue),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
-                      const url = 'https://policies.google.com/terms';
-                      if (await url_launcher.canLaunch(url)) {
-                        await url_launcher.launch(url);
+                      final url = Uri.parse('https://policies.google.com/terms');
+                      if (await url_launcher.canLaunchUrl(url)) {
+                        await url_launcher.launchUrl(url);
                       }
                     },
                 )
@@ -50,9 +50,9 @@ class PolicyDialog extends StatelessWidget {
                       fontWeight: FontWeight.bold, color: Colors.lightBlue),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
-                      const url = 'https://unsplash.com/terms';
-                      if (await url_launcher.canLaunch(url)) {
-                        await url_launcher.launch(url);
+                      final url = Uri.parse('https://unsplash.com/terms');
+                      if (await url_launcher.canLaunchUrl(url)) {
+                        await url_launcher.launchUrl(url);
                       }
                     },
                 )
