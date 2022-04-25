@@ -14,8 +14,8 @@ dependencies:
   file_selector_linux: ^0.0.2+1
   file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
-  fluent_ui: ^3.7.0
-  fluentui_system_icons: ^1.1.157
+  fluent_ui: ^3.11.0
+  fluentui_system_icons: ^1.1.166
   flutter:
     sdk: flutter
   http: ^0.13.4
@@ -30,7 +30,7 @@ dependencies:
       path: plugins/window_size
   provider: ^6.0.2
   transparent_image: ^2.0.0
-  url_launcher: ^6.0.18
+  url_launcher: ^6.1.0
   uuid: ^3.0.5
 
 dev_dependencies:
