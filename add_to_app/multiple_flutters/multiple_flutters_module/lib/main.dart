@@ -95,9 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () async {
                 // Use the url_launcher plugin to open the Flutter docs in
                 // a browser.
-                const url = 'https://flutter.dev/docs';
-                if (await launcher.canLaunch(url)) {
-                  launcher.launch(url);
+                final url = Uri.parse('https://flutter.dev/docs');
+                if (await launcher.canLaunchUrl(url)) {
+                  launcher.launchUrl(url);
                 }
               },
               child: const Text('Open Flutter Docs'),

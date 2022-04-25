@@ -1,4 +1,8 @@
 name: Deploy to GitHub Pages
+
+# Declare default permissions as read only.
+permissions: read-all
+
 on:
   push:
     branches:
