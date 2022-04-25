@@ -10,7 +10,7 @@ on:
     branches: [ master ]
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Every day at midnight
+    - cron: "0 0 * * *" # Every day at midnight
 
 defaults:
   run:
@@ -20,6 +20,7 @@ jobs:
   flutter-tests:
     name: Test Flutter ${{ matrix.flutter_version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    if: github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:
@@ -30,31 +31,33 @@ jobs:
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
         with:
           distribution: 'zulu'
-          java-version: "12.x"
+          java-version: '12.x'
       - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
         with:
           channel: ${{ matrix.flutter_version }}
       - run: ./tool/flutter_ci_script_${{ matrix.flutter_version }}.sh
   android-build:
     runs-on: ubuntu-latest
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
         with:
           distribution: 'zulu'
-          java-version: "12.x"
+          java-version: '12.x'
       - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
         with:
           channel: stable
       - run: ./tool/android_ci_script.sh
   ios-build:
     runs-on: macos-latest
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
         with:
           distribution: 'zulu'
-          java-version: "12.x"
+          java-version: '12.x'
       - uses: subosito/flutter-action@6a13bd08366a2aafe8605f064f9d5a42107e6f1f
         with:
           channel: stable

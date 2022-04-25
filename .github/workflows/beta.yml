@@ -20,6 +20,7 @@ jobs:
   # need to test.
   stable-tests-on-beta:
     runs-on: ${{ matrix.os }}
+    if: github.repository == 'flutter/samples'
     strategy:
       fail-fast: false
       matrix:
@@ -38,6 +39,7 @@ jobs:
   # channel.
   android-build:
     runs-on: ubuntu-latest
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
@@ -52,6 +54,7 @@ jobs:
   # channel.
   ios-build:
     runs-on: macos-latest
+    if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@9519cf1382ac8dc61ad461f7f7cb45f033220189
