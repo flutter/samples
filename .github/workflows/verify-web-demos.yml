@@ -7,6 +7,7 @@ on: [push, pull_request]
 jobs:
   verify-web-demos:
     runs-on: ubuntu-latest
+    if: github.repository == 'flutter/samples'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
