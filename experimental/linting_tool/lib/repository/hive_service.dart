@@ -13,7 +13,7 @@ class HiveService {
     List<T> existingProducts = await getBoxes(boxName);
 
     if (!existingProducts.contains(item)) {
-      openBox.add(item);
+      await openBox.add(item);
       return true;
     }
     return false;
@@ -28,7 +28,7 @@ class HiveService {
 
     for (var item in items) {
       if (!existingProducts.contains(item)) {
-        openBox.add(item);
+        await openBox.add(item);
       }
     }
   }
@@ -42,7 +42,7 @@ class HiveService {
 
     for (var box in boxes) {
       if (box == item) {
-        openBox.deleteAt(boxes.indexOf(item));
+        await openBox.deleteAt(boxes.indexOf(item));
       }
     }
   }
@@ -56,7 +56,7 @@ class HiveService {
 
     for (var box in boxes) {
       if (box == item) {
-        openBox.putAt(boxes.indexOf(item), newItem);
+        await openBox.putAt(boxes.indexOf(item), newItem);
       }
     }
   }

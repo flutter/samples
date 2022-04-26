@@ -372,7 +372,7 @@ class _ControlledAnimationState<T> extends State<ControlledAnimation>
       await Future.delayed(widget.delay!);
     }
     _waitForDelay = false;
-    executeInstruction();
+    await executeInstruction();
   }
 
   @override
@@ -391,23 +391,23 @@ class _ControlledAnimationState<T> extends State<ControlledAnimation>
       _controller.stop();
     }
     if (widget.playback == Playback.PLAY_FORWARD) {
-      _controller.forward();
+      await _controller.forward();
     }
     if (widget.playback == Playback.PLAY_REVERSE) {
-      _controller.reverse();
+      await _controller.reverse();
     }
     if (widget.playback == Playback.START_OVER_FORWARD) {
-      _controller.forward(from: 0.0);
+      await _controller.forward(from: 0.0);
     }
     if (widget.playback == Playback.START_OVER_REVERSE) {
-      _controller.reverse(from: 1.0);
+      await _controller.reverse(from: 1.0);
     }
     if (widget.playback == Playback.LOOP) {
-      _controller.repeat();
+      await _controller.repeat();
     }
     if (widget.playback == Playback.MIRROR && !_isCurrentlyMirroring) {
       _isCurrentlyMirroring = true;
-      _controller.repeat(reverse: true);
+      await _controller.repeat(reverse: true);
     }
 
     if (widget.playback != Playback.MIRROR) {

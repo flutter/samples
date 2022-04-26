@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // a browser.
                 final url = Uri.parse('https://flutter.dev/docs');
                 if (await launcher.canLaunchUrl(url)) {
-                  launcher.launchUrl(url);
+                  await launcher.launchUrl(url);
                 }
               },
               child: const Text('Open Flutter Docs'),

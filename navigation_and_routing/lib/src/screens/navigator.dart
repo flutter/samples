@@ -79,7 +79,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
                 var signedIn = await authState.signIn(
                     credentials.username, credentials.password);
                 if (signedIn) {
-                  routeState.go('/books/popular');
+                  await routeState.go('/books/popular');
                 }
               },
             ),

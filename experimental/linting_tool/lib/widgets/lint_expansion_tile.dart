@@ -139,7 +139,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                 },
               );
               if (destinationProfileType == ProfileType.newProfile) {
-                showDialog<String>(
+                await showDialog<String>(
                   context: context,
                   builder: (context) {
                     return _NewProfileDialog(rule: rule);
@@ -147,7 +147,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                 );
               } else if (destinationProfileType ==
                   ProfileType.existingProfile) {
-                showDialog<String>(
+                await showDialog<String>(
                   context: context,
                   builder: (context) {
                     return _ExistingProfileDialog(rule: rule);
