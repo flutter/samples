@@ -104,7 +104,7 @@ class SavedLintsPage extends StatelessWidget {
 
                               break;
                             case 'Delete':
-                              profilesStore.deleteProfile(profile);
+                              await profilesStore.deleteProfile(profile);
                               break;
                             default:
                           }

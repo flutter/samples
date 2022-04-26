@@ -16,4 +16,5 @@ linter:
     package_prefixed_library_names: true
     test_types_in_equals: true
     throw_in_finally: true
+    unawaited_futures: true
     unnecessary_statements: true
