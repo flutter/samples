@@ -144,7 +144,7 @@ class ProfilesStore extends ChangeNotifier {
 
     /// Save file to disk if path was provided.
     if (savePath != null) {
-      file.saveTo(savePath);
+      await file.saveTo(savePath);
       return true;
     }
 
