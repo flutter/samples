@@ -25,7 +25,7 @@ dependencies:
   hive_flutter: ^1.1.0
   http: ^0.13.3
   json2yaml: ^3.0.0
-  json_annotation: ^4.0.1
+  json_annotation: ^4.5.0
   mockito: ^5.0.13
   provider: ^6.0.2
   yaml: ^3.1.0
