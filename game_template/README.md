@@ -16,10 +16,11 @@ of a mobile (iOS & Android) game:
 ## Getting started
 
 The game compiles and works out of the box. It comes with things
-like a main menu, a router, a settings screen, music, sound effects.
-When starting your gamedev project, that is everything you will need.
+like a main menu, a router, a settings screen, and audio.
+When starting your gamedev project, that is likely everything you will need.
 
-When you're ready, read the _Integrations_ section below.
+When you're ready to enable the more advanced integrations, like ads
+and in-app payments, read the _Integrations_ section below.
 
 
 ## Development
@@ -31,7 +32,7 @@ To run the app in debug mode:
 This assumes you have an Android emulator, iOS Simulator or a physical
 device attached.
 
-It is sometimes convenient to develop your game as a desktop app.
+It is often convenient to develop your game as a desktop app.
 For example, you can run `flutter run -d macOS`, and get the same UI
 in a desktop window on a Mac. That way, you don't need to be running
 Simulators nor attaching mobile devices. This template supports that
@@ -80,20 +81,74 @@ that set up.
 
 The more advanced integrations are disabled by default. For example,
 achievements are not enabled at start because you, the developer, first
-have to set them up. The achievements need to exist in App Store Connect
-and Google Play Console before they can be used in the code.
+have to set them up (the achievements need to exist in App Store Connect
+and Google Play Console before they can be used in the code).
 
-In this section, you will find pointers on what to do to enable 
+In this section, you will find instructions on what to do to enable 
 any given integration.
 
 
 ### Ads
 
-TBA
+Ads are implemented via the official `package:google_mobile_ads` and
+are disabled by default. The `AdsController` provided from
+`lib/main.dart` is `null`, and so the template gracefully falls back
+to not showing ads.
+
+You will find code relating to ads in `lib/src/ads/`.
+
+To enable ads in your game:
+
+1. Go to [AdMob][] and set up an account.
+   This could take a significant amount of time because you need to provide
+   banking information, sign contracts and so on.
+2. Create two _Apps_ in [AdMob][]: one for Android and one for iOS.
+3. Get the AdMob _App IDs_ for both the Android app and the iOS app.
+   You will find these in the _App settings_ section. They look
+   something like `ca-app-pub-1234567890123456~1234567890`
+   (note the tilde between the two numbers).
+4. Open `android/app/src/main/AndroidManifest.xml`, find the `<meta-data>`
+   entry called `com.google.android.gms.ads.APPLICATION_ID`,
+   and update the value with the _App ID_ of the Android AdMob app.
+5. Open `ios/Runner/Info.plist`, find the
+   entry called `GADApplicationIdentifier`,
+   and update the value with the _App ID_ of the iOS AdMob app.
+6. Back in [AdMob][], create an _Ad unit_ for each of the AdMob apps.
+   This will ask for the Ad unit's format (Banner, Interstitial, Rewarded).
+   The template is set up for a Banner ad unit, so select that if you
+   want to avoid making changes to the code in `lib/src/ads`.
+7. Get the _Ad unit IDs_ for both the Android app and the iOS app.
+   You will find these in the _Ad units_ section. They look
+   something like `ca-app-pub-1234567890123456/1234567890`
+   (yes, the format is very similar to _App ID_; note the slash
+   between the two numbers).
+8. Open `lib/src/ads/ads_controller.dart` and update the values
+   of the _Ad unit_ ID there.
+9. Uncomment the code relating to ads in `lib/main.dart`. You will
+   need to add two imports, too:
+   
+   ```dart
+   import 'dart:io';
+   import 'package:google_mobile_ads/google_mobile_ads.dart';
+   ```
+10. Register the devices you will be using to test
+   in [AdMob][]'s _Settings_ &rarr; _Test devices_ section.
+
+[AdMob]: https://admob.google.com/
+
+If you feel lost at any point, a full [AdMob for Flutter walk-through][]
+is available on Google AdMob's documentation site.
+
+[AdMob for Flutter walk-through]: https://developers.google.com/admob/flutter/quick-start
+
+If you want to implement more of AdMob's formats (such as Interstitial ads),
+a good place to start are the examples in
+[`package:google_mobile_ads`](https://pub.dev/packages/google_mobile_ads).
 
 ### Audio
 
-Audio is enabled by default and ready to go. 
+Audio is enabled by default and ready to go. You can modify code
+in `lib/src/audio/` to your liking.
 
 You will find some music
 tracks in `assets/music` — these are Creative Commons Attribution (CC-BY)
