@@ -51,11 +51,17 @@ class InAppPurchaseController extends ChangeNotifier {
 
     _log.info('Making the purchase');
     final purchaseParam = PurchaseParam(productDetails: productDetails);
-    final success = await inAppPurchaseInstance.buyNonConsumable(
-        purchaseParam: purchaseParam);
-    _log.info('buyNonConsumable() request was sent with success: $success');
-    // The result of the purchase will be reported in the purchaseStream,
-    // which is handled in [_listenToPurchaseUpdated].
+    try {
+      final success = await inAppPurchaseInstance.buyNonConsumable(
+          purchaseParam: purchaseParam);
+      _log.info('buyNonConsumable() request was sent with success: $success');
+      // The result of the purchase will be reported in the purchaseStream,
+      // which is handled in [_listenToPurchaseUpdated].
+    } catch (e) {
+      _log.severe(
+          'Problem with calling inAppPurchaseInstance.buyNonConsumable(): '
+          '$e');
+    }
   }
 
   @override
@@ -78,21 +84,15 @@ class InAppPurchaseController extends ChangeNotifier {
     _log.info('In-app purchases restored');
   }
 
-  /// Subscribes to the provided [purchaseStream].
-  ///
-  /// In production, you'll want to call this with:
-  ///
-  /// ```
-  /// inAppPurchaseNotifier.subscribe(InAppPurchase.instance.purchaseStream);
-  /// ```
-  ///
-  /// In testing, you can of course provide a mock stream.
+  /// Subscribes to the [inAppPurchaseInstance.purchaseStream].
   void subscribe() {
     _subscription =
         inAppPurchaseInstance.purchaseStream.listen((purchaseDetailsList) {
       _listenToPurchaseUpdated(purchaseDetailsList);
     }, onDone: () {
       _subscription?.cancel();
+    }, onError: (dynamic error) {
+      _log.severe('Error occurred on the purchaseStream: $error');
     });
   }
 
