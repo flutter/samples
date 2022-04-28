@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - uses: actions/setup-java@4fe61d24fe5472910b93bdeffb8aad49f979d862
         with:
           distribution: 'zulu'
@@ -56,7 +56,7 @@ jobs:
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - uses: actions/setup-java@4fe61d24fe5472910b93bdeffb8aad49f979d862
         with:
           distribution: 'zulu'
