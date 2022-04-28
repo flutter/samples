@@ -15,7 +15,7 @@ class GamesServicesController {
   Future<void> awardAchievement(
       {required String iOS, required String android}) async {
     if (!await signedIn) {
-      _log.severe('Trying to award achievement when not logged in.');
+      _log.warning('Trying to award achievement when not logged in.');
       return;
     }
 
@@ -66,7 +66,8 @@ class GamesServicesController {
 
     try {
       await gs.GamesServices.showLeaderboards(
-        iOSLeaderboardID: "game_template.highest_score",
+        // TODO: When ready, change these leaderboard IDs.
+        iOSLeaderboardID: "some_id_from_app_store",
         androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
       );
     } catch (e) {
@@ -76,7 +77,7 @@ class GamesServicesController {
 
   Future<void> submitLeaderboardScore(Score score) async {
     if (!await signedIn) {
-      _log.severe('Trying to award achievement when not logged in.');
+      _log.warning('Trying to submit leaderboard when not logged in.');
       return;
     }
 
@@ -85,7 +86,8 @@ class GamesServicesController {
     try {
       await gs.GamesServices.submitScore(
         score: gs.Score(
-          iOSLeaderboardID: 'game_template.highest_score',
+          // TODO: When ready, change these leaderboard IDs.
+          iOSLeaderboardID: 'some_id_from_app_store',
           androidLeaderboardID: 'sOmE_iD_fRoM_gPlAy',
           value: score.score,
         ),
