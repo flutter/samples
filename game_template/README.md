@@ -17,7 +17,7 @@ of a mobile (iOS & Android) game:
 
 The game compiles and works out of the box. It comes with things
 like a main menu, a router, a settings screen, and audio.
-When starting your gamedev project, that is likely everything you will need.
+When building a new game, that is likely everything you will need at first.
 
 When you're ready to enable the more advanced integrations, like ads
 and in-app payments, read the _Integrations_ section below.
@@ -45,6 +45,27 @@ Code is organized in a loose and shallow feature-first fashion.
 In `lib/src`, you'll therefore find directories such as `ads`, `audio`
 or `main_menu`. Nothing fancy, but usable.
 
+```
+lib
+├── src
+│   ├── ads
+│   ├── app_lifecycle
+│   ├── audio
+│   ├── crashlytics
+│   ├── game_internals
+│   ├── games_services
+│   ├── in_app_purchase
+│   ├── level_selection
+│   ├── main_menu
+│   ├── play_session
+│   ├── player_progress
+│   ├── settings
+│   ├── style
+│   └── win_game
+├── ...
+└── main.dart
+```
+
 The state management approach is intentionally low-level. That way, it's easy to
 take this project and run with it, without having to learn new paradigms, or having
 to remember to run `flutter pub run build_runner watch`. You are,
@@ -56,21 +77,27 @@ scheme to build on top of this project.
 
 To build the app for iOS (and open Xcode when finished):
 
-    flutter build ipa && open build/ios/archive/Runner.xcarchive
+```bash
+flutter build ipa && open build/ios/archive/Runner.xcarchive
+```
 
 To build the app for Android (and open the folder with the bundle when finished):
 
-    flutter build appbundle && open build/app/outputs/bundle/release
+```bash
+flutter build appbundle && open build/app/outputs/bundle/release
+```
 
 While the template is meant for mobile games, you can also publish
 for the web. This might be useful for web-based demos, for example,
 or for rapid play-testing. The following command requires `peanut`
 to be [installed](https://pub.dev/packages/peanut/install).
 
-    flutter pub global run peanut \
-    --web-renderer canvaskit \
-    --extra-args "--base-href=/name_of_your_github_repo/" \
-    && git push origin --set-upstream gh-pages
+```bash
+flutter pub global run peanut \
+--web-renderer canvaskit \
+--extra-args "--base-href=/name_of_your_github_repo/" \
+&& git push origin --set-upstream gh-pages
+```
 
 The last line of the command above will automatically push 
 your newly built web game to GitHub pages, assuming that you have
@@ -91,9 +118,23 @@ any given integration.
 ### Ads
 
 Ads are implemented via the official `package:google_mobile_ads` and
-are disabled by default. The `AdsController` provided from
-`lib/main.dart` is `null`, and so the template gracefully falls back
-to not showing ads.
+are disabled by default. 
+
+```dart
+// TODO: When ready, uncomment the following lines to enable integrations.
+
+AdsController? adsController;
+// if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+//   /// Prepare the google_mobile_ads plugin so that the first ad loads
+//   /// faster. This can be done later or with a delay if startup
+//   /// experience suffers.
+//   adsController = AdsController(MobileAds.instance);
+//   adsController.initialize();
+// }
+```
+
+The `AdsController` provided from `lib/main.dart` is `null` by default,
+and so the template gracefully falls back to not showing ads.
 
 You will find code relating to ads in `lib/src/ads/`.
 
@@ -109,10 +150,22 @@ To enable ads in your game:
    (note the tilde between the two numbers).
 4. Open `android/app/src/main/AndroidManifest.xml`, find the `<meta-data>`
    entry called `com.google.android.gms.ads.APPLICATION_ID`,
-   and update the value with the _App ID_ of the Android AdMob app.
+   and update the value with the _App ID_ of the Android AdMob app
+   that you got in the previous step.
+   
+   ```xml
+   <meta-data
+      android:name="com.google.android.gms.ads.APPLICATION_ID"
+      android:value="ca-app-pub-1234567890123456~1234567890"/>
+   ```
 5. Open `ios/Runner/Info.plist`, find the
    entry called `GADApplicationIdentifier`,
    and update the value with the _App ID_ of the iOS AdMob app.
+   
+   ```xml
+   <key>GADApplicationIdentifier</key>
+   <string>ca-app-pub-3940256099942544~1458002511</string>
+   ```
 6. Back in [AdMob][], create an _Ad unit_ for each of the AdMob apps.
    This will ask for the Ad unit's format (Banner, Interstitial, Rewarded).
    The template is set up for a Banner ad unit, so select that if you
@@ -123,7 +176,13 @@ To enable ads in your game:
    (yes, the format is very similar to _App ID_; note the slash
    between the two numbers).
 8. Open `lib/src/ads/ads_controller.dart` and update the values
-   of the _Ad unit_ ID there.
+   of the _Ad unit_ IDs there.
+   
+   ```dart 
+   final adUnitId = defaultTargetPlatform == TargetPlatform.android
+       ? 'ca-app-pub-1234567890123456/1234567890'
+       : 'ca-app-pub-1234567890123456/0987654321';
+   ```
 9. Uncomment the code relating to ads in `lib/main.dart`. You will
    need to add two imports, too:
    
@@ -160,7 +219,8 @@ to the musician, [Mr Smith][].
 
 The repository also includes a few sound effect samples in `assets/sfx`.
 These are public domain (CC0) and you will almost surely want to replace
-them because they're just Filip Hracek doing silly sounds with his mouth.
+them because they're just recordings of a developer doing silly sounds
+with their mouth.
 
 ### Crashlytics
 
