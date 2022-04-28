@@ -36,8 +36,7 @@ Future<void> guardWithCrashlytics(
       crashlytics?.log(message);
 
       if (record.level >= Level.SEVERE) {
-        crashlytics?.recordError(
-            message, _filterStackTrace(StackTrace.current));
+        crashlytics?.recordError(message, filterStackTrace(StackTrace.current));
       }
     });
 
@@ -74,10 +73,11 @@ Future<void> guardWithCrashlytics(
 ///
 /// See this:
 /// https://stackoverflow.com/questions/47654410/how-to-effectively-group-non-fatal-exceptions-in-crashlytics-fabrics.
-StackTrace _filterStackTrace(StackTrace stackTrace) {
+@visibleForTesting
+StackTrace filterStackTrace(StackTrace stackTrace) {
   StackTrace? filtered;
   try {
-    final lines = filtered.toString().split('\n');
+    final lines = stackTrace.toString().split('\n');
     final buf = StringBuffer();
     for (final line in lines) {
       if (line.contains('crashlytics.dart') ||
