@@ -65,11 +65,13 @@ class ResponsiveScreen extends StatelessWidget {
           );
         } else {
           // "Landscape" / "tablet" mode.
+          final isLarge = size.width > 900;
+
           return Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                flex: 7,
+                flex: isLarge ? 7 : 5,
                 child: SafeArea(
                   right: false,
                   maintainBottomViewPadding: true,
