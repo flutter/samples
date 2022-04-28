@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   built_collection: ^5.1.1
-  built_value: ^8.2.1
+  built_value: ^8.2.3
   cupertino_icons: ^1.0.2
   file_selector: ^0.8.3
   file_selector_linux: ^0.0.2+1
