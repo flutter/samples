@@ -23,7 +23,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.1.10
   built_value_generator: ^8.2.2
-  json_serializable: ^6.1.6
+  json_serializable: ^6.2.0
   flutter_lints: ^1.0.0
 
 flutter:
