@@ -55,24 +55,6 @@ class WinGameScreen extends StatelessWidget {
                     fontFamily: 'Permanent Marker', fontSize: 20),
               ),
             ),
-            gap,
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('NOT IMPLEMENTED YET'),
-                  ));
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.share),
-                    SizedBox(width: 10),
-                    Text('Share'),
-                  ],
-                ),
-              ),
-            ),
           ],
         ),
         rectangularMenuArea: ElevatedButton(
