@@ -34,6 +34,11 @@ Future<void> guardWithCrashlytics(
       debugPrint(message);
       // Add the message to the rotating Crashlytics log.
       crashlytics?.log(message);
+
+      if (record.level >= Level.SEVERE) {
+        crashlytics?.recordError(
+            message, _filterStackTrace(StackTrace.current));
+      }
     });
 
     // Pass all uncaught errors from the framework to Crashlytics.
@@ -60,4 +65,32 @@ Future<void> guardWithCrashlytics(
         'STACK:$stack');
     crashlytics?.recordError(error, stack);
   });
+}
+
+/// Takes a [stackTrace] and creates a new one, but without the lines that
+/// have to do with this file and logging. This way, Crashlytics won't group
+/// all messages that come from this file into one big heap just because
+/// the head of the StackTrace is identical.
+///
+/// See this:
+/// https://stackoverflow.com/questions/47654410/how-to-effectively-group-non-fatal-exceptions-in-crashlytics-fabrics.
+StackTrace _filterStackTrace(StackTrace stackTrace) {
+  StackTrace? filtered;
+  try {
+    final lines = filtered.toString().split('\n');
+    final buf = StringBuffer();
+    for (final line in lines) {
+      if (line.contains('crashlytics.dart') ||
+          line.contains('_BroadcastStreamController.java') ||
+          line.contains('logger.dart')) {
+        continue;
+      }
+      buf.writeln(line);
+    }
+    filtered = StackTrace.fromString(buf.toString());
+  } catch (e) {
+    debugPrint('Problem while filtering stack trace: $e');
+  }
+
+  return filtered ?? stackTrace;
 }
