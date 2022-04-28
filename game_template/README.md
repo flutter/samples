@@ -164,7 +164,7 @@ To enable ads in your game:
    
    ```xml
    <key>GADApplicationIdentifier</key>
-   <string>ca-app-pub-3940256099942544~1458002511</string>
+   <string>ca-app-pub-1234567890123456~0987654321</string>
    ```
 6. Back in [AdMob][], create an _Ad unit_ for each of the AdMob apps.
    This will ask for the Ad unit's format (Banner, Interstitial, Rewarded).
