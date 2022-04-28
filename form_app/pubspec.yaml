@@ -12,7 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   intl: ^0.17.0
   http: ^0.13.0
-  json_annotation: any
+  json_annotation: ^4.5.0
   english_words: ^4.0.0
   window_size:
     git:
