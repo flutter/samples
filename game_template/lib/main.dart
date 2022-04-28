@@ -71,7 +71,8 @@ void guardedMain() {
     SystemUiMode.edgeToEdge,
   );
 
-  // Uncomment the following lines to enable these integrations.
+  // TODO: When ready, uncomment the following lines to enable integrations.
+  //       Read the README for more info on each integration.
 
   AdsController? adsController;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {

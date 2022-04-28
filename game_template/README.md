@@ -1,4 +1,35 @@
-# tictactoe
+# game_template
+
+## Getting started
+
+The game compiles and works out of the box. It comes with things
+like a main menu, a router, a settings screen, music, sound effects.
+When starting your gamedev project, that is everything you will need.
+
+When you're ready, read the _Integrations_ section below.
+
+
+## Integrations
+
+The more advanced integrations are disabled by default. For example,
+achievements are not enabled at start because you, the developer, first
+have to set them up. The achievements need to exist in App Store Connect
+and Google Play Console before they can be used in the code.
+
+In this section, you will find pointers on what to do to enable 
+any given integration.
+
+### Ads
+
+TBA
+
+### Games Services (Game Center & Google Play Games Services)
+
+TBA
+
+### Crashlytics
+
+----
 
 A sample mobile game built in Flutter.
 
