@@ -281,13 +281,35 @@ Settings are saved to local storage via `package:shared_preferences`.
 To change what preferences are saved and how, edit files in
 `lib/src/settings/persistence`.
 
+```dart
+abstract class SettingsPersistence {
+  Future<bool> getMusicOn();
+
+  Future<bool> getMuted({required bool defaultValue});
+
+  Future<String> getPlayerName();
+
+  Future<bool> getSoundsOn();
+
+  Future<void> saveMusicOn(bool value);
+
+  Future<void> saveMuted(bool value);
+
+  Future<void> savePlayerName(String value);
+
+  Future<void> saveSoundsOn(bool value);
+}
+```
+
 ## Icon
 
 To update the launcher icon, first change the files
 `assets/icon-adaptive-foreground.png` and `assets/icon.png`.
 Then, run the following:
 
-    flutter pub run flutter_launcher_icons:main
+```bash
+flutter pub run flutter_launcher_icons:main
+```
 
 You can configure the look of the icon in the `flutter_icons:`
 section of `pubspec.yaml`.
