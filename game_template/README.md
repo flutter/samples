@@ -1,5 +1,3 @@
-# game_template
-
 A tiny game in Flutter with all the bells and whistles
 of a mobile (iOS & Android) game:
 
@@ -13,7 +11,7 @@ of a mobile (iOS & Android) game:
 - crash reporting (Firebase Crashlytics)
 
 
-## Getting started
+# Getting started
 
 The game compiles and works out of the box. It comes with things
 like a main menu, a router, a settings screen, and audio.
@@ -23,7 +21,7 @@ When you're ready to enable the more advanced integrations, like ads
 and in-app payments, read the _Integrations_ section below.
 
 
-## Development
+# Development
 
 To run the app in debug mode:
 
@@ -39,7 +37,7 @@ Simulators nor attaching mobile devices. This template supports that
 method of development: integrations like AdMob will be disabled then.
 
 
-### Code organization
+## Code organization
 
 Code is organized in a loose and shallow feature-first fashion.
 In `lib/src`, you'll therefore find directories such as `ads`, `audio`
@@ -73,7 +71,7 @@ of course, encouraged to use whatever paradigm, helper package or code generatio
 scheme to build on top of this project.
 
 
-### Building for production
+## Building for production
 
 To build the app for iOS (and open Xcode when finished):
 
@@ -104,7 +102,7 @@ your newly built web game to GitHub pages, assuming that you have
 that set up.
 
 
-## Integrations
+# Integrations
 
 The more advanced integrations are disabled by default. For example,
 achievements are not enabled at start because you, the developer, first
@@ -114,14 +112,19 @@ and Google Play Console before they can be used in the code).
 In this section, you will find instructions on what to do to enable 
 any given integration.
 
-As a general note, you will want to change the package name of your game
-before you start with any of the deeper integrations.
-[Here are the steps](https://stackoverflow.com/a/51550358/1416886)
-and
-[here is a tool](https://pub.dev/packages/rename) that automates them.
+Some general notes: 
+
+- You will want to change the package name of your game
+  before you start with any of the deeper integrations.
+  [Here are the steps](https://stackoverflow.com/a/51550358/1416886)
+  and
+  [here is a tool](https://pub.dev/packages/rename) that automates them.
+- The guides below all assume you already have your game
+  registered in [Google Play Console][] and in Apple's
+  [App Store Connect][].
 
 
-### Ads
+## Ads
 
 Ads are implemented via the official `package:google_mobile_ads` and
 are disabled by default. 
@@ -216,7 +219,7 @@ If you want to implement more of AdMob's formats (such as Interstitial ads),
 a good place to start are the examples in
 [`package:google_mobile_ads`](https://pub.dev/packages/google_mobile_ads).
 
-### Audio
+## Audio
 
 Audio is enabled by default and ready to go. You can modify code
 in `lib/src/audio/` to your liking.
@@ -234,7 +237,7 @@ These are public domain (CC0) and you will almost surely want to replace
 them because they're just recordings of a developer doing silly sounds
 with their mouth.
 
-### Crashlytics
+## Crashlytics
 
 Crashlytics integration is disabled by default. But even if you don't
 enable it, you might find code in `lib/src/crashlytics` helpful.
@@ -297,7 +300,7 @@ TextButton(
 ```
 
 
-### Games Services (Game Center & Play Games Services)
+## Games Services (Game Center & Play Games Services)
 
 Games Services (like achievements and leaderboards) are implemented via
 [`package:games_services`](https://pub.dev/packages/games_services).
@@ -402,6 +405,18 @@ and have your achievement & leaderboard IDs ready, it's finally Dart time.
     That way, after the player reaches a level, we check if the level
     has non-null achievement IDs, and if so, we call `awardAchievement()`
     with those IDs.
+3. Uncomment the code relating to games services in `lib/main.dart`.
+   
+    ```dart
+    // TODO: When ready, uncomment the following lines.
+
+    GamesServicesController? gamesServicesController;
+    // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+    //   gamesServicesController = GamesServicesController()
+    //     // Attempt to log the player in.
+    //     ..initialize();
+    // } 
+    ```
    
 If at any point you feel lost, there's a [How To][] written by the author
 of `package:games_services`. Some instructions and screenshots there are
@@ -411,11 +426,76 @@ since the article was published) but it's still an excellent resource.
 [How To]: https://itnext.io/how-to-integrate-gamekit-and-google-play-services-flutter-4d3f4a4a2f77
 
 
-### In-app purchase
+## In-app purchases
 
-TBA
+In-app purchases are implemented via the official
+[`package:in_app_purchase`](https://pub.dev/packages/in_app_purchase).
+The integration is disabled by default.
 
-### Settings
+To enable in-app purchases on Android:
+
+1. Upload the game to [Google Play Console][], 
+   to the Closed Testing track.
+   - Since the game already
+     depends on `package:in_app_purchase`, it signals itself to the
+     Play Store as a project with in-app purchases.
+   - Releasing to Closed Testing triggers a review process,
+     which is a prerequisite for In-app purchases to work.
+     The review process can take several days. Before it is complete,
+     you cannot move on with the Android side of things.
+2. Add an in-app product in _Play Console_ &rarr; _Monetize_ &rarr;
+   _In-app products_. Come up with a product ID (for example,
+   `ad_removal`).
+3. Still in Play Console, _activate_ the In-app product.
+   
+To enable in-app purchases on iOS:
+
+1. Make sure you have signed the _Paid Apps Agreement_
+   in [App Store Connect][].
+2. Still in App Store Connect, go to _Features_ &rarr;
+   _In-App Purchases_, and add a new in-app purchase
+   by clicking the `+` button.
+   Use the same product ID you used on the Android side.
+3. Follow instructions on how to get the in-app purchase approved.
+
+Now everything is ready to enable the integration in your Dart code:
+
+1. Open `lib/src/in_app_purchase/ad_removal.dart` and change `productId`
+    to the product ID you entered in Play Console and App Store Connect.
+
+    ```dart
+    /// The representation of this product on the stores.
+    static const productId = 'remove_ads';
+    ```   
+
+    - If your in-app purchase is not an ad removal, then create a class
+      similar to the template's `AdRemovalPurchase`.
+    - If you created several in-app purchases, you will need to modify
+      the code in `lib/src/in_app_purchase/in_app_purchase.dart`.
+      For brevity, the template only supports one in-app purchase.
+2. Uncomment the code relating to in-app purchases in `lib/main.dart`.
+
+    ```dart
+    // TODO: When ready, uncomment the following lines.
+   
+    InAppPurchaseController? inAppPurchaseController;
+    // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+    //   inAppPurchaseController = InAppPurchaseController(InAppPurchase.instance)
+    //     // Subscribing to [InAppPurchase.instance.purchaseStream] as soon
+    //     // as possible in order not to miss any updates.
+    //     ..subscribe();
+    //   // Ask the store what the player has bought already.
+    //   inAppPurchaseController.restorePurchases();
+    // }
+    ```
+
+
+If at any point you feel lost, there's an official 
+[codelab](https://codelabs.developers.google.com/codelabs/flutter-in-app-purchases#0)
+for implementing in-app purchases in Flutter.
+
+
+## Settings
 
 The settings page is enabled by default, and accessible both
 from the main menu and via the "gear" button in the play session screen.
@@ -444,7 +524,7 @@ abstract class SettingsPersistence {
 }
 ```
 
-## Icon
+# Icon
 
 To update the launcher icon, first change the files
 `assets/icon-adaptive-foreground.png` and `assets/icon.png`.
