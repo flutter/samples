@@ -364,19 +364,19 @@ and have your achievement & leaderboard IDs ready, it's finally Dart time.
    IDs in the `showLeaderboard()` function.
    
    ```dart
-   await gs.GamesServices.showLeaderboards(
-       // TODO: When ready, change both these leaderboard IDs.
-       iOSLeaderboardID: "some_id_from_app_store",
-       androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
-   );
+   // TODO: When ready, change both these leaderboard IDs.
+   iOSLeaderboardID: "some_id_from_app_store",
+   androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
    ```
 2. The `awardAchievement()` function in the same file takes the IDs
-    as arguments. You can therefore call it like this:
+    as arguments. You can therefore call it from anywhere
+    in your game like this:
    
     ```dart
-    await gamesServicesController.awardAchievement(
-        iOS: 'some_id_from_app_store',
-        android: 'sOmE_iD_fRoM_gPlAy',
+    final gamesServicesController = context.read<GamesServicesController?>();
+    await gamesServicesController?.awardAchievement(
+        iOS: 'an_achievement_id',
+        android: 'aNaChIeVeMenTiDfRoMgPlAy',
     );
     ```
    
@@ -399,7 +399,7 @@ and have your achievement & leaderboard IDs ready, it's finally Dart time.
    
 If at any point you feel lost, there's a [How To][] written by the author
 of `package:games_services`. Some instructions and screenshots there are
-slightly outdated (e.g. iTunes Connect was renamed to App Store Connect
+slightly outdated (e.g. _iTunes Connect_ has been renamed to _App Store Connect_
 since the article was published) but it's still an excellent resource.
 
 [How To]: https://itnext.io/how-to-integrate-gamekit-and-google-play-services-flutter-4d3f4a4a2f77
