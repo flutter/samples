@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -173,7 +174,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       _bannerAd = await ad.ready;
     } on LoadAdError catch (error) {
       _log.severe('Error when loading preloaded banner: $error');
-      _loadAd();
+      unawaited(_loadAd());
       return;
     }
     if (!mounted) return;

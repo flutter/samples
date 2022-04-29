@@ -19,7 +19,7 @@ class PlayerProgress extends ChangeNotifier {
       _highestLevelReached = level;
       notifyListeners();
     } else if (level < _highestLevelReached) {
-      _store.saveHighestLevelReached(_highestLevelReached);
+      await _store.saveHighestLevelReached(_highestLevelReached);
     }
   }
 

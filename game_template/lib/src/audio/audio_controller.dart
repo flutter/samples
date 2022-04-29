@@ -195,14 +195,14 @@ class AudioController {
         } catch (e) {
           // Sometimes, resuming fails with an "Unexpected" error.
           _log.severe(e);
-          _musicCache.play(_playlist.first.filename);
+          await _musicCache.play(_playlist.first.filename);
         }
         break;
       case PlayerState.STOPPED:
         _log.info("resumeMusic() called when music is stopped. "
             "This probably means we haven't yet started the music. "
             "For example, the game was started with sound off.");
-        _musicCache.play(_playlist.first.filename);
+        await _musicCache.play(_playlist.first.filename);
         break;
       case PlayerState.PLAYING:
         _log.warning('resumeMusic() called when music is playing. '
@@ -212,7 +212,7 @@ class AudioController {
         _log.warning('resumeMusic() called when music is completed. '
             "Music should never be 'completed' as it's either not playing "
             "or looping forever.");
-        _musicCache.play(_playlist.first.filename);
+        await _musicCache.play(_playlist.first.filename);
         break;
     }
   }
