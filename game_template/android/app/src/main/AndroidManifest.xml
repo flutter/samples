@@ -25,12 +25,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- AdMob app ID: TODO: replace with an actual AdMob app ID
-             Get it here: https://support.google.com/admob/answer/7356431
+        <!-- Google Mobile Ads -->
+        <!-- TODO: Replace with an actual AdMob app ID.
+                   See README.txt for details.
          -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
+       <!-- Google Play Games -->
+       <meta-data
+           android:name="com.google.android.gms.games.APP_ID"
+           android:value="@string/app_id" />
+       <meta-data
+           android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
