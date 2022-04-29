@@ -201,6 +201,12 @@ To enable ads in your game:
 
 [AdMob]: https://admob.google.com/
 
+The template starts with a sample AdMob app ID and two sample Ad unit IDs.
+These should let you test out your code even without getting real
+IDs from AdMob. But this "feature" is sparsely documented and only meant
+for hello world projects. 
+The sample IDs will definitely not work for published games.
+
 If you feel lost at any point, a full [AdMob for Flutter walk-through][]
 is available on Google AdMob's documentation site.
 
