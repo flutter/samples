@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 
 import 'persistence/settings_persistence.dart';
 
+/// An class that holds settings like [playerName] or [musicOn],
+/// and saves them to an injected persistence store.
 class SettingsController {
   final SettingsPersistence _persistence;
 
@@ -15,14 +17,17 @@ class SettingsController {
 
   ValueNotifier<bool> musicOn = ValueNotifier(false);
 
+  /// Creates a new instance of [SettingsController] backed by [persistence].
   SettingsController({required SettingsPersistence persistence})
       : _persistence = persistence;
 
+  /// Asynchronously loads values from the injected persistence store.
   Future<void> loadStateFromPersistence() async {
     await Future.wait([
-      /// The sound starts on (`true`) on every device target except for the web.
-      /// On the web, sound can only start after user interaction.
       _persistence
+          // On the web, sound can only start after user interaction, so
+          // we start muted there.
+          // On any other platform, we start unmuted.
           .getMuted(defaultValue: kIsWeb)
           .then((value) => muted.value = value),
       _persistence.getSoundsOn().then((value) => soundsOn.value = value),

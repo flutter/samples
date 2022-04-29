@@ -1,3 +1,5 @@
+/// Represents the state of an in-app purchase of ad removal such as
+/// [AdRemovalPurchase.notStarted()] or [AdRemovalPurchase.active()].
 class AdRemovalPurchase {
   /// The representation of this product on the stores.
   static const productId = 'remove_ads';

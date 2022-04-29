@@ -7,6 +7,7 @@ import 'package:logging/logging.dart';
 import '../style/snack_bar.dart';
 import 'ad_removal.dart';
 
+/// Allows buying in-app. Facade of `package:in_app_purchase`.
 class InAppPurchaseController extends ChangeNotifier {
   static final Logger _log = Logger('InAppPurchases');
 
@@ -16,10 +17,22 @@ class InAppPurchaseController extends ChangeNotifier {
 
   AdRemovalPurchase _adRemoval = const AdRemovalPurchase.notStarted();
 
+  /// Creates a new [InAppPurchaseController] with an injected
+  /// [InAppPurchase] instance.
+  ///
+  /// Example usage:
+  ///
+  ///     var controller = InAppPurchaseController(InAppPurchase.instance);
   InAppPurchaseController(this.inAppPurchaseInstance);
 
+  /// The current state of the ad removal purchase.
   AdRemovalPurchase get adRemoval => _adRemoval;
 
+  /// Launches the platform UI for buying an in-app purchase.
+  ///
+  /// Currently, the only supported in-app purchase is ad removal.
+  /// To support more, ad additional classes similar to [AdRemovalPurchase]
+  /// and modify this method.
   Future<void> buy() async {
     if (!await inAppPurchaseInstance.isAvailable()) {
       _reportError('InAppPurchase.instance not available');
@@ -40,11 +53,12 @@ class InAppPurchaseController extends ChangeNotifier {
     }
 
     if (response.productDetails.length != 1) {
+      _log.info(
+        'Products in response: '
+        '${response.productDetails.map((e) => '${e.id}: ${e.title}, ').join()}',
+      );
       _reportError('There was an error when making the purchase: '
-          'product ${AdRemovalPurchase.productId} does not exist.');
-      response.productDetails
-          .map((e) => '${e.id}: ${e.title}')
-          .forEach(_log.info);
+          'product ${AdRemovalPurchase.productId} does not exist?');
       return;
     }
     final productDetails = response.productDetails.single;
@@ -70,6 +84,8 @@ class InAppPurchaseController extends ChangeNotifier {
     super.dispose();
   }
 
+  /// Asks the underlying platform to list purchases that have been already
+  /// made (for example, in a previous session of the game).
   Future<void> restorePurchases() async {
     if (!await inAppPurchaseInstance.isAvailable()) {
       _reportError('InAppPurchase.instance not available');
@@ -86,6 +102,7 @@ class InAppPurchaseController extends ChangeNotifier {
 
   /// Subscribes to the [inAppPurchaseInstance.purchaseStream].
   void subscribe() {
+    _subscription?.cancel();
     _subscription =
         inAppPurchaseInstance.purchaseStream.listen((purchaseDetailsList) {
       _listenToPurchaseUpdated(purchaseDetailsList);

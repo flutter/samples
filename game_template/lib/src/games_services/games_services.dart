@@ -5,6 +5,11 @@ import 'package:logging/logging.dart';
 
 import 'score.dart';
 
+/// Allows awarding achievements and leaderboard scores,
+/// and also showing the platforms' UI overlays for achievements
+/// and leaderboards.
+///
+/// A facade of `package:games_services`.
 class GamesServicesController {
   static final Logger _log = Logger('GamesServicesController');
 
@@ -12,6 +17,13 @@ class GamesServicesController {
 
   Future<bool> get signedIn => _signedInCompleter.future;
 
+  /// Unlocks an achievement on Game Center / Play Games.
+  ///
+  /// You must provide the achievement ids via the [iOS] and [android]
+  /// parameters.
+  ///
+  /// Does nothing when the game isn't signed into the underlying
+  /// games service.
   Future<void> awardAchievement(
       {required String iOS, required String android}) async {
     if (!await signedIn) {
@@ -31,6 +43,7 @@ class GamesServicesController {
     }
   }
 
+  /// Signs into the underlying games service.
   Future<void> initialize() async {
     try {
       await gs.GamesServices.signIn();
@@ -45,6 +58,7 @@ class GamesServicesController {
     }
   }
 
+  /// Launches the platform's UI overlay with achievements.
   Future<void> showAchievements() async {
     if (!await signedIn) {
       _log.severe('Trying to show achievements when not logged in.');
@@ -58,6 +72,7 @@ class GamesServicesController {
     }
   }
 
+  /// Launches the platform's UI overlay with leaderboard(s).
   Future<void> showLeaderboard() async {
     if (!await signedIn) {
       _log.severe('Trying to show leaderboard when not logged in.');
@@ -75,6 +90,7 @@ class GamesServicesController {
     }
   }
 
+  /// Submits [score] to the leaderboard.
   Future<void> submitLeaderboardScore(Score score) async {
     if (!await signedIn) {
       _log.warning('Trying to submit leaderboard when not logged in.');

@@ -1,5 +1,7 @@
 import 'package:game_template/src/settings/persistence/settings_persistence.dart';
 
+/// An in-memory implementation of [SettingsPersistence].
+/// Useful for testing.
 class MemoryOnlySettingsPersistence implements SettingsPersistence {
   bool musicOn = true;
 

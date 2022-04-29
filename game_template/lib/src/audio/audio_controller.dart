@@ -9,6 +9,7 @@ import '../settings/settings.dart';
 import 'songs.dart';
 import 'sounds.dart';
 
+/// Allows playing music and sound. A facade to `package:audioplayers`.
 class AudioController {
   static final _log = Logger('AudioController');
 
@@ -66,6 +67,9 @@ class AudioController {
     _musicPlayer.onPlayerCompletion.listen(_changeSong);
   }
 
+  /// Enables the [AudioController] to listen to [AppLifecycleState] events,
+  /// and therefore do things like stopping playback when the game
+  /// goes into the background.
   void attachLifecycleNotifier(
       ValueNotifier<AppLifecycleState> lifecycleNotifier) {
     if (_lifecycleNotifier != null) {
@@ -75,6 +79,10 @@ class AudioController {
     _lifecycleNotifier?.addListener(_handleAppLifecycle);
   }
 
+  /// Enables the [AudioController] to track changes to settings.
+  /// Namely, when any of [SettingsController.muted],
+  /// [SettingsController.musicOn] or [SettingsController.soundsOn] changes,
+  /// the audio controller will act accordingly.
   void attachSettings(SettingsController settingsController) {
     if (_settings == settingsController) {
       // Already attached to this instance. Nothing to do.
@@ -107,12 +115,21 @@ class AudioController {
     }
   }
 
+  /// Preloads all sound effects.
   Future<void> initialize() async {
     _log.info('Preloading sound effects');
+    // This assumes there is only a limited number of sound effects in the game.
+    // If there are hundreds of long sound effect files, it's better
+    // to be more selective when preloading.
     await _sfxCache
         .loadAll(SfxType.values.expand(soundTypeToFilename).toList());
   }
 
+  /// Plays a single sound effect, defined by [type].
+  ///
+  /// The controller will ignore this call when the attached settings'
+  /// [SettingsController.muted] is `true` or if its
+  /// [SettingsController.soundsOn] is `false`.
   void playSfx(SfxType type) {
     final muted = _settings?.muted.value ?? true;
     if (muted) {

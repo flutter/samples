@@ -3,17 +3,24 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'preloaded_banner_ad.dart';
 
+/// Allows showing ads. A facade for `package:google_mobile_ads`.
 class AdsController {
   final MobileAds _instance;
 
   PreloadedBannerAd? _preloadedAd;
 
-  AdsController(this._instance);
+  /// Creates an [AdsController] that wraps around a [MobileAds] [instance].
+  ///
+  /// Example usage:
+  ///
+  ///     var controller = AdsController(MobileAds.instance);
+  AdsController(MobileAds instance) : _instance = instance;
 
   void dispose() {
     _preloadedAd?.dispose();
   }
 
+  /// Initializes the injected [MobileAds.instance].
   Future<void> initialize() async {
     await _instance.initialize();
   }
@@ -24,7 +31,7 @@ class AdsController {
   /// adverse effects (jank) during start of a new screen.
   void preloadAd() {
     // TODO: When ready, change this to the Ad Unit IDs provided by AdMob.
-    //       The current values are AdMob's testing IDs.
+    //       The current values are AdMob's sample IDs.
     final adUnitId = defaultTargetPlatform == TargetPlatform.android
         ? 'ca-app-pub-3940256099942544/6300978111'
         // iOS
