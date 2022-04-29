@@ -66,7 +66,7 @@ class GamesServicesController {
 
     try {
       await gs.GamesServices.showLeaderboards(
-        // TODO: When ready, change these leaderboard IDs.
+        // TODO: When ready, change both these leaderboard IDs.
         iOSLeaderboardID: "some_id_from_app_store",
         androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
       );

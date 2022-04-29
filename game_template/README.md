@@ -114,6 +114,12 @@ and Google Play Console before they can be used in the code).
 In this section, you will find instructions on what to do to enable 
 any given integration.
 
+As a general note, you will want to change the package name of your game
+before you start with any of the deeper integrations.
+[Here are the steps](https://stackoverflow.com/a/51550358/1416886)
+and
+[here is a tool](https://pub.dev/packages/rename) that automates them.
+
 
 ### Ads
 
@@ -229,6 +235,27 @@ enable it, you might find code in `lib/src/crashlytics` helpful.
 It gathers all log messages and errors, so that you can, at the very least,
 print them to the console.
 
+When enabled, this integration is a lot more powerful:
+
+- Any crashes of your app are going to be sent to the Firebase
+  Crashlytics console.
+- Any uncaught exception thrown anywhere in your code will be captured
+  and sent to the Firebase Crashlytics console.
+- Each of these reports will include the following information:
+  - Error message
+  - Stack trace
+  - Device model, orientation, RAM free, disk free
+  - Operating system version
+  - App version
+- On top of that, log messages from anywhere in your app 
+  (and from packages you use) are being recorded in memory,
+  and they will be sent alongside the reports. This means you will
+  be able to understand what happened before the crash/exception
+  occurred.
+- Moreover, any log message with `Level.severe` or above
+  will also be sent to Crashlytics.
+- You can customize all this in `lib/src/crashlytics`.
+
 To enable Firebase Crashlytics, do the following:
 
 1. Create a new project in
@@ -264,9 +291,119 @@ TextButton(
 ```
 
 
-### Games Services (Game Center & Google Play Games Services)
+### Games Services (Game Center & Play Games Services)
 
-TBA
+Games Services (like achievements and leaderboards) are implemented via
+[`package:games_services`](https://pub.dev/packages/games_services).
+It is disabled by default.
+
+To enable this integration, you first need to set _Game Center_ on iOS
+and _Google Play Games Services_ on Android.
+
+To enable _Game Center_ (GameKit) on iOS:
+
+1. Open your Flutter project in Xcode (`open ios/Runner.xcodeproj`).
+2. Select the root _Runner_ project and go to the _Signing & Capabilities_ tab.
+3. Click the `+` button to add _Game Center_ as a capability.
+   You can close Xcode now.
+4. Go to your app in [App Store Connect][] and set up _Game Center_ 
+   in the _Features_ section. For example, you might want to set up
+   a leaderboard and several achievements.
+   Take note of the IDs of the leaderboards and achievements you create.
+
+[App Store Connect]: https://appstoreconnect.apple.com/
+
+To enable _Play Games Services_ on Android:
+
+1. Go to your app in [Google Play Console][].
+2. Select _Play Games Services_ &rarr; _Setup and management_ &rarr;
+   _Configuration_ from the navigation menu. Follow instructions there.
+   * This takes a significant amount of time and patience.
+     Among other things, you'll need to set up an OAuth consent
+     screen in Google Cloud Console.
+     If at any point you are feeling lost,
+     consult the official [Play Games Services guide][].
+3. When done, you can start adding leaderboards and achievements
+   in _Play Games Services_ &rarr; _Setup and management_.
+   Create the exact same set as you did on the iOS side.
+   Make note of IDs.
+4. Go to _Play Games Services_ &rarr; _Setup and management_ &rarr;
+   Publishing, and click _'Publish'_. Don't worry, this doesn't
+   actually publish your game. It only publishes the achievements
+   and leaderboard. Once a leaderboard, for example, is published 
+   this way, it cannot be unpublished.
+5. Go to _Play Games Services_ &rarr; 
+    _Setup and management_ &rarr; _Configuration_ &rarr;
+    _Credentials_. Find a button that says _'Get resources'_.
+    You get an XML file with the _Play Games Services_ IDs.
+   
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <!--Google Play game services IDs. Save this file as res/values/games-ids.xml in your project.-->
+    <resources>
+        <!--app_id-->
+        <string name="app_id" translatable="false">424242424242</string>
+        <!--package_name-->
+        <string name="package_name" translatable="false">dev.flutter.tictactoe</string>
+        <!--achievement First win-->
+        <string name="achievement_first_win" translatable="false">sOmEiDsTrInG</string>
+        <!--leaderboard Highest Score-->
+        <string name="leaderboard_highest_score" translatable="false">sOmEiDsTrInG</string>
+    </resources>
+    ```
+6. Replace the file at `android/app/src/main/res/values/games-ids.xml`
+   with the XML you received in the previous step.
+
+[Google Play Console]: https://play.google.com/console/
+[Play Games Services guide]: https://developers.google.com/games/services/console/enabling
+
+Now that you have _Game Center_ and _Play Games Services_ set up,
+and have your achievement & leaderboard IDs ready, it's finally Dart time.
+
+1. Open `lib/src/games_services/games_services.dart` and edit the leaderboard
+   IDs in the `showLeaderboard()` function.
+   
+   ```dart
+   await gs.GamesServices.showLeaderboards(
+       // TODO: When ready, change both these leaderboard IDs.
+       iOSLeaderboardID: "some_id_from_app_store",
+       androidLeaderboardID: "sOmE_iD_fRoM_gPlAy",
+   );
+   ```
+2. The `awardAchievement()` function in the same file takes the IDs
+    as arguments. You can therefore call it like this:
+   
+    ```dart
+    await gamesServicesController.awardAchievement(
+        iOS: 'some_id_from_app_store',
+        android: 'sOmE_iD_fRoM_gPlAy',
+    );
+    ```
+   
+    You may want to attach the achievement IDs to levels, enemies,
+    places, items, and so on. For example, the template has levels
+    defined in `lib/src/level_selection/levels.dart` like so:
+   
+    ```dart
+    GameLevel(
+      number: 1,
+      difficulty: 5,
+      achievementIdIOS: 'first_win',
+      achievementIdAndroid: 'sOmEtHinG',
+    ),
+    ```
+   
+    That way, after the player reaches a level, we check if the level
+    has non-null achievement IDs, and if so, we call `awardAchievement()`
+    with those IDs.
+   
+If at any point you feel lost, there's a [How To][] written by the author
+of `package:games_services`. Some instructions and screenshots there are
+slightly outdated (e.g. iTunes Connect was renamed to App Store Connect
+since the article was published) but it's still an excellent resource.
+
+[How To]: https://itnext.io/how-to-integrate-gamekit-and-google-play-services-flutter-4d3f4a4a2f77
+
 
 ### In-app purchase
 
