@@ -11,10 +11,10 @@ class AnimatedPositionedDemo extends StatefulWidget {
   static String routeName = '/basics/09_animated_positioned';
 
   @override
-  _AnimatedPositionedDemoState createState() => _AnimatedPositionedDemoState();
+  AnimatedPositionedDemoState createState() => AnimatedPositionedDemoState();
 }
 
-class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
+class AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   late double topPosition;
   late double leftPosition;
 
@@ -62,6 +62,7 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
                   alignment: Alignment.center,
                   width: 150,
                   height: 50,
+                  color: Theme.of(context).primaryColor,
                   child: Text(
                     'Click Me',
                     style: TextStyle(
@@ -69,7 +70,6 @@ class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
                           Theme.of(context).buttonTheme.colorScheme!.onPrimary,
                     ),
                   ),
-                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),

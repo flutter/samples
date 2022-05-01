@@ -9,10 +9,10 @@ class AnimatedBuilderDemo extends StatefulWidget {
   static const String routeName = '/basics/animated_builder';
 
   @override
-  _AnimatedBuilderDemoState createState() => _AnimatedBuilderDemoState();
+  AnimatedBuilderDemoState createState() => AnimatedBuilderDemoState();
 }
 
-class _AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
+class AnimatedBuilderDemoState extends State<AnimatedBuilderDemo>
     with SingleTickerProviderStateMixin {
   static const Color beginColor = Colors.deepPurple;
   static const Color endColor = Colors.deepOrange;

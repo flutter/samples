@@ -9,10 +9,10 @@ class AnimatedListDemo extends StatefulWidget {
   static String routeName = '/misc/animated_list';
 
   @override
-  _AnimatedListDemoState createState() => _AnimatedListDemoState();
+  AnimatedListDemoState createState() => AnimatedListDemoState();
 }
 
-class _AnimatedListDemoState extends State<AnimatedListDemo> {
+class AnimatedListDemoState extends State<AnimatedListDemo> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   final listData = [
     UserModel(0, 'Govind', 'Dixit'),
