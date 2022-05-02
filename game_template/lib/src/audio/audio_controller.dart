@@ -73,7 +73,7 @@ class AudioController {
   void attachLifecycleNotifier(
       ValueNotifier<AppLifecycleState> lifecycleNotifier) {
     _lifecycleNotifier?.removeListener(_handleAppLifecycle);
-    
+
     lifecycleNotifier.addListener(_handleAppLifecycle);
     _lifecycleNotifier = lifecycleNotifier;
   }
