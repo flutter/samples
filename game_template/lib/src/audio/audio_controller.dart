@@ -89,19 +89,22 @@ class AudioController {
       return;
     }
 
-    if (_settings != null) {
-      _settings!.muted.removeListener(_mutedHandler);
-      _settings!.musicOn.removeListener(_musicOnHandler);
-      _settings!.soundsOn.removeListener(_soundsOnHandler);
+    // Remove handlers from the old settings controller if present
+    final oldSettings = _settings;
+    if (oldSettings != null) {
+      oldSettings.muted.removeListener(_mutedHandler);
+      oldSettings.musicOn.removeListener(_musicOnHandler);
+      oldSettings.soundsOn.removeListener(_soundsOnHandler);
     }
 
     _settings = settingsController;
 
-    _settings!.muted.addListener(_mutedHandler);
-    _settings!.musicOn.addListener(_musicOnHandler);
-    _settings!.soundsOn.addListener(_soundsOnHandler);
+    // Add handlers to the new settings controller
+    settingsController.muted.addListener(_mutedHandler);
+    settingsController.musicOn.addListener(_musicOnHandler);
+    settingsController.soundsOn.addListener(_soundsOnHandler);
 
-    if (!_settings!.muted.value && _settings!.musicOn.value) {
+    if (!settingsController.muted.value && settingsController.musicOn.value) {
       _startMusic();
     }
   }
