@@ -14,7 +14,7 @@ dependencies:
   file_selector_linux: ^0.0.2+1
   file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
-  fluent_ui: ^3.11.0
+  fluent_ui: ^3.11.1
   fluentui_system_icons: ^1.1.166
   flutter:
     sdk: flutter
