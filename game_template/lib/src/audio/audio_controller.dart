@@ -72,11 +72,10 @@ class AudioController {
   /// goes into the background.
   void attachLifecycleNotifier(
       ValueNotifier<AppLifecycleState> lifecycleNotifier) {
-    if (_lifecycleNotifier != null) {
-      _lifecycleNotifier!.removeListener(_handleAppLifecycle);
-    }
+    _lifecycleNotifier?.removeListener(_handleAppLifecycle);
+    
+    lifecycleNotifier.addListener(_handleAppLifecycle);
     _lifecycleNotifier = lifecycleNotifier;
-    _lifecycleNotifier?.addListener(_handleAppLifecycle);
   }
 
   /// Enables the [AudioController] to track changes to settings.
