@@ -46,15 +46,17 @@ Future<void> guardWithCrashlytics(
       FlutterError.onError = crashlytics.recordFlutterError;
     }
 
-    // To catch errors outside of the Flutter context, we attach an error
-    // listener to the current isolate.
-    Isolate.current.addErrorListener(RawReceivePort((dynamic pair) async {
-      final errorAndStacktrace = pair as List<dynamic>;
-      await crashlytics?.recordError(
-        errorAndStacktrace.first,
-        errorAndStacktrace.last as StackTrace?,
-      );
-    }).sendPort);
+    if (!kIsWeb) {
+      // To catch errors outside of the Flutter context, we attach an error
+      // listener to the current isolate.
+      Isolate.current.addErrorListener(RawReceivePort((dynamic pair) async {
+        final errorAndStacktrace = pair as List<dynamic>;
+        await crashlytics?.recordError(
+          errorAndStacktrace.first,
+          errorAndStacktrace.last as StackTrace?,
+        );
+      }).sendPort);
+    }
 
     // Run the actual code.
     mainFunction();
@@ -90,7 +92,7 @@ StackTrace filterStackTrace(StackTrace stackTrace) {
   } catch (e) {
     debugPrint('Problem while filtering stack trace: $e');
   }
-  
+
   // If there was an error while filtering,
   // return the original, unfiltered stack track.
   return stackTrace;
