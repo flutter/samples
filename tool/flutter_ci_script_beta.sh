@@ -28,6 +28,7 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
+    "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
