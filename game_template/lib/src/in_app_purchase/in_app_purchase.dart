@@ -115,7 +115,7 @@ class InAppPurchaseController extends ChangeNotifier {
 
   Future<void> _listenToPurchaseUpdated(
       List<PurchaseDetails> purchaseDetailsList) async {
-    for (var purchaseDetails in purchaseDetailsList) {
+    for (final purchaseDetails in purchaseDetailsList) {
       _log.info(() => 'New PurchaseDetails instance received: '
           'productID=${purchaseDetails.productID}, '
           'status=${purchaseDetails.status}, '
