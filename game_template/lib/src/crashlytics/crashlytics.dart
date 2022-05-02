@@ -75,7 +75,6 @@ Future<void> guardWithCrashlytics(
 /// https://stackoverflow.com/questions/47654410/how-to-effectively-group-non-fatal-exceptions-in-crashlytics-fabrics.
 @visibleForTesting
 StackTrace filterStackTrace(StackTrace stackTrace) {
-  StackTrace? filtered;
   try {
     final lines = stackTrace.toString().split('\n');
     final buf = StringBuffer();
@@ -87,10 +86,12 @@ StackTrace filterStackTrace(StackTrace stackTrace) {
       }
       buf.writeln(line);
     }
-    filtered = StackTrace.fromString(buf.toString());
+    return StackTrace.fromString(buf.toString());
   } catch (e) {
     debugPrint('Problem while filtering stack trace: $e');
   }
-
-  return filtered ?? stackTrace;
+  
+  // If there was an error while filtering,
+  // return the original, unfiltered stack track.
+  return stackTrace;
 }
