@@ -24,7 +24,9 @@ declare -ar PROJECT_NAMES=(
     "experimental/linting_tool"
     "flutter_maps_firestore"
     "form_app"
-    "game_template"
+    # TODO: Re-enable once WidgetBinding.instance is non-null
+    #       in stable Flutter.
+    # "game_template"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
