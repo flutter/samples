@@ -54,7 +54,7 @@ class AudioController {
             (i) => AudioPlayer(
                 playerId: 'sfxPlayer#$i',
                 mode: PlayerMode.LOW_LATENCY)).toList(growable: false),
-        _playlist = Queue.from(List<Song>.of(songs)..shuffle()) {
+        _playlist = Queue.of(List<Song>.of(songs)..shuffle()) {
     _musicCache = AudioCache(
       fixedPlayer: _musicPlayer,
       prefix: 'assets/music/',
