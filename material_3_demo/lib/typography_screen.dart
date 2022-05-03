@@ -11,9 +11,7 @@ class TypographyScreen extends StatelessWidget {
     return Expanded(
       child: ListView(
         children: <Widget>[
-          const SizedBox(
-            height: 7,
-          ),
+          const SizedBox(height: 7),
           TextStyleExample(
               name: "Display Large", style: textTheme.displayLarge!),
           TextStyleExample(

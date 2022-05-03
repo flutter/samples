@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-const Widget divider = SizedBox(
-  height: 10,
-);
+const Widget divider = SizedBox(height: 10);
+
+// If screen content width is greater or equal to the value, the light-theme palette
+// and the dark-theme palette will show in a column; otherwise, they will be placed in a row.
+const double colorScreenWidthThreshold = 400;
 
 class ColorPalettesScreen extends StatelessWidget {
   const ColorPalettesScreen({Key? key}) : super(key: key);
@@ -36,7 +38,7 @@ class ColorPalettesScreen extends StatelessWidget {
 
     return Expanded(
       child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < 400) {
+        if (constraints.maxWidth < colorScreenWidthThreshold) {
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -65,7 +67,6 @@ class ColorPalettesScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    // width: 250,
                     child: Column(
                       children: [
                         schemeLabel("Dark Theme"),
@@ -84,9 +85,10 @@ class ColorPalettesScreen extends StatelessWidget {
 }
 
 class ColorSchemeView extends StatelessWidget {
-  final ColorScheme colorScheme;
   const ColorSchemeView({Key? key, required this.colorScheme})
       : super(key: key);
+
+  final ColorScheme colorScheme;
 
   @override
   Widget build(BuildContext context) {
@@ -236,8 +238,9 @@ class ColorSchemeView extends StatelessWidget {
 }
 
 class ColorGroup extends StatelessWidget {
-  final List<Widget> children;
   const ColorGroup({Key? key, required this.children}) : super(key: key);
+
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -251,15 +254,16 @@ class ColorGroup extends StatelessWidget {
 }
 
 class ColorChip extends StatelessWidget {
-  final Color color;
-  final Color? onColor;
-  final String label;
   const ColorChip({
     Key? key,
     required this.color,
     required this.label,
     this.onColor,
   }) : super(key: key);
+
+  final Color color;
+  final Color? onColor;
+  final String label;
 
   static Color contrastColor(Color color) {
     final brightness = ThemeData.estimateBrightnessForColor(color);
@@ -284,6 +288,7 @@ class ColorChip extends StatelessWidget {
               Expanded(child: Text(label, style: TextStyle(color: labelColor))),
             ],
           ),
-        ));
+        )
+    );
   }
 }

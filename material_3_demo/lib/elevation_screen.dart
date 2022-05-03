@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SurfaceTonesScreen extends StatelessWidget {
-  const SurfaceTonesScreen({Key? key}) : super(key: key);
+class ElevationScreen extends StatelessWidget {
+  const ElevationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,6 @@ class SurfaceTonesScreen extends StatelessWidget {
     Color surfaceTint = Theme.of(context).colorScheme.primary;
     return Expanded(
       child: ListView(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 20, 16.0, 0),
@@ -18,12 +17,8 @@ class SurfaceTonesScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          ElevationGrid(
-            surfaceTintColor: surfaceTint,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
+          ElevationGrid(surfaceTintColor: surfaceTint),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
             child: Text(
@@ -35,9 +30,7 @@ class SurfaceTonesScreen extends StatelessWidget {
             shadowColor: shadowColor,
             surfaceTintColor: surfaceTint,
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
             child: Text(
@@ -45,20 +38,21 @@ class SurfaceTonesScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          ElevationGrid(
-            shadowColor: shadowColor,
-          )
+          ElevationGrid(shadowColor: shadowColor)
         ],
       ),
     );
   }
 }
 
+const double elevationScreenWidthThreshold = 450;
+
 class ElevationGrid extends StatelessWidget {
-  final Color? shadowColor;
-  final Color? surfaceTintColor;
   const ElevationGrid({Key? key, this.shadowColor, this.surfaceTintColor})
       : super(key: key);
+
+  final Color? shadowColor;
+  final Color? surfaceTintColor;
 
   List<ElevationCard> elevationCards(shadowColor, surfaceTintColor) {
     return elevations
@@ -77,7 +71,7 @@ class ElevationGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < 450) {
+        if (constraints.maxWidth < elevationScreenWidthThreshold) {
           return GridView.count(
             shrinkWrap: true,
             crossAxisCount: 3,
@@ -96,12 +90,12 @@ class ElevationGrid extends StatelessWidget {
 }
 
 class ElevationCard extends StatefulWidget {
+  const ElevationCard({Key? key, required this.info, this.shadowColor, this.surfaceTint})
+      : super(key: key);
+
   final ElevationInfo info;
   final Color? shadowColor;
   final Color? surfaceTint;
-  const ElevationCard(
-      {Key? key, required this.info, this.shadowColor, this.surfaceTint})
-      : super(key: key);
 
   @override
   State<ElevationCard> createState() => _ElevationCardState();
@@ -145,7 +139,6 @@ class _ElevationCardState extends State<ElevationCard> {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               if (showOpacity)
-                // if (true)
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomRight,

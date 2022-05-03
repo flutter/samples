@@ -1,12 +1,6 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_3_demo/component_screen.dart';
 import 'package:material_3_demo/main.dart';
 
 void main() {
@@ -21,7 +15,7 @@ void main() {
     expect(find.widgetWithIcon(IconButton, Icons.filter_3), findsOneWidget);
     expect(find.widgetWithIcon(IconButton, Icons.more_vert), findsOneWidget);
 
-    // Elements on the main screen
+    // Elements on the component screen
     // Buttons
     expect(find.widgetWithText(ElevatedButton, "Elevated"), findsNWidgets(2));
     expect(find.widgetWithText(ElevatedButton, "Filled"), findsNWidgets(2));
@@ -60,9 +54,9 @@ void main() {
     // time, the NavigationRail and the NavigationBar example will NOT show.
     expect(find.byType(NavigationBars), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, "Components"), findsOneWidget);
-    expect(find.widgetWithText(NavigationBar, "Colors"), findsOneWidget);
+    expect(find.widgetWithText(NavigationBar, "Color"), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, "Typography"), findsOneWidget);
-    expect(find.widgetWithText(NavigationBar, "Surface Tint"), findsOneWidget);
+    expect(find.widgetWithText(NavigationBar, "Elevation"), findsOneWidget);
 
     expect(find.byType(NavigationRailSection), findsNothing);
     expect(find.widgetWithText(NavigationBar, "Explore"), findsNothing);
@@ -84,11 +78,11 @@ void main() {
     expect(find.widgetWithText(NavigationRailSection, "Components"),
         findsOneWidget);
     expect(
-        find.widgetWithText(NavigationRailSection, "Colors"), findsOneWidget);
+        find.widgetWithText(NavigationRailSection, "Color"), findsOneWidget);
     expect(find.widgetWithText(NavigationRailSection, "Typography"),
         findsOneWidget);
     expect(
-        find.widgetWithText(NavigationRailSection, "Surface \nTint \nOverlay"),
+        find.widgetWithText(NavigationRailSection, "Elevation"),
         findsOneWidget);
 
     final navbarExample = find.byType(NavigationBars);
@@ -104,7 +98,7 @@ void main() {
     expect(find.widgetWithText(NavigationBar, "Components"), findsNothing);
     expect(find.widgetWithText(NavigationBar, "Colors"), findsNothing);
     expect(find.widgetWithText(NavigationBar, "Typography"), findsNothing);
-    expect(find.widgetWithText(NavigationBar, "Surface Tint"), findsNothing);
+    expect(find.widgetWithText(NavigationBar, "Elevation"), findsNothing);
   });
 
   testWidgets(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:material_3_demo/surface_tones_screen.dart';
-import 'package:material_3_demo/typography_screen.dart';
 
 import 'color_palettes_screen.dart';
+import 'component_screen.dart';
+import 'elevation_screen.dart';
+import 'typography_screen.dart';
 
 void main() {
   runApp(const Material3Demo());
@@ -15,6 +16,10 @@ class Material3Demo extends StatefulWidget {
   State<Material3Demo> createState() => _Material3DemoState();
 }
 
+// NavigationRail shows if the screen width is greater or equal to
+// screenWidthThreshold; otherwise, NavigationBar is used for navigation.
+const double screenWidthThreshold = 450;
+
 const Color m3BaseColor = Color(0xff6750a4);
 const List<Color> colorOptions = [
   m3BaseColor,
@@ -25,8 +30,8 @@ const List<Color> colorOptions = [
   Colors.orange,
   Colors.pink
 ];
-const List colorText = [
-  "M3 Base Color",
+const List colorText = <String>[
+  "M3 Baseline",
   "Blue",
   "Teal",
   "Green",
@@ -36,57 +41,55 @@ const List colorText = [
 ];
 
 class _Material3DemoState extends State<Material3Demo> {
-  bool onMaterial3 = true;
-  bool onLightMode = true;
-  Color colorSeed = m3BaseColor;
+  bool useMaterial3 = true;
+  bool useLightMode = true;
   int colorSelected = 0;
   int screenIndex = 0;
 
-  ThemeData lightTheme =
-      ThemeData(colorSchemeSeed: m3BaseColor, useMaterial3: true);
-  ThemeData darkTheme = ThemeData(
-      colorSchemeSeed: m3BaseColor,
-      useMaterial3: true,
-      brightness: Brightness.dark);
+  late ThemeData themeData;
 
-  void onNavigationSelect(selectedScreen) {
+  @override
+  initState() {
+    super.initState();
+    themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+  }
+
+  ThemeData updateThemes(int colorIndex, bool useMaterial3, bool useLightMode) {
+    return ThemeData(
+      colorSchemeSeed: colorOptions[colorSelected],
+      useMaterial3: useMaterial3,
+      brightness: useLightMode ? Brightness.light : Brightness.dark
+    );
+  }
+
+  void handleScreenChanged(int selectedScreen) {
     setState(() {
       screenIndex = selectedScreen;
     });
   }
 
-  void handleModeChange() {
+  void handleBrightnessChange() {
     setState(() {
-      onLightMode = !onLightMode;
+      useLightMode = !useLightMode;
+      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
     });
   }
 
-  void handleVersionChange() {
+  void handleMaterialVersionChange() {
     setState(() {
-      onMaterial3 = !onMaterial3;
-      lightTheme =
-          ThemeData(colorSchemeSeed: colorSeed, useMaterial3: onMaterial3);
-      darkTheme = ThemeData(
-          colorSchemeSeed: colorSeed,
-          useMaterial3: onMaterial3,
-          brightness: Brightness.dark);
+      useMaterial3 = !useMaterial3;
+      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
     });
   }
 
-  void handleColorSelect(value) {
+  void handleColorSelect(int value) {
     setState(() {
       colorSelected = value;
-      colorSeed = colorOptions[value];
-      lightTheme =
-          ThemeData(colorSchemeSeed: colorSeed, useMaterial3: onMaterial3);
-      darkTheme = ThemeData(
-          colorSchemeSeed: colorSeed,
-          useMaterial3: onMaterial3,
-          brightness: Brightness.dark);
+      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
     });
   }
 
-  Widget handleScreenChange(screenIndex, showNavBarExample) {
+  Widget createScreenFor(int screenIndex, bool showNavBarExample) {
     switch (screenIndex) {
       case 0:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
@@ -95,27 +98,30 @@ class _Material3DemoState extends State<Material3Demo> {
       case 2:
         return const TypographyScreen();
       case 3:
-        return const SurfaceTonesScreen();
+        return const ElevationScreen();
       default:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
     }
   }
 
-  PreferredSizeWidget handleAppBar() {
+  PreferredSizeWidget createAppBar() {
     return AppBar(
-      title: onMaterial3 ? const Text("Material 3") : const Text("Material 2"),
+      title: useMaterial3 ? const Text("Material 3") : const Text("Material 2"),
       actions: [
         IconButton(
-          icon: onLightMode
+          icon: useLightMode
               ? const Icon(Icons.wb_sunny_outlined)
               : const Icon(Icons.wb_sunny),
-          onPressed: handleModeChange,
+          onPressed: handleBrightnessChange,
+          tooltip: "Toggle brightness",
         ),
         IconButton(
-            onPressed: handleVersionChange,
-            icon: onMaterial3
+          icon: useMaterial3
                 ? const Icon(Icons.filter_3)
-                : const Icon(Icons.filter_2)),
+                : const Icon(Icons.filter_2),
+          onPressed: handleMaterialVersionChange,
+          tooltip: "Switch to Material ${useMaterial3 ? 2 : 3}",
+        ),
         PopupMenuButton(
           icon: const Icon(Icons.more_vert),
           shape:
@@ -153,24 +159,24 @@ class _Material3DemoState extends State<Material3Demo> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material 3',
-      themeMode: onLightMode ? ThemeMode.light : ThemeMode.dark,
-      theme: onLightMode ? lightTheme : darkTheme,
+      themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
+      theme: themeData,
       home: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < 450) {
+        if (constraints.maxWidth < screenWidthThreshold) {
           return Scaffold(
-            appBar: handleAppBar(),
+            appBar: createAppBar(),
             body: Row(children: <Widget>[
-              handleScreenChange(screenIndex, false),
+              createScreenFor(screenIndex, false),
             ]),
             bottomNavigationBar: NavigationBars(
-              onSelectItem: onNavigationSelect,
+              onSelectItem: handleScreenChanged,
               selectedIndex: screenIndex,
               isExampleBar: false,
             ),
           );
         } else {
           return Scaffold(
-            appBar: handleAppBar(),
+            appBar: createAppBar(),
             body: SafeArea(
               bottom: false,
               top: false,
@@ -178,547 +184,15 @@ class _Material3DemoState extends State<Material3Demo> {
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: NavigationRailSection(
-                        onSelectItem: onNavigationSelect,
+                        onSelectItem: handleScreenChanged,
                         selectedIndex: screenIndex)),
                 const VerticalDivider(thickness: 1, width: 1),
-                handleScreenChange(screenIndex, true),
+                createScreenFor(screenIndex, true),
               ]),
             ),
           );
         }
       }),
-    );
-  }
-}
-
-class ComponentScreen extends StatelessWidget {
-  final bool showNavBottomBar;
-
-  const ComponentScreen({Key? key, required this.showNavBottomBar})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            _colDivider,
-            _colDivider,
-            const Buttons(),
-            _colDivider,
-            const FloatingActionButtons(),
-            _colDivider,
-            const Cards(),
-            _colDivider,
-            const Dialogs(),
-            _colDivider,
-            showNavBottomBar
-                ? const NavigationBars(
-                    selectedIndex: 0,
-                    isExampleBar: true,
-                  )
-                : Container(),
-            // SizedBox(height: 10),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-const _rowDivider = SizedBox(width: 10);
-const _colDivider = SizedBox(height: 10);
-const double cardWidth = 115;
-
-void Function()? handlePressed(context, isDisabled, buttonName) {
-  return isDisabled
-      ? null
-      : () {
-          final snackBar = SnackBar(
-            content: Text(
-              'Yay! $buttonName is clicked!',
-              style: TextStyle(color: Theme.of(context).colorScheme.surface),
-            ),
-            action: SnackBarAction(
-              textColor: Theme.of(context).colorScheme.surface,
-              label: 'Close',
-              onPressed: () {},
-            ),
-          );
-
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        };
-}
-
-class Buttons extends StatefulWidget {
-  const Buttons({Key? key}) : super(key: key);
-
-  @override
-  State<Buttons> createState() => _ButtonsState();
-}
-
-class _ButtonsState extends State<Buttons> {
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      alignment: WrapAlignment.spaceEvenly,
-      children: const <Widget>[
-        ButtonsWithoutIcon(isDisabled: false),
-        _rowDivider,
-        ButtonsWithIcon(),
-        _rowDivider,
-        ButtonsWithoutIcon(isDisabled: true),
-      ],
-    );
-  }
-}
-
-class ButtonsWithoutIcon extends StatelessWidget {
-  final bool isDisabled;
-
-  const ButtonsWithoutIcon({Key? key, required this.isDisabled})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: handlePressed(context, isDisabled, "ElevatedButton"),
-            child: const Text("Elevated"),
-          ),
-          _colDivider,
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onPrimary,
-              // Background color
-              primary: Theme.of(context).colorScheme.primary,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, isDisabled, "FilledButton"),
-            child: const Text('Filled'),
-          ),
-          _colDivider,
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-              // Background color
-              primary: Theme.of(context).colorScheme.secondaryContainer,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, isDisabled, "FilledTonalButton"),
-            child: const Text('Filled Tonal'),
-          ),
-          _colDivider,
-          OutlinedButton(
-            onPressed: handlePressed(context, isDisabled, "OutlinedButton"),
-            child: const Text("Outlined"),
-          ),
-          _colDivider,
-          TextButton(
-              onPressed: handlePressed(context, isDisabled, "TextButton"),
-              child: const Text("Text")),
-        ],
-      ),
-    );
-  }
-}
-
-class ButtonsWithIcon extends StatelessWidget {
-  const ButtonsWithIcon({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          ElevatedButton.icon(
-            onPressed:
-                handlePressed(context, false, "ElevatedButton with Icon"),
-            icon: const Icon(Icons.add),
-            label: const Text("Icon"),
-          ),
-          _colDivider,
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onPrimary,
-              // Background color
-              primary: Theme.of(context).colorScheme.primary,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, false, "FilledButton with Icon"),
-            label: const Text('Icon'),
-            icon: const Icon(Icons.add),
-          ),
-          _colDivider,
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-              // Background color
-              primary: Theme.of(context).colorScheme.secondaryContainer,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed:
-                handlePressed(context, false, "FilledTonalButton with Icon"),
-            label: const Text('Icon'),
-            icon: const Icon(Icons.add),
-          ),
-          _colDivider,
-          OutlinedButton.icon(
-            onPressed:
-                handlePressed(context, false, "OutlinedButton with Icon"),
-            icon: const Icon(Icons.add),
-            label: const Text("Icon"),
-          ),
-          _colDivider,
-          TextButton.icon(
-            onPressed: handlePressed(context, false, "TextButton with Icon"),
-            icon: const Icon(Icons.add),
-            label: const Text("Icon"),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class FloatingActionButtons extends StatelessWidget {
-  const FloatingActionButtons({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          FloatingActionButton.small(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          _rowDivider,
-          FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          _rowDivider,
-          FloatingActionButton.extended(
-            onPressed: () {},
-            icon: const Icon(Icons.add),
-            label: const Text("Create"),
-          ),
-          _rowDivider,
-          FloatingActionButton.large(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          // const SizedBox(height: 5),
-        ],
-      ),
-    );
-  }
-}
-
-class Cards extends StatelessWidget {
-  const Cards({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-            width: cardWidth,
-            child: Card(
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    _colDivider,
-                    _colDivider,
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text("Elevated"),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: cardWidth,
-            child: Card(
-              color: Theme.of(context).colorScheme.surfaceVariant,
-              elevation: 0,
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    _colDivider,
-                    _colDivider,
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text("Filled"),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: cardWidth,
-            child: Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Theme.of(context).colorScheme.outline,
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    _colDivider,
-                    _colDivider,
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text("Outlined"),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Dialogs extends StatefulWidget {
-  const Dialogs({Key? key}) : super(key: key);
-
-  @override
-  State<Dialogs> createState() => _DialogsState();
-}
-
-class _DialogsState extends State<Dialogs> {
-  void openDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              title: const Text("Basic Dialog Title"),
-              content: const Text(
-                  "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made."),
-              actions: <Widget>[
-                TextButton(
-                  child: const Text('Dismiss'),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-                TextButton(
-                  child: const Text('Action'),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            ));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      // M3 Dialog
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextButton(
-        child: const Text(
-          "Open Dialog",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        onPressed: () => openDialog(context),
-      ),
-    );
-  }
-}
-
-class NavigationBars extends StatefulWidget {
-  final void Function(int)? onSelectItem;
-  final int selectedIndex;
-  final bool isExampleBar;
-
-  const NavigationBars(
-      {Key? key,
-      this.onSelectItem,
-      required this.selectedIndex,
-      required this.isExampleBar})
-      : super(key: key);
-
-  @override
-  State<NavigationBars> createState() => _NavigationBarsState();
-}
-
-class _NavigationBarsState extends State<NavigationBars> {
-  int _selectedIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedIndex = widget.selectedIndex;
-  }
-
-  static const List<Widget> appBarDestinations = [
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.widgets_outlined),
-      label: 'Components',
-      selectedIcon: Icon(Icons.widgets),
-    ),
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.format_paint_outlined),
-      label: 'Colors',
-      selectedIcon: Icon(Icons.format_paint),
-    ),
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.text_snippet_outlined),
-      label: 'Typography',
-      selectedIcon: Icon(Icons.text_snippet),
-    ),
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.invert_colors_on_outlined),
-      label: 'Surface Tint',
-      selectedIcon: Icon(Icons.opacity),
-    )
-  ];
-
-  static const List<Widget> exampleBarDestinations = [
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.explore_outlined),
-      label: 'Explore',
-      selectedIcon: Icon(Icons.explore),
-    ),
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.pets_outlined),
-      label: 'Pets',
-      selectedIcon: Icon(Icons.pets),
-    ),
-    NavigationDestination(
-      tooltip: "",
-      icon: Icon(Icons.account_box_outlined),
-      label: 'Account',
-      selectedIcon: Icon(Icons.account_box),
-    )
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationBar(
-      selectedIndex: _selectedIndex,
-      onDestinationSelected: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-        if (!widget.isExampleBar) widget.onSelectItem!(index);
-      },
-      destinations:
-          widget.isExampleBar ? exampleBarDestinations : appBarDestinations,
-    );
-  }
-}
-
-class NavigationRailSection extends StatefulWidget {
-  final void Function(int) onSelectItem;
-  final int selectedIndex;
-
-  const NavigationRailSection(
-      {Key? key, required this.onSelectItem, required this.selectedIndex})
-      : super(key: key);
-
-  @override
-  State<NavigationRailSection> createState() => _NavigationRailSectionState();
-}
-
-class _NavigationRailSectionState extends State<NavigationRailSection> {
-  int _selectedIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedIndex = widget.selectedIndex;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationRail(
-      minWidth: 50,
-      destinations: const <NavigationRailDestination>[
-        NavigationRailDestination(
-          padding: EdgeInsets.only(top: 12),
-          icon: Tooltip(
-            message: "Components",
-            child: Icon(Icons.widgets_outlined),
-          ),
-          selectedIcon: Tooltip(
-            message: "Components",
-            child: Icon(Icons.widgets),
-          ),
-          label: Text("Components"),
-        ),
-        NavigationRailDestination(
-          icon: Tooltip(
-              message: "Colors", child: Icon(Icons.format_paint_outlined)),
-          selectedIcon:
-              Tooltip(message: "Colors", child: Icon(Icons.format_paint)),
-          label: Text("Colors"),
-        ),
-        NavigationRailDestination(
-          icon: Tooltip(
-              message: "Typography", child: Icon(Icons.text_snippet_outlined)),
-          selectedIcon:
-              Tooltip(message: "Typography", child: Icon(Icons.text_snippet)),
-          label: Text("Typography"),
-        ),
-        NavigationRailDestination(
-          icon: Tooltip(
-              message: "Surface Tint Overlay",
-              child: Icon(Icons.invert_colors_on_outlined)),
-          selectedIcon: Tooltip(
-              message: "Surface Tint Overlay", child: Icon(Icons.opacity)),
-          label: Text("Surface \nTint \nOverlay"),
-        )
-      ],
-      selectedIndex: _selectedIndex,
-      useIndicator: true,
-      onDestinationSelected: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-        widget.onSelectItem(index);
-      },
     );
   }
 }
