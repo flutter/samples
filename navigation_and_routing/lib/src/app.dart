@@ -12,10 +12,10 @@ class Bookstore extends StatefulWidget {
   const Bookstore({Key? key}) : super(key: key);
 
   @override
-  _BookstoreState createState() => _BookstoreState();
+  BookstoreState createState() => BookstoreState();
 }
 
-class _BookstoreState extends State<Bookstore> {
+class BookstoreState extends State<Bookstore> {
   final _auth = BookstoreAuth();
   final _navigatorKey = GlobalKey<NavigatorState>();
   late final RouteState _routeState;

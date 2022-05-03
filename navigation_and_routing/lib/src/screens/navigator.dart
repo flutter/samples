@@ -25,10 +25,10 @@ class BookstoreNavigator extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BookstoreNavigatorState createState() => _BookstoreNavigatorState();
+  BookstoreNavigatorState createState() => BookstoreNavigatorState();
 }
 
-class _BookstoreNavigatorState extends State<BookstoreNavigator> {
+class BookstoreNavigatorState extends State<BookstoreNavigator> {
   final _signInKey = const ValueKey('Sign in');
   final _scaffoldKey = const ValueKey('App scaffold');
   final _bookDetailsKey = const ValueKey('Book details screen');

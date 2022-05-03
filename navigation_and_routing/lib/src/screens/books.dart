@@ -14,10 +14,10 @@ class BooksScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BooksScreenState createState() => _BooksScreenState();
+  BooksScreenState createState() => BooksScreenState();
 }
 
-class _BooksScreenState extends State<BooksScreen>
+class BooksScreenState extends State<BooksScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
