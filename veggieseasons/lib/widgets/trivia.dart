@@ -13,7 +13,7 @@ class TriviaView extends StatefulWidget {
   const TriviaView({this.id, this.restorationId, Key? key}) : super(key: key);
 
   @override
-  _TriviaViewState createState() => _TriviaViewState();
+  TriviaViewState createState() => TriviaViewState();
 }
 
 /// Possible states of the game.
@@ -23,7 +23,7 @@ enum PlayerStatus {
   wasIncorrect,
 }
 
-class _TriviaViewState extends State<TriviaView> with RestorationMixin {
+class TriviaViewState extends State<TriviaView> with RestorationMixin {
   /// Current app state. This is used to fetch veggie data.
   late AppState appState;
 
@@ -40,8 +40,8 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   Trivia get currentTrivia => veggie.trivia[triviaIndex.value];
 
   /// The current state of the game.
-  _RestorablePlayerStatus status =
-      _RestorablePlayerStatus(PlayerStatus.readyToAnswer);
+  RestorablePlayerStatus status =
+      RestorablePlayerStatus(PlayerStatus.readyToAnswer);
 
   @override
   String? get restorationId => widget.restorationId;
@@ -222,8 +222,8 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   }
 }
 
-class _RestorablePlayerStatus extends RestorableValue<PlayerStatus> {
-  _RestorablePlayerStatus(this._defaultValue);
+class RestorablePlayerStatus extends RestorableValue<PlayerStatus> {
+  RestorablePlayerStatus(this._defaultValue);
 
   final PlayerStatus _defaultValue;
 

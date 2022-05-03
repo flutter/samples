@@ -47,10 +47,10 @@ class ColorChangingIcon extends ImplicitlyAnimatedWidget {
   final double? size;
 
   @override
-  _ColorChangingIconState createState() => _ColorChangingIconState();
+  ColorChangingIconState createState() => ColorChangingIconState();
 }
 
-class _ColorChangingIconState
+class ColorChangingIconState
     extends AnimatedWidgetBaseState<ColorChangingIcon> {
   ColorTween? _colorTween;
 

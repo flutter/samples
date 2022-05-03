@@ -255,10 +255,10 @@ class DetailsScreen extends StatefulWidget {
   }
 
   @override
-  _DetailsScreenState createState() => _DetailsScreenState();
+  DetailsScreenState createState() => DetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
+class DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
   final RestorableInt _selectedViewIndex = RestorableInt(0);
 
   @override
