@@ -77,16 +77,16 @@ class _CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String _buttonText;
+    late String buttonText;
     switch (category) {
       case PlaceCategory.favorite:
-        _buttonText = 'Favorites';
+        buttonText = 'Favorites';
         break;
       case PlaceCategory.visited:
-        _buttonText = 'Visited';
+        buttonText = 'Visited';
         break;
       case PlaceCategory.wantToGo:
-        _buttonText = 'Want To Go';
+        buttonText = 'Want To Go';
     }
 
     return Container(
@@ -102,7 +102,7 @@ class _CategoryButton extends StatelessWidget {
         height: 50.0,
         child: TextButton(
           child: Text(
-            _buttonText,
+            buttonText,
             style: TextStyle(
               fontSize: selected ? 20.0 : 18.0,
               color: selected ? Colors.blue : Colors.black87,
