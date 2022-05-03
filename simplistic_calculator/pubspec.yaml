@@ -9,7 +9,7 @@ environment:
 dependencies:
   auto_size_text: ^3.0.0
   cupertino_icons: ^1.0.2
-  fluent_ui: ^3.11.0
+  fluent_ui: ^3.11.1
   fluentui_system_icons: ^1.1.166
   flutter:
     sdk: flutter

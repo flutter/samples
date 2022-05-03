@@ -8,13 +8,13 @@ environment:
 
 dependencies:
   built_collection: ^5.1.1
-  built_value: ^8.2.1
+  built_value: ^8.2.3
   cupertino_icons: ^1.0.2
   file_selector: ^0.8.3
   file_selector_linux: ^0.0.2+1
   file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
-  fluent_ui: ^3.11.0
+  fluent_ui: ^3.11.1
   fluentui_system_icons: ^1.1.166
   flutter:
     sdk: flutter
@@ -36,7 +36,7 @@ dependencies:
 dev_dependencies:
   build: ^2.2.1
   build_runner: ^2.1.7
-  built_value_generator: ^8.2.2
+  built_value_generator: ^8.2.3
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter

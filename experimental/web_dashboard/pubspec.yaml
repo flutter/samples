@@ -11,13 +11,13 @@ dependencies:
   cloud_firestore: ^3.1.13
   collection: ^1.16.0
   cupertino_icons: ^1.0.0
-  firebase_auth: ^3.3.15
+  firebase_auth: ^3.3.16
   firebase_core: ^1.15.0
   flutter:
     sdk: flutter
   google_sign_in: ^5.0.0
   intl: ^0.17.0
-  json_annotation: ^4.1.0
+  json_annotation: ^4.5.0
   path: ^1.8.1
   provider: ^6.0.0
   uuid: ^3.0.0
@@ -28,6 +28,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
-  json_serializable: ^6.1.5
+  json_serializable: ^6.2.0
 flutter:
   uses-material-design: true
