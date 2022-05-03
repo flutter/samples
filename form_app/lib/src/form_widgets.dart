@@ -9,10 +9,10 @@ class FormWidgetsDemo extends StatefulWidget {
   const FormWidgetsDemo({Key? key}) : super(key: key);
 
   @override
-  _FormWidgetsDemoState createState() => _FormWidgetsDemoState();
+  FormWidgetsDemoState createState() => FormWidgetsDemoState();
 }
 
-class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
+class FormWidgetsDemoState extends State<FormWidgetsDemo> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';

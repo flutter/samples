@@ -10,10 +10,10 @@ class AutofillDemo extends StatefulWidget {
   const AutofillDemo({Key? key}) : super(key: key);
 
   @override
-  _AutofillDemoState createState() => _AutofillDemoState();
+  AutofillDemoState createState() => AutofillDemoState();
 }
 
-class _AutofillDemoState extends State<AutofillDemo> {
+class AutofillDemoState extends State<AutofillDemo> {
   final _formKey = GlobalKey<FormState>();
 
   @override
