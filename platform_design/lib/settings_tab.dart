@@ -15,10 +15,10 @@ class SettingsTab extends StatefulWidget {
   const SettingsTab({Key? key}) : super(key: key);
 
   @override
-  _SettingsTabState createState() => _SettingsTabState();
+  SettingsTabState createState() => SettingsTabState();
 }
 
-class _SettingsTabState extends State<SettingsTab> {
+class SettingsTabState extends State<SettingsTab> {
   var switch1 = false;
   var switch2 = true;
   var switch3 = true;

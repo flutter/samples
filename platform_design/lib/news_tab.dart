@@ -18,10 +18,10 @@ class NewsTab extends StatefulWidget {
   const NewsTab({Key? key}) : super(key: key);
 
   @override
-  _NewsTabState createState() => _NewsTabState();
+  NewsTabState createState() => NewsTabState();
 }
 
-class _NewsTabState extends State<NewsTab> {
+class NewsTabState extends State<NewsTab> {
   static const _itemsLength = 20;
 
   late final List<Color> colors;
