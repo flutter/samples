@@ -12,7 +12,7 @@ void main() {
 }
 
 class PlatformView extends StatelessWidget {
-  const PlatformView({Key key}) : super(key: key);
+  const PlatformView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +27,13 @@ class PlatformView extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({
-    Key key,
-  }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   static const MethodChannel _methodChannel =
       MethodChannel('dev.flutter.sample/platform_view_swift');
 
@@ -44,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _launchPlatformCount() async {
     final platformCounter =
         await _methodChannel.invokeMethod<int>('switchView', _counter);
-    setState(() => _counter = platformCounter);
+    setState(() => _counter = platformCounter ?? 0);
   }
 
   @override
@@ -67,8 +65,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 18),
                   ElevatedButton(
-                    child: const Text('Continue in iOS view'),
                     onPressed: _launchPlatformCount,
+                    child: const Text('Continue in iOS view'),
                   ),
                 ],
               ),
