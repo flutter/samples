@@ -51,10 +51,10 @@ class DashboardApp extends StatefulWidget {
         super(key: key);
 
   @override
-  _DashboardAppState createState() => _DashboardAppState();
+  DashboardAppState createState() => DashboardAppState();
 }
 
-class _DashboardAppState extends State<DashboardApp> {
+class DashboardAppState extends State<DashboardApp> {
   late final AppState _appState;
 
   @override
@@ -90,10 +90,10 @@ class SignInSwitcher extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SignInSwitcherState createState() => _SignInSwitcherState();
+  SignInSwitcherState createState() => SignInSwitcherState();
 }
 
-class _SignInSwitcherState extends State<SignInSwitcher> {
+class SignInSwitcherState extends State<SignInSwitcher> {
   bool _isSignedIn = false;
 
   @override

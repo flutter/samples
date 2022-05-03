@@ -47,10 +47,10 @@ class AdaptiveScaffold extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
+  AdaptiveScaffoldState createState() => AdaptiveScaffoldState();
 }
 
-class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
+class AdaptiveScaffoldState extends State<AdaptiveScaffold> {
   @override
   Widget build(BuildContext context) {
     // Show a Drawer

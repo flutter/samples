@@ -14,10 +14,10 @@ class NewEntryForm extends StatefulWidget {
   const NewEntryForm({Key? key}) : super(key: key);
 
   @override
-  _NewEntryFormState createState() => _NewEntryFormState();
+  NewEntryFormState createState() => NewEntryFormState();
 }
 
-class _NewEntryFormState extends State<NewEntryForm> {
+class NewEntryFormState extends State<NewEntryForm> {
   late Category _selected;
   final Entry _entry = Entry(0, DateTime.now());
 
@@ -65,10 +65,10 @@ class EditEntryForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _EditEntryFormState createState() => _EditEntryFormState();
+  EditEntryFormState createState() => EditEntryFormState();
 }
 
-class _EditEntryFormState extends State<EditEntryForm> {
+class EditEntryFormState extends State<EditEntryForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override

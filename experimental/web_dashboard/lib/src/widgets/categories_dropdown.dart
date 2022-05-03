@@ -20,10 +20,10 @@ class CategoryDropdown extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CategoryDropdownState createState() => _CategoryDropdownState();
+  CategoryDropdownState createState() => CategoryDropdownState();
 }
 
-class _CategoryDropdownState extends State<CategoryDropdown> {
+class CategoryDropdownState extends State<CategoryDropdown> {
   Category? _selected;
   Future<List<Category>>? _future;
   Stream<List<Category>>? _stream;
@@ -105,6 +105,6 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
   DropdownMenuItem<Category> _buildDropdownItem(Category category) {
     return DropdownMenuItem<Category>(
-        child: Text(category.name), value: category);
+        value: category, child: Text(category.name));
   }
 }

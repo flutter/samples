@@ -17,10 +17,10 @@ class EntriesPage extends StatefulWidget {
   const EntriesPage({Key? key}) : super(key: key);
 
   @override
-  _EntriesPageState createState() => _EntriesPageState();
+  EntriesPageState createState() => EntriesPageState();
 }
 
-class _EntriesPageState extends State<EntriesPage> {
+class EntriesPageState extends State<EntriesPage> {
   Category? _selected;
 
   @override
@@ -54,10 +54,10 @@ class EntriesList extends StatefulWidget {
   }) : super(key: ValueKey(category?.id));
 
   @override
-  _EntriesListState createState() => _EntriesListState();
+  EntriesListState createState() => EntriesListState();
 }
 
-class _EntriesListState extends State<EntriesList> {
+class EntriesListState extends State<EntriesList> {
   @override
   Widget build(BuildContext context) {
     if (widget.category == null) {
@@ -129,7 +129,9 @@ class EntryTile extends StatelessWidget {
           TextButton(
             child: const Text('Delete'),
             onPressed: () async {
-              var shouldDelete = await (showDialog<bool>(
+              final appState = Provider.of<AppState>(context, listen: false);
+              final scaffoldMessenger = ScaffoldMessenger.of(context);
+              final bool? shouldDelete = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Delete entry?'),
@@ -144,14 +146,10 @@ class EntryTile extends StatelessWidget {
                     ),
                   ],
                 ),
-              ) as FutureOr<bool>);
-              if (shouldDelete) {
-                await Provider.of<AppState>(context, listen: false)
-                    .api!
-                    .entries
-                    .delete(category!.id!, entry!.id!);
-
-                ScaffoldMessenger.of(context).showSnackBar(
+              );
+              if (shouldDelete != null && shouldDelete) {
+                await appState.api!.entries.delete(category!.id!, entry!.id!);
+                scaffoldMessenger.showSnackBar(
                   const SnackBar(
                     content: Text('Entry deleted'),
                   ),
