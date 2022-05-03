@@ -18,14 +18,14 @@ class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key? key}) : super(key: key);
 
   @override
-  _AdaptiveNavState createState() => _AdaptiveNavState();
+  AdaptiveNavState createState() => AdaptiveNavState();
 }
 
-class _AdaptiveNavState extends State<AdaptiveNav> {
+class AdaptiveNavState extends State<AdaptiveNav> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayLarge(context);
-    const _navigationDestinations = <_Destination>[
+    const navigationDestinations = <_Destination>[
       _Destination(
         textLabel: 'Home',
         icon: Icons.home_outlined,
@@ -46,14 +46,14 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       ),
     ];
 
-    final _trailing = <String, IconData>{
+    final trailing = <String, IconData>{
       'About': Icons.info_outline,
     };
 
     return _NavView(
       extended: isDesktop,
-      destinations: _navigationDestinations,
-      trailing: _trailing,
+      destinations: navigationDestinations,
+      trailing: trailing,
     );
   }
 }

@@ -19,10 +19,10 @@ class LintExpansionTile extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _LintExpansionTileState createState() => _LintExpansionTileState();
+  LintExpansionTileState createState() => LintExpansionTileState();
 }
 
-class _LintExpansionTileState extends State<LintExpansionTile> {
+class LintExpansionTileState extends State<LintExpansionTile> {
   var isExpanded = false;
   @override
   Widget build(BuildContext context) {
@@ -142,7 +142,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                 await showDialog<String>(
                   context: context,
                   builder: (context) {
-                    return _NewProfileDialog(rule: rule);
+                    return NewProfileDialog(rule: rule);
                   },
                 );
               } else if (destinationProfileType ==
@@ -150,7 +150,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                 await showDialog<String>(
                   context: context,
                   builder: (context) {
-                    return _ExistingProfileDialog(rule: rule);
+                    return ExistingProfileDialog(rule: rule);
                   },
                 );
               }
@@ -205,22 +205,27 @@ class _ProfileTypeDialog extends StatelessWidget {
   }
 }
 
-class _NewProfileDialog extends StatelessWidget {
+class NewProfileDialog extends StatefulWidget {
   final Rule rule;
-  const _NewProfileDialog({
+  const NewProfileDialog({
     required this.rule,
     Key? key,
   }) : super(key: key);
 
   @override
+  State<NewProfileDialog> createState() => _NewProfileDialogState();
+}
+
+class _NewProfileDialogState extends State<NewProfileDialog> {
+  @override
   Widget build(BuildContext context) {
     String name = '';
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return AlertDialog(
       title: const Text('Create new lint profile'),
       content: Form(
-        key: _formKey,
+        key: formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -251,13 +256,14 @@ class _NewProfileDialog extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () async {
-            if (_formKey.currentState!.validate()) {
+            if (formKey.currentState!.validate()) {
               var newProfile = RulesProfile(
                 name: name,
-                rules: [rule],
+                rules: [widget.rule],
               );
               await Provider.of<ProfilesStore>(context, listen: false)
                   .addToNewProfile(newProfile);
+              if (!mounted) return;
               Navigator.pop(context);
             }
           },
@@ -268,14 +274,19 @@ class _NewProfileDialog extends StatelessWidget {
   }
 }
 
-class _ExistingProfileDialog extends StatelessWidget {
-  const _ExistingProfileDialog({
+class ExistingProfileDialog extends StatefulWidget {
+  const ExistingProfileDialog({
     Key? key,
     required this.rule,
   }) : super(key: key);
 
   final Rule rule;
 
+  @override
+  State<ExistingProfileDialog> createState() => ExistingProfileDialogState();
+}
+
+class ExistingProfileDialogState extends State<ExistingProfileDialog> {
   @override
   Widget build(BuildContext context) {
     var profilesStore = Provider.of<ProfilesStore>(context);
@@ -291,7 +302,8 @@ class _ExistingProfileDialog extends StatelessWidget {
             title: Text(savedProfiles[index].name),
             onTap: () async {
               await profilesStore.addToExistingProfile(
-                  savedProfiles[index], rule);
+                  savedProfiles[index], widget.rule);
+              if (!mounted) return;
               Navigator.pop(context);
             },
           ),

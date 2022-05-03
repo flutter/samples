@@ -32,7 +32,7 @@ class RuleStore extends ChangeNotifier {
   String? get error => _error;
 
   List<RulesProfile> get defaultProfiles {
-    List<RulesProfile> _defaultProfiles = [];
+    List<RulesProfile> defaultProfiles = [];
 
     var rulesWithDefaultSets =
         rules.where((rule) => rule.sets.isNotEmpty).toList();
@@ -40,16 +40,16 @@ class RuleStore extends ChangeNotifier {
     for (final rule in rulesWithDefaultSets) {
       for (final setName in rule.sets) {
         var profileIndex =
-            _defaultProfiles.indexWhere((profile) => profile.name == setName);
+            defaultProfiles.indexWhere((profile) => profile.name == setName);
         if (profileIndex >= 0) {
-          _defaultProfiles[profileIndex].rules.add(rule);
+          defaultProfiles[profileIndex].rules.add(rule);
         } else {
-          _defaultProfiles.add(RulesProfile(name: setName, rules: [rule]));
+          defaultProfiles.add(RulesProfile(name: setName, rules: [rule]));
         }
       }
     }
 
-    return _defaultProfiles;
+    return defaultProfiles;
   }
 
   Future<void> fetchRules() async {
