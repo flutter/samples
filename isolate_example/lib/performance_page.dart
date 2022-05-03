@@ -33,10 +33,10 @@ class PerformancePage extends StatefulWidget {
   const PerformancePage({Key? key}) : super(key: key);
 
   @override
-  _PerformancePageState createState() => _PerformancePageState();
+  PerformancePageState createState() => PerformancePageState();
 }
 
-class _PerformancePageState extends State<PerformancePage> {
+class PerformancePageState extends State<PerformancePage> {
   Future<void> computeFuture = Future.value();
 
   @override
@@ -55,12 +55,12 @@ class _PerformancePageState extends State<PerformancePage> {
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return ElevatedButton(
-                      child: const Text('Compute on Main'),
                       style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed:
                           snapshot.connectionState == ConnectionState.done
                               ? () => handleComputeOnMain(context)
                               : null,
+                      child: const Text('Compute on Main'),
                     );
                   },
                 ),
@@ -68,12 +68,12 @@ class _PerformancePageState extends State<PerformancePage> {
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return ElevatedButton(
-                        child: const Text('Compute on Secondary'),
                         style: ElevatedButton.styleFrom(elevation: 8.0),
                         onPressed:
                             snapshot.connectionState == ConnectionState.done
                                 ? () => handleComputeOnSecondary(context)
-                                : null);
+                                : null,
+                        child: const Text('Compute on Secondary'));
                   },
                 ),
               ],
@@ -160,9 +160,6 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
         animation: _borderAnimation,
         builder: (context, child) {
           return Container(
-            child: const FlutterLogo(
-              size: 200,
-            ),
             alignment: Alignment.bottomCenter,
             width: 350,
             height: 200,
@@ -175,6 +172,9 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
                 ],
               ),
               borderRadius: _borderAnimation.value,
+            ),
+            child: const FlutterLogo(
+              size: 200,
             ),
           );
         },
