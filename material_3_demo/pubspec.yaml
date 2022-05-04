@@ -1,6 +1,6 @@
 name: material_3_demo
-description: A Flutter project showcasing all the updated components, typography, color system and surface
-  tones in different brightness(light/dark) mode, color seed, and versions(Material2/Material3).
+description: A Flutter project showcasing supported Material 3 components, typography, color system and elevation.
+  Supports different light/dark mode, color seed, and comparison to Material 2.
 
 publish_to: 'none'
 

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 const Widget divider = SizedBox(height: 10);
 
-// If screen content width is greater or equal to the value, the light-theme palette
-// and the dark-theme palette will show in a column; otherwise, they will be placed in a row.
-const double colorScreenWidthThreshold = 400;
+// If screen content width is greater or equal to this value, the light and dark
+// color schemes will be displayed in a column. Otherwise, they will
+// be displayed in a row.
+const double narrowScreenWidthThreshold = 400;
 
 class ColorPalettesScreen extends StatelessWidget {
   const ColorPalettesScreen({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class ColorPalettesScreen extends StatelessWidget {
 
     return Expanded(
       child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < colorScreenWidthThreshold) {
+        if (constraints.maxWidth < narrowScreenWidthThreshold) {
           return SingleChildScrollView(
             child: Column(
               children: [

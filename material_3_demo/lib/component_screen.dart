@@ -39,7 +39,7 @@ class ComponentScreen extends StatelessWidget {
 
 const _rowDivider = SizedBox(width: 10);
 const _colDivider = SizedBox(height: 10);
-const double cardWidth = 115;
+const double _cardWidth = 115;
 
 void Function()? handlePressed(BuildContext context, bool isDisabled, String buttonName) {
   return isDisabled
@@ -244,7 +244,7 @@ class Cards extends StatelessWidget {
         alignment: WrapAlignment.spaceEvenly,
         children: [
           SizedBox(
-            width: cardWidth,
+            width: _cardWidth,
             child: Card(
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -266,7 +266,7 @@ class Cards extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: cardWidth,
+            width: _cardWidth,
             child: Card(
               color: Theme.of(context).colorScheme.surfaceVariant,
               elevation: 0,
@@ -290,7 +290,7 @@ class Cards extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: cardWidth,
+            width: _cardWidth,
             child: Card(
               elevation: 0,
               shape: RoundedRectangleBorder(

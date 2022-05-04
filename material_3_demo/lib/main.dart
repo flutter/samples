@@ -18,7 +18,7 @@ class Material3Demo extends StatefulWidget {
 
 // NavigationRail shows if the screen width is greater or equal to
 // screenWidthThreshold; otherwise, NavigationBar is used for navigation.
-const double screenWidthThreshold = 450;
+const double narrowScreenWidthThreshold = 450;
 
 const Color m3BaseColor = Color(0xff6750a4);
 const List<Color> colorOptions = [
@@ -162,7 +162,7 @@ class _Material3DemoState extends State<Material3Demo> {
       themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
       theme: themeData,
       home: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < screenWidthThreshold) {
+        if (constraints.maxWidth < narrowScreenWidthThreshold) {
           return Scaffold(
             appBar: createAppBar(),
             body: Row(children: <Widget>[

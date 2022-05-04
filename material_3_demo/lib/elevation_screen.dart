@@ -45,7 +45,7 @@ class ElevationScreen extends StatelessWidget {
   }
 }
 
-const double elevationScreenWidthThreshold = 450;
+const double narrowScreenWidthThreshold = 450;
 
 class ElevationGrid extends StatelessWidget {
   const ElevationGrid({Key? key, this.shadowColor, this.surfaceTintColor})
@@ -71,7 +71,7 @@ class ElevationGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < elevationScreenWidthThreshold) {
+        if (constraints.maxWidth < narrowScreenWidthThreshold) {
           return GridView.count(
             shrinkWrap: true,
             crossAxisCount: 3,
