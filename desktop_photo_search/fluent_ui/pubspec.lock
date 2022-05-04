@@ -280,7 +280,7 @@ packages:
       name: fluent_ui
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.11.0"
+    version: "3.11.1"
   fluentui_system_icons:
     dependency: "direct main"
     description:
