@@ -142,6 +142,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "simplistic_editor/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "testing_app/"
     schedule:
       interval: "daily"
