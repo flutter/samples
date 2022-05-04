@@ -30,7 +30,7 @@ const List<Color> colorOptions = [
   Colors.orange,
   Colors.pink
 ];
-const List colorText = <String>[
+const List<String> colorText = <String>[
   "M3 Baseline",
   "Blue",
   "Teal",
@@ -56,10 +56,9 @@ class _Material3DemoState extends State<Material3Demo> {
 
   ThemeData updateThemes(int colorIndex, bool useMaterial3, bool useLightMode) {
     return ThemeData(
-      colorSchemeSeed: colorOptions[colorSelected],
-      useMaterial3: useMaterial3,
-      brightness: useLightMode ? Brightness.light : Brightness.dark
-    );
+        colorSchemeSeed: colorOptions[colorSelected],
+        useMaterial3: useMaterial3,
+        brightness: useLightMode ? Brightness.light : Brightness.dark);
   }
 
   void handleScreenChanged(int selectedScreen) {
@@ -117,8 +116,8 @@ class _Material3DemoState extends State<Material3Demo> {
         ),
         IconButton(
           icon: useMaterial3
-                ? const Icon(Icons.filter_3)
-                : const Icon(Icons.filter_2),
+              ? const Icon(Icons.filter_3)
+              : const Icon(Icons.filter_2),
           onPressed: handleMaterialVersionChange,
           tooltip: "Switch to Material ${useMaterial3 ? 2 : 3}",
         ),

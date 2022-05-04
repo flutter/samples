@@ -54,10 +54,11 @@ class ElevationGrid extends StatelessWidget {
   final Color? shadowColor;
   final Color? surfaceTintColor;
 
-  List<ElevationCard> elevationCards(shadowColor, surfaceTintColor) {
+  List<ElevationCard> elevationCards(
+      Color? shadowColor, Color? surfaceTintColor) {
     return elevations
         .map(
-          (ElevationInfo elevationInfo) => ElevationCard(
+          (elevationInfo) => ElevationCard(
             info: elevationInfo,
             shadowColor: shadowColor,
             surfaceTint: surfaceTintColor,
@@ -90,7 +91,8 @@ class ElevationGrid extends StatelessWidget {
 }
 
 class ElevationCard extends StatefulWidget {
-  const ElevationCard({Key? key, required this.info, this.shadowColor, this.surfaceTint})
+  const ElevationCard(
+      {Key? key, required this.info, this.shadowColor, this.surfaceTint})
       : super(key: key);
 
   final ElevationInfo info;

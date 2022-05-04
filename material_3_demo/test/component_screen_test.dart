@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_types_on_closure_parameters
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_3_demo/component_screen.dart';
@@ -77,12 +78,10 @@ void main() {
     expect(find.byType(Tooltip, skipOffstage: false), findsWidgets);
     expect(find.widgetWithText(NavigationRailSection, "Components"),
         findsOneWidget);
-    expect(
-        find.widgetWithText(NavigationRailSection, "Color"), findsOneWidget);
+    expect(find.widgetWithText(NavigationRailSection, "Color"), findsOneWidget);
     expect(find.widgetWithText(NavigationRailSection, "Typography"),
         findsOneWidget);
-    expect(
-        find.widgetWithText(NavigationRailSection, "Elevation"),
+    expect(find.widgetWithText(NavigationRailSection, "Elevation"),
         findsOneWidget);
 
     final navbarExample = find.byType(NavigationBars);

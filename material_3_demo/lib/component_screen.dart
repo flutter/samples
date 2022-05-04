@@ -333,7 +333,7 @@ class Dialogs extends StatefulWidget {
 
 class _DialogsState extends State<Dialogs> {
   void openDialog(BuildContext context) {
-    showDialog(
+    showDialog<void>(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Basic Dialog Title"),
