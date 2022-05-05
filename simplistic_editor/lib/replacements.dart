@@ -323,6 +323,7 @@ class TextEditingInlineSpanReplacement {
             start: range.start,
             end: removalRange.start,
           ),
+          expand: removalRange.isCollapsed ? false : expand,
         ),
         copy(
           range: TextRange(
@@ -336,6 +337,8 @@ class TextEditingInlineSpanReplacement {
     } else if (range.start > removalRange.start && range.start >= removalRange.end) {
       return [this];
     } else if (range.end <= removalRange.start && range.end < removalRange.end) {
+      return [this];
+    } else if (removalRange.isCollapsed && range.end == removalRange.start) {
       return [this];
     }
 

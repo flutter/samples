@@ -39,7 +39,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final ReplacementTextEditingController _replacementTextEditingController =
   ReplacementTextEditingController(
-    // text: 'The quick brown fox jumps over the lazy dog.',
+    text: 'The quick brown fox jumps over the lazy dog.',
   );
   final FocusNode _focusNode = FocusNode();
   final List<bool> _isSelected = [false, false, false];
