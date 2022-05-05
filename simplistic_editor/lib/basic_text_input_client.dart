@@ -293,7 +293,16 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       onInvoke: (intent) => _delete(),
     ),
     ExtendSelectionByCharacterIntent: CallbackAction<ExtendSelectionByCharacterIntent>(
-      onInvoke: (intent) => _extendSelection(intent.forward),
+      onInvoke: (intent) => _extendSelection(intent.forward, intent.collapseSelection),
+    ),
+    SelectAllTextIntent : CallbackAction<SelectAllTextIntent>(
+      onInvoke: (intent) => selectAll(intent.cause),
+    ),
+    CopySelectionTextIntent : CallbackAction<CopySelectionTextIntent>(
+      onInvoke: (intent) => copySelection(intent.cause),
+    ),
+    PasteTextIntent : CallbackAction<PasteTextIntent>(
+      onInvoke: (intent) => pasteText(intent.cause),
     ),
   };
 
@@ -333,20 +342,33 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     );
   }
 
-  void _extendSelection(bool forward) {
+  void _extendSelection(bool forward, bool collapseSelection) {
     late final TextSelection selection;
-    if (!_selection.isCollapsed) {
-      final int firstOffset = _selection.isNormalized ? _selection.start : _selection.end;
-      final int lastOffset = _selection.isNormalized ? _selection.end : _selection.start;
-      selection = TextSelection.collapsed(offset: forward ? lastOffset : firstOffset);
+
+    if (collapseSelection) {
+      if (!_selection.isCollapsed) {
+        final int firstOffset = _selection.isNormalized ? _selection.start : _selection.end;
+        final int lastOffset = _selection.isNormalized ? _selection.end : _selection.start;
+        selection = TextSelection.collapsed(offset: forward ? lastOffset : firstOffset);
+      } else {
+        if (forward && _selection.baseOffset == _value.text.length) return;
+        if (!forward && _selection.baseOffset == 0) return;
+        final int adjustment = forward
+            ? _value.text.substring(_selection.baseOffset).characters.first.length
+            : -_value.text.substring(0, _selection.baseOffset).characters.last.length;
+        selection = TextSelection.collapsed(
+          offset: _selection.baseOffset + adjustment,
+        );
+      }
     } else {
-      if (forward && _selection.baseOffset == _value.text.length) return;
-      if (!forward && _selection.baseOffset == 0) return;
+      if (forward && _selection.extentOffset == _value.text.length) return;
+      if (!forward && _selection.extentOffset == 0) return;
       final int adjustment = forward
           ? _value.text.substring(_selection.baseOffset).characters.first.length
           : -_value.text.substring(0, _selection.baseOffset).characters.last.length;
-      selection = TextSelection.collapsed(
-        offset: _selection.baseOffset + adjustment,
+      selection = TextSelection(
+        baseOffset: _selection.baseOffset,
+        extentOffset: _selection.extentOffset + adjustment,
       );
     }
 
@@ -483,7 +505,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     // After the paste, the cursor should be collapsed and located after the
     // pasted content.
-    final int lastSelectionIndex = math.max(pasteRange.baseOffset, pasteRange.extentOffset);
+    final int lastSelectionIndex = math.max(pasteRange.baseOffset, pasteRange.baseOffset + data.text!.length);
 
     _userUpdateTextEditingValueWithDelta(
       TextEditingDeltaReplacement(
