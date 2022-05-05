@@ -2,9 +2,13 @@
 This sample text editor showcases the use of TextEditingDeltas and a DeltaTextInputClient to expand
 and contract styled ranges of text. For more information visit https://api.flutter.dev/flutter/services/TextEditingDelta-class.html.
 
+https://user-images.githubusercontent.com/948037/166981868-0529e328-18e7-48de-9245-524b91c63c0c.mov
+
 # Structure
 ## Visualization Layer
 The layer that showcases the TextEditingDelta history in a ListView.
+
+<img width="710" alt="Screen Shot 2022-05-05 at 9 53 50 AM" src="https://user-images.githubusercontent.com/948037/166977349-3924f1e0-a549-40bc-9041-dbd18510ae3f.png">
 
 ### TextEditingDeltaHistoryManager
 An inherited widget that handles the state of the text editing delta history that sits below the input field
@@ -25,6 +29,8 @@ is green, TextEditingDeltaDeletion is red, TextEditingDeltaReplacement is yellow
 ## Replacements Layer
 The layer that handles the styling of the input field, including expanding and contracting the styled ranges based
 on the deltas that are received from the platform, and the handling of the state of the styling toggle button toolbar.
+
+<img width="168" alt="Screen Shot 2022-05-05 at 10 22 27 AM" src="https://user-images.githubusercontent.com/948037/166978414-0db1a76b-1104-48e9-a92e-aa8fd0d493dd.png">
 
 ### ToggleButtonsStateManager
 An inherited widget that handles the state of the styling toggle button toolbar that sits on the top
@@ -59,6 +65,8 @@ to determine the current toggle button state.
 ## Text Input Layer
 The layer that defines the appearance of a text input field, handles the text input received from 
 the platform, and mutations done by the framework through gestures and keyboard shortcuts.
+
+<img width="710" alt="Screen Shot 2022-05-05 at 9 57 56 AM" src="https://user-images.githubusercontent.com/948037/166977553-55eec6ef-49bb-43d9-8e2a-91a1b5a3cbca.png">
 
 ### BasicTextField
 A basic text field that defines the appearance, and the selection gestures of a basic text input client.
