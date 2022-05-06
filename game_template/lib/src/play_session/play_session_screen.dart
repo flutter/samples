@@ -14,6 +14,7 @@ import '../games_services/score.dart';
 import '../in_app_purchase/in_app_purchase.dart';
 import '../level_selection/levels.dart';
 import '../player_progress/player_progress.dart';
+import '../style/confetti.dart';
 import '../style/palette.dart';
 
 class PlaySessionScreen extends StatefulWidget {
@@ -101,9 +102,8 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                 child: Visibility(
                   visible: _duringCelebration,
                   child: IgnorePointer(
-                    child: Image.asset(
-                      'assets/images/confetti.gif',
-                      fit: BoxFit.cover,
+                    child: Confetti(
+                      isStopped: !_duringCelebration,
                     ),
                   ),
                 ),
