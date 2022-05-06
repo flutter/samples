@@ -35,6 +35,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    # TODO: Re-enable once Dart 2.17 is stable
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )
