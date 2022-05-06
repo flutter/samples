@@ -102,6 +102,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "material_3_demo/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "navigation_and_routing/"
     schedule:
       interval: "daily"
