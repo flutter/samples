@@ -20,10 +20,10 @@ class SignInScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  SignInScreenState createState() => SignInScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
