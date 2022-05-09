@@ -9,11 +9,11 @@ class AnimationControllerDemo extends StatefulWidget {
   static const String routeName = '/basics/animation_controller';
 
   @override
-  AnimationControllerDemoState createState() =>
-      AnimationControllerDemoState();
+  State<AnimationControllerDemo> createState() =>
+      _AnimationControllerDemoState();
 }
 
-class AnimationControllerDemoState extends State<AnimationControllerDemo>
+class _AnimationControllerDemoState extends State<AnimationControllerDemo>
     with SingleTickerProviderStateMixin {
   // Using the SingleTickerProviderStateMixin can ensure that our
   // AnimationController only animates while the Widget is visible on the

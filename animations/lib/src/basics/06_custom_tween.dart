@@ -20,10 +20,10 @@ class CustomTweenDemo extends StatefulWidget {
   static const String routeName = '/basics/custom_tweens';
 
   @override
-  CustomTweenDemoState createState() => CustomTweenDemoState();
+  State<CustomTweenDemo> createState() => _CustomTweenDemoState();
 }
 
-class CustomTweenDemoState extends State<CustomTweenDemo>
+class _CustomTweenDemoState extends State<CustomTweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 3);
   static const String message = loremIpsum;

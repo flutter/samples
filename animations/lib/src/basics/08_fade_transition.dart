@@ -11,10 +11,10 @@ class FadeTransitionDemo extends StatefulWidget {
   static const String routeName = '/basics/fade_transition';
 
   @override
-  FadeTransitionDemoState createState() => FadeTransitionDemoState();
+  State<FadeTransitionDemo> createState() => _FadeTransitionDemoState();
 }
 
-class FadeTransitionDemoState extends State<FadeTransitionDemo>
+class _FadeTransitionDemoState extends State<FadeTransitionDemo>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;

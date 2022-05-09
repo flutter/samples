@@ -24,10 +24,10 @@ class ExpandCardDemo extends StatelessWidget {
 class ExpandCard extends StatefulWidget {
   const ExpandCard({Key? key}) : super(key: key);
   @override
-  ExpandCardState createState() => ExpandCardState();
+  State<ExpandCard> createState() => _ExpandCardState();
 }
 
-class ExpandCardState extends State<ExpandCard>
+class _ExpandCardState extends State<ExpandCard>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(milliseconds: 300);
   bool selected = false;

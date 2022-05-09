@@ -9,10 +9,10 @@ class TweenDemo extends StatefulWidget {
   static const String routeName = '/basics/tweens';
 
   @override
-  TweenDemoState createState() => TweenDemoState();
+  State<TweenDemo> createState() => _TweenDemoState();
 }
 
-class TweenDemoState extends State<TweenDemo>
+class _TweenDemoState extends State<TweenDemo>
     with SingleTickerProviderStateMixin {
   static const Duration _duration = Duration(seconds: 1);
   static const double accountBalance = 1000000;

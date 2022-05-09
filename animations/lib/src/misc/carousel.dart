@@ -49,10 +49,10 @@ class Carousel extends StatefulWidget {
   const Carousel({Key? key, required this.itemBuilder}) : super(key: key);
 
   @override
-  CarouselState createState() => CarouselState();
+  State<Carousel> createState() => _CarouselState();
 }
 
-class CarouselState extends State<Carousel> {
+class _CarouselState extends State<Carousel> {
   late final PageController _controller;
   late int _currentPage;
   bool _pageHasChanged = false;

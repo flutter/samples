@@ -15,10 +15,10 @@ class AnimatedContainerDemo extends StatefulWidget {
   static String routeName = '/basics/01_animated_container';
 
   @override
-  AnimatedContainerDemoState createState() => AnimatedContainerDemoState();
+  State<AnimatedContainerDemo> createState() => _AnimatedContainerDemoState();
 }
 
-class AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
+class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
   late Color color;
   late double borderRadius;
   late double margin;

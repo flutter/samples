@@ -10,7 +10,7 @@ class CurvedAnimationDemo extends StatefulWidget {
   static const String routeName = '/misc/curved_animation';
 
   @override
-  CurvedAnimationDemoState createState() => CurvedAnimationDemoState();
+  State<CurvedAnimationDemo> createState() => _CurvedAnimationDemoState();
 }
 
 class CurveChoice {
@@ -20,7 +20,7 @@ class CurveChoice {
   const CurveChoice({required this.curve, required this.name});
 }
 
-class CurvedAnimationDemoState extends State<CurvedAnimationDemo>
+class _CurvedAnimationDemoState extends State<CurvedAnimationDemo>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller;
   late final Animation<double> animationRotation;

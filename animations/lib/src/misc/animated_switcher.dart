@@ -27,10 +27,10 @@ class AnimatedSwitcherDemo extends StatefulWidget {
   static String routeName = '/basics/10_animated_switcher';
 
   @override
-  AnimatedSwitcherDemoState createState() => AnimatedSwitcherDemoState();
+  State<AnimatedSwitcherDemo> createState() => _AnimatedSwitcherDemoState();
 }
 
-class AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
+class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
   late Widget container;
   late int keyCount;
 

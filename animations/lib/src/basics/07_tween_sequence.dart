@@ -9,10 +9,10 @@ class TweenSequenceDemo extends StatefulWidget {
   static const String routeName = '/basics/chaining_tweens';
 
   @override
-  TweenSequenceDemoState createState() => TweenSequenceDemoState();
+  State<TweenSequenceDemo> createState() => _TweenSequenceDemoState();
 }
 
-class TweenSequenceDemoState extends State<TweenSequenceDemo>
+class _TweenSequenceDemoState extends State<TweenSequenceDemo>
     with SingleTickerProviderStateMixin {
   static const Duration duration = Duration(seconds: 3);
   late final AnimationController controller;

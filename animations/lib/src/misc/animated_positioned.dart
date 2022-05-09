@@ -11,10 +11,10 @@ class AnimatedPositionedDemo extends StatefulWidget {
   static String routeName = '/basics/09_animated_positioned';
 
   @override
-  AnimatedPositionedDemoState createState() => AnimatedPositionedDemoState();
+  State<AnimatedPositionedDemo> createState() => _AnimatedPositionedDemoState();
 }
 
-class AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
+class _AnimatedPositionedDemoState extends State<AnimatedPositionedDemo> {
   late double topPosition;
   late double leftPosition;
 

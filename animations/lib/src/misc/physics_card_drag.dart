@@ -31,10 +31,10 @@ class DraggableCard extends StatefulWidget {
   final Widget child;
 
   @override
-  DraggableCardState createState() => DraggableCardState();
+  State<DraggableCard> createState() => _DraggableCardState();
 }
 
-class DraggableCardState extends State<DraggableCard>
+class _DraggableCardState extends State<DraggableCard>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
 
