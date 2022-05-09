@@ -18,10 +18,10 @@ class SavedRuleTile extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  SavedRuleTileState createState() => SavedRuleTileState();
+  State<SavedRuleTile> createState() => _SavedRuleTileState();
 }
 
-class SavedRuleTileState extends State<SavedRuleTile> {
+class _SavedRuleTileState extends State<SavedRuleTile> {
   var isExpanded = false;
   var isSelected = false;
 

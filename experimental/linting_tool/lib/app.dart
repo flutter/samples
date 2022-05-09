@@ -19,10 +19,10 @@ class LintingTool extends StatefulWidget {
   static const String homeRoute = routes.homeRoute;
 
   @override
-  LintingToolState createState() => LintingToolState();
+  State<LintingTool> createState() => _LintingToolState();
 }
 
-class LintingToolState extends State<LintingTool> {
+class _LintingToolState extends State<LintingTool> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

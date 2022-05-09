@@ -18,10 +18,10 @@ class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key? key}) : super(key: key);
 
   @override
-  AdaptiveNavState createState() => AdaptiveNavState();
+  State<AdaptiveNav> createState() => _AdaptiveNavState();
 }
 
-class AdaptiveNavState extends State<AdaptiveNav> {
+class _AdaptiveNavState extends State<AdaptiveNav> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayLarge(context);

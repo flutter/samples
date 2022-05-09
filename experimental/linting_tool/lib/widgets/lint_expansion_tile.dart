@@ -19,10 +19,10 @@ class LintExpansionTile extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  LintExpansionTileState createState() => LintExpansionTileState();
+  State<LintExpansionTile> createState() => _LintExpansionTileState();
 }
 
-class LintExpansionTileState extends State<LintExpansionTile> {
+class _LintExpansionTileState extends State<LintExpansionTile> {
   var isExpanded = false;
   @override
   Widget build(BuildContext context) {
