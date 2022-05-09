@@ -59,10 +59,10 @@ class PlaceMap extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  PlaceMapState createState() => PlaceMapState();
+  State<PlaceMap> createState() => _PlaceMapState();
 }
 
-class PlaceMapState extends State<PlaceMap> {
+class _PlaceMapState extends State<PlaceMap> {
   Completer<GoogleMapController> mapController = Completer();
 
   MapType _currentMapType = MapType.normal;

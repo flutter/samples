@@ -43,10 +43,10 @@ class GalleryScaffold extends StatefulWidget {
       });
 
   @override
-  GalleryScaffoldState createState() => GalleryScaffoldState();
+  State<GalleryScaffold> createState() => _GalleryScaffoldState();
 }
 
-class GalleryScaffoldState extends State<GalleryScaffold> {
+class _GalleryScaffoldState extends State<GalleryScaffold> {
   void _handleButtonPress() {
     setState(() {});
   }

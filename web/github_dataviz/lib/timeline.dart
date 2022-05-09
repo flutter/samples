@@ -29,12 +29,12 @@ class Timeline extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return TimelineState();
+  State<Timeline> createState() {
+    return _TimelineState();
   }
 }
 
-class TimelineState extends State<Timeline> {
+class _TimelineState extends State<Timeline> {
   HashMap<String, TextPainter> labelPainters = HashMap();
 
   @override
@@ -107,7 +107,7 @@ class TimelineState extends State<Timeline> {
 }
 
 class TimelinePainter extends CustomPainter {
-  TimelineState state;
+  _TimelineState state;
 
   late Paint mainLinePaint;
   late Paint milestoneLinePaint;
