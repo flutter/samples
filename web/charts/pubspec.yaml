@@ -3,7 +3,7 @@ description: Charts-Flutter Demo
 publish_to: none
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   flutter:
@@ -12,8 +12,8 @@ dependencies:
   meta: ^1.1.1
   intl: ^0.17.0
 
-dev_dependencies: 
-  flutter_lints: ^1.0.4
+dev_dependencies:
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true

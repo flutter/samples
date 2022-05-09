@@ -13,10 +13,10 @@ class AddPetDetails extends StatefulWidget {
   const AddPetDetails({Key? key}) : super(key: key);
 
   @override
-  _AddPetDetailsState createState() => _AddPetDetailsState();
+  AddPetDetailsState createState() => AddPetDetailsState();
 }
 
-class _AddPetDetailsState extends State<AddPetDetails> {
+class AddPetDetailsState extends State<AddPetDetails> {
   final breedTextController = TextEditingController();
   String petType = 'Dog';
 
