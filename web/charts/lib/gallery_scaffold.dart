@@ -43,10 +43,10 @@ class GalleryScaffold extends StatefulWidget {
       });
 
   @override
-  _GalleryScaffoldState createState() => _GalleryScaffoldState();
+  GalleryScaffoldState createState() => GalleryScaffoldState();
 }
 
-class _GalleryScaffoldState extends State<GalleryScaffold> {
+class GalleryScaffoldState extends State<GalleryScaffold> {
   void _handleButtonPress() {
     setState(() {});
   }
@@ -61,7 +61,7 @@ class _GalleryScaffoldState extends State<GalleryScaffold> {
             SizedBox(height: 250.0, child: widget.childBuilder()),
           ])),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.refresh), onPressed: _handleButtonPress),
+          onPressed: _handleButtonPress, child: const Icon(Icons.refresh)),
     );
   }
 }

@@ -102,6 +102,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "material_3_demo/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "navigation_and_routing/"
     schedule:
       interval: "daily"
@@ -139,6 +143,10 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "simplistic_calculator/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "simplistic_editor/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
