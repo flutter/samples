@@ -39,7 +39,7 @@ class Particles extends StatefulWidget {
   const Particles(this.numberOfParticles, {key}) : super(key: key);
 
   @override
-  _ParticlesState createState() => _ParticlesState();
+  State<Particles> createState() => _ParticlesState();
 }
 
 class _ParticlesState extends State<Particles> {

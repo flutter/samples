@@ -49,7 +49,7 @@ class TimelineState extends State<Timeline> {
     for (var weekLabel in widget.weekLabels) {
       labelPainters[weekLabel.label] =
           _makeTextPainter(Constants.milestoneTimelineColor, weekLabel.label);
-      labelPainters[weekLabel.label + '_red'] =
+      labelPainters['${weekLabel.label}_red'] =
           _makeTextPainter(Colors.redAccent, weekLabel.label);
     }
   }
