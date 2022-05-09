@@ -4,18 +4,18 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   built_collection: ^5.1.1
-  built_value: ^8.2.1
+  built_value: ^8.2.3
   cupertino_icons: ^1.0.2
   file_selector: ^0.8.3
   file_selector_linux: ^0.0.2+1
   file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
-  fluent_ui: ^3.11.0
-  fluentui_system_icons: ^1.1.166
+  fluent_ui: ^3.11.1
+  fluentui_system_icons: ^1.1.168
   flutter:
     sdk: flutter
   http: ^0.13.4
@@ -34,14 +34,15 @@ dependencies:
   uuid: ^3.0.5
 
 dev_dependencies:
+  async: ^2.8.2
   build: ^2.2.1
   build_runner: ^2.1.7
-  built_value_generator: ^8.2.2
-  flutter_lints: ^1.0.0
+  built_value_generator: ^8.2.3
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
-  msix: ^3.4.0
+  msix: ^3.6.1
 
 flutter:
   uses-material-design: true

@@ -35,13 +35,13 @@ class MyLogin extends StatelessWidget {
                 height: 24,
               ),
               ElevatedButton(
-                child: const Text('ENTER'),
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/catalog');
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.yellow,
                 ),
+                child: const Text('ENTER'),
               )
             ],
           ),

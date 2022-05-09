@@ -70,14 +70,14 @@ packages:
       name: fluent_ui
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.11.0"
+    version: "3.11.1"
   fluentui_system_icons:
     dependency: "direct main"
     description:
       name: fluentui_system_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.166"
+    version: "1.1.168"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -89,7 +89,7 @@ packages:
       name: flutter_layout_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   flutter_lints:
     dependency: "direct dev"
     description:
