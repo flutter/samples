@@ -20,10 +20,10 @@ class HomePage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   int _pageIndex = 0;
 
   @override

@@ -16,10 +16,10 @@ class EntriesPage extends StatefulWidget {
   const EntriesPage({Key? key}) : super(key: key);
 
   @override
-  EntriesPageState createState() => EntriesPageState();
+  State<EntriesPage> createState() => _EntriesPageState();
 }
 
-class EntriesPageState extends State<EntriesPage> {
+class _EntriesPageState extends State<EntriesPage> {
   Category? _selected;
 
   @override
@@ -53,10 +53,10 @@ class EntriesList extends StatefulWidget {
   }) : super(key: ValueKey(category?.id));
 
   @override
-  EntriesListState createState() => EntriesListState();
+  State<EntriesList> createState() => _EntriesListState();
 }
 
-class EntriesListState extends State<EntriesList> {
+class _EntriesListState extends State<EntriesList> {
   @override
   Widget build(BuildContext context) {
     if (widget.category == null) {

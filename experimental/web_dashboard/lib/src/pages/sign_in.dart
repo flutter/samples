@@ -37,10 +37,10 @@ class SignInButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  SignInButtonState createState() => SignInButtonState();
+  State<SignInButton> createState() => _SignInButtonState();
 }
 
-class SignInButtonState extends State<SignInButton> {
+class _SignInButtonState extends State<SignInButton> {
   Future<bool>? _checkSignInFuture;
 
   @override
