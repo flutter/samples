@@ -13,10 +13,10 @@ class MethodChannelDemo extends StatefulWidget {
   const MethodChannelDemo({Key? key}) : super(key: key);
 
   @override
-  MethodChannelDemoState createState() => MethodChannelDemoState();
+  State<MethodChannelDemo> createState() => _MethodChannelDemoState();
 }
 
-class MethodChannelDemoState extends State<MethodChannelDemo> {
+class _MethodChannelDemoState extends State<MethodChannelDemo> {
   int count = 0;
 
   @override
