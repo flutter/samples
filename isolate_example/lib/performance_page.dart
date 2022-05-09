@@ -33,10 +33,10 @@ class PerformancePage extends StatefulWidget {
   const PerformancePage({Key? key}) : super(key: key);
 
   @override
-  PerformancePageState createState() => PerformancePageState();
+  State<PerformancePage> createState() => _PerformancePageState();
 }
 
-class PerformancePageState extends State<PerformancePage> {
+class _PerformancePageState extends State<PerformancePage> {
   Future<void> computeFuture = Future.value();
 
   @override
