@@ -20,10 +20,10 @@ class SongsTab extends StatefulWidget {
   final Widget? androidDrawer;
 
   @override
-  SongsTabState createState() => SongsTabState();
+  State<SongsTab> createState() => _SongsTabState();
 }
 
-class SongsTabState extends State<SongsTab> {
+class _SongsTabState extends State<SongsTab> {
   static const _itemsLength = 50;
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();

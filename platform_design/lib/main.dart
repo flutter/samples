@@ -52,11 +52,11 @@ class PlatformAdaptingHomePage extends StatefulWidget {
   const PlatformAdaptingHomePage({Key? key}) : super(key: key);
 
   @override
-  PlatformAdaptingHomePageState createState() =>
-      PlatformAdaptingHomePageState();
+  State<PlatformAdaptingHomePage> createState() =>
+      _PlatformAdaptingHomePageState();
 }
 
-class PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
+class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   // This app keeps a global key for the songs tab because it owns a bunch of
   // data. Since changing platform re-parents those tabs into different
   // scaffolds, keeping a global key to it lets this app keep that tab's data as
