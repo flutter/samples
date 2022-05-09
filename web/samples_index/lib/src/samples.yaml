@@ -491,6 +491,59 @@ samples:
     tags: ['desktop', 'rest-api']
     platforms: ['windows', 'macos', 'linux']
     type: sample
+
+  - name: Rich Text Editor
+    author: Flutter
+    screenshots:
+      - url: images/simple_editor_active.png
+        alt: Advanced text editing with activity
+      - url: images/simple_editor_initial.png
+        alt: Advanced text editing in initial state
+    source: https://github.com/flutter/samples/tree/master/simplistic_editor
+    description: >
+      This is a fancy text editor sample which shows how to consume fine-grain
+      text editing and selection details from the framework's TextEditingDeltas
+      APIs.
+    difficulty: advanced
+    widgets:
+      - TextInput
+    packages: []
+    links: []
+    tags: ["demo", "text"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: sample
+
+  - name: Material You
+    author: Flutter
+    screenshots:
+      - url: images/material_you_components.png
+        alt: Components tab of the Material You demo
+      - url: images/material_you_color.png
+        alt: Colors tab of the Material You demo
+      - url: images/material_you_typography.png
+        alt: Typography tab of the Material You demo
+      - url: images/material_you_elevation.png
+        alt: Elevation tab of the Material You demo
+      - url: images/material_you_green.png
+        alt: Elevation tab of the Material You demo with seed color of green
+    source: https://github.com/flutter/samples/tree/master/material_3_demo
+    description: >
+      This is a brochure of common Material widgets, styled with the new
+      Material You version of the Material design spec.
+    difficulty: beginner
+    widgets:
+      - Theme
+      - TextButton
+      - ElevatedButton
+      - OutlinedButton
+      - Text
+      - Card
+      - AppBar
+    packages: []
+    links: []
+    tags: ["Material", "Material You"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: sample
     
 ###################
 #### Web Demos ####

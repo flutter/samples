@@ -15,7 +15,7 @@ dependencies:
   file_selector_macos: ^0.8.2
   file_selector_windows: ^0.8.2
   fluent_ui: ^3.11.1
-  fluentui_system_icons: ^1.1.166
+  fluentui_system_icons: ^1.1.168
   flutter:
     sdk: flutter
   http: ^0.13.4
@@ -42,7 +42,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
-  msix: ^3.4.0
+  msix: ^3.6.1
 
 flutter:
   uses-material-design: true
