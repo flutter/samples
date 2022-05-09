@@ -6,61 +6,77 @@ part of data;
 // JsonSerializableGenerator
 // **************************************************************************
 
-Index _$IndexFromJson(Map json) {
-  return $checkedNew('Index', json, () {
-    final val = Index(
-      $checkedConvert(
-          json,
-          'samples',
-          (v) => (v as List<dynamic>)
-              .map((e) => Sample.fromJson(e as Map))
-              .toList()),
+Index _$IndexFromJson(Map json) => $checkedCreate(
+      'Index',
+      json,
+      ($checkedConvert) {
+        final val = Index(
+          $checkedConvert(
+              'samples',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Sample.fromJson(e as Map))
+                  .toList()),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
 
 Map<String, dynamic> _$IndexToJson(Index instance) => <String, dynamic>{
       'samples': instance.samples,
     };
 
-Sample _$SampleFromJson(Map json) {
-  return $checkedNew('Sample', json, () {
-    final val = Sample(
-      name: $checkedConvert(json, 'name', (v) => v as String),
-      author: $checkedConvert(json, 'author', (v) => v as String?),
-      screenshots: $checkedConvert(
-          json,
-          'screenshots',
-          (v) => (v as List<dynamic>)
-              .map((e) => Screenshot.fromJson(e as Map))
-              .toList()),
-      source: $checkedConvert(json, 'source', (v) => v as String),
-      web: $checkedConvert(json, 'web', (v) => v as String?),
-      description: $checkedConvert(json, 'description', (v) => v as String),
-      difficulty: $checkedConvert(json, 'difficulty', (v) => v as String?),
-      widgets: $checkedConvert(json, 'widgets',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-      packages: $checkedConvert(json, 'packages',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-      tags: $checkedConvert(json, 'tags',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-      platforms: $checkedConvert(json, 'platforms',
-          (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-      links: $checkedConvert(
-          json,
-          'links',
-          (v) => (v as List<dynamic>)
-              .map((e) => Link.fromJson(e as Map))
-              .toList()),
-      type: $checkedConvert(json, 'type', (v) => v as String),
-      date: $checkedConvert(
-          json, 'date', (v) => v == null ? null : DateTime.parse(v as String)),
-      channel: $checkedConvert(json, 'channel', (v) => v as String?),
+Sample _$SampleFromJson(Map json) => $checkedCreate(
+      'Sample',
+      json,
+      ($checkedConvert) {
+        final val = Sample(
+          name: $checkedConvert('name', (v) => v as String),
+          author: $checkedConvert('author', (v) => v as String? ?? 'Flutter'),
+          screenshots: $checkedConvert(
+              'screenshots',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Screenshot.fromJson(e as Map))
+                  .toList()),
+          source: $checkedConvert('source', (v) => v as String),
+          web: $checkedConvert('web', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String),
+          difficulty:
+              $checkedConvert('difficulty', (v) => v as String? ?? 'beginner'),
+          widgets: $checkedConvert(
+              'widgets',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
+          packages: $checkedConvert(
+              'packages',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
+          tags: $checkedConvert(
+              'tags',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
+          platforms: $checkedConvert(
+              'platforms',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  const []),
+          links: $checkedConvert(
+              'links',
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) => Link.fromJson(e as Map))
+                      .toList() ??
+                  const []),
+          type: $checkedConvert('type', (v) => v as String),
+          date: $checkedConvert(
+              'date', (v) => v == null ? null : DateTime.parse(v as String)),
+          channel: $checkedConvert('channel', (v) => v as String?),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
 
 Map<String, dynamic> _$SampleToJson(Sample instance) => <String, dynamic>{
       'name': instance.name,
@@ -80,15 +96,17 @@ Map<String, dynamic> _$SampleToJson(Sample instance) => <String, dynamic>{
       'channel': instance.channel,
     };
 
-Screenshot _$ScreenshotFromJson(Map json) {
-  return $checkedNew('Screenshot', json, () {
-    final val = Screenshot(
-      $checkedConvert(json, 'url', (v) => v as String),
-      $checkedConvert(json, 'alt', (v) => v as String),
+Screenshot _$ScreenshotFromJson(Map json) => $checkedCreate(
+      'Screenshot',
+      json,
+      ($checkedConvert) {
+        final val = Screenshot(
+          $checkedConvert('url', (v) => v as String),
+          $checkedConvert('alt', (v) => v as String),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
 
 Map<String, dynamic> _$ScreenshotToJson(Screenshot instance) =>
     <String, dynamic>{
@@ -96,15 +114,17 @@ Map<String, dynamic> _$ScreenshotToJson(Screenshot instance) =>
       'alt': instance.alt,
     };
 
-Link _$LinkFromJson(Map json) {
-  return $checkedNew('Link', json, () {
-    final val = Link(
-      $checkedConvert(json, 'text', (v) => v as String),
-      $checkedConvert(json, 'href', (v) => v as String),
+Link _$LinkFromJson(Map json) => $checkedCreate(
+      'Link',
+      json,
+      ($checkedConvert) {
+        final val = Link(
+          $checkedConvert('text', (v) => v as String),
+          $checkedConvert('href', (v) => v as String),
+        );
+        return val;
+      },
     );
-    return val;
-  });
-}
 
 Map<String, dynamic> _$LinkToJson(Link instance) => <String, dynamic>{
       'text': instance.text,
