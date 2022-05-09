@@ -30,10 +30,10 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   static const MethodChannel _methodChannel =
       MethodChannel('dev.flutter.sample/platform_view_swift');
 
