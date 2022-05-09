@@ -603,12 +603,13 @@ class ReplacementTextEditingController extends TextEditingController {
       final List<dynamic> toRemoveRangesThatHaveBeenMerged = <dynamic>[];
       final List<dynamic> toAddRangesThatHaveBeenMerged = <dynamic>[];
       for (int i = 0; i < overlappingTriples.length; i++) {
+        bool didOverlap = false;
         List<dynamic> tripleA = overlappingTriples[i];
         if (toRemoveRangesThatHaveBeenMerged.contains(tripleA)) continue;
         for (int j = i + 1; j < overlappingTriples.length; j++) {
           final List<dynamic> tripleB = overlappingTriples[j];
           if (math.max(tripleA[0] as int, tripleB[0] as int)
-              <= math.min(tripleB[1] as int, tripleB[1] as int)
+              <= math.min(tripleA[1] as int, tripleB[1] as int)
               && tripleA[2] == tripleB[2]) {
             toRemoveRangesThatHaveBeenMerged.addAll(<dynamic>[tripleA, tripleB]);
             tripleA = <dynamic>[
@@ -616,10 +617,11 @@ class ReplacementTextEditingController extends TextEditingController {
               math.max(tripleA[1] as int, tripleB[1] as int),
               tripleA[2],
             ];
+            didOverlap = true;
           }
         }
 
-        if (i != overlappingTriples.length - 1
+        if (didOverlap
             && !toAddRangesThatHaveBeenMerged.contains(tripleA)
             && !toRemoveRangesThatHaveBeenMerged.contains(tripleA)) {
           toAddRangesThatHaveBeenMerged.add(tripleA);
