@@ -16,10 +16,10 @@ class Demo extends StatefulWidget {
   const Demo({Key? key}) : super(key: key);
 
   @override
-  State<Demo> createState() => DemoState();
+  State<Demo> createState() => _DemoState();
 }
 
-class DemoState extends State<Demo> {
+class _DemoState extends State<Demo> {
   String deviceInfo = '';
 
   @override
