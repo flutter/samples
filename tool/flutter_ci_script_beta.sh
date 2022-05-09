@@ -15,10 +15,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "desktop_photo_search/fluent_ui"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "desktop_photo_search/material"
+    "desktop_photo_search/fluent_ui"
+    "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     "experimental/linting_tool"

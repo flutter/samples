@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   built_collection: ^5.1.1
@@ -33,10 +33,11 @@ dependencies:
       path: plugins/window_size
 
 dev_dependencies:
+  async: ^2.8.2
   build: ^2.2.1
   build_runner: ^2.1.7
   built_value_generator: ^8.2.3
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
