@@ -9,10 +9,10 @@ class FormWidgetsDemo extends StatefulWidget {
   const FormWidgetsDemo({Key? key}) : super(key: key);
 
   @override
-  FormWidgetsDemoState createState() => FormWidgetsDemoState();
+  State<FormWidgetsDemo> createState() => _FormWidgetsDemoState();
 }
 
-class FormWidgetsDemoState extends State<FormWidgetsDemo> {
+class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
@@ -168,7 +168,7 @@ class _FormDatePicker extends StatefulWidget {
   });
 
   @override
-  _FormDatePickerState createState() => _FormDatePickerState();
+  State<_FormDatePicker> createState() => _FormDatePickerState();
 }
 
 class _FormDatePickerState extends State<_FormDatePicker> {

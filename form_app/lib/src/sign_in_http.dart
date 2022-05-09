@@ -35,10 +35,10 @@ class SignInHttpDemo extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  SignInHttpDemoState createState() => SignInHttpDemoState();
+  State<SignInHttpDemo> createState() => _SignInHttpDemoState();
 }
 
-class SignInHttpDemoState extends State<SignInHttpDemo> {
+class _SignInHttpDemoState extends State<SignInHttpDemo> {
   FormData formData = FormData();
 
   @override
