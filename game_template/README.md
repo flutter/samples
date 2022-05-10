@@ -32,9 +32,9 @@ device attached.
 
 It is often convenient to develop your game as a desktop app.
 For example, you can run `flutter run -d macOS`, and get the same UI
-in a desktop window on a Mac. That way, you don't need to be running
-Simulators nor attaching mobile devices. This template supports that
-method of development: integrations like AdMob will be disabled then.
+in a desktop window on a Mac. That way, you don't need to use a
+simulator/emulator or attach a mobile device. This template supports
+desktop development by disabling integrations like AdMob for desktop.
 
 
 ## Code organization
