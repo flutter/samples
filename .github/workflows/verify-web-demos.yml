@@ -11,8 +11,7 @@ jobs:
     strategy:
       matrix:
         flutter_version:
-          # TODO: Uncomment to this after the launch
-          # - stable
+          - stable
           - beta
     steps:
       - name: Checkout
