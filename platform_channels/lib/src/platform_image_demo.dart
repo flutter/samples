@@ -16,10 +16,10 @@ class PlatformImageDemo extends StatefulWidget {
   const PlatformImageDemo({Key? key}) : super(key: key);
 
   @override
-  PlatformImageDemoState createState() => PlatformImageDemoState();
+  State<PlatformImageDemo> createState() => _PlatformImageDemoState();
 }
 
-class PlatformImageDemoState extends State<PlatformImageDemo> {
+class _PlatformImageDemoState extends State<PlatformImageDemo> {
   Future<Uint8List>? imageData;
 
   @override

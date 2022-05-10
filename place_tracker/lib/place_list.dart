@@ -13,10 +13,10 @@ class PlaceList extends StatefulWidget {
   const PlaceList({Key? key}) : super(key: key);
 
   @override
-  PlaceListState createState() => PlaceListState();
+  State<PlaceList> createState() => _PlaceListState();
 }
 
-class PlaceListState extends State<PlaceList> {
+class _PlaceListState extends State<PlaceList> {
   final ScrollController _scrollController = ScrollController();
 
   @override

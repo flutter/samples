@@ -12,10 +12,10 @@ class PetListScreen extends StatefulWidget {
   const PetListScreen({Key? key}) : super(key: key);
 
   @override
-  PetListScreenState createState() => PetListScreenState();
+  State<PetListScreen> createState() => _PetListScreenState();
 }
 
-class PetListScreenState extends State<PetListScreen> {
+class _PetListScreenState extends State<PetListScreen> {
   PetListModel petListModel = PetListModel(petList: []);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 

@@ -81,12 +81,12 @@ class CloseButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  CloseButtonState createState() {
-    return CloseButtonState();
+  State<CloseButton> createState() {
+    return _CloseButtonState();
   }
 }
 
-class CloseButtonState extends State<CloseButton> {
+class _CloseButtonState extends State<CloseButton> {
   bool tapInProgress = false;
 
   @override

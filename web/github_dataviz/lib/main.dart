@@ -22,10 +22,10 @@ class MainLayout extends StatefulWidget {
   const MainLayout({Key? key}) : super(key: key);
 
   @override
-  MainLayoutState createState() => MainLayoutState();
+  State<MainLayout> createState() => _MainLayoutState();
 }
 
-class MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
+class _MainLayoutState extends State<MainLayout> with TickerProviderStateMixin {
   AnimationController? _animation;
   List<UserContribution>? contributions;
   List<StatForWeek>? starsByWeek;
