@@ -17,7 +17,7 @@ The game compiles and works out of the box. It comes with things
 like a main menu, a router, a settings screen, and audio.
 When building a new game, this is likely everything you first need.
 
-When you're ready to enable the more advanced integrations, like ads
+When you're ready to enable more advanced integrations, like ads
 and in-app payments, read the _Integrations_ section below.
 
 
