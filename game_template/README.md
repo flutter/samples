@@ -27,8 +27,8 @@ To run the app in debug mode:
 
     flutter run
 
-This assumes you have an Android emulator, iOS Simulator or a physical
-device attached.
+This assumes you have an Android emulator,
+iOS Simulator, or an attached physical device.
 
 It is often convenient to develop your game as a desktop app.
 For example, you can run `flutter run -d macOS`, and get the same UI
