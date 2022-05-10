@@ -113,18 +113,20 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
-                          if (snapshot.data == null) {
+                          final data = snapshot.data;
+                          if (data == null) {
                             return const CircularProgressIndicator.adaptive();
                           }
                           return Transform(
-                              // Figure out the phone's orientation relative
-                              // to gravity's direction. Ignore the z vector.
-                              transform: Matrix4.rotationX(
-                                  snapshot.data!.y / gravity * pi / 2)
-                                ..multiply(Matrix4.rotationY(
-                                    snapshot.data!.x / gravity * pi / 2)),
-                              alignment: Alignment.center,
-                              child: const FlutterLogo(size: 72));
+                            // Figure out the phone's orientation relative
+                            // to gravity's direction. Ignore the z vector.
+                            transform: Matrix4.rotationX(
+                              data.y / gravity * pi / 2,
+                            )..multiply(
+                                Matrix4.rotationY(data.x / gravity * pi / 2)),
+                            alignment: Alignment.center,
+                            child: const FlutterLogo(size: 72),
+                          );
                         },
                       ),
                     ),
