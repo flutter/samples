@@ -40,8 +40,8 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   Trivia get currentTrivia => veggie.trivia[triviaIndex.value];
 
   /// The current state of the game.
-  RestorablePlayerStatus status =
-      RestorablePlayerStatus(PlayerStatus.readyToAnswer);
+  _RestorablePlayerStatus status =
+      _RestorablePlayerStatus(PlayerStatus.readyToAnswer);
 
   @override
   String? get restorationId => widget.restorationId;
@@ -222,8 +222,8 @@ class _TriviaViewState extends State<TriviaView> with RestorationMixin {
   }
 }
 
-class RestorablePlayerStatus extends RestorableValue<PlayerStatus> {
-  RestorablePlayerStatus(this._defaultValue);
+class _RestorablePlayerStatus extends RestorableValue<PlayerStatus> {
+  _RestorablePlayerStatus(this._defaultValue);
 
   final PlayerStatus _defaultValue;
 
