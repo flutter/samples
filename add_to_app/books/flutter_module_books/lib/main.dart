@@ -45,10 +45,10 @@ class BookDetail extends StatefulWidget {
   final Book? book;
 
   @override
-  BookDetailState createState() => BookDetailState();
+  State<BookDetail> createState() => _BookDetailState();
 }
 
-class BookDetailState extends State<BookDetail> {
+class _BookDetailState extends State<BookDetail> {
   Book? book;
 
   late HostBookApi hostApi;
