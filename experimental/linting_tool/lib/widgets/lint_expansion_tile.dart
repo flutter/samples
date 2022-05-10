@@ -283,10 +283,10 @@ class ExistingProfileDialog extends StatefulWidget {
   final Rule rule;
 
   @override
-  State<ExistingProfileDialog> createState() => ExistingProfileDialogState();
+  State<ExistingProfileDialog> createState() => _ExistingProfileDialogState();
 }
 
-class ExistingProfileDialogState extends State<ExistingProfileDialog> {
+class _ExistingProfileDialogState extends State<ExistingProfileDialog> {
   @override
   Widget build(BuildContext context) {
     var profilesStore = Provider.of<ProfilesStore>(context);
