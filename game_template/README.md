@@ -440,13 +440,13 @@ To enable in-app purchases on Android:
      depends on `package:in_app_purchase`, it signals itself to the
      Play Store as a project with in-app purchases.
    - Releasing to Closed Testing triggers a review process,
-     which is a prerequisite for In-app purchases to work.
+     which is a prerequisite for in-app purchases to work.
      The review process can take several days and until it's complete,
      you can't move on with the Android side of things.
 2. Add an in-app product in _Play Console_ &rarr; _Monetize_ &rarr;
    _In-app products_. Come up with a product ID (for example,
    `ad_removal`).
-3. While still in Play Console, _activate_ the In-app product.
+3. While still in Play Console, _activate_ the in-app product.
    
 To enable in-app purchases on iOS:
 
@@ -534,5 +534,5 @@ Then, run the following:
 flutter pub run flutter_launcher_icons:main
 ```
 
-You can configure the look of the icon in the `flutter_icons:`
-section of `pubspec.yaml`.
+You can [configure](https://github.com/fluttercommunity/flutter_launcher_icons#book-guide)
+the look of the icon in the `flutter_icons:` section of `pubspec.yaml`.
