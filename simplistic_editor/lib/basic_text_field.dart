@@ -22,8 +22,10 @@ class BasicTextField extends StatefulWidget {
 }
 
 class _BasicTextFieldState extends State<BasicTextField> {
-  final GlobalKey<BasicTextInputClientState> textInputClientKey = GlobalKey<BasicTextInputClientState>();
-  BasicTextInputClientState? get _textInputClient => textInputClientKey.currentState;
+  final GlobalKey<BasicTextInputClientState> textInputClientKey =
+      GlobalKey<BasicTextInputClientState>();
+  BasicTextInputClientState? get _textInputClient =>
+      textInputClientKey.currentState;
   RenderEditable get _renderEditable => _textInputClient!.renderEditable;
 
   // For text selection gestures.
@@ -42,8 +44,8 @@ class _BasicTextFieldState extends State<BasicTextField> {
       return false;
     }
 
-    if (cause == SelectionChangedCause.longPress
-        || cause == SelectionChangedCause.scribble) {
+    if (cause == SelectionChangedCause.longPress ||
+        cause == SelectionChangedCause.scribble) {
       return true;
     }
 
@@ -54,7 +56,8 @@ class _BasicTextFieldState extends State<BasicTextField> {
     return false;
   }
 
-  void _handleSelectionChanged(TextSelection selection, SelectionChangedCause? cause) {
+  void _handleSelectionChanged(
+      TextSelection selection, SelectionChangedCause? cause) {
     final bool willShowSelectionHandles = _shouldShowSelectionHandles(cause);
     if (willShowSelectionHandles != _showSelectionHandles) {
       setState(() {
@@ -128,16 +131,20 @@ class _BasicTextFieldState extends State<BasicTextField> {
             case TargetPlatform.linux:
             case TargetPlatform.windows:
               _renderEditable.selectWordsInRange(
-                from: longPressMoveUpdateDetails.globalPosition - longPressMoveUpdateDetails.offsetFromOrigin,
+                from: longPressMoveUpdateDetails.globalPosition -
+                    longPressMoveUpdateDetails.offsetFromOrigin,
                 to: longPressMoveUpdateDetails.globalPosition,
                 cause: SelectionChangedCause.longPress,
               );
               break;
           }
         },
-        onLongPressEnd: (longPressEndDetails) => _textInputClient!.showToolbar(),
-        onHorizontalDragStart: (dragStartDetails) => _onDragStart(dragStartDetails),
-        onHorizontalDragUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
+        onLongPressEnd: (longPressEndDetails) =>
+            _textInputClient!.showToolbar(),
+        onHorizontalDragStart: (dragStartDetails) =>
+            _onDragStart(dragStartDetails),
+        onHorizontalDragUpdate: (dragUpdateDetails) =>
+            _onDragUpdate(dragUpdateDetails),
         child: SizedBox(
           height: double.infinity,
           width: MediaQuery.of(context).size.width,

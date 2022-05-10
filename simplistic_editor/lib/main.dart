@@ -38,14 +38,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final ReplacementTextEditingController _replacementTextEditingController =
-  ReplacementTextEditingController(
+      ReplacementTextEditingController(
     text: 'The quick brown fox jumps over the lazy dog.',
   );
   final FocusNode _focusNode = FocusNode();
   final List<bool> _isSelected = [false, false, false];
   final List<TextEditingDelta> _textEditingDeltaHistory = [];
 
-  void _updateTextEditingDeltaHistory(List<TextEditingDelta> textEditingDeltas) {
+  void _updateTextEditingDeltaHistory(
+      List<TextEditingDelta> textEditingDeltas) {
     for (final TextEditingDelta delta in textEditingDeltas) {
       _textEditingDeltaHistory.add(delta);
     }
@@ -53,7 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {});
   }
 
-  List<Widget> _buildTextEditingDeltaHistoryViews(List<TextEditingDelta> textEditingDeltas) {
+  List<Widget> _buildTextEditingDeltaHistoryViews(
+      List<TextEditingDelta> textEditingDeltas) {
     List<Widget> textEditingDeltaViews = [];
 
     for (final TextEditingDelta delta in textEditingDeltas) {
@@ -61,7 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (delta is TextEditingDeltaInsertion) {
         deltaView = TextEditingDeltaView(
-          deltaType: delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType:
+              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
           deltaText: delta.textInserted,
           deltaRange: TextRange.collapsed(delta.insertionOffset),
           newSelection: delta.selection,
@@ -69,7 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaDeletion) {
         deltaView = TextEditingDeltaView(
-          deltaType: delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType:
+              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
           deltaText: delta.textDeleted,
           deltaRange: delta.deletedRange,
           newSelection: delta.selection,
@@ -77,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaReplacement) {
         deltaView = TextEditingDeltaView(
-          deltaType: delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType:
+              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
           deltaText: delta.replacementText,
           deltaRange: delta.replacedRange,
           newSelection: delta.selection,
@@ -85,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaNonTextUpdate) {
         deltaView = TextEditingDeltaView(
-          deltaType: delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType:
+              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
           deltaText: '',
           deltaRange: TextRange.empty,
           newSelection: delta.selection,
@@ -111,7 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // When the selection changes we want to check the replacements at the new
     // selection. Enable/disable toggle buttons based on the replacements found
     // at the new selection.
-    final List<TextStyle> replacementStyles = _replacementTextEditingController.getReplacementsAtSelection(selection);
+    final List<TextStyle> replacementStyles =
+        _replacementTextEditingController.getReplacementsAtSelection(selection);
     final List<bool> hasChanged = [false, false, false];
 
     if (replacementStyles.isEmpty) {
@@ -157,9 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _updateToggleButtonsStateOnButtonPressed(int index) {
     Map<int, TextStyle> attributeMap = const <int, TextStyle>{
-      0 : TextStyle(fontWeight: FontWeight.bold),
-      1 : TextStyle(fontStyle: FontStyle.italic),
-      2 : TextStyle(decoration: TextDecoration.underline),
+      0: TextStyle(fontWeight: FontWeight.bold),
+      1: TextStyle(fontStyle: FontStyle.italic),
+      2: TextStyle(decoration: TextDecoration.underline),
     };
 
     final TextRange replacementRange = TextRange(
@@ -172,14 +179,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _replacementTextEditingController.applyReplacement(
         TextEditingInlineSpanReplacement(
           replacementRange,
-              (string, range) => TextSpan(text: string, style: attributeMap[index]),
+          (string, range) => TextSpan(text: string, style: attributeMap[index]),
           true,
         ),
       );
       setState(() {});
     } else {
       _replacementTextEditingController.disableExpand(attributeMap[index]!);
-      _replacementTextEditingController.removeReplacementsAtRange(replacementRange, attributeMap[index]);
+      _replacementTextEditingController.removeReplacementsAtRange(
+          replacementRange, attributeMap[index]);
       setState(() {});
     }
   }
@@ -188,8 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Text(
       text,
       style: const TextStyle(
-          fontWeight: FontWeight.w600,
-          decoration: TextDecoration.underline,
+        fontWeight: FontWeight.w600,
+        decoration: TextDecoration.underline,
       ),
     );
   }
@@ -200,35 +208,38 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Row(
         children: [
           Expanded(
-              child: Tooltip(
-                message: 'The type of text input that is occurring.'
-                    ' Check out the documentation for TextEditingDelta for more information.',
-                child: _buildTextEditingDeltaViewHeading('Delta Type'),
-              ),
+            child: Tooltip(
+              message: 'The type of text input that is occurring.'
+                  ' Check out the documentation for TextEditingDelta for more information.',
+              child: _buildTextEditingDeltaViewHeading('Delta Type'),
+            ),
           ),
           Expanded(
-              child: Tooltip(
-                message: 'The text that is being inserted or deleted',
-                child: _buildTextEditingDeltaViewHeading('Delta Text'),
-              ),
+            child: Tooltip(
+              message: 'The text that is being inserted or deleted',
+              child: _buildTextEditingDeltaViewHeading('Delta Text'),
+            ),
           ),
           Expanded(
-              child: Tooltip(
-                message: 'The offset in the text where the text input is occurring.',
-                child: _buildTextEditingDeltaViewHeading('Delta Offset'),
-              ),
+            child: Tooltip(
+              message:
+                  'The offset in the text where the text input is occurring.',
+              child: _buildTextEditingDeltaViewHeading('Delta Offset'),
+            ),
           ),
           Expanded(
-              child: Tooltip(
-                message: 'The new text selection range after the text input has occurred.',
-                child: _buildTextEditingDeltaViewHeading('New Selection'),
-              ),
+            child: Tooltip(
+              message:
+                  'The new text selection range after the text input has occurred.',
+              child: _buildTextEditingDeltaViewHeading('New Selection'),
+            ),
           ),
           Expanded(
-              child: Tooltip(
-                message: 'The new composing range after the text input has occurred.',
-                child: _buildTextEditingDeltaViewHeading('New Composing'),
-              ),
+            child: Tooltip(
+              message:
+                  'The new composing range after the text input has occurred.',
+              child: _buildTextEditingDeltaViewHeading('New Composing'),
+            ),
           ),
         ],
       ),
@@ -247,8 +258,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ' more powerful rich text editing applications such as this small example. This feature is supported on all platforms.';
     return DialogRoute<void>(
       context: context,
-      builder: (context) =>
-      const AlertDialog(
+      builder: (context) => const AlertDialog(
         title: Center(child: Text('About')),
         content: Text(aboutContent),
       ),
@@ -264,7 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             onPressed: () {
               Navigator.of(context).restorablePush(_aboutDialogBuilder);
-              },
+            },
             icon: const Icon(Icons.info_outline),
           ),
         ],
@@ -274,8 +284,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: ToggleButtonsStateManager(
             isToggleButtonsSelected: _isSelected,
-            updateToggleButtonsStateOnButtonPressed: _updateToggleButtonsStateOnButtonPressed,
-            updateToggleButtonStateOnSelectionChanged: _updateToggleButtonsStateOnSelectionChanged,
+            updateToggleButtonsStateOnButtonPressed:
+                _updateToggleButtonsStateOnButtonPressed,
+            updateToggleButtonStateOnSelectionChanged:
+                _updateToggleButtonsStateOnSelectionChanged,
             child: Column(
               children: [
                 Padding(
@@ -285,24 +297,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       ToggleButtonsStateManager(
                         isToggleButtonsSelected: _isSelected,
-                        updateToggleButtonsStateOnButtonPressed: _updateToggleButtonsStateOnButtonPressed,
-                        updateToggleButtonStateOnSelectionChanged: _updateToggleButtonsStateOnSelectionChanged,
-                        child: Builder(
-                          builder: (innerContext) {
-                            final ToggleButtonsStateManager manager = ToggleButtonsStateManager.of(innerContext);
+                        updateToggleButtonsStateOnButtonPressed:
+                            _updateToggleButtonsStateOnButtonPressed,
+                        updateToggleButtonStateOnSelectionChanged:
+                            _updateToggleButtonsStateOnSelectionChanged,
+                        child: Builder(builder: (innerContext) {
+                          final ToggleButtonsStateManager manager =
+                              ToggleButtonsStateManager.of(innerContext);
 
-                            return ToggleButtons(
-                              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                              isSelected: manager.toggleButtonsState,
-                              onPressed: (index) => manager.updateToggleButtonsOnButtonPressed(index),
-                              children: const [
-                                Icon(Icons.format_bold),
-                                Icon(Icons.format_italic),
-                                Icon(Icons.format_underline),
-                              ],
-                            );
-                          }
-                        ),
+                          return ToggleButtons(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(4.0)),
+                            isSelected: manager.toggleButtonsState,
+                            onPressed: (index) => manager
+                                .updateToggleButtonsOnButtonPressed(index),
+                            children: const [
+                              Icon(Icons.format_bold),
+                              Icon(Icons.format_italic),
+                              Icon(Icons.format_underline),
+                            ],
+                          );
+                        }),
                       ),
                     ],
                   ),
@@ -312,14 +327,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.symmetric(horizontal: 35.0),
                     child: ToggleButtonsStateManager(
                       isToggleButtonsSelected: _isSelected,
-                      updateToggleButtonsStateOnButtonPressed: _updateToggleButtonsStateOnButtonPressed,
-                      updateToggleButtonStateOnSelectionChanged: _updateToggleButtonsStateOnSelectionChanged,
+                      updateToggleButtonsStateOnButtonPressed:
+                          _updateToggleButtonsStateOnButtonPressed,
+                      updateToggleButtonStateOnSelectionChanged:
+                          _updateToggleButtonsStateOnSelectionChanged,
                       child: TextEditingDeltaHistoryManager(
                         history: _textEditingDeltaHistory,
                         updateHistoryOnInput: _updateTextEditingDeltaHistory,
                         child: BasicTextField(
                           controller: _replacementTextEditingController,
-                          style: const TextStyle(fontSize: 18.0, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 18.0, color: Colors.black),
                           focusNode: _focusNode,
                         ),
                       ),
@@ -336,18 +354,23 @@ class _MyHomePageState extends State<MyHomePage> {
                           updateHistoryOnInput: _updateTextEditingDeltaHistory,
                           child: Builder(
                             builder: (innerContext) {
-                              final TextEditingDeltaHistoryManager manager = TextEditingDeltaHistoryManager.of(innerContext);
+                              final TextEditingDeltaHistoryManager manager =
+                                  TextEditingDeltaHistoryManager.of(
+                                      innerContext);
                               return ListView.separated(
-                                padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 35.0),
                                 itemBuilder: (context, index) {
-                                  return _buildTextEditingDeltaHistoryViews(manager.textEditingDeltaHistory)[index];
+                                  return _buildTextEditingDeltaHistoryViews(
+                                      manager.textEditingDeltaHistory)[index];
                                 },
-                                itemCount: manager.textEditingDeltaHistory.length,
+                                itemCount:
+                                    manager.textEditingDeltaHistory.length,
                                 separatorBuilder: (context, index) {
                                   return const SizedBox(height: 2.0);
                                 },
                               );
-                            }
+                            },
                           ),
                         ),
                       ),
@@ -371,7 +394,7 @@ class TextEditingDeltaView extends StatelessWidget {
     required this.deltaText,
     required this.deltaRange,
     required this.newSelection,
-    required this.newComposing
+    required this.newComposing,
   }) : super(key: key);
 
   final String deltaType;
