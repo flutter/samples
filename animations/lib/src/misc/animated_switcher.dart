@@ -27,7 +27,7 @@ class AnimatedSwitcherDemo extends StatefulWidget {
   static String routeName = '/basics/10_animated_switcher';
 
   @override
-  _AnimatedSwitcherDemoState createState() => _AnimatedSwitcherDemoState();
+  State<AnimatedSwitcherDemo> createState() => _AnimatedSwitcherDemoState();
 }
 
 class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
@@ -67,8 +67,8 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
           duration: const Duration(seconds: 1),
           child: container,
           transitionBuilder: (child, animation) => ScaleTransition(
-            child: child,
             scale: animation,
+            child: child,
           ),
         ),
       ),

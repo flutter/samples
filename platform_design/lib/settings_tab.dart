@@ -15,7 +15,7 @@ class SettingsTab extends StatefulWidget {
   const SettingsTab({Key? key}) : super(key: key);
 
   @override
-  _SettingsTabState createState() => _SettingsTabState();
+  State<SettingsTab> createState() => _SettingsTabState();
 }
 
 class _SettingsTabState extends State<SettingsTab> {

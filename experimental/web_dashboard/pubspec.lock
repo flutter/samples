@@ -639,4 +639,3 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.17.0-206.0.dev <3.0.0"
-  flutter: ">=2.8.0"
