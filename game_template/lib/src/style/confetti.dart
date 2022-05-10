@@ -98,7 +98,7 @@ class _ConfettiState extends State<Confetti>
         animation: _controller,
       ),
       willChange: true,
-      child: SizedBox.expand(),
+      child: const SizedBox.expand(),
     );
   }
 
@@ -124,7 +124,7 @@ class _ConfettiState extends State<Confetti>
     _controller = AnimationController(
       // We don't really care about the duration, since we're going to
       // use the controller on loop anyway.
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       vsync: this,
     );
 
