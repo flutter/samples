@@ -97,7 +97,7 @@ flutter pub global run peanut \
 && git push origin --set-upstream gh-pages
 ```
 
-The last line of the command above will automatically push 
+The last line of the command above automatically pushes
 your newly built web game to GitHub pages, assuming that you have
 that set up.
 
