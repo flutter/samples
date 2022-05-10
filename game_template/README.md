@@ -87,8 +87,8 @@ flutter build appbundle && open build/app/outputs/bundle/release
 
 While the template is meant for mobile games, you can also publish
 for the web. This might be useful for web-based demos, for example,
-or for rapid play-testing. The following command requires `peanut`
-to be [installed](https://pub.dev/packages/peanut/install).
+or for rapid play-testing. The following command requires installing
+[`peanut`](https://pub.dev/packages/peanut/install).
 
 ```bash
 flutter pub global run peanut \
