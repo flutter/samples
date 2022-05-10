@@ -11,7 +11,7 @@ class FadeTransitionDemo extends StatefulWidget {
   static const String routeName = '/basics/fade_transition';
 
   @override
-  _FadeTransitionDemoState createState() => _FadeTransitionDemoState();
+  State<FadeTransitionDemo> createState() => _FadeTransitionDemoState();
 }
 
 class _FadeTransitionDemoState extends State<FadeTransitionDemo>

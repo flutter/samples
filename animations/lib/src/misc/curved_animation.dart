@@ -10,7 +10,7 @@ class CurvedAnimationDemo extends StatefulWidget {
   static const String routeName = '/misc/curved_animation';
 
   @override
-  _CurvedAnimationDemoState createState() => _CurvedAnimationDemoState();
+  State<CurvedAnimationDemo> createState() => _CurvedAnimationDemoState();
 }
 
 class CurveChoice {

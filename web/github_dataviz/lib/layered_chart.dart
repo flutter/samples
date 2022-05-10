@@ -17,12 +17,12 @@ class LayeredChart extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return LayeredChartState();
+  State<LayeredChart> createState() {
+    return _LayeredChartState();
   }
 }
 
-class LayeredChartState extends State<LayeredChart> {
+class _LayeredChartState extends State<LayeredChart> {
   late List<Path> paths;
   late List<Path> capPaths;
   late List<double> maxValues;
@@ -208,7 +208,7 @@ class ChartPainter extends CustomPainter {
   late Paint linePaint;
   late Paint fillPaint;
 
-  LayeredChartState state;
+  _LayeredChartState state;
 
   ChartPainter(
       this.state,

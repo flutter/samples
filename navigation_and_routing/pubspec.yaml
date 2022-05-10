@@ -1,9 +1,11 @@
 name: bookstore
 description: Navigation and routing sample app
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
+
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.17.0-0 <3.0.0"
+
 dependencies:
   adaptive_navigation: ^0.0.3
   collection: ^1.15.0
@@ -11,17 +13,19 @@ dependencies:
   flutter:
     sdk: flutter
   path_to_regexp: ^0.4.0
-  quiver: ^3.0.0
+  quiver: ^3.1.0
   url_launcher: ^6.1.0
   url_strategy: ^0.2.0
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
+
 dev_dependencies:
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   test: ^1.16.0
+
 flutter:
   uses-material-design: true

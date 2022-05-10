@@ -2,7 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
@@ -17,7 +16,7 @@ class EntriesPage extends StatefulWidget {
   const EntriesPage({Key? key}) : super(key: key);
 
   @override
-  _EntriesPageState createState() => _EntriesPageState();
+  State<EntriesPage> createState() => _EntriesPageState();
 }
 
 class _EntriesPageState extends State<EntriesPage> {
@@ -54,7 +53,7 @@ class EntriesList extends StatefulWidget {
   }) : super(key: ValueKey(category?.id));
 
   @override
-  _EntriesListState createState() => _EntriesListState();
+  State<EntriesList> createState() => _EntriesListState();
 }
 
 class _EntriesListState extends State<EntriesList> {
@@ -129,7 +128,9 @@ class EntryTile extends StatelessWidget {
           TextButton(
             child: const Text('Delete'),
             onPressed: () async {
-              var shouldDelete = await (showDialog<bool>(
+              final appState = Provider.of<AppState>(context, listen: false);
+              final scaffoldMessenger = ScaffoldMessenger.of(context);
+              final bool? shouldDelete = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Delete entry?'),
@@ -144,14 +145,10 @@ class EntryTile extends StatelessWidget {
                     ),
                   ],
                 ),
-              ) as FutureOr<bool>);
-              if (shouldDelete) {
-                await Provider.of<AppState>(context, listen: false)
-                    .api!
-                    .entries
-                    .delete(category!.id!, entry!.id!);
-
-                ScaffoldMessenger.of(context).showSnackBar(
+              );
+              if (shouldDelete != null && shouldDelete) {
+                await appState.api!.entries.delete(category!.id!, entry!.id!);
+                scaffoldMessenger.showSnackBar(
                   const SnackBar(
                     content: Text('Entry deleted'),
                   ),

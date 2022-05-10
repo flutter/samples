@@ -37,6 +37,7 @@ do
     echo "== Testing '${PROJECT_NAME}' on Flutter's stable channel =="
     pushd "${PROJECT_NAME}"
 
+    gradle wrapper
     ./gradlew --stacktrace assembleDebug
     ./gradlew --stacktrace assembleRelease
 

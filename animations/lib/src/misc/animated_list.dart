@@ -9,7 +9,7 @@ class AnimatedListDemo extends StatefulWidget {
   static String routeName = '/misc/animated_list';
 
   @override
-  _AnimatedListDemoState createState() => _AnimatedListDemoState();
+  State<AnimatedListDemo> createState() => _AnimatedListDemoState();
 }
 
 class _AnimatedListDemoState extends State<AnimatedListDemo> {

@@ -4,7 +4,7 @@ description: An example Flutter module.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.6.0-dev <3.0.0"
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   flutter:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   espresso: ^0.2.0
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
