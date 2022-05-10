@@ -22,15 +22,12 @@ declare -ar PROJECT_NAMES=(
     "experimental/linting_tool"
     "flutter_maps_firestore"
     "form_app"
-    # TODO: Re-enable once WidgetBinding.instance is non-null
-    #       in stable Flutter.
-    # "game_template"
+    "game_template"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "material_3_demo"
+    "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
@@ -40,9 +37,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    "simplistic_editor"
     "testing_app"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "simplistic_editor"
     "veggieseasons"
 )
 
