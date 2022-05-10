@@ -18,7 +18,7 @@ class NewsTab extends StatefulWidget {
   const NewsTab({Key? key}) : super(key: key);
 
   @override
-  _NewsTabState createState() => _NewsTabState();
+  State<NewsTab> createState() => _NewsTabState();
 }
 
 class _NewsTabState extends State<NewsTab> {
