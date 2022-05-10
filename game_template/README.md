@@ -105,7 +105,7 @@ that set up.
 # Integrations
 
 The more advanced integrations are disabled by default. For example,
-achievements are not enabled at start because you, the developer, first
+achievements aren't enabled at first because you, the developer,
 have to set them up (the achievements need to exist in App Store Connect
 and Google Play Console before they can be used in the code).
 
