@@ -79,7 +79,7 @@ class _TimelineState extends State<Timeline> {
         }
       },
       child: CustomPaint(
-          foregroundPainter: TimelinePainter(
+          foregroundPainter: _TimelinePainter(
               this, widget.numWeeks, widget.animationValue, widget.weekLabels),
           child: Container(
             height: 200,
@@ -106,7 +106,7 @@ class _TimelineState extends State<Timeline> {
   }
 }
 
-class TimelinePainter extends CustomPainter {
+class _TimelinePainter extends CustomPainter {
   _TimelineState state;
 
   late Paint mainLinePaint;
@@ -123,7 +123,7 @@ class TimelinePainter extends CustomPainter {
 
   int yearNumber = 2015;
 
-  TimelinePainter(
+  _TimelinePainter(
       this.state, this.numWeeks, this.animationValue, this.weekLabels) {
     mainLinePaint = Paint();
     mainLinePaint.style = PaintingStyle.stroke;

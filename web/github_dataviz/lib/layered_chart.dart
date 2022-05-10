@@ -167,13 +167,13 @@ class _LayeredChartState extends State<LayeredChart> {
     return Container(
         color: Constants.backgroundColor,
         child: CustomPaint(
-            foregroundPainter: ChartPainter(this, widget.dataToPlot,
+            foregroundPainter: _ChartPainter(this, widget.dataToPlot,
                 widget.milestones, 80, 50, 50, 12, 500, widget.animationValue),
             child: Container()));
   }
 }
 
-class ChartPainter extends CustomPainter {
+class _ChartPainter extends CustomPainter {
   static List<Color?> colors = [
     Colors.red[900],
     const Color(0xffc4721a),
@@ -210,7 +210,7 @@ class ChartPainter extends CustomPainter {
 
   _LayeredChartState state;
 
-  ChartPainter(
+  _ChartPainter(
       this.state,
       this.dataToPlot,
       this.milestones,
