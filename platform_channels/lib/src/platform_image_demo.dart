@@ -16,7 +16,7 @@ class PlatformImageDemo extends StatefulWidget {
   const PlatformImageDemo({Key? key}) : super(key: key);
 
   @override
-  _PlatformImageDemoState createState() => _PlatformImageDemoState();
+  State<PlatformImageDemo> createState() => _PlatformImageDemoState();
 }
 
 class _PlatformImageDemoState extends State<PlatformImageDemo> {

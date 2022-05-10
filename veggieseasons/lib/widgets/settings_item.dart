@@ -75,10 +75,10 @@ class SettingsItem extends StatefulWidget {
   final SettingsItemCallback? onPress;
 
   @override
-  State<StatefulWidget> createState() => SettingsItemState();
+  State<SettingsItem> createState() => _SettingsItemState();
 }
 
-class SettingsItemState extends State<SettingsItem> {
+class _SettingsItemState extends State<SettingsItem> {
   bool pressed = false;
 
   @override

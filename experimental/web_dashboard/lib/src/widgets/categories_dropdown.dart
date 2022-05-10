@@ -20,7 +20,7 @@ class CategoryDropdown extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CategoryDropdownState createState() => _CategoryDropdownState();
+  State<CategoryDropdown> createState() => _CategoryDropdownState();
 }
 
 class _CategoryDropdownState extends State<CategoryDropdown> {
@@ -105,6 +105,6 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
 
   DropdownMenuItem<Category> _buildDropdownItem(Category category) {
     return DropdownMenuItem<Category>(
-        child: Text(category.name), value: category);
+        value: category, child: Text(category.name));
   }
 }

@@ -82,7 +82,7 @@ Future copyright() async {
 Future fixCopyright() async {
   await for (var file in _filesWithoutCopyright()) {
     var contents = await file.readAsString();
-    await file.writeAsString(_copyright + '\n\n' + contents);
+    await file.writeAsString('$_copyright\n\n$contents');
   }
 }
 
@@ -99,7 +99,7 @@ Stream<File> _filesWithoutCopyright() async* {
         .take(3)
         .fold<String>('', (previous, element) {
       if (previous == '') return element;
-      return previous + '\n' + element;
+      return '$previous\n$element';
     });
 
     if (firstThreeLines != _copyright) {

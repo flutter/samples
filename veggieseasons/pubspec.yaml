@@ -5,7 +5,7 @@ publish_to: none
 version: 1.2.0
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,7 +16,7 @@ dependencies:
   intl: ^0.17.0
   provider: ^6.0.1
   shared_preferences: ^2.0.5
-  window_size: 
+  window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding
       path: plugins/window_size
@@ -24,7 +24,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   flutter_launcher_icons: ^0.9.0
 
 flutter:

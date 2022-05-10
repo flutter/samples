@@ -11,7 +11,7 @@ class NewCategoryForm extends StatefulWidget {
   const NewCategoryForm({Key? key}) : super(key: key);
 
   @override
-  _NewCategoryFormState createState() => _NewCategoryFormState();
+  State<NewCategoryForm> createState() => _NewCategoryFormState();
 }
 
 class _NewCategoryFormState extends State<NewCategoryForm> {
@@ -43,7 +43,7 @@ class EditCategoryForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _EditCategoryFormState createState() => _EditCategoryFormState();
+  State<EditCategoryForm> createState() => _EditCategoryFormState();
 }
 
 class _EditCategoryFormState extends State<EditCategoryForm> {

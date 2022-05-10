@@ -9,7 +9,7 @@ class AnimationControllerDemo extends StatefulWidget {
   static const String routeName = '/basics/animation_controller';
 
   @override
-  _AnimationControllerDemoState createState() =>
+  State<AnimationControllerDemo> createState() =>
       _AnimationControllerDemoState();
 }
 

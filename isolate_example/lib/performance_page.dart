@@ -130,10 +130,10 @@ class SmoothAnimationWidget extends StatefulWidget {
   const SmoothAnimationWidget({Key? key}) : super(key: key);
 
   @override
-  SmoothAnimationWidgetState createState() => SmoothAnimationWidgetState();
+  State<SmoothAnimationWidget> createState() => _SmoothAnimationWidgetState();
 }
 
-class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
+class _SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<BorderRadius?> _borderAnimation;

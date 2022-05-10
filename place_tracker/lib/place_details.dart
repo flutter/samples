@@ -19,10 +19,10 @@ class PlaceDetails extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  PlaceDetailsState createState() => PlaceDetailsState();
+  State<PlaceDetails> createState() => _PlaceDetailsState();
 }
 
-class PlaceDetailsState extends State<PlaceDetails> {
+class _PlaceDetailsState extends State<PlaceDetails> {
   late Place _place;
   GoogleMapController? _mapController;
   final Set<Marker> _markers = {};

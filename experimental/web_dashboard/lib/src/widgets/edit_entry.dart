@@ -14,7 +14,7 @@ class NewEntryForm extends StatefulWidget {
   const NewEntryForm({Key? key}) : super(key: key);
 
   @override
-  _NewEntryFormState createState() => _NewEntryFormState();
+  State<NewEntryForm> createState() => _NewEntryFormState();
 }
 
 class _NewEntryFormState extends State<NewEntryForm> {
@@ -65,7 +65,7 @@ class EditEntryForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _EditEntryFormState createState() => _EditEntryFormState();
+  State<EditEntryForm> createState() => _EditEntryFormState();
 }
 
 class _EditEntryFormState extends State<EditEntryForm> {
