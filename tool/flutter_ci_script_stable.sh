@@ -22,6 +22,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/linting_tool"
     "flutter_maps_firestore"
     "form_app"
+    "game_template"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
