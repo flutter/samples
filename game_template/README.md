@@ -114,11 +114,11 @@ any given integration.
 
 Some general notes: 
 
-- You will want to change the package name of your game
-  before you start with any of the deeper integrations.
-  [Here are the steps](https://stackoverflow.com/a/51550358/1416886)
-  and
-  [here is a tool](https://pub.dev/packages/rename) that automates them.
+- Change the package name of your game
+  before you start any of the deeper integrations.
+  [StackOverflow has instructions](https://stackoverflow.com/a/51550358/1416886)
+  for this, and the [`rename`](https://pub.dev/packages/rename) tool
+  (on pub.dev) automates the process.
 - The guides below all assume you already have your game
   registered in [Google Play Console][] and in Apple's
   [App Store Connect][].
@@ -192,8 +192,8 @@ To enable ads in your game:
        ? 'ca-app-pub-1234567890123456/1234567890'
        : 'ca-app-pub-1234567890123456/0987654321';
    ```
-9. Uncomment the code relating to ads in `lib/main.dart`. You will
-   need to add two imports, too:
+9. Uncomment the code relating to ads in `lib/main.dart`,
+   and add the following two imports:
    
    ```dart
    import 'dart:io';
