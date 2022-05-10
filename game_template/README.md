@@ -15,7 +15,7 @@ of a mobile (iOS & Android) game including the following features:
 
 The game compiles and works out of the box. It comes with things
 like a main menu, a router, a settings screen, and audio.
-When building a new game, that is likely everything you will need at first.
+When building a new game, this is likely everything you first need.
 
 When you're ready to enable the more advanced integrations, like ads
 and in-app payments, read the _Integrations_ section below.
