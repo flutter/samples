@@ -22,13 +22,13 @@ class GalleryApp extends StatefulWidget {
   const GalleryApp({Key? key}) : super(key: key);
 
   @override
-  GalleryAppState createState() => GalleryAppState();
+  State<GalleryApp> createState() => _GalleryAppState();
 }
 
 /// The main gallery app state.
 ///
 /// Controls performance overlay, and instantiates a [Home] widget.
-class GalleryAppState extends State<GalleryApp> {
+class _GalleryAppState extends State<GalleryApp> {
   // Initialize app settings from the default configuration.
   bool _showPerformanceOverlay = defaultConfig.showPerformanceOverlay;
 

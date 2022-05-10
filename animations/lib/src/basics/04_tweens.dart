@@ -9,7 +9,7 @@ class TweenDemo extends StatefulWidget {
   static const String routeName = '/basics/tweens';
 
   @override
-  _TweenDemoState createState() => _TweenDemoState();
+  State<TweenDemo> createState() => _TweenDemoState();
 }
 
 class _TweenDemoState extends State<TweenDemo>

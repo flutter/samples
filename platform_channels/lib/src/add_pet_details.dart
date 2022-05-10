@@ -13,7 +13,7 @@ class AddPetDetails extends StatefulWidget {
   const AddPetDetails({Key? key}) : super(key: key);
 
   @override
-  _AddPetDetailsState createState() => _AddPetDetailsState();
+  State<AddPetDetails> createState() => _AddPetDetailsState();
 }
 
 class _AddPetDetailsState extends State<AddPetDetails> {

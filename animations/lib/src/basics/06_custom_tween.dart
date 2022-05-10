@@ -20,7 +20,7 @@ class CustomTweenDemo extends StatefulWidget {
   static const String routeName = '/basics/custom_tweens';
 
   @override
-  _CustomTweenDemoState createState() => _CustomTweenDemoState();
+  State<CustomTweenDemo> createState() => _CustomTweenDemoState();
 }
 
 class _CustomTweenDemoState extends State<CustomTweenDemo>
@@ -51,11 +51,6 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
         title: const Text('Custom Tween'),
         actions: [
           MaterialButton(
-            child: Text(
-              controller.status == AnimationStatus.completed
-                  ? 'Delete Essay'
-                  : 'Write Essay',
-            ),
             textColor: Colors.white,
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {
@@ -68,6 +63,11 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
                 });
               }
             },
+            child: Text(
+              controller.status == AnimationStatus.completed
+                  ? 'Delete Essay'
+                  : 'Write Essay',
+            ),
           ),
         ],
       ),

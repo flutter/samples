@@ -26,7 +26,7 @@ class PhotoDetails extends StatefulWidget {
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
 
   @override
-  _PhotoDetailsState createState() => _PhotoDetailsState();
+  State<PhotoDetails> createState() => _PhotoDetailsState();
 }
 
 class _PhotoDetailsState extends State<PhotoDetails> {

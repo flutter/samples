@@ -3,12 +3,12 @@ description: Example for the simple_animations package
 homepage: https://github.com/felixblaschke/simple_animations
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
 flutter:
   assets:
     - preview.png
