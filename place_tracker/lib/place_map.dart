@@ -59,10 +59,10 @@ class PlaceMap extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  PlaceMapState createState() => PlaceMapState();
+  State<PlaceMap> createState() => _PlaceMapState();
 }
 
-class PlaceMapState extends State<PlaceMap> {
+class _PlaceMapState extends State<PlaceMap> {
   Completer<GoogleMapController> mapController = Completer();
 
   MapType _currentMapType = MapType.normal;
@@ -170,16 +170,18 @@ class PlaceMapState extends State<PlaceMap> {
   Future<void> _confirmAddPlace(BuildContext context) async {
     if (_pendingMarker != null) {
       // Create a new Place and map it to the marker we just added.
+      final appState = Provider.of<AppState>(context, listen: false);
       final newPlace = Place(
         id: const Uuid().v1(),
         latLng: _pendingMarker!.position,
         name: _pendingMarker!.infoWindow.title!,
-        category:
-            Provider.of<AppState>(context, listen: false).selectedCategory,
+        category: appState.selectedCategory,
       );
 
-      var placeMarker = await _getPlaceMarkerIcon(context,
-          Provider.of<AppState>(context, listen: false).selectedCategory);
+      final scaffoldMessenger = ScaffoldMessenger.of(context);
+
+      var placeMarker =
+          await _getPlaceMarkerIcon(context, appState.selectedCategory);
 
       setState(() {
         final updatedMarker = _pendingMarker!.copyWith(
@@ -202,7 +204,7 @@ class PlaceMapState extends State<PlaceMap> {
       });
 
       // Show a confirmation snackbar that has an action to edit the new place.
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         SnackBar(
           duration: const Duration(seconds: 3),
           content:
@@ -217,20 +219,17 @@ class PlaceMapState extends State<PlaceMap> {
       );
 
       // Add the new place to the places stored in appState.
-      final newPlaces =
-          List<Place>.from(Provider.of<AppState>(context, listen: false).places)
-            ..add(newPlace);
+      final newPlaces = List<Place>.from(appState.places)..add(newPlace);
 
       // Manually update our map configuration here since our map is already
       // updated with the new marker. Otherwise, the map would be reconfigured
       // in the main build method due to a modified AppState.
       _configuration = MapConfiguration(
         places: newPlaces,
-        selectedCategory:
-            Provider.of<AppState>(context, listen: false).selectedCategory,
+        selectedCategory: appState.selectedCategory,
       );
 
-      Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
+      appState.setPlaces(newPlaces);
     }
   }
 
@@ -472,19 +471,19 @@ class _AddPlaceButtonBar extends StatelessWidget {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.blue),
+              onPressed: onSavePressed,
               child: const Text(
                 'Save',
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
-              onPressed: onSavePressed,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.red),
+              onPressed: onCancelPressed,
               child: const Text(
                 'Cancel',
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
-              onPressed: onCancelPressed,
             ),
           ],
         ),

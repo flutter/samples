@@ -47,7 +47,7 @@ class AdaptiveScaffold extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AdaptiveScaffoldState createState() => _AdaptiveScaffoldState();
+  State<AdaptiveScaffold> createState() => _AdaptiveScaffoldState();
 }
 
 class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {

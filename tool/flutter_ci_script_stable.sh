@@ -26,6 +26,8 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
+    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
+    # "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
@@ -35,6 +37,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    # TODO: Re-enable once Dart 2.17 is stable
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )

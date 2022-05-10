@@ -51,7 +51,7 @@ class DashboardApp extends StatefulWidget {
         super(key: key);
 
   @override
-  _DashboardAppState createState() => _DashboardAppState();
+  State<DashboardApp> createState() => _DashboardAppState();
 }
 
 class _DashboardAppState extends State<DashboardApp> {
@@ -90,7 +90,7 @@ class SignInSwitcher extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SignInSwitcherState createState() => _SignInSwitcherState();
+  State<SignInSwitcher> createState() => _SignInSwitcherState();
 }
 
 class _SignInSwitcherState extends State<SignInSwitcher> {

@@ -9,10 +9,10 @@ class RepeatingAnimationDemo extends StatefulWidget {
   static String routeName = '/misc/repeating_animation';
 
   @override
-  RepeatingAnimationDemoState createState() => RepeatingAnimationDemoState();
+  State<RepeatingAnimationDemo> createState() => _RepeatingAnimationDemoState();
 }
 
-class RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
+class _RepeatingAnimationDemoState extends State<RepeatingAnimationDemo>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<BorderRadius?> _borderRadius;

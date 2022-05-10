@@ -52,7 +52,7 @@ class PlatformAdaptingHomePage extends StatefulWidget {
   const PlatformAdaptingHomePage({Key? key}) : super(key: key);
 
   @override
-  _PlatformAdaptingHomePageState createState() =>
+  State<PlatformAdaptingHomePage> createState() =>
       _PlatformAdaptingHomePageState();
 }
 

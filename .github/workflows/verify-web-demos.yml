@@ -8,15 +8,21 @@ jobs:
   verify-web-demos:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
+    strategy:
+      matrix:
+        flutter_version:
+          # TODO: Uncomment to this after the launch
+          # - stable
+          - beta
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
         with:
           submodules: true
           fetch-depth: 0
       - uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
-          channel: stable
+          channel: ${{ matrix.flutter_version }}
       - name: Init scripts
         run: dart pub get
         working-directory: web/_tool

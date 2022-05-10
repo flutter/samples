@@ -27,7 +27,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: BookDetail(hostApi: mockHostApi),
+        home: BookDetail(book: Book(), hostApi: mockHostApi),
       ),
     );
 

@@ -1,7 +1,7 @@
 name: github_dataviz
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.17.0-0 <3.0.0"
 
 dependencies:
   flutter:
@@ -10,7 +10,7 @@ dependencies:
   http: ^0.13.4
 
 dev_dependencies:
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
 
 flutter:
   assets:

@@ -24,7 +24,7 @@ class ExpandCardDemo extends StatelessWidget {
 class ExpandCard extends StatefulWidget {
   const ExpandCard({Key? key}) : super(key: key);
   @override
-  _ExpandCardState createState() => _ExpandCardState();
+  State<ExpandCard> createState() => _ExpandCardState();
 }
 
 class _ExpandCardState extends State<ExpandCard>
