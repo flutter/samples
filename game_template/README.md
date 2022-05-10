@@ -109,7 +109,7 @@ achievements aren't enabled at first because you, the developer,
 have to set them up (the achievements need to exist in App Store Connect
 and Google Play Console before they can be used in the code).
 
-In this section, you will find instructions on what to do to enable 
+This section includes instructions on how to enable 
 any given integration.
 
 Some general notes: 
