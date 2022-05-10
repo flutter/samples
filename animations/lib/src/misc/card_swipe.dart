@@ -10,10 +10,10 @@ class CardSwipeDemo extends StatefulWidget {
   static String routeName = '/misc/card_swipe';
 
   @override
-  CardSwipeDemoState createState() => CardSwipeDemoState();
+  State<CardSwipeDemo> createState() => _CardSwipeDemoState();
 }
 
-class CardSwipeDemoState extends State<CardSwipeDemo> {
+class _CardSwipeDemoState extends State<CardSwipeDemo> {
   late List<String> fileNames;
 
   @override
@@ -105,10 +105,10 @@ class SwipeableCard extends StatefulWidget {
       : super(key: key);
 
   @override
-  SwipeableCardState createState() => SwipeableCardState();
+  State<SwipeableCard> createState() => _SwipeableCardState();
 }
 
-class SwipeableCardState extends State<SwipeableCard>
+class _SwipeableCardState extends State<SwipeableCard>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
