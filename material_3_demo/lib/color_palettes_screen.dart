@@ -281,15 +281,15 @@ class ColorChip extends StatelessWidget {
     final Color labelColor = onColor ?? contrastColor(color);
 
     return Container(
-        color: color,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(child: Text(label, style: TextStyle(color: labelColor))),
-            ],
-          ),
-        )
+      color: color,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Expanded(child: Text(label, style: TextStyle(color: labelColor))),
+          ],
+        ),
+      ),
     );
   }
 }

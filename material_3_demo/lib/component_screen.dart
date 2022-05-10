@@ -26,9 +26,9 @@ class ComponentScreen extends StatelessWidget {
             _colDivider,
             showNavBottomBar
                 ? const NavigationBars(
-              selectedIndex: 0,
-              isExampleBar: true,
-            )
+                    selectedIndex: 0,
+                    isExampleBar: true,
+                  )
                 : Container(),
           ],
         ),
@@ -41,24 +41,25 @@ const _rowDivider = SizedBox(width: 10);
 const _colDivider = SizedBox(height: 10);
 const double _cardWidth = 115;
 
-void Function()? handlePressed(BuildContext context, bool isDisabled, String buttonName) {
+void Function()? handlePressed(
+    BuildContext context, bool isDisabled, String buttonName) {
   return isDisabled
       ? null
       : () {
-    final snackBar = SnackBar(
-      content: Text(
-        'Yay! $buttonName is clicked!',
-        style: TextStyle(color: Theme.of(context).colorScheme.surface),
-      ),
-      action: SnackBarAction(
-        textColor: Theme.of(context).colorScheme.surface,
-        label: 'Close',
-        onPressed: () {},
-      ),
-    );
+          final snackBar = SnackBar(
+            content: Text(
+              'Yay! $buttonName is clicked!',
+              style: TextStyle(color: Theme.of(context).colorScheme.surface),
+            ),
+            action: SnackBarAction(
+              textColor: Theme.of(context).colorScheme.surface,
+              label: 'Close',
+              onPressed: () {},
+            ),
+          );
 
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  };
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        };
 }
 
 class Buttons extends StatefulWidget {
@@ -148,7 +149,7 @@ class ButtonsWithIcon extends StatelessWidget {
         children: <Widget>[
           ElevatedButton.icon(
             onPressed:
-            handlePressed(context, false, "ElevatedButton with Icon"),
+                handlePressed(context, false, "ElevatedButton with Icon"),
             icon: const Icon(Icons.add),
             label: const Text("Icon"),
           ),
@@ -173,14 +174,14 @@ class ButtonsWithIcon extends StatelessWidget {
               primary: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed:
-            handlePressed(context, false, "FilledTonalButton with Icon"),
+                handlePressed(context, false, "FilledTonalButton with Icon"),
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
           _colDivider,
           OutlinedButton.icon(
             onPressed:
-            handlePressed(context, false, "OutlinedButton with Icon"),
+                handlePressed(context, false, "OutlinedButton with Icon"),
             icon: const Icon(Icons.add),
             label: const Text("Icon"),
           ),
@@ -334,22 +335,23 @@ class Dialogs extends StatefulWidget {
 class _DialogsState extends State<Dialogs> {
   void openDialog(BuildContext context) {
     showDialog<void>(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text("Basic Dialog Title"),
-          content: const Text(
-              "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made."),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Dismiss'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-            TextButton(
-              child: const Text('Action'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        ));
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Basic Dialog Title"),
+        content: const Text(
+            "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made."),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Dismiss'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          TextButton(
+            child: const Text('Action'),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -395,17 +397,19 @@ const List<NavigationDestination> appBarDestinations = [
 ];
 
 final List<NavigationRailDestination> navRailDestinations = appBarDestinations
-    .map((destination) => NavigationRailDestination(
-    icon: Tooltip(
-      message: destination.label,
-      child: destination.icon,
-    ),
-    selectedIcon: Tooltip(
-      message: destination.label,
-      child: destination.selectedIcon,
-    ),
-    label: Text(destination.label)
-))
+    .map(
+      (destination) => NavigationRailDestination(
+        icon: Tooltip(
+          message: destination.label,
+          child: destination.icon,
+        ),
+        selectedIcon: Tooltip(
+          message: destination.label,
+          child: destination.selectedIcon,
+        ),
+        label: Text(destination.label),
+      ),
+    )
     .toList();
 
 const List<Widget> exampleBarDestinations = [
@@ -436,9 +440,9 @@ class NavigationBars extends StatefulWidget {
 
   const NavigationBars(
       {Key? key,
-        this.onSelectItem,
-        required this.selectedIndex,
-        required this.isExampleBar})
+      this.onSelectItem,
+      required this.selectedIndex,
+      required this.isExampleBar})
       : super(key: key);
 
   @override
@@ -465,7 +469,7 @@ class _NavigationBarsState extends State<NavigationBars> {
         if (!widget.isExampleBar) widget.onSelectItem!(index);
       },
       destinations:
-      widget.isExampleBar ? exampleBarDestinations : appBarDestinations,
+          widget.isExampleBar ? exampleBarDestinations : appBarDestinations,
     );
   }
 }
