@@ -15,10 +15,10 @@ class SearchScreen extends StatefulWidget {
   final String? restorationId;
 
   @override
-  SearchScreenState createState() => SearchScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class SearchScreenState extends State<SearchScreen> with RestorationMixin {
+class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
   final controller = RestorableTextEditingController();
   final focusNode = FocusNode();
   String? terms;

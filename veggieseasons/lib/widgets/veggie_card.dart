@@ -66,10 +66,10 @@ class PressableCard extends StatefulWidget {
   final Duration duration;
 
   @override
-  PressableCardState createState() => PressableCardState();
+  State<PressableCard> createState() => _PressableCardState();
 }
 
-class PressableCardState extends State<PressableCard> {
+class _PressableCardState extends State<PressableCard> {
   bool cardIsDown = false;
 
   @override
