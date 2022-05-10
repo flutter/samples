@@ -126,8 +126,8 @@ Some general notes:
 
 ## Ads
 
-Ads are implemented via the official `package:google_mobile_ads` and
-are disabled by default. 
+Ads are implemented using the official `google_mobile_ads` package
+and are disabled by default. 
 
 ```dart
 // TODO: When ready, uncomment the following lines to enable integrations.
@@ -142,25 +142,26 @@ AdsController? adsController;
 // }
 ```
 
-The `AdsController` provided from `lib/main.dart` is `null` by default,
-and so the template gracefully falls back to not showing ads.
+The `AdsController` code in`lib/main.dart` is `null` by default,
+so the template gracefully falls back to not showing ads
+on desktop.
 
-You will find code relating to ads in `lib/src/ads/`.
+You can find the code relating to ads in `lib/src/ads/`.
 
 To enable ads in your game:
 
 1. Go to [AdMob][] and set up an account.
    This could take a significant amount of time because you need to provide
-   banking information, sign contracts and so on.
+   banking information, sign contracts, and so on.
 2. Create two _Apps_ in [AdMob][]: one for Android and one for iOS.
 3. Get the AdMob _App IDs_ for both the Android app and the iOS app.
-   You will find these in the _App settings_ section. They look
+   You can find these in the _App settings_ section. They look
    something like `ca-app-pub-1234567890123456~1234567890`
    (note the tilde between the two numbers).
 4. Open `android/app/src/main/AndroidManifest.xml`, find the `<meta-data>`
    entry called `com.google.android.gms.ads.APPLICATION_ID`,
    and update the value with the _App ID_ of the Android AdMob app
-   that you got in the previous step.
+   that you obtained in the previous step.
    
    ```xml
    <meta-data
@@ -176,11 +177,11 @@ To enable ads in your game:
    <string>ca-app-pub-1234567890123456~0987654321</string>
    ```
 6. Back in [AdMob][], create an _Ad unit_ for each of the AdMob apps.
-   This will ask for the Ad unit's format (Banner, Interstitial, Rewarded).
+   This asks for the Ad unit's format (Banner, Interstitial, Rewarded).
    The template is set up for a Banner ad unit, so select that if you
    want to avoid making changes to the code in `lib/src/ads`.
 7. Get the _Ad unit IDs_ for both the Android app and the iOS app.
-   You will find these in the _Ad units_ section. They look
+   You can find these in the _Ad units_ section. They look
    something like `ca-app-pub-1234567890123456/1234567890`
    (yes, the format is very similar to _App ID_; note the slash
    between the two numbers).
@@ -199,23 +200,23 @@ To enable ads in your game:
    import 'dart:io';
    import 'package:google_mobile_ads/google_mobile_ads.dart';
    ```
-10. Register the devices you will be using to test
+10. Register your test devices
    in [AdMob][]'s _Settings_ &rarr; _Test devices_ section.
 
 [AdMob]: https://admob.google.com/
 
-The template starts with a sample AdMob app ID and two sample Ad unit IDs.
-These should let you test out your code even without getting real
-IDs from AdMob. But this "feature" is sparsely documented and only meant
+The game template defines a sample AdMob _app ID_ and two sample _Ad unit ID_s.
+These allow you to test your code without getting real
+IDs from AdMob, but this "feature" is sparsely documented and only meant
 for hello world projects. 
-The sample IDs will definitely not work for published games.
+The sample IDs **won't** work for published games.
 
 If you feel lost at any point, a full [AdMob for Flutter walk-through][]
 is available on Google AdMob's documentation site.
 
 [AdMob for Flutter walk-through]: https://developers.google.com/admob/flutter/quick-start
 
-If you want to implement more of AdMob's formats (such as Interstitial ads),
+If you want to implement more AdMob formats (such as Interstitial ads),
 a good place to start are the examples in
 [`package:google_mobile_ads`](https://pub.dev/packages/google_mobile_ads).
 
@@ -224,9 +225,9 @@ a good place to start are the examples in
 Audio is enabled by default and ready to go. You can modify code
 in `lib/src/audio/` to your liking.
 
-You will find some music
+You can find some music
 tracks in `assets/music` — these are Creative Commons Attribution (CC-BY)
-licensed, and included in this repository with permission. If you decide
+licensed, and are included in this repository with permission. If you decide
 to keep these tracks in your game, please don't forget to give credit
 to the musician, [Mr Smith][].
 
@@ -246,30 +247,29 @@ print them to the console.
 
 When enabled, this integration is a lot more powerful:
 
-- Any crashes of your app are going to be sent to the Firebase
-  Crashlytics console.
-- Any uncaught exception thrown anywhere in your code will be captured
+- Any crashes of your app are sent to the Firebase Crashlytics console.
+- Any uncaught exception thrown anywhere in your code is captured
   and sent to the Firebase Crashlytics console.
-- Each of these reports will include the following information:
+- Each of these reports includes the following information:
   - Error message
   - Stack trace
   - Device model, orientation, RAM free, disk free
   - Operating system version
   - App version
-- On top of that, log messages from anywhere in your app 
-  (and from packages you use) are being recorded in memory,
-  and they will be sent alongside the reports. This means you will
-  be able to understand what happened before the crash/exception
+- In addition, log messages generated anywhere in your app 
+  (and from packages you use) are recorded in memory,
+  and are sent alongside the reports. This means that you can
+  learn what happened before the crash or exception
   occurred.
-- Moreover, any log message with `Level.severe` or above
-  will also be sent to Crashlytics.
-- You can customize all this in `lib/src/crashlytics`.
+- Also, any generated log message with `Level.severe` or above
+  is also sent to Crashlytics.
+- You can customize these behaviors in `lib/src/crashlytics`.
 
 To enable Firebase Crashlytics, do the following:
 
 1. Create a new project in
    [console.firebase.google.com](https://console.firebase.google.com/).
-   You can call the Firebase project whatever you like; just remember the name.
+   Call the Firebase project whatever you like; just **remember the name**.
    You don't need to enable Analytics in the project if you don't want to.
 2. [Install `firebase-tools`](https://firebase.google.com/docs/cli?authuser=0#setup_update_cli)
    on your machine.
@@ -278,18 +278,18 @@ To enable Firebase Crashlytics, do the following:
 4. In the root of this project (the directory containing `pubspec.yaml`),
    run the following:
     - `flutterfire configure`
-        - This command will ask you about the name of the Firebase project
-          that you created earlier, and about the target platforms you want
-          to support. As of April 2022, only `android` and `ios` are fully
+        - This command asks you for the name of the Firebase project
+     that you created earlier, and the list of target platforms you support.
+     As of April 2022, only `android` and `ios` are fully
           supported by Crashlytics.
-        - The command will rewrite `lib/firebase_options.dart` with
+        - The command rewrites `lib/firebase_options.dart` with
           the correct code.
 5. Go to `lib/main.dart` and uncomment the lines that relate to Crashlytics.
 
-Now you should be able to see crashes, errors and 
+You should now be able to see crashes, errors, and 
 severe log messages in
 [console.firebase.google.com](https://console.firebase.google.com/).
-To test this out, add a button to your project, and just throw whatever
+To test, add a button to your project, and throw whatever
 exception you like when the player presses it.
 
 ```dart
@@ -302,11 +302,11 @@ TextButton(
 
 ## Games Services (Game Center & Play Games Services)
 
-Games Services (like achievements and leaderboards) are implemented via
-[`package:games_services`](https://pub.dev/packages/games_services).
-It is disabled by default.
+Games Services (like achievements and leaderboards) are implemented by the
+[`games_services`](https://pub.dev/packages/games_services) package,
+and are disabled by default.
 
-To enable this integration, you first need to set _Game Center_ on iOS
+To enable games services, first set up _Game Center_ on iOS
 and _Google Play Games Services_ on Android.
 
 To enable _Game Center_ (GameKit) on iOS:
@@ -326,11 +326,11 @@ To enable _Play Games Services_ on Android:
 
 1. Go to your app in [Google Play Console][].
 2. Select _Play Games Services_ &rarr; _Setup and management_ &rarr;
-   _Configuration_ from the navigation menu. Follow instructions there.
+   _Configuration_ from the navigation menu and follow their instructions.
    * This takes a significant amount of time and patience.
      Among other things, you'll need to set up an OAuth consent
      screen in Google Cloud Console.
-     If at any point you are feeling lost,
+     If at any point you feel lost,
      consult the official [Play Games Services guide][].
 3. When done, you can start adding leaderboards and achievements
    in _Play Games Services_ &rarr; _Setup and management_.
@@ -366,7 +366,7 @@ To enable _Play Games Services_ on Android:
 [Google Play Console]: https://play.google.com/console/
 [Play Games Services guide]: https://developers.google.com/games/services/console/enabling
 
-Now that you have _Game Center_ and _Play Games Services_ set up,
+Now that you have set up _Game Center_ and _Play Games Services_,
 and have your achievement & leaderboard IDs ready, it's finally Dart time.
 
 1. Open `lib/src/games_services/games_services.dart` and edit the leaderboard
@@ -389,7 +389,7 @@ and have your achievement & leaderboard IDs ready, it's finally Dart time.
     );
     ```
    
-    You may want to attach the achievement IDs to levels, enemies,
+    You might want to attach the achievement IDs to levels, enemies,
     places, items, and so on. For example, the template has levels
     defined in `lib/src/level_selection/levels.dart` like so:
    
@@ -418,18 +418,18 @@ and have your achievement & leaderboard IDs ready, it's finally Dart time.
     // } 
     ```
    
-If at any point you feel lost, there's a [How To][] written by the author
-of `package:games_services`. Some instructions and screenshots there are
-slightly outdated (e.g. _iTunes Connect_ has been renamed to _App Store Connect_
-since the article was published) but it's still an excellent resource.
+If at any point you feel lost, there's a [How To][] guide written by the author
+of `package:games_services`. Some of the guide's instructions and screenshots
+are slightly outdated (for example, _iTunes Connect_ has been renamed to _App Store Connect_
+after the article was published) but it's still an excellent resource.
 
 [How To]: https://itnext.io/how-to-integrate-gamekit-and-google-play-services-flutter-4d3f4a4a2f77
 
 
 ## In-app purchases
 
-In-app purchases are implemented via the official
-[`package:in_app_purchase`](https://pub.dev/packages/in_app_purchase).
+In-app purchases are implemented using the official
+[`in_app_purchase`](https://pub.dev/packages/in_app_purchase) package.
 The integration is disabled by default.
 
 To enable in-app purchases on Android:
@@ -441,18 +441,18 @@ To enable in-app purchases on Android:
      Play Store as a project with in-app purchases.
    - Releasing to Closed Testing triggers a review process,
      which is a prerequisite for In-app purchases to work.
-     The review process can take several days. Before it is complete,
-     you cannot move on with the Android side of things.
+     The review process can take several days and until it's complete,
+     you can't move on with the Android side of things.
 2. Add an in-app product in _Play Console_ &rarr; _Monetize_ &rarr;
    _In-app products_. Come up with a product ID (for example,
    `ad_removal`).
-3. Still in Play Console, _activate_ the In-app product.
+3. While still in Play Console, _activate_ the In-app product.
    
 To enable in-app purchases on iOS:
 
 1. Make sure you have signed the _Paid Apps Agreement_
    in [App Store Connect][].
-2. Still in App Store Connect, go to _Features_ &rarr;
+2. While still in App Store Connect, go to _Features_ &rarr;
    _In-App Purchases_, and add a new in-app purchase
    by clicking the `+` button.
    Use the same product ID you used on the Android side.
@@ -470,9 +470,9 @@ Now everything is ready to enable the integration in your Dart code:
 
     - If your in-app purchase is not an ad removal, then create a class
       similar to the template's `AdRemovalPurchase`.
-    - If you created several in-app purchases, you will need to modify
+    - If you created several in-app purchases, you need to modify
       the code in `lib/src/in_app_purchase/in_app_purchase.dart`.
-      For brevity, the template only supports one in-app purchase.
+      By default, the template only supports one in-app purchase.
 2. Uncomment the code relating to in-app purchases in `lib/main.dart`.
 
     ```dart
@@ -490,17 +490,17 @@ Now everything is ready to enable the integration in your Dart code:
     ```
 
 
-If at any point you feel lost, there's an official 
-[codelab](https://codelabs.developers.google.com/codelabs/flutter-in-app-purchases#0)
-for implementing in-app purchases in Flutter.
+If at any point you feel lost, check out the official 
+[Adding in-app purchases to your Flutter app](https://codelabs.developers.google.com/codelabs/flutter-in-app-purchases#0)
+codelab.
 
 
 ## Settings
 
 The settings page is enabled by default, and accessible both
-from the main menu and via the "gear" button in the play session screen.
+from the main menu and the "gear" button in the play session screen.
 
-Settings are saved to local storage via `package:shared_preferences`.
+Settings are saved to local storage using the `package:shared_preferences`.
 To change what preferences are saved and how, edit files in
 `lib/src/settings/persistence`.
 
