@@ -25,7 +25,7 @@ class BookstoreNavigator extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BookstoreNavigatorState createState() => _BookstoreNavigatorState();
+  State<BookstoreNavigator> createState() => _BookstoreNavigatorState();
 }
 
 class _BookstoreNavigatorState extends State<BookstoreNavigator> {

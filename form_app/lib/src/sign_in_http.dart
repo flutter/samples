@@ -35,7 +35,7 @@ class SignInHttpDemo extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SignInHttpDemoState createState() => _SignInHttpDemoState();
+  State<SignInHttpDemo> createState() => _SignInHttpDemoState();
 }
 
 class _SignInHttpDemoState extends State<SignInHttpDemo> {

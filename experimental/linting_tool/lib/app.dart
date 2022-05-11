@@ -19,7 +19,7 @@ class LintingTool extends StatefulWidget {
   static const String homeRoute = routes.homeRoute;
 
   @override
-  _LintingToolState createState() => _LintingToolState();
+  State<LintingTool> createState() => _LintingToolState();
 }
 
 class _LintingToolState extends State<LintingTool> {

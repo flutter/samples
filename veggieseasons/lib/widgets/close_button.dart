@@ -47,7 +47,8 @@ class ColorChangingIcon extends ImplicitlyAnimatedWidget {
   final double? size;
 
   @override
-  _ColorChangingIconState createState() => _ColorChangingIconState();
+  AnimatedWidgetBaseState<ColorChangingIcon> createState() =>
+      _ColorChangingIconState();
 }
 
 class _ColorChangingIconState
@@ -81,12 +82,10 @@ class CloseButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  CloseButtonState createState() {
-    return CloseButtonState();
-  }
+  State<CloseButton> createState() => _CloseButtonState();
 }
 
-class CloseButtonState extends State<CloseButton> {
+class _CloseButtonState extends State<CloseButton> {
   bool tapInProgress = false;
 
   @override

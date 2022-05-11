@@ -57,7 +57,7 @@ class NewEntryDialog extends StatefulWidget {
   const NewEntryDialog({Key? key}) : super(key: key);
 
   @override
-  _NewEntryDialogState createState() => _NewEntryDialogState();
+  State<NewEntryDialog> createState() => _NewEntryDialogState();
 }
 
 class _NewEntryDialogState extends State<NewEntryDialog> {

@@ -229,9 +229,9 @@ class LogOutButton extends StatelessWidget {
               message: _logoutMessage,
               actions: [
                 CupertinoActionSheetAction(
-                  child: const Text('Reprogram the night man'),
                   isDestructiveAction: true,
                   onPressed: () => Navigator.pop(context),
+                  child: const Text('Reprogram the night man'),
                 ),
                 CupertinoActionSheetAction(
                   child: const Text('Got it'),
@@ -239,9 +239,9 @@ class LogOutButton extends StatelessWidget {
                 ),
               ],
               cancelButton: CupertinoActionSheetAction(
-                child: const Text('Cancel'),
                 isDefaultAction: true,
                 onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel'),
               ),
             );
           },

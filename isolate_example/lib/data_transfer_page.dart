@@ -43,11 +43,11 @@ class DataTransferPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
+            padding: const EdgeInsets.all(8),
             child: Text(
               'Number Generator Progress',
               style: Theme.of(context).textTheme.headline6,
             ),
-            padding: const EdgeInsets.all(8),
           ),
           LinearProgressIndicator(
             value: controller.progressPercent,
@@ -59,28 +59,28 @@ class DataTransferPage extends StatelessWidget {
           Column(
             children: [
               ElevatedButton(
-                child: const Text('Transfer Data to 2nd Isolate'),
                 style: ElevatedButton.styleFrom(
                     primary: (controller.runningTest == 1)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(false),
+                child: const Text('Transfer Data to 2nd Isolate'),
               ),
               ElevatedButton(
-                child: const Text('Transfer Data with TransferableTypedData'),
                 style: ElevatedButton.styleFrom(
                     primary: (controller.runningTest == 2)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(true),
+                child: const Text('Transfer Data with TransferableTypedData'),
               ),
               ElevatedButton(
-                child: const Text('Generate on 2nd Isolate'),
                 style: ElevatedButton.styleFrom(
                     primary: (controller.runningTest == 3)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: controller.generateOnSecondaryIsolate,
+                child: const Text('Generate on 2nd Isolate'),
               ),
             ],
           ),
@@ -214,10 +214,10 @@ class RunningList extends StatelessWidget {
           return Column(
             children: [
               Card(
+                color: Colors.lightGreenAccent,
                 child: ListTile(
                   title: Text(progress[index]),
                 ),
-                color: Colors.lightGreenAccent,
               ),
               const Divider(
                 color: Colors.blue,

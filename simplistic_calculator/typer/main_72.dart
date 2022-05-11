@@ -198,6 +198,7 @@ class CalculatorApp extends ConsumerWidget {
 }
 
 typedef CalculatorEngineCallback = void Function(CalculatorEngine engine);
+
 enum CalcButtonType { outlined, elevated }
 
 class CalcButton extends ConsumerWidget {

@@ -492,6 +492,10 @@ samples:
     platforms: ['windows', 'macos', 'linux']
     type: sample
 
+###################
+#### Web Demos ####
+###################
+
   - name: Rich Text Editor
     author: Flutter
     screenshots:
@@ -511,7 +515,8 @@ samples:
     links: []
     tags: ["demo", "text"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
-    type: sample
+    type: demo
+    web: web/simplistic_editor
 
   - name: Material You
     author: Flutter
@@ -541,13 +546,42 @@ samples:
       - AppBar
     packages: []
     links: []
-    tags: ["Material", "Material You"]
+    tags: ["material", "material you"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
-    type: sample
-    
-###################
-#### Web Demos ####
-###################
+    type: demo
+    web: web/material_3_demo
+  
+  - name: Game Template
+    author: Flutter
+    screenshots:
+      - url: images/loading_screen.png
+        alt: Loading screen
+      - url: images/level_selector.png
+        alt: Level selection screen
+    source: https://github.com/flutter/samples/tree/master/game_template
+    description: >
+      This is a game template that shows how to build much of the dressing
+      around an actual game. The game itself is very simple - the value in this
+      sample is everything around the game.
+    difficulty: beginner
+    widgets:
+      - GoRouter
+      - AppLifecycleObserver
+    packages:
+      - audioplayers
+      - firebase_crashlytics
+      - games_services
+      - go_router
+      - google_mobile_ads
+      - in_app_purchase
+      - logging
+      - provider
+      - shared_preferences
+    links: []
+    tags: ["games", "firebase", "ads", "crashlytics", "routing"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: demo
+    web: web/material_3_demo
 
   - name: Charts
     author: Flutter

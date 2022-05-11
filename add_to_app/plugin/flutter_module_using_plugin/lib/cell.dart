@@ -15,7 +15,7 @@ void main() {
 }
 
 class Cell extends StatefulWidget {
-  const Cell({Key key}) : super(key: key);
+  const Cell({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _CellState();
@@ -26,8 +26,8 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
   static final AccelerometerEvent defaultPosition = AccelerometerEvent(0, 0, 0);
 
   int cellNumber = 0;
-  Random _random;
-  AppLifecycleState appLifecycleState;
+  Random? _random;
+  AppLifecycleState? appLifecycleState;
 
   @override
   void initState() {
@@ -62,8 +62,8 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
   Color randomLightColor() {
     _random ??= Random(cellNumber);
 
-    return Color.fromARGB(255, _random.nextInt(50) + 205,
-        _random.nextInt(50) + 205, _random.nextInt(50) + 205);
+    return Color.fromARGB(255, _random!.nextInt(50) + 205,
+        _random!.nextInt(50) + 205, _random!.nextInt(50) + 205);
   }
 
   @override
@@ -113,15 +113,20 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
                             : Stream.value(defaultPosition),
                         initialData: defaultPosition,
                         builder: (context, snapshot) {
+                          final data = snapshot.data;
+                          if (data == null) {
+                            return const CircularProgressIndicator.adaptive();
+                          }
                           return Transform(
-                              // Figure out the phone's orientation relative
-                              // to gravity's direction. Ignore the z vector.
-                              transform: Matrix4.rotationX(
-                                  snapshot.data.y / gravity * pi / 2)
-                                ..multiply(Matrix4.rotationY(
-                                    snapshot.data.x / gravity * pi / 2)),
-                              alignment: Alignment.center,
-                              child: const FlutterLogo(size: 72));
+                            // Figure out the phone's orientation relative
+                            // to gravity's direction. Ignore the z vector.
+                            transform: Matrix4.rotationX(
+                              data.y / gravity * pi / 2,
+                            )..multiply(
+                                Matrix4.rotationY(data.x / gravity * pi / 2)),
+                            alignment: Alignment.center,
+                            child: const FlutterLogo(size: 72),
+                          );
                         },
                       ),
                     ),

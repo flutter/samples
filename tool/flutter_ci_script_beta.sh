@@ -15,39 +15,30 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "desktop_photo_search/fluent_ui"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "desktop_photo_search/material"
+    "desktop_photo_search/fluent_ui"
+    "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     "experimental/linting_tool"
     "flutter_maps_firestore"
     "form_app"
-    # TODO: Re-enable once WidgetBinding.instance is non-null
-    #       in stable Flutter.
-    # "game_template"
+    "game_template"
     "infinite_list"
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "material_3_demo"
+    "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
     "place_tracker"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "platform_channels"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "platform_design"
+    "platform_channels"
+    "platform_design"
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "simplistic_editor"
-    # TODO(domesticmouse): Re-enable once Dart 2.17 is stable
-    # "testing_app"
+    "simplistic_editor"
+    "testing_app"
     "veggieseasons"
 )
 

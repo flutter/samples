@@ -49,7 +49,7 @@ class Carousel extends StatefulWidget {
   const Carousel({Key? key, required this.itemBuilder}) : super(key: key);
 
   @override
-  _CarouselState createState() => _CarouselState();
+  State<Carousel> createState() => _CarouselState();
 }
 
 class _CarouselState extends State<Carousel> {

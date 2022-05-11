@@ -130,7 +130,7 @@ class SelectionUserManagedState extends State<SelectionUserManaged> {
         onPressed: _handleClearSelection, child: const Text('Clear Selection'));
 
     return Column(
-        children: [SizedBox(child: chart, height: 150.0), clearSelection]);
+        children: [SizedBox(height: 150.0, child: chart), clearSelection]);
   }
 
   void _infoSelectionModelUpdated(charts.SelectionModel<String> model) {

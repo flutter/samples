@@ -50,14 +50,14 @@ class _AppLifecycleObserverState extends State<AppLifecycleObserver>
 
   @override
   void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     _log.info('Subscribed to app lifecycle updates');
   }
 }

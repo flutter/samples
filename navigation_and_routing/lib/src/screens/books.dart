@@ -14,7 +14,7 @@ class BooksScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BooksScreenState createState() => _BooksScreenState();
+  State<BooksScreen> createState() => _BooksScreenState();
 }
 
 class _BooksScreenState extends State<BooksScreen>
