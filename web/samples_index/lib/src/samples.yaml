@@ -512,6 +512,7 @@ samples:
     tags: ["demo", "text"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: sample
+    web: web/simplistic_editor
 
   - name: Material You
     author: Flutter
@@ -544,6 +545,7 @@ samples:
     tags: ["Material", "Material You"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: sample
+    web: web/material_3_demo
     
 ###################
 #### Web Demos ####
