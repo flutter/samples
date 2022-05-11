@@ -81,8 +81,9 @@ samples:
       - flutter/cupertino
       - google_fonts
       - scoped_model
-    tags: ['intermediate', 'sample', 'gallery', 'material', 'design', 'vignettes']
-    platforms: ['web', 'ios', 'android']
+    tags:
+      ["intermediate", "sample", "gallery", "material", "design", "vignettes"]
+    platforms: ["web", "ios", "android"]
     links: []
     type: demo
 
@@ -104,8 +105,17 @@ samples:
       - flutter/material
       - flutter/services
       - provider
-    tags: ['advanced', 'sample', 'add-to-app', 'android', 'ios', 'native', 'embedding']
-    platforms: ['ios', 'android']
+    tags:
+      [
+        "advanced",
+        "sample",
+        "add-to-app",
+        "android",
+        "ios",
+        "native",
+        "embedding",
+      ]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -133,8 +143,8 @@ samples:
       - TweenSequenceItem
     packages:
       - flutter/material
-    tags: ['intermediate', 'sample', 'animation']
-    platforms: ['ios', 'android', 'web']
+    tags: ["intermediate", "sample", "animation"]
+    platforms: ["ios", "android", "web"]
     links: []
     type: sample
     web: web/animations
@@ -158,8 +168,8 @@ samples:
       - cloud_firestore
       - google_maps_flutter
       - google_maps_webservice
-    tags: ['intermediate', 'sample', 'firebase', 'maps']
-    platforms: ['ios', 'android']
+    tags: ["intermediate", "sample", "firebase", "maps"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -183,8 +193,8 @@ samples:
     packages:
       - dart:isolate
       - dart:math
-    tags: ['intermediate', 'sample', 'isolates', 'concurrency']
-    platforms: ['ios', 'android']
+    tags: ["intermediate", "sample", "isolates", "concurrency"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -212,8 +222,8 @@ samples:
       - json_annotation
       - build_runner
       - built_value_generator
-    tags: ['beginner', 'sample']
-    platforms: ['ios', 'android']
+    tags: ["beginner", "sample"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -239,8 +249,8 @@ samples:
       - GoogleMap
     packages:
       - google_maps_flutter
-    tags: ['intermediate', 'sample', 'json', 'serialization']
-    platforms: ['android']
+    tags: ["intermediate", "sample", "json", "serialization"]
+    platforms: ["android"]
     links: []
     type: sample
 
@@ -271,8 +281,8 @@ samples:
     packages:
       - flutter/material
       - flutter/cupertino
-    tags: ['advanced', 'sample', 'ios']
-    platforms: ['ios', 'android']
+    tags: ["advanced", "sample", "ios"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -293,8 +303,8 @@ samples:
     packages:
       - flutter/material
       - flutter/services
-    tags: ['advanced', 'sample', 'ios']
-    platforms: ['ios']
+    tags: ["advanced", "sample", "ios"]
+    platforms: ["ios"]
     links: []
     type: sample
 
@@ -305,9 +315,9 @@ samples:
         alt: Infinite List screenshot
     source: https://github.com/flutter/samples/tree/master/infinite_list
     description: >
-      A Flutter sample app that shows an implementation of the "infinite list" UX pattern. 
-      That is, a list is shown to the user as if it was continuous although it is internally 
-      paginated. This is a common feature of mobile apps, from shopping catalogs 
+      A Flutter sample app that shows an implementation of the "infinite list" UX pattern.
+      That is, a list is shown to the user as if it was continuous although it is internally
+      paginated. This is a common feature of mobile apps, from shopping catalogs
       through search engines to social media clients.
     difficulty: intermediate
     widgets:
@@ -318,8 +328,8 @@ samples:
     packages:
       - provider
       - meta
-    tags: ['sample', 'material', 'design', 'android', 'ios']
-    platforms: ['ios', 'android']
+    tags: ["sample", "material", "design", "android", "ios"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -339,8 +349,8 @@ samples:
       - FlutterLogo
     packages:
       - device_info
-    tags: ['sample', 'Device Info', 'ios']
-    platforms: ['ios']
+    tags: ["sample", "Device Info", "ios"]
+    platforms: ["ios"]
     links: []
     type: sample
 
@@ -362,8 +372,8 @@ samples:
       - Snackbar
     packages:
       - provider
-    tags: ['sample', 'material', 'android', 'ios']
-    platforms: ['ios', 'android']
+    tags: ["sample", "material", "android", "ios"]
+    platforms: ["ios", "android"]
     links: []
     type: sample
 
@@ -386,8 +396,8 @@ samples:
       - ChangeNotifier
     packages:
       - provider
-    tags: ['intermediate', 'sample', 'provider']
-    platforms: ['ios', 'android', 'web']
+    tags: ["intermediate", "sample", "provider"]
+    platforms: ["ios", "android", "web"]
     links: []
     type: sample
     web: web/provider_shopper
@@ -413,8 +423,8 @@ samples:
       - StreamBuilder
     packages:
       - firebase
-    tags: ['intermediate', 'sample', 'firebase']
-    platforms: ['ios', 'android', 'web']
+    tags: ["intermediate", "sample", "firebase"]
+    platforms: ["ios", "android", "web"]
     links: []
     type: sample
     web: web/web_dashboard
@@ -435,12 +445,12 @@ samples:
     widgets:
       - Form
     packages: []
-    tags: ['intermediate', 'sample', 'forms']
-    platforms: ['ios', 'android', 'web']
+    tags: ["intermediate", "sample", "forms"]
+    platforms: ["ios", "android", "web"]
     links: []
     type: sample
     web: web/form_app
-    
+
   - name: Navigation and Routing
     author: Flutter
     screenshots:
@@ -460,12 +470,12 @@ samples:
     widgets:
       - Router
     packages: []
-    tags: ['advanced', 'sample', 'navigation', 'router']
-    platforms: ['ios', 'android', 'web']
+    tags: ["advanced", "sample", "navigation", "router"]
+    platforms: ["ios", "android", "web"]
     links: []
     type: sample
     web: web/navigation_and_routing
-    
+
   - name: Photo Search app
     author: Flutter
     screenshots:
@@ -480,7 +490,7 @@ samples:
       `fluent_ui` shows the Photo Search app built with Fluent UI widgets.
     difficulty: medium
     widgets: []
-    packages: 
+    packages:
       - built_collection
       - built_value
       - file_selector
@@ -488,8 +498,8 @@ samples:
       - flutter/material
       - provider
       - url_launcher
-    tags: ['desktop', 'rest-api']
-    platforms: ['windows', 'macos', 'linux']
+    tags: ["desktop", "rest-api"]
+    platforms: ["windows", "macos", "linux"]
     type: sample
 
   - name: Rich Text Editor
@@ -512,6 +522,7 @@ samples:
     tags: ["demo", "text"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: sample
+    web: web/simplistic_editor
 
   - name: Material You
     author: Flutter
@@ -544,10 +555,11 @@ samples:
     tags: ["Material", "Material You"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: sample
-    
-###################
-#### Web Demos ####
-###################
+    web: web/material_you_demo
+
+  ###################
+  #### Web Demos ####
+  ###################
 
   - name: Charts
     author: Flutter
@@ -560,9 +572,9 @@ samples:
     difficulty: intermediate
     widgets: []
     packages: []
-    platforms: ['ios', 'android', 'web']
+    platforms: ["ios", "android", "web"]
     links: []
-    tags: ['demo', 'charts']
+    tags: ["demo", "charts"]
     web: web/charts
     type: demo
 
@@ -577,9 +589,9 @@ samples:
     difficulty: intermediate
     widgets: []
     packages: []
-    platforms: ['web']
+    platforms: ["web"]
     links: []
-    tags: ['demo', 'data', 'visualization']
+    tags: ["demo", "data", "visualization"]
     web: web/github_dataviz
     type: demo
 
@@ -594,9 +606,9 @@ samples:
     difficulty: intermediate
     widgets: []
     packages: []
-    platforms: ['web']
+    platforms: ["web"]
     links: []
-    tags: ['demo', 'animation']
+    tags: ["demo", "animation"]
     web: web/particle_background
     type: demo
 
@@ -611,9 +623,9 @@ samples:
     difficulty: advanced
     widgets: []
     packages: []
-    platforms: ['web']
+    platforms: ["web"]
     links: []
-    tags: ['demo', 'game']
+    tags: ["demo", "game"]
     web: web/slide_puzzle
     type: demo
 
@@ -628,8 +640,8 @@ samples:
     difficulty: advanced
     widgets: []
     packages: []
-    platforms: ['web']
+    platforms: ["web"]
     links: []
-    tags: ['demo', 'animation']
+    tags: ["demo", "animation"]
     web: https://z.flutter.gallery/#/dice
     type: demo
