@@ -7,6 +7,7 @@ const RESOURCES = {
 "index.html": "51839f812a32cce7ac40ca488295da30",
 "/": "51839f812a32cce7ac40ca488295da30",
 "main.dart.js": "9e8bba858428430b452be0ce999d8dd0",
+"flutter.js": "0816e65a103ba8ba51b174eeeeb2cb67",
 "assets/AssetManifest.json": "9fe712ba1ba0aebba619e2e9de60fc0f",
 "assets/NOTICES": "6da8014bfd2eeead3456d7460cb74d22",
 "assets/FontManifest.json": "d751713988987e9331980363e24189ce",
@@ -16,7 +17,11 @@ const RESOURCES = {
 "assets/github_data/forks.tsv": "307c19f9166eb30ffe34a8de50ac7b57",
 "assets/github_data/commits.tsv": "684e345ed4d734f5b4a890098d175b37",
 "assets/github_data/pull_requests.tsv": "583f0c3151b9234502a7037bf9735494",
-"assets/github_data/stars.tsv": "f949dd28b49c2374880c22b2c8937a76"
+"assets/github_data/stars.tsv": "f949dd28b49c2374880c22b2c8937a76",
+"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
+"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
+"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
 };
 
 // The application shell files that are downloaded before a service worker can
