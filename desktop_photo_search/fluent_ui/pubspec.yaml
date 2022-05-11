@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   built_collection: ^5.1.1
-  built_value: ^8.2.3
+  built_value: ^8.3.0
   cupertino_icons: ^1.0.2
   file_selector: ^0.8.3
   file_selector_linux: ^0.0.2+1
@@ -30,14 +30,14 @@ dependencies:
       path: plugins/window_size
   provider: ^6.0.2
   transparent_image: ^2.0.0
-  url_launcher: ^6.1.0
+  url_launcher: ^6.1.1
   uuid: ^3.0.5
 
 dev_dependencies:
   async: ^2.8.2
   build: ^2.2.1
   build_runner: ^2.1.7
-  built_value_generator: ^8.2.3
+  built_value_generator: ^8.3.0
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter

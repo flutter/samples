@@ -15,7 +15,7 @@ dependencies:
   firebase_core: ^1.16.0
   flutter:
     sdk: flutter
-  google_sign_in: ^5.0.0
+  google_sign_in: ^5.3.1
   intl: ^0.17.0
   json_annotation: ^4.5.0
   path: ^1.8.1
