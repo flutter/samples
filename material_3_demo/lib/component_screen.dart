@@ -11,51 +11,37 @@ class ComponentScreen extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            _colDivider,
-            _colDivider,
-            const LayoutSetting(child: Buttons()),
-            _colDivider,
-            const LayoutSetting(child: FloatingActionButtons()),
-            _colDivider,
-            const LayoutSetting(child: Cards()),
-            _colDivider,
-            const LayoutSetting(child: Dialogs()),
-            _colDivider,
-            showNavBottomBar
-                ? const LayoutSetting(
-                    child: NavigationBars(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SizedBox(
+            width: _maxWidthConstraint,
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                _colDivider,
+                _colDivider,
+                const Buttons(),
+                _colDivider,
+                const FloatingActionButtons(),
+                _colDivider,
+                const Cards(),
+                _colDivider,
+                const Dialogs(),
+                _colDivider,
+                showNavBottomBar
+                    ? const NavigationBars(
                       selectedIndex: 0,
                       isExampleBar: true,
-                    ),
-                  )
-                : Container(),
-          ],
+                    )
+                    : Container(),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
 }
-
-class LayoutSetting extends StatelessWidget {
-  const LayoutSetting({Key? key, required this.child}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: SizedBox(
-        width: _maxWidthConstraint,
-        child: child,
-      ),
-    );
-  }
-}
-
 
 const _rowDivider = SizedBox(width: 10);
 const _colDivider = SizedBox(height: 10);
