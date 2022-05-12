@@ -190,7 +190,7 @@ class MyApp extends StatelessWidget {
     required this.adsController,
     required this.gamesServicesController,
     super.key,
-  }) ;
+  });
 
   @override
   Widget build(BuildContext context) {
