@@ -187,7 +187,7 @@ class _Material3DemoState extends State<Material3Demo> {
                         selectedIndex: screenIndex)),
                 const VerticalDivider(thickness: 1, width: 1),
                 createScreenFor(screenIndex, true),
-              ],),
+              ]),
             ),
           );
         }
