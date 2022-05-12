@@ -12,7 +12,7 @@ class AppLifecycleObserver extends StatefulWidget {
   const AppLifecycleObserver({required this.child, Key? key}) : super(key: key);
 
   @override
-  _AppLifecycleObserverState createState() => _AppLifecycleObserverState();
+  State<AppLifecycleObserver> createState() => _AppLifecycleObserverState();
 }
 
 class _AppLifecycleObserverState extends State<AppLifecycleObserver>
