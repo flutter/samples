@@ -1,0 +1,9 @@
+include: ../analysis_options.yaml
+
+linter:
+  rules:
+    # Remove or force lint rules by adding lines like the following.
+    # The lints below are disabled in order to make things smoother in early
+    # development. Consider enabling them once development is further along.
+    prefer_const_constructors: false  # Annoying in early development
+    prefer_single_quotes: false  # Annoying in early development

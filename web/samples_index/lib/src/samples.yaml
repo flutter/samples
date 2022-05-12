@@ -491,10 +491,97 @@ samples:
     tags: ['desktop', 'rest-api']
     platforms: ['windows', 'macos', 'linux']
     type: sample
-    
+
 ###################
 #### Web Demos ####
 ###################
+
+  - name: Rich Text Editor
+    author: Flutter
+    screenshots:
+      - url: images/simple_editor_active.png
+        alt: Advanced text editing with activity
+      - url: images/simple_editor_initial.png
+        alt: Advanced text editing in initial state
+    source: https://github.com/flutter/samples/tree/master/simplistic_editor
+    description: >
+      This is a fancy text editor sample which shows how to consume fine-grain
+      text editing and selection details from the framework's TextEditingDeltas
+      APIs.
+    difficulty: advanced
+    widgets:
+      - TextInput
+    packages: []
+    links: []
+    tags: ["demo", "text"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: demo
+    web: web/simplistic_editor
+
+  - name: Material You
+    author: Flutter
+    screenshots:
+      - url: images/material_you_components.png
+        alt: Components tab of the Material You demo
+      - url: images/material_you_color.png
+        alt: Colors tab of the Material You demo
+      - url: images/material_you_typography.png
+        alt: Typography tab of the Material You demo
+      - url: images/material_you_elevation.png
+        alt: Elevation tab of the Material You demo
+      - url: images/material_you_green.png
+        alt: Elevation tab of the Material You demo with seed color of green
+    source: https://github.com/flutter/samples/tree/master/material_3_demo
+    description: >
+      This is a brochure of common Material widgets, styled with the new
+      Material You version of the Material design spec.
+    difficulty: beginner
+    widgets:
+      - Theme
+      - TextButton
+      - ElevatedButton
+      - OutlinedButton
+      - Text
+      - Card
+      - AppBar
+    packages: []
+    links: []
+    tags: ["material", "material you"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: demo
+    web: web/material_3_demo
+  
+  - name: Game Template
+    author: Flutter
+    screenshots:
+      - url: images/loading_screen.png
+        alt: Loading screen
+      - url: images/level_selector.png
+        alt: Level selection screen
+    source: https://github.com/flutter/samples/tree/master/game_template
+    description: >
+      This is a game template that shows how to build much of the dressing
+      around an actual game. The game itself is very simple - the value in this
+      sample is everything around the game.
+    difficulty: beginner
+    widgets:
+      - GoRouter
+      - AppLifecycleObserver
+    packages:
+      - audioplayers
+      - firebase_crashlytics
+      - games_services
+      - go_router
+      - google_mobile_ads
+      - in_app_purchase
+      - logging
+      - provider
+      - shared_preferences
+    links: []
+    tags: ["games", "firebase", "ads", "crashlytics", "routing"]
+    platforms: ["ios", "android", "web", "windows", "macos", "linux"]
+    type: demo
+    web: web/material_3_demo
 
   - name: Charts
     author: Flutter

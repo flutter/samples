@@ -29,12 +29,12 @@ class Timeline extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return TimelineState();
+  State<Timeline> createState() {
+    return _TimelineState();
   }
 }
 
-class TimelineState extends State<Timeline> {
+class _TimelineState extends State<Timeline> {
   HashMap<String, TextPainter> labelPainters = HashMap();
 
   @override
@@ -49,7 +49,7 @@ class TimelineState extends State<Timeline> {
     for (var weekLabel in widget.weekLabels) {
       labelPainters[weekLabel.label] =
           _makeTextPainter(Constants.milestoneTimelineColor, weekLabel.label);
-      labelPainters[weekLabel.label + '_red'] =
+      labelPainters['${weekLabel.label}_red'] =
           _makeTextPainter(Colors.redAccent, weekLabel.label);
     }
   }
@@ -79,7 +79,7 @@ class TimelineState extends State<Timeline> {
         }
       },
       child: CustomPaint(
-          foregroundPainter: TimelinePainter(
+          foregroundPainter: _TimelinePainter(
               this, widget.numWeeks, widget.animationValue, widget.weekLabels),
           child: Container(
             height: 200,
@@ -106,8 +106,8 @@ class TimelineState extends State<Timeline> {
   }
 }
 
-class TimelinePainter extends CustomPainter {
-  TimelineState state;
+class _TimelinePainter extends CustomPainter {
+  _TimelineState state;
 
   late Paint mainLinePaint;
   late Paint milestoneLinePaint;
@@ -123,7 +123,7 @@ class TimelinePainter extends CustomPainter {
 
   int yearNumber = 2015;
 
-  TimelinePainter(
+  _TimelinePainter(
       this.state, this.numWeeks, this.animationValue, this.weekLabels) {
     mainLinePaint = Paint();
     mainLinePaint.style = PaintingStyle.stroke;

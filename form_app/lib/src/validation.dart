@@ -9,7 +9,7 @@ class FormValidationDemo extends StatefulWidget {
   const FormValidationDemo({Key? key}) : super(key: key);
 
   @override
-  _FormValidationDemoState createState() => _FormValidationDemoState();
+  State<FormValidationDemo> createState() => _FormValidationDemoState();
 }
 
 class _FormValidationDemoState extends State<FormValidationDemo> {

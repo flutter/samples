@@ -41,13 +41,13 @@ class _CellState extends State<Cell> with WidgetsBindingObserver {
       }
     });
     // Keep track of what the current platform lifecycle state is.
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 

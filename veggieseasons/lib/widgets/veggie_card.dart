@@ -66,7 +66,7 @@ class PressableCard extends StatefulWidget {
   final Duration duration;
 
   @override
-  _PressableCardState createState() => _PressableCardState();
+  State<PressableCard> createState() => _PressableCardState();
 }
 
 class _PressableCardState extends State<PressableCard> {

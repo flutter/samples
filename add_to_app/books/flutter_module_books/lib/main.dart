@@ -8,7 +8,7 @@ import 'package:flutter_module_books/api.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,30 +30,28 @@ class FlutterBookApiHandler extends FlutterBookApi {
 
   @override
   void displayBookDetails(Book book) {
-    assert(
-      book != null,
-      'Non-null book expected from FlutterBookApi.displayBookDetails call.',
-    );
     callback(book);
   }
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({this.hostApi, this.flutterApi, Key key}) : super(key: key);
+  const BookDetail({Key? key, this.hostApi, this.flutterApi, this.book})
+      : super(key: key);
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
-  final HostBookApi hostApi;
-  final FlutterBookApi flutterApi;
+  final HostBookApi? hostApi;
+  final FlutterBookApi? flutterApi;
+  final Book? book;
 
   @override
-  _BookDetailState createState() => _BookDetailState();
+  State<BookDetail> createState() => _BookDetailState();
 }
 
 class _BookDetailState extends State<BookDetail> {
-  Book book;
+  Book? book;
 
-  HostBookApi hostApi;
+  late HostBookApi hostApi;
 
   FocusNode textFocusNode = FocusNode();
   TextEditingController titleTextController = TextEditingController();
@@ -63,6 +61,7 @@ class _BookDetailState extends State<BookDetail> {
   @override
   void initState() {
     super.initState();
+    book = widget.book;
 
     // This `HostBookApi` class instance lets us make outgoing calls to the
     // platform.
@@ -80,19 +79,19 @@ class _BookDetailState extends State<BookDetail> {
         // This book model is what we're going to return to Kotlin eventually.
         // Keep it bound to the UI.
         this.book = book;
-        titleTextController.text = book.title;
+        titleTextController.text = book.title ?? '';
         titleTextController.addListener(() {
-          this.book?.title = titleTextController.text;
+          this.book!.title = titleTextController.text;
         });
         // Subtitle could be null.
         // TODO(gaaclarke): https://github.com/flutter/flutter/issues/59118.
         subtitleTextController.text = book.subtitle ?? '';
         subtitleTextController.addListener(() {
-          this.book?.subtitle = subtitleTextController.text;
+          this.book!.subtitle = subtitleTextController.text;
         });
-        authorTextController.text = book.author;
+        authorTextController.text = book.author ?? '';
         authorTextController.addListener(() {
-          this.book?.author = authorTextController.text;
+          this.book!.author = authorTextController.text;
         });
       });
     }));
@@ -123,10 +122,12 @@ class _BookDetailState extends State<BookDetail> {
           IconButton(
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
-            onPressed: () {
-              hostApi.finishEditingBook(book);
-              clear();
-            },
+            onPressed: book != null
+                ? () {
+                    hostApi.finishEditingBook(book!);
+                    clear();
+                  }
+                : null,
           ),
         ],
       ),
@@ -134,70 +135,98 @@ class _BookDetailState extends State<BookDetail> {
           // Draw a spinner until the platform gives us the book to show details
           // for.
           ? const Center(child: CircularProgressIndicator())
-          : Focus(
+          : BookForm(
+              book: book!,
               focusNode: textFocusNode,
-              child: ListView(
-                padding: const EdgeInsets.all(24),
-                children: [
-                  TextField(
-                    controller: titleTextController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      hintText: "Title",
-                      labelText: "Title",
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  TextField(
-                    controller: subtitleTextController,
-                    maxLines: 2,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      hintText: "Subtitle",
-                      labelText: "Subtitle",
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  TextField(
-                    controller: authorTextController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      hintText: "Author",
-                      labelText: "Author",
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-                  const Divider(),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                          '${book.pageCount} pages  ~  published ${book.publishDate}'),
-                    ),
-                  ),
-                  const Divider(),
-                  const SizedBox(height: 32),
-                  const Center(
-                    child: Text(
-                      'BOOK DESCRIPTION',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    book.summary,
-                    style: TextStyle(color: Colors.grey.shade600, height: 1.24),
-                  ),
-                ],
+              authorTextController: authorTextController,
+              subtitleTextController: subtitleTextController,
+              titleTextController: titleTextController,
+            ),
+    );
+  }
+}
+
+class BookForm extends StatelessWidget {
+  const BookForm({
+    Key? key,
+    required this.book,
+    required this.focusNode,
+    required this.authorTextController,
+    required this.subtitleTextController,
+    required this.titleTextController,
+  }) : super(key: key);
+
+  final Book book;
+  final FocusNode focusNode;
+  final TextEditingController titleTextController;
+  final TextEditingController subtitleTextController;
+  final TextEditingController authorTextController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Focus(
+      focusNode: focusNode,
+      child: ListView(
+        padding: const EdgeInsets.all(24),
+        children: [
+          TextField(
+            controller: titleTextController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              filled: true,
+              hintText: "Title",
+              labelText: "Title",
+            ),
+          ),
+          const SizedBox(height: 24),
+          TextField(
+            controller: subtitleTextController,
+            maxLines: 2,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              filled: true,
+              hintText: "Subtitle",
+              labelText: "Subtitle",
+            ),
+          ),
+          const SizedBox(height: 24),
+          TextField(
+            controller: authorTextController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              filled: true,
+              hintText: "Author",
+              labelText: "Author",
+            ),
+          ),
+          const SizedBox(height: 32),
+          const Divider(),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                  '${book.pageCount} pages  ~  published ${book.publishDate}'),
+            ),
+          ),
+          const Divider(),
+          const SizedBox(height: 32),
+          const Center(
+            child: Text(
+              'BOOK DESCRIPTION',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.underline,
               ),
             ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            book.summary ?? '',
+            style: TextStyle(color: Colors.grey.shade600, height: 1.24),
+          ),
+        ],
+      ),
     );
   }
 }

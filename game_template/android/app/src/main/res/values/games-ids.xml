@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Google Play game services IDs.
+
+  TODO: When ready, update this file with actual IDs from Google Play.
+  You can download this file from Google Play Console,
+  in the Play Games Services section. The button is called "Get resources".
+  Details in README.txt.
+-->
+<resources>
+    <!--app_id-->
+    <string name="app_id" translatable="false">123456789012</string>
+    <!--package_name-->
+    <string name="package_name" translatable="false">name.of.your.game</string>
+    <!--leaderboard Something-->
+    <string name="leaderboard_highest_score" translatable="false">sOmEtHiNg</string>
+</resources>

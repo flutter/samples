@@ -20,7 +20,7 @@ class SongsTab extends StatefulWidget {
   final Widget? androidDrawer;
 
   @override
-  _SongsTabState createState() => _SongsTabState();
+  State<SongsTab> createState() => _SongsTabState();
 }
 
 class _SongsTabState extends State<SongsTab> {
@@ -96,7 +96,7 @@ class _SongsTabState extends State<SongsTab> {
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
     // purposes.
-    WidgetsBinding.instance!.reassembleApplication();
+    WidgetsBinding.instance.reassembleApplication();
   }
 
   // ===========================================================================
@@ -145,8 +145,8 @@ class _SongsTabState extends State<SongsTab> {
         CupertinoSliverNavigationBar(
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
-            child: const Icon(CupertinoIcons.shuffle),
             onPressed: _togglePlatform,
+            child: const Icon(CupertinoIcons.shuffle),
           ),
         ),
         CupertinoSliverRefreshControl(

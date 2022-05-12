@@ -33,7 +33,7 @@ class PerformancePage extends StatefulWidget {
   const PerformancePage({Key? key}) : super(key: key);
 
   @override
-  _PerformancePageState createState() => _PerformancePageState();
+  State<PerformancePage> createState() => _PerformancePageState();
 }
 
 class _PerformancePageState extends State<PerformancePage> {
@@ -55,12 +55,12 @@ class _PerformancePageState extends State<PerformancePage> {
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return ElevatedButton(
-                      child: const Text('Compute on Main'),
                       style: ElevatedButton.styleFrom(elevation: 8.0),
                       onPressed:
                           snapshot.connectionState == ConnectionState.done
                               ? () => handleComputeOnMain(context)
                               : null,
+                      child: const Text('Compute on Main'),
                     );
                   },
                 ),
@@ -68,12 +68,12 @@ class _PerformancePageState extends State<PerformancePage> {
                   future: computeFuture,
                   builder: (context, snapshot) {
                     return ElevatedButton(
-                        child: const Text('Compute on Secondary'),
                         style: ElevatedButton.styleFrom(elevation: 8.0),
                         onPressed:
                             snapshot.connectionState == ConnectionState.done
                                 ? () => handleComputeOnSecondary(context)
-                                : null);
+                                : null,
+                        child: const Text('Compute on Secondary'));
                   },
                 ),
               ],
@@ -130,10 +130,10 @@ class SmoothAnimationWidget extends StatefulWidget {
   const SmoothAnimationWidget({Key? key}) : super(key: key);
 
   @override
-  SmoothAnimationWidgetState createState() => SmoothAnimationWidgetState();
+  State<SmoothAnimationWidget> createState() => _SmoothAnimationWidgetState();
 }
 
-class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
+class _SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
     with TickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<BorderRadius?> _borderAnimation;
@@ -160,9 +160,6 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
         animation: _borderAnimation,
         builder: (context, child) {
           return Container(
-            child: const FlutterLogo(
-              size: 200,
-            ),
             alignment: Alignment.bottomCenter,
             width: 350,
             height: 200,
@@ -175,6 +172,9 @@ class SmoothAnimationWidgetState extends State<SmoothAnimationWidget>
                 ],
               ),
               borderRadius: _borderAnimation.value,
+            ),
+            child: const FlutterLogo(
+              size: 200,
             ),
           );
         },

@@ -10,9 +10,14 @@ import 'package:linting_tool/pages/rules_page.dart';
 import 'package:linting_tool/theme/colors.dart';
 import 'package:provider/provider.dart';
 
-class SavedLintsPage extends StatelessWidget {
+class SavedLintsPage extends StatefulWidget {
   const SavedLintsPage({Key? key}) : super(key: key);
 
+  @override
+  State<SavedLintsPage> createState() => _SavedLintsPageState();
+}
+
+class _SavedLintsPageState extends State<SavedLintsPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ProfilesStore>(
@@ -90,10 +95,13 @@ class SavedLintsPage extends StatelessWidget {
                         onSelected: (value) async {
                           switch (value) {
                             case 'Export file':
+                              // ignore: todo
                               // TODO(abd99): Add option to select formatting style.
 
                               var saved = await profilesStore
                                   .exportProfileFile(profile);
+
+                              if (!mounted) return;
 
                               if (!saved) {
                                 _showSnackBar(
@@ -112,12 +120,12 @@ class SavedLintsPage extends StatelessWidget {
                         itemBuilder: (context) {
                           return [
                             const PopupMenuItem(
-                              child: Text('Export file'),
                               value: 'Export file',
+                              child: Text('Export file'),
                             ),
                             const PopupMenuItem(
-                              child: Text('Delete'),
                               value: 'Delete',
+                              child: Text('Delete'),
                             ),
                           ];
                         },

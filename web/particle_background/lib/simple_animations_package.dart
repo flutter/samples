@@ -36,7 +36,7 @@ class Rendering extends StatefulWidget {
       : super(key: key);
 
   @override
-  _RenderingState createState() => _RenderingState();
+  State<Rendering> createState() => _RenderingState();
 }
 
 class _RenderingState extends State<Rendering>
@@ -199,7 +199,7 @@ class MultiTrackTween extends Animatable<Map<String, dynamic>> {
 /// Single property to tween. Used by [MultiTrackTween].
 class Track<T> {
   final String name;
-  final List<_TrackItem> items = [];
+  final List<TrackItem> items = [];
 
   Track(this.name);
 
@@ -211,20 +211,20 @@ class Track<T> {
   /// Optionally you can set a named parameter [curve] that applies an easing
   /// curve to the tween.
   Track<T> add(Duration duration, Animatable<T> tween, {Curve? curve}) {
-    items.add(_TrackItem(duration, tween, curve: curve));
+    items.add(TrackItem(duration, tween, curve: curve));
     return this;
   }
 }
 
-class _TrackItem<T> {
+class TrackItem<T> {
   final Duration duration;
   late Animatable<T> tween;
 
-  _TrackItem(this.duration, Animatable<T> _tween, {Curve? curve}) {
+  TrackItem(this.duration, Animatable<T> tween, {Curve? curve}) {
     if (curve != null) {
-      tween = _tween.chain(CurveTween(curve: curve));
+      this.tween = tween.chain(CurveTween(curve: curve));
     } else {
-      tween = _tween;
+      this.tween = tween;
     }
   }
 }
@@ -336,7 +336,7 @@ class ControlledAnimation<T> extends StatefulWidget {
         super(key: key);
 
   @override
-  _ControlledAnimationState<T> createState() => _ControlledAnimationState<T>();
+  State<ControlledAnimation> createState() => _ControlledAnimationState<T>();
 }
 
 class _ControlledAnimationState<T> extends State<ControlledAnimation>

@@ -60,6 +60,7 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> addToExistingProfile(RulesProfile profile, Rule rule) async {
+    // ignore: todo
     // TODO(abd99): Consider refactoring to LinkedHashSet/SplayTreeSet to avoid
     // duplication automatically.
     // ref: https://github.com/flutter/samples/pull/870#discussion_r685666792

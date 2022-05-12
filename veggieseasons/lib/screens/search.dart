@@ -15,7 +15,7 @@ class SearchScreen extends StatefulWidget {
   final String? restorationId;
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
@@ -76,11 +76,14 @@ class _SearchScreenState extends State<SearchScreen> with RestorationMixin {
             // This invisible and otherwise unnecessary search box is used to
             // pad the list entries downward, so none will be underneath the
             // real search box when the list is at its top scroll position.
-            child: _createSearchBox(focus: false),
             visible: false,
             maintainSize: true,
             maintainAnimation: true,
             maintainState: true,
+            // This invisible and otherwise unnecessary search box is used to
+            // pad the list entries downward, so none will be underneath the
+            // real search box when the list is at its top scroll position.
+            child: _createSearchBox(focus: false),
           );
         } else {
           return Padding(

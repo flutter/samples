@@ -10,7 +10,7 @@ class AutofillDemo extends StatefulWidget {
   const AutofillDemo({Key? key}) : super(key: key);
 
   @override
-  _AutofillDemoState createState() => _AutofillDemoState();
+  State<AutofillDemo> createState() => _AutofillDemoState();
 }
 
 class _AutofillDemoState extends State<AutofillDemo> {

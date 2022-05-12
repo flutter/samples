@@ -166,11 +166,16 @@ class CalorieSettingsScreen extends StatelessWidget {
   }
 }
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({this.restorationId, Key? key}) : super(key: key);
 
   final String? restorationId;
 
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
   SettingsItem _buildCaloriesItem(BuildContext context, Preferences prefs) {
     return SettingsItem(
       label: 'Calorie Target',
@@ -237,6 +242,7 @@ class SettingsScreen extends StatelessWidget {
                 child: const Text('Yes'),
                 onPressed: () async {
                   await prefs.restoreDefaults();
+                  if (!mounted) return;
                   Navigator.pop(context);
                 },
               ),
@@ -257,7 +263,7 @@ class SettingsScreen extends StatelessWidget {
     final prefs = Provider.of<Preferences>(context);
 
     return RestorationScope(
-      restorationId: restorationId,
+      restorationId: widget.restorationId,
       child: CupertinoPageScaffold(
         child: Container(
           color:
