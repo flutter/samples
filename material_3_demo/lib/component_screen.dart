@@ -30,9 +30,9 @@ class ComponentScreen extends StatelessWidget {
                 _colDivider,
                 showNavBottomBar
                     ? const NavigationBars(
-                      selectedIndex: 0,
-                      isExampleBar: true,
-                    )
+                        selectedIndex: 0,
+                        isExampleBar: true,
+                      )
                     : Container(),
               ],
             ),
