@@ -15,8 +15,8 @@ samples:
     source: https://github.com/flutter/gallery
     web: https://gallery.flutter.dev
     description: >
-      A collection of material design widgets, behaviors, and vignettes
-      implemented with Flutter.
+      A collection of Material Design & Cupertino widgets, behaviors,
+      and vignettes implemented with Flutter.
     difficulty: intermediate
     widgets:
       - AlertDialog
@@ -518,23 +518,23 @@ samples:
     type: demo
     web: web/simplistic_editor
 
-  - name: Material You
+  - name: Material 3
     author: Flutter
     screenshots:
       - url: images/material_you_components.png
-        alt: Components tab of the Material You demo
-      - url: images/material_you_color.png
-        alt: Colors tab of the Material You demo
-      - url: images/material_you_typography.png
-        alt: Typography tab of the Material You demo
-      - url: images/material_you_elevation.png
-        alt: Elevation tab of the Material You demo
-      - url: images/material_you_green.png
-        alt: Elevation tab of the Material You demo with seed color of green
+        alt: Components tab of the Material 3 demo
+      - url: images/material_3_color.png
+        alt: Colors tab of the Material 3 demo
+      - url: images/material_3_typography.png
+        alt: Typography tab of the Material 3 demo
+      - url: images/material_3_elevation.png
+        alt: Elevation tab of the Material 3 demo
+      - url: images/material_3_green.png
+        alt: Elevation tab of the Material 3 demo with seed color of green
     source: https://github.com/flutter/samples/tree/master/material_3_demo
     description: >
-      This is a brochure of common Material widgets, styled with the new
-      Material You version of the Material design spec.
+      Showcases Material 3 features in the Flutter Material library.
+      These features include updated components, typography, color system and elevation support.
     difficulty: beginner
     widgets:
       - Theme
@@ -546,7 +546,7 @@ samples:
       - AppBar
     packages: []
     links: []
-    tags: ["material", "material you"]
+    tags: ["material", "design"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
     web: web/material_3_demo
@@ -581,7 +581,7 @@ samples:
     tags: ["games", "firebase", "ads", "crashlytics", "routing"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
-    web: web/material_3_demo
+    web: web/game_template
 
   - name: Charts
     author: Flutter
