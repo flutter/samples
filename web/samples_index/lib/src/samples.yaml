@@ -15,7 +15,7 @@ samples:
     source: https://github.com/flutter/gallery
     web: https://gallery.flutter.dev
     description: >
-      A collection of material design widgets, behaviors, and vignettes
+      A collection of Material Design widgets, behaviors, and vignettes
       implemented with Flutter.
     difficulty: intermediate
     widgets:
@@ -518,23 +518,22 @@ samples:
     type: demo
     web: web/simplistic_editor
 
-  - name: Material You
+  - name: Material 3
     author: Flutter
     screenshots:
       - url: images/material_you_components.png
-        alt: Components tab of the Material You demo
+        alt: Components tab of the Material 3 demo
       - url: images/material_you_color.png
         alt: Colors tab of the Material You demo
       - url: images/material_you_typography.png
-        alt: Typography tab of the Material You demo
+        alt: Typography tab of the Material 3 demo
       - url: images/material_you_elevation.png
-        alt: Elevation tab of the Material You demo
+        alt: Elevation tab of the Material 3 demo
       - url: images/material_you_green.png
-        alt: Elevation tab of the Material You demo with seed color of green
+        alt: Elevation tab of the Material 3 demo with seed color of green
     source: https://github.com/flutter/samples/tree/master/material_3_demo
     description: >
-      This is a brochure of common Material widgets, styled with the new
-      Material You version of the Material design spec.
+      Showcases supported Material Design 3 components and subsystems.
     difficulty: beginner
     widgets:
       - Theme
@@ -546,7 +545,7 @@ samples:
       - AppBar
     packages: []
     links: []
-    tags: ["material", "material you"]
+    tags: ["material", "material 3", "material you"]
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
     web: web/material_3_demo
