@@ -63,8 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (delta is TextEditingDeltaInsertion) {
         deltaView = TextEditingDeltaView(
-          deltaType:
-              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType: 'Insertion',
           deltaText: delta.textInserted,
           deltaRange: TextRange.collapsed(delta.insertionOffset),
           newSelection: delta.selection,
@@ -72,8 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaDeletion) {
         deltaView = TextEditingDeltaView(
-          deltaType:
-              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType: 'Deletion',
           deltaText: delta.textDeleted,
           deltaRange: delta.deletedRange,
           newSelection: delta.selection,
@@ -81,8 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaReplacement) {
         deltaView = TextEditingDeltaView(
-          deltaType:
-              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType: 'Replacement',
           deltaText: delta.replacementText,
           deltaRange: delta.replacedRange,
           newSelection: delta.selection,
@@ -90,8 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       } else if (delta is TextEditingDeltaNonTextUpdate) {
         deltaView = TextEditingDeltaView(
-          deltaType:
-              delta.runtimeType.toString().replaceAll('TextEditingDelta', ''),
+          deltaType: 'NonTextUpdate',
           deltaText: '',
           deltaRange: TextRange.empty,
           newSelection: delta.selection,
