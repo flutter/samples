@@ -11,32 +11,26 @@ class ComponentScreen extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            width: _maxWidthConstraint,
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                _colDivider,
-                _colDivider,
-                const Buttons(),
-                _colDivider,
-                const FloatingActionButtons(),
-                _colDivider,
-                const Cards(),
-                _colDivider,
-                const Dialogs(),
-                _colDivider,
-                showNavBottomBar
-                    ? const NavigationBars(
-                      selectedIndex: 0,
-                      isExampleBar: true,
-                    )
-                    : Container(),
-              ],
-            ),
-          ),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            _colDivider,
+            _colDivider,
+            const Buttons(),
+            _colDivider,
+            const FloatingActionButtons(),
+            _colDivider,
+            const Cards(),
+            _colDivider,
+            const Dialogs(),
+            _colDivider,
+            showNavBottomBar
+                ? const NavigationBars(
+                    selectedIndex: 0,
+                    isExampleBar: true,
+                  )
+                : Container(),
+          ],
         ),
       ),
     );
@@ -46,7 +40,6 @@ class ComponentScreen extends StatelessWidget {
 const _rowDivider = SizedBox(width: 10);
 const _colDivider = SizedBox(height: 10);
 const double _cardWidth = 115;
-const double _maxWidthConstraint = 400;
 
 void Function()? handlePressed(
     BuildContext context, bool isDisabled, String buttonName) {
@@ -262,7 +255,8 @@ class Cards extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: Icon(Icons.more_vert),
                     ),
-                    SizedBox(height: 35),
+                    _colDivider,
+                    _colDivider,
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text("Elevated"),
@@ -285,7 +279,8 @@ class Cards extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: Icon(Icons.more_vert),
                     ),
-                    SizedBox(height: 35),
+                    _colDivider,
+                    _colDivider,
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text("Filled"),
@@ -313,7 +308,8 @@ class Cards extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: Icon(Icons.more_vert),
                     ),
-                    SizedBox(height: 35),
+                    _colDivider,
+                    _colDivider,
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text("Outlined"),
