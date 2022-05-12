@@ -14,7 +14,7 @@ import 'package:platform_channels/src/accelerometer_event_channel.dart';
 /// [Text] widgets to display the value of [AccelerometerReadings.x],
 /// [AccelerometerReadings.y], and [AccelerometerReadings.z] respectively.
 class EventChannelDemo extends StatelessWidget {
-  const EventChannelDemo({Key? key}) : super(key: key);
+  const EventChannelDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

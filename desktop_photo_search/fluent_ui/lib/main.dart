@@ -56,7 +56,7 @@ void setupWindow() {
 }
 
 class UnsplashSearchApp extends StatelessWidget {
-  const UnsplashSearchApp({Key? key}) : super(key: key);
+  const UnsplashSearchApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class UnsplashSearchApp extends StatelessWidget {
 }
 
 class UnsplashHomePage extends StatelessWidget {
-  const UnsplashHomePage({required this.title, Key? key}) : super(key: key);
+  const UnsplashHomePage({required this.title, super.key});
   final String title;
 
   @override

@@ -8,7 +8,7 @@ const Widget divider = SizedBox(height: 10);
 const double narrowScreenWidthThreshold = 400;
 
 class ColorPalettesScreen extends StatelessWidget {
-  const ColorPalettesScreen({Key? key}) : super(key: key);
+  const ColorPalettesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,8 +86,7 @@ class ColorPalettesScreen extends StatelessWidget {
 }
 
 class ColorSchemeView extends StatelessWidget {
-  const ColorSchemeView({Key? key, required this.colorScheme})
-      : super(key: key);
+  const ColorSchemeView({super.key, required this.colorScheme});
 
   final ColorScheme colorScheme;
 
@@ -239,7 +238,7 @@ class ColorSchemeView extends StatelessWidget {
 }
 
 class ColorGroup extends StatelessWidget {
-  const ColorGroup({Key? key, required this.children}) : super(key: key);
+  const ColorGroup({super.key, required this.children});
 
   final List<Widget> children;
 
@@ -256,11 +255,11 @@ class ColorGroup extends StatelessWidget {
 
 class ColorChip extends StatelessWidget {
   const ColorChip({
-    Key? key,
+    super.key,
     required this.color,
     required this.label,
     this.onColor,
-  }) : super(key: key);
+  });
 
   final Color color;
   final Color? onColor;

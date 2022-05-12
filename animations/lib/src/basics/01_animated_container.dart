@@ -11,7 +11,7 @@ double generateMargin() => Random().nextDouble() * 64;
 Color generateColor() => Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF));
 
 class AnimatedContainerDemo extends StatefulWidget {
-  const AnimatedContainerDemo({Key? key}) : super(key: key);
+  const AnimatedContainerDemo({super.key});
   static String routeName = '/basics/01_animated_container';
 
   @override

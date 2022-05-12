@@ -38,10 +38,10 @@ class RouteState extends ChangeNotifier {
 /// Provides the current [RouteState] to descendant widgets in the tree.
 class RouteStateScope extends InheritedNotifier<RouteState> {
   const RouteStateScope({
-    required RouteState notifier,
-    required Widget child,
-    Key? key,
-  }) : super(key: key, notifier: notifier, child: child);
+    required super.notifier,
+    required super.child,
+    super.key,
+  });
 
   static RouteState of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<RouteStateScope>()!.notifier!;

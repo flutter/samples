@@ -11,7 +11,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -385,13 +385,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class TextEditingDeltaView extends StatelessWidget {
   const TextEditingDeltaView({
-    Key? key,
+    super.key,
     required this.deltaType,
     required this.deltaText,
     required this.deltaRange,
     required this.newSelection,
     required this.newComposing,
-  }) : super(key: key);
+  });
 
   final String deltaType;
   final String deltaText;

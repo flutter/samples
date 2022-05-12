@@ -65,7 +65,7 @@ final demos = [
 ];
 
 class FormApp extends StatelessWidget {
-  const FormApp({Key? key}) : super(key: key);
+  const FormApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class FormApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final Demo? demo;
 
-  const DemoTile({this.demo, Key? key}) : super(key: key);
+  const DemoTile({this.demo, super.key});
 
   @override
   Widget build(BuildContext context) {

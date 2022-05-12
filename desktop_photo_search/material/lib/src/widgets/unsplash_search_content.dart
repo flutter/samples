@@ -13,7 +13,7 @@ import '../widgets/photo_details.dart';
 import '../widgets/split.dart';
 
 class UnsplashSearchContent extends StatefulWidget {
-  const UnsplashSearchContent({Key? key}) : super(key: key);
+  const UnsplashSearchContent({super.key});
 
   @override
   State<UnsplashSearchContent> createState() => _UnsplashSearchContentState();

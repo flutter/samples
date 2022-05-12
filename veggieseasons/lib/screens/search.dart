@@ -10,7 +10,7 @@ import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/widgets/veggie_headline.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({this.restorationId, Key? key}) : super(key: key);
+  const SearchScreen({this.restorationId, super.key});
 
   final String? restorationId;
 

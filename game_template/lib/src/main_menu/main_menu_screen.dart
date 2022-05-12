@@ -14,7 +14,7 @@ import '../style/palette.dart';
 import '../style/responsive_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
-  const MainMenuScreen({Key? key}) : super(key: key);
+  const MainMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

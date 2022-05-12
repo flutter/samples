@@ -85,8 +85,7 @@ class FakeUnsplash implements Unsplash {
 const fabKey = Key('fab');
 
 class PhotoSearchModelTester extends StatelessWidget {
-  const PhotoSearchModelTester({required this.query, Key? key})
-      : super(key: key);
+  const PhotoSearchModelTester({required this.query, super.key});
   final String query;
   @override
   Widget build(BuildContext context) {

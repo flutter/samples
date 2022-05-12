@@ -17,7 +17,7 @@ import 'package:jsonexample/utils.dart';
 import 'package:jsonexample/widgets.dart';
 
 class BasicsPage extends StatelessWidget {
-  const BasicsPage({Key? key}) : super(key: key);
+  const BasicsPage({super.key});
 
   List<TableRow> createMapRows(
       Map<String, dynamic> values, TextStyle normalStyle, TextStyle boldStyle) {
@@ -147,7 +147,7 @@ class BasicsPage extends StatelessWidget {
 }
 
 class ConvertedSimplePage extends StatelessWidget {
-  const ConvertedSimplePage({Key? key}) : super(key: key);
+  const ConvertedSimplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,7 @@ class ConvertedSimplePage extends StatelessWidget {
 }
 
 class ConvertedComplexPage extends StatelessWidget {
-  const ConvertedComplexPage({Key? key}) : super(key: key);
+  const ConvertedComplexPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +193,7 @@ class ConvertedComplexPage extends StatelessWidget {
 }
 
 class ConvertedListPage extends StatelessWidget {
-  const ConvertedListPage({Key? key}) : super(key: key);
+  const ConvertedListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +216,7 @@ class ConvertedListPage extends StatelessWidget {
 }
 
 class SerializableSimplePage extends StatelessWidget {
-  const SerializableSimplePage({Key? key}) : super(key: key);
+  const SerializableSimplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +239,7 @@ class SerializableSimplePage extends StatelessWidget {
 }
 
 class SerializableComplexPage extends StatelessWidget {
-  const SerializableComplexPage({Key? key}) : super(key: key);
+  const SerializableComplexPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -262,7 +262,7 @@ class SerializableComplexPage extends StatelessWidget {
 }
 
 class SerializableListPage extends StatelessWidget {
-  const SerializableListPage({Key? key}) : super(key: key);
+  const SerializableListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -285,7 +285,7 @@ class SerializableListPage extends StatelessWidget {
 }
 
 class BuiltSimplePage extends StatelessWidget {
-  const BuiltSimplePage({Key? key}) : super(key: key);
+  const BuiltSimplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -309,7 +309,7 @@ class BuiltSimplePage extends StatelessWidget {
 }
 
 class BuiltComplexPage extends StatelessWidget {
-  const BuiltComplexPage({Key? key}) : super(key: key);
+  const BuiltComplexPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -333,7 +333,7 @@ class BuiltComplexPage extends StatelessWidget {
 }
 
 class BuiltListPage extends StatelessWidget {
-  const BuiltListPage({Key? key}) : super(key: key);
+  const BuiltListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
 
 class MyCatalog extends StatelessWidget {
-  const MyCatalog({Key? key}) : super(key: key);
+  const MyCatalog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class MyCatalog extends StatelessWidget {
 class _AddButton extends StatelessWidget {
   final Item item;
 
-  const _AddButton({required this.item, Key? key}) : super(key: key);
+  const _AddButton({required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class _MyAppBar extends StatelessWidget {
 class _MyListItem extends StatelessWidget {
   final int index;
 
-  const _MyListItem(this.index, {Key? key}) : super(key: key);
+  const _MyListItem(this.index);
 
   @override
   Widget build(BuildContext context) {

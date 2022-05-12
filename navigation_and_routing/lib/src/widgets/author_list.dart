@@ -13,8 +13,8 @@ class AuthorList extends StatelessWidget {
   const AuthorList({
     required this.authors,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => ListView.builder(

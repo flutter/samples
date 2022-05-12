@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 typedef PhotoSearchDialogCallback = void Function(String searchQuery);
 
 class PhotoSearchDialog extends StatefulWidget {
-  const PhotoSearchDialog({required this.callback, Key? key}) : super(key: key);
+  const PhotoSearchDialog({required this.callback, super.key});
   final PhotoSearchDialogCallback callback;
   @override
   State<PhotoSearchDialog> createState() => _PhotoSearchDialogState();

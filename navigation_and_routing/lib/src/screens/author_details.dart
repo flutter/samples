@@ -12,9 +12,9 @@ class AuthorDetailsScreen extends StatelessWidget {
   final Author author;
 
   const AuthorDetailsScreen({
-    Key? key,
+    super.key,
     required this.author,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ElevationScreen extends StatelessWidget {
-  const ElevationScreen({Key? key}) : super(key: key);
+  const ElevationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +48,7 @@ class ElevationScreen extends StatelessWidget {
 const double narrowScreenWidthThreshold = 450;
 
 class ElevationGrid extends StatelessWidget {
-  const ElevationGrid({Key? key, this.shadowColor, this.surfaceTintColor})
-      : super(key: key);
+  const ElevationGrid({super.key, this.shadowColor, this.surfaceTintColor});
 
   final Color? shadowColor;
   final Color? surfaceTintColor;
@@ -92,8 +91,7 @@ class ElevationGrid extends StatelessWidget {
 
 class ElevationCard extends StatefulWidget {
   const ElevationCard(
-      {Key? key, required this.info, this.shadowColor, this.surfaceTint})
-      : super(key: key);
+      {super.key, required this.info, this.shadowColor, this.surfaceTint});
 
   final ElevationInfo info;
   final Color? shadowColor;

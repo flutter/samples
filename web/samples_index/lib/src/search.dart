@@ -69,12 +69,12 @@ String searchQueryFromParams(Map<String, String> params) {
   if (params.containsKey('type')) {
     if (buf.isNotEmpty) buf.write(' ');
     var value = params['type'];
-    if (value != null) buf.write('type:' + value);
+    if (value != null) buf.write('type:$value');
   }
   if (params.containsKey('platform')) {
     if (buf.isNotEmpty) buf.write(' ');
     var value = params['platform'];
-    if (value != null) buf.write('platform:' + value);
+    if (value != null) buf.write('platform:$value');
   }
 
   return buf.toString();

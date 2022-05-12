@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TypographyScreen extends StatelessWidget {
-  const TypographyScreen({Key? key}) : super(key: key);
+  const TypographyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +41,10 @@ class TypographyScreen extends StatelessWidget {
 
 class TextStyleExample extends StatelessWidget {
   const TextStyleExample({
-    Key? key,
+    super.key,
     required this.name,
     required this.style,
-  }) : super(key: key);
+  });
 
   final String name;
   final TextStyle style;

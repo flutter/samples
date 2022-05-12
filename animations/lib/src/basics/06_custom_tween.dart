@@ -16,7 +16,7 @@ class TypewriterTween extends Tween<String> {
 }
 
 class CustomTweenDemo extends StatefulWidget {
-  const CustomTweenDemo({Key? key}) : super(key: key);
+  const CustomTweenDemo({super.key});
   static const String routeName = '/basics/custom_tweens';
 
   @override

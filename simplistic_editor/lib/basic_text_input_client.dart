@@ -19,14 +19,14 @@ typedef SelectionChangedCallback = void Function(
 /// and vice-versa.
 class BasicTextInputClient extends StatefulWidget {
   const BasicTextInputClient({
-    Key? key,
+    super.key,
     required this.controller,
     required this.style,
     required this.focusNode,
     this.selectionControls,
     required this.onSelectionChanged,
     required this.showSelectionHandles,
-  }) : super(key: key);
+  });
 
   final TextEditingController controller;
   final TextStyle style;
@@ -779,7 +779,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
 class _Editable extends MultiChildRenderObjectWidget {
   _Editable({
-    Key? key,
+    super.key,
     required this.inlineSpan,
     required this.value,
     required this.startHandleLayerLink,
@@ -817,7 +817,7 @@ class _Editable extends MultiChildRenderObjectWidget {
     this.promptRectRange,
     this.promptRectColor,
     required this.clipBehavior,
-  }) : super(key: key, children: _extractChildren(inlineSpan));
+  }) : super(children: _extractChildren(inlineSpan));
 
   // Traverses the InlineSpan tree and depth-first collects the list of
   // child widgets that are created in WidgetSpans.

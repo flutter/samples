@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class PolicyDialog extends StatelessWidget {
-  const PolicyDialog({Key? key}) : super(key: key);
+  const PolicyDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

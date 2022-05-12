@@ -26,7 +26,7 @@ Future<void> main() async {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({required this.title, Key? key}) : super(key: key);
+  const HomePage({required this.title, super.key});
   final String title;
 
   @override
@@ -101,10 +101,10 @@ class _HomePageState extends State<HomePage> {
 
 class StoreCarousel extends StatelessWidget {
   const StoreCarousel({
-    Key? key,
+    super.key,
     required this.documents,
     required this.mapController,
-  }) : super(key: key);
+  });
 
   final List<DocumentSnapshot> documents;
   final Completer<GoogleMapController> mapController;
@@ -129,10 +129,10 @@ class StoreCarousel extends StatelessWidget {
 
 class StoreCarouselList extends StatelessWidget {
   const StoreCarouselList({
-    Key? key,
+    super.key,
     required this.documents,
     required this.mapController,
-  }) : super(key: key);
+  });
 
   final List<DocumentSnapshot> documents;
   final Completer<GoogleMapController> mapController;
@@ -164,10 +164,10 @@ class StoreCarouselList extends StatelessWidget {
 
 class StoreListTile extends StatefulWidget {
   const StoreListTile({
-    Key? key,
+    super.key,
     required this.document,
     required this.mapController,
-  }) : super(key: key);
+  });
 
   final DocumentSnapshot document;
   final Completer<GoogleMapController> mapController;
@@ -242,11 +242,11 @@ class _StoreListTileState extends State<StoreListTile> {
 
 class StoreMap extends StatelessWidget {
   const StoreMap({
-    Key? key,
+    super.key,
     required this.documents,
     required this.initialPosition,
     required this.mapController,
-  }) : super(key: key);
+  });
 
   final List<DocumentSnapshot> documents;
   final LatLng initialPosition;

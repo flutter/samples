@@ -10,8 +10,8 @@ import 'scaffold_body.dart';
 
 class BookstoreScaffold extends StatelessWidget {
   const BookstoreScaffold({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

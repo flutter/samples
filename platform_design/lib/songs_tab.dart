@@ -15,7 +15,7 @@ class SongsTab extends StatefulWidget {
   static const androidIcon = Icon(Icons.music_note);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const SongsTab({Key? key, this.androidDrawer}) : super(key: key);
+  const SongsTab({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 

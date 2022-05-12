@@ -36,10 +36,10 @@ class BookstoreAuth extends ChangeNotifier {
 
 class BookstoreAuthScope extends InheritedNotifier<BookstoreAuth> {
   const BookstoreAuthScope({
-    required BookstoreAuth notifier,
-    required Widget child,
-    Key? key,
-  }) : super(key: key, notifier: notifier, child: child);
+    required super.notifier,
+    required super.child,
+    super.key,
+  });
 
   static BookstoreAuth of(BuildContext context) => context
       .dependOnInheritedWidgetOfExactType<BookstoreAuthScope>()!

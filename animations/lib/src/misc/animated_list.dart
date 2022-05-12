@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedListDemo extends StatefulWidget {
-  const AnimatedListDemo({Key? key}) : super(key: key);
+  const AnimatedListDemo({super.key});
   static String routeName = '/misc/animated_list';
 
   @override

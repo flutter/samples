@@ -15,7 +15,7 @@ dependencies:
   html: ^0.15.0
 dev_dependencies:
   grinder: ^0.9.0
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   test: ^1.17.10
   json_serializable: ^6.1.5
   build: ^2.0.3

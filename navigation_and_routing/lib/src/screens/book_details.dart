@@ -12,9 +12,9 @@ class BookDetailsScreen extends StatelessWidget {
   final Book? book;
 
   const BookDetailsScreen({
-    Key? key,
+    super.key,
     this.book,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

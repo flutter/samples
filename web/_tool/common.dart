@@ -17,7 +17,7 @@ Future<bool> run(
   var proc = await Process.start(
     commandName,
     args,
-    workingDirectory: Directory.current.path + '/' + workingDir,
+    workingDirectory: '${Directory.current.path}/$workingDir',
     mode: ProcessStartMode.inheritStdio,
   );
 

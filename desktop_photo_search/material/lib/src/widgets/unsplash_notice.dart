@@ -14,7 +14,7 @@ final _unsplashPrivacyPolicy = Uri.parse(
     'https://unsplash.com/privacy?utm_source=${Uri.encodeFull(unsplashAppName)}&utm_medium=referral');
 
 class UnsplashNotice extends StatefulWidget {
-  const UnsplashNotice({Key? key, required this.child}) : super(key: key);
+  const UnsplashNotice({super.key, required this.child});
   final Widget child;
 
   @override
@@ -48,7 +48,7 @@ class _UnsplashNoticeState extends State<UnsplashNotice> {
 }
 
 class _UnsplashDialog extends StatelessWidget {
-  const _UnsplashDialog({Key? key, required this.accepted}) : super(key: key);
+  const _UnsplashDialog({required this.accepted});
   final Function accepted;
 
   @override

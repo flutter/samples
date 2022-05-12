@@ -9,7 +9,7 @@ import 'package:veggieseasons/screens/search.dart';
 import 'package:veggieseasons/screens/settings.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key, this.restorationId}) : super(key: key);
+  const HomeScreen({super.key, this.restorationId});
 
   final String? restorationId;
 

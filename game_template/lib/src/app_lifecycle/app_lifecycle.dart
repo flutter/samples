@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class AppLifecycleObserver extends StatefulWidget {
   final Widget child;
 
-  const AppLifecycleObserver({required this.child, Key? key}) : super(key: key);
+  const AppLifecycleObserver({required this.child, super.key});
 
   @override
   State<AppLifecycleObserver> createState() => _AppLifecycleObserverState();

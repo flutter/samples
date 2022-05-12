@@ -47,7 +47,7 @@ class CalculatorEngine extends StateNotifier<CalculatorState> {
 }
 
 class CalculatorApp extends StatelessWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context) {

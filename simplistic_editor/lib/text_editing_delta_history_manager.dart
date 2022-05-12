@@ -8,13 +8,12 @@ typedef TextEditingDeltaHistoryUpdateCallback = void Function(
 
 class TextEditingDeltaHistoryManager extends InheritedWidget {
   const TextEditingDeltaHistoryManager({
-    Key? key,
-    required Widget child,
+    super.key,
+    required super.child,
     required List<TextEditingDelta> history,
     required TextEditingDeltaHistoryUpdateCallback updateHistoryOnInput,
   })  : _textEditingDeltaHistory = history,
-        _updateTextEditingDeltaHistoryOnInput = updateHistoryOnInput,
-        super(key: key, child: child);
+        _updateTextEditingDeltaHistoryOnInput = updateHistoryOnInput;
 
   static TextEditingDeltaHistoryManager of(BuildContext context) {
     final TextEditingDeltaHistoryManager? result = context

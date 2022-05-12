@@ -12,7 +12,7 @@ void main() {
 }
 
 class PlatformView extends StatelessWidget {
-  const PlatformView({Key? key}) : super(key: key);
+  const PlatformView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class PlatformView extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();

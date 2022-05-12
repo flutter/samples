@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
 
 class FormWidgetsDemo extends StatefulWidget {
-  const FormWidgetsDemo({Key? key}) : super(key: key);
+  const FormWidgetsDemo({super.key});
 
   @override
   State<FormWidgetsDemo> createState() => _FormWidgetsDemoState();

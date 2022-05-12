@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class ExpandCardDemo extends StatelessWidget {
-  const ExpandCardDemo({Key? key}) : super(key: key);
+  const ExpandCardDemo({super.key});
   static const String routeName = '/misc/expand_card';
 
   @override
@@ -22,7 +22,7 @@ class ExpandCardDemo extends StatelessWidget {
 }
 
 class ExpandCard extends StatefulWidget {
-  const ExpandCard({Key? key}) : super(key: key);
+  const ExpandCard({super.key});
   @override
   State<ExpandCard> createState() => _ExpandCardState();
 }
