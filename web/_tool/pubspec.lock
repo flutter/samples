@@ -21,7 +21,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   markdown:
     dependency: "direct main"
     description:
@@ -44,4 +44,4 @@ packages:
     source: hosted
     version: "1.8.1"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.17.0-206.0.dev <3.0.0"

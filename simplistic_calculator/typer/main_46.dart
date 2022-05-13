@@ -71,7 +71,7 @@ class ButtonDefinition {
 }
 
 class CalculatorApp extends ConsumerWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

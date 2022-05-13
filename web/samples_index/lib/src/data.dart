@@ -108,7 +108,7 @@ class Sample {
     var screenshotUrl = screenshots.first.url;
     var prefix = path.dirname(screenshotUrl);
     var filename = path.basenameWithoutExtension(screenshotUrl);
-    return path.join(prefix, filename + '_thumb.png');
+    return path.join(prefix, '${filename}_thumb.png');
   }
 
   String get searchAttributes {
@@ -155,7 +155,7 @@ class Sample {
     if (description.length < 64) {
       return description;
     }
-    return description.substring(0, 64) + '...';
+    return '${description.substring(0, 64)}...';
   }
 }
 

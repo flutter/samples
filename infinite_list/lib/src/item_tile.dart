@@ -11,7 +11,7 @@ import 'api/item.dart';
 class ItemTile extends StatelessWidget {
   final Item item;
 
-  const ItemTile({required this.item, Key? key}) : super(key: key);
+  const ItemTile({required this.item, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ItemTile extends StatelessWidget {
 /// This is the widget responsible for building the "still loading" item
 /// in the list (represented with "..." and a crossed square).
 class LoadingItemTile extends StatelessWidget {
-  const LoadingItemTile({Key? key}) : super(key: key);
+  const LoadingItemTile({super.key});
 
   @override
   Widget build(BuildContext context) {

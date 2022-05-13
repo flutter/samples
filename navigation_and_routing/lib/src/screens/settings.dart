@@ -9,7 +9,7 @@ import '../auth.dart';
 import '../routing.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -39,8 +39,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
 class SettingsContent extends StatelessWidget {
   const SettingsContent({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Column(

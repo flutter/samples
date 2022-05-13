@@ -14,7 +14,7 @@ import 'custom_name_dialog.dart';
 import 'settings.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   static const _gap = SizedBox(height: 60);
 
@@ -115,7 +115,7 @@ class SettingsScreen extends StatelessWidget {
 class _NameChangeLine extends StatelessWidget {
   final String title;
 
-  const _NameChangeLine(this.title, {Key? key}) : super(key: key);
+  const _NameChangeLine(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -159,8 +159,7 @@ class _SettingsLine extends StatelessWidget {
 
   final VoidCallback? onSelected;
 
-  const _SettingsLine(this.title, this.icon, {this.onSelected, Key? key})
-      : super(key: key);
+  const _SettingsLine(this.title, this.icon, {this.onSelected});
 
   @override
   Widget build(BuildContext context) {

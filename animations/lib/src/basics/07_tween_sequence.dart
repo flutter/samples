@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class TweenSequenceDemo extends StatefulWidget {
-  const TweenSequenceDemo({Key? key}) : super(key: key);
+  const TweenSequenceDemo({super.key});
   static const String routeName = '/basics/chaining_tweens';
 
   @override

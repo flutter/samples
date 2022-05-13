@@ -13,7 +13,7 @@ import 'package:veggieseasons/styles.dart';
 import 'package:veggieseasons/widgets/veggie_card.dart';
 
 class ListScreen extends StatelessWidget {
-  const ListScreen({this.restorationId, Key? key}) : super(key: key);
+  const ListScreen({this.restorationId, super.key});
 
   final String? restorationId;
 

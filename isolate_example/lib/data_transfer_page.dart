@@ -20,7 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DataTransferPageStarter extends StatelessWidget {
-  const DataTransferPageStarter({Key? key}) : super(key: key);
+  const DataTransferPageStarter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class DataTransferPageStarter extends StatelessWidget {
 }
 
 class DataTransferPage extends StatelessWidget {
-  const DataTransferPage({Key? key}) : super(key: key);
+  const DataTransferPage({super.key});
 
   @override
   Widget build(context) {
@@ -197,7 +197,7 @@ class DataTransferIsolateController extends ChangeNotifier {
 }
 
 class RunningList extends StatelessWidget {
-  const RunningList({Key? key}) : super(key: key);
+  const RunningList({super.key});
 
   @override
   Widget build(BuildContext context) {

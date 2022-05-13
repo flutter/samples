@@ -7,7 +7,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class AnimatedPositionedDemo extends StatefulWidget {
-  const AnimatedPositionedDemo({Key? key}) : super(key: key);
+  const AnimatedPositionedDemo({super.key});
   static String routeName = '/basics/09_animated_positioned';
 
   @override

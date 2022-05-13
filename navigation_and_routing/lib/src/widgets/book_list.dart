@@ -13,8 +13,8 @@ class BookList extends StatelessWidget {
   const BookList({
     required this.books,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => ListView.builder(

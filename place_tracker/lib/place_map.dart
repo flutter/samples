@@ -54,9 +54,9 @@ class PlaceMap extends StatefulWidget {
   final LatLng? center;
 
   const PlaceMap({
-    Key? key,
+    super.key,
     this.center,
-  }) : super(key: key);
+  });
 
   @override
   State<PlaceMap> createState() => _PlaceMapState();
@@ -453,11 +453,10 @@ class _AddPlaceButtonBar extends StatelessWidget {
   final VoidCallback onCancelPressed;
 
   const _AddPlaceButtonBar({
-    Key? key,
     required this.visible,
     required this.onSavePressed,
     required this.onCancelPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -498,11 +497,10 @@ class _CategoryButtonBar extends StatelessWidget {
   final ValueChanged<PlaceCategory> onChanged;
 
   const _CategoryButtonBar({
-    Key? key,
     required this.selectedPlaceCategory,
     required this.visible,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -560,11 +558,10 @@ class _MapFabs extends StatelessWidget {
   final VoidCallback onToggleMapTypePressed;
 
   const _MapFabs({
-    Key? key,
     required this.visible,
     required this.onAddPlacePressed,
     required this.onToggleMapTypePressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

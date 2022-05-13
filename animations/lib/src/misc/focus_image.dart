@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class FocusImageDemo extends StatelessWidget {
-  const FocusImageDemo({Key? key}) : super(key: key);
+  const FocusImageDemo({super.key});
   static String routeName = '/misc/focus_image';
 
   @override
@@ -18,7 +18,7 @@ class FocusImageDemo extends StatelessWidget {
 }
 
 class Grid extends StatelessWidget {
-  const Grid({Key? key}) : super(key: key);
+  const Grid({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +72,7 @@ Tween<RelativeRect> _createTween(BuildContext context) {
 }
 
 class SmallCard extends StatelessWidget {
-  const SmallCard({required this.imageAssetName, Key? key}) : super(key: key);
+  const SmallCard({required this.imageAssetName, super.key});
   final String imageAssetName;
 
   @override

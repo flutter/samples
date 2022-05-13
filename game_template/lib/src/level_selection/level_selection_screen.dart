@@ -14,7 +14,7 @@ import '../style/responsive_screen.dart';
 import 'levels.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
-  const LevelSelectionScreen({Key? key}) : super(key: key);
+  const LevelSelectionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

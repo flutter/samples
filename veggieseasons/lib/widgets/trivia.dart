@@ -10,7 +10,7 @@ class TriviaView extends StatefulWidget {
   final int? id;
   final String? restorationId;
 
-  const TriviaView({this.id, this.restorationId, Key? key}) : super(key: key);
+  const TriviaView({this.id, this.restorationId, super.key});
 
   @override
   State<TriviaView> createState() => _TriviaViewState();

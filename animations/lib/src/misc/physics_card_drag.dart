@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
 class PhysicsCardDragDemo extends StatelessWidget {
-  const PhysicsCardDragDemo({Key? key}) : super(key: key);
+  const PhysicsCardDragDemo({super.key});
   static const String routeName = '/misc/physics_card';
 
   @override
@@ -27,7 +27,7 @@ class PhysicsCardDragDemo extends StatelessWidget {
 /// A draggable card that moves back to [Alignment.center] when it's
 /// released.
 class DraggableCard extends StatefulWidget {
-  const DraggableCard({required this.child, Key? key}) : super(key: key);
+  const DraggableCard({required this.child, super.key});
   final Widget child;
 
   @override

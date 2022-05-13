@@ -30,7 +30,7 @@ int fib(int n) {
 }
 
 class PerformancePage extends StatefulWidget {
-  const PerformancePage({Key? key}) : super(key: key);
+  const PerformancePage({super.key});
 
   @override
   State<PerformancePage> createState() => _PerformancePageState();
@@ -127,7 +127,7 @@ class _PerformancePageState extends State<PerformancePage> {
 }
 
 class SmoothAnimationWidget extends StatefulWidget {
-  const SmoothAnimationWidget({Key? key}) : super(key: key);
+  const SmoothAnimationWidget({super.key});
 
   @override
   State<SmoothAnimationWidget> createState() => _SmoothAnimationWidgetState();

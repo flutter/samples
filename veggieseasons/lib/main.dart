@@ -49,7 +49,7 @@ void setupWindow() {
 }
 
 class VeggieApp extends StatefulWidget {
-  const VeggieApp({Key? key}) : super(key: key);
+  const VeggieApp({super.key});
 
   @override
   State<StatefulWidget> createState() => _VeggieAppState();

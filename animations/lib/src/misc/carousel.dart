@@ -6,7 +6,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CarouselDemo extends StatelessWidget {
-  CarouselDemo({Key? key}) : super(key: key);
+  CarouselDemo({super.key});
   static String routeName = '/misc/carousel';
 
   static const List<String> fileNames = [
@@ -46,7 +46,7 @@ typedef OnCurrentItemChangedCallback = void Function(int currentItem);
 class Carousel extends StatefulWidget {
   final IndexedWidgetBuilder itemBuilder;
 
-  const Carousel({Key? key, required this.itemBuilder}) : super(key: key);
+  const Carousel({super.key, required this.itemBuilder});
 
   @override
   State<Carousel> createState() => _CarouselState();

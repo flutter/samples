@@ -159,7 +159,7 @@ final allRoutes = <String, WidgetBuilder>{
 };
 
 class AnimationSamples extends StatelessWidget {
-  const AnimationSamples({Key? key}) : super(key: key);
+  const AnimationSamples({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +175,7 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +199,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final Demo demo;
 
-  const DemoTile({required this.demo, Key? key}) : super(key: key);
+  const DemoTile({required this.demo, super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -7,11 +7,11 @@ import 'basic_text_input_client.dart';
 /// A basic text field. Defines the appearance of a basic text input client.
 class BasicTextField extends StatefulWidget {
   const BasicTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.style,
     required this.focusNode,
-  }) : super(key: key);
+  });
 
   final TextEditingController controller;
   final TextStyle style;

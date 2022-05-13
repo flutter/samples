@@ -10,7 +10,7 @@ void main() {
 }
 
 class Material3Demo extends StatefulWidget {
-  const Material3Demo({Key? key}) : super(key: key);
+  const Material3Demo({super.key});
 
   @override
   State<Material3Demo> createState() => _Material3DemoState();

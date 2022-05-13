@@ -16,8 +16,8 @@ class SignInScreen extends StatefulWidget {
 
   const SignInScreen({
     required this.onSignIn,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();

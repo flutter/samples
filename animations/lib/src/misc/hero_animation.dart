@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class HeroAnimationDemo extends StatelessWidget {
-  const HeroAnimationDemo({Key? key}) : super(key: key);
+  const HeroAnimationDemo({super.key});
   static const String routeName = '/misc/hero_animation';
 
   @override
@@ -30,7 +30,7 @@ class HeroAnimationDemo extends StatelessWidget {
 }
 
 class HeroPage extends StatelessWidget {
-  const HeroPage({Key? key}) : super(key: key);
+  const HeroPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ComponentScreen extends StatelessWidget {
-  const ComponentScreen({Key? key, required this.showNavBottomBar})
-      : super(key: key);
+  const ComponentScreen({super.key, required this.showNavBottomBar});
 
   final bool showNavBottomBar;
 
@@ -70,7 +69,7 @@ void Function()? handlePressed(
 }
 
 class Buttons extends StatefulWidget {
-  const Buttons({Key? key}) : super(key: key);
+  const Buttons({super.key});
 
   @override
   State<Buttons> createState() => _ButtonsState();
@@ -95,8 +94,7 @@ class _ButtonsState extends State<Buttons> {
 class ButtonsWithoutIcon extends StatelessWidget {
   final bool isDisabled;
 
-  const ButtonsWithoutIcon({Key? key, required this.isDisabled})
-      : super(key: key);
+  const ButtonsWithoutIcon({super.key, required this.isDisabled});
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +144,7 @@ class ButtonsWithoutIcon extends StatelessWidget {
 }
 
 class ButtonsWithIcon extends StatelessWidget {
-  const ButtonsWithIcon({Key? key}) : super(key: key);
+  const ButtonsWithIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +203,7 @@ class ButtonsWithIcon extends StatelessWidget {
 }
 
 class FloatingActionButtons extends StatelessWidget {
-  const FloatingActionButtons({Key? key}) : super(key: key);
+  const FloatingActionButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +240,7 @@ class FloatingActionButtons extends StatelessWidget {
 }
 
 class Cards extends StatelessWidget {
-  const Cards({Key? key}) : super(key: key);
+  const Cards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -330,7 +328,7 @@ class Cards extends StatelessWidget {
 }
 
 class Dialogs extends StatefulWidget {
-  const Dialogs({Key? key}) : super(key: key);
+  const Dialogs({super.key});
 
   @override
   State<Dialogs> createState() => _DialogsState();
@@ -443,11 +441,10 @@ class NavigationBars extends StatefulWidget {
   final bool isExampleBar;
 
   const NavigationBars(
-      {Key? key,
+      {super.key,
       this.onSelectItem,
       required this.selectedIndex,
-      required this.isExampleBar})
-      : super(key: key);
+      required this.isExampleBar});
 
   @override
   State<NavigationBars> createState() => _NavigationBarsState();
@@ -483,8 +480,7 @@ class NavigationRailSection extends StatefulWidget {
   final int selectedIndex;
 
   const NavigationRailSection(
-      {Key? key, required this.onSelectItem, required this.selectedIndex})
-      : super(key: key);
+      {super.key, required this.onSelectItem, required this.selectedIndex});
 
   @override
   State<NavigationRailSection> createState() => _NavigationRailSectionState();

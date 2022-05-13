@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 String indent(String content, int spaces) =>
-    LineSplitter.split(content).join('\n' + ' ' * spaces);
+    LineSplitter.split(content).join('\n${' ' * spaces}');
 
 String kebabCase(String input) => _fixCase(input, '-');
 

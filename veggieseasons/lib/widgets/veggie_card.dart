@@ -14,8 +14,8 @@ class FrostyBackground extends StatelessWidget {
     this.color,
     this.intensity = 25,
     this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Color? color;
   final double intensity;
@@ -48,8 +48,8 @@ class PressableCard extends StatefulWidget {
     this.shadowColor = CupertinoColors.black,
     this.duration = const Duration(milliseconds: 100),
     this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final VoidCallback? onPressed;
 
@@ -101,8 +101,7 @@ class _PressableCardState extends State<PressableCard> {
 
 class VeggieCard extends StatelessWidget {
   const VeggieCard(this.veggie, this.isInSeason, this.isPreferredCategory,
-      {Key? key})
-      : super(key: key);
+      {super.key});
 
   /// Veggie to be displayed by the card.
   final Veggie veggie;

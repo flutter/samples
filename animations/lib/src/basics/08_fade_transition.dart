@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 // Refer to the AnimatedWidget docs here - https://api.flutter.dev/flutter/widgets/AnimatedWidget-class.html
 // for examples of other common animated widgets.
 class FadeTransitionDemo extends StatefulWidget {
-  const FadeTransitionDemo({Key? key}) : super(key: key);
+  const FadeTransitionDemo({super.key});
   static const String routeName = '/basics/fade_transition';
 
   @override

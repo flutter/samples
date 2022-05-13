@@ -19,7 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class InfiniteProcessPageStarter extends StatelessWidget {
-  const InfiniteProcessPageStarter({Key? key}) : super(key: key);
+  const InfiniteProcessPageStarter({super.key});
 
   @override
   Widget build(context) {
@@ -31,7 +31,7 @@ class InfiniteProcessPageStarter extends StatelessWidget {
 }
 
 class InfiniteProcessPage extends StatelessWidget {
-  const InfiniteProcessPage({Key? key}) : super(key: key);
+  const InfiniteProcessPage({super.key});
 
   @override
   Widget build(context) {
@@ -187,7 +187,7 @@ class InfiniteProcessIsolateController extends ChangeNotifier {
 }
 
 class RunningList extends StatelessWidget {
-  const RunningList({Key? key}) : super(key: key);
+  const RunningList({super.key});
 
   @override
   Widget build(context) {

@@ -24,13 +24,12 @@ import 'package:flutter/material.dart';
 class Split extends StatefulWidget {
   /// Builds a split oriented along [axis].
   const Split({
-    Key? key,
+    super.key,
     required this.axis,
     required this.firstChild,
     required this.secondChild,
     double? initialFirstFraction,
-  })  : initialFirstFraction = initialFirstFraction ?? 0.5,
-        super(key: key);
+  }) : initialFirstFraction = initialFirstFraction ?? 0.5;
 
   /// The main axis the children will lay out on.
   ///

@@ -105,7 +105,7 @@ Future<void> _createThumbnails(Directory directory) async {
     }
 
     var pathPrefix = path.dirname(entity.path);
-    var thumbnailFile = File(path.join(pathPrefix, filename + '_thumb.png'));
+    var thumbnailFile = File(path.join(pathPrefix, '${filename}_thumb.png'));
 
     var img = image.decodeImage(await entity.readAsBytes());
     var resized = image.copyResize(img!, width: 640);

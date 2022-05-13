@@ -12,7 +12,7 @@ import 'services.dart';
 // uncomment the for-loop and appBar lines below, and note how the new null
 // safety static analysis immediately flags those lines as errors.
 class BadMyApp extends StatelessWidget {
-  const BadMyApp({Key? key}) : super(key: key);
+  const BadMyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

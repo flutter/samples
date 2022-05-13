@@ -32,8 +32,8 @@ class Confetti extends StatefulWidget {
   const Confetti({
     this.colors = _defaultColors,
     this.isStopped = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<Confetti> createState() => _ConfettiState();

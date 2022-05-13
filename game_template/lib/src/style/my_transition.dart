@@ -42,8 +42,7 @@ class _MyReveal extends StatefulWidget {
     required this.child,
     required this.animation,
     required this.color,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   State<_MyReveal> createState() => _MyRevealState();

@@ -15,8 +15,8 @@ class PlaceDetails extends StatefulWidget {
   const PlaceDetails({
     required this.place,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<PlaceDetails> createState() => _PlaceDetailsState();
@@ -122,8 +122,7 @@ class _DescriptionTextField extends StatelessWidget {
   const _DescriptionTextField({
     required this.controller,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -157,8 +156,7 @@ class _Map extends StatelessWidget {
     required this.mapController,
     required this.onMapCreated,
     required this.markers,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -192,8 +190,7 @@ class _NameTextField extends StatelessWidget {
   const _NameTextField({
     required this.controller,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -216,9 +213,7 @@ class _NameTextField extends StatelessWidget {
 }
 
 class _Reviews extends StatelessWidget {
-  const _Reviews({
-    Key? key,
-  }) : super(key: key);
+  const _Reviews();
 
   @override
   Widget build(BuildContext context) {
@@ -312,9 +307,7 @@ class _StarBar extends StatelessWidget {
   const _StarBar({
     required this.rating,
     required this.onChanged,
-    Key? key,
-  })  : assert(rating >= 0 && rating <= maxStars),
-        super(key: key);
+  }) : assert(rating >= 0 && rating <= maxStars);
 
   @override
   Widget build(BuildContext context) {

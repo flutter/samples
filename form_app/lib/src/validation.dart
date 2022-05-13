@@ -6,7 +6,7 @@ import 'package:english_words/english_words.dart' as english_words;
 import 'package:flutter/material.dart';
 
 class FormValidationDemo extends StatefulWidget {
-  const FormValidationDemo({Key? key}) : super(key: key);
+  const FormValidationDemo({super.key});
 
   @override
   State<FormValidationDemo> createState() => _FormValidationDemoState();

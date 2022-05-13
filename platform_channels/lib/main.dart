@@ -14,7 +14,7 @@ void main() {
 }
 
 class PlatformChannelSample extends StatelessWidget {
-  const PlatformChannelSample({Key? key}) : super(key: key);
+  const PlatformChannelSample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ List<DemoInfo> demoList = [
 ];
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final DemoInfo demoInfo;
 
-  const DemoTile(this.demoInfo, {Key? key}) : super(key: key);
+  const DemoTile(this.demoInfo, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -12,8 +12,8 @@ typedef UpdateToggleButtonsStateOnButtonPressedCallback = void Function(
 
 class ToggleButtonsStateManager extends InheritedWidget {
   const ToggleButtonsStateManager({
-    Key? key,
-    required Widget child,
+    super.key,
+    required super.child,
     required List<bool> isToggleButtonsSelected,
     required UpdateToggleButtonsStateOnButtonPressedCallback
         updateToggleButtonsStateOnButtonPressed,
@@ -23,8 +23,7 @@ class ToggleButtonsStateManager extends InheritedWidget {
         _updateToggleButtonsStateOnButtonPressed =
             updateToggleButtonsStateOnButtonPressed,
         _updateToggleButtonStateOnSelectionChanged =
-            updateToggleButtonStateOnSelectionChanged,
-        super(key: key, child: child);
+            updateToggleButtonStateOnSelectionChanged;
 
   static ToggleButtonsStateManager of(BuildContext context) {
     final ToggleButtonsStateManager? result =

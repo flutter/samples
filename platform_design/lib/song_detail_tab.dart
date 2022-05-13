@@ -16,8 +16,8 @@ class SongDetailTab extends StatelessWidget {
     required this.id,
     required this.song,
     required this.color,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int id;
   final String song;

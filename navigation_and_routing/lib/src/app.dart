@@ -9,7 +9,7 @@ import 'routing.dart';
 import 'screens/navigator.dart';
 
 class Bookstore extends StatefulWidget {
-  const Bookstore({Key? key}) : super(key: key);
+  const Bookstore({super.key});
 
   @override
   State<Bookstore> createState() => _BookstoreState();

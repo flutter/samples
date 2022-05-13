@@ -14,7 +14,7 @@ import 'widgets.dart';
 void main() => runApp(const MyAdaptingApp());
 
 class MyAdaptingApp extends StatelessWidget {
-  const MyAdaptingApp({Key? key}) : super(key: key);
+  const MyAdaptingApp({super.key});
 
   @override
   Widget build(context) {
@@ -49,7 +49,7 @@ class MyAdaptingApp extends StatelessWidget {
 // These differences are also subjective and have more than one 'right' answer
 // depending on the app and content.
 class PlatformAdaptingHomePage extends StatefulWidget {
-  const PlatformAdaptingHomePage({Key? key}) : super(key: key);
+  const PlatformAdaptingHomePage({super.key});
 
   @override
   State<PlatformAdaptingHomePage> createState() =>

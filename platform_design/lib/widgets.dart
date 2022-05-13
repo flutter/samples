@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 /// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
   const PlatformWidget({
-    Key? key,
+    super.key,
     required this.androidBuilder,
     required this.iosBuilder,
-  }) : super(key: key);
+  });
 
   final WidgetBuilder androidBuilder;
   final WidgetBuilder iosBuilder;
@@ -41,8 +41,8 @@ class PressableCard extends StatefulWidget {
     required this.color,
     required this.flattenAnimation,
     this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final VoidCallback? onPressed;
   final Color color;
@@ -141,8 +141,8 @@ class HeroAnimatingSongCard extends StatelessWidget {
     required this.color,
     required this.heroAnimation,
     this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String song;
   final Color color;
@@ -220,7 +220,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
 /// This is an example of a custom widget that an app developer might create for
 /// use on both iOS and Android as part of their brand's unique design.
 class SongPlaceholderTile extends StatelessWidget {
-  const SongPlaceholderTile({Key? key}) : super(key: key);
+  const SongPlaceholderTile({super.key});
 
   @override
   Widget build(BuildContext context) {

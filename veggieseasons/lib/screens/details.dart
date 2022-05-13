@@ -12,7 +12,7 @@ import 'package:veggieseasons/widgets/close_button.dart';
 import 'package:veggieseasons/widgets/trivia.dart';
 
 class ServingInfoChart extends StatelessWidget {
-  const ServingInfoChart(this.veggie, this.prefs, {Key? key}) : super(key: key);
+  const ServingInfoChart(this.veggie, this.prefs, {super.key});
 
   final Veggie veggie;
 
@@ -157,7 +157,7 @@ class ServingInfoChart extends StatelessWidget {
 class InfoView extends StatelessWidget {
   final int? id;
 
-  const InfoView(this.id, {Key? key}) : super(key: key);
+  const InfoView(this.id, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -238,8 +238,7 @@ class DetailsScreen extends StatefulWidget {
   final int? id;
   final String? restorationId;
 
-  const DetailsScreen({this.id, this.restorationId, Key? key})
-      : super(key: key);
+  const DetailsScreen({this.id, this.restorationId, super.key});
 
   static String show(NavigatorState navigator, int veggieId) {
     return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);

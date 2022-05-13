@@ -28,8 +28,8 @@ class ResponsiveScreen extends StatelessWidget {
     required this.rectangularMenuArea,
     this.topMessageArea = const SizedBox.shrink(),
     this.mainAreaProminence = 0.8,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

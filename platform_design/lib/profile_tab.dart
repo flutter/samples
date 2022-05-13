@@ -13,7 +13,7 @@ class ProfileTab extends StatelessWidget {
   static const androidIcon = Icon(Icons.person);
   static const iosIcon = Icon(CupertinoIcons.profile_circled);
 
-  const ProfileTab({Key? key}) : super(key: key);
+  const ProfileTab({super.key});
 
   Widget _buildBody(BuildContext context) {
     return SafeArea(
@@ -115,8 +115,8 @@ class PreferenceCard extends StatelessWidget {
     required this.header,
     required this.content,
     required this.preferenceChoices,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String header;
   final String content;
@@ -174,7 +174,7 @@ class LogOutButton extends StatelessWidget {
   static const _logoutMessage = Text(
       "You can't actually log out! This is just a demo of how alerts work.");
 
-  const LogOutButton({Key? key}) : super(key: key);
+  const LogOutButton({super.key});
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On

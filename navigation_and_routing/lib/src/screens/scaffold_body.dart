@@ -16,8 +16,8 @@ class BookstoreScaffoldBody extends StatelessWidget {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   const BookstoreScaffoldBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
