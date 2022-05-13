@@ -179,15 +179,17 @@ class _Material3DemoState extends State<Material3Demo> {
             body: SafeArea(
               bottom: false,
               top: false,
-              child: Row(children: <Widget>[
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: NavigationRailSection(
-                        onSelectItem: handleScreenChanged,
-                        selectedIndex: screenIndex)),
-                const VerticalDivider(thickness: 1, width: 1),
-                createScreenFor(screenIndex, true),
-              ]),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: NavigationRailSection(
+                          onSelectItem: handleScreenChanged,
+                          selectedIndex: screenIndex)),
+                  const VerticalDivider(thickness: 1, width: 1),
+                  createScreenFor(screenIndex, true),
+                ],
+              ),
             ),
           );
         }

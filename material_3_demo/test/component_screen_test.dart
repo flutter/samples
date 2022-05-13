@@ -27,6 +27,11 @@ void main() {
     expect(find.text("Icon"), findsNWidgets(5));
 
     // FABs
+    Finder floatingActionButton = find.text("Create");
+    await tester.scrollUntilVisible(
+      floatingActionButton,
+      500.0,
+    );
     expect(
         find.widgetWithIcon(FloatingActionButton, Icons.add), findsNWidgets(4));
     expect(find.widgetWithText(FloatingActionButton, "Create"), findsOneWidget);
