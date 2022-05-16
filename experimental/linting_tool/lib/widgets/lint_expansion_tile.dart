@@ -171,9 +171,7 @@ enum ProfileType {
 }
 
 class _ProfileTypeDialog extends StatelessWidget {
-  const _ProfileTypeDialog({
-    super.key,
-  });
+  const _ProfileTypeDialog();
 
   @override
   Widget build(BuildContext context) {

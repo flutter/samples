@@ -36,7 +36,7 @@ class ParticleBackgroundPage extends StatelessWidget {
 class Particles extends StatefulWidget {
   final int numberOfParticles;
 
-  const Particles(this.numberOfParticles, {key}) : super(key: key);
+  const Particles(this.numberOfParticles, {super.key});
 
   @override
   State<Particles> createState() => _ParticlesState();

@@ -60,7 +60,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
 class _NavView extends StatefulWidget {
   const _NavView({
-    super.key,
     required this.extended,
     required this.destinations,
     this.trailing,
