@@ -392,7 +392,7 @@ class ReplacementTextEditingController extends TextEditingController {
     super.text,
     List<TextEditingInlineSpanReplacement>? replacements,
     this.composingRegionReplaceable = true,
-  })  : replacements = replacements ?? [];
+  }) : replacements = replacements ?? [];
 
   /// Creates a controller for an editable text field from an initial [TextEditingValue].
   ///
