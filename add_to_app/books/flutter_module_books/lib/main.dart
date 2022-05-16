@@ -8,7 +8,7 @@ import 'package:flutter_module_books/api.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,7 @@ class FlutterBookApiHandler extends FlutterBookApi {
 }
 
 class BookDetail extends StatefulWidget {
-  const BookDetail({Key? key, this.hostApi, this.flutterApi, this.book})
-      : super(key: key);
+  const BookDetail({super.key, this.hostApi, this.flutterApi, this.book});
 
   // These are the outgoing and incoming APIs that are here for injection for
   // tests.
@@ -148,13 +147,13 @@ class _BookDetailState extends State<BookDetail> {
 
 class BookForm extends StatelessWidget {
   const BookForm({
-    Key? key,
+    super.key,
     required this.book,
     required this.focusNode,
     required this.authorTextController,
     required this.subtitleTextController,
     required this.titleTextController,
-  }) : super(key: key);
+  });
 
   final Book book;
   final FocusNode focusNode;

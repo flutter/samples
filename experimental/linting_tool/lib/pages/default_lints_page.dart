@@ -10,7 +10,7 @@ import 'package:linting_tool/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class DefaultLintsPage extends StatelessWidget {
-  const DefaultLintsPage({Key? key}) : super(key: key);
+  const DefaultLintsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

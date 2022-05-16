@@ -28,8 +28,8 @@ late MockClient _mockClient;
 
 class _TestApp extends StatelessWidget {
   const _TestApp({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import '../app.dart';
 import '../widgets/category_chart.dart';
 
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({Key? key}) : super(key: key);
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class DashboardPage extends StatelessWidget {
 class Dashboard extends StatelessWidget {
   final List<Category>? categories;
 
-  const Dashboard(this.categories, {Key? key}) : super(key: key);
+  const Dashboard(this.categories, {super.key});
 
   @override
   Widget build(BuildContext context) {

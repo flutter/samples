@@ -6,7 +6,7 @@ import 'package:particle_background/simple_animations_package.dart';
 void main() => runApp(const ParticleApp());
 
 class ParticleApp extends StatelessWidget {
-  const ParticleApp({Key? key}) : super(key: key);
+  const ParticleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ParticleApp extends StatelessWidget {
 }
 
 class ParticleBackgroundPage extends StatelessWidget {
-  const ParticleBackgroundPage({Key? key}) : super(key: key);
+  const ParticleBackgroundPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +133,7 @@ class ParticlePainter extends CustomPainter {
 }
 
 class AnimatedBackground extends StatelessWidget {
-  const AnimatedBackground({Key? key}) : super(key: key);
+  const AnimatedBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -165,8 +165,8 @@ class AnimatedBackground extends StatelessWidget {
 
 class CenteredText extends StatelessWidget {
   const CenteredText({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

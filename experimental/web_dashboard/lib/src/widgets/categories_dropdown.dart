@@ -16,8 +16,8 @@ class CategoryDropdown extends StatefulWidget {
   const CategoryDropdown({
     required this.api,
     required this.onSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<CategoryDropdown> createState() => _CategoryDropdownState();

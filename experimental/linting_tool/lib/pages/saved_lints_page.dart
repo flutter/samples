@@ -11,7 +11,7 @@ import 'package:linting_tool/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class SavedLintsPage extends StatefulWidget {
-  const SavedLintsPage({Key? key}) : super(key: key);
+  const SavedLintsPage({super.key});
 
   @override
   State<SavedLintsPage> createState() => _SavedLintsPageState();

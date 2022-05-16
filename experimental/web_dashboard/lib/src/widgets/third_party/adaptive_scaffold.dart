@@ -43,8 +43,8 @@ class AdaptiveScaffold extends StatefulWidget {
     required this.destinations,
     this.onNavigationIndexChange,
     this.floatingActionButton,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<AdaptiveScaffold> createState() => _AdaptiveScaffoldState();
