@@ -12,7 +12,7 @@ import '../widgets/categories_dropdown.dart';
 import '../widgets/dialogs.dart';
 
 class EntriesPage extends StatefulWidget {
-  const EntriesPage({Key? key}) : super(key: key);
+  const EntriesPage({super.key});
 
   @override
   State<EntriesPage> createState() => _EntriesPageState();
@@ -102,8 +102,8 @@ class EntryTile extends StatelessWidget {
   const EntryTile({
     this.category,
     this.entry,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

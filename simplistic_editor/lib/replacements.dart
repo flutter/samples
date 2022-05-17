@@ -389,19 +389,18 @@ class TextEditingInlineSpanReplacement {
 class ReplacementTextEditingController extends TextEditingController {
   /// Constructs a controller with optional text that handles the provided list of replacements.
   ReplacementTextEditingController({
-    String? text,
+    super.text,
     List<TextEditingInlineSpanReplacement>? replacements,
     this.composingRegionReplaceable = true,
-  })  : replacements = replacements ?? [],
-        super(text: text);
+  }) : replacements = replacements ?? [];
 
   /// Creates a controller for an editable text field from an initial [TextEditingValue].
   ///
   /// This constructor treats a null [value] argument as if it were [TextEditingValue.empty].
-  ReplacementTextEditingController.fromValue(TextEditingValue? value,
+  ReplacementTextEditingController.fromValue(super.value,
       {List<TextEditingInlineSpanReplacement>? replacements,
       this.composingRegionReplaceable = true})
-      : super.fromValue(value);
+      : super.fromValue();
 
   /// The [TextEditingInlineSpanReplacement]s that are evaluated on the editing value.
   ///

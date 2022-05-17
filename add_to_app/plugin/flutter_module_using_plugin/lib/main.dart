@@ -69,7 +69,7 @@ class CounterModel extends ChangeNotifier {
 /// It offers two routes, one suitable for displaying as a full screen and
 /// another designed to be part of a larger UI.
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
 /// Wraps [Contents] in a Material [Scaffold] so it looks correct when displayed
 /// full-screen.
 class FullScreenView extends StatelessWidget {
-  const FullScreenView({Key? key}) : super(key: key);
+  const FullScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class FullScreenView extends StatelessWidget {
 class Contents extends StatelessWidget {
   final bool showExit;
 
-  const Contents({Key? key, this.showExit = false}) : super(key: key);
+  const Contents({super.key, this.showExit = false});
 
   @override
   Widget build(BuildContext context) {

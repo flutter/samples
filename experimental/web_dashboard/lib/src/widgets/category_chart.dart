@@ -20,8 +20,8 @@ class CategoryChart extends StatelessWidget {
   const CategoryChart({
     required this.category,
     required this.api,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

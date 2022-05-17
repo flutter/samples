@@ -32,8 +32,7 @@ class Rendering extends StatefulWidget {
       this.onTick,
       this.startTime = Duration.zero,
       this.startTimeSimulationTicks = 20,
-      Key? key})
-      : super(key: key);
+      super.key});
 
   @override
   State<Rendering> createState() => _RenderingState();
@@ -323,7 +322,7 @@ class ControlledAnimation<T> extends StatefulWidget {
       this.child,
       this.animationControllerStatusListener,
       this.startPosition = 0.0,
-      Key? key})
+      super.key})
       : assert(
             (builderWithChild != null && child != null && builder == null) ||
                 (builder != null && builderWithChild == null && child == null),
@@ -332,8 +331,7 @@ class ControlledAnimation<T> extends StatefulWidget {
         assert(
             startPosition >= 0 && startPosition <= 1,
             "The property startPosition "
-            "must have a value between 0.0 and 1.0."),
-        super(key: key);
+            "must have a value between 0.0 and 1.0.");
 
   @override
   State<ControlledAnimation> createState() => _ControlledAnimationState<T>();

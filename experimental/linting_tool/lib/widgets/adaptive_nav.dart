@@ -15,7 +15,7 @@ import 'package:linting_tool/theme/colors.dart';
 final navKey = GlobalKey<NavigatorState>();
 
 class AdaptiveNav extends StatefulWidget {
-  const AdaptiveNav({Key? key}) : super(key: key);
+  const AdaptiveNav({super.key});
 
   @override
   State<AdaptiveNav> createState() => _AdaptiveNavState();
@@ -60,11 +60,10 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
 class _NavView extends StatefulWidget {
   const _NavView({
-    Key? key,
     required this.extended,
     required this.destinations,
     this.trailing,
-  }) : super(key: key);
+  });
 
   final bool extended;
   final List<_Destination> destinations;

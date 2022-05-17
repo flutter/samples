@@ -14,8 +14,8 @@ class SavedRuleTile extends StatefulWidget {
   final Rule rule;
   const SavedRuleTile({
     required this.rule,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<SavedRuleTile> createState() => _SavedRuleTileState();

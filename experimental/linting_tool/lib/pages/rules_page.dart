@@ -16,8 +16,8 @@ class RulesPage extends StatelessWidget {
 
   const RulesPage({
     required this.selectedProfileIndex,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -15,8 +15,8 @@ class LintExpansionTile extends StatefulWidget {
   final Rule rule;
   const LintExpansionTile({
     required this.rule,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<LintExpansionTile> createState() => _LintExpansionTileState();
@@ -171,9 +171,7 @@ enum ProfileType {
 }
 
 class _ProfileTypeDialog extends StatelessWidget {
-  const _ProfileTypeDialog({
-    Key? key,
-  }) : super(key: key);
+  const _ProfileTypeDialog();
 
   @override
   Widget build(BuildContext context) {
@@ -209,8 +207,8 @@ class NewProfileDialog extends StatefulWidget {
   final Rule rule;
   const NewProfileDialog({
     required this.rule,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<NewProfileDialog> createState() => _NewProfileDialogState();
@@ -276,9 +274,9 @@ class _NewProfileDialogState extends State<NewProfileDialog> {
 
 class ExistingProfileDialog extends StatefulWidget {
   const ExistingProfileDialog({
-    Key? key,
+    super.key,
     required this.rule,
-  }) : super(key: key);
+  });
 
   final Rule rule;
 

@@ -15,7 +15,7 @@ void main() {
 }
 
 class Cell extends StatefulWidget {
-  const Cell({Key? key}) : super(key: key);
+  const Cell({super.key});
 
   @override
   State<StatefulWidget> createState() => _CellState();

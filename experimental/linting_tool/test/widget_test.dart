@@ -27,9 +27,7 @@ import 'widget_test.mocks.dart';
 late MockClient _mockClient;
 
 class _TestApp extends StatelessWidget {
-  const _TestApp({
-    Key? key,
-  }) : super(key: key);
+  const _TestApp();
 
   @override
   Widget build(BuildContext context) {

@@ -9,10 +9,10 @@ class FadeTransitionPage<T> extends Page<T> {
   final Duration duration;
 
   const FadeTransitionPage({
-    LocalKey? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 300),
-  }) : super(key: key);
+  });
 
   @override
   Route<T> createRoute(BuildContext context) =>
