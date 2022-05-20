@@ -5,9 +5,9 @@ permissions: read-all
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # Every day at midnight
