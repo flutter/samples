@@ -7,7 +7,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:linting_tool/theme/colors.dart';
 
-class AppTheme {
+abstract class AppTheme {
   static ThemeData buildReplyLightTheme(BuildContext context) {
     final base = ThemeData.light();
     return base.copyWith(

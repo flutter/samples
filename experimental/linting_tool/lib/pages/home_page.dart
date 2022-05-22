@@ -19,38 +19,36 @@ class HomePage extends StatelessWidget {
           return const CircularProgressIndicator.adaptive();
         }
 
-        if (!rulesStore.isLoading) {
-          if (rulesStore.rules.isNotEmpty) {
-            final isDesktop = isDisplayLarge(context);
-            final isTablet = isDisplayMedium(context);
-            final startPadding = isTablet
-                ? 60.0
-                : isDesktop
-                    ? 120.0
-                    : 16.0;
-            final endPadding = isTablet
-                ? 60.0
-                : isDesktop
-                    ? 120.0
-                    : 16.0;
+        if (rulesStore.rules.isNotEmpty) {
+          final isDesktop = isDisplayLarge(context);
+          final isTablet = isDisplayMedium(context);
+          final startPadding = isTablet
+              ? 60.0
+              : isDesktop
+                  ? 120.0
+                  : 16.0;
+          final endPadding = isTablet
+              ? 60.0
+              : isDesktop
+                  ? 120.0
+                  : 16.0;
 
-            return ListView.separated(
-              padding: EdgeInsetsDirectional.only(
-                start: startPadding,
-                end: endPadding,
-                top: isDesktop ? 28 : 16,
-                bottom: isDesktop ? kToolbarHeight : 16,
-              ),
-              itemCount: rulesStore.rules.length,
-              cacheExtent: 5,
-              itemBuilder: (context, index) {
-                return LintExpansionTile(
-                  rule: rulesStore.rules[index],
-                );
-              },
-              separatorBuilder: (context, index) => const SizedBox(height: 4),
-            );
-          }
+          return ListView.separated(
+            padding: EdgeInsetsDirectional.only(
+              start: startPadding,
+              end: endPadding,
+              top: isDesktop ? 28 : 16,
+              bottom: isDesktop ? kToolbarHeight : 16,
+            ),
+            itemCount: rulesStore.rules.length,
+            cacheExtent: 5,
+            itemBuilder: (context, index) {
+              return LintExpansionTile(
+                rule: rulesStore.rules[index],
+              );
+            },
+            separatorBuilder: (context, index) => const SizedBox(height: 4),
+          );
         }
 
         return Column(

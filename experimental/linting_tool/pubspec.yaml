@@ -20,12 +20,12 @@ dependencies:
   file_selector_web: ^0.8.1+1
   file_selector_windows: ^0.8.2
   flutter_markdown: ^0.6.2
-  google_fonts: ^2.1.0
+  google_fonts: ^3.0.0
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   http: ^0.13.3
   json2yaml: ^3.0.0
-  json_annotation: ^4.0.1
+  json_annotation: ^4.5.0
   mockito: ^5.0.13
   provider: ^6.0.2
   yaml: ^3.1.0

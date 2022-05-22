@@ -10,7 +10,7 @@ import 'package:linting_tool/model/rule.dart';
 import 'package:window_size/window_size.dart';
 
 Future<void> main() async {
-  /// Initiliaze Hive DB.
+  /// Initialize Hive DB.
   await Hive.initFlutter();
 
   /// Register adapters for [Rule] and [RulesProfile]

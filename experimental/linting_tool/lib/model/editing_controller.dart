@@ -11,7 +11,7 @@ import 'package:linting_tool/model/rule.dart';
 class EditingController extends ChangeNotifier {
   bool _isEditing;
 
-  EditingController({bool? isEditing}) : _isEditing = isEditing ?? false;
+  EditingController({bool isEditing = false}) : _isEditing = isEditing;
 
   bool get isEditing => _isEditing;
 
@@ -21,9 +21,9 @@ class EditingController extends ChangeNotifier {
     notifyListeners();
   }
 
-  final List<Rule> _selectedRules = [];
+  final Set<Rule> _selectedRules = {};
 
-  List<Rule> get selectedRules => _selectedRules;
+  Set<Rule> get selectedRules => _selectedRules;
 
   void selectRule(Rule rule) {
     _selectedRules.add(rule);
@@ -37,12 +37,10 @@ class EditingController extends ChangeNotifier {
 
   Future deleteSelected(
       RulesProfile profile, ProfilesStore profilesStore) async {
-    var rules = profile.rules;
-    for (var rule in _selectedRules) {
-      rules.remove(rule);
-    }
+    final rules = profile.rules;
+    rules.removeWhere((rule) => _selectedRules.contains(rule));
 
-    RulesProfile newProfile = RulesProfile(name: profile.name, rules: rules);
+    final newProfile = RulesProfile(name: profile.name, rules: rules);
 
     await profilesStore.updateProfile(profile, newProfile);
 

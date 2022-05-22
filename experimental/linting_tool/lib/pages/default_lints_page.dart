@@ -21,7 +21,7 @@ class DefaultLintsPage extends StatelessWidget {
         }
 
         if (rulesStore.defaultProfiles.isNotEmpty) {
-          var defaultSets = rulesStore.defaultProfiles;
+          final defaultSets = rulesStore.defaultProfiles;
           final isDesktop = isDisplayLarge(context);
           final isTablet = isDisplayMedium(context);
           final startPadding = isTablet
@@ -45,7 +45,7 @@ class DefaultLintsPage extends StatelessWidget {
             cacheExtent: 5,
             itemCount: defaultSets.length,
             itemBuilder: (context, index) {
-              var profile = rulesStore.defaultProfiles[index];
+              final profile = rulesStore.defaultProfiles[index];
               return ListTile(
                 title: Text(
                   profile.name,

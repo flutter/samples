@@ -20,11 +20,12 @@ import 'package:yaml/yaml.dart';
 const _boxName = 'rules_profile';
 
 class ProfilesStore extends ChangeNotifier {
-  late final Repository repository;
-  ProfilesStore(http.Client httpClient) {
-    repository = Repository(httpClient);
+  final Repository repository;
+
+  ProfilesStore(http.Client httpClient) : repository = Repository(httpClient) {
     fetchSavedProfiles();
   }
+
   bool _isLoading = true;
 
   bool get isLoading => _isLoading;
@@ -41,8 +42,7 @@ class ProfilesStore extends ChangeNotifier {
     if (!_isLoading) _isLoading = true;
     notifyListeners();
     try {
-      var profiles = await HiveService.getBoxes<RulesProfile>(_boxName);
-      _savedProfiles = profiles;
+      _savedProfiles = await HiveService.getBoxes<RulesProfile>(_boxName);
     } on Exception catch (e) {
       log(e.toString());
     }
@@ -64,12 +64,16 @@ class ProfilesStore extends ChangeNotifier {
     // TODO(abd99): Consider refactoring to LinkedHashSet/SplayTreeSet to avoid
     // duplication automatically.
     // ref: https://github.com/flutter/samples/pull/870#discussion_r685666792
-    var rules = profile.rules;
-    if (!rules.contains(rule)) {
-      rules.add(rule);
+    final rules = profile.rules;
+
+    // If rule is already in profile, skip updating profile
+    if (rules.contains(rule)) {
+      return;
     }
 
-    RulesProfile newProfile = RulesProfile(name: profile.name, rules: rules);
+    rules.add(rule);
+
+    final newProfile = RulesProfile(name: profile.name, rules: rules);
 
     await HiveService.updateBox<RulesProfile>(profile, newProfile, _boxName);
 
@@ -88,7 +92,7 @@ class ProfilesStore extends ChangeNotifier {
   }
 
   Future<void> removeRuleFromProfile(RulesProfile profile, Rule rule) async {
-    var newProfile =
+    final newProfile =
         RulesProfile(name: profile.name, rules: profile.rules..remove(rule));
     await updateProfile(profile, newProfile);
   }
@@ -111,10 +115,10 @@ class ProfilesStore extends ChangeNotifier {
     var resultSaved = false;
 
     try {
-      var templateFileData = await repository.getTemplateFile();
+      final templateFileData = await repository.getTemplateFile();
 
       /// Fetch formatted data to create new YamlFile.
-      String newYamlFile =
+      final newYamlFile =
           _prepareYamlFile(profile, templateFileData, rulesStyle);
 
       resultSaved = await _saveFileToDisk(newYamlFile);
@@ -136,7 +140,7 @@ class ProfilesStore extends ChangeNotifier {
     const name = 'analysis_options.yaml';
 
     /// Get file path using file picker.
-    var savePath = await file_selector.getSavePath(
+    final savePath = await file_selector.getSavePath(
       suggestedName: name,
     );
 
@@ -149,25 +153,21 @@ class ProfilesStore extends ChangeNotifier {
       return true;
     }
 
-    var errorMessage = 'File path not found.';
+    const errorMessage = 'File path not found.';
     _error = errorMessage;
     throw Exception(errorMessage);
   }
 
   String _prepareYamlFile(
       RulesProfile profile, YamlMap templateFile, RulesStyle rulesStyle) {
-    var rules = profile.rules.map((e) => e.name).toList();
+    final rules = profile.rules.map((e) => e.name);
 
-    var rulesData =
+    final rulesData =
         json.decode(json.encode(templateFile)) as Map<String, dynamic>;
 
     /// Add rules to existing template according to formatting style.
     if (rulesStyle == RulesStyle.booleanMap) {
-      var rulesMap = Map.fromEntries(
-        rules.map(
-          (e) => MapEntry(e, true),
-        ),
-      );
+      final rulesMap = <String, bool>{for (final rule in rules) rule: true};
       rulesData.update('linter', (dynamic value) => {'rules': rulesMap});
     } else {
       rulesData.update('linter', (dynamic value) => {'rules': rules});

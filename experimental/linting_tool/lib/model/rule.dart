@@ -41,5 +41,5 @@ class Rule extends Equatable {
   Map<String, dynamic> toJson() => _$RuleToJson(this);
 
   @override
-  List<Object?> get props => [name];
+  List<Object> get props => [name];
 }
