@@ -31,25 +31,22 @@ class RuleStore extends ChangeNotifier {
 
   String? get error => _error;
 
-  late final List<RulesProfile> _defaultProfiles = () {
-    final List<RulesProfile> defaultProfiles = [];
+  List<RulesProfile> get defaultProfiles {
+    final Map<String, RulesProfile> setsToProfiles = {};
 
     for (final rule in rules) {
       for (final setName in rule.sets) {
-        final profileIndex =
-            defaultProfiles.indexWhere((profile) => profile.name == setName);
-        if (profileIndex >= 0) {
-          defaultProfiles[profileIndex].rules.add(rule);
+        final profile = setsToProfiles[setName];
+        if (profile == null) {
+          setsToProfiles[setName] = RulesProfile(name: setName, rules: [rule]);
         } else {
-          defaultProfiles.add(RulesProfile(name: setName, rules: [rule]));
+          profile.rules.add(rule);
         }
       }
     }
 
-    return defaultProfiles;
-  }();
-
-  List<RulesProfile> get defaultProfiles => isLoading ? [] : _defaultProfiles;
+    return setsToProfiles.values.toList(growable: false);
+  }
 
   Future<void> fetchRules() async {
     if (!_isLoading) _isLoading = true;
