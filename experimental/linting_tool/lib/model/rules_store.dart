@@ -32,6 +32,10 @@ class RuleStore extends ChangeNotifier {
   String? get error => _error;
 
   List<RulesProfile> get defaultProfiles {
+    if (isLoading || rules.isEmpty) {
+      return const [];
+    }
+
     final Map<String, RulesProfile> setsToProfiles = {};
 
     for (final rule in rules) {
