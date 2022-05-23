@@ -13,12 +13,12 @@ import 'package:linting_tool/repository/repository.dart';
 
 /// Manages fetching rules from the web.
 class RuleStore extends ChangeNotifier {
-  late final Repository repository;
+  final Repository repository;
 
-  RuleStore(http.Client httpClient) {
-    repository = Repository(httpClient);
+  RuleStore(http.Client httpClient) : repository = Repository(httpClient) {
     fetchRules();
   }
+
   bool _isLoading = true;
 
   bool get isLoading => _isLoading;
@@ -32,32 +32,31 @@ class RuleStore extends ChangeNotifier {
   String? get error => _error;
 
   List<RulesProfile> get defaultProfiles {
-    List<RulesProfile> defaultProfiles = [];
+    if (isLoading || rules.isEmpty) {
+      return const [];
+    }
 
-    var rulesWithDefaultSets =
-        rules.where((rule) => rule.sets.isNotEmpty).toList();
+    final Map<String, RulesProfile> setsToProfiles = {};
 
-    for (final rule in rulesWithDefaultSets) {
+    for (final rule in rules) {
       for (final setName in rule.sets) {
-        var profileIndex =
-            defaultProfiles.indexWhere((profile) => profile.name == setName);
-        if (profileIndex >= 0) {
-          defaultProfiles[profileIndex].rules.add(rule);
+        final profile = setsToProfiles[setName];
+        if (profile == null) {
+          setsToProfiles[setName] = RulesProfile(name: setName, rules: [rule]);
         } else {
-          defaultProfiles.add(RulesProfile(name: setName, rules: [rule]));
+          profile.rules.add(rule);
         }
       }
     }
 
-    return defaultProfiles;
+    return setsToProfiles.values.toList(growable: false);
   }
 
   Future<void> fetchRules() async {
     if (!_isLoading) _isLoading = true;
     notifyListeners();
     try {
-      var rules = await repository.getRulesList();
-      _rules = rules;
+      _rules = await repository.getRulesList();
     } on SocketException catch (e) {
       log(e.toString());
       _error = 'Check internet connection.';

@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 
 class LintExpansionTile extends StatefulWidget {
   final Rule rule;
+
   const LintExpansionTile({
     required this.rule,
     super.key,
@@ -24,10 +25,11 @@ class LintExpansionTile extends StatefulWidget {
 
 class _LintExpansionTileState extends State<LintExpansionTile> {
   var isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var textTheme = theme.textTheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     final rule = widget.rule;
     final incompatibleString =
         rule.incompatible.isNotEmpty ? rule.incompatible.join(', ') : 'none';
@@ -287,8 +289,8 @@ class ExistingProfileDialog extends StatefulWidget {
 class _ExistingProfileDialogState extends State<ExistingProfileDialog> {
   @override
   Widget build(BuildContext context) {
-    var profilesStore = Provider.of<ProfilesStore>(context);
-    var savedProfiles = profilesStore.savedProfiles;
+    final profilesStore = Provider.of<ProfilesStore>(context);
+    final savedProfiles = profilesStore.savedProfiles;
     return AlertDialog(
       title: const Text('Select a lint profile'),
       content: Column(

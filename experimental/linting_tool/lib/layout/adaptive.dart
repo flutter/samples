@@ -12,12 +12,10 @@ bool isDisplayLarge(BuildContext context) =>
 
 /// Returns boolean value whether the window is considered medium size.
 /// Used to build adaptive and responsive layouts.
-bool isDisplayMedium(BuildContext context) {
-  return getWindowType(context) == AdaptiveWindowType.medium;
-}
+bool isDisplayMedium(BuildContext context) =>
+    getWindowType(context) == AdaptiveWindowType.medium;
 
 /// Returns boolean value whether the window is considered small size.
 /// Used to build adaptive and responsive layouts.
-bool isDisplaySmall(BuildContext context) {
-  return getWindowType(context) <= AdaptiveWindowType.small;
-}
+bool isDisplaySmall(BuildContext context) =>
+    getWindowType(context) <= AdaptiveWindowType.small;

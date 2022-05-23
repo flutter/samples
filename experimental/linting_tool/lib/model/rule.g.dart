@@ -62,19 +62,17 @@ class RuleAdapter extends TypeAdapter<Rule> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Rule _$RuleFromJson(Map<String, dynamic> json) {
-  return Rule(
-    name: json['name'] as String,
-    description: json['description'] as String,
-    group: json['group'] as String,
-    maturity: json['maturity'] as String,
-    incompatible: (json['incompatible'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList(),
-    sets: (json['sets'] as List<dynamic>).map((e) => e as String).toList(),
-    details: json['details'] as String,
-  );
-}
+Rule _$RuleFromJson(Map<String, dynamic> json) => Rule(
+      name: json['name'] as String,
+      description: json['description'] as String,
+      group: json['group'] as String,
+      maturity: json['maturity'] as String,
+      incompatible: (json['incompatible'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      sets: (json['sets'] as List<dynamic>).map((e) => e as String).toList(),
+      details: json['details'] as String,
+    );
 
 Map<String, dynamic> _$RuleToJson(Rule instance) => <String, dynamic>{
       'name': instance.name,

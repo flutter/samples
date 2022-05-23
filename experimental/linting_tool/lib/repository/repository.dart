@@ -8,11 +8,9 @@ import 'package:linting_tool/repository/api_provider.dart';
 import 'package:yaml/yaml.dart';
 
 class Repository {
-  late final APIProvider _apiProvider;
+  final APIProvider _apiProvider;
 
-  Repository(http.Client httpClient) {
-    _apiProvider = APIProvider(httpClient);
-  }
+  Repository(http.Client httpClient) : _apiProvider = APIProvider(httpClient);
 
   Future<List<Rule>> getRulesList() => _apiProvider.getRulesList();
 

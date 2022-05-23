@@ -23,7 +23,7 @@ class RulesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayLarge(context);
     final isTablet = isDisplayMedium(context);
-    var textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final startPadding = isTablet
         ? 60.0
         : isDesktop
@@ -85,7 +85,7 @@ class RulesPage extends StatelessWidget {
                           itemCount: profile.rules.length,
                           cacheExtent: 5,
                           itemBuilder: (context, index) {
-                            /// Show righ-click context menu to delete rule.
+                            /// Show right-click context menu to delete rule.
                             return ContextMenuRegion(
                               contextMenu: GenericContextMenu(
                                 buttonConfigs: [
