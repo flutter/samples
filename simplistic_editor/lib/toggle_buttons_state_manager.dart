@@ -10,11 +10,18 @@ typedef UpdateToggleButtonsStateOnSelectionChangedCallback = void Function(
 typedef UpdateToggleButtonsStateOnButtonPressedCallback = void Function(
     int index);
 
+/// The toggle buttons that can be selected.
+enum ToggleButtonsState {
+  bold,
+  italic,
+  underline,
+}
+
 class ToggleButtonsStateManager extends InheritedWidget {
   const ToggleButtonsStateManager({
     super.key,
     required super.child,
-    required List<bool> isToggleButtonsSelected,
+    required Set<ToggleButtonsState> isToggleButtonsSelected,
     required UpdateToggleButtonsStateOnButtonPressedCallback
         updateToggleButtonsStateOnButtonPressed,
     required UpdateToggleButtonsStateOnSelectionChangedCallback
@@ -32,13 +39,13 @@ class ToggleButtonsStateManager extends InheritedWidget {
     return result!;
   }
 
-  final List<bool> _isToggleButtonsSelected;
+  final Set<ToggleButtonsState> _isToggleButtonsSelected;
   final UpdateToggleButtonsStateOnButtonPressedCallback
       _updateToggleButtonsStateOnButtonPressed;
   final UpdateToggleButtonsStateOnSelectionChangedCallback
       _updateToggleButtonStateOnSelectionChanged;
 
-  List<bool> get toggleButtonsState => _isToggleButtonsSelected;
+  Set<ToggleButtonsState> get toggleButtonsState => _isToggleButtonsSelected;
   UpdateToggleButtonsStateOnButtonPressedCallback
       get updateToggleButtonsOnButtonPressed =>
           _updateToggleButtonsStateOnButtonPressed;

@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 
 import 'replacements.dart';
 import 'text_editing_delta_history_manager.dart';
-import 'toggle_button_state_manager.dart';
+import 'toggle_buttons_state_manager.dart';
 
 /// Signature for the callback that reports when the user changes the selection
 /// (including the cursor location).
