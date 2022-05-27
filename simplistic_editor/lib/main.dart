@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'basic_text_field.dart';
 import 'replacements.dart';
 import 'text_editing_delta_history_manager.dart';
-import 'toggle_button_state_manager.dart';
+import 'toggle_buttons_state_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     text: 'The quick brown fox jumps over the lazy dog.',
   );
   final FocusNode _focusNode = FocusNode();
-  final List<bool> _isSelected = [false, false, false];
+  final Set<ToggleButtonsState> _isSelected = {};
   final List<TextEditingDelta> _textEditingDeltaHistory = [];
 
   void _updateTextEditingDeltaHistory(
@@ -115,43 +115,55 @@ class _MyHomePageState extends State<MyHomePage> {
     // at the new selection.
     final List<TextStyle> replacementStyles =
         _replacementTextEditingController.getReplacementsAtSelection(selection);
-    final List<bool> hasChanged = [false, false, false];
+    final Set<ToggleButtonsState> hasChanged = {};
 
     if (replacementStyles.isEmpty) {
-      _isSelected.fillRange(0, _isSelected.length, false);
+      _isSelected.removeAll({
+        ToggleButtonsState.bold,
+        ToggleButtonsState.italic,
+        ToggleButtonsState.underline
+      });
     }
 
     for (final TextStyle style in replacementStyles) {
-      if (style.fontWeight != null && !hasChanged[0]) {
-        _isSelected[0] = true;
-        hasChanged[0] = true;
+      // See [_updateToggleButtonsStateOnButtonPressed] for how
+      // Bold, Italic and Underline are encoded into [style]
+      if (style.fontWeight != null &&
+          !hasChanged.contains(ToggleButtonsState.bold)) {
+        _isSelected.add(ToggleButtonsState.bold);
+        hasChanged.add(ToggleButtonsState.bold);
       }
 
-      if (style.fontStyle != null && !hasChanged[1]) {
-        _isSelected[1] = true;
-        hasChanged[1] = true;
+      if (style.fontStyle != null &&
+          !hasChanged.contains(ToggleButtonsState.italic)) {
+        _isSelected.add(ToggleButtonsState.italic);
+        hasChanged.add(ToggleButtonsState.italic);
       }
 
-      if (style.decoration != null && !hasChanged[2]) {
-        _isSelected[2] = true;
-        hasChanged[2] = true;
+      if (style.decoration != null &&
+          !hasChanged.contains(ToggleButtonsState.underline)) {
+        _isSelected.add(ToggleButtonsState.underline);
+        hasChanged.add(ToggleButtonsState.underline);
       }
     }
 
     for (final TextStyle style in replacementStyles) {
-      if (style.fontWeight == null && !hasChanged[0]) {
-        _isSelected[0] = false;
-        hasChanged[0] = true;
+      if (style.fontWeight == null &&
+          !hasChanged.contains(ToggleButtonsState.bold)) {
+        _isSelected.remove(ToggleButtonsState.bold);
+        hasChanged.add(ToggleButtonsState.bold);
       }
 
-      if (style.fontStyle == null && !hasChanged[1]) {
-        _isSelected[1] = false;
-        hasChanged[1] = true;
+      if (style.fontStyle == null &&
+          !hasChanged.contains(ToggleButtonsState.italic)) {
+        _isSelected.remove(ToggleButtonsState.italic);
+        hasChanged.add(ToggleButtonsState.italic);
       }
 
-      if (style.decoration == null && !hasChanged[2]) {
-        _isSelected[2] = false;
-        hasChanged[2] = true;
+      if (style.decoration == null &&
+          !hasChanged.contains(ToggleButtonsState.underline)) {
+        _isSelected.remove(ToggleButtonsState.underline);
+        hasChanged.add(ToggleButtonsState.underline);
       }
     }
 
@@ -170,8 +182,15 @@ class _MyHomePageState extends State<MyHomePage> {
       end: _replacementTextEditingController.selection.end,
     );
 
-    _isSelected[index] = !_isSelected[index];
-    if (_isSelected[index]) {
+    final targetToggleButtonState = ToggleButtonsState.values[index];
+
+    if (_isSelected.contains(targetToggleButtonState)) {
+      _isSelected.remove(targetToggleButtonState);
+    } else {
+      _isSelected.add(targetToggleButtonState);
+    }
+
+    if (_isSelected.contains(targetToggleButtonState)) {
       _replacementTextEditingController.applyReplacement(
         TextEditingInlineSpanReplacement(
           replacementRange,
@@ -304,7 +323,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           return ToggleButtons(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(4.0)),
-                            isSelected: manager.toggleButtonsState,
+                            isSelected: [
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.bold),
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.italic),
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.underline),
+                            ],
                             onPressed: (index) => manager
                                 .updateToggleButtonsOnButtonPressed(index),
                             children: const [
