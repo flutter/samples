@@ -70,6 +70,11 @@
 # Service account files
 svc-keyfile.json
 
+# Lockfiles
+Podfile.lock
+pubspec.lock
+yarn.lock
+
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3
