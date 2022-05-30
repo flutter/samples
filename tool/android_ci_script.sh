@@ -6,8 +6,10 @@ gradle -v
 flutter doctor -v
 
 echo "Fetching dependencies and building 'prebuilt_module/flutter_module/'."
-pushd add_to_app/prebuilt_module/flutter_module/
+pushd add_to_app/prebuilt_module/android_using_prebuilt_module/
 gradle wrapper --gradle-version=7.4 --distribution-type=all
+popd
+pushd add_to_app/prebuilt_module/flutter_module/
 flutter packages get
 flutter build aar
 popd
