@@ -44,6 +44,7 @@ jobs:
       - uses: actions/cache@14c4fd4871149762bbba2312aaf4b031861333d5
         with:
           path: |
+            ~/.gradle
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-cache-${{ hashFiles('**/*.gradle', '**/*.gradle.kts', '**/gradle/wrapper/gradle-wrapper.properties') }}
@@ -51,6 +52,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17.x'
+          cache: 'gradle'
       - uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: stable
