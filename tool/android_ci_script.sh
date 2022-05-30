@@ -2,10 +2,12 @@
 
 set -e
 
+gradle -v
 flutter doctor -v
 
 echo "Fetching dependencies and building 'prebuilt_module/flutter_module/'."
 pushd add_to_app/prebuilt_module/flutter_module/
+gradle wrapper --gradle-version=7.4 --distribution-type=all
 flutter packages get
 flutter build aar
 popd
