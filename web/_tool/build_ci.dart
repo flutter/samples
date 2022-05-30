@@ -17,8 +17,8 @@ main() async {
   ];
 
   print('Building the sample index...');
-  await _run('samples_index', 'pub', ['get']);
-  await _run('samples_index', 'pub', ['run', 'grinder', 'deploy']);
+  await _run('samples_index', 'flutter', ['pub', 'get']);
+  await _run('samples_index', 'flutter', ['pub', 'run', 'grinder', 'deploy']);
 
   // Create the directory each Flutter Web sample lives in
   Directory(p.join(Directory.current.path, 'samples_index', 'public', 'web'))
