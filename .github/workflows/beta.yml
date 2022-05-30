@@ -29,8 +29,8 @@ jobs:
       - uses: actions/checkout@f25a3a9f25bd5f4c5d77189cab02ff357b5aedeb
       - uses: actions/setup-java@860f60056505705214d223b91ed7a30f173f6142
         with:
-          distribution: 'zulu'
-          java-version: '12.x'
+          distribution: 'temurin'
+          java-version: '17.x'
       - uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: beta
@@ -44,8 +44,8 @@ jobs:
       - uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - uses: actions/setup-java@860f60056505705214d223b91ed7a30f173f6142
         with:
-          distribution: 'zulu'
-          java-version: '12.x'
+          distribution: 'temurin'
+          java-version: '17.x'
       - uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: beta
@@ -59,8 +59,8 @@ jobs:
       - uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - uses: actions/setup-java@860f60056505705214d223b91ed7a30f173f6142
         with:
-          distribution: 'zulu'
-          java-version: '12.x'
+          distribution: 'temurin'
+          java-version: '17.x'
       - uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: beta
