@@ -41,13 +41,9 @@ jobs:
     if: github.repository == 'flutter/samples'
     steps:
       - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-      - uses: actions/cache@14c4fd4871149762bbba2312aaf4b031861333d5
+      - uses: gradle/gradle-build-action@v2
         with:
-          path: |
-            ~/.gradle
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-cache-${{ hashFiles('**/*.gradle', '**/*.gradle.kts', '**/gradle/wrapper/gradle-wrapper.properties') }}
+          gradle-version: 7.4
       - uses: actions/setup-java@860f60056505705214d223b91ed7a30f173f6142
         with:
           distribution: 'temurin'
