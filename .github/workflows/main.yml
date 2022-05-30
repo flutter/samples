@@ -1,4 +1,4 @@
-name: Master Branch CI
+name: Main Branch CI
 
 # Declare default permissions as read only.
 permissions: read-all
