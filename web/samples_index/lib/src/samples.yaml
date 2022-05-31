@@ -93,7 +93,7 @@ samples:
         alt: Add_to_app screenshot
       - url: images/add_to_app2.png
         alt: Add_to_app screenshot
-    source: https://github.com/flutter/samples/tree/master/add_to_app
+    source: https://github.com/flutter/samples/tree/main/add_to_app
     description: >
       Android and iOS projects that each import a standalone Flutter module.
     difficulty: advanced
@@ -118,7 +118,7 @@ samples:
         alt: Animations sample screenshot
       - url: images/animations3.png
         alt: Animations sample screenshot
-    source: https://github.com/flutter/samples/tree/master/animations
+    source: https://github.com/flutter/samples/tree/main/animations
     description: >
       Sample apps that showcasing Flutter's animation features.
     difficulty: advanced
@@ -146,7 +146,7 @@ samples:
         alt: Flutter maps firestore screenshot
       - url: images/flutter_maps_firestore2.png
         alt: Flutter maps firestore screenshot
-    source: https://github.com/flutter/samples/tree/master/flutter_maps_firestore
+    source: https://github.com/flutter/samples/tree/main/flutter_maps_firestore
     description: >
       A Flutter sample app that shows the end product of the Cloud Next '19 talk
       Build Mobile Apps With Flutter and Google Maps.
@@ -172,7 +172,7 @@ samples:
         alt: Isolate example screenshot
       - url: images/isolate3.png
         alt: Isolate example screenshot
-    source: https://github.com/flutter/samples/tree/master/isolate_example
+    source: https://github.com/flutter/samples/tree/main/isolate_example
     description: >
       A sample application that demonstrate best practices when using
       isolates.
@@ -197,7 +197,7 @@ samples:
         alt: JSON example screenshot
       - url: images/jsonexample3.png
         alt: JSON example screenshot
-    source: https://github.com/flutter/samples/tree/master/jsonexample
+    source: https://github.com/flutter/samples/tree/main/jsonexample
     description: >
       A Flutter sample app that deserializes a set of JSON strings using three
       different libraries: dart:convert, json_serializable, and built_value.
@@ -228,7 +228,7 @@ samples:
         alt: Place Tracker screenshot
       - url: images/place_tracker4.png
         alt: Place Tracker screenshot
-    source: https://github.com/flutter/samples/tree/master/place_tracker
+    source: https://github.com/flutter/samples/tree/main/place_tracker
     description: >
       A sample place tracking app that uses the google_maps_flutter plugin. Keep
       track of your favorite places, places you've visited, and places you want
@@ -261,7 +261,7 @@ samples:
         alt: Platform Design screenshot
       - url: images/platform_design7.png
         alt: Platform Design screenshot
-    source: https://github.com/flutter/samples/tree/master/platform_design
+    source: https://github.com/flutter/samples/tree/main/platform_design
     description: >
       A Flutter app that maximizes application code reuse while adhering to
       different design patterns on Android and iOS
@@ -283,7 +283,7 @@ samples:
         alt: Platform View Swift screenshot
       - url: images/platform_view_swift2.png
         alt: Platform View Swift screenshot
-    source: https://github.com/flutter/samples/tree/master/platform_view_swift
+    source: https://github.com/flutter/samples/tree/main/platform_view_swift
     description: >
       A Flutter sample app that combines a native iOS UIViewController with a
       full-screen Flutter view.
@@ -303,7 +303,7 @@ samples:
     screenshots:
       - url: images/infinite_list.png
         alt: Infinite List screenshot
-    source: https://github.com/flutter/samples/tree/master/infinite_list
+    source: https://github.com/flutter/samples/tree/main/infinite_list
     description: >
       A Flutter sample app that shows an implementation of the "infinite list" UX pattern. 
       That is, a list is shown to the user as if it was continuous although it is internally 
@@ -328,7 +328,7 @@ samples:
     screenshots:
       - url: images/ios_app_clip.png
         alt: IOS App Clip screenshot
-    source: https://github.com/flutter/samples/tree/master/ios_app_clip
+    source: https://github.com/flutter/samples/tree/main/ios_app_clip
     description: >
       A Flutter sample app that shows the demonstrating integration with iOS 14's App Clip,
       the App Clip target is rendered by Flutter and uses a plugin.
@@ -351,7 +351,7 @@ samples:
         alt: Testing App screenshot
       - url: images/testing_app2.png
         alt: Testing App screenshot
-    source: https://github.com/flutter/samples/tree/master/testing_app
+    source: https://github.com/flutter/samples/tree/main/testing_app
     description: >
       A Flutter sample app that shows different types of testing in Flutter.
     difficulty: intermediate
@@ -376,7 +376,7 @@ samples:
         alt: Provider Shopper screenshot
       - url: images/provider_shopper3.png
         alt: Provider Shopper screenshot
-    source: https://github.com/flutter/samples/tree/master/provider_shopper
+    source: https://github.com/flutter/samples/tree/main/provider_shopper
     description: >
       A Flutter sample app that shows a state management approach using the Provider package.
     difficulty: intermediate
@@ -401,7 +401,7 @@ samples:
         alt: Web Dashbaord screenshot
       - url: images/web_dashboard3.png
         alt: Web Dashboard screenshot
-    source: https://github.com/flutter/samples/tree/master/experimental/web_dashboard
+    source: https://github.com/flutter/samples/tree/main/experimental/web_dashboard
     description: >
       A dashboard app that displays daily entries. Demonstrates AdaptiveScaffold and NavigationRail. Showcases how to
       use Firebase, but uses a mock backend by default.
@@ -428,7 +428,7 @@ samples:
         alt: Form App screenshot
       - url: images/form_app3.png
         alt: Form App screenshot
-    source: https://github.com/flutter/samples/tree/master/form_app
+    source: https://github.com/flutter/samples/tree/main/form_app
     description: >
       A Flutter sample app that shows how to use Forms.
     difficulty: intermediate
@@ -452,7 +452,7 @@ samples:
         alt: Navigation and Routing screenshot
       - url: images/navigation_and_routing4.png
         alt: Navigation and Routing screenshot
-    source: https://github.com/flutter/samples/tree/master/navigation_and_routing
+    source: https://github.com/flutter/samples/tree/main/navigation_and_routing
     description: >
       A Flutter sample app that shows how to use how to use the Router API to
       handle common navigation scenarios.
@@ -473,7 +473,7 @@ samples:
         alt: Desktop Photo Search with FluentUI widgets
       - url: images/desktop_photo_search-material.png
         alt: Desktop Photo Search with Material widgets
-    source: https://github.com/flutter/samples/tree/master/desktop_photo_search
+    source: https://github.com/flutter/samples/tree/main/desktop_photo_search
     description: >
       This is the Photo Search app, built out with two different widget sets,
       `material` shows the Photo Search app built with Material widgets, and
@@ -503,7 +503,7 @@ samples:
         alt: Advanced text editing with activity
       - url: images/simple_editor_initial.png
         alt: Advanced text editing in initial state
-    source: https://github.com/flutter/samples/tree/master/simplistic_editor
+    source: https://github.com/flutter/samples/tree/main/simplistic_editor
     description: >
       This is a fancy text editor sample which shows how to consume fine-grain
       text editing and selection details from the framework's TextEditingDeltas
@@ -531,7 +531,7 @@ samples:
         alt: Elevation tab of the Material 3 demo
       - url: images/material_3_green.png
         alt: Elevation tab of the Material 3 demo with seed color of green
-    source: https://github.com/flutter/samples/tree/master/material_3_demo
+    source: https://github.com/flutter/samples/tree/main/material_3_demo
     description: >
       Showcases Material 3 features in the Flutter Material library.
       These features include updated components, typography, color system and elevation support.
@@ -558,7 +558,7 @@ samples:
         alt: Loading screen
       - url: images/level_selector.png
         alt: Level selection screen
-    source: https://github.com/flutter/samples/tree/master/game_template
+    source: https://github.com/flutter/samples/tree/main/game_template
     description: >
       This is a game template that shows how to build much of the dressing
       around an actual game. The game itself is very simple - the value in this
@@ -605,7 +605,7 @@ samples:
     screenshots:
       - url: images/github_dataviz1.png
         alt: GitHub Dataviz screenshot
-    source: https://github.com/flutter/samples/tree/master/web/github_dataviz
+    source: https://github.com/flutter/samples/tree/main/web/github_dataviz
     description: >
       A visualization for Flutter repository data
     difficulty: intermediate
@@ -622,7 +622,7 @@ samples:
     screenshots:
       - url: images/particle_background1.png
         alt: Particle Background screenshot
-    source: https://github.com/flutter/samples/tree/master/web/particle_background
+    source: https://github.com/flutter/samples/tree/main/web/particle_background
     description: >
       Flutter app demonstrating package:simple_animations in action.
     difficulty: intermediate
