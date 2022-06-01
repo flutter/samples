@@ -67,7 +67,7 @@ Each app should:
   [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
   release of the Flutter SDK.
 * Include the same
-  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/master/animations/analysis_options.yaml)
+  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/main/animations/analysis_options.yaml)
   file used throughout the repo. These files include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
@@ -89,7 +89,7 @@ also applies to code in this repo.
 Projects in the repo's top-level `experimental` directory are allowed to skirt
 some of the above rules. These apps are either experimental in nature or use
 APIs that haven't landed in the SDK's `stable` channel. They build against
-`master`, and aren't (by default) wired into our CI system.
+`main`, and aren't (by default) wired into our CI system.
 
 ## Code reviews
 

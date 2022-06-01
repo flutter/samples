@@ -16,7 +16,7 @@ defaults:
 
 jobs:
   # Run the stable test script on the beta channel. Since this branch will soon
-  # be merged into master as our stable-targeting code, this is the key thing we
+  # be merged into main as our stable-targeting code, this is the key thing we
   # need to test.
   stable-tests-on-beta:
     runs-on: ${{ matrix.os }}

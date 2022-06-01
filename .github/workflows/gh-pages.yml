@@ -6,7 +6,7 @@ permissions: read-all
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-deploy:
     permissions:

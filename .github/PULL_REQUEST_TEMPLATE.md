@@ -17,4 +17,4 @@ If you need help, consider asking for advice on the #hackers-devrel channel on [
 [Flutter Style Guide]: https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo
 [CLA]: https://cla.developers.google.com/
 [Discord]: https://github.com/flutter/flutter/wiki/Chat
-[Contributors Guide]: https://github.com/flutter/samples/blob/master/CONTRIBUTING.md
+[Contributors Guide]: https://github.com/flutter/samples/blob/main/CONTRIBUTING.md
