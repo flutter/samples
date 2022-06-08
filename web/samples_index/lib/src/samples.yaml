@@ -521,7 +521,7 @@ samples:
   - name: Material 3
     author: Flutter
     screenshots:
-      - url: images/material_you_components.png
+      - url: images/material_3_components.png
         alt: Components tab of the Material 3 demo
       - url: images/material_3_color.png
         alt: Colors tab of the Material 3 demo
