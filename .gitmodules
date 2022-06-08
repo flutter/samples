@@ -1,4 +1,0 @@
-[submodule "web/slide_puzzle"]
-	path = web/slide_puzzle
-	url = https://github.com/VGVentures/slide_puzzle.git
-	branch = release
