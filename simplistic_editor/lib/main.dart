@@ -310,58 +310,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ToggleButtonsStateManager(
-                        isToggleButtonsSelected: _isSelected,
-                        updateToggleButtonsStateOnButtonPressed:
-                            _updateToggleButtonsStateOnButtonPressed,
-                        updateToggleButtonStateOnSelectionChanged:
-                            _updateToggleButtonsStateOnSelectionChanged,
-                        child: Builder(builder: (innerContext) {
-                          final ToggleButtonsStateManager manager =
-                              ToggleButtonsStateManager.of(innerContext);
+                      Builder(builder: (innerContext) {
+                        final ToggleButtonsStateManager manager =
+                            ToggleButtonsStateManager.of(innerContext);
 
-                          return ToggleButtons(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(4.0)),
-                            isSelected: [
-                              manager.toggleButtonsState
-                                  .contains(ToggleButtonsState.bold),
-                              manager.toggleButtonsState
-                                  .contains(ToggleButtonsState.italic),
-                              manager.toggleButtonsState
-                                  .contains(ToggleButtonsState.underline),
-                            ],
-                            onPressed: (index) => manager
-                                .updateToggleButtonsOnButtonPressed(index),
-                            children: const [
-                              Icon(Icons.format_bold),
-                              Icon(Icons.format_italic),
-                              Icon(Icons.format_underline),
-                            ],
-                          );
-                        }),
-                      ),
+                        return ToggleButtons(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(4.0)),
+                          isSelected: [
+                            manager.toggleButtonsState
+                                .contains(ToggleButtonsState.bold),
+                            manager.toggleButtonsState
+                                .contains(ToggleButtonsState.italic),
+                            manager.toggleButtonsState
+                                .contains(ToggleButtonsState.underline),
+                          ],
+                          onPressed: (index) =>
+                              manager.updateToggleButtonsOnButtonPressed(index),
+                          children: const [
+                            Icon(Icons.format_bold),
+                            Icon(Icons.format_italic),
+                            Icon(Icons.format_underline),
+                          ],
+                        );
+                      }),
                     ],
                   ),
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                    child: ToggleButtonsStateManager(
-                      isToggleButtonsSelected: _isSelected,
-                      updateToggleButtonsStateOnButtonPressed:
-                          _updateToggleButtonsStateOnButtonPressed,
-                      updateToggleButtonStateOnSelectionChanged:
-                          _updateToggleButtonsStateOnSelectionChanged,
-                      child: TextEditingDeltaHistoryManager(
-                        history: _textEditingDeltaHistory,
-                        updateHistoryOnInput: _updateTextEditingDeltaHistory,
-                        child: BasicTextField(
-                          controller: _replacementTextEditingController,
-                          style: const TextStyle(
-                              fontSize: 18.0, color: Colors.black),
-                          focusNode: _focusNode,
-                        ),
+                    child: TextEditingDeltaHistoryManager(
+                      history: _textEditingDeltaHistory,
+                      updateHistoryOnInput: _updateTextEditingDeltaHistory,
+                      child: BasicTextField(
+                        controller: _replacementTextEditingController,
+                        style: const TextStyle(
+                            fontSize: 18.0, color: Colors.black),
+                        focusNode: _focusNode,
                       ),
                     ),
                   ),
