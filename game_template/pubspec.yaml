@@ -28,6 +28,7 @@ dependencies:
   games_services: ^2.0.7  # Achievements and leaderboards
   google_mobile_ads: ^1.1.0  # Ads
   in_app_purchase: ^3.0.1  # In-app purchases
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
