@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:game_template/src/play_session/story_text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart' hide Level;
 import 'package:provider/provider.dart';
@@ -41,6 +42,9 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
 
   late DateTime _startOfPlay;
 
+  // BLAH BLAH DIALOG
+  var dialogStep = 0;
+
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
@@ -76,16 +80,27 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       ),
                     ),
                     const Spacer(),
-                    Text('Drag the slider to ${widget.level.difficulty}%'
-                        ' or above!'),
-                    Consumer<LevelState>(
-                      builder: (context, levelState, child) => Slider(
-                        label: 'Level Progress',
-                        autofocus: true,
-                        value: levelState.progress / 100,
-                        onChanged: (value) =>
-                            levelState.setProgress((value * 100).round()),
-                        onChangeEnd: (value) => levelState.evaluate(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        StoryText.dialogSteps[dialogStep] ?? 'THE END',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: StoryText.dialogSteps[dialogStep] == null
+                            ? Container()
+                            : ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    dialogStep++;
+                                  });
+                                },
+                                child: const Text('Next'),
+                              ),
                       ),
                     ),
                     const Spacer(),
