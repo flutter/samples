@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:game_template/src/play_session/story_text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart' hide Level;
 import 'package:provider/provider.dart';
@@ -41,6 +42,9 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
   bool _duringCelebration = false;
 
   late DateTime _startOfPlay;
+
+  // BLAH BLAH DIALOG
+  var dialogStep = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -88,18 +92,33 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       ),
                       child: AnimatedTextKit(
                         totalRepeatCount: 1,
-                        pause: const Duration(milliseconds: 200),
                         displayFullTextOnTap: true,
                         animatedTexts: [
                           TyperAnimatedText(
-                            'Hello World! Welcome to the 2022 Wordbud Hackathon. Let\'s meet the team!',
+                            StoryText.dialogSteps[dialogStep] ?? 'THE END',
                             textStyle: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontSize: 20,
                             ),
-                            speed: const Duration(milliseconds: 100),
-                            curve: Curves.linear,
+                            speed: const Duration(milliseconds: 150),
                           ),
                         ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: StoryText.dialogSteps[dialogStep] == null
+                            ? Container()
+                            : ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    dialogStep++;
+                                  });
+                                },
+                                child: const Text('Next'),
+                              ),
                       ),
                     ),
                     const Spacer(),
