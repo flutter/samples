@@ -4,6 +4,7 @@
 
 import 'dart:async';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart' hide Level;
@@ -76,16 +77,29 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       ),
                     ),
                     const Spacer(),
-                    Text('Drag the slider to ${widget.level.difficulty}%'
-                        ' or above!'),
-                    Consumer<LevelState>(
-                      builder: (context, levelState, child) => Slider(
-                        label: 'Level Progress',
-                        autofocus: true,
-                        value: levelState.progress / 100,
-                        onChanged: (value) =>
-                            levelState.setProgress((value * 100).round()),
-                        onChangeEnd: (value) => levelState.evaluate(),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.orange),
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Colors.white,
+                      ),
+                      child: AnimatedTextKit(
+                        totalRepeatCount: 1,
+                        pause: const Duration(milliseconds: 200),
+                        displayFullTextOnTap: true,
+                        animatedTexts: [
+                          TyperAnimatedText(
+                            'Hello World! Welcome to the 2022 Wordbud Hackathon. Let\'s meet the team!',
+                            textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            speed: const Duration(milliseconds: 100),
+                            curve: Curves.linear,
+                          ),
+                        ],
                       ),
                     ),
                     const Spacer(),
