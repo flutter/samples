@@ -83,15 +83,12 @@ class _SongsTabState extends State<SongsTab> {
   }
 
   void _togglePlatform() {
-    TargetPlatform _getOppositePlatform() {
-      if (defaultTargetPlatform == TargetPlatform.iOS) {
-        return TargetPlatform.android;
-      } else {
-        return TargetPlatform.iOS;
-      }
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    } else {
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     }
 
-    debugDefaultTargetPlatformOverride = _getOppositePlatform();
     // This rebuilds the application. This should obviously never be
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
