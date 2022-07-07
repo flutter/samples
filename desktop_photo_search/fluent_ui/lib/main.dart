@@ -75,10 +75,10 @@ class UnsplashHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final photoSearchModel = Provider.of<PhotoSearchModel>(context);
     menubar.setApplicationMenu([
-      menubar.Submenu(label: 'Search', children: [
-        menubar.MenuItem(
+      menubar.NativeSubmenu(label: 'Search', children: [
+        menubar.NativeMenuItem(
           label: 'Search…',
-          onClicked: () {
+          onSelected: () {
             showDialog<void>(
               context: context,
               builder: (context) =>
@@ -87,17 +87,17 @@ class UnsplashHomePage extends StatelessWidget {
           },
         ),
         if (!Platform.isMacOS)
-          menubar.MenuItem(
+          menubar.NativeMenuItem(
             label: 'Quit',
-            onClicked: () {
+            onSelected: () {
               SystemNavigator.pop();
             },
           ),
       ]),
-      menubar.Submenu(label: 'About', children: [
-        menubar.MenuItem(
+      menubar.NativeSubmenu(label: 'About', children: [
+        menubar.NativeMenuItem(
           label: 'About',
-          onClicked: () {
+          onSelected: () {
             showDialog<void>(
               context: context,
               builder: (context) => const PolicyDialog(),
