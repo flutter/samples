@@ -39,6 +39,9 @@ void main() {
         find.widgetWithIcon(FloatingActionButton, Icons.add), findsNWidgets(4));
     expect(find.widgetWithText(FloatingActionButton, "Create"), findsOneWidget);
 
+    // IconButtons
+    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined), findsNWidgets(8));
+
     // Cards
     expect(find.widgetWithText(Card, "Elevated"), findsOneWidget);
     expect(find.widgetWithText(Card, "Filled"), findsOneWidget);
@@ -116,9 +119,16 @@ void main() {
     Finder m2Icon = find.widgetWithIcon(IconButton, Icons.filter_2);
     BuildContext defaultElevatedButton =
         tester.firstElement(find.byType(ElevatedButton));
+    BuildContext defaultIconButton =
+    tester.firstElement(find.byType(IconButton));
     BuildContext defaultFAB =
         tester.firstElement(find.byType(FloatingActionButton));
-    BuildContext defaultCard = tester.firstElement(find.byType(Card));
+    Finder card = find.widgetWithText(Card, "Elevated");
+    await tester.scrollUntilVisible(
+      card,
+      500.0,
+    );
+    BuildContext defaultCard = tester.firstElement(card);
     Finder dialog = find.text("Open Dialog");
     await tester.scrollUntilVisible(
       dialog,
@@ -140,6 +150,7 @@ void main() {
     expect(m2Icon, findsNothing);
     expect(find.text("Material 3"), findsOneWidget);
     expect(Theme.of(defaultElevatedButton).useMaterial3, true);
+    expect(Theme.of(defaultIconButton).useMaterial3, true);
     expect(Theme.of(defaultFAB).useMaterial3, true);
     expect(Theme.of(defaultCard).useMaterial3, true);
 
@@ -147,6 +158,7 @@ void main() {
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext updatedElevatedButton =
         tester.firstElement(find.byType(ElevatedButton));
+    BuildContext updatedIconButton = tester.firstElement(find.byType(IconButton));
     BuildContext updatedFAB =
         tester.firstElement(find.byType(FloatingActionButton));
     BuildContext updatedCard = tester.firstElement(find.byType(Card));
@@ -172,6 +184,7 @@ void main() {
     expect(m2Icon, findsOneWidget);
     expect(find.text("Material 2"), findsOneWidget);
     expect(Theme.of(updatedElevatedButton).useMaterial3, false);
+    expect(Theme.of(updatedIconButton).useMaterial3, false);
     expect(Theme.of(updatedFAB).useMaterial3, false);
     expect(Theme.of(updatedCard).useMaterial3, false);
   });
