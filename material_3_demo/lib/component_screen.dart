@@ -30,6 +30,8 @@ class ComponentScreen extends StatelessWidget {
                 _colDivider,
                 const FloatingActionButtons(),
                 _colDivider,
+                const Chips(),
+                _colDivider,
                 const Cards(),
                 _colDivider,
                 const Dialogs(),
@@ -116,10 +118,8 @@ class ButtonsWithoutIcon extends StatelessWidget {
           _colDivider,
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onPrimary,
-              // Background color
-              primary: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, isDisabled, "FilledButton"),
             child: const Text('Filled'),
@@ -127,10 +127,9 @@ class ButtonsWithoutIcon extends StatelessWidget {
           _colDivider,
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-              // Background color
-              primary: Theme.of(context).colorScheme.secondaryContainer,
+              foregroundColor:
+                  Theme.of(context).colorScheme.onSecondaryContainer,
+              backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, isDisabled, "FilledTonalButton"),
             child: const Text('Filled Tonal'),
@@ -168,10 +167,8 @@ class ButtonsWithIcon extends StatelessWidget {
           _colDivider,
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onPrimary,
-              // Background color
-              primary: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, false, "FilledButton with Icon"),
             label: const Text('Icon'),
@@ -180,10 +177,9 @@ class ButtonsWithIcon extends StatelessWidget {
           _colDivider,
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              // Foreground color
-              onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
-              // Background color
-              primary: Theme.of(context).colorScheme.secondaryContainer,
+              foregroundColor:
+                  Theme.of(context).colorScheme.onSecondaryContainer,
+              backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed:
                 handlePressed(context, false, "FilledTonalButton with Icon"),
@@ -712,4 +708,107 @@ ButtonStyle disabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
         selected ? colors.onSurface.withOpacity(0.12) : null,
     side: selected ? null : BorderSide(color: colors.outline.withOpacity(0.12)),
   );
+}
+
+class Chips extends StatelessWidget {
+  const Chips({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 5,
+            children: <Widget>[
+              ActionChip(
+                  label: const Text('Assist'),
+                  avatar: const Icon(Icons.chat_outlined),
+                  onPressed: () {}),
+              ActionChip(
+                  label: const Text('Set alarm'),
+                  avatar: const Icon(Icons.alarm_add_outlined),
+                  onPressed: () {}),
+              const ActionChip(
+                  label: Text('No Action'),
+                  avatar: Icon(Icons.indeterminate_check_box_outlined)),
+            ],
+          ),
+          _colDivider,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 5,
+            children: <Widget>[
+              FilterChip(
+                label: const Text('Filter'),
+                onSelected: (s) {},
+              ),
+              FilterChip(
+                label: const Text('OK'),
+                selected: true,
+                onSelected: (s) {},
+              ),
+              const FilterChip(
+                label: Text('Disabled'),
+                selected: true,
+                onSelected: null,
+              ),
+              const FilterChip(
+                label: Text('Disabled'),
+                onSelected: null,
+              )
+            ],
+          ),
+          _colDivider,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 5,
+            children: <Widget>[
+              InputChip(
+                label: const Text('Input'),
+                onDeleted: () {},
+              ),
+              InputChip(
+                label: const Text('Egg'),
+                onDeleted: () {},
+              ),
+              InputChip(
+                label: const Text('Lettuce'),
+                showCheckmark: false,
+                selected: true,
+                onDeleted: () {},
+              ),
+              const InputChip(
+                label: Text('No'),
+                isEnabled: false,
+              ),
+            ],
+          ),
+          _colDivider,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 5,
+            children: <Widget>[
+              ActionChip(
+                label: const Text('Suggestion'),
+                onPressed: () {},
+              ),
+              ActionChip(
+                label: const Text('I agree'),
+                onPressed: () {},
+              ),
+              ActionChip(
+                label: const Text('LGTM'),
+                onPressed: () {},
+              ),
+              const ActionChip(label: Text('Nope')),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
