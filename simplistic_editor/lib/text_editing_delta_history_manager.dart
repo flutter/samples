@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/services.dart' show TextEditingDelta;
 import 'package:flutter/widgets.dart';
 
@@ -34,11 +33,8 @@ class TextEditingDeltaHistoryManager extends InheritedWidget {
       get updateTextEditingDeltaHistoryOnInput =>
           _updateTextEditingDeltaHistoryOnInput;
 
-  static const _equality = DeepCollectionEquality();
-
   @override
   bool updateShouldNotify(TextEditingDeltaHistoryManager oldWidget) {
-    return _equality.equals(
-        textEditingDeltaHistory, oldWidget.textEditingDeltaHistory);
+    return textEditingDeltaHistory != oldWidget.textEditingDeltaHistory;
   }
 }
