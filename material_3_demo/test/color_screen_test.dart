@@ -32,7 +32,7 @@ void main() {
 
   testWidgets(
       'Color palettes screen shows correctly when color icon is clicked '
-      'on NavigationRail', (WidgetTester tester) async {
+      'on NavigationRail', (tester) async {
     widgetSetup(tester, 450); // NavigationRail shows only when width is >= 450.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
@@ -50,7 +50,7 @@ void main() {
   });
 
   testWidgets('Color screen shows correct content',
-      (WidgetTester tester) async {
+      (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ColorPalettesScreen()])),
     ));

@@ -12,7 +12,7 @@ import 'component_screen_test.dart';
 void main() {
   testWidgets(
       'Surface Tones screen shows correctly when the corresponding icon is '
-      'selected on NavigationBar', (WidgetTester tester) async {
+      'selected on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
@@ -30,7 +30,7 @@ void main() {
 
   testWidgets(
       'Surface Tones screen shows correctly when the corresponding icon is '
-      'selected on NavigationRail', (WidgetTester tester) async {
+      'selected on NavigationRail', (tester) async {
     widgetSetup(tester, 450); // NavigationRail shows only when width is >= 450.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
@@ -46,7 +46,7 @@ void main() {
   });
 
   testWidgets('Surface Tones screen shows correct content',
-      (WidgetTester tester) async {
+      (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ElevationScreen()])),
     ));
