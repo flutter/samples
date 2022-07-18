@@ -46,8 +46,7 @@ void main() {
     expect(find.text("Surface Tint only"), findsOneWidget);
   });
 
-  testWidgets('Surface Tones screen shows correct content',
-      (tester) async {
+  testWidgets('Surface Tones screen shows correct content', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ElevationScreen()])),
     ));

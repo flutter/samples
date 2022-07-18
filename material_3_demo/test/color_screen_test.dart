@@ -50,8 +50,7 @@ void main() {
     expect(find.text("Dark Theme"), findsOneWidget);
   });
 
-  testWidgets('Color screen shows correct content',
-      (tester) async {
+  testWidgets('Color screen shows correct content', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ColorPalettesScreen()])),
     ));

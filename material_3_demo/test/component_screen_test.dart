@@ -9,8 +9,7 @@ import 'package:material_3_demo/component_screen.dart';
 import 'package:material_3_demo/main.dart';
 
 void main() {
-  testWidgets('Default main page shows all M3 components',
-      (tester) async {
+  testWidgets('Default main page shows all M3 components', (tester) async {
     await tester.pumpWidget(const Material3Demo());
 
     // Elements on the app bar
