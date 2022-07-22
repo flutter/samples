@@ -47,8 +47,7 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     # TODO(domesticmouse): re-enable when stable increments
     # "provider_shopper"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "simplistic_editor"
+    "simplistic_editor"
     # TODO(domesticmouse): re-enable when stable increments
     # "testing_app"
     "veggieseasons"
