@@ -38,8 +38,7 @@ declare -ar PROJECT_NAMES=(
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "place_tracker"
+    "place_tracker"
     # TODO(domesticmouse): re-enable when stable increments
     # "platform_channels"
     "platform_design"
