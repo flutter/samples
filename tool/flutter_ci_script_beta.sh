@@ -25,8 +25,7 @@ declare -ar PROJECT_NAMES=(
     # "experimental/web_dashboard"
     "experimental/linting_tool"
     "flutter_maps_firestore"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "form_app"
+    "form_app"
     "game_template"
     "infinite_list"
     "ios_app_clip"

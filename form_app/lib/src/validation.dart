@@ -27,7 +27,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextButton(
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
               child: const Text('Submit'),
               onPressed: () {
                 // Validate the form by getting the FormState from the GlobalKey
