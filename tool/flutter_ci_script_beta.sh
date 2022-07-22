@@ -21,8 +21,7 @@ declare -ar PROJECT_NAMES=(
     # TODO(domesticmouse): re-enable when stable increments
     # "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "experimental/web_dashboard"
+    "experimental/web_dashboard"
     "experimental/linting_tool"
     "flutter_maps_firestore"
     # TODO(domesticmouse): re-enable when stable increments
