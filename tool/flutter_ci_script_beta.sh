@@ -40,8 +40,7 @@ declare -ar PROJECT_NAMES=(
     "null_safety/null_unsafe_app"
     # TODO(domesticmouse): re-enable when stable increments
     # "place_tracker"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "platform_channels"
+    "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
