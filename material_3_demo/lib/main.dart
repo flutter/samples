@@ -94,8 +94,6 @@ class _Material3DemoState extends State<Material3Demo> {
 
   Widget createScreenFor(int screenIndex, bool showNavBarExample) {
     switch (screenIndex) {
-      case 0:
-        return ComponentScreen(showNavBottomBar: showNavBarExample);
       case 1:
         return const ColorPalettesScreen();
       case 2:
