@@ -40,14 +40,14 @@ Future<void> guardWithCrashlytics(
       crashlytics?.log(message);
 
       if (record.level >= Level.SEVERE) {
-        crashlytics?.recordError(message, filterStackTrace(StackTrace.current));
+        crashlytics?.recordError(message, filterStackTrace(StackTrace.current), fatal: true);
       }
     });
 
     // Pass all uncaught errors from the framework to Crashlytics.
     if (crashlytics != null) {
       WidgetsFlutterBinding.ensureInitialized();
-      FlutterError.onError = crashlytics.recordFlutterError;
+      FlutterError.onError = crashlytics.recordFlutterFatalError;
     }
 
     if (!kIsWeb) {
@@ -58,6 +58,7 @@ Future<void> guardWithCrashlytics(
         await crashlytics?.recordError(
           errorAndStacktrace.first,
           errorAndStacktrace.last as StackTrace?,
+          fatal: true
         );
       }).sendPort);
     }
@@ -68,7 +69,7 @@ Future<void> guardWithCrashlytics(
     // This sees all errors that occur in the runZonedGuarded zone.
     debugPrint('ERROR: $error\n\n'
         'STACK:$stack');
-    crashlytics?.recordError(error, stack);
+    crashlytics?.recordError(error, stack, fatal: true);
   });
 }
 
