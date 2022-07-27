@@ -303,46 +303,46 @@ class _MyHomePageState extends State<MyHomePage> {
                 _updateToggleButtonsStateOnButtonPressed,
             updateToggleButtonStateOnSelectionChanged:
                 _updateToggleButtonsStateOnSelectionChanged,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Builder(builder: (innerContext) {
-                        final ToggleButtonsStateManager manager =
-                            ToggleButtonsStateManager.of(innerContext);
+            child: TextEditingDeltaHistoryManager(
+              history: _textEditingDeltaHistory,
+              updateHistoryOnInput: _updateTextEditingDeltaHistory,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Builder(builder: (innerContext) {
+                          final ToggleButtonsStateManager manager =
+                              ToggleButtonsStateManager.of(innerContext);
 
-                        return ToggleButtons(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(4.0)),
-                          isSelected: [
-                            manager.toggleButtonsState
-                                .contains(ToggleButtonsState.bold),
-                            manager.toggleButtonsState
-                                .contains(ToggleButtonsState.italic),
-                            manager.toggleButtonsState
-                                .contains(ToggleButtonsState.underline),
-                          ],
-                          onPressed: (index) =>
-                              manager.updateToggleButtonsOnButtonPressed(index),
-                          children: const [
-                            Icon(Icons.format_bold),
-                            Icon(Icons.format_italic),
-                            Icon(Icons.format_underline),
-                          ],
-                        );
-                      }),
-                    ],
+                          return ToggleButtons(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(4.0)),
+                            isSelected: [
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.bold),
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.italic),
+                              manager.toggleButtonsState
+                                  .contains(ToggleButtonsState.underline),
+                            ],
+                            onPressed: (index) => manager
+                                .updateToggleButtonsOnButtonPressed(index),
+                            children: const [
+                              Icon(Icons.format_bold),
+                              Icon(Icons.format_italic),
+                              Icon(Icons.format_underline),
+                            ],
+                          );
+                        }),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                    child: TextEditingDeltaHistoryManager(
-                      history: _textEditingDeltaHistory,
-                      updateHistoryOnInput: _updateTextEditingDeltaHistory,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 35.0),
                       child: BasicTextField(
                         controller: _replacementTextEditingController,
                         style: const TextStyle(
@@ -351,15 +351,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      _buildTextEditingDeltaViewHeader(),
-                      Expanded(
-                        child: TextEditingDeltaHistoryManager(
-                          history: _textEditingDeltaHistory,
-                          updateHistoryOnInput: _updateTextEditingDeltaHistory,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        _buildTextEditingDeltaViewHeader(),
+                        Expanded(
                           child: Builder(
                             builder: (innerContext) {
                               final TextEditingDeltaHistoryManager manager =
@@ -381,12 +377,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             },
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                    ],
+                        const SizedBox(height: 10),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

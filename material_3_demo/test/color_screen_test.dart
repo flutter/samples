@@ -1,3 +1,7 @@
+// Copyright 2021 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 // ignore_for_file: avoid_types_on_closure_parameters
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,7 +33,7 @@ void main() {
 
   testWidgets(
       'Color palettes screen shows correctly when color icon is clicked '
-      'on NavigationRail', (WidgetTester tester) async {
+      'on NavigationRail', (tester) async {
     widgetSetup(tester, 450); // NavigationRail shows only when width is >= 450.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
@@ -46,8 +50,7 @@ void main() {
     expect(find.text("Dark Theme"), findsOneWidget);
   });
 
-  testWidgets('Color screen shows correct content',
-      (WidgetTester tester) async {
+  testWidgets('Color screen shows correct content', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ColorPalettesScreen()])),
     ));

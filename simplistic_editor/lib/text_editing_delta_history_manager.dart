@@ -18,7 +18,8 @@ class TextEditingDeltaHistoryManager extends InheritedWidget {
   static TextEditingDeltaHistoryManager of(BuildContext context) {
     final TextEditingDeltaHistoryManager? result = context
         .dependOnInheritedWidgetOfExactType<TextEditingDeltaHistoryManager>();
-    assert(result != null, 'No ToggleButtonsStateManager found in context');
+    assert(
+        result != null, 'No TextEditingDeltaHistoryManager found in context');
     return result!;
   }
 
