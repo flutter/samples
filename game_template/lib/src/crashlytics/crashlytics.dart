@@ -40,7 +40,8 @@ Future<void> guardWithCrashlytics(
       crashlytics?.log(message);
 
       if (record.level >= Level.SEVERE) {
-        crashlytics?.recordError(message, filterStackTrace(StackTrace.current), fatal: true);
+        crashlytics?.recordError(message, filterStackTrace(StackTrace.current),
+            fatal: true);
       }
     });
 
@@ -56,10 +57,8 @@ Future<void> guardWithCrashlytics(
       Isolate.current.addErrorListener(RawReceivePort((dynamic pair) async {
         final errorAndStacktrace = pair as List<dynamic>;
         await crashlytics?.recordError(
-          errorAndStacktrace.first,
-          errorAndStacktrace.last as StackTrace?,
-          fatal: true
-        );
+            errorAndStacktrace.first, errorAndStacktrace.last as StackTrace?,
+            fatal: true);
       }).sendPort);
     }
 
