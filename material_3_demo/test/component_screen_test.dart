@@ -1,3 +1,7 @@
+// Copyright 2021 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 // ignore_for_file: avoid_types_on_closure_parameters
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,8 +9,7 @@ import 'package:material_3_demo/component_screen.dart';
 import 'package:material_3_demo/main.dart';
 
 void main() {
-  testWidgets('Default main page shows all M3 components',
-      (WidgetTester tester) async {
+  testWidgets('Default main page shows all M3 components', (tester) async {
     await tester.pumpWidget(const Material3Demo());
 
     // Elements on the app bar
