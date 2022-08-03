@@ -41,6 +41,9 @@ steps:
       +	<true/>
        </dict>
        </plist>
+  - name: Flutter upgrade
+    path: fluent_ui
+    flutter: pub upgrade --major-versions
   - name: Flutter build macOS
     path: fluent_ui
     flutter: build macos
@@ -104,6 +107,9 @@ steps:
                    <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                        <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                        <autoresizingMask key="autoresizingMask"/>
+  - name: Flutter upgrade
+    path: material
+    flutter: pub upgrade --major-versions
   - name: Flutter build macOS
     path: material
     flutter: build macos
