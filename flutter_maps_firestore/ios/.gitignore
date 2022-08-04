@@ -1,3 +1,4 @@
+**/dgph
 *.mode1v3
 *.mode2v3
 *.moved-aside
@@ -14,18 +15,17 @@ Icon?
 profile
 xcuserdata
 **/.generated/
-Flutter/.last_build_id
 Flutter/App.framework
 Flutter/Flutter.framework
 Flutter/Flutter.podspec
 Flutter/Generated.xcconfig
+Flutter/ephemeral/
 Flutter/app.flx
 Flutter/app.zip
 Flutter/flutter_assets/
 Flutter/flutter_export_environment.sh
 ServiceDefinitions.json
 Runner/GeneratedPluginRegistrant.*
-/build/
 
 # Exceptions to above rules.
 !default.mode1v3
