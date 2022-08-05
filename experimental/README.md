@@ -1,6 +1,6 @@
-# Master channel samples
+# Beta channel samples
 
-In this directory, you'll find samples that target Flutter's master channel.
+In this directory, you'll find samples that target Flutter's `beta` channel.
 They may take advantage of new SDK features that haven't landed in the
 stable channel, and they may crash, lock up your machine, or otherwise fail to
 run correctly. In other words, consider everything in this directory to be an
@@ -12,7 +12,7 @@ be used. If you'd like to run the apps, make sure to switch to the master
 channel first:
 
 ```bash
-flutter channel master
+flutter channel beta
 flutter upgrade
 ```
 
