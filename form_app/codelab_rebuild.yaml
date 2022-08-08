@@ -1,5 +1,5 @@
 # Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
-name: Desktop Photo Search rebuild script
+name: Form App rebuild script
 steps:
   - name: Remove fluent_ui runners
     rmdirs: 
