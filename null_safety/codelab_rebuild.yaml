@@ -8,6 +8,7 @@ steps:
         rmdirs:
           - android
           - ios
+          - linux
           - macos
           - web
           - windows
@@ -30,6 +31,7 @@ steps:
         rmdirs:
           - android
           - ios
+          - linux
           - macos
           - web
           - windows
