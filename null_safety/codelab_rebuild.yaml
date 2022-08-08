@@ -1,5 +1,5 @@
 # Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
-name: Animations rebuild script
+name: Null Safety rebuild script
 steps:
   - name: null_safe_app
     steps:
@@ -17,9 +17,6 @@ steps:
       - name: Update deps
         path: null_safe_app
         flutter: pub upgrade --major-versions
-      - name: Build for macOS
-        path: null_safe_app
-        flutter: build macos
       - name: Build for macOS
         path: null_safe_app
         flutter: build macos
