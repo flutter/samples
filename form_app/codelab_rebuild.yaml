@@ -1,0 +1,35 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Form App rebuild script
+steps:
+  - name: Remove fluent_ui runners
+    rmdirs: 
+      - android
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+  - name: Flutter recreate
+    flutter: create --platforms android,ios,windows,linux,macos,web --org dev.flutter.formApp .
+  - name: Drop widget_test.dart
+    rm: test/widget_test.dart
+  - name: Flutter upgrade
+    flutter: pub upgrade --major-versions
+  - name: Patch web/manifest.json
+    path: web/manifest.json
+    patch-u: |
+      --- b/form_app/web/manifest.json
+      +++ a/form_app/web/manifest.json
+      @@ -5,7 +5,7 @@
+           "display": "standalone",
+           "background_color": "#0175C2",
+           "theme_color": "#0175C2",
+      -    "description": "A new Flutter project.",
+      +    "description": "A sample demonstrating different types of forms and best practices",
+           "orientation": "portrait-primary",
+           "prefer_related_applications": false,
+           "icons": [
+  - name: Flutter build macOS
+    flutter: build macos
+  - name: Flutter build ios
+    flutter: build ios --simulator
