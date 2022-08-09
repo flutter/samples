@@ -1,0 +1,43 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Navigation and Routing rebuild script
+steps:
+  - name: Remove runners
+    rmdirs: 
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+  - name: Flutter recreate
+    flutter: create --org dev.flutter .
+  - name: Patch web/index.html
+    path: web/index.html
+    patch-u: |
+      --- b/navigation_and_routing/web/index.html
+      +++ a/navigation_and_routing/web/index.html
+      @@ -18,7 +18,7 @@
+       
+         <meta charset="UTF-8">
+         <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+      -  <meta name="description" content="A new Flutter project.">
+      +  <meta name="description" content="Navigation and routing sample app">
+       
+         <!-- iOS meta tags & icons -->
+         <meta name="apple-mobile-web-app-capable" content="yes">
+  - name: Patch web/manifest.json
+    path: web/manifest.json
+    patch-u: |
+      --- b/navigation_and_routing/web/manifest.json
+      +++ a/navigation_and_routing/web/manifest.json
+      @@ -5,7 +5,7 @@
+           "display": "standalone",
+           "background_color": "#0175C2",
+           "theme_color": "#0175C2",
+      -    "description": "A new Flutter project.",
+      +    "description": "Navigation and routing sample app",
+           "orientation": "portrait-primary",
+           "prefer_related_applications": false,
+           "icons": [
+  - name: Update dependencies
+    flutter: pub upgrade --major-versions
