@@ -700,17 +700,22 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       <ShortcutActivator, Intent>{
     // Activation
     const SingleActivator(LogicalKeyboardKey.space):
-        const DoNothingAndStopPropagationIntent(),
+        // ignore: prefer_const_constructors
+        DoNothingAndStopPropagationIntent(),
 
     // Scrolling
     const SingleActivator(LogicalKeyboardKey.arrowUp):
-        const DoNothingAndStopPropagationIntent(),
+        // ignore: prefer_const_constructors
+        DoNothingAndStopPropagationIntent(),
     const SingleActivator(LogicalKeyboardKey.arrowDown):
-        const DoNothingAndStopPropagationIntent(),
+        // ignore: prefer_const_constructors
+        DoNothingAndStopPropagationIntent(),
     const SingleActivator(LogicalKeyboardKey.arrowLeft):
-        const DoNothingAndStopPropagationIntent(),
+        // ignore: prefer_const_constructors
+        DoNothingAndStopPropagationIntent(),
     const SingleActivator(LogicalKeyboardKey.arrowRight):
-        const DoNothingAndStopPropagationIntent(),
+        // ignore: prefer_const_constructors
+        DoNothingAndStopPropagationIntent(),
   };
 
   @override
