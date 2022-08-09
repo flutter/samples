@@ -1,0 +1,18 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Isolate Example rebuild script
+steps:
+  - name: Remove runners
+    rmdirs:
+      - android
+      - ios 
+      - macos
+      - linux
+      - windows
+  - name: Recreate runners
+    flutter: create --org dev.flutter --platforms android,ios,macos,linux,windows .
+  - name: Flutter upgrade
+    flutter: pub upgrade --major-versions
+  - name: Flutter build macOS
+    flutter: build macos
+  - name: Flutter build macOS
+    flutter: build ios --simulator
