@@ -1,0 +1,26 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Platform Design rebuild script
+steps:
+  - name: Remove runner
+    rmdirs:
+      - android
+      - ios
+      - web
+  - name: Flutter recreate runner
+    flutter: create --platform android,ios,web --org dev.flutter .
+  - name: Patch web/manifest.json
+    path: web/manifest.json
+    patch-u: |
+      --- b/platform_design/web/manifest.json
+      +++ a/platform_design/web/manifest.json
+      @@ -5,7 +5,7 @@
+           "display": "standalone",
+           "background_color": "#0175C2",
+           "theme_color": "#0175C2",
+      -    "description": "A new Flutter project.",
+      +    "description": "A project showcasing a Flutter app following different platform IA conventions.",
+           "orientation": "portrait-primary",
+           "prefer_related_applications": false,
+           "icons": [
+  - name: Build for iOS
+    flutter: build ios --simulator
