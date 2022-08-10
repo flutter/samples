@@ -1,19 +1,13 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/services.dart' show TextEditingDelta;
 import 'package:flutter/widgets.dart';
-
-/// Signature for the callback that updates text editing delta history when a new delta
-/// is received.
-typedef TextEditingDeltaHistoryUpdateCallback = void Function(
-    List<TextEditingDelta> textEditingDeltas);
 
 class TextEditingDeltaHistoryManager extends InheritedWidget {
   const TextEditingDeltaHistoryManager({
     super.key,
     required super.child,
     required List<TextEditingDelta> history,
-    required TextEditingDeltaHistoryUpdateCallback updateHistoryOnInput,
-  })  : _textEditingDeltaHistory = history,
-        _updateTextEditingDeltaHistoryOnInput = updateHistoryOnInput;
+  })  : _textEditingDeltaHistory = history;
 
   static TextEditingDeltaHistoryManager of(BuildContext context) {
     final TextEditingDeltaHistoryManager? result = context
@@ -24,17 +18,14 @@ class TextEditingDeltaHistoryManager extends InheritedWidget {
   }
 
   final List<TextEditingDelta> _textEditingDeltaHistory;
-  final TextEditingDeltaHistoryUpdateCallback
-      _updateTextEditingDeltaHistoryOnInput;
 
   List<TextEditingDelta> get textEditingDeltaHistory =>
       _textEditingDeltaHistory;
-  TextEditingDeltaHistoryUpdateCallback
-      get updateTextEditingDeltaHistoryOnInput =>
-          _updateTextEditingDeltaHistoryOnInput;
+
+  static const _equality = DeepCollectionEquality();
 
   @override
   bool updateShouldNotify(TextEditingDeltaHistoryManager oldWidget) {
-    return textEditingDeltaHistory != oldWidget.textEditingDeltaHistory;
+    return !_equality.equals(oldWidget.textEditingDeltaHistory, textEditingDeltaHistory);
   }
 }

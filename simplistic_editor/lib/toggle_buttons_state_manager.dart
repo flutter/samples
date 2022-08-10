@@ -1,14 +1,5 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
-
-/// Signature for the callback that updates toggle button state when the user changes the selection
-/// (including the cursor location).
-typedef UpdateToggleButtonsStateOnSelectionChangedCallback = void Function(
-    TextSelection selection);
-
-/// Signature for the callback that updates toggle button state when the user
-/// presses the toggle button.
-typedef UpdateToggleButtonsStateOnButtonPressedCallback = void Function(
-    int index);
 
 /// The toggle buttons that can be selected.
 enum ToggleButtonsState {
@@ -22,15 +13,7 @@ class ToggleButtonsStateManager extends InheritedWidget {
     super.key,
     required super.child,
     required Set<ToggleButtonsState> isToggleButtonsSelected,
-    required UpdateToggleButtonsStateOnButtonPressedCallback
-        updateToggleButtonsStateOnButtonPressed,
-    required UpdateToggleButtonsStateOnSelectionChangedCallback
-        updateToggleButtonStateOnSelectionChanged,
-  })  : _isToggleButtonsSelected = isToggleButtonsSelected,
-        _updateToggleButtonsStateOnButtonPressed =
-            updateToggleButtonsStateOnButtonPressed,
-        _updateToggleButtonStateOnSelectionChanged =
-            updateToggleButtonStateOnSelectionChanged;
+  })  : _isToggleButtonsSelected = isToggleButtonsSelected;
 
   static ToggleButtonsStateManager of(BuildContext context) {
     final ToggleButtonsStateManager? result =
@@ -40,20 +23,13 @@ class ToggleButtonsStateManager extends InheritedWidget {
   }
 
   final Set<ToggleButtonsState> _isToggleButtonsSelected;
-  final UpdateToggleButtonsStateOnButtonPressedCallback
-      _updateToggleButtonsStateOnButtonPressed;
-  final UpdateToggleButtonsStateOnSelectionChangedCallback
-      _updateToggleButtonStateOnSelectionChanged;
 
   Set<ToggleButtonsState> get toggleButtonsState => _isToggleButtonsSelected;
-  UpdateToggleButtonsStateOnButtonPressedCallback
-      get updateToggleButtonsOnButtonPressed =>
-          _updateToggleButtonsStateOnButtonPressed;
-  UpdateToggleButtonsStateOnSelectionChangedCallback
-      get updateToggleButtonsOnSelection =>
-          _updateToggleButtonStateOnSelectionChanged;
+
+  static const _equality = DeepCollectionEquality();
 
   @override
-  bool updateShouldNotify(ToggleButtonsStateManager oldWidget) =>
-      toggleButtonsState != oldWidget.toggleButtonsState;
+  bool updateShouldNotify(ToggleButtonsStateManager oldWidget) {
+    return !_equality.equals(toggleButtonsState, oldWidget.toggleButtonsState);
+  }
 }

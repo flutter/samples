@@ -85,6 +85,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
 
   @override
   Widget build(BuildContext context) {
+    print('rebuiliding textfield');
     switch (Theme.of(this.context).platform) {
       case TargetPlatform.iOS:
         _textSelectionControls = cupertinoTextSelectionControls;
