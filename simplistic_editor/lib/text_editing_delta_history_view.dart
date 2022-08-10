@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'text_editing_delta_history_manager.dart';
+import 'app_state_manager.dart';
 
 class TextEditingDeltaHistoryView extends StatelessWidget {
   const TextEditingDeltaHistoryView({super.key});
@@ -117,7 +117,7 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingDeltaHistoryManager manager = TextEditingDeltaHistoryManager.of(context);
+    final AppStateManager manager = AppStateManager.of(context);
 
     return Column(
       children: [
@@ -128,10 +128,10 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
                 horizontal: 35.0),
             itemBuilder: (context, index) {
               return _buildTextEditingDeltaHistoryViews(
-                  manager.textEditingDeltaHistory)[index];
+                  manager.appState.textEditingDeltaHistory)[index];
             },
             itemCount:
-                manager.textEditingDeltaHistory.length,
+                manager.appState.textEditingDeltaHistory.length,
             separatorBuilder: (context, index) {
               return const SizedBox(height: 2.0);
             },

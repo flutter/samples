@@ -27,6 +27,12 @@ class AppStateManager extends InheritedWidget {
 
   @override
   bool updateShouldNotify(AppStateManager oldWidget) {
+    print('new\n');
+    print(appState.textEditingDeltaHistory);
+    print(appState.toggleButtonsState);
+    print('old\n');
+    print(oldWidget.appState.textEditingDeltaHistory);
+    print(oldWidget.appState.toggleButtonsState);
     return !_equality.equals(appState, oldWidget.appState);
   }
 }

@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'app_state.dart';
+import 'app_state_manager.dart';
 import 'replacements.dart';
-import 'toggle_buttons_state_manager.dart';
+
+/// The toggle buttons that can be selected.
+enum ToggleButtonsState {
+  bold,
+  italic,
+  underline,
+}
 
 class FormattingToolbar extends StatelessWidget {
   const FormattingToolbar({super.key, required this.controller});
@@ -11,8 +18,8 @@ class FormattingToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ToggleButtonsStateManager manager =
-        ToggleButtonsStateManager.of(context);
+    final AppStateManager manager =
+        AppStateManager.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -23,11 +30,11 @@ class FormattingToolbar extends StatelessWidget {
             borderRadius:
                 const BorderRadius.all(Radius.circular(4.0)),
             isSelected: [
-              manager.toggleButtonsState
+              manager.appState.toggleButtonsState
                   .contains(ToggleButtonsState.bold),
-              manager.toggleButtonsState
+              manager.appState.toggleButtonsState
                   .contains(ToggleButtonsState.italic),
-              manager.toggleButtonsState
+              manager.appState.toggleButtonsState
                   .contains(ToggleButtonsState.underline),
             ],
             onPressed: (index) => AppStateWidget.of(context).updateToggleButtonsStateOnButtonPressed(index, controller),

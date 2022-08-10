@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:simplistic_editor/toggle_buttons_state_manager.dart';
 
+import 'app_state_manager.dart';
+import 'formatting_toolbar.dart' show ToggleButtonsState;
 import 'replacements.dart';
-import 'text_editing_delta_history_manager.dart';
 
 class AppState {
   const AppState({
@@ -164,12 +164,9 @@ class AppStateWidgetState extends State<AppStateWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ToggleButtonsStateManager(
-      isToggleButtonsSelected: _data.toggleButtonsState,
-      child: TextEditingDeltaHistoryManager(
-        history: _data.textEditingDeltaHistory,
-        child: widget.child,
-      ),
+    return AppStateManager(
+      state: _data,
+      child: widget.child,
     );
   }
 }
