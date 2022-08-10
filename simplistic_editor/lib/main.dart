@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_state.dart';
+import 'app_state_manager.dart';
 import 'basic_text_field.dart';
 import 'formatting_toolbar.dart';
 import 'replacements.dart';
@@ -39,11 +40,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final ReplacementTextEditingController _replacementTextEditingController =
-      ReplacementTextEditingController(
-    text: 'The quick brown fox jumps over the lazy dog.',
-  );
+  late ReplacementTextEditingController _replacementTextEditingController;
   final FocusNode _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _replacementTextEditingController = ReplacementTextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _replacementTextEditingController = AppStateManager.of(context).appState.replacementsController;
+  }
 
   static Route<Object?> _aboutDialogBuilder(
       BuildContext context, Object? arguments) {
@@ -83,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Center(
           child: Column(
             children: [
-              FormattingToolbar(controller: _replacementTextEditingController),
+              const FormattingToolbar(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),

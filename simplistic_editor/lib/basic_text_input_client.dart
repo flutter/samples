@@ -712,7 +712,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   Widget build(BuildContext context) {
-    print('bbuilding text input client');
     return Shortcuts(
       shortcuts: kIsWeb ? _defaultWebShortcuts : <ShortcutActivator, Intent>{},
       child: Actions(
