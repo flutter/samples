@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 
 import 'app_state.dart';
@@ -23,16 +22,8 @@ class AppStateManager extends InheritedWidget {
   AppState get appState =>
       _appState;
 
-  static const _equality = DeepCollectionEquality();
-
   @override
   bool updateShouldNotify(AppStateManager oldWidget) {
-    print('new\n');
-    print(appState.textEditingDeltaHistory);
-    print(appState.toggleButtonsState);
-    print('old\n');
-    print(oldWidget.appState.textEditingDeltaHistory);
-    print(oldWidget.appState.toggleButtonsState);
-    return !_equality.equals(appState, oldWidget.appState);
+    return appState != oldWidget.appState;
   }
 }
