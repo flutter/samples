@@ -4,8 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_shopper/models/cart.dart';
-import 'package:provider_shopper/models/catalog.dart';
+import 'package:provider_shopper/models/models.dart';
 
 class MyCatalog extends StatelessWidget {
   const MyCatalog({super.key});

@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/foundation.dart';
-import 'package:provider_shopper/models/catalog.dart';
+import 'package:provider_shopper/models/models.dart';
 
 class CartModel extends ChangeNotifier {
   /// The private field backing [catalog].

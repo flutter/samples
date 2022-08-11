@@ -8,11 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/common/theme.dart';
-import 'package:provider_shopper/models/cart.dart';
-import 'package:provider_shopper/models/catalog.dart';
-import 'package:provider_shopper/screens/cart.dart';
-import 'package:provider_shopper/screens/catalog.dart';
-import 'package:provider_shopper/screens/login.dart';
+import 'package:provider_shopper/models/models.dart';
+import 'package:provider_shopper/screens/screens.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
