@@ -10,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:simplistic_editor/basic_text_input_client.dart';
 import 'package:simplistic_editor/main.dart';
+import 'package:simplistic_editor/text_editing_delta_history_view.dart';
 
 void main() {
   testWidgets('Default main page shows all components', (tester) async {

@@ -1,13 +1,13 @@
 import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
+import 'app_state.dart';
 import 'replacements.dart';
-import 'text_editing_delta_history_manager.dart';
-import 'toggle_buttons_state_manager.dart';
 
 /// Signature for the callback that reports when the user changes the selection
 /// (including the cursor location).
@@ -43,8 +43,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     with TextSelectionDelegate
     implements DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
-  late final ToggleButtonsStateManager toggleButtonStateManager;
-  late final TextEditingDeltaHistoryManager textEditingDeltaHistoryManager;
+  late AppStateWidgetState manager;
   final ClipboardStatusNotifier? _clipboardStatus =
       kIsWeb ? null : ClipboardStatusNotifier();
 
@@ -58,8 +57,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    toggleButtonStateManager = ToggleButtonsStateManager.of(context);
-    textEditingDeltaHistoryManager = TextEditingDeltaHistoryManager.of(context);
+    manager = AppStateWidget.of(context);
   }
 
   @override
@@ -149,8 +147,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final bool selectionChanged =
         _value.selection.start != value.selection.start ||
             _value.selection.end != value.selection.end;
-    textEditingDeltaHistoryManager
-        .updateTextEditingDeltaHistoryOnInput(textEditingDeltas);
+    manager.updateTextEditingDeltaHistory(textEditingDeltas);
 
     _value = value;
 
@@ -162,7 +159,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     if (selectionChanged) {
-      toggleButtonStateManager.updateToggleButtonsOnSelection(value.selection);
+      manager.updateToggleButtonsStateOnSelectionChanged(value.selection,
+          widget.controller as ReplacementTextEditingController);
     }
   }
 
@@ -256,7 +254,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
         final TextSelection validSelection =
             TextSelection.collapsed(offset: _value.text.length);
         _handleSelectionChanged(validSelection, null);
-        toggleButtonStateManager.updateToggleButtonsOnSelection(validSelection);
+        manager.updateToggleButtonsStateOnSelectionChanged(validSelection,
+            widget.controller as ReplacementTextEditingController);
       }
     }
   }
@@ -284,8 +283,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     if (value != _value) {
-      textEditingDeltaHistoryManager
-          .updateTextEditingDeltaHistoryOnInput([textEditingDelta]);
+      manager.updateTextEditingDeltaHistory([textEditingDelta]);
     }
 
     userUpdateTextEditingValue(value, cause);
@@ -595,8 +593,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           (widget.controller as ReplacementTextEditingController)
               .syncReplacementRanges(selectionUpdate);
         }
-        textEditingDeltaHistoryManager
-            .updateTextEditingDeltaHistoryOnInput([selectionUpdate]);
+        manager.updateTextEditingDeltaHistory([selectionUpdate]);
       }
     }
 
@@ -610,8 +607,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       _handleSelectionChanged(_value.selection, cause);
 
       if (selectionRangeChanged) {
-        toggleButtonStateManager
-            .updateToggleButtonsOnSelection(_value.selection);
+        manager.updateToggleButtonsStateOnSelectionChanged(_value.selection,
+            widget.controller as ReplacementTextEditingController);
       }
     }
   }
