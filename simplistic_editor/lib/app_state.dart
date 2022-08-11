@@ -22,8 +22,10 @@ class AppState {
     Set<ToggleButtonsState>? toggleButtonsState,
   }) {
     return AppState(
-      replacementsController: replacementsController ?? this.replacementsController,
-      textEditingDeltaHistory: textEditingDeltaHistory ?? this.textEditingDeltaHistory,
+      replacementsController:
+          replacementsController ?? this.replacementsController,
+      textEditingDeltaHistory:
+          textEditingDeltaHistory ?? this.textEditingDeltaHistory,
       toggleButtonsState: toggleButtonsState ?? this.toggleButtonsState,
     );
   }
@@ -44,30 +46,37 @@ class AppStateWidget extends StatefulWidget {
 
 class AppStateWidgetState extends State<AppStateWidget> {
   AppState _data = AppState(
-    replacementsController: ReplacementTextEditingController(text: 'The quick brown fox jumps over the lazy dog.'),
+    replacementsController: ReplacementTextEditingController(
+        text: 'The quick brown fox jumps over the lazy dog.'),
     textEditingDeltaHistory: <TextEditingDelta>[],
     toggleButtonsState: <ToggleButtonsState>{},
   );
 
   void updateTextEditingDeltaHistory(List<TextEditingDelta> textEditingDeltas) {
-    _data = _data.copyWith(textEditingDeltaHistory: <TextEditingDelta>[..._data.textEditingDeltaHistory, ...textEditingDeltas]);
+    _data = _data.copyWith(textEditingDeltaHistory: <TextEditingDelta>[
+      ..._data.textEditingDeltaHistory,
+      ...textEditingDeltas
+    ]);
     setState(() {});
   }
 
-  void updateToggleButtonsStateOnSelectionChanged(TextSelection selection, ReplacementTextEditingController controller) {
+  void updateToggleButtonsStateOnSelectionChanged(
+      TextSelection selection, ReplacementTextEditingController controller) {
     // When the selection changes we want to check the replacements at the new
     // selection. Enable/disable toggle buttons based on the replacements found
     // at the new selection.
-    final List<TextStyle> replacementStyles = controller.getReplacementsAtSelection(selection);
+    final List<TextStyle> replacementStyles =
+        controller.getReplacementsAtSelection(selection);
     final Set<ToggleButtonsState> hasChanged = {};
 
     if (replacementStyles.isEmpty) {
       _data = _data.copyWith(
-        toggleButtonsState: Set.from(_data.toggleButtonsState)..removeAll({
-          ToggleButtonsState.bold,
-          ToggleButtonsState.italic,
-          ToggleButtonsState.underline,
-        }),
+        toggleButtonsState: Set.from(_data.toggleButtonsState)
+          ..removeAll({
+            ToggleButtonsState.bold,
+            ToggleButtonsState.italic,
+            ToggleButtonsState.underline,
+          }),
       );
     }
 
@@ -77,7 +86,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.fontWeight != null &&
           !hasChanged.contains(ToggleButtonsState.bold)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..add(ToggleButtonsState.bold),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..add(ToggleButtonsState.bold),
         );
         hasChanged.add(ToggleButtonsState.bold);
       }
@@ -85,7 +95,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.fontStyle != null &&
           !hasChanged.contains(ToggleButtonsState.italic)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..add(ToggleButtonsState.italic),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..add(ToggleButtonsState.italic),
         );
         hasChanged.add(ToggleButtonsState.italic);
       }
@@ -93,7 +104,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.decoration != null &&
           !hasChanged.contains(ToggleButtonsState.underline)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..add(ToggleButtonsState.underline),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..add(ToggleButtonsState.underline),
         );
         hasChanged.add(ToggleButtonsState.underline);
       }
@@ -103,7 +115,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.fontWeight == null &&
           !hasChanged.contains(ToggleButtonsState.bold)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..remove(ToggleButtonsState.bold),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..remove(ToggleButtonsState.bold),
         );
         hasChanged.add(ToggleButtonsState.bold);
       }
@@ -111,7 +124,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.fontStyle == null &&
           !hasChanged.contains(ToggleButtonsState.italic)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..remove(ToggleButtonsState.italic),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..remove(ToggleButtonsState.italic),
         );
         hasChanged.add(ToggleButtonsState.italic);
       }
@@ -119,7 +133,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       if (style.decoration == null &&
           !hasChanged.contains(ToggleButtonsState.underline)) {
         _data = _data.copyWith(
-          toggleButtonsState: Set.from(_data.toggleButtonsState)..remove(ToggleButtonsState.underline),
+          toggleButtonsState: Set.from(_data.toggleButtonsState)
+            ..remove(ToggleButtonsState.underline),
         );
         hasChanged.add(ToggleButtonsState.underline);
       }
@@ -135,7 +150,8 @@ class AppStateWidgetState extends State<AppStateWidget> {
       2: TextStyle(decoration: TextDecoration.underline),
     };
 
-    final ReplacementTextEditingController controller = _data.replacementsController;
+    final ReplacementTextEditingController controller =
+        _data.replacementsController;
 
     final TextRange replacementRange = TextRange(
       start: controller.selection.start,
@@ -146,11 +162,13 @@ class AppStateWidgetState extends State<AppStateWidget> {
 
     if (_data.toggleButtonsState.contains(targetToggleButtonState)) {
       _data = _data.copyWith(
-        toggleButtonsState: Set.from(_data.toggleButtonsState)..remove(targetToggleButtonState),
+        toggleButtonsState: Set.from(_data.toggleButtonsState)
+          ..remove(targetToggleButtonState),
       );
     } else {
       _data = _data.copyWith(
-        toggleButtonsState: Set.from(_data.toggleButtonsState)..add(targetToggleButtonState),
+        toggleButtonsState: Set.from(_data.toggleButtonsState)
+          ..add(targetToggleButtonState),
       );
     }
 

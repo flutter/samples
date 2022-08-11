@@ -15,8 +15,7 @@ class FormattingToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppStateManager manager =
-        AppStateManager.of(context);
+    final AppStateManager manager = AppStateManager.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -24,8 +23,7 @@ class FormattingToolbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ToggleButtons(
-            borderRadius:
-                const BorderRadius.all(Radius.circular(4.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(4.0)),
             isSelected: [
               manager.appState.toggleButtonsState
                   .contains(ToggleButtonsState.bold),
@@ -34,7 +32,8 @@ class FormattingToolbar extends StatelessWidget {
               manager.appState.toggleButtonsState
                   .contains(ToggleButtonsState.underline),
             ],
-            onPressed: (index) => AppStateWidget.of(context).updateToggleButtonsStateOnButtonPressed(index),
+            onPressed: (index) => AppStateWidget.of(context)
+                .updateToggleButtonsStateOnButtonPressed(index),
             children: const [
               Icon(Icons.format_bold),
               Icon(Icons.format_italic),

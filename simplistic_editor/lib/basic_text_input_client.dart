@@ -147,8 +147,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     final bool selectionChanged =
         _value.selection.start != value.selection.start ||
             _value.selection.end != value.selection.end;
-    manager
-        .updateTextEditingDeltaHistory(textEditingDeltas);
+    manager.updateTextEditingDeltaHistory(textEditingDeltas);
 
     _value = value;
 
@@ -160,7 +159,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     if (selectionChanged) {
-      manager.updateToggleButtonsStateOnSelectionChanged(value.selection, widget.controller as ReplacementTextEditingController);
+      manager.updateToggleButtonsStateOnSelectionChanged(value.selection,
+          widget.controller as ReplacementTextEditingController);
     }
   }
 
@@ -254,7 +254,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
         final TextSelection validSelection =
             TextSelection.collapsed(offset: _value.text.length);
         _handleSelectionChanged(validSelection, null);
-        manager.updateToggleButtonsStateOnSelectionChanged(validSelection, widget.controller as ReplacementTextEditingController);
+        manager.updateToggleButtonsStateOnSelectionChanged(validSelection,
+            widget.controller as ReplacementTextEditingController);
       }
     }
   }
@@ -282,8 +283,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
 
     if (value != _value) {
-      manager
-          .updateTextEditingDeltaHistory([textEditingDelta]);
+      manager.updateTextEditingDeltaHistory([textEditingDelta]);
     }
 
     userUpdateTextEditingValue(value, cause);
@@ -593,8 +593,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           (widget.controller as ReplacementTextEditingController)
               .syncReplacementRanges(selectionUpdate);
         }
-        manager
-            .updateTextEditingDeltaHistory([selectionUpdate]);
+        manager.updateTextEditingDeltaHistory([selectionUpdate]);
       }
     }
 
@@ -608,7 +607,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       _handleSelectionChanged(_value.selection, cause);
 
       if (selectionRangeChanged) {
-        manager.updateToggleButtonsStateOnSelectionChanged(_value.selection, widget.controller as ReplacementTextEditingController);
+        manager.updateToggleButtonsStateOnSelectionChanged(_value.selection,
+            widget.controller as ReplacementTextEditingController);
       }
     }
   }

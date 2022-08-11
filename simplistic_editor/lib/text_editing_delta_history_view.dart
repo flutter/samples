@@ -124,14 +124,12 @@ class TextEditingDeltaHistoryView extends StatelessWidget {
         _buildTextEditingDeltaViewHeader(),
         Expanded(
           child: ListView.separated(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 35.0),
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
             itemBuilder: (context, index) {
               return _buildTextEditingDeltaHistoryViews(
                   manager.appState.textEditingDeltaHistory)[index];
             },
-            itemCount:
-                manager.appState.textEditingDeltaHistory.length,
+            itemCount: manager.appState.textEditingDeltaHistory.length,
             separatorBuilder: (context, index) {
               return const SizedBox(height: 2.0);
             },

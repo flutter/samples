@@ -52,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _replacementTextEditingController = AppStateManager.of(context).appState.replacementsController;
+    _replacementTextEditingController =
+        AppStateManager.of(context).appState.replacementsController;
   }
 
   static Route<Object?> _aboutDialogBuilder(
@@ -100,8 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: BasicTextField(
                     controller: _replacementTextEditingController,
                     style: const TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.black,
+                      fontSize: 18.0,
+                      color: Colors.black,
                     ),
                     focusNode: _focusNode,
                   ),
