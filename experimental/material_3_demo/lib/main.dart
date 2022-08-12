@@ -3,7 +3,10 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'color_palettes_screen.dart';
 import 'component_screen.dart';
+import 'elevation_screen.dart';
+import 'typography_screen.dart';
 
 void main() {
   runApp(const Material3Demo());
@@ -15,6 +18,10 @@ class Material3Demo extends StatefulWidget {
   @override
   State<Material3Demo> createState() => _Material3DemoState();
 }
+
+// NavigationRail shows if the screen width is greater or equal to
+// screenWidthThreshold; otherwise, NavigationBar is used for navigation.
+const double narrowScreenWidthThreshold = 450;
 
 const Color m3BaseColor = Color(0xff6750a4);
 const List<Color> colorOptions = [
@@ -40,6 +47,7 @@ class _Material3DemoState extends State<Material3Demo> {
   bool useMaterial3 = true;
   bool useLightMode = true;
   int colorSelected = 0;
+  int screenIndex = 0;
 
   late ThemeData themeData;
 
@@ -54,6 +62,12 @@ class _Material3DemoState extends State<Material3Demo> {
         colorSchemeSeed: colorOptions[colorSelected],
         useMaterial3: useMaterial3,
         brightness: useLightMode ? Brightness.light : Brightness.dark);
+  }
+
+  void handleScreenChanged(int selectedScreen) {
+    setState(() {
+      screenIndex = selectedScreen;
+    });
   }
 
   void handleBrightnessChange() {
@@ -75,6 +89,21 @@ class _Material3DemoState extends State<Material3Demo> {
       colorSelected = value;
       themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
     });
+  }
+
+  Widget createScreenFor(int screenIndex, bool showNavBarExample) {
+    switch (screenIndex) {
+      case 0:
+        return ComponentScreen(showNavBottomBar: showNavBarExample);
+      case 1:
+        return const ColorPalettesScreen();
+      case 2:
+        return const TypographyScreen();
+      case 3:
+        return const ElevationScreen();
+      default:
+        return ComponentScreen(showNavBottomBar: showNavBarExample);
+    }
   }
 
   PreferredSizeWidget createAppBar() {
@@ -134,10 +163,40 @@ class _Material3DemoState extends State<Material3Demo> {
       title: 'Material 3',
       themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
       theme: themeData,
-      home: Scaffold(
-        appBar: createAppBar(),
-        body: ComponentScreen(),
-      ),
+      home: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth < narrowScreenWidthThreshold) {
+          return Scaffold(
+            appBar: createAppBar(),
+            body: Row(children: <Widget>[
+              createScreenFor(screenIndex, false),
+            ]),
+            bottomNavigationBar: NavigationBars(
+              onSelectItem: handleScreenChanged,
+              selectedIndex: screenIndex,
+              isExampleBar: false,
+            ),
+          );
+        } else {
+          return Scaffold(
+            appBar: createAppBar(),
+            body: SafeArea(
+              bottom: false,
+              top: false,
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: NavigationRailSection(
+                          onSelectItem: handleScreenChanged,
+                          selectedIndex: screenIndex)),
+                  const VerticalDivider(thickness: 1, width: 1),
+                  createScreenFor(screenIndex, true),
+                ],
+              ),
+            ),
+          );
+        }
+      }),
     );
   }
 }
