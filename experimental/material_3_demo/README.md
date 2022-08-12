@@ -1,8 +1,12 @@
 # Material 3 Demo
 
-This sample Flutter app showcases the updated Material 3 components in the Flutter Material library. These components currently include IconButtons and Chips. The app supports light and dark themes, different color palettes, as well as the ability to switch between Material 2 and Material 3. For more information about Material 3, the guidance is now live at https://m3.material.io/.
+This sample Flutter app showcases Material 3 features in the Flutter Material library. These features include updated components, typography, color system and elevation support. The app supports light and dark themes, different color palettes, as well as the ability to switch between Material 2 and Material 3. For more information about Material 3, the guidance is now live at https://m3.material.io/.
 
-This app only showcases the components in the Flutter master channel and will be migrated to the non-experimental directory in the samples repo once they get ready in the stable branch. For more information about the components in the stable channel, please check the "material_3_demo" in the non-experimental directory.
+This app also includes new M3 components that haven't landed in the Flutter stable channel, such as IconButtons, Chips and TestFields. The app will be migrated to the non-experimental directory in the samples repo once all the components land in the stable branch. For more information about the components in the stable channel, please check the "material_3_demo" in the non-experimental directory.
+
+# Preview
+
+https://user-images.githubusercontent.com/36861262/166358511-43d6a30b-33fe-4680-a4d1-808f087e740e.mp4
 
 # Features
 ## Icon Buttons on the Top App Bar
@@ -11,6 +15,20 @@ This app only showcases the components in the Flutter master channel and will be
 <img src="https://user-images.githubusercontent.com/36861262/166508002-90fce980-d228-4312-a95f-a1919bb79ccc.png" width="25" />  Users can switch between Material 2 and Material 3 for the displayed components with this button.
 
 <img src="https://user-images.githubusercontent.com/36861262/166511137-85dea8df-0017-4649-b913-14d4b7a17c2f.png" width="25" /> This button will bring up a pop-up menu that allows the user to change the base color used for the light and dark themes. This uses a new color seed feature to generate entire color schemes from a single color.
- 
+
 ## Component Screen
-The Component screen displays all the updated components in master channel: IconButtons and Chips.
+The default screen displays all the updated components in Material 3: AppBar, common Buttons, Floating Action Button(FAB), Chips, Card, Dialog, NavigationBar, and NavigationRail.
+
+### Adaptive Layout
+Based on the fact that NavigationRail is not recommended on a small screen, the app changes its layout based on the screen width. If it's played on iOS or Android devices which have a narrow screen, a Navigation Bar will show at the bottom and will be used to navigate. But if it's played as a desktop or a web app, a Navigation Rail will show on the left side and at the same time, a Navigation Bar will show as an example but will not have any functionality.
+
+Users can see both layouts on one device by running a desktop app and adjusting the screen width.
+
+## Color Screen
+With Material 3, we have added support for generating a full color scheme from a single seed color. The Color Screen shows users all of the colors in light and dark color palettes that are generated from the currently selected color.
+
+## Typography Screen
+The Typography Screen displays the text styles used in for the default TextTheme.
+
+## Elevation Screen
+The Elevation screen shows different ways of elevation with a new supported feature "surfaceTintColor" in the Material library.
