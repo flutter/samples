@@ -6,7 +6,8 @@ This app also includes new M3 components that haven't landed in the Flutter stab
 
 # Preview
 
-https://user-images.githubusercontent.com/36861262/166358511-43d6a30b-33fe-4680-a4d1-808f087e740e.mp4
+<img width="400" alt="Screen Shot 2022-08-12 at 12 00 28 PM" src="https://user-images.githubusercontent.com/36861262/184426137-47b550e1-5c6e-4bb7-b647-b1741f96d42b.png"><img width="400" alt="Screen Shot 2022-08-12 at 12 00 38 PM" src="https://user-images.githubusercontent.com/36861262/184426154-063a39e8-24bd-40be-90cd-984bf81c0fdf.png">
+
 
 # Features
 ## Icon Buttons on the Top App Bar
