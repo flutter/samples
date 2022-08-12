@@ -44,59 +44,59 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              // Standard IconButton
-              children: const <Widget>[
-                IconToggleButton(isEnabled: true),
-                _colDivider,
-                IconToggleButton(isEnabled: false),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                // Filled IconButton
-                IconToggleButton(
-                  isEnabled: true,
-                  getDefaultStyle: enabledFilledButtonStyle,
-                ),
-                _colDivider,
-                IconToggleButton(
-                  isEnabled: false,
-                  getDefaultStyle: disabledFilledButtonStyle,
-                )
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                // Filled Tonal IconButton
-                IconToggleButton(
-                  isEnabled: true,
-                  getDefaultStyle: enabledFilledTonalButtonStyle,
-                ),
-                _colDivider,
-                IconToggleButton(
-                  isEnabled: false,
-                  getDefaultStyle: disabledFilledTonalButtonStyle,
-                ),
-              ]),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                // Outlined IconButton
-                IconToggleButton(
-                  isEnabled: true,
-                  getDefaultStyle: enabledOutlinedButtonStyle,
-                ),
-                _colDivider,
-                IconToggleButton(
-                  isEnabled: false,
-                  getDefaultStyle: disabledOutlinedButtonStyle,
-                ),
-              ]),
-        ]),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // Standard IconButton
+                children: const <Widget>[
+                  IconToggleButton(isEnabled: true),
+                  _colDivider,
+                  IconToggleButton(isEnabled: false),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  // Filled IconButton
+                  IconToggleButton(
+                    isEnabled: true,
+                    getDefaultStyle: enabledFilledButtonStyle,
+                  ),
+                  _colDivider,
+                  IconToggleButton(
+                    isEnabled: false,
+                    getDefaultStyle: disabledFilledButtonStyle,
+                  )
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  // Filled Tonal IconButton
+                  IconToggleButton(
+                    isEnabled: true,
+                    getDefaultStyle: enabledFilledTonalButtonStyle,
+                  ),
+                  _colDivider,
+                  IconToggleButton(
+                    isEnabled: false,
+                    getDefaultStyle: disabledFilledTonalButtonStyle,
+                  ),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  // Outlined IconButton
+                  IconToggleButton(
+                    isEnabled: true,
+                    getDefaultStyle: enabledOutlinedButtonStyle,
+                  ),
+                  _colDivider,
+                  IconToggleButton(
+                    isEnabled: false,
+                    getDefaultStyle: disabledOutlinedButtonStyle,
+                  ),
+                ]),
+          ]),
     );
   }
 }
