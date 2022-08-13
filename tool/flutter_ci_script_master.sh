@@ -23,7 +23,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin"
     # TODO(domesticmouse): re-enable when stable increments
     # "experimental/web_dashboard"
-    "experimental/linting_tool"
+    # Needs a reformat to work on master
+    # "experimental/linting_tool"
     "flutter_maps_firestore"
     # TODO(domesticmouse): re-enable when stable increments
     # "form_app"
