@@ -10,7 +10,7 @@ import 'package:material_3_demo/main.dart';
 
 void main() {
   testWidgets('Default main page shows all M3 components', (tester) async {
-    widgetSetup(tester, 800, windowHeight: 2500);
+    widgetSetup(tester, 800, windowHeight: 3500);
     await tester.pumpWidget(const Material3Demo());
 
     // Elements on the app bar
@@ -44,9 +44,14 @@ void main() {
     expect(find.byType(InputChip), findsNWidgets(4));
 
     // Cards
-    expect(find.widgetWithText(Card, "Elevated"), findsOneWidget);
+    expect(find.widgetWithText(Card, "Filled"), findsOneWidget);
     expect(find.widgetWithText(Card, "Filled"), findsOneWidget);
     expect(find.widgetWithText(Card, "Outlined"), findsOneWidget);
+
+    // TextFields
+    expect(find.widgetWithText(TextField, "Disabled"), findsNWidgets(2));
+    expect(find.widgetWithText(TextField, "Filled"), findsNWidgets(2));
+    expect(find.widgetWithText(TextField, "Outlined"), findsNWidgets(2));
 
     // Alert Dialog
     Finder dialogExample = find.widgetWithText(TextButton, "Open Dialog");
@@ -94,6 +99,7 @@ void main() {
 
     final navbarExample = find.byType(NavigationBars);
     await tester.scrollUntilVisible(
+      scrollable: find.byType(Scrollable).first,
       navbarExample,
       500.0,
     );
@@ -111,7 +117,7 @@ void main() {
   testWidgets(
       'Material version switches between Material3 and Material2 when'
       'the version icon is clicked', (tester) async {
-    widgetSetup(tester, 450, windowHeight: 2000);
+    widgetSetup(tester, 450, windowHeight: 3000);
     await tester.pumpWidget(const Material3Demo());
     Finder m3Icon = find.widgetWithIcon(IconButton, Icons.filter_3);
     Finder m2Icon = find.widgetWithIcon(IconButton, Icons.filter_2);
