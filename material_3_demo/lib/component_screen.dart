@@ -29,6 +29,8 @@ class ComponentScreen extends StatelessWidget {
                 _colDivider,
                 const Cards(),
                 _colDivider,
+                const TextFields(),
+                _colDivider,
                 const Dialogs(),
                 _colDivider,
                 showNavBottomBar
@@ -327,6 +329,114 @@ class Cards extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class TextFields extends StatelessWidget {
+  const TextFields({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(10),
+          child: TextField(
+              decoration: InputDecoration(
+            prefixIcon: Icon(Icons.search),
+            suffixIcon: Icon(Icons.clear),
+            labelText: "Filled",
+            hintText: "hint text",
+            helperText: "supporting text",
+            filled: true,
+          )),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                SizedBox(
+                  width: 170,
+                  child: TextField(
+                      decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: Icon(Icons.clear),
+                    labelText: "Filled",
+                    hintText: "hint text",
+                    helperText: "supporting text",
+                    filled: true,
+                    errorText: 'error text',
+                  )),
+                ),
+                SizedBox(
+                  width: 170,
+                  child: TextField(
+                    enabled: false,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
+                      suffixIcon: Icon(Icons.clear),
+                      labelText: "Disabled",
+                      hintText: "hint text",
+                      helperText: "supporting text",
+                      filled: true,
+                    ),
+                  ),
+                ),
+              ]),
+        ),
+        const Padding(
+          padding: EdgeInsets.all(10),
+          child: TextField(
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              suffixIcon: Icon(Icons.clear),
+              labelText: "Outlined",
+              hintText: "hint text",
+              helperText: "supporting text",
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ),
+        Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  SizedBox(
+                    width: 170,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: Icon(Icons.clear),
+                        labelText: "Outlined",
+                        hintText: "hint text",
+                        helperText: "supporting text",
+                        errorText: 'error text',
+                        border: OutlineInputBorder(),
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 170,
+                    child: TextField(
+                      enabled: false,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: Icon(Icons.clear),
+                        labelText: "Disabled",
+                        hintText: "hint text",
+                        helperText: "supporting text",
+                        border: OutlineInputBorder(),
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                ])),
+      ],
     );
   }
 }
