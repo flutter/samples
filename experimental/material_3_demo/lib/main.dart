@@ -34,13 +34,13 @@ const List<Color> colorOptions = [
   Colors.pink
 ];
 const List<String> colorText = <String>[
-  "M3 Baseline",
-  "Blue",
-  "Teal",
-  "Green",
-  "Yellow",
-  "Orange",
-  "Pink",
+  'M3 Baseline',
+  'Blue',
+  'Teal',
+  'Green',
+  'Yellow',
+  'Orange',
+  'Pink',
 ];
 
 class _Material3DemoState extends State<Material3Demo> {
@@ -108,21 +108,21 @@ class _Material3DemoState extends State<Material3Demo> {
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
-      title: useMaterial3 ? const Text("Material 3") : const Text("Material 2"),
+      title: useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
       actions: [
         IconButton(
           icon: useLightMode
               ? const Icon(Icons.wb_sunny_outlined)
               : const Icon(Icons.wb_sunny),
           onPressed: handleBrightnessChange,
-          tooltip: "Toggle brightness",
+          tooltip: 'Toggle brightness',
         ),
         IconButton(
           icon: useMaterial3
               ? const Icon(Icons.filter_3)
               : const Icon(Icons.filter_2),
           onPressed: handleMaterialVersionChange,
-          tooltip: "Switch to Material ${useMaterial3 ? 2 : 3}",
+          tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
         ),
         PopupMenuButton(
           icon: const Icon(Icons.more_vert),

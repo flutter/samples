@@ -18,7 +18,7 @@ void main() {
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
 
-    expect(find.text("Display Large"), findsNothing);
+    expect(find.text('Display Large'), findsNothing);
     expect(find.byType(NavigationBar), findsOneWidget);
     Finder textIconOnBar = find.byIcon(Icons.text_snippet_outlined);
     expect(textIconOnBar, findsOneWidget);
@@ -26,7 +26,7 @@ void main() {
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     expect(textIconOnBar, findsNothing);
     expect(find.byIcon(Icons.text_snippet), findsOneWidget);
-    expect(find.text("Display Large"), findsOneWidget);
+    expect(find.text('Display Large'), findsOneWidget);
   });
 
   testWidgets(
@@ -35,7 +35,7 @@ void main() {
     widgetSetup(tester, 450); // NavigationRail shows only when width is >= 450.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const Material3Demo());
-    expect(find.text("Display Large"), findsNothing);
+    expect(find.text('Display Large'), findsNothing);
     expect(find.byType(NavigationRail), findsOneWidget);
     Finder textIconOnRail = find.byIcon(Icons.text_snippet_outlined);
     expect(textIconOnRail, findsOneWidget);
@@ -43,32 +43,32 @@ void main() {
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     expect(textIconOnRail, findsNothing);
     expect(find.byIcon(Icons.text_snippet), findsOneWidget);
-    expect(find.text("Display Large"), findsOneWidget);
+    expect(find.text('Display Large'), findsOneWidget);
   });
 
   testWidgets('Typography screen shows correct content', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [TypographyScreen()])),
     ));
-    expect(find.text("Display Large"), findsOneWidget);
-    expect(find.text("Display Medium"), findsOneWidget);
-    expect(find.text("Display Small"), findsOneWidget);
-    expect(find.text("Headline Large"), findsOneWidget);
-    expect(find.text("Headline Medium"), findsOneWidget);
-    expect(find.text("Headline Small"), findsOneWidget);
-    expect(find.text("Title Large"), findsOneWidget);
-    expect(find.text("Title Medium"), findsOneWidget);
-    expect(find.text("Title Small"), findsOneWidget);
+    expect(find.text('Display Large'), findsOneWidget);
+    expect(find.text('Display Medium'), findsOneWidget);
+    expect(find.text('Display Small'), findsOneWidget);
+    expect(find.text('Headline Large'), findsOneWidget);
+    expect(find.text('Headline Medium'), findsOneWidget);
+    expect(find.text('Headline Small'), findsOneWidget);
+    expect(find.text('Title Large'), findsOneWidget);
+    expect(find.text('Title Medium'), findsOneWidget);
+    expect(find.text('Title Small'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text("Body Small"),
+      find.text('Body Small'),
       500.0,
     );
-    expect(find.text("Label Large"), findsOneWidget);
-    expect(find.text("Label Medium"), findsOneWidget);
-    expect(find.text("Label Small"), findsOneWidget);
-    expect(find.text("Body Large"), findsOneWidget);
-    expect(find.text("Body Medium"), findsOneWidget);
-    expect(find.text("Body Small"), findsOneWidget);
+    expect(find.text('Label Large'), findsOneWidget);
+    expect(find.text('Label Medium'), findsOneWidget);
+    expect(find.text('Label Small'), findsOneWidget);
+    expect(find.text('Body Large'), findsOneWidget);
+    expect(find.text('Body Medium'), findsOneWidget);
+    expect(find.text('Body Small'), findsOneWidget);
 
     expect(find.byType(TextStyleExample), findsNWidgets(15));
   });

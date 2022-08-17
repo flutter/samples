@@ -114,8 +114,8 @@ class ButtonsWithoutIcon extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           ElevatedButton(
-            onPressed: handlePressed(context, isDisabled, "ElevatedButton"),
-            child: const Text("Elevated"),
+            onPressed: handlePressed(context, isDisabled, 'ElevatedButton'),
+            child: const Text('Elevated'),
           ),
           _colDivider,
           ElevatedButton(
@@ -123,7 +123,7 @@ class ButtonsWithoutIcon extends StatelessWidget {
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
               backgroundColor: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, isDisabled, "FilledButton"),
+            onPressed: handlePressed(context, isDisabled, 'FilledButton'),
             child: const Text('Filled'),
           ),
           _colDivider,
@@ -133,18 +133,18 @@ class ButtonsWithoutIcon extends StatelessWidget {
                   Theme.of(context).colorScheme.onSecondaryContainer,
               backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, isDisabled, "FilledTonalButton"),
+            onPressed: handlePressed(context, isDisabled, 'FilledTonalButton'),
             child: const Text('Filled Tonal'),
           ),
           _colDivider,
           OutlinedButton(
-            onPressed: handlePressed(context, isDisabled, "OutlinedButton"),
-            child: const Text("Outlined"),
+            onPressed: handlePressed(context, isDisabled, 'OutlinedButton'),
+            child: const Text('Outlined'),
           ),
           _colDivider,
           TextButton(
-              onPressed: handlePressed(context, isDisabled, "TextButton"),
-              child: const Text("Text")),
+              onPressed: handlePressed(context, isDisabled, 'TextButton'),
+              child: const Text('Text')),
         ],
       ),
     );
@@ -162,9 +162,9 @@ class ButtonsWithIcon extends StatelessWidget {
         children: <Widget>[
           ElevatedButton.icon(
             onPressed:
-                handlePressed(context, false, "ElevatedButton with Icon"),
+                handlePressed(context, false, 'ElevatedButton with Icon'),
             icon: const Icon(Icons.add),
-            label: const Text("Icon"),
+            label: const Text('Icon'),
           ),
           _colDivider,
           ElevatedButton.icon(
@@ -172,7 +172,7 @@ class ButtonsWithIcon extends StatelessWidget {
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
               backgroundColor: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
-            onPressed: handlePressed(context, false, "FilledButton with Icon"),
+            onPressed: handlePressed(context, false, 'FilledButton with Icon'),
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
@@ -184,22 +184,22 @@ class ButtonsWithIcon extends StatelessWidget {
               backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed:
-                handlePressed(context, false, "FilledTonalButton with Icon"),
+                handlePressed(context, false, 'FilledTonalButton with Icon'),
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
           _colDivider,
           OutlinedButton.icon(
             onPressed:
-                handlePressed(context, false, "OutlinedButton with Icon"),
+                handlePressed(context, false, 'OutlinedButton with Icon'),
             icon: const Icon(Icons.add),
-            label: const Text("Icon"),
+            label: const Text('Icon'),
           ),
           _colDivider,
           TextButton.icon(
-            onPressed: handlePressed(context, false, "TextButton with Icon"),
+            onPressed: handlePressed(context, false, 'TextButton with Icon'),
             icon: const Icon(Icons.add),
-            label: const Text("Icon"),
+            label: const Text('Icon'),
           )
         ],
       ),
@@ -231,7 +231,7 @@ class FloatingActionButtons extends StatelessWidget {
           FloatingActionButton.extended(
             onPressed: () {},
             icon: const Icon(Icons.add),
-            label: const Text("Create"),
+            label: const Text('Create'),
           ),
           _rowDivider,
           FloatingActionButton.large(
@@ -268,7 +268,7 @@ class Cards extends StatelessWidget {
                     SizedBox(height: 35),
                     Align(
                       alignment: Alignment.bottomLeft,
-                      child: Text("Elevated"),
+                      child: Text('Elevated'),
                     )
                   ],
                 ),
@@ -291,7 +291,7 @@ class Cards extends StatelessWidget {
                     SizedBox(height: 35),
                     Align(
                       alignment: Alignment.bottomLeft,
-                      child: Text("Filled"),
+                      child: Text('Filled'),
                     )
                   ],
                 ),
@@ -319,7 +319,7 @@ class Cards extends StatelessWidget {
                     SizedBox(height: 35),
                     Align(
                       alignment: Alignment.bottomLeft,
-                      child: Text("Outlined"),
+                      child: Text('Outlined'),
                     )
                   ],
                 ),
@@ -346,9 +346,9 @@ class TextFields extends StatelessWidget {
               decoration: InputDecoration(
             prefixIcon: Icon(Icons.search),
             suffixIcon: Icon(Icons.clear),
-            labelText: "Filled",
-            hintText: "hint text",
-            helperText: "supporting text",
+            labelText: 'Filled',
+            hintText: 'hint text',
+            helperText: 'supporting text',
             filled: true,
           )),
         ),
@@ -363,9 +363,9 @@ class TextFields extends StatelessWidget {
                       decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     suffixIcon: Icon(Icons.clear),
-                    labelText: "Filled",
-                    hintText: "hint text",
-                    helperText: "supporting text",
+                    labelText: 'Filled',
+                    hintText: 'hint text',
+                    helperText: 'supporting text',
                     filled: true,
                     errorText: 'error text',
                   )),
@@ -377,9 +377,9 @@ class TextFields extends StatelessWidget {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
                       suffixIcon: Icon(Icons.clear),
-                      labelText: "Disabled",
-                      hintText: "hint text",
-                      helperText: "supporting text",
+                      labelText: 'Disabled',
+                      hintText: 'hint text',
+                      helperText: 'supporting text',
                       filled: true,
                     ),
                   ),
@@ -392,9 +392,9 @@ class TextFields extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.search),
               suffixIcon: Icon(Icons.clear),
-              labelText: "Outlined",
-              hintText: "hint text",
-              helperText: "supporting text",
+              labelText: 'Outlined',
+              hintText: 'hint text',
+              helperText: 'supporting text',
               border: OutlineInputBorder(),
             ),
           ),
@@ -410,9 +410,9 @@ class TextFields extends StatelessWidget {
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
                         suffixIcon: Icon(Icons.clear),
-                        labelText: "Outlined",
-                        hintText: "hint text",
-                        helperText: "supporting text",
+                        labelText: 'Outlined',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
                         errorText: 'error text',
                         border: OutlineInputBorder(),
                         filled: true,
@@ -426,9 +426,9 @@ class TextFields extends StatelessWidget {
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
                         suffixIcon: Icon(Icons.clear),
-                        labelText: "Disabled",
-                        hintText: "hint text",
-                        helperText: "supporting text",
+                        labelText: 'Disabled',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
                         border: OutlineInputBorder(),
                         filled: true,
                       ),
@@ -452,9 +452,9 @@ class _DialogsState extends State<Dialogs> {
     showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Basic Dialog Title"),
+        title: const Text('Basic Dialog Title'),
         content: const Text(
-            "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made."),
+            'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.'),
         actions: <Widget>[
           TextButton(
             child: const Text('Dismiss'),
@@ -475,7 +475,7 @@ class _DialogsState extends State<Dialogs> {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextButton(
         child: const Text(
-          "Open Dialog",
+          'Open Dialog',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         onPressed: () => openDialog(context),
@@ -486,25 +486,25 @@ class _DialogsState extends State<Dialogs> {
 
 const List<NavigationDestination> appBarDestinations = [
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.widgets_outlined),
     label: 'Components',
     selectedIcon: Icon(Icons.widgets),
   ),
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.format_paint_outlined),
     label: 'Color',
     selectedIcon: Icon(Icons.format_paint),
   ),
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.text_snippet_outlined),
     label: 'Typography',
     selectedIcon: Icon(Icons.text_snippet),
   ),
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.invert_colors_on_outlined),
     label: 'Elevation',
     selectedIcon: Icon(Icons.opacity),
@@ -529,19 +529,19 @@ final List<NavigationRailDestination> navRailDestinations = appBarDestinations
 
 const List<Widget> exampleBarDestinations = [
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.explore_outlined),
     label: 'Explore',
     selectedIcon: Icon(Icons.explore),
   ),
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.pets_outlined),
     label: 'Pets',
     selectedIcon: Icon(Icons.pets),
   ),
   NavigationDestination(
-    tooltip: "",
+    tooltip: '',
     icon: Icon(Icons.account_box_outlined),
     label: 'Account',
     selectedIcon: Icon(Icons.account_box),
