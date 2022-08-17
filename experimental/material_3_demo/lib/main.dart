@@ -131,23 +131,25 @@ class _Material3DemoState extends State<Material3Demo> {
           itemBuilder: (context) {
             return List.generate(colorOptions.length, (index) {
               return PopupMenuItem(
-                  value: index,
-                  child: Wrap(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Icon(
-                          index == colorSelected
-                              ? Icons.color_lens
-                              : Icons.color_lens_outlined,
-                          color: colorOptions[index],
-                        ),
+                value: index,
+                child: Wrap(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Icon(
+                        index == colorSelected
+                            ? Icons.color_lens
+                            : Icons.color_lens_outlined,
+                        color: colorOptions[index],
                       ),
-                      Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(colorText[index]))
-                    ],
-                  ));
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(colorText[index]),
+                    ),
+                  ],
+                ),
+              );
             });
           },
           onSelected: handleColorSelect,

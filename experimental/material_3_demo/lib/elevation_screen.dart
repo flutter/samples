@@ -42,7 +42,7 @@ class ElevationScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          ElevationGrid(shadowColor: shadowColor)
+          ElevationGrid(shadowColor: shadowColor),
         ],
       ),
     );

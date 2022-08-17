@@ -17,10 +17,14 @@ class ColorPalettesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color selectedColor = Theme.of(context).primaryColor;
-    ThemeData lightTheme =
-        ThemeData(colorSchemeSeed: selectedColor, brightness: Brightness.light);
-    ThemeData darkTheme =
-        ThemeData(colorSchemeSeed: selectedColor, brightness: Brightness.dark);
+    ThemeData lightTheme = ThemeData(
+      colorSchemeSeed: selectedColor,
+      brightness: Brightness.light,
+    );
+    ThemeData darkTheme = ThemeData(
+      colorSchemeSeed: selectedColor,
+      brightness: Brightness.dark,
+    );
 
     Widget schemeLabel(String brightness) {
       return Padding(
@@ -53,7 +57,7 @@ class ColorPalettesScreen extends StatelessWidget {
                 divider,
                 divider,
                 schemeLabel('Dark Theme'),
-                schemeView(darkTheme)
+                schemeView(darkTheme),
               ],
             ),
           );
@@ -67,7 +71,7 @@ class ColorPalettesScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         schemeLabel('Light Theme'),
-                        schemeView(lightTheme)
+                        schemeView(lightTheme),
                       ],
                     ),
                   ),
@@ -75,10 +79,10 @@ class ColorPalettesScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         schemeLabel('Dark Theme'),
-                        schemeView(darkTheme)
+                        schemeView(darkTheme),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -117,7 +121,7 @@ class ColorSchemeView extends StatelessWidget {
             label: 'onPrimaryContainer',
             color: colorScheme.onPrimaryContainer,
             onColor: colorScheme.primaryContainer,
-          )
+          ),
         ]),
         divider,
         ColorGroup(children: [
@@ -139,7 +143,7 @@ class ColorSchemeView extends StatelessWidget {
           ColorChip(
               label: 'onSecondaryContainer',
               color: colorScheme.onSecondaryContainer,
-              onColor: colorScheme.secondaryContainer)
+              onColor: colorScheme.secondaryContainer),
         ]),
         divider,
         ColorGroup(

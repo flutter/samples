@@ -17,27 +17,27 @@ class ComponentScreen extends StatelessWidget {
         child: Align(
           alignment: Alignment.topCenter,
           child: SizedBox(
-            width: _maxWidthConstraint,
+            width: maxWidthConstraint,
             child: ListView(
               shrinkWrap: true,
               children: [
-                _colDivider,
-                _colDivider,
+                colDivider,
+                colDivider,
                 const Buttons(),
-                _colDivider,
-                _colDivider,
+                colDivider,
+                colDivider,
                 const IconToggleButtons(),
-                _colDivider,
+                colDivider,
                 const FloatingActionButtons(),
-                _colDivider,
+                colDivider,
                 const Chips(),
-                _colDivider,
+                colDivider,
                 const Cards(),
-                _colDivider,
+                colDivider,
                 const TextFields(),
-                _colDivider,
+                colDivider,
                 const Dialogs(),
-                _colDivider,
+                colDivider,
                 showNavBottomBar
                     ? const NavigationBars(
                         selectedIndex: 0,
@@ -53,10 +53,10 @@ class ComponentScreen extends StatelessWidget {
   }
 }
 
-const _rowDivider = SizedBox(width: 10);
-const _colDivider = SizedBox(height: 10);
-const double _cardWidth = 115;
-const double _maxWidthConstraint = 400;
+const rowDivider = SizedBox(width: 10);
+const colDivider = SizedBox(height: 10);
+const double cardWidth = 115;
+const double maxWidthConstraint = 400;
 
 void Function()? handlePressed(
     BuildContext context, bool isDisabled, String buttonName) {
@@ -93,9 +93,9 @@ class _ButtonsState extends State<Buttons> {
       alignment: WrapAlignment.spaceEvenly,
       children: const <Widget>[
         ButtonsWithoutIcon(isDisabled: false),
-        _rowDivider,
+        rowDivider,
         ButtonsWithIcon(),
-        _rowDivider,
+        rowDivider,
         ButtonsWithoutIcon(isDisabled: true),
       ],
     );
@@ -117,7 +117,7 @@ class ButtonsWithoutIcon extends StatelessWidget {
             onPressed: handlePressed(context, isDisabled, 'ElevatedButton'),
             child: const Text('Elevated'),
           ),
-          _colDivider,
+          colDivider,
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -126,7 +126,7 @@ class ButtonsWithoutIcon extends StatelessWidget {
             onPressed: handlePressed(context, isDisabled, 'FilledButton'),
             child: const Text('Filled'),
           ),
-          _colDivider,
+          colDivider,
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               foregroundColor:
@@ -136,12 +136,12 @@ class ButtonsWithoutIcon extends StatelessWidget {
             onPressed: handlePressed(context, isDisabled, 'FilledTonalButton'),
             child: const Text('Filled Tonal'),
           ),
-          _colDivider,
+          colDivider,
           OutlinedButton(
             onPressed: handlePressed(context, isDisabled, 'OutlinedButton'),
             child: const Text('Outlined'),
           ),
-          _colDivider,
+          colDivider,
           TextButton(
               onPressed: handlePressed(context, isDisabled, 'TextButton'),
               child: const Text('Text')),
@@ -166,7 +166,7 @@ class ButtonsWithIcon extends StatelessWidget {
             icon: const Icon(Icons.add),
             label: const Text('Icon'),
           ),
-          _colDivider,
+          colDivider,
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -176,7 +176,7 @@ class ButtonsWithIcon extends StatelessWidget {
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
-          _colDivider,
+          colDivider,
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               foregroundColor:
@@ -188,14 +188,14 @@ class ButtonsWithIcon extends StatelessWidget {
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
-          _colDivider,
+          colDivider,
           OutlinedButton.icon(
             onPressed:
                 handlePressed(context, false, 'OutlinedButton with Icon'),
             icon: const Icon(Icons.add),
             label: const Text('Icon'),
           ),
-          _colDivider,
+          colDivider,
           TextButton.icon(
             onPressed: handlePressed(context, false, 'TextButton with Icon'),
             icon: const Icon(Icons.add),
@@ -222,18 +222,18 @@ class FloatingActionButtons extends StatelessWidget {
             onPressed: () {},
             child: const Icon(Icons.add),
           ),
-          _rowDivider,
+          rowDivider,
           FloatingActionButton(
             onPressed: () {},
             child: const Icon(Icons.add),
           ),
-          _rowDivider,
+          rowDivider,
           FloatingActionButton.extended(
             onPressed: () {},
             icon: const Icon(Icons.add),
             label: const Text('Create'),
           ),
-          _rowDivider,
+          rowDivider,
           FloatingActionButton.large(
             onPressed: () {},
             child: const Icon(Icons.add),
@@ -255,73 +255,85 @@ class Cards extends StatelessWidget {
         alignment: WrapAlignment.spaceEvenly,
         children: [
           SizedBox(
-            width: _cardWidth,
-            child: Card(
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    SizedBox(height: 35),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text('Elevated'),
-                    )
-                  ],
+            width: cardWidth,
+            child: Tooltip(
+              margin: EdgeInsets.only(top: 20),
+              message: 'Elevated Card',
+              child: Card(
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: const [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Icon(Icons.more_vert),
+                      ),
+                      SizedBox(height: 35),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text('Elevated'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
           SizedBox(
-            width: _cardWidth,
-            child: Card(
-              color: Theme.of(context).colorScheme.surfaceVariant,
-              elevation: 0,
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    SizedBox(height: 35),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text('Filled'),
-                    )
-                  ],
+            width: cardWidth,
+            child: Tooltip(
+              margin: EdgeInsets.only(top: 20),
+              message: 'Filled Card',
+              child: Card(
+                color: Theme.of(context).colorScheme.surfaceVariant,
+                elevation: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: const [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Icon(Icons.more_vert),
+                      ),
+                      SizedBox(height: 35),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text('Filled'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
           SizedBox(
-            width: _cardWidth,
-            child: Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Theme.of(context).colorScheme.outline,
+            width: cardWidth,
+            child: Tooltip(
+              margin: EdgeInsets.only(top: 20),
+              message: 'Outlined Card',
+              child: Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
                 ),
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: const [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
-                    ),
-                    SizedBox(height: 35),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text('Outlined'),
-                    )
-                  ],
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: const [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Icon(Icons.more_vert),
+                      ),
+                      SizedBox(height: 35),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text('Outlined'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -343,24 +355,25 @@ class TextFields extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.all(10),
           child: TextField(
-              decoration: InputDecoration(
-            prefixIcon: Icon(Icons.search),
-            suffixIcon: Icon(Icons.clear),
-            labelText: 'Filled',
-            hintText: 'hint text',
-            helperText: 'supporting text',
-            filled: true,
-          )),
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              suffixIcon: Icon(Icons.clear),
+              labelText: 'Filled',
+              hintText: 'hint text',
+              helperText: 'supporting text',
+              filled: true,
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                SizedBox(
-                  width: 170,
-                  child: TextField(
-                      decoration: InputDecoration(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              SizedBox(
+                width: 170,
+                child: TextField(
+                  decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     suffixIcon: Icon(Icons.clear),
                     labelText: 'Filled',
@@ -368,23 +381,25 @@ class TextFields extends StatelessWidget {
                     helperText: 'supporting text',
                     filled: true,
                     errorText: 'error text',
-                  )),
-                ),
-                SizedBox(
-                  width: 170,
-                  child: TextField(
-                    enabled: false,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      suffixIcon: Icon(Icons.clear),
-                      labelText: 'Disabled',
-                      hintText: 'hint text',
-                      helperText: 'supporting text',
-                      filled: true,
-                    ),
                   ),
                 ),
-              ]),
+              ),
+              SizedBox(
+                width: 170,
+                child: TextField(
+                  enabled: false,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: Icon(Icons.clear),
+                    labelText: 'Disabled',
+                    hintText: 'hint text',
+                    helperText: 'supporting text',
+                    filled: true,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         const Padding(
           padding: EdgeInsets.all(10),
@@ -486,25 +501,26 @@ class _DialogsState extends State<Dialogs> {
 
 const List<NavigationDestination> appBarDestinations = [
   NavigationDestination(
-    tooltip: '',
+    tooltip: 'Updated component list',
     icon: Icon(Icons.widgets_outlined),
     label: 'Components',
     selectedIcon: Icon(Icons.widgets),
   ),
   NavigationDestination(
-    tooltip: '',
+    tooltip: 'Color palettes in light and dark modes',
     icon: Icon(Icons.format_paint_outlined),
     label: 'Color',
     selectedIcon: Icon(Icons.format_paint),
   ),
   NavigationDestination(
-    tooltip: '',
+    tooltip: 'Different text styles for the default TextTheme',
     icon: Icon(Icons.text_snippet_outlined),
     label: 'Typography',
     selectedIcon: Icon(Icons.text_snippet),
   ),
   NavigationDestination(
-    tooltip: '',
+    tooltip:
+        'Different ways of elevation with a new supported feature "surfaceTintColor"',
     icon: Icon(Icons.invert_colors_on_outlined),
     label: 'Elevation',
     selectedIcon: Icon(Icons.opacity),
@@ -553,32 +569,33 @@ class NavigationBars extends StatefulWidget {
   final int selectedIndex;
   final bool isExampleBar;
 
-  const NavigationBars(
-      {super.key,
-      this.onSelectItem,
-      required this.selectedIndex,
-      required this.isExampleBar});
+  const NavigationBars({
+    super.key,
+    this.onSelectItem,
+    required this.selectedIndex,
+    required this.isExampleBar,
+  });
 
   @override
   State<NavigationBars> createState() => _NavigationBarsState();
 }
 
 class _NavigationBarsState extends State<NavigationBars> {
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.selectedIndex;
+    selectedIndex = widget.selectedIndex;
   }
 
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      selectedIndex: _selectedIndex,
+      selectedIndex: selectedIndex,
       onDestinationSelected: (index) {
         setState(() {
-          _selectedIndex = index;
+          selectedIndex = index;
         });
         if (!widget.isExampleBar) widget.onSelectItem!(index);
       },
@@ -600,12 +617,12 @@ class NavigationRailSection extends StatefulWidget {
 }
 
 class _NavigationRailSectionState extends State<NavigationRailSection> {
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.selectedIndex;
+    selectedIndex = widget.selectedIndex;
   }
 
   @override
@@ -613,11 +630,11 @@ class _NavigationRailSectionState extends State<NavigationRailSection> {
     return NavigationRail(
       minWidth: 50,
       destinations: navRailDestinations,
-      selectedIndex: _selectedIndex,
+      selectedIndex: selectedIndex,
       useIndicator: true,
       onDestinationSelected: (index) {
         setState(() {
-          _selectedIndex = index;
+          selectedIndex = index;
         });
         widget.onSelectItem(index);
       },
@@ -638,66 +655,74 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // Standard IconButton
-                children: const <Widget>[
-                  IconToggleButton(isEnabled: true),
-                  _colDivider,
-                  IconToggleButton(isEnabled: false),
-                ]),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  // Filled IconButton
-                  IconToggleButton(
-                    isEnabled: true,
-                    getDefaultStyle: enabledFilledButtonStyle,
-                  ),
-                  _colDivider,
-                  IconToggleButton(
-                    isEnabled: false,
-                    getDefaultStyle: disabledFilledButtonStyle,
-                  )
-                ]),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  // Filled Tonal IconButton
-                  IconToggleButton(
-                    isEnabled: true,
-                    getDefaultStyle: enabledFilledTonalButtonStyle,
-                  ),
-                  _colDivider,
-                  IconToggleButton(
-                    isEnabled: false,
-                    getDefaultStyle: disabledFilledTonalButtonStyle,
-                  ),
-                ]),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  // Outlined IconButton
-                  IconToggleButton(
-                    isEnabled: true,
-                    getDefaultStyle: enabledOutlinedButtonStyle,
-                  ),
-                  _colDivider,
-                  IconToggleButton(
-                    isEnabled: false,
-                    getDefaultStyle: disabledOutlinedButtonStyle,
-                  ),
-                ]),
-          ]),
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // Standard IconButton
+            children: const <Widget>[
+              IconToggleButton(isEnabled: true),
+              colDivider,
+              IconToggleButton(isEnabled: false),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              // Filled IconButton
+              IconToggleButton(
+                isEnabled: true,
+                getDefaultStyle: enabledFilledButtonStyle,
+              ),
+              colDivider,
+              IconToggleButton(
+                isEnabled: false,
+                getDefaultStyle: disabledFilledButtonStyle,
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              // Filled Tonal IconButton
+              IconToggleButton(
+                isEnabled: true,
+                getDefaultStyle: enabledFilledTonalButtonStyle,
+              ),
+              colDivider,
+              IconToggleButton(
+                isEnabled: false,
+                getDefaultStyle: disabledFilledTonalButtonStyle,
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              // Outlined IconButton
+              IconToggleButton(
+                isEnabled: true,
+                getDefaultStyle: enabledOutlinedButtonStyle,
+              ),
+              colDivider,
+              IconToggleButton(
+                isEnabled: false,
+                getDefaultStyle: disabledOutlinedButtonStyle,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
 
 class IconToggleButton extends StatefulWidget {
-  const IconToggleButton(
-      {required this.isEnabled, this.getDefaultStyle, super.key});
+  const IconToggleButton({
+    required this.isEnabled,
+    this.getDefaultStyle,
+    super.key,
+  });
 
   final bool isEnabled;
   final ButtonStyle? Function(bool, ColorScheme)? getDefaultStyle;
@@ -719,10 +744,7 @@ class _IconToggleButtonState extends State<IconToggleButton> {
             });
           }
         : null;
-    ButtonStyle? style;
-    if (widget.getDefaultStyle != null) {
-      style = widget.getDefaultStyle!(selected, colors);
-    }
+    ButtonStyle? style = widget.getDefaultStyle?.call(selected, colors);
 
     return IconButton(
       visualDensity: VisualDensity.standard,
@@ -844,23 +866,24 @@ class Chips extends StatelessWidget {
                   avatar: const Icon(Icons.alarm_add_outlined),
                   onPressed: () {}),
               const ActionChip(
-                  label: Text('No Action'),
-                  avatar: Icon(Icons.indeterminate_check_box_outlined)),
+                label: Text('No Action'),
+                avatar: Icon(Icons.indeterminate_check_box_outlined),
+              ),
             ],
           ),
-          _colDivider,
+          colDivider,
           Wrap(
             alignment: WrapAlignment.spaceBetween,
             runSpacing: 5,
             children: <Widget>[
               FilterChip(
                 label: const Text('Filter'),
-                onSelected: (s) {},
+                onSelected: (isSelected) {},
               ),
               FilterChip(
                 label: const Text('OK'),
                 selected: true,
-                onSelected: (s) {},
+                onSelected: (isSelected) {},
               ),
               const FilterChip(
                 label: Text('Disabled'),
@@ -873,7 +896,7 @@ class Chips extends StatelessWidget {
               )
             ],
           ),
-          _colDivider,
+          colDivider,
           Wrap(
             alignment: WrapAlignment.spaceBetween,
             runSpacing: 5,
@@ -898,7 +921,7 @@ class Chips extends StatelessWidget {
               ),
             ],
           ),
-          _colDivider,
+          colDivider,
           Wrap(
             alignment: WrapAlignment.spaceBetween,
             runSpacing: 5,
