@@ -25,6 +25,7 @@ declare -ar PROJECT_NAMES=(
     # "experimental/web_dashboard"
     # Needs a reformat to work on master
     # "experimental/linting_tool"
+    "experimental/material_3_demo"
     "flutter_maps_firestore"
     # TODO(domesticmouse): re-enable when stable increments
     # "form_app"
@@ -35,7 +36,7 @@ declare -ar PROJECT_NAMES=(
     # "isolate_example"
     "jsonexample"
     # TODO(domesticmouse): re-enable when stable increments
-    "material_3_demo"
+    # "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
