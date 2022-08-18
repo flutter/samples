@@ -257,7 +257,7 @@ class Cards extends StatelessWidget {
           SizedBox(
             width: cardWidth,
             child: Tooltip(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               message: 'Elevated Card',
               child: Card(
                 child: Container(
@@ -282,7 +282,7 @@ class Cards extends StatelessWidget {
           SizedBox(
             width: cardWidth,
             child: Tooltip(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               message: 'Filled Card',
               child: Card(
                 color: Theme.of(context).colorScheme.surfaceVariant,
@@ -309,7 +309,7 @@ class Cards extends StatelessWidget {
           SizedBox(
             width: cardWidth,
             child: Tooltip(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               message: 'Outlined Card',
               child: Card(
                 elevation: 0,
@@ -822,7 +822,7 @@ ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
     side: BorderSide(color: colors.outline),
   ).copyWith(
     foregroundColor:
-        MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+        MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
         return colors.onInverseSurface;
       }
