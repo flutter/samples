@@ -107,9 +107,9 @@ class _Material3DemoState extends State<Material3Demo> {
         return ComponentScreen(showNavBottomBar: showNavBarExample);
       case ScreenSelected.color:
         return const ColorPalettesScreen();
-      case ScreenSelected.elevation:
-        return const TypographyScreen();
       case ScreenSelected.typography:
+        return const TypographyScreen();
+      case ScreenSelected.elevation:
         return const ElevationScreen();
       default:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
