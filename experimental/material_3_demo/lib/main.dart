@@ -43,11 +43,21 @@ const List<String> colorText = <String>[
   'Pink',
 ];
 
+enum ScreenSelected {
+  component(0),
+  color(1),
+  typography(2),
+  elevation(3);
+
+  const ScreenSelected(this.value);
+  final int value;
+}
+
 class _Material3DemoState extends State<Material3Demo> {
   bool useMaterial3 = true;
   bool useLightMode = true;
   int colorSelected = 0;
-  int screenIndex = 0;
+  int screenIndex = ScreenSelected.component.value;
 
   late ThemeData themeData;
 
@@ -64,9 +74,9 @@ class _Material3DemoState extends State<Material3Demo> {
         brightness: useLightMode ? Brightness.light : Brightness.dark);
   }
 
-  void handleScreenChanged(int selectedScreen) {
+  void handleScreenChanged(int screenSelected) {
     setState(() {
-      screenIndex = selectedScreen;
+      screenIndex = screenSelected;
     });
   }
 
@@ -91,15 +101,15 @@ class _Material3DemoState extends State<Material3Demo> {
     });
   }
 
-  Widget createScreenFor(int screenIndex, bool showNavBarExample) {
-    switch (screenIndex) {
-      case 0:
+  Widget createScreenFor(ScreenSelected screenSelected, bool showNavBarExample) {
+    switch (screenSelected) {
+      case ScreenSelected.component:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
-      case 1:
+      case ScreenSelected.color:
         return const ColorPalettesScreen();
-      case 2:
+      case ScreenSelected.elevation:
         return const TypographyScreen();
-      case 3:
+      case ScreenSelected.typography:
         return const ElevationScreen();
       default:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
@@ -170,7 +180,7 @@ class _Material3DemoState extends State<Material3Demo> {
           return Scaffold(
             appBar: createAppBar(),
             body: Row(children: <Widget>[
-              createScreenFor(screenIndex, false),
+              createScreenFor(ScreenSelected.values[screenIndex], false),
             ]),
             bottomNavigationBar: NavigationBars(
               onSelectItem: handleScreenChanged,
@@ -192,7 +202,7 @@ class _Material3DemoState extends State<Material3Demo> {
                           onSelectItem: handleScreenChanged,
                           selectedIndex: screenIndex)),
                   const VerticalDivider(thickness: 1, width: 1),
-                  createScreenFor(screenIndex, true),
+                  createScreenFor(ScreenSelected.values[screenIndex], true),
                 ],
               ),
             ),
