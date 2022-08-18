@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flutter_version: [stable, beta]
+        flutter_version: [stable, beta, master]
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
