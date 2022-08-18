@@ -35,7 +35,7 @@ declare -ar PROJECT_NAMES=(
     # "isolate_example"
     "jsonexample"
     # TODO(domesticmouse): re-enable when stable increments
-    # "material_3_demo"
+    "material_3_demo"
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
