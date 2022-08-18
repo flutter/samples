@@ -821,8 +821,7 @@ ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
         : colors.onSurface.withOpacity(0.12),
     side: BorderSide(color: colors.outline),
   ).copyWith(
-    foregroundColor:
-        MaterialStateProperty.resolveWith((states) {
+    foregroundColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
         return colors.onInverseSurface;
       }

@@ -101,7 +101,8 @@ class _Material3DemoState extends State<Material3Demo> {
     });
   }
 
-  Widget createScreenFor(ScreenSelected screenSelected, bool showNavBarExample) {
+  Widget createScreenFor(
+      ScreenSelected screenSelected, bool showNavBarExample) {
     switch (screenSelected) {
       case ScreenSelected.component:
         return ComponentScreen(showNavBottomBar: showNavBarExample);
