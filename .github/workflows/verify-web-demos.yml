@@ -3,7 +3,12 @@ name: Verify web demos
 # Declare default permissions as read only.
 permissions: read-all
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   verify-web-demos:
     runs-on: ubuntu-latest
