@@ -38,7 +38,8 @@ declare -ar PROJECT_NAMES=(
     # "form_app"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "game_template"
-    "infinite_list"
+    # TODO(domesticmouse): headline6 is deprecated
+    # "infinite_list"
     "ios_app_clip"
     # TODO(domesticmouse): re-enable when stable increments
     # "isolate_example"
