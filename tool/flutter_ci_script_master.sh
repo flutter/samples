@@ -18,7 +18,8 @@ declare -ar PROJECT_NAMES=(
     # "add_to_app/plugin/flutter_module_using_plugin"
     # TODO(domesticmouse): headline5 deprecated
     # "add_to_app/prebuilt_module/flutter_module"
-    "android_splash_screen"
+    # TODO(domesticmouse): headline4 is deprecated
+    # "android_splash_screen"
     "animations"
     # TODO(domesticmouse): re-enable when stable increments
     # "desktop_photo_search/fluent_ui"
