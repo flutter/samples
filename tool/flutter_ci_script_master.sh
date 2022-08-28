@@ -47,7 +47,8 @@ declare -ar PROJECT_NAMES=(
     # "jsonexample"
     # TODO(domesticmouse): re-enable when stable increments
     # "material_3_demo"
-    "navigation_and_routing"
+    # TODO(domesticmouse): headline4 is deprecated
+    # "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
     # TODO(domesticmouse): re-enable when stable increments
