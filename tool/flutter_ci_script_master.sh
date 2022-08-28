@@ -57,7 +57,8 @@ declare -ar PROJECT_NAMES=(
     # "platform_channels"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "platform_design"
-    "platform_view_swift"
+    # TODO(domesticmouse): subtitle2 is deprecated
+    # "platform_view_swift"
     "provider_counter"
     # TODO(domesticmouse): re-enable when stable increments
     # "provider_shopper"
