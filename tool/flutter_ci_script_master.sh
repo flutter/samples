@@ -59,7 +59,8 @@ declare -ar PROJECT_NAMES=(
     # "platform_design"
     # TODO(domesticmouse): subtitle2 is deprecated
     # "platform_view_swift"
-    "provider_counter"
+    # TODO(domesticmouse): headline4 is deprecated
+    # "provider_counter"
     # TODO(domesticmouse): re-enable when stable increments
     # "provider_shopper"
     # TODO(domesticmouse): re-enable when stable increments
