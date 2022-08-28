@@ -10,7 +10,8 @@ flutter doctor -v
 declare -ar PROJECT_NAMES=(
     # TODO(domesticmouse): re-enable when stable increments
     # "add_to_app/books/flutter_module_books"
-    "add_to_app/fullscreen/flutter_module"
+    # TODO(domesticmouse): headline5 deprecated
+    # "add_to_app/fullscreen/flutter_module"
     "add_to_app/multiple_flutters/multiple_flutters_module"
     "add_to_app/plugin/flutter_module_using_plugin"
     "add_to_app/prebuilt_module/flutter_module"
