@@ -55,7 +55,8 @@ declare -ar PROJECT_NAMES=(
     # "place_tracker"
     # TODO(domesticmouse): re-enable when stable increments
     # "platform_channels"
-    "platform_design"
+    # TODO(domesticmouse): bodyText2 is deprecated
+    # "platform_design"
     "platform_view_swift"
     "provider_counter"
     # TODO(domesticmouse): re-enable when stable increments
