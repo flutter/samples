@@ -43,7 +43,8 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     # TODO(domesticmouse): re-enable when stable increments
     # "isolate_example"
-    "jsonexample"
+    # TODO(domesticmouse): bodyText2 is deprecated
+    # "jsonexample"
     # TODO(domesticmouse): re-enable when stable increments
     # "material_3_demo"
     "navigation_and_routing"
