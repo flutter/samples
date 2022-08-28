@@ -36,7 +36,8 @@ declare -ar PROJECT_NAMES=(
     "flutter_maps_firestore"
     # TODO(domesticmouse): re-enable when stable increments
     # "form_app"
-    "game_template"
+    # TODO(domesticmouse): bodyText2 is deprecated
+    # "game_template"
     "infinite_list"
     "ios_app_clip"
     # TODO(domesticmouse): re-enable when stable increments
