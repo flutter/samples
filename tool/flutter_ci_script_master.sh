@@ -26,7 +26,8 @@ declare -ar PROJECT_NAMES=(
     # "desktop_photo_search/fluent_ui"
     # TODO(domesticmouse): re-enable when stable increments
     # "desktop_photo_search/material"
-    "experimental/federated_plugin/federated_plugin"
+    # TODO(domesticmouse): headline5 deprecated
+    # "experimental/federated_plugin/federated_plugin"
     # TODO(domesticmouse): re-enable when stable increments
     # "experimental/web_dashboard"
     # Needs a reformat to work on master
