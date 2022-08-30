@@ -47,7 +47,10 @@ class ViewController: UITableViewController, BKHostBookApi {
               let authors = (volumeInfo["authors"] as! [String]).joined(separator: " & ")
               let pageCount = volumeInfo["pageCount"] as! Int32
               let publishedDate = volumeInfo["publishedDate"] as! String
-              let summary = volumeInfo["description"] as! String
+              let summary = volumeInfo["description"] as! String?
+              let imageLinks = volumeInfo["imageLinks"] as! [String: Any]
+              let thumbnail: BKThumbnail = BKThumbnail.init()
+              thumbnail.url = imageLinks["thumbnail"] as! String?
               let book: BKBook = BKBook.init()
               book.author = authors
               book.title = title
@@ -56,6 +59,7 @@ class ViewController: UITableViewController, BKHostBookApi {
               book.pageCount = NSNumber.init(value: pageCount)
               book.publishDate = publishedDate
               book.summary = summary
+              book.thumbnail = thumbnail
               newBooks.append(book)
             }
             DispatchQueue.main.async {
