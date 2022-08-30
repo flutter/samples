@@ -30,8 +30,7 @@ declare -ar PROJECT_NAMES=(
     "game_template"
     "infinite_list"
     "ios_app_clip"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "isolate_example"
+    "isolate_example"
     "jsonexample"
     # TODO(domesticmouse): re-enable when stable increments
     # "material_3_demo"
