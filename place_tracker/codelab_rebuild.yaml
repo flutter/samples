@@ -48,3 +48,29 @@ steps:
            GeneratedPluginRegistrant.register(with: self)
            return super.application(application, didFinishLaunchingWithOptions: launchOptions)
          }
+  - name: Patch ios/Flutter/AppFrameworkInfo.plist
+    path: ios/Flutter/AppFrameworkInfo.plist
+    patch-u: |
+      --- b/place_tracker/ios/Flutter/AppFrameworkInfo.plist
+      +++ a/place_tracker/ios/Flutter/AppFrameworkInfo.plist
+      @@ -21,6 +21,6 @@
+         <key>CFBundleVersion</key>
+         <string>1.0</string>
+         <key>MinimumOSVersion</key>
+      -  <string>11.0</string>
+      +  <string>13.0</string>
+       </dict>
+       </plist>
+  - name: Patch ios/Podfile
+    path: ios/Podfile
+    patch-u: |
+      --- b/place_tracker/ios/Podfile
+      +++ a/place_tracker/ios/Podfile
+      @@ -1,5 +1,5 @@
+      -# Uncomment this line to define a global platform for your project
+      -# platform :ios, '11.0'
+      +# Google Maps requires iOS 13: https://developers.google.com/maps/documentation/ios-sdk/overview#supported_platforms
+      +platform :ios, '13.0'
+       
+       # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+       ENV['COCOAPODS_DISABLE_STATS'] = 'true'
