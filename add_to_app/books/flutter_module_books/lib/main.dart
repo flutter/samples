@@ -96,6 +96,9 @@ class _BookDetailState extends State<BookDetail> {
     }));
   }
 
+  // Not overriding didUpdateWidget because the Android program can't change
+  // the book given to Flutter on the Android side.
+
   void clear() {
     book = null;
     // Keep focus if going to the home screen but unfocus if leaving
@@ -209,21 +212,29 @@ class BookForm extends StatelessWidget {
           ),
           const Divider(),
           const SizedBox(height: 32),
-          const Center(
-            child: Text(
-              'BOOK DESCRIPTION',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.underline,
+          if (book.thumbnail?.url != null) ...[
+            Center(
+              child: Image.network(book.thumbnail!.url!),
+            ),
+            const SizedBox(height: 32),
+          ],
+          if (book.summary != null) ...[
+            const Center(
+              child: Text(
+                'BOOK DESCRIPTION',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            book.summary ?? '',
-            style: TextStyle(color: Colors.grey.shade600, height: 1.24),
-          ),
+            const SizedBox(height: 12),
+            Text(
+              book.summary ?? '',
+              style: TextStyle(color: Colors.grey.shade600, height: 1.24),
+            ),
+          ]
         ],
       ),
     );

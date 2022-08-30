@@ -94,6 +94,9 @@ class MainActivity : AppCompatActivity() {
                 book.summary = volumeInfoJson.get("description").asString
                 book.publishDate = volumeInfoJson.get("publishedDate").asString
                 book.pageCount = volumeInfoJson.get("pageCount").asLong
+                val thumbnail = Api.Thumbnail()
+                thumbnail.url = volumeInfoJson.getAsJsonObject("imageLinks").get("thumbnail").asString
+                book.thumbnail = thumbnail
                 books.add(book)
             } catch (e: Exception) {
                 println("Failed to parse book:")
