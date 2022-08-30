@@ -18,8 +18,7 @@ declare -ar PROJECT_NAMES=(
     "animations"
     # TODO(domesticmouse): re-enable when stable increments
     # "desktop_photo_search/fluent_ui"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "desktop_photo_search/material"
+    "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     # TODO(domesticmouse): re-enable when stable increments
     # "experimental/web_dashboard"
