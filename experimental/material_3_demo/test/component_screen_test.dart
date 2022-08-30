@@ -23,9 +23,8 @@ void main() {
     // Elements on the component screen
     // Buttons
     expect(find.widgetWithText(ElevatedButton, 'Elevated'), findsNWidgets(2));
-    expect(find.widgetWithText(ElevatedButton, 'Filled'), findsNWidgets(2));
-    expect(
-        find.widgetWithText(ElevatedButton, 'Filled Tonal'), findsNWidgets(2));
+    expect(find.widgetWithText(FilledButton, 'Filled'), findsNWidgets(2));
+    expect(find.widgetWithText(FilledButton, 'Filled Tonal'), findsNWidgets(2));
     expect(find.widgetWithText(OutlinedButton, 'Outlined'), findsNWidgets(2));
     expect(find.widgetWithText(TextButton, 'Text'), findsNWidgets(2));
     expect(find.text('Icon'), findsNWidgets(5));
