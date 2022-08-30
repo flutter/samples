@@ -16,8 +16,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "desktop_photo_search/fluent_ui"
+    "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
