@@ -10,10 +10,7 @@ dependencies:
   built_collection: ^5.1.1
   built_value: ^8.3.0
   cupertino_icons: ^1.0.2
-  file_selector: ^0.9.0
-  file_selector_linux: ^0.9.0
-  file_selector_macos: ^0.9.0
-  file_selector_windows: ^0.9.0
+  file_selector: ^0.9.1
   fluent_ui: ^3.11.1
   fluentui_system_icons: ^1.1.168
   flutter:
@@ -24,14 +21,16 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/menubar
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
+      ref: 12decbe0f592e14e03223f6f2c0c7e0e2dbd70a1
   provider: ^6.0.2
   transparent_image: ^2.0.0
   url_launcher: ^6.1.1
   uuid: ^3.0.5
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: 12decbe0f592e14e03223f6f2c0c7e0e2dbd70a1
 
 dev_dependencies:
   async: ^2.8.2
