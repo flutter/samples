@@ -114,8 +114,10 @@ class ButtonsWithoutIcon extends StatelessWidget {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               // Foreground color
+              // ignore: deprecated_member_use
               onPrimary: Theme.of(context).colorScheme.onPrimary,
               // Background color
+              // ignore: deprecated_member_use
               primary: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, isDisabled, "FilledButton"),
@@ -125,8 +127,10 @@ class ButtonsWithoutIcon extends StatelessWidget {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               // Foreground color
+              // ignore: deprecated_member_use
               onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
               // Background color
+              // ignore: deprecated_member_use
               primary: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, isDisabled, "FilledTonalButton"),
@@ -166,8 +170,10 @@ class ButtonsWithIcon extends StatelessWidget {
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               // Foreground color
+              // ignore: deprecated_member_use
               onPrimary: Theme.of(context).colorScheme.onPrimary,
               // Background color
+              // ignore: deprecated_member_use
               primary: Theme.of(context).colorScheme.primary,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed: handlePressed(context, false, "FilledButton with Icon"),
@@ -178,8 +184,10 @@ class ButtonsWithIcon extends StatelessWidget {
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               // Foreground color
+              // ignore: deprecated_member_use
               onPrimary: Theme.of(context).colorScheme.onSecondaryContainer,
               // Background color
+              // ignore: deprecated_member_use
               primary: Theme.of(context).colorScheme.secondaryContainer,
             ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
             onPressed:
