@@ -46,10 +46,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "simplistic_editor"
-    # TODO(domesticmouse): re-enable when stable increments
-    # "testing_app"
+    "simplistic_editor"
+    "testing_app"
     "veggieseasons"
 )
 
