@@ -34,7 +34,10 @@ class _HomePageState extends State<HomePage> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
-            style: TextButton.styleFrom(primary: Colors.white),
+            style: TextButton.styleFrom(
+              // ignore: deprecated_member_use
+              primary: Colors.white,
+            ),
             onPressed: () => _handleSignOut(),
             child: const Text('Sign Out'),
           ),
