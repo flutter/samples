@@ -118,21 +118,12 @@ class ButtonsWithoutIcon extends StatelessWidget {
             child: const Text('Elevated'),
           ),
           colDivider,
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
-              backgroundColor: Theme.of(context).colorScheme.primary,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+          FilledButton(
             onPressed: handlePressed(context, isDisabled, 'FilledButton'),
             child: const Text('Filled'),
           ),
           colDivider,
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              foregroundColor:
-                  Theme.of(context).colorScheme.onSecondaryContainer,
-              backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+          FilledButton.tonal(
             onPressed: handlePressed(context, isDisabled, 'FilledTonalButton'),
             child: const Text('Filled Tonal'),
           ),
@@ -167,22 +158,13 @@ class ButtonsWithIcon extends StatelessWidget {
             label: const Text('Icon'),
           ),
           colDivider,
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
-              backgroundColor: Theme.of(context).colorScheme.primary,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+          FilledButton.icon(
             onPressed: handlePressed(context, false, 'FilledButton with Icon'),
             label: const Text('Icon'),
             icon: const Icon(Icons.add),
           ),
           colDivider,
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              foregroundColor:
-                  Theme.of(context).colorScheme.onSecondaryContainer,
-              backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-            ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+          FilledButton.tonalIcon(
             onPressed:
                 handlePressed(context, false, 'FilledTonalButton with Icon'),
             label: const Text('Icon'),
