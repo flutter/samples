@@ -3,7 +3,12 @@ name: Verify web demos
 # Declare default permissions as read only.
 permissions: read-all
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   verify-web-demos:
     runs-on: ubuntu-latest
@@ -15,11 +20,11 @@ jobs:
           - beta
     steps:
       - name: Checkout
-        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
         with:
           submodules: true
           fetch-depth: 0
-      - uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
+      - uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
         with:
           channel: ${{ matrix.flutter_version }}
       - name: Init scripts
