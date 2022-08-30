@@ -212,13 +212,13 @@ class BookForm extends StatelessWidget {
           ),
           const Divider(),
           const SizedBox(height: 32),
-          if (book.thumbnail?.url != null) ... [
+          if (book.thumbnail?.url != null) ...[
             Center(
               child: Image.network(book.thumbnail!.url!),
             ),
             const SizedBox(height: 32),
           ],
-          if (book.summary != null) ... [
+          if (book.summary != null) ...[
             const Center(
               child: Text(
                 'BOOK DESCRIPTION',
