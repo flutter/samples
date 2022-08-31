@@ -26,18 +26,18 @@ declare -ar PROJECT_NAMES=(
     # TODO(domesticmouse): headline5 deprecated
     # "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
-    # Needs a reformat to work on master
+    # TODO(domesticmouse): Needs a reformat to work on master
     # "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
-    # bodyText1 is deprecated
+    # TODO(domesticmouse): bodyText1 is deprecated
     # "form_app"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "game_template"
     # TODO(domesticmouse): headline6 is deprecated
     # "infinite_list"
     "ios_app_clip"
-    # headline6 is deprecated
+    # TODO(domesticmouse): headline6 is deprecated
     # "isolate_example"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "jsonexample"
@@ -46,9 +46,9 @@ declare -ar PROJECT_NAMES=(
     # "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
-    # subtitle1 is deprecated
+    # TODO(domesticmouse): subtitle1 is deprecated
     # "place_tracker"
-    # headline5 is deprecated
+    # TODO(domesticmouse): headline5 is deprecated
     # "platform_channels"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "platform_design"
@@ -56,8 +56,9 @@ declare -ar PROJECT_NAMES=(
     # "platform_view_swift"
     # TODO(domesticmouse): headline4 is deprecated
     # "provider_counter"
-    "provider_shopper"
-    #  Missing concrete implementation of 'TextInputClient.performSelector'
+    # TODO(domesticmouse): headline1 is deprecated
+    # "provider_shopper"
+    # TODO(domesticmouse): Missing concrete implementation of 'TextInputClient.performSelector'
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"
