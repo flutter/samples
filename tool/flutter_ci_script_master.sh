@@ -48,7 +48,8 @@ declare -ar PROJECT_NAMES=(
     "null_safety/null_unsafe_app"
     # subtitle1 is deprecated
     # "place_tracker"
-    "platform_channels"
+    # headline5 is deprecated
+    # "platform_channels"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "platform_design"
     # TODO(domesticmouse): subtitle2 is deprecated
