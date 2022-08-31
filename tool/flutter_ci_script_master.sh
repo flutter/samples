@@ -30,7 +30,8 @@ declare -ar PROJECT_NAMES=(
     # "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
-    "form_app"
+    # bodyText1 is deprecated
+    # "form_app"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "game_template"
     # TODO(domesticmouse): headline6 is deprecated
