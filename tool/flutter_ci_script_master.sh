@@ -46,7 +46,8 @@ declare -ar PROJECT_NAMES=(
     # "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
-    "place_tracker"
+    # subtitle1 is deprecated
+    # "place_tracker"
     "platform_channels"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "platform_design"
