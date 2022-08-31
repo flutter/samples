@@ -30,7 +30,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
         children: [
           Text(
             'Value of count is $count',
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 16,

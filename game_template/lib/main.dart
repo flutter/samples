@@ -251,7 +251,7 @@ class MyApp extends StatelessWidget {
                 background: palette.backgroundMain,
               ),
               textTheme: TextTheme(
-                bodyText2: TextStyle(
+                bodyMedium: TextStyle(
                   color: palette.ink,
                 ),
               ),

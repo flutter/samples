@@ -142,7 +142,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                             ),
                             Text(
                               'I agree to the terms of service.',
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: Theme.of(context).textTheme.titleMedium,
                             ),
                           ],
                         ),
@@ -151,7 +151,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                             formFieldState.errorText ?? "",
                             style: Theme.of(context)
                                 .textTheme
-                                .caption!
+                                .bodySmall!
                                 .copyWith(color: Theme.of(context).errorColor),
                           ),
                       ],

@@ -18,7 +18,7 @@ class EventChannelDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.headline5;
+    final textStyle = Theme.of(context).textTheme.headlineSmall;
     return Scaffold(
       appBar: AppBar(
         title: const Text('EventChannel Demo'),

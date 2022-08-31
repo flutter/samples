@@ -65,7 +65,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
               constraints: const BoxConstraints(maxWidth: 200),
               child: Text(
                 controller.value.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
                 textScaleFactor: 1 + controller.value,
               ),
             ),

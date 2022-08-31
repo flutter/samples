@@ -179,7 +179,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.headline6;
+    final headerStyle = Theme.of(context).textTheme.titleLarge;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Animation Samples'),

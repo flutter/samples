@@ -75,7 +75,7 @@ class _MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      title: Text('Catalog', style: Theme.of(context).textTheme.headline1),
+      title: Text('Catalog', style: Theme.of(context).textTheme.displayLarge),
       floating: true,
       actions: [
         IconButton(
@@ -99,7 +99,7 @@ class _MyListItem extends StatelessWidget {
       // about any other change.
       (catalog) => catalog.getByPosition(index),
     );
-    var textTheme = Theme.of(context).textTheme.headline6;
+    var textTheme = Theme.of(context).textTheme.titleLarge;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

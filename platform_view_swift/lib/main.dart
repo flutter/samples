@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Button tapped $_counter time${_counter == 1 ? '' : 's'}.',
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   const SizedBox(height: 18),
                   ElevatedButton(
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                 const FlutterLogo(),
                 Text(
                   'Flutter',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),

@@ -24,8 +24,8 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeResponse_0 extends _i1.Fake implements _i2.Response {}
 
-class _FakeStreamedResponse_1 extends _i1.Fake implements _i3.StreamedResponse {
-}
+class _FakeStreamedResponse_1 extends _i1.Fake
+    implements _i3.StreamedResponse {}
 
 /// A class which mocks [Client].
 ///
