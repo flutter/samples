@@ -56,12 +56,13 @@ declare -ar PROJECT_NAMES=(
     # "platform_view_swift"
     # TODO(domesticmouse): headline4 is deprecated
     # "provider_counter"
+    "provider_shopper"
     #  Missing concrete implementation of 'TextInputClient.performSelector'
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )
 
-ci_projects "master" "${PROJECT_NAMES[@]}"
+ci_projects "beta" "${PROJECT_NAMES[@]}"
 
 echo "-- Success --"
