@@ -469,10 +469,7 @@ class _AddPlaceButtonBar extends StatelessWidget {
           alignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: Colors.blue,
-              ),
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.blue),
               onPressed: onSavePressed,
               child: const Text(
                 'Save',
@@ -480,10 +477,7 @@ class _AddPlaceButtonBar extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: Colors.red,
-              ),
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.red),
               onPressed: onCancelPressed,
               child: const Text(
                 'Cancel',
@@ -520,11 +514,10 @@ class _CategoryButtonBar extends StatelessWidget {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: selectedPlaceCategory == PlaceCategory.favorite
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-              ),
+                  foregroundColor:
+                      selectedPlaceCategory == PlaceCategory.favorite
+                          ? Colors.green[700]
+                          : Colors.lightGreen),
               child: const Text(
                 'Favorites',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -533,11 +526,10 @@ class _CategoryButtonBar extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: selectedPlaceCategory == PlaceCategory.visited
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-              ),
+                  foregroundColor:
+                      selectedPlaceCategory == PlaceCategory.visited
+                          ? Colors.green[700]
+                          : Colors.lightGreen),
               child: const Text(
                 'Visited',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -546,11 +538,10 @@ class _CategoryButtonBar extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                // ignore: deprecated_member_use
-                primary: selectedPlaceCategory == PlaceCategory.wantToGo
-                    ? Colors.green[700]
-                    : Colors.lightGreen,
-              ),
+                  foregroundColor:
+                      selectedPlaceCategory == PlaceCategory.wantToGo
+                          ? Colors.green[700]
+                          : Colors.lightGreen),
               child: const Text(
                 'Want To Go',
                 style: TextStyle(color: Colors.white, fontSize: 14.0),
