@@ -37,7 +37,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(domesticmouse): headline6 is deprecated
     # "infinite_list"
     "ios_app_clip"
-    "isolate_example"
+    # headline6 is deprecated
+    # "isolate_example"
     # TODO(domesticmouse): bodyText2 is deprecated
     # "jsonexample"
     "material_3_demo"
