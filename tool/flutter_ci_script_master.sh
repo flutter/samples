@@ -19,7 +19,8 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
-    "experimental/linting_tool"
+    # Needs a reformat to work on master
+    # "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
     "form_app"
