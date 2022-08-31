@@ -63,6 +63,6 @@ declare -ar PROJECT_NAMES=(
     "veggieseasons"
 )
 
-ci_projects "beta" "${PROJECT_NAMES[@]}"
+ci_projects "master" "${PROJECT_NAMES[@]}"
 
 echo "-- Success --"
