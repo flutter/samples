@@ -56,7 +56,8 @@ declare -ar PROJECT_NAMES=(
     # "platform_view_swift"
     # TODO(domesticmouse): headline4 is deprecated
     # "provider_counter"
-    "simplistic_editor"
+    #  Missing concrete implementation of 'TextInputClient.performSelector'
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )
