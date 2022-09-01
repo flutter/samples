@@ -566,7 +566,38 @@ samples:
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
     web: web/material_3_demo
-  
+
+  - name: Material 3 (master version)
+      author: Flutter
+      screenshots:
+        - url: images/material_3_components_master_light.png
+          alt: Components tab of the Material 3 demo in light mode
+        - url: images/material_3_components_master_light.png
+          alt: Components tab of the Material 3 demo in dark mode
+      source: https://github.com/flutter/samples/tree/main/experimental/material_3_demo
+      description: >
+        Showcases Material 3 features in the Flutter Material library, including the features that
+        haven't landed in the Flutter stable channel, such as Chips, IconButtons, TextFields, and so on.
+      difficulty: beginner
+      widgets:
+        - Theme
+        - TextButton
+        - ElevatedButton
+        - OutlinedButton
+        - FilledButton
+        - Text
+        - Card
+        - AppBar
+        - IconButton
+        - Chip
+        - TextField
+      packages: [ ]
+      links: [ ]
+      tags: [ "material", "design" ]
+      platforms: [ "ios", "android", "web", "windows", "macos", "linux" ]
+      type: demo
+      web: web/material_3_demo_master
+
   - name: Game Template
     author: Flutter
     screenshots:
