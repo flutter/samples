@@ -22,14 +22,14 @@ abstract class AppTheme {
           color: AppColors.orange500,
         ),
         selectedLabelTextStyle:
-            GoogleFonts.workSansTextTheme().headline5!.copyWith(
+            GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                   color: AppColors.orange500,
                 ),
         unselectedIconTheme: const IconThemeData(
           color: AppColors.blue200,
         ),
         unselectedLabelTextStyle:
-            GoogleFonts.workSansTextTheme().headline5!.copyWith(
+            GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                   color: AppColors.blue200,
                 ),
       ),
@@ -62,14 +62,14 @@ abstract class AppTheme {
           color: AppColors.orange300,
         ),
         selectedLabelTextStyle:
-            GoogleFonts.workSansTextTheme().headline5!.copyWith(
+            GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                   color: AppColors.orange300,
                 ),
         unselectedIconTheme: const IconThemeData(
           color: AppColors.greyLabel,
         ),
         unselectedLabelTextStyle:
-            GoogleFonts.workSansTextTheme().headline5!.copyWith(
+            GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                   color: AppColors.greyLabel,
                 ),
       ),
@@ -109,56 +109,56 @@ abstract class AppTheme {
       secondarySelectedColor: chipBackground,
       padding: const EdgeInsets.all(4),
       shape: const StadiumBorder(),
-      labelStyle: GoogleFonts.workSansTextTheme().bodyText2!.copyWith(
+      labelStyle: GoogleFonts.workSansTextTheme().bodyMedium!.copyWith(
             color: brightness == Brightness.dark
                 ? AppColors.white50
                 : AppColors.black900,
           ),
-      secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyText2!,
+      secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyMedium!,
       brightness: brightness,
     );
   }
 
   static TextTheme _buildReplyLightTextTheme(TextTheme base) {
     return base.copyWith(
-      headline4: GoogleFonts.workSans(
+      headlineMedium: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 34,
         letterSpacing: 0.4,
         height: 0.9,
         color: AppColors.black900,
       ),
-      headline5: GoogleFonts.workSans(
+      headlineSmall: GoogleFonts.workSans(
         fontWeight: FontWeight.bold,
         fontSize: 24,
         letterSpacing: 0.27,
         color: AppColors.black900,
       ),
-      headline6: GoogleFonts.workSans(
+      titleLarge: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 20,
         letterSpacing: 0.18,
         color: AppColors.black900,
       ),
-      subtitle2: GoogleFonts.workSans(
+      titleSmall: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 14,
         letterSpacing: -0.04,
         color: AppColors.black900,
       ),
-      bodyText1: GoogleFonts.workSans(
+      bodyLarge: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 18,
         letterSpacing: 0.2,
         color: AppColors.black900,
       ),
-      bodyText2: GoogleFonts.workSans(
+      bodyMedium: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 14,
         letterSpacing: -0.05,
         color: AppColors.black900,
       ),
-      caption: GoogleFonts.workSans(
+      bodySmall: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 12,
         letterSpacing: 0.2,
@@ -169,44 +169,44 @@ abstract class AppTheme {
 
   static TextTheme _buildReplyDarkTextTheme(TextTheme base) {
     return base.copyWith(
-      headline4: GoogleFonts.workSans(
+      headlineMedium: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 34,
         letterSpacing: 0.4,
         height: 0.9,
         color: AppColors.white50,
       ),
-      headline5: GoogleFonts.workSans(
+      headlineSmall: GoogleFonts.workSans(
         fontWeight: FontWeight.bold,
         fontSize: 24,
         letterSpacing: 0.27,
         color: AppColors.white50,
       ),
-      headline6: GoogleFonts.workSans(
+      titleLarge: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 20,
         letterSpacing: 0.18,
         color: AppColors.white50,
       ),
-      subtitle2: GoogleFonts.workSans(
+      titleSmall: GoogleFonts.workSans(
         fontWeight: FontWeight.w600,
         fontSize: 14,
         letterSpacing: -0.04,
         color: AppColors.white50,
       ),
-      bodyText1: GoogleFonts.workSans(
+      bodyLarge: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 18,
         letterSpacing: 0.2,
         color: AppColors.white50,
       ),
-      bodyText2: GoogleFonts.workSans(
+      bodyMedium: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 14,
         letterSpacing: -0.05,
         color: AppColors.white50,
       ),
-      caption: GoogleFonts.workSans(
+      bodySmall: GoogleFonts.workSans(
         fontWeight: FontWeight.normal,
         fontSize: 12,
         letterSpacing: 0.2,
@@ -218,8 +218,8 @@ abstract class AppTheme {
   static MarkdownStyleSheet buildMarkDownTheme(ThemeData theme) {
     final textTheme = theme.textTheme;
     return MarkdownStyleSheet.largeFromTheme(theme).copyWith(
-      strong: textTheme.subtitle2!,
-      em: textTheme.bodyText2!.copyWith(
+      strong: textTheme.titleSmall!,
+      em: textTheme.bodyMedium!.copyWith(
         fontWeight: FontWeight.w900,
         fontStyle: FontStyle.italic,
       ),

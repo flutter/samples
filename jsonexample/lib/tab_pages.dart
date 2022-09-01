@@ -41,7 +41,7 @@ class BasicsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final localTheme = Theme.of(context).textTheme;
     final boldStyle =
-        localTheme.bodyText2!.copyWith(fontWeight: FontWeight.w600);
+        localTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600);
 
     final dynamicListOfInts = json.decode(JsonStrings.listOfInts) as List;
     final strongListOfInts = List<int>.from(dynamicListOfInts);
@@ -76,7 +76,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfInts),
-                  style: localTheme.bodyText2,
+                  style: localTheme.bodyMedium,
                 ),
               ],
             ),
@@ -88,7 +88,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfStrings),
-                  style: localTheme.bodyText2,
+                  style: localTheme.bodyMedium,
                 ),
               ],
             ),
@@ -100,7 +100,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfDoubles),
-                  style: localTheme.bodyText2,
+                  style: localTheme.bodyMedium,
                 ),
               ],
             ),
@@ -112,7 +112,7 @@ class BasicsPage extends StatelessWidget {
                 ),
                 Text(
                   prettyPrintList(strongListOfDynamics),
-                  style: localTheme.bodyText2,
+                  style: localTheme.bodyMedium,
                 ),
               ],
             ),
@@ -136,7 +136,7 @@ class BasicsPage extends StatelessWidget {
             },
             children: createMapRows(
               strongMapOfDynamics,
-              localTheme.bodyText2!,
+              localTheme.bodyMedium!,
               boldStyle,
             ),
           ),

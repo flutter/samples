@@ -83,7 +83,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                               children: [
                                 Text(
                                   'Estimated value',
-                                  style: Theme.of(context).textTheme.bodyText1,
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
                               ],
                             ),
@@ -91,7 +91,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                               intl.NumberFormat.currency(
                                       symbol: "\$", decimalDigits: 0)
                                   .format(maxValue),
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: Theme.of(context).textTheme.titleMedium,
                             ),
                             Slider(
                               min: 0,
@@ -119,7 +119,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                               },
                             ),
                             Text('Brushed Teeth',
-                                style: Theme.of(context).textTheme.subtitle1),
+                                style: Theme.of(context).textTheme.titleMedium),
                           ],
                         ),
                         Row(
@@ -127,7 +127,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text('Enable feature',
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                             Switch(
                               value: enableFeature,
                               onChanged: (enabled) {
@@ -184,11 +184,11 @@ class _FormDatePickerState extends State<_FormDatePicker> {
           children: [
             Text(
               'Date',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
               intl.DateFormat.yMd().format(widget.date),
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
         ),

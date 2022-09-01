@@ -96,8 +96,8 @@ class _NavViewState extends State<_NavView> {
       appBar: AppBar(
         title: Text(
           'Flutter Linting Tool',
-          style: textTheme.subtitle2!.copyWith(
-            color: textTheme.bodyText1!.color,
+          style: textTheme.titleSmall!.copyWith(
+            color: textTheme.bodyLarge!.color,
           ),
         ),
         toolbarHeight: 38.0,
@@ -218,7 +218,7 @@ class _NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'Linting Tool',
-                                style: textTheme.bodyText1!.copyWith(
+                                style: textTheme.bodyLarge!.copyWith(
                                   color: AppColors.white50,
                                 ),
                               ),
@@ -298,7 +298,7 @@ class _NavigationRailTrailingSection extends StatelessWidget {
                                 const SizedBox(width: 24),
                                 Text(
                                   item,
-                                  style: textTheme.bodyText1!.copyWith(
+                                  style: textTheme.bodyLarge!.copyWith(
                                     color: navigationRailTheme
                                         .unselectedLabelTextStyle!.color,
                                   ),

@@ -41,8 +41,8 @@ class RulesPage extends StatelessWidget {
               .read<ProfilesStore>()
               .savedProfiles[selectedProfileIndex]
               .name,
-          style: textTheme.subtitle2!.copyWith(
-            color: textTheme.bodyText1!.color,
+          style: textTheme.titleSmall!.copyWith(
+            color: textTheme.bodyLarge!.color,
           ),
         ),
         leading: Padding(
