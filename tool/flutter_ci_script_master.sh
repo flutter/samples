@@ -23,7 +23,8 @@ declare -ar PROJECT_NAMES=(
     # "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
-    "form_app"
+    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used. 
+    # "form_app"
     "game_template"
     "infinite_list"
     "ios_app_clip"
