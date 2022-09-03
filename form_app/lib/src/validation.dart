@@ -152,7 +152,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodySmall!
-                                .copyWith(color: Theme.of(context).errorColor),
+                                .copyWith(color: Theme.of(context).colorScheme.error),
                           ),
                       ],
                     );
