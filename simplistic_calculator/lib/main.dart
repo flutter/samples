@@ -473,6 +473,8 @@ class CalcButton extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.all(4),
         child: buttonConstructor(
+          autofocus: false,
+          clipBehavior: Clip.none,
           onPressed: () => op(ref.read(calculatorStateProvider.notifier)),
           child: AutoSizeText(
             label,
