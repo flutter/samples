@@ -500,9 +500,9 @@ class Switches extends StatelessWidget {
 }
 
 class SwitchRow extends StatefulWidget {
-  final bool isEnabled;
-
   const SwitchRow({super.key, required this.isEnabled});
+
+  final bool isEnabled;
 
   @override
   State<SwitchRow> createState() => _SwitchRowState();
@@ -561,9 +561,9 @@ class Checkboxes extends StatelessWidget {
 }
 
 class CheckboxRow extends StatefulWidget {
-  final bool isError;
-
   const CheckboxRow({super.key, required this.isError});
+
+  final bool isError;
 
   @override
   State<CheckboxRow> createState() => _CheckboxRowState();
