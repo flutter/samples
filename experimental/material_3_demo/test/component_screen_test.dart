@@ -55,6 +55,14 @@ void main() {
     // Alert Dialog
     Finder dialogExample = find.widgetWithText(TextButton, 'Open Dialog');
     expect(dialogExample, findsOneWidget);
+
+    // Switches
+    Finder switchExample = find.byType(Switch);
+    expect(switchExample, findsNWidgets(4));
+
+    // Checkboxes
+    Finder checkboxExample = find.byType(Checkbox);
+    expect(checkboxExample, findsNWidgets(8));
   });
 
   testWidgets(
