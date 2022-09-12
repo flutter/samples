@@ -512,7 +512,8 @@ class _SwitchRowState extends State<SwitchRow> {
   bool value0 = false;
   bool value1 = true;
 
-  final MaterialStateProperty<Icon?> thumbIcon = MaterialStateProperty.resolveWith<Icon?>((states) {
+  final MaterialStateProperty<Icon?> thumbIcon =
+      MaterialStateProperty.resolveWith<Icon?>((states) {
     if (states.contains(MaterialState.selected)) {
       return const Icon(Icons.check);
     }
@@ -526,20 +527,24 @@ class _SwitchRowState extends State<SwitchRow> {
       children: <Widget>[
         Switch(
           value: value0,
-          onChanged: widget.isEnabled ? (value) {
-            setState(() {
-              value0 = value;
-            });
-          } : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value0 = value;
+                  });
+                }
+              : null,
         ),
         Switch(
           thumbIcon: thumbIcon,
           value: value1,
-          onChanged: widget.isEnabled ? (value) {
-            setState(() {
-              value1 = value;
-            });
-          } : null,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value1 = value;
+                  });
+                }
+              : null,
         ),
       ],
     );
@@ -553,8 +558,12 @@ class Checkboxes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const <Widget>[
-        CheckboxRow(isError: false,),
-        CheckboxRow(isError: true,)
+        CheckboxRow(
+          isError: false,
+        ),
+        CheckboxRow(
+          isError: true,
+        )
       ],
     );
   }
@@ -619,7 +628,6 @@ class _CheckboxRowState extends State<CheckboxRow> {
     );
   }
 }
-
 
 const List<NavigationDestination> appBarDestinations = [
   NavigationDestination(
