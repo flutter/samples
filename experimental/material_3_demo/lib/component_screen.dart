@@ -38,6 +38,10 @@ class ComponentScreen extends StatelessWidget {
                 colDivider,
                 const Dialogs(),
                 colDivider,
+                const Switches(),
+                colDivider,
+                const Checkboxes(),
+                colDivider,
                 showNavBottomBar
                     ? const NavigationBars(
                         selectedIndex: 0,
@@ -477,6 +481,150 @@ class _DialogsState extends State<Dialogs> {
         ),
         onPressed: () => openDialog(context),
       ),
+    );
+  }
+}
+
+class Switches extends StatelessWidget {
+  const Switches({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const <Widget>[
+        SwitchRow(isEnabled: true),
+        SwitchRow(isEnabled: false),
+      ],
+    );
+  }
+}
+
+class SwitchRow extends StatefulWidget {
+  const SwitchRow({super.key, required this.isEnabled});
+
+  final bool isEnabled;
+
+  @override
+  State<SwitchRow> createState() => _SwitchRowState();
+}
+
+class _SwitchRowState extends State<SwitchRow> {
+  bool value0 = false;
+  bool value1 = true;
+
+  final MaterialStateProperty<Icon?> thumbIcon =
+      MaterialStateProperty.resolveWith<Icon?>((states) {
+    if (states.contains(MaterialState.selected)) {
+      return const Icon(Icons.check);
+    }
+    return const Icon(Icons.close);
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Switch(
+          value: value0,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value0 = value;
+                  });
+                }
+              : null,
+        ),
+        Switch(
+          thumbIcon: thumbIcon,
+          value: value1,
+          onChanged: widget.isEnabled
+              ? (value) {
+                  setState(() {
+                    value1 = value;
+                  });
+                }
+              : null,
+        ),
+      ],
+    );
+  }
+}
+
+class Checkboxes extends StatelessWidget {
+  const Checkboxes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const <Widget>[
+        CheckboxRow(
+          isError: false,
+        ),
+        CheckboxRow(
+          isError: true,
+        )
+      ],
+    );
+  }
+}
+
+class CheckboxRow extends StatefulWidget {
+  const CheckboxRow({super.key, required this.isError});
+
+  final bool isError;
+
+  @override
+  State<CheckboxRow> createState() => _CheckboxRowState();
+}
+
+class _CheckboxRowState extends State<CheckboxRow> {
+  bool? isChecked0 = true;
+  bool? isChecked1;
+  bool? isChecked2 = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Checkbox(
+          isError: widget.isError,
+          tristate: true,
+          value: isChecked0,
+          onChanged: (value) {
+            setState(() {
+              isChecked0 = value;
+            });
+          },
+        ),
+        Checkbox(
+          isError: widget.isError,
+          tristate: true,
+          value: isChecked1,
+          onChanged: (value) {
+            setState(() {
+              isChecked1 = value;
+            });
+          },
+        ),
+        Checkbox(
+          isError: widget.isError,
+          tristate: true,
+          value: isChecked2,
+          onChanged: (value) {
+            setState(() {
+              isChecked2 = value;
+            });
+          },
+        ),
+        Checkbox(
+          isError: widget.isError,
+          tristate: true,
+          value: true,
+          onChanged: null,
+        ),
+      ],
     );
   }
 }
