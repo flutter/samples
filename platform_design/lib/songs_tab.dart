@@ -99,7 +99,7 @@ class _SongsTabState extends State<SongsTab> {
   // ===========================================================================
   // Non-shared code below because:
   // - Android and iOS have different scaffolds
-  // - There are differenc items in the app bar / nav bar
+  // - There are different items in the app bar / nav bar
   // - Android has a hamburger drawer, iOS has bottom tabs
   // - The iOS nav bar is scrollable, Android is not
   // - Pull-to-refresh works differently, and Android has a button to trigger it too
