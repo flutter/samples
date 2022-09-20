@@ -51,6 +51,10 @@ class Library {
     allBooks.add(book);
   }
 
+  Book getBook(String id) {
+    return allBooks[int.parse(id)];
+  }
+
   List<Book> get popularBooks => [
         ...allBooks.where((book) => book.isPopular),
       ];

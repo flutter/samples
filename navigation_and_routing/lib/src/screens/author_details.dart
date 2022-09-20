@@ -5,15 +5,16 @@
 import 'package:flutter/material.dart';
 
 import '../data.dart';
-import '../routing.dart';
 import '../widgets/book_list.dart';
 
 class AuthorDetailsScreen extends StatelessWidget {
   final Author author;
+  final ValueChanged<Book> onBookTapped;
 
   const AuthorDetailsScreen({
     super.key,
     required this.author,
+    required this.onBookTapped,
   });
 
   @override
@@ -28,7 +29,7 @@ class AuthorDetailsScreen extends StatelessWidget {
                 child: BookList(
                   books: author.books,
                   onTap: (book) {
-                    RouteStateScope.of(context).go('/book/${book.id}');
+                    onBookTapped(book);
                   },
                 ),
               ),

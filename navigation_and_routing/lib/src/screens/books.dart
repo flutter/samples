@@ -3,13 +3,15 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-import '../data.dart';
-import '../routing.dart';
-import '../widgets/book_list.dart';
+import 'package:go_router/go_router.dart';
 
 class BooksScreen extends StatefulWidget {
+  final Widget child;
+  final ValueChanged<int> onTap;
+
   const BooksScreen({
+    required this.child,
+    required this.onTap,
     super.key,
   });
 
@@ -29,84 +31,49 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final newPath = _routeState.route.pathTemplate;
-    if (newPath.startsWith('/books/popular')) {
-      _tabController.index = 0;
-    } else if (newPath.startsWith('/books/new')) {
-      _tabController.index = 1;
-    } else if (newPath == '/books/all') {
-      _tabController.index = 2;
-    }
-  }
-
-  @override
   void dispose() {
     _tabController.removeListener(_handleTabIndexChanged);
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Books'),
-          bottom: TabBar(
-            controller: _tabController,
-            tabs: const [
-              Tab(
-                text: 'Popular',
-                icon: Icon(Icons.people),
-              ),
-              Tab(
-                text: 'New',
-                icon: Icon(Icons.new_releases),
-              ),
-              Tab(
-                text: 'All',
-                icon: Icon(Icons.list),
-              ),
-            ],
-          ),
-        ),
-        body: TabBarView(
+  Widget build(BuildContext context) {
+    _tabController.index = _getSelectedIndex(GoRouter.of(context).location);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Books'),
+        bottom: TabBar(
           controller: _tabController,
-          children: [
-            BookList(
-              books: libraryInstance.popularBooks,
-              onTap: _handleBookTapped,
+          tabs: const [
+            Tab(
+              text: 'Popular',
+              icon: Icon(Icons.people),
             ),
-            BookList(
-              books: libraryInstance.newBooks,
-              onTap: _handleBookTapped,
+            Tab(
+              text: 'New',
+              icon: Icon(Icons.new_releases),
             ),
-            BookList(
-              books: libraryInstance.allBooks,
-              onTap: _handleBookTapped,
+            Tab(
+              text: 'All',
+              icon: Icon(Icons.list),
             ),
           ],
         ),
-      );
-
-  RouteState get _routeState => RouteStateScope.of(context);
-
-  void _handleBookTapped(Book book) {
-    _routeState.go('/book/${book.id}');
+      ),
+      body: widget.child,
+    );
   }
 
   void _handleTabIndexChanged() {
-    switch (_tabController.index) {
-      case 1:
-        _routeState.go('/books/new');
-        break;
-      case 2:
-        _routeState.go('/books/all');
-        break;
-      case 0:
-      default:
-        _routeState.go('/books/popular');
-        break;
+    if (_tabController.index != _getSelectedIndex(GoRouter.of(context).location)) {
+      widget.onTap(_tabController.index);
     }
+  }
+
+  int _getSelectedIndex(String pathTemplate) {
+    if (pathTemplate.startsWith('/books/popular')) return 0;
+    if (pathTemplate.startsWith('/books/new')) return 1;
+    if (pathTemplate.startsWith('/books/all')) return 2;
+    return 0;
   }
 }

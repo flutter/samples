@@ -4,14 +4,18 @@
 
 import 'package:flutter/material.dart';
 
+import '../data/author.dart';
 import '../data/library.dart';
-import '../routing.dart';
 import '../widgets/author_list.dart';
 
 class AuthorsScreen extends StatelessWidget {
   final String title = 'Authors';
+  ValueChanged<Author> onTap;
 
-  const AuthorsScreen({super.key});
+  AuthorsScreen({
+    required this.onTap,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -20,9 +24,7 @@ class AuthorsScreen extends StatelessWidget {
         ),
         body: AuthorList(
           authors: libraryInstance.allAuthors,
-          onTap: (author) {
-            RouteStateScope.of(context).go('/author/${author.id}');
-          },
+          onTap: onTap,
         ),
       );
 }

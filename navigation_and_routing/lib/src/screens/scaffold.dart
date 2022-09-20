@@ -4,28 +4,29 @@
 
 import 'package:adaptive_navigation/adaptive_navigation.dart';
 import 'package:flutter/material.dart';
-
-import '../routing.dart';
-import 'scaffold_body.dart';
+import 'package:go_router/go_router.dart';
 
 class BookstoreScaffold extends StatelessWidget {
+  final Widget child;
+
   const BookstoreScaffold({
+    required this.child,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final routeState = RouteStateScope.of(context);
-    final selectedIndex = _getSelectedIndex(routeState.route.pathTemplate);
+    final goRouter = GoRouter.of(context);
+    final selectedIndex = _getSelectedIndex(goRouter.location);
 
     return Scaffold(
       body: AdaptiveNavigationScaffold(
         selectedIndex: selectedIndex,
-        body: const BookstoreScaffoldBody(),
+        body: child,
         onDestinationSelected: (idx) {
-          if (idx == 0) routeState.go('/books/popular');
-          if (idx == 1) routeState.go('/authors');
-          if (idx == 2) routeState.go('/settings');
+          if (idx == 0) goRouter.go('/books/popular');
+          if (idx == 1) goRouter.go('/authors');
+          if (idx == 2) goRouter.go('/settings');
         },
         destinations: const [
           AdaptiveScaffoldDestination(
