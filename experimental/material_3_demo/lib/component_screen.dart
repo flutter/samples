@@ -42,6 +42,10 @@ class ComponentScreen extends StatelessWidget {
                 colDivider,
                 const Checkboxes(),
                 colDivider,
+                const Radios(),
+                colDivider,
+                const ProgressIndicators(),
+                colDivider,
                 showNavBottomBar
                     ? const NavigationBars(
                         selectedIndex: 0,
@@ -624,6 +628,105 @@ class _CheckboxRowState extends State<CheckboxRow> {
           value: true,
           onChanged: null,
         ),
+      ],
+    );
+  }
+}
+
+enum Value { first, second }
+
+class Radios extends StatefulWidget {
+  const Radios({super.key});
+
+  @override
+  State<Radios> createState() => _RadiosState();
+}
+
+class _RadiosState extends State<Radios> {
+  Value? _value = Value.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Radio<Value>(
+          value: Value.first,
+          groupValue: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+        Radio<Value>(
+          value: Value.second,
+          groupValue: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class ProgressIndicators extends StatefulWidget {
+  const ProgressIndicators({super.key});
+
+  @override
+  State<ProgressIndicators> createState() => _ProgressIndicatorsState();
+}
+
+class _ProgressIndicatorsState extends State<ProgressIndicators> {
+  bool showCircularProgressIndicator = false;
+  bool showLinearProgressIndicator = false;
+
+  Text buttonText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        TextButton(
+          onPressed: () {
+            setState(() {
+              showCircularProgressIndicator = !showCircularProgressIndicator;
+            });
+          },
+          child: showCircularProgressIndicator
+              ? buttonText('Hide circular progress indicator')
+              : buttonText('Show circular progress indicator'),
+        ),
+        showCircularProgressIndicator
+            ? const CircularProgressIndicator(
+                value: null,
+              )
+            : Container(),
+        colDivider,
+        TextButton(
+          onPressed: () {
+            setState(() {
+              showLinearProgressIndicator = !showLinearProgressIndicator;
+            });
+          },
+          child: showLinearProgressIndicator
+              ? buttonText('Hide linear progress indicator')
+              : buttonText('Show linear progress indicator'),
+        ),
+        colDivider,
+        showLinearProgressIndicator
+            ? const LinearProgressIndicator(
+                value: null,
+              )
+            : Container(),
       ],
     );
   }
