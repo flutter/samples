@@ -11,7 +11,7 @@ dependencies:
   built_value: ^8.3.0
   cupertino_icons: ^1.0.2
   file_selector: ^0.9.1
-  fluent_ui: ^3.11.1
+  fluent_ui: ^4.0.0
   fluentui_system_icons: ^1.1.168
   flutter:
     sdk: flutter
