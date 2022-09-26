@@ -19,7 +19,8 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
-    "experimental/linting_tool"
+#     TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
+#     "experimental/linting_tool"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
