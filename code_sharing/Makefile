@@ -1,0 +1,22 @@
+# LOCAL / DOCKER
+run-server:
+	# Depends on `make build`
+	docker-compose up -d
+
+stop-server:
+	docker-compose stop
+
+# Flutter
+flutter-local:
+	cd client && flutter run -d macos
+
+test:
+	(cd shared && dart test)
+	(cd server && dart test)
+	(cd client && flutter test)
+
+# Docker
+build:
+	(cd server && flutter pub get)
+	docker build ./server -t codesharingserver -f server/Dockerfile
+
