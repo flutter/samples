@@ -681,8 +681,7 @@ class ProgressIndicators extends StatefulWidget {
 }
 
 class _ProgressIndicatorsState extends State<ProgressIndicators> {
-  bool playCircularProgressIndicator = false;
-  bool playLinearProgressIndicator = false;
+  bool playProgressIndicator = false;
 
   @override
   Widget build(BuildContext context) {
@@ -691,52 +690,49 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
         Row(
           children: [
             IconButton(
-              isSelected: playCircularProgressIndicator,
+              isSelected: playProgressIndicator,
               selectedIcon: const Icon(Icons.pause),
               icon: const Icon(Icons.play_arrow),
               onPressed: () {
                 setState(() {
-                  playCircularProgressIndicator =
-                      !playCircularProgressIndicator;
+                  playProgressIndicator = !playProgressIndicator;
                 });
               },
             ),
-            Expanded(
-              flex: 10,
-              child: Center(
-                child: playCircularProgressIndicator
-                    ? const CircularProgressIndicator(
-                        value: null,
-                      )
-                    : const CircularProgressIndicator(
-                        value: 0.7,
-                      ),
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-        Row(
-          children: [
-            IconButton(
-              isSelected: playLinearProgressIndicator,
-              selectedIcon: const Icon(Icons.pause),
-              icon: const Icon(Icons.play_arrow),
-              onPressed: () {
-                setState(() {
-                  playLinearProgressIndicator = !playLinearProgressIndicator;
-                });
-              },
-            ),
-            Expanded(
-              child: playLinearProgressIndicator
-                  ? const LinearProgressIndicator(
-                      value: null,
-                    )
-                  : const LinearProgressIndicator(
-                      value: 0.7,
+            playProgressIndicator
+                ? Expanded(
+                    child: Row(
+                      children: const <Widget>[
+                        CircularProgressIndicator(
+                          value: null,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: LinearProgressIndicator(
+                            value: null,
+                          ),
+                        )
+                      ],
                     ),
-            ),
+                  )
+                : Expanded(
+                    child: Row(
+                      children: const <Widget>[
+                        CircularProgressIndicator(
+                          value: 0.7,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                            child: LinearProgressIndicator(
+                          value: 0.7,
+                        ))
+                      ],
+                    ),
+                  ),
           ],
         ),
       ],
