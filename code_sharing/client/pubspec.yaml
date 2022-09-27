@@ -1,5 +1,5 @@
 name: client
-description: A new Flutter project.
+description: A Flutter app which communicates with a Dart backend using shared business logic.
 publish_to: "none"
 version: 1.0.0+1
 
