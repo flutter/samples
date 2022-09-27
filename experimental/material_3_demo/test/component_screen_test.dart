@@ -63,6 +63,16 @@ void main() {
     // Checkboxes
     Finder checkboxExample = find.byType(Checkbox);
     expect(checkboxExample, findsNWidgets(8));
+
+    // Radios
+    Finder radioExample = find.byType(Radio<Value>);
+    expect(radioExample, findsNWidgets(2));
+
+    // ProgressIndicator
+    Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
+    expect(circularProgressIndicator, findsOneWidget);
+    Finder linearProgressIndicator = find.byType(LinearProgressIndicator);
+    expect(linearProgressIndicator, findsOneWidget);
   });
 
   testWidgets(
