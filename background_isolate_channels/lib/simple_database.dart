@@ -119,24 +119,31 @@ class SimpleDatabase {
   /// Handler invoked when a message is received from the port communicating
   /// with the database server.
   void _handleCommand(_Command command) {
-    if (command.code == _Codes.init) {
-      _sendPort = command.arg0 as SendPort;
-      _completers.removeLast().complete();
-      // ----------------------------------------------------------------------
-      // Before using platform channels and plugins from background isolates we
-      // need to register it with its root isolate. This is achieved by
-      // acquiring a [RootIsolateToken] which the background isolate uses to
-      // invoke [BackgroundIsolateBinaryMessenger.ensureInitialized].
-      // ----------------------------------------------------------------------
-      RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
-      _sendPort
-          .send(_Command(_Codes.init, arg0: _path, arg1: rootIsolateToken));
-    } else if (command.code == _Codes.ack) {
-      _completers.removeLast().complete();
-    } else if (command.code == _Codes.result) {
-      _resultsStream.last.add(command.arg0 as String);
-    } else if (command.code == _Codes.done) {
-      _resultsStream.removeLast().close();
+    switch (command.code) {
+      case _Codes.init:
+        _sendPort = command.arg0 as SendPort;
+        _completers.removeLast().complete();
+        // ----------------------------------------------------------------------
+        // Before using platform channels and plugins from background isolates we
+        // need to register it with its root isolate. This is achieved by
+        // acquiring a [RootIsolateToken] which the background isolate uses to
+        // invoke [BackgroundIsolateBinaryMessenger.ensureInitialized].
+        // ----------------------------------------------------------------------
+        RootIsolateToken rootIsolateToken = RootIsolateToken.instance!;
+        _sendPort
+            .send(_Command(_Codes.init, arg0: _path, arg1: rootIsolateToken));
+        break;
+      case _Codes.ack:
+        _completers.removeLast().complete();
+        break;
+      case _Codes.result:
+        _resultsStream.last.add(command.arg0 as String);
+        break;
+      case _Codes.done:
+        _resultsStream.removeLast().close();
+        break;
+      default:
+        print('SimpleDatabase unrecognized command: ${command.code}');
     }
   }
 
@@ -175,27 +182,33 @@ class _SimpleDatabaseServer {
 
   /// Handle the [command] received from the [ReceivePort].
   Future<void> _handleCommand(_Command command) async {
-    if (command.code == _Codes.init) {
-      _path = command.arg0 as String;
-      // ----------------------------------------------------------------------
-      // The [RootIsolateToken] is required for
-      // [BackgroundIsolateBinaryMessenger.ensureInitialized] and must be
-      // obtained on the root isolate and passed into the background isolate via
-      // a [SendPort].
-      // ----------------------------------------------------------------------
-      RootIsolateToken rootIsolateToken = command.arg1 as RootIsolateToken;
-      // ----------------------------------------------------------------------
-      // [BackgroundIsolateBinaryMessenger.ensureInitialized] for each
-      // background isolate that will use plugins. This sets up the
-      // [BinaryMessenger] that the Platform Channels will communicate with on
-      // the background isolate.
-      // ----------------------------------------------------------------------
-      BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
-      _sharedPreferences = await SharedPreferences.getInstance();
-    } else if (command.code == _Codes.add) {
-      await _doAddEntry(command.arg0 as String);
-    } else if (command.code == _Codes.query) {
-      _doFind(command.arg0 as String);
+    switch (command.code) {
+      case _Codes.init:
+        _path = command.arg0 as String;
+        // ----------------------------------------------------------------------
+        // The [RootIsolateToken] is required for
+        // [BackgroundIsolateBinaryMessenger.ensureInitialized] and must be
+        // obtained on the root isolate and passed into the background isolate via
+        // a [SendPort].
+        // ----------------------------------------------------------------------
+        RootIsolateToken rootIsolateToken = command.arg1 as RootIsolateToken;
+        // ----------------------------------------------------------------------
+        // [BackgroundIsolateBinaryMessenger.ensureInitialized] for each
+        // background isolate that will use plugins. This sets up the
+        // [BinaryMessenger] that the Platform Channels will communicate with on
+        // the background isolate.
+        // ----------------------------------------------------------------------
+        BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
+        _sharedPreferences = await SharedPreferences.getInstance();
+        break;
+      case _Codes.add:
+        await _doAddEntry(command.arg0 as String);
+        break;
+      case _Codes.query:
+        _doFind(command.arg0 as String);
+        break;
+      default:
+        print('_SimpleDatabaseServer unrecognized command ${command.code}');
     }
   }
 
