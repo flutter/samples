@@ -1,0 +1,32 @@
+name: cubit_shopper
+description: A shopping app sample that uses Cubit for state management.
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.1 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  provider: ^6.0.3
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Corben
+      fonts:
+        - asset: fonts/Corben/Corben-Bold.ttf
+          weight: 700
