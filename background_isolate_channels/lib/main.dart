@@ -85,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
       SimpleDatabase.open(dbPath).then((SimpleDatabase database) {
         setState(() {
           _database = database;
-          _refresh();
         });
+        _refresh();
       });
     });
     super.initState();
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (query != null) {
       _query = query;
     }
-    _database?.find(_query).toList().then((entries) {
+    _database!.find(_query).toList().then((entries) {
       setState(() {
         _entries = entries;
       });
@@ -129,7 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           TextField(
-            onChanged: (query) => _refresh(query: query),
+            onChanged:
+                _database == null ? null : (query) => _refresh(query: query),
             decoration: const InputDecoration(
               labelText: 'Search',
               suffixIcon: Icon(Icons.search),
@@ -146,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _addDate,
+        onPressed: _database == null ? null : _addDate,
         tooltip: 'Add',
         child: const Icon(Icons.add),
       ),

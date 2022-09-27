@@ -28,6 +28,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //         |                                              |
 //         |<---------------(init)------------------------|
 //         |----------------(init)----------------------->|
+//         |<---------------(ack)------------------------>|
 //         |                                              |
 //         |----------------(add)------------------------>|
 //         |<---------------(ack)-------------------------|
@@ -122,7 +123,6 @@ class SimpleDatabase {
     switch (command.code) {
       case _Codes.init:
         _sendPort = command.arg0 as SendPort;
-        _completers.removeLast().complete();
         // ----------------------------------------------------------------------
         // Before using platform channels and plugins from background isolates we
         // need to register it with its root isolate. This is achieved by
@@ -161,13 +161,13 @@ class _SimpleDatabaseServer {
   _SimpleDatabaseServer(this._sendPort);
 
   final SendPort _sendPort;
-  String? _path;
-  SharedPreferences? _sharedPreferences;
+  late final String _path;
+  late final SharedPreferences _sharedPreferences;
 
   // ----------------------------------------------------------------------
   // Here the plugin is used from the background isolate.
   // ----------------------------------------------------------------------
-  bool get _isDebug => _sharedPreferences?.getBool('isDebug') ?? false;
+  bool get _isDebug => _sharedPreferences.getBool('isDebug') ?? false;
 
   /// The main entrypoint for the background isolate sent to [Isolate.spawn].
   static void _run(SendPort sendPort) {
@@ -200,9 +200,10 @@ class _SimpleDatabaseServer {
         // ----------------------------------------------------------------------
         BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
         _sharedPreferences = await SharedPreferences.getInstance();
+        _sendPort.send(const _Command(_Codes.ack, arg0: null));
         break;
       case _Codes.add:
-        await _doAddEntry(command.arg0 as String);
+        _doAddEntry(command.arg0 as String);
         break;
       case _Codes.query:
         _doFind(command.arg0 as String);
@@ -213,15 +214,15 @@ class _SimpleDatabaseServer {
   }
 
   /// Perform the add entry operation.
-  Future<void> _doAddEntry(String value) async {
+  void _doAddEntry(String value) {
     if (_isDebug) {
       print('Performing add: $value');
     }
-    File file = File(_path!);
+    File file = File(_path);
     if (!file.existsSync()) {
       file.createSync();
     }
-    RandomAccessFile writer = await file.open(mode: FileMode.append);
+    RandomAccessFile writer = file.openSync(mode: FileMode.append);
     List<int> bytes = utf8.encode(value);
     if (bytes.length > _entrySize) {
       bytes = bytes.sublist(0, _entrySize);
@@ -232,17 +233,17 @@ class _SimpleDatabaseServer {
       }
       bytes = newBytes;
     }
-    await writer.writeFrom(bytes);
-    await writer.close();
+    writer.writeFromSync(bytes);
+    writer.closeSync();
     _sendPort.send(const _Command(_Codes.ack, arg0: null));
   }
 
   /// Perform the find entry operation.
-  Future<void> _doFind(String query) async {
+  void _doFind(String query) {
     if (_isDebug) {
       print('Performing find: $query');
     }
-    File file = File(_path!);
+    File file = File(_path);
     if (file.existsSync()) {
       RandomAccessFile reader = file.openSync();
       List<int> buffer = List.filled(_entrySize, 0);
