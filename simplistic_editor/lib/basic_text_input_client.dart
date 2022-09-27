@@ -101,6 +101,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   @override
+  void performSelector(String selectorName) {
+    // Will not implement.
+  }
+
+  @override
   void removeTextPlaceholder() {
     // Will not implement. This method is used for Scribble support.
   }
@@ -685,6 +690,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           onSelectionHandleTapped: () {
             _toggleToolbar();
           },
+          magnifierConfiguration: TextMagnifierConfiguration.disabled,
         );
       } else {
         _selectionOverlay!.update(_value);

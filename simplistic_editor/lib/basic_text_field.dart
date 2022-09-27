@@ -104,8 +104,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
         break;
     }
 
-    return FocusTrapArea(
-      focusNode: widget.focusNode,
+    return TextFieldTapRegion(
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
