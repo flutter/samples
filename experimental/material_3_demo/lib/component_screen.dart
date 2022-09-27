@@ -681,52 +681,55 @@ class ProgressIndicators extends StatefulWidget {
 }
 
 class _ProgressIndicatorsState extends State<ProgressIndicators> {
-  bool showCircularProgressIndicator = false;
-  bool showLinearProgressIndicator = false;
-
-  Text buttonText(String text) {
-    return Text(
-      text,
-      style: const TextStyle(fontWeight: FontWeight.bold),
-    );
-  }
+  bool playCircularProgressIndicator = false;
+  bool playLinearProgressIndicator = false;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TextButton(
-          onPressed: () {
-            setState(() {
-              showCircularProgressIndicator = !showCircularProgressIndicator;
-            });
-          },
-          child: showCircularProgressIndicator
-              ? buttonText('Hide circular progress indicator')
-              : buttonText('Show circular progress indicator'),
-        ),
-        showCircularProgressIndicator
-            ? const CircularProgressIndicator(
-                value: null,
+        Row(
+          children: [
+            IconButton(
+              isSelected: playCircularProgressIndicator,
+              selectedIcon: const Icon(Icons.pause),
+              icon: const Icon(Icons.play_arrow),
+              onPressed: () {
+                setState(() {
+                  playCircularProgressIndicator = !playCircularProgressIndicator;
+                });
+              },
+            ),
+            Expanded(
+              flex: 10,
+              child: Center(
+                child: playCircularProgressIndicator
+                    ? const CircularProgressIndicator(value: null,)
+                    : const CircularProgressIndicator(value: 0.7,),
               )
-            : Container(),
-        colDivider,
-        TextButton(
-          onPressed: () {
-            setState(() {
-              showLinearProgressIndicator = !showLinearProgressIndicator;
-            });
-          },
-          child: showLinearProgressIndicator
-              ? buttonText('Hide linear progress indicator')
-              : buttonText('Show linear progress indicator'),
+            ),
+            const Spacer(),
+          ],
         ),
-        colDivider,
-        showLinearProgressIndicator
-            ? const LinearProgressIndicator(
-                value: null,
-              )
-            : Container(),
+        Row(
+          children: [
+            IconButton(
+              isSelected: playLinearProgressIndicator,
+              selectedIcon: const Icon(Icons.pause),
+              icon: const Icon(Icons.play_arrow),
+              onPressed: () {
+                setState(() {
+                  playLinearProgressIndicator = !playLinearProgressIndicator;
+                });
+              },
+            ),
+            Expanded(
+              child: playLinearProgressIndicator
+                  ? const LinearProgressIndicator(value: null,)
+                  : const LinearProgressIndicator(value: 0.7,),
+            )
+          ],
+        )
       ],
     );
   }

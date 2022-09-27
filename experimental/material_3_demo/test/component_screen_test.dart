@@ -69,15 +69,8 @@ void main() {
     expect(radioExample, findsNWidgets(2));
 
     // ProgressIndicator
-    Finder progressIndicator1 = find.text('Show circular progress indicator');
-    await tester.tap(progressIndicator1);
-    await tester.pump();
     Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
     expect(circularProgressIndicator, findsOneWidget);
-
-    Finder progressIndicator2 = find.text('Show linear progress indicator');
-    await tester.tap(progressIndicator2);
-    await tester.pump();
     Finder linearProgressIndicator = find.byType(LinearProgressIndicator);
     expect(linearProgressIndicator, findsOneWidget);
   });
