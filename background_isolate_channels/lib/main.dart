@@ -1,3 +1,7 @@
+// Copyright 2022 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:io' show Directory;
 
 import 'package:flutter/material.dart';
@@ -58,9 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
   /// What is searched for in the [SimpleDatabase].
   String _query = '';
 
-  _MyHomePageState() {
+  @override
+  void initState() {
     // Write the value to [SharedPreferences] which will get read on the
-    // [SimpleDatabase]'s isolate.
+    // [SimpleDatabase]'s isolate. For this example the value is always true
+    // just for demonstration purposes.
     final Future<void> sharedPreferencesSet = SharedPreferences.getInstance()
         .then(
             (sharedPreferences) => sharedPreferences.setBool('isDebug', true));
@@ -73,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // [SimpleDatabase] there has to be a way to refresh
     // [_SimpleDatabaseServer]'s [SharedPreferences] cached values.
     Future.wait([sharedPreferencesSet, tempDirFuture])
-        .then((List<dynamic> values) {
-      final Directory? tempDir = values[1];
+        .then((List<Object?> values) {
+      final Directory? tempDir = values[1] as Directory?;
       final String dbPath = path.join(tempDir!.path, 'database.db');
       SimpleDatabase.open(dbPath).then((SimpleDatabase database) {
         setState(() {
@@ -83,6 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       });
     });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _database?.stop();
+    super.dispose();
   }
 
   /// Performs a find on [SimpleDatabase] with [query] and updates the listed
@@ -118,7 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
           TextField(
             onChanged: (query) => _refresh(query: query),
             decoration: const InputDecoration(
-                labelText: 'Search', suffixIcon: Icon(Icons.search)),
+              labelText: 'Search',
+              suffixIcon: Icon(Icons.search),
+            ),
           ),
           Expanded(
             child: ListView.builder(
