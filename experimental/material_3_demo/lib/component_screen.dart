@@ -707,7 +707,9 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
                   CircularProgressIndicator(
                     value: progressValue,
                   ),
-                  const SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   Expanded(
                     child: LinearProgressIndicator(
                       value: progressValue,
