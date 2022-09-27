@@ -685,6 +685,8 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
 
   @override
   Widget build(BuildContext context) {
+    final double? progressValue = playProgressIndicator ? null : 0.7;
+
     return Column(
       children: <Widget>[
         Row(
@@ -699,40 +701,21 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
                 });
               },
             ),
-            playProgressIndicator
-                ? Expanded(
-                    child: Row(
-                      children: const <Widget>[
-                        CircularProgressIndicator(
-                          value: null,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: LinearProgressIndicator(
-                            value: null,
-                          ),
-                        )
-                      ],
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  CircularProgressIndicator(
+                    value: progressValue,
+                  ),
+                  const SizedBox(width: 10,),
+                  Expanded(
+                    child: LinearProgressIndicator(
+                      value: progressValue,
                     ),
                   )
-                : Expanded(
-                    child: Row(
-                      children: const <Widget>[
-                        CircularProgressIndicator(
-                          value: 0.7,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                            child: LinearProgressIndicator(
-                          value: 0.7,
-                        ))
-                      ],
-                    ),
-                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ],
