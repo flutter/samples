@@ -696,7 +696,8 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
               icon: const Icon(Icons.play_arrow),
               onPressed: () {
                 setState(() {
-                  playCircularProgressIndicator = !playCircularProgressIndicator;
+                  playCircularProgressIndicator =
+                      !playCircularProgressIndicator;
                 });
               },
             ),
@@ -704,9 +705,13 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
               flex: 10,
               child: Center(
                 child: playCircularProgressIndicator
-                    ? const CircularProgressIndicator(value: null,)
-                    : const CircularProgressIndicator(value: 0.7,),
-              )
+                    ? const CircularProgressIndicator(
+                        value: null,
+                      )
+                    : const CircularProgressIndicator(
+                        value: 0.7,
+                      ),
+              ),
             ),
             const Spacer(),
           ],
@@ -725,11 +730,15 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
             ),
             Expanded(
               child: playLinearProgressIndicator
-                  ? const LinearProgressIndicator(value: null,)
-                  : const LinearProgressIndicator(value: 0.7,),
-            )
+                  ? const LinearProgressIndicator(
+                      value: null,
+                    )
+                  : const LinearProgressIndicator(
+                      value: 0.7,
+                    ),
+            ),
           ],
-        )
+        ),
       ],
     );
   }
