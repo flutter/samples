@@ -39,8 +39,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1443
-    # "simplistic_editor"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )
