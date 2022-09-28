@@ -492,6 +492,22 @@ samples:
     platforms: ['windows', 'macos', 'linux']
     type: sample
 
+  - name: Slide Puzzle
+    author: Very Good Ventures
+    screenshots:
+      - url: images/slide_puzzle1.png
+        alt: Slide Puzzle screenshot
+    source: https://github.com/VGVentures/slide_puzzle
+    description: >
+      A slide puzzle built for Flutter Challenge.
+    difficulty: advanced
+    widgets: []
+    packages: []
+    platforms: ['web']
+    links: []
+    tags: ['demo', 'game']
+    type: demo
+
 ###################
 #### Web Demos ####
 ###################
@@ -521,7 +537,7 @@ samples:
   - name: Material 3
     author: Flutter
     screenshots:
-      - url: images/material_you_components.png
+      - url: images/material_3_components.png
         alt: Components tab of the Material 3 demo
       - url: images/material_3_color.png
         alt: Colors tab of the Material 3 demo
@@ -632,23 +648,6 @@ samples:
     links: []
     tags: ['demo', 'animation']
     web: web/particle_background
-    type: demo
-
-  - name: Slide Puzzle
-    author: Very Good Ventures
-    screenshots:
-      - url: images/slide_puzzle1.png
-        alt: Slide Puzzle screenshot
-    source: https://github.com/VGVentures/slide_puzzle
-    description: >
-      A slide puzzle built for Flutter Challenge.
-    difficulty: advanced
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'game']
-    web: web/slide_puzzle
     type: demo
 
   - name: Dice

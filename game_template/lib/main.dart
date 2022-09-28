@@ -2,6 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Uncomment the following lines when enabling Firebase Crashlytics
+// import 'dart:io';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
+
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +39,9 @@ import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 
 Future<void> main() async {
-  // Uncomment the following lines to enable Firebase Crashlytics.
-  // See lib/src/crashlytics/README.md for details.
+  // To enable Firebase Crashlytics, uncomment the following lines and
+  // the import statements at the top of this file.
+  // See the 'Crashlytics' section of the main README.md file for details.
 
   FirebaseCrashlytics? crashlytics;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
@@ -127,7 +133,7 @@ class MyApp extends StatelessWidget {
           routes: [
             GoRoute(
                 path: 'play',
-                pageBuilder: (context, state) => buildMyTransition(
+                pageBuilder: (context, state) => buildMyTransition<void>(
                       child: const LevelSelectionScreen(
                           key: Key('level selection')),
                       color: context.watch<Palette>().backgroundLevelSelection,
@@ -139,7 +145,7 @@ class MyApp extends StatelessWidget {
                       final levelNumber = int.parse(state.params['level']!);
                       final level = gameLevels
                           .singleWhere((e) => e.number == levelNumber);
-                      return buildMyTransition(
+                      return buildMyTransition<void>(
                         child: PlaySessionScreen(
                           level,
                           key: const Key('play session'),
@@ -154,7 +160,7 @@ class MyApp extends StatelessWidget {
                       final map = state.extra! as Map<String, dynamic>;
                       final score = map['score'] as Score;
 
-                      return buildMyTransition(
+                      return buildMyTransition<void>(
                         child: WinGameScreen(
                           score: score,
                           key: const Key('win game'),
@@ -245,11 +251,12 @@ class MyApp extends StatelessWidget {
                 background: palette.backgroundMain,
               ),
               textTheme: TextTheme(
-                bodyText2: TextStyle(
+                bodyMedium: TextStyle(
                   color: palette.ink,
                 ),
               ),
             ),
+            routeInformationProvider: _router.routeInformationProvider,
             routeInformationParser: _router.routeInformationParser,
             routerDelegate: _router.routerDelegate,
             scaffoldMessengerKey: scaffoldMessengerKey,

@@ -50,7 +50,8 @@ class _Page2 extends StatelessWidget {
         title: const Text('Page 2'),
       ),
       body: Center(
-        child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
+        child:
+            Text('Page 2!', style: Theme.of(context).textTheme.headlineMedium),
       ),
     );
   }

@@ -46,7 +46,7 @@ class DataTransferPage extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             child: Text(
               'Number Generator Progress',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           LinearProgressIndicator(
@@ -60,7 +60,7 @@ class DataTransferPage extends StatelessWidget {
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: (controller.runningTest == 1)
+                    foregroundColor: (controller.runningTest == 1)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(false),
@@ -68,7 +68,7 @@ class DataTransferPage extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: (controller.runningTest == 2)
+                    foregroundColor: (controller.runningTest == 2)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: () => controller.generateRandomNumbers(true),
@@ -76,7 +76,7 @@ class DataTransferPage extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: (controller.runningTest == 3)
+                    foregroundColor: (controller.runningTest == 3)
                         ? Colors.blueAccent
                         : Colors.grey[300]),
                 onPressed: controller.generateOnSecondaryIsolate,

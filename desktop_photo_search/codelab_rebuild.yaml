@@ -1,0 +1,115 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Desktop Photo Search rebuild script
+steps:
+  - name: Remove fluent_ui runners
+    path: fluent_ui
+    rmdirs: 
+      - macos
+      - linux
+      - windows
+  - name: Flutter recreate
+    path: fluent_ui
+    flutter: create --platforms windows,linux,macos --project-name desktop_photo_search .
+  - name: Replace fluent_ui/macos/Runner/DebugProfile.entitlements
+    path: fluent_ui/macos/Runner/DebugProfile.entitlements
+    patch-u: |
+      --- b/desktop_photo_search/fluent_ui/macos/Runner/DebugProfile.entitlements
+      +++ a/desktop_photo_search/fluent_ui/macos/Runner/DebugProfile.entitlements
+      @@ -6,6 +6,10 @@
+       	<true/>
+       	<key>com.apple.security.cs.allow-jit</key>
+       	<true/>
+      +	<key>com.apple.security.files.user-selected.read-write</key>
+      +	<true/>
+      +	<key>com.apple.security.network.client</key>
+      +	<true/>
+       	<key>com.apple.security.network.server</key>
+       	<true/>
+       </dict>
+  - name: Patch fluent_ui/macos/Runner/Release.entitlements
+    path: fluent_ui/macos/Runner/Release.entitlements
+    patch-u: |
+      --- b/desktop_photo_search/fluent_ui/macos/Runner/Release.entitlements
+      +++ a/desktop_photo_search/fluent_ui/macos/Runner/Release.entitlements
+      @@ -4,5 +4,9 @@
+       <dict>
+       	<key>com.apple.security.app-sandbox</key>
+       	<true/>
+      +	<key>com.apple.security.files.user-selected.read-write</key>
+      +	<true/>
+      +	<key>com.apple.security.network.client</key>
+      +	<true/>
+       </dict>
+       </plist>
+  - name: Flutter upgrade
+    path: fluent_ui
+    flutter: pub upgrade --major-versions
+  - name: Flutter build macOS
+    path: fluent_ui
+    flutter: build macos
+  - name: Remove material runners
+    path: material
+    rmdirs: 
+      - macos
+      - linux
+      - windows
+  - name: Flutter recreate
+    path: material
+    flutter: create --platforms windows,linux,macos --project-name desktop_photo_search .
+  - name: Replace material/macos/Runner/DebugProfile.entitlements
+    path: material/macos/Runner/DebugProfile.entitlements
+    patch-u: |
+      --- b/desktop_photo_search/material/macos/Runner/DebugProfile.entitlements
+      +++ a/desktop_photo_search/material/macos/Runner/DebugProfile.entitlements
+      @@ -6,6 +6,10 @@
+       	<true/>
+       	<key>com.apple.security.cs.allow-jit</key>
+       	<true/>
+      +	<key>com.apple.security.files.user-selected.read-write</key>
+      +	<true/>
+      +	<key>com.apple.security.network.client</key>
+      +	<true/>
+       	<key>com.apple.security.network.server</key>
+       	<true/>
+       </dict>
+  - name: Replace material/macos/Runner/Release.entitlements
+    path: material/macos/Runner/Release.entitlements
+    patch-u: |
+      --- b/desktop_photo_search/material/macos/Runner/Release.entitlements
+      +++ a/desktop_photo_search/material/macos/Runner/Release.entitlements
+      @@ -4,5 +4,9 @@
+       <dict>
+       	<key>com.apple.security.app-sandbox</key>
+       	<true/>
+      +	<key>com.apple.security.files.user-selected.read-write</key>
+      +	<true/>
+      +	<key>com.apple.security.network.client</key>
+      +	<true/>
+       </dict>
+       </plist>
+  - name: Patch material/macos/Runner/Base.lproj/MainMenu.xib
+    path: material/macos/Runner/Base.lproj/MainMenu.xib
+    patch-u: |
+      --- b/desktop_photo_search/material/macos/Runner/Base.lproj/MainMenu.xib
+      +++ a/desktop_photo_search/material/macos/Runner/Base.lproj/MainMenu.xib
+      @@ -330,10 +330,11 @@
+                   </items>
+                   <point key="canvasLocation" x="142" y="-258"/>
+               </menu>
+      -        <window title="APP_NAME" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="MainFlutterWindow" customModule="Runner" customModuleProvider="target">
+      -            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+      +        <!-- Hiding the title bar technique from https://medium.com/flutter-community/transparent-title-bar-on-macos-with-flutter-7043d44f25dc -->
+      +        <window title="APP_NAME" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g" customClass="MainFlutterWindow" customModule="Runner" customModuleProvider="target">
+      +            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+                   <rect key="contentRect" x="335" y="390" width="800" height="600"/>
+      -            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1577"/>
+      +            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+                   <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                       <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                       <autoresizingMask key="autoresizingMask"/>
+  - name: Flutter upgrade
+    path: material
+    flutter: pub upgrade --major-versions
+  - name: Flutter build macOS
+    path: material
+    flutter: build macos

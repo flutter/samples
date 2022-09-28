@@ -1,0 +1,13 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Animations rebuild script
+steps:
+  - name: Remove runners
+    rmdirs: 
+      - android
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+  - name: Flutter recreate
+    flutter: create --org dev.flutter .

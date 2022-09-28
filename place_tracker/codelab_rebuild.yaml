@@ -1,0 +1,76 @@
+# Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
+name: Place Tracker rebuild script
+steps:
+  - name: Remove runner
+    rmdirs: 
+      - android
+      - ios
+      - web
+  - name: Rebuild Runner
+    flutter: create --org dev.flutter --platform android,ios,web .
+  - name: Update deps
+    flutter: pub upgrade --major-versions
+  - name: Patch android/app/src/main/AndroidManifest.xml
+    path: android/app/src/main/AndroidManifest.xml
+    patch-u: |
+      --- b/place_tracker/android/app/src/main/AndroidManifest.xml
+      +++ a/place_tracker/android/app/src/main/AndroidManifest.xml
+      @@ -4,6 +4,12 @@
+               android:label="place_tracker"
+               android:name="${applicationName}"
+               android:icon="@mipmap/ic_launcher">
+      +        <meta-data
+      +            android:name="com.google.android.gms.version"
+      +            android:value="@integer/google_play_services_version" />
+      +        <meta-data
+      +            android:name="com.google.android.geo.API_KEY"
+      +            android:value="YOUR API KEY HERE" />
+               <activity
+                   android:name=".MainActivity"
+                   android:exported="true"
+  - name: Patch ios/Runner/AppDelegate.swift
+    path: ios/Runner/AppDelegate.swift
+    patch-u: |
+      --- b/place_tracker/ios/Runner/AppDelegate.swift
+      +++ a/place_tracker/ios/Runner/AppDelegate.swift
+      @@ -1,5 +1,6 @@
+       import UIKit
+       import Flutter
+      +import GoogleMaps
+       
+       @UIApplicationMain
+       @objc class AppDelegate: FlutterAppDelegate {
+      @@ -7,6 +8,7 @@ import Flutter
+           _ application: UIApplication,
+           didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+         ) -> Bool {
+      +    GMSServices.provideAPIKey("YOUR KEY HERE")
+           GeneratedPluginRegistrant.register(with: self)
+           return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+         }
+  - name: Patch ios/Flutter/AppFrameworkInfo.plist
+    path: ios/Flutter/AppFrameworkInfo.plist
+    patch-u: |
+      --- b/place_tracker/ios/Flutter/AppFrameworkInfo.plist
+      +++ a/place_tracker/ios/Flutter/AppFrameworkInfo.plist
+      @@ -21,6 +21,6 @@
+         <key>CFBundleVersion</key>
+         <string>1.0</string>
+         <key>MinimumOSVersion</key>
+      -  <string>11.0</string>
+      +  <string>13.0</string>
+       </dict>
+       </plist>
+  - name: Patch ios/Podfile
+    path: ios/Podfile
+    patch-u: |
+      --- b/place_tracker/ios/Podfile
+      +++ a/place_tracker/ios/Podfile
+      @@ -1,5 +1,5 @@
+      -# Uncomment this line to define a global platform for your project
+      -# platform :ios, '11.0'
+      +# Google Maps requires iOS 13: https://developers.google.com/maps/documentation/ios-sdk/overview#supported_platforms
+      +platform :ios, '13.0'
+       
+       # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+       ENV['COCOAPODS_DISABLE_STATS'] = 'true'

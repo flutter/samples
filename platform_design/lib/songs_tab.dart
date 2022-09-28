@@ -83,15 +83,12 @@ class _SongsTabState extends State<SongsTab> {
   }
 
   void _togglePlatform() {
-    TargetPlatform _getOppositePlatform() {
-      if (defaultTargetPlatform == TargetPlatform.iOS) {
-        return TargetPlatform.android;
-      } else {
-        return TargetPlatform.iOS;
-      }
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    } else {
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     }
 
-    debugDefaultTargetPlatformOverride = _getOppositePlatform();
     // This rebuilds the application. This should obviously never be
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
@@ -102,7 +99,7 @@ class _SongsTabState extends State<SongsTab> {
   // ===========================================================================
   // Non-shared code below because:
   // - Android and iOS have different scaffolds
-  // - There are differenc items in the app bar / nav bar
+  // - There are different items in the app bar / nav bar
   // - Android has a hamburger drawer, iOS has bottom tabs
   // - The iOS nav bar is scrollable, Android is not
   // - Pull-to-refresh works differently, and Android has a button to trigger it too
