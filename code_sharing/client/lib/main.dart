@@ -40,6 +40,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int localClicks = 0;
+  bool isWriting = false;
 
   @override
   void initState() {
@@ -49,7 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     localClicks += 1;
-    increment(localClicks).then((int val) => setState(() => _counter = val));
+    setState(() => isWriting = true);
+    increment(localClicks).then(
+      (int val) => setState(
+        () {
+          _counter = val;
+          isWriting = true;
+        },
+      ),
+    );
   }
 
   @override
@@ -64,11 +73,26 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
+              style: TextStyle(fontSize: 20),
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            if (isWriting) ...[
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Text(
+                    'Communicating with server...',
+                    style: TextStyle(fontSize: 32, color: Colors.blue),
+                  ),
+                  SizedBox(width: 10),
+                  CircularProgressIndicator.adaptive(),
+                ],
+              ),
+            ],
           ],
         ),
       ),
