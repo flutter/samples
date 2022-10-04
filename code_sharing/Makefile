@@ -1,3 +1,5 @@
+# MacOS/Linux-only. Sadly, this is only helpful as documentation for Windows.
+
 # LOCAL / DOCKER
 run-server:
 	# Depends on `make build`
