@@ -75,13 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
     localClicks += 1;
     setState(() => isWriting = true);
     widget.increment(localClicks).then(
-      (int val) => setState(
-        () {
-          _counter = val;
-          isWriting = true;
-        },
-      ),
-    );
+          (int val) => setState(
+            () {
+              _counter = val;
+              isWriting = true;
+            },
+          ),
+        );
   }
 
   @override
