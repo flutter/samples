@@ -299,7 +299,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   TextSelection get _selection => _value.selection;
   late final Map<Type, Action<Intent>> _actions = <Type, Action<Intent>>{
     DeleteCharacterIntent: CallbackAction<DeleteCharacterIntent>(
-      onInvoke: (intent) => _delete(),
+      onInvoke: (intent) => _delete(intent.forward),
     ),
     ExtendSelectionByCharacterIntent:
         CallbackAction<ExtendSelectionByCharacterIntent>(
@@ -320,20 +320,28 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     ),
   };
 
-  void _delete() {
+  void _delete(bool forward) {
     if (_value.text.isEmpty) return;
 
     late final TextRange deletedRange;
     late final TextRange newComposing;
-    final int deletedLength =
-        _value.text.substring(0, _selection.baseOffset).characters.last.length;
+    late final int deletedLength;
 
     if (_selection.isCollapsed) {
-      if (_selection.baseOffset == 0) return;
-      deletedRange = TextRange(
-        start: _selection.baseOffset - deletedLength,
-        end: _selection.baseOffset,
-      );
+      if (forward) {
+        deletedLength = _value.text.substring(_selection.baseOffset).characters.first.length;
+        deletedRange = TextRange(
+          start: _selection.baseOffset,
+          end: _selection.baseOffset + deletedLength,
+        );
+      } else {
+        if (_selection.baseOffset == 0) return;
+        deletedLength = _value.text.substring(0, _selection.baseOffset).characters.last.length;
+        deletedRange = TextRange(
+          start: _selection.baseOffset - deletedLength,
+          end: _selection.baseOffset,
+        );
+      }
     } else {
       deletedRange = _selection;
     }
