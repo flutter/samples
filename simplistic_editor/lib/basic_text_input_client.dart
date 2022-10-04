@@ -315,6 +315,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     PasteTextIntent: CallbackAction<PasteTextIntent>(
       onInvoke: (intent) => pasteText(intent.cause),
     ),
+    DoNothingAndStopPropagationTextIntent: DoNothingAction(
+      consumesKey: false,
+    ),
   };
 
   void _delete() {
