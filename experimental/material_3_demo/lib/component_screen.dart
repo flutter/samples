@@ -42,6 +42,10 @@ class ComponentScreen extends StatelessWidget {
                 colDivider,
                 const Checkboxes(),
                 colDivider,
+                const Radios(),
+                colDivider,
+                const ProgressIndicators(),
+                colDivider,
                 showNavBottomBar
                     ? const NavigationBars(
                         selectedIndex: 0,
@@ -623,6 +627,98 @@ class _CheckboxRowState extends State<CheckboxRow> {
           tristate: true,
           value: true,
           onChanged: null,
+        ),
+      ],
+    );
+  }
+}
+
+enum Value { first, second }
+
+class Radios extends StatefulWidget {
+  const Radios({super.key});
+
+  @override
+  State<Radios> createState() => _RadiosState();
+}
+
+class _RadiosState extends State<Radios> {
+  Value? _value = Value.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Radio<Value>(
+          value: Value.first,
+          groupValue: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+        Radio<Value>(
+          value: Value.second,
+          groupValue: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class ProgressIndicators extends StatefulWidget {
+  const ProgressIndicators({super.key});
+
+  @override
+  State<ProgressIndicators> createState() => _ProgressIndicatorsState();
+}
+
+class _ProgressIndicatorsState extends State<ProgressIndicators> {
+  bool playProgressIndicator = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final double? progressValue = playProgressIndicator ? null : 0.7;
+
+    return Column(
+      children: <Widget>[
+        Row(
+          children: [
+            IconButton(
+              isSelected: playProgressIndicator,
+              selectedIcon: const Icon(Icons.pause),
+              icon: const Icon(Icons.play_arrow),
+              onPressed: () {
+                setState(() {
+                  playProgressIndicator = !playProgressIndicator;
+                });
+              },
+            ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  CircularProgressIndicator(
+                    value: progressValue,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: LinearProgressIndicator(
+                      value: progressValue,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
