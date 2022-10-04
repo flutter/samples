@@ -53,7 +53,7 @@ class _UnsplashSearchContentState extends State<UnsplashSearchContent> {
                   final path = await getSavePath(
                     suggestedName: '${photo.id}.jpg',
                     acceptedTypeGroups: [
-                      XTypeGroup(
+                      const XTypeGroup(
                         label: 'JPG',
                         extensions: ['jpg'],
                         mimeTypes: ['image/jpeg'],
