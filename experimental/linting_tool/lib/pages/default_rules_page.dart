@@ -35,8 +35,8 @@ class DefaultRulesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           profile.name,
-          style: textTheme.subtitle2!.copyWith(
-            color: textTheme.bodyText1!.color,
+          style: textTheme.titleSmall!.copyWith(
+            color: textTheme.bodyLarge!.color,
           ),
         ),
         leading: Padding(

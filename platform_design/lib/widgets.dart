@@ -231,7 +231,7 @@ class SongPlaceholderTile extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              color: Theme.of(context).textTheme.bodyText2!.color,
+              color: Theme.of(context).textTheme.bodyMedium!.color,
               width: 130,
             ),
             const Padding(
@@ -244,27 +244,27 @@ class SongPlaceholderTile extends StatelessWidget {
                   Container(
                     height: 9,
                     margin: const EdgeInsets.only(right: 60),
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                   Container(
                     height: 9,
                     margin: const EdgeInsets.only(right: 20, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                   Container(
                     height: 9,
                     margin: const EdgeInsets.only(right: 40, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                   Container(
                     height: 9,
                     margin: const EdgeInsets.only(right: 80, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                   Container(
                     height: 9,
                     margin: const EdgeInsets.only(right: 50, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                 ],
               ),
