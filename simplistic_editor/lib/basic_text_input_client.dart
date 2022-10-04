@@ -325,21 +325,22 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     late final TextRange deletedRange;
     late final TextRange newComposing;
-    late final int deletedLength;
+    late final String deletedText;
+    final int offset = _selection.baseOffset;
 
     if (_selection.isCollapsed) {
       if (forward) {
-        deletedLength = _value.text.substring(_selection.baseOffset).characters.first.length;
+        deletedText = _value.text.substring(offset).characters.first;
         deletedRange = TextRange(
-          start: _selection.baseOffset,
-          end: _selection.baseOffset + deletedLength,
+          start: offset,
+          end: offset + deletedText.length,
         );
       } else {
         if (_selection.baseOffset == 0) return;
-        deletedLength = _value.text.substring(0, _selection.baseOffset).characters.last.length;
+        deletedText = _value.text.substring(0, offset).characters.last;
         deletedRange = TextRange(
-          start: _selection.baseOffset - deletedLength,
-          end: _selection.baseOffset,
+          start: offset - deletedText.length,
+          end: offset,
         );
       }
     } else {
