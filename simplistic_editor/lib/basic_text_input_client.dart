@@ -330,6 +330,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
     if (_selection.isCollapsed) {
       if (forward) {
+        if (_selection.baseOffset == _value.text.length) return;
         deletedText = _value.text.substring(offset).characters.first;
         deletedRange = TextRange(
           start: offset,
