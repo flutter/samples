@@ -12,8 +12,14 @@ class AnywherePage extends StatelessWidget {
   static const String title = 'Context Menu Anywhere Example';
   static const String subtitle = 'A ContextMenu outside of a text field';
 
-  final TextEditingController _controller = TextEditingController(
-    text: 'Right click anywhere outside of a field to show a custom menu.',
+  final TextEditingController _materialController = TextEditingController(
+    text: 'TextField shows the default menu still.',
+  );
+  final TextEditingController _cupertinoController = TextEditingController(
+    text: 'CupertinoTextField shows the default menu still.',
+  );
+  final TextEditingController _editableController = TextEditingController(
+    text: 'EditableText has no default menu, so it shows the custom one.',
   );
 
   @override
@@ -40,25 +46,32 @@ class AnywherePage extends StatelessWidget {
             ],
           );
         },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(height: 20.0),
-            const CupertinoTextField(),
-            Container(height: 200.0),
-            TextField(controller: _controller),
-            Container(height: 100.0),
-            Container(
-              color: Colors.white,
-              child: EditableText(
-                controller: TextEditingController(),
-                focusNode: FocusNode(),
-                style: Typography.material2021().black.displayMedium!,
-                cursorColor: Colors.blue,
-                backgroundCursorColor: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(height: 20.0),
+              const Text(
+                'Right click anywhere outside of a field to show a custom menu.',
               ),
-            ),
-          ],
+              Container(height: 140.0),
+              CupertinoTextField(controller: _cupertinoController),
+              Container(height: 40.0),
+              TextField(controller: _materialController),
+              Container(height: 40.0),
+              Container(
+                color: Colors.white,
+                child: EditableText(
+                  controller: _editableController,
+                  focusNode: FocusNode(),
+                  style: Typography.material2021().black.displayMedium!,
+                  cursorColor: Colors.blue,
+                  backgroundCursorColor: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
