@@ -27,36 +27,47 @@ class ModifiedActionPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(ModifiedActionPage.title),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          TextField(
-            controller: _controller,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-              final List<ContextMenuButtonItem> buttonItems = editableTextState.contextMenuButtonItems;
-              // Modify the copy buttonItem to show a dialog after copying.
-              final int copyButtonIndex = buttonItems.indexWhere(
-                (ContextMenuButtonItem buttonItem) {
-                  return buttonItem.type == ContextMenuButtonType.copy;
+      body: Center(
+        child: SizedBox(
+          width: 300.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'This example shows adding to the behavior of a default button.',
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              TextField(
+                controller: _controller,
+                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                  final List<ContextMenuButtonItem> buttonItems = editableTextState.contextMenuButtonItems;
+                  // Modify the copy buttonItem to show a dialog after copying.
+                  final int copyButtonIndex = buttonItems.indexWhere(
+                    (ContextMenuButtonItem buttonItem) {
+                      return buttonItem.type == ContextMenuButtonType.copy;
+                    },
+                  );
+                  if (copyButtonIndex >= 0) {
+                    final ContextMenuButtonItem copyButtonItem =
+                        buttonItems[copyButtonIndex];
+                    buttonItems[copyButtonIndex] = copyButtonItem.copyWith(
+                      onPressed: () {
+                        copyButtonItem.onPressed();
+                        Navigator.of(context).push(_showDialog(context));
+                      },
+                    );
+                  }
+                  return AdaptiveTextSelectionToolbar.buttonItems(
+                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    buttonItems: buttonItems,
+                  );
                 },
-              );
-              if (copyButtonIndex >= 0) {
-                final ContextMenuButtonItem copyButtonItem =
-                    buttonItems[copyButtonIndex];
-                buttonItems[copyButtonIndex] = copyButtonItem.copyWith(
-                  onPressed: () {
-                    copyButtonItem.onPressed();
-                    Navigator.of(context).push(_showDialog(context));
-                  },
-                );
-              }
-              return AdaptiveTextSelectionToolbar.buttonItems(
-                anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
-                buttonItems: buttonItems,
-              );
-            },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

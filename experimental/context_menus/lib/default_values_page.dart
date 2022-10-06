@@ -37,52 +37,51 @@ class DefaultValuesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(DefaultValuesPage.title),
       ),
-      body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset offset) {
-          return AdaptiveTextSelectionToolbar.buttonItems(
-            anchors: TextSelectionToolbarAnchors(
-              primaryAnchor: offset,
-            ),
-            buttonItems: <ContextMenuButtonItem>[
-              ContextMenuButtonItem(
-                onPressed: () {
-                  ContextMenuController.removeAny();
-                  Navigator.of(context).pop();
+      body: Center(
+        child: SizedBox(
+          width: 400.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'This example simply shows what happens when contextMenuBuilder is given null, a custom value, or omitted altogether.',
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+              TextField(
+                maxLines: 2,
+                minLines: 2,
+                controller: _controllerNone,
+              ),
+              TextField(
+                maxLines: 2,
+                minLines: 2,
+                controller: _controllerNull,
+                contextMenuBuilder: null,
+              ),
+              TextField(
+                maxLines: 2,
+                minLines: 2,
+                controller: _controllerCustom,
+                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                  return AdaptiveTextSelectionToolbar.buttonItems(
+                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    buttonItems: <ContextMenuButtonItem>[
+                      ContextMenuButtonItem(
+                        label: 'Custom button',
+                        onPressed: () {
+                          ContextMenuController.removeAny();
+                          Navigator.of(context).push(_showDialog(context, 'You clicked the custom button.'));
+                        },
+                      ),
+                      ...editableTextState.contextMenuButtonItems,
+                    ],
+                  );
                 },
-                label: 'Back',
               ),
             ],
-          );
-        },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _controllerNone,
-            ),
-            TextField(
-              controller: _controllerNull,
-              contextMenuBuilder: null,
-            ),
-            TextField(
-              controller: _controllerCustom,
-              contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-                return AdaptiveTextSelectionToolbar.buttonItems(
-                  anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
-                  buttonItems: <ContextMenuButtonItem>[
-                    ContextMenuButtonItem(
-                      label: 'Custom button',
-                      onPressed: () {
-                        ContextMenuController.removeAny();
-                        Navigator.of(context).push(_showDialog(context, 'You clicked the custom button.'));
-                      },
-                    ),
-                    ...editableTextState.contextMenuButtonItems,
-                  ],
-                );
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );

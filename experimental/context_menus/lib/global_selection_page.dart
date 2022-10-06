@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'context_menu_region.dart';
-
 class GlobalSelectionPage extends StatelessWidget {
   GlobalSelectionPage({
     Key? key,
@@ -12,63 +10,45 @@ class GlobalSelectionPage extends StatelessWidget {
   static const String subtitle = 'Context menus in and out of global selection';
 
   final TextEditingController _controller = TextEditingController(
-    text: 'Right click anywhere outside of a field to show a custom menu.',
+    text: 'TextFields still show their specific context menu.',
   );
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(GlobalSelectionPage.title),
-      ),
-      body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset offset) {
-          return AdaptiveTextSelectionToolbar.buttonItems(
-            anchors: TextSelectionToolbarAnchors(
-              primaryAnchor: offset,
-            ),
-            buttonItems: <ContextMenuButtonItem>[
-              ContextMenuButtonItem(
-                onPressed: () {
-                  ContextMenuController.removeAny();
-                  Navigator.of(context).pop();
-                },
-                label: 'Back',
-              ),
-            ],
-          );
-        },
-        child: Center(
-          child: SizedBox(
-            width: 200.0,
-            child: SelectionArea(
-              contextMenuBuilder: (BuildContext context, SelectableRegionState selectableRegionState) {
-                return AdaptiveTextSelectionToolbar.buttonItems(
-                  anchors: AdaptiveTextSelectionToolbar.getAnchorsSelectable(selectableRegionState),
-                  buttonItems: <ContextMenuButtonItem>[
-                    ...selectableRegionState.contextMenuButtonItems,
-                    ContextMenuButtonItem(
-                      onPressed: () {
-                        ContextMenuController.removeAny();
-                        Navigator.of(context).pop();
-                      },
-                      label: 'Back',
-                    ),
-                  ],
-                );
+    return SelectionArea(
+      contextMenuBuilder: (BuildContext context, SelectableRegionState selectableRegionState) {
+        return AdaptiveTextSelectionToolbar.buttonItems(
+          anchors: AdaptiveTextSelectionToolbar.getAnchorsSelectable(selectableRegionState),
+          buttonItems: <ContextMenuButtonItem>[
+            ...selectableRegionState.contextMenuButtonItems,
+            ContextMenuButtonItem(
+              onPressed: () {
+                ContextMenuController.removeAny();
+                Navigator.of(context).pop();
               },
-              child: ListView(
-                children: <Widget>[
-                  Container(height: 20.0),
-                  const Text('I am selectable.'),
-                  Container(height: 200.0),
-                  TextField(controller: _controller),
-                  Container(height: 100.0),
-                  const Text('I am selectable too.'),
-                  Container(height: 100.0),
-                  const SelectableText('I am SelectableText.'),
-                ],
-              ),
+              label: 'Back',
+            ),
+          ],
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(GlobalSelectionPage.title),
+        ),
+        body: Center(
+          child: SizedBox(
+            width: 400.0,
+            child: ListView(
+              children: <Widget>[
+                const SizedBox(height: 20.0),
+                const Text(
+                  'This entire page is wrapped in a SelectionArea with a custom context menu. Clicking on any of the plain text, including the AppBar title, will show the custom menu.',
+                ),
+                const SizedBox(height: 40.0),
+                TextField(controller: _controller),
+                const SizedBox(height: 40.0),
+                const SelectableText('SelectableText also shows its own separate context menu.'),
+              ],
             ),
           ),
         ),

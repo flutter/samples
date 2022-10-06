@@ -51,14 +51,16 @@ class ImagePage extends StatelessWidget {
                 ],
               );
             },
-            child: SizedBox(
+            child: const SizedBox(
               width: 200.0,
               height: 200.0,
-              child: Image.asset('flutter.jpg'),
+              child: FlutterLogo(),
             ),
           ),
           Container(height: 20.0),
-          TextField(controller: _controller),
+          const Text(
+            'Right click or long press on the image to see a special menu.',
+          ),
         ],
       ),
     );

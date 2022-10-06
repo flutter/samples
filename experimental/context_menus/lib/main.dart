@@ -50,7 +50,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ContextualMenu Demos'),
+        title: const Text('Context Menu Demos'),
       ),
       body: ListView(
         children: const <Widget>[
@@ -103,11 +103,6 @@ class MyHomePage extends StatelessWidget {
             route: FullPage.route,
             title: FullPage.title,
             subtitle: FullPage.subtitle,
-          ),
-          MyListItem(
-            route: GlobalSelectionPage.route,
-            title: GlobalSelectionPage.title,
-            subtitle: GlobalSelectionPage.subtitle,
           ),
         ],
       ),

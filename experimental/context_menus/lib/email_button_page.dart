@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'is_valid_email.dart';
+
 class EmailButtonPage extends StatelessWidget {
   EmailButtonPage({
     Key? key,
@@ -27,38 +29,43 @@ class EmailButtonPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(EmailButtonPage.title),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(height: 20.0),
-          TextField(
-            controller: _controller,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-              final TextEditingValue value = editableTextState.textEditingValue;
-              final List<ContextMenuButtonItem> buttonItems =
-                  editableTextState.contextMenuButtonItems;
-              if (_isValidEmail(value.selection.textInside(value.text))) {
-                buttonItems.insert(0, ContextMenuButtonItem(
-                  label: 'Send email',
-                  onPressed: () {
-                    ContextMenuController.removeAny();
-                    Navigator.of(context).push(_showDialog(context));
-                  },
-                ));
-              }
-              return AdaptiveTextSelectionToolbar.buttonItems(
-                anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
-                buttonItems: buttonItems,
-              );
-            },
+      body: Center(
+        child: SizedBox(
+          width: 300.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(height: 20.0),
+              const Text(
+                'This example shows how to add a special button to the context menu depending on the current selection.',
+              ),
+              const SizedBox(height: 40.0),
+              TextField(
+                maxLines: 2,
+                controller: _controller,
+                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                  final TextEditingValue value = editableTextState.textEditingValue;
+                  final List<ContextMenuButtonItem> buttonItems =
+                      editableTextState.contextMenuButtonItems;
+                  if (isValidEmail(value.selection.textInside(value.text))) {
+                    buttonItems.insert(0, ContextMenuButtonItem(
+                      label: 'Send email',
+                      onPressed: () {
+                        ContextMenuController.removeAny();
+                        Navigator.of(context).push(_showDialog(context));
+                      },
+                    ));
+                  }
+                  return AdaptiveTextSelectionToolbar.buttonItems(
+                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    buttonItems: buttonItems,
+                  );
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
-}
-
-bool _isValidEmail(String text) {
-  return RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-    .hasMatch(text);
 }
