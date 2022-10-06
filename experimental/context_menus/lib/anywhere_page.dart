@@ -24,9 +24,11 @@ class AnywherePage extends StatelessWidget {
       ),
       body: ContextMenuRegion(
         contextMenuBuilder: (BuildContext context, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-          return AdaptiveTextSelectionToolbarButtonItems(
-            primaryAnchor: primaryAnchor,
-            secondaryAnchor: secondaryAnchor,
+          return AdaptiveTextSelectionToolbar.buttonItems(
+            anchors: TextSelectionToolbarAnchors(
+              primaryAnchor: primaryAnchor,
+              secondaryAnchor: secondaryAnchor,
+            ),
             buttonItems: <ContextMenuButtonItem>[
               ContextMenuButtonItem(
                 onPressed: () {
@@ -51,7 +53,7 @@ class AnywherePage extends StatelessWidget {
               child: EditableText(
                 controller: TextEditingController(),
                 focusNode: FocusNode(),
-                style: Typography.material2018().black.subtitle1!,
+                style: Typography.material2021().black.displayMedium!,
                 cursorColor: Colors.blue,
                 backgroundCursorColor: Colors.white,
               ),

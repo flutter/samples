@@ -22,10 +22,11 @@ class GlobalSelectionPage extends StatelessWidget {
         title: const Text(GlobalSelectionPage.title),
       ),
       body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-          return AdaptiveTextSelectionToolbarButtonItems(
-            primaryAnchor: primaryAnchor,
-            secondaryAnchor: secondaryAnchor,
+        contextMenuBuilder: (BuildContext context, Offset offset) {
+          return AdaptiveTextSelectionToolbar.buttonItems(
+            anchors: TextSelectionToolbarAnchors(
+              primaryAnchor: offset,
+            ),
             buttonItems: <ContextMenuButtonItem>[
               ContextMenuButtonItem(
                 onPressed: () {
@@ -41,25 +42,19 @@ class GlobalSelectionPage extends StatelessWidget {
           child: SizedBox(
             width: 200.0,
             child: SelectionArea(
-              contextMenuBuilder: (BuildContext context, SelectableRegionState state, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-                return SelectableRegionContextMenuButtonItemsBuilder(
-                  selectableRegionState: state,
-                  builder: (BuildContext context, List<ContextMenuButtonItem> buttonItems) {
-                    return AdaptiveTextSelectionToolbarButtonItems(
-                      primaryAnchor: primaryAnchor,
-                      secondaryAnchor: secondaryAnchor,
-                      buttonItems: <ContextMenuButtonItem>[
-                        ...buttonItems,
-                        ContextMenuButtonItem(
-                          onPressed: () {
-                            ContextMenuController.removeAny();
-                            Navigator.of(context).pop();
-                          },
-                          label: 'Back',
-                        ),
-                      ],
-                    );
-                  },
+              contextMenuBuilder: (BuildContext context, SelectableRegionState selectableRegionState) {
+                return AdaptiveTextSelectionToolbar.buttonItems(
+                  anchors: AdaptiveTextSelectionToolbar.getAnchorsSelectable(selectableRegionState),
+                  buttonItems: <ContextMenuButtonItem>[
+                    ...selectableRegionState.contextMenuButtonItems,
+                    ContextMenuButtonItem(
+                      onPressed: () {
+                        ContextMenuController.removeAny();
+                        Navigator.of(context).pop();
+                      },
+                      label: 'Back',
+                    ),
+                  ],
                 );
               },
               child: ListView(

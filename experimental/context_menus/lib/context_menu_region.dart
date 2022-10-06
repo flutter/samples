@@ -1,12 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+typedef ContextMenuBuilder = Widget Function(BuildContext context, Offset offset);
+
 /// Shows and hides the context menu based on user gestures.
 ///
 /// By default, shows the menu on right clicks and long presses.
 class ContextMenuRegion extends StatefulWidget {
   /// Creates an instance of [ContextMenuRegion].
   const ContextMenuRegion({
+    super.key,
     required this.child,
     required this.contextMenuBuilder,
   });

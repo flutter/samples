@@ -42,10 +42,8 @@ class FieldTypesPage extends StatelessWidget {
           const SizedBox(height: 20.0),
           CupertinoTextField(
             controller: _cupertinoControllerFixed,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-              return AdaptiveTextSelectionToolbarEditableText(
-                primaryAnchor: primaryAnchor,
-                secondaryAnchor: secondaryAnchor,
+            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+              return AdaptiveTextSelectionToolbar.editableText(
                 editableTextState: editableTextState,
               );
             },
@@ -56,17 +54,15 @@ class FieldTypesPage extends StatelessWidget {
             child: EditableText(
               controller: _editableController,
               focusNode: FocusNode(),
-              style: Typography.material2018().black.subtitle1!,
+              style: Typography.material2021().black.displayMedium!,
               cursorColor: Colors.blue,
               backgroundCursorColor: Colors.white,
               // contextMenuBuilder doesn't do anything here!
               // EditableText has no built-in gesture detection for
               // selection. A wrapper would have to implement
               // TextSelectionGestureDetectorBuilderDelegate, etc.
-              contextMenuBuilder: (BuildContext context, EditableTextState editableTextState, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-                return AdaptiveTextSelectionToolbarEditableText(
-                  primaryAnchor: primaryAnchor,
-                  secondaryAnchor: secondaryAnchor,
+              contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                return AdaptiveTextSelectionToolbar.editableText(
                   editableTextState: editableTextState,
                 );
               },
@@ -77,4 +73,3 @@ class FieldTypesPage extends StatelessWidget {
     );
   }
 }
-

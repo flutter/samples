@@ -33,26 +33,22 @@ class EmailButtonPage extends StatelessWidget {
           Container(height: 20.0),
           TextField(
             controller: _controller,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-              return EditableTextContextMenuButtonItemsBuilder(
-                editableTextState: editableTextState,
-                builder: (BuildContext context, List<ContextMenuButtonItem> buttonItems) {
-                  final TextEditingValue value = editableTextState.textEditingValue;
-                  if (_isValidEmail(value.selection.textInside(value.text))) {
-                    buttonItems.insert(0, ContextMenuButtonItem(
-                      label: 'Send email',
-                      onPressed: () {
-                        ContextMenuController.removeAny();
-                        Navigator.of(context).push(_showDialog(context));
-                      },
-                    ));
-                  }
-                  return AdaptiveTextSelectionToolbarButtonItems(
-                    primaryAnchor: primaryAnchor,
-                    secondaryAnchor: secondaryAnchor,
-                    buttonItems: buttonItems,
-                  );
-                },
+            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+              final TextEditingValue value = editableTextState.textEditingValue;
+              final List<ContextMenuButtonItem> buttonItems =
+                  editableTextState.contextMenuButtonItems;
+              if (_isValidEmail(value.selection.textInside(value.text))) {
+                buttonItems.insert(0, ContextMenuButtonItem(
+                  label: 'Send email',
+                  onPressed: () {
+                    ContextMenuController.removeAny();
+                    Navigator.of(context).push(_showDialog(context));
+                  },
+                ));
+              }
+              return AdaptiveTextSelectionToolbar.buttonItems(
+                anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                buttonItems: buttonItems,
               );
             },
           ),

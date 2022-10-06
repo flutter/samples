@@ -38,10 +38,11 @@ class DefaultValuesPage extends StatelessWidget {
         title: const Text(DefaultValuesPage.title),
       ),
       body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-          return AdaptiveTextSelectionToolbarButtonItems(
-            primaryAnchor: primaryAnchor,
-            secondaryAnchor: secondaryAnchor,
+        contextMenuBuilder: (BuildContext context, Offset offset) {
+          return AdaptiveTextSelectionToolbar.buttonItems(
+            anchors: TextSelectionToolbarAnchors(
+              primaryAnchor: offset,
+            ),
             buttonItems: <ContextMenuButtonItem>[
               ContextMenuButtonItem(
                 onPressed: () {
@@ -65,25 +66,19 @@ class DefaultValuesPage extends StatelessWidget {
             ),
             TextField(
               controller: _controllerCustom,
-              contextMenuBuilder: (BuildContext context, EditableTextState editableTextState, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-                return EditableTextContextMenuButtonItemsBuilder(
-                  editableTextState: editableTextState,
-                  builder: (BuildContext context, List<ContextMenuButtonItem> buttonItems) {
-                    return AdaptiveTextSelectionToolbarButtonItems(
-                      primaryAnchor: primaryAnchor,
-                      secondaryAnchor: secondaryAnchor,
-                      buttonItems: <ContextMenuButtonItem>[
-                        ContextMenuButtonItem(
-                          label: 'Custom button',
-                          onPressed: () {
-                            ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(context, 'You clicked the custom button.'));
-                          },
-                        ),
-                        ...buttonItems,
-                      ],
-                    );
-                  },
+              contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                return AdaptiveTextSelectionToolbar.buttonItems(
+                  anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                  buttonItems: <ContextMenuButtonItem>[
+                    ContextMenuButtonItem(
+                      label: 'Custom button',
+                      onPressed: () {
+                        ContextMenuController.removeAny();
+                        Navigator.of(context).push(_showDialog(context, 'You clicked the custom button.'));
+                      },
+                    ),
+                    ...editableTextState.contextMenuButtonItems,
+                  ],
                 );
               },
             ),

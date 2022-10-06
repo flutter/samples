@@ -32,32 +32,27 @@ class ModifiedActionPage extends StatelessWidget {
         children: <Widget>[
           TextField(
             controller: _controller,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-              return EditableTextContextMenuButtonItemsBuilder(
-                editableTextState: editableTextState,
-                builder: (BuildContext context, List<ContextMenuButtonItem> buttonItems) {
-                  // Modify the copy buttonItem to show a dialog after copying.
-                  final int copyButtonIndex = buttonItems.indexWhere(
-                    (ContextMenuButtonItem buttonItem) {
-                      return buttonItem.type == ContextMenuButtonType.copy;
-                    },
-                  );
-                  if (copyButtonIndex >= 0) {
-                    final ContextMenuButtonItem copyButtonItem =
-                        buttonItems[copyButtonIndex];
-                    buttonItems[copyButtonIndex] = copyButtonItem.copyWith(
-                      onPressed: () {
-                        copyButtonItem.onPressed();
-                        Navigator.of(context).push(_showDialog(context));
-                      },
-                    );
-                  }
-                  return AdaptiveTextSelectionToolbarButtonItems(
-                    primaryAnchor: primaryAnchor,
-                    secondaryAnchor: secondaryAnchor,
-                    buttonItems: buttonItems,
-                  );
+            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+              final List<ContextMenuButtonItem> buttonItems = editableTextState.contextMenuButtonItems;
+              // Modify the copy buttonItem to show a dialog after copying.
+              final int copyButtonIndex = buttonItems.indexWhere(
+                (ContextMenuButtonItem buttonItem) {
+                  return buttonItem.type == ContextMenuButtonType.copy;
                 },
+              );
+              if (copyButtonIndex >= 0) {
+                final ContextMenuButtonItem copyButtonItem =
+                    buttonItems[copyButtonIndex];
+                buttonItems[copyButtonIndex] = copyButtonItem.copyWith(
+                  onPressed: () {
+                    copyButtonItem.onPressed();
+                    Navigator.of(context).push(_showDialog(context));
+                  },
+                );
+              }
+              return AdaptiveTextSelectionToolbar.buttonItems(
+                anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                buttonItems: buttonItems,
               );
             },
           ),

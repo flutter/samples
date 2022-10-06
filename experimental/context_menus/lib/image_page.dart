@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'context_menu_region.dart';
@@ -34,10 +35,11 @@ class ImagePage extends StatelessWidget {
         children: <Widget>[
           Container(height: 200.0),
           ContextMenuRegion(
-            contextMenuBuilder: (BuildContext context, Offset primaryAnchor, [Offset? secondaryAnchor]) {
-              return AdaptiveTextSelectionToolbarButtonItems(
-                primaryAnchor: primaryAnchor,
-                secondaryAnchor: secondaryAnchor,
+            contextMenuBuilder: (BuildContext context, Offset offset) {
+              return AdaptiveTextSelectionToolbar.buttonItems(
+                anchors: TextSelectionToolbarAnchors(
+                  primaryAnchor: offset,
+                ),
                 buttonItems: <ContextMenuButtonItem>[
                   ContextMenuButtonItem(
                     onPressed: () {
