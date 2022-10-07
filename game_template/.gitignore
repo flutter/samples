@@ -32,8 +32,6 @@
 /build/
 .fvm/
 
-# Web related
-
 # Symbolication related
 app.*.symbols
 
