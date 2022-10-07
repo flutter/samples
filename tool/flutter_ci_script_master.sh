@@ -17,11 +17,12 @@ declare -ar PROJECT_NAMES=(
     "animations"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
+    "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
-    "experimental/web_dashboard"
     # TODO(domesticmouse): Needs a reformat to work on master
     # "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/web_dashboard"
     "flutter_maps_firestore"
     # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used. 
     # "form_app"
