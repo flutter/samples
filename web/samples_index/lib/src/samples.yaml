@@ -109,6 +109,24 @@ samples:
     links: []
     type: sample
 
+  - name: Code Sharing
+    author: Flutter
+    screenshots:
+      - url: images/code_sharing.jpg
+        alt: Counter app communicating with server
+    source: https://github.com/flutter/samples/tree/main/code_sharing
+    description: >
+      Demonstrates simple way to share business logic between a Flutter app and
+      a server running Dart.
+    difficulty: intermediate
+    packages:
+      - freezed
+      - shelf
+    tags: ['intermediate', 'sample', 'code-sharing', 'dart', 'server']
+    platforms: ['android', 'ios', 'linux', 'macos', 'web', 'windows']
+    links: []
+    type: sample
+
   - name: Animations
     author: Flutter
     screenshots:
