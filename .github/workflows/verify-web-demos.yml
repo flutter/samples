@@ -17,8 +17,7 @@ jobs:
       matrix:
         flutter_version:
           - stable
-          # This needs some form of exclusion list for which ever samples
-          # are currently broken on Beta, which will change on the regular.
+          # TODO(johnpryan): https://github.com/flutter/samples/issues/1469
           # - beta
     steps:
       - name: Checkout
