@@ -11,7 +11,7 @@ dependencies:
   mdc_web: ^0.6.0
   # ^2.1.5 is no longer compatible with our overridden sass version
   # https://github.com/flutter/samples/issues/1472
-  sass_builder: 2.1.4
+  sass_builder: ^2.1.4
   checked_yaml: ^2.0.1
   webdriver: ^3.0.0
   html: ^0.15.0
