@@ -55,6 +55,24 @@ void main() {
     // Alert Dialog
     Finder dialogExample = find.widgetWithText(TextButton, 'Open Dialog');
     expect(dialogExample, findsOneWidget);
+
+    // Switches
+    Finder switchExample = find.byType(Switch);
+    expect(switchExample, findsNWidgets(4));
+
+    // Checkboxes
+    Finder checkboxExample = find.byType(Checkbox);
+    expect(checkboxExample, findsNWidgets(8));
+
+    // Radios
+    Finder radioExample = find.byType(Radio<Value>);
+    expect(radioExample, findsNWidgets(2));
+
+    // ProgressIndicator
+    Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
+    expect(circularProgressIndicator, findsOneWidget);
+    Finder linearProgressIndicator = find.byType(LinearProgressIndicator);
+    expect(linearProgressIndicator, findsOneWidget);
   });
 
   testWidgets(

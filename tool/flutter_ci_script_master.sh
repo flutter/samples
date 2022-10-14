@@ -19,7 +19,8 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
-    # TODO(domesticmouse): Needs a reformat to work on master
+    "experimental/web_dashboard"
+    # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
     # "experimental/linting_tool"
     "experimental/material_3_demo"
     "experimental/web_dashboard"
@@ -41,7 +42,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(domesticmouse): Missing concrete implementation of 'TextInputClient.performSelector'
+    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1443
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"

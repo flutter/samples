@@ -5,7 +5,7 @@
 import 'dart:collection';
 import 'dart:math';
 
-import 'package:audioplayers/audioplayers.dart' hide Logger;
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
 
@@ -17,18 +17,10 @@ import 'sounds.dart';
 class AudioController {
   static final _log = Logger('AudioController');
 
-  late AudioCache _musicCache;
-
-  late AudioCache _sfxCache;
-
   final AudioPlayer _musicPlayer;
 
   /// This is a list of [AudioPlayer] instances which are rotated to play
   /// sound effects.
-  ///
-  /// Normally, we would just call [AudioCache.play] and let it procure its
-  /// own [AudioPlayer] every time. But this seems to lead to errors and
-  /// bad performance on iOS devices.
   final List<AudioPlayer> _sfxPlayers;
 
   int _currentSfxPlayer = 0;
@@ -49,26 +41,15 @@ class AudioController {
   /// of [_sfxPlayers] to learn why this is the case.
   ///
   /// Background music does not count into the [polyphony] limit. Music will
-  /// never be overridden by sound effects.
+  /// never be overridden by sound effects because that would be silly.
   AudioController({int polyphony = 2})
       : assert(polyphony >= 1),
         _musicPlayer = AudioPlayer(playerId: 'musicPlayer'),
         _sfxPlayers = Iterable.generate(
-            polyphony,
-            (i) => AudioPlayer(
-                playerId: 'sfxPlayer#$i',
-                mode: PlayerMode.LOW_LATENCY)).toList(growable: false),
+                polyphony, (i) => AudioPlayer(playerId: 'sfxPlayer#$i'))
+            .toList(growable: false),
         _playlist = Queue.of(List<Song>.of(songs)..shuffle()) {
-    _musicCache = AudioCache(
-      fixedPlayer: _musicPlayer,
-      prefix: 'assets/music/',
-    );
-    _sfxCache = AudioCache(
-      fixedPlayer: _sfxPlayers.first,
-      prefix: 'assets/sfx/',
-    );
-
-    _musicPlayer.onPlayerCompletion.listen(_changeSong);
+    _musicPlayer.onPlayerComplete.listen(_changeSong);
   }
 
   /// Enables the [AudioController] to listen to [AppLifecycleState] events,
@@ -127,8 +108,10 @@ class AudioController {
     // This assumes there is only a limited number of sound effects in the game.
     // If there are hundreds of long sound effect files, it's better
     // to be more selective when preloading.
-    await _sfxCache
-        .loadAll(SfxType.values.expand(soundTypeToFilename).toList());
+    await AudioCache.instance.loadAll(SfxType.values
+        .expand(soundTypeToFilename)
+        .map((path) => 'sfx/$path')
+        .toList());
   }
 
   /// Plays a single sound effect, defined by [type].
@@ -153,9 +136,11 @@ class AudioController {
     final options = soundTypeToFilename(type);
     final filename = options[_random.nextInt(options.length)];
     _log.info(() => '- Chosen filename: $filename');
-    _sfxCache.play(filename, volume: soundTypeToVolume(type));
+
+    final currentPlayer = _sfxPlayers[_currentSfxPlayer];
+    currentPlayer.play(AssetSource('sfx/$filename'),
+        volume: soundTypeToVolume(type));
     _currentSfxPlayer = (_currentSfxPlayer + 1) % _sfxPlayers.length;
-    _sfxCache.fixedPlayer = _sfxPlayers[_currentSfxPlayer];
   }
 
   void _changeSong(void _) {
@@ -163,8 +148,7 @@ class AudioController {
     // Put the song that just finished playing to the end of the playlist.
     _playlist.addLast(_playlist.removeFirst());
     // Play the next song.
-    _log.info(() => 'Playing ${_playlist.first} now.');
-    _musicCache.play(_playlist.first.filename);
+    _playFirstSongInPlaylist();
   }
 
   void _handleAppLifecycle() {
@@ -208,41 +192,46 @@ class AudioController {
     }
   }
 
+  Future<void> _playFirstSongInPlaylist() async {
+    _log.info(() => 'Playing ${_playlist.first} now.');
+    await _musicPlayer.play(AssetSource('music/${_playlist.first.filename}'));
+  }
+
   Future<void> _resumeMusic() async {
     _log.info('Resuming music');
     switch (_musicPlayer.state) {
-      case PlayerState.PAUSED:
+      case PlayerState.paused:
         _log.info('Calling _musicPlayer.resume()');
         try {
           await _musicPlayer.resume();
         } catch (e) {
           // Sometimes, resuming fails with an "Unexpected" error.
           _log.severe(e);
-          await _musicCache.play(_playlist.first.filename);
+          await _playFirstSongInPlaylist();
         }
         break;
-      case PlayerState.STOPPED:
+      case PlayerState.stopped:
         _log.info("resumeMusic() called when music is stopped. "
             "This probably means we haven't yet started the music. "
             "For example, the game was started with sound off.");
-        await _musicCache.play(_playlist.first.filename);
+        await _playFirstSongInPlaylist();
         break;
-      case PlayerState.PLAYING:
+      case PlayerState.playing:
         _log.warning('resumeMusic() called when music is playing. '
             'Nothing to do.');
         break;
-      case PlayerState.COMPLETED:
+      case PlayerState.completed:
         _log.warning('resumeMusic() called when music is completed. '
             "Music should never be 'completed' as it's either not playing "
             "or looping forever.");
-        await _musicCache.play(_playlist.first.filename);
+        await _playFirstSongInPlaylist();
         break;
     }
   }
 
   void _soundsOnHandler() {
     for (final player in _sfxPlayers) {
-      if (player.state == PlayerState.PLAYING) {
+      if (player.state == PlayerState.playing) {
         player.stop();
       }
     }
@@ -250,11 +239,11 @@ class AudioController {
 
   void _startMusic() {
     _log.info('starting music');
-    _musicCache.play(_playlist.first.filename);
+    _playFirstSongInPlaylist();
   }
 
   void _stopAllSound() {
-    if (_musicPlayer.state == PlayerState.PLAYING) {
+    if (_musicPlayer.state == PlayerState.playing) {
       _musicPlayer.pause();
     }
     for (final player in _sfxPlayers) {
@@ -264,7 +253,7 @@ class AudioController {
 
   void _stopMusic() {
     _log.info('Stopping music');
-    if (_musicPlayer.state == PlayerState.PLAYING) {
+    if (_musicPlayer.state == PlayerState.playing) {
       _musicPlayer.pause();
     }
   }

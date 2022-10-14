@@ -133,7 +133,7 @@ class MyApp extends StatelessWidget {
           routes: [
             GoRoute(
                 path: 'play',
-                pageBuilder: (context, state) => buildMyTransition(
+                pageBuilder: (context, state) => buildMyTransition<void>(
                       child: const LevelSelectionScreen(
                           key: Key('level selection')),
                       color: context.watch<Palette>().backgroundLevelSelection,
@@ -145,7 +145,7 @@ class MyApp extends StatelessWidget {
                       final levelNumber = int.parse(state.params['level']!);
                       final level = gameLevels
                           .singleWhere((e) => e.number == levelNumber);
-                      return buildMyTransition(
+                      return buildMyTransition<void>(
                         child: PlaySessionScreen(
                           level,
                           key: const Key('play session'),
@@ -160,7 +160,7 @@ class MyApp extends StatelessWidget {
                       final map = state.extra! as Map<String, dynamic>;
                       final score = map['score'] as Score;
 
-                      return buildMyTransition(
+                      return buildMyTransition<void>(
                         child: WinGameScreen(
                           score: score,
                           key: const Key('win game'),
@@ -256,6 +256,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+            routeInformationProvider: _router.routeInformationProvider,
             routeInformationParser: _router.routeInformationParser,
             routerDelegate: _router.routerDelegate,
             scaffoldMessengerKey: scaffoldMessengerKey,

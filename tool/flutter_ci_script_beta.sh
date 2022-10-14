@@ -19,9 +19,11 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
-    "experimental/linting_tool"
+    # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
+    # "experimental/linting_tool"
     "flutter_maps_firestore"
-    "form_app"
+    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used. 
+    # "form_app"
     "game_template"
     "infinite_list"
     "ios_app_clip"
@@ -37,7 +39,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    "simplistic_editor"
+    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1443
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
 )
