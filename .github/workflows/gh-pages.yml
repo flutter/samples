@@ -28,7 +28,7 @@ jobs:
         working-directory: web/_tool
 
       - name: Build
-        run: dart _tool/build_ci.dart
+        run: dart run _tool/build_ci.dart
         working-directory: web
 
       - name: Deploy
