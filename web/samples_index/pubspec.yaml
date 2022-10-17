@@ -9,7 +9,9 @@ dependencies:
   path: ^1.6.0
   yaml: ^3.0.0
   mdc_web: ^0.6.0
-  sass_builder: ^2.1.0
+  # ^2.1.5 is no longer compatible with our overridden sass version
+  # https://github.com/flutter/samples/issues/1472
+  sass_builder: 2.1.4
   checked_yaml: ^2.0.1
   webdriver: ^3.0.0
   html: ^0.15.0
@@ -27,5 +29,6 @@ dev_dependencies:
 # Once released, it will need to be rolled into package:mdc_web.
 #
 # https://github.com/material-components/material-components-web/pull/7158
+# https://github.com/flutter/samples/issues/1472
 dependency_overrides:
   sass: 1.32.10
