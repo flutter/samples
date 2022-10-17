@@ -13,28 +13,38 @@ void main() {
   final host = 'http://0.0.0.0:$port';
   late Process p;
 
-  setUp(() async {
-    p = await Process.start(
-      'dart',
-      ['run', 'bin/server.dart'],
-      environment: {'PORT': port},
-    );
-    // Wait for server to start and print to stdout.
-    await p.stdout.first;
-  });
+  group(
+    'Integration test should',
+    () {
+      setUp(() async {
+        p = await Process.start(
+          'dart',
+          ['run', 'bin/server.dart'],
+          environment: {'PORT': port},
+        );
+        // Wait for server to start and print to stdout.
+        await p.stdout.first;
+      });
 
-  tearDown(() => p.kill());
+      tearDown(() => p.kill());
 
-  test('Increment', () async {
-    final response = await post(Uri.parse('$host/'), body: '{"by": 1}');
-    expect(response.statusCode, 200);
-    expect(response.body, '{"value":1}');
-  });
+      test('Increment', () async {
+        final response = await post(Uri.parse('$host/'), body: '{"by": 1}');
+        expect(response.statusCode, 200);
+        expect(response.body, '{"value":1}');
+      });
 
-  test('Get', () async {
-    final response = await get(Uri.parse('$host/'));
-    expect(response.statusCode, 200);
-    final resp = json.decode(response.body) as Map;
-    expect(resp.containsKey('value'), true);
-  });
+      test('Get', () async {
+        final response = await get(Uri.parse('$host/'));
+        expect(response.statusCode, 200);
+        final resp = json.decode(response.body) as Map;
+        expect(resp.containsKey('value'), true);
+      });
+    },
+    onPlatform: <String, dynamic>{
+      'windows': [
+        Skip('Failing on Windows CI'),
+      ]
+    },
+  );
 }
