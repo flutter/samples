@@ -36,7 +36,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.0.6
   flutter_lints: ^2.0.1
-  hive_generator: ^1.1.0
+  hive_generator: ^2.0.0
   json_serializable: ^6.2.0
 
 flutter:
