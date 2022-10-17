@@ -44,6 +44,7 @@ declare -ar PROJECT_NAMES=(
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"
+    "web/samples_index"
 )
 
 ci_projects "beta" "${PROJECT_NAMES[@]}"

@@ -599,23 +599,6 @@ samples:
     type: demo
     web: web/game_template
 
-  - name: Charts
-    author: Flutter
-    screenshots:
-      - url: images/charts1.png
-        alt: Charts screenshot
-    source: https://github.com/google/charts
-    description: >
-      A general-purpose charting library.
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['ios', 'android', 'web']
-    links: []
-    tags: ['demo', 'charts']
-    web: web/charts
-    type: demo
-
   - name: GitHub Dataviz
     author: Larva Labs
     screenshots:
