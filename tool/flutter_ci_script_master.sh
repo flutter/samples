@@ -15,6 +15,8 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
+    "code_sharing/client"
+    "code_sharing/server"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"
@@ -23,7 +25,7 @@ declare -ar PROJECT_NAMES=(
     # "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
-    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used. 
+    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used.
     # "form_app"
     "game_template"
     "infinite_list"
