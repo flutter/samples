@@ -1,13 +1,15 @@
 # Use latest stable channel SDK.
 FROM dart:stable AS build
 
-# Resolve app dependencies.
+# Copy shared code.
 WORKDIR /shared
 COPY /shared/. .
 
-# Resolve app dependencies.
+# Copy server code.
 WORKDIR /server
 COPY /server/. .
+
+# Resolve app dependencies.
 RUN dart pub get
 
 # AOT compile app.
