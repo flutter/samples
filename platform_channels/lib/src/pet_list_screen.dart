@@ -20,8 +20,8 @@ class _PetListScreenState extends State<PetListScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
     final scaffoldMessenger = ScaffoldMessenger.of(context);
