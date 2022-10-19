@@ -2,8 +2,12 @@
 FROM dart:stable AS build
 
 # Resolve app dependencies.
-WORKDIR /app
-COPY . .
+WORKDIR /shared
+COPY /shared/. .
+
+# Resolve app dependencies.
+WORKDIR /server
+COPY /server/. .
 RUN dart pub get
 
 # AOT compile app.
@@ -13,7 +17,7 @@ RUN dart compile exe bin/server.dart -o bin/server
 # and the pre-built AOT-runtime in the `/runtime/` directory of the base image.
 FROM scratch
 COPY --from=build /runtime/ /
-COPY --from=build /app/bin/server /app/bin/
+COPY --from=build /server/bin/server /app/bin/
 
 # Start server.
 EXPOSE 8080
