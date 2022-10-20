@@ -19,6 +19,6 @@ test:
 
 # Docker
 build:
-	(cd server && flutter pub get)
-	docker build ./server -t codesharingserver -f server/Dockerfile
+	(cd server && dart pub get)
+	docker build . -t codesharingserver
 
