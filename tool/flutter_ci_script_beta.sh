@@ -17,7 +17,7 @@ declare -ar PROJECT_NAMES=(
     "animations"
     "code_sharing/client"
     "code_sharing/server"
-    "code_sharing/server/shared"
+    "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/federated_plugin/federated_plugin"

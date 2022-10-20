@@ -32,13 +32,13 @@ code_sharing/
   server/
     bin/
       server.dart
-    # Common business logic
-    shared/
-      pubspec.yaml
-      lib/
-        ...
     pubspec.yaml
     Dockerfile
+  # Common business logic
+  shared/
+    pubspec.yaml
+    lib/
+      ...
 ```
 
 ## Recreating this on your own

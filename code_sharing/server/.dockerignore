@@ -1,9 +1,12 @@
 .dockerignore
 Dockerfile
-build/
-.dart_tool/
+docker-compose.yml
+Makefile
+README.md
+*/build/
+*/.dart_tool/
 .git/
 .github/
 .gitignore
-.idea/
-.packages
+*/.idea/
+*/.packages

@@ -11,7 +11,7 @@ dependencies:
   shelf: ^1.1.0
   shelf_router: ^1.0.0
   shared:
-    path: ./shared
+    path: ../shared
 
 dev_dependencies:
   http: ^0.13.0

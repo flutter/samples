@@ -2,7 +2,7 @@ version: "3.7"
 services:
   server:
     build:
-      context: server
+      context: .
     ports:
       - 8080:8080
     environment:

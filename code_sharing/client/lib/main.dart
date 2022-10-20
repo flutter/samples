@@ -78,7 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
           (int val) => setState(
             () {
               _counter = val;
-              isWriting = true;
+              // Leave this up for at least a split second
+              Future.delayed(
+                const Duration(milliseconds: 200),
+                () => setState(() => isWriting = false),
+              );
             },
           ),
         );
