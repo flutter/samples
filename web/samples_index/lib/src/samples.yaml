@@ -634,23 +634,6 @@ samples:
     web: web/github_dataviz
     type: demo
 
-  - name: Particle Background
-    author: Felix Blaschke
-    screenshots:
-      - url: images/particle_background1.png
-        alt: Particle Background screenshot
-    source: https://github.com/flutter/samples/tree/main/web/particle_background
-    description: >
-      Flutter app demonstrating package:simple_animations in action.
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'animation']
-    web: web/particle_background
-    type: demo
-
   - name: Dice
     author: Jaime Blasco
     screenshots:

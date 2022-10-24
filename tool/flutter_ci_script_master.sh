@@ -36,7 +36,6 @@ declare -ar PROJECT_NAMES=(
     "navigation_and_routing"
     "null_safety/null_safe_app"
     "null_safety/null_unsafe_app"
-    "particle_background"
     "place_tracker"
     "platform_channels"
     "platform_design"
