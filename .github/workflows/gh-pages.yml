@@ -32,7 +32,7 @@ jobs:
         working-directory: web
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305
+        uses: peaceiris/actions-gh-pages@de7ea6f8efb354206b205ef54722213d99067935
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: web/samples_index/public
