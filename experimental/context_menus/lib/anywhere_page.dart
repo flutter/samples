@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'platform_selector.dart';
-import 'context_menu_region.dart';
 import 'constants.dart';
+import 'context_menu_region.dart';
+import 'platform_selector.dart';
 
 class AnywherePage extends StatelessWidget {
   AnywherePage({
