@@ -22,10 +22,12 @@ class _PlatformSelectorState extends State<PlatformSelector> {
     return platform.toString().substring(targetPlatformStringLength);
   }
 
+  final TargetPlatform originaPlatform = defaultTargetPlatform;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 100.0,
+      width: 120.0,
       child: DropdownButton<TargetPlatform>(
         value: defaultTargetPlatform,
         icon: const Icon(Icons.arrow_downward),
@@ -41,7 +43,16 @@ class _PlatformSelectorState extends State<PlatformSelector> {
         items: TargetPlatform.values.map((TargetPlatform platform) {
           return DropdownMenuItem<TargetPlatform>(
             value: platform,
-            child: Text(_platformToString(platform)),
+            child: Row(
+              children: <Widget>[
+                if (platform == originaPlatform)
+                  const Icon(
+                    Icons.home,
+                    color: Color(0xff616161),
+                  ),
+                Text(_platformToString(platform)),
+              ],
+            ),
           );
         }).toList(),
       ),
