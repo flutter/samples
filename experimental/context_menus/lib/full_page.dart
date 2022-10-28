@@ -1,17 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import 'constants.dart';
 import 'context_menu_region.dart';
 import 'is_valid_email.dart';
+import 'platform_selector.dart';
 
 class FullPage extends StatelessWidget {
   FullPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'full';
   static const String title = 'Combined Example';
   static const String subtitle = 'Combining several different types of custom menus.';
+  static const String url = '$kCodeUrl/full_page.dart';
+
+  final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
     text: 'Custom menus everywhere. me@example.com',
@@ -30,6 +37,19 @@ class FullPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(FullPage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: ContextMenuRegion(
         contextMenuBuilder: (BuildContext context, Offset offset) {
@@ -99,7 +119,7 @@ class FullPage extends StatelessWidget {
                       ));
                     }
                     return AdaptiveTextSelectionToolbar(
-                      anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                      anchors: editableTextState.contextMenuAnchors,
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
@@ -114,7 +134,7 @@ class FullPage extends StatelessWidget {
                           child: SizedBox(
                             width: 200.0,
                             child: Text(
-                              CupertinoAdaptiveTextSelectionToolbar.getButtonLabel(context, buttonItem),
+                              CupertinoTextSelectionToolbarButton.getButtonLabel(context, buttonItem),
                             ),
                           ),
                         );

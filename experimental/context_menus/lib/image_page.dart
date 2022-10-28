@@ -1,20 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import 'constants.dart';
 import 'context_menu_region.dart';
+import 'platform_selector.dart';
 
 class ImagePage extends StatelessWidget {
-  ImagePage({
+  const ImagePage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'image';
   static const String title = 'ContextMenu on an Image';
   static const String subtitle = 'A ContextMenu the displays on an Image widget';
+  static const String url = '$kCodeUrl/image_page.dart';
 
-  final TextEditingController _controller = TextEditingController(
-    text: 'Right click or long press on the image to see a special menu',
-  );
+  final PlatformCallback onChangedPlatform;
 
   DialogRoute _showDialog (BuildContext context) {
     return DialogRoute<void>(
@@ -29,11 +31,23 @@ class ImagePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(ImagePage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(height: 200.0),
           ContextMenuRegion(
             contextMenuBuilder: (BuildContext context, Offset offset) {
               return AdaptiveTextSelectionToolbar.buttonItems(

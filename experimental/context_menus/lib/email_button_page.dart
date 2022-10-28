@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import 'constants.dart';
 import 'is_valid_email.dart';
+import 'platform_selector.dart';
 
 class EmailButtonPage extends StatelessWidget {
   EmailButtonPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'email-button';
   static const String title = 'Email Button';
   static const String subtitle = 'A selection-aware email button';
+  static const String url = '$kCodeUrl/email_button_page.dart';
+
+  final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
     text: 'Select the email address and open the menu: me@example.com',
@@ -28,6 +35,19 @@ class EmailButtonPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(EmailButtonPage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SizedBox(
@@ -57,7 +77,7 @@ class EmailButtonPage extends StatelessWidget {
                     ));
                   }
                   return AdaptiveTextSelectionToolbar.buttonItems(
-                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    anchors: editableTextState.contextMenuAnchors,
                     buttonItems: buttonItems,
                   );
                 },

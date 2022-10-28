@@ -1,16 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import 'platform_selector.dart';
 import 'context_menu_region.dart';
+import 'constants.dart';
 
 class AnywherePage extends StatelessWidget {
   AnywherePage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'anywhere';
   static const String title = 'Context Menu Anywhere Example';
   static const String subtitle = 'A ContextMenu outside of a text field';
+
+  final PlatformCallback onChangedPlatform;
 
   final TextEditingController _materialController = TextEditingController(
     text: 'TextField shows the default menu still.',
@@ -22,11 +28,26 @@ class AnywherePage extends StatelessWidget {
     text: 'EditableText has no default menu, so it shows the custom one.',
   );
 
+  static const String url = '$kCodeUrl/anywhere_page.dart';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(AnywherePage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: ContextMenuRegion(
         contextMenuBuilder: (BuildContext context, Offset primaryAnchor, [Offset? secondaryAnchor]) {

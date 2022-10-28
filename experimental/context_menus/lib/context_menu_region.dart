@@ -27,7 +27,7 @@ class ContextMenuRegion extends StatefulWidget {
 class _ContextMenuRegionState extends State<ContextMenuRegion> {
   Offset? _longPressOffset;
 
-  ContextMenuController? _contextMenuController;
+  final ContextMenuController _contextMenuController = ContextMenuController();
 
   static bool get _longPressEnabled {
     switch (defaultTargetPlatform) {
@@ -47,7 +47,7 @@ class _ContextMenuRegionState extends State<ContextMenuRegion> {
   }
 
   void _onTap() {
-    if (!(_contextMenuController?.isShown ?? false)) {
+    if (!_contextMenuController.isShown) {
       return;
     }
     _hide();
@@ -64,7 +64,7 @@ class _ContextMenuRegionState extends State<ContextMenuRegion> {
   }
 
   void _show(Offset position) {
-    _contextMenuController = ContextMenuController(
+    _contextMenuController.show(
       context: context,
       contextMenuBuilder: (BuildContext context) {
         return widget.contextMenuBuilder(context, position);
@@ -73,7 +73,7 @@ class _ContextMenuRegionState extends State<ContextMenuRegion> {
   }
 
   void _hide() {
-    _contextMenuController?.remove();
+    _contextMenuController.remove();
   }
 
   @override

@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'constants.dart';
+import 'platform_selector.dart';
 
 class ModifiedActionPage extends StatelessWidget {
   ModifiedActionPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'modified-action';
   static const String title = 'Modified Action';
   static const String subtitle = 'The copy button copies but also shows a menu.';
+  static const String url = '$kCodeUrl/modified_action_page.dart';
+
+  final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
     text: 'Try using the copy button.',
@@ -26,6 +34,19 @@ class ModifiedActionPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(ModifiedActionPage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SizedBox(
@@ -60,7 +81,7 @@ class ModifiedActionPage extends StatelessWidget {
                     );
                   }
                   return AdaptiveTextSelectionToolbar.buttonItems(
-                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    anchors: editableTextState.contextMenuAnchors,
                     buttonItems: buttonItems,
                   );
                 },

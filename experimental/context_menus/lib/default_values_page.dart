@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import 'context_menu_region.dart';
+import 'constants.dart';
+import 'platform_selector.dart';
 
 class DefaultValuesPage extends StatelessWidget {
   DefaultValuesPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'default-values';
   static const String title = 'Default API Values Example';
   static const String subtitle = 'Shows what happens when you pass various things into contextMenuBuilder.';
 
+  final PlatformCallback onChangedPlatform;
+
   final TextEditingController _controllerNone = TextEditingController(
-    text: "When contextMenuBuilder isn't given at all.",
+    text: "When contextMenuBuilder isn't given anything at all.",
   );
 
   final TextEditingController _controllerNull = TextEditingController(
@@ -22,6 +27,8 @@ class DefaultValuesPage extends StatelessWidget {
   final TextEditingController _controllerCustom = TextEditingController(
     text: "When something custom is passed to contextMenuBuilder.",
   );
+
+  static const String url = '$kCodeUrl/default_values_page.dart';
 
   DialogRoute _showDialog (BuildContext context, String message) {
     return DialogRoute<void>(
@@ -36,6 +43,19 @@ class DefaultValuesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(DefaultValuesPage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SizedBox(
@@ -66,7 +86,7 @@ class DefaultValuesPage extends StatelessWidget {
                 controller: _controllerCustom,
                 contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
                   return AdaptiveTextSelectionToolbar.buttonItems(
-                    anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                    anchors: editableTextState.contextMenuAnchors,
                     buttonItems: <ContextMenuButtonItem>[
                       ContextMenuButtonItem(
                         label: 'Custom button',

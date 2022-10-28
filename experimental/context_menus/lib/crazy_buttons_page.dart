@@ -1,24 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'constants.dart';
+import 'platform_selector.dart';
 
 class CrazyButtonsPage extends StatelessWidget {
   CrazyButtonsPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'custom-buttons';
   static const String title = 'Custom Buttons';
   static const String subtitle = 'The usual buttons, but with a custom appearance.';
 
+  final PlatformCallback onChangedPlatform;
+
   final TextEditingController _controller = TextEditingController(
     text: 'Show the menu to see the usual default buttons, but with a custom appearance.',
   );
+
+  static const String url = '$kCodeUrl/crazy_buttons_page.dart';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(CrazyButtonsPage.title),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            onPressed: () async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ],
       ),
       body: Center(
         child: SizedBox(
@@ -29,7 +51,7 @@ class CrazyButtonsPage extends StatelessWidget {
             minLines: 2,
             contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
               return AdaptiveTextSelectionToolbar(
-                anchors: AdaptiveTextSelectionToolbar.getAnchorsEditable(editableTextState),
+                anchors: editableTextState.contextMenuAnchors,
                 // Build the default buttons, but make them look custom.
                 // Note that in a real project you may want to build
                 // different buttons depending on the platform.
@@ -44,7 +66,7 @@ class CrazyButtonsPage extends StatelessWidget {
                     child: SizedBox(
                       width: 200.0,
                       child: Text(
-                        CupertinoAdaptiveTextSelectionToolbar.getButtonLabel(context, buttonItem),
+                        CupertinoTextSelectionToolbarButton.getButtonLabel(context, buttonItem),
                       ),
                     ),
                   );

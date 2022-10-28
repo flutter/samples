@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'constants.dart';
+import 'platform_selector.dart';
 
 class GlobalSelectionPage extends StatelessWidget {
   GlobalSelectionPage({
     Key? key,
+    required this.onChangedPlatform,
   }) : super(key: key);
 
   static const String route = 'global-selection';
   static const String title = 'Global Selection Example';
   static const String subtitle = 'Context menus in and out of global selection';
+  static const String url = '$kCodeUrl/global_selection_page.dart';
+
+  final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
     text: 'TextFields still show their specific context menu.',
@@ -18,7 +26,7 @@ class GlobalSelectionPage extends StatelessWidget {
     return SelectionArea(
       contextMenuBuilder: (BuildContext context, SelectableRegionState selectableRegionState) {
         return AdaptiveTextSelectionToolbar.buttonItems(
-          anchors: AdaptiveTextSelectionToolbar.getAnchorsSelectable(selectableRegionState),
+          anchors: selectableRegionState.contextMenuAnchors,
           buttonItems: <ContextMenuButtonItem>[
             ...selectableRegionState.contextMenuButtonItems,
             ContextMenuButtonItem(
@@ -34,6 +42,19 @@ class GlobalSelectionPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(GlobalSelectionPage.title),
+          actions: <Widget>[
+            PlatformSelector(
+              onChangedPlatform: onChangedPlatform,
+            ),
+            IconButton(
+              icon: const Icon(Icons.code),
+              onPressed: () async {
+                if (!await launchUrl(Uri.parse(url))) {
+                  throw 'Could not launch $url';
+                }
+              },
+            ),
+          ],
         ),
         body: Center(
           child: SizedBox(

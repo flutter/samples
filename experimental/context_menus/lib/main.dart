@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'anywhere_page.dart';
@@ -9,48 +10,75 @@ import 'full_page.dart';
 import 'global_selection_page.dart';
 import 'image_page.dart';
 import 'modified_action_page.dart';
+import 'platform_selector.dart';
 import 'reordered_buttons_page.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
+  runApp(const MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  void onChangedPlatform(TargetPlatform platform) {
+    setState(() {
+      debugDefaultTargetPlatformOverride = platform;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Validation Sandbox',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Context Menu Examples',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        platform: defaultTargetPlatform,
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
-        '/': (BuildContext context) => const MyHomePage(),
-        AnywherePage.route: (BuildContext context) => AnywherePage(),
-        CrazyButtonsPage.route: (BuildContext context) => CrazyButtonsPage(),
-        ReorderedButtonsPage.route: (BuildContext context) => ReorderedButtonsPage(),
-        EmailButtonPage.route: (BuildContext context) => EmailButtonPage(),
-        ImagePage.route: (BuildContext context) => ImagePage(),
-        FieldTypesPage.route: (BuildContext context) => FieldTypesPage(),
-        FullPage.route: (BuildContext context) => FullPage(),
-        ModifiedActionPage.route: (BuildContext context) => ModifiedActionPage(),
-        GlobalSelectionPage.route: (BuildContext context) => GlobalSelectionPage(),
-        DefaultValuesPage.route: (BuildContext context) => DefaultValuesPage(),
+        '/': (BuildContext context) => MyHomePage(onChangedPlatform: onChangedPlatform),
+        AnywherePage.route: (BuildContext context) => AnywherePage(onChangedPlatform: onChangedPlatform),
+        CrazyButtonsPage.route: (BuildContext context) => CrazyButtonsPage(onChangedPlatform: onChangedPlatform),
+        ReorderedButtonsPage.route: (BuildContext context) => ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
+        EmailButtonPage.route: (BuildContext context) => EmailButtonPage(onChangedPlatform: onChangedPlatform),
+        ImagePage.route: (BuildContext context) => ImagePage(onChangedPlatform: onChangedPlatform),
+        FieldTypesPage.route: (BuildContext context) => FieldTypesPage(onChangedPlatform: onChangedPlatform),
+        FullPage.route: (BuildContext context) => FullPage(onChangedPlatform: onChangedPlatform),
+        ModifiedActionPage.route: (BuildContext context) => ModifiedActionPage(onChangedPlatform: onChangedPlatform),
+        GlobalSelectionPage.route: (BuildContext context) => GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
+        DefaultValuesPage.route: (BuildContext context) => DefaultValuesPage(onChangedPlatform: onChangedPlatform),
       },
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({
+    super.key,
+    required this.onChangedPlatform,
+  });
+
+  final PlatformCallback onChangedPlatform;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Context Menu Demos'),
+        actions: <Widget>[
+          PlatformSelector(
+            onChangedPlatform: onChangedPlatform,
+          ),
+        ],
       ),
       body: ListView(
         children: const <Widget>[
@@ -75,6 +103,11 @@ class MyHomePage extends StatelessWidget {
             subtitle: CrazyButtonsPage.subtitle,
           ),
           MyListItem(
+            route: EmailButtonPage.route,
+            title: EmailButtonPage.title,
+            subtitle: EmailButtonPage.subtitle,
+          ),
+          MyListItem(
             route: ReorderedButtonsPage.route,
             title: ReorderedButtonsPage.title,
             subtitle: ReorderedButtonsPage.subtitle,
@@ -83,11 +116,6 @@ class MyHomePage extends StatelessWidget {
             route: ModifiedActionPage.route,
             title: ModifiedActionPage.title,
             subtitle: ModifiedActionPage.subtitle,
-          ),
-          MyListItem(
-            route: EmailButtonPage.route,
-            title: EmailButtonPage.title,
-            subtitle: EmailButtonPage.subtitle,
           ),
           MyListItem(
             route: FieldTypesPage.route,
