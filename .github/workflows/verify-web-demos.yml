@@ -32,5 +32,5 @@ jobs:
         run: dart pub get
         working-directory: web/_tool
       - name: Verify packages
-        run: dart _tool/verify_packages.dart
+        run: dart run _tool/verify_packages.dart
         working-directory: web

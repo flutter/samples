@@ -4,11 +4,13 @@
 
 package dev.flutter.example.androidView
 
+import android.app.Activity
 import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import io.flutter.embedding.android.ExclusiveAppComponent
 import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.platform.PlatformPlugin
@@ -40,7 +42,7 @@ import io.flutter.plugin.platform.PlatformPlugin
  * what the appropriate intersection between the [FlutterView], the [FlutterEngine] and your
  * `Activity` should be for your own application.
  */
-class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
+class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver, ExclusiveAppComponent<Activity>{
     private var flutterView: FlutterView? = null
     private var activity: ComponentActivity? = null
     private var platformPlugin: PlatformPlugin? = null
@@ -55,7 +57,7 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
             flutterView!!.let { flutterView ->
                 platformPlugin = PlatformPlugin(activity, engine.platformChannel)
 
-                engine.activityControlSurface.attachToActivity(activity, activity.lifecycle)
+                engine.activityControlSurface.attachToActivity(this, activity.lifecycle)
                 flutterView.attachToFlutterEngine(engine)
                 activity.lifecycle.addObserver(this)
             }
@@ -216,5 +218,26 @@ class FlutterViewEngine(val engine: FlutterEngine) : LifecycleObserver{
         if (activity != null && flutterView != null) {
             engine.activityControlSurface.onUserLeaveHint();
         }
+    }
+
+    /**
+     * Called when another App Component is about to become attached to the [ ] this App Component
+     * is currently attached to.
+     *
+     *
+     * This App Component's connections to the [io.flutter.embedding.engine.FlutterEngine]
+     * are still valid at the moment of this call.
+     */
+    override fun detachFromFlutterEngine() {
+        // Do nothing here
+    }
+
+    /**
+     * Retrieve the App Component behind this exclusive App Component.
+     *
+     * @return The app component.
+     */
+    override fun getAppComponent(): Activity {
+        return activity!!;
     }
 }
