@@ -20,7 +20,7 @@ Future<void> testCli() async =>
 
 @Task()
 void analyze() {
-  PubApp.local('tuneup').run(['check']);
+  run('dart', arguments: const ['analyze', '--fatal-infos', '.']);
 }
 
 @Task('deploy')
