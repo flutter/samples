@@ -12,7 +12,8 @@ class DefaultValuesPage extends StatelessWidget {
 
   static const String route = 'default-values';
   static const String title = 'Default API Values Example';
-  static const String subtitle = 'Shows what happens when you pass various things into contextMenuBuilder.';
+  static const String subtitle =
+      'Shows what happens when you pass various things into contextMenuBuilder.';
 
   final PlatformCallback onChangedPlatform;
 
@@ -30,11 +31,10 @@ class DefaultValuesPage extends StatelessWidget {
 
   static const String url = '$kCodeUrl/default_values_page.dart';
 
-  DialogRoute _showDialog (BuildContext context, String message) {
+  DialogRoute _showDialog(BuildContext context, String message) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
-        AlertDialog(title: Text(message)),
+      builder: (BuildContext context) => AlertDialog(title: Text(message)),
     );
   }
 
@@ -84,7 +84,8 @@ class DefaultValuesPage extends StatelessWidget {
                 maxLines: 2,
                 minLines: 2,
                 controller: _controllerCustom,
-                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                contextMenuBuilder: (BuildContext context,
+                    EditableTextState editableTextState) {
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,
                     buttonItems: <ContextMenuButtonItem>[
@@ -92,7 +93,8 @@ class DefaultValuesPage extends StatelessWidget {
                         label: 'Custom button',
                         onPressed: () {
                           ContextMenuController.removeAny();
-                          Navigator.of(context).push(_showDialog(context, 'You clicked the custom button.'));
+                          Navigator.of(context).push(_showDialog(
+                              context, 'You clicked the custom button.'));
                         },
                       ),
                       ...editableTextState.contextMenuButtonItems,

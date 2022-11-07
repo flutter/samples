@@ -13,16 +13,17 @@ class ImagePage extends StatelessWidget {
 
   static const String route = 'image';
   static const String title = 'ContextMenu on an Image';
-  static const String subtitle = 'A ContextMenu the displays on an Image widget';
+  static const String subtitle =
+      'A ContextMenu the displays on an Image widget';
   static const String url = '$kCodeUrl/image_page.dart';
 
   final PlatformCallback onChangedPlatform;
 
-  DialogRoute _showDialog (BuildContext context) {
+  DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-        const AlertDialog(title: Text('Image saved! (not really though)')),
+          const AlertDialog(title: Text('Image saved! (not really though)')),
     );
   }
 

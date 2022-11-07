@@ -13,12 +13,14 @@ class CrazyButtonsPage extends StatelessWidget {
 
   static const String route = 'custom-buttons';
   static const String title = 'Custom Buttons';
-  static const String subtitle = 'The usual buttons, but with a custom appearance.';
+  static const String subtitle =
+      'The usual buttons, but with a custom appearance.';
 
   final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
-    text: 'Show the menu to see the usual default buttons, but with a custom appearance.',
+    text:
+        'Show the menu to see the usual default buttons, but with a custom appearance.',
   );
 
   static const String url = '$kCodeUrl/crazy_buttons_page.dart';
@@ -49,13 +51,15 @@ class CrazyButtonsPage extends StatelessWidget {
             controller: _controller,
             maxLines: 4,
             minLines: 2,
-            contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+            contextMenuBuilder:
+                (BuildContext context, EditableTextState editableTextState) {
               return AdaptiveTextSelectionToolbar(
                 anchors: editableTextState.contextMenuAnchors,
                 // Build the default buttons, but make them look custom.
                 // Note that in a real project you may want to build
                 // different buttons depending on the platform.
-                children: editableTextState.contextMenuButtonItems.map((ContextMenuButtonItem buttonItem) {
+                children: editableTextState.contextMenuButtonItems
+                    .map((ContextMenuButtonItem buttonItem) {
                   return CupertinoButton(
                     borderRadius: null,
                     color: const Color(0xffaaaa00),
@@ -66,7 +70,8 @@ class CrazyButtonsPage extends StatelessWidget {
                     child: SizedBox(
                       width: 200.0,
                       child: Text(
-                        CupertinoTextSelectionToolbarButton.getButtonLabel(context, buttonItem),
+                        CupertinoTextSelectionToolbarButton.getButtonLabel(
+                            context, buttonItem),
                       ),
                     ),
                   );

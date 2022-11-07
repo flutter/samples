@@ -15,7 +15,8 @@ class FullPage extends StatelessWidget {
 
   static const String route = 'full';
   static const String title = 'Combined Example';
-  static const String subtitle = 'Combining several different types of custom menus.';
+  static const String subtitle =
+      'Combining several different types of custom menus.';
   static const String url = '$kCodeUrl/full_page.dart';
 
   final PlatformCallback onChangedPlatform;
@@ -24,11 +25,10 @@ class FullPage extends StatelessWidget {
     text: 'Custom menus everywhere. me@example.com',
   );
 
-  DialogRoute _showDialog (BuildContext context, String message) {
+  DialogRoute _showDialog(BuildContext context, String message) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
-        AlertDialog(title: Text(message)),
+      builder: (BuildContext context) => AlertDialog(title: Text(message)),
     );
   }
 
@@ -90,7 +90,8 @@ class FullPage extends StatelessWidget {
                         ContextMenuButtonItem(
                           onPressed: () {
                             ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(context, 'Image saved! (not really though)'));
+                            Navigator.of(context).push(_showDialog(
+                                context, 'Image saved! (not really though)'));
                           },
                           label: 'Save',
                         ),
@@ -106,24 +107,31 @@ class FullPage extends StatelessWidget {
                 Container(height: 20.0),
                 TextField(
                   controller: _controller,
-                  contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-                    final TextEditingValue value = editableTextState.textEditingValue;
-                    final List<ContextMenuButtonItem> buttonItems = editableTextState.contextMenuButtonItems;
+                  contextMenuBuilder: (BuildContext context,
+                      EditableTextState editableTextState) {
+                    final TextEditingValue value =
+                        editableTextState.textEditingValue;
+                    final List<ContextMenuButtonItem> buttonItems =
+                        editableTextState.contextMenuButtonItems;
                     if (isValidEmail(value.selection.textInside(value.text))) {
-                      buttonItems.insert(0, ContextMenuButtonItem(
-                        label: 'Send email',
-                        onPressed: () {
-                          ContextMenuController.removeAny();
-                          Navigator.of(context).push(_showDialog(context, 'You clicked send email'));
-                        },
-                      ));
+                      buttonItems.insert(
+                          0,
+                          ContextMenuButtonItem(
+                            label: 'Send email',
+                            onPressed: () {
+                              ContextMenuController.removeAny();
+                              Navigator.of(context).push(_showDialog(
+                                  context, 'You clicked send email'));
+                            },
+                          ));
                     }
                     return AdaptiveTextSelectionToolbar(
                       anchors: editableTextState.contextMenuAnchors,
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
-                      children: buttonItems.map((ContextMenuButtonItem buttonItem) {
+                      children:
+                          buttonItems.map((ContextMenuButtonItem buttonItem) {
                         return CupertinoButton(
                           borderRadius: null,
                           color: const Color(0xffaaaa00),
@@ -134,7 +142,8 @@ class FullPage extends StatelessWidget {
                           child: SizedBox(
                             width: 200.0,
                             child: Text(
-                              CupertinoTextSelectionToolbarButton.getButtonLabel(context, buttonItem),
+                              CupertinoTextSelectionToolbarButton
+                                  .getButtonLabel(context, buttonItem),
                             ),
                           ),
                         );

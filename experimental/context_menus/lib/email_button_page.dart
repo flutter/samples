@@ -22,11 +22,11 @@ class EmailButtonPage extends StatelessWidget {
     text: 'Select the email address and open the menu: me@example.com',
   );
 
-  DialogRoute _showDialog (BuildContext context) {
+  DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-        const AlertDialog(title: Text('You clicked send email!')),
+          const AlertDialog(title: Text('You clicked send email!')),
     );
   }
 
@@ -63,18 +63,22 @@ class EmailButtonPage extends StatelessWidget {
               TextField(
                 maxLines: 2,
                 controller: _controller,
-                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-                  final TextEditingValue value = editableTextState.textEditingValue;
+                contextMenuBuilder: (BuildContext context,
+                    EditableTextState editableTextState) {
+                  final TextEditingValue value =
+                      editableTextState.textEditingValue;
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
                   if (isValidEmail(value.selection.textInside(value.text))) {
-                    buttonItems.insert(0, ContextMenuButtonItem(
-                      label: 'Send email',
-                      onPressed: () {
-                        ContextMenuController.removeAny();
-                        Navigator.of(context).push(_showDialog(context));
-                      },
-                    ));
+                    buttonItems.insert(
+                        0,
+                        ContextMenuButtonItem(
+                          label: 'Send email',
+                          onPressed: () {
+                            ContextMenuController.removeAny();
+                            Navigator.of(context).push(_showDialog(context));
+                          },
+                        ));
                   }
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,

@@ -45,17 +45,28 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
-        '/': (BuildContext context) => MyHomePage(onChangedPlatform: onChangedPlatform),
-        AnywherePage.route: (BuildContext context) => AnywherePage(onChangedPlatform: onChangedPlatform),
-        CrazyButtonsPage.route: (BuildContext context) => CrazyButtonsPage(onChangedPlatform: onChangedPlatform),
-        ReorderedButtonsPage.route: (BuildContext context) => ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
-        EmailButtonPage.route: (BuildContext context) => EmailButtonPage(onChangedPlatform: onChangedPlatform),
-        ImagePage.route: (BuildContext context) => ImagePage(onChangedPlatform: onChangedPlatform),
-        FieldTypesPage.route: (BuildContext context) => FieldTypesPage(onChangedPlatform: onChangedPlatform),
-        FullPage.route: (BuildContext context) => FullPage(onChangedPlatform: onChangedPlatform),
-        ModifiedActionPage.route: (BuildContext context) => ModifiedActionPage(onChangedPlatform: onChangedPlatform),
-        GlobalSelectionPage.route: (BuildContext context) => GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
-        DefaultValuesPage.route: (BuildContext context) => DefaultValuesPage(onChangedPlatform: onChangedPlatform),
+        '/': (BuildContext context) =>
+            MyHomePage(onChangedPlatform: onChangedPlatform),
+        AnywherePage.route: (BuildContext context) =>
+            AnywherePage(onChangedPlatform: onChangedPlatform),
+        CrazyButtonsPage.route: (BuildContext context) =>
+            CrazyButtonsPage(onChangedPlatform: onChangedPlatform),
+        ReorderedButtonsPage.route: (BuildContext context) =>
+            ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
+        EmailButtonPage.route: (BuildContext context) =>
+            EmailButtonPage(onChangedPlatform: onChangedPlatform),
+        ImagePage.route: (BuildContext context) =>
+            ImagePage(onChangedPlatform: onChangedPlatform),
+        FieldTypesPage.route: (BuildContext context) =>
+            FieldTypesPage(onChangedPlatform: onChangedPlatform),
+        FullPage.route: (BuildContext context) =>
+            FullPage(onChangedPlatform: onChangedPlatform),
+        ModifiedActionPage.route: (BuildContext context) =>
+            ModifiedActionPage(onChangedPlatform: onChangedPlatform),
+        GlobalSelectionPage.route: (BuildContext context) =>
+            GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
+        DefaultValuesPage.route: (BuildContext context) =>
+            DefaultValuesPage(onChangedPlatform: onChangedPlatform),
       },
     );
   }

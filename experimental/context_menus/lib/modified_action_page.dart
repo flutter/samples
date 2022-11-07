@@ -12,7 +12,8 @@ class ModifiedActionPage extends StatelessWidget {
 
   static const String route = 'modified-action';
   static const String title = 'Modified Action';
-  static const String subtitle = 'The copy button copies but also shows a menu.';
+  static const String subtitle =
+      'The copy button copies but also shows a menu.';
   static const String url = '$kCodeUrl/modified_action_page.dart';
 
   final PlatformCallback onChangedPlatform;
@@ -21,11 +22,11 @@ class ModifiedActionPage extends StatelessWidget {
     text: 'Try using the copy button.',
   );
 
-  DialogRoute _showDialog (BuildContext context) {
+  DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
-        const AlertDialog(title: Text('Copied, but also showed this dialog.')),
+      builder: (BuildContext context) => const AlertDialog(
+          title: Text('Copied, but also showed this dialog.')),
     );
   }
 
@@ -62,8 +63,10 @@ class ModifiedActionPage extends StatelessWidget {
               ),
               TextField(
                 controller: _controller,
-                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
-                  final List<ContextMenuButtonItem> buttonItems = editableTextState.contextMenuButtonItems;
+                contextMenuBuilder: (BuildContext context,
+                    EditableTextState editableTextState) {
+                  final List<ContextMenuButtonItem> buttonItems =
+                      editableTextState.contextMenuButtonItems;
                   // Modify the copy buttonItem to show a dialog after copying.
                   final int copyButtonIndex = buttonItems.indexWhere(
                     (ContextMenuButtonItem buttonItem) {

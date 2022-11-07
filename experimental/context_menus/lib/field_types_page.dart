@@ -13,29 +13,35 @@ class FieldTypesPage extends StatelessWidget {
 
   static const String route = 'field-types';
   static const String title = 'The Context Menu in Different Field Types';
-  static const String subtitle = 'How contextual menus work in TextField, CupertinoTextField, and EditableText';
+  static const String subtitle =
+      'How contextual menus work in TextField, CupertinoTextField, and EditableText';
   static const String url = '$kCodeUrl/field_types_page.dart';
 
   final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
-    text: "Material text field shows the menu for any platform by default. You'll see the correct menu for your platform here.",
+    text:
+        "Material text field shows the menu for any platform by default. You'll see the correct menu for your platform here.",
   );
 
   final TextEditingController _cupertinoController = TextEditingController(
-    text: "CupertinoTextField can't show Material menus by default. On non-Apple platforms, you'll still see a Cupertino menu here.",
+    text:
+        "CupertinoTextField can't show Material menus by default. On non-Apple platforms, you'll still see a Cupertino menu here.",
   );
 
   final TextEditingController _cupertinoControllerFixed = TextEditingController(
-    text: "But CupertinoTextField can be made to adaptively show any menu. You'll see the correct menu for your platform here.",
+    text:
+        "But CupertinoTextField can be made to adaptively show any menu. You'll see the correct menu for your platform here.",
   );
 
-  final TextEditingController _cupertinoControllerForced = TextEditingController(
+  final TextEditingController _cupertinoControllerForced =
+      TextEditingController(
     text: 'Or forced to always show a specific menu (Material desktop menu).',
   );
 
   final TextEditingController _editableController = TextEditingController(
-    text: "EditableText doesn't show any selection menu by itself, even when contextMenuBuilder is passed.",
+    text:
+        "EditableText doesn't show any selection menu by itself, even when contextMenuBuilder is passed.",
   );
 
   @override
@@ -76,7 +82,8 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerFixed,
-                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                contextMenuBuilder: (BuildContext context,
+                    EditableTextState editableTextState) {
                   return AdaptiveTextSelectionToolbar.editableText(
                     editableTextState: editableTextState,
                   );
@@ -86,7 +93,8 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerForced,
-                contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                contextMenuBuilder: (BuildContext context,
+                    EditableTextState editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
                     children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
@@ -110,7 +118,8 @@ class FieldTypesPage extends StatelessWidget {
                   // EditableText has no built-in gesture detection for
                   // selection. A wrapper would have to implement
                   // TextSelectionGestureDetectorBuilderDelegate, etc.
-                  contextMenuBuilder: (BuildContext context, EditableTextState editableTextState) {
+                  contextMenuBuilder: (BuildContext context,
+                      EditableTextState editableTextState) {
                     return AdaptiveTextSelectionToolbar.editableText(
                       editableTextState: editableTextState,
                     );

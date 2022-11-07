@@ -59,4 +59,3 @@ class _PlatformSelectorState extends State<PlatformSelector> {
     );
   }
 }
-

@@ -24,7 +24,8 @@ class GlobalSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SelectionArea(
-      contextMenuBuilder: (BuildContext context, SelectableRegionState selectableRegionState) {
+      contextMenuBuilder:
+          (BuildContext context, SelectableRegionState selectableRegionState) {
         return AdaptiveTextSelectionToolbar.buttonItems(
           anchors: selectableRegionState.contextMenuAnchors,
           buttonItems: <ContextMenuButtonItem>[
@@ -68,7 +69,8 @@ class GlobalSelectionPage extends StatelessWidget {
                 const SizedBox(height: 40.0),
                 TextField(controller: _controller),
                 const SizedBox(height: 40.0),
-                const SelectableText('SelectableText also shows its own separate context menu.'),
+                const SelectableText(
+                    'SelectableText also shows its own separate context menu.'),
               ],
             ),
           ),
