@@ -92,52 +92,52 @@ class MyHomePage extends StatelessWidget {
       ),
       body: ListView(
         children: const <Widget>[
-          MyListItem(
+          _MyListItem(
             route: AnywherePage.route,
             title: AnywherePage.title,
             subtitle: AnywherePage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: GlobalSelectionPage.route,
             title: GlobalSelectionPage.title,
             subtitle: GlobalSelectionPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: ImagePage.route,
             title: ImagePage.title,
             subtitle: ImagePage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: CrazyButtonsPage.route,
             title: CrazyButtonsPage.title,
             subtitle: CrazyButtonsPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: EmailButtonPage.route,
             title: EmailButtonPage.title,
             subtitle: EmailButtonPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: ReorderedButtonsPage.route,
             title: ReorderedButtonsPage.title,
             subtitle: ReorderedButtonsPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: ModifiedActionPage.route,
             title: ModifiedActionPage.title,
             subtitle: ModifiedActionPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: FieldTypesPage.route,
             title: FieldTypesPage.title,
             subtitle: FieldTypesPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: DefaultValuesPage.route,
             title: DefaultValuesPage.title,
             subtitle: DefaultValuesPage.subtitle,
           ),
-          MyListItem(
+          _MyListItem(
             route: FullPage.route,
             title: FullPage.title,
             subtitle: FullPage.subtitle,
@@ -148,13 +148,12 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class MyListItem extends StatelessWidget {
-  const MyListItem({
-    Key? key,
+class _MyListItem extends StatelessWidget {
+  const _MyListItem({
     required this.route,
     required this.subtitle,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String route;
   final String subtitle;
