@@ -14,7 +14,6 @@ import 'platform_selector.dart';
 import 'reordered_buttons_page.dart';
 
 void main() {
-  debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
   runApp(const MyApp());
 }
 
