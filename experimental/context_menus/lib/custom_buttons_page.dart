@@ -5,8 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'constants.dart';
 import 'platform_selector.dart';
 
-class CrazyButtonsPage extends StatelessWidget {
-  CrazyButtonsPage({
+class CustomButtonsPage extends StatelessWidget {
+  CustomButtonsPage({
     Key? key,
     required this.onChangedPlatform,
   }) : super(key: key);
@@ -23,13 +23,13 @@ class CrazyButtonsPage extends StatelessWidget {
         'Show the menu to see the usual default buttons, but with a custom appearance.',
   );
 
-  static const String url = '$kCodeUrl/crazy_buttons_page.dart';
+  static const String url = '$kCodeUrl/custom_buttons_page.dart';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(CrazyButtonsPage.title),
+        title: const Text(CustomButtonsPage.title),
         actions: <Widget>[
           PlatformSelector(
             onChangedPlatform: onChangedPlatform,

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'anywhere_page.dart';
-import 'crazy_buttons_page.dart';
+import 'custom_buttons_page.dart';
 import 'default_values_page.dart';
 import 'email_button_page.dart';
 import 'field_types_page.dart';
@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
             MyHomePage(onChangedPlatform: onChangedPlatform),
         AnywherePage.route: (BuildContext context) =>
             AnywherePage(onChangedPlatform: onChangedPlatform),
-        CrazyButtonsPage.route: (BuildContext context) =>
-            CrazyButtonsPage(onChangedPlatform: onChangedPlatform),
+        CustomButtonsPage.route: (BuildContext context) =>
+            CustomButtonsPage(onChangedPlatform: onChangedPlatform),
         ReorderedButtonsPage.route: (BuildContext context) =>
             ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
         EmailButtonPage.route: (BuildContext context) =>
@@ -108,9 +108,9 @@ class MyHomePage extends StatelessWidget {
             subtitle: ImagePage.subtitle,
           ),
           _MyListItem(
-            route: CrazyButtonsPage.route,
-            title: CrazyButtonsPage.title,
-            subtitle: CrazyButtonsPage.subtitle,
+            route: CustomButtonsPage.route,
+            title: CustomButtonsPage.title,
+            subtitle: CustomButtonsPage.subtitle,
           ),
           _MyListItem(
             route: EmailButtonPage.route,
