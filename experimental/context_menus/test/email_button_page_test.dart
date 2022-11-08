@@ -11,7 +11,8 @@ import 'package:context_menus/email_button_page.dart';
 import 'utils.dart';
 
 void main() {
-  testWidgets('Selecting the email address shows a custom button', (WidgetTester tester) async {
+  testWidgets('Selecting the email address shows a custom button',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the EmailButtonPage example.
@@ -48,10 +49,12 @@ void main() {
     expect(find.text('Send email'), findsNothing);
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
-        expect(find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
+        expect(
+            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
         break;
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton), findsNWidgets(2));
+        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
+            findsNWidgets(2));
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -59,10 +62,11 @@ void main() {
         break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-        expect(find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(3));
+        expect(
+            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(3));
         break;
     }
-    
+
     // Click on "Copy" to hide the context menu.
     await tester.tap(find.text('Copy'));
     await tester.pumpAndSettle();
@@ -93,10 +97,12 @@ void main() {
     expect(find.text('Send email'), findsOneWidget);
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
-        expect(find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(3));
+        expect(
+            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(3));
         break;
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton), findsNWidgets(3));
+        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
+            findsNWidgets(3));
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -104,9 +110,9 @@ void main() {
         break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-        expect(find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(4));
+        expect(
+            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(4));
         break;
     }
   });
 }
-

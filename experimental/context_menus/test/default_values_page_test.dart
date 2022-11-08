@@ -8,7 +8,8 @@ import 'package:context_menus/main.dart';
 import 'package:context_menus/default_values_page.dart';
 
 void main() {
-  testWidgets('Gives correct behavior for all values of contextMenuBuilder', (WidgetTester tester) async {
+  testWidgets('Gives correct behavior for all values of contextMenuBuilder',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the DefaultValuesPage example.
@@ -43,10 +44,12 @@ void main() {
     expect(find.byType(AdaptiveTextSelectionToolbar), findsOneWidget);
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
-        expect(find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
+        expect(
+            find.byType(CupertinoTextSelectionToolbarButton), findsNWidgets(2));
         break;
       case TargetPlatform.macOS:
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton), findsNWidgets(2));
+        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
+            findsNWidgets(2));
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -54,7 +57,8 @@ void main() {
         break;
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-        expect(find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(1));
+        expect(
+            find.byType(DesktopTextSelectionToolbarButton), findsNWidgets(1));
         break;
     }
 
@@ -76,7 +80,6 @@ void main() {
 
     // No context menu is shown.
     expect(find.byType(AdaptiveTextSelectionToolbar), findsNothing);
-
 
     // Tap the next field to hide the context menu.
     await tester.tap(find.byType(EditableText).at(2));

@@ -8,7 +8,8 @@ import 'package:context_menus/main.dart';
 import 'package:context_menus/custom_buttons_page.dart';
 
 void main() {
-  testWidgets('Shows custom buttons in the built-in context menu', (WidgetTester tester) async {
+  testWidgets('Shows custom buttons in the built-in context menu',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CustomButtonsPage example.
@@ -40,7 +41,8 @@ void main() {
         break;
       case TargetPlatform.macOS:
         expect(find.byType(CupertinoButton), findsNWidgets(2));
-        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton), findsNothing);
+        expect(find.byType(CupertinoDesktopTextSelectionToolbarButton),
+            findsNothing);
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -55,4 +57,3 @@ void main() {
     }
   });
 }
-

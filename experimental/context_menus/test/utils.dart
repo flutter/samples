@@ -17,6 +17,7 @@ RenderEditable findRenderEditable(WidgetTester tester) {
     }
     child.visitChildren(recursiveFinder);
   }
+
   root.visitChildren(recursiveFinder);
   expect(renderEditable, isNotNull);
   return renderEditable;
@@ -31,10 +32,11 @@ Offset textOffsetToPosition(WidgetTester tester, int offset) {
     renderEditable,
   );
   expect(endpoints.length, 1);
-  return endpoints[0].point + const Offset(kIsWeb? 1.0 : 0.0, -2.0);
+  return endpoints[0].point + const Offset(kIsWeb ? 1.0 : 0.0, -2.0);
 }
 
-List<TextSelectionPoint> globalize(Iterable<TextSelectionPoint> points, RenderBox box) {
+List<TextSelectionPoint> globalize(
+    Iterable<TextSelectionPoint> points, RenderBox box) {
   return points.map<TextSelectionPoint>((TextSelectionPoint point) {
     return TextSelectionPoint(
       box.localToGlobal(point.point),
