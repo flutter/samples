@@ -19,6 +19,7 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/server"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
+    "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta

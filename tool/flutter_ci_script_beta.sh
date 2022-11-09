@@ -20,6 +20,9 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
+    # TODO(justinmc): To be enabled when its PR hits the master channel.
+    # https://github.com/flutter/flutter/pull/107193
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
