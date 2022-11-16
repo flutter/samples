@@ -14,7 +14,7 @@ class AnywherePage extends StatelessWidget {
 
   static const String route = 'anywhere';
   static const String title = 'Context Menu Anywhere Example';
-  static const String subtitle = 'A ContextMenu outside of a text field';
+  static const String subtitle = 'A context menu outside of a text field';
 
   final PlatformCallback onChangedPlatform;
 
