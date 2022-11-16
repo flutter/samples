@@ -82,7 +82,7 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
     return ContextMenuRegion(
       contextMenuBuilder: (BuildContext context, Offset primaryAnchor,
           [Offset? secondaryAnchor]) {
-        return _MyContextMenu(
+        return _MyCascadingContextMenu(
           anchor: primaryAnchor,
           showingMessage: _showMessage,
           onToggleMessageVisibility: () {
@@ -179,8 +179,8 @@ class MenuEntry {
 typedef _StringCallback = void Function(String string);
 typedef _ColorCallback = void Function(Color color);
 
-class _MyContextMenu extends StatefulWidget {
-  const _MyContextMenu({
+class _MyCascadingContextMenu extends StatefulWidget {
+  const _MyCascadingContextMenu({
     required this.anchor,
     required this.onToggleMessageVisibility,
     required this.onChangeBackgroundColor,
@@ -195,10 +195,10 @@ class _MyContextMenu extends StatefulWidget {
   final bool showingMessage;
 
   @override
-  State<_MyContextMenu> createState() => _MyContextMenuState();
+  State<_MyCascadingContextMenu> createState() => _MyCascadingContextMenuState();
 }
 
-class _MyContextMenuState extends State<_MyContextMenu> {
+class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
   ShortcutRegistryEntry? _shortcutsEntry;
 
   List<MenuEntry> get _menus {
@@ -216,7 +216,7 @@ class _MyContextMenuState extends State<_MyContextMenu> {
         },
       ),
       MenuEntry(
-        label: widget.showingMessage ? 'Hide Message' : 'Show Message',
+        label: widget.showingMessage ? 'Hide' : 'Show',
         onPressed: () {
           ContextMenuController.removeAny();
           widget.onChangeSelection(widget.showingMessage ? 'Hide Message' : 'Show Message');
@@ -228,21 +228,21 @@ class _MyContextMenuState extends State<_MyContextMenu> {
       // Hides the message, but is only enabled if the message isn't
       // already hidden.
       MenuEntry(
-        label: 'Reset Message',
+        label: 'Reset',
         onPressed: widget.showingMessage
             ? () {
                 ContextMenuController.removeAny();
-                widget.onChangeSelection('Reset Message');
+                widget.onChangeSelection('Reset');
                 widget.onToggleMessageVisibility();
               }
             : null,
         shortcut: const SingleActivator(LogicalKeyboardKey.escape),
       ),
       MenuEntry(
-        label: 'Background Color',
+        label: 'Color',
         menuChildren: <MenuEntry>[
           MenuEntry(
-            label: 'Red Background',
+            label: 'Red',
             onPressed: () {
               ContextMenuController.removeAny();
               widget.onChangeSelection('Red Background');
@@ -252,7 +252,7 @@ class _MyContextMenuState extends State<_MyContextMenu> {
                 control: true),
           ),
           MenuEntry(
-            label: 'Green Background',
+            label: 'Green',
             onPressed: () {
               ContextMenuController.removeAny();
               widget.onChangeSelection('Green Background');
@@ -262,7 +262,7 @@ class _MyContextMenuState extends State<_MyContextMenu> {
                 control: true),
           ),
           MenuEntry(
-            label: 'Blue Background',
+            label: 'Blue',
             onPressed: () {
               ContextMenuController.removeAny();
               widget.onChangeSelection('Blue Background');
