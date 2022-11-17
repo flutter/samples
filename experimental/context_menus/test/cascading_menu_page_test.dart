@@ -7,7 +7,8 @@ import 'package:context_menus/main.dart';
 import 'package:context_menus/cascading_menu_page.dart';
 
 void main() {
-  testWidgets('Can show and use the cascading menu', (WidgetTester tester) async {
+  testWidgets('Can show and use the cascading menu',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CascadingMenuPage example.
@@ -19,7 +20,8 @@ void main() {
     await tester.tap(find.text(CascadingMenuPage.title));
     await tester.pumpAndSettle();
 
-    const String message = 'Right click or long press anywhere to show the cascading menu.';
+    const String message =
+        'Right click or long press anywhere to show the cascading menu.';
     expect(find.text(message), findsOneWidget);
 
     // Right click on the background of the app to show the cascading context

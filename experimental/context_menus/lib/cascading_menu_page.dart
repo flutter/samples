@@ -111,13 +111,14 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                showingMessage ? 'Right click or long press anywhere to show the cascading menu.' : '',
+                showingMessage
+                    ? 'Right click or long press anywhere to show the cascading menu.'
+                    : '',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
-            Text(_lastSelection != null
-                ? 'Last Selected: $_lastSelection'
-                : ''),
+            Text(
+                _lastSelection != null ? 'Last Selected: $_lastSelection' : ''),
           ],
         ),
       ),
@@ -187,7 +188,7 @@ class _MyCascadingContextMenu extends StatefulWidget {
     required this.onChangeSelection,
     required this.showingMessage,
   });
- 
+
   final Offset anchor;
   final VoidCallback onToggleMessageVisibility;
   final _ColorCallback onChangeBackgroundColor;
@@ -195,7 +196,8 @@ class _MyCascadingContextMenu extends StatefulWidget {
   final bool showingMessage;
 
   @override
-  State<_MyCascadingContextMenu> createState() => _MyCascadingContextMenuState();
+  State<_MyCascadingContextMenu> createState() =>
+      _MyCascadingContextMenuState();
 }
 
 class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
@@ -219,11 +221,11 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
         label: widget.showingMessage ? 'Hide' : 'Show',
         onPressed: () {
           ContextMenuController.removeAny();
-          widget.onChangeSelection(widget.showingMessage ? 'Hide Message' : 'Show Message');
+          widget.onChangeSelection(
+              widget.showingMessage ? 'Hide Message' : 'Show Message');
           widget.onToggleMessageVisibility();
         },
-        shortcut:
-            const SingleActivator(LogicalKeyboardKey.keyS, control: true),
+        shortcut: const SingleActivator(LogicalKeyboardKey.keyS, control: true),
       ),
       // Hides the message, but is only enabled if the message isn't
       // already hidden.
@@ -248,8 +250,8 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Red Background');
               widget.onChangeBackgroundColor(Colors.red);
             },
-            shortcut: const SingleActivator(LogicalKeyboardKey.keyR,
-                control: true),
+            shortcut:
+                const SingleActivator(LogicalKeyboardKey.keyR, control: true),
           ),
           MenuEntry(
             label: 'Green',
@@ -258,8 +260,8 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Green Background');
               widget.onChangeBackgroundColor(Colors.green);
             },
-            shortcut: const SingleActivator(LogicalKeyboardKey.keyG,
-                control: true),
+            shortcut:
+                const SingleActivator(LogicalKeyboardKey.keyG, control: true),
           ),
           MenuEntry(
             label: 'Blue',
@@ -268,8 +270,8 @@ class _MyCascadingContextMenuState extends State<_MyCascadingContextMenu> {
               widget.onChangeSelection('Blue Background');
               widget.onChangeBackgroundColor(Colors.blue);
             },
-            shortcut: const SingleActivator(LogicalKeyboardKey.keyB,
-                control: true),
+            shortcut:
+                const SingleActivator(LogicalKeyboardKey.keyB, control: true),
           ),
         ],
       ),
