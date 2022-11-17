@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'anywhere_page.dart';
+import 'cascading_menu_page.dart';
 import 'custom_buttons_page.dart';
 import 'default_values_page.dart';
 import 'email_button_page.dart';
@@ -66,6 +67,8 @@ class _MyAppState extends State<MyApp> {
             GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
         DefaultValuesPage.route: (BuildContext context) =>
             DefaultValuesPage(onChangedPlatform: onChangedPlatform),
+        CascadingMenuPage.route: (BuildContext context) =>
+            CascadingMenuPage(onChangedPlatform: onChangedPlatform),
       },
     );
   }
@@ -136,6 +139,11 @@ class MyHomePage extends StatelessWidget {
             route: DefaultValuesPage.route,
             title: DefaultValuesPage.title,
             subtitle: DefaultValuesPage.subtitle,
+          ),
+          _MyListItem(
+            route: CascadingMenuPage.route,
+            title: CascadingMenuPage.title,
+            subtitle: CascadingMenuPage.subtitle,
           ),
           _MyListItem(
             route: FullPage.route,
