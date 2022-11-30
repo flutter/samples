@@ -617,23 +617,6 @@ samples:
     type: demo
     web: web/game_template
 
-  - name: GitHub Dataviz
-    author: Larva Labs
-    screenshots:
-      - url: images/github_dataviz1.png
-        alt: GitHub Dataviz screenshot
-    source: https://github.com/flutter/samples/tree/main/web/github_dataviz
-    description: >
-      A visualization for Flutter repository data
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'data', 'visualization']
-    web: web/github_dataviz
-    type: demo
-
   - name: Dice
     author: Jaime Blasco
     screenshots:
