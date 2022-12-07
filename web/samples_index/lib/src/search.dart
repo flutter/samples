@@ -6,8 +6,11 @@ bool matchesQuery(String query, String sampleAttributes) {
   if (query.isEmpty) {
     return true;
   }
-  var queryWords = query.split(' ')..removeWhere((s) => s.isEmpty);
-  var attributes = sampleAttributes.split(' ')..removeWhere((s) => s.isEmpty);
+
+  var queryWords = query.toLowerCase().split(' ')
+    ..removeWhere((s) => s.isEmpty);
+  var attributes = sampleAttributes.toLowerCase().split(' ')
+    ..removeWhere((s) => s.isEmpty);
 
   // Test for type filter
   // This will check whether a type parameter is present in the

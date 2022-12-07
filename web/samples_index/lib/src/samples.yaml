@@ -11,7 +11,7 @@ samples:
       - url: images/gallery4.png
         alt: Crane app screenshot
       - url: images/gallery5.png
-        alt: Shrine app screnshot
+        alt: Shrine app screenshot
     source: https://github.com/flutter/gallery
     web: https://gallery.flutter.dev
     description: >
@@ -416,7 +416,7 @@ samples:
       - url: images/web_dashboard1.png
         alt: Web Dashboard screenshot
       - url: images/web_dashboard2.png
-        alt: Web Dashbaord screenshot
+        alt: Web Dashboard screenshot
       - url: images/web_dashboard3.png
         alt: Web Dashboard screenshot
     source: https://github.com/flutter/samples/tree/main/experimental/web_dashboard
