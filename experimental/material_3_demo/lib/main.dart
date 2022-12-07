@@ -197,12 +197,10 @@ class _Material3DemoState extends State<Material3Demo> {
               top: false,
               child: Row(
                 children: <Widget>[
-                  Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: NavigationRailSection(
-                          onSelectItem: handleScreenChanged,
-                          selectedIndex: screenIndex)),
-                  const VerticalDivider(thickness: 1, width: 1),
+                  NavigationRailSection(
+                      onSelectItem: handleScreenChanged,
+                      selectedIndex: screenIndex),
+                  const VerticalDivider(width: 1,),
                   createScreenFor(ScreenSelected.values[screenIndex], true),
                 ],
               ),
@@ -213,3 +211,52 @@ class _Material3DemoState extends State<Material3Demo> {
     );
   }
 }
+
+class NavigationRailSection extends StatefulWidget {
+  final void Function(int) onSelectItem;
+  final int selectedIndex;
+
+  const NavigationRailSection(
+      {super.key, required this.onSelectItem, required this.selectedIndex});
+
+  @override
+  State<NavigationRailSection> createState() => _NavigationRailSectionState();
+}
+
+class _NavigationRailSectionState extends State<NavigationRailSection> {
+  int selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.selectedIndex;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return NavigationRail(
+      destinations: navRailDestinations,
+      selectedIndex: selectedIndex,
+      useIndicator: true,
+      onDestinationSelected: (index) {
+        setState(() {
+          selectedIndex = index;
+        });
+        widget.onSelectItem(index);
+      },
+    );
+  }
+}
+
+final List<NavigationRailDestination> navRailDestinations = appBarDestinations
+    .map((destination) => NavigationRailDestination(
+      icon: Tooltip(
+        message: destination.label,
+        child: destination.icon,
+      ),
+      selectedIcon: Tooltip(
+        message: destination.label,
+        child: destination.selectedIcon,
+      ),
+      label: Text(destination.label),),)
+    .toList();

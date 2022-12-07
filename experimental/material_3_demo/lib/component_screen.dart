@@ -12,56 +12,46 @@ class ComponentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            width: maxWidthConstraint,
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                colDivider,
-                colDivider,
-                const Buttons(),
-                colDivider,
-                colDivider,
-                const IconToggleButtons(),
-                colDivider,
-                const FloatingActionButtons(),
-                colDivider,
-                const Chips(),
-                colDivider,
-                const Cards(),
-                colDivider,
-                const TextFields(),
-                colDivider,
-                const Dialogs(),
-                colDivider,
-                const Switches(),
-                colDivider,
-                const Checkboxes(),
-                colDivider,
-                const Radios(),
-                colDivider,
-                const ProgressIndicators(),
-                colDivider,
-                showNavBottomBar
-                    ? const NavigationBars(
-                        selectedIndex: 0,
-                        isExampleBar: true,
-                      )
-                    : Container(),
-              ],
-            ),
-          ),
-        ),
-      ),
+      child: ListView(
+        children: [
+          colDivider,
+          colDivider,
+          const Buttons(),
+          colDivider,
+          colDivider,
+          const IconToggleButtons(),
+          colDivider,
+          const FloatingActionButtons(),
+          colDivider,
+          const Chips(),
+          colDivider,
+          const Cards(),
+          colDivider,
+          const TextFields(),
+          colDivider,
+          const Dialogs(),
+          colDivider,
+          const Switches(),
+          colDivider,
+          const Checkboxes(),
+          colDivider,
+          const Radios(),
+          colDivider,
+          const ProgressIndicators(),
+          colDivider,
+          showNavBottomBar
+              ? const NavigationBars(
+                  selectedIndex: 0,
+                  isExampleBar: true,
+                )
+              : Container(),
+        ],
+      )
     );
   }
 }
 
-const rowDivider = SizedBox(width: 10);
+const rowDivider = SizedBox(width: 20);
 const colDivider = SizedBox(height: 10);
 const double cardWidth = 115;
 const double maxWidthConstraint = 400;
@@ -97,15 +87,18 @@ class Buttons extends StatefulWidget {
 class _ButtonsState extends State<Buttons> {
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      alignment: WrapAlignment.spaceEvenly,
-      children: const <Widget>[
-        ButtonsWithoutIcon(isDisabled: false),
-        rowDivider,
-        ButtonsWithIcon(),
-        rowDivider,
-        ButtonsWithoutIcon(isDisabled: true),
-      ],
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 400),
+        child: Wrap(
+          alignment: WrapAlignment.spaceAround,
+          children: const <Widget>[
+            ButtonsWithoutIcon(isDisabled: false),
+            ButtonsWithIcon(),
+            ButtonsWithoutIcon(isDisabled: true),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -202,33 +195,38 @@ class FloatingActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          FloatingActionButton.small(
-            onPressed: () {},
-            child: const Icon(Icons.add),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Wrap(
+            alignment: WrapAlignment.spaceEvenly,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              FloatingActionButton.small(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+              rowDivider,
+              FloatingActionButton(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+              rowDivider,
+              FloatingActionButton.extended(
+                onPressed: () {},
+                icon: const Icon(Icons.add),
+                label: const Text('Create'),
+              ),
+              rowDivider,
+              FloatingActionButton.large(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+            ],
           ),
-          rowDivider,
-          FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          rowDivider,
-          FloatingActionButton.extended(
-            onPressed: () {},
-            icon: const Icon(Icons.add),
-            label: const Text('Create'),
-          ),
-          rowDivider,
-          FloatingActionButton.large(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -239,96 +237,101 @@ class Cards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-            width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Elevated Card',
-              child: Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 400),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Wrap(
+            alignment: WrapAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: cardWidth,
+                child: Tooltip(
+                  margin: const EdgeInsets.only(top: 20),
+                  message: 'Elevated Card',
+                  child: Card(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: const [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Icon(Icons.more_vert),
+                          ),
+                          SizedBox(height: 35),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text('Elevated'),
+                          )
+                        ],
                       ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Elevated'),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Filled Card',
-              child: Card(
-                color: Theme.of(context).colorScheme.surfaceVariant,
-                elevation: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
+              SizedBox(
+                width: cardWidth,
+                child: Tooltip(
+                  margin: const EdgeInsets.only(top: 20),
+                  message: 'Filled Card',
+                  child: Card(
+                    color: Theme.of(context).colorScheme.surfaceVariant,
+                    elevation: 0,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: const [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Icon(Icons.more_vert),
+                          ),
+                          SizedBox(height: 35),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text('Filled'),
+                          )
+                        ],
                       ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Filled'),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Outlined Card',
-              child: Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
+              SizedBox(
+                width: cardWidth,
+                child: Tooltip(
+                  margin: const EdgeInsets.only(top: 20),
+                  message: 'Outlined Card',
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.outline,
                       ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Outlined'),
-                      )
-                    ],
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: const [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Icon(Icons.more_vert),
+                          ),
+                          SizedBox(height: 35),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text('Outlined'),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -339,74 +342,28 @@ class TextFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              suffixIcon: Icon(Icons.clear),
-              labelText: 'Filled',
-              hintText: 'hint text',
-              helperText: 'supporting text',
-              filled: true,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              SizedBox(
-                width: 170,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon: Icon(Icons.clear),
-                    labelText: 'Filled',
-                    hintText: 'hint text',
-                    helperText: 'supporting text',
-                    filled: true,
-                    errorText: 'error text',
-                  ),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: Icon(Icons.clear),
+                  labelText: 'Filled',
+                  hintText: 'hint text',
+                  helperText: 'supporting text',
+                  filled: true,
                 ),
               ),
-              SizedBox(
-                width: 170,
-                child: TextField(
-                  enabled: false,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon: Icon(Icons.clear),
-                    labelText: 'Disabled',
-                    hintText: 'hint text',
-                    helperText: 'supporting text',
-                    filled: true,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.all(10),
-          child: TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              suffixIcon: Icon(Icons.clear),
-              labelText: 'Outlined',
-              hintText: 'hint text',
-              helperText: 'supporting text',
-              border: OutlineInputBorder(),
             ),
-          ),
-        ),
-        Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   SizedBox(
@@ -415,12 +372,11 @@ class TextFields extends StatelessWidget {
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
                         suffixIcon: Icon(Icons.clear),
-                        labelText: 'Outlined',
+                        labelText: 'Filled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
-                        errorText: 'error text',
-                        border: OutlineInputBorder(),
                         filled: true,
+                        errorText: 'error text',
                       ),
                     ),
                   ),
@@ -434,13 +390,65 @@ class TextFields extends StatelessWidget {
                         labelText: 'Disabled',
                         hintText: 'hint text',
                         helperText: 'supporting text',
-                        border: OutlineInputBorder(),
                         filled: true,
                       ),
                     ),
                   ),
-                ])),
-      ],
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: Icon(Icons.clear),
+                  labelText: 'Outlined',
+                  hintText: 'hint text',
+                  helperText: 'supporting text',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      SizedBox(
+                        width: 170,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            suffixIcon: Icon(Icons.clear),
+                            labelText: 'Outlined',
+                            hintText: 'hint text',
+                            helperText: 'supporting text',
+                            errorText: 'error text',
+                            border: OutlineInputBorder(),
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 170,
+                        child: TextField(
+                          enabled: false,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            suffixIcon: Icon(Icons.clear),
+                            labelText: 'Disabled',
+                            hintText: 'hint text',
+                            helperText: 'supporting text',
+                            border: OutlineInputBorder(),
+                            filled: true,
+                          ),
+                        ),
+                      ),
+                    ])),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -476,14 +484,16 @@ class _DialogsState extends State<Dialogs> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextButton(
-        child: const Text(
-          'Open Dialog',
-          style: TextStyle(fontWeight: FontWeight.bold),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: TextButton(
+          child: const Text(
+            'Open Dialog',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          onPressed: () => openDialog(context),
         ),
-        onPressed: () => openDialog(context),
       ),
     );
   }
@@ -494,11 +504,16 @@ class Switches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const <Widget>[
-        SwitchRow(isEnabled: true),
-        SwitchRow(isEnabled: false),
-      ],
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          children: const <Widget>[
+            SwitchRow(isEnabled: true),
+            SwitchRow(isEnabled: false),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -560,15 +575,20 @@ class Checkboxes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const <Widget>[
-        CheckboxRow(
-          isError: false,
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          children: const <Widget>[
+            CheckboxRow(
+              isError: false,
+            ),
+            CheckboxRow(
+              isError: true,
+            )
+          ],
         ),
-        CheckboxRow(
-          isError: true,
-        )
-      ],
+      ),
     );
   }
 }
@@ -590,7 +610,7 @@ class _CheckboxRowState extends State<CheckboxRow> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Checkbox(
           isError: widget.isError,
@@ -647,28 +667,33 @@ class _RadiosState extends State<Radios> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Radio<Value>(
-          value: Value.first,
-          groupValue: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Radio<Value>(
+              value: Value.first,
+              groupValue: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
+            ),
+            Radio<Value>(
+              value: Value.second,
+              groupValue: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
+            ),
+          ],
         ),
-        Radio<Value>(
-          value: Value.second,
-          groupValue: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
-        ),
-      ],
+      ),
     );
   }
 }
@@ -687,40 +712,45 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
   Widget build(BuildContext context) {
     final double? progressValue = playProgressIndicator ? null : 0.7;
 
-    return Column(
-      children: <Widget>[
-        Row(
-          children: [
-            IconButton(
-              isSelected: playProgressIndicator,
-              selectedIcon: const Icon(Icons.pause),
-              icon: const Icon(Icons.play_arrow),
-              onPressed: () {
-                setState(() {
-                  playProgressIndicator = !playProgressIndicator;
-                });
-              },
-            ),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  CircularProgressIndicator(
-                    value: progressValue,
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: [
+                IconButton(
+                  isSelected: playProgressIndicator,
+                  selectedIcon: const Icon(Icons.pause),
+                  icon: const Icon(Icons.play_arrow),
+                  onPressed: () {
+                    setState(() {
+                      playProgressIndicator = !playProgressIndicator;
+                    });
+                  },
+                ),
+                Expanded(
+                  child: Row(
+                    children: <Widget>[
+                      CircularProgressIndicator(
+                        value: progressValue,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: LinearProgressIndicator(
+                          value: progressValue,
+                        ),
+                      )
+                    ],
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: LinearProgressIndicator(
-                      value: progressValue,
-                    ),
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }
@@ -752,22 +782,6 @@ const List<NavigationDestination> appBarDestinations = [
     selectedIcon: Icon(Icons.opacity),
   )
 ];
-
-final List<NavigationRailDestination> navRailDestinations = appBarDestinations
-    .map(
-      (destination) => NavigationRailDestination(
-        icon: Tooltip(
-          message: destination.label,
-          child: destination.icon,
-        ),
-        selectedIcon: Tooltip(
-          message: destination.label,
-          child: destination.selectedIcon,
-        ),
-        label: Text(destination.label),
-      ),
-    )
-    .toList();
 
 const List<Widget> exampleBarDestinations = [
   NavigationDestination(
@@ -817,7 +831,7 @@ class _NavigationBarsState extends State<NavigationBars> {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
+    Widget navigationBar = NavigationBar(
       selectedIndex: selectedIndex,
       onDestinationSelected: (index) {
         setState(() {
@@ -826,45 +840,21 @@ class _NavigationBarsState extends State<NavigationBars> {
         if (!widget.isExampleBar) widget.onSelectItem!(index);
       },
       destinations:
-          widget.isExampleBar ? exampleBarDestinations : appBarDestinations,
+      widget.isExampleBar ? exampleBarDestinations : appBarDestinations,
     );
-  }
-}
 
-class NavigationRailSection extends StatefulWidget {
-  final void Function(int) onSelectItem;
-  final int selectedIndex;
+    if (widget.isExampleBar) {
+      navigationBar = Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 400),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: navigationBar),
+        ),
+      );
+    }
 
-  const NavigationRailSection(
-      {super.key, required this.onSelectItem, required this.selectedIndex});
-
-  @override
-  State<NavigationRailSection> createState() => _NavigationRailSectionState();
-}
-
-class _NavigationRailSectionState extends State<NavigationRailSection> {
-  int selectedIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedIndex = widget.selectedIndex;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationRail(
-      minWidth: 50,
-      destinations: navRailDestinations,
-      selectedIndex: selectedIndex,
-      useIndicator: true,
-      onDestinationSelected: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-        widget.onSelectItem(index);
-      },
-    );
+    return navigationBar;
   }
 }
 
@@ -878,66 +868,64 @@ class IconToggleButtons extends StatefulWidget {
 class _IconToggleButtonsState extends State<IconToggleButtons> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // Standard IconButton
-            children: const <Widget>[
-              IconToggleButton(isEnabled: true),
-              colDivider,
-              IconToggleButton(isEnabled: false),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              // Filled IconButton
-              IconToggleButton(
-                isEnabled: true,
-                getDefaultStyle: enabledFilledButtonStyle,
-              ),
-              colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                getDefaultStyle: disabledFilledButtonStyle,
-              ),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              // Filled Tonal IconButton
-              IconToggleButton(
-                isEnabled: true,
-                getDefaultStyle: enabledFilledTonalButtonStyle,
-              ),
-              colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                getDefaultStyle: disabledFilledTonalButtonStyle,
-              ),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              // Outlined IconButton
-              IconToggleButton(
-                isEnabled: true,
-                getDefaultStyle: enabledOutlinedButtonStyle,
-              ),
-              colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                getDefaultStyle: disabledOutlinedButtonStyle,
-              ),
-            ],
-          ),
-        ],
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Column(
+              // Standard IconButton
+              children: const <Widget>[
+                IconToggleButton(isEnabled: true),
+                colDivider,
+                IconToggleButton(isEnabled: false),
+              ],
+            ),
+            Column(
+              children: const <Widget>[
+                // Filled IconButton
+                IconToggleButton(
+                  isEnabled: true,
+                  getDefaultStyle: enabledFilledButtonStyle,
+                ),
+                colDivider,
+                IconToggleButton(
+                  isEnabled: false,
+                  getDefaultStyle: disabledFilledButtonStyle,
+                ),
+              ],
+            ),
+            Column(
+              children: const <Widget>[
+                // Filled Tonal IconButton
+                IconToggleButton(
+                  isEnabled: true,
+                  getDefaultStyle: enabledFilledTonalButtonStyle,
+                ),
+                colDivider,
+                IconToggleButton(
+                  isEnabled: false,
+                  getDefaultStyle: disabledFilledTonalButtonStyle,
+                ),
+              ],
+            ),
+            Column(
+              children: const <Widget>[
+                // Outlined IconButton
+                IconToggleButton(
+                  isEnabled: true,
+                  getDefaultStyle: enabledOutlinedButtonStyle,
+                ),
+                colDivider,
+                IconToggleButton(
+                  isEnabled: false,
+                  getDefaultStyle: disabledOutlinedButtonStyle,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -1073,100 +1061,102 @@ class Chips extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
-            children: <Widget>[
-              ActionChip(
-                  label: const Text('Assist'),
-                  avatar: const Icon(Icons.chat_outlined),
-                  onPressed: () {}),
-              ActionChip(
-                  label: const Text('Set alarm'),
-                  avatar: const Icon(Icons.alarm_add_outlined),
-                  onPressed: () {}),
-              const ActionChip(
-                label: Text('No Action'),
-                avatar: Icon(Icons.indeterminate_check_box_outlined),
-              ),
-            ],
-          ),
-          colDivider,
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
-            children: <Widget>[
-              FilterChip(
-                label: const Text('Filter'),
-                onSelected: (isSelected) {},
-              ),
-              FilterChip(
-                label: const Text('OK'),
-                selected: true,
-                onSelected: (isSelected) {},
-              ),
-              const FilterChip(
-                label: Text('Disabled'),
-                selected: true,
-                onSelected: null,
-              ),
-              const FilterChip(
-                label: Text('Disabled'),
-                onSelected: null,
-              )
-            ],
-          ),
-          colDivider,
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
-            children: <Widget>[
-              InputChip(
-                label: const Text('Input'),
-                onDeleted: () {},
-              ),
-              InputChip(
-                label: const Text('Egg'),
-                onDeleted: () {},
-              ),
-              InputChip(
-                label: const Text('Lettuce'),
-                showCheckmark: false,
-                selected: true,
-                onDeleted: () {},
-              ),
-              const InputChip(
-                label: Text('No'),
-                isEnabled: false,
-              ),
-            ],
-          ),
-          colDivider,
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
-            children: <Widget>[
-              ActionChip(
-                label: const Text('Suggestion'),
-                onPressed: () {},
-              ),
-              ActionChip(
-                label: const Text('I agree'),
-                onPressed: () {},
-              ),
-              ActionChip(
-                label: const Text('LGTM'),
-                onPressed: () {},
-              ),
-              const ActionChip(label: Text('Nope')),
-            ],
-          ),
-        ],
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 400),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 5,
+              children: <Widget>[
+                ActionChip(
+                    label: const Text('Assist'),
+                    avatar: const Icon(Icons.chat_outlined),
+                    onPressed: () {}),
+                ActionChip(
+                    label: const Text('Set alarm'),
+                    avatar: const Icon(Icons.alarm_add_outlined),
+                    onPressed: () {}),
+                const ActionChip(
+                  label: Text('No Action'),
+                  avatar: Icon(Icons.indeterminate_check_box_outlined),
+                ),
+              ],
+            ),
+            colDivider,
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 5,
+              children: <Widget>[
+                FilterChip(
+                  label: const Text('Filter'),
+                  onSelected: (isSelected) {},
+                ),
+                FilterChip(
+                  label: const Text('OK'),
+                  selected: true,
+                  onSelected: (isSelected) {},
+                ),
+                const FilterChip(
+                  label: Text('Disabled'),
+                  selected: true,
+                  onSelected: null,
+                ),
+                const FilterChip(
+                  label: Text('Disabled'),
+                  onSelected: null,
+                )
+              ],
+            ),
+            colDivider,
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 5,
+              children: <Widget>[
+                InputChip(
+                  label: const Text('Input'),
+                  onDeleted: () {},
+                ),
+                InputChip(
+                  label: const Text('Egg'),
+                  onDeleted: () {},
+                ),
+                InputChip(
+                  label: const Text('Lettuce'),
+                  showCheckmark: false,
+                  selected: true,
+                  onDeleted: () {},
+                ),
+                const InputChip(
+                  label: Text('No'),
+                  isEnabled: false,
+                ),
+              ],
+            ),
+            colDivider,
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runSpacing: 5,
+              children: <Widget>[
+                ActionChip(
+                  label: const Text('Suggestion'),
+                  onPressed: () {},
+                ),
+                ActionChip(
+                  label: const Text('I agree'),
+                  onPressed: () {},
+                ),
+                ActionChip(
+                  label: const Text('LGTM'),
+                  onPressed: () {},
+                ),
+                const ActionChip(label: Text('Nope')),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
