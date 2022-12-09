@@ -31,8 +31,6 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     "material_3_demo"
     "navigation_and_routing"
-    "null_safety/null_safe_app"
-    "null_safety/null_unsafe_app"
     "place_tracker"
     "platform_channels"
     "platform_design"
