@@ -7,7 +7,7 @@ import 'package:flutter/physics.dart';
 
 class PhysicsCardDragDemo extends StatelessWidget {
   const PhysicsCardDragDemo({super.key});
-  static const String routeName = '/misc/physics_card';
+  static const String routeName = 'misc/physics_card';
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class CarouselDemo extends StatelessWidget {
   CarouselDemo({super.key});
-  static String routeName = '/misc/carousel';
+  static String routeName = 'misc/carousel';
 
   static const List<String> fileNames = [
     'assets/eat_cape_town_sm.jpg',

@@ -157,12 +157,12 @@ final router = GoRouter(
       routes: [
         for (final demo in basicDemos)
           GoRoute(
-            path: demo.route.substring(1),
+            path: demo.route,
             builder: (context, state) => demo.builder(context),
           ),
         for (final demo in miscDemos)
           GoRoute(
-            path: demo.route.substring(1),
+            path: demo.route,
             builder: (context, state) => demo.builder(context),
           ),
       ],
@@ -217,7 +217,7 @@ class DemoTile extends StatelessWidget {
     return ListTile(
       title: Text(demo.name),
       onTap: () {
-        context.go(demo.route);
+        context.go('/${demo.route}');
       },
     );
   }
