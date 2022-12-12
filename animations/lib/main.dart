@@ -165,7 +165,7 @@ final router = GoRouter(
             path: demo.route.substring(1),
             builder: (context, state) => demo.builder(context),
           ),
-      ]
+      ],
     ),
   ],
 );
