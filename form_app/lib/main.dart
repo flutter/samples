@@ -65,15 +65,21 @@ final demos = [
   ),
 ];
 
-final router = GoRouter(routes: [
-  GoRoute(path: '/', builder: (context, state) => const HomePage(), routes: [
-    for (final demo in demos)
-      GoRoute(
-        path: demo.route,
-        builder: (context, state) => demo.builder(context),
-      ),
-  ]),
-]);
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+      routes: [
+        for (final demo in demos)
+          GoRoute(
+            path: demo.route,
+            builder: (context, state) => demo.builder(context),
+          ),
+      ],
+    ),
+  ],
+);
 
 class FormApp extends StatelessWidget {
   const FormApp({super.key});
