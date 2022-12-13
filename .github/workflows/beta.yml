@@ -26,7 +26,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - uses: actions/setup-java@c3ac5dd0ed8db40fedb61c32fbe677e6b355e94c
         with:
           distribution: 'zulu'
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - uses: actions/setup-java@c3ac5dd0ed8db40fedb61c32fbe677e6b355e94c
         with:
           distribution: 'zulu'
@@ -56,7 +56,7 @@ jobs:
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - uses: actions/setup-java@c3ac5dd0ed8db40fedb61c32fbe677e6b355e94c
         with:
           distribution: 'zulu'
