@@ -9,7 +9,10 @@ import 'elevation_screen.dart';
 import 'typography_screen.dart';
 
 void main() {
-  runApp(const Material3Demo());
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: Material3Demo())
+  );
 }
 
 class Material3Demo extends StatefulWidget {
@@ -23,7 +26,7 @@ class Material3Demo extends StatefulWidget {
 // screenWidthThreshold; otherwise, NavigationBar is used for navigation.
 const double narrowScreenWidthThreshold = 450;
 
-const double transitionLength = 250;
+const double transitionLength = 1000;
 
 const Color m3BaseColor = Color(0xff6750a4);
 const List<Color> colorOptions = [
@@ -35,6 +38,7 @@ const List<Color> colorOptions = [
   Colors.orange,
   Colors.pink
 ];
+
 const List<String> colorText = <String>[
   'M3 Baseline',
   'Blue',
@@ -55,7 +59,12 @@ enum ScreenSelected {
   final int value;
 }
 
-class _Material3DemoState extends State<Material3Demo> {
+class _Material3DemoState extends State<Material3Demo> with SingleTickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  late final AnimationController controller;
+  late final CurvedAnimation railAnimation;
+  bool controllerInitialized = false;
+  bool showMediumSizeLayout = false;
   bool useMaterial3 = true;
   bool useLightMode = true;
   int colorSelected = 0;
@@ -67,7 +76,47 @@ class _Material3DemoState extends State<Material3Demo> {
   initState() {
     super.initState();
     themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+
+    controller = AnimationController(
+      duration: Duration(milliseconds: transitionLength.toInt() * 2),
+      value: 0,
+      vsync: this,
+    );
+    railAnimation = CurvedAnimation(
+      parent: controller,
+      curve: const Interval(0.5, 1.0),
+    );
   }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final double width = MediaQuery.of(context).size.width;
+    final AnimationStatus status = controller.status;
+    if (width > 1000) {
+      showMediumSizeLayout = true;
+      if (status != AnimationStatus.forward && status != AnimationStatus.completed) {
+        controller.forward();
+      }
+    } else {
+      showMediumSizeLayout = false;
+      if (status != AnimationStatus.reverse && status != AnimationStatus.dismissed) {
+        controller.reverse();
+      }
+    }
+    if (!controllerInitialized) {
+      controllerInitialized = true;
+      controller.value = width > 1000 ? 1 : 0;
+    }
+  }
+
 
   ThemeData updateThemes(int colorIndex, bool useMaterial3, bool useLightMode) {
     return ThemeData(
@@ -107,7 +156,11 @@ class _Material3DemoState extends State<Material3Demo> {
       ScreenSelected screenSelected, bool showNavBarExample) {
     switch (screenSelected) {
       case ScreenSelected.component:
-        return ComponentScreen(showNavBottomBar: showNavBarExample);
+        return Expanded(
+          child: OneTwoTransition(
+            animation: railAnimation,
+            one: FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout),
+            two: const SecondComponentList()));
       case ScreenSelected.color:
         return const ColorPalettesScreen();
       case ScreenSelected.typography:
@@ -115,59 +168,65 @@ class _Material3DemoState extends State<Material3Demo> {
       case ScreenSelected.elevation:
         return const ElevationScreen();
       default:
-        return ComponentScreen(showNavBottomBar: showNavBarExample);
+        return FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout);
     }
   }
+
+  Widget brightnessButton() => IconButton(
+    icon: useLightMode
+        ? const Icon(Icons.wb_sunny_outlined)
+        : const Icon(Icons.wb_sunny),
+    onPressed: handleBrightnessChange,
+    tooltip: 'Toggle brightness',
+  );
+
+  Widget material3Button() => IconButton(
+    icon: useMaterial3
+        ? const Icon(Icons.filter_3)
+        : const Icon(Icons.filter_2),
+    onPressed: handleMaterialVersionChange,
+    tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
+  );
+
+  Widget colorSeedButton() => PopupMenuButton(
+    icon: const Icon(Icons.more_vert),
+    shape:
+    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    itemBuilder: (context) {
+      return List.generate(colorOptions.length, (index) {
+        return PopupMenuItem(
+          value: index,
+          child: Wrap(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Icon(
+                  index == colorSelected
+                      ? Icons.color_lens
+                      : Icons.color_lens_outlined,
+                  color: colorOptions[index],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(colorText[index]),
+              ),
+            ],
+          ),
+        );
+      });
+    },
+    onSelected: handleColorSelect,
+  );
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
       title: useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
-      actions: [
-        IconButton(
-          icon: useLightMode
-              ? const Icon(Icons.wb_sunny_outlined)
-              : const Icon(Icons.wb_sunny),
-          onPressed: handleBrightnessChange,
-          tooltip: 'Toggle brightness',
-        ),
-        IconButton(
-          icon: useMaterial3
-              ? const Icon(Icons.filter_3)
-              : const Icon(Icons.filter_2),
-          onPressed: handleMaterialVersionChange,
-          tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
-        ),
-        PopupMenuButton(
-          icon: const Icon(Icons.more_vert),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          itemBuilder: (context) {
-            return List.generate(colorOptions.length, (index) {
-              return PopupMenuItem(
-                value: index,
-                child: Wrap(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Icon(
-                        index == colorSelected
-                            ? Icons.color_lens
-                            : Icons.color_lens_outlined,
-                        color: colorOptions[index],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(colorText[index]),
-                    ),
-                  ],
-                ),
-              );
-            });
-          },
-          onSelected: handleColorSelect,
-        ),
-      ],
+      actions: !showMediumSizeLayout
+        ? [ brightnessButton(),
+          material3Button(),
+          colorSeedButton(),
+        ] : [ Container() ],
     );
   }
 
@@ -178,17 +237,29 @@ class _Material3DemoState extends State<Material3Demo> {
       title: 'Material 3',
       themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
       theme: themeData,
-      home: NavigationTransition(
-        appBar: createAppBar(),
-        body: createScreenFor(ScreenSelected.values[screenIndex], false),
-        navigationRail: NavigationRailSection(
-          onSelectItem: handleScreenChanged,
-          selectedIndex: screenIndex),
-        navigationBar: NavigationBars(
-          onSelectItem: handleScreenChanged,
-          selectedIndex: screenIndex,
-          isExampleBar: false,
-        ),
+      home: AnimatedBuilder(
+        animation: controller,
+        builder: (context, child) {
+          return NavigationTransition(
+            scaffoldKey: scaffoldKey,
+            animationController: controller,
+            railAnimation: railAnimation,
+            appBar: createAppBar(),
+            body: createScreenFor(ScreenSelected.values[screenIndex], controller.value == 1),
+            navigationRail: NavigationRailSection(
+              onSelectItem: handleScreenChanged,
+              selectedIndex: screenIndex,
+              brightnessButton: brightnessButton(),
+              material3Button: material3Button(),
+              colorSeedButton: colorSeedButton(),
+            ),
+            navigationBar: NavigationBars(
+              onSelectItem: handleScreenChanged,
+              selectedIndex: screenIndex,
+              isExampleBar: false,
+            ),
+          );
+        }
       ),
     );
   }
@@ -197,12 +268,18 @@ class _Material3DemoState extends State<Material3Demo> {
 class NavigationTransition extends StatefulWidget {
   const NavigationTransition({
     super.key,
+    required this.scaffoldKey,
+    required this.animationController,
+    required this.railAnimation,
     required this.navigationRail,
     required this.navigationBar,
     required this.appBar,
     required this.body
   });
 
+  final GlobalKey<ScaffoldState> scaffoldKey;
+  final AnimationController animationController;
+  final CurvedAnimation railAnimation;
   final Widget navigationRail;
   final Widget navigationBar;
   final PreferredSizeWidget appBar;
@@ -212,7 +289,8 @@ class NavigationTransition extends StatefulWidget {
   State<NavigationTransition> createState() => _NavigationTransitionState();
 }
 
-class _NavigationTransitionState extends State<NavigationTransition> with SingleTickerProviderStateMixin {
+class _NavigationTransitionState extends State<NavigationTransition> {
+
   late final AnimationController controller;
   late final CurvedAnimation railAnimation;
   late final ReverseAnimation barAnimation;
@@ -223,11 +301,8 @@ class _NavigationTransitionState extends State<NavigationTransition> with Single
   void initState() {
     super.initState();
 
-    controller = AnimationController(
-      duration: Duration(milliseconds: transitionLength.toInt() * 2),
-      value: 0,
-      vsync: this,
-    );
+    controller = widget.animationController;
+    railAnimation = widget.railAnimation;
 
     barAnimation = ReverseAnimation(
       CurvedAnimation(
@@ -235,79 +310,52 @@ class _NavigationTransitionState extends State<NavigationTransition> with Single
         curve: const Interval(0.0, 0.5),
       ),
     );
-
-    railAnimation = CurvedAnimation(
-      parent: controller,
-      curve: const Interval(0.5, 1.0),
-    );
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final double width = MediaQuery.of(context).size.width;
-    final AnimationStatus status = controller.status;
-    if (width > 600) {
-      showDivider = true;
-      if (status != AnimationStatus.forward && status != AnimationStatus.completed) {
-        controller.forward();
-      }
-    } else {
-      showDivider = false;
-      if (status != AnimationStatus.reverse && status != AnimationStatus.dismissed) {
-        controller.reverse();
-      }
-    }
-    if (!controllerInitialized) {
-      controllerInitialized = true;
-      controller.value = width > 600 ? 1 : 0;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return AnimatedBuilder(
-        animation: controller,
-        builder: (context, child) {
-          return Scaffold(
-            appBar: widget.appBar,
-            body: Row(
-              children: <Widget>[
-                RailTransition(
-                  animation: railAnimation,
-                  backgroundColor: colorScheme.surface,
-                  child: widget.navigationRail,
-                ),
-                railAnimation.isDismissed ? const SizedBox() : const VerticalDivider(width: 1),
-                widget.body,
-              ],
-            ),
-            bottomNavigationBar: BarTransition(
-              animation: barAnimation,
-              backgroundColor: colorScheme.surface,
-              child: widget.navigationBar,
-            ),
-          );
-        }
+    return Scaffold(
+      key: widget.scaffoldKey,
+      appBar: widget.appBar,
+      body: Row(
+        children: <Widget>[
+          RailTransition(
+            animation: railAnimation,
+            backgroundColor: colorScheme.surface,
+            child: widget.navigationRail,
+          ),
+          railAnimation.isDismissed ? const SizedBox() : const VerticalDivider(width: 1),
+          widget.body,
+        ],
+      ),
+      bottomNavigationBar: BarTransition(
+        animation: barAnimation,
+        backgroundColor: colorScheme.surface,
+        child: widget.navigationBar,
+      ),
+      endDrawer: const NavigationDrawerSection(),
     );
   }
 }
 
 class NavigationRailSection extends StatefulWidget {
+  const NavigationRailSection({
+    super.key,
+    required this.onSelectItem,
+    required this.selectedIndex,
+    required this.brightnessButton,
+    required this.material3Button,
+    required this.colorSeedButton,
+  });
+
   final void Function(int) onSelectItem;
   final int selectedIndex;
+  final Widget brightnessButton;
+  final Widget material3Button;
+  final Widget colorSeedButton;
 
-  const NavigationRailSection(
-      {super.key, required this.onSelectItem, required this.selectedIndex});
 
   @override
   State<NavigationRailSection> createState() => _NavigationRailSectionState();
@@ -315,6 +363,7 @@ class NavigationRailSection extends StatefulWidget {
 
 class _NavigationRailSectionState extends State<NavigationRailSection> {
   int selectedIndex = 0;
+  bool extended = false;
 
   @override
   void initState() {
@@ -323,8 +372,17 @@ class _NavigationRailSectionState extends State<NavigationRailSection> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final double width = MediaQuery.of(context).size.width;
+    extended = width > 1500;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return NavigationRail(
+      extended: extended,
       destinations: navRailDestinations,
       selectedIndex: selectedIndex,
       useIndicator: true,
@@ -334,6 +392,18 @@ class _NavigationRailSectionState extends State<NavigationRailSection> {
         });
         widget.onSelectItem(index);
       },
+      trailing: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              widget.brightnessButton,
+              widget.material3Button,
+              widget.colorSeedButton,
+            ],
+          ),
+      )),
     );
   }
 }
@@ -355,11 +425,11 @@ class SizeAnimation extends CurvedAnimation {
   SizeAnimation(Animation<double> parent) : super(
     parent: parent,
     curve: const Interval(
-      50 / transitionLength, 200 / transitionLength,
+      0.2, 0.8,
       curve: Curves.easeInOutCubicEmphasized,
     ),
     reverseCurve: Interval(
-      0, 50 / transitionLength,
+      0, 0.2,
       curve: Curves.easeInOutCubicEmphasized.flipped,
     ),
   );
@@ -369,11 +439,11 @@ class OffsetAnimation extends CurvedAnimation {
   OffsetAnimation(Animation<double> parent) : super(
     parent: parent,
     curve: const Interval(
-      100 / transitionLength, 1.0,
+      0.4, 1.0,
       curve: Curves.easeInOutCubicEmphasized,
     ),
     reverseCurve: Interval(
-      0, 50 / transitionLength,
+      0, 0.2,
       curve: Curves.easeInOutCubicEmphasized.flipped,
     ),
   );
@@ -479,6 +549,64 @@ class _BarTransition extends State<BarTransition> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class OneTwoTransition extends StatefulWidget {
+  const OneTwoTransition({
+    super.key,
+    required this.animation,
+    required this.one,
+    required this.two,
+  });
+
+  final Animation<double> animation;
+  final Widget one;
+  final Widget two;
+
+  @override
+  State<OneTwoTransition> createState() => _OneTwoTransitionState();
+}
+
+class _OneTwoTransitionState extends State<OneTwoTransition> {
+  late final Animation<Offset> offsetAnimation;
+  late final Animation<double> widthAnimation;
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    offsetAnimation = Tween<Offset>(
+      begin: const Offset(1, 0),
+      end: Offset.zero,
+    ).animate(OffsetAnimation(widget.animation));
+
+    widthAnimation = Tween<double>(
+      begin: 0,
+      end: 1000,
+    ).animate(SizeAnimation(widget.animation));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Flexible(
+          flex: 1000,
+          child: widget.one,
+        ),
+        if(widthAnimation.value.toInt() > 0) ...[
+          Flexible(
+            flex: widthAnimation.value.toInt(),
+            child: FractionalTranslation(
+              translation: offsetAnimation.value,
+              child: widget.two,
+            ),
+          )
+        ],
+      ],
     );
   }
 }
