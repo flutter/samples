@@ -26,28 +26,23 @@ class Material3Demo extends StatefulWidget {
 // screenWidthThreshold; otherwise, NavigationBar is used for navigation.
 const double narrowScreenWidthThreshold = 450;
 
-const double transitionLength = 1000;
+const double transitionLength = 500;
 
-const Color m3BaseColor = Color(0xff6750a4);
-const List<Color> colorOptions = [
-  m3BaseColor,
-  Colors.blue,
-  Colors.teal,
-  Colors.green,
-  Colors.yellow,
-  Colors.orange,
-  Colors.pink
-];
+enum ColorSeed {
+  baseColor('M3 Baseline', Color(0xff6750a4)),
+  indigo('Indigo', Colors.indigo),
+  blue('Blue', Colors.blue),
+  teal('Teal', Colors.teal),
+  green('Green', Colors.green),
+  yellow('Yellow', Colors.yellow),
+  orange('Orange', Colors.orange),
+  deepOrange('Deep Orange', Colors.deepOrange),
+  pink('Pink', Colors.pink);
 
-const List<String> colorText = <String>[
-  'M3 Baseline',
-  'Blue',
-  'Teal',
-  'Green',
-  'Yellow',
-  'Orange',
-  'Pink',
-];
+  const ColorSeed(this.label, this.color);
+  final String label;
+  final Color color;
+}
 
 enum ScreenSelected {
   component(0),
@@ -65,9 +60,10 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
   late final CurvedAnimation railAnimation;
   bool controllerInitialized = false;
   bool showMediumSizeLayout = false;
+  bool showLargeSizeLayout = false;
   bool useMaterial3 = true;
   bool useLightMode = true;
-  int colorSelected = 0;
+  ColorSeed colorSelected = ColorSeed.baseColor;
   int screenIndex = ScreenSelected.component.value;
 
   late ThemeData themeData;
@@ -75,7 +71,7 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
   @override
   initState() {
     super.initState();
-    themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+    themeData = updateThemes(colorSelected.color, useMaterial3, useLightMode);
 
     controller = AnimationController(
       duration: Duration(milliseconds: transitionLength.toInt() * 2),
@@ -101,12 +97,19 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
     final double width = MediaQuery.of(context).size.width;
     final AnimationStatus status = controller.status;
     if (width > 1000) {
-      showMediumSizeLayout = true;
+      if (width > 1500) {
+        showMediumSizeLayout = false;
+        showLargeSizeLayout = true;
+      } else {
+        showMediumSizeLayout = true;
+        showLargeSizeLayout = false;
+      }
       if (status != AnimationStatus.forward && status != AnimationStatus.completed) {
         controller.forward();
       }
     } else {
       showMediumSizeLayout = false;
+      showLargeSizeLayout = false;
       if (status != AnimationStatus.reverse && status != AnimationStatus.dismissed) {
         controller.reverse();
       }
@@ -118,9 +121,9 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
   }
 
 
-  ThemeData updateThemes(int colorIndex, bool useMaterial3, bool useLightMode) {
+  ThemeData updateThemes(Color colorSelected, bool useMaterial3, bool useLightMode) {
     return ThemeData(
-        colorSchemeSeed: colorOptions[colorSelected],
+        colorSchemeSeed: colorSelected,
         useMaterial3: useMaterial3,
         brightness: useLightMode ? Brightness.light : Brightness.dark);
   }
@@ -134,21 +137,21 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
   void handleBrightnessChange() {
     setState(() {
       useLightMode = !useLightMode;
-      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+      themeData = updateThemes(colorSelected.color, useMaterial3, useLightMode);
     });
   }
 
   void handleMaterialVersionChange() {
     setState(() {
       useMaterial3 = !useMaterial3;
-      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+      themeData = updateThemes(colorSelected.color, useMaterial3, useLightMode);
     });
   }
 
   void handleColorSelect(int value) {
     setState(() {
-      colorSelected = value;
-      themeData = updateThemes(colorSelected, useMaterial3, useLightMode);
+      colorSelected = ColorSeed.values[value];
+      themeData = updateThemes(colorSelected.color, useMaterial3, useLightMode);
     });
   }
 
@@ -159,7 +162,7 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
         return Expanded(
           child: OneTwoTransition(
             animation: railAnimation,
-            one: FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout),
+            one: FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout || showLargeSizeLayout),
             two: const SecondComponentList()));
       case ScreenSelected.color:
         return const ColorPalettesScreen();
@@ -168,7 +171,7 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
       case ScreenSelected.elevation:
         return const ElevationScreen();
       default:
-        return FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout);
+        return FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout || showLargeSizeLayout);
     }
   }
 
@@ -188,12 +191,13 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
     tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
   );
 
-  Widget colorSeedButton() => PopupMenuButton(
-    icon: const Icon(Icons.more_vert),
-    shape:
-    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  Widget colorSeedButton(Icon icon) => PopupMenuButton(
+    icon: icon,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     itemBuilder: (context) {
-      return List.generate(colorOptions.length, (index) {
+      return List.generate(ColorSeed.values.length, (index) {
+        ColorSeed currentColor = ColorSeed.values[index];
+
         return PopupMenuItem(
           value: index,
           child: Wrap(
@@ -201,15 +205,15 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Icon(
-                  index == colorSelected
-                      ? Icons.color_lens
-                      : Icons.color_lens_outlined,
-                  color: colorOptions[index],
+                  currentColor == colorSelected
+                    ? Icons.color_lens
+                    : Icons.color_lens_outlined,
+                  color: currentColor.color,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: Text(colorText[index]),
+                child: Text(currentColor.label),
               ),
             ],
           ),
@@ -222,10 +226,11 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
   PreferredSizeWidget createAppBar() {
     return AppBar(
       title: useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
-      actions: !showMediumSizeLayout
-        ? [ brightnessButton(),
+      actions: !showMediumSizeLayout && !showLargeSizeLayout
+        ? [
+          brightnessButton(),
           material3Button(),
-          colorSeedButton(),
+          colorSeedButton(const Icon(Icons.more_vert)),
         ] : [ Container() ],
     );
   }
@@ -246,12 +251,71 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
             railAnimation: railAnimation,
             appBar: createAppBar(),
             body: createScreenFor(ScreenSelected.values[screenIndex], controller.value == 1),
-            navigationRail: NavigationRailSection(
-              onSelectItem: handleScreenChanged,
+            navigationRail: NavigationRail(
+              extended: showLargeSizeLayout,
+              destinations: navRailDestinations,
               selectedIndex: screenIndex,
-              brightnessButton: brightnessButton(),
-              material3Button: material3Button(),
-              colorSeedButton: colorSeedButton(),
+              useIndicator: true,
+              onDestinationSelected: (index) {
+                setState(() {
+                  screenIndex = index;
+                });
+                handleScreenChanged(screenIndex);
+              },
+              trailing: Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: !showLargeSizeLayout
+                      ? Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          brightnessButton(),
+                          material3Button(),
+                          colorSeedButton(const Icon(Icons.more_horiz)),
+                        ],
+                      ) : Container(
+                        constraints: const BoxConstraints.tightFor(width: 250),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              children: [
+                                const Text('Brightness'),
+                                Expanded(child: Container()),
+                                Switch(value: useLightMode, onChanged: (_) {
+                                  handleBrightnessChange();
+                                })
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
+                                Expanded(child: Container()),
+                                Switch(value: useMaterial3, onChanged: (_) {
+                                  handleMaterialVersionChange();
+                                })
+                              ],
+                            ),
+                            const Divider(),
+                            GridView.count(
+                              shrinkWrap: true,
+                              crossAxisCount: 3,
+                              children: List.generate(ColorSeed.values.length, (i)
+                                => IconButton(
+                                    icon: const Icon(Icons.circle),
+                                    color: ColorSeed.values[i].color,
+                                    onPressed: () {
+                                      handleColorSelect(i);
+                                    },
+                                )
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  )),
             ),
             navigationBar: NavigationBars(
               onSelectItem: handleScreenChanged,
