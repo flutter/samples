@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class ExpandCardDemo extends StatelessWidget {
   const ExpandCardDemo({super.key});
-  static const String routeName = '/misc/expand_card';
+  static const String routeName = 'misc/expand_card';
 
   @override
   Widget build(BuildContext context) {

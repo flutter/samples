@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class HeroAnimationDemo extends StatelessWidget {
   const HeroAnimationDemo({super.key});
-  static const String routeName = '/misc/hero_animation';
+  static const String routeName = 'misc/hero_animation';
 
   @override
   Widget build(BuildContext context) {
