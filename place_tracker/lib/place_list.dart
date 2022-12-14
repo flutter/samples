@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
@@ -35,10 +36,7 @@ class _PlaceListState extends State<PlaceList> {
             shrinkWrap: true,
             children: state.places
                 .where((place) => place.category == state.selectedCategory)
-                .map((place) => _PlaceListTile(
-                      place: place,
-                      onPlaceChanged: (value) => _onPlaceChanged(value),
-                    ))
+                .map((place) => _PlaceListTile(place: place))
                 .toList(),
           ),
         ),
@@ -51,16 +49,6 @@ class _PlaceListState extends State<PlaceList> {
     Provider.of<AppState>(context, listen: false)
         .setSelectedCategory(newCategory);
   }
-
-  void _onPlaceChanged(Place value) {
-    // Replace the place with the modified version.
-    final newPlaces =
-        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
-    final index = newPlaces.indexWhere((place) => place.id == value.id);
-    newPlaces[index] = value;
-
-    Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
-  }
 }
 
 class _CategoryButton extends StatelessWidget {
@@ -68,6 +56,7 @@ class _CategoryButton extends StatelessWidget {
 
   final bool selected;
   final ValueChanged<PlaceCategory> onCategoryChanged;
+
   const _CategoryButton({
     required this.category,
     required this.selected,
@@ -118,6 +107,7 @@ class _ListCategoryButtonBar extends StatelessWidget {
   final PlaceCategory selectedCategory;
 
   final ValueChanged<PlaceCategory> onCategoryChanged;
+
   const _ListCategoryButtonBar({
     required this.selectedCategory,
     required this.onCategoryChanged,
@@ -151,24 +141,14 @@ class _ListCategoryButtonBar extends StatelessWidget {
 class _PlaceListTile extends StatelessWidget {
   final Place place;
 
-  final ValueChanged<Place> onPlaceChanged;
   const _PlaceListTile({
     required this.place,
-    required this.onPlaceChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push<void>(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return PlaceDetails(
-            place: place,
-            onChanged: (value) => onPlaceChanged(value),
-          );
-        }),
-      ),
+      onTap: () => context.go('/details/${place.id}'),
       child: Container(
         padding: const EdgeInsets.only(top: 16.0),
         child: Column(
