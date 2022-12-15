@@ -61,7 +61,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   void initState() {
     _place = widget.place;
     _nameController.text = _place.name;
-    _descriptionController.text = _place.description!;
+    _descriptionController.text = _place.description ?? '';
     return super.initState();
   }
 
