@@ -15,8 +15,8 @@ void main() {
 
     // Elements on the app bar
     expect(find.text('Material 3'), findsOneWidget);
-    expect(find.widgetWithIcon(AppBar, Icons.wb_sunny_outlined),
-        findsOneWidget);
+    expect(
+        find.widgetWithIcon(AppBar, Icons.wb_sunny_outlined), findsOneWidget);
     expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsOneWidget);
     expect(find.widgetWithIcon(AppBar, Icons.more_vert), findsOneWidget);
 
@@ -33,7 +33,8 @@ void main() {
     expect(find.byType(IconToggleButton), findsNWidgets(8));
 
     // FABs
-    expect(find.byType(FloatingActionButton), findsNWidgets(6)); // 2 more shows up in the bottom app bar.
+    expect(find.byType(FloatingActionButton),
+        findsNWidgets(6)); // 2 more shows up in the bottom app bar.
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Chips
@@ -84,7 +85,8 @@ void main() {
 
     // When screen width is less than 1000, NavigationBar will show. At the same
     // time, the NavigationBar example still show up in the navigation group.
-    expect(find.byType(NavigationBars), findsNWidgets(3)); // The real navBar, badges example and navBar example
+    expect(find.byType(NavigationBars),
+        findsNWidgets(3)); // The real navBar, badges example and navBar example
     expect(find.widgetWithText(NavigationBar, 'Components'), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, 'Color'), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, 'Typography'), findsOneWidget);
@@ -106,20 +108,18 @@ void main() {
     // At the same time, the NavigationBar will NOT show.
     expect(find.byType(NavigationRail), findsOneWidget);
     expect(find.byType(Tooltip, skipOffstage: false), findsWidgets);
-    expect(find.widgetWithText(NavigationRail, 'Components'),
-        findsOneWidget);
+    expect(find.widgetWithText(NavigationRail, 'Components'), findsOneWidget);
     expect(find.widgetWithText(NavigationRail, 'Color'), findsOneWidget);
-    expect(find.widgetWithText(NavigationRail, 'Typography'),
-        findsOneWidget);
-    expect(find.widgetWithText(NavigationRail, 'Elevation'),
-        findsOneWidget);
+    expect(find.widgetWithText(NavigationRail, 'Typography'), findsOneWidget);
+    expect(find.widgetWithText(NavigationRail, 'Elevation'), findsOneWidget);
 
     expect(find.widgetWithText(NavigationBar, 'Explore'), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, 'Pets'), findsOneWidget);
     expect(find.widgetWithText(NavigationBar, 'Account'), findsOneWidget);
 
     // the Navigation bar should be out of screen.
-    final RenderBox box = tester.renderObject(find.widgetWithText(NavigationBar, 'Components'));
+    final RenderBox box =
+        tester.renderObject(find.widgetWithText(NavigationBar, 'Components'));
     expect(box.localToGlobal(Offset.zero), const Offset(0.0, 3080.0));
   });
 
@@ -156,7 +156,9 @@ void main() {
     expect(Theme.of(defaultCard).useMaterial3, true);
     expect(Theme.of(defaultChip).useMaterial3, true);
 
-    Finder appbarM3Icon = find.descendant(of: find.byType(AppBar), matching: find.widgetWithIcon(IconButton, Icons.filter_3));
+    Finder appbarM3Icon = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.widgetWithIcon(IconButton, Icons.filter_3));
     await tester.tap(appbarM3Icon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext updatedElevatedButton =
@@ -192,19 +194,30 @@ void main() {
       'Other screens become Material2 mode after changing mode from '
       'main screen', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
-    Finder appbarM3Icon = find.descendant(of: find.byType(AppBar), matching: find.widgetWithIcon(IconButton, Icons.filter_3));
+    Finder appbarM3Icon = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.widgetWithIcon(IconButton, Icons.filter_3));
     await tester.tap(appbarM3Icon);
-    Finder secondScreenIcon = find.descendant(of: find.byType(NavigationBar), matching: find.widgetWithIcon(NavigationDestination, Icons.format_paint_outlined));
+    Finder secondScreenIcon = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.widgetWithIcon(
+            NavigationDestination, Icons.format_paint_outlined));
     await tester.tap(secondScreenIcon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext lightThemeText = tester.element(find.text('Light Theme'));
     expect(Theme.of(lightThemeText).useMaterial3, false);
-    Finder thirdScreenIcon = find.descendant(of: find.byType(NavigationBar), matching: find.widgetWithIcon(NavigationDestination, Icons.text_snippet_outlined));
+    Finder thirdScreenIcon = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.widgetWithIcon(
+            NavigationDestination, Icons.text_snippet_outlined));
     await tester.tap(thirdScreenIcon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext displayLargeText = tester.element(find.text('Display Large'));
     expect(Theme.of(displayLargeText).useMaterial3, false);
-    Finder fourthScreenIcon = find.descendant(of: find.byType(NavigationBar), matching: find.widgetWithIcon(NavigationDestination, Icons.invert_colors_on_outlined));
+    Finder fourthScreenIcon = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.widgetWithIcon(
+            NavigationDestination, Icons.invert_colors_on_outlined));
     await tester.tap(fourthScreenIcon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext material = tester.firstElement(find.byType(Material));
@@ -215,11 +228,16 @@ void main() {
       'Brightness mode switches between dark and light when'
       'the brightness icon is clicked', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
-    Finder lightIcon = find.descendant(of: find.byType(AppBar), matching: find.widgetWithIcon(IconButton, Icons.wb_sunny_outlined));
-    Finder darkIcon = find.descendant(of: find.byType(AppBar), matching: find.widgetWithIcon(IconButton, Icons.wb_sunny));
+    Finder lightIcon = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.widgetWithIcon(IconButton, Icons.wb_sunny_outlined));
+    Finder darkIcon = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.widgetWithIcon(IconButton, Icons.wb_sunny));
     BuildContext appBar = tester.element(find.byType(AppBar).first);
     BuildContext body = tester.firstElement(find.byType(Scaffold).first);
-    BuildContext navigationRail = tester.element(find.widgetWithIcon(NavigationRail, Icons.format_paint_outlined));
+    BuildContext navigationRail = tester.element(
+        find.widgetWithIcon(NavigationRail, Icons.format_paint_outlined));
     expect(lightIcon, findsOneWidget);
     expect(darkIcon, findsNothing);
     expect(Theme.of(appBar).brightness, Brightness.light);
@@ -244,7 +262,9 @@ void main() {
     await tester.pumpWidget(Container());
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     await tester.pump();
-    Finder menuIcon = find.descendant(of: find.byType(AppBar), matching: find.widgetWithIcon(IconButton, Icons.more_vert));
+    Finder menuIcon = find.descendant(
+        of: find.byType(AppBar),
+        matching: find.widgetWithIcon(IconButton, Icons.more_vert));
     BuildContext appBar = tester.element(find.byType(AppBar).first);
     BuildContext body = tester.element(find.byType(Scaffold).first);
     BuildContext navigationRail = tester.element(find.byType(NavigationRail));
