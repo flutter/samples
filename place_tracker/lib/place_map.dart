@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 import 'place.dart';
-import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class MapConfiguration {
@@ -273,9 +273,14 @@ class _PlaceMapState extends State<PlaceMap> {
       } else {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
-        newConfiguration.places
-            .where((p) => !_configuration!.places.contains(p))
-            .map((value) => _updateExistingPlaceMarker(place: value));
+        for (final place in newConfiguration.places) {
+          final oldPlace =
+              _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
+          if (oldPlace == null || oldPlace != place) {
+            // New place or updated place.
+            _updateExistingPlaceMarker(place: place);
+          }
+        }
 
         await _zoomToFitPlaces(
           _getPlacesForCategory(
@@ -382,15 +387,17 @@ class _PlaceMapState extends State<PlaceMap> {
       maxLong = max(maxLong, place.longitude);
     }
 
-    await controller.animateCamera(
-      CameraUpdate.newLatLngBounds(
-        LatLngBounds(
-          southwest: LatLng(minLat, minLong),
-          northeast: LatLng(maxLat, maxLong),
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.animateCamera(
+        CameraUpdate.newLatLngBounds(
+          LatLngBounds(
+            southwest: LatLng(minLat, minLong),
+            northeast: LatLng(maxLat, maxLong),
+          ),
+          48.0,
         ),
-        48.0,
-      ),
-    );
+      );
+    });
   }
 
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(
