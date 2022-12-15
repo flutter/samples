@@ -45,7 +45,6 @@ class PlaceTrackerApp extends StatelessWidget {
       ]),
     );
   }
-
 }
 
 class _PlaceTrackerHomePage extends StatelessWidget {
