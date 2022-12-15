@@ -255,7 +255,6 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
               extended: showLargeSizeLayout,
               destinations: navRailDestinations,
               selectedIndex: screenIndex,
-              useIndicator: true,
               onDestinationSelected: (index) {
                 setState(() {
                   screenIndex = index;
@@ -265,15 +264,8 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
               trailing: Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
-                    child: !showLargeSizeLayout
-                      ? Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          brightnessButton(),
-                          material3Button(),
-                          colorSeedButton(const Icon(Icons.more_horiz)),
-                        ],
-                      ) : Container(
+                    child: showLargeSizeLayout
+                      ? Container(
                         constraints: const BoxConstraints.tightFor(width: 250),
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(
@@ -314,7 +306,14 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
                             ),
                           ],
                         ),
-                      ),
+                      ) : Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Flexible(child: brightnessButton()),
+                        Flexible(child: material3Button()),
+                        Flexible(child: colorSeedButton(const Icon(Icons.more_horiz))),
+                      ],
+                    ),
                   )),
             ),
             navigationBar: NavigationBars(
@@ -400,74 +399,6 @@ class _NavigationTransitionState extends State<NavigationTransition> {
         child: widget.navigationBar,
       ),
       endDrawer: const NavigationDrawerSection(),
-    );
-  }
-}
-
-class NavigationRailSection extends StatefulWidget {
-  const NavigationRailSection({
-    super.key,
-    required this.onSelectItem,
-    required this.selectedIndex,
-    required this.brightnessButton,
-    required this.material3Button,
-    required this.colorSeedButton,
-  });
-
-  final void Function(int) onSelectItem;
-  final int selectedIndex;
-  final Widget brightnessButton;
-  final Widget material3Button;
-  final Widget colorSeedButton;
-
-
-  @override
-  State<NavigationRailSection> createState() => _NavigationRailSectionState();
-}
-
-class _NavigationRailSectionState extends State<NavigationRailSection> {
-  int selectedIndex = 0;
-  bool extended = false;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedIndex = widget.selectedIndex;
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    final double width = MediaQuery.of(context).size.width;
-    extended = width > 1500;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationRail(
-      extended: extended,
-      destinations: navRailDestinations,
-      selectedIndex: selectedIndex,
-      useIndicator: true,
-      onDestinationSelected: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-        widget.onSelectItem(index);
-      },
-      trailing: Expanded(
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              widget.brightnessButton,
-              widget.material3Button,
-              widget.colorSeedButton,
-            ],
-          ),
-      )),
     );
   }
 }
