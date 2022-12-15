@@ -16,6 +16,7 @@ dependencies:
   provider: ^6.0.2
   uuid: ^3.0.4
   go_router: ^5.2.4
+  collection: ^1.16.0
 
 dev_dependencies:
   flutter_test:

@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
-import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class PlaceList extends StatefulWidget {
