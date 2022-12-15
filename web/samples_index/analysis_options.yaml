@@ -3,9 +3,9 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - lib/src/data.g.dart
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
+  language:
+    strict-casts: true
+    strict-inference: true
 
 linter:
   rules:
