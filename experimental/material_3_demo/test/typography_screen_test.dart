@@ -37,7 +37,8 @@ void main() {
   testWidgets(
       'Typography screen shows correctly when the corresponding icon is '
       'selected on NavigationRail', (tester) async {
-    widgetSetup(tester, 1200); // NavigationRail shows only when width is > 1000.
+    widgetSetup(
+        tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     expect(find.text('Display Large'), findsNothing);
