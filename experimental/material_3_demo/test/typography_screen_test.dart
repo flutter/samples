@@ -16,33 +16,43 @@ void main() {
       'selected on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const Material3Demo());
+    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
 
     expect(find.text('Display Large'), findsNothing);
     expect(find.byType(NavigationBar), findsOneWidget);
-    Finder textIconOnBar = find.byIcon(Icons.text_snippet_outlined);
+    Finder textIconOnBar = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.byIcon(Icons.text_snippet_outlined));
     expect(textIconOnBar, findsOneWidget);
     await tester.tap(textIconOnBar);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     expect(textIconOnBar, findsNothing);
-    expect(find.byIcon(Icons.text_snippet), findsOneWidget);
+    Finder selectedTextIconOnBar = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.byIcon(Icons.text_snippet));
+    expect(selectedTextIconOnBar, findsOneWidget);
     expect(find.text('Display Large'), findsOneWidget);
   });
 
   testWidgets(
       'Typography screen shows correctly when the corresponding icon is '
       'selected on NavigationRail', (tester) async {
-    widgetSetup(tester, 450); // NavigationRail shows only when width is >= 450.
+    widgetSetup(tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const Material3Demo());
+    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     expect(find.text('Display Large'), findsNothing);
     expect(find.byType(NavigationRail), findsOneWidget);
-    Finder textIconOnRail = find.byIcon(Icons.text_snippet_outlined);
+    Finder textIconOnRail = find.descendant(
+        of: find.byType(NavigationRail),
+        matching: find.byIcon(Icons.text_snippet_outlined));
     expect(textIconOnRail, findsOneWidget);
     await tester.tap(textIconOnRail);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     expect(textIconOnRail, findsNothing);
-    expect(find.byIcon(Icons.text_snippet), findsOneWidget);
+    Finder selectedTextIconOnRail = find.descendant(
+        of: find.byType(NavigationRail),
+        matching: find.byIcon(Icons.text_snippet));
+    expect(selectedTextIconOnRail, findsOneWidget);
     expect(find.text('Display Large'), findsOneWidget);
   });
 
