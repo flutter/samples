@@ -148,7 +148,7 @@ class _PlaceListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.go('/details/${place.id}'),
+      onTap: () => context.go('/place/${place.id}'),
       child: Container(
         padding: const EdgeInsets.only(top: 16.0),
         child: Column(
