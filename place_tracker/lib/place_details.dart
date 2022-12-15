@@ -120,17 +120,6 @@ class _PlaceDetailsState extends State<PlaceDetails> {
     final index = newPlaces.indexWhere((place) => place.id == value.id);
     newPlaces[index] = value;
 
-    // _updateExistingPlaceMarker(place: value);
-    //
-    // // Manually update our map configuration here since our map is already
-    // // updated with the new marker. Otherwise, the map would be reconfigured
-    // // in the main build method due to a modified AppState.
-    // _configuration = MapConfiguration(
-    //   places: newPlaces,
-    //   selectedCategory:
-    //       Provider.of<AppState>(context, listen: false).selectedCategory,
-    // );
-
     context.read<AppState>().setPlaces(newPlaces);
   }
 }
