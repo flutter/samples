@@ -22,7 +22,8 @@ void main() {
     expect(find.byType(NavigationBar), findsOneWidget);
     Finder tintIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.widgetWithIcon(NavigationDestination, Icons.invert_colors_on_outlined));
+        matching: find.widgetWithIcon(
+            NavigationDestination, Icons.invert_colors_on_outlined));
     expect(tintIconOnBar, findsOneWidget);
     await tester.tap(tintIconOnBar);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
@@ -37,7 +38,8 @@ void main() {
   testWidgets(
       'Surface Tones screen shows correctly when the corresponding icon is '
       'selected on NavigationRail', (tester) async {
-    widgetSetup(tester, 1200); // NavigationRail shows only when width is > 1000.
+    widgetSetup(
+        tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     expect(find.text('Surface Tint only'), findsNothing);
@@ -50,8 +52,7 @@ void main() {
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     expect(tintIconOnRail, findsNothing);
     Finder selectedTintIconOnRail = find.descendant(
-        of: find.byType(NavigationRail),
-        matching: find.byIcon(Icons.opacity));
+        of: find.byType(NavigationRail), matching: find.byIcon(Icons.opacity));
     expect(selectedTintIconOnRail, findsOneWidget);
     expect(find.text('Surface Tint only'), findsOneWidget);
   });

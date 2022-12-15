@@ -23,7 +23,8 @@ void main() {
     expect(find.byType(NavigationBar), findsOneWidget);
     Finder colorIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.widgetWithIcon(NavigationDestination, Icons.format_paint_outlined));
+        matching: find.widgetWithIcon(
+            NavigationDestination, Icons.format_paint_outlined));
     expect(colorIconOnBar, findsOneWidget);
     await tester.tap(colorIconOnBar);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
@@ -31,7 +32,8 @@ void main() {
 
     Finder selectedColorIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
-        matching: find.widgetWithIcon(NavigationDestination, Icons.format_paint));
+        matching:
+            find.widgetWithIcon(NavigationDestination, Icons.format_paint));
     expect(selectedColorIconOnBar, findsOneWidget);
     expect(find.text('Light Theme'), findsOneWidget);
     expect(find.text('Dark Theme'), findsOneWidget);
@@ -40,7 +42,8 @@ void main() {
   testWidgets(
       'Color palettes screen shows correctly when color icon is clicked '
       'on NavigationRail', (tester) async {
-    widgetSetup(tester, 1200); // NavigationRail shows only when width is > 1000.
+    widgetSetup(
+        tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     await tester.pumpAndSettle();
