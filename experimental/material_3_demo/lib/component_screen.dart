@@ -947,12 +947,20 @@ class NavigationBars extends StatefulWidget {
 }
 
 class _NavigationBarsState extends State<NavigationBars> {
-  int selectedIndex = 0;
+  late int selectedIndex;
 
   @override
   void initState() {
     super.initState();
     selectedIndex = widget.selectedIndex;
+  }
+
+  @override
+  void didUpdateWidget(covariant NavigationBars oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.selectedIndex != oldWidget.selectedIndex) {
+      selectedIndex = widget.selectedIndex;
+    }
   }
 
   @override

@@ -258,8 +258,8 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
               onDestinationSelected: (index) {
                 setState(() {
                   screenIndex = index;
+                  handleScreenChanged(screenIndex);
                 });
-                handleScreenChanged(screenIndex);
               },
               trailing: Expanded(
                   child: Padding(
@@ -317,7 +317,12 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
                   )),
             ),
             navigationBar: NavigationBars(
-              onSelectItem: handleScreenChanged,
+              onSelectItem: (index) {
+                setState(() {
+                  screenIndex = index;
+                  handleScreenChanged(screenIndex);
+                });
+              },
               selectedIndex: screenIndex,
               isExampleBar: false,
             ),
