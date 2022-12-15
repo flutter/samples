@@ -191,6 +191,7 @@ class _ButtonsState extends State<Buttons> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Common Buttons',
+      tooltipMessage: 'Common buttons include: \nElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton and TextButton',
       child: Wrap(
         alignment: WrapAlignment.spaceAround,
         children: const <Widget>[
@@ -297,6 +298,7 @@ class FloatingActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Floating action buttons',
+      tooltipMessage: 'Floating action buttons include: \nFloatingActionButton.small, FloatingActionButton, FloatingActionButton.extended, and FloatingActionButton.large',
       child: Wrap(
         alignment: WrapAlignment.spaceEvenly,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -334,89 +336,78 @@ class Cards extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Cards',
+      tooltipMessage: 'Card has 3 types: elevated, filled and outlined',
       child: Wrap(
         alignment: WrapAlignment.spaceEvenly,
         children: [
           SizedBox(
             width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Elevated Card',
-              child: Card(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
-                      ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Elevated'),
-                      )
-                    ],
-                  ),
+            child: Card(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: const [
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.more_vert),
+                    ),
+                    SizedBox(height: 35),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Elevated'),
+                    )
+                  ],
                 ),
               ),
             ),
           ),
           SizedBox(
             width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Filled Card',
-              child: Card(
-                color: Theme.of(context).colorScheme.surfaceVariant,
-                elevation: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
-                      ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Filled'),
-                      )
-                    ],
-                  ),
+            child: Card(
+              color: Theme.of(context).colorScheme.surfaceVariant,
+              elevation: 0,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: const [
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.more_vert),
+                    ),
+                    SizedBox(height: 35),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Filled'),
+                    )
+                  ],
                 ),
               ),
             ),
           ),
           SizedBox(
             width: cardWidth,
-            child: Tooltip(
-              margin: const EdgeInsets.only(top: 20),
-              message: 'Outlined Card',
-              child: Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+            child: Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
                 ),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: const [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(Icons.more_vert),
-                      ),
-                      SizedBox(height: 35),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text('Outlined'),
-                      )
-                    ],
-                  ),
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: const [
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Icon(Icons.more_vert),
+                    ),
+                    SizedBox(height: 35),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Outlined'),
+                    )
+                  ],
                 ),
               ),
             ),
@@ -434,6 +425,7 @@ class TextFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Text Fields',
+      tooltipMessage: 'Use TextField with different decoration to show text fields',
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -455,31 +447,35 @@ class TextFields extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
-                SizedBox(
-                  width: 170,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      suffixIcon: Icon(Icons.clear),
-                      labelText: 'Filled',
-                      hintText: 'hint text',
-                      helperText: 'supporting text',
-                      filled: true,
-                      errorText: 'error text',
+                Flexible(
+                  child: SizedBox(
+                    width: 180,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: Icon(Icons.clear),
+                        labelText: 'Filled',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
+                        filled: true,
+                        errorText: 'error text',
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 170,
-                  child: TextField(
-                    enabled: false,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      suffixIcon: Icon(Icons.clear),
-                      labelText: 'Disabled',
-                      hintText: 'hint text',
-                      helperText: 'supporting text',
-                      filled: true,
+                Flexible(
+                  child: SizedBox(
+                    width: 180,
+                    child: TextField(
+                      enabled: false,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: Icon(Icons.clear),
+                        labelText: 'Disabled',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
+                        filled: true,
+                      ),
                     ),
                   ),
                 ),
@@ -504,33 +500,37 @@ class TextFields extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    SizedBox(
-                      width: 170,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.clear),
-                          labelText: 'Outlined',
-                          hintText: 'hint text',
-                          helperText: 'supporting text',
-                          errorText: 'error text',
-                          border: OutlineInputBorder(),
-                          filled: true,
+                    Flexible(
+                      child: SizedBox(
+                        width: 180,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            suffixIcon: Icon(Icons.clear),
+                            labelText: 'Outlined',
+                            hintText: 'hint text',
+                            helperText: 'supporting text',
+                            errorText: 'error text',
+                            border: OutlineInputBorder(),
+                            filled: true,
+                          ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 170,
-                      child: TextField(
-                        enabled: false,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.clear),
-                          labelText: 'Disabled',
-                          hintText: 'hint text',
-                          helperText: 'supporting text',
-                          border: OutlineInputBorder(),
-                          filled: true,
+                    Flexible(
+                      child: SizedBox(
+                        width: 180,
+                        child: TextField(
+                          enabled: false,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            suffixIcon: Icon(Icons.clear),
+                            labelText: 'Disabled',
+                            hintText: 'hint text',
+                            helperText: 'supporting text',
+                            border: OutlineInputBorder(),
+                            filled: true,
+                          ),
                         ),
                       ),
                     ),
@@ -575,6 +575,7 @@ class _DialogsState extends State<Dialogs> {
     return Center(
       child: ComponentDecoration(
         label: 'Dialog',
+        tooltipMessage: 'Use AlertDialog to show dialogs',
         child: UnconstrainedBox(
           child: TextButton(
             child: const Text(
@@ -596,6 +597,7 @@ class Switches extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Switches',
+      tooltipMessage: 'Use Switch to show switches',
       child: Column(
         children: const <Widget>[
           SwitchRow(isEnabled: true),
@@ -665,6 +667,7 @@ class Checkboxes extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Checkboxes',
+      tooltipMessage: 'Use Checkbox to show checkboxes',
       child: Column(
         children: const <Widget>[
           CheckboxRow(
@@ -755,6 +758,7 @@ class _RadiosState extends State<Radios> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Radio button',
+      tooltipMessage: 'Use Radio<T> to show radio buttons',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -798,6 +802,7 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
 
     return ComponentDecoration(
       label: 'Progress indicators',
+      tooltipMessage: 'There are 2 types of progress indicators: \nCircularProgressIndicator and LinearProgressIndicator',
       child: Column(
         children: <Widget>[
           Row(
@@ -970,10 +975,12 @@ class _NavigationBarsState extends State<NavigationBars> {
     if (widget.isExampleBar && isBadgeExample) {
       navigationBar = ComponentDecoration(
           label: 'Badges',
+          tooltipMessage: 'Use Badge or Badge.count to show badges',
           child: navigationBar);
     } else if (widget.isExampleBar) {
       navigationBar = ComponentDecoration(
         label: 'Navigation bar',
+        tooltipMessage: 'Use NavigationBar to show navigation bars',
         child: navigationBar);
     }
 
@@ -993,6 +1000,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Icon buttons',
+      tooltipMessage: 'IconButton has 4 types: standard, filled, filled tonal, and outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -1184,6 +1192,7 @@ class Chips extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Chips',
+      tooltipMessage: 'Use ActionChip, FilterChip, and InputChip to show chips. \nActionChip can also be used for suggestion chip',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -1288,6 +1297,7 @@ class SegmentedButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Segmented buttons',
+      tooltipMessage: 'SegmentedButton has 2 types: single choice and multiple choice',
       child: Column(
         children: const <Widget>[
           SingleChoice(),
@@ -1374,6 +1384,7 @@ class SnackBarSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Snackbar',
+      tooltipMessage: 'Use SnackBar to show snack bars',
       child: TextButton(
         onPressed: handlePressed(context, false, 'A TextButton'),
         child: const Text('Show Snackbar', style: TextStyle(fontWeight: FontWeight.bold),),
@@ -1410,6 +1421,7 @@ class BottomSheetSection extends StatelessWidget {
 
     return ComponentDecoration(
       label: 'Bottom sheet',
+      tooltipMessage: 'Use showModalBottomSheet<T> to show a modal bottom sheet',
       child: TextButton(
         child: const Text('Show Modal bottom sheet', style: TextStyle(fontWeight: FontWeight.bold),),
         onPressed: () {
@@ -1454,6 +1466,7 @@ class BottomAppBars extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Bottom app bar',
+      tooltipMessage: 'Use BottomAppBar to show bottom app bars below',
       child: Column(
         children: [
           SizedBox(
@@ -1461,7 +1474,6 @@ class BottomAppBars extends StatelessWidget {
             child: Scaffold(
               floatingActionButton: FloatingActionButton(
                 onPressed: () {},
-                tooltip: 'Add New Item',
                 elevation: 0.0,
                 child: const Icon(Icons.add),
               ),
@@ -1502,19 +1514,17 @@ class BottomAppBars extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20.0,),
+          const SizedBox(height: 20.0,),
           SizedBox(
             height: 80,
             child: Scaffold(
               floatingActionButton: FloatingActionButton(
                 onPressed: () {},
-                tooltip: 'Add New Item',
                 elevation: 0.0,
                 child: const Icon(Icons.add),
               ),
               floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
               bottomNavigationBar: BottomAppBar(
-                elevation: null,
                 child: Row(
                   children: <Widget>[
                     IconButton(
@@ -1563,6 +1573,7 @@ class NavigationDrawers extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Navigation drawer',
+      tooltipMessage: 'Use NavigationDrawer to show navigation drawer or end drawer',
       child: UnconstrainedBox(
         child: TextButton(
           child: const Text('Open End Drawer', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -1675,25 +1686,33 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Tabs',
-      child: TabBar(
-        controller: _tabController,
-        tabs: const <Widget>[
-          Tab(
-            icon: Icon(Icons.videocam_outlined),
-            text: 'Video',
-            iconMargin: EdgeInsets.only(bottom: 0.0),
+      tooltipMessage: 'Use TabBar to show tabs',
+      child: SizedBox(
+        height: 80,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              controller: _tabController,
+              tabs: const <Widget>[
+                Tab(
+                  icon: Icon(Icons.videocam_outlined),
+                  text: 'Video',
+                  iconMargin: EdgeInsets.only(bottom: 0.0),
+                ),
+                Tab(
+                  icon: Icon(Icons.photo_outlined),
+                  text: 'Photos',
+                  iconMargin: EdgeInsets.only(bottom: 0.0),
+                ),
+                Tab(
+                  icon: Icon(Icons.audiotrack_sharp),
+                  text: 'Audio',
+                  iconMargin: EdgeInsets.only(bottom: 0.0),
+                ),
+              ],
+            ),
           ),
-          Tab(
-            icon: Icon(Icons.photo_outlined),
-            text: 'Photos',
-            iconMargin: EdgeInsets.only(bottom: 0.0),
-          ),
-          Tab(
-            icon: Icon(Icons.audiotrack_sharp),
-            text: 'Audio',
-            iconMargin: EdgeInsets.only(bottom: 0.0),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -1727,8 +1746,12 @@ class _DropdownMenusState extends State<DropdownMenus> {
 
     return ComponentDecoration(
       label: 'Dropdown menus',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      tooltipMessage: 'Use DropdownMenu<T> to show dropdown menus',
+      child: Wrap(
+        alignment: WrapAlignment.spaceAround,
+        runAlignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        runSpacing: 20,
         children: [
           DropdownMenu<ColorLabel>(
             controller: colorController,
@@ -1756,7 +1779,8 @@ class _DropdownMenusState extends State<DropdownMenus> {
           ),
           Icon(selectedIcon?.icon, color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),)
         ],
-      ));
+      ),
+    );
   }
 }
 
@@ -1799,6 +1823,7 @@ class _SlidersState extends State<Sliders> {
 
     return ComponentDecoration(
       label: 'Sliders',
+      tooltipMessage: 'Use Slider to show sliders',
       child: Column(
         children: <Widget>[
           Slider(
@@ -1827,10 +1852,15 @@ class _SlidersState extends State<Sliders> {
 }
 
 class ComponentDecoration extends StatelessWidget {
-  const ComponentDecoration({super.key, required this.label, required this.child});
+  const ComponentDecoration({super.key,
+    required this.label,
+    required this.child,
+    this.tooltipMessage = '',
+  });
 
   final String label;
   final Widget child;
+  final String? tooltipMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -1838,7 +1868,18 @@ class ComponentDecoration extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         children: [
-          Text(label, style: Theme.of(context).textTheme.titleSmall),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(label, style: Theme.of(context).textTheme.titleSmall),
+              Tooltip(
+                message: tooltipMessage,
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.0),
+                  child: Icon(Icons.info_outline, size: 16)),
+              ),
+            ],
+          ),
           ConstrainedBox(
             constraints: const BoxConstraints.tightFor(width: widthConstraint),
             child: Card(
