@@ -10,9 +10,7 @@ import 'typography_screen.dart';
 
 void main() {
   runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Material3Demo())
-  );
+      debugShowCheckedModeBanner: false, home: Material3Demo()));
 }
 
 class Material3Demo extends StatefulWidget {
@@ -54,7 +52,8 @@ enum ScreenSelected {
   final int value;
 }
 
-class _Material3DemoState extends State<Material3Demo> with SingleTickerProviderStateMixin {
+class _Material3DemoState extends State<Material3Demo>
+    with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   late final AnimationController controller;
   late final CurvedAnimation railAnimation;
@@ -104,13 +103,15 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
         showMediumSizeLayout = true;
         showLargeSizeLayout = false;
       }
-      if (status != AnimationStatus.forward && status != AnimationStatus.completed) {
+      if (status != AnimationStatus.forward &&
+          status != AnimationStatus.completed) {
         controller.forward();
       }
     } else {
       showMediumSizeLayout = false;
       showLargeSizeLayout = false;
-      if (status != AnimationStatus.reverse && status != AnimationStatus.dismissed) {
+      if (status != AnimationStatus.reverse &&
+          status != AnimationStatus.dismissed) {
         controller.reverse();
       }
     }
@@ -120,8 +121,8 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
     }
   }
 
-
-  ThemeData updateThemes(Color colorSelected, bool useMaterial3, bool useLightMode) {
+  ThemeData updateThemes(
+      Color colorSelected, bool useMaterial3, bool useLightMode) {
     return ThemeData(
         colorSchemeSeed: colorSelected,
         useMaterial3: useMaterial3,
@@ -160,10 +161,14 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
     switch (screenSelected) {
       case ScreenSelected.component:
         return Expanded(
-          child: OneTwoTransition(
-            animation: railAnimation,
-            one: FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout || showLargeSizeLayout),
-            two: const SecondComponentList()));
+            child: OneTwoTransition(
+                animation: railAnimation,
+                one: FirstComponentList(
+                    showNavBottomBar: showNavBarExample,
+                    scaffoldKey: scaffoldKey,
+                    showSecondList:
+                        showMediumSizeLayout || showLargeSizeLayout),
+                two: const SecondComponentList()));
       case ScreenSelected.color:
         return const ColorPalettesScreen();
       case ScreenSelected.typography:
@@ -171,67 +176,71 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
       case ScreenSelected.elevation:
         return const ElevationScreen();
       default:
-        return FirstComponentList(showNavBottomBar: showNavBarExample, scaffoldKey: scaffoldKey, showSecondList: showMediumSizeLayout || showLargeSizeLayout);
+        return FirstComponentList(
+            showNavBottomBar: showNavBarExample,
+            scaffoldKey: scaffoldKey,
+            showSecondList: showMediumSizeLayout || showLargeSizeLayout);
     }
   }
 
   Widget brightnessButton() => IconButton(
-    icon: useLightMode
-        ? const Icon(Icons.wb_sunny_outlined)
-        : const Icon(Icons.wb_sunny),
-    onPressed: handleBrightnessChange,
-    tooltip: 'Toggle brightness',
-  );
+        icon: useLightMode
+            ? const Icon(Icons.wb_sunny_outlined)
+            : const Icon(Icons.wb_sunny),
+        onPressed: handleBrightnessChange,
+        tooltip: 'Toggle brightness',
+      );
 
   Widget material3Button() => IconButton(
-    icon: useMaterial3
-        ? const Icon(Icons.filter_3)
-        : const Icon(Icons.filter_2),
-    onPressed: handleMaterialVersionChange,
-    tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
-  );
+        icon: useMaterial3
+            ? const Icon(Icons.filter_3)
+            : const Icon(Icons.filter_2),
+        onPressed: handleMaterialVersionChange,
+        tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
+      );
 
   Widget colorSeedButton(Icon icon) => PopupMenuButton(
-    icon: icon,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    itemBuilder: (context) {
-      return List.generate(ColorSeed.values.length, (index) {
-        ColorSeed currentColor = ColorSeed.values[index];
+        icon: icon,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        itemBuilder: (context) {
+          return List.generate(ColorSeed.values.length, (index) {
+            ColorSeed currentColor = ColorSeed.values[index];
 
-        return PopupMenuItem(
-          value: index,
-          child: Wrap(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Icon(
-                  currentColor == colorSelected
-                    ? Icons.color_lens
-                    : Icons.color_lens_outlined,
-                  color: currentColor.color,
-                ),
+            return PopupMenuItem(
+              value: index,
+              child: Wrap(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Icon(
+                      currentColor == colorSelected
+                          ? Icons.color_lens
+                          : Icons.color_lens_outlined,
+                      color: currentColor.color,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(currentColor.label),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(currentColor.label),
-              ),
-            ],
-          ),
-        );
-      });
-    },
-    onSelected: handleColorSelect,
-  );
+            );
+          });
+        },
+        onSelected: handleColorSelect,
+      );
 
   PreferredSizeWidget createAppBar() {
     return AppBar(
       title: useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
       actions: !showMediumSizeLayout && !showLargeSizeLayout
-        ? [
-          brightnessButton(),
-          material3Button(),
-          colorSeedButton(const Icon(Icons.more_vert)),
-        ] : [ Container() ],
+          ? [
+              brightnessButton(),
+              material3Button(),
+              colorSeedButton(const Icon(Icons.more_vert)),
+            ]
+          : [Container()],
     );
   }
 
@@ -243,107 +252,116 @@ class _Material3DemoState extends State<Material3Demo> with SingleTickerProvider
       themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
       theme: themeData,
       home: AnimatedBuilder(
-        animation: controller,
-        builder: (context, child) {
-          return NavigationTransition(
-            scaffoldKey: scaffoldKey,
-            animationController: controller,
-            railAnimation: railAnimation,
-            appBar: createAppBar(),
-            body: createScreenFor(ScreenSelected.values[screenIndex], controller.value == 1),
-            navigationRail: NavigationRail(
-              extended: showLargeSizeLayout,
-              destinations: navRailDestinations,
-              selectedIndex: screenIndex,
-              onDestinationSelected: (index) {
-                setState(() {
-                  screenIndex = index;
-                  handleScreenChanged(screenIndex);
-                });
-              },
-              trailing: Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: showLargeSizeLayout
+          animation: controller,
+          builder: (context, child) {
+            return NavigationTransition(
+              scaffoldKey: scaffoldKey,
+              animationController: controller,
+              railAnimation: railAnimation,
+              appBar: createAppBar(),
+              body: createScreenFor(
+                  ScreenSelected.values[screenIndex], controller.value == 1),
+              navigationRail: NavigationRail(
+                extended: showLargeSizeLayout,
+                destinations: navRailDestinations,
+                selectedIndex: screenIndex,
+                onDestinationSelected: (index) {
+                  setState(() {
+                    screenIndex = index;
+                    handleScreenChanged(screenIndex);
+                  });
+                },
+                trailing: Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: showLargeSizeLayout
                       ? Container(
-                        constraints: const BoxConstraints.tightFor(width: 250),
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Row(
-                              children: [
-                                const Text('Brightness'),
-                                Expanded(child: Container()),
-                                Switch(value: useLightMode, onChanged: (_) {
-                                  handleBrightnessChange();
-                                })
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                useMaterial3 ? const Text('Material 3') : const Text('Material 2'),
-                                Expanded(child: Container()),
-                                Switch(value: useMaterial3, onChanged: (_) {
-                                  handleMaterialVersionChange();
-                                })
-                              ],
-                            ),
-                            const Divider(),
-                            GridView.count(
-                              shrinkWrap: true,
-                              crossAxisCount: 3,
-                              children: List.generate(ColorSeed.values.length, (i)
-                                => IconButton(
-                                    icon: const Icon(Icons.circle),
-                                    color: ColorSeed.values[i].color,
-                                    onPressed: () {
-                                      handleColorSelect(i);
-                                    },
-                                )
+                          constraints:
+                              const BoxConstraints.tightFor(width: 250),
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Row(
+                                children: [
+                                  const Text('Brightness'),
+                                  Expanded(child: Container()),
+                                  Switch(
+                                      value: useLightMode,
+                                      onChanged: (_) {
+                                        handleBrightnessChange();
+                                      })
+                                ],
                               ),
-                            ),
+                              Row(
+                                children: [
+                                  useMaterial3
+                                      ? const Text('Material 3')
+                                      : const Text('Material 2'),
+                                  Expanded(child: Container()),
+                                  Switch(
+                                      value: useMaterial3,
+                                      onChanged: (_) {
+                                        handleMaterialVersionChange();
+                                      })
+                                ],
+                              ),
+                              const Divider(),
+                              GridView.count(
+                                shrinkWrap: true,
+                                crossAxisCount: 3,
+                                children: List.generate(
+                                    ColorSeed.values.length,
+                                    (i) => IconButton(
+                                          icon: const Icon(Icons.circle),
+                                          color: ColorSeed.values[i].color,
+                                          onPressed: () {
+                                            handleColorSelect(i);
+                                          },
+                                        )),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Flexible(child: brightnessButton()),
+                            Flexible(child: material3Button()),
+                            Flexible(
+                                child: colorSeedButton(
+                                    const Icon(Icons.more_horiz))),
                           ],
                         ),
-                      ) : Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Flexible(child: brightnessButton()),
-                        Flexible(child: material3Button()),
-                        Flexible(child: colorSeedButton(const Icon(Icons.more_horiz))),
-                      ],
-                    ),
-                  )),
-            ),
-            navigationBar: NavigationBars(
-              onSelectItem: (index) {
-                setState(() {
-                  screenIndex = index;
-                  handleScreenChanged(screenIndex);
-                });
-              },
-              selectedIndex: screenIndex,
-              isExampleBar: false,
-            ),
-          );
-        }
-      ),
+                )),
+              ),
+              navigationBar: NavigationBars(
+                onSelectItem: (index) {
+                  setState(() {
+                    screenIndex = index;
+                    handleScreenChanged(screenIndex);
+                  });
+                },
+                selectedIndex: screenIndex,
+                isExampleBar: false,
+              ),
+            );
+          }),
     );
   }
 }
 
 class NavigationTransition extends StatefulWidget {
-  const NavigationTransition({
-    super.key,
-    required this.scaffoldKey,
-    required this.animationController,
-    required this.railAnimation,
-    required this.navigationRail,
-    required this.navigationBar,
-    required this.appBar,
-    required this.body
-  });
+  const NavigationTransition(
+      {super.key,
+      required this.scaffoldKey,
+      required this.animationController,
+      required this.railAnimation,
+      required this.navigationRail,
+      required this.navigationBar,
+      required this.appBar,
+      required this.body});
 
   final GlobalKey<ScaffoldState> scaffoldKey;
   final AnimationController animationController;
@@ -358,7 +376,6 @@ class NavigationTransition extends StatefulWidget {
 }
 
 class _NavigationTransitionState extends State<NavigationTransition> {
-
   late final AnimationController controller;
   late final CurvedAnimation railAnimation;
   late final ReverseAnimation barAnimation;
@@ -394,7 +411,9 @@ class _NavigationTransitionState extends State<NavigationTransition> {
             backgroundColor: colorScheme.surface,
             child: widget.navigationRail,
           ),
-          railAnimation.isDismissed ? const SizedBox() : const VerticalDivider(width: 1),
+          railAnimation.isDismissed
+              ? const SizedBox()
+              : const VerticalDivider(width: 1),
           widget.body,
         ],
       ),
@@ -409,48 +428,61 @@ class _NavigationTransitionState extends State<NavigationTransition> {
 }
 
 final List<NavigationRailDestination> navRailDestinations = appBarDestinations
-    .map((destination) => NavigationRailDestination(
-      icon: Tooltip(
-        message: destination.label,
-        child: destination.icon,
+    .map(
+      (destination) => NavigationRailDestination(
+        icon: Tooltip(
+          message: destination.label,
+          child: destination.icon,
+        ),
+        selectedIcon: Tooltip(
+          message: destination.label,
+          child: destination.selectedIcon,
+        ),
+        label: Text(destination.label),
       ),
-      selectedIcon: Tooltip(
-        message: destination.label,
-        child: destination.selectedIcon,
-      ),
-      label: Text(destination.label),),)
+    )
     .toList();
 
 class SizeAnimation extends CurvedAnimation {
-  SizeAnimation(Animation<double> parent) : super(
-    parent: parent,
-    curve: const Interval(
-      0.2, 0.8,
-      curve: Curves.easeInOutCubicEmphasized,
-    ),
-    reverseCurve: Interval(
-      0, 0.2,
-      curve: Curves.easeInOutCubicEmphasized.flipped,
-    ),
-  );
+  SizeAnimation(Animation<double> parent)
+      : super(
+          parent: parent,
+          curve: const Interval(
+            0.2,
+            0.8,
+            curve: Curves.easeInOutCubicEmphasized,
+          ),
+          reverseCurve: Interval(
+            0,
+            0.2,
+            curve: Curves.easeInOutCubicEmphasized.flipped,
+          ),
+        );
 }
 
 class OffsetAnimation extends CurvedAnimation {
-  OffsetAnimation(Animation<double> parent) : super(
-    parent: parent,
-    curve: const Interval(
-      0.4, 1.0,
-      curve: Curves.easeInOutCubicEmphasized,
-    ),
-    reverseCurve: Interval(
-      0, 0.2,
-      curve: Curves.easeInOutCubicEmphasized.flipped,
-    ),
-  );
+  OffsetAnimation(Animation<double> parent)
+      : super(
+          parent: parent,
+          curve: const Interval(
+            0.4,
+            1.0,
+            curve: Curves.easeInOutCubicEmphasized,
+          ),
+          reverseCurve: Interval(
+            0,
+            0.2,
+            curve: Curves.easeInOutCubicEmphasized.flipped,
+          ),
+        );
 }
 
 class RailTransition extends StatefulWidget {
-  const RailTransition({ super.key, required this.animation, required this.backgroundColor, required this.child });
+  const RailTransition(
+      {super.key,
+      required this.animation,
+      required this.backgroundColor,
+      required this.child});
 
   final Animation<double> animation;
   final Widget child;
@@ -458,7 +490,6 @@ class RailTransition extends StatefulWidget {
 
   @override
   State<RailTransition> createState() => _RailTransition();
-
 }
 
 class _RailTransition extends State<RailTransition> {
@@ -471,7 +502,7 @@ class _RailTransition extends State<RailTransition> {
 
     // The animations are only rebuilt by this method when the text
     // direction changes because this widget only depends on Directionality.
-    final bool ltr =  Directionality.of(context) == TextDirection.ltr;
+    final bool ltr = Directionality.of(context) == TextDirection.ltr;
 
     widthAnimation = Tween<double>(
       begin: 0,
@@ -502,9 +533,12 @@ class _RailTransition extends State<RailTransition> {
   }
 }
 
-
 class BarTransition extends StatefulWidget {
-  const BarTransition({ super.key, required this.animation, required this.backgroundColor, required this.child });
+  const BarTransition(
+      {super.key,
+      required this.animation,
+      required this.backgroundColor,
+      required this.child});
 
   final Animation<double> animation;
   final Color backgroundColor;
@@ -512,13 +546,11 @@ class BarTransition extends StatefulWidget {
 
   @override
   State<BarTransition> createState() => _BarTransition();
-
 }
 
 class _BarTransition extends State<BarTransition> {
   late final Animation<Offset> offsetAnimation;
   late final Animation<double> heightAnimation;
-
 
   @override
   void initState() {
@@ -573,7 +605,6 @@ class _OneTwoTransitionState extends State<OneTwoTransition> {
   late final Animation<Offset> offsetAnimation;
   late final Animation<double> widthAnimation;
 
-
   @override
   void initState() {
     super.initState();
@@ -597,7 +628,7 @@ class _OneTwoTransitionState extends State<OneTwoTransition> {
           flex: 1000,
           child: widget.one,
         ),
-        if(widthAnimation.value.toInt() > 0) ...[
+        if (widthAnimation.value.toInt() > 0) ...[
           Flexible(
             flex: widthAnimation.value.toInt(),
             child: FractionalTranslation(
