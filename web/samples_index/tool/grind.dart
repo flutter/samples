@@ -48,8 +48,8 @@ Future<void> generate() async {
   var outputFile = File('web/index.html');
   await outputFile.create(recursive: true);
   await outputFile.writeAsString(templates.index(samples));
-  var futures = <Future>[];
-  for (var sample in samples) {
+  var futures = <Future<void>>[];
+  for (final sample in samples) {
     var file = File('web/${sample.filename}.html');
     var future = file.create(recursive: true).then((_) async {
       await file.writeAsString(templates.description(sample));
@@ -71,7 +71,7 @@ Future<void> scrapeCookbook() async {
   var links = await scraper.fetchCookbookLinks();
   log('Scraping ${links.length} cookbook articles');
   var allSamples = <Sample>[];
-  for (var link in links) {
+  for (final link in links) {
     allSamples.add(await scraper.getMetadata(link));
     await scraper.takeScreenshot(link);
   }
@@ -95,9 +95,9 @@ Future<void> createThumbnails() async {
 // Creates a thumbnail image for each png file
 Future<void> _createThumbnails(Directory directory) async {
   var files = await directory.list().toList();
-  var filesToWrite = <Future>{};
+  var filesToWrite = <Future<void>>{};
 
-  for (var entity in files) {
+  for (final entity in files) {
     var extension = path.extension(entity.path);
     var filename = path.basenameWithoutExtension(entity.path);
     if (extension != '.png' || entity is! File || filename.endsWith('_thumb')) {
@@ -117,8 +117,8 @@ Future<void> _createThumbnails(Directory directory) async {
 
 @Task('remove generated HTML files')
 Future<void> clean() async {
-  var tasks = <Future>[];
-  await for (var file in Directory('web').list(recursive: true)) {
+  var tasks = <Future<void>>[];
+  await for (final file in Directory('web').list(recursive: true)) {
     if (path.extension(file.path) == '.html') {
       tasks.add(file.delete());
     }

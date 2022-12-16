@@ -16,7 +16,7 @@ bool matchesQuery(String query, String sampleAttributes) {
   // This will check whether a type parameter is present in the
   // search query, and return false if the self type mismatches
   // the query type
-  for (var word in queryWords) {
+  for (final word in queryWords) {
     if ((word.contains('type:') && !attributes.contains(word)) ||
         (word.contains('platform:') && !attributes.contains('type:demo'))) {
       return false;
@@ -30,7 +30,7 @@ bool matchesQuery(String query, String sampleAttributes) {
 
   // Test for exact matches for keywords
   var matches = 0;
-  for (var word in queryWords) {
+  for (final word in queryWords) {
     if (attributes.contains(word)) {
       matches++;
     }
@@ -43,8 +43,8 @@ bool matchesQuery(String query, String sampleAttributes) {
   // e.g. searching "kitten tag:cats" is a match for a sample with the
   // attributes "kittens tag:cats"
   matches = 0;
-  for (var attribute in attributes) {
-    for (var queryWord in queryWords) {
+  for (final attribute in attributes) {
+    for (final queryWord in queryWords) {
       if (attribute.startsWith(queryWord)) {
         matches++;
       }
