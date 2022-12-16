@@ -308,7 +308,8 @@ class _Material3DemoState extends State<Material3Demo>
                                 ],
                               ),
                               const Divider(),
-                              Expanded(
+                              ConstrainedBox(
+                                constraints: const BoxConstraints(maxHeight: 200.0),
                                 child: GridView.count(
                                   crossAxisCount: 3,
                                   children: List.generate(
