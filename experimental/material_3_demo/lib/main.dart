@@ -244,6 +244,66 @@ class _Material3DemoState extends State<Material3Demo>
     );
   }
 
+  Widget _expandedTrailingActions() => Container(
+        constraints: const BoxConstraints.tightFor(width: 250),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                const Text('Brightness'),
+                Expanded(child: Container()),
+                Switch(
+                    value: useLightMode,
+                    onChanged: (_) {
+                      handleBrightnessChange();
+                    })
+              ],
+            ),
+            Row(
+              children: [
+                useMaterial3
+                    ? const Text('Material 3')
+                    : const Text('Material 2'),
+                Expanded(child: Container()),
+                Switch(
+                    value: useMaterial3,
+                    onChanged: (_) {
+                      handleMaterialVersionChange();
+                    })
+              ],
+            ),
+            const Divider(),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 200.0),
+              child: GridView.count(
+                crossAxisCount: 3,
+                children: List.generate(
+                    ColorSeed.values.length,
+                    (i) => IconButton(
+                          icon: const Icon(Icons.circle),
+                          color: ColorSeed.values[i].color,
+                          onPressed: () {
+                            handleColorSelect(i);
+                          },
+                        )),
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget _trailingActions() => Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Flexible(child: brightnessButton()),
+          Flexible(child: material3Button()),
+          Flexible(child: colorSeedButton(const Icon(Icons.more_horiz))),
+        ],
+      );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -272,71 +332,13 @@ class _Material3DemoState extends State<Material3Demo>
                   });
                 },
                 trailing: Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: showLargeSizeLayout
-                      ? Container(
-                          constraints:
-                              const BoxConstraints.tightFor(width: 250),
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Row(
-                                children: [
-                                  const Text('Brightness'),
-                                  Expanded(child: Container()),
-                                  Switch(
-                                      value: useLightMode,
-                                      onChanged: (_) {
-                                        handleBrightnessChange();
-                                      })
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  useMaterial3
-                                      ? const Text('Material 3')
-                                      : const Text('Material 2'),
-                                  Expanded(child: Container()),
-                                  Switch(
-                                      value: useMaterial3,
-                                      onChanged: (_) {
-                                        handleMaterialVersionChange();
-                                      })
-                                ],
-                              ),
-                              const Divider(),
-                              ConstrainedBox(
-                                constraints: const BoxConstraints(maxHeight: 200.0),
-                                child: GridView.count(
-                                  crossAxisCount: 3,
-                                  children: List.generate(
-                                      ColorSeed.values.length,
-                                      (i) => IconButton(
-                                            icon: const Icon(Icons.circle),
-                                            color: ColorSeed.values[i].color,
-                                            onPressed: () {
-                                              handleColorSelect(i);
-                                            },
-                                          )),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Flexible(child: brightnessButton()),
-                            Flexible(child: material3Button()),
-                            Flexible(
-                                child: colorSeedButton(
-                                    const Icon(Icons.more_horiz))),
-                          ],
-                        ),
-                )),
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: showLargeSizeLayout
+                        ? _expandedTrailingActions()
+                        : _trailingActions(),
+                  ),
+                ),
               ),
               navigationBar: NavigationBars(
                 onSelectItem: (index) {
