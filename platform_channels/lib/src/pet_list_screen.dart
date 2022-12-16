@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:platform_channels/src/pet_list_message_channel.dart';
 
 /// Demonstrates how to use [BasicMessageChannel] to send & receive the platform
@@ -52,7 +53,7 @@ class _PetListScreenState extends State<PetListScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/addPetDetails');
+          context.push('/addPetDetails');
         },
       ),
       body: petListModel.petList.isEmpty
