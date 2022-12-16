@@ -47,10 +47,12 @@ class PlatformChannelSample extends StatelessWidget {
               GoRoute(
                 path: 'petListScreen',
                 builder: (context, state) => const PetListScreen(),
-              ),
-              GoRoute(
-                path: 'addPetDetails',
-                builder: (context, state) => const AddPetDetails(),
+                routes: [
+                  GoRoute(
+                    path: 'addPetDetails',
+                    builder: (context, state) => const AddPetDetails(),
+                  ),
+                ]
               ),
             ],
           ),

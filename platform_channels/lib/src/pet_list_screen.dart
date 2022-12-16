@@ -53,7 +53,7 @@ class _PetListScreenState extends State<PetListScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          context.push('/addPetDetails');
+          context.go('/petListScreen/addPetDetails');
         },
       ),
       body: petListModel.petList.isEmpty
