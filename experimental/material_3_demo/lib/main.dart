@@ -308,18 +308,19 @@ class _Material3DemoState extends State<Material3Demo>
                                 ],
                               ),
                               const Divider(),
-                              GridView.count(
-                                shrinkWrap: true,
-                                crossAxisCount: 3,
-                                children: List.generate(
-                                    ColorSeed.values.length,
-                                    (i) => IconButton(
-                                          icon: const Icon(Icons.circle),
-                                          color: ColorSeed.values[i].color,
-                                          onPressed: () {
-                                            handleColorSelect(i);
-                                          },
-                                        )),
+                              Expanded(
+                                child: GridView.count(
+                                  crossAxisCount: 3,
+                                  children: List.generate(
+                                      ColorSeed.values.length,
+                                      (i) => IconButton(
+                                            icon: const Icon(Icons.circle),
+                                            color: ColorSeed.values[i].color,
+                                            onPressed: () {
+                                              handleColorSelect(i);
+                                            },
+                                          )),
+                                ),
                               ),
                             ],
                           ),
