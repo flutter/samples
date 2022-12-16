@@ -18,7 +18,7 @@ class ElevationScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 20, 16.0, 0),
               child: Text(
-                'Surface Tint only',
+                'Surface Tint Color Only',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -30,7 +30,7 @@ class ElevationScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
                 child: Text(
-                  'Surface Tint and Shadow',
+                  'Surface Tint Color and Shadow Color',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
@@ -46,7 +46,7 @@ class ElevationScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
                 child: Text(
-                  'Shadow only',
+                  'Shadow Color Only',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
