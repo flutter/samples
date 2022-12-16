@@ -167,7 +167,8 @@ class Screenshot {
 
   Screenshot(this.url, this.alt);
 
-  factory Screenshot.fromJson(Map<dynamic, dynamic> json) => _$ScreenshotFromJson(json);
+  factory Screenshot.fromJson(Map<dynamic, dynamic> json) =>
+      _$ScreenshotFromJson(json);
 
   Map<String, dynamic> toJson() => _$ScreenshotToJson(this);
 }
