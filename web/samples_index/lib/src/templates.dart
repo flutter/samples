@@ -29,7 +29,7 @@ $_footer
 </html>
   ''';
 
-String _indexHeader = '''
+const String _indexHeader = '''
 <head>
   <meta charset="utf-8">
   <title>Flutter samples</title>
@@ -39,11 +39,11 @@ String _indexHeader = '''
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="packages/mdc_web/material-components-web.min.js"></script>
   <script defer src="main.dart.js"></script>
-  ${_googleAnalytics()}
+  $_googleAnalytics
 </head>
 ''';
 
-String _descriptionHeader = '''
+const String _descriptionHeader = '''
 <head>
   <meta charset="utf-8">
   <title>Flutter samples</title>
@@ -54,11 +54,11 @@ String _descriptionHeader = '''
   <script src="packages/mdc_web/material-components-web.min.js"></script>
   <script src="https://kit.fontawesome.com/16cc04762e.js"></script>
   <script defer src="description.dart.js"></script>
-  ${_googleAnalytics()}
+  $_googleAnalytics
 </head>
 ''';
 
-String _navbar = '''
+const String _navbar = '''
 <div class="navbar">
   <a class="leading" href="./">
     <img src="images/logos/logo_lockup_flutter_horizontal_wht_96.png" />
@@ -189,9 +189,10 @@ String _descriptionPage(Sample sample) => '''
 
 String _descriptionButtons(Sample sample) {
   var buf = StringBuffer();
-  if (sample.web?.isNotEmpty == true) {
+  var sampleLink = sample.web;
+  if (sampleLink != null && sampleLink.isNotEmpty) {
     buf.write(
-        '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '${sample.web}';"><span class="mdc-button__ripple"></span> Launch App</button>''');
+        '''<button class="mdc-button mdc-button--outlined" onclick="window.location.href = '$sampleLink';"><span class="mdc-button__ripple"></span> Launch App</button>''');
   }
 
   if (sample.type == 'app' ||
@@ -214,7 +215,7 @@ String _descriptionButtons(Sample sample) {
 
 String _tags(Sample sample) {
   var buf = StringBuffer();
-  for (var tag in sample.tags) {
+  for (final tag in sample.tags) {
     buf.write('<a href="./#?search=tag%3A$tag">$tag</a>\n');
   }
   return buf.toString();
@@ -222,7 +223,7 @@ String _tags(Sample sample) {
 
 String _descriptionScreenshots(Sample sample) {
   var buf = StringBuffer();
-  for (var screenshot in sample.screenshots) {
+  for (final screenshot in sample.screenshots) {
     buf.write(
         '''<div class="slider-single"><img class="slider-single-image" src="${screenshot.url}" alt="${screenshot.alt}" /></div>\n''');
   }
@@ -233,8 +234,7 @@ String _descriptionText(Sample sample) {
   return '<p>${sample.description}</p>';
 }
 
-String _googleAnalytics() {
-  return """
+const String _googleAnalytics = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67589403-8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -242,4 +242,3 @@ String _googleAnalytics() {
     gtag('js', new Date());
     gtag('config', 'UA-67589403-8');
   </script>""";
-}

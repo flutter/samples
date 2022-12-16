@@ -14,7 +14,7 @@ import 'package:path/path.dart' as p;
 
 import 'common.dart';
 
-main(List<String> args) async {
+void main(List<String> args) async {
   final buildDir = args[0];
   final fileMap =
       (jsonDecode(args[1]) as Map<String, dynamic>).cast<String, String>();
