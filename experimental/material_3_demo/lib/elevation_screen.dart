@@ -30,7 +30,7 @@ class ElevationScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
                 child: Text(
-                  'Surface Tint & Shadow only',
+                  'Surface Tint and Shadow',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
@@ -82,10 +82,10 @@ class ElevationGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SliverPadding(
       padding: const EdgeInsets.all(8),
-      child: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth < narrowScreenWidthThreshold) {
+      sliver: SliverLayoutBuilder(builder: (context, constraints) {
+        if (constraints.crossAxisExtent < narrowScreenWidthThreshold) {
           return SliverGrid.count(
             crossAxisCount: 3,
             children: elevationCards(shadowColor, surfaceTintColor),
