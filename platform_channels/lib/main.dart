@@ -26,8 +26,9 @@ class PlatformChannelSample extends StatelessWidget {
           backgroundColor: Colors.blue[500],
         ),
       ),
-      routerConfig: GoRouter(routes: [
-        GoRoute(
+      routerConfig: GoRouter(
+        routes: [
+          GoRoute(
             path: '/',
             builder: (context, state) => const HomePage(),
             routes: [
@@ -51,8 +52,10 @@ class PlatformChannelSample extends StatelessWidget {
                 path: 'addPetDetails',
                 builder: (context, state) => const AddPetDetails(),
               ),
-            ]),
-      ]),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
