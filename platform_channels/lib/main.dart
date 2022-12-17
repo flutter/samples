@@ -52,7 +52,7 @@ class PlatformChannelSample extends StatelessWidget {
                     path: 'addPetDetails',
                     builder: (context, state) => const AddPetDetails(),
                   ),
-                ]
+                ],
               ),
             ],
           ),
