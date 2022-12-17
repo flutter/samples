@@ -183,20 +183,26 @@ class _Material3DemoState extends State<Material3Demo>
     }
   }
 
-  Widget brightnessButton() => IconButton(
-        icon: useLightMode
-            ? const Icon(Icons.wb_sunny_outlined)
-            : const Icon(Icons.wb_sunny),
-        onPressed: handleBrightnessChange,
-        tooltip: 'Toggle brightness',
+  Widget brightnessButton({bool showTooltipBelow = true}) => Tooltip(
+        preferBelow: showTooltipBelow,
+        message: 'Toggle brightness',
+        child: IconButton(
+          icon: useLightMode
+              ? const Icon(Icons.wb_sunny_outlined)
+              : const Icon(Icons.wb_sunny),
+          onPressed: handleBrightnessChange,
+        ),
       );
 
-  Widget material3Button() => IconButton(
-        icon: useMaterial3
-            ? const Icon(Icons.filter_3)
-            : const Icon(Icons.filter_2),
-        onPressed: handleMaterialVersionChange,
-        tooltip: 'Switch to Material ${useMaterial3 ? 2 : 3}',
+  Widget material3Button({bool showTooltipBelow = true}) => Tooltip(
+        preferBelow: showTooltipBelow,
+        message: 'Switch to Material ${useMaterial3 ? 2 : 3}',
+        child: IconButton(
+          icon: useMaterial3
+              ? const Icon(Icons.filter_3)
+              : const Icon(Icons.filter_2),
+          onPressed: handleMaterialVersionChange,
+        ),
       );
 
   Widget colorSeedButton(Icon icon) => PopupMenuButton(
@@ -298,8 +304,8 @@ class _Material3DemoState extends State<Material3Demo>
   Widget _trailingActions() => Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Flexible(child: brightnessButton()),
-          Flexible(child: material3Button()),
+          Flexible(child: brightnessButton(showTooltipBelow: false)),
+          Flexible(child: material3Button(showTooltipBelow: false)),
           Flexible(child: colorSeedButton(const Icon(Icons.more_horiz))),
         ],
       );
