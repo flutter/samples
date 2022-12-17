@@ -326,15 +326,15 @@ class Cards extends StatelessWidget {
             width: cardWidth,
             child: Card(
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
                 child: Column(
-                  children: const [
+                  children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
+                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
                     ),
-                    SizedBox(height: 35),
-                    Align(
+                    const SizedBox(height: 20),
+                    const Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('Elevated'),
                     )
@@ -349,15 +349,15 @@ class Cards extends StatelessWidget {
               color: Theme.of(context).colorScheme.surfaceVariant,
               elevation: 0,
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
                 child: Column(
-                  children: const [
+                  children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
+                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
                     ),
-                    SizedBox(height: 35),
-                    Align(
+                    const SizedBox(height: 20),
+                    const Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('Filled'),
                     )
@@ -377,15 +377,15 @@ class Cards extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
                 child: Column(
-                  children: const [
+                  children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: Icon(Icons.more_vert),
+                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
                     ),
-                    SizedBox(height: 35),
-                    Align(
+                    const SizedBox(height: 20),
+                    const Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('Outlined'),
                     )
