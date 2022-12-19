@@ -331,7 +331,10 @@ class Cards extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
+                      child: IconButton(
+                        icon: const Icon(Icons.more_vert),
+                        onPressed: handlePressed(context, false, 'IconButton'),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     const Align(
@@ -354,7 +357,10 @@ class Cards extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
+                      child: IconButton(
+                        icon: const Icon(Icons.more_vert),
+                        onPressed: handlePressed(context, false, 'IconButton'),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     const Align(
@@ -382,7 +388,10 @@ class Cards extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.topRight,
-                      child: IconButton(icon: const Icon(Icons.more_vert), onPressed: handlePressed(context, false, 'IconButton'),),
+                      child: IconButton(
+                        icon: const Icon(Icons.more_vert),
+                        onPressed: handlePressed(context, false, 'IconButton'),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     const Align(
