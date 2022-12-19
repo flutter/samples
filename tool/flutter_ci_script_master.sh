@@ -21,7 +21,8 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
-    "experimental/web_dashboard"
+    # TODO(DomesticMouse): Error: Method not found: 'FallThroughError'.
+    # "experimental/web_dashboard"
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
     # "experimental/linting_tool"
     "experimental/material_3_demo"
