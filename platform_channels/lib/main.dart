@@ -26,40 +26,45 @@ class PlatformChannelSample extends StatelessWidget {
           backgroundColor: Colors.blue[500],
         ),
       ),
-      routerConfig: GoRouter(
+      routerConfig: router(),
+    );
+  }
+}
+
+GoRouter router([String? initialLocation]) {
+  return GoRouter(
+    initialLocation: initialLocation ?? '/',
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const HomePage(),
         routes: [
           GoRoute(
-            path: '/',
-            builder: (context, state) => const HomePage(),
+            path: 'methodChannelDemo',
+            builder: (context, state) => const MethodChannelDemo(),
+          ),
+          GoRoute(
+            path: 'eventChannelDemo',
+            builder: (context, state) => const EventChannelDemo(),
+          ),
+          GoRoute(
+            path: 'platformImageDemo',
+            builder: (context, state) => const PlatformImageDemo(),
+          ),
+          GoRoute(
+            path: 'petListScreen',
+            builder: (context, state) => const PetListScreen(),
             routes: [
               GoRoute(
-                path: 'methodChannelDemo',
-                builder: (context, state) => const MethodChannelDemo(),
-              ),
-              GoRoute(
-                path: 'eventChannelDemo',
-                builder: (context, state) => const EventChannelDemo(),
-              ),
-              GoRoute(
-                path: 'platformImageDemo',
-                builder: (context, state) => const PlatformImageDemo(),
-              ),
-              GoRoute(
-                path: 'petListScreen',
-                builder: (context, state) => const PetListScreen(),
-                routes: [
-                  GoRoute(
-                    path: 'addPetDetails',
-                    builder: (context, state) => const AddPetDetails(),
-                  ),
-                ],
+                path: 'addPetDetails',
+                builder: (context, state) => const AddPetDetails(),
               ),
             ],
           ),
         ],
       ),
-    );
-  }
+    ],
+  );
 }
 
 class DemoInfo {
