@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MyLogin extends StatelessWidget {
   const MyLogin({super.key});
@@ -36,7 +37,7 @@ class MyLogin extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/catalog');
+                  context.pushReplacement('/catalog');
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.yellow,
