@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/models/cart.dart';
 import 'package:provider_shopper/models/catalog.dart';
@@ -80,7 +81,7 @@ class _MyAppBar extends StatelessWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.shopping_cart),
-          onPressed: () => Navigator.pushNamed(context, '/cart'),
+          onPressed: () => context.go('/catalog/cart'),
         ),
       ],
     );
