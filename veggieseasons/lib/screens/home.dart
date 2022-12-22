@@ -9,7 +9,7 @@ import 'package:veggieseasons/screens/list.dart';
 import 'package:veggieseasons/screens/search.dart';
 import 'package:veggieseasons/screens/settings.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
     this.restorationId,
@@ -22,21 +22,14 @@ class HomeScreen extends StatefulWidget {
   final void Function(int) onTap;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-
-  @override
   Widget build(BuildContext context) {
     final index = _getSelectedIndex(GoRouter.of(context).location);
     return RestorationScope(
-      restorationId: widget.restorationId,
+      restorationId: restorationId,
       child: CupertinoPageScaffold(
-        // restorationId: 'scaffold',
         child: Column(
           children: [
-            Expanded(child: widget.child),
+            Expanded(child: child),
             CupertinoTabBar(
               currentIndex: index,
               items: const [
@@ -57,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: 'Settings',
                 ),
               ],
-              onTap: widget.onTap,
+              onTap: onTap,
             ),
           ],
         ),
