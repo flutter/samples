@@ -94,7 +94,6 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
       child: CupertinoApp.router(
         theme: Styles.veggieThemeData,
         debugShowCheckedModeBanner: false,
-        // home: const HomeScreen(restorationId: 'home'),
         restorationScopeId: 'app',
         routerConfig: GoRouter(
           initialLocation: '/list',

@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (location.startsWith('/list')) return 0;
     if (location.startsWith('/garden')) return 1;
     if (location.startsWith('/search')) return 2;
-    if (location.startsWith('/settings')) return 2;
+    if (location.startsWith('/settings')) return 3;
     return 0;
   }
 }
