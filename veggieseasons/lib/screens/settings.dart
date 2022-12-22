@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/data/veggie.dart';
@@ -15,14 +16,9 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 
   final String? restorationId;
 
-  static String show(NavigatorState navigator) {
-    return navigator.restorablePush(_routeBuilder);
-  }
-
-  static Route<void> _routeBuilder(BuildContext context, Object? argument) {
-    return CupertinoPageRoute(
-      builder: (context) =>
-          const VeggieCategorySettingsScreen(restorationId: 'category'),
+  static Page<void> pageBuilder(BuildContext context) {
+    return const CupertinoPage(
+      child: VeggieCategorySettingsScreen(restorationId: 'category'),
       title: 'Preferred Categories',
     );
   }
@@ -99,14 +95,9 @@ class CalorieSettingsScreen extends StatelessWidget {
   static const min = 2600;
   static const step = 200;
 
-  static String show(NavigatorState navigator) {
-    return navigator.restorablePush(_routeBuilder);
-  }
-
-  static Route<void> _routeBuilder(BuildContext context, Object? argument) {
-    return CupertinoPageRoute<void>(
-      builder: (context) =>
-          const CalorieSettingsScreen(restorationId: 'calorie'),
+  static Page<void> pageBuilder(BuildContext context) {
+    return const CupertinoPage<void>(
+      child: CalorieSettingsScreen(restorationId: 'calorie'),
       title: 'Calorie Target',
     );
   }
@@ -198,7 +189,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         },
       ),
       onPress: () {
-        CalorieSettingsScreen.show(Navigator.of(context));
+        context.go('/settings/calories');
       },
     );
   }
@@ -213,7 +204,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       content: const SettingsNavigationIndicator(),
       onPress: () {
-        VeggieCategorySettingsScreen.show(Navigator.of(context));
+        context.go('/settings/categories');
       },
     );
   }
@@ -242,13 +233,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed: () async {
                   await prefs.restoreDefaults();
                   if (!mounted) return;
-                  Navigator.pop(context);
+                  context.pop();
                 },
               ),
               CupertinoDialogAction(
                 isDefaultAction: true,
                 child: const Text('No'),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.pop(),
               )
             ],
           ),

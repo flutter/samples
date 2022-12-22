@@ -7,12 +7,20 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/screens/home.dart';
 import 'package:veggieseasons/styles.dart';
 import 'package:window_size/window_size.dart';
+
+import 'screens/details.dart';
+import 'screens/favorites.dart';
+import 'screens/list.dart';
+import 'screens/search.dart';
+import 'screens/settings.dart';
+import 'widgets/fade_transition_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -83,11 +91,126 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
           create: (_) => Preferences()..load(),
         ),
       ],
-      child: CupertinoApp(
+      child: CupertinoApp.router(
         theme: Styles.veggieThemeData,
         debugShowCheckedModeBanner: false,
-        home: const HomeScreen(restorationId: 'home'),
+        // home: const HomeScreen(restorationId: 'home'),
         restorationScopeId: 'app',
+        routerConfig: GoRouter(
+          initialLocation: '/list',
+          redirect: (context, state) {
+            if (state.path == '/') {
+              return '/list';
+            }
+            return null;
+          },
+          debugLogDiagnostics: true,
+          routes: [
+            ShellRoute(
+              builder: (context, state, child) {
+                return HomeScreen(
+                  restorationId: 'home',
+                  child: child,
+                  onTap: (index) {
+                    if (index == 0) {
+                      context.go('/list');
+                    } else if (index == 1) {
+                      context.go('/favorites');
+                    } else if (index == 2) {
+                      context.go('/search');
+                    } else {
+                      context.go('/settings');
+                      // return const SettingsScreen(restorationId: 'settings');
+                    }
+                  },
+                );
+              },
+              routes: [
+                GoRoute(
+                  path: '/list',
+                  pageBuilder: (context, state) {
+                    return FadeTransitionPage(
+                      child: Builder(
+                        builder: (context) {
+                          return const ListScreen(restorationId: 'list');
+                        },
+                      ),
+                    );
+                  },
+                ),
+                GoRoute(
+                  path: '/favorites',
+                  pageBuilder: (context, state) {
+                    return FadeTransitionPage(
+                      child: Builder(
+                        builder: (context) {
+                          return const FavoritesScreen(
+                              restorationId: 'favorites');
+                        },
+                      ),
+                    );
+                  },
+                ),
+                GoRoute(
+                  path: '/search',
+                  pageBuilder: (context, state) {
+                    return FadeTransitionPage(
+                      child: Builder(
+                        builder: (context) {
+                          return const SearchScreen(restorationId: 'search');
+                        },
+                      ),
+                    );
+                  },
+                ),
+                GoRoute(
+                  path: '/settings',
+                  pageBuilder: (context, state) {
+                    return FadeTransitionPage(
+                      child: Builder(
+                        builder: (context) {
+                          return const SettingsScreen(
+                              restorationId: 'settings');
+                        },
+                      ),
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      path: 'categories',
+                      pageBuilder: (context, state) {
+                        return VeggieCategorySettingsScreen.pageBuilder(
+                            context);
+                      },
+                    ),
+                    GoRoute(
+                      path: 'calories',
+                      pageBuilder: (context, state) {
+                        return CalorieSettingsScreen.pageBuilder(context);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            GoRoute(
+              path: '/details/:id',
+              pageBuilder: (context, state) {
+                final veggieId = int.parse(state.params['id']!);
+                return FadeTransitionPage(
+                  child: Builder(
+                    builder: (context) {
+                      return DetailsScreen(
+                        id: veggieId,
+                        restorationId: 'details',
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

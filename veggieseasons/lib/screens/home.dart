@@ -3,52 +3,73 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:veggieseasons/screens/favorites.dart';
 import 'package:veggieseasons/screens/list.dart';
 import 'package:veggieseasons/screens/search.dart';
 import 'package:veggieseasons/screens/settings.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, this.restorationId});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({
+    super.key,
+    this.restorationId,
+    required this.child,
+    required this.onTap,
+  });
 
   final String? restorationId;
+  final Widget child;
+  final void Function(int) onTap;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final index = _getSelectedIndex(GoRouter.of(context).location);
     return RestorationScope(
-      restorationId: restorationId,
-      child: CupertinoTabScaffold(
-        restorationId: 'scaffold',
-        tabBar: CupertinoTabBar(items: const [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.book),
-            label: 'My Garden',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.settings),
-            label: 'Settings',
-          ),
-        ]),
-        tabBuilder: (context, index) {
-          if (index == 0) {
-            return const ListScreen(restorationId: 'list');
-          } else if (index == 1) {
-            return const FavoritesScreen(restorationId: 'favorites');
-          } else if (index == 2) {
-            return const SearchScreen(restorationId: 'search');
-          } else {
-            return const SettingsScreen(restorationId: 'settings');
-          }
-        },
+      restorationId: widget.restorationId,
+      child: CupertinoPageScaffold(
+        // restorationId: 'scaffold',
+        child: Column(
+          children: [
+            Expanded(child: widget.child),
+            CupertinoTabBar(
+              currentIndex: index,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.book),
+                  label: 'My Garden',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.search),
+                  label: 'Search',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.settings),
+                  label: 'Settings',
+                ),
+              ],
+              onTap: widget.onTap,
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  int _getSelectedIndex(String location) {
+    if (location.startsWith('/list')) return 0;
+    if (location.startsWith('/garden')) return 1;
+    if (location.startsWith('/search')) return 2;
+    if (location.startsWith('/settings')) return 2;
+    return 0;
   }
 }

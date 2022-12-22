@@ -240,18 +240,18 @@ class DetailsScreen extends StatefulWidget {
 
   const DetailsScreen({this.id, this.restorationId, super.key});
 
-  static String show(NavigatorState navigator, int veggieId) {
-    return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
-  }
-
-  static Route<void> _routeBuilder(BuildContext context, Object? arguments) {
-    final veggieId = arguments as int?;
-    return CupertinoPageRoute(
-      builder: (context) =>
-          DetailsScreen(id: veggieId, restorationId: 'details'),
-      fullscreenDialog: true,
-    );
-  }
+  // static String show(NavigatorState navigator, int veggieId) {
+  //   return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
+  // }
+  //
+  // static Route<void> _routeBuilder(BuildContext context, Object? arguments) {
+  //   final veggieId = arguments as int?;
+  //   return CupertinoPageRoute(
+  //     builder: (context) =>
+  //         DetailsScreen(id: veggieId, restorationId: 'details'),
+  //     fullscreenDialog: true,
+  //   );
+  // }
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
@@ -72,7 +73,9 @@ class VeggieHeadline extends StatelessWidget {
     final themeData = CupertinoTheme.of(context);
 
     return GestureDetector(
-      onTap: () => DetailsScreen.show(Navigator.of(context), veggie.id),
+      onTap: () {
+        context.push('/details/${veggie.id}');
+      },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
