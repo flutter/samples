@@ -96,6 +96,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         debugShowCheckedModeBanner: false,
         restorationScopeId: 'app',
         routerConfig: GoRouter(
+          restorationScopeId: 'router',
           initialLocation: '/list',
           redirect: (context, state) {
             if (state.path == '/') {
@@ -194,17 +195,11 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
             ),
             GoRoute(
               path: '/details/:id',
-              pageBuilder: (context, state) {
+              builder: (context, state) {
                 final veggieId = int.parse(state.params['id']!);
-                return FadeTransitionPage(
-                  child: Builder(
-                    builder: (context) {
-                      return DetailsScreen(
-                        id: veggieId,
-                        restorationId: 'details',
-                      );
-                    },
-                  ),
+                return DetailsScreen(
+                  id: veggieId,
+                  restorationId: 'details',
                 );
               },
             ),

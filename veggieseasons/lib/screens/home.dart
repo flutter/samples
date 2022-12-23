@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
 
   int _getSelectedIndex(String location) {
     if (location.startsWith('/list')) return 0;
-    if (location.startsWith('/garden')) return 1;
+    if (location.startsWith('/favorites')) return 1;
     if (location.startsWith('/search')) return 2;
     if (location.startsWith('/settings')) return 3;
     return 0;
