@@ -120,7 +120,6 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       context.go('/search');
                     } else {
                       context.go('/settings');
-                      // return const SettingsScreen(restorationId: 'settings');
                     }
                   },
                 );
