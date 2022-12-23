@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Books</string>
-    <string name="edit">Edit</string>
-    <string name="author_prefix">By: %1$s</string>
-</resources>

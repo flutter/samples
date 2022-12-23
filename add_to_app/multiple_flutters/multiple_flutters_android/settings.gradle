@@ -1,7 +1,0 @@
-include ':app'
-rootProject.name = "Multiple Flutters"
-setBinding(new Binding([gradle: this]))                                // new
-evaluate(new File(                                                     // new
-        settingsDir.parentFile,                                              // new
-        './multiple_flutters_module/.android/include_flutter.groovy'                         // new
-))
