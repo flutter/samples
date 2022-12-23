@@ -195,11 +195,14 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
             ),
             GoRoute(
               path: '/details/:id',
-              builder: (context, state) {
+              pageBuilder: (context, state) {
                 final veggieId = int.parse(state.params['id']!);
-                return DetailsScreen(
-                  id: veggieId,
-                  restorationId: 'details',
+                return CupertinoPage(
+                  fullscreenDialog: true,
+                  child: DetailsScreen(
+                    id: veggieId,
+                    restorationId: 'details',
+                  ),
                 );
               },
             ),
