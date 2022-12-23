@@ -4,10 +4,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:veggieseasons/screens/favorites.dart';
-import 'package:veggieseasons/screens/list.dart';
-import 'package:veggieseasons/screens/search.dart';
-import 'package:veggieseasons/screens/settings.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({

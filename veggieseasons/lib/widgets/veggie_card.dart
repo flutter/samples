@@ -7,7 +7,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class FrostyBackground extends StatelessWidget {
