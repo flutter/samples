@@ -1,0 +1,27 @@
+{
+    "name": "@types/yauzl",
+    "version": "2.10.0",
+    "description": "TypeScript definitions for yauzl",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/yauzl",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Florian Keller",
+            "url": "https://github.com/ffflorian",
+            "githubUsername": "ffflorian"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/yauzl"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "183e6a31c00c4e59b6e6ffe0cf97b06d4b843b2d1208d8917820cbb70b57eae9",
+    "typeScriptVersion": "3.9"
+}

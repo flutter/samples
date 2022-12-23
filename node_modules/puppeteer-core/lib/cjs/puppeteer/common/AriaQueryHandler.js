@@ -1,0 +1,126 @@
+"use strict";
+/**
+ * Copyright 2020 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ariaHandler = void 0;
+const assert_js_1 = require("../util/assert.js");
+const IsolatedWorlds_js_1 = require("./IsolatedWorlds.js");
+async function queryAXTree(client, element, accessibleName, role) {
+    const { nodes } = await client.send('Accessibility.queryAXTree', {
+        objectId: element.remoteObject().objectId,
+        accessibleName,
+        role,
+    });
+    const filteredNodes = nodes.filter((node) => {
+        return !node.role || node.role.value !== 'StaticText';
+    });
+    return filteredNodes;
+}
+const normalizeValue = (value) => {
+    return value.replace(/ +/g, ' ').trim();
+};
+const knownAttributes = new Set(['name', 'role']);
+const attributeRegexp = /\[\s*(?<attribute>\w+)\s*=\s*(?<quote>"|')(?<value>\\.|.*?(?=\k<quote>))\k<quote>\s*\]/g;
+function isKnownAttribute(attribute) {
+    return knownAttributes.has(attribute);
+}
+/**
+ * The selectors consist of an accessible name to query for and optionally
+ * further aria attributes on the form `[<attribute>=<value>]`.
+ * Currently, we only support the `name` and `role` attribute.
+ * The following examples showcase how the syntax works wrt. querying:
+ *
+ * - 'title[role="heading"]' queries for elements with name 'title' and role 'heading'.
+ * - '[role="img"]' queries for elements with role 'img' and any name.
+ * - 'label' queries for elements with name 'label' and any role.
+ * - '[name=""][role="button"]' queries for elements with no name and role 'button'.
+ */
+function parseAriaSelector(selector) {
+    const queryOptions = {};
+    const defaultName = selector.replace(attributeRegexp, (_, attribute, _quote, value) => {
+        attribute = attribute.trim();
+        (0, assert_js_1.assert)(isKnownAttribute(attribute), `Unknown aria attribute "${attribute}" in selector`);
+        queryOptions[attribute] = normalizeValue(value);
+        return '';
+    });
+    if (defaultName && !queryOptions.name) {
+        queryOptions.name = normalizeValue(defaultName);
+    }
+    return queryOptions;
+}
+const queryOneId = async (element, selector) => {
+    const { name, role } = parseAriaSelector(selector);
+    const res = await queryAXTree(element.client, element, name, role);
+    if (!res[0] || !res[0].backendDOMNodeId) {
+        return null;
+    }
+    return res[0].backendDOMNodeId;
+};
+const queryOne = async (element, selector) => {
+    const id = await queryOneId(element, selector);
+    if (!id) {
+        return null;
+    }
+    return (await element.frame.worlds[IsolatedWorlds_js_1.MAIN_WORLD].adoptBackendNode(id));
+};
+const waitFor = async (elementOrFrame, selector, options) => {
+    let frame;
+    let element;
+    if ('isOOPFrame' in elementOrFrame) {
+        frame = elementOrFrame;
+    }
+    else {
+        frame = elementOrFrame.frame;
+        element = await frame.worlds[IsolatedWorlds_js_1.PUPPETEER_WORLD].adoptHandle(elementOrFrame);
+    }
+    const ariaQuerySelector = async (selector) => {
+        const id = await queryOneId(element || (await frame.worlds[IsolatedWorlds_js_1.PUPPETEER_WORLD].document()), selector);
+        if (!id) {
+            return null;
+        }
+        return (await frame.worlds[IsolatedWorlds_js_1.PUPPETEER_WORLD].adoptBackendNode(id));
+    };
+    const result = await frame.worlds[IsolatedWorlds_js_1.PUPPETEER_WORLD]._waitForSelectorInPage((_, selector) => {
+        return globalThis.ariaQuerySelector(selector);
+    }, element, selector, options, new Map([['ariaQuerySelector', ariaQuerySelector]]));
+    if (element) {
+        await element.dispose();
+    }
+    const handle = result === null || result === void 0 ? void 0 : result.asElement();
+    if (!handle) {
+        await (result === null || result === void 0 ? void 0 : result.dispose());
+        return null;
+    }
+    return handle.frame.worlds[IsolatedWorlds_js_1.MAIN_WORLD].transferHandle(handle);
+};
+const queryAll = async (element, selector) => {
+    const exeCtx = element.executionContext();
+    const { name, role } = parseAriaSelector(selector);
+    const res = await queryAXTree(exeCtx._client, element, name, role);
+    const world = exeCtx._world;
+    return Promise.all(res.map(axNode => {
+        return world.adoptBackendNode(axNode.backendDOMNodeId);
+    }));
+};
+/**
+ * @internal
+ */
+exports.ariaHandler = {
+    queryOne,
+    waitFor,
+    queryAll,
+};
+//# sourceMappingURL=AriaQueryHandler.js.map

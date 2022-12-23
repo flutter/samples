@@ -1,0 +1,1 @@
+{"version":3,"file":"EmulationManager.d.ts","sourceRoot":"","sources":["../../../../src/common/EmulationManager.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;GAcG;AACH,OAAO,EAAC,UAAU,EAAC,MAAM,iBAAiB,CAAC;AAC3C,OAAO,EAAC,QAAQ,EAAC,MAAM,wBAAwB,CAAC;AAGhD;;GAEG;AACH,qBAAa,gBAAgB;;gBAKf,MAAM,EAAE,UAAU;IAIxB,eAAe,CAAC,QAAQ,EAAE,QAAQ,GAAG,OAAO,CAAC,OAAO,CAAC;CA8B5D"}
