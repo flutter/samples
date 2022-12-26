@@ -56,6 +56,9 @@ void setupWindow() {
   }
 }
 
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _shellNavigatorKey = GlobalKey<NavigatorState>();
+
 class VeggieApp extends StatefulWidget {
   const VeggieApp({super.key});
 
@@ -96,6 +99,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
         debugShowCheckedModeBanner: false,
         restorationScopeId: 'app',
         routerConfig: GoRouter(
+          navigatorKey: _rootNavigatorKey,
           restorationScopeId: 'router',
           initialLocation: '/list',
           redirect: (context, state) {
@@ -107,6 +111,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
           debugLogDiagnostics: true,
           routes: [
             ShellRoute(
+              navigatorKey: _shellNavigatorKey,
               builder: (context, state, child) {
                 return HomeScreen(
                   restorationId: 'home',
@@ -176,6 +181,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                   },
                   routes: [
                     GoRoute(
+                      parentNavigatorKey: _rootNavigatorKey,
                       path: 'categories',
                       pageBuilder: (context, state) {
                         return VeggieCategorySettingsScreen.pageBuilder(
@@ -183,6 +189,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       },
                     ),
                     GoRoute(
+                      parentNavigatorKey: _rootNavigatorKey,
                       path: 'calories',
                       pageBuilder: (context, state) {
                         return CalorieSettingsScreen.pageBuilder(context);
@@ -193,6 +200,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
               ],
             ),
             GoRoute(
+              parentNavigatorKey: _rootNavigatorKey,
               path: '/details/:id',
               pageBuilder: (context, state) {
                 final veggieId = int.parse(state.params['id']!);
