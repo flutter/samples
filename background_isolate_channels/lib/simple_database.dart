@@ -163,12 +163,10 @@ class _SimpleDatabaseServer {
 
   final SendPort _sendPort;
   late final String _path;
-  late final SharedPreferences _sharedPreferences;
 
   // ----------------------------------------------------------------------
   // Here the plugin is used from the background isolate.
   // ----------------------------------------------------------------------
-  bool get _isDebug => _sharedPreferences.getBool('isDebug') ?? false;
 
   /// The main entrypoint for the background isolate sent to [Isolate.spawn].
   static void _run(SendPort sendPort) {
@@ -200,7 +198,6 @@ class _SimpleDatabaseServer {
         // the background isolate.
         // ----------------------------------------------------------------------
         BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
-        _sharedPreferences = await SharedPreferences.getInstance();
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
         break;
       case _Codes.add:
