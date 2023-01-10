@@ -791,6 +791,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       ),
     );
   }
+
+  @override
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
+    // TODO(Renzo-Olivares): implement didChangeInputControl
+  }
 }
 
 class _Editable extends MultiChildRenderObjectWidget {
