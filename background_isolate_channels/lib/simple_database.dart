@@ -90,7 +90,7 @@ class SimpleDatabase {
     final SimpleDatabase result = SimpleDatabase._(isolate, path);
     Completer<void> completer = Completer<void>();
     result._completers.addFirst(completer);
-    receivePort.listen((Object? message) {
+    receivePort.listen((message) {
       result._handleCommand(message as _Command);
     });
     await completer.future;
@@ -174,9 +174,9 @@ class _SimpleDatabaseServer {
     ReceivePort receivePort = ReceivePort();
     sendPort.send(_Command(_Codes.init, arg0: receivePort.sendPort));
     final _SimpleDatabaseServer server = _SimpleDatabaseServer(sendPort);
-    receivePort.listen((Object? message) async {
+    receivePort.listen((message) async {
       final _Command command = message as _Command;
-      server._handleCommand(command);
+      await server._handleCommand(command);
     });
   }
 
