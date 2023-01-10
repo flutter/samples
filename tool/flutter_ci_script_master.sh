@@ -42,7 +42,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1443
+    # TODO(bleroux): Missing concrete implementation of 'TextInputClient.didChangeInputControl'
+    #                see https://github.com/flutter/flutter/pull/76072 (merged 6 oct. 2022)
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"
