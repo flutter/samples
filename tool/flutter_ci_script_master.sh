@@ -22,14 +22,11 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
-    # TODO(DomesticMouse): Error: Method not found: 'FallThroughError'.
-    # "experimental/web_dashboard"
-    # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
-    # "experimental/linting_tool"
+    "experimental/web_dashboard"
+    "experimental/linting_tool"
     "experimental/material_3_demo"
     "flutter_maps_firestore"
-    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used.
-    # "form_app"
+    "form_app"
     "game_template"
     "infinite_list"
     "ios_app_clip"
@@ -43,9 +40,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(bleroux): Missing concrete implementation of 'TextInputClient.didChangeInputControl'
-    #                see https://github.com/flutter/flutter/pull/76072 (merged 6 oct. 2022)
-    # "simplistic_editor"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web/samples_index"
