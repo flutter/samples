@@ -9,7 +9,6 @@ import 'dart:io';
 import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 ///////////////////////////////////////////////////////////////////////////////
 // **WARNING:** This is not production code and is only intended to be used for
