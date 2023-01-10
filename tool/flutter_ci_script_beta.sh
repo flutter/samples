@@ -40,7 +40,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    "simplistic_editor"
+    # TODO(Renzo-Olivares): fix 
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web/samples_index"
