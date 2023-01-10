@@ -15,8 +15,7 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
-    # TODO(DomesticMouse): uncomment when stable increments
-    # "background_isolate_channels"
+    "background_isolate_channels"
     "code_sharing/client"
     "code_sharing/server"
     "desktop_photo_search/fluent_ui"
