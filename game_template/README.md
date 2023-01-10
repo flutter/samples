@@ -536,3 +536,26 @@ flutter pub run flutter_launcher_icons:main
 
 You can [configure](https://github.com/fluttercommunity/flutter_launcher_icons#book-guide)
 the look of the icon in the `flutter_icons:` section of `pubspec.yaml`.
+
+
+# Troubleshooting
+
+## CocoaPods
+
+When upgrading to higher versions of Flutter or plugins, you might encounter an error when
+building the iOS or macOS app. A good first thing to try is to delete the `ios/Podfile.lock`
+file (or `macos/Podfile.lock`, respectively), then trying to build again. (You can achieve
+a more thorough cleanup by running `flutter clean` instead.)
+
+## Warnings in console
+
+When running the game for the first time, you might see warnings like the following:
+
+> Note: Some input files use or override a deprecated API.
+
+or
+
+> warning: 'viewState' was deprecated in macOS 11.0: Use -initWithState: instead
+
+These warning come from the various plugins that are used by the template. They are not harmful 
+and can be ignored. The warnings are meant for the plugin authors, not for you, the game developer.

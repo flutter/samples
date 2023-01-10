@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class FocusImageDemo extends StatelessWidget {
   const FocusImageDemo({super.key});
-  static String routeName = '/misc/focus_image';
+  static String routeName = 'misc/focus_image';
 
   @override
   Widget build(BuildContext context) {

@@ -5,13 +5,14 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 import 'place.dart';
-import 'place_details.dart';
 import 'place_tracker_app.dart';
 
 class MapConfiguration {
@@ -78,10 +79,21 @@ class _PlaceMapState extends State<PlaceMap> {
   MapConfiguration? _configuration;
 
   @override
-  Widget build(BuildContext context) {
-    _maybeUpdateMapConfiguration();
-    var state = Provider.of<AppState>(context);
+  void initState() {
+    super.initState();
+    context.read<AppState>().addListener(_watchMapConfigurationChanges);
+  }
 
+  @override
+  void dispose() {
+    context.read<AppState>().removeListener(_watchMapConfigurationChanges);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _watchMapConfigurationChanges();
+    var state = Provider.of<AppState>(context);
     return Builder(builder: (context) {
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
@@ -189,7 +201,7 @@ class _PlaceMapState extends State<PlaceMap> {
           infoWindowParam: InfoWindow(
             title: 'New Place',
             snippet: null,
-            onTap: () => _pushPlaceDetailsScreen(newPlace),
+            onTap: () => context.go('/place/${newPlace.id}'),
           ),
           draggableParam: false,
         );
@@ -212,7 +224,7 @@ class _PlaceMapState extends State<PlaceMap> {
           action: SnackBarAction(
             label: 'Edit',
             onPressed: () async {
-              _pushPlaceDetailsScreen(newPlace);
+              context.go('/place/${newPlace.id}');
             },
           ),
         ),
@@ -220,14 +232,6 @@ class _PlaceMapState extends State<PlaceMap> {
 
       // Add the new place to the places stored in appState.
       final newPlaces = List<Place>.from(appState.places)..add(newPlace);
-
-      // Manually update our map configuration here since our map is already
-      // updated with the new marker. Otherwise, the map would be reconfigured
-      // in the main build method due to a modified AppState.
-      _configuration = MapConfiguration(
-        places: newPlaces,
-        selectedCategory: appState.selectedCategory,
-      );
 
       appState.setPlaces(newPlaces);
     }
@@ -240,7 +244,7 @@ class _PlaceMapState extends State<PlaceMap> {
       infoWindow: InfoWindow(
         title: place.name,
         snippet: '${place.starRating} Star Rating',
-        onTap: () => _pushPlaceDetailsScreen(place),
+        onTap: () => context.go('/place/${place.id}'),
       ),
       icon: await _getPlaceMarkerIcon(context, place.category),
       visible: place.category ==
@@ -250,11 +254,10 @@ class _PlaceMapState extends State<PlaceMap> {
     return marker;
   }
 
-  Future<void> _maybeUpdateMapConfiguration() async {
-    _configuration ??=
-        MapConfiguration.of(Provider.of<AppState>(context, listen: false));
-    final newConfiguration =
-        MapConfiguration.of(Provider.of<AppState>(context, listen: false));
+  Future<void> _watchMapConfigurationChanges() async {
+    final appState = context.read<AppState>();
+    _configuration ??= MapConfiguration.of(appState);
+    final newConfiguration = MapConfiguration.of(appState);
 
     // Since we manually update [_configuration] when place or selectedCategory
     // changes come from the [place_map], we should only enter this if statement
@@ -270,9 +273,14 @@ class _PlaceMapState extends State<PlaceMap> {
       } else {
         // At this point, we know the places have been updated from the list
         // view. We need to reconfigure the map to respect the updates.
-        newConfiguration.places
-            .where((p) => !_configuration!.places.contains(p))
-            .map((value) => _updateExistingPlaceMarker(place: value));
+        for (final place in newConfiguration.places) {
+          final oldPlace =
+              _configuration!.places.firstWhereOrNull((p) => p.id == place.id);
+          if (oldPlace == null || oldPlace != place) {
+            // New place or updated place.
+            _updateExistingPlaceMarker(place: place);
+          }
+        }
 
         await _zoomToFitPlaces(
           _getPlacesForCategory(
@@ -299,27 +307,6 @@ class _PlaceMapState extends State<PlaceMap> {
     });
   }
 
-  void _onPlaceChanged(Place value) {
-    // Replace the place with the modified version.
-    final newPlaces =
-        List<Place>.from(Provider.of<AppState>(context, listen: false).places);
-    final index = newPlaces.indexWhere((place) => place.id == value.id);
-    newPlaces[index] = value;
-
-    _updateExistingPlaceMarker(place: value);
-
-    // Manually update our map configuration here since our map is already
-    // updated with the new marker. Otherwise, the map would be reconfigured
-    // in the main build method due to a modified AppState.
-    _configuration = MapConfiguration(
-      places: newPlaces,
-      selectedCategory:
-          Provider.of<AppState>(context, listen: false).selectedCategory,
-    );
-
-    Provider.of<AppState>(context, listen: false).setPlaces(newPlaces);
-  }
-
   void _onToggleMapTypePressed() {
     final nextType =
         MapType.values[(_currentMapType.index + 1) % MapType.values.length];
@@ -327,18 +314,6 @@ class _PlaceMapState extends State<PlaceMap> {
     setState(() {
       _currentMapType = nextType;
     });
-  }
-
-  void _pushPlaceDetailsScreen(Place place) {
-    Navigator.push<void>(
-      context,
-      MaterialPageRoute(builder: (context) {
-        return PlaceDetails(
-          place: place,
-          onChanged: (value) => _onPlaceChanged(value),
-        );
-      }),
-    );
   }
 
   Future<void> _showPlacesForSelectedCategory(PlaceCategory category) async {
@@ -412,15 +387,17 @@ class _PlaceMapState extends State<PlaceMap> {
       maxLong = max(maxLong, place.longitude);
     }
 
-    await controller.animateCamera(
-      CameraUpdate.newLatLngBounds(
-        LatLngBounds(
-          southwest: LatLng(minLat, minLong),
-          northeast: LatLng(maxLat, maxLong),
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.animateCamera(
+        CameraUpdate.newLatLngBounds(
+          LatLngBounds(
+            southwest: LatLng(minLat, minLong),
+            northeast: LatLng(maxLat, maxLong),
+          ),
+          48.0,
         ),
-        48.0,
-      ),
-    );
+      );
+    });
   }
 
   static Future<BitmapDescriptor> _getPlaceMarkerIcon(

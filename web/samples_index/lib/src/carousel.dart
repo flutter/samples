@@ -11,7 +11,7 @@ class Carousel {
   final List<Element> slides = querySelectorAll('.slider-single');
 
   late int currentSlideIndex;
-  late int lastSlideIndex;
+  late final int lastSlideIndex;
 
   late Element prevSlide, currentSlide, nextSlide;
 
@@ -127,24 +127,24 @@ class Carousel {
   }
 
   void _checkRepeat() {
-    var prevArrow = querySelector('.slider-left');
-    var nextArrow = querySelector('.slider-right');
+    var prevArrow = querySelector('.slider-left') as AnchorElement;
+    var nextArrow = querySelector('.slider-right') as AnchorElement;
 
     if (currentSlideIndex == slides.length - 1) {
       slides[0].classes.add('hidden');
       slides[slides.length - 1].classes.remove('hidden');
-      prevArrow!.classes.remove('hidden');
-      nextArrow!.classes.add('hidden');
+      prevArrow.classes.remove('hidden');
+      nextArrow.classes.add('hidden');
     } else if (currentSlideIndex == 0) {
       slides[slides.length - 1].classes.add('hidden');
       slides[0].classes.remove('hidden');
-      prevArrow!.classes.add('hidden');
-      nextArrow!.classes.remove('hidden');
+      prevArrow.classes.add('hidden');
+      nextArrow.classes.remove('hidden');
     } else {
       slides[slides.length - 1].classes.remove('hidden');
       slides[0].classes.remove('hidden');
-      prevArrow!.classes.remove('hidden');
-      nextArrow!.classes.remove('hidden');
+      prevArrow.classes.remove('hidden');
+      nextArrow.classes.remove('hidden');
     }
   }
 

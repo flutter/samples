@@ -32,7 +32,7 @@ $ flutter pub global activate peanut
 Verify `pub get` has been run on each demo:
 
 ```console
-$ dart _tool/verify_packages.dart
+$ dart run _tool/verify_packages.dart
 ```
 
 Build all demos, along with the sample index:

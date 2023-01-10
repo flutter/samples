@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopper/common/theme.dart';
 import 'package:provider_shopper/models/cart.dart';
@@ -39,6 +40,28 @@ void setupWindow() {
   }
 }
 
+GoRouter router() {
+  return GoRouter(
+    initialLocation: '/login',
+    routes: [
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const MyLogin(),
+      ),
+      GoRoute(
+        path: '/catalog',
+        builder: (context, state) => const MyCatalog(),
+        routes: [
+          GoRoute(
+            path: 'cart',
+            builder: (context, state) => const MyCart(),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -62,15 +85,10 @@ class MyApp extends StatelessWidget {
           },
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Provider Demo',
         theme: appTheme,
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const MyLogin(),
-          '/catalog': (context) => const MyCatalog(),
-          '/cart': (context) => const MyCart(),
-        },
+        routerConfig: router(),
       ),
     );
   }

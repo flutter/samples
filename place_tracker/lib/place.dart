@@ -42,6 +42,27 @@ class Place {
       starRating: starRating ?? this.starRating,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Place &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          latLng == other.latLng &&
+          name == other.name &&
+          category == other.category &&
+          description == other.description &&
+          starRating == other.starRating;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      latLng.hashCode ^
+      name.hashCode ^
+      category.hashCode ^
+      description.hashCode ^
+      starRating.hashCode;
 }
 
 enum PlaceCategory {

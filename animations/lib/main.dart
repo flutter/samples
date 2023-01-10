@@ -6,6 +6,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 // ignore: depend_on_referenced_packages
 import 'package:window_size/window_size.dart';
 
@@ -147,29 +149,38 @@ final miscDemos = [
       builder: (context) => const CurvedAnimationDemo()),
 ];
 
-final basicDemoRoutes =
-    Map.fromEntries(basicDemos.map((d) => MapEntry(d.route, d.builder)));
-
-final miscDemoRoutes =
-    Map.fromEntries(miscDemos.map((d) => MapEntry(d.route, d.builder)));
-
-final allRoutes = <String, WidgetBuilder>{
-  ...basicDemoRoutes,
-  ...miscDemoRoutes,
-};
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+      routes: [
+        for (final demo in basicDemos)
+          GoRoute(
+            path: demo.route,
+            builder: (context, state) => demo.builder(context),
+          ),
+        for (final demo in miscDemos)
+          GoRoute(
+            path: demo.route,
+            builder: (context, state) => demo.builder(context),
+          ),
+      ],
+    ),
+  ],
+);
 
 class AnimationSamples extends StatelessWidget {
   const AnimationSamples({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Animation Samples',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      routes: allRoutes,
-      home: const HomePage(),
+      routerConfig: router,
     );
   }
 }
@@ -206,7 +217,7 @@ class DemoTile extends StatelessWidget {
     return ListTile(
       title: Text(demo.name),
       onTap: () {
-        Navigator.pushNamed(context, demo.route);
+        context.go('/${demo.route}');
       },
     );
   }

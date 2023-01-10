@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 class AnimatedPositionedDemo extends StatefulWidget {
   const AnimatedPositionedDemo({super.key});
-  static String routeName = '/basics/09_animated_positioned';
+  static String routeName = 'misc/animated_positioned';
 
   @override
   State<AnimatedPositionedDemo> createState() => _AnimatedPositionedDemoState();

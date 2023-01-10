@@ -15,8 +15,14 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
+    "code_sharing/client"
+    "code_sharing/server"
+    "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
+    # TODO(justinmc): To be enabled when its PR hits the master channel.
+    # https://github.com/flutter/flutter/pull/107193
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
@@ -31,8 +37,6 @@ declare -ar PROJECT_NAMES=(
     "jsonexample"
     "material_3_demo"
     "navigation_and_routing"
-    "null_safety/null_safe_app"
-    "null_safety/null_unsafe_app"
     "place_tracker"
     "platform_channels"
     "platform_design"
@@ -43,6 +47,7 @@ declare -ar PROJECT_NAMES=(
     # "simplistic_editor"
     "testing_app"
     "veggieseasons"
+    "web/samples_index"
 )
 
 ci_projects "beta" "${PROJECT_NAMES[@]}"

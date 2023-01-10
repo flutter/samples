@@ -107,7 +107,9 @@ void main() {
 
       // Test if various queries match these attributes
       expect(matchesQuery('foo', attributes), false);
+      expect(matchesQuery('Foo', attributes), false);
       expect(matchesQuery('kittens', attributes), true);
+      expect(matchesQuery('Kittens', attributes), true);
       expect(matchesQuery('tag:cats', attributes), true);
       expect(matchesQuery('tag:dogs', attributes), false);
       expect(matchesQuery('package:path', attributes), true);

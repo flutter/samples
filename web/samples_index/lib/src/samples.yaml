@@ -11,7 +11,7 @@ samples:
       - url: images/gallery4.png
         alt: Crane app screenshot
       - url: images/gallery5.png
-        alt: Shrine app screnshot
+        alt: Shrine app screenshot
     source: https://github.com/flutter/gallery
     web: https://gallery.flutter.dev
     description: >
@@ -106,6 +106,24 @@ samples:
       - provider
     tags: ['advanced', 'sample', 'add-to-app', 'android', 'ios', 'native', 'embedding']
     platforms: ['ios', 'android']
+    links: []
+    type: sample
+
+  - name: Code Sharing
+    author: Flutter
+    screenshots:
+      - url: images/code_sharing.jpg
+        alt: Counter app communicating with server
+    source: https://github.com/flutter/samples/tree/main/code_sharing
+    description: >
+      Demonstrates simple way to share business logic between a Flutter app and
+      a server running Dart.
+    difficulty: intermediate
+    packages:
+      - freezed
+      - shelf
+    tags: ['intermediate', 'sample', 'code-sharing', 'dart', 'server']
+    platforms: ['android', 'ios', 'linux', 'macos', 'web', 'windows']
     links: []
     type: sample
 
@@ -398,7 +416,7 @@ samples:
       - url: images/web_dashboard1.png
         alt: Web Dashboard screenshot
       - url: images/web_dashboard2.png
-        alt: Web Dashbaord screenshot
+        alt: Web Dashboard screenshot
       - url: images/web_dashboard3.png
         alt: Web Dashboard screenshot
     source: https://github.com/flutter/samples/tree/main/experimental/web_dashboard
@@ -598,57 +616,6 @@ samples:
     platforms: ["ios", "android", "web", "windows", "macos", "linux"]
     type: demo
     web: web/game_template
-
-  - name: Charts
-    author: Flutter
-    screenshots:
-      - url: images/charts1.png
-        alt: Charts screenshot
-    source: https://github.com/google/charts
-    description: >
-      A general-purpose charting library.
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['ios', 'android', 'web']
-    links: []
-    tags: ['demo', 'charts']
-    web: web/charts
-    type: demo
-
-  - name: GitHub Dataviz
-    author: Larva Labs
-    screenshots:
-      - url: images/github_dataviz1.png
-        alt: GitHub Dataviz screenshot
-    source: https://github.com/flutter/samples/tree/main/web/github_dataviz
-    description: >
-      A visualization for Flutter repository data
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'data', 'visualization']
-    web: web/github_dataviz
-    type: demo
-
-  - name: Particle Background
-    author: Felix Blaschke
-    screenshots:
-      - url: images/particle_background1.png
-        alt: Particle Background screenshot
-    source: https://github.com/flutter/samples/tree/main/web/particle_background
-    description: >
-      Flutter app demonstrating package:simple_animations in action.
-    difficulty: intermediate
-    widgets: []
-    packages: []
-    platforms: ['web']
-    links: []
-    tags: ['demo', 'animation']
-    web: web/particle_background
-    type: demo
 
   - name: Dice
     author: Jaime Blasco

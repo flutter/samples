@@ -3,9 +3,10 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - lib/src/data.g.dart
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
 
 linter:
   rules:
@@ -16,6 +17,11 @@ linter:
     directives_ordering: true
     package_api_docs: true
     package_prefixed_library_names: true
+    prefer_final_in_for_each: true
+    prefer_single_quotes: true
     test_types_in_equals: true
     throw_in_finally: true
+    unawaited_futures: true
     unnecessary_statements: true
+    use_enums: true
+    use_super_parameters: true
