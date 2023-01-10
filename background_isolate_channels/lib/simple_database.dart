@@ -7,6 +7,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -143,7 +144,7 @@ class SimpleDatabase {
         _resultsStream.removeLast().close();
         break;
       default:
-        print('SimpleDatabase unrecognized command: ${command.code}');
+        debugPrint('SimpleDatabase unrecognized command: ${command.code}');
     }
   }
 
@@ -209,15 +210,14 @@ class _SimpleDatabaseServer {
         _doFind(command.arg0 as String);
         break;
       default:
-        print('_SimpleDatabaseServer unrecognized command ${command.code}');
+        debugPrint(
+            '_SimpleDatabaseServer unrecognized command ${command.code}');
     }
   }
 
   /// Perform the add entry operation.
   void _doAddEntry(String value) {
-    if (_isDebug) {
-      print('Performing add: $value');
-    }
+    debugPrint('Performing add: $value');
     File file = File(_path);
     if (!file.existsSync()) {
       file.createSync();
@@ -240,9 +240,7 @@ class _SimpleDatabaseServer {
 
   /// Perform the find entry operation.
   void _doFind(String query) {
-    if (_isDebug) {
-      print('Performing find: $query');
-    }
+    debugPrint('Performing find: $query');
     File file = File(_path);
     if (file.existsSync()) {
       RandomAccessFile reader = file.openSync();
