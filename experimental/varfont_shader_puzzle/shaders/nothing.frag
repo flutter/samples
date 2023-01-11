@@ -1,16 +1,19 @@
+// Copyright 2023 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 #define PI 3.1415926538
 
-layout(location = 0) uniform float iTime;
-layout(location = 1) uniform vec2 iResolution;
-layout(location = 3) uniform float dampener;
+layout(location = 0) uniform float uTime;
+layout(location = 1) uniform vec2 uSize;
+layout(location = 3) uniform float uDampener;
 
 layout(location = 0) out vec4 fragColor;
 
-layout(location = 2) uniform sampler2D iChannel0;
+layout(location = 2) uniform sampler2D uTexture;
 
 void main()
 {
-  float piTime = iTime * PI * 2;
-  vec2 texCoord = gl_FragCoord.xy / iResolution.xy;
-  fragColor = texture(iChannel0, texCoord);
+  float piTime = uTime * PI * 2;
+  vec2 texCoord = gl_FragCoord.xy / uSize.xy;
+  fragColor = texture(uTexture, texCoord);
 }
