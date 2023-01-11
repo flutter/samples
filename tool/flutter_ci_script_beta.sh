@@ -24,6 +24,7 @@ declare -ar PROJECT_NAMES=(
     # https://github.com/flutter/flutter/pull/107193
     # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
     # "experimental/linting_tool"
