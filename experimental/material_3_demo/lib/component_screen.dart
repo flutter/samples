@@ -1928,7 +1928,8 @@ class ComponentDecoration extends StatelessWidget {
               ],
             ),
             ConstrainedBox(
-              constraints: const BoxConstraints.tightFor(width: widthConstraint),
+              constraints:
+                  const BoxConstraints.tightFor(width: widthConstraint),
               child: Card(
                 elevation: 0,
                 shape: RoundedRectangleBorder(
