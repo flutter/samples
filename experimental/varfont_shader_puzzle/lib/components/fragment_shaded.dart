@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -112,7 +111,6 @@ class AnimatingSamplerBuilder extends SamplerBuilder {
     dampenAnimation.addListener(notifyListeners);
   }
 
-  static final Float64List _identity = Matrix4.identity().storage;
   final Animation<double> animation;
   final Animation<double> dampenAnimation;
 

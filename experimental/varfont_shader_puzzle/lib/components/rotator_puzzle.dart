@@ -163,10 +163,10 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
     if (null != context) {
       final RenderRepaintBoundary boundary =
           context.findRenderObject()! as RenderRepaintBoundary;
-      final ui.Image _img = boundary.toImageSync();
+      final ui.Image img = boundary.toImageSync();
       if (mounted) {
         setState(() {
-          shadedImg = _img;
+          shadedImg = img;
         });
       }
     }
@@ -250,10 +250,6 @@ class RotatorPuzzleTile extends StatefulWidget {
   final List<WonkyAnimSetting> animationSettings;
   final double tileScaleModifier;
 
-  // TODO get row/col out into model
-  int row = 0;
-  int col = 0;
-
   RotatorPuzzleTile({
     Key? key,
     required this.tileID,
@@ -269,8 +265,16 @@ class RotatorPuzzleTile extends StatefulWidget {
   }) : super(key: key);
 
   void setTilePos({required int row, required int col}) {
-    this.row = row;
-    this.col = col;
+    (tileState as RotatorPuzzleTileState).row = row;
+    (tileState as RotatorPuzzleTileState).col = col;
+  }
+
+  int row() {
+    return (tileState as RotatorPuzzleTileState).row;
+  }
+
+  int col() {
+    return (tileState as RotatorPuzzleTileState).col;
   }
 
   final State<RotatorPuzzleTile> tileState = RotatorPuzzleTileState();
@@ -281,6 +285,9 @@ class RotatorPuzzleTile extends StatefulWidget {
 
 class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
     with TickerProviderStateMixin {
+  // TODO get row/col out into model
+  int row = 0;
+  int col = 0;
   double touchedOpac = 0.0;
   Duration touchedOpacDur = const Duration(milliseconds: 50);
   late final AnimationController animationController = AnimationController(
@@ -315,7 +322,7 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
     });
     // end brutal hack
     List<double> coords =
-        widget.parentState.tileCoords(row: widget.row, col: widget.col);
+        widget.parentState.tileCoords(row: widget.row(), col: widget.col());
     double zeroPoint = widget.parentState.widget.pageConfig.puzzleSize * .5 -
         widget.parentState.tileSize() * 0.5;
 
@@ -343,9 +350,9 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
                         child: Transform.translate(
                           offset: Offset(
                             zeroPoint -
-                                widget.col * widget.parentState.tileSize(),
+                                widget.col() * widget.parentState.tileSize(),
                             zeroPoint -
-                                widget.row * widget.parentState.tileSize(),
+                                widget.row() * widget.parentState.tileSize(),
                           ),
                           child: SizedBox(
                             width:
