@@ -1221,9 +1221,10 @@ class Chips extends StatelessWidget {
       tooltipMessage:
           'Use ActionChip, FilterChip, and InputChip to show chips. \nActionChip can also be used for suggestion chip',
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Wrap(
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               ActionChip(
                   label: const Text('Assist'),
@@ -1240,8 +1241,8 @@ class Chips extends StatelessWidget {
             ],
           ),
           colDivider,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Wrap(
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               FilterChip(
                 label: const Text('Filter'),
@@ -1259,8 +1260,8 @@ class Chips extends StatelessWidget {
             ],
           ),
           colDivider,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Wrap(
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               InputChip(
                 label: const Text('Input'),
@@ -1283,8 +1284,8 @@ class Chips extends StatelessWidget {
             ],
           ),
           colDivider,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Wrap(
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               ActionChip(
                 label: const Text('Suggestion'),
