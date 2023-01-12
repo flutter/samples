@@ -8,6 +8,7 @@ import 'components.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:type_puzzle_2/model/puzzle_model.dart';
+import '../page_content/pages_flow.dart';
 
 class RotatorPuzzle extends StatefulWidget {
   final PageConfig pageConfig;

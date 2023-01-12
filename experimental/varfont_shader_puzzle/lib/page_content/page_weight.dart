@@ -4,7 +4,7 @@
 import '../components/components.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageWeight extends SinglePage {

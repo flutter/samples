@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 import 'package:flutter/material.dart';
 import 'package:type_puzzle_2/components/components.dart';
-
+import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageNarrativePre extends NarrativePage {
