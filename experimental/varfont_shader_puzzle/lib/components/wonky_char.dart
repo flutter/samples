@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter/foundation.dart' show kDebugMode;
 
 class WonkyChar extends StatefulWidget {
   final String text;
@@ -153,8 +154,10 @@ class WonkyCharState extends State<WonkyChar>
             break;
           default:
             {
-              print(
-                  '**ERROR** unrecognized property to animate: ${s.property}');
+              if (kDebugMode) {
+                print(
+                    '**ERROR** unrecognized property to animate: ${s.property}');
+              }
             }
             break;
         }

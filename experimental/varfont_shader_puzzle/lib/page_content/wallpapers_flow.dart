@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../components/components.dart';
 
 class WallpapersFlow extends StatefulWidget {
   const WallpapersFlow({super.key});
