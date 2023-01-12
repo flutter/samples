@@ -118,8 +118,6 @@ class AnimatingSamplerBuilder extends SamplerBuilder {
 
   @override
   void paint(ui.Image image, Size size, ui.Canvas canvas) {
-    // final ImageShader sampler =
-    //     ImageShader(image, TileMode.clamp, TileMode.clamp, _identity);
     // Animation
     fragmentShader.setFloat(0, animation.value);
     // width
