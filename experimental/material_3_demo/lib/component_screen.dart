@@ -289,26 +289,47 @@ class FloatingActionButtons extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  FloatingActionButton.small(
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.small(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
                   ),
-                  FloatingActionButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
-                  ),
-                  FloatingActionButton.large(
-                    onPressed: () {},
-                    child: const Icon(Icons.add),
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.extended(
+                        onPressed: () {},
+                        icon: const Icon(Icons.add),
+                        label: const Text('Create'),
+                      ),
+                    ),
                   ),
                 ],
               ),
               colDivider,
-              FloatingActionButton.extended(
-                onPressed: () {},
-                icon: const Icon(Icons.add),
-                label: const Text('Create'),
-              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.large(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           );
         } else {
@@ -484,9 +505,7 @@ class TextFields extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 10,
-                ),
+                SizedBox(width: 10),
                 Flexible(
                   child: SizedBox(
                     width: 200,
@@ -1964,7 +1983,8 @@ class ComponentDecoration extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(12)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 5.0, vertical: 20.0),
                   child: child,
                 ),
               ),
