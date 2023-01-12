@@ -281,32 +281,82 @@ class FloatingActionButtons extends StatelessWidget {
       label: 'Floating action buttons',
       tooltipMessage:
           'Floating action buttons include: \nFloatingActionButton.small, FloatingActionButton, FloatingActionButton.extended, and FloatingActionButton.large',
-      child: Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          FloatingActionButton.small(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          rowDivider,
-          FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          rowDivider,
-          FloatingActionButton.extended(
-            onPressed: () {},
-            icon: const Icon(Icons.add),
-            label: const Text('Create'),
-          ),
-          rowDivider,
-          FloatingActionButton.large(
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-        ],
-      ),
+      child: LayoutBuilder(builder: (context, constraints) {
+        double screenWidth = MediaQuery.of(context).size.width;
+        if (screenWidth < 375.0) {
+          return Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.small(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.extended(
+                        onPressed: () {},
+                        icon: const Icon(Icons.add),
+                        label: const Text('Create'),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              colDivider,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: FloatingActionButton.large(
+                        onPressed: () {},
+                        child: const Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          );
+        } else {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FloatingActionButton.small(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+              FloatingActionButton(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+              FloatingActionButton.extended(
+                onPressed: () {},
+                icon: const Icon(Icons.add),
+                label: const Text('Create'),
+              ),
+              FloatingActionButton.large(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+              ),
+            ],
+          );
+        }
+      }),
     );
   }
 }
@@ -441,7 +491,7 @@ class TextFields extends StatelessWidget {
               children: const [
                 Flexible(
                   child: SizedBox(
-                    width: 180,
+                    width: 200,
                     child: TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
@@ -455,9 +505,10 @@ class TextFields extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(width: 10),
                 Flexible(
                   child: SizedBox(
-                    width: 180,
+                    width: 200,
                     child: TextField(
                       enabled: false,
                       decoration: InputDecoration(
@@ -494,7 +545,7 @@ class TextFields extends StatelessWidget {
                   children: const [
                     Flexible(
                       child: SizedBox(
-                        width: 180,
+                        width: 200,
                         child: TextField(
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
@@ -509,9 +560,10 @@ class TextFields extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(width: 10),
                     Flexible(
                       child: SizedBox(
-                        width: 180,
+                        width: 200,
                         child: TextField(
                           enabled: false,
                           decoration: InputDecoration(
@@ -1191,8 +1243,7 @@ class Chips extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               ActionChip(
                   label: const Text('Assist'),
@@ -1210,33 +1261,26 @@ class Chips extends StatelessWidget {
           ),
           colDivider,
           Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               FilterChip(
                 label: const Text('Filter'),
                 onSelected: (isSelected) {},
               ),
               FilterChip(
-                label: const Text('OK'),
+                label: const Text('Selected'),
                 selected: true,
                 onSelected: (isSelected) {},
               ),
               const FilterChip(
                 label: Text('Disabled'),
-                selected: true,
                 onSelected: null,
               ),
-              const FilterChip(
-                label: Text('Disabled'),
-                onSelected: null,
-              )
             ],
           ),
           colDivider,
           Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               InputChip(
                 label: const Text('Input'),
@@ -1260,8 +1304,7 @@ class Chips extends StatelessWidget {
           ),
           colDivider,
           Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            runSpacing: 5,
+            alignment: WrapAlignment.spaceAround,
             children: <Widget>[
               ActionChip(
                 label: const Text('Suggestion'),
@@ -1880,6 +1923,7 @@ class _SlidersState extends State<Sliders> {
                 });
               },
             ),
+            const SizedBox(height: 20),
             Slider(
               max: 100,
               divisions: 5,
@@ -1939,7 +1983,8 @@ class ComponentDecoration extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(12)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 5.0, vertical: 20.0),
                   child: child,
                 ),
               ),
@@ -1965,7 +2010,7 @@ class ComponentGroupDecoration extends StatelessWidget {
       elevation: 0,
       color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Center(
           child: Column(
             children: [

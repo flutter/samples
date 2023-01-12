@@ -40,7 +40,7 @@ void main() {
     // Chips
     expect(find.byType(ActionChip),
         findsNWidgets(7)); // includes Assist and Suggestion chip.
-    expect(find.byType(FilterChip), findsNWidgets(4));
+    expect(find.byType(FilterChip), findsNWidgets(3));
     expect(find.byType(InputChip), findsNWidgets(4));
 
     // Cards
