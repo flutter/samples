@@ -4,7 +4,7 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:type_puzzle_2/components/components.dart';
+import '../components/components.dart';
 
 class WonkyAnimPalette {
   const WonkyAnimPalette({

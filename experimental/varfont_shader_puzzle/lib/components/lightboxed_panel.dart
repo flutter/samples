@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:type_puzzle_2/page_content/pages_flow.dart';
+import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class LightboxedPanel extends StatefulWidget {

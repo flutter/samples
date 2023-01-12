@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:type_puzzle_2/page_content/wallpapers_flow.dart';
+import '../page_content/wallpapers_flow.dart';
 import '../components/components.dart';
 import 'pages.dart';
 
