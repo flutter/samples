@@ -7,7 +7,7 @@ import 'package:type_puzzle_2/components/components.dart';
 import '../styles.dart';
 
 class PageNarrativePost extends NarrativePage {
-  PageNarrativePost({
+  const PageNarrativePost({
     Key? key,
     required super.pageConfig,
   }) : super(key: key);

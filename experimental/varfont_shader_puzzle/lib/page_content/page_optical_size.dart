@@ -8,7 +8,7 @@ import 'dart:math';
 import '../styles.dart';
 
 class PageOpticalSize extends SinglePage {
-  PageOpticalSize({
+  const PageOpticalSize({
     Key? key,
     required super.pageConfig,
   }) : super(key: key);

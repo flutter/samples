@@ -90,16 +90,14 @@ class PageConfig {
 }
 
 class SinglePage extends StatefulWidget {
-  late final PageConfig pageConfig;
-  SinglePage({
+  final PageConfig pageConfig;
+  const SinglePage({
     Key? key,
     required this.pageConfig,
   }) : super(key: key);
 
-  final SinglePageState pageState = SinglePageState();
-
   @override
-  State<SinglePage> createState() => pageState;
+  State<SinglePage> createState() => SinglePageState();
 }
 
 class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
@@ -133,8 +131,8 @@ class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
 }
 
 class NarrativePage extends StatefulWidget {
-  late final PageConfig pageConfig;
-  NarrativePage({
+  final PageConfig pageConfig;
+  const NarrativePage({
     Key? key,
     required this.pageConfig,
   }) : super(key: key);

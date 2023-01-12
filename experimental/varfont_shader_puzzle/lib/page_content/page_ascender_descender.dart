@@ -8,7 +8,7 @@ import 'dart:math';
 import '../styles.dart';
 
 class PageAscenderDescender extends SinglePage {
-  PageAscenderDescender({
+  const PageAscenderDescender({
     Key? key,
     required super.pageConfig,
   }) : super(

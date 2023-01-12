@@ -8,7 +8,7 @@ import 'dart:math';
 import '../styles.dart';
 
 class PageWeight extends SinglePage {
-  PageWeight({
+  const PageWeight({
     Key? key,
     required super.pageConfig,
   }) : super(key: key);
