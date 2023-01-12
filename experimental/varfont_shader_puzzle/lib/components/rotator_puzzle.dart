@@ -91,6 +91,8 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
       RotatorPuzzleTile tile = RotatorPuzzleTile(
         key: tileKeys[i],
         tileID: i,
+        row: (i / dim).floor(),
+        col: i % dim,
         parentState: this,
         shaderKey: widget.shaderKey,
         shaderDuration: widget.shaderDuration,
@@ -101,7 +103,6 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
         tileShadedStringAnimDuration: widget.tileShadedStringAnimDuration,
         tileScaleModifier: widget.tileScaleModifier,
       );
-      tile.setTilePos(row: (i / dim).floor(), col: i % dim);
       tiles.add(tile);
     }
     return tiles;
@@ -250,9 +251,15 @@ class RotatorPuzzleTile extends StatefulWidget {
   final List<WonkyAnimSetting> animationSettings;
   final double tileScaleModifier;
 
+  // TODO get row/col out into model
+  final int row;
+  final int col;
+
   RotatorPuzzleTile({
     Key? key,
     required this.tileID,
+    required this.row,
+    required this.col,
     required this.parentState,
     required this.shaderKey,
     required this.shaderDuration,
@@ -264,30 +271,14 @@ class RotatorPuzzleTile extends StatefulWidget {
     required this.tileScaleModifier,
   }) : super(key: key);
 
-  void setTilePos({required int row, required int col}) {
-    (tileState as RotatorPuzzleTileState).row = row;
-    (tileState as RotatorPuzzleTileState).col = col;
-  }
-
-  int row() {
-    return (tileState as RotatorPuzzleTileState).row;
-  }
-
-  int col() {
-    return (tileState as RotatorPuzzleTileState).col;
-  }
-
   final State<RotatorPuzzleTile> tileState = RotatorPuzzleTileState();
 
   @override
-  State<RotatorPuzzleTile> createState() => tileState;
+  State<RotatorPuzzleTile> createState() => RotatorPuzzleTileState();
 }
 
 class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
     with TickerProviderStateMixin {
-  // TODO get row/col out into model
-  int row = 0;
-  int col = 0;
   double touchedOpac = 0.0;
   Duration touchedOpacDur = const Duration(milliseconds: 50);
   late final AnimationController animationController = AnimationController(
@@ -322,7 +313,7 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
     });
     // end brutal hack
     List<double> coords =
-        widget.parentState.tileCoords(row: widget.row(), col: widget.col());
+        widget.parentState.tileCoords(row: widget.row, col: widget.col);
     double zeroPoint = widget.parentState.widget.pageConfig.puzzleSize * .5 -
         widget.parentState.tileSize() * 0.5;
 
@@ -350,9 +341,9 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
                         child: Transform.translate(
                           offset: Offset(
                             zeroPoint -
-                                widget.col() * widget.parentState.tileSize(),
+                                widget.col * widget.parentState.tileSize(),
                             zeroPoint -
-                                widget.row() * widget.parentState.tileSize(),
+                                widget.row * widget.parentState.tileSize(),
                           ),
                           child: SizedBox(
                             width:
