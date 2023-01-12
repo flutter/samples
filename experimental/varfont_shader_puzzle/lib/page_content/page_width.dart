@@ -68,7 +68,6 @@ class _PageWidthState extends SinglePageState {
         child: WonkyChar(
           text: 'x',
           size: widget.pageConfig.wonkyCharSmallSize,
-          //narrowView ? screenWidth * 0.52 : screenWidth * 0.25,
           baseRotation: -0.12 * pi,
           animDurationMillis: 3200,
           animationSettings: [
@@ -215,7 +214,7 @@ class _PageWidthState extends SinglePageState {
       tileShadedStringAnimDuration: 2000,
       tileShadedStringAnimSettings: [
         WonkyAnimPalette.weight(from: 200, to: 200),
-        WonkyAnimPalette.width(from: 50, to: 125), //50..125
+        WonkyAnimPalette.width(from: 50, to: 125),
       ],
     );
   }

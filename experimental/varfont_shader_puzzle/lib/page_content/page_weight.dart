@@ -177,7 +177,7 @@ class _PageWeightState extends SinglePageState {
       tileShadedStringAnimDuration: 1000,
       tileShadedStringAnimSettings: [
         WonkyAnimPalette.weight(from: 600, to: 1000),
-        WonkyAnimPalette.width(from: 50, to: 50), //50..125
+        WonkyAnimPalette.width(from: 50, to: 50),
       ],
     );
   }

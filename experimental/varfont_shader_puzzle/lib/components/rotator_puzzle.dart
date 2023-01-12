@@ -78,7 +78,7 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
     }
     puzzleModel = PuzzleModel(
       dim: widget.numTiles,
-    ); //TODO is this right? correlate dim and numTiles; probably get rid of numTiles
+    ); //TODO check if correct; correlate dim and numTiles; probably get rid of numTiles
     generateTiles();
     shuffle();
     super.initState();
@@ -183,13 +183,14 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
 
   @override
   Widget build(BuildContext context) {
-    // brutal hack
+    // TODO fix widget implementation to remove the need for this hack
+    // to force a setState rebuild
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         setState(() {});
       }
     });
-    // end brutal hack
+    // end hack ----------------
     setImageFromRepaintBoundary(shadedWidgetRepaintBoundaryKey);
     return Center(
       child: SizedBox(
@@ -306,13 +307,14 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
 
   @override
   Widget build(BuildContext context) {
-    // brutal hack
+    // TODO fix widget implementation to remove the need for this hack
+    // to force a setState rebuild
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         setState(() {});
       }
     });
-    // end brutal hack
+    // end hack ------------------------------
     List<double> coords =
         widget.parentState.tileCoords(row: widget.row, col: widget.col);
     double zeroPoint = widget.parentState.widget.pageConfig.puzzleSize * .5 -
@@ -365,7 +367,7 @@ class RotatorPuzzleTileState extends State<RotatorPuzzleTile>
                 ),
               ),
             ),
-            // square lights up on tap to show touched spot
+            // puzzle tile overlay fades in/out on tap, to indicate touched tile
             Positioned(
               left: coords[0],
               top: coords[1],

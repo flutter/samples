@@ -106,7 +106,6 @@ class _PageOpticalSizeState extends SinglePageState {
         child: WonkyChar(
           text: 'e',
           size: widget.pageConfig.wonkyCharLargeSize,
-          //narrowView ? screenWidth * 0.42 : screenWidth * 0.21,
           baseRotation: -0.15 * pi,
           animDurationMillis: 5000,
           animationSettings: [
@@ -188,7 +187,7 @@ class _PageOpticalSizeState extends SinglePageState {
       tileShadedStringAnimSettings: [
         WonkyAnimPalette.weight(from: 1000, to: 1000),
         WonkyAnimPalette.width(from: 125, to: 125),
-        WonkyAnimPalette.opticalSize(from: 8, to: 144) //8..144
+        WonkyAnimPalette.opticalSize(from: 8, to: 144)
       ],
     );
   }

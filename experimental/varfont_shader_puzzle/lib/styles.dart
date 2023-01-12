@@ -43,9 +43,9 @@ class ButtonStyles {
       backgroundColor: MaterialStateProperty.resolveWith<Color?>(
           (Set<MaterialState> states) {
         if (states.contains(MaterialState.hovered)) {
-          return Colors.black;
+          return Colors.black; // Hovered bg (for desktop with mouse)
         }
-        return Colors.grey[600]; // Defer to the widget's default.
+        return Colors.grey[600]; // Default bg
       }),
     );
   }

@@ -214,12 +214,8 @@ class _PageAscenderDescenderState extends SinglePageState {
       tileShadedStringAnimSettings: [
         WonkyAnimPalette.weight(from: 200, to: 200),
         WonkyAnimPalette.width(from: 50, to: 50),
-        WonkyAnimPalette.ascenderHt(
-            from: 700,
-            to: 980), //      YTAS [ 500..983 ]   parametric ascender height
-        WonkyAnimPalette.descenderDepth(
-            from: -238,
-            to: -138), //YTDE [ -500..-138 ]  parametric descender depth
+        WonkyAnimPalette.ascenderHt(from: 700, to: 980),
+        WonkyAnimPalette.descenderDepth(from: -238, to: -138),
       ],
     );
   }

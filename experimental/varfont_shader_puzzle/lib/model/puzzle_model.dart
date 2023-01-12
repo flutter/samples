@@ -23,12 +23,6 @@ class PuzzleModel {
     }
   }
 
-  // List<int> getTileRowCol({required int tileID}) {
-  //   for (int col = 0; col<) {
-
-  //   }
-  // }
-
   bool allRotationsCorrect() {
     for (int i = 0; i < status.length; i++) {
       if (status[i] % 4 != 0) {

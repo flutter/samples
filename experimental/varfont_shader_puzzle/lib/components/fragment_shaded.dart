@@ -118,15 +118,15 @@ class AnimatingSamplerBuilder extends SamplerBuilder {
 
   @override
   void paint(ui.Image image, Size size, ui.Canvas canvas) {
-    // Animation
+    // animation
     fragmentShader.setFloat(0, animation.value);
     // width
     fragmentShader.setFloat(1, size.width);
     // height
     fragmentShader.setFloat(2, size.height);
-    // Dampener
+    // dampener
     fragmentShader.setFloat(3, dampenAnimation.value);
-    // Sampler
+    // sampler
     fragmentShader.setImageSampler(0, image);
 
     canvas.drawRect(Offset.zero & size, Paint()..shader = fragmentShader);

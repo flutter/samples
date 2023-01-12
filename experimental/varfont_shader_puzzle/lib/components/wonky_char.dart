@@ -223,36 +223,3 @@ class WonkyAnimSetting {
     required this.curve,
   });
 }
-
-// Inspect variable font files at https://wakamaifondue.com/beta/
-/*  Roboto Flex axes and ranges
-      opsz [ 8..144 ]     optical size 
-      wght [ 100..1000 ]  weight       
-      GRAD [ -200..150 ]  grade        
-      wdth [ 25..151 ]    width        
-      slnt [ -10..0 ]     slant        
-      XOPQ [ 27..175 ]    parametric thick stroke  
-      YOPQ [ 25..135 ]    parametric thin stroke
-      XTRA [ 323..603 ]   parametric counter width
-      YTUC [ 528..760 ]   parametric uppercase height
-      YTLC [ 416..570 ]   parametric lowercase height
-      YTAS [ 649..854 ]   parametric ascender height
-      YTDE [ -305..-98 ]  parametric descender depth
-      YTFI [ 560..788 ]   parametric figure height
-  */
-
-/* 
-    Amstelvar axes and ranges
-      opsz [ 8..144 ]     optical size 
-      wght [ 100..1000 ]  weight       
-      GRAD [ -300..500 ]  grade        
-      wdth [ 50..125 ]    width        
-      XOPQ [ 18..263 ]    parametric thick stroke  
-      YOPQ [ 15..132 ]    parametric thin stroke
-      XTRA [ 324..640 ]   parametric counter width
-      YTUC [ 500..1000 ]   parametric uppercase height
-      YTLC [ 420..570 ]   parametric lowercase height
-      YTAS [ 500..983 ]   parametric ascender height
-      YTDE [ -500..-138 ]  parametric descender depth
-      YTFI [ 425..1000 ]   parametric figure height  
-*/
