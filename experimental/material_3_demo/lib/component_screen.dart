@@ -1910,39 +1910,42 @@ class ComponentDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(label, style: Theme.of(context).textTheme.titleSmall),
-              Tooltip(
-                message: tooltipMessage,
-                child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.0),
-                    child: Icon(Icons.info_outline, size: 16)),
-              ),
-            ],
-          ),
-          ConstrainedBox(
-            constraints: const BoxConstraints.tightFor(width: widthConstraint),
-            child: Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Theme.of(context).colorScheme.outline,
+    return RepaintBoundary(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(label, style: Theme.of(context).textTheme.titleSmall),
+                Tooltip(
+                  message: tooltipMessage,
+                  child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Icon(Icons.info_outline, size: 16)),
                 ),
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: child,
+              ],
+            ),
+            ConstrainedBox(
+              constraints:
+                  const BoxConstraints.tightFor(width: widthConstraint),
+              child: Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: child,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
