@@ -470,7 +470,7 @@ class TextFields extends StatelessWidget {
               children: const [
                 Flexible(
                   child: SizedBox(
-                    width: 180,
+                    width: 200,
                     child: TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),
@@ -489,7 +489,7 @@ class TextFields extends StatelessWidget {
                 ),
                 Flexible(
                   child: SizedBox(
-                    width: 180,
+                    width: 200,
                     child: TextField(
                       enabled: false,
                       decoration: InputDecoration(
@@ -526,7 +526,7 @@ class TextFields extends StatelessWidget {
                   children: const [
                     Flexible(
                       child: SizedBox(
-                        width: 180,
+                        width: 200,
                         child: TextField(
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
@@ -544,7 +544,7 @@ class TextFields extends StatelessWidget {
                     SizedBox(width: 10),
                     Flexible(
                       child: SizedBox(
-                        width: 180,
+                        width: 200,
                         child: TextField(
                           enabled: false,
                           decoration: InputDecoration(
