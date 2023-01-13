@@ -66,15 +66,18 @@ Each app should:
 * Be designed to build against the current
   [stable](https://github.com/flutter/flutter/wiki/Flutter-build-release-channels)
   release of the Flutter SDK.
-* Include the same
-  [`analysis_options.yaml`](https://github.com/flutter/samples/blob/main/animations/analysis_options.yaml)
-  file used throughout the repo. These files include a base set of analyzer
+* Include the top level
+  [`analysis_options.yaml`](analysis_options.yaml)
+  file used throughout the repo. This file include a base set of analyzer
   conventions and lints.
 * Have no analyzer errors or warnings.
 * Be formatted with `flutter format`.
 * Include at least one working test in its `test` folder.
-* Be wired into the list of projects in [the CI script](tool/travis_flutter_script.sh), which
-  runs the analyzer, the formatter, and `flutter test`.
+* Be wired into the list of projects in the CI scripts for [stable](tool/flutter_ci_script_stable.sh), 
+  [beta](tool/flutter_ci_script_beta.sh), and [master](tool/flutter_ci_script_master.sh), 
+  which runs the analyzer, the formatter, and `flutter test`.
+* Add the new project directory to the [dependabot](.github/dependabot.yaml) configuration
+  to keep dependencies updated in an on-going basis.
 * Avoid adding an onerous amount of blobs (typically images or other assets) to
   the repo.
 
@@ -102,7 +105,7 @@ primary maintainers, though, are:
 * [@RedBrogdon](https://github.com/RedBrogdon)
 * [@johnpryan](https://github.com/johnpryan)
 * [@domesticmouse](https://github.com/domesticmouse)
-* [@theacodes](https://github.com/theacodes)
+* [@ericwindmill](https://github.com/ericwindmill)
 
 You are free to add one of these folks (particularly @RedBrogdon) as a reviewer
 to any PR sent to this repo. We're happy to comment, answer (or ask) questions,
@@ -123,7 +126,7 @@ reviewer.
 All files in the project must start with the following header.
 
 ```
-// Copyright 2021 The Flutter team. All rights reserved.
+// Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 ```
