@@ -62,7 +62,7 @@ class FragmentShadedState extends State<FragmentShaded>
     initializeFragmentProgramsAndBuilder();
   }
 
-  void initializeFragmentProgramsAndBuilder() async {
+  Future<void> initializeFragmentProgramsAndBuilder() async {
     if (FragmentShaded.fragmentPrograms.isEmpty) {
       for (String s in FragmentShaded.fragmentProgramNames) {
         FragmentShaded.fragmentPrograms[s] =

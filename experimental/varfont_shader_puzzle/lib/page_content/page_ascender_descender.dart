@@ -2,19 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
 import '../components/components.dart';
 import '../page_content/pages_flow.dart';
-import 'package:flutter/material.dart';
-import 'dart:math';
 import '../styles.dart';
 
 class PageAscenderDescender extends SinglePage {
   const PageAscenderDescender({
-    Key? key,
+    super.key,
     required super.pageConfig,
-  }) : super(
-          key: key,
-        );
+  });
   @override
   State<SinglePage> createState() => _PageAscenderDescenderState();
 }

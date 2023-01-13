@@ -3,12 +3,14 @@
 // found in the LICENSE file.
 
 import 'dart:math';
-import 'package:flutter/rendering.dart';
-import 'components.dart';
-import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
 import '../model/puzzle_model.dart';
 import '../page_content/pages_flow.dart';
+import 'components.dart';
 
 class RotatorPuzzle extends StatefulWidget {
   final PageConfig pageConfig;
@@ -25,7 +27,7 @@ class RotatorPuzzle extends StatefulWidget {
   final double tileScaleModifier;
 
   const RotatorPuzzle({
-    Key? key,
+    super.key,
     required this.pageConfig,
     required this.numTiles,
     required this.puzzleNum,
@@ -37,7 +39,7 @@ class RotatorPuzzle extends StatefulWidget {
     required this.tileShadedStringAnimDuration,
     this.tileShadedStringAnimSettings = const [],
     this.tileScaleModifier = 1.0,
-  }) : super(key: key);
+  });
 
   @override
   State<RotatorPuzzle> createState() => RotatorPuzzleState();
@@ -258,7 +260,7 @@ class RotatorPuzzleTile extends StatefulWidget {
   final int col;
 
   RotatorPuzzleTile({
-    Key? key,
+    super.key,
     required this.tileID,
     required this.row,
     required this.col,
@@ -271,7 +273,7 @@ class RotatorPuzzleTile extends StatefulWidget {
     required this.animationSettings,
     required this.tileShadedStringAnimDuration,
     required this.tileScaleModifier,
-  }) : super(key: key);
+  });
 
   final State<RotatorPuzzleTile> tileState = RotatorPuzzleTileState();
 
