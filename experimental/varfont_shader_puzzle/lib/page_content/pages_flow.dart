@@ -2,13 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import 'dart:math';
+
 import 'package:flutter/material.dart';
-import '../page_content/wallpapers_flow.dart';
+
 import '../components/components.dart';
+import '../page_content/wallpapers_flow.dart';
 import 'pages.dart';
 
 class PagesFlow extends StatefulWidget {
-  const PagesFlow({Key? key}) : super(key: key);
+  const PagesFlow({super.key});
 
   static const pageScrollDuration = 400;
 
@@ -92,9 +94,9 @@ class PageConfig {
 class SinglePage extends StatefulWidget {
   final PageConfig pageConfig;
   const SinglePage({
-    Key? key,
+    super.key,
     required this.pageConfig,
-  }) : super(key: key);
+  });
 
   @override
   State<SinglePage> createState() => SinglePageState();
@@ -133,9 +135,9 @@ class SinglePageState extends State<SinglePage> with TickerProviderStateMixin {
 class NarrativePage extends StatefulWidget {
   final PageConfig pageConfig;
   const NarrativePage({
-    Key? key,
+    super.key,
     required this.pageConfig,
-  }) : super(key: key);
+  });
 
   @override
   State<NarrativePage> createState() => NarrativePageState();

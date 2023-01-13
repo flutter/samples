@@ -18,7 +18,7 @@ class LightboxedPanel extends StatefulWidget {
   final Color cardBgColor;
 
   const LightboxedPanel({
-    Key? key,
+    super.key,
     required this.pageConfig,
     required this.content,
     this.onDismiss,
@@ -27,7 +27,7 @@ class LightboxedPanel extends StatefulWidget {
     this.buildButton = true,
     this.lightBoxBgColor = const Color.fromARGB(200, 255, 255, 255),
     this.cardBgColor = Colors.white,
-  }) : super(key: key);
+  });
 
   @override
   State<LightboxedPanel> createState() => _LightboxedPanelState();

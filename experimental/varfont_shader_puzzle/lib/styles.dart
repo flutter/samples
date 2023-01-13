@@ -30,18 +30,15 @@ class TextStyles {
 class ButtonStyles {
   static ButtonStyle style() {
     return ButtonStyle(
-      fixedSize:
-          MaterialStateProperty.resolveWith<Size>((Set<MaterialState> states) {
+      fixedSize: MaterialStateProperty.resolveWith<Size>((states) {
         return const Size(100, 36);
       }),
-      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
-          (Set<MaterialState> states) {
+      shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
         return const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(18)));
       }),
       overlayColor: null,
-      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
+      backgroundColor: MaterialStateProperty.resolveWith<Color?>((states) {
         if (states.contains(MaterialState.hovered)) {
           return Colors.black; // Hovered bg (for desktop with mouse)
         }

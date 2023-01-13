@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'dart:ui';
+
 import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:flutter/material.dart';
 
 class WonkyChar extends StatefulWidget {
   final String text;
@@ -13,13 +14,13 @@ class WonkyChar extends StatefulWidget {
   final int animDurationMillis;
   final List<WonkyAnimSetting> animationSettings;
   const WonkyChar({
-    Key? key,
+    super.key,
     required this.text,
     required this.size,
     this.baseRotation = 0,
     this.animDurationMillis = 1000,
     this.animationSettings = const <WonkyAnimSetting>[],
-  }) : super(key: key);
+  });
 
   @override
   State<WonkyChar> createState() => WonkyCharState();
@@ -79,20 +80,21 @@ class WonkyCharState extends State<WonkyChar>
   Widget build(BuildContext context) {
     List<FontVariation> fontVariations = [];
     for (int i = 0; i < _fvAxes.length; i++) {
-      fontVariations.add(FontVariation(_fvAxes[i], _fvAnimations[i].value));
+      fontVariations
+          .add(FontVariation(_fvAxes[i], _fvAnimations[i].value as double));
     }
     return Transform(
       alignment: Alignment.center,
-      transform: Matrix4.translationValues(
-          _offsetXAnimation.value, _offsetYAnimation.value, 0)
+      transform: Matrix4.translationValues(_offsetXAnimation.value as double,
+          _offsetYAnimation.value as double, 0)
         ..scale(_scaleAnimation.value)
-        ..rotateZ(widget.baseRotation + _rotationAnimation.value),
+        ..rotateZ(widget.baseRotation + (_rotationAnimation.value as double)),
       child: IgnorePointer(
         child: Text(
           widget.text,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: _colorAnimation.value,
+            color: _colorAnimation.value as Color?,
             fontFamily: 'Amstelvar',
             fontSize: widget.size,
             fontVariations: fontVariations,
@@ -114,13 +116,15 @@ class WonkyCharState extends State<WonkyChar>
       );
       late Animation animation;
       if (s.property == 'color') {
-        animation =
-            ColorTween(begin: s.fromTo.fromValue(), end: s.fromTo.toValue())
-                .animate(curve);
+        animation = ColorTween(
+                begin: s.fromTo.fromValue() as Color?,
+                end: s.fromTo.toValue() as Color?)
+            .animate(curve);
       } else {
-        animation =
-            Tween<double>(begin: s.fromTo.fromValue(), end: s.fromTo.toValue())
-                .animate(curve);
+        animation = Tween<double>(
+                begin: s.fromTo.fromValue() as double,
+                end: s.fromTo.toValue() as double)
+            .animate(curve);
       }
       if (s.type == 'fv') {
         _fvAxes.add(s.property);
@@ -168,13 +172,13 @@ class WonkyCharState extends State<WonkyChar>
   }
 }
 
-abstract class WCRange {
+abstract class WCRange<T> {
   WCRange();
-  fromValue() {}
-  toValue() {}
+  T fromValue();
+  T toValue();
 }
 
-class RangeColor implements WCRange {
+class RangeColor implements WCRange<Color> {
   Color from;
   Color to;
   RangeColor({required this.from, required this.to});
@@ -189,7 +193,7 @@ class RangeColor implements WCRange {
   }
 }
 
-class RangeDbl implements WCRange {
+class RangeDbl implements WCRange<double> {
   double from;
   double to;
 

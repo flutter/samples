@@ -1,17 +1,19 @@
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-import '../components/components.dart';
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+import '../components/components.dart';
 import '../page_content/pages_flow.dart';
 import '../styles.dart';
 
 class PageWeight extends SinglePage {
   const PageWeight({
-    Key? key,
+    super.key,
     required super.pageConfig,
-  }) : super(key: key);
+  });
 
   @override
   State<SinglePage> createState() => _PageWeightState();

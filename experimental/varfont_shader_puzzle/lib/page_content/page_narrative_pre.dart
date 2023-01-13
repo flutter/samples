@@ -8,9 +8,9 @@ import '../styles.dart';
 
 class PageNarrativePre extends NarrativePage {
   const PageNarrativePre({
-    Key? key,
+    super.key,
     required super.pageConfig,
-  }) : super(key: key);
+  });
 
   @override
   State<NarrativePage> createState() => _PageNarrativePreState();
