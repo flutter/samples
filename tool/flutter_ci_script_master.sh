@@ -26,6 +26,7 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
     # "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/varfont_shader_puzzle"
     "flutter_maps_firestore"
     # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used.
     # "form_app"
