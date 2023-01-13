@@ -38,11 +38,27 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "code_sharing/client/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "code_sharing/server/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "code_sharing/shared/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "desktop_photo_search/fluent_ui/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "desktop_photo_search/material/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "experimental/context_menus/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -74,6 +90,14 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "experimental/material_3_demo/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "experimental/varfont_shader_puzzle/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "experimental/web_dashboard/"
     schedule:
       interval: "daily"
@@ -83,6 +107,10 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "form_app/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "game_template/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -107,14 +135,6 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "navigation_and_routing/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "null_safety/null_safe_app/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "null_safety/null_unsafe_app/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -158,22 +178,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "web/charts/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web/github_dataviz/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web/particle_background/"
+    directory: "web/_tool/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "web/samples_index/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "pub"
-    directory: "web/_tool/"
     schedule:
       interval: "daily"
