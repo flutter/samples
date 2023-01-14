@@ -23,6 +23,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin"
     "experimental/web_dashboard"
     "experimental/linting_tool"
+    # TODO(DomesticMouse): include when stable increments
+    # "experimental/varfont_shader_puzzle"
     "flutter_maps_firestore"
     "form_app"
     "game_template"

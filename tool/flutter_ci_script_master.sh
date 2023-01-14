@@ -25,6 +25,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/web_dashboard"
     "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/varfont_shader_puzzle"
     "flutter_maps_firestore"
     "form_app"
     "game_template"

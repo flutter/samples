@@ -23,6 +23,7 @@ declare -ar PROJECT_NAMES=(
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
+    "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "experimental/linting_tool"
     "flutter_maps_firestore"
