@@ -26,6 +26,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "experimental/linting_tool"
+    "experimental/material_3_demo"
+    "experimental/varfont_shader_puzzle"
     "flutter_maps_firestore"
     "form_app"
     "game_template"
@@ -41,8 +43,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(Renzo-Olivares): fix 
-    # "simplistic_editor"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web/samples_index"
