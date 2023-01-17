@@ -661,7 +661,7 @@ class _SwitchRowState extends State<SwitchRow> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        // TODO: use SwitchListTile when thumbIcon is available
+        // TODO: use SwitchListTile when thumbIcon is available https://github.com/flutter/flutter/issues/118616
         Switch(
           value: value0,
           onChanged: widget.isEnabled
@@ -731,7 +731,7 @@ class _CheckboxesState extends State<Checkboxes> {
             tristate: true,
             value: isChecked2,
             title: const Text('Option 3'),
-            // TODO: showcase error state
+            // TODO: showcase error state https://github.com/flutter/flutter/issues/118616
             onChanged: (value) {
               setState(() {
                 isChecked2 = value;
@@ -1471,7 +1471,7 @@ class BottomSheetSection extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet<void>(
             context: context,
-            // TODO: Remove when this is in the framework
+            // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
             constraints: const BoxConstraints(maxWidth: 640),
             builder: (context) {
               return SizedBox(
