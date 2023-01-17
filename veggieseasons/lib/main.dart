@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -16,10 +17,10 @@ import 'package:window_size/window_size.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
+  unawaited(SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]);
+  ]));
   setupWindow();
 
   runApp(
@@ -38,13 +39,13 @@ void setupWindow() {
     setWindowTitle('Veggie Seasons');
     setWindowMinSize(const Size(windowWidth, windowHeight));
     setWindowMaxSize(const Size(windowWidth, windowHeight));
-    getCurrentScreen().then((screen) {
+    unawaited(getCurrentScreen().then((screen) {
       setWindowFrame(Rect.fromCenter(
         center: screen!.frame.center,
         width: windowWidth,
         height: windowHeight,
       ));
-    });
+    }));
   }
 }
 
@@ -80,6 +81,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
           value: _appState.value,
         ),
         ChangeNotifierProvider(
+          // ignore: discarded_futures
           create: (_) => Preferences()..load(),
         ),
       ],

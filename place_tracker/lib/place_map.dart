@@ -92,7 +92,6 @@ class _PlaceMapState extends State<PlaceMap> {
 
   @override
   Widget build(BuildContext context) {
-    _watchMapConfigurationChanges();
     var state = Provider.of<AppState>(context);
     return Builder(builder: (context) {
       // We need this additional builder here so that we can pass its context to
@@ -119,7 +118,7 @@ class _PlaceMapState extends State<PlaceMap> {
             ),
             _AddPlaceButtonBar(
               visible: _pendingMarker != null,
-              onSavePressed: () => _confirmAddPlace(context),
+              onSavePressed: () async => _confirmAddPlace(context),
               onCancelPressed: _cancelAddPlace,
             ),
             _MapFabs(
@@ -148,7 +147,7 @@ class _PlaceMapState extends State<PlaceMap> {
     });
 
     // Zoom to fit the initially selected category.
-    _zoomToFitSelectedCategory();
+    await _zoomToFitSelectedCategory();
   }
 
   @override
@@ -156,19 +155,17 @@ class _PlaceMapState extends State<PlaceMap> {
     super.didUpdateWidget(oldWidget);
     // Zoom to fit the selected category.
     if (mounted) {
-      _zoomToFitSelectedCategory();
+      unawaited(_zoomToFitSelectedCategory());
     }
   }
 
   /// Applies zoom to fit the places of the selected category
-  void _zoomToFitSelectedCategory() {
-    _zoomToFitPlaces(
-      _getPlacesForCategory(
-        Provider.of<AppState>(context, listen: false).selectedCategory,
-        _markedPlaces.values.toList(),
-      ),
-    );
-  }
+  Future<void> _zoomToFitSelectedCategory() async => _zoomToFitPlaces(
+        _getPlacesForCategory(
+          Provider.of<AppState>(context, listen: false).selectedCategory,
+          _markedPlaces.values.toList(),
+        ),
+      );
 
   void _cancelAddPlace() {
     if (_pendingMarker != null) {

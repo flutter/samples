@@ -54,11 +54,11 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
               if (snapshot.hasData) {
                 toggle = CupertinoSwitch(
                   value: snapshot.data!.contains(category),
-                  onChanged: (value) {
+                  onChanged: (value) async {
                     if (value) {
-                      model.addPreferredCategory(category);
+                      await model.addPreferredCategory(category);
                     } else {
-                      model.removePreferredCategory(category);
+                      await model.removePreferredCategory(category);
                     }
                   },
                 );
@@ -143,7 +143,7 @@ class CalorieSettingsScreen extends StatelessWidget {
                         backgroundColor: Styles.transparentColor,
                       ),
                       onPress: snapshot.hasData
-                          ? () => model.setDesiredCalories(cals)
+                          ? () async => model.setDesiredCalories(cals)
                           : null,
                     ),
                   );
@@ -227,33 +227,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
         icon: Styles.resetIcon,
       ),
       content: const SettingsNavigationIndicator(),
-      onPress: () {
-        showCupertinoDialog<void>(
-          context: context,
-          builder: (context) => CupertinoAlertDialog(
-            title: const Text('Are you sure?'),
-            content: const Text(
-              'Are you sure you want to reset the current settings?',
-            ),
-            actions: [
-              CupertinoDialogAction(
-                isDestructiveAction: true,
-                child: const Text('Yes'),
-                onPressed: () async {
-                  await prefs.restoreDefaults();
-                  if (!mounted) return;
-                  Navigator.pop(context);
-                },
-              ),
-              CupertinoDialogAction(
-                isDefaultAction: true,
-                child: const Text('No'),
-                onPressed: () => Navigator.pop(context),
-              )
-            ],
+      onPress: () async => showCupertinoDialog<void>(
+        context: context,
+        builder: (context) => CupertinoAlertDialog(
+          title: const Text('Are you sure?'),
+          content: const Text(
+            'Are you sure you want to reset the current settings?',
           ),
-        );
-      },
+          actions: [
+            CupertinoDialogAction(
+              isDestructiveAction: true,
+              child: const Text('Yes'),
+              onPressed: () async {
+                await prefs.restoreDefaults();
+                if (!mounted) return;
+                Navigator.pop(context);
+              },
+            ),
+            CupertinoDialogAction(
+              isDefaultAction: true,
+              child: const Text('No'),
+              onPressed: () => Navigator.pop(context),
+            )
+          ],
+        ),
+      ),
     );
   }
 

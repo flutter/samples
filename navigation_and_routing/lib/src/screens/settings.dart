@@ -51,9 +51,7 @@ class SettingsContent extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             ElevatedButton(
-              onPressed: () {
-                BookstoreAuthScope.of(context).signOut();
-              },
+              onPressed: () async => BookstoreAuthScope.of(context).signOut(),
               child: const Text('Sign out'),
             ),
             Link(
@@ -65,13 +63,11 @@ class SettingsContent extends StatelessWidget {
             ),
             TextButton(
               child: const Text('Go directly to /book/0 (RouteState)'),
-              onPressed: () {
-                RouteStateScope.of(context).go('/book/0');
-              },
+              onPressed: () async => RouteStateScope.of(context).go('/book/0'),
             ),
           ].map((w) => Padding(padding: const EdgeInsets.all(8), child: w)),
           TextButton(
-            onPressed: () => showDialog<String>(
+            onPressed: () async => showDialog<String>(
               context: context,
               builder: (context) => AlertDialog(
                 title: const Text('Alert!'),

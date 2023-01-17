@@ -80,9 +80,9 @@ class SmallCard extends StatelessWidget {
     return Card(
       child: Material(
         child: InkWell(
-          onTap: () {
+          onTap: () async {
             var nav = Navigator.of(context);
-            nav.push<void>(_createRoute(context, imageAssetName));
+            await nav.push<void>(_createRoute(context, imageAssetName));
           },
           child: Image.asset(
             imageAssetName,

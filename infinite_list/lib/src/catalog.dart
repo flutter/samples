@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +69,7 @@ class Catalog extends ChangeNotifier {
     }
 
     // We don't have the data yet. Start fetching it.
-    _fetchPage(startingIndex);
+    unawaited(_fetchPage(startingIndex));
 
     // In the meantime, return a placeholder.
     return Item.loading();

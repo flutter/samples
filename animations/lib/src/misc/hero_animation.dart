@@ -22,7 +22,7 @@ class HeroAnimationDemo extends StatelessWidget {
             color: Colors.grey.shade300,
           ),
         ),
-        onTap: () => Navigator.of(context).push<void>(
+        onTap: () async => Navigator.of(context).push<void>(
             MaterialPageRoute(builder: (context) => const HeroPage())),
       ),
     );

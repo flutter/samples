@@ -29,14 +29,15 @@ class _AddPetDetailsState extends State<AddPetDetails> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {
-              PetListMessageChannel.addPetDetails(
+            onPressed: () async {
+              await PetListMessageChannel.addPetDetails(
                 PetDetails(
                   petType: petType,
                   breed: breedTextController.text,
                 ),
               );
 
+              if (!mounted) return;
               context.pop();
             },
           )

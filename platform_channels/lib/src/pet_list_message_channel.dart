@@ -19,9 +19,8 @@ class PetListMessageChannel {
   ///
   /// Demonstrates how to use [BasicMessageChannel] and [JSONMessageCodec] to
   /// send more structured data to platform like a [Map] in this case.
-  static void addPetDetails(PetDetails petDetails) {
-    _jsonMessageCodecChannel.send(petDetails.toJson());
-  }
+  static Future<void> addPetDetails(PetDetails petDetails) async =>
+      _jsonMessageCodecChannel.send(petDetails.toJson());
 
   /// Method to remove a pet from the list.
   ///

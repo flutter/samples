@@ -52,13 +52,13 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
         actions: [
           MaterialButton(
             textColor: Colors.white,
-            onPressed: () {
+            onPressed: () async {
               if (controller.status == AnimationStatus.completed) {
-                controller.reverse().whenComplete(() {
+                await controller.reverse().whenComplete(() {
                   setState(() {});
                 });
               } else {
-                controller.forward().whenComplete(() {
+                await controller.forward().whenComplete(() {
                   setState(() {});
                 });
               }

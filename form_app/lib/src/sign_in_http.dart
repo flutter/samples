@@ -86,11 +86,12 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
                           headers: {'content-type': 'application/json'});
 
                       if (result.statusCode == 200) {
-                        _showDialog('Successfully signed in.');
+                        await _showDialog('Successfully signed in.');
                       } else if (result.statusCode == 401) {
-                        _showDialog('Unable to sign in.');
+                        await _showDialog('Unable to sign in.');
                       } else {
-                        _showDialog('Something went wrong. Please try again.');
+                        await _showDialog(
+                            'Something went wrong. Please try again.');
                       }
                     },
                   ),
@@ -110,18 +111,16 @@ class _SignInHttpDemoState extends State<SignInHttpDemo> {
     );
   }
 
-  void _showDialog(String message) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(message),
-        actions: [
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-    );
-  }
+  Future<void> _showDialog(String message) async => showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(message),
+          actions: [
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
 }

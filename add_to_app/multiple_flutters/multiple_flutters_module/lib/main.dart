@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
@@ -61,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     // Mutations to the data model are forwarded to the host platform.
-    _channel.invokeMethod<void>("incrementCount", _counter);
+    unawaited(_channel.invokeMethod<void>("incrementCount", _counter));
   }
 
   @override
@@ -87,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TextButton(
               onPressed: () {
-                _channel.invokeMethod<void>("next", _counter);
+                unawaited(_channel.invokeMethod<void>("next", _counter));
               },
               child: const Text('Next'),
             ),

@@ -53,10 +53,10 @@ class Preferences extends ChangeNotifier {
   Future<void> restoreDefaults() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
-    load();
+    await load();
   }
 
-  void load() {
+  Future<void> load() async {
     _loading = _loadFromSharedPrefs();
   }
 

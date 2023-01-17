@@ -27,9 +27,8 @@ class AuthorDetailsScreen extends StatelessWidget {
               Expanded(
                 child: BookList(
                   books: author.books,
-                  onTap: (book) {
-                    RouteStateScope.of(context).go('/book/${book.id}');
-                  },
+                  onTap: (book) async =>
+                      RouteStateScope.of(context).go('/book/${book.id}'),
                 ),
               ),
             ],

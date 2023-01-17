@@ -163,18 +163,18 @@ class _AndroidDrawer extends StatelessWidget {
           ListTile(
             leading: NewsTab.androidIcon,
             title: const Text(NewsTab.title),
-            onTap: () {
+            onTap: () async {
               Navigator.pop(context);
-              Navigator.push<void>(context,
+              await Navigator.push<void>(context,
                   MaterialPageRoute(builder: (context) => const NewsTab()));
             },
           ),
           ListTile(
             leading: ProfileTab.androidIcon,
             title: const Text(ProfileTab.title),
-            onTap: () {
+            onTap: () async {
               Navigator.pop(context);
-              Navigator.push<void>(context,
+              await Navigator.push<void>(context,
                   MaterialPageRoute(builder: (context) => const ProfileTab()));
             },
           ),
@@ -186,9 +186,9 @@ class _AndroidDrawer extends StatelessWidget {
           ListTile(
             leading: SettingsTab.androidIcon,
             title: const Text(SettingsTab.title),
-            onTap: () {
+            onTap: () async {
               Navigator.pop(context);
-              Navigator.push<void>(context,
+              await Navigator.push<void>(context,
                   MaterialPageRoute(builder: (context) => const SettingsTab()));
             },
           ),

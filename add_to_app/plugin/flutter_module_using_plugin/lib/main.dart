@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +45,7 @@ void showCell() {
 class CounterModel extends ChangeNotifier {
   CounterModel() {
     _channel.setMethodCallHandler(_handleMessage);
-    _channel.invokeMethod<void>('requestCounter');
+    unawaited(_channel.invokeMethod<void>('requestCounter'));
   }
 
   final _channel = const MethodChannel('dev.flutter.example/counter');
@@ -53,7 +55,7 @@ class CounterModel extends ChangeNotifier {
   int get count => _count;
 
   void increment() {
-    _channel.invokeMethod<void>('incrementCounter');
+    unawaited(_channel.invokeMethod<void>('incrementCounter'));
   }
 
   Future<dynamic> _handleMessage(MethodCall call) async {
@@ -174,7 +176,7 @@ class Contents extends StatelessWidget {
                 if (showExit) ...[
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () => SystemNavigator.pop(),
+                    onPressed: () async => SystemNavigator.pop(),
                     child: const Text('Exit this screen'),
                   ),
                 ],

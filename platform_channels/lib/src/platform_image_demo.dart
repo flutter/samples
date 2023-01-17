@@ -65,6 +65,8 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
                   ? null
                   : () {
                       setState(() {
+                        // Raised as https://github.com/dart-lang/linter/issues/3429#issuecomment-1384776104
+                        // ignore: discarded_futures
                         imageData = PlatformImageFetcher.getImage();
                       });
                     },

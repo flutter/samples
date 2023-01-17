@@ -115,8 +115,8 @@ class _BookDetailState extends State<BookDetail> {
           icon: const Icon(Icons.clear),
           // Pressing clear cancels the edit and leaves the activity without
           // modification.
-          onPressed: () {
-            hostApi.cancel();
+          onPressed: () async {
+            await hostApi.cancel();
             clear();
           },
         ),
@@ -125,8 +125,8 @@ class _BookDetailState extends State<BookDetail> {
             icon: const Icon(Icons.check),
             // Pressing save sends the updated book to the platform.
             onPressed: book != null
-                ? () {
-                    hostApi.finishEditingBook(book!);
+                ? () async {
+                    await hostApi.finishEditingBook(book!);
                     clear();
                   }
                 : null,

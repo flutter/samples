@@ -50,7 +50,7 @@ void main() {
       });
     });
 
-    test('convert json message to PetListModel', () {
+    test('convert json message to PetListModel', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
 
       // Initially petListModel will be null.
@@ -58,7 +58,7 @@ void main() {
 
       // Send the pet list using BasicMessageChannel.
       final map = {'petList': petList};
-      basicMessageChannel.send(json.encode(map));
+      await basicMessageChannel.send(json.encode(map));
 
       // Get the details of first pet.
       final petDetails = petListModel!.petList.first;

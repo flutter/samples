@@ -22,10 +22,10 @@ class BookstoreScaffold extends StatelessWidget {
       body: AdaptiveNavigationScaffold(
         selectedIndex: selectedIndex,
         body: const BookstoreScaffoldBody(),
-        onDestinationSelected: (idx) {
-          if (idx == 0) routeState.go('/books/popular');
-          if (idx == 1) routeState.go('/authors');
-          if (idx == 2) routeState.go('/settings');
+        onDestinationSelected: (idx) async {
+          if (idx == 0) await routeState.go('/books/popular');
+          if (idx == 1) await routeState.go('/authors');
+          if (idx == 2) await routeState.go('/settings');
         },
         destinations: const [
           AdaptiveScaffoldDestination(

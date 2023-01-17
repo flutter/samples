@@ -185,7 +185,7 @@ class _StoreListTileState extends State<StoreListTile> {
   @override
   void initState() {
     super.initState();
-    _retrievePlacesDetails();
+    unawaited(_retrievePlacesDetails());
   }
 
   @override

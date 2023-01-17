@@ -9,7 +9,7 @@ import 'dart:io';
 import 'package:async/async.dart' show StreamGroup;
 import 'package:grinder/grinder.dart';
 
-void main(List<String> args) => grind(args);
+void main(List<String> args) async => grind(args);
 
 @DefaultTask()
 @Depends(pubGet, generateJsonBindings, analyzeSource, test)

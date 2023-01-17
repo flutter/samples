@@ -347,8 +347,8 @@ class Dialogs extends StatefulWidget {
 }
 
 class _DialogsState extends State<Dialogs> {
-  void openDialog(BuildContext context) {
-    showDialog<void>(
+  Future<void> openDialog(BuildContext context) async {
+    await showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("Basic Dialog Title"),
@@ -377,7 +377,7 @@ class _DialogsState extends State<Dialogs> {
           "Open Dialog",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        onPressed: () => openDialog(context),
+        onPressed: () async => openDialog(context),
       ),
     );
   }

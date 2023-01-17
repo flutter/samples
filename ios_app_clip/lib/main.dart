@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +25,12 @@ class _DemoState extends State<Demo> {
 
   @override
   void initState() {
-    DeviceInfoPlugin().iosInfo.then((info) {
+    unawaited(DeviceInfoPlugin().iosInfo.then((info) {
       setState(() {
         deviceInfo = '${info.name} on ${info.systemName} version '
             '${info.systemVersion}';
       });
-    });
+    }));
     super.initState();
   }
 

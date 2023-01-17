@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
@@ -59,12 +61,12 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
         // the /books or /authors tab in BookstoreScaffold.
         if (route.settings is Page &&
             (route.settings as Page).key == _bookDetailsKey) {
-          routeState.go('/books/popular');
+          unawaited(routeState.go('/books/popular'));
         }
 
         if (route.settings is Page &&
             (route.settings as Page).key == _authorDetailsKey) {
-          routeState.go('/authors');
+          unawaited(routeState.go('/authors'));
         }
 
         return route.didPop(result);

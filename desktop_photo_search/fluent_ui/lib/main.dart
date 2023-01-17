@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:io';
 
 import 'package:fluent_ui/fluent_ui.dart';
@@ -74,38 +75,32 @@ class UnsplashHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final photoSearchModel = Provider.of<PhotoSearchModel>(context);
-    menubar.setApplicationMenu([
+    unawaited(menubar.setApplicationMenu([
       menubar.NativeSubmenu(label: 'Search', children: [
         menubar.NativeMenuItem(
           label: 'Search…',
-          onSelected: () {
-            showDialog<void>(
-              context: context,
-              builder: (context) =>
-                  PhotoSearchDialog(callback: photoSearchModel.addSearch),
-            );
-          },
+          onSelected: () async => showDialog<void>(
+            context: context,
+            builder: (context) =>
+                PhotoSearchDialog(callback: photoSearchModel.addSearch),
+          ),
         ),
         if (!Platform.isMacOS)
           menubar.NativeMenuItem(
             label: 'Quit',
-            onSelected: () {
-              SystemNavigator.pop();
-            },
+            onSelected: () async => SystemNavigator.pop(),
           ),
       ]),
       menubar.NativeSubmenu(label: 'About', children: [
         menubar.NativeMenuItem(
           label: 'About',
-          onSelected: () {
-            showDialog<void>(
-              context: context,
-              builder: (context) => const PolicyDialog(),
-            );
-          },
+          onSelected: () async => showDialog<void>(
+            context: context,
+            builder: (context) => const PolicyDialog(),
+          ),
         ),
       ])
-    ]);
+    ]));
 
     return UnsplashNotice(
       child: Container(

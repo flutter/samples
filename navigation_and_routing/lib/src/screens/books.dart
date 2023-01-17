@@ -91,21 +91,20 @@ class _BooksScreenState extends State<BooksScreen>
 
   RouteState get _routeState => RouteStateScope.of(context);
 
-  void _handleBookTapped(Book book) {
-    _routeState.go('/book/${book.id}');
-  }
+  Future<void> _handleBookTapped(Book book) async =>
+      _routeState.go('/book/${book.id}');
 
-  void _handleTabIndexChanged() {
+  Future<void> _handleTabIndexChanged() async {
     switch (_tabController.index) {
       case 1:
-        _routeState.go('/books/new');
+        await _routeState.go('/books/new');
         break;
       case 2:
-        _routeState.go('/books/all');
+        await _routeState.go('/books/all');
         break;
       case 0:
       default:
-        _routeState.go('/books/popular');
+        await _routeState.go('/books/popular');
         break;
     }
   }

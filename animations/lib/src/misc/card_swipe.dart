@@ -167,7 +167,7 @@ class _SwipeableCardState extends State<SwipeableCard>
 
   /// Runs the fling / spring animation using the final velocity of the drag
   /// gesture.
-  void _dragEnd(DragEndDetails details) {
+  Future<void> _dragEnd(DragEndDetails details) async {
     final size = context.size;
 
     if (size == null) {
@@ -175,7 +175,7 @@ class _SwipeableCardState extends State<SwipeableCard>
     }
 
     var velocity = (details.velocity.pixelsPerSecond.dx / size.width).abs();
-    _animate(velocity: velocity);
+    await _animate(velocity: velocity);
   }
 
   void _updateAnimation(double dragPosition) {
@@ -185,12 +185,12 @@ class _SwipeableCardState extends State<SwipeableCard>
     ));
   }
 
-  void _animate({double velocity = 0}) {
+  Future<void> _animate({double velocity = 0}) async {
     var description =
         const SpringDescription(mass: 50, stiffness: 1, damping: 1);
     var simulation =
         SpringSimulation(description, _controller.value, 1, velocity);
-    _controller.animateWith(simulation).then<void>((_) {
+    await _controller.animateWith(simulation).then<void>((_) {
       widget.onSwiped();
     });
   }

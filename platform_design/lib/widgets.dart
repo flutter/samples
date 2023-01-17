@@ -286,10 +286,10 @@ class SongPlaceholderTile extends StatelessWidget {
 /// This uses a platform-appropriate mechanism to show users multiple choices.
 ///
 /// On Android, it uses a dialog with radio buttons. On iOS, it uses a picker.
-void showChoices(BuildContext context, List<String> choices) {
+Future<void> showChoices(BuildContext context, List<String> choices) async {
   switch (defaultTargetPlatform) {
     case TargetPlatform.android:
-      showDialog<void>(
+      await showDialog<void>(
         context: context,
         builder: (context) {
           int? selectedRadio = 1;
@@ -327,7 +327,7 @@ void showChoices(BuildContext context, List<String> choices) {
       );
       return;
     case TargetPlatform.iOS:
-      showCupertinoModalPopup<void>(
+      await showCupertinoModalPopup<void>(
         context: context,
         builder: (context) {
           return SizedBox(

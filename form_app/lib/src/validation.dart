@@ -29,7 +29,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
             child: TextButton(
               style: TextButton.styleFrom(foregroundColor: Colors.white),
               child: const Text('Submit'),
-              onPressed: () {
+              onPressed: () async {
                 // Validate the form by getting the FormState from the GlobalKey
                 // and calling validate() on it.
                 var valid = _formKey.currentState!.validate();
@@ -37,7 +37,7 @@ class _FormValidationDemoState extends State<FormValidationDemo> {
                   return;
                 }
 
-                showDialog<void>(
+                await showDialog<void>(
                   context: context,
                   builder: (context) => AlertDialog(
                     title: const Text('Your story'),

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +70,7 @@ class _SongsTabState extends State<SongsTab> {
           song: songNames[index],
           color: color,
           heroAnimation: const AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push<void>(
+          onPressed: () async => Navigator.of(context).push<void>(
             MaterialPageRoute(
               builder: (context) => SongDetailTab(
                 id: index,
@@ -93,7 +95,7 @@ class _SongsTabState extends State<SongsTab> {
     // done in a real app but it's done here since this app
     // unrealistically toggles the current platform for demonstration
     // purposes.
-    WidgetsBinding.instance.reassembleApplication();
+    unawaited(WidgetsBinding.instance.reassembleApplication());
   }
 
   // ===========================================================================

@@ -84,10 +84,10 @@ class ProfileTab extends StatelessWidget {
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           child: SettingsTab.iosIcon,
-          onPressed: () {
+          onPressed: () async {
             // This pushes the settings page as a full page modal dialog on top
             // of the tab bar and everything.
-            Navigator.of(context, rootNavigator: true).push<void>(
+            await Navigator.of(context, rootNavigator: true).push<void>(
               CupertinoPageRoute(
                 title: SettingsTab.title,
                 fullscreenDialog: true,
@@ -163,9 +163,7 @@ class PreferenceCard extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: () {
-        showChoices(context, preferenceChoices);
-      },
+      onPressed: () async => showChoices(context, preferenceChoices),
     );
   }
 }
@@ -188,10 +186,10 @@ class LogOutButton extends StatelessWidget {
   Widget _buildAndroid(BuildContext context) {
     return ElevatedButton(
       child: const Text('LOG OUT', style: TextStyle(color: Colors.red)),
-      onPressed: () {
+      onPressed: () async {
         // You should do something with the result of the dialog prompt in a
         // real app but this is just a demo.
-        showDialog<void>(
+        await showDialog<void>(
           context: context,
           builder: (context) {
             return AlertDialog(
@@ -218,10 +216,10 @@ class LogOutButton extends StatelessWidget {
     return CupertinoButton(
       color: CupertinoColors.destructiveRed,
       child: const Text('Log out'),
-      onPressed: () {
+      onPressed: () async {
         // You should do something with the result of the action sheet prompt
         // in a real app but this is just a demo.
-        showCupertinoModalPopup<void>(
+        await showCupertinoModalPopup<void>(
           context: context,
           builder: (context) {
             return CupertinoActionSheet(

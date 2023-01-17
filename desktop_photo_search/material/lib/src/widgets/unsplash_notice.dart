@@ -27,18 +27,19 @@ class _UnsplashNoticeState extends State<UnsplashNotice> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      showDialog<void>(
-          barrierDismissible: false,
-          context: context,
-          builder: (context) {
-            return _UnsplashDialog(accepted: () {
-              setState(() {
-                noticeAccepted = true;
-              });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) async => showDialog<void>(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return _UnsplashDialog(accepted: () {
+            setState(() {
+              noticeAccepted = true;
             });
           });
-    });
+        },
+      ),
+    );
   }
 
   @override
