@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+
 import 'color_palettes_screen.dart';
 import 'component_screen.dart';
 import 'elevation_screen.dart';
@@ -10,7 +12,9 @@ import 'typography_screen.dart';
 
 void main() {
   runApp(const MaterialApp(
-      debugShowCheckedModeBanner: false, home: Material3Demo()));
+    debugShowCheckedModeBanner: false,
+    home: Material3Demo(),
+  ));
 }
 
 class Material3Demo extends StatefulWidget {
@@ -61,7 +65,19 @@ class _Material3DemoState extends State<Material3Demo>
   bool showMediumSizeLayout = false;
   bool showLargeSizeLayout = false;
   bool useMaterial3 = true;
-  bool useLightMode = true;
+  ThemeMode themeMode = ThemeMode.system;
+  bool get useLightMode {
+    switch (themeMode) {
+      case ThemeMode.system:
+        return SchedulerBinding.instance.window.platformBrightness ==
+            Brightness.light;
+      case ThemeMode.light:
+        return true;
+      case ThemeMode.dark:
+        return false;
+    }
+  }
+
   ColorSeed colorSelected = ColorSeed.baseColor;
   int screenIndex = ScreenSelected.component.value;
 
@@ -135,9 +151,9 @@ class _Material3DemoState extends State<Material3Demo>
     });
   }
 
-  void handleBrightnessChange() {
+  void handleBrightnessChange(bool useLightMode) {
     setState(() {
-      useLightMode = !useLightMode;
+      themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
       themeData = updateThemes(colorSelected.color, useMaterial3, useLightMode);
     });
   }
@@ -161,14 +177,17 @@ class _Material3DemoState extends State<Material3Demo>
     switch (screenSelected) {
       case ScreenSelected.component:
         return Expanded(
-            child: OneTwoTransition(
-                animation: railAnimation,
-                one: FirstComponentList(
-                    showNavBottomBar: showNavBarExample,
-                    scaffoldKey: scaffoldKey,
-                    showSecondList:
-                        showMediumSizeLayout || showLargeSizeLayout),
-                two: const SecondComponentList()));
+          child: OneTwoTransition(
+            animation: railAnimation,
+            one: FirstComponentList(
+                showNavBottomBar: showNavBarExample,
+                scaffoldKey: scaffoldKey,
+                showSecondList: showMediumSizeLayout || showLargeSizeLayout),
+            two: SecondComponentList(
+              scaffoldKey: scaffoldKey,
+            ),
+          ),
+        );
       case ScreenSelected.color:
         return const ColorPalettesScreen();
       case ScreenSelected.typography:
@@ -188,9 +207,9 @@ class _Material3DemoState extends State<Material3Demo>
         message: 'Toggle brightness',
         child: IconButton(
           icon: useLightMode
-              ? const Icon(Icons.wb_sunny_outlined)
-              : const Icon(Icons.wb_sunny),
-          onPressed: handleBrightnessChange,
+              ? const Icon(Icons.dark_mode_outlined)
+              : const Icon(Icons.light_mode_outlined),
+          onPressed: () => handleBrightnessChange(!useLightMode),
         ),
       );
 
@@ -199,14 +218,15 @@ class _Material3DemoState extends State<Material3Demo>
         message: 'Switch to Material ${useMaterial3 ? 2 : 3}',
         child: IconButton(
           icon: useMaterial3
-              ? const Icon(Icons.filter_3)
-              : const Icon(Icons.filter_2),
+              ? const Icon(Icons.filter_2)
+              : const Icon(Icons.filter_3),
           onPressed: handleMaterialVersionChange,
         ),
       );
 
-  Widget colorSeedButton(Icon icon) => PopupMenuButton(
-        icon: icon,
+  Widget colorSeedButton() => PopupMenuButton(
+        icon: const Icon(Icons.palette_outlined),
+        tooltip: 'Select a seed color',
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         itemBuilder: (context) {
           return List.generate(ColorSeed.values.length, (index) {
@@ -214,6 +234,7 @@ class _Material3DemoState extends State<Material3Demo>
 
             return PopupMenuItem(
               value: index,
+              enabled: currentColor != colorSelected,
               child: Wrap(
                 children: [
                   Padding(
@@ -244,7 +265,7 @@ class _Material3DemoState extends State<Material3Demo>
           ? [
               brightnessButton(),
               material3Button(),
-              colorSeedButton(const Icon(Icons.more_vert)),
+              colorSeedButton(),
             ]
           : [Container()],
     );
@@ -263,8 +284,8 @@ class _Material3DemoState extends State<Material3Demo>
                 Expanded(child: Container()),
                 Switch(
                     value: useLightMode,
-                    onChanged: (_) {
-                      handleBrightnessChange();
+                    onChanged: (value) {
+                      handleBrightnessChange(value);
                     })
               ],
             ),
@@ -289,8 +310,11 @@ class _Material3DemoState extends State<Material3Demo>
                 children: List.generate(
                     ColorSeed.values.length,
                     (i) => IconButton(
-                          icon: const Icon(Icons.circle),
+                          icon: const Icon(Icons.radio_button_unchecked),
                           color: ColorSeed.values[i].color,
+                          isSelected:
+                              colorSelected.color == ColorSeed.values[i].color,
+                          selectedIcon: const Icon(Icons.circle),
                           onPressed: () {
                             handleColorSelect(i);
                           },
@@ -306,7 +330,7 @@ class _Material3DemoState extends State<Material3Demo>
         children: [
           Flexible(child: brightnessButton(showTooltipBelow: false)),
           Flexible(child: material3Button(showTooltipBelow: false)),
-          Flexible(child: colorSeedButton(const Icon(Icons.more_horiz))),
+          Flexible(child: colorSeedButton()),
         ],
       );
 
@@ -315,7 +339,7 @@ class _Material3DemoState extends State<Material3Demo>
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material 3',
-      themeMode: useLightMode ? ThemeMode.light : ThemeMode.dark,
+      themeMode: themeMode,
       theme: themeData,
       home: AnimatedBuilder(
           animation: controller,
@@ -421,9 +445,6 @@ class _NavigationTransitionState extends State<NavigationTransition> {
             backgroundColor: colorScheme.surface,
             child: widget.navigationRail,
           ),
-          railAnimation.isDismissed
-              ? const SizedBox()
-              : const VerticalDivider(width: 1),
           widget.body,
         ],
       ),

@@ -125,7 +125,6 @@ class _ElevationCardState extends State<ElevationCard> {
   @override
   Widget build(BuildContext context) {
     const BorderRadius borderRadius = BorderRadius.all(Radius.circular(4.0));
-    final bool showOpacity = _elevation == widget.info.elevation;
     final Color color = Theme.of(context).colorScheme.surface;
 
     return Padding(
@@ -150,7 +149,7 @@ class _ElevationCardState extends State<ElevationCard> {
                 '${widget.info.level.toInt()} dp',
                 style: Theme.of(context).textTheme.labelMedium,
               ),
-              if (showOpacity)
+              if (widget.surfaceTint != null)
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomRight,
