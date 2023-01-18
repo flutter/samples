@@ -7,9 +7,9 @@ import 'platform_selector.dart';
 
 class FieldTypesPage extends StatelessWidget {
   FieldTypesPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'field-types';
   static const String title = 'The Context Menu in Different Field Types';
@@ -82,8 +82,8 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerFixed,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context,
+                    editableTextState) {
                   return AdaptiveTextSelectionToolbar.editableText(
                     editableTextState: editableTextState,
                   );
@@ -93,8 +93,8 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerForced,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context,
+                    editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
                     children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
@@ -118,8 +118,8 @@ class FieldTypesPage extends StatelessWidget {
                   // EditableText has no built-in gesture detection for
                   // selection. A wrapper would have to implement
                   // TextSelectionGestureDetectorBuilderDelegate, etc.
-                  contextMenuBuilder: (BuildContext context,
-                      EditableTextState editableTextState) {
+                  contextMenuBuilder: (context,
+                      editableTextState) {
                     return AdaptiveTextSelectionToolbar.editableText(
                       editableTextState: editableTextState,
                     );

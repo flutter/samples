@@ -7,9 +7,9 @@ import 'platform_selector.dart';
 
 class ImagePage extends StatelessWidget {
   const ImagePage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'image';
   static const String title = 'ContextMenu on an Image';
@@ -22,7 +22,7 @@ class ImagePage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
+      builder: (context) =>
           const AlertDialog(title: Text('Image saved! (not really though)')),
     );
   }
@@ -50,7 +50,7 @@ class ImagePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           ContextMenuRegion(
-            contextMenuBuilder: (BuildContext context, Offset offset) {
+            contextMenuBuilder: (context, offset) {
               return AdaptiveTextSelectionToolbar.buttonItems(
                 anchors: TextSelectionToolbarAnchors(
                   primaryAnchor: offset,

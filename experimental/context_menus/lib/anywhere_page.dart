@@ -8,9 +8,9 @@ import 'platform_selector.dart';
 
 class AnywherePage extends StatelessWidget {
   AnywherePage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'anywhere';
   static const String title = 'Context Menu Anywhere Example';
@@ -50,8 +50,8 @@ class AnywherePage extends StatelessWidget {
         ],
       ),
       body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset primaryAnchor,
-            [Offset? secondaryAnchor]) {
+        contextMenuBuilder: (context, primaryAnchor,
+            [secondaryAnchor]) {
           return AdaptiveTextSelectionToolbar.buttonItems(
             anchors: TextSelectionToolbarAnchors(
               primaryAnchor: primaryAnchor,
