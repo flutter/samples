@@ -1516,10 +1516,7 @@ class BottomAppBars extends StatelessWidget {
               bottomNavigationBar: BottomAppBar(
                 child: Row(
                   children: <Widget>[
-                    IconButton(
-                      icon: const Icon(Icons.more_vert),
-                      onPressed: () {},
-                    ),
+                    const MenuExample(),
                     IconButton(
                       tooltip: 'Search',
                       icon: const Icon(Icons.search),
@@ -1537,6 +1534,60 @@ class BottomAppBars extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class MenuExample extends StatefulWidget {
+  const MenuExample({super.key});
+
+  @override
+  State<MenuExample> createState() => _MenuExampleState();
+}
+
+class _MenuExampleState extends State<MenuExample> {
+  @override
+  Widget build(BuildContext context) {
+    return MenuAnchor(
+      builder: (context, controller, child) {
+        return IconButton(
+          onPressed: () {
+            if (controller.isOpen) {
+              controller.close();
+            } else {
+              controller.open();
+            }
+          },
+          icon: const Icon(Icons.more_vert),
+        );
+      },
+      menuChildren: [
+        MenuItemButton(
+          child: const Text('Menu 1'),
+          onPressed: () {},
+        ),
+        MenuItemButton(
+          child: const Text('Menu 2'),
+          onPressed: () {},
+        ),
+        SubmenuButton(
+          menuChildren: <Widget>[
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.1'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.2'),
+            ),
+            MenuItemButton(
+              onPressed: () {},
+              child: const Text('Menu 3.3'),
+            ),
+          ],
+          child: const Text('Menu 3'),
+        ),
+      ],
     );
   }
 }
