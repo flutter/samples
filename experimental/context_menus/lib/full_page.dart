@@ -88,9 +88,9 @@ class FullPage extends StatelessWidget {
                       ),
                       buttonItems: <ContextMenuButtonItem>[
                         ContextMenuButtonItem(
-                          onPressed: () {
+                          onPressed: () async {
                             ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(
+                            await Navigator.of(context).push(_showDialog(
                                 context, 'Image saved! (not really though)'));
                           },
                           label: 'Save',
@@ -117,9 +117,9 @@ class FullPage extends StatelessWidget {
                           0,
                           ContextMenuButtonItem(
                             label: 'Send email',
-                            onPressed: () {
+                            onPressed: () async {
                               ContextMenuController.removeAny();
-                              Navigator.of(context).push(_showDialog(
+                              await Navigator.of(context).push(_showDialog(
                                   context, 'You clicked send email'));
                             },
                           ));

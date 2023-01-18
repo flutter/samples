@@ -57,9 +57,9 @@ class ImagePage extends StatelessWidget {
                 ),
                 buttonItems: <ContextMenuButtonItem>[
                   ContextMenuButtonItem(
-                    onPressed: () {
+                    onPressed: () async {
                       ContextMenuController.removeAny();
-                      Navigator.of(context).push(_showDialog(context));
+                      await Navigator.of(context).push(_showDialog(context));
                     },
                     label: 'Save',
                   ),

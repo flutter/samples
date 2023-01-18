@@ -90,9 +90,9 @@ class DefaultValuesPage extends StatelessWidget {
                     buttonItems: <ContextMenuButtonItem>[
                       ContextMenuButtonItem(
                         label: 'Custom button',
-                        onPressed: () {
+                        onPressed: () async {
                           ContextMenuController.removeAny();
-                          Navigator.of(context).push(_showDialog(
+                          await Navigator.of(context).push(_showDialog(
                               context, 'You clicked the custom button.'));
                         },
                       ),

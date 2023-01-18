@@ -73,9 +73,10 @@ class EmailButtonPage extends StatelessWidget {
                         0,
                         ContextMenuButtonItem(
                           label: 'Send email',
-                          onPressed: () {
+                          onPressed: () async {
                             ContextMenuController.removeAny();
-                            Navigator.of(context).push(_showDialog(context));
+                            await Navigator.of(context)
+                                .push(_showDialog(context));
                           },
                         ));
                   }

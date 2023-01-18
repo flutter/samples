@@ -169,8 +169,8 @@ class _MyListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pushNamed(route);
+      onTap: () async {
+        await Navigator.of(context).pushNamed(route);
       },
       child: Card(
         margin: const EdgeInsets.all(12.0),
