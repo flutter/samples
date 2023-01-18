@@ -11,10 +11,12 @@ import 'elevation_screen.dart';
 import 'typography_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Material3Demo(),
-  ));
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Material3Demo(),
+    ),
+  );
 }
 
 class Material3Demo extends StatefulWidget {
