@@ -115,14 +115,12 @@ class EntryTile extends StatelessWidget {
         children: [
           TextButton(
             child: const Text('Edit'),
-            onPressed: () {
-              showDialog<void>(
-                context: context,
-                builder: (context) {
-                  return EditEntryDialog(category: category, entry: entry);
-                },
-              );
-            },
+            onPressed: () async => showDialog<void>(
+              context: context,
+              builder: (context) {
+                return EditEntryDialog(category: category, entry: entry);
+              },
+            ),
           ),
           TextButton(
             child: const Text('Delete'),

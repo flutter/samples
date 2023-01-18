@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class FragmentShadedState extends State<FragmentShaded>
     );
     _dampenAnimation =
         Tween<double>(begin: 1.0, end: 0.0).animate(_dampenCurve);
-    initializeFragmentProgramsAndBuilder();
+    unawaited(initializeFragmentProgramsAndBuilder());
   }
 
   Future<void> initializeFragmentProgramsAndBuilder() async {

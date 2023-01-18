@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.white),
-            onPressed: () => _handleSignOut(),
+            onPressed: () async => _handleSignOut(),
             child: const Text('Sign Out'),
           ),
         )
@@ -71,18 +71,18 @@ class _HomePageState extends State<HomePage> {
 
   void _handleFabPressed() {
     if (_pageIndex == 0) {
-      showDialog<NewCategoryDialog>(
+      unawaited(showDialog<NewCategoryDialog>(
         context: context,
         builder: (context) => const NewCategoryDialog(),
-      );
+      ));
       return;
     }
 
     if (_pageIndex == 1) {
-      showDialog<NewEntryDialog>(
+      unawaited(showDialog<NewEntryDialog>(
         context: context,
         builder: (context) => const NewEntryDialog(),
-      );
+      ));
       return;
     }
   }

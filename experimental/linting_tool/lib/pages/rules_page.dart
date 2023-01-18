@@ -91,12 +91,10 @@ class RulesPage extends StatelessWidget {
                                 buttonConfigs: [
                                   ContextMenuButtonConfig(
                                     'Remove rule from profile',
-                                    onPressed: () {
-                                      context
-                                          .read<ProfilesStore>()
-                                          .removeRuleFromProfile(
-                                              profile, profile.rules[index]);
-                                    },
+                                    onPressed: () async => context
+                                        .read<ProfilesStore>()
+                                        .removeRuleFromProfile(
+                                            profile, profile.rules[index]),
                                   ),
                                 ],
                               ),
@@ -130,13 +128,10 @@ class RulesPage extends StatelessWidget {
                                               .selectedRules.isNotEmpty)
                                             IconButton(
                                               icon: const Icon(Icons.delete),
-                                              onPressed: () {
-                                                editingController
-                                                    .deleteSelected(
-                                                  profile,
-                                                  profilesStore,
-                                                );
-                                              },
+                                              onPressed: () async =>
+                                                  editingController
+                                                      .deleteSelected(profile,
+                                                          profilesStore),
                                             ),
                                         ],
                                       )

@@ -1,6 +1,8 @@
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -152,11 +154,11 @@ class NarrativePageState extends State<NarrativePage>
     Future.delayed(const Duration(milliseconds: 50), () {
       setState(() {
         if (panelIndex == panels.length - 1) {
-          widget.pageConfig.pageController.nextPage(
+          unawaited(widget.pageConfig.pageController.nextPage(
             duration:
                 const Duration(milliseconds: PagesFlow.pageScrollDuration),
             curve: Curves.easeOut,
-          );
+          ));
         } else {
           panelIndex++;
         }

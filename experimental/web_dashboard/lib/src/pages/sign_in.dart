@@ -90,7 +90,7 @@ class _SignInButtonState extends State<SignInButton> {
 
         return ElevatedButton(
           child: const Text('Sign In with Google'),
-          onPressed: () => _signIn(),
+          onPressed: () async => _signIn(),
         );
       },
     );

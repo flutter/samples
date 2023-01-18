@@ -24,7 +24,7 @@ class NewCategoryDialog extends StatelessWidget {
   }
 }
 
-class EditCategoryDialog extends StatelessWidget {
+class EditCategoryDialog extends StatefulWidget {
   final Category category;
 
   const EditCategoryDialog({
@@ -33,6 +33,11 @@ class EditCategoryDialog extends StatelessWidget {
   });
 
   @override
+  State<EditCategoryDialog> createState() => _EditCategoryDialogState();
+}
+
+class _EditCategoryDialogState extends State<EditCategoryDialog> {
+  @override
   Widget build(BuildContext context) {
     var api = Provider.of<AppState>(context).api;
 
@@ -40,11 +45,13 @@ class EditCategoryDialog extends StatelessWidget {
       title: const Text('Edit Category'),
       children: [
         EditCategoryForm(
-          category: category,
-          onDone: (shouldUpdate) {
+          category: widget.category,
+          onDone: (shouldUpdate) async {
             if (shouldUpdate) {
-              api!.categories.update(category, category.id!);
+              await api!.categories
+                  .update(widget.category, widget.category.id!);
             }
+            if (!mounted) return;
             Navigator.of(context).pop();
           },
         ),
@@ -72,7 +79,7 @@ class _NewEntryDialogState extends State<NewEntryDialog> {
   }
 }
 
-class EditEntryDialog extends StatelessWidget {
+class EditEntryDialog extends StatefulWidget {
   final Category? category;
   final Entry? entry;
 
@@ -83,6 +90,11 @@ class EditEntryDialog extends StatelessWidget {
   });
 
   @override
+  State<EditEntryDialog> createState() => _EditEntryDialogState();
+}
+
+class _EditEntryDialogState extends State<EditEntryDialog> {
+  @override
   Widget build(BuildContext context) {
     var api = Provider.of<AppState>(context).api;
 
@@ -90,11 +102,13 @@ class EditEntryDialog extends StatelessWidget {
       title: const Text('Edit Entry'),
       children: [
         EditEntryForm(
-          entry: entry,
-          onDone: (shouldUpdate) {
+          entry: widget.entry,
+          onDone: (shouldUpdate) async {
             if (shouldUpdate) {
-              api!.entries.update(category!.id!, entry!.id!, entry!);
+              await api!.entries.update(
+                  widget.category!.id!, widget.entry!.id!, widget.entry!);
             }
+            if (!mounted) return;
             Navigator.of(context).pop();
           },
         )

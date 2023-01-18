@@ -57,35 +57,31 @@ class _SavedLintsPageState extends State<SavedLintsPage> {
                     profile.name,
                   ),
                   tileColor: AppColors.white50,
-                  onTap: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => EditingController(),
-                          child: RulesPage(selectedProfileIndex: index),
-                        ),
+                  onTap: () async => Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChangeNotifierProvider(
+                        create: (context) => EditingController(),
+                        child: RulesPage(selectedProfileIndex: index),
                       ),
-                    );
-                  },
+                    ),
+                  ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
                         icon: const Icon(Icons.edit),
-                        onPressed: () {
-                          Navigator.push<void>(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ChangeNotifierProvider(
-                                create: (context) => EditingController(
-                                  isEditing: true,
-                                ),
-                                child: RulesPage(selectedProfileIndex: index),
+                        onPressed: () async => Navigator.push<void>(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChangeNotifierProvider(
+                              create: (context) => EditingController(
+                                isEditing: true,
                               ),
+                              child: RulesPage(selectedProfileIndex: index),
                             ),
-                          );
-                        },
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         width: 8.0,
@@ -147,7 +143,7 @@ class _SavedLintsPageState extends State<SavedLintsPage> {
               height: 16.0,
             ),
             IconButton(
-              onPressed: () => profilesStore.fetchSavedProfiles(),
+              onPressed: () async => profilesStore.fetchSavedProfiles(),
               icon: const Icon(Icons.refresh),
             ),
           ],

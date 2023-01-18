@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -23,7 +24,7 @@ class ProfilesStore extends ChangeNotifier {
   final Repository repository;
 
   ProfilesStore(http.Client httpClient) : repository = Repository(httpClient) {
-    fetchSavedProfiles();
+    unawaited(fetchSavedProfiles());
   }
 
   bool _isLoading = true;

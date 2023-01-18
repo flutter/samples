@@ -22,10 +22,11 @@ class _NewCategoryFormState extends State<NewCategoryForm> {
     var api = Provider.of<AppState>(context).api;
     return EditCategoryForm(
       category: _category,
-      onDone: (shouldInsert) {
+      onDone: (shouldInsert) async {
         if (shouldInsert) {
-          api!.categories.insert(_category);
+          await api!.categories.insert(_category);
         }
+        if (!mounted) return;
         Navigator.of(context).pop();
       },
     );

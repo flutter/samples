@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
               height: 16.0,
             ),
             IconButton(
-              onPressed: () => rulesStore.fetchRules(),
+              onPressed: () async => rulesStore.fetchRules(),
               icon: const Icon(Icons.refresh),
             ),
           ],

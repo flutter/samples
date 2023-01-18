@@ -42,10 +42,11 @@ class _NewEntryFormState extends State<NewEntryForm> {
         ),
         EditEntryForm(
           entry: _entry,
-          onDone: (shouldInsert) {
+          onDone: (shouldInsert) async {
             if (shouldInsert) {
-              api.entries.insert(_selected.id!, _entry);
+              await api.entries.insert(_selected.id!, _entry);
             }
+            if (!mounted) return;
             Navigator.of(context).pop();
           },
         ),

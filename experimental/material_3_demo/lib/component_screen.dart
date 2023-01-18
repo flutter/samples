@@ -593,26 +593,24 @@ class Dialogs extends StatefulWidget {
 }
 
 class _DialogsState extends State<Dialogs> {
-  void openDialog(BuildContext context) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Basic Dialog Title'),
-        content: const Text(
-            'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.'),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Dismiss'),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          TextButton(
-            child: const Text('Action'),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-    );
-  }
+  Future<void> openDialog(BuildContext context) async => showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Basic Dialog Title'),
+          content: const Text(
+              'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Dismiss'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            TextButton(
+              child: const Text('Action'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -626,7 +624,7 @@ class _DialogsState extends State<Dialogs> {
               'Open Dialog',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            onPressed: () => openDialog(context),
+            onPressed: () async => openDialog(context),
           ),
         ),
       ),
@@ -1492,40 +1490,38 @@ class BottomSheetSection extends StatelessWidget {
           'Show Modal bottom sheet',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        onPressed: () {
-          showModalBottomSheet<void>(
-            context: context,
-            builder: (context) {
-              return SizedBox(
-                height: 250,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: buttonList,
-                      ),
+        onPressed: () async => showModalBottomSheet<void>(
+          context: context,
+          builder: (context) {
+            return SizedBox(
+              height: 250,
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: buttonList,
                     ),
-                    const Divider(
-                      indent: 20,
-                      endIndent: 20,
-                      thickness: 2,
-                    ),
-                    Expanded(
-                        flex: 2,
-                        child: Center(
-                          child: FilledButton.tonal(
-                            child: const Text('Close BottomSheet'),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        ))
-                  ],
-                ),
-              );
-            },
-          );
-        },
+                  ),
+                  const Divider(
+                    indent: 20,
+                    endIndent: 20,
+                    thickness: 2,
+                  ),
+                  Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: FilledButton.tonal(
+                          child: const Text('Close BottomSheet'),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ))
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

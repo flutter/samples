@@ -129,14 +129,13 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
       }
       if (status == AnimationStatus.completed) {
         Future.delayed(
-            const Duration(milliseconds: FragmentShaded.dampenDuration + 250),
-            () {
-          widget.pageConfig.pageController.nextPage(
+          const Duration(milliseconds: FragmentShaded.dampenDuration + 250),
+          () async => widget.pageConfig.pageController.nextPage(
             duration:
                 const Duration(milliseconds: PagesFlow.pageScrollDuration),
             curve: Curves.easeOut,
-          );
-        });
+          ),
+        );
       }
     });
     animationController.forward();

@@ -51,8 +51,8 @@ class DefaultLintsPage extends StatelessWidget {
                   profile.name,
                 ),
                 tileColor: AppColors.white50,
-                onTap: () {
-                  Navigator.push<void>(
+                onTap: () async {
+                  await Navigator.push<void>(
                     context,
                     MaterialPageRoute(
                       builder: (context) => DefaultRulesPage(profile: profile),
@@ -73,7 +73,7 @@ class DefaultLintsPage extends StatelessWidget {
               height: 16.0,
             ),
             IconButton(
-              onPressed: () => rulesStore.fetchRules(),
+              onPressed: () async => rulesStore.fetchRules(),
               icon: const Icon(Icons.refresh),
             ),
           ],

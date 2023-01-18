@@ -35,14 +35,12 @@ class CategoryChart extends StatelessWidget {
               Text(category.name),
               IconButton(
                 icon: const Icon(Icons.settings),
-                onPressed: () {
-                  showDialog<EditCategoryDialog>(
-                    context: context,
-                    builder: (context) {
-                      return EditCategoryDialog(category: category);
-                    },
-                  );
-                },
+                onPressed: () async => showDialog<EditCategoryDialog>(
+                  context: context,
+                  builder: (context) {
+                    return EditCategoryDialog(category: category);
+                  },
+                ),
               ),
             ],
           ),

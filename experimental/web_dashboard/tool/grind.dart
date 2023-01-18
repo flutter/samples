@@ -7,7 +7,7 @@ import 'dart:io';
 import 'package:grinder/grinder.dart';
 import 'package:path/path.dart' as path;
 
-void main(List<String> args) => grind(args);
+void main(List<String> args) async => grind(args);
 
 @Task()
 void runSkia() {
@@ -39,9 +39,7 @@ void runFirebaseSkia() {
 }
 
 @Task()
-void test() {
-  TestRunner().testAsync();
-}
+Future<void> test() async => TestRunner().testAsync();
 
 @DefaultTask()
 @Depends(test, copyright)
