@@ -63,8 +63,7 @@ class ModifiedActionPage extends StatelessWidget {
               ),
               TextField(
                 controller: _controller,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
                   // Modify the copy buttonItem to show a dialog after copying.

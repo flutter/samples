@@ -107,8 +107,7 @@ class FullPage extends StatelessWidget {
                 Container(height: 20.0),
                 TextField(
                   controller: _controller,
-                  contextMenuBuilder: (context,
-                      editableTextState) {
+                  contextMenuBuilder: (context, editableTextState) {
                     final TextEditingValue value =
                         editableTextState.textEditingValue;
                     final List<ContextMenuButtonItem> buttonItems =
@@ -130,8 +129,7 @@ class FullPage extends StatelessWidget {
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
-                      children:
-                          buttonItems.map((buttonItem) {
+                      children: buttonItems.map((buttonItem) {
                         return CupertinoButton(
                           borderRadius: null,
                           color: const Color(0xffaaaa00),

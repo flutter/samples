@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Can show and use the cascading menu',
-      (tester) async {
+  testWidgets('Can show and use the cascading menu', (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CascadingMenuPage example.

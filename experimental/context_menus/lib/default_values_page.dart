@@ -84,8 +84,7 @@ class DefaultValuesPage extends StatelessWidget {
                 maxLines: 2,
                 minLines: 2,
                 controller: _controllerCustom,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,
                     buttonItems: <ContextMenuButtonItem>[

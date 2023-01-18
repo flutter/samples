@@ -24,8 +24,7 @@ class GlobalSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SelectionArea(
-      contextMenuBuilder:
-          (context, selectableRegionState) {
+      contextMenuBuilder: (context, selectableRegionState) {
         return AdaptiveTextSelectionToolbar.buttonItems(
           anchors: selectableRegionState.contextMenuAnchors,
           buttonItems: <ContextMenuButtonItem>[

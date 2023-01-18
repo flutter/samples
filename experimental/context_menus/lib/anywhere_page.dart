@@ -50,8 +50,7 @@ class AnywherePage extends StatelessWidget {
         ],
       ),
       body: ContextMenuRegion(
-        contextMenuBuilder: (context, primaryAnchor,
-            [secondaryAnchor]) {
+        contextMenuBuilder: (context, primaryAnchor, [secondaryAnchor]) {
           return AdaptiveTextSelectionToolbar.buttonItems(
             anchors: TextSelectionToolbarAnchors(
               primaryAnchor: primaryAnchor,
