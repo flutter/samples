@@ -177,21 +177,15 @@ class _ButtonsState extends State<Buttons> {
       label: 'Common buttons',
       tooltipMessage:
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: tinySpacing),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const <Widget>[
-            ButtonsWithoutIcon(isDisabled: false),
-            colDivider,
-            ButtonsWithIcon(),
-            colDivider,
-            ButtonsWithoutIcon(isDisabled: true),
-          ],
+      child: Wrap(
+        alignment: WrapAlignment.spaceAround,
+        children: const <Widget>[
+          ButtonsWithoutIcon(isDisabled: false),
+          ButtonsWithIcon(),
+          ButtonsWithoutIcon(isDisabled: true),
+        ],
         ),
-      ),
-    );
+      );
   }
 }
 
@@ -202,33 +196,39 @@ class ButtonsWithoutIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        ElevatedButton(
-          onPressed: isDisabled ? null : () {},
-          child: const Text('Elevated'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: IntrinsicWidth(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: isDisabled ? null : () {},
+              child: const Text('Elevated'),
+            ),
+            colDivider,
+            FilledButton(
+              onPressed: isDisabled ? null : () {},
+              child: const Text('Filled'),
+            ),
+            colDivider,
+            FilledButton.tonal(
+              onPressed: isDisabled ? null : () {},
+              child: const Text('Filled tonal'),
+            ),
+            colDivider,
+            OutlinedButton(
+              onPressed: isDisabled ? null : () {},
+              child: const Text('Outlined'),
+            ),
+            colDivider,
+            TextButton(
+              onPressed: isDisabled ? null : () {},
+              child: const Text('Text'),
+            ),
+          ],
         ),
-        const SizedBox(width: tinySpacing),
-        FilledButton(
-          onPressed: isDisabled ? null : () {},
-          child: const Text('Filled'),
-        ),
-        const SizedBox(width: tinySpacing),
-        FilledButton.tonal(
-          onPressed: isDisabled ? null : () {},
-          child: const Text('Filled tonal'),
-        ),
-        const SizedBox(width: tinySpacing),
-        OutlinedButton(
-          onPressed: isDisabled ? null : () {},
-          child: const Text('Outlined'),
-        ),
-        const SizedBox(width: tinySpacing),
-        TextButton(
-          onPressed: isDisabled ? null : () {},
-          child: const Text('Text'),
-        ),
-      ],
+      ),
     );
   }
 }
@@ -238,38 +238,44 @@ class ButtonsWithIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        ElevatedButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.add),
-          label: const Text('Icon'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: IntrinsicWidth(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+              label: const Text('Icon'),
+            ),
+            colDivider,
+            FilledButton.icon(
+              onPressed: () {},
+              label: const Text('Icon'),
+              icon: const Icon(Icons.add),
+            ),
+            colDivider,
+            FilledButton.tonalIcon(
+              onPressed: () {},
+              label: const Text('Icon'),
+              icon: const Icon(Icons.add),
+            ),
+            colDivider,
+            OutlinedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+              label: const Text('Icon'),
+            ),
+            colDivider,
+            TextButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+              label: const Text('Icon'),
+            )
+          ],
         ),
-        const SizedBox(width: tinySpacing),
-        FilledButton.icon(
-          onPressed: () {},
-          label: const Text('Icon'),
-          icon: const Icon(Icons.add),
-        ),
-        const SizedBox(width: tinySpacing),
-        FilledButton.tonalIcon(
-          onPressed: () {},
-          label: const Text('Icon'),
-          icon: const Icon(Icons.add),
-        ),
-        const SizedBox(width: tinySpacing),
-        OutlinedButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.add),
-          label: const Text('Icon'),
-        ),
-        const SizedBox(width: tinySpacing),
-        TextButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.add),
-          label: const Text('Icon'),
-        )
-      ],
+      ),
     );
   }
 }
