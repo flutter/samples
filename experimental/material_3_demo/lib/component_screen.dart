@@ -177,13 +177,16 @@ class _ButtonsState extends State<Buttons> {
       label: 'Common buttons',
       tooltipMessage:
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
-      child: Wrap(
-        alignment: WrapAlignment.spaceAround,
-        children: const <Widget>[
-          ButtonsWithoutIcon(isDisabled: false),
-          ButtonsWithIcon(),
-          ButtonsWithoutIcon(isDisabled: true),
-        ],
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const <Widget>[
+            ButtonsWithoutIcon(isDisabled: false),
+            ButtonsWithIcon(),
+            ButtonsWithoutIcon(isDisabled: true),
+          ],
+        ),
       ),
     );
   }
