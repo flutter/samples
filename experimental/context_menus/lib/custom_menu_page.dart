@@ -18,8 +18,7 @@ class CustomMenuPage extends StatelessWidget {
   final PlatformCallback onChangedPlatform;
 
   final TextEditingController _controller = TextEditingController(
-    text:
-        'Show the menu to see a custom menu with the default buttons.',
+    text: 'Show the menu to see a custom menu with the default buttons.',
   );
 
   static const String url = '$kCodeUrl/custom_menu_page.dart';
