@@ -6,9 +6,9 @@ import 'platform_selector.dart';
 
 class GlobalSelectionPage extends StatelessWidget {
   GlobalSelectionPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'global-selection';
   static const String title = 'Global Selection Example';
@@ -25,7 +25,7 @@ class GlobalSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SelectionArea(
       contextMenuBuilder:
-          (BuildContext context, SelectableRegionState selectableRegionState) {
+          (context, selectableRegionState) {
         return AdaptiveTextSelectionToolbar.buttonItems(
           anchors: selectableRegionState.contextMenuAnchors,
           buttonItems: <ContextMenuButtonItem>[

@@ -45,29 +45,29 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
-        '/': (BuildContext context) =>
+        '/': (context) =>
             MyHomePage(onChangedPlatform: onChangedPlatform),
-        AnywherePage.route: (BuildContext context) =>
+        AnywherePage.route: (context) =>
             AnywherePage(onChangedPlatform: onChangedPlatform),
-        CustomButtonsPage.route: (BuildContext context) =>
+        CustomButtonsPage.route: (context) =>
             CustomButtonsPage(onChangedPlatform: onChangedPlatform),
-        ReorderedButtonsPage.route: (BuildContext context) =>
+        ReorderedButtonsPage.route: (context) =>
             ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
-        EmailButtonPage.route: (BuildContext context) =>
+        EmailButtonPage.route: (context) =>
             EmailButtonPage(onChangedPlatform: onChangedPlatform),
-        ImagePage.route: (BuildContext context) =>
+        ImagePage.route: (context) =>
             ImagePage(onChangedPlatform: onChangedPlatform),
-        FieldTypesPage.route: (BuildContext context) =>
+        FieldTypesPage.route: (context) =>
             FieldTypesPage(onChangedPlatform: onChangedPlatform),
-        FullPage.route: (BuildContext context) =>
+        FullPage.route: (context) =>
             FullPage(onChangedPlatform: onChangedPlatform),
-        ModifiedActionPage.route: (BuildContext context) =>
+        ModifiedActionPage.route: (context) =>
             ModifiedActionPage(onChangedPlatform: onChangedPlatform),
-        GlobalSelectionPage.route: (BuildContext context) =>
+        GlobalSelectionPage.route: (context) =>
             GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
-        DefaultValuesPage.route: (BuildContext context) =>
+        DefaultValuesPage.route: (context) =>
             DefaultValuesPage(onChangedPlatform: onChangedPlatform),
-        CascadingMenuPage.route: (BuildContext context) =>
+        CascadingMenuPage.route: (context) =>
             CascadingMenuPage(onChangedPlatform: onChangedPlatform),
       },
     );
