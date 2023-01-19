@@ -184,8 +184,8 @@ class _ButtonsState extends State<Buttons> {
           ButtonsWithIcon(),
           ButtonsWithoutIcon(isDisabled: true),
         ],
-        ),
-      );
+      ),
+    );
   }
 }
 
