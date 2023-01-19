@@ -15,7 +15,7 @@ void main() {
     await tester.dragUntilVisible(
       find.text(CascadingMenuPage.title),
       find.byType(ListView),
-      const Offset(0.0, -300.0),
+      const Offset(0.0, -250.0),
     );
     await tester.tap(find.text(CascadingMenuPage.title));
     await tester.pumpAndSettle();
