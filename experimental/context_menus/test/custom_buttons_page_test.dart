@@ -1,15 +1,14 @@
+import 'package:context_menus/custom_buttons_page.dart';
+import 'package:context_menus/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:context_menus/main.dart';
-import 'package:context_menus/custom_buttons_page.dart';
-
 void main() {
   testWidgets('Shows custom buttons in the built-in context menu',
-      (WidgetTester tester) async {
+      (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CustomButtonsPage example.

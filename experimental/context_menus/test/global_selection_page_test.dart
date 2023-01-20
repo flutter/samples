@@ -1,13 +1,12 @@
+import 'package:context_menus/global_selection_page.dart';
+import 'package:context_menus/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:context_menus/main.dart';
-import 'package:context_menus/global_selection_page.dart';
-
 void main() {
   testWidgets('Gives correct behavior for all values of contextMenuBuilder',
-      (WidgetTester tester) async {
+      (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the GlobalSelectionPage example.

@@ -1,12 +1,11 @@
+import 'package:context_menus/anywhere_page.dart';
+import 'package:context_menus/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:context_menus/main.dart';
-import 'package:context_menus/anywhere_page.dart';
-
 void main() {
-  testWidgets('Right click works outside of text', (WidgetTester tester) async {
+  testWidgets('Right click works outside of text', (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the AnywherePage example.
