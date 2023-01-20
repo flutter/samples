@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'anywhere_page.dart';
 import 'cascading_menu_page.dart';
 import 'custom_buttons_page.dart';
+import 'custom_menu_page.dart';
 import 'default_values_page.dart';
 import 'email_button_page.dart';
 import 'field_types_page.dart';
@@ -51,6 +52,8 @@ class _MyAppState extends State<MyApp> {
             AnywherePage(onChangedPlatform: onChangedPlatform),
         CustomButtonsPage.route: (context) =>
             CustomButtonsPage(onChangedPlatform: onChangedPlatform),
+        CustomMenuPage.route: (context) =>
+            CustomMenuPage(onChangedPlatform: onChangedPlatform),
         ReorderedButtonsPage.route: (context) =>
             ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
         EmailButtonPage.route: (context) =>
@@ -114,6 +117,11 @@ class MyHomePage extends StatelessWidget {
             route: CustomButtonsPage.route,
             title: CustomButtonsPage.title,
             subtitle: CustomButtonsPage.subtitle,
+          ),
+          _MyListItem(
+            route: CustomMenuPage.route,
+            title: CustomMenuPage.title,
+            subtitle: CustomMenuPage.subtitle,
           ),
           _MyListItem(
             route: EmailButtonPage.route,
