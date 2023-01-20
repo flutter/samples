@@ -1525,7 +1525,7 @@ class BottomAppBars extends StatelessWidget {
               bottomNavigationBar: BottomAppBar(
                 child: Row(
                   children: <Widget>[
-                    const MenuExample(),
+                    const IconButtonAnchorExample(),
                     IconButton(
                       tooltip: 'Search',
                       icon: const Icon(Icons.search),
@@ -1547,14 +1547,9 @@ class BottomAppBars extends StatelessWidget {
   }
 }
 
-class MenuExample extends StatefulWidget {
-  const MenuExample({super.key});
+class IconButtonAnchorExample extends StatelessWidget {
+  const IconButtonAnchorExample({super.key});
 
-  @override
-  State<MenuExample> createState() => _MenuExampleState();
-}
-
-class _MenuExampleState extends State<MenuExample> {
   @override
   Widget build(BuildContext context) {
     return MenuAnchor(
@@ -1595,6 +1590,45 @@ class _MenuExampleState extends State<MenuExample> {
             ),
           ],
           child: const Text('Menu 3'),
+        ),
+      ],
+    );
+  }
+}
+
+class ButtonAnchorExample extends StatelessWidget {
+  const ButtonAnchorExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MenuAnchor(
+      builder: (context, controller, child) {
+        return FilledButton.tonal(
+          onPressed: () {
+            if (controller.isOpen) {
+              controller.close();
+            } else {
+              controller.open();
+            }
+          },
+          child: const Text('Show menu'),
+        );
+      },
+      menuChildren: [
+        MenuItemButton(
+          leadingIcon: const Icon(Icons.people_alt_outlined),
+          child: const Text('Item 1'),
+          onPressed: () {},
+        ),
+        MenuItemButton(
+          leadingIcon: const Icon(Icons.remove_red_eye_outlined),
+          child: const Text('Item 2'),
+          onPressed: () {},
+        ),
+        MenuItemButton(
+          leadingIcon: const Icon(Icons.refresh),
+          onPressed: () {},
+          child: const Text('Item 3'),
         ),
       ],
     );
@@ -1787,43 +1821,59 @@ class _DropdownMenusState extends State<DropdownMenus> {
     }
 
     return ComponentDecoration(
-      label: 'Dropdown menus',
-      tooltipMessage: 'Use DropdownMenu<T>',
-      child: Wrap(
-        alignment: WrapAlignment.spaceAround,
-        runAlignment: WrapAlignment.start,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: smallSpacing,
-        runSpacing: smallSpacing,
+      label: 'Menus',
+      tooltipMessage: 'Use DropdownMenu<T> or MenuAnchor',
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DropdownMenu<ColorLabel>(
-            controller: colorController,
-            label: const Text('Color'),
-            enableFilter: true,
-            dropdownMenuEntries: colorEntries,
-            inputDecorationTheme: const InputDecorationTheme(filled: true),
-            onSelected: (color) {
-              setState(() {
-                selectedColor = color;
-              });
-            },
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const <Widget>[
+              ButtonAnchorExample(),
+              rowDivider,
+              IconButtonAnchorExample(),
+            ],
           ),
-          DropdownMenu<IconLabel>(
-            initialSelection: IconLabel.smile,
-            controller: iconController,
-            leadingIcon: const Icon(Icons.search),
-            label: const Text('Icon'),
-            dropdownMenuEntries: iconEntries,
-            onSelected: (icon) {
-              setState(() {
-                selectedIcon = icon;
-              });
-            },
+          colDivider,
+          Wrap(
+            alignment: WrapAlignment.spaceAround,
+            runAlignment: WrapAlignment.start,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: smallSpacing,
+            runSpacing: smallSpacing,
+            children: [
+              DropdownMenu<ColorLabel>(
+                controller: colorController,
+                label: const Text('Color'),
+                enableFilter: true,
+                dropdownMenuEntries: colorEntries,
+                inputDecorationTheme: const InputDecorationTheme(filled: true),
+                onSelected: (color) {
+                  setState(() {
+                    selectedColor = color;
+                  });
+                },
+              ),
+              DropdownMenu<IconLabel>(
+                initialSelection: IconLabel.smile,
+                controller: iconController,
+                leadingIcon: const Icon(Icons.search),
+                label: const Text('Icon'),
+                dropdownMenuEntries: iconEntries,
+                onSelected: (icon) {
+                  setState(() {
+                    selectedIcon = icon;
+                  });
+                },
+              ),
+              Icon(
+                selectedIcon?.icon,
+                color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),
+              )
+            ],
           ),
-          Icon(
-            selectedIcon?.icon,
-            color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),
-          )
         ],
       ),
     );
