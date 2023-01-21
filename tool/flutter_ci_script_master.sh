@@ -21,7 +21,8 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(DomesticMouse): Reformat code
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"

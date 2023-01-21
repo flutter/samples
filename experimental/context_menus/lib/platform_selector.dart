@@ -32,7 +32,7 @@ class _PlatformSelectorState extends State<PlatformSelector> {
         value: defaultTargetPlatform,
         icon: const Icon(Icons.arrow_downward),
         elevation: 16,
-        onChanged: (TargetPlatform? value) {
+        onChanged: (value) {
           if (value == null) {
             return;
           }
@@ -40,7 +40,7 @@ class _PlatformSelectorState extends State<PlatformSelector> {
           widget.onChangedPlatform(value);
           setState(() {});
         },
-        items: TargetPlatform.values.map((TargetPlatform platform) {
+        items: TargetPlatform.values.map((platform) {
           return DropdownMenuItem<TargetPlatform>(
             value: platform,
             child: Row(
