@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Shows default buttons in a custom context menu',
-      (tester) async {
+  testWidgets('Shows default buttons in a custom context menu', (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CustomMenuPage example.

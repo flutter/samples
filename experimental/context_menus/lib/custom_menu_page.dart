@@ -49,8 +49,7 @@ class CustomMenuPage extends StatelessWidget {
             controller: _controller,
             maxLines: 4,
             minLines: 2,
-            contextMenuBuilder:
-                (context, editableTextState) {
+            contextMenuBuilder: (context, editableTextState) {
               return _MyContextMenu(
                 anchor: editableTextState.contextMenuAnchors.primaryAnchor,
                 children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(

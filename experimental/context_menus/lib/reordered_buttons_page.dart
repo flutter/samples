@@ -60,8 +60,7 @@ class ReorderedButtonsPage extends StatelessWidget {
               TextField(
                 controller: _controllerReordered,
                 maxLines: 2,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   // Reorder the button datas by type.
                   final HashMap<ContextMenuButtonType, ContextMenuButtonItem>
                       buttonItemsMap =

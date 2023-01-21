@@ -63,8 +63,7 @@ class EmailButtonPage extends StatelessWidget {
               TextField(
                 maxLines: 2,
                 controller: _controller,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   final TextEditingValue value =
                       editableTextState.textEditingValue;
                   final List<ContextMenuButtonItem> buttonItems =
