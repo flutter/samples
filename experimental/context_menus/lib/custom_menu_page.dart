@@ -6,9 +6,9 @@ import 'platform_selector.dart';
 
 class CustomMenuPage extends StatelessWidget {
   CustomMenuPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'custom-menu';
   static const String title = 'Custom Menu';
@@ -50,7 +50,7 @@ class CustomMenuPage extends StatelessWidget {
             maxLines: 4,
             minLines: 2,
             contextMenuBuilder:
-                (BuildContext context, EditableTextState editableTextState) {
+                (context, editableTextState) {
               return _MyContextMenu(
                 anchor: editableTextState.contextMenuAnchors.primaryAnchor,
                 children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
