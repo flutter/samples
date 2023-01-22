@@ -50,7 +50,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(DomesticMouse): A value of type 'dynamic' can't be returned from the method 'build' because it has a return type of 'Widget'.
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web/_tool"
