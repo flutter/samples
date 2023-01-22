@@ -82,8 +82,7 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerFixed,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   return AdaptiveTextSelectionToolbar.editableText(
                     editableTextState: editableTextState,
                   );
@@ -93,8 +92,7 @@ class FieldTypesPage extends StatelessWidget {
               CupertinoTextField(
                 maxLines: 3,
                 controller: _cupertinoControllerForced,
-                contextMenuBuilder: (context,
-                    editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   return DesktopTextSelectionToolbar(
                     anchor: editableTextState.contextMenuAnchors.primaryAnchor,
                     children: AdaptiveTextSelectionToolbar.getAdaptiveButtons(
@@ -118,8 +116,7 @@ class FieldTypesPage extends StatelessWidget {
                   // EditableText has no built-in gesture detection for
                   // selection. A wrapper would have to implement
                   // TextSelectionGestureDetectorBuilderDelegate, etc.
-                  contextMenuBuilder: (context,
-                      editableTextState) {
+                  contextMenuBuilder: (context, editableTextState) {
                     return AdaptiveTextSelectionToolbar.editableText(
                       editableTextState: editableTextState,
                     );
