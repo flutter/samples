@@ -80,8 +80,7 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
   @override
   Widget build(BuildContext context) {
     return ContextMenuRegion(
-      contextMenuBuilder: (context, primaryAnchor,
-          [secondaryAnchor]) {
+      contextMenuBuilder: (context, primaryAnchor, [secondaryAnchor]) {
         return _MyCascadingContextMenu(
           anchor: primaryAnchor,
           showingMessage: _showMessage,

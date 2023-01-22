@@ -46,8 +46,7 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
-        '/': (context) =>
-            MyHomePage(onChangedPlatform: onChangedPlatform),
+        '/': (context) => MyHomePage(onChangedPlatform: onChangedPlatform),
         AnywherePage.route: (context) =>
             AnywherePage(onChangedPlatform: onChangedPlatform),
         CustomButtonsPage.route: (context) =>

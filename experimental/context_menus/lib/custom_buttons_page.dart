@@ -51,15 +51,14 @@ class CustomButtonsPage extends StatelessWidget {
             controller: _controller,
             maxLines: 4,
             minLines: 2,
-            contextMenuBuilder:
-                (context, editableTextState) {
+            contextMenuBuilder: (context, editableTextState) {
               return AdaptiveTextSelectionToolbar(
                 anchors: editableTextState.contextMenuAnchors,
                 // Build the default buttons, but make them look custom.
                 // Note that in a real project you may want to build
                 // different buttons depending on the platform.
-                children: editableTextState.contextMenuButtonItems
-                    .map((buttonItem) {
+                children:
+                    editableTextState.contextMenuButtonItems.map((buttonItem) {
                   return CupertinoButton(
                     borderRadius: null,
                     color: const Color(0xffaaaa00),
