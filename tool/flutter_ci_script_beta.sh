@@ -28,7 +28,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
-    "experimental/linting_tool"
+    # TODO(DomesticMouse): 'bottomAppBarColor' is deprecated and shouldn't be used.
+    # "experimental/linting_tool"
     "experimental/material_3_demo"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
