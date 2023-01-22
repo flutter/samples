@@ -21,7 +21,8 @@ declare -ar PROJECT_NAMES=(
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
-    "experimental/context_menus"
+    # TODO(DomesticMouse): enable after Flutter stable increment
+    # "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
     "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
@@ -29,8 +30,10 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
-    "experimental/varfont_shader_puzzle"
+    # TODO(DomesticMouse): enable after Flutter stable increment
+    # "experimental/material_3_demo"
+    # TODO(DomesticMouse): enable after Flutter stable increment
+    # "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
     "form_app"
