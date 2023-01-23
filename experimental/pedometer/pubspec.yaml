@@ -16,9 +16,9 @@ dependencies:
       url: https://github.com/dart-lang/jnigen
       ref: suspend-fun
       path: ./jni
+  ffi: ^2.0.1
 
 dev_dependencies:
-  ffi: ^2.0.1
   ffigen: ^7.2.1
   jnigen:
     git:
