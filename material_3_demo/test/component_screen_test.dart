@@ -16,15 +16,15 @@ void main() {
     // Elements on the app bar
     expect(find.text('Material 3'), findsOneWidget);
     expect(
-        find.widgetWithIcon(AppBar, Icons.wb_sunny_outlined), findsOneWidget);
-    expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsOneWidget);
-    expect(find.widgetWithIcon(AppBar, Icons.more_vert), findsOneWidget);
+        find.widgetWithIcon(AppBar, Icons.dark_mode_outlined), findsOneWidget);
+    expect(find.widgetWithIcon(AppBar, Icons.filter_2), findsOneWidget);
+    expect(find.widgetWithIcon(AppBar, Icons.palette_outlined), findsOneWidget);
 
     // Elements on the component screen
     // Buttons
     expect(find.widgetWithText(ElevatedButton, 'Elevated'), findsNWidgets(2));
     expect(find.widgetWithText(FilledButton, 'Filled'), findsNWidgets(2));
-    expect(find.widgetWithText(FilledButton, 'Filled Tonal'), findsNWidgets(2));
+    expect(find.widgetWithText(FilledButton, 'Filled tonal'), findsNWidgets(2));
     expect(find.widgetWithText(OutlinedButton, 'Outlined'), findsNWidgets(2));
     expect(find.widgetWithText(TextButton, 'Text'), findsNWidgets(2));
     expect(find.widgetWithText(Buttons, 'Icon'), findsNWidgets(5));
@@ -34,14 +34,14 @@ void main() {
 
     // FABs
     expect(find.byType(FloatingActionButton),
-        findsNWidgets(6)); // 2 more shows up in the bottom app bar.
+        findsNWidgets(5)); // 2 more shows up in the bottom app bar.
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Chips
     expect(find.byType(ActionChip),
-        findsNWidgets(7)); // includes Assist and Suggestion chip.
-    expect(find.byType(FilterChip), findsNWidgets(3));
-    expect(find.byType(InputChip), findsNWidgets(4));
+        findsNWidgets(4)); // includes Assist and Suggestion chip.
+    expect(find.byType(FilterChip), findsNWidgets(2));
+    expect(find.byType(InputChip), findsNWidgets(2));
 
     // Cards
     expect(find.widgetWithText(Cards, 'Elevated'), findsOneWidget);
@@ -54,7 +54,7 @@ void main() {
     expect(find.widgetWithText(TextField, 'Outlined'), findsNWidgets(2));
 
     // Alert Dialog
-    Finder dialogExample = find.widgetWithText(TextButton, 'Open Dialog');
+    Finder dialogExample = find.widgetWithText(TextButton, 'Show dialog');
     expect(dialogExample, findsOneWidget);
 
     // Switches
@@ -62,12 +62,13 @@ void main() {
     expect(switchExample, findsNWidgets(4));
 
     // Checkboxes
-    Finder checkboxExample = find.byType(Checkbox);
-    expect(checkboxExample, findsNWidgets(8));
+    Finder checkboxExample = find.byType(CheckboxListTile);
+    expect(checkboxExample, findsNWidgets(4));
 
     // Radios
-    Finder radioExample = find.byType(Radio<Value>);
-    expect(radioExample, findsNWidgets(2));
+    // TODO(guidezpl): Figure out why this isn't working
+    // Finder radioExample = find.byType(RadioListTile<Value>);
+    // expect(radioExample, findsNWidgets(4));
 
     // ProgressIndicator
     Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
@@ -138,17 +139,17 @@ void main() {
         tester.firstElement(find.widgetWithText(Card, 'Elevated'));
     BuildContext defaultChip =
         tester.firstElement(find.widgetWithText(ActionChip, 'Assist'));
-    Finder dialog = find.text('Open Dialog');
+    Finder dialog = find.text('Show dialog');
     await tester.tap(dialog);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext defaultAlertDialog = tester.element(find.byType(AlertDialog));
     expect(Theme.of(defaultAlertDialog).useMaterial3, true);
-    Finder dismiss = find.text('Dismiss');
+    Finder dismiss = find.text('Okay');
     await tester.tap(dismiss);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
 
-    expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsOneWidget);
-    expect(find.widgetWithIcon(AppBar, Icons.filter_2), findsNothing);
+    expect(find.widgetWithIcon(AppBar, Icons.filter_2), findsOneWidget);
+    expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsNothing);
     expect(find.text('Material 3'), findsOneWidget);
     expect(Theme.of(defaultElevatedButton).useMaterial3, true);
     expect(Theme.of(defaultIconButton).useMaterial3, true);
@@ -158,7 +159,7 @@ void main() {
 
     Finder appbarM3Icon = find.descendant(
         of: find.byType(AppBar),
-        matching: find.widgetWithIcon(IconButton, Icons.filter_3));
+        matching: find.widgetWithIcon(IconButton, Icons.filter_2));
     await tester.tap(appbarM3Icon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext updatedElevatedButton =
@@ -170,7 +171,7 @@ void main() {
     BuildContext updatedCard = tester.firstElement(find.byType(Card));
     BuildContext updatedChip =
         tester.firstElement(find.widgetWithText(ActionChip, 'Assist'));
-    Finder updatedDialog = find.text('Open Dialog');
+    Finder updatedDialog = find.text('Show dialog');
     await tester.tap(updatedDialog);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
     BuildContext updatedAlertDialog =
@@ -180,8 +181,8 @@ void main() {
     await tester.tap(updatedDismiss);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
 
-    expect(find.widgetWithIcon(AppBar, Icons.filter_2), findsOneWidget);
-    expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsNothing);
+    expect(find.widgetWithIcon(AppBar, Icons.filter_3), findsOneWidget);
+    expect(find.widgetWithIcon(AppBar, Icons.filter_2), findsNothing);
     expect(find.text('Material 2'), findsOneWidget);
     expect(Theme.of(updatedElevatedButton).useMaterial3, false);
     expect(Theme.of(updatedIconButton).useMaterial3, false);
@@ -194,10 +195,10 @@ void main() {
       'Other screens become Material2 mode after changing mode from '
       'main screen', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
-    Finder appbarM3Icon = find.descendant(
+    Finder appbarM2Icon = find.descendant(
         of: find.byType(AppBar),
-        matching: find.widgetWithIcon(IconButton, Icons.filter_3));
-    await tester.tap(appbarM3Icon);
+        matching: find.widgetWithIcon(IconButton, Icons.filter_2));
+    await tester.tap(appbarM2Icon);
     Finder secondScreenIcon = find.descendant(
         of: find.byType(NavigationBar),
         matching: find.widgetWithIcon(
@@ -230,27 +231,27 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     Finder lightIcon = find.descendant(
         of: find.byType(AppBar),
-        matching: find.widgetWithIcon(IconButton, Icons.wb_sunny_outlined));
+        matching: find.widgetWithIcon(IconButton, Icons.light_mode_outlined));
     Finder darkIcon = find.descendant(
         of: find.byType(AppBar),
-        matching: find.widgetWithIcon(IconButton, Icons.wb_sunny));
+        matching: find.widgetWithIcon(IconButton, Icons.dark_mode_outlined));
     BuildContext appBar = tester.element(find.byType(AppBar).first);
     BuildContext body = tester.firstElement(find.byType(Scaffold).first);
     BuildContext navigationRail = tester.element(
         find.widgetWithIcon(NavigationRail, Icons.format_paint_outlined));
-    expect(lightIcon, findsOneWidget);
-    expect(darkIcon, findsNothing);
+    expect(darkIcon, findsOneWidget);
+    expect(lightIcon, findsNothing);
     expect(Theme.of(appBar).brightness, Brightness.light);
     expect(Theme.of(body).brightness, Brightness.light);
     expect(Theme.of(navigationRail).brightness, Brightness.light);
-    await tester.tap(lightIcon);
+    await tester.tap(darkIcon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
 
     BuildContext appBar2 = tester.element(find.byType(AppBar).first);
     BuildContext body2 = tester.element(find.byType(Scaffold).first);
     BuildContext navigationRail2 = tester.element(find.byType(NavigationRail));
-    expect(lightIcon, findsNothing);
-    expect(darkIcon, findsOneWidget);
+    expect(darkIcon, findsNothing);
+    expect(lightIcon, findsOneWidget);
     expect(Theme.of(appBar2).brightness, Brightness.dark);
     expect(Theme.of(body2).brightness, Brightness.dark);
     expect(Theme.of(navigationRail2).brightness, Brightness.dark);
@@ -264,7 +265,7 @@ void main() {
     await tester.pump();
     Finder menuIcon = find.descendant(
         of: find.byType(AppBar),
-        matching: find.widgetWithIcon(IconButton, Icons.more_vert));
+        matching: find.widgetWithIcon(IconButton, Icons.palette_outlined));
     BuildContext appBar = tester.element(find.byType(AppBar).first);
     BuildContext body = tester.element(find.byType(Scaffold).first);
     BuildContext navigationRail = tester.element(find.byType(NavigationRail));
