@@ -16,6 +16,7 @@ void main() {
       find.byType(ListView),
       const Offset(0.0, -200.0),
     );
+    await tester.pumpAndSettle();
     await tester.tap(find.text(CustomMenuPage.title));
     await tester.pumpAndSettle();
 
