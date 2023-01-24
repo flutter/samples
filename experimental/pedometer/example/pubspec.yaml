@@ -44,6 +44,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   ffi: ^2.0.1
   intl: ^0.18.0
+  jni:
+    git:
+      url: https://github.com/dart-lang/jnigen
+      ref: suspend-fun
+      path: ./jni
   fl_chart: ^0.55.2
 
 dev_dependencies:
