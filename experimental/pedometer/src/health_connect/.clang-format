@@ -1,0 +1,15 @@
+# From dart SDK: https://github.com/dart-lang/sdk/blob/main/.clang-format
+
+# Defines the Chromium style for automatic reformatting.
+# http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+BasedOnStyle: Chromium
+
+# clang-format doesn't seem to do a good job of this for longer comments.
+ReflowComments: 'false'
+
+# We have lots of these. Though we need to put them all in curly braces,
+# clang-format can't do that.
+AllowShortIfStatementsOnASingleLine: 'true'
+
+# Put escaped newlines into the rightmost column.
+AlignEscapedNewlinesLeft: false

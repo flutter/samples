@@ -15,6 +15,7 @@ void main() {
       find.byType(ListView),
       const Offset(0.0, -250.0),
     );
+    await tester.pumpAndSettle();
     await tester.tap(find.text(CascadingMenuPage.title));
     await tester.pumpAndSettle();
 

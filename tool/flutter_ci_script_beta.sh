@@ -30,6 +30,7 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
