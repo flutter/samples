@@ -33,6 +33,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): enable after Flutter stable increment
     # "experimental/material_3_demo"
     # TODO(DomesticMouse): enable after Flutter stable increment
+    # "experimental/pedometer"
+    # TODO(DomesticMouse): enable after Flutter stable increment
     # "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"

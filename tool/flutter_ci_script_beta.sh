@@ -31,6 +31,7 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): 'bottomAppBarColor' is deprecated and shouldn't be used.
     # "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
