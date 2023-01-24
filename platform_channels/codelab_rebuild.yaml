@@ -7,6 +7,9 @@ steps:
       - ios
   - name: Flutter recreate
     flutter: create --platform android,ios --org dev.flutter .
+  - name: Strip DEVELOPMENT_TEAM
+    strip-lines-containing: DEVELOPMENT_TEAM =
+    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Patch android/settings.gradle
     path: android/settings.gradle
     patch-u: |

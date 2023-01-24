@@ -66,6 +66,15 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     super.dispose();
   }
 
+  @override
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
+    if (_hasFocus && _hasInputConnection) {
+      oldControl?.hide();
+      newControl?.show();
+    }
+  }
+
   /// [DeltaTextInputClient] method implementations.
   @override
   void connectionClosed() {
@@ -97,6 +106,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void performPrivateCommand(String action, Map<String, dynamic> data) {
+    // Will not implement.
+  }
+
+  @override
+  void performSelector(String selectorName) {
     // Will not implement.
   }
 
@@ -685,6 +699,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           onSelectionHandleTapped: () {
             _toggleToolbar();
           },
+          magnifierConfiguration: TextMagnifierConfiguration.disabled,
         );
       } else {
         _selectionOverlay!.update(_value);
@@ -757,7 +772,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                   textAlign: TextAlign.left,
                   textDirection: _textDirection,
                   locale: Localizations.maybeLocaleOf(context),
-                  textHeightBehavior: DefaultTextHeightBehavior.of(context),
+                  textHeightBehavior:
+                      DefaultTextHeightBehavior.maybeOf(context),
                   textWidthBasis: TextWidthBasis.parent,
                   obscuringCharacter: '•',
                   obscureText:
