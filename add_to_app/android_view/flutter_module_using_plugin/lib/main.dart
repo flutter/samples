@@ -76,6 +76,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Module Title',
+      theme: ThemeData(useMaterial3: true),
       routes: {
         '/': (context) => const FullScreenView(),
         '/mini': (context) => const Contents(),
@@ -155,13 +156,13 @@ class Contents extends StatelessWidget {
                 const SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
-                    return ElevatedButton(
+                    return FilledButton(
                       onPressed: () => model.increment(),
                       child: const Text('Tap me!'),
                     );
                   },
                 ),
-                ElevatedButton(
+                FilledButton(
                   onPressed: () async {
                     // Use the url_launcher plugin to open the Flutter docs in
                     // a browser.
@@ -174,7 +175,7 @@ class Contents extends StatelessWidget {
                 ),
                 if (showExit) ...[
                   const SizedBox(height: 16),
-                  ElevatedButton(
+                  FilledButton(
                     onPressed: () => SystemNavigator.pop(),
                     child: const Text('Exit this screen'),
                   ),
