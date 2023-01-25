@@ -1,7 +1,7 @@
 # Run with tooling from https://github.com/flutter/codelabs/tree/main/tooling/codelab_rebuild
 name: Form App rebuild script
 steps:
-  - name: Remove fluent_ui runners
+  - name: Remove runners
     rmdirs: 
       - android
       - ios
@@ -11,6 +11,9 @@ steps:
       - web
   - name: Flutter recreate
     flutter: create --platforms android,ios,windows,linux,macos,web --org dev.flutter.formApp .
+  - name: Strip DEVELOPMENT_TEAM
+    strip-lines-containing: DEVELOPMENT_TEAM =
+    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Drop widget_test.dart
     rm: test/widget_test.dart
   - name: Flutter upgrade

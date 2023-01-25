@@ -1,3 +1,5 @@
+import 'package:context_menus/email_button_page.dart';
+import 'package:context_menus/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -5,22 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:context_menus/main.dart';
-import 'package:context_menus/email_button_page.dart';
-
 import 'utils.dart';
 
 void main() {
   testWidgets('Selecting the email address shows a custom button',
-      (WidgetTester tester) async {
+      (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the EmailButtonPage example.
     await tester.dragUntilVisible(
       find.text(EmailButtonPage.title),
       find.byType(ListView),
-      const Offset(0.0, -200.0),
+      const Offset(0.0, -100.0),
     );
+    await tester.pumpAndSettle();
     await tester.tap(find.text(EmailButtonPage.title));
     await tester.pumpAndSettle();
 

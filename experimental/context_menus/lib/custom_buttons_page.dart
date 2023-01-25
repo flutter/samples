@@ -7,9 +7,9 @@ import 'platform_selector.dart';
 
 class CustomButtonsPage extends StatelessWidget {
   CustomButtonsPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'custom-buttons';
   static const String title = 'Custom Buttons';
@@ -51,15 +51,14 @@ class CustomButtonsPage extends StatelessWidget {
             controller: _controller,
             maxLines: 4,
             minLines: 2,
-            contextMenuBuilder:
-                (BuildContext context, EditableTextState editableTextState) {
+            contextMenuBuilder: (context, editableTextState) {
               return AdaptiveTextSelectionToolbar(
                 anchors: editableTextState.contextMenuAnchors,
                 // Build the default buttons, but make them look custom.
                 // Note that in a real project you may want to build
                 // different buttons depending on the platform.
-                children: editableTextState.contextMenuButtonItems
-                    .map((ContextMenuButtonItem buttonItem) {
+                children:
+                    editableTextState.contextMenuButtonItems.map((buttonItem) {
                   return CupertinoButton(
                     borderRadius: null,
                     color: const Color(0xffaaaa00),

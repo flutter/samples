@@ -8,6 +8,7 @@ source "$DIR/flutter_ci_script_shared.sh"
 flutter doctor -v
 
 declare -ar PROJECT_NAMES=(
+    "add_to_app/android_view/flutter_module_using_plugin"
     "add_to_app/books/flutter_module_books"
     "add_to_app/fullscreen/flutter_module"
     "add_to_app/multiple_flutters/multiple_flutters_module"
@@ -17,19 +18,23 @@ declare -ar PROJECT_NAMES=(
     "animations"
     "code_sharing/client"
     "code_sharing/server"
+    "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/federated_plugin/federated_plugin"
-    # TODO(DomesticMouse): Error: Method not found: 'FallThroughError'.
-    # "experimental/web_dashboard"
-    # TODO(DomesticMouse): Needs to be re-formatted for Flutter beta
-    # "experimental/linting_tool"
+    "experimental/federated_plugin/federated_plugin/example"
+    "experimental/federated_plugin/federated_plugin_macos"
+    "experimental/federated_plugin/federated_plugin_platform_interface"
+    "experimental/federated_plugin/federated_plugin_web"
+    "experimental/federated_plugin/federated_plugin_windows"
+    "experimental/linting_tool"
     "experimental/material_3_demo"
+    "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
+    "experimental/web_dashboard"
     "flutter_maps_firestore"
-    # TODO(domesticmouse): 'errorColor' is deprecated and shouldn't be used.
-    # "form_app"
+    "form_app"
     "game_template"
     "infinite_list"
     "ios_app_clip"
@@ -43,10 +48,11 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1443
-    # "simplistic_editor"
+    "simplistic_calculator"
+    "simplistic_editor"
     "testing_app"
     "veggieseasons"
+    "web/_tool"
     "web/samples_index"
 )
 

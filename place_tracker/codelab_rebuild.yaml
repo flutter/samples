@@ -8,6 +8,9 @@ steps:
       - web
   - name: Rebuild Runner
     flutter: create --org dev.flutter --platform android,ios,web .
+  - name: Strip DEVELOPMENT_TEAM
+    strip-lines-containing: DEVELOPMENT_TEAM =
+    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Update deps
     flutter: pub upgrade --major-versions
   - name: Patch android/app/src/main/AndroidManifest.xml
@@ -74,3 +77,6 @@ steps:
        
        # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
        ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+  - name: Build iOS simulator bundle
+    platforms: [ macos ]
+    flutter: build ios --simulator

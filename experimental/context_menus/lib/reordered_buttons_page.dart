@@ -8,9 +8,9 @@ import 'platform_selector.dart';
 
 class ReorderedButtonsPage extends StatelessWidget {
   ReorderedButtonsPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'reordered-buttons';
   static const String title = 'Reordered Buttons';
@@ -60,8 +60,7 @@ class ReorderedButtonsPage extends StatelessWidget {
               TextField(
                 controller: _controllerReordered,
                 maxLines: 2,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   // Reorder the button datas by type.
                   final HashMap<ContextMenuButtonType, ContextMenuButtonItem>
                       buttonItemsMap =

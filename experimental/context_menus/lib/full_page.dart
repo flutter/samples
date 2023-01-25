@@ -9,9 +9,9 @@ import 'platform_selector.dart';
 
 class FullPage extends StatelessWidget {
   FullPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'full';
   static const String title = 'Combined Example';
@@ -28,7 +28,7 @@ class FullPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context, String message) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) => AlertDialog(title: Text(message)),
+      builder: (context) => AlertDialog(title: Text(message)),
     );
   }
 
@@ -52,7 +52,7 @@ class FullPage extends StatelessWidget {
         ],
       ),
       body: ContextMenuRegion(
-        contextMenuBuilder: (BuildContext context, Offset offset) {
+        contextMenuBuilder: (context, offset) {
           return AdaptiveTextSelectionToolbar.buttonItems(
             anchors: TextSelectionToolbarAnchors(
               primaryAnchor: offset,
@@ -81,7 +81,7 @@ class FullPage extends StatelessWidget {
                   height: 60.0,
                 ),
                 ContextMenuRegion(
-                  contextMenuBuilder: (BuildContext context, Offset offset) {
+                  contextMenuBuilder: (context, offset) {
                     return AdaptiveTextSelectionToolbar.buttonItems(
                       anchors: TextSelectionToolbarAnchors(
                         primaryAnchor: offset,
@@ -107,8 +107,7 @@ class FullPage extends StatelessWidget {
                 Container(height: 20.0),
                 TextField(
                   controller: _controller,
-                  contextMenuBuilder: (BuildContext context,
-                      EditableTextState editableTextState) {
+                  contextMenuBuilder: (context, editableTextState) {
                     final TextEditingValue value =
                         editableTextState.textEditingValue;
                     final List<ContextMenuButtonItem> buttonItems =
@@ -130,8 +129,7 @@ class FullPage extends StatelessWidget {
                       // Build the default buttons, but make them look crazy.
                       // Note that in a real project you may want to build
                       // different buttons depending on the platform.
-                      children:
-                          buttonItems.map((ContextMenuButtonItem buttonItem) {
+                      children: buttonItems.map((buttonItem) {
                         return CupertinoButton(
                           borderRadius: null,
                           color: const Color(0xffaaaa00),
