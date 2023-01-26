@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="A Flutter Web Element embedding demo." />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Flutter Element embedding" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+    <link rel="preload" as="image" href="icons/unsplash-x9WGMWwp1NM.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icons/favicon.png" />
+
+    <title>Element embedding</title>
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <section class="contents">
+      <article>
+        <div id="flutter_target"></div>
+      </article>
+
+      <aside id="demo_controls">
+        <h1>Element embedding</h1>
+
+        <fieldset id="fx">
+          <legend>Effects</legend>
+          <input value="Shadow" data-fx="shadow" type="button" class="fx" />
+          <input value="Mirror 🧪" data-fx="mirror" type="button" class="fx" />
+          <input value="Resize" data-fx="resize" type="button" class="fx align-top" />
+          <div class="tight">
+            <input value="Spin" data-fx="spin" type="button" class="fx" />
+            <input type="range" value="0" min="-180" max="180" list="markers" id="rotation" class="tight" />
+            <datalist id="markers">
+              <option value="-180"></option>
+              <option value="-135"></option>
+              <option value="-45"></option>
+              <option value="0"></option>
+              <option value="45"></option>
+              <option value="135"></option>
+              <option value="180"></option>
+            </datalist>
+            </div>
+          <input value="Device" data-fx="handheld" type="button" class="fx" />
+        </fieldset>
+
+        <fieldset id="interop">
+          <legend>JS Interop</legend>
+
+          <label for="screen-selector">
+            Screen
+            <select name="screen-select" id="screen-selector" class="screen">
+              <option value="counter">Counter</option>
+              <option value="textField">TextField</option>
+              <option value="custom">Custom App</option>
+            </select>
+          </label>
+
+          <label for="value">
+            Value
+            <input id="value" value="" type="text" readonly />
+          </label>
+          <input
+            id="increment"
+            value="Increment"
+            type="button"
+          />
+        </fieldset>
+      </aside>
+    </section>
+
+    <script>
+      window.addEventListener("load", function (ev) {
+        // Embed flutter into div#flutter_target
+        let target = document.querySelector("#flutter_target");
+        _flutter.loader.loadEntrypoint({
+          onEntrypointLoaded: async function (engineInitializer) {
+            let appRunner = await engineInitializer.initializeEngine({
+              hostElement: target,
+            });
+            await appRunner.runApp();
+          },
+        });
+      });
+    </script>
+    <script src="js/demo-js-interop.js" defer></script>
+    <script src="js/demo-css-fx.js" defer></script>
+  </body>
+</html>

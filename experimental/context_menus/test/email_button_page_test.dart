@@ -18,8 +18,9 @@ void main() {
     await tester.dragUntilVisible(
       find.text(EmailButtonPage.title),
       find.byType(ListView),
-      const Offset(0.0, -200.0),
+      const Offset(0.0, -100.0),
     );
+    await tester.pumpAndSettle();
     await tester.tap(find.text(EmailButtonPage.title));
     await tester.pumpAndSettle();
 

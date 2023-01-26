@@ -1,0 +1,34 @@
+android_sdk_config:
+  add_gradle_deps: true
+
+summarizer:
+  backend: asm
+
+# Experimental flag to convert suspend functions in Kotlin to Dart async
+# functions. Only available in suspend-fun branch of jnigen for now.
+suspend_fun_to_async: true
+
+output:
+  c:
+    library_name: health_connect
+    path: src/health_connect/
+  dart:
+    path: lib/health_connect.dart
+    structure: single_file
+
+class_path:
+  - 'classes.jar'
+classes:
+  - 'androidx.health.connect.client.HealthConnectClient'
+  - 'androidx.health.connect.client.PermissionController'
+  - 'androidx.health.connect.client.records.StepsRecord'
+  - 'androidx.health.connect.client.time'
+  - 'android.content.Context'
+  - 'android.content.Intent'
+  - 'android.app.Activity'
+  - 'java.time.Instant'
+  - 'java.lang.Long'
+  - 'java.util.Set'
+  - 'androidx.health.connect.client.request'
+  - 'androidx.health.connect.client.aggregate.AggregationResult'
+  - 'androidx.health.connect.client.aggregate.AggregateMetric'
