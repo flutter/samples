@@ -112,8 +112,6 @@ class Containment extends StatelessWidget {
       BottomSheetSection(),
       Cards(),
       Dialogs(),
-      Dividers(),
-      // TODO: Add Lists, https://github.com/flutter/flutter/issues/114006
     ]);
   }
 }
@@ -132,10 +130,7 @@ class Navigation extends StatelessWidget {
         isExampleBar: true,
       ),
       NavigationDrawers(scaffoldKey: scaffoldKey),
-      const NavigationRails(),
-      // TODO: Add Search https://github.com/flutter/flutter/issues/117483
       const Tabs(),
-      const TopAppBars(),
     ]);
   }
 }
@@ -146,14 +141,12 @@ class Selection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ComponentGroupDecoration(label: 'Selection', children: [
-      Checkboxes(),
       Chips(),
-      // TODO: Add Date pickers https://github.com/flutter/flutter/issues/101481
-      Menus(),
+      DropdownMenus(),
       Radios(),
+      Checkboxes(),
       Sliders(),
       Switches(),
-      // TODO: Add Time pickers https://github.com/flutter/flutter/issues/101480
     ]);
   }
 }
@@ -186,11 +179,14 @@ class _ButtonsState extends State<Buttons> {
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        padding: const EdgeInsets.symmetric(horizontal: tinySpacing),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const <Widget>[
             ButtonsWithoutIcon(isDisabled: false),
+            colDivider,
             ButtonsWithIcon(),
+            colDivider,
             ButtonsWithoutIcon(isDisabled: true),
           ],
         ),
@@ -206,39 +202,33 @@ class ButtonsWithoutIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: IntrinsicWidth(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: isDisabled ? null : () {},
-              child: const Text('Elevated'),
-            ),
-            colDivider,
-            FilledButton(
-              onPressed: isDisabled ? null : () {},
-              child: const Text('Filled'),
-            ),
-            colDivider,
-            FilledButton.tonal(
-              onPressed: isDisabled ? null : () {},
-              child: const Text('Filled tonal'),
-            ),
-            colDivider,
-            OutlinedButton(
-              onPressed: isDisabled ? null : () {},
-              child: const Text('Outlined'),
-            ),
-            colDivider,
-            TextButton(
-              onPressed: isDisabled ? null : () {},
-              child: const Text('Text'),
-            ),
-          ],
+    return Row(
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: isDisabled ? null : () {},
+          child: const Text('Elevated'),
         ),
-      ),
+        const SizedBox(width: tinySpacing),
+        FilledButton(
+          onPressed: isDisabled ? null : () {},
+          child: const Text('Filled'),
+        ),
+        const SizedBox(width: tinySpacing),
+        FilledButton.tonal(
+          onPressed: isDisabled ? null : () {},
+          child: const Text('Filled tonal'),
+        ),
+        const SizedBox(width: tinySpacing),
+        OutlinedButton(
+          onPressed: isDisabled ? null : () {},
+          child: const Text('Outlined'),
+        ),
+        const SizedBox(width: tinySpacing),
+        TextButton(
+          onPressed: isDisabled ? null : () {},
+          child: const Text('Text'),
+        ),
+      ],
     );
   }
 }
@@ -248,44 +238,38 @@ class ButtonsWithIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: IntrinsicWidth(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-              label: const Text('Icon'),
-            ),
-            colDivider,
-            FilledButton.icon(
-              onPressed: () {},
-              label: const Text('Icon'),
-              icon: const Icon(Icons.add),
-            ),
-            colDivider,
-            FilledButton.tonalIcon(
-              onPressed: () {},
-              label: const Text('Icon'),
-              icon: const Icon(Icons.add),
-            ),
-            colDivider,
-            OutlinedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-              label: const Text('Icon'),
-            ),
-            colDivider,
-            TextButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-              label: const Text('Icon'),
-            )
-          ],
+    return Row(
+      children: <Widget>[
+        ElevatedButton.icon(
+          onPressed: () {},
+          icon: const Icon(Icons.add),
+          label: const Text('Icon'),
         ),
-      ),
+        const SizedBox(width: tinySpacing),
+        FilledButton.icon(
+          onPressed: () {},
+          label: const Text('Icon'),
+          icon: const Icon(Icons.add),
+        ),
+        const SizedBox(width: tinySpacing),
+        FilledButton.tonalIcon(
+          onPressed: () {},
+          label: const Text('Icon'),
+          icon: const Icon(Icons.add),
+        ),
+        const SizedBox(width: tinySpacing),
+        OutlinedButton.icon(
+          onPressed: () {},
+          icon: const Icon(Icons.add),
+          label: const Text('Icon'),
+        ),
+        const SizedBox(width: tinySpacing),
+        TextButton.icon(
+          onPressed: () {},
+          icon: const Icon(Icons.add),
+          label: const Text('Icon'),
+        )
+      ],
     );
   }
 }
@@ -613,78 +597,21 @@ class _DialogsState extends State<Dialogs> {
     );
   }
 
-  void openFullscreenDialog(BuildContext context) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => Dialog.fullscreen(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Full-screen dialog'),
-              centerTitle: false,
-              leading: IconButton(
-                icon: const Icon(Icons.close),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              actions: [
-                TextButton(
-                  child: const Text('Close'),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: ComponentDecoration(
         label: 'Dialog',
-        tooltipMessage:
-            'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            UnconstrainedBox(
-              child: TextButton(
-                child: const Text(
-                  'Show dialog',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                onPressed: () => openDialog(context),
-              ),
+        tooltipMessage: 'Use AlertDialog or SimpleDialog',
+        child: UnconstrainedBox(
+          child: TextButton(
+            child: const Text(
+              'Show dialog',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            TextButton(
-              child: const Text(
-                'Show full-screen dialog',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              onPressed: () => openFullscreenDialog(context),
-            ),
-          ],
+            onPressed: () => openDialog(context),
+          ),
         ),
-      ),
-    );
-  }
-}
-
-class Dividers extends StatelessWidget {
-  const Dividers({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ComponentDecoration(
-      label: 'Dividers',
-      tooltipMessage: 'Use Divider or VerticalDivider',
-      child: Column(
-        children: const <Widget>[
-          Divider(),
-        ],
       ),
     );
   }
@@ -1473,8 +1400,7 @@ class SnackBarSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Snackbar',
-      tooltipMessage:
-          'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
+      tooltipMessage: 'Use SnackBar',
       child: TextButton(
         onPressed: () {
           final snackBar = SnackBar(
@@ -1499,16 +1425,8 @@ class SnackBarSection extends StatelessWidget {
   }
 }
 
-class BottomSheetSection extends StatefulWidget {
+class BottomSheetSection extends StatelessWidget {
   const BottomSheetSection({super.key});
-
-  @override
-  State<BottomSheetSection> createState() => _BottomSheetSectionState();
-}
-
-class _BottomSheetSectionState extends State<BottomSheetSection> {
-  bool isNonModalBottomSheetOpen = false;
-  PersistentBottomSheetController<void>? _nonModalBottomSheetController;
 
   @override
   Widget build(BuildContext context) {
@@ -1545,77 +1463,31 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
     return ComponentDecoration(
       label: 'Bottom sheet',
       tooltipMessage: 'Use showModalBottomSheet<T> or showBottomSheet<T>',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          TextButton(
-            child: const Text(
-              'Show modal bottom sheet',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            onPressed: () {
-              showModalBottomSheet<void>(
-                context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
-                constraints: const BoxConstraints(maxWidth: 640),
-                builder: (context) {
-                  return SizedBox(
-                    height: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: buttonList,
-                      ),
-                    ),
-                  );
-                },
+      child: TextButton(
+        child: const Text(
+          'Show bottom sheet',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        onPressed: () {
+          showModalBottomSheet<void>(
+            context: context,
+            // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
+            constraints: const BoxConstraints(maxWidth: 640),
+            builder: (context) {
+              return SizedBox(
+                height: 150,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: ListView(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: buttonList,
+                  ),
+                ),
               );
             },
-          ),
-          TextButton(
-            child: Text(
-              isNonModalBottomSheetOpen
-                  ? 'Hide bottom sheet'
-                  : 'Show bottom sheet',
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            onPressed: () {
-              if (isNonModalBottomSheetOpen) {
-                _nonModalBottomSheetController?.close();
-                setState(() {
-                  isNonModalBottomSheetOpen = false;
-                });
-                return;
-              } else {
-                setState(() {
-                  isNonModalBottomSheetOpen = true;
-                });
-              }
-
-              _nonModalBottomSheetController = showBottomSheet<void>(
-                elevation: 8.0,
-                context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
-                constraints: const BoxConstraints(maxWidth: 640),
-                builder: (context) {
-                  return SizedBox(
-                    height: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: buttonList,
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-          ),
-        ],
+          );
+        },
       ),
     );
   }
@@ -1644,7 +1516,10 @@ class BottomAppBars extends StatelessWidget {
               bottomNavigationBar: BottomAppBar(
                 child: Row(
                   children: <Widget>[
-                    const IconButtonAnchorExample(),
+                    IconButton(
+                      icon: const Icon(Icons.more_vert),
+                      onPressed: () {},
+                    ),
                     IconButton(
                       tooltip: 'Search',
                       icon: const Icon(Icons.search),
@@ -1666,94 +1541,6 @@ class BottomAppBars extends StatelessWidget {
   }
 }
 
-class IconButtonAnchorExample extends StatelessWidget {
-  const IconButtonAnchorExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MenuAnchor(
-      builder: (context, controller, child) {
-        return IconButton(
-          onPressed: () {
-            if (controller.isOpen) {
-              controller.close();
-            } else {
-              controller.open();
-            }
-          },
-          icon: const Icon(Icons.more_vert),
-        );
-      },
-      menuChildren: [
-        MenuItemButton(
-          child: const Text('Menu 1'),
-          onPressed: () {},
-        ),
-        MenuItemButton(
-          child: const Text('Menu 2'),
-          onPressed: () {},
-        ),
-        SubmenuButton(
-          menuChildren: <Widget>[
-            MenuItemButton(
-              onPressed: () {},
-              child: const Text('Menu 3.1'),
-            ),
-            MenuItemButton(
-              onPressed: () {},
-              child: const Text('Menu 3.2'),
-            ),
-            MenuItemButton(
-              onPressed: () {},
-              child: const Text('Menu 3.3'),
-            ),
-          ],
-          child: const Text('Menu 3'),
-        ),
-      ],
-    );
-  }
-}
-
-class ButtonAnchorExample extends StatelessWidget {
-  const ButtonAnchorExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MenuAnchor(
-      builder: (context, controller, child) {
-        return FilledButton.tonal(
-          onPressed: () {
-            if (controller.isOpen) {
-              controller.close();
-            } else {
-              controller.open();
-            }
-          },
-          child: const Text('Show menu'),
-        );
-      },
-      menuChildren: [
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.people_alt_outlined),
-          child: const Text('Item 1'),
-          onPressed: () {},
-        ),
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.remove_red_eye_outlined),
-          child: const Text('Item 2'),
-          onPressed: () {},
-        ),
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.refresh),
-          onPressed: () {},
-          child: const Text('Item 3'),
-        ),
-      ],
-    );
-  }
-}
-
 class NavigationDrawers extends StatelessWidget {
   const NavigationDrawers({super.key, required this.scaffoldKey});
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -1762,21 +1549,15 @@ class NavigationDrawers extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Navigation drawer',
-      tooltipMessage:
-          'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
-      child: Column(
-        children: [
-          const IntrinsicHeight(child: NavigationDrawerSection()),
-          colDivider,
-          colDivider,
-          TextButton(
-            child: const Text('Show modal navigation drawer',
-                style: TextStyle(fontWeight: FontWeight.bold)),
-            onPressed: () {
-              scaffoldKey.currentState!.openEndDrawer();
-            },
-          ),
-        ],
+      tooltipMessage: 'Use NavigationDrawer',
+      child: UnconstrainedBox(
+        child: TextButton(
+          child: const Text('Show navigation drawer',
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          onPressed: () {
+            scaffoldKey.currentState!.openEndDrawer();
+          },
+        ),
       ),
     );
   }
@@ -1817,7 +1598,10 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
             selectedIcon: destination.selectedIcon,
           );
         }),
-        const Divider(indent: 28, endIndent: 28),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28),
+          child: Divider(),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
           child: Text(
@@ -1860,57 +1644,6 @@ const List<ExampleDestination> labelDestinations = <ExampleDestination>[
       'School', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
   ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
 ];
-
-class NavigationRails extends StatelessWidget {
-  const NavigationRails({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const ComponentDecoration(
-      label: 'Navigation rail',
-      tooltipMessage: 'Use NavigationRail',
-      child: IntrinsicWidth(
-          child: IntrinsicHeight(child: NavigationRailSection())),
-    );
-  }
-}
-
-class NavigationRailSection extends StatefulWidget {
-  const NavigationRailSection({super.key});
-
-  @override
-  State<NavigationRailSection> createState() => _NavigationRailSectionState();
-}
-
-class _NavigationRailSectionState extends State<NavigationRailSection> {
-  int navRailIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationRail(
-      onDestinationSelected: (selectedIndex) {
-        setState(() {
-          navRailIndex = selectedIndex;
-        });
-      },
-      elevation: 4,
-      leading: FloatingActionButton(
-          child: const Icon(Icons.create), onPressed: () {}),
-      groupAlignment: 0.0,
-      selectedIndex: navRailIndex,
-      labelType: NavigationRailLabelType.selected,
-      destinations: <NavigationRailDestination>[
-        ...destinations.map((destination) {
-          return NavigationRailDestination(
-            label: Text(destination.label),
-            icon: destination.icon,
-            selectedIcon: destination.selectedIcon,
-          );
-        }),
-      ],
-    );
-  }
-}
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -1957,7 +1690,6 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
                 ),
               ],
             ),
-            // TODO: Showcase secondary tab bar https://github.com/flutter/flutter/issues/111962
           ),
         ),
       ),
@@ -1965,86 +1697,14 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
   }
 }
 
-class TopAppBars extends StatelessWidget {
-  const TopAppBars({super.key});
-
-  static final actions = [
-    IconButton(icon: const Icon(Icons.attach_file), onPressed: () {}),
-    IconButton(icon: const Icon(Icons.event), onPressed: () {}),
-    IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
-  ];
+class DropdownMenus extends StatefulWidget {
+  const DropdownMenus({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ComponentDecoration(
-      label: 'Top app bars',
-      tooltipMessage:
-          'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
-      child: Column(
-        children: [
-          AppBar(
-            title: const Text('Center-aligned'),
-            leading: const BackButton(),
-            actions: [
-              IconButton(
-                iconSize: 32,
-                icon: const Icon(Icons.account_circle_outlined),
-                onPressed: () {},
-              ),
-            ],
-            centerTitle: true,
-          ),
-          colDivider,
-          AppBar(
-            title: const Text('Small'),
-            leading: const BackButton(),
-            actions: actions,
-            centerTitle: false,
-          ),
-          colDivider,
-          SizedBox(
-            height: 100,
-            child: CustomScrollView(
-              // shrinkWrap: true,
-              slivers: [
-                SliverAppBar.medium(
-                  title: const Text('Medium'),
-                  leading: const BackButton(),
-                  actions: actions,
-                ),
-                const SliverFillRemaining(),
-              ],
-            ),
-          ),
-          colDivider,
-          SizedBox(
-            height: 130,
-            child: CustomScrollView(
-              // shrinkWrap: true,
-              slivers: [
-                SliverAppBar.large(
-                  title: const Text('Large'),
-                  leading: const BackButton(),
-                  actions: actions,
-                ),
-                const SliverFillRemaining(),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  State<DropdownMenus> createState() => _DropdownMenusState();
 }
 
-class Menus extends StatefulWidget {
-  const Menus({super.key});
-
-  @override
-  State<Menus> createState() => _MenusState();
-}
-
-class _MenusState extends State<Menus> {
+class _DropdownMenusState extends State<DropdownMenus> {
   final TextEditingController colorController = TextEditingController();
   final TextEditingController iconController = TextEditingController();
   IconLabel? selectedIcon = IconLabel.smile;
@@ -2067,59 +1727,43 @@ class _MenusState extends State<Menus> {
     }
 
     return ComponentDecoration(
-      label: 'Menus',
-      tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      label: 'Dropdown menus',
+      tooltipMessage: 'Use DropdownMenu<T>',
+      child: Wrap(
+        alignment: WrapAlignment.spaceAround,
+        runAlignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: smallSpacing,
+        runSpacing: smallSpacing,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              ButtonAnchorExample(),
-              rowDivider,
-              IconButtonAnchorExample(),
-            ],
+          DropdownMenu<ColorLabel>(
+            controller: colorController,
+            label: const Text('Color'),
+            enableFilter: true,
+            dropdownMenuEntries: colorEntries,
+            inputDecorationTheme: const InputDecorationTheme(filled: true),
+            onSelected: (color) {
+              setState(() {
+                selectedColor = color;
+              });
+            },
           ),
-          colDivider,
-          Wrap(
-            alignment: WrapAlignment.spaceAround,
-            runAlignment: WrapAlignment.start,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: smallSpacing,
-            runSpacing: smallSpacing,
-            children: [
-              DropdownMenu<ColorLabel>(
-                controller: colorController,
-                label: const Text('Color'),
-                enableFilter: true,
-                dropdownMenuEntries: colorEntries,
-                inputDecorationTheme: const InputDecorationTheme(filled: true),
-                onSelected: (color) {
-                  setState(() {
-                    selectedColor = color;
-                  });
-                },
-              ),
-              DropdownMenu<IconLabel>(
-                initialSelection: IconLabel.smile,
-                controller: iconController,
-                leadingIcon: const Icon(Icons.search),
-                label: const Text('Icon'),
-                dropdownMenuEntries: iconEntries,
-                onSelected: (icon) {
-                  setState(() {
-                    selectedIcon = icon;
-                  });
-                },
-              ),
-              Icon(
-                selectedIcon?.icon,
-                color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),
-              )
-            ],
+          DropdownMenu<IconLabel>(
+            initialSelection: IconLabel.smile,
+            controller: iconController,
+            leadingIcon: const Icon(Icons.search),
+            label: const Text('Icon'),
+            dropdownMenuEntries: iconEntries,
+            onSelected: (icon) {
+              setState(() {
+                selectedIcon = icon;
+              });
+            },
           ),
+          Icon(
+            selectedIcon?.icon,
+            color: selectedColor?.color ?? Colors.grey.withOpacity(0.5),
+          )
         ],
       ),
     );

@@ -2,9 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 const Widget divider = SizedBox(height: 10);
 
@@ -47,46 +45,18 @@ class ColorPalettesScreen extends StatelessWidget {
       );
     }
 
-    Widget dynamicColorNotice() => RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            style: Theme.of(context).textTheme.bodySmall,
-            children: [
-              const TextSpan(
-                  text: 'To create color schemes based on a '
-                      'platform\'s implementation of dynamic color, '
-                      'use the '),
-              TextSpan(
-                text: 'dynamic_color',
-                style: const TextStyle(decoration: TextDecoration.underline),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () async {
-                    final url = Uri.parse(
-                      'https://pub.dev/packages/dynamic_color',
-                    );
-                    if (!await launchUrl(url)) {
-                      throw Exception('Could not launch $url');
-                    }
-                  },
-              ),
-              const TextSpan(text: ' package.'),
-            ],
-          ),
-        );
-
     return Expanded(
       child: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth < narrowScreenWidthThreshold) {
           return SingleChildScrollView(
             child: Column(
               children: [
-                dynamicColorNotice(),
                 divider,
-                schemeLabel('Light ColorScheme'),
+                schemeLabel('Light Theme'),
                 schemeView(lightTheme),
                 divider,
                 divider,
-                schemeLabel('Dark ColorScheme'),
+                schemeLabel('Dark Theme'),
                 schemeView(darkTheme),
               ],
             ),
@@ -95,28 +65,23 @@ class ColorPalettesScreen extends StatelessWidget {
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(top: 5),
-              child: Column(
+              child: Row(
                 children: [
-                  dynamicColorNotice(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Light ColorScheme'),
-                            schemeView(lightTheme),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            schemeLabel('Dark ColorScheme'),
-                            schemeView(darkTheme),
-                          ],
-                        ),
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      children: [
+                        schemeLabel('Light Theme'),
+                        schemeView(lightTheme),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        schemeLabel('Dark Theme'),
+                        schemeView(darkTheme),
+                      ],
+                    ),
                   ),
                 ],
               ),
