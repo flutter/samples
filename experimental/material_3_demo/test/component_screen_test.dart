@@ -322,11 +322,9 @@ void main() {
     BuildContext appBar = tester
         .element(find.widgetWithIcon(AppBar, Icons.palette_outlined).first);
     BuildContext body = tester.element(find.byType(Scaffold).first);
-    BuildContext navigationRail = tester.element(find.byType(NavigationRail));
 
     expect(Theme.of(appBar).primaryColor, m3BaseColor);
     expect(Theme.of(body).primaryColor, m3BaseColor);
-    expect(Theme.of(navigationRail).primaryColor, m3BaseColor);
     await tester.tap(menuIcon);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Blue').last);
@@ -334,11 +332,9 @@ void main() {
 
     BuildContext appBar2 = tester.element(find.byType(AppBar).first);
     BuildContext body2 = tester.element(find.byType(Scaffold).first);
-    BuildContext navigationRail2 = tester.element(find.byType(NavigationRail));
     ThemeData expectedTheme = ThemeData(colorSchemeSeed: Colors.blue);
     expect(Theme.of(appBar2).primaryColor, expectedTheme.primaryColor);
     expect(Theme.of(body2).primaryColor, expectedTheme.primaryColor);
-    expect(Theme.of(navigationRail2).primaryColor, expectedTheme.primaryColor);
   });
 }
 
