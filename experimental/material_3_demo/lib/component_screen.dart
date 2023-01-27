@@ -1545,8 +1545,8 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
     return ComponentDecoration(
       label: 'Bottom sheet',
       tooltipMessage: 'Use showModalBottomSheet<T> or showBottomSheet<T>',
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Wrap(
+        alignment: WrapAlignment.spaceEvenly,
         children: [
           TextButton(
             child: const Text(
@@ -2070,11 +2070,8 @@ class _MenusState extends State<Menus> {
       label: 'Menus',
       tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
       child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
               ButtonAnchorExample(),
@@ -2085,7 +2082,7 @@ class _MenusState extends State<Menus> {
           colDivider,
           Wrap(
             alignment: WrapAlignment.spaceAround,
-            runAlignment: WrapAlignment.start,
+            runAlignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: smallSpacing,
             runSpacing: smallSpacing,
