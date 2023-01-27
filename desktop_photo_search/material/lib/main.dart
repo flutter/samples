@@ -63,7 +63,8 @@ class UnsplashSearchApp extends StatelessWidget {
     return MaterialApp(
       title: 'Photo Search',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        colorSchemeSeed: Colors.orange,
+        useMaterial3: true,
       ),
       home: const UnsplashHomePage(title: 'Photo Search'),
     );
