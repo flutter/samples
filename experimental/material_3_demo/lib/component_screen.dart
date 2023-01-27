@@ -112,6 +112,8 @@ class Containment extends StatelessWidget {
       BottomSheetSection(),
       Cards(),
       Dialogs(),
+      Dividers(),
+      // TODO: Add Lists, https://github.com/flutter/flutter/issues/114006
     ]);
   }
 }
@@ -130,7 +132,10 @@ class Navigation extends StatelessWidget {
         isExampleBar: true,
       ),
       NavigationDrawers(scaffoldKey: scaffoldKey),
+      const NavigationRails(),
+      // TODO: Add Search https://github.com/flutter/flutter/issues/117483
       const Tabs(),
+      const TopAppBars(),
     ]);
   }
 }
@@ -141,12 +146,14 @@ class Selection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ComponentGroupDecoration(label: 'Selection', children: [
-      Chips(),
-      DropdownMenus(),
-      Radios(),
       Checkboxes(),
+      Chips(),
+      // TODO: Add Date pickers https://github.com/flutter/flutter/issues/101481
+      Menus(),
+      Radios(),
       Sliders(),
       Switches(),
+      // TODO: Add Time pickers https://github.com/flutter/flutter/issues/101480
     ]);
   }
 }
@@ -606,21 +613,78 @@ class _DialogsState extends State<Dialogs> {
     );
   }
 
+  void openFullscreenDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => Dialog.fullscreen(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text('Full-screen dialog'),
+              centerTitle: false,
+              leading: IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              actions: [
+                TextButton(
+                  child: const Text('Close'),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: ComponentDecoration(
         label: 'Dialog',
-        tooltipMessage: 'Use AlertDialog or SimpleDialog',
-        child: UnconstrainedBox(
-          child: TextButton(
-            child: const Text(
-              'Show dialog',
-              style: TextStyle(fontWeight: FontWeight.bold),
+        tooltipMessage:
+            'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            UnconstrainedBox(
+              child: TextButton(
+                child: const Text(
+                  'Show dialog',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                onPressed: () => openDialog(context),
+              ),
             ),
-            onPressed: () => openDialog(context),
-          ),
+            TextButton(
+              child: const Text(
+                'Show full-screen dialog',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              onPressed: () => openFullscreenDialog(context),
+            ),
+          ],
         ),
+      ),
+    );
+  }
+}
+
+class Dividers extends StatelessWidget {
+  const Dividers({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Dividers',
+      tooltipMessage: 'Use Divider or VerticalDivider',
+      child: Column(
+        children: const <Widget>[
+          Divider(),
+        ],
       ),
     );
   }
@@ -1409,7 +1473,8 @@ class SnackBarSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Snackbar',
-      tooltipMessage: 'Use SnackBar',
+      tooltipMessage:
+          'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
       child: TextButton(
         onPressed: () {
           final snackBar = SnackBar(
@@ -1434,8 +1499,16 @@ class SnackBarSection extends StatelessWidget {
   }
 }
 
-class BottomSheetSection extends StatelessWidget {
+class BottomSheetSection extends StatefulWidget {
   const BottomSheetSection({super.key});
+
+  @override
+  State<BottomSheetSection> createState() => _BottomSheetSectionState();
+}
+
+class _BottomSheetSectionState extends State<BottomSheetSection> {
+  bool isNonModalBottomSheetOpen = false;
+  PersistentBottomSheetController<void>? _nonModalBottomSheetController;
 
   @override
   Widget build(BuildContext context) {
@@ -1472,31 +1545,77 @@ class BottomSheetSection extends StatelessWidget {
     return ComponentDecoration(
       label: 'Bottom sheet',
       tooltipMessage: 'Use showModalBottomSheet<T> or showBottomSheet<T>',
-      child: TextButton(
-        child: const Text(
-          'Show bottom sheet',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        onPressed: () {
-          showModalBottomSheet<void>(
-            context: context,
-            // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
-            constraints: const BoxConstraints(maxWidth: 640),
-            builder: (context) {
-              return SizedBox(
-                height: 150,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                  child: ListView(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    children: buttonList,
-                  ),
-                ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          TextButton(
+            child: const Text(
+              'Show modal bottom sheet',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
+                constraints: const BoxConstraints(maxWidth: 640),
+                builder: (context) {
+                  return SizedBox(
+                    height: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: buttonList,
+                      ),
+                    ),
+                  );
+                },
               );
             },
-          );
-        },
+          ),
+          TextButton(
+            child: Text(
+              isNonModalBottomSheetOpen
+                  ? 'Hide bottom sheet'
+                  : 'Show bottom sheet',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              if (isNonModalBottomSheetOpen) {
+                _nonModalBottomSheetController?.close();
+                setState(() {
+                  isNonModalBottomSheetOpen = false;
+                });
+                return;
+              } else {
+                setState(() {
+                  isNonModalBottomSheetOpen = true;
+                });
+              }
+
+              _nonModalBottomSheetController = showBottomSheet<void>(
+                elevation: 8.0,
+                context: context,
+                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
+                constraints: const BoxConstraints(maxWidth: 640),
+                builder: (context) {
+                  return SizedBox(
+                    height: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: buttonList,
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ],
       ),
     );
   }
@@ -1643,15 +1762,21 @@ class NavigationDrawers extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Navigation drawer',
-      tooltipMessage: 'Use NavigationDrawer',
-      child: UnconstrainedBox(
-        child: TextButton(
-          child: const Text('Show navigation drawer',
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          onPressed: () {
-            scaffoldKey.currentState!.openEndDrawer();
-          },
-        ),
+      tooltipMessage:
+          'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
+      child: Column(
+        children: [
+          const IntrinsicHeight(child: NavigationDrawerSection()),
+          colDivider,
+          colDivider,
+          TextButton(
+            child: const Text('Show modal navigation drawer',
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            onPressed: () {
+              scaffoldKey.currentState!.openEndDrawer();
+            },
+          ),
+        ],
       ),
     );
   }
@@ -1692,10 +1817,7 @@ class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
             selectedIcon: destination.selectedIcon,
           );
         }),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 28),
-          child: Divider(),
-        ),
+        const Divider(indent: 28, endIndent: 28),
         Padding(
           padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
           child: Text(
@@ -1738,6 +1860,57 @@ const List<ExampleDestination> labelDestinations = <ExampleDestination>[
       'School', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
   ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
 ];
+
+class NavigationRails extends StatelessWidget {
+  const NavigationRails({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ComponentDecoration(
+      label: 'Navigation rail',
+      tooltipMessage: 'Use NavigationRail',
+      child: IntrinsicWidth(
+          child: IntrinsicHeight(child: NavigationRailSection())),
+    );
+  }
+}
+
+class NavigationRailSection extends StatefulWidget {
+  const NavigationRailSection({super.key});
+
+  @override
+  State<NavigationRailSection> createState() => _NavigationRailSectionState();
+}
+
+class _NavigationRailSectionState extends State<NavigationRailSection> {
+  int navRailIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return NavigationRail(
+      onDestinationSelected: (selectedIndex) {
+        setState(() {
+          navRailIndex = selectedIndex;
+        });
+      },
+      elevation: 4,
+      leading: FloatingActionButton(
+          child: const Icon(Icons.create), onPressed: () {}),
+      groupAlignment: 0.0,
+      selectedIndex: navRailIndex,
+      labelType: NavigationRailLabelType.selected,
+      destinations: <NavigationRailDestination>[
+        ...destinations.map((destination) {
+          return NavigationRailDestination(
+            label: Text(destination.label),
+            icon: destination.icon,
+            selectedIcon: destination.selectedIcon,
+          );
+        }),
+      ],
+    );
+  }
+}
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -1784,6 +1957,7 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
                 ),
               ],
             ),
+            // TODO: Showcase secondary tab bar https://github.com/flutter/flutter/issues/111962
           ),
         ),
       ),
@@ -1791,14 +1965,86 @@ class _TabsState extends State<Tabs> with TickerProviderStateMixin {
   }
 }
 
-class DropdownMenus extends StatefulWidget {
-  const DropdownMenus({super.key});
+class TopAppBars extends StatelessWidget {
+  const TopAppBars({super.key});
+
+  static final actions = [
+    IconButton(icon: const Icon(Icons.attach_file), onPressed: () {}),
+    IconButton(icon: const Icon(Icons.event), onPressed: () {}),
+    IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
+  ];
 
   @override
-  State<DropdownMenus> createState() => _DropdownMenusState();
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Top app bars',
+      tooltipMessage:
+          'Use AppBar, SliverAppBar, SliverAppBar.medium, or  SliverAppBar.large',
+      child: Column(
+        children: [
+          AppBar(
+            title: const Text('Center-aligned'),
+            leading: const BackButton(),
+            actions: [
+              IconButton(
+                iconSize: 32,
+                icon: const Icon(Icons.account_circle_outlined),
+                onPressed: () {},
+              ),
+            ],
+            centerTitle: true,
+          ),
+          colDivider,
+          AppBar(
+            title: const Text('Small'),
+            leading: const BackButton(),
+            actions: actions,
+            centerTitle: false,
+          ),
+          colDivider,
+          SizedBox(
+            height: 100,
+            child: CustomScrollView(
+              // shrinkWrap: true,
+              slivers: [
+                SliverAppBar.medium(
+                  title: const Text('Medium'),
+                  leading: const BackButton(),
+                  actions: actions,
+                ),
+                const SliverFillRemaining(),
+              ],
+            ),
+          ),
+          colDivider,
+          SizedBox(
+            height: 130,
+            child: CustomScrollView(
+              // shrinkWrap: true,
+              slivers: [
+                SliverAppBar.large(
+                  title: const Text('Large'),
+                  leading: const BackButton(),
+                  actions: actions,
+                ),
+                const SliverFillRemaining(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-class _DropdownMenusState extends State<DropdownMenus> {
+class Menus extends StatefulWidget {
+  const Menus({super.key});
+
+  @override
+  State<Menus> createState() => _MenusState();
+}
+
+class _MenusState extends State<Menus> {
   final TextEditingController colorController = TextEditingController();
   final TextEditingController iconController = TextEditingController();
   IconLabel? selectedIcon = IconLabel.smile;
@@ -1822,14 +2068,14 @@ class _DropdownMenusState extends State<DropdownMenus> {
 
     return ComponentDecoration(
       label: 'Menus',
-      tooltipMessage: 'Use DropdownMenu<T> or MenuAnchor',
+      tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
               ButtonAnchorExample(),
               rowDivider,
