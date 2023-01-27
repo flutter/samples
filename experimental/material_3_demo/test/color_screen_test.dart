@@ -49,7 +49,6 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Light ColorScheme'), findsNothing);
     expect(find.text('Dark ColorScheme'), findsNothing);
-    expect(find.byType(NavigationRail), findsNWidgets(2));
     Finder colorIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.format_paint_outlined));

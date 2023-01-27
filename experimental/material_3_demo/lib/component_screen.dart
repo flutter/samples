@@ -642,32 +642,28 @@ class _DialogsState extends State<Dialogs> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ComponentDecoration(
-        label: 'Dialog',
-        tooltipMessage:
-            'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            UnconstrainedBox(
-              child: TextButton(
-                child: const Text(
-                  'Show dialog',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                onPressed: () => openDialog(context),
-              ),
+    return ComponentDecoration(
+      label: 'Dialog',
+      tooltipMessage:
+          'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        children: [
+          TextButton(
+            child: const Text(
+              'Show dialog',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            TextButton(
-              child: const Text(
-                'Show full-screen dialog',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              onPressed: () => openFullscreenDialog(context),
+            onPressed: () => openDialog(context),
+          ),
+          TextButton(
+            child: const Text(
+              'Show full-screen dialog',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-          ],
-        ),
+            onPressed: () => openFullscreenDialog(context),
+          ),
+        ],
       ),
     );
   }
@@ -683,7 +679,7 @@ class Dividers extends StatelessWidget {
       tooltipMessage: 'Use Divider or VerticalDivider',
       child: Column(
         children: const <Widget>[
-          Divider(),
+          Divider(key: Key('divider')),
         ],
       ),
     );
@@ -1372,7 +1368,7 @@ class SegmentedButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Segmented buttons',
-      tooltipMessage: 'Use SegmentedButton',
+      tooltipMessage: 'Use SegmentedButton<T>',
       child: Column(
         children: const <Widget>[
           SingleChoice(),
@@ -2005,7 +2001,6 @@ class TopAppBars extends StatelessWidget {
           SizedBox(
             height: 100,
             child: CustomScrollView(
-              // shrinkWrap: true,
               slivers: [
                 SliverAppBar.medium(
                   title: const Text('Medium'),
@@ -2020,7 +2015,6 @@ class TopAppBars extends StatelessWidget {
           SizedBox(
             height: 130,
             child: CustomScrollView(
-              // shrinkWrap: true,
               slivers: [
                 SliverAppBar.large(
                   title: const Text('Large'),
