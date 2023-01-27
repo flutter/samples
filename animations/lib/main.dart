@@ -178,7 +178,8 @@ class AnimationSamples extends StatelessWidget {
     return MaterialApp.router(
       title: 'Animation Samples',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        colorSchemeSeed: Colors.deepPurple,
+        useMaterial3: true,
       ),
       routerConfig: router,
     );
