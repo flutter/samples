@@ -50,8 +50,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
       appBar: AppBar(
         title: const Text('Custom Tween'),
         actions: [
-          MaterialButton(
-            textColor: Colors.white,
+          TextButton(
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {
                 controller.reverse().whenComplete(() {
