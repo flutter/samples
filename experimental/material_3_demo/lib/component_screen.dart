@@ -1763,7 +1763,7 @@ class NavigationDrawers extends StatelessWidget {
           'Use NavigationDrawer. For modal navigation drawers, see Scaffold.endDrawer',
       child: Column(
         children: [
-          const IntrinsicHeight(child: NavigationDrawerSection()),
+          const SizedBox(height: 520, child: NavigationDrawerSection()),
           colDivider,
           colDivider,
           TextButton(
@@ -1867,7 +1867,7 @@ class NavigationRails extends StatelessWidget {
       label: 'Navigation rail',
       tooltipMessage: 'Use NavigationRail',
       child: IntrinsicWidth(
-          child: IntrinsicHeight(child: NavigationRailSection())),
+          child: SizedBox(height: 420, child: NavigationRailSection())),
     );
   }
 }
