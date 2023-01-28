@@ -18,8 +18,8 @@ void main() {
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
 
-    expect(find.text('Light Theme'), findsNothing);
-    expect(find.text('Dark Theme'), findsNothing);
+    expect(find.text('Light ColorScheme'), findsNothing);
+    expect(find.text('Dark ColorScheme'), findsNothing);
     expect(find.byType(NavigationBar), findsOneWidget);
     Finder colorIconOnBar = find.descendant(
         of: find.byType(NavigationBar),
@@ -35,8 +35,8 @@ void main() {
         matching:
             find.widgetWithIcon(NavigationDestination, Icons.format_paint));
     expect(selectedColorIconOnBar, findsOneWidget);
-    expect(find.text('Light Theme'), findsOneWidget);
-    expect(find.text('Dark Theme'), findsOneWidget);
+    expect(find.text('Light ColorScheme'), findsOneWidget);
+    expect(find.text('Dark ColorScheme'), findsOneWidget);
   });
 
   testWidgets(
@@ -47,9 +47,8 @@ void main() {
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     await tester.pumpAndSettle();
-    expect(find.text('Light Theme'), findsNothing);
-    expect(find.text('Dark Theme'), findsNothing);
-    expect(find.byType(NavigationRail), findsOneWidget);
+    expect(find.text('Light ColorScheme'), findsNothing);
+    expect(find.text('Dark ColorScheme'), findsNothing);
     Finder colorIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.format_paint_outlined));
@@ -61,16 +60,16 @@ void main() {
         of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.format_paint));
     expect(selectedColorIconOnRail, findsOneWidget);
-    expect(find.text('Light Theme'), findsOneWidget);
-    expect(find.text('Dark Theme'), findsOneWidget);
+    expect(find.text('Light ColorScheme'), findsOneWidget);
+    expect(find.text('Dark ColorScheme'), findsOneWidget);
   });
 
   testWidgets('Color screen shows correct content', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(body: Row(children: const [ColorPalettesScreen()])),
     ));
-    expect(find.text('Light Theme'), findsOneWidget);
-    expect(find.text('Dark Theme'), findsOneWidget);
+    expect(find.text('Light ColorScheme'), findsOneWidget);
+    expect(find.text('Dark ColorScheme'), findsOneWidget);
     expect(find.byType(ColorGroup, skipOffstage: false), findsNWidgets(14));
   });
 }
