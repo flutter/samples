@@ -101,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
             _gap,
           ],
         ),
-        rectangularMenuArea: ElevatedButton(
+        rectangularMenuArea: FilledButton(
           onPressed: () {
             GoRouter.of(context).pop();
           },
