@@ -101,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
             _gap,
           ],
         ),
-        rectangularMenuArea: ElevatedButton(
+        rectangularMenuArea: FilledButton(
           onPressed: () {
             GoRouter.of(context).pop();
           },
@@ -169,14 +169,19 @@ class _SettingsLine extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(title,
+            Expanded(
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 30,
-                )),
-            const Spacer(),
+                ),
+              ),
+            ),
             icon,
           ],
         ),

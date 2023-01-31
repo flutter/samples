@@ -59,7 +59,7 @@ class LevelSelectionScreen extends StatelessWidget {
             ),
           ],
         ),
-        rectangularMenuArea: ElevatedButton(
+        rectangularMenuArea: FilledButton(
           onPressed: () {
             GoRouter.of(context).go('/');
           },
