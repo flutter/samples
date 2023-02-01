@@ -50,7 +50,8 @@ declare -ar PROJECT_NAMES=(
     "provider_counter"
     "provider_shopper"
     "simplistic_calculator"
-    "simplistic_editor"
+    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1616
+    # "simplistic_editor"
     "testing_app"
     "veggieseasons"
     "web/_tool"
