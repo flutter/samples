@@ -21,7 +21,7 @@ void main() {
     expect(find.widgetWithIcon(AppBar, Icons.palette_outlined), findsOneWidget);
 
     // Elements on the component screen
-    // Buttons
+    // Common buttons
     expect(find.widgetWithText(ElevatedButton, 'Elevated'), findsNWidgets(2));
     expect(find.widgetWithText(FilledButton, 'Filled'), findsNWidgets(2));
     expect(find.widgetWithText(FilledButton, 'Filled tonal'), findsNWidgets(2));
@@ -29,13 +29,76 @@ void main() {
     expect(find.widgetWithText(TextButton, 'Text'), findsNWidgets(2));
     expect(find.widgetWithText(Buttons, 'Icon'), findsNWidgets(5));
 
-    // IconButtons
+    // FABs
+    expect(
+        find.byType(FloatingActionButton),
+        findsNWidgets(
+            6)); // 2 more show up in the bottom app bar. 1 more in the navigation rail
+    expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
+
+    // Icon buttons
     expect(find.byType(IconToggleButton), findsNWidgets(8));
 
-    // FABs
-    expect(find.byType(FloatingActionButton),
-        findsNWidgets(5)); // 2 more shows up in the bottom app bar.
-    expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
+    // Segmented buttons
+    expect(find.byType(SegmentedButton<Calendar>), findsOneWidget);
+    expect(find.byType(SegmentedButton<Sizes>), findsOneWidget);
+
+    // Badges
+    expect(find.byType(Badge), findsNWidgets(4));
+
+    // Progress indicators
+    Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
+    expect(circularProgressIndicator, findsOneWidget);
+    Finder linearProgressIndicator = find.byType(LinearProgressIndicator);
+    expect(linearProgressIndicator, findsOneWidget);
+
+    // Snackbar
+    expect(find.widgetWithText(TextButton, 'Show snackbar'), findsOneWidget);
+
+    // Bottom sheet
+    expect(find.widgetWithText(TextButton, 'Show modal bottom sheet'),
+        findsOneWidget);
+    expect(
+        find.widgetWithText(TextButton, 'Show bottom sheet'), findsOneWidget);
+
+    // Cards
+    expect(find.widgetWithText(Cards, 'Elevated'), findsOneWidget);
+    expect(find.widgetWithText(Cards, 'Filled'), findsOneWidget);
+    expect(find.widgetWithText(Cards, 'Outlined'), findsOneWidget);
+
+    // Dialogs
+    expect(find.widgetWithText(TextButton, 'Show dialog'), findsOneWidget);
+    expect(find.widgetWithText(TextButton, 'Show full-screen dialog'),
+        findsOneWidget);
+
+    // Dividers
+    expect(find.byKey(const Key('divider')), findsOneWidget);
+
+    // Bottom app bar
+    expect(find.byType(BottomAppBar), findsOneWidget);
+
+    // Navigation bar
+    // Third one is off screen in the scaffold
+    expect(find.byType(NavigationBar), findsNWidgets(3));
+
+    // Navigation drawer
+    expect(find.byType(Drawer), findsOneWidget);
+    expect(find.widgetWithText(TextButton, 'Show modal navigation drawer'),
+        findsOneWidget);
+
+    // Navigation rail
+    // Second one is off screen in the scaffold
+    expect(find.byType(NavigationRail), findsNWidgets(2));
+
+    // Tabs
+    expect(find.byType(TabBar), findsOneWidget);
+
+    // Top app bars
+    expect(find.byType(AppBar), findsNWidgets(6));
+
+    // Checkboxes
+    Finder checkboxExample = find.byType(CheckboxListTile);
+    expect(checkboxExample, findsNWidgets(4));
 
     // Chips
     expect(find.byType(ActionChip),
@@ -43,38 +106,25 @@ void main() {
     expect(find.byType(FilterChip), findsNWidgets(2));
     expect(find.byType(InputChip), findsNWidgets(2));
 
-    // Cards
-    expect(find.widgetWithText(Cards, 'Elevated'), findsOneWidget);
-    expect(find.widgetWithText(Cards, 'Filled'), findsOneWidget);
-    expect(find.widgetWithText(Cards, 'Outlined'), findsOneWidget);
+    // Menus
+    expect(find.byType(MenuAnchor), findsNWidgets(5));
+    expect(find.byType(DropdownMenu<ColorLabel>), findsOneWidget);
+    expect(find.byType(DropdownMenu<IconLabel>), findsOneWidget);
+
+    // Radios
+    Finder radioExample = find.byType(RadioListTile<Options>);
+    expect(radioExample, findsNWidgets(3));
+
+    // Sliders
+    expect(find.byType(Slider), findsNWidgets(2));
+
+    // Switches
+    expect(find.byType(Switch), findsNWidgets(4));
 
     // TextFields
     expect(find.widgetWithText(TextField, 'Disabled'), findsNWidgets(2));
     expect(find.widgetWithText(TextField, 'Filled'), findsNWidgets(2));
     expect(find.widgetWithText(TextField, 'Outlined'), findsNWidgets(2));
-
-    // Alert Dialog
-    Finder dialogExample = find.widgetWithText(TextButton, 'Show dialog');
-    expect(dialogExample, findsOneWidget);
-
-    // Switches
-    Finder switchExample = find.byType(Switch);
-    expect(switchExample, findsNWidgets(4));
-
-    // Checkboxes
-    Finder checkboxExample = find.byType(CheckboxListTile);
-    expect(checkboxExample, findsNWidgets(4));
-
-    // Radios
-    // TODO(guidezpl): Figure out why this isn't working
-    // Finder radioExample = find.byType(RadioListTile<Value>);
-    // expect(radioExample, findsNWidgets(4));
-
-    // ProgressIndicator
-    Finder circularProgressIndicator = find.byType(CircularProgressIndicator);
-    expect(circularProgressIndicator, findsOneWidget);
-    Finder linearProgressIndicator = find.byType(LinearProgressIndicator);
-    expect(linearProgressIndicator, findsOneWidget);
   });
 
   testWidgets(
@@ -107,7 +157,7 @@ void main() {
 
     // When screen width is greater than or equal to 1000, NavigationRail will show.
     // At the same time, the NavigationBar will NOT show.
-    expect(find.byType(NavigationRail), findsOneWidget);
+    expect(find.byType(NavigationRail), findsNWidgets(2));
     expect(find.byType(Tooltip, skipOffstage: false), findsWidgets);
     expect(find.widgetWithText(NavigationRail, 'Components'), findsOneWidget);
     expect(find.widgetWithText(NavigationRail, 'Color'), findsOneWidget);
@@ -205,7 +255,8 @@ void main() {
             NavigationDestination, Icons.format_paint_outlined));
     await tester.tap(secondScreenIcon);
     await tester.pumpAndSettle(const Duration(microseconds: 500));
-    BuildContext lightThemeText = tester.element(find.text('Light Theme'));
+    BuildContext lightThemeText =
+        tester.element(find.text('Light ColorScheme'));
     expect(Theme.of(lightThemeText).useMaterial3, false);
     Finder thirdScreenIcon = find.descendant(
         of: find.byType(NavigationBar),
@@ -249,7 +300,9 @@ void main() {
 
     BuildContext appBar2 = tester.element(find.byType(AppBar).first);
     BuildContext body2 = tester.element(find.byType(Scaffold).first);
-    BuildContext navigationRail2 = tester.element(find.byType(NavigationRail));
+    BuildContext navigationRail2 = tester.element(
+        find.widgetWithIcon(NavigationRail, Icons.format_paint_outlined));
+
     expect(darkIcon, findsNothing);
     expect(lightIcon, findsOneWidget);
     expect(Theme.of(appBar2).brightness, Brightness.dark);
@@ -266,13 +319,12 @@ void main() {
     Finder menuIcon = find.descendant(
         of: find.byType(AppBar),
         matching: find.widgetWithIcon(IconButton, Icons.palette_outlined));
-    BuildContext appBar = tester.element(find.byType(AppBar).first);
+    BuildContext appBar = tester
+        .element(find.widgetWithIcon(AppBar, Icons.palette_outlined).first);
     BuildContext body = tester.element(find.byType(Scaffold).first);
-    BuildContext navigationRail = tester.element(find.byType(NavigationRail));
 
     expect(Theme.of(appBar).primaryColor, m3BaseColor);
     expect(Theme.of(body).primaryColor, m3BaseColor);
-    expect(Theme.of(navigationRail).primaryColor, m3BaseColor);
     await tester.tap(menuIcon);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Blue').last);
@@ -280,11 +332,9 @@ void main() {
 
     BuildContext appBar2 = tester.element(find.byType(AppBar).first);
     BuildContext body2 = tester.element(find.byType(Scaffold).first);
-    BuildContext navigationRail2 = tester.element(find.byType(NavigationRail));
     ThemeData expectedTheme = ThemeData(colorSchemeSeed: Colors.blue);
     expect(Theme.of(appBar2).primaryColor, expectedTheme.primaryColor);
     expect(Theme.of(body2).primaryColor, expectedTheme.primaryColor);
-    expect(Theme.of(navigationRail2).primaryColor, expectedTheme.primaryColor);
   });
 }
 
