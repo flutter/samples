@@ -43,9 +43,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Catalog>(
       create: (context) => Catalog(),
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'Infinite List Sample',
-        home: MyHomePage(),
+        theme: ThemeData.light(useMaterial3: true),
+        home: const MyHomePage(),
       ),
     );
   }
