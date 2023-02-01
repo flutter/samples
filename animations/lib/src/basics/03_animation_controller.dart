@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class AnimationControllerDemo extends StatefulWidget {
   const AnimationControllerDemo({super.key});
-  static const String routeName = '/basics/animation_controller';
+  static const String routeName = 'basics/animation_controller';
 
   @override
   State<AnimationControllerDemo> createState() =>

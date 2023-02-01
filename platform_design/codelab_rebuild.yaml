@@ -8,6 +8,9 @@ steps:
       - web
   - name: Flutter recreate runner
     flutter: create --platform android,ios,web --org dev.flutter .
+  - name: Strip DEVELOPMENT_TEAM
+    strip-lines-containing: DEVELOPMENT_TEAM =
+    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Patch web/manifest.json
     path: web/manifest.json
     patch-u: |
@@ -22,5 +25,8 @@ steps:
            "orientation": "portrait-primary",
            "prefer_related_applications": false,
            "icons": [
+  - name: Update dependencies
+    flutter: pub upgrade --major-versions
   - name: Build for iOS
+    platforms: [ macos ]
     flutter: build ios --simulator

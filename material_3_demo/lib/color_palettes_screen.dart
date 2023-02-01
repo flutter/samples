@@ -17,10 +17,14 @@ class ColorPalettesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color selectedColor = Theme.of(context).primaryColor;
-    ThemeData lightTheme =
-        ThemeData(colorSchemeSeed: selectedColor, brightness: Brightness.light);
-    ThemeData darkTheme =
-        ThemeData(colorSchemeSeed: selectedColor, brightness: Brightness.dark);
+    ThemeData lightTheme = ThemeData(
+      colorSchemeSeed: selectedColor,
+      brightness: Brightness.light,
+    );
+    ThemeData darkTheme = ThemeData(
+      colorSchemeSeed: selectedColor,
+      brightness: Brightness.dark,
+    );
 
     Widget schemeLabel(String brightness) {
       return Padding(
@@ -48,12 +52,12 @@ class ColorPalettesScreen extends StatelessWidget {
             child: Column(
               children: [
                 divider,
-                schemeLabel("Light Theme"),
+                schemeLabel('Light Theme'),
                 schemeView(lightTheme),
                 divider,
                 divider,
-                schemeLabel("Dark Theme"),
-                schemeView(darkTheme)
+                schemeLabel('Dark Theme'),
+                schemeView(darkTheme),
               ],
             ),
           );
@@ -66,19 +70,19 @@ class ColorPalettesScreen extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        schemeLabel("Light Theme"),
-                        schemeView(lightTheme)
+                        schemeLabel('Light Theme'),
+                        schemeView(lightTheme),
                       ],
                     ),
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        schemeLabel("Dark Theme"),
-                        schemeView(darkTheme)
+                        schemeLabel('Dark Theme'),
+                        schemeView(darkTheme),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -100,46 +104,46 @@ class ColorSchemeView extends StatelessWidget {
       children: [
         ColorGroup(children: [
           ColorChip(
-            label: "primary",
+            label: 'primary',
             color: colorScheme.primary,
             onColor: colorScheme.onPrimary,
           ),
           ColorChip(
-              label: "onPrimary",
+              label: 'onPrimary',
               color: colorScheme.onPrimary,
               onColor: colorScheme.primary),
           ColorChip(
-            label: "primaryContainer",
+            label: 'primaryContainer',
             color: colorScheme.primaryContainer,
             onColor: colorScheme.onPrimaryContainer,
           ),
           ColorChip(
-            label: "onPrimaryContainer",
+            label: 'onPrimaryContainer',
             color: colorScheme.onPrimaryContainer,
             onColor: colorScheme.primaryContainer,
-          )
+          ),
         ]),
         divider,
         ColorGroup(children: [
           ColorChip(
-            label: "secondary",
+            label: 'secondary',
             color: colorScheme.secondary,
             onColor: colorScheme.onSecondary,
           ),
           ColorChip(
-            label: "onSecondary",
+            label: 'onSecondary',
             color: colorScheme.onSecondary,
             onColor: colorScheme.secondary,
           ),
           ColorChip(
-            label: "secondaryContainer",
+            label: 'secondaryContainer',
             color: colorScheme.secondaryContainer,
             onColor: colorScheme.onSecondaryContainer,
           ),
           ColorChip(
-              label: "onSecondaryContainer",
+              label: 'onSecondaryContainer',
               color: colorScheme.onSecondaryContainer,
-              onColor: colorScheme.secondaryContainer)
+              onColor: colorScheme.secondaryContainer),
         ]),
         divider,
         ColorGroup(
@@ -248,10 +252,12 @@ class ColorGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: children,
+    return RepaintBoundary(
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: children,
+        ),
       ),
     );
   }

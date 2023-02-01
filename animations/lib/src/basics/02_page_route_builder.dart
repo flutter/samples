@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class PageRouteBuilderDemo extends StatelessWidget {
   const PageRouteBuilderDemo({super.key});
-  static const String routeName = '/basics/page_route_builder';
+  static const String routeName = 'basics/page_route_builder';
 
   @override
   Widget build(BuildContext context) {

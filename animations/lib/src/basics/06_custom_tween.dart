@@ -17,7 +17,7 @@ class TypewriterTween extends Tween<String> {
 
 class CustomTweenDemo extends StatefulWidget {
   const CustomTweenDemo({super.key});
-  static const String routeName = '/basics/custom_tweens';
+  static const String routeName = 'basics/custom_tweens';
 
   @override
   State<CustomTweenDemo> createState() => _CustomTweenDemoState();
@@ -50,8 +50,7 @@ class _CustomTweenDemoState extends State<CustomTweenDemo>
       appBar: AppBar(
         title: const Text('Custom Tween'),
         actions: [
-          MaterialButton(
-            textColor: Colors.white,
+          TextButton(
             onPressed: () {
               if (controller.status == AnimationStatus.completed) {
                 controller.reverse().whenComplete(() {

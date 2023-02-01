@@ -24,7 +24,7 @@ Widget generateContainer(int keyCount) => Container(
 
 class AnimatedSwitcherDemo extends StatefulWidget {
   const AnimatedSwitcherDemo({super.key});
-  static String routeName = '/basics/10_animated_switcher';
+  static String routeName = 'misc/animated_switcher';
 
   @override
   State<AnimatedSwitcherDemo> createState() => _AnimatedSwitcherDemoState();
@@ -47,15 +47,11 @@ class _AnimatedSwitcherDemoState extends State<AnimatedSwitcherDemo> {
       appBar: AppBar(
         title: const Text('AnimatedSwitcher'),
         actions: [
-          MaterialButton(
+          TextButton(
             onPressed: () => setState(
               () => container = generateContainer(++keyCount),
             ),
-            child: Text(
-              'Change Widget',
-              style: TextStyle(
-                  color: Theme.of(context).buttonTheme.colorScheme!.onPrimary),
-            ),
+            child: const Text('Change Widget'),
           ),
         ],
       ),

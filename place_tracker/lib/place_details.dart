@@ -4,17 +4,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
 import 'place.dart';
+import 'place_tracker_app.dart';
 import 'stub_data.dart';
 
 class PlaceDetails extends StatefulWidget {
   final Place place;
-  final ValueChanged<Place> onChanged;
 
   const PlaceDetails({
     required this.place,
-    required this.onChanged,
     super.key,
   });
 
@@ -41,7 +41,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
             child: IconButton(
               icon: const Icon(Icons.save, size: 30.0),
               onPressed: () {
-                widget.onChanged(_place);
+                _onChanged(_place);
                 Navigator.pop(context);
               },
             ),
@@ -61,7 +61,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
   void initState() {
     _place = widget.place;
     _nameController.text = _place.name;
-    _descriptionController.text = _place.description!;
+    _descriptionController.text = _place.description ?? '';
     return super.initState();
   }
 
@@ -113,12 +113,22 @@ class _PlaceDetailsState extends State<PlaceDetails> {
       ));
     });
   }
+
+  void _onChanged(Place value) {
+    // Replace the place with the modified version.
+    final newPlaces = List<Place>.from(context.read<AppState>().places);
+    final index = newPlaces.indexWhere((place) => place.id == value.id);
+    newPlaces[index] = value;
+
+    context.read<AppState>().setPlaces(newPlaces);
+  }
 }
 
 class _DescriptionTextField extends StatelessWidget {
   final TextEditingController controller;
 
   final ValueChanged<String> onChanged;
+
   const _DescriptionTextField({
     required this.controller,
     required this.onChanged,
@@ -151,6 +161,7 @@ class _Map extends StatelessWidget {
   final GoogleMapController? mapController;
   final ArgumentCallback<GoogleMapController> onMapCreated;
   final Set<Marker> markers;
+
   const _Map({
     required this.center,
     required this.mapController,
@@ -187,6 +198,7 @@ class _NameTextField extends StatelessWidget {
   final TextEditingController controller;
 
   final ValueChanged<String> onChanged;
+
   const _NameTextField({
     required this.controller,
     required this.onChanged,
@@ -304,6 +316,7 @@ class _StarBar extends StatelessWidget {
 
   final int rating;
   final ValueChanged<int> onChanged;
+
   const _StarBar({
     required this.rating,
     required this.onChanged,

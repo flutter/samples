@@ -1,0 +1,23 @@
+# Run with `flutter pub run ffigen --config ffigen.yaml`.
+name: PedometerBindings
+description: "Bindings for CM pedometers"
+language: objc
+output: "lib/pedometer_bindings_generated.dart"
+compiler-opts:
+  - "-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks"
+  - "-mios-version-min=13.0"
+exclude-all-by-default: true
+objc-interfaces:
+  include:
+    - "CMPedometer"
+    - "PedometerHelper"
+    - "NSDate"
+    - "NSDateFormatter"
+headers:
+  entry-points:
+    - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework/Headers/CMPedometer.h"
+    - "src/pedometerHelper.h"
+
+# To use this API, you must include the NSMotionUsageDescription key in your app’s Info.plist file 
+# and provide a usage description string for this key. 
+# The usage description appears in the prompt that the user must accept the first time the system asks the user to access motion data for your app.

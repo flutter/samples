@@ -12,6 +12,7 @@ dependencies:
 
   cupertino_icons: ^1.0.3
   provider: ^6.0.2
+  go_router: ^6.0.0
 
 dev_dependencies:
   integration_test:

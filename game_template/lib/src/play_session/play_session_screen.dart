@@ -93,8 +93,8 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () => GoRouter.of(context).pop(),
+                        child: FilledButton(
+                          onPressed: () => GoRouter.of(context).go('/play'),
                           child: const Text('Back'),
                         ),
                       ),

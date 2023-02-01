@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:platform_channels/src/pet_list_message_channel.dart';
 
 /// Demonstrates how to use [BasicMessageChannel] to send & receive the platform
@@ -20,8 +21,8 @@ class _PetListScreenState extends State<PetListScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // Receives a string of json object from the platform and converts it
     // to PetModel.
     final scaffoldMessenger = ScaffoldMessenger.of(context);
@@ -52,7 +53,7 @@ class _PetListScreenState extends State<PetListScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/addPetDetails');
+          context.go('/petListScreen/addPetDetails');
         },
       ),
       body: petListModel.petList.isEmpty

@@ -9,16 +9,16 @@ import 'package:path/path.dart' as path;
 import 'package:samples_index/src/data.dart';
 
 /// Utilities for generating cookbook article data
-import 'package:webdriver/io.dart';
+import 'package:webdriver/async_io.dart';
 
 class CookbookScraper {
   late WebDriver _driver;
 
-  Future init() async {
+  Future<void> init() async {
     _driver = await createDriver(desired: <String, dynamic>{});
   }
 
-  Future dispose() async {
+  Future<void> dispose() async {
     await _driver.quit();
   }
 
@@ -59,7 +59,7 @@ class CookbookScraper {
     );
   }
 
-  Future takeScreenshot(String url) async {
+  Future<void> takeScreenshot(String url) async {
     var screenshot = await _driver.captureScreenshotAsList();
     var file = File('web/${screenshotPath(url)}');
     await file.create(recursive: true);

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class AnimatedBuilderDemo extends StatefulWidget {
   const AnimatedBuilderDemo({super.key});
-  static const String routeName = '/basics/animated_builder';
+  static const String routeName = 'basics/animated_builder';
 
   @override
   State<AnimatedBuilderDemo> createState() => _AnimatedBuilderDemoState();

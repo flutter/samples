@@ -137,7 +137,7 @@ void filterCards() {
 
   // Filter out all elements with non-matching search-attrs
   var elements = querySelectorAll('[search-attrs]');
-  for (var element in elements) {
+  for (final element in elements) {
     var searchAttributes = element.attributes['search-attrs'];
     if (matchesQuery(searchQuery, searchAttributes!)) {
       element.hidden = false;

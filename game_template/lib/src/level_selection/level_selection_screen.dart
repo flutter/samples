@@ -59,9 +59,9 @@ class LevelSelectionScreen extends StatelessWidget {
             ),
           ],
         ),
-        rectangularMenuArea: ElevatedButton(
+        rectangularMenuArea: FilledButton(
           onPressed: () {
-            GoRouter.of(context).pop();
+            GoRouter.of(context).go('/');
           },
           child: const Text('Back'),
         ),
