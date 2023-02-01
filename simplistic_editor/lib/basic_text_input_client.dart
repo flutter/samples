@@ -40,7 +40,7 @@ class BasicTextInputClient extends StatefulWidget {
 }
 
 class BasicTextInputClientState extends State<BasicTextInputClient>
-    with TextSelectionDelegate
+    with TextSelectionDelegate, TextInputClient
     implements DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
