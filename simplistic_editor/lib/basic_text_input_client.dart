@@ -40,8 +40,7 @@ class BasicTextInputClient extends StatefulWidget {
 }
 
 class BasicTextInputClientState extends State<BasicTextInputClient>
-    with TextSelectionDelegate, TextInputClient
-    implements DeltaTextInputClient {
+    with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
   final ClipboardStatusNotifier? _clipboardStatus =
