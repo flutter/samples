@@ -6,9 +6,9 @@ import 'platform_selector.dart';
 
 class DefaultValuesPage extends StatelessWidget {
   DefaultValuesPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'default-values';
   static const String title = 'Default API Values Example';
@@ -34,7 +34,7 @@ class DefaultValuesPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context, String message) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) => AlertDialog(title: Text(message)),
+      builder: (context) => AlertDialog(title: Text(message)),
     );
   }
 
@@ -84,8 +84,7 @@ class DefaultValuesPage extends StatelessWidget {
                 maxLines: 2,
                 minLines: 2,
                 controller: _controllerCustom,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   return AdaptiveTextSelectionToolbar.buttonItems(
                     anchors: editableTextState.contextMenuAnchors,
                     buttonItems: <ContextMenuButtonItem>[

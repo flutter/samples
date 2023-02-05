@@ -27,6 +27,10 @@ Shows how to create a context menu with cascading submenus using
 ### [Custom buttons](https://github.com/flutter/samples/blob/main/experimental/context_menus/lib/custom_buttons_page.dart)
 Shows how to customize the default buttons in the existing context menus.
 
+### [Custom menu](https://github.com/flutter/samples/blob/main/experimental/context_menus/lib/custom_menu_page.dart)
+Shows how to use any custom widgets as the menu itself, including the option to
+keep the default buttons.
+
 ### [Default values](https://github.com/flutter/samples/blob/main/experimental/context_menus/lib/default_values_page.dart)
 Demonstrates how the
 [contextMenuBuilder](https://master-api.flutter.dev/flutter/material/TextField/contextMenuBuilder.html)

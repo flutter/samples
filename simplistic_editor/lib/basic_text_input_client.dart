@@ -40,8 +40,7 @@ class BasicTextInputClient extends StatefulWidget {
 }
 
 class BasicTextInputClientState extends State<BasicTextInputClient>
-    with TextSelectionDelegate
-    implements DeltaTextInputClient {
+    with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
   final ClipboardStatusNotifier? _clipboardStatus =
@@ -64,6 +63,15 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   void dispose() {
     widget.controller.removeListener(_didChangeTextEditingValue);
     super.dispose();
+  }
+
+  @override
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
+    if (_hasFocus && _hasInputConnection) {
+      oldControl?.hide();
+      newControl?.show();
+    }
   }
 
   /// [DeltaTextInputClient] method implementations.
@@ -97,6 +105,11 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void performPrivateCommand(String action, Map<String, dynamic> data) {
+    // Will not implement.
+  }
+
+  @override
+  void performSelector(String selectorName) {
     // Will not implement.
   }
 
@@ -685,6 +698,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           onSelectionHandleTapped: () {
             _toggleToolbar();
           },
+          magnifierConfiguration: TextMagnifierConfiguration.disabled,
         );
       } else {
         _selectionOverlay!.update(_value);
@@ -757,7 +771,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                   textAlign: TextAlign.left,
                   textDirection: _textDirection,
                   locale: Localizations.maybeLocaleOf(context),
-                  textHeightBehavior: DefaultTextHeightBehavior.of(context),
+                  textHeightBehavior:
+                      DefaultTextHeightBehavior.maybeOf(context),
                   textWidthBasis: TextWidthBasis.parent,
                   obscuringCharacter: '•',
                   obscureText:

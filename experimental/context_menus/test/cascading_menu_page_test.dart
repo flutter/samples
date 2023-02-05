@@ -1,22 +1,21 @@
+import 'package:context_menus/cascading_menu_page.dart';
+import 'package:context_menus/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:context_menus/main.dart';
-import 'package:context_menus/cascading_menu_page.dart';
-
 void main() {
-  testWidgets('Can show and use the cascading menu',
-      (WidgetTester tester) async {
+  testWidgets('Can show and use the cascading menu', (tester) async {
     await tester.pumpWidget(const MyApp());
 
     // Navigate to the CascadingMenuPage example.
     await tester.dragUntilVisible(
       find.text(CascadingMenuPage.title),
       find.byType(ListView),
-      const Offset(0.0, -300.0),
+      const Offset(0.0, -250.0),
     );
+    await tester.pumpAndSettle();
     await tester.tap(find.text(CascadingMenuPage.title));
     await tester.pumpAndSettle();
 

@@ -24,6 +24,18 @@ class PlaceTrackerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.green[700],
+          foregroundColor: Colors.white,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.green[700],
+          foregroundColor: Colors.white,
+        ),
+      ),
       routerConfig: GoRouter(routes: [
         GoRoute(
           path: '/',
@@ -65,7 +77,6 @@ class _PlaceTrackerHomePage extends StatelessWidget {
             Text('Place Tracker'),
           ],
         ),
-        backgroundColor: Colors.green[700],
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),

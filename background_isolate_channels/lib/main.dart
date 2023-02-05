@@ -6,8 +6,8 @@ import 'dart:io' show Directory;
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart' as uuid;
 
@@ -78,11 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // [sharedPreferencesSet] does not happen before opening the
     // [SimpleDatabase] there has to be a way to refresh
     // [_SimpleDatabaseServer]'s [SharedPreferences] cached values.
-    Future.wait([sharedPreferencesSet, tempDirFuture])
-        .then((List<Object?> values) {
+    Future.wait([sharedPreferencesSet, tempDirFuture]).then((values) {
       final Directory? tempDir = values[1] as Directory?;
       final String dbPath = path.join(tempDir!.path, 'database.db');
-      SimpleDatabase.open(dbPath).then((SimpleDatabase database) {
+      SimpleDatabase.open(dbPath).then((database) {
         setState(() {
           _database = database;
         });

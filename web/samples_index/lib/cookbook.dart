@@ -9,7 +9,7 @@ import 'package:path/path.dart' as path;
 import 'package:samples_index/src/data.dart';
 
 /// Utilities for generating cookbook article data
-import 'package:webdriver/io.dart';
+import 'package:webdriver/async_io.dart';
 
 class CookbookScraper {
   late WebDriver _driver;

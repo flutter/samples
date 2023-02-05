@@ -61,7 +61,7 @@ class WinGameScreen extends StatelessWidget {
             ),
           ],
         ),
-        rectangularMenuArea: ElevatedButton(
+        rectangularMenuArea: FilledButton(
           onPressed: () {
             GoRouter.of(context).go('/play');
           },

@@ -42,7 +42,6 @@ void main() {
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     expect(find.text('Display Large'), findsNothing);
-    expect(find.byType(NavigationRail), findsOneWidget);
     Finder textIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.text_snippet_outlined));

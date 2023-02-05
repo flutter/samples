@@ -6,6 +6,9 @@ steps:
       - ios
   - name: Recreate runner
     flutter: create --platforms ios .
+  - name: Strip DEVELOPMENT_TEAM
+    strip-lines-containing: DEVELOPMENT_TEAM =
+    path: ios/Runner.xcodeproj/project.pbxproj
   - name: Create GoogleService-Info.plist
     path: ios/GoogleService-Info.plist
     replace-contents: |

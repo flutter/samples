@@ -9,17 +9,17 @@ environment:
   sdk: '>=2.19.0-224.0.dev <3.0.0'
 
 dependencies:
-  cupertino_icons: 1.0.2
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  intl: 0.17.0
-  path: 1.8.2
-  path_provider: 2.0.11
-  shared_preferences: 2.0.15
-  uuid: 3.0.6
+  intl: ^0.18.0
+  path: ^1.8.2
+  path_provider: ^2.0.11
+  shared_preferences: ^2.0.15
+  uuid: ^3.0.6
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 

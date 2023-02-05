@@ -11,7 +11,6 @@ abstract class AppTheme {
   static ThemeData buildReplyLightTheme(BuildContext context) {
     final base = ThemeData.light();
     return base.copyWith(
-      bottomAppBarColor: AppColors.blue700,
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.blue700,
         modalBackgroundColor: Colors.white.withOpacity(0.7),
@@ -45,13 +44,13 @@ abstract class AppTheme {
       ),
       textTheme: _buildReplyLightTextTheme(base.textTheme),
       scaffoldBackgroundColor: AppColors.blue50,
+      bottomAppBarTheme: const BottomAppBarTheme(color: AppColors.blue700),
     );
   }
 
   static ThemeData buildReplyDarkTheme(BuildContext context) {
     final base = ThemeData.dark();
     return base.copyWith(
-      bottomAppBarColor: AppColors.darkBottomAppBarBackground,
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: AppColors.darkDrawerBackground,
         modalBackgroundColor: Colors.black.withOpacity(0.7),
@@ -94,6 +93,8 @@ abstract class AppTheme {
       ),
       textTheme: _buildReplyDarkTextTheme(base.textTheme),
       scaffoldBackgroundColor: AppColors.black900,
+      bottomAppBarTheme:
+          const BottomAppBarTheme(color: AppColors.darkBottomAppBarBackground),
     );
   }
 

@@ -43,7 +43,6 @@ void main() {
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
     expect(find.text('Surface Tint Color Only'), findsNothing);
-    expect(find.byType(NavigationRail), findsOneWidget);
     Finder tintIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
         matching: find.byIcon(Icons.invert_colors_on_outlined));

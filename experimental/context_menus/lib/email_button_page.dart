@@ -7,9 +7,9 @@ import 'platform_selector.dart';
 
 class EmailButtonPage extends StatelessWidget {
   EmailButtonPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'email-button';
   static const String title = 'Email Button';
@@ -25,7 +25,7 @@ class EmailButtonPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
+      builder: (context) =>
           const AlertDialog(title: Text('You clicked send email!')),
     );
   }
@@ -63,8 +63,7 @@ class EmailButtonPage extends StatelessWidget {
               TextField(
                 maxLines: 2,
                 controller: _controller,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   final TextEditingValue value =
                       editableTextState.textEditingValue;
                   final List<ContextMenuButtonItem> buttonItems =

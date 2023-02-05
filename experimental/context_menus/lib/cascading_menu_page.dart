@@ -11,9 +11,9 @@ import 'platform_selector.dart';
 
 class CascadingMenuPage extends StatelessWidget {
   const CascadingMenuPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'cascading';
   static const String title = 'Cascading Menu Example';
@@ -80,8 +80,7 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
   @override
   Widget build(BuildContext context) {
     return ContextMenuRegion(
-      contextMenuBuilder: (BuildContext context, Offset primaryAnchor,
-          [Offset? secondaryAnchor]) {
+      contextMenuBuilder: (context, primaryAnchor, [secondaryAnchor]) {
         return _MyCascadingContextMenu(
           anchor: primaryAnchor,
           showingMessage: _showMessage,
@@ -90,12 +89,12 @@ class _MyContextMenuRegionState extends State<_MyContextMenuRegion> {
               _showMessage = !_showMessage;
             });
           },
-          onChangeBackgroundColor: (Color color) {
+          onChangeBackgroundColor: (color) {
             setState(() {
               _backgroundColor = color;
             });
           },
-          onChangeSelection: (String selection) {
+          onChangeSelection: (selection) {
             setState(() {
               _lastSelection = selection;
             });

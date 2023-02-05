@@ -7,8 +7,8 @@ import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 ///////////////////////////////////////////////////////////////////////////////
 // **WARNING:** This is not production code and is only intended to be used for
@@ -90,7 +90,7 @@ class SimpleDatabase {
     final SimpleDatabase result = SimpleDatabase._(isolate, path);
     Completer<void> completer = Completer<void>();
     result._completers.addFirst(completer);
-    receivePort.listen((Object? message) {
+    receivePort.listen((message) {
       result._handleCommand(message as _Command);
     });
     await completer.future;
@@ -143,7 +143,7 @@ class SimpleDatabase {
         _resultsStream.removeLast().close();
         break;
       default:
-        print('SimpleDatabase unrecognized command: ${command.code}');
+        debugPrint('SimpleDatabase unrecognized command: ${command.code}');
     }
   }
 
@@ -162,21 +162,19 @@ class _SimpleDatabaseServer {
 
   final SendPort _sendPort;
   late final String _path;
-  late final SharedPreferences _sharedPreferences;
 
   // ----------------------------------------------------------------------
   // Here the plugin is used from the background isolate.
   // ----------------------------------------------------------------------
-  bool get _isDebug => _sharedPreferences.getBool('isDebug') ?? false;
 
   /// The main entrypoint for the background isolate sent to [Isolate.spawn].
   static void _run(SendPort sendPort) {
     ReceivePort receivePort = ReceivePort();
     sendPort.send(_Command(_Codes.init, arg0: receivePort.sendPort));
     final _SimpleDatabaseServer server = _SimpleDatabaseServer(sendPort);
-    receivePort.listen((Object? message) async {
+    receivePort.listen((message) async {
       final _Command command = message as _Command;
-      server._handleCommand(command);
+      await server._handleCommand(command);
     });
   }
 
@@ -199,7 +197,6 @@ class _SimpleDatabaseServer {
         // the background isolate.
         // ----------------------------------------------------------------------
         BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken);
-        _sharedPreferences = await SharedPreferences.getInstance();
         _sendPort.send(const _Command(_Codes.ack, arg0: null));
         break;
       case _Codes.add:
@@ -209,15 +206,14 @@ class _SimpleDatabaseServer {
         _doFind(command.arg0 as String);
         break;
       default:
-        print('_SimpleDatabaseServer unrecognized command ${command.code}');
+        debugPrint(
+            '_SimpleDatabaseServer unrecognized command ${command.code}');
     }
   }
 
   /// Perform the add entry operation.
   void _doAddEntry(String value) {
-    if (_isDebug) {
-      print('Performing add: $value');
-    }
+    debugPrint('Performing add: $value');
     File file = File(_path);
     if (!file.existsSync()) {
       file.createSync();
@@ -240,9 +236,7 @@ class _SimpleDatabaseServer {
 
   /// Perform the find entry operation.
   void _doFind(String query) {
-    if (_isDebug) {
-      print('Performing find: $query');
-    }
+    debugPrint('Performing find: $query');
     File file = File(_path);
     if (file.existsSync()) {
       RandomAccessFile reader = file.openSync();
