@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:platform_channels/src/counter_method_channel.dart';
 
 /// The widget demonstrates how to use [MethodChannel] to invoke platform methods.
-/// It has two [ElevatedButton]s to increment and decrement the value of
+/// It has two [FilledButton]s to increment and decrement the value of
 /// [count], and a [Text] widget to display its value.
 class MethodChannelDemo extends StatefulWidget {
   const MethodChannelDemo({super.key});
@@ -38,9 +38,9 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // Whenever users press the ElevatedButton, it invokes
+              // Whenever users press the FilledButton, it invokes
               // Counter.increment method to increment the value of count.
-              ElevatedButton.icon(
+              FilledButton.icon(
                 onPressed: () async {
                   try {
                     final value = await Counter.increment(counterValue: count);
@@ -56,9 +56,9 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
                 label: const Text('Increment'),
               ),
 
-              // Whenever users press the ElevatedButton, it invokes
+              // Whenever users press the FilledButton, it invokes
               // Counter.decrement method to decrement the value of count.
-              ElevatedButton.icon(
+              FilledButton.icon(
                 onPressed: () async {
                   try {
                     final value = await Counter.decrement(counterValue: count);
