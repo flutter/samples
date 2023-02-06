@@ -4,13 +4,13 @@
 
 #define PI 3.1415926538
 
-layout(location = 0) uniform float uTime;
-layout(location = 1) uniform vec2 uSize; 
-layout(location = 3) uniform float uDampener;
+uniform float uTime;
+uniform vec2 uSize;
+uniform float uDampener;
 
-layout(location = 0) out vec4 fragColor;
+out vec4 fragColor;
 
-layout(location = 2) uniform sampler2D uTexture;
+uniform sampler2D uTexture;
 
 void main()
 {
