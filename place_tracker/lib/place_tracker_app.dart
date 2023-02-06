@@ -3,10 +3,12 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
+import 'place_details.dart';
 import 'place_list.dart';
 import 'place_map.dart';
 import 'stub_data.dart';
@@ -21,8 +23,38 @@ class PlaceTrackerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: _PlaceTrackerHomePage(),
+    return MaterialApp.router(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.green[700],
+          foregroundColor: Colors.white,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.green[700],
+          foregroundColor: Colors.white,
+        ),
+      ),
+      routerConfig: GoRouter(routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const _PlaceTrackerHomePage(),
+          routes: [
+            GoRoute(
+              path: 'place/:id',
+              builder: (context, state) {
+                final id = state.params['id']!;
+                final place = context
+                    .read<AppState>()
+                    .places
+                    .singleWhere((place) => place.id == id);
+                return PlaceDetails(place: place);
+              },
+            ),
+          ],
+        ),
+      ]),
     );
   }
 }
@@ -45,7 +77,6 @@ class _PlaceTrackerHomePage extends StatelessWidget {
             Text('Place Tracker'),
           ],
         ),
-        backgroundColor: Colors.green[700],
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),

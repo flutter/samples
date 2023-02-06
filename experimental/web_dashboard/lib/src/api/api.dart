@@ -48,7 +48,7 @@ abstract class EntryApi {
 class Category {
   String name;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false)
   String? id;
 
   Category(this.name);
@@ -75,7 +75,7 @@ class Entry {
   @JsonKey(fromJson: _timestampToDateTime, toJson: _dateTimeToTimestamp)
   DateTime time;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false)
   String? id;
 
   Entry(this.value, this.time);

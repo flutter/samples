@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class RepeatingAnimationDemo extends StatefulWidget {
   const RepeatingAnimationDemo({super.key});
-  static String routeName = '/misc/repeating_animation';
+  static String routeName = 'misc/repeating_animation';
 
   @override
   State<RepeatingAnimationDemo> createState() => _RepeatingAnimationDemoState();

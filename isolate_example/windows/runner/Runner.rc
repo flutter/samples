@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "isolate_example" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "isolate_example" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 dev.flutter. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 dev.flutter. All rights reserved." "\0"
             VALUE "OriginalFilename", "isolate_example.exe" "\0"
             VALUE "ProductName", "isolate_example" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

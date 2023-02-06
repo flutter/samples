@@ -22,7 +22,7 @@ class Index {
 
   Index(this.samples);
 
-  factory Index.fromJson(Map json) => _$IndexFromJson(json);
+  factory Index.fromJson(Map<dynamic, dynamic> json) => _$IndexFromJson(json);
 
   Map<String, dynamic> toJson() => _$IndexToJson(this);
 }
@@ -100,7 +100,7 @@ class Sample {
     this.channel,
   });
 
-  factory Sample.fromJson(Map json) => _$SampleFromJson(json);
+  factory Sample.fromJson(Map<dynamic, dynamic> json) => _$SampleFromJson(json);
 
   Map<String, dynamic> toJson() => _$SampleToJson(this);
 
@@ -116,25 +116,25 @@ class Sample {
     buf.write(name.toLowerCase());
     buf.write(' ');
 
-    for (var tag in tags) {
+    for (final tag in tags) {
       buf.write('tag:${tag.toLowerCase()} ');
 
       // Allow tags to be searched without the tag: prefix
       buf.write('${tag.toLowerCase()} ');
     }
 
-    for (var platform in platforms) {
+    for (final platform in platforms) {
       buf.write('platform:$platform ');
 
       // Allow platforms to be searched without the tag: prefix
       buf.write('$platform ');
     }
 
-    for (var widget in widgets) {
+    for (final widget in widgets) {
       buf.write('widget:$widget ');
     }
 
-    for (var package in packages) {
+    for (final package in packages) {
       buf.write('package:$package ');
     }
 
@@ -167,7 +167,8 @@ class Screenshot {
 
   Screenshot(this.url, this.alt);
 
-  factory Screenshot.fromJson(Map json) => _$ScreenshotFromJson(json);
+  factory Screenshot.fromJson(Map<dynamic, dynamic> json) =>
+      _$ScreenshotFromJson(json);
 
   Map<String, dynamic> toJson() => _$ScreenshotToJson(this);
 }
@@ -180,7 +181,7 @@ class Link {
 
   Link(this.text, this.href);
 
-  factory Link.fromJson(Map json) => _$LinkFromJson(json);
+  factory Link.fromJson(Map<dynamic, dynamic> json) => _$LinkFromJson(json);
 
   Map<String, dynamic> toJson() => _$LinkToJson(this);
 }

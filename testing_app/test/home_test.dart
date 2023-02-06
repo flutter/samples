@@ -5,13 +5,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
+import 'package:testing_app/main.dart';
 import 'package:testing_app/models/favorites.dart';
-import 'package:testing_app/screens/home.dart';
 
 Widget createHomeScreen() => ChangeNotifierProvider<Favorites>(
       create: (context) => Favorites(),
-      child: const MaterialApp(
-        home: HomePage(),
+      child: MaterialApp.router(
+        routerConfig: router(),
       ),
     );
 
@@ -64,6 +64,17 @@ void main() {
 
       // Check if the filled icon changes back to bordered icon.
       expect(find.byIcon(Icons.favorite), findsNothing);
+    });
+
+    testWidgets('Testing Navigation', (tester) async {
+      await tester.pumpWidget(createHomeScreen());
+
+      // Tap the Favorites button in the app bar
+      await tester.tap(find.text('Favorites'));
+      await tester.pumpAndSettle();
+
+      // Verify if the empty favorites screen is shown.
+      expect(find.text('No favorites added.'), findsOneWidget);
     });
   });
 }

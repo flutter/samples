@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class CurvedAnimationDemo extends StatefulWidget {
   const CurvedAnimationDemo({super.key});
-  static const String routeName = '/misc/curved_animation';
+  static const String routeName = 'misc/curved_animation';
 
   @override
   State<CurvedAnimationDemo> createState() => _CurvedAnimationDemoState();

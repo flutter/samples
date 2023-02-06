@@ -7,7 +7,7 @@ import 'package:flutter/physics.dart';
 
 class CardSwipeDemo extends StatefulWidget {
   const CardSwipeDemo({super.key});
-  static String routeName = '/misc/card_swipe';
+  static String routeName = 'misc/card_swipe';
 
   @override
   State<CardSwipeDemo> createState() => _CardSwipeDemoState();

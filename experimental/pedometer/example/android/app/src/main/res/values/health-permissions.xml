@@ -1,0 +1,8 @@
+<resources>
+  <array name="health_permissions">
+    <item>androidx.health.permission.HeartRate.READ</item>
+    <item>androidx.health.permission.HeartRate.WRITE</item>
+    <item>androidx.health.permission.Steps.READ</item>
+    <item>androidx.health.permission.Steps.WRITE</item>
+  </array>
+</resources>

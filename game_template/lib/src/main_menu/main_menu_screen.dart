@@ -44,7 +44,7 @@ class MainMenuScreen extends StatelessWidget {
         rectangularMenuArea: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
                 audioController.playSfx(SfxType.buttonTap);
                 GoRouter.of(context).go('/play');
@@ -55,7 +55,7 @@ class MainMenuScreen extends StatelessWidget {
             if (gamesServicesController != null) ...[
               _hideUntilReady(
                 ready: gamesServicesController.signedIn,
-                child: ElevatedButton(
+                child: FilledButton(
                   onPressed: () => gamesServicesController.showAchievements(),
                   child: const Text('Achievements'),
                 ),
@@ -63,15 +63,15 @@ class MainMenuScreen extends StatelessWidget {
               _gap,
               _hideUntilReady(
                 ready: gamesServicesController.signedIn,
-                child: ElevatedButton(
+                child: FilledButton(
                   onPressed: () => gamesServicesController.showLeaderboard(),
                   child: const Text('Leaderboard'),
                 ),
               ),
               _gap,
             ],
-            ElevatedButton(
-              onPressed: () => GoRouter.of(context).go('/settings'),
+            FilledButton(
+              onPressed: () => GoRouter.of(context).push('/settings'),
               child: const Text('Settings'),
             ),
             _gap,

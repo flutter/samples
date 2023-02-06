@@ -16,23 +16,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
         with:
           submodules: true
           fetch-depth: 0
 
-      - uses: subosito/flutter-action@1e6ee87cb840500837bcd50a667fb28815d8e310
+      - uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
 
       - name: Init scripts
         run: dart pub get
         working-directory: web/_tool
 
       - name: Build
-        run: dart _tool/build_ci.dart
+        run: dart run _tool/build_ci.dart
         working-directory: web
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@068dc23d9710f1ba62e86896f84735d869951305
+        uses: peaceiris/actions-gh-pages@bd8c6b06eba6b3d25d72b7a1767993c0aeee42e7
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: web/samples_index/public

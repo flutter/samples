@@ -10,11 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Import the provider package.
+  go_router: ^6.0.0
   provider: ^6.0.2
-
-  # plugin is not yet part of the flutter framework
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git

@@ -140,6 +140,7 @@ class _LintExpansionTileState extends State<LintExpansionTile> {
                   return const _ProfileTypeDialog();
                 },
               );
+              if (!mounted) return;
               if (destinationProfileType == ProfileType.newProfile) {
                 await showDialog<String>(
                   context: context,

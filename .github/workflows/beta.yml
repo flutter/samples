@@ -26,12 +26,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-java@d854b6da19cdadd9a010605529e522c2393ebd38
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - uses: actions/setup-java@1df8dbefe2a8cbc99770194893dd902763bee34b
         with:
           distribution: 'zulu'
           java-version: '12.x'
-      - uses: subosito/flutter-action@1e6ee87cb840500837bcd50a667fb28815d8e310
+      - uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
         with:
           channel: beta
       - run: ./tool/flutter_ci_script_stable.sh
@@ -41,12 +41,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-java@d854b6da19cdadd9a010605529e522c2393ebd38
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - uses: actions/setup-java@1df8dbefe2a8cbc99770194893dd902763bee34b
         with:
           distribution: 'zulu'
           java-version: '12.x'
-      - uses: subosito/flutter-action@1e6ee87cb840500837bcd50a667fb28815d8e310
+      - uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
         with:
           channel: beta
       - run: ./tool/android_ci_script.sh
@@ -56,12 +56,12 @@ jobs:
     runs-on: macos-latest
     if: github.repository == 'flutter/samples'
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-java@d854b6da19cdadd9a010605529e522c2393ebd38
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - uses: actions/setup-java@1df8dbefe2a8cbc99770194893dd902763bee34b
         with:
           distribution: 'zulu'
           java-version: '12.x'
-      - uses: subosito/flutter-action@1e6ee87cb840500837bcd50a667fb28815d8e310
+      - uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
         with:
           channel: beta
       - run: ./tool/ios_ci_script.sh
