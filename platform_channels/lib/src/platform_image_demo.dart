@@ -60,7 +60,7 @@ class _PlatformImageDemoState extends State<PlatformImageDemo> {
             const SizedBox(
               height: 16,
             ),
-            ElevatedButton(
+            FilledButton(
               onPressed: imageData != null
                   ? null
                   : () {
