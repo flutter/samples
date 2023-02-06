@@ -10,7 +10,7 @@ import firebase_core
 import firebase_crashlytics
 import games_services
 import in_app_purchase_storekit
-import path_provider_macos
+import path_provider_foundation
 import shared_preferences_foundation
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

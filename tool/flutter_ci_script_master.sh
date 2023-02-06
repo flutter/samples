@@ -16,7 +16,9 @@ declare -ar PROJECT_NAMES=(
     "add_to_app/prebuilt_module/flutter_module"
     "android_splash_screen"
     "animations"
-    "code_sharing/client"
+    "background_isolate_channels"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
@@ -30,7 +32,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
@@ -41,9 +44,11 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    "material_3_demo"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "material_3_demo"
     "navigation_and_routing"
-    "place_tracker"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "place_tracker"
     "platform_channels"
     "platform_design"
     "platform_view_swift"
