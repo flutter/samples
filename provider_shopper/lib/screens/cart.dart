@@ -85,7 +85,7 @@ class _CartTotal extends StatelessWidget {
                 builder: (context, cart, child) =>
                     Text('\$${cart.totalPrice}', style: hugeStyle)),
             const SizedBox(width: 24),
-            TextButton(
+            FilledButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Buying not supported yet.')));
