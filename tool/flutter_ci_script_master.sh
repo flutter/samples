@@ -44,7 +44,8 @@ declare -ar PROJECT_NAMES=(
     "ios_app_clip"
     "isolate_example"
     "jsonexample"
-    "material_3_demo"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "material_3_demo"
     "navigation_and_routing"
     "place_tracker"
     "platform_channels"
