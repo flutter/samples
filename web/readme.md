@@ -22,7 +22,7 @@ You should see a message printing the URL to access: `http://localhost:8080`
 
 ## Deploying to GitHub Pages
 
-This project uses a GitHub action to deploy update the `gh-pages` branch. To 
+This project uses a GitHub action to update the `gh-pages` branch. To
 do this manually, you can also use `package:peanut`:
 
 ```console
