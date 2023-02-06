@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         platform: defaultTargetPlatform,
+        useMaterial3: true,
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
