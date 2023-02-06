@@ -93,7 +93,7 @@ class _PlaceMapState extends State<PlaceMap> {
   @override
   Widget build(BuildContext context) {
     _watchMapConfigurationChanges();
-    var state = Provider.of<AppState>(context);
+    var state = Provider.of<AppState>(context, listen: true);
     return Builder(builder: (context) {
       // We need this additional builder here so that we can pass its context to
       // _AddPlaceButtonBar's onSavePressed callback. This callback shows a
@@ -489,9 +489,9 @@ class _CategoryButtonBar extends StatelessWidget {
         child: ButtonBar(
           alignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  foregroundColor:
+            FilledButton(
+              style: FilledButton.styleFrom(
+                  backgroundColor:
                       selectedPlaceCategory == PlaceCategory.favorite
                           ? Colors.green[700]
                           : Colors.lightGreen),
@@ -501,9 +501,9 @@ class _CategoryButtonBar extends StatelessWidget {
               ),
               onPressed: () => onChanged(PlaceCategory.favorite),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  foregroundColor:
+            FilledButton(
+              style: FilledButton.styleFrom(
+                  backgroundColor:
                       selectedPlaceCategory == PlaceCategory.visited
                           ? Colors.green[700]
                           : Colors.lightGreen),
@@ -513,9 +513,9 @@ class _CategoryButtonBar extends StatelessWidget {
               ),
               onPressed: () => onChanged(PlaceCategory.visited),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  foregroundColor:
+            FilledButton(
+              style: FilledButton.styleFrom(
+                  backgroundColor:
                       selectedPlaceCategory == PlaceCategory.wantToGo
                           ? Colors.green[700]
                           : Colors.lightGreen),
@@ -556,7 +556,6 @@ class _MapFabs extends StatelessWidget {
               heroTag: 'add_place_button',
               onPressed: onAddPlacePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
-              backgroundColor: Colors.green,
               child: const Icon(Icons.add_location, size: 36.0),
             ),
             const SizedBox(height: 12.0),
@@ -565,7 +564,6 @@ class _MapFabs extends StatelessWidget {
               onPressed: onToggleMapTypePressed,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               mini: true,
-              backgroundColor: Colors.green,
               child: const Icon(Icons.layers, size: 28.0),
             ),
           ],

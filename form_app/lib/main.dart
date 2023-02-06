@@ -88,7 +88,10 @@ class FormApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Form Samples',
-      theme: ThemeData(primarySwatch: Colors.teal),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.teal,
+        useMaterial3: true,
+      ),
       routerConfig: router,
     );
   }
