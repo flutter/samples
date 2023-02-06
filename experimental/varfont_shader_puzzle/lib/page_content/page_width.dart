@@ -1,6 +1,7 @@
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -203,7 +204,7 @@ class _PageWidthState extends SinglePageState {
       pageConfig: widget.pageConfig,
       numTiles: 16,
       puzzleNum: 2,
-      shaderKey: 'bw_split',
+      shader: Shader.bwSplit,
       shaderDuration: 2000,
       tileShadedString: 'S',
       tileShadedStringPadding: EdgeInsets.only(

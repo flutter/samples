@@ -7,24 +7,28 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+enum Shader {
+  nothing('nothing'),
+  bwSplit('bw_split'),
+  colorSplit('color_split'),
+  rowOffset('row_offset'),
+  wavyCirc('wavy_circ'),
+  wavy('wavy'),
+  wavy2('wavy2');
+
+  const Shader(this.name);
+  final String name;
+}
+
 class FragmentShaded extends StatefulWidget {
   final Widget child;
-  final String shaderName;
+  final Shader shader;
   final int shaderDuration;
   static const int dampenDuration = 1000;
-  static final Map<String, ui.FragmentProgram> fragmentPrograms = {};
-  static const List<String> fragmentProgramNames = [
-    'nothing',
-    'bw_split',
-    'color_split',
-    'row_offset',
-    'wavy_circ',
-    'wavy',
-    'wavy2'
-  ];
+  static final Map<Shader, ui.FragmentProgram> shaders = {};
 
   const FragmentShaded({
-    required this.shaderName,
+    required this.shader,
     required this.shaderDuration,
     required this.child,
     super.key,
@@ -63,15 +67,17 @@ class FragmentShadedState extends State<FragmentShaded>
   }
 
   Future<void> initializeFragmentProgramsAndBuilder() async {
-    if (FragmentShaded.fragmentPrograms.isEmpty) {
-      for (String s in FragmentShaded.fragmentProgramNames) {
-        FragmentShaded.fragmentPrograms[s] =
-            await ui.FragmentProgram.fromAsset('shaders/$s.frag');
+    if (FragmentShaded.shaders.isEmpty) {
+      for (final shader in Shader.values) {
+        FragmentShaded.shaders[shader] =
+            await ui.FragmentProgram.fromAsset('shaders/${shader.name}.frag');
       }
     }
-    builder = AnimatingSamplerBuilder(_controller, _dampenAnimation,
-        FragmentShaded.fragmentPrograms[widget.shaderName]!.fragmentShader());
-    setState(() {});
+
+    setState(() {
+      builder = AnimatingSamplerBuilder(_controller, _dampenAnimation,
+          FragmentShaded.shaders[widget.shader]!.fragmentShader());
+    });
   }
 
   @override
@@ -83,7 +89,7 @@ class FragmentShadedState extends State<FragmentShaded>
 
   @override
   Widget build(BuildContext context) {
-    if (null == FragmentShaded.fragmentPrograms[widget.shaderName]) {
+    if (null == FragmentShaded.shaders[widget.shader]) {
       setState(() {});
       return const SizedBox(
         width: 0,
