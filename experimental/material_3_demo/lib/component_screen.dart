@@ -2235,6 +2235,8 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
             ConstrainedBox(
               constraints:
                   const BoxConstraints.tightFor(width: widthConstraint),
+              // Tapping within the a component card should request focus
+              // for that component's children.
               child: Focus(
                 focusNode: focusNode,
                 canRequestFocus: true,
