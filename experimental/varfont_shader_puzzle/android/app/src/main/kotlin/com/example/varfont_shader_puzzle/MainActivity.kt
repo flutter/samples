@@ -1,4 +1,4 @@
-package com.example.type_jam_github
+package com.example.varfont_shader_puzzle
 
 import io.flutter.embedding.android.FlutterActivity
 
