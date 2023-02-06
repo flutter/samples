@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      theme: ThemeData.light(useMaterial3: true),
+      home: const HomePage(),
     );
   }
 }
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            FilledButton(
               onPressed: () async {
                 try {
                   final result = await getBatteryLevel();
