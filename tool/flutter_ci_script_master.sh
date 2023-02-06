@@ -17,7 +17,8 @@ declare -ar PROJECT_NAMES=(
     "android_splash_screen"
     "animations"
     "background_isolate_channels"
-    "code_sharing/client"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
     "desktop_photo_search/fluent_ui"
