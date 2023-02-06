@@ -47,7 +47,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "material_3_demo"
     "navigation_and_routing"
-    "place_tracker"
+    # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
+    # "place_tracker"
     "platform_channels"
     "platform_design"
     "platform_view_swift"
