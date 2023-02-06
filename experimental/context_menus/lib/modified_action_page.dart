@@ -6,9 +6,9 @@ import 'platform_selector.dart';
 
 class ModifiedActionPage extends StatelessWidget {
   ModifiedActionPage({
-    Key? key,
+    super.key,
     required this.onChangedPlatform,
-  }) : super(key: key);
+  });
 
   static const String route = 'modified-action';
   static const String title = 'Modified Action';
@@ -25,7 +25,7 @@ class ModifiedActionPage extends StatelessWidget {
   DialogRoute _showDialog(BuildContext context) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) => const AlertDialog(
+      builder: (context) => const AlertDialog(
           title: Text('Copied, but also showed this dialog.')),
     );
   }
@@ -63,13 +63,12 @@ class ModifiedActionPage extends StatelessWidget {
               ),
               TextField(
                 controller: _controller,
-                contextMenuBuilder: (BuildContext context,
-                    EditableTextState editableTextState) {
+                contextMenuBuilder: (context, editableTextState) {
                   final List<ContextMenuButtonItem> buttonItems =
                       editableTextState.contextMenuButtonItems;
                   // Modify the copy buttonItem to show a dialog after copying.
                   final int copyButtonIndex = buttonItems.indexWhere(
-                    (ContextMenuButtonItem buttonItem) {
+                    (buttonItem) {
                       return buttonItem.type == ContextMenuButtonType.copy;
                     },
                   );

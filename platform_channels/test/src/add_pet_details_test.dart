@@ -40,7 +40,7 @@ void main() {
       expect(petList.last['breed'], 'Persian');
 
       // Navigate back to /petListScreen
-      expect(router.location, '/petListScreen/');
+      expect(router.location, '/petListScreen');
     });
   });
 }

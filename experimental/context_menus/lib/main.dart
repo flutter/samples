@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'anywhere_page.dart';
 import 'cascading_menu_page.dart';
 import 'custom_buttons_page.dart';
+import 'custom_menu_page.dart';
 import 'default_values_page.dart';
 import 'email_button_page.dart';
 import 'field_types_page.dart';
@@ -45,29 +46,30 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: <String, Widget Function(BuildContext)>{
-        '/': (BuildContext context) =>
-            MyHomePage(onChangedPlatform: onChangedPlatform),
-        AnywherePage.route: (BuildContext context) =>
+        '/': (context) => MyHomePage(onChangedPlatform: onChangedPlatform),
+        AnywherePage.route: (context) =>
             AnywherePage(onChangedPlatform: onChangedPlatform),
-        CustomButtonsPage.route: (BuildContext context) =>
+        CustomButtonsPage.route: (context) =>
             CustomButtonsPage(onChangedPlatform: onChangedPlatform),
-        ReorderedButtonsPage.route: (BuildContext context) =>
+        CustomMenuPage.route: (context) =>
+            CustomMenuPage(onChangedPlatform: onChangedPlatform),
+        ReorderedButtonsPage.route: (context) =>
             ReorderedButtonsPage(onChangedPlatform: onChangedPlatform),
-        EmailButtonPage.route: (BuildContext context) =>
+        EmailButtonPage.route: (context) =>
             EmailButtonPage(onChangedPlatform: onChangedPlatform),
-        ImagePage.route: (BuildContext context) =>
+        ImagePage.route: (context) =>
             ImagePage(onChangedPlatform: onChangedPlatform),
-        FieldTypesPage.route: (BuildContext context) =>
+        FieldTypesPage.route: (context) =>
             FieldTypesPage(onChangedPlatform: onChangedPlatform),
-        FullPage.route: (BuildContext context) =>
+        FullPage.route: (context) =>
             FullPage(onChangedPlatform: onChangedPlatform),
-        ModifiedActionPage.route: (BuildContext context) =>
+        ModifiedActionPage.route: (context) =>
             ModifiedActionPage(onChangedPlatform: onChangedPlatform),
-        GlobalSelectionPage.route: (BuildContext context) =>
+        GlobalSelectionPage.route: (context) =>
             GlobalSelectionPage(onChangedPlatform: onChangedPlatform),
-        DefaultValuesPage.route: (BuildContext context) =>
+        DefaultValuesPage.route: (context) =>
             DefaultValuesPage(onChangedPlatform: onChangedPlatform),
-        CascadingMenuPage.route: (BuildContext context) =>
+        CascadingMenuPage.route: (context) =>
             CascadingMenuPage(onChangedPlatform: onChangedPlatform),
       },
     );
@@ -114,6 +116,11 @@ class MyHomePage extends StatelessWidget {
             route: CustomButtonsPage.route,
             title: CustomButtonsPage.title,
             subtitle: CustomButtonsPage.subtitle,
+          ),
+          _MyListItem(
+            route: CustomMenuPage.route,
+            title: CustomMenuPage.title,
+            subtitle: CustomMenuPage.subtitle,
           ),
           _MyListItem(
             route: EmailButtonPage.route,

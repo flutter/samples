@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  pigeon: ">=2.0.2 <5.0.0"
+  pigeon: ">=2.0.2 <8.0.0"
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1

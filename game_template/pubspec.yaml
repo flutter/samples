@@ -7,15 +7,15 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  audioplayers: ^1.1.0
+  audioplayers: ^3.0.0
   cupertino_icons: ^1.0.2
-  go_router: ^5.2.1
+  go_router: ^6.0.1
   logging: ^1.1.0
   provider: ^6.0.2
   shared_preferences: ^2.0.13
@@ -33,7 +33,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.1
   test: ^1.19.0
 

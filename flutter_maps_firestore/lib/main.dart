@@ -34,8 +34,9 @@ class App extends StatelessWidget {
       title: 'Ice Creams FTW',
       home: const HomePage(title: 'Ice Cream Stores in SF'),
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        colorSchemeSeed: Colors.pink,
         scaffoldBackgroundColor: Colors.pink[50],
+        useMaterial3: true,
       ),
     );
   }
