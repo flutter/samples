@@ -45,6 +45,7 @@ abstract class AppTheme {
       textTheme: _buildReplyLightTextTheme(base.textTheme),
       scaffoldBackgroundColor: AppColors.blue50,
       bottomAppBarTheme: const BottomAppBarTheme(color: AppColors.blue700),
+      useMaterial3: true,
     );
   }
 
