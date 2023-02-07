@@ -18,6 +18,8 @@ enum Shader {
 
   const Shader(this.name);
   final String name;
+  Future<ui.FragmentProgram> get program =>
+      ui.FragmentProgram.fromAsset('shaders/$name.frag');
 }
 
 class FragmentShaded extends StatefulWidget {
@@ -25,7 +27,7 @@ class FragmentShaded extends StatefulWidget {
   final Shader shader;
   final int shaderDuration;
   static const int dampenDuration = 1000;
-  static final Map<Shader, ui.FragmentProgram> shaders = {};
+  static final Map<Shader, ui.FragmentProgram> _programCache = {};
 
   const FragmentShaded({
     required this.shader,
@@ -67,16 +69,15 @@ class FragmentShadedState extends State<FragmentShaded>
   }
 
   Future<void> initializeFragmentProgramsAndBuilder() async {
-    if (FragmentShaded.shaders.isEmpty) {
+    if (FragmentShaded._programCache.isEmpty) {
       for (final shader in Shader.values) {
-        FragmentShaded.shaders[shader] =
-            await ui.FragmentProgram.fromAsset('shaders/${shader.name}.frag');
+        FragmentShaded._programCache[shader] = await shader.program;
       }
     }
 
     setState(() {
       builder = AnimatingSamplerBuilder(_controller, _dampenAnimation,
-          FragmentShaded.shaders[widget.shader]!.fragmentShader());
+          FragmentShaded._programCache[widget.shader]!.fragmentShader());
     });
   }
 
@@ -89,7 +90,7 @@ class FragmentShadedState extends State<FragmentShaded>
 
   @override
   Widget build(BuildContext context) {
-    if (null == FragmentShaded.shaders[widget.shader]) {
+    if (null == FragmentShaded._programCache[widget.shader]) {
       setState(() {});
       return const SizedBox(
         width: 0,
