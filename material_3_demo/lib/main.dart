@@ -12,16 +12,23 @@ import 'typography_screen.dart';
 
 void main() {
   runApp(
-    const Material3Demo(),
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Material3Demo(),
+    ),
   );
 }
 
-// NavigationRail shows if the screen width is greater or equal to
-// narrowScreenWidthThreshold; otherwise, NavigationBar is used for navigation.
-const double narrowScreenWidthThreshold = 450;
+class Material3Demo extends StatefulWidget {
+  const Material3Demo({super.key});
 
-const double mediumWidthBreakpoint = 1000;
-const double largeWidthBreakpoint = 5000;
+  @override
+  State<Material3Demo> createState() => _Material3DemoState();
+}
+
+// NavigationRail shows if the screen width is greater or equal to
+// screenWidthThreshold; otherwise, NavigationBar is used for navigation.
+const double narrowScreenWidthThreshold = 450;
 
 const double transitionLength = 500;
 
@@ -49,13 +56,6 @@ enum ScreenSelected {
 
   const ScreenSelected(this.value);
   final int value;
-}
-
-class Material3Demo extends StatefulWidget {
-  const Material3Demo({super.key});
-
-  @override
-  State<Material3Demo> createState() => _Material3DemoState();
 }
 
 class _Material3DemoState extends State<Material3Demo>
@@ -109,8 +109,8 @@ class _Material3DemoState extends State<Material3Demo>
 
     final double width = MediaQuery.of(context).size.width;
     final AnimationStatus status = controller.status;
-    if (width > mediumWidthBreakpoint) {
-      if (width > largeWidthBreakpoint) {
+    if (width > 1000) {
+      if (width > 1500) {
         showMediumSizeLayout = false;
         showLargeSizeLayout = true;
       } else {
@@ -131,7 +131,7 @@ class _Material3DemoState extends State<Material3Demo>
     }
     if (!controllerInitialized) {
       controllerInitialized = true;
-      controller.value = width > mediumWidthBreakpoint ? 1 : 0;
+      controller.value = width > 1000 ? 1 : 0;
     }
   }
 
@@ -710,7 +710,7 @@ class _OneTwoTransitionState extends State<OneTwoTransition> {
 
     widthAnimation = Tween<double>(
       begin: 0,
-      end: mediumWidthBreakpoint,
+      end: 1000,
     ).animate(SizeAnimation(widget.animation));
   }
 
@@ -719,7 +719,7 @@ class _OneTwoTransitionState extends State<OneTwoTransition> {
     return Row(
       children: <Widget>[
         Flexible(
-          flex: mediumWidthBreakpoint.toInt(),
+          flex: 1000,
           child: widget.one,
         ),
         if (widthAnimation.value.toInt() > 0) ...[
