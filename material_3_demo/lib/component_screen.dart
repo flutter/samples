@@ -26,25 +26,28 @@ class FirstComponentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: showSecondList
-          ? const EdgeInsetsDirectional.only(end: smallSpacing)
-          : EdgeInsets.zero,
-      children: [
-        const Actions(),
-        colDivider,
-        const Communication(),
-        colDivider,
-        const Containment(),
-        if (!showSecondList) ...[
+    // Fully traverse this list before moving on.
+    return FocusTraversalGroup(
+      child: ListView(
+        padding: showSecondList
+            ? const EdgeInsetsDirectional.only(end: smallSpacing)
+            : EdgeInsets.zero,
+        children: [
+          const Actions(),
           colDivider,
-          Navigation(scaffoldKey: scaffoldKey),
+          const Communication(),
           colDivider,
-          const Selection(),
-          colDivider,
-          const TextInputs()
+          const Containment(),
+          if (!showSecondList) ...[
+            colDivider,
+            Navigation(scaffoldKey: scaffoldKey),
+            colDivider,
+            const Selection(),
+            colDivider,
+            const TextInputs()
+          ],
         ],
-      ],
+      ),
     );
   }
 }
@@ -59,15 +62,18 @@ class SecondComponentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsetsDirectional.only(end: smallSpacing),
-      children: <Widget>[
-        Navigation(scaffoldKey: scaffoldKey),
-        colDivider,
-        const Selection(),
-        colDivider,
-        const TextInputs(),
-      ],
+    // Fully traverse this list before moving on.
+    return FocusTraversalGroup(
+      child: ListView(
+        padding: const EdgeInsetsDirectional.only(end: smallSpacing),
+        children: <Widget>[
+          Navigation(scaffoldKey: scaffoldKey),
+          colDivider,
+          const Selection(),
+          colDivider,
+          const TextInputs(),
+        ],
+      ),
     );
   }
 }
@@ -1011,13 +1017,13 @@ class NavigationBars extends StatefulWidget {
     this.onSelectItem,
     required this.selectedIndex,
     required this.isExampleBar,
-    this.isBadgeExample,
+    this.isBadgeExample = false,
   });
 
   final void Function(int)? onSelectItem;
   final int selectedIndex;
   final bool isExampleBar;
-  final bool? isBadgeExample;
+  final bool isBadgeExample;
 
   @override
   State<NavigationBars> createState() => _NavigationBarsState();
@@ -1042,23 +1048,26 @@ class _NavigationBarsState extends State<NavigationBars> {
 
   @override
   Widget build(BuildContext context) {
-    bool isBadgeExample = widget.isBadgeExample ?? false;
-    Widget navigationBar = NavigationBar(
-      selectedIndex: selectedIndex,
-      onDestinationSelected: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-        if (!widget.isExampleBar) widget.onSelectItem!(index);
-      },
-      destinations: widget.isExampleBar && isBadgeExample
-          ? barWithBadgeDestinations
-          : widget.isExampleBar
-              ? exampleBarDestinations
-              : appBarDestinations,
+    // App NavigationBar should get first focus.
+    Widget navigationBar = Focus(
+      autofocus: !widget.isBadgeExample,
+      child: NavigationBar(
+        selectedIndex: selectedIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+          if (!widget.isExampleBar) widget.onSelectItem!(index);
+        },
+        destinations: widget.isExampleBar && widget.isBadgeExample
+            ? barWithBadgeDestinations
+            : widget.isExampleBar
+                ? exampleBarDestinations
+                : appBarDestinations,
+      ),
     );
 
-    if (widget.isExampleBar && isBadgeExample) {
+    if (widget.isExampleBar && widget.isBadgeExample) {
       navigationBar = ComponentDecoration(
           label: 'Badges',
           tooltipMessage: 'Use Badge or Badge.count',
@@ -1553,8 +1562,6 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
             onPressed: () {
               showModalBottomSheet<void>(
                 context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
-                constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
                     height: 150,
@@ -1594,8 +1601,6 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
               _nonModalBottomSheetController = showBottomSheet<void>(
                 elevation: 8.0,
                 context: context,
-                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
-                constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
                     height: 150,
@@ -2188,7 +2193,7 @@ class _SlidersState extends State<Sliders> {
   }
 }
 
-class ComponentDecoration extends StatelessWidget {
+class ComponentDecoration extends StatefulWidget {
   const ComponentDecoration({
     super.key,
     required this.label,
@@ -2201,6 +2206,13 @@ class ComponentDecoration extends StatelessWidget {
   final String? tooltipMessage;
 
   @override
+  State<ComponentDecoration> createState() => _ComponentDecorationState();
+}
+
+class _ComponentDecorationState extends State<ComponentDecoration> {
+  final focusNode = FocusNode();
+
+  @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: Padding(
@@ -2210,9 +2222,10 @@ class ComponentDecoration extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(label, style: Theme.of(context).textTheme.titleSmall),
+                Text(widget.label,
+                    style: Theme.of(context).textTheme.titleSmall),
                 Tooltip(
-                  message: tooltipMessage,
+                  message: widget.tooltipMessage,
                   child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5.0),
                       child: Icon(Icons.info_outline, size: 16)),
@@ -2222,18 +2235,32 @@ class ComponentDecoration extends StatelessWidget {
             ConstrainedBox(
               constraints:
                   const BoxConstraints.tightFor(width: widthConstraint),
-              child: Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Theme.of(context).colorScheme.outlineVariant,
+              // Tapping within the a component card should request focus
+              // for that component's children.
+              child: Focus(
+                focusNode: focusNode,
+                canRequestFocus: true,
+                child: GestureDetector(
+                  onTapDown: (_) {
+                    focusNode.requestFocus();
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 20.0),
+                      child: Center(
+                        child: widget.child,
+                      ),
+                    ),
                   ),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 5.0, vertical: 20.0),
-                  child: Center(child: child),
                 ),
               ),
             ),
@@ -2253,19 +2280,22 @@ class ComponentGroupDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.zero,
-      elevation: 0,
-      color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: Center(
-          child: Column(
-            children: [
-              Text(label, style: Theme.of(context).textTheme.titleLarge),
-              colDivider,
-              ...children
-            ],
+    // Fully traverse this component group before moving on
+    return FocusTraversalGroup(
+      child: Card(
+        margin: EdgeInsets.zero,
+        elevation: 0,
+        color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Center(
+            child: Column(
+              children: [
+                Text(label, style: Theme.of(context).textTheme.titleLarge),
+                colDivider,
+                ...children
+              ],
+            ),
           ),
         ),
       ),
