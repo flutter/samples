@@ -21,7 +21,8 @@ declare -ar PROJECT_NAMES=(
     # "code_sharing/client"
     "code_sharing/server"
     "code_sharing/shared"
-    "desktop_photo_search/fluent_ui"
+    # TODO(DomesticMouse): version solving failed
+    # "desktop_photo_search/fluent_ui"
     "desktop_photo_search/material"
     "experimental/context_menus"
     "experimental/element_embedding_demo"
@@ -54,7 +55,8 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
-    "simplistic_calculator"
+    # TODO(DomesticMouse): version solving failed
+    # "simplistic_calculator"
     "simplistic_editor"
     "testing_app"
     "veggieseasons"

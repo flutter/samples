@@ -1,6 +1,7 @@
 // Copyright 2023 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -178,7 +179,7 @@ class _PageOpticalSizeState extends SinglePageState {
       pageConfig: widget.pageConfig,
       numTiles: 16,
       puzzleNum: 4,
-      shaderKey: 'wavy',
+      shader: Shader.wavy,
       shaderDuration: 5000,
       tileShadedString: 'Z',
       tileShadedStringPadding:
