@@ -16,7 +16,7 @@ void main() {
       'selected on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
 
     expect(find.text('Surface Tint Color Only'), findsNothing);
     expect(find.byType(NavigationBar), findsOneWidget);
@@ -41,7 +41,7 @@ void main() {
     widgetSetup(
         tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     expect(find.text('Surface Tint Color Only'), findsNothing);
     Finder tintIconOnRail = find.descendant(
         of: find.byType(NavigationRail),
