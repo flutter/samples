@@ -1050,7 +1050,7 @@ class _NavigationBarsState extends State<NavigationBars> {
   Widget build(BuildContext context) {
     // App NavigationBar should get first focus.
     Widget navigationBar = Focus(
-      autofocus: !widget.isBadgeExample,
+      autofocus: !(widget.isExampleBar || widget.isBadgeExample),
       child: NavigationBar(
         selectedIndex: selectedIndex,
         onDestinationSelected: (index) {
@@ -1562,6 +1562,8 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
             onPressed: () {
               showModalBottomSheet<void>(
                 context: context,
+                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
+                constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
                     height: 150,
@@ -1601,6 +1603,8 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
               _nonModalBottomSheetController = showBottomSheet<void>(
                 elevation: 8.0,
                 context: context,
+                // TODO: Remove when this is in the framework https://github.com/flutter/flutter/issues/118619
+                constraints: const BoxConstraints(maxWidth: 640),
                 builder: (context) {
                   return SizedBox(
                     height: 150,

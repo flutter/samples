@@ -1050,7 +1050,7 @@ class _NavigationBarsState extends State<NavigationBars> {
   Widget build(BuildContext context) {
     // App NavigationBar should get first focus.
     Widget navigationBar = Focus(
-      autofocus: !widget.isBadgeExample,
+      autofocus: !(widget.isExampleBar || widget.isBadgeExample),
       child: NavigationBar(
         selectedIndex: selectedIndex,
         onDestinationSelected: (index) {
