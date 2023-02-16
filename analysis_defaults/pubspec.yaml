@@ -1,6 +1,6 @@
 name: analysis_defaults
 description: Analysis defaults for flutter/samples
-version: 1.0.0
+publish_to: none
 
 environment:
   sdk: '>=2.19.0-0 <4.0.0'
