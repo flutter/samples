@@ -19,7 +19,8 @@ dependencies:
   uuid: ^3.0.6
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
 
