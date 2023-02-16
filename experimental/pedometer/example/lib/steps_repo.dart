@@ -2,7 +2,6 @@ import 'dart:ffi' as ffi;
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:jni/jni.dart' as jni;
 import 'package:pedometer/pedometer_bindings_generated.dart' as pd;
@@ -79,7 +78,7 @@ class _IOSStepsRepo implements StepsRepo {
   @override
   Future<List<Steps>> getSteps() async {
     if (!pd.CMPedometer.isStepCountingAvailable(lib)) {
-      debugPrint("Step counting is not available.");
+      print("Step counting is not available.");
       return [];
     }
 
