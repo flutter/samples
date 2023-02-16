@@ -33,11 +33,12 @@ dependencies:
       ref: 12decbe0f592e14e03223f6f2c0c7e0e2dbd70a1
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   async: ^2.8.2
   build: ^2.2.1
   build_runner: ^2.1.7
   built_value_generator: ^8.3.0
-  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0

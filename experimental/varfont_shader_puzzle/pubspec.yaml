@@ -12,7 +12,8 @@ dependencies:
   google_fonts: ^4.0.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  analysis_defaults:
+    path: ../../analysis_defaults
   flutter_test:
     sdk: flutter
 
