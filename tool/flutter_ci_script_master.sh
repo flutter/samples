@@ -35,7 +35,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/linting_tool"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "experimental/material_3_demo"
-    "experimental/pedometer"
+    # TODO(DomesticMouse): https://github.com/flutter/samples/issues/1659
+    # "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
     "flutter_maps_firestore"
