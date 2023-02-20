@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
@@ -282,7 +283,7 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
             left: 16,
             child: SafeArea(
               child: CloseButton(() {
-                Navigator.of(context).pop();
+                context.pop();
               }),
             ),
           ),

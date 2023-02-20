@@ -136,36 +136,52 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return CupertinoPage(
                       restorationId: 'route.list',
-                      child: ListScreen(restorationId: 'list'),
+                      child: Builder(
+                        builder: (context) {
+                          return ListScreen(restorationId: 'list');
+                        }
+                      ),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return CupertinoPage(
                       restorationId: 'route.favorites',
-                      child: FavoritesScreen(restorationId: 'favorites'),
+                      child: Builder(
+                        builder: (context) {
+                          return FavoritesScreen(restorationId: 'favorites');
+                        }
+                      ),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return CupertinoPage(
                       restorationId: 'route.search',
-                      child: SearchScreen(restorationId: 'search'),
+                      child: Builder(
+                        builder: (context) {
+                          return SearchScreen(restorationId: 'search');
+                        }
+                      ),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return CupertinoPage(
                       restorationId: 'route.settings',
-                      child: SettingsScreen(restorationId: 'settings'),
+                      child: Builder(
+                        builder: (context) {
+                          return SettingsScreen(restorationId: 'settings');
+                        }
+                      ),
                     );
                   },
                   routes: [
@@ -194,7 +210,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
               pageBuilder: (context, state) {
                 final veggieId = int.parse(state.params['id']!);
                 return CupertinoPage(
-                  restorationId: 'route.details.$veggieId',
+                  restorationId: 'route.details',
                   fullscreenDialog: true,
                   child: DetailsScreen(
                     id: veggieId,
