@@ -52,6 +52,7 @@ void main() {
         isTrue);
 
     // Current details page is restored.
+    // TODO: Restart and Restore of Details page breaks test
     // await tester.restartAndRestore();
     expect(find.text('Grapes'), findsNothing);
     expect(find.text('Figs'), findsOneWidget);
@@ -66,6 +67,7 @@ void main() {
         find.text("Which of these isn't a variety of figs?"), findsOneWidget);
 
     // Restores to trivia page.
+    // TODO: Restart and Restore of Details page breaks test
     // await tester.restartAndRestore();
     expect(find.text('Serving info'), findsNothing);
     expect(
@@ -77,6 +79,7 @@ void main() {
     expect(find.text('Next Question'), findsOneWidget);
 
     // Restores trivia state.
+    // TODO: Restart and Restore of Details page breaks test
     // await tester.restartAndRestore();
     expect(find.text("Which of these isn't a variety of figs?"), findsNothing);
     expect(find.text('Next Question'), findsOneWidget);
@@ -140,6 +143,7 @@ void main() {
     expect(find.text('Serving info'), findsOneWidget);
 
     // Restores details page
+    // TODO: Restart and Restore of Details page breaks test
     // await tester.restartAndRestore();
     expect(find.text('Tangelo'), findsOneWidget);
     expect(find.text('Serving info'), findsOneWidget);
