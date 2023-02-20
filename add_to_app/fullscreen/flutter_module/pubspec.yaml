@@ -12,12 +12,13 @@ dependencies:
   provider: ^6.0.2
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../../analysis_defaults
   flutter_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
   espresso: ^0.2.0
-  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true

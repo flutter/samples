@@ -21,11 +21,12 @@ dependencies:
   go_router: ^6.0.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
   json_serializable: ^6.2.0
   build_runner: ^2.1.8
-  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true

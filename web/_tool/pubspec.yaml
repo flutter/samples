@@ -5,7 +5,7 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  markdown: ^6.0.0
+  markdown: ^7.0.0
   path: ^1.8.0
 
 dev_dependencies:

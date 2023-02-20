@@ -13,9 +13,10 @@ dependencies:
   go_router: ^6.0.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
 
   # plugin is not yet part of the flutter framework
   window_size:

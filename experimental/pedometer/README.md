@@ -17,12 +17,10 @@ Configuration for FFIgen is [here](/ffigen.yaml) for the [CoreMotion](https://de
 `dart run ffigen --config ffigen.yaml`
 
 ### JNIgen
-Configuration for JNIgen is [here](/jnigen.yaml) for the [HealthConnect API](https://developer.android.com/guide/health-and-fitness/health-connect). Right now, JNIgen requires an Android folder to generate the bindings so there are a few steps to regenerate:
+Configuration for JNIgen is [here](/jnigen.yaml) for the [HealthConnect API](https://developer.android.com/guide/health-and-fitness/health-connect).
 
-1. `flutter create .`  
-2. `flutter build apk`
-3. `dart run jnigen --config jnigen.yaml`
-4. delete the android folder
+1. `cd Example && flutter build apk`
+2. `cd .. && dart run jnigen --config jnigen.yaml`
 
 
 ## Running the example app

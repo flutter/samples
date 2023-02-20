@@ -23,9 +23,10 @@ dependencies:
   go_router: ^6.0.0
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
   flutter_launcher_icons: ^0.11.0
 
 flutter:

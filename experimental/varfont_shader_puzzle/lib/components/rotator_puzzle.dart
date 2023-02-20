@@ -16,7 +16,7 @@ class RotatorPuzzle extends StatefulWidget {
   final PageConfig pageConfig;
   final int numTiles;
   final int puzzleNum;
-  final String shaderKey;
+  final Shader shader;
   final int shaderDuration;
 
   final String tileShadedString;
@@ -31,7 +31,7 @@ class RotatorPuzzle extends StatefulWidget {
     required this.pageConfig,
     required this.numTiles,
     required this.puzzleNum,
-    required this.shaderKey,
+    required this.shader,
     required this.shaderDuration,
     required this.tileShadedString,
     required this.tileShadedStringSize,
@@ -97,7 +97,7 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
         row: (i / dim).floor(),
         col: i % dim,
         parentState: this,
-        shaderKey: widget.shaderKey,
+        shader: widget.shader,
         shaderDuration: widget.shaderDuration,
         tileShadedString: widget.tileShadedString,
         tileShadedStringSize: widget.tileShadedStringSize,
@@ -213,7 +213,7 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
                         child: Center(
                           child: FragmentShaded(
                             key: shadedWidgetStackHackStateKey,
-                            shaderName: widget.shaderKey,
+                            shader: widget.shader,
                             shaderDuration: widget.shaderDuration,
                             child: Padding(
                               padding: widget.tileShadedStringPadding,
@@ -246,7 +246,7 @@ class RotatorPuzzleState extends State<RotatorPuzzle>
 class RotatorPuzzleTile extends StatefulWidget {
   final int tileID;
   final RotatorPuzzleState parentState;
-  final String shaderKey;
+  final Shader shader;
   final int shaderDuration;
   final String tileShadedString;
   final double tileShadedStringSize;
@@ -265,7 +265,7 @@ class RotatorPuzzleTile extends StatefulWidget {
     required this.row,
     required this.col,
     required this.parentState,
-    required this.shaderKey,
+    required this.shader,
     required this.shaderDuration,
     required this.tileShadedString,
     required this.tileShadedStringSize,

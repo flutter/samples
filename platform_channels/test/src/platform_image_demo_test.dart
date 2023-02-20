@@ -29,7 +29,7 @@ void main() {
       expect(find.byType(Image), findsNothing);
 
       // Tap on ElevatedButton to get Image.
-      await tester.tap(find.byType(ElevatedButton));
+      await tester.tap(find.byType(FilledButton));
       await tester.pumpAndSettle();
 
       expect(find.byType(Placeholder), findsNothing);
