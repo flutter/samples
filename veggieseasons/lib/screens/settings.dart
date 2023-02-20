@@ -18,6 +18,7 @@ class VeggieCategorySettingsScreen extends StatelessWidget {
 
   static Page<void> pageBuilder(BuildContext context) {
     return const CupertinoPage(
+      restorationId: 'router.categories',
       child: VeggieCategorySettingsScreen(restorationId: 'category'),
       title: 'Preferred Categories',
     );
@@ -97,6 +98,7 @@ class CalorieSettingsScreen extends StatelessWidget {
 
   static Page<void> pageBuilder(BuildContext context) {
     return const CupertinoPage<void>(
+      restorationId: 'router.calorie',
       child: CalorieSettingsScreen(restorationId: 'calorie'),
       title: 'Calorie Target',
     );

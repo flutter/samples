@@ -12,6 +12,7 @@ class FadeTransitionPage<T> extends Page<T> {
     super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 300),
+    super.restorationId,
   });
 
   @override

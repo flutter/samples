@@ -112,71 +112,60 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
           routes: [
             ShellRoute(
               navigatorKey: _shellNavigatorKey,
-              builder: (context, state, child) {
-                return HomeScreen(
-                  restorationId: 'home',
-                  child: child,
-                  onTap: (index) {
-                    if (index == 0) {
-                      context.go('/list');
-                    } else if (index == 1) {
-                      context.go('/favorites');
-                    } else if (index == 2) {
-                      context.go('/search');
-                    } else {
-                      context.go('/settings');
-                    }
-                  },
+              pageBuilder: (context, state, child) {
+                return CupertinoPage(
+                  restorationId: 'router.shell',
+                  child: HomeScreen(
+                    restorationId: 'home',
+                    child: child,
+                    onTap: (index) {
+                      if (index == 0) {
+                        context.go('/list');
+                      } else if (index == 1) {
+                        context.go('/favorites');
+                      } else if (index == 2) {
+                        context.go('/search');
+                      } else {
+                        context.go('/settings');
+                      }
+                    },
+                  ),
                 );
               },
               routes: [
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
-                      child: Builder(
-                        builder: (context) {
-                          return const ListScreen(restorationId: 'list');
-                        },
-                      ),
+                    return const FadeTransitionPage(
+                      restorationId: 'route.list',
+                      child: ListScreen(restorationId: 'list'),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
-                      child: Builder(
-                        builder: (context) {
-                          return const FavoritesScreen(
-                              restorationId: 'favorites');
-                        },
-                      ),
+                    return const FadeTransitionPage(
+                      restorationId: 'route.favorites',
+                      child: FavoritesScreen(restorationId: 'favorites'),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
-                      child: Builder(
-                        builder: (context) {
-                          return const SearchScreen(restorationId: 'search');
-                        },
-                      ),
+                    return const FadeTransitionPage(
+                      restorationId: 'route.search',
+                      child: SearchScreen(restorationId: 'search'),
                     );
                   },
                 ),
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
-                      child: Builder(
-                        builder: (context) {
-                          return const SettingsScreen(
-                              restorationId: 'settings');
-                        },
-                      ),
+                    return const FadeTransitionPage(
+                      restorationId: 'route.settings',
+                      child: SettingsScreen(restorationId: 'settings'),
                     );
                   },
                   routes: [
@@ -205,6 +194,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
               pageBuilder: (context, state) {
                 final veggieId = int.parse(state.params['id']!);
                 return CupertinoPage(
+                  restorationId: 'route.details.$veggieId',
                   fullscreenDialog: true,
                   child: DetailsScreen(
                     id: veggieId,
