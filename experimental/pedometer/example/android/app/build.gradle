@@ -65,12 +65,6 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-
-    externalNativeBuild {
-		cmake {
-			path "../../../src/health_connect/CMakeLists.txt"
-		}
-	}
 }
 
 flutter {
