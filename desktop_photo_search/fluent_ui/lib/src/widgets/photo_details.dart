@@ -58,6 +58,7 @@ class _PhotoDetailsState extends State<PhotoDetails> {
   Widget build(BuildContext context) {
     return Scrollbar(
       child: SingleChildScrollView(
+        primary: true,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
