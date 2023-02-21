@@ -20,7 +20,6 @@ import 'screens/favorites.dart';
 import 'screens/list.dart';
 import 'screens/search.dart';
 import 'screens/settings.dart';
-import 'widgets/fade_transition_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -140,7 +139,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       restorationId: 'route.list',
                       child: Builder(
                         builder: (context) {
-                          return ListScreen(restorationId: 'list');
+                          return const ListScreen(restorationId: 'list');
                         }
                       ),
                     );
@@ -153,7 +152,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       restorationId: 'route.favorites',
                       child: Builder(
                         builder: (context) {
-                          return FavoritesScreen(restorationId: 'favorites');
+                          return const FavoritesScreen(restorationId: 'favorites');
                         }
                       ),
                     );
@@ -166,7 +165,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       restorationId: 'route.search',
                       child: Builder(
                         builder: (context) {
-                          return SearchScreen(restorationId: 'search');
+                          return const SearchScreen(restorationId: 'search');
                         }
                       ),
                     );
@@ -179,7 +178,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                       restorationId: 'route.settings',
                       child: Builder(
                         builder: (context) {
-                          return SettingsScreen(restorationId: 'settings');
+                          return const SettingsScreen(restorationId: 'settings');
                         }
                       ),
                     );

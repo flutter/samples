@@ -4,12 +4,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/veggie.dart';
 import 'package:veggieseasons/main.dart';
-import 'package:veggieseasons/widgets/close_button.dart';
 
 void main() {
   testWidgets('restoration smoke test', (tester) async {
