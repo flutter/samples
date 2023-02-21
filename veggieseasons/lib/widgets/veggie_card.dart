@@ -140,7 +140,7 @@ class VeggieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return PressableCard(
       onPressed: () {
-        context.push('/details/${veggie.id}');
+        context.go('/list/details/${veggie.id}');
       },
       child: Stack(
         children: [

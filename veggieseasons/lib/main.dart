@@ -137,50 +137,52 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                   pageBuilder: (context, state) {
                     return CupertinoPage(
                       restorationId: 'route.list',
-                      child: Builder(
-                        builder: (context) {
-                          return const ListScreen(restorationId: 'list');
-                        }
-                      ),
+                      child: Builder(builder: (context) {
+                        return const ListScreen(restorationId: 'list');
+                      }),
                     );
                   },
+                  routes: [
+                    _buildDetailsRoute(),
+                  ],
                 ),
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
                     return CupertinoPage(
                       restorationId: 'route.favorites',
-                      child: Builder(
-                        builder: (context) {
-                          return const FavoritesScreen(restorationId: 'favorites');
-                        }
-                      ),
+                      child: Builder(builder: (context) {
+                        return const FavoritesScreen(
+                            restorationId: 'favorites');
+                      }),
                     );
                   },
+                  routes: [
+                    _buildDetailsRoute(),
+                  ],
                 ),
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
                     return CupertinoPage(
                       restorationId: 'route.search',
-                      child: Builder(
-                        builder: (context) {
-                          return const SearchScreen(restorationId: 'search');
-                        }
-                      ),
+                      child: Builder(builder: (context) {
+                        return const SearchScreen(restorationId: 'search');
+                      }),
                     );
                   },
+                  routes: [
+                    _buildDetailsRoute(),
+                  ],
                 ),
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
                     return CupertinoPage(
                       restorationId: 'route.settings',
-                      child: Builder(
-                        builder: (context) {
-                          return const SettingsScreen(restorationId: 'settings');
-                        }
-                      ),
+                      child: Builder(builder: (context) {
+                        return const SettingsScreen(restorationId: 'settings');
+                      }),
                     );
                   },
                   routes: [
@@ -203,24 +205,27 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 ),
               ],
             ),
-            GoRoute(
-              parentNavigatorKey: _rootNavigatorKey,
-              path: '/details/:id',
-              pageBuilder: (context, state) {
-                final veggieId = int.parse(state.params['id']!);
-                return CupertinoPage(
-                  restorationId: 'route.details',
-                  fullscreenDialog: true,
-                  child: DetailsScreen(
-                    id: veggieId,
-                    restorationId: 'details',
-                  ),
-                );
-              },
-            ),
           ],
         ),
       ),
+    );
+  }
+
+  GoRoute _buildDetailsRoute() {
+    return GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: 'details/:id',
+      pageBuilder: (context, state) {
+        final veggieId = int.parse(state.params['id']!);
+        return CupertinoPage(
+          restorationId: 'route.details',
+          fullscreenDialog: true,
+          child: DetailsScreen(
+            id: veggieId,
+            restorationId: 'details',
+          ),
+        );
+      },
     );
   }
 }

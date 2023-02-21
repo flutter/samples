@@ -73,7 +73,7 @@ class VeggieHeadline extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        context.push('/details/${veggie.id}');
+        context.go('${GoRouter.of(context).location}/details/${veggie.id}');
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
