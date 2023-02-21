@@ -13,6 +13,7 @@ import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
 import 'package:veggieseasons/screens/home.dart';
 import 'package:veggieseasons/styles.dart';
+import 'package:veggieseasons/widgets/fade_transition_page.dart';
 import 'package:window_size/window_size.dart';
 
 import 'screens/details.dart';
@@ -135,7 +136,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return CupertinoPage(
+                    return FadeTransitionPage(
                       restorationId: 'route.list',
                       child: Builder(builder: (context) {
                         return const ListScreen(restorationId: 'list');
@@ -149,7 +150,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return CupertinoPage(
+                    return FadeTransitionPage(
                       restorationId: 'route.favorites',
                       child: Builder(builder: (context) {
                         return const FavoritesScreen(
@@ -164,7 +165,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return CupertinoPage(
+                    return FadeTransitionPage(
                       restorationId: 'route.search',
                       child: Builder(builder: (context) {
                         return const SearchScreen(restorationId: 'search');
@@ -178,7 +179,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return CupertinoPage(
+                    return FadeTransitionPage(
                       restorationId: 'route.settings',
                       child: Builder(builder: (context) {
                         return const SettingsScreen(restorationId: 'settings');
