@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
