@@ -15,7 +15,7 @@ void main(){
     vec2 st = FlutterFragCoord().xy / resolution.xy;
     
     vec3 color = vec3(0.0);
-    vec3 percent = vec3((st.x+st.y)/2);
+    vec3 percent = vec3((st.x + st.y) / 2);
 
     color = mix(mix(flutterSky, flutterBlue, percent*2),
                 mix(flutterBlue, flutterNavy, percent*2-1),
