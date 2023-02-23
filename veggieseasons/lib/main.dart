@@ -152,7 +152,7 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                     return FadeTransitionPage(
                       key: state.pageKey,
                       restorationId: 'route.favorites',
-                      child: FavoritesScreen(restorationId: 'favorites'),
+                      child: const FavoritesScreen(restorationId: 'favorites'),
                     );
                   },
                   routes: [
