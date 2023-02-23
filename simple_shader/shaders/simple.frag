@@ -18,7 +18,7 @@ void main(){
     vec3 percent = vec3((st.x + st.y) / 2);
 
     color = mix(mix(flutterSky, flutterBlue, percent * 2),
-                mix(flutterBlue, flutterNavy, percent*2-1),
+                mix(flutterBlue, flutterNavy, percent * 2 - 1),
                 step(0.5,percent));
 
     fragColor=vec4(color,1);
