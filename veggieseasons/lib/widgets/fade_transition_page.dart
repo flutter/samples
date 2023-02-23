@@ -21,9 +21,10 @@ class FadeTransitionPage<T> extends Page<T> {
 }
 
 class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
-  final FadeTransitionPage<T> _page;
+  PageBasedFadeTransitionRoute(FadeTransitionPage<T> page)
+      : super(settings: page);
 
-  PageBasedFadeTransitionRoute(this._page) : super(settings: _page);
+  FadeTransitionPage<T> get _page => settings as FadeTransitionPage<T>;
 
   @override
   Color? get barrierColor => null;
@@ -35,20 +36,30 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
   Duration get transitionDuration => _page.duration;
 
   @override
+  Duration get reverseTransitionDuration => _page.duration;
+
+  @override
   bool get maintainState => true;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    var curveTween = CurveTween(curve: Curves.easeIn);
-    return FadeTransition(
-      opacity: animation.drive(curveTween),
-      child: (settings as FadeTransitionPage).child,
-    );
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
+    return _page.child;
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation, Widget child) =>
-      child;
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return FadeTransition(
+      opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+      child: _page.child,
+    );
+  }
 }
