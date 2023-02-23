@@ -140,6 +140,9 @@ class VeggieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return PressableCard(
       onPressed: () {
+        // GoRouter does not support relative routes,
+        // so navigate to the absolute route.
+        // see https://github.com/flutter/flutter/issues/108177
         context.go('/list/details/${veggie.id}');
       },
       child: Stack(

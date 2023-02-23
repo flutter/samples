@@ -73,6 +73,10 @@ class VeggieHeadline extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
+        // GoRouter does not support relative routes,
+        // so navigate to the absolute route, which can be either
+        // `/favorites/details/${veggie.id}` or `/search/details/${veggie.id}`
+        // see https://github.com/flutter/flutter/issues/108177
         context.go('${GoRouter.of(context).location}/details/${veggie.id}');
       },
       child: Row(

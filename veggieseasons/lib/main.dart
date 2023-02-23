@@ -203,6 +203,8 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
     );
   }
 
+  // GoRouter does not support relative routes,
+  // see https://github.com/flutter/flutter/issues/108177
   GoRoute _buildDetailsRoute() {
     return GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
