@@ -136,9 +136,10 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return FadeTransitionPage(
+                      key: state.pageKey,
                       restorationId: 'route.list',
-                      child: ListScreen(restorationId: 'list'),
+                      child: const ListScreen(restorationId: 'list'),
                     );
                   },
                   routes: [
@@ -148,7 +149,8 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return FadeTransitionPage(
+                      key: state.pageKey,
                       restorationId: 'route.favorites',
                       child: FavoritesScreen(restorationId: 'favorites'),
                     );
@@ -160,9 +162,10 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return FadeTransitionPage(
+                      key: state.pageKey,
                       restorationId: 'route.search',
-                      child: SearchScreen(restorationId: 'search'),
+                      child: const SearchScreen(restorationId: 'search'),
                     );
                   },
                   routes: [
@@ -172,9 +175,10 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return const FadeTransitionPage(
+                    return FadeTransitionPage(
+                      key: state.pageKey,
                       restorationId: 'route.settings',
-                      child: SettingsScreen(restorationId: 'settings'),
+                      child: const SettingsScreen(restorationId: 'settings'),
                     );
                   },
                   routes: [

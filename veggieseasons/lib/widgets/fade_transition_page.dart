@@ -57,8 +57,9 @@ class PageBasedFadeTransitionRoute<T> extends PageRoute<T> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) {
+    final tween = CurveTween(curve: Curves.easeInOut);
     return FadeTransition(
-      opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+      opacity: animation.drive(tween),
       child: _page.child,
     );
   }
