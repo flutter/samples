@@ -136,11 +136,9 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/list',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return const FadeTransitionPage(
                       restorationId: 'route.list',
-                      child: Builder(builder: (context) {
-                        return const ListScreen(restorationId: 'list');
-                      }),
+                      child: ListScreen(restorationId: 'list'),
                     );
                   },
                   routes: [
@@ -150,12 +148,9 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/favorites',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return const FadeTransitionPage(
                       restorationId: 'route.favorites',
-                      child: Builder(builder: (context) {
-                        return const FavoritesScreen(
-                            restorationId: 'favorites');
-                      }),
+                      child: FavoritesScreen(restorationId: 'favorites'),
                     );
                   },
                   routes: [
@@ -165,11 +160,9 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/search',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return const FadeTransitionPage(
                       restorationId: 'route.search',
-                      child: Builder(builder: (context) {
-                        return const SearchScreen(restorationId: 'search');
-                      }),
+                      child: SearchScreen(restorationId: 'search'),
                     );
                   },
                   routes: [
@@ -179,11 +172,9 @@ class _VeggieAppState extends State<VeggieApp> with RestorationMixin {
                 GoRoute(
                   path: '/settings',
                   pageBuilder: (context, state) {
-                    return FadeTransitionPage(
+                    return const FadeTransitionPage(
                       restorationId: 'route.settings',
-                      child: Builder(builder: (context) {
-                        return const SettingsScreen(restorationId: 'settings');
-                      }),
+                      child: SettingsScreen(restorationId: 'settings'),
                     );
                   },
                   routes: [
