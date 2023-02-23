@@ -21,5 +21,5 @@ void main(){
                 mix(flutterBlue, flutterNavy, percent * 2 - 1),
                 step(0.5, percent));
 
-    fragColor=vec4(color,1);
+    fragColor = vec4(color, 1);
 }
