@@ -5,8 +5,8 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:veggieseasons/data/veggie.dart';
-import 'package:veggieseasons/screens/details.dart';
 import 'package:veggieseasons/styles.dart';
 
 class FrostyBackground extends StatelessWidget {
@@ -139,7 +139,12 @@ class VeggieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PressableCard(
-      onPressed: () => DetailsScreen.show(Navigator.of(context), veggie.id),
+      onPressed: () {
+        // GoRouter does not support relative routes,
+        // so navigate to the absolute route.
+        // see https://github.com/flutter/flutter/issues/108177
+        context.go('/list/details/${veggie.id}');
+      },
       child: Stack(
         children: [
           Semantics(
