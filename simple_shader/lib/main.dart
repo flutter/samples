@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Simple Shader Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorSchemeSeed: Colors.blue,
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Simple Shader'),
+        title: const Text('Simple Shader Demo'),
       ),
       body: FutureBuilder<ui.FragmentProgram>(
         future: program,
