@@ -49,6 +49,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    "simple_shader"
     "simplistic_calculator"
     "simplistic_editor"
     "testing_app"

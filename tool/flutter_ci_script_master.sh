@@ -55,6 +55,7 @@ declare -ar PROJECT_NAMES=(
     "platform_view_swift"
     "provider_counter"
     "provider_shopper"
+    "simple_shader"
     # TODO(DomesticMouse): version solving failed
     # "simplistic_calculator"
     "simplistic_editor"
