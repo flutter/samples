@@ -114,6 +114,10 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "google_maps/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "infinite_list/"
     schedule:
       interval: "daily"
