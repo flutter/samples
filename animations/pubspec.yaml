@@ -9,8 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
   go_router: ^6.0.0
+  window_size: # plugin is not yet part of the flutter framework
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
 
 dev_dependencies:
   analysis_defaults:
@@ -18,11 +21,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # plugin is not yet part of the flutter framework
-  window_size:
-    git:
-      url: https://github.com/google/flutter-desktop-embedding.git
-      path: plugins/window_size
 
 flutter:
   uses-material-design: true
