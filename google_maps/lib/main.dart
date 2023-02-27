@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
               // ignore: prefer_const_constructors
               Marker(
                 markerId: const MarkerId('Sydney'),
-                position: LatLng(-33.86, 151.20),
+                position: const LatLng(-33.86, 151.20),
               )
             }),
       ),
