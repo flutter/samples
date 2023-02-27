@@ -91,8 +91,6 @@ final basicDemos = [
   ),
 ];
 
-final flutterAnimateDemos = <Demo>[];
-
 final miscDemos = [
   Demo(
     name: 'Expandable Card',
