@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 import 'app_state.dart';
@@ -209,6 +210,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
           inputType: TextInputType.multiline,
         ),
       );
+
+      _updateSizeAndTransform();
+      _schedulePeriodicPostFrameCallbacks();
+
       final TextStyle style = widget.style;
       _textInputConnection!
         ..setStyle(
@@ -474,6 +479,54 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       _textInputConnection!.setEditingState(_value);
       _lastKnownRemoteTextEditingValue = _value;
     }
+  }
+
+  // Sends the current composing rect to the iOS text input plugin via the text
+  // input channel. We need to keep sending the information even if no text is
+  // currently marked, as the information usually lags behind. The text input
+  // plugin needs to estimate the composing rect based on the latest caret rect,
+  // when the composing rect info didn't arrive in time.
+  void _updateComposingRectIfNeeded() {
+    final TextRange composingRange = _value.composing;
+    assert(mounted);
+    Rect? composingRect =
+        renderEditable.getRectForComposingRange(composingRange);
+    // Send the caret location instead if there's no marked text yet.
+    if (composingRect == null) {
+      assert(!composingRange.isValid || composingRange.isCollapsed);
+      final int offset = composingRange.isValid ? composingRange.start : 0;
+      composingRect =
+          renderEditable.getLocalRectForCaret(TextPosition(offset: offset));
+    }
+    _textInputConnection!.setComposingRect(composingRect);
+  }
+
+  void _updateCaretRectIfNeeded() {
+    final TextSelection? selection = renderEditable.selection;
+    if (selection == null || !selection.isValid || !selection.isCollapsed) {
+      return;
+    }
+    final TextPosition currentTextPosition =
+        TextPosition(offset: selection.baseOffset);
+    final Rect caretRect =
+        renderEditable.getLocalRectForCaret(currentTextPosition);
+    _textInputConnection!.setCaretRect(caretRect);
+  }
+
+  void _updateSizeAndTransform() {
+    final Size size = renderEditable.size;
+    final Matrix4 transform = renderEditable.getTransformTo(null);
+    _textInputConnection!.setEditableSizeAndTransform(size, transform);
+  }
+
+  void _schedulePeriodicPostFrameCallbacks([Duration? duration]) {
+    if (!_hasInputConnection) {
+      return;
+    }
+    _updateComposingRectIfNeeded();
+    _updateCaretRectIfNeeded();
+    SchedulerBinding.instance
+        .addPostFrameCallback(_schedulePeriodicPostFrameCallbacks);
   }
 
   /// [TextSelectionDelegate] method implementations.
