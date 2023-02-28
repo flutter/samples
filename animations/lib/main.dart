@@ -4,7 +4,6 @@
 
 import 'dart:io';
 
-import 'package:animations/src/misc/flutter_animate.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
