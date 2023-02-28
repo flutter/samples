@@ -759,8 +759,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
                 textAlign: TextAlign.left,
                 textDirection: _textDirection,
                 locale: Localizations.maybeLocaleOf(context),
-                textHeightBehavior:
-                    DefaultTextHeightBehavior.maybeOf(context),
+                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(context),
                 textWidthBasis: TextWidthBasis.parent,
                 obscuringCharacter: '•',
                 obscureText:
