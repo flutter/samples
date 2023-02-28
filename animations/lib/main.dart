@@ -113,6 +113,11 @@ final miscDemos = [
     builder: (context) => const CardSwipeDemo(),
   ),
   Demo(
+    name: 'Flutter Animate',
+    route: FlutterAnimateDemo.routeName,
+    builder: (context) => const FlutterAnimateDemo(),
+  ),
+  Demo(
     name: 'Repeating Animation',
     route: RepeatingAnimationDemo.routeName,
     builder: (context) => const RepeatingAnimationDemo(),
