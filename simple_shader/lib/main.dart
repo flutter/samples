@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_shaders/flutter_shaders.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,21 +23,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  late Future<ui.FragmentProgram> program;
-
-  @override
-  void initState() {
-    super.initState();
-    program = ui.FragmentProgram.fromAsset('shaders/simple.frag');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,22 +32,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('Simple Shader Demo'),
       ),
-      body: FutureBuilder<ui.FragmentProgram>(
-        future: program,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return CustomPaint(
-              size: MediaQuery.of(context).size,
-              painter: ShaderPainter(
-                shader: snapshot.data!.fragmentShader(),
-              ),
-            );
-          }
-          if (snapshot.hasError) {
-            return Center(child: Text('${snapshot.error}'));
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
+      body: ShaderBuilder(
+        assetKey: 'shaders/simple.frag',
+        (context, shader, child) => CustomPaint(
+          size: MediaQuery.of(context).size,
+          painter: ShaderPainter(
+            shader: shader,
+          ),
+        ),
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }
