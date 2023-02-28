@@ -4,6 +4,7 @@
 
 import 'dart:io';
 
+import 'package:animations/src/misc/flutter_animate.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -111,6 +112,11 @@ final miscDemos = [
     name: 'Card Swipe',
     route: CardSwipeDemo.routeName,
     builder: (context) => const CardSwipeDemo(),
+  ),
+  Demo(
+    name: 'Flutter Animate',
+    route: FlutterAnimateDemo.routeName,
+    builder: (context) => const FlutterAnimateDemo(),
   ),
   Demo(
     name: 'Repeating Animation',
