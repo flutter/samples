@@ -111,7 +111,14 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void performSelector(String selectorName) {
-    // Will not implement.
+    final Intent? intent = intentForMacOSSelector(selectorName);
+
+    if (intent != null) {
+      final BuildContext? primaryContext = primaryFocus?.context;
+      if (primaryContext != null) {
+        Actions.invoke(primaryContext, intent);
+      }
+    }
   }
 
   @override
@@ -773,82 +780,61 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
-  static final Map<ShortcutActivator, Intent> _defaultWebShortcuts =
-      <ShortcutActivator, Intent>{
-    // Activation
-    const SingleActivator(LogicalKeyboardKey.space):
-        const DoNothingAndStopPropagationIntent(),
-
-    // Scrolling
-    const SingleActivator(LogicalKeyboardKey.arrowUp):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowDown):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowLeft):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowRight):
-        const DoNothingAndStopPropagationIntent(),
-  };
-
   @override
   Widget build(BuildContext context) {
-    return Shortcuts(
-      shortcuts: kIsWeb ? _defaultWebShortcuts : <ShortcutActivator, Intent>{},
-      child: Actions(
-        actions: _actions,
-        child: Focus(
-          focusNode: widget.focusNode,
-          child: Scrollable(
-            viewportBuilder: (context, position) {
-              return CompositedTransformTarget(
-                link: _toolbarLayerLink,
-                child: _Editable(
-                  key: _textKey,
-                  startHandleLayerLink: _startHandleLayerLink,
-                  endHandleLayerLink: _endHandleLayerLink,
-                  inlineSpan: _buildTextSpan(),
-                  value: _value, // We pass value.selection to RenderEditable.
-                  cursorColor: Colors.blue,
-                  backgroundCursorColor: Colors.grey[100],
-                  showCursor: ValueNotifier<bool>(_hasFocus),
-                  forceLine:
-                      true, // Whether text field will take full line regardless of width.
-                  readOnly: false, // editable text-field.
-                  hasFocus: _hasFocus,
-                  maxLines: null, // multi-line text-field.
-                  minLines: null,
-                  expands: false, // expands to height of parent.
-                  strutStyle: null,
-                  selectionColor: Colors.blue.withOpacity(0.40),
-                  textScaleFactor: MediaQuery.textScaleFactorOf(context),
-                  textAlign: TextAlign.left,
-                  textDirection: _textDirection,
-                  locale: Localizations.maybeLocaleOf(context),
-                  textHeightBehavior:
-                      DefaultTextHeightBehavior.maybeOf(context),
-                  textWidthBasis: TextWidthBasis.parent,
-                  obscuringCharacter: '•',
-                  obscureText:
-                      false, // This is a non-private text field that does not require obfuscation.
-                  offset: position,
-                  onCaretChanged: null,
-                  rendererIgnoresPointer: true,
-                  cursorWidth: 2.0,
-                  cursorHeight: null,
-                  cursorRadius: const Radius.circular(2.0),
-                  cursorOffset: Offset.zero,
-                  paintCursorAboveText: false,
-                  enableInteractiveSelection:
-                      true, // make true to enable selection on mobile.
-                  textSelectionDelegate: this,
-                  devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
-                  promptRectRange: null,
-                  promptRectColor: null,
-                  clipBehavior: Clip.hardEdge,
-                ),
-              );
-            },
-          ),
+    return Actions(
+      actions: _actions,
+      child: Focus(
+        focusNode: widget.focusNode,
+        child: Scrollable(
+          viewportBuilder: (context, position) {
+            return CompositedTransformTarget(
+              link: _toolbarLayerLink,
+              child: _Editable(
+                key: _textKey,
+                startHandleLayerLink: _startHandleLayerLink,
+                endHandleLayerLink: _endHandleLayerLink,
+                inlineSpan: _buildTextSpan(),
+                value: _value, // We pass value.selection to RenderEditable.
+                cursorColor: Colors.blue,
+                backgroundCursorColor: Colors.grey[100],
+                showCursor: ValueNotifier<bool>(_hasFocus),
+                forceLine:
+                    true, // Whether text field will take full line regardless of width.
+                readOnly: false, // editable text-field.
+                hasFocus: _hasFocus,
+                maxLines: null, // multi-line text-field.
+                minLines: null,
+                expands: false, // expands to height of parent.
+                strutStyle: null,
+                selectionColor: Colors.blue.withOpacity(0.40),
+                textScaleFactor: MediaQuery.textScaleFactorOf(context),
+                textAlign: TextAlign.left,
+                textDirection: _textDirection,
+                locale: Localizations.maybeLocaleOf(context),
+                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(context),
+                textWidthBasis: TextWidthBasis.parent,
+                obscuringCharacter: '•',
+                obscureText:
+                    false, // This is a non-private text field that does not require obfuscation.
+                offset: position,
+                onCaretChanged: null,
+                rendererIgnoresPointer: true,
+                cursorWidth: 2.0,
+                cursorHeight: null,
+                cursorRadius: const Radius.circular(2.0),
+                cursorOffset: Offset.zero,
+                paintCursorAboveText: false,
+                enableInteractiveSelection:
+                    true, // make true to enable selection on mobile.
+                textSelectionDelegate: this,
+                devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
+                promptRectRange: null,
+                promptRectColor: null,
+                clipBehavior: Clip.hardEdge,
+              ),
+            );
+          },
         ),
       ),
     );
