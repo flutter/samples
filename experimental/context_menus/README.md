@@ -10,9 +10,6 @@ such as the text selection toolbar on mobile or the right click menu on desktop.
 
 Just run `flutter run` in the same directory as this README file.
 
-Currently, most of the examples in this demo do not support web, because Flutter
-uses the browser's built-in context menu instead.
-
 ## The examples
 
 ### [Anywhere](https://github.com/flutter/samples/blob/main/experimental/context_menus/lib/anywhere_page.dart)
