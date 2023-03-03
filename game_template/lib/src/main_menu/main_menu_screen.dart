@@ -28,28 +28,39 @@ class MainMenuScreen extends StatelessWidget {
       body: ResponsiveScreen(
         mainAreaProminence: 0.45,
         squarishMainArea: Center(
-          child: Transform.rotate(
-            angle: -0.1,
-            child: const Text(
-              'Flutter Game Template!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Permanent Marker',
-                fontSize: 55,
-                height: 1,
-              ),
+          child: const Text(
+            'SOCCERBLE',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Lato',
+              fontSize: 55,
+              height: 1,
+              fontWeight: FontWeight.w700,
+              letterSpacing: -5,
+              color: Color.fromRGBO(255, 255, 255, 1),
             ),
           ),
         ),
         rectangularMenuArea: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FilledButton(
-              onPressed: () {
-                audioController.playSfx(SfxType.buttonTap);
-                GoRouter.of(context).go('/play');
-              },
-              child: const Text('Play'),
+            Ink(
+              decoration: const ShapeDecoration(
+                color: Color.fromRGBO(24, 156, 56, 1),
+                shape: CircleBorder(),
+              ),
+              child: IconButton(
+                iconSize: 100.0,
+                onPressed: () {
+                  audioController.playSfx(SfxType.buttonTap);
+                  GoRouter.of(context).go('/play');
+                },
+                icon: Icon(
+                  Icons.play_arrow_rounded,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                ),
+                // child: const Text('Play'),
+              ),
             ),
             _gap,
             if (gamesServicesController != null) ...[
@@ -70,7 +81,7 @@ class MainMenuScreen extends StatelessWidget {
               ),
               _gap,
             ],
-            FilledButton(
+            TextButton(
               onPressed: () => GoRouter.of(context).push('/settings'),
               child: const Text('Settings'),
             ),

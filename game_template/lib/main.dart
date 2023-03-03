@@ -247,12 +247,12 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: ThemeData.from(
               colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
+                seedColor: palette.grassGreen,
                 background: palette.backgroundMain,
               ),
               textTheme: TextTheme(
                 bodyMedium: TextStyle(
-                  color: palette.ink,
+                  color: palette.darkGrey,
                 ),
               ),
               useMaterial3: true,
