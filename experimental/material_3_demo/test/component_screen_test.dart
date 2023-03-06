@@ -37,7 +37,7 @@ void main() {
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Icon buttons
-    expect(find.byType(IconToggleButton), findsNWidgets(8));
+    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined), findsNWidgets(8));
 
     // Segmented buttons
     expect(find.byType(SegmentedButton<Calendar>), findsOneWidget);
@@ -106,6 +106,9 @@ void main() {
     expect(find.byType(FilterChip), findsNWidgets(2));
     expect(find.byType(InputChip), findsNWidgets(2));
 
+    // Date pickers
+    expect(find.widgetWithText(TextButton, 'Show date picker'), findsOneWidget);
+
     // Menus
     expect(find.byType(MenuAnchor), findsNWidgets(5));
     expect(find.byType(DropdownMenu<ColorLabel>), findsOneWidget);
@@ -120,6 +123,9 @@ void main() {
 
     // Switches
     expect(find.byType(Switch), findsNWidgets(4));
+
+    // Time pickers
+    expect(find.widgetWithText(TextButton, 'Show time picker'), findsOneWidget);
 
     // TextFields
     expect(find.widgetWithText(TextField, 'Disabled'), findsNWidgets(2));

@@ -31,7 +31,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
-    "experimental/material_3_demo"
+    # TODO(DomesticMouse): uncomment on next Flutter stable increment
+    # "experimental/material_3_demo"
     "experimental/pedometer"
     "experimental/varfont_shader_puzzle"
     "experimental/web_dashboard"
