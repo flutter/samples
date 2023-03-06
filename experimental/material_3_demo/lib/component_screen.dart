@@ -187,7 +187,7 @@ class Buttons extends StatefulWidget {
 class _ButtonsState extends State<Buttons> {
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Common buttons',
       tooltipMessage:
           'Use ElevatedButton, FilledButton, FilledButton.tonal, OutlinedButton, or TextButton',
@@ -195,7 +195,7 @@ class _ButtonsState extends State<Buttons> {
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const <Widget>[
+          children: <Widget>[
             ButtonsWithoutIcon(isDisabled: false),
             ButtonsWithIcon(),
             ButtonsWithoutIcon(isDisabled: true),
@@ -681,11 +681,11 @@ class Dividers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Dividers',
       tooltipMessage: 'Use Divider or VerticalDivider',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           Divider(key: Key('divider')),
         ],
       ),
@@ -698,11 +698,11 @@ class Switches extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Switches',
       tooltipMessage: 'Use SwitchListTile or Switch',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SwitchRow(isEnabled: true),
           SwitchRow(isEnabled: false),
         ],
@@ -1100,7 +1100,8 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Icon buttons',
-      tooltipMessage: 'Use IconButton, IconButton.filled, IconButton.filledTonal, IconButton.outlined',
+      tooltipMessage:
+          'Use IconButton, IconButton.filled, IconButton.filledTonal, IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -1309,7 +1310,10 @@ class _DatePickersState extends State<DatePickers> {
             }
           });
         },
-        child: const Text('Show date picker', style: TextStyle(fontWeight: FontWeight.bold),),
+        child: const Text(
+          'Show date picker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
@@ -1343,7 +1347,10 @@ class _TimePickersState extends State<TimePickers> {
             ));
           });
         },
-        child: const Text('Show time picker', style: TextStyle(fontWeight: FontWeight.bold),),
+        child: const Text(
+          'Show time picker',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
@@ -1354,11 +1361,11 @@ class SegmentedButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ComponentDecoration(
+    return const ComponentDecoration(
       label: 'Segmented buttons',
       tooltipMessage: 'Use SegmentedButton<T>',
       child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           SingleChoice(),
           colDivider,
           MultipleChoice(),
@@ -2053,9 +2060,9 @@ class _MenusState extends State<Menus> {
       tooltipMessage: 'Use MenuAnchor or DropdownMenu<T>',
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               ButtonAnchorExample(),
               rowDivider,
               IconButtonAnchorExample(),
