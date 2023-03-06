@@ -155,12 +155,12 @@ class Selection extends StatelessWidget {
     return const ComponentGroupDecoration(label: 'Selection', children: [
       Checkboxes(),
       Chips(),
-      // TODO: Add Date pickers https://github.com/flutter/flutter/issues/101481
+      DatePickers(),
       Menus(),
       Radios(),
       Sliders(),
       Switches(),
-      // TODO: Add Time pickers https://github.com/flutter/flutter/issues/101480
+      TimePickers(),
     ]);
   }
 }
@@ -1091,73 +1091,104 @@ class IconToggleButtons extends StatefulWidget {
 }
 
 class _IconToggleButtonsState extends State<IconToggleButtons> {
+  bool standardSelected = false;
+  bool filledSelected = false;
+  bool tonalSelected = false;
+  bool outlinedSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Icon buttons',
-      tooltipMessage: 'Use IconButton',
+      tooltipMessage: 'Use IconButton, IconButton.filled, IconButton.filledTonal, IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Column(
             // Standard IconButton
-            children: const <Widget>[
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Standard',
+            children: <Widget>[
+              IconButton(
+                isSelected: standardSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    standardSelected = !standardSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Standard (disabled)',
+              IconButton(
+                isSelected: standardSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Filled',
-                getDefaultStyle: enabledFilledButtonStyle,
+              IconButton.filled(
+                isSelected: filledSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    filledSelected = !filledSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Filled (disabled)',
-                getDefaultStyle: disabledFilledButtonStyle,
+              IconButton.filled(
+                isSelected: filledSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Filled Tonal IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Filled tonal',
-                getDefaultStyle: enabledFilledTonalButtonStyle,
+              IconButton.filledTonal(
+                isSelected: tonalSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    tonalSelected = !tonalSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Filled tonal (disabled)',
-                getDefaultStyle: disabledFilledTonalButtonStyle,
+              IconButton.filledTonal(
+                isSelected: tonalSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
           Column(
-            children: const <Widget>[
+            children: <Widget>[
               // Outlined IconButton
-              IconToggleButton(
-                isEnabled: true,
-                tooltip: 'Outlined',
-                getDefaultStyle: enabledOutlinedButtonStyle,
+              IconButton.outlined(
+                isSelected: outlinedSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: () {
+                  setState(() {
+                    outlinedSelected = !outlinedSelected;
+                  });
+                },
               ),
               colDivider,
-              IconToggleButton(
-                isEnabled: false,
-                tooltip: 'Outlined (disabled)',
-                getDefaultStyle: disabledOutlinedButtonStyle,
+              IconButton.outlined(
+                isSelected: outlinedSelected,
+                icon: const Icon(Icons.settings_outlined),
+                selectedIcon: const Icon(Icons.settings),
+                onPressed: null,
               ),
             ],
           ),
@@ -1165,134 +1196,6 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
       ),
     );
   }
-}
-
-class IconToggleButton extends StatefulWidget {
-  const IconToggleButton({
-    required this.isEnabled,
-    required this.tooltip,
-    this.getDefaultStyle,
-    super.key,
-  });
-
-  final bool isEnabled;
-  final String tooltip;
-  final ButtonStyle? Function(bool, ColorScheme)? getDefaultStyle;
-
-  @override
-  State<IconToggleButton> createState() => _IconToggleButtonState();
-}
-
-class _IconToggleButtonState extends State<IconToggleButton> {
-  bool selected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme colors = Theme.of(context).colorScheme;
-    final VoidCallback? onPressed = widget.isEnabled
-        ? () {
-            setState(() {
-              selected = !selected;
-            });
-          }
-        : null;
-    ButtonStyle? style = widget.getDefaultStyle?.call(selected, colors);
-
-    return IconButton(
-      visualDensity: VisualDensity.standard,
-      isSelected: selected,
-      tooltip: widget.tooltip,
-      icon: const Icon(Icons.settings_outlined),
-      selectedIcon: const Icon(Icons.settings),
-      onPressed: onPressed,
-      style: style,
-    );
-  }
-}
-
-ButtonStyle enabledFilledButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    foregroundColor: selected ? colors.onPrimary : colors.primary,
-    backgroundColor: selected ? colors.primary : colors.surfaceVariant,
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-    hoverColor: selected
-        ? colors.onPrimary.withOpacity(0.08)
-        : colors.primary.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-  );
-}
-
-ButtonStyle disabledFilledButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-  );
-}
-
-ButtonStyle enabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    foregroundColor:
-        selected ? colors.onSecondaryContainer : colors.onSurfaceVariant,
-    backgroundColor:
-        selected ? colors.secondaryContainer : colors.surfaceVariant,
-    hoverColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-  );
-}
-
-ButtonStyle disabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-  );
-}
-
-ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    backgroundColor: selected ? colors.inverseSurface : null,
-    hoverColor: selected
-        ? colors.onInverseSurface.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurface.withOpacity(0.12),
-    side: BorderSide(color: colors.outline),
-  ).copyWith(
-    foregroundColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
-        return colors.onInverseSurface;
-      }
-      if (states.contains(MaterialState.pressed)) {
-        return colors.onSurface;
-      }
-      return null;
-    }),
-  );
-}
-
-ButtonStyle disabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor:
-        selected ? colors.onSurface.withOpacity(0.12) : null,
-    side: selected ? null : BorderSide(color: colors.outline.withOpacity(0.12)),
-  );
 }
 
 class Chips extends StatefulWidget {
@@ -1366,6 +1269,81 @@ class _ChipsState extends State<Chips> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DatePickers extends StatefulWidget {
+  const DatePickers({super.key});
+
+  @override
+  State<DatePickers> createState() => _DatePickersState();
+}
+
+class _DatePickersState extends State<DatePickers> {
+  DateTime? selectedDate;
+  final DateTime _firstDate = DateTime(DateTime.now().year - 2);
+  final DateTime _lastDate = DateTime(DateTime.now().year + 1);
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Date picker',
+      tooltipMessage: 'Use showDatePicker',
+      child: TextButton(
+        onPressed: () async {
+          DateTime? date = await showDatePicker(
+            context: context,
+            initialDate: selectedDate ?? DateTime.now(),
+            firstDate: _firstDate,
+            lastDate: _lastDate,
+          );
+          setState(() {
+            selectedDate = date;
+            if (selectedDate != null) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(
+                    'Selected Date: ${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'),
+              ));
+            }
+          });
+        },
+        child: const Text('Show date picker', style: TextStyle(fontWeight: FontWeight.bold),),
+      ),
+    );
+  }
+}
+
+class TimePickers extends StatefulWidget {
+  const TimePickers({super.key});
+
+  @override
+  State<TimePickers> createState() => _TimePickersState();
+}
+
+class _TimePickersState extends State<TimePickers> {
+  TimeOfDay? selectedTime;
+
+  @override
+  Widget build(BuildContext context) {
+    return ComponentDecoration(
+      label: 'Time picker',
+      tooltipMessage: 'Use showTimePicker',
+      child: TextButton(
+        onPressed: () async {
+          final TimeOfDay? time = await showTimePicker(
+            context: context,
+            initialTime: selectedTime ?? TimeOfDay.now(),
+          );
+          setState(() {
+            selectedTime = time;
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text('Selected time: ${selectedTime!.format(context)}'),
+            ));
+          });
+        },
+        child: const Text('Show time picker', style: TextStyle(fontWeight: FontWeight.bold),),
       ),
     );
   }
