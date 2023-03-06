@@ -1101,7 +1101,7 @@ class _IconToggleButtonsState extends State<IconToggleButtons> {
     return ComponentDecoration(
       label: 'Icon buttons',
       tooltipMessage:
-          'Use IconButton, IconButton.filled, IconButton.filledTonal, IconButton.outlined',
+          'Use IconButton, IconButton.filled, IconButton.filledTonal, and IconButton.outlined',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
