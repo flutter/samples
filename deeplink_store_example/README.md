@@ -1,6 +1,10 @@
 # deeplink_store_example
 
-A store app to showcase how to set up deeplinks.
+A store app that includes three screen, ProductList, ProductDetails, and ProductCategoryList.
+This app uses go_router to create routing table for all three screens. It also updates the project
+parameters for Android and iOS to support deeplinks.
+
+To learn more, visit <link TBD>.
 
 ## Getting Started
 
