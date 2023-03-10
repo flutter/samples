@@ -5,26 +5,39 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:deeplink_store_example/main.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Can open home page', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Material Store'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  testWidgets('Can open detail page', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Vagabond sack'), findsOneWidget);
+
+    await tester.tap(find.text('Vagabond sack'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Material Store'), findsNothing);
+    expect(find.text('Vagabond sack'), findsOneWidget);
+    expect(find.text('\$120'), findsOneWidget);
+  });
+
+  testWidgets('Can show category page', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
+
+    tester.element(find.text('Material Store')).go('/category/home');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Home Decorations'), findsOneWidget);
   });
 }

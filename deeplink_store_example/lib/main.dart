@@ -15,12 +15,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'product_category_list.dart';
 import 'product_list.dart';
 import 'product_details.dart';
 
-void main() {
-  return runApp(
-    MaterialApp.router(
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: GoRouter(
         routes: [
@@ -29,8 +35,9 @@ void main() {
               GoRoute(path: ':id', builder: (_, __) => const ProductDetails()),
             ],
           ),
+          GoRoute(path: '/category/:category', builder: (_, __) => const ProductCategoryList()),
         ],
       ),
-    ),
-  );
+    );
+  }
 }

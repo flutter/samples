@@ -13,25 +13,31 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'model/products_repository.dart';
 import 'row_item.dart';
 import 'styles.dart';
 
-class ProductList extends StatelessWidget {
-  const ProductList({super.key});
+class ProductCategoryList extends StatelessWidget {
+  const ProductCategoryList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> children = ProductsRepository.loadProducts()
-      .map<Widget>((Product p) => RowItem(product: p))
-      .toList();
+    final GoRouterState state = GoRouterState.of(context);
+    final Category category = Category.values.firstWhere(
+      (Category value) => value.toString().contains(state.params['category']!),
+      orElse: () => Category.all,
+    );
+    final List<Widget> children = ProductsRepository.loadProducts(category: category)
+        .map<Widget>((Product p) => RowItem(product: p))
+        .toList();
     return Scaffold(
       backgroundColor: Styles.scaffoldBackground,
       body: CustomScrollView(
         slivers: <Widget>[
-          const SliverAppBar(
-            title: Text('Material Store', style: Styles.productListTitle),
+          SliverAppBar(
+            title: Text(getCategoryTitle(category), style: Styles.productListTitle),
             backgroundColor: Styles.scaffoldAppBarBackground,
             pinned: true,
           ),
