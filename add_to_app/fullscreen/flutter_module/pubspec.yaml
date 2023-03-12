@@ -18,7 +18,7 @@ dev_dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  espresso: ^0.2.0
+  espresso: ">=0.2.0 <0.4.0"
 
 flutter:
   uses-material-design: true
