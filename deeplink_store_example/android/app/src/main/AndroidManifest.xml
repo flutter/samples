@@ -29,8 +29,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="example.com" android:pathAdvancedPattern="/[0-9]*"/>
-                <data android:pathAdvancedPattern="/category/.+"/>
+                <data android:scheme="http" android:host="example.com" android:pathPattern="/.."/>
+                <data android:pathPattern="/category/..*"/>
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
