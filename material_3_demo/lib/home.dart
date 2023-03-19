@@ -19,14 +19,21 @@ class Home extends StatefulWidget {
     required this.handleBrightnessChange,
     required this.handleMaterialVersionChange,
     required this.handleColorSelect,
+    required this.handleImageSelect,
+    required this.colorSelectionMethod,
+    required this.imageSelected,
   });
 
   final bool useLightMode;
   final bool useMaterial3;
   final ColorSeed colorSelected;
+  final ColorImageProvider imageSelected;
+  final ColorSelectionMethod colorSelectionMethod;
+
   final void Function(bool useLightMode) handleBrightnessChange;
   final void Function() handleMaterialVersionChange;
   final void Function(int value) handleColorSelect;
+  final void Function(int value) handleImageSelect;
 
   @override
   State<Home> createState() => _HomeState();
@@ -146,15 +153,26 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               _ColorSeedButton(
                 handleColorSelect: widget.handleColorSelect,
                 colorSelected: widget.colorSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
               ),
+              _ColorImageButton(
+                handleImageSelect: widget.handleImageSelect,
+                imageSelected: widget.imageSelected,
+                colorSelectionMethod: widget.colorSelectionMethod,
+              )
             ]
           : [Container()],
     );
   }
 
-  Widget _expandedTrailingActions() => Container(
-        constraints: const BoxConstraints.tightFor(width: 250),
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+  Widget _expandedTrailingActions(
+    ColorScheme colorScheme,
+    ColorSelectionMethod colorSelectionMethod,
+  ) {
+    return Container(
+      constraints: const BoxConstraints.tightFor(width: 250),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -194,7 +212,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           icon: const Icon(Icons.radio_button_unchecked),
                           color: ColorSeed.values[i].color,
                           isSelected: widget.colorSelected.color ==
-                              ColorSeed.values[i].color,
+                              ColorSeed.values[i].color 
+                              && colorSelectionMethod == ColorSelectionMethod.colorSeed,
                           selectedIcon: const Icon(Icons.circle),
                           onPressed: () {
                             widget.handleColorSelect(i);
@@ -202,9 +221,52 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         )),
               ),
             ),
+            const Divider(),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 150.0),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  children: List.generate(
+                    ColorImageProvider.values.length,
+                    (i) => InkWell(
+                      borderRadius: BorderRadius.circular(4.0),
+                      onTap: () => widget.handleImageSelect(i),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Container(
+                            color: widget.imageSelected ==
+                                        ColorImageProvider.values[i] &&
+                                    colorSelectionMethod ==
+                                        ColorSelectionMethod.image
+                                ? colorScheme.secondaryContainer
+                                : colorScheme.background,
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4.0),
+                                child: Image(
+                                  image: NetworkImage(
+                                      ColorImageProvider.values[i].url),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
-      );
+      ),
+    );
+  }
 
   Widget _trailingActions() => Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -225,6 +287,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             child: _ColorSeedButton(
               handleColorSelect: widget.handleColorSelect,
               colorSelected: widget.colorSelected,
+              colorSelectionMethod: widget.colorSelectionMethod,
+            ),
+          ),
+          Flexible(
+            child: _ColorImageButton(
+              handleImageSelect: widget.handleImageSelect,
+              imageSelected: widget.imageSelected,
+              colorSelectionMethod: widget.colorSelectionMethod,
             ),
           ),
         ],
@@ -256,7 +326,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: showLargeSizeLayout
-                    ? _expandedTrailingActions()
+                    ? _expandedTrailingActions(
+                        Theme.of(context).colorScheme, 
+                        widget.colorSelectionMethod,
+                      )
                     : _trailingActions(),
               ),
             ),
@@ -331,10 +404,12 @@ class _ColorSeedButton extends StatelessWidget {
   const _ColorSeedButton({
     required this.handleColorSelect,
     required this.colorSelected,
+    required this.colorSelectionMethod,
   });
 
   final void Function(int) handleColorSelect;
   final ColorSeed colorSelected;
+  final ColorSelectionMethod colorSelectionMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -351,13 +426,15 @@ class _ColorSeedButton extends StatelessWidget {
 
           return PopupMenuItem(
             value: index,
-            enabled: currentColor != colorSelected,
+            enabled: currentColor != colorSelected ||
+                colorSelectionMethod != ColorSelectionMethod.colorSeed,
             child: Wrap(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Icon(
-                    currentColor == colorSelected
+                    currentColor == colorSelected &&
+                            colorSelectionMethod != ColorSelectionMethod.image
                         ? Icons.color_lens
                         : Icons.color_lens_outlined,
                     color: currentColor.color,
@@ -373,6 +450,68 @@ class _ColorSeedButton extends StatelessWidget {
         });
       },
       onSelected: handleColorSelect,
+    );
+  }
+}
+
+class _ColorImageButton extends StatelessWidget {
+  const _ColorImageButton({
+    required this.handleImageSelect,
+    required this.imageSelected,
+    required this.colorSelectionMethod,
+  });
+
+  final void Function(int) handleImageSelect;
+  final ColorImageProvider imageSelected;
+  final ColorSelectionMethod colorSelectionMethod;
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+      icon: Icon(
+        Icons.image_outlined,
+        color: Theme.of(context).colorScheme.onSurfaceVariant,
+      ),
+      tooltip: 'Select a color extraction image',
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      itemBuilder: (context) {
+        return List.generate(ColorImageProvider.values.length, (index) {
+          ColorImageProvider currentImageProvider =
+              ColorImageProvider.values[index];
+
+          return PopupMenuItem(
+            value: index,
+            enabled: currentImageProvider != imageSelected ||
+                colorSelectionMethod != ColorSelectionMethod.image,
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 48),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image(
+                          image: NetworkImage(
+                              ColorImageProvider.values[index].url),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(currentImageProvider.label),
+                ),
+              ],
+            ),
+          );
+        });
+      },
+      onSelected: handleImageSelect,
     );
   }
 }
