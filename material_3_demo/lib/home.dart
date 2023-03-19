@@ -202,59 +202,65 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ],
             ),
             const Divider(),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 200.0),
-              child: GridView.count(
-                crossAxisCount: 3,
-                children: List.generate(
-                    ColorSeed.values.length,
-                    (i) => IconButton(
-                          icon: const Icon(Icons.radio_button_unchecked),
-                          color: ColorSeed.values[i].color,
-                          isSelected: widget.colorSelected.color ==
-                              ColorSeed.values[i].color 
-                              && colorSelectionMethod == ColorSelectionMethod.colorSeed,
-                          selectedIcon: const Icon(Icons.circle),
-                          onPressed: () {
-                            widget.handleColorSelect(i);
-                          },
-                        )),
-              ),
-            ),
+            _expandedColorSeedAction(),
             const Divider(),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 150.0),
+            _expandedImageColorAction(Theme.of(context).colorScheme),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _expandedColorSeedAction() {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 200.0),
+      child: GridView.count(
+        crossAxisCount: 3,
+        children: List.generate(
+            ColorSeed.values.length,
+            (i) => IconButton(
+                  icon: const Icon(Icons.radio_button_unchecked),
+                  color: ColorSeed.values[i].color,
+                  isSelected:
+                      widget.colorSelected.color == ColorSeed.values[i].color &&
+                          widget.colorSelectionMethod ==
+                              ColorSelectionMethod.colorSeed,
+                  selectedIcon: const Icon(Icons.circle),
+                  onPressed: () {
+                    widget.handleColorSelect(i);
+                  },
+                )),
+      ),
+    );
+  }
+
+  Widget _expandedImageColorAction(ColorScheme colorScheme) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 150.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: GridView.count(
+          crossAxisCount: 3,
+          children: List.generate(
+            ColorImageProvider.values.length,
+            (i) => InkWell(
+              borderRadius: BorderRadius.circular(4.0),
+              onTap: () => widget.handleImageSelect(i),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  children: List.generate(
-                    ColorImageProvider.values.length,
-                    (i) => InkWell(
-                      borderRadius: BorderRadius.circular(4.0),
-                      onTap: () => widget.handleImageSelect(i),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Container(
-                            color: widget.imageSelected ==
-                                        ColorImageProvider.values[i] &&
-                                    colorSelectionMethod ==
-                                        ColorSelectionMethod.image
-                                ? colorScheme.secondaryContainer
-                                : colorScheme.background,
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(4.0),
-                                child: Image(
-                                  image: NetworkImage(
-                                      ColorImageProvider.values[i].url),
-                                ),
-                              ),
-                            ),
-                          ),
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Container(
+                    color: widget.imageSelected == ColorImageProvider.values[i] &&
+                      widget.colorSelectionMethod == ColorSelectionMethod.image
+                        ? colorScheme.secondaryContainer
+                        : colorScheme.background,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4.0),
+                        child: Image(
+                          image: NetworkImage(ColorImageProvider.values[i].url),
                         ),
                       ),
                     ),
@@ -262,7 +268,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -327,7 +333,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.only(bottom: 20),
                 child: showLargeSizeLayout
                     ? _expandedTrailingActions(
-                        Theme.of(context).colorScheme, 
+                        Theme.of(context).colorScheme,
                         widget.colorSelectionMethod,
                       )
                     : _trailingActions(),
