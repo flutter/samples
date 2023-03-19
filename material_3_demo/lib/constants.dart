@@ -41,7 +41,7 @@ enum ColorImageProvider {
   daisies('Daisies', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png'),
   bubbles('Bubbles', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png'),
   seaweed('Seaweed', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_4.png'),
-  stem('Seaweed', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png'),
+  stems('Stems', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png'),
   petals('Petals', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_6.png');
 
   const ColorImageProvider(this.label, this.url);

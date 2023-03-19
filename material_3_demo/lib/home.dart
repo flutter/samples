@@ -165,10 +165,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
   }
 
-  Widget _expandedTrailingActions(
-    ColorScheme colorScheme,
-    ColorSelectionMethod colorSelectionMethod,
-  ) {
+  Widget _expandedTrailingActions(ColorScheme colorScheme) {
     return Container(
       constraints: const BoxConstraints.tightFor(width: 250),
       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -332,10 +329,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: showLargeSizeLayout
-                    ? _expandedTrailingActions(
-                        Theme.of(context).colorScheme,
-                        widget.colorSelectionMethod,
-                      )
+                    ? _expandedTrailingActions(Theme.of(context).colorScheme)
                     : _trailingActions(),
               ),
             ),
