@@ -38,10 +38,10 @@ enum ColorSeed {
 
 enum ColorImageProvider {
   leaves('Leaves', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png'),
-  daisies('Daisies', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png'),
+  peonies('Peonies', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png'),
   bubbles('Bubbles', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png'),
   seaweed('Seaweed', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_4.png'),
-  stems('Stems', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png'),
+  seagrapes('Sea Grapes', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png'),
   petals('Petals', 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_6.png');
 
   const ColorImageProvider(this.label, this.url);
