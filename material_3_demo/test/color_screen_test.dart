@@ -65,8 +65,8 @@ void main() {
   });
 
   testWidgets('Color screen shows correct content', (tester) async {
-    await tester.pumpWidget(const MaterialApp(
-      home: Scaffold(body: Row(children: [ColorPalettesScreen()])),
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(body: Row(children: const [ColorPalettesScreen()])),
     ));
     expect(find.text('Light ColorScheme'), findsOneWidget);
     expect(find.text('Dark ColorScheme'), findsOneWidget);
