@@ -165,110 +165,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
   }
 
-  Widget _expandedTrailingActions() {
-    return Container(
-      constraints: const BoxConstraints.tightFor(width: 250),
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                const Text('Brightness'),
-                Expanded(child: Container()),
-                Switch(
-                    value: widget.useLightMode,
-                    onChanged: (value) {
-                      widget.handleBrightnessChange(value);
-                    })
-              ],
-            ),
-            Row(
-              children: [
-                widget.useMaterial3
-                    ? const Text('Material 3')
-                    : const Text('Material 2'),
-                Expanded(child: Container()),
-                Switch(
-                    value: widget.useMaterial3,
-                    onChanged: (_) {
-                      widget.handleMaterialVersionChange();
-                    })
-              ],
-            ),
-            const Divider(),
-            _expandedColorSeedAction(),
-            const Divider(),
-            _expandedImageColorAction(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _expandedColorSeedAction() {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxHeight: 200.0),
-      child: GridView.count(
-        crossAxisCount: 3,
-        children: List.generate(
-          ColorSeed.values.length,
-          (i) => IconButton(
-            icon: const Icon(Icons.radio_button_unchecked),
-            color: ColorSeed.values[i].color,
-            isSelected:
-                widget.colorSelected.color == ColorSeed.values[i].color &&
-                    widget.colorSelectionMethod ==
-                        ColorSelectionMethod.colorSeed,
-            selectedIcon: const Icon(Icons.circle),
-            onPressed: () {
-              widget.handleColorSelect(i);
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-    Widget _expandedImageColorAction() {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxHeight: 150.0),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: GridView.count(
-          crossAxisCount: 3,
-          children: List.generate(
-            ColorImageProvider.values.length,
-            (i) => InkWell(
-              borderRadius: BorderRadius.circular(4.0),
-              onTap: () => widget.handleImageSelect(i),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:  Material(
-                  borderRadius: BorderRadius.circular(4.0),
-                  elevation: widget.imageSelected == ColorImageProvider.values[i] &&
-                    widget.colorSelectionMethod == ColorSelectionMethod.image 
-                    ? 3 : 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(4.0),
-                        child: Image(
-                          image: NetworkImage(ColorImageProvider.values[i].url),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-      ),
-    );
-  }
-
   Widget _trailingActions() => Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -327,7 +223,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: showLargeSizeLayout
-                    ? _expandedTrailingActions()
+                    ? _ExpandedTrailingActions(
+                        useLightMode: widget.useLightMode,
+                        handleBrightnessChange: widget.handleBrightnessChange,
+                        useMaterial3: widget.useMaterial3,
+                        handleMaterialVersionChange:
+                            widget.handleMaterialVersionChange,
+                        handleImageSelect: widget.handleImageSelect,
+                        handleColorSelect: widget.handleColorSelect,
+                        colorSelectionMethod: widget.colorSelectionMethod,
+                        imageSelected: widget.imageSelected,
+                        colorSelected: widget.colorSelected,
+                      )
                     : _trailingActions(),
               ),
             ),
@@ -510,6 +417,172 @@ class _ColorImageButton extends StatelessWidget {
         });
       },
       onSelected: handleImageSelect,
+    );
+  }
+}
+
+class _ExpandedTrailingActions extends StatelessWidget {
+  const _ExpandedTrailingActions({
+    required this.useLightMode,
+    required this.handleBrightnessChange,
+    required this.useMaterial3,
+    required this.handleMaterialVersionChange,
+    required this.handleColorSelect,
+    required this.handleImageSelect,
+    required this.imageSelected,
+    required this.colorSelected,
+    required this.colorSelectionMethod,
+  });
+
+  final void Function(bool) handleBrightnessChange;
+  final void Function() handleMaterialVersionChange;
+  final void Function(int) handleImageSelect;
+  final void Function(int) handleColorSelect;
+
+  final bool useLightMode;
+  final bool useMaterial3;
+
+  final ColorImageProvider imageSelected;
+  final ColorSeed colorSelected;
+  final ColorSelectionMethod colorSelectionMethod;
+
+  @override
+  Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final trailingActionsBody = Container(
+      constraints: const BoxConstraints.tightFor(width: 250),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              const Text('Brightness'),
+              Expanded(child: Container()),
+              Switch(
+                  value: useLightMode,
+                  onChanged: (value) {
+                    handleBrightnessChange(value);
+                  })
+            ],
+          ),
+          Row(
+            children: [
+              useMaterial3
+                  ? const Text('Material 3')
+                  : const Text('Material 2'),
+              Expanded(child: Container()),
+              Switch(
+                  value: useMaterial3,
+                  onChanged: (_) {
+                    handleMaterialVersionChange();
+                  })
+            ],
+          ),
+          const Divider(),
+          _ExpandedColorSeedAction(
+            handleColorSelect: handleColorSelect,
+            colorSelected: colorSelected,
+            colorSelectionMethod: colorSelectionMethod,
+          ),
+          const Divider(),
+          _ExpandedImageColorAction(
+            handleImageSelect: handleImageSelect,
+            imageSelected: imageSelected,
+            colorSelectionMethod: colorSelectionMethod,
+          ),
+        ],
+      ),
+    );
+    return screenHeight > 740
+        ? trailingActionsBody
+        : SingleChildScrollView(child: trailingActionsBody);
+  }
+}
+
+class _ExpandedColorSeedAction extends StatelessWidget {
+  const _ExpandedColorSeedAction({
+    required this.handleColorSelect,
+    required this.colorSelected,
+    required this.colorSelectionMethod,
+  });
+
+  final void Function(int) handleColorSelect;
+  final ColorSeed colorSelected;
+  final ColorSelectionMethod colorSelectionMethod;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 200.0),
+      child: GridView.count(
+        crossAxisCount: 3,
+        children: List.generate(
+          ColorSeed.values.length,
+          (i) => IconButton(
+            icon: const Icon(Icons.radio_button_unchecked),
+            color: ColorSeed.values[i].color,
+            isSelected: colorSelected.color == ColorSeed.values[i].color &&
+                colorSelectionMethod == ColorSelectionMethod.colorSeed,
+            selectedIcon: const Icon(Icons.circle),
+            onPressed: () {
+              handleColorSelect(i);
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ExpandedImageColorAction extends StatelessWidget {
+  const _ExpandedImageColorAction({
+    required this.handleImageSelect,
+    required this.imageSelected,
+    required this.colorSelectionMethod,
+  });
+
+  final void Function(int) handleImageSelect;
+  final ColorImageProvider imageSelected;
+  final ColorSelectionMethod colorSelectionMethod;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 150.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: GridView.count(
+          crossAxisCount: 3,
+          children: List.generate(
+            ColorImageProvider.values.length,
+            (i) => InkWell(
+              borderRadius: BorderRadius.circular(4.0),
+              onTap: () => handleImageSelect(i),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Material(
+                  borderRadius: BorderRadius.circular(4.0),
+                  elevation: imageSelected == ColorImageProvider.values[i] &&
+                          colorSelectionMethod == ColorSelectionMethod.image
+                      ? 3
+                      : 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: Image(
+                        image: NetworkImage(ColorImageProvider.values[i].url),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

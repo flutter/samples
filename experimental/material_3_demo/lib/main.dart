@@ -61,12 +61,14 @@ class _AppState extends State<App> {
   }
 
   void handleImageSelect(int value) {
-    setState(() {
-      colorSelectionMethod = ColorSelectionMethod.image;
-      imageSelected = ColorImageProvider.values[value];
-      ColorScheme.fromImageProvider(
-              provider: NetworkImage(ColorImageProvider.values[value].url))
-          .then((newScheme) => imageColorScheme = newScheme);
+    final String url = ColorImageProvider.values[value].url;
+    ColorScheme.fromImageProvider(provider: NetworkImage(url))
+        .then((newScheme) {
+      setState(() {
+        colorSelectionMethod = ColorSelectionMethod.image;
+        imageSelected = ColorImageProvider.values[value];
+        imageColorScheme = newScheme;
+      });
     });
   }
 
@@ -87,7 +89,9 @@ class _AppState extends State<App> {
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
+        colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
+            ? colorSelected.color
+            : imageColorScheme!.primary,
         useMaterial3: useMaterial3,
         brightness: Brightness.dark,
       ),
