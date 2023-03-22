@@ -57,8 +57,8 @@ void main() {
   });
 
   testWidgets('Typography screen shows correct content', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(body: Row(children: const [TypographyScreen()])),
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: Row(children: [TypographyScreen()])),
     ));
     expect(find.text('Display Large'), findsOneWidget);
     expect(find.text('Display Medium'), findsOneWidget);

@@ -57,8 +57,8 @@ void main() {
   });
 
   testWidgets('Surface Tones screen shows correct content', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(body: Row(children: const [ElevationScreen()])),
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: Row(children: [ElevationScreen()])),
     ));
     expect(find.text('Surface Tint Color Only'), findsOneWidget);
     expect(find.text('Surface Tint Color and Shadow Color'), findsOneWidget);
