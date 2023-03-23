@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.flutter.isolate_example">
-   <application
+    <application
         android:label="isolate_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
