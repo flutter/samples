@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.flutter.platform_channels">
-   <application
+    <application
         android:label="platform_channels"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

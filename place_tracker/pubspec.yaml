@@ -4,14 +4,14 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.2 <3.0.0"
+  sdk: '>=2.19.5 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  google_maps_flutter: ^2.0.6
+  google_maps_flutter: ^2.2.0
   google_maps_flutter_web: ^0.4.0
   provider: ^6.0.2
   uuid: ^3.0.4
