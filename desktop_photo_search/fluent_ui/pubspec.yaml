@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: '>=2.19.5 <4.0.0'
 
 dependencies:
   built_collection: ^5.1.1
@@ -21,7 +21,7 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/menubar
-      ref: 12decbe0f592e14e03223f6f2c0c7e0e2dbd70a1
+      ref: 6c66ad23ee79749f30a8eece542cf54eaf157ed8
   provider: ^6.0.2
   transparent_image: ^2.0.0
   url_launcher: ^6.1.1
@@ -30,14 +30,15 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
-      ref: 12decbe0f592e14e03223f6f2c0c7e0e2dbd70a1
+      ref: 6c66ad23ee79749f30a8eece542cf54eaf157ed8
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../../analysis_defaults
   async: ^2.8.2
   build: ^2.2.1
   build_runner: ^2.1.7
   built_value_generator: ^8.3.0
-  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0

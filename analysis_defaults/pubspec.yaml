@@ -1,0 +1,10 @@
+name: analysis_defaults
+description: Analysis defaults for flutter/samples
+publish_to: none
+
+environment:
+  sdk: '>=2.19.5 <4.0.0'
+
+# NOTE: Code is not allowed in this package. Do not add dependencies.
+dependencies:
+  flutter_lints: ^2.0.1

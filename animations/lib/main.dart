@@ -7,29 +7,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-// ignore: depend_on_referenced_packages
 import 'package:window_size/window_size.dart';
 
-import 'src/basics/01_animated_container.dart';
-import 'src/basics/02_page_route_builder.dart';
-import 'src/basics/03_animation_controller.dart';
-import 'src/basics/04_tweens.dart';
-import 'src/basics/05_animated_builder.dart';
-import 'src/basics/06_custom_tween.dart';
-import 'src/basics/07_tween_sequence.dart';
-import 'src/basics/08_fade_transition.dart';
-import 'src/misc/animated_list.dart';
-import 'src/misc/animated_positioned.dart';
-import 'src/misc/animated_switcher.dart';
-import 'src/misc/card_swipe.dart';
-import 'src/misc/carousel.dart';
-import 'src/misc/curved_animation.dart';
-import 'src/misc/expand_card.dart';
-import 'src/misc/focus_image.dart';
-import 'src/misc/hero_animation.dart';
-import 'src/misc/physics_card_drag.dart';
-import 'src/misc/repeating_animation.dart';
+import 'src/basics/basics.dart';
+import 'src/misc/misc.dart';
 
 void main() {
   setupWindow();
@@ -69,84 +50,108 @@ class Demo {
 
 final basicDemos = [
   Demo(
-      name: 'AnimatedContainer',
-      route: AnimatedContainerDemo.routeName,
-      builder: (context) => const AnimatedContainerDemo()),
+    name: 'AnimatedContainer',
+    route: AnimatedContainerDemo.routeName,
+    builder: (context) => const AnimatedContainerDemo(),
+  ),
   Demo(
-      name: 'PageRouteBuilder',
-      route: PageRouteBuilderDemo.routeName,
-      builder: (context) => const PageRouteBuilderDemo()),
+    name: 'PageRouteBuilder',
+    route: PageRouteBuilderDemo.routeName,
+    builder: (context) => const PageRouteBuilderDemo(),
+  ),
   Demo(
-      name: 'Animation Controller',
-      route: AnimationControllerDemo.routeName,
-      builder: (context) => const AnimationControllerDemo()),
+    name: 'Animation Controller',
+    route: AnimationControllerDemo.routeName,
+    builder: (context) => const AnimationControllerDemo(),
+  ),
   Demo(
-      name: 'Tweens',
-      route: TweenDemo.routeName,
-      builder: (context) => const TweenDemo()),
+    name: 'Tweens',
+    route: TweenDemo.routeName,
+    builder: (context) => const TweenDemo(),
+  ),
   Demo(
-      name: 'AnimatedBuilder',
-      route: AnimatedBuilderDemo.routeName,
-      builder: (context) => const AnimatedBuilderDemo()),
+    name: 'AnimatedBuilder',
+    route: AnimatedBuilderDemo.routeName,
+    builder: (context) => const AnimatedBuilderDemo(),
+  ),
   Demo(
-      name: 'Custom Tween',
-      route: CustomTweenDemo.routeName,
-      builder: (context) => const CustomTweenDemo()),
+    name: 'Custom Tween',
+    route: CustomTweenDemo.routeName,
+    builder: (context) => const CustomTweenDemo(),
+  ),
   Demo(
-      name: 'Tween Sequences',
-      route: TweenSequenceDemo.routeName,
-      builder: (context) => const TweenSequenceDemo()),
+    name: 'Tween Sequences',
+    route: TweenSequenceDemo.routeName,
+    builder: (context) => const TweenSequenceDemo(),
+  ),
   Demo(
-      name: 'Fade Transition',
-      route: FadeTransitionDemo.routeName,
-      builder: (context) => const FadeTransitionDemo()),
+    name: 'Fade Transition',
+    route: FadeTransitionDemo.routeName,
+    builder: (context) => const FadeTransitionDemo(),
+  ),
 ];
 
 final miscDemos = [
   Demo(
-      name: 'Expandable Card',
-      route: ExpandCardDemo.routeName,
-      builder: (context) => const ExpandCardDemo()),
+    name: 'Expandable Card',
+    route: ExpandCardDemo.routeName,
+    builder: (context) => const ExpandCardDemo(),
+  ),
   Demo(
-      name: 'Carousel',
-      route: CarouselDemo.routeName,
-      builder: (context) => CarouselDemo()),
+    name: 'Carousel',
+    route: CarouselDemo.routeName,
+    builder: (context) => CarouselDemo(),
+  ),
   Demo(
-      name: 'Focus Image',
-      route: FocusImageDemo.routeName,
-      builder: (context) => const FocusImageDemo()),
+    name: 'Focus Image',
+    route: FocusImageDemo.routeName,
+    builder: (context) => const FocusImageDemo(),
+  ),
   Demo(
-      name: 'Card Swipe',
-      route: CardSwipeDemo.routeName,
-      builder: (context) => const CardSwipeDemo()),
+    name: 'Card Swipe',
+    route: CardSwipeDemo.routeName,
+    builder: (context) => const CardSwipeDemo(),
+  ),
   Demo(
-      name: 'Repeating Animation',
-      route: RepeatingAnimationDemo.routeName,
-      builder: (context) => const RepeatingAnimationDemo()),
+    name: 'Flutter Animate',
+    route: FlutterAnimateDemo.routeName,
+    builder: (context) => const FlutterAnimateDemo(),
+  ),
   Demo(
-      name: 'Spring Physics',
-      route: PhysicsCardDragDemo.routeName,
-      builder: (context) => const PhysicsCardDragDemo()),
+    name: 'Repeating Animation',
+    route: RepeatingAnimationDemo.routeName,
+    builder: (context) => const RepeatingAnimationDemo(),
+  ),
   Demo(
-      name: 'AnimatedList',
-      route: AnimatedListDemo.routeName,
-      builder: (context) => const AnimatedListDemo()),
+    name: 'Spring Physics',
+    route: PhysicsCardDragDemo.routeName,
+    builder: (context) => const PhysicsCardDragDemo(),
+  ),
   Demo(
-      name: 'AnimatedPositioned',
-      route: AnimatedPositionedDemo.routeName,
-      builder: (context) => const AnimatedPositionedDemo()),
+    name: 'AnimatedList',
+    route: AnimatedListDemo.routeName,
+    builder: (context) => const AnimatedListDemo(),
+  ),
   Demo(
-      name: 'AnimatedSwitcher',
-      route: AnimatedSwitcherDemo.routeName,
-      builder: (context) => const AnimatedSwitcherDemo()),
+    name: 'AnimatedPositioned',
+    route: AnimatedPositionedDemo.routeName,
+    builder: (context) => const AnimatedPositionedDemo(),
+  ),
   Demo(
-      name: 'Hero Animation',
-      route: HeroAnimationDemo.routeName,
-      builder: (context) => const HeroAnimationDemo()),
+    name: 'AnimatedSwitcher',
+    route: AnimatedSwitcherDemo.routeName,
+    builder: (context) => const AnimatedSwitcherDemo(),
+  ),
   Demo(
-      name: 'Curved Animation',
-      route: CurvedAnimationDemo.routeName,
-      builder: (context) => const CurvedAnimationDemo()),
+    name: 'Hero Animation',
+    route: HeroAnimationDemo.routeName,
+    builder: (context) => const HeroAnimationDemo(),
+  ),
+  Demo(
+    name: 'Curved Animation',
+    route: CurvedAnimationDemo.routeName,
+    builder: (context) => const CurvedAnimationDemo(),
+  ),
 ];
 
 final router = GoRouter(

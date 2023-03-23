@@ -1,0 +1,24 @@
+name: simple_shader
+description: Using a shader, simply.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_shaders: ^0.1.0
+
+dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  shaders:
+    - shaders/simple.frag

@@ -11,7 +11,7 @@ import 'package:material_3_demo/main.dart';
 void main() {
   testWidgets('Default main page shows all M3 components', (tester) async {
     widgetSetup(tester, 800, windowHeight: 7000);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
 
     // Elements on the app bar
     expect(find.text('Material 3'), findsOneWidget);
@@ -37,7 +37,7 @@ void main() {
     expect(find.widgetWithText(FloatingActionButton, 'Create'), findsOneWidget);
 
     // Icon buttons
-    expect(find.byType(IconToggleButton), findsNWidgets(8));
+    expect(find.widgetWithIcon(IconButton, Icons.settings_outlined), findsNWidgets(8));
 
     // Segmented buttons
     expect(find.byType(SegmentedButton<Calendar>), findsOneWidget);
@@ -106,6 +106,9 @@ void main() {
     expect(find.byType(FilterChip), findsNWidgets(2));
     expect(find.byType(InputChip), findsNWidgets(2));
 
+    // Date pickers
+    expect(find.widgetWithText(TextButton, 'Show date picker'), findsOneWidget);
+
     // Menus
     expect(find.byType(MenuAnchor), findsNWidgets(5));
     expect(find.byType(DropdownMenu<ColorLabel>), findsOneWidget);
@@ -121,6 +124,9 @@ void main() {
     // Switches
     expect(find.byType(Switch), findsNWidgets(4));
 
+    // Time pickers
+    expect(find.widgetWithText(TextButton, 'Show time picker'), findsOneWidget);
+
     // TextFields
     expect(find.widgetWithText(TextField, 'Disabled'), findsNWidgets(2));
     expect(find.widgetWithText(TextField, 'Filled'), findsNWidgets(2));
@@ -131,7 +137,7 @@ void main() {
       'NavigationRail doesn\'t show when width value is small than 1000 '
       '(in Portrait mode or narrow screen)', (tester) async {
     widgetSetup(tester, 999, windowHeight: 7000);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     await tester.pumpAndSettle();
 
     // When screen width is less than 1000, NavigationBar will show. At the same
@@ -152,7 +158,7 @@ void main() {
       'NavigationRail shows when width value is greater than or equal '
       'to 1000 (in Landscape mode or wider screen)', (tester) async {
     widgetSetup(tester, 1001, windowHeight: 3000);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     await tester.pumpAndSettle();
 
     // When screen width is greater than or equal to 1000, NavigationRail will show.
@@ -178,7 +184,7 @@ void main() {
       'Material version switches between Material3 and Material2 when'
       'the version icon is clicked', (tester) async {
     widgetSetup(tester, 450, windowHeight: 7000);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     BuildContext defaultElevatedButton =
         tester.firstElement(find.byType(ElevatedButton));
     BuildContext defaultIconButton =
@@ -244,7 +250,7 @@ void main() {
   testWidgets(
       'Other screens become Material2 mode after changing mode from '
       'main screen', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     Finder appbarM2Icon = find.descendant(
         of: find.byType(AppBar),
         matching: find.widgetWithIcon(IconButton, Icons.filter_2));
@@ -279,7 +285,7 @@ void main() {
   testWidgets(
       'Brightness mode switches between dark and light when'
       'the brightness icon is clicked', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     Finder lightIcon = find.descendant(
         of: find.byType(AppBar),
         matching: find.widgetWithIcon(IconButton, Icons.light_mode_outlined));
@@ -314,7 +320,7 @@ void main() {
       (tester) async {
     Color m3BaseColor = const Color(0xff6750a4);
     await tester.pumpWidget(Container());
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     await tester.pump();
     Finder menuIcon = find.descendant(
         of: find.byType(AppBar),

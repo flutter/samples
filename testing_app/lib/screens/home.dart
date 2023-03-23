@@ -20,7 +20,6 @@ class HomePage extends StatelessWidget {
         title: const Text('Testing Sample'),
         actions: [
           TextButton.icon(
-            style: TextButton.styleFrom(foregroundColor: Colors.white),
             onPressed: () {
               context.go(FavoritesPage.fullPath);
             },

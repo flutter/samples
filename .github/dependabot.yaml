@@ -30,11 +30,19 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "analysis_defaults/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "android_splash_screen/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "animations/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "background_isolate_channels/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -59,6 +67,10 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "experimental/context_menus/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "experimental/element_embedding_demo/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -94,6 +106,14 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
+    directory: "experimental/pedometer/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "experimental/pedometer/example/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
     directory: "experimental/varfont_shader_puzzle/"
     schedule:
       interval: "daily"
@@ -111,6 +131,10 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "game_template/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "google_maps/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
@@ -159,6 +183,10 @@ updates:
       interval: "daily"
   - package-ecosystem: "pub"
     directory: "provider_shopper/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "pub"
+    directory: "simple_shader/"
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"

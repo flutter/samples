@@ -3,7 +3,7 @@ description: A project showcasing a Flutter app following different platform IA 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: '>=2.19.5 <4.0.0'
 
 dependencies:
   english_words: ^4.0.0
@@ -14,9 +14,10 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true

@@ -16,7 +16,7 @@ void main() {
       'on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
 
     expect(find.text('Light ColorScheme'), findsNothing);
     expect(find.text('Dark ColorScheme'), findsNothing);
@@ -45,7 +45,7 @@ void main() {
     widgetSetup(
         tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const App());
     await tester.pumpAndSettle();
     expect(find.text('Light ColorScheme'), findsNothing);
     expect(find.text('Dark ColorScheme'), findsNothing);

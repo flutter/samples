@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "type_jam_github" "\0"
+            VALUE "FileDescription", "varfont_shader_puzzle" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "type_jam_github" "\0"
+            VALUE "InternalName", "varfont_shader_puzzle" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "type_jam_github.exe" "\0"
-            VALUE "ProductName", "type_jam_github" "\0"
+            VALUE "OriginalFilename", "varfont_shader_puzzle.exe" "\0"
+            VALUE "ProductName", "varfont_shader_puzzle" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

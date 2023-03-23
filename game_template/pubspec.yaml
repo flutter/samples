@@ -7,7 +7,7 @@ publish_to: 'none'
 version: 0.0.1+1
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: '>=2.19.5 <4.0.0'
 
 dependencies:
   flutter:
@@ -30,11 +30,11 @@ dependencies:
   in_app_purchase: ^3.0.1  # In-app purchases
 
 dev_dependencies:
+  analysis_defaults:
+    path: ../analysis_defaults
   flutter_test:
     sdk: flutter
-
-  flutter_launcher_icons: ^0.11.0
-  flutter_lints: ^2.0.1
+  flutter_launcher_icons: ^0.12.0
   test: ^1.19.0
 
 flutter:

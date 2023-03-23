@@ -3,7 +3,7 @@
 This is a demo for some of our tooling around calling platform APIs directly from dart code. This repository represents a demo of a plugin that leverages FFIgen & JNIgen. There is also an example pedometer app that uses the bindings generated from these tools. 
 
 - [FFIgen](https://pub.dev/packages/ffigen) is used to generate bindings for C, Objective-C and Swift APIs
-- [JNIgen](https://pub.dev/packages/jnigen) is used to generate bindings for Jave and Kotlin APIs
+- [JNIgen](https://pub.dev/packages/jnigen) is used to generate bindings for Java and Kotlin APIs
 
 **These tools are both experimental and are currently a work in progress.** If you find any issues or have feedback, please file it on the corresponding Github repositories. 
 
@@ -17,12 +17,10 @@ Configuration for FFIgen is [here](/ffigen.yaml) for the [CoreMotion](https://de
 `dart run ffigen --config ffigen.yaml`
 
 ### JNIgen
-Configuration for JNIgen is [here](/jnigen.yaml) for the [HealthConnect API](https://developer.android.com/guide/health-and-fitness/health-connect). Right now, JNIgen requires an Android folder to generate the bindings so there are a few steps to regenerate:
+Configuration for JNIgen is [here](/jnigen.yaml) for the [HealthConnect API](https://developer.android.com/guide/health-and-fitness/health-connect).
 
-1. `flutter create .`  
-2. `flutter build apk`
-3. `dart run jnigen --config jnigen.yaml`
-4. delete the android folder
+1. `cd Example && flutter build apk`
+2. `cd .. && dart run jnigen --config jnigen.yaml`
 
 
 ## Running the example app
@@ -40,7 +38,7 @@ Note that step counting is only available on physical devices.
 
 ## Project stucture
 
-* `src`: Contains the native source code, and a CmakeFile.txt file for building
+* `src`: Contains the native source code, and a CMakeLists.txt file for building
   that source code into a dynamic library.
 
 * `lib`: Contains the Dart code that defines the API of the plugin, and which
@@ -49,7 +47,7 @@ Note that step counting is only available on physical devices.
 * platform folders (`ios` etc.): Contains the build files
   for building and bundling the native code library with the platform application.
 
-* `example`: Contains the native source code, and a CmakeFile.txt file for building
+* `example`: Contains the native source code for building
   that source code into a dynamic library.
 
 

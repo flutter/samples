@@ -10,12 +10,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      theme: ThemeData.light(useMaterial3: true),
+      home: const HomePage(),
     );
   }
 }
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
 /// Demonstrates how to use the getBatteryLevel method from federated_plugin to retrieve
 /// current battery level of device.
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            FilledButton(
               onPressed: () async {
                 try {
                   final result = await getBatteryLevel();

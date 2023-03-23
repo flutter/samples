@@ -200,7 +200,7 @@ class _PageAscenderDescenderState extends SinglePageState {
       pageConfig: widget.pageConfig,
       numTiles: 9,
       puzzleNum: 3,
-      shaderKey: 'row_offset',
+      shader: Shader.rowOffset,
       shaderDuration: 2000,
       tileShadedString: 'fyd',
       tileShadedStringPadding: EdgeInsets.only(

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:veggieseasons/data/app_state.dart';
 import 'package:veggieseasons/data/preferences.dart';
@@ -240,19 +241,6 @@ class DetailsScreen extends StatefulWidget {
 
   const DetailsScreen({this.id, this.restorationId, super.key});
 
-  static String show(NavigatorState navigator, int veggieId) {
-    return navigator.restorablePush<void>(_routeBuilder, arguments: veggieId);
-  }
-
-  static Route<void> _routeBuilder(BuildContext context, Object? arguments) {
-    final veggieId = arguments as int?;
-    return CupertinoPageRoute(
-      builder: (context) =>
-          DetailsScreen(id: veggieId, restorationId: 'details'),
-      fullscreenDialog: true,
-    );
-  }
-
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
@@ -295,7 +283,7 @@ class _DetailsScreenState extends State<DetailsScreen> with RestorationMixin {
             left: 16,
             child: SafeArea(
               child: CloseButton(() {
-                Navigator.of(context).pop();
+                context.pop();
               }),
             ),
           ),

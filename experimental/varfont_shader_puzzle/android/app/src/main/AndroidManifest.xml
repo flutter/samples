@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.type_jam_github">
-   <application
-        android:label="type_jam_github"
+    package="com.example.varfont_shader_puzzle">
+    <application
+        android:label="varfont_shader_puzzle"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

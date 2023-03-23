@@ -77,7 +77,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _insertRecords(reference, list.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -101,7 +101,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _updateRecords(reference, list.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -134,7 +134,7 @@ class HealthConnectClient extends jni.JObject {
     _deleteRecords(
             reference, kClass.reference, list.reference, list1.reference, $c)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -162,7 +162,7 @@ class HealthConnectClient extends jni.JObject {
     final $c = jni.Jni.newPortContinuation($p);
     _deleteRecords1(reference, kClass.reference, timeRangeFilter.reference, $c)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -188,7 +188,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _readRecord(reference, kClass.reference, string.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -213,7 +213,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _readRecords(reference, readRecordsRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -237,7 +237,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _aggregate(reference, aggregateRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const $AggregationResultType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -263,7 +263,7 @@ class HealthConnectClient extends jni.JObject {
     _aggregateGroupByDuration(
             reference, aggregateGroupByDurationRequest.reference, $c)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -289,7 +289,7 @@ class HealthConnectClient extends jni.JObject {
     _aggregateGroupByPeriod(
             reference, aggregateGroupByPeriodRequest.reference, $c)
         .object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -313,7 +313,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _getChangesToken(reference, changesTokenRequest.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JStringType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -337,7 +337,7 @@ class HealthConnectClient extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _getChanges(reference, string.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -457,7 +457,7 @@ class PermissionController extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _getGrantedPermissions(reference, set0.reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const $SetType(jni.JObjectType()).getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";
@@ -480,7 +480,7 @@ class PermissionController extends jni.JObject {
     final $p = ReceivePort();
     final $c = jni.Jni.newPortContinuation($p);
     _revokeAllPermissions(reference, $c).object;
-    final $o = ffi.Pointer<ffi.Void>.fromAddress(await $p.first);
+    final $o = jni.JObjectPtr.fromAddress(await $p.first);
     final $k = const jni.JObjectType().getClass().reference;
     if (jni.Jni.env.IsInstanceOf($o, $k) == 0) {
       throw "Failed";

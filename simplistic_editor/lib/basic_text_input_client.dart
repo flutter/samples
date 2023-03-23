@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 import 'app_state.dart';
@@ -110,7 +111,14 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   void performSelector(String selectorName) {
-    // Will not implement.
+    final Intent? intent = intentForMacOSSelector(selectorName);
+
+    if (intent != null) {
+      final BuildContext? primaryContext = primaryFocus?.context;
+      if (primaryContext != null) {
+        Actions.invoke(primaryContext, intent);
+      }
+    }
   }
 
   @override
@@ -210,6 +218,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
         ),
       );
       final TextStyle style = widget.style;
+
+      _updateSizeAndTransform();
+      _schedulePeriodicPostFrameCallbacks();
+
       _textInputConnection!
         ..setStyle(
           fontFamily: style.fontFamily,
@@ -476,6 +488,54 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
+  // Sends the current composing rect to the iOS text input plugin via the text
+  // input channel. We need to keep sending the information even if no text is
+  // currently marked, as the information usually lags behind. The text input
+  // plugin needs to estimate the composing rect based on the latest caret rect,
+  // when the composing rect info didn't arrive in time.
+  void _updateComposingRectIfNeeded() {
+    final TextRange composingRange = _value.composing;
+    assert(mounted);
+    Rect? composingRect =
+        renderEditable.getRectForComposingRange(composingRange);
+    // Send the caret location instead if there's no marked text yet.
+    if (composingRect == null) {
+      assert(!composingRange.isValid || composingRange.isCollapsed);
+      final int offset = composingRange.isValid ? composingRange.start : 0;
+      composingRect =
+          renderEditable.getLocalRectForCaret(TextPosition(offset: offset));
+    }
+    _textInputConnection!.setComposingRect(composingRect);
+  }
+
+  void _updateCaretRectIfNeeded() {
+    final TextSelection? selection = renderEditable.selection;
+    if (selection == null || !selection.isValid || !selection.isCollapsed) {
+      return;
+    }
+    final TextPosition currentTextPosition =
+        TextPosition(offset: selection.baseOffset);
+    final Rect caretRect =
+        renderEditable.getLocalRectForCaret(currentTextPosition);
+    _textInputConnection!.setCaretRect(caretRect);
+  }
+
+  void _updateSizeAndTransform() {
+    final Size size = renderEditable.size;
+    final Matrix4 transform = renderEditable.getTransformTo(null);
+    _textInputConnection!.setEditableSizeAndTransform(size, transform);
+  }
+
+  void _schedulePeriodicPostFrameCallbacks([Duration? duration]) {
+    if (!_hasInputConnection) {
+      return;
+    }
+    _updateComposingRectIfNeeded();
+    _updateCaretRectIfNeeded();
+    SchedulerBinding.instance
+        .addPostFrameCallback(_schedulePeriodicPostFrameCallbacks);
+  }
+
   /// [TextSelectionDelegate] method implementations.
   @override
   void bringIntoView(TextPosition position) {
@@ -720,82 +780,61 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
-  static final Map<ShortcutActivator, Intent> _defaultWebShortcuts =
-      <ShortcutActivator, Intent>{
-    // Activation
-    const SingleActivator(LogicalKeyboardKey.space):
-        const DoNothingAndStopPropagationIntent(),
-
-    // Scrolling
-    const SingleActivator(LogicalKeyboardKey.arrowUp):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowDown):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowLeft):
-        const DoNothingAndStopPropagationIntent(),
-    const SingleActivator(LogicalKeyboardKey.arrowRight):
-        const DoNothingAndStopPropagationIntent(),
-  };
-
   @override
   Widget build(BuildContext context) {
-    return Shortcuts(
-      shortcuts: kIsWeb ? _defaultWebShortcuts : <ShortcutActivator, Intent>{},
-      child: Actions(
-        actions: _actions,
-        child: Focus(
-          focusNode: widget.focusNode,
-          child: Scrollable(
-            viewportBuilder: (context, position) {
-              return CompositedTransformTarget(
-                link: _toolbarLayerLink,
-                child: _Editable(
-                  key: _textKey,
-                  startHandleLayerLink: _startHandleLayerLink,
-                  endHandleLayerLink: _endHandleLayerLink,
-                  inlineSpan: _buildTextSpan(),
-                  value: _value, // We pass value.selection to RenderEditable.
-                  cursorColor: Colors.blue,
-                  backgroundCursorColor: Colors.grey[100],
-                  showCursor: ValueNotifier<bool>(_hasFocus),
-                  forceLine:
-                      true, // Whether text field will take full line regardless of width.
-                  readOnly: false, // editable text-field.
-                  hasFocus: _hasFocus,
-                  maxLines: null, // multi-line text-field.
-                  minLines: null,
-                  expands: false, // expands to height of parent.
-                  strutStyle: null,
-                  selectionColor: Colors.blue.withOpacity(0.40),
-                  textScaleFactor: MediaQuery.textScaleFactorOf(context),
-                  textAlign: TextAlign.left,
-                  textDirection: _textDirection,
-                  locale: Localizations.maybeLocaleOf(context),
-                  textHeightBehavior:
-                      DefaultTextHeightBehavior.maybeOf(context),
-                  textWidthBasis: TextWidthBasis.parent,
-                  obscuringCharacter: '•',
-                  obscureText:
-                      false, // This is a non-private text field that does not require obfuscation.
-                  offset: position,
-                  onCaretChanged: null,
-                  rendererIgnoresPointer: true,
-                  cursorWidth: 2.0,
-                  cursorHeight: null,
-                  cursorRadius: const Radius.circular(2.0),
-                  cursorOffset: Offset.zero,
-                  paintCursorAboveText: false,
-                  enableInteractiveSelection:
-                      true, // make true to enable selection on mobile.
-                  textSelectionDelegate: this,
-                  devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
-                  promptRectRange: null,
-                  promptRectColor: null,
-                  clipBehavior: Clip.hardEdge,
-                ),
-              );
-            },
-          ),
+    return Actions(
+      actions: _actions,
+      child: Focus(
+        focusNode: widget.focusNode,
+        child: Scrollable(
+          viewportBuilder: (context, position) {
+            return CompositedTransformTarget(
+              link: _toolbarLayerLink,
+              child: _Editable(
+                key: _textKey,
+                startHandleLayerLink: _startHandleLayerLink,
+                endHandleLayerLink: _endHandleLayerLink,
+                inlineSpan: _buildTextSpan(),
+                value: _value, // We pass value.selection to RenderEditable.
+                cursorColor: Colors.blue,
+                backgroundCursorColor: Colors.grey[100],
+                showCursor: ValueNotifier<bool>(_hasFocus),
+                forceLine:
+                    true, // Whether text field will take full line regardless of width.
+                readOnly: false, // editable text-field.
+                hasFocus: _hasFocus,
+                maxLines: null, // multi-line text-field.
+                minLines: null,
+                expands: false, // expands to height of parent.
+                strutStyle: null,
+                selectionColor: Colors.blue.withOpacity(0.40),
+                textScaleFactor: MediaQuery.textScaleFactorOf(context),
+                textAlign: TextAlign.left,
+                textDirection: _textDirection,
+                locale: Localizations.maybeLocaleOf(context),
+                textHeightBehavior: DefaultTextHeightBehavior.maybeOf(context),
+                textWidthBasis: TextWidthBasis.parent,
+                obscuringCharacter: '•',
+                obscureText:
+                    false, // This is a non-private text field that does not require obfuscation.
+                offset: position,
+                onCaretChanged: null,
+                rendererIgnoresPointer: true,
+                cursorWidth: 2.0,
+                cursorHeight: null,
+                cursorRadius: const Radius.circular(2.0),
+                cursorOffset: Offset.zero,
+                paintCursorAboveText: false,
+                enableInteractiveSelection:
+                    true, // make true to enable selection on mobile.
+                textSelectionDelegate: this,
+                devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
+                promptRectRange: null,
+                promptRectColor: null,
+                clipBehavior: Clip.hardEdge,
+              ),
+            );
+          },
         ),
       ),
     );
