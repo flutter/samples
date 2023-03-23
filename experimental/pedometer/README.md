@@ -38,7 +38,7 @@ Note that step counting is only available on physical devices.
 
 ## Project stucture
 
-* `src`: Contains the native source code, and a CMakeFile.txt file for building
+* `src`: Contains the native source code, and a CMakeLists.txt file for building
   that source code into a dynamic library.
 
 * `lib`: Contains the Dart code that defines the API of the plugin, and which
@@ -47,7 +47,7 @@ Note that step counting is only available on physical devices.
 * platform folders (`ios` etc.): Contains the build files
   for building and bundling the native code library with the platform application.
 
-* `example`: Contains the native source code, and a CMakeFile.txt file for building
+* `example`: Contains the native source code for building
   that source code into a dynamic library.
 
 
