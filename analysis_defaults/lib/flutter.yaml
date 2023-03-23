@@ -17,5 +17,6 @@ linter:
     test_types_in_equals: true
     throw_in_finally: true
     unawaited_futures: true
+    unnecessary_breaks: true
     unnecessary_statements: true
     use_super_parameters: true
