@@ -20,7 +20,12 @@ function ci_projects () {
         # Run the actual tests.
         if [ -d "test" ]
         then
-            flutter test
+            if grep -q "flutter:" "pubspec.yaml"; then
+                flutter test
+            else
+                # If the project is not a Flutter project, use the Dart CLI.
+                dart test
+            fi
         fi
 
         popd
