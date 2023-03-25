@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.flutter.jsonexample">
-   <application
+    <application
         android:label="jsonexample"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

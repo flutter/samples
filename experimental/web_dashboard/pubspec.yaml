@@ -4,7 +4,7 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: '>=2.19.5 <4.0.0'
 
 dependencies:
   charts_flutter: ^0.12.0
@@ -30,5 +30,6 @@ dev_dependencies:
     sdk: flutter
   grinder: ^0.9.0
   json_serializable: ^6.2.0
+
 flutter:
   uses-material-design: true
