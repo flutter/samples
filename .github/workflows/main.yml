@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: ${{ matrix.flutter_version }}
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: stable
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/setup-java@3f07048e3d294f56e9b90ac5ea2c6f74e9ad0f98
         with:
           distribution: 'zulu'
-          java-version: '12.x'
+          java-version: '17'
       - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: stable
