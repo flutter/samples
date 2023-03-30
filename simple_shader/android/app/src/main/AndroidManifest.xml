@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.simple_shader">
-   <application
+    <application
         android:label="simple_shader"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
