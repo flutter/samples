@@ -2262,7 +2262,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
           ),
           const SizedBox(height: 20),
           if (selectedColorSeed == null) const Text('Search a color')
-          else Text('Selected color is $selectedColorSeed')
+          else Text('Last selected color is $selectedColorSeed')
         ],
       ),
     );
