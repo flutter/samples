@@ -2195,35 +2195,41 @@ class _SearchAnchorsState extends State<SearchAnchors> {
 
   Iterable<Widget> getHistoryList(SearchController controller) {
     return searchHistory.map((color) => ListTile(
-      leading: const Icon(Icons.history),
-      title: Text(color.label),
-      trailing: IconButton(icon: const Icon(Icons.call_missed), onPressed: () {
-        controller.text = color.label;
-        controller.selection = TextSelection.collapsed(offset: controller.text.length);
-      }),
-      onTap: () {
-        controller.closeView(color.label);
-        handleSelection(color);
-      },
-    ));
+          leading: const Icon(Icons.history),
+          title: Text(color.label),
+          trailing: IconButton(
+              icon: const Icon(Icons.call_missed),
+              onPressed: () {
+                controller.text = color.label;
+                controller.selection =
+                    TextSelection.collapsed(offset: controller.text.length);
+              }),
+          onTap: () {
+            controller.closeView(color.label);
+            handleSelection(color);
+          },
+        ));
   }
 
   Iterable<Widget> getSuggestions(SearchController controller) {
     final String input = controller.value.text;
-    return ColorItem.values.where((color) => color.label.contains(input))
-      .map((filteredColor) =>
-      ListTile(
-        leading: CircleAvatar(backgroundColor: filteredColor.color),
-        title: Text(filteredColor.label),
-        trailing: IconButton(icon: const Icon(Icons.call_missed), onPressed: () {
-          controller.text = filteredColor.label;
-          controller.selection = TextSelection.collapsed(offset: controller.text.length);
-        }),
-        onTap: () {
-          controller.closeView(filteredColor.label);
-          handleSelection(filteredColor);
-        },
-      ));
+    return ColorItem.values
+        .where((color) => color.label.contains(input))
+        .map((filteredColor) => ListTile(
+              leading: CircleAvatar(backgroundColor: filteredColor.color),
+              title: Text(filteredColor.label),
+              trailing: IconButton(
+                  icon: const Icon(Icons.call_missed),
+                  onPressed: () {
+                    controller.text = filteredColor.label;
+                    controller.selection =
+                        TextSelection.collapsed(offset: controller.text.length);
+                  }),
+              onTap: () {
+                controller.closeView(filteredColor.label);
+                handleSelection(filteredColor);
+              },
+            ));
   }
 
   void handleSelection(ColorItem selectedColor) {
@@ -2251,9 +2257,9 @@ class _SearchAnchorsState extends State<SearchAnchors> {
                   return getHistoryList(controller);
                 }
                 return <Widget>[
-                  const Center(child:
-                  Text('No search history.',
-                    style: TextStyle(color: Colors.grey)),
+                  const Center(
+                    child: Text('No search history.',
+                        style: TextStyle(color: Colors.grey)),
                   )
                 ];
               }
@@ -2261,8 +2267,10 @@ class _SearchAnchorsState extends State<SearchAnchors> {
             },
           ),
           const SizedBox(height: 20),
-          if (selectedColorSeed == null) const Text('Search a color')
-          else Text('Last selected color is $selectedColorSeed')
+          if (selectedColorSeed == null)
+            const Text('Search a color')
+          else
+            Text('Last selected color is $selectedColorSeed')
         ],
       ),
     );
