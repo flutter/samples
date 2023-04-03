@@ -2190,7 +2190,7 @@ class SearchAnchors extends StatefulWidget {
 }
 
 class _SearchAnchorsState extends State<SearchAnchors> {
-  String? selectedColorSeed;
+  String? selectedColor;
   List<ColorItem> searchHistory = <ColorItem>[];
 
   Iterable<Widget> getHistoryList(SearchController controller) {
@@ -2232,13 +2232,13 @@ class _SearchAnchorsState extends State<SearchAnchors> {
             ));
   }
 
-  void handleSelection(ColorItem selectedColor) {
+  void handleSelection(ColorItem color) {
     setState(() {
-      selectedColorSeed = selectedColor.label;
+      selectedColor = color.label;
       if (searchHistory.length >= 5) {
         searchHistory.removeLast();
       }
-      searchHistory.insert(0, selectedColor);
+      searchHistory.insert(0, color);
     });
   }
 
@@ -2267,10 +2267,10 @@ class _SearchAnchorsState extends State<SearchAnchors> {
             },
           ),
           const SizedBox(height: 20),
-          if (selectedColorSeed == null)
+          if (selectedColor == null)
             const Text('Search a color')
           else
-            Text('Last selected color is $selectedColorSeed')
+            Text('Last selected color is $selectedColor')
         ],
       ),
     );
