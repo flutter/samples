@@ -54,15 +54,19 @@ class _TweenDemoState extends State<TweenDemo>
             ),
             ElevatedButton(
               child: Text(
-                controller.status == AnimationStatus.completed
-                    ? 'Buy a Mansion'
-                    : 'Win Lottery',
+                switch (controller.status) {
+                  AnimationStatus.completed => 'Buy a Mansion',
+                  AnimationStatus.forward => 'Accruing...',
+                  AnimationStatus.reverse => 'Spending...',
+                  _ => 'Win the lottery',
+                },
               ),
               onPressed: () {
-                if (controller.status == AnimationStatus.completed) {
-                  controller.reverse();
-                } else {
-                  controller.forward();
+                switch(controller.status) {
+                  case AnimationStatus.completed:
+                    controller.reverse();
+                  default:
+                    controller.forward();
                 }
               },
             )
