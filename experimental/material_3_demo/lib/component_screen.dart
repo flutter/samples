@@ -2248,7 +2248,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
       label: 'Search',
       tooltipMessage: 'Use SearchAnchor or SearchAnchor.bar',
       child: Column(
-        children: [
+        children: <Widget>[
           SearchAnchor.bar(
             barHintText: 'Search colors',
             suggestionsBuilder: (context, controller) {
@@ -2268,7 +2268,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
           ),
           const SizedBox(height: 20),
           if (selectedColor == null)
-            const Text('Search a color')
+            const Text('Select a color')
           else
             Text('Last selected color is $selectedColor')
         ],
