@@ -31,7 +31,8 @@ declare -ar PROJECT_NAMES=(
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
     # "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
-    "experimental/federated_plugin/federated_plugin_platform_interface"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
     "experimental/federated_plugin/federated_plugin_windows"
     "experimental/linting_tool"
