@@ -54,7 +54,8 @@ declare -ar PROJECT_NAMES=(
     "navigation_and_routing"
     # TODO(DomesticMouse): Use 'const' with the constructor to improve performance.
     # "place_tracker"
-    "platform_channels"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "platform_channels"
     "platform_design"
     "platform_view_swift"
     "provider_counter"
