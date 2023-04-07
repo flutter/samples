@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.google_maps_in_flutter">
-   <application
+    <application
         android:label="google_maps_in_flutter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
