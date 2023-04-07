@@ -42,7 +42,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   grinder: ^0.9.0
-  msix: ^3.6.1
+  msix: ^3.9.2
 
 flutter:
   uses-material-design: true
