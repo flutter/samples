@@ -28,7 +28,8 @@ declare -ar PROJECT_NAMES=(
     "experimental/element_embedding_demo"
     # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
     # "experimental/federated_plugin/federated_plugin"
-    "experimental/federated_plugin/federated_plugin/example"
+    # TODO(DomesticMouse): 'setMockMethodCallHandler' is deprecated and shouldn't be used.
+    # "experimental/federated_plugin/federated_plugin/example"
     "experimental/federated_plugin/federated_plugin_macos"
     "experimental/federated_plugin/federated_plugin_platform_interface"
     "experimental/federated_plugin/federated_plugin_web"
