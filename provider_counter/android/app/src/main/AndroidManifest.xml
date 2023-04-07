@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.flutter.provider_counter">
-   <application
+    package="com.example.provider_counter">
+    <application
         android:label="provider_counter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
