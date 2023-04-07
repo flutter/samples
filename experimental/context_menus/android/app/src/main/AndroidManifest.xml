@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.context_menus">
-   <application
+    <application
         android:label="context_menus"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
