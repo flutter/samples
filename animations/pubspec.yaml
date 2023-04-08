@@ -27,3 +27,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: SpecialElite
+      fonts:
+        - asset: fonts/SpecialElite-Regular.ttf
