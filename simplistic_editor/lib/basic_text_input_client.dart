@@ -89,15 +89,6 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     });
   }
 
-  @override
-  void didChangeInputControl(
-      TextInputControl? oldControl, TextInputControl? newControl) {
-    if (_hasFocus && _hasInputConnection) {
-      oldControl?.hide();
-      newControl?.show();
-    }
-  }
-
   /// [DeltaTextInputClient] method implementations.
   @override
   void connectionClosed() {
@@ -116,6 +107,15 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   @override
   TextEditingValue? get currentTextEditingValue => _value;
+
+  @override
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
+    if (_hasFocus && _hasInputConnection) {
+      oldControl?.hide();
+      newControl?.show();
+    }
+  }
 
   @override
   void insertTextPlaceholder(Size size) {
@@ -319,27 +319,9 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     );
   }
 
-  void _userUpdateTextEditingValueWithDelta(
-      TextEditingDelta textEditingDelta, SelectionChangedCause cause) {
-    TextEditingValue value = _value;
-
-    value = textEditingDelta.apply(value);
-
-    if (widget.controller is ReplacementTextEditingController) {
-      (widget.controller as ReplacementTextEditingController)
-          .syncReplacementRanges(textEditingDelta);
-    }
-
-    if (value != _value) {
-      manager.updateTextEditingDeltaHistory([textEditingDelta]);
-    }
-
-    userUpdateTextEditingValue(value, cause);
-  }
-
   /// Keyboard text editing actions.
   // The Handling of the default text editing shortcuts with deltas
-  // needs to be in the framework somehow.  This should go through some kind of
+  // needs to be in the framework somehow. This should go through some kind of
   // generic "replace" method like in EditableText.
   // EditableText converts intents like DeleteCharacterIntent to a generic
   // ReplaceTextIntent. I wonder if that could be done at a higher level, so
@@ -471,35 +453,29 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     );
   }
 
+  void _userUpdateTextEditingValueWithDelta(
+      TextEditingDelta textEditingDelta, SelectionChangedCause cause) {
+    TextEditingValue value = _value;
+
+    value = textEditingDelta.apply(value);
+
+    if (widget.controller is ReplacementTextEditingController) {
+      (widget.controller as ReplacementTextEditingController)
+          .syncReplacementRanges(textEditingDelta);
+    }
+
+    if (value != _value) {
+      manager.updateTextEditingDeltaHistory([textEditingDelta]);
+    }
+
+    userUpdateTextEditingValue(value, cause);
+  }
+
   /// For updates to text editing value.
   void _didChangeTextEditingValue() {
     _updateRemoteTextEditingValueIfNeeded();
     _updateOrDisposeOfSelectionOverlayIfNeeded();
     setState(() {});
-  }
-
-  void _toggleToolbar() {
-    final TextSelectionOverlay selectionOverlay =
-        _selectionOverlay ??= _createSelectionOverlay();
-
-    if (selectionOverlay.toolbarIsVisible) {
-      hideToolbar(false);
-    } else {
-      showToolbar();
-    }
-  }
-
-  // When the framework's text editing value changes we should update the text editing
-  // value contained within the selection overlay or we might observe unexpected behavior.
-  void _updateOrDisposeOfSelectionOverlayIfNeeded() {
-    if (_selectionOverlay != null) {
-      if (_hasFocus) {
-        _selectionOverlay!.update(_value);
-      } else {
-        _selectionOverlay!.dispose();
-        _selectionOverlay = null;
-      }
-    }
   }
 
   // Only update the platform's text input plugin's text editing value when it has changed
@@ -513,6 +489,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
+  /// For correctly positioning the candidate menu on macOS.
   // Sends the current composing rect to the iOS text input plugin via the text
   // input channel. We need to keep sending the information even if no text is
   // currently marked, as the information usually lags behind. The text input
@@ -736,14 +713,14 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   void _handleSelectionChanged(
       TextSelection selection, SelectionChangedCause? cause) {
     // We return early if the selection is not valid. This can happen when the
-    // text of [EditableText] is updated at the same time as the selection is
+    // text of the editable is updated at the same time as the selection is
     // changed by a gesture event.
     if (!widget.controller.isSelectionWithinTextBounds(selection)) return;
 
     widget.controller.selection = selection;
 
     // This will show the keyboard for all selection changes on the
-    // EditableText except for those triggered by a keyboard input.
+    // editable except for those triggered by a keyboard input.
     // Typically BasicTextInputClient shouldn't take user keyboard input if
     // it's not focused already.
     switch (cause) {
@@ -824,8 +801,32 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     return selectionOverlay;
   }
 
+  void _toggleToolbar() {
+    final TextSelectionOverlay selectionOverlay =
+        _selectionOverlay ??= _createSelectionOverlay();
+
+    if (selectionOverlay.toolbarIsVisible) {
+      hideToolbar(false);
+    } else {
+      showToolbar();
+    }
+  }
+
+  // When the framework's text editing value changes we should update the text editing
+  // value contained within the selection overlay or we might observe unexpected behavior.
+  void _updateOrDisposeOfSelectionOverlayIfNeeded() {
+    if (_selectionOverlay != null) {
+      if (_hasFocus) {
+        _selectionOverlay!.update(_value);
+      } else {
+        _selectionOverlay!.dispose();
+        _selectionOverlay = null;
+      }
+    }
+  }
+
   /// Gets the line heights at the start and end of the selection for the given
-  /// [EditableTextState].
+  /// editable.
   _GlyphHeights _getGlyphHeights() {
     final TextSelection selection = textEditingValue.selection;
 
@@ -867,14 +868,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     );
   }
 
-  /// {@template flutter.widgets.EditableText.getAnchors}
   /// Returns the anchor points for the default context menu.
-  /// {@endtemplate}
-  ///
-  /// See also:
-  ///
-  ///  * [contextMenuButtonItems], which provides the [ContextMenuButtonItem]s
-  ///    for the default context menu buttons.
   TextSelectionToolbarAnchors get contextMenuAnchors {
     if (renderEditable.lastSecondaryTapDownPosition != null) {
       return TextSelectionToolbarAnchors(
