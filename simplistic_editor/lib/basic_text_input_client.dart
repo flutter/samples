@@ -15,6 +15,18 @@ import 'replacements.dart';
 typedef SelectionChangedCallback = void Function(
     TextSelection selection, SelectionChangedCause? cause);
 
+/// Signature for a widget builder that builds a context menu for the given
+/// editable field.
+typedef BasicTextFieldContextMenuBuilder = Widget Function(
+  BuildContext context,
+  ClipboardStatus clipboardStatus,
+  VoidCallback? onCopy,
+  VoidCallback? onCut,
+  VoidCallback? onPaste,
+  VoidCallback? onSelectAll,
+  TextSelectionToolbarAnchors anchors,
+);
+
 /// A basic text input client. An implementation of [DeltaTextInputClient] meant to
 /// send/receive information from the framework to the platform's text input plugin
 /// and vice-versa.
@@ -25,6 +37,7 @@ class BasicTextInputClient extends StatefulWidget {
     required this.style,
     required this.focusNode,
     this.selectionControls,
+    this.contextMenuBuilder,
     required this.onSelectionChanged,
     required this.showSelectionHandles,
   });
@@ -35,6 +48,7 @@ class BasicTextInputClient extends StatefulWidget {
   final TextSelectionControls? selectionControls;
   final bool showSelectionHandles;
   final SelectionChangedCallback onSelectionChanged;
+  final BasicTextFieldContextMenuBuilder? contextMenuBuilder;
 
   @override
   State<BasicTextInputClient> createState() => BasicTextInputClientState();
@@ -44,12 +58,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
-  final ClipboardStatusNotifier? _clipboardStatus =
-      kIsWeb ? null : ClipboardStatusNotifier();
+  final ClipboardStatusNotifier clipboardStatus = ClipboardStatusNotifier();
 
   @override
   void initState() {
     super.initState();
+    clipboardStatus.addListener(_onChangedClipboardStatus);
     widget.focusNode.addListener(_handleFocusChanged);
     widget.controller.addListener(_didChangeTextEditingValue);
   }
@@ -63,7 +77,15 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   void dispose() {
     widget.controller.removeListener(_didChangeTextEditingValue);
+    clipboardStatus.removeListener(_onChangedClipboardStatus);
+    clipboardStatus.dispose();
     super.dispose();
+  }
+
+  void _onChangedClipboardStatus() {
+    setState(() {
+      // Inform the widget that the value of clipboardStatus has changed.
+    });
   }
 
   @override
@@ -456,8 +478,10 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   }
 
   void _toggleToolbar() {
-    assert(_selectionOverlay != null);
-    if (_selectionOverlay!.toolbarIsVisible) {
+    final TextSelectionOverlay selectionOverlay =
+        _selectionOverlay ??= _createSelectionOverlay();
+
+    if (selectionOverlay.toolbarIsVisible) {
       hideToolbar(false);
     } else {
       showToolbar();
@@ -573,7 +597,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       }
       hideToolbar();
     }
-    _clipboardStatus?.update();
+    clipboardStatus.update();
   }
 
   @override
@@ -596,18 +620,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       cause,
     );
     if (cause == SelectionChangedCause.toolbar) hideToolbar();
-    _clipboardStatus?.update();
-  }
-
-  @override
-  void hideToolbar([bool hideHandles = true]) {
-    if (hideHandles) {
-      // Hide the handles and the toolbar.
-      _selectionOverlay?.hide();
-    } else if (_selectionOverlay?.toolbarIsVisible ?? false) {
-      // Hide only the toolbar but not the handles.
-      _selectionOverlay?.hideToolbar();
-    }
+    clipboardStatus.update();
   }
 
   @override
@@ -699,6 +712,17 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     }
   }
 
+  @override
+  void hideToolbar([bool hideHandles = true]) {
+    if (hideHandles) {
+      // Hide the handles and the toolbar.
+      _selectionOverlay?.hide();
+    } else if (_selectionOverlay?.toolbarIsVisible ?? false) {
+      // Hide only the toolbar but not the handles.
+      _selectionOverlay?.hideToolbar();
+    }
+  }
+
   /// For TextSelection.
   final LayerLink _startHandleLayerLink = LayerLink();
   final LayerLink _endHandleLayerLink = LayerLink();
@@ -738,28 +762,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
         }
         break;
     }
-    if (widget.selectionControls == null) {
+    if (widget.selectionControls == null && widget.contextMenuBuilder == null) {
       _selectionOverlay?.dispose();
       _selectionOverlay = null;
     } else {
       if (_selectionOverlay == null) {
-        _selectionOverlay = TextSelectionOverlay(
-          clipboardStatus: _clipboardStatus,
-          context: context,
-          value: _value,
-          debugRequiredFor: widget,
-          toolbarLayerLink: _toolbarLayerLink,
-          startHandleLayerLink: _startHandleLayerLink,
-          endHandleLayerLink: _endHandleLayerLink,
-          renderObject: renderEditable,
-          selectionControls: widget.selectionControls,
-          selectionDelegate: this,
-          dragStartBehavior: DragStartBehavior.start,
-          onSelectionHandleTapped: () {
-            _toggleToolbar();
-          },
-          magnifierConfiguration: TextMagnifierConfiguration.disabled,
-        );
+        _selectionOverlay = _createSelectionOverlay();
       } else {
         _selectionOverlay!.update(_value);
       }
@@ -778,6 +786,111 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
             ErrorDescription('while calling onSelectionChanged for $cause'),
       ));
     }
+  }
+
+  TextSelectionOverlay _createSelectionOverlay() {
+    final TextSelectionOverlay selectionOverlay = TextSelectionOverlay(
+      clipboardStatus: clipboardStatus,
+      context: context,
+      value: _value,
+      debugRequiredFor: widget,
+      toolbarLayerLink: _toolbarLayerLink,
+      startHandleLayerLink: _startHandleLayerLink,
+      endHandleLayerLink: _endHandleLayerLink,
+      renderObject: renderEditable,
+      selectionControls: widget.selectionControls,
+      selectionDelegate: this,
+      dragStartBehavior: DragStartBehavior.start,
+      onSelectionHandleTapped: () {
+        _toggleToolbar();
+      },
+      contextMenuBuilder: widget.contextMenuBuilder == null
+          ? null
+          : (context) {
+              return widget.contextMenuBuilder!(
+                context,
+                clipboardStatus.value,
+                () => copySelection(SelectionChangedCause.toolbar),
+                () => cutSelection(SelectionChangedCause.toolbar),
+                () => pasteText(SelectionChangedCause.toolbar),
+                () => selectAll(SelectionChangedCause.toolbar),
+                contextMenuAnchors,
+              );
+            },
+      magnifierConfiguration: TextMagnifierConfiguration.disabled,
+    );
+
+    return selectionOverlay;
+  }
+
+  /// Gets the line heights at the start and end of the selection for the given
+  /// [EditableTextState].
+  _GlyphHeights _getGlyphHeights() {
+    final TextSelection selection = textEditingValue.selection;
+
+    // Only calculate handle rects if the text in the previous frame
+    // is the same as the text in the current frame. This is done because
+    // widget.renderObject contains the renderEditable from the previous frame.
+    // If the text changed between the current and previous frames then
+    // widget.renderObject.getRectForComposingRange might fail. In cases where
+    // the current frame is different from the previous we fall back to
+    // renderObject.preferredLineHeight.
+    final InlineSpan span = renderEditable.text!;
+    final String prevText = span.toPlainText();
+    final String currText = textEditingValue.text;
+    if (prevText != currText || !selection.isValid || selection.isCollapsed) {
+      return _GlyphHeights(
+        start: renderEditable.preferredLineHeight,
+        end: renderEditable.preferredLineHeight,
+      );
+    }
+
+    final String selectedGraphemes = selection.textInside(currText);
+    final int firstSelectedGraphemeExtent =
+        selectedGraphemes.characters.first.length;
+    final Rect? startCharacterRect =
+        renderEditable.getRectForComposingRange(TextRange(
+      start: selection.start,
+      end: selection.start + firstSelectedGraphemeExtent,
+    ));
+    final int lastSelectedGraphemeExtent =
+        selectedGraphemes.characters.last.length;
+    final Rect? endCharacterRect =
+        renderEditable.getRectForComposingRange(TextRange(
+      start: selection.end - lastSelectedGraphemeExtent,
+      end: selection.end,
+    ));
+    return _GlyphHeights(
+      start: startCharacterRect?.height ?? renderEditable.preferredLineHeight,
+      end: endCharacterRect?.height ?? renderEditable.preferredLineHeight,
+    );
+  }
+
+  /// {@template flutter.widgets.EditableText.getAnchors}
+  /// Returns the anchor points for the default context menu.
+  /// {@endtemplate}
+  ///
+  /// See also:
+  ///
+  ///  * [contextMenuButtonItems], which provides the [ContextMenuButtonItem]s
+  ///    for the default context menu buttons.
+  TextSelectionToolbarAnchors get contextMenuAnchors {
+    if (renderEditable.lastSecondaryTapDownPosition != null) {
+      return TextSelectionToolbarAnchors(
+        primaryAnchor: renderEditable.lastSecondaryTapDownPosition!,
+      );
+    }
+
+    final _GlyphHeights glyphHeights = _getGlyphHeights();
+    final TextSelection selection = textEditingValue.selection;
+    final List<TextSelectionPoint> points =
+        renderEditable.getEndpointsForSelection(selection);
+    return TextSelectionToolbarAnchors.fromSelection(
+      renderBox: renderEditable,
+      startGlyphHeight: glyphHeights.start,
+      endGlyphHeight: glyphHeights.end,
+      selectionEndpoints: points,
+    );
   }
 
   @override
@@ -1017,4 +1130,19 @@ class _Editable extends MultiChildRenderObjectWidget {
       ..clipBehavior = clipBehavior
       ..setPromptRectRange(promptRectRange);
   }
+}
+
+/// The start and end glyph heights of some range of text.
+@immutable
+class _GlyphHeights {
+  const _GlyphHeights({
+    required this.start,
+    required this.end,
+  });
+
+  /// The glyph height of the first line.
+  final double start;
+
+  /// The glyph height of the last line.
+  final double end;
 }

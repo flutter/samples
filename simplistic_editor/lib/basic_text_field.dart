@@ -11,11 +11,32 @@ class BasicTextField extends StatefulWidget {
     required this.controller,
     required this.style,
     required this.focusNode,
+    this.contextMenuBuilder = _defaultContextMenuBuilder,
   });
 
   final TextEditingController controller;
   final TextStyle style;
   final FocusNode focusNode;
+  final BasicTextFieldContextMenuBuilder? contextMenuBuilder;
+
+  static Widget _defaultContextMenuBuilder(
+    BuildContext context,
+    ClipboardStatus clipboardStatus,
+    VoidCallback? onCopy,
+    VoidCallback? onCut,
+    VoidCallback? onPaste,
+    VoidCallback? onSelectAll,
+    TextSelectionToolbarAnchors anchors,
+  ) {
+    return AdaptiveTextSelectionToolbar.editable(
+      clipboardStatus: clipboardStatus,
+      onCopy: onCopy,
+      onCut: onCut,
+      onPaste: onPaste,
+      onSelectAll: onSelectAll,
+      anchors: anchors,
+    );
+  }
 
   @override
   State<BasicTextField> createState() => _BasicTextFieldState();
@@ -87,20 +108,20 @@ class _BasicTextFieldState extends State<BasicTextField> {
   Widget build(BuildContext context) {
     switch (Theme.of(this.context).platform) {
       case TargetPlatform.iOS:
-        _textSelectionControls = cupertinoTextSelectionControls;
+        _textSelectionControls = cupertinoTextSelectionHandleControls;
         break;
       case TargetPlatform.macOS:
-        _textSelectionControls = cupertinoDesktopTextSelectionControls;
+        _textSelectionControls = cupertinoDesktopTextSelectionHandleControls;
         break;
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
-        _textSelectionControls = materialTextSelectionControls;
+        _textSelectionControls = materialTextSelectionHandleControls;
         break;
       case TargetPlatform.linux:
-        _textSelectionControls = desktopTextSelectionControls;
+        _textSelectionControls = desktopTextSelectionHandleControls;
         break;
       case TargetPlatform.windows:
-        _textSelectionControls = desktopTextSelectionControls;
+        _textSelectionControls = desktopTextSelectionHandleControls;
         break;
     }
 
@@ -109,12 +130,38 @@ class _BasicTextFieldState extends State<BasicTextField> {
         behavior: HitTestBehavior.translucent,
         onPanStart: (dragStartDetails) => _onDragStart(dragStartDetails),
         onPanUpdate: (dragUpdateDetails) => _onDragUpdate(dragUpdateDetails),
+        onSecondaryTapDown: (secondaryTapDownDetails) {
+          _renderEditable.handleSecondaryTapDown(secondaryTapDownDetails);
+          _textInputClient!.hideToolbar();
+          _textInputClient!.showToolbar();
+        },
         onTap: () {
           _textInputClient!.requestKeyboard();
+          _textInputClient!.hideToolbar();
         },
         onTapDown: (tapDownDetails) {
           _renderEditable.handleTapDown(tapDownDetails);
           _renderEditable.selectPosition(cause: SelectionChangedCause.tap);
+        },
+        onLongPressStart: (longPressStartDetails) {
+          switch (Theme.of(this.context).platform) {
+            case TargetPlatform.iOS:
+            case TargetPlatform.macOS:
+              _renderEditable.selectPositionAt(
+                from: longPressStartDetails.globalPosition,
+                cause: SelectionChangedCause.longPress,
+              );
+              break;
+            case TargetPlatform.android:
+            case TargetPlatform.fuchsia:
+            case TargetPlatform.linux:
+            case TargetPlatform.windows:
+              _renderEditable.selectWordsInRange(
+                from: longPressStartDetails.globalPosition,
+                cause: SelectionChangedCause.longPress,
+              );
+              break;
+          }
         },
         onLongPressMoveUpdate: (longPressMoveUpdateDetails) {
           switch (Theme.of(this.context).platform) {
@@ -160,6 +207,7 @@ class _BasicTextFieldState extends State<BasicTextField> {
               selectionControls: _textSelectionControls,
               onSelectionChanged: _handleSelectionChanged,
               showSelectionHandles: _showSelectionHandles,
+              contextMenuBuilder: widget.contextMenuBuilder,
             ),
           ),
         ),
