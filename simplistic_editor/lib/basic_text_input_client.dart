@@ -58,12 +58,13 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
     with TextSelectionDelegate, TextInputClient, DeltaTextInputClient {
   final GlobalKey _textKey = GlobalKey();
   late AppStateWidgetState manager;
-  final ClipboardStatusNotifier clipboardStatus = ClipboardStatusNotifier();
+  final ClipboardStatusNotifier? _clipboardStatus =
+      kIsWeb ? null : ClipboardStatusNotifier();
 
   @override
   void initState() {
     super.initState();
-    clipboardStatus.addListener(_onChangedClipboardStatus);
+    _clipboardStatus?.addListener(_onChangedClipboardStatus);
     widget.focusNode.addListener(_handleFocusChanged);
     widget.controller.addListener(_didChangeTextEditingValue);
   }
@@ -77,8 +78,8 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
   @override
   void dispose() {
     widget.controller.removeListener(_didChangeTextEditingValue);
-    clipboardStatus.removeListener(_onChangedClipboardStatus);
-    clipboardStatus.dispose();
+    _clipboardStatus?.removeListener(_onChangedClipboardStatus);
+    _clipboardStatus?.dispose();
     super.dispose();
   }
 
@@ -597,7 +598,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       }
       hideToolbar();
     }
-    clipboardStatus.update();
+    _clipboardStatus?.update();
   }
 
   @override
@@ -620,7 +621,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       cause,
     );
     if (cause == SelectionChangedCause.toolbar) hideToolbar();
-    clipboardStatus.update();
+    _clipboardStatus?.update();
   }
 
   @override
@@ -790,7 +791,7 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
 
   TextSelectionOverlay _createSelectionOverlay() {
     final TextSelectionOverlay selectionOverlay = TextSelectionOverlay(
-      clipboardStatus: clipboardStatus,
+      clipboardStatus: _clipboardStatus,
       context: context,
       value: _value,
       debugRequiredFor: widget,
@@ -804,12 +805,12 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       onSelectionHandleTapped: () {
         _toggleToolbar();
       },
-      contextMenuBuilder: widget.contextMenuBuilder == null
+      contextMenuBuilder: widget.contextMenuBuilder == null || kIsWeb
           ? null
           : (context) {
               return widget.contextMenuBuilder!(
                 context,
-                clipboardStatus.value,
+                _clipboardStatus!.value,
                 () => copySelection(SelectionChangedCause.toolbar),
                 () => cutSelection(SelectionChangedCause.toolbar),
                 () => pasteText(SelectionChangedCause.toolbar),
