@@ -143,26 +143,6 @@ class _BasicTextFieldState extends State<BasicTextField> {
           _renderEditable.handleTapDown(tapDownDetails);
           _renderEditable.selectPosition(cause: SelectionChangedCause.tap);
         },
-        onLongPressStart: (longPressStartDetails) {
-          switch (Theme.of(this.context).platform) {
-            case TargetPlatform.iOS:
-            case TargetPlatform.macOS:
-              _renderEditable.selectPositionAt(
-                from: longPressStartDetails.globalPosition,
-                cause: SelectionChangedCause.longPress,
-              );
-              break;
-            case TargetPlatform.android:
-            case TargetPlatform.fuchsia:
-            case TargetPlatform.linux:
-            case TargetPlatform.windows:
-              _renderEditable.selectWordsInRange(
-                from: longPressStartDetails.globalPosition,
-                cause: SelectionChangedCause.longPress,
-              );
-              break;
-          }
-        },
         onLongPressMoveUpdate: (longPressMoveUpdateDetails) {
           switch (Theme.of(this.context).platform) {
             case TargetPlatform.iOS:

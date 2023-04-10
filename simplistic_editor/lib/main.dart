@@ -100,6 +100,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: BasicTextField(
                     controller: _replacementTextEditingController,
+                    contextMenuBuilder: (context, clipboardStatus, onCopy,
+                        onCut, onPaste, onSelectAll, anchors) {
+                      final List<ContextMenuButtonItem> buttonItems =
+                          EditableText.getEditableButtonItems(
+                        clipboardStatus: clipboardStatus,
+                        onCopy: onCopy,
+                        onCut: onCut,
+                        onPaste: onPaste,
+                        onSelectAll: onSelectAll,
+                      );
+                      buttonItems.insert(
+                          buttonItems.length,
+                          ContextMenuButtonItem(
+                            label: 'Clear Formatting',
+                            onPressed: () {},
+                          ));
+                      return AdaptiveTextSelectionToolbar.buttonItems(
+                        anchors: anchors,
+                        buttonItems: buttonItems,
+                      );
+                    },
                     style: const TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,
