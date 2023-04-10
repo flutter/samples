@@ -654,7 +654,18 @@ class BasicTextInputClientState extends State<BasicTextInputClient>
       ),
       cause,
     );
-    if (cause == SelectionChangedCause.toolbar) hideToolbar();
+    if (cause == SelectionChangedCause.toolbar) {
+      switch (defaultTargetPlatform) {
+        case TargetPlatform.android:
+        case TargetPlatform.iOS:
+        case TargetPlatform.fuchsia:
+          break;
+        case TargetPlatform.macOS:
+        case TargetPlatform.linux:
+        case TargetPlatform.windows:
+          hideToolbar();
+      }
+    }
   }
 
   @override
